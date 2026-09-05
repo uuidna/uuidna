@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e622be7676812a9777608f059d24d626",
+    "src": "9f9088502509409930e8b5bd6df9f63b",
     "lean": "aa57a49915c5a55baff14eac5bbbdd4a"
   },
   "files": {
@@ -3641,8 +3641,8 @@
     "src/phd-proofs.ts": "73cf759d8e2ec5e3",
     "src/polygraph.test.ts": "ee31024a4c39b326",
     "src/ports-tools.test.ts": "aec60e8919281c86",
-    "src/post-push.test.ts": "91beb7cafbf282eb",
-    "src/post-push.ts": "d7e8268d0db83c57",
+    "src/post-push.test.ts": "44432a3a3fda9f1f",
+    "src/post-push.ts": "8206e85a33d1173b",
     "src/pqc-hybrid.test.ts": "740971ecb25453bc",
     "src/pqc-nist.test.ts": "c57ca9b0706e12fd",
     "src/pqc/envelope/index.ts": "06cfedad44470108",

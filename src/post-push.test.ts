@@ -44,14 +44,39 @@ test('a still-running workflow is pending, not passing and not failing', () => {
   assert.deepEqual(v.pending, ['CodeQL Advanced'])
 })
 
-// A CANCELLED SECURITY SCAN MUST NOT READ AS A CLEAN ONE. This is exactly the shape being cured: a run that did
-// not judge, counted as a judgement in your favour. The release workflows were cancelled by hand earlier today,
-// so this is not hypothetical here.
-test('cancelled and skipped runs did not judge — they are neither pass nor fail', () => {
+// A CANCELLED SECURITY SCAN MUST NOT READ AS A CLEAN ONE. This test USED TO ASSERT ok===true here with a comment
+// claiming the cancellation "is reported as not having judged" — and it was not reported anywhere. The comment
+// described the behaviour I intended; the code had the behaviour I wrote. uuidna-87 found the hole underneath it
+// by handing pushVerdict an ALL-CANCELLED set, which returned ok=true with the reason "every workflow succeeded".
+test('a cancelled run is not a failure, and it does not block a push something else judged', () => {
   const v = pushVerdict(SHA, [row('security', 'completed', 'cancelled'), row('deploy', 'completed', 'success')])
   assert.deepEqual(v.failing, [], 'a cancelled run is not a failure')
-  assert.equal(v.ok, true, 'and it does not block — but it is reported as not having judged')
-  assert.equal(v.settled, true)
+  assert.equal(v.ok, true, 'deploy judged and passed, so the push is not blocked')
+  assert.deepEqual(v.didNotJudge, ['security (cancelled)'])
+  assert.match(v.reason, /did NOT judge: security \(cancelled\)/, 'and what did not run must be IN THE REASON, not merely in a field nobody prints')
+})
+
+// THE ONE THAT WAS WRONG. A non-empty row set can be EMPTY OF VERDICTS, and `failing.length === 0` over it is
+// absence-of-failure, not a pass. Null and [] one layer out from where the same distinction was drawn at the
+// deposit door. Not hypothetical: the v0.3.1 release workflows were cancelled BY HAND the same day, and a check
+// with this bug would have called that push clean.
+test('ALL CANCELLED is UNMEASURED — a set with no judge is not a pass', () => {
+  const v = pushVerdict(SHA, [row('security', 'completed', 'cancelled'), row('deploy', 'completed', 'cancelled')])
+  assert.equal(v.ok, false, 'nothing judged, so nothing passed')
+  assert.equal(v.measured, false, 'measured means something JUDGED, not that a row exists')
+  assert.match(v.reason, /NOT ONE JUDGED/)
+  assert.match(v.reason, /A cancelled scan is not a clean scan/)
+})
+
+test('ALL SKIPPED is UNMEASURED for the same reason', () => {
+  const v = pushVerdict(SHA, [row('dependency-review', 'completed', 'skipped')])
+  assert.equal(v.ok, false)
+  assert.equal(v.measured, false)
+})
+
+test('measured is true as soon as ONE run reaches a real verdict, pass or fail', () => {
+  assert.equal(pushVerdict(SHA, [row('security', 'completed', 'failure')]).measured, true)
+  assert.equal(pushVerdict(SHA, [row('security', 'completed', 'success')]).measured, true)
 })
 
 // THE CONTROL: a genuinely green push must pass, or the arm blocks every landing and gets switched off in a week.
@@ -60,7 +85,8 @@ test('every workflow green is ok — the arm can pass', () => {
   assert.equal(v.ok, true)
   assert.equal(v.measured, true)
   assert.equal(v.settled, true)
-  assert.match(v.reason, /every workflow .* succeeded \(3\)/)
+  assert.match(v.reason, /3 workflow\(s\) passed/)
+  assert.deepEqual(v.didNotJudge, [])
 })
 
 test('parseRunRows refuses a malformed answer rather than reading it as "no failures"', () => {

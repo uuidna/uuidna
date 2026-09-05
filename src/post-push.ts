@@ -24,11 +24,16 @@ export interface RunRow {
 
 export interface PushVerdict {
   sha: string
-  measured: boolean      // at least one run exists for this sha — false means UNMEASURED, not clean
+  // MEASURED MEANS SOMETHING JUDGED, not that a row exists. Those came apart and the arm was wrong for exactly
+  // one evening: `[{security, cancelled}, {deploy, cancelled}]` is a NON-EMPTY row set that is EMPTY OF VERDICTS,
+  // and reading "no failures" off it returned ok=true — with a reason that read "every workflow succeeded (2)".
+  // Null and [] one more time, one layer out. Found by uuidna-87 handing the function cases, not by reading it.
+  measured: boolean      // at least one run reached a verdict — false means UNMEASURED, never clean
   settled: boolean       // every run for this sha has finished
-  ok: boolean            // settled AND measured AND every conclusion is a success
-  failing: string[]      // workflow names whose conclusion is not a success
+  ok: boolean            // settled AND something judged AND nothing failed
+  failing: string[]      // workflow names whose conclusion is a real failure
   pending: string[]      // workflow names still running
+  didNotJudge: string[]  // cancelled or skipped — reported ALWAYS, because what did not run is the reader's business
   reason: string
 }
 
@@ -49,17 +54,25 @@ export function pushVerdict(sha: string, rows: readonly RunRow[]): PushVerdict {
   const failing = mine
     .filter((r) => r.status === 'completed' && !PASSED.has(r.conclusion ?? '') && !DID_NOT_JUDGE.has(r.conclusion ?? ''))
     .map((r) => `${r.workflowName} (${r.conclusion ?? 'no conclusion'})`).sort()
-  const measured = mine.length > 0
-  const settled = measured && pending.length === 0
-  const ok = settled && failing.length === 0
-  const reason = !measured
-    ? `UNMEASURED: the forge reports no run at all for ${sha.slice(0, 9)} — this is not a pass. The runs may not have been queued yet; ask again.`
-    : pending.length
-      ? `still running for ${sha.slice(0, 9)}: ${pending.join(', ')}`
-      : failing.length
-        ? `FAILED for ${sha.slice(0, 9)}: ${failing.join(', ')}`
-        : `every workflow for ${sha.slice(0, 9)} succeeded (${mine.length})`
-  return { sha, measured, settled, ok, failing, pending, reason }
+  const didNotJudge = mine.filter((r) => r.status === 'completed' && DID_NOT_JUDGE.has(r.conclusion ?? ''))
+    .map((r) => `${r.workflowName} (${r.conclusion})`).sort()
+  const passed = mine.filter((r) => r.status === 'completed' && PASSED.has(r.conclusion ?? ''))
+  // A VERDICT REQUIRES A JUDGE. `failing.length === 0` is absence-of-failure, which is not the same as a pass over
+  // a set where nothing judged — all-cancelled satisfied it. So ok demands at least one run that actually passed.
+  const measured = passed.length > 0 || failing.length > 0
+  const settled = mine.length > 0 && pending.length === 0
+  const ok = settled && passed.length > 0 && failing.length === 0
+  const aside = didNotJudge.length ? ` — and did NOT judge: ${didNotJudge.join(', ')}` : ''
+  const reason = pending.length
+    ? `still running for ${sha.slice(0, 9)}: ${pending.join(', ')}${aside}`
+    : failing.length
+      ? `FAILED for ${sha.slice(0, 9)}: ${failing.join(', ')}${aside}`
+      : !mine.length
+        ? `UNMEASURED: the forge reports no run at all for ${sha.slice(0, 9)} — this is not a pass. The runs may not have been queued yet; ask again.`
+        : !passed.length
+          ? `UNMEASURED: ${mine.length} run(s) for ${sha.slice(0, 9)} and NOT ONE JUDGED — ${didNotJudge.join(', ') || 'none completed'}. A cancelled scan is not a clean scan.`
+          : `${passed.length} workflow(s) passed for ${sha.slice(0, 9)}${aside}`
+  return { sha, measured, settled, ok, failing, pending, didNotJudge, reason }
 }
 
 /** parseRunRows(json) → rows, refusing silently-malformed input rather than reading it as an empty (clean) list. */
