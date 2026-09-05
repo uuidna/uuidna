@@ -1,0 +1,135 @@
+{
+  "why": "What the registration agency returned for each theorem's own claim sentence. A hit is a CANDIDATE for prior art, not a finding of it; an empty result is not proof of novelty, only that this query returned nothing on this day. Neither decides novelty — a human or a later gate reads these.",
+  "sealed": 2658,
+  "asked": 5,
+  "unasked": 0,
+  "withCandidates": 5,
+  "clean": 0,
+  "rows": [
+    {
+      "key": "mul9_1_1",
+      "query": "1·1 ≡ 1 (mod 9)",
+      "hits": [
+        {
+          "doi": "10.5040/9781350869165",
+          "title": "Standing Biceps Stetch Mod 1",
+          "score": 0,
+          "year": 2022
+        },
+        {
+          "doi": "10.1515/9783112342725-001",
+          "title": "Part 1",
+          "score": 0,
+          "year": 1983
+        },
+        {
+          "doi": "10.7717/peerj-cs.3530/supp-1",
+          "title": "Supplemental Information 1: Mod-yolov8 code.",
+          "score": 0,
+          "year": null
+        }
+      ],
+      "asked": true
+    },
+    {
+      "key": "mul9_1_2",
+      "query": "1·2 ≡ 2 (mod 9)",
+      "hits": [
+        {
+          "doi": "10.5040/9781350869172",
+          "title": "Standing Biceps Stretch Mod 2",
+          "score": 0,
+          "year": 2022
+        },
+        {
+          "doi": "10.46991/sbmp/2018.1.2",
+          "title": "",
+          "score": 0,
+          "year": 2018
+        },
+        {
+          "doi": "10.7717/peerjcs.1162/fig-5",
+          "title": "Figure 5: The interface when module\n                      <i>mod</i>\n                      <sub>1</sub>\n                      loads the modu",
+          "score": 0,
+          "year": null
+        }
+      ],
+      "asked": true
+    },
+    {
+      "key": "mul9_1_3",
+      "query": "1·3 ≡ 3 (mod 9)",
+      "hits": [
+        {
+          "doi": "10.1093/he/9780191866128.003.0048",
+          "title": "Tuberville v Savage (1669) 1 Mod Rep 3, 86 ER 684",
+          "score": 0,
+          "year": 2018
+        },
+        {
+          "doi": "10.54517/ama.v3i1",
+          "title": "",
+          "score": 0,
+          "year": 2022
+        },
+        {
+          "doi": "10.1086/mp.1905.3.issue-1",
+          "title": "",
+          "score": 0,
+          "year": 1905
+        }
+      ],
+      "asked": true
+    },
+    {
+      "key": "mul9_1_4",
+      "query": "1·4 ≡ 4 (mod 9)",
+      "hits": [
+        {
+          "doi": "10.1353/mod.2023.a925902",
+          "title": "Erratum",
+          "score": 0,
+          "year": 2023
+        },
+        {
+          "doi": "10.21467/jmm.4.1.2017",
+          "title": "",
+          "score": 0,
+          "year": 2017
+        },
+        {
+          "doi": "10.1086/mp.1906.4.issue-1",
+          "title": "",
+          "score": 0,
+          "year": 1906
+        }
+      ],
+      "asked": true
+    },
+    {
+      "key": "mul9_1_5",
+      "query": "1·5 ≡ 5 (mod 9)",
+      "hits": [
+        {
+          "doi": "10.7717/peerjcs.1162/fig-5",
+          "title": "Figure 5: The interface when module\n                      <i>mod</i>\n                      <sub>1</sub>\n                      loads the modu",
+          "score": 0,
+          "year": null
+        },
+        {
+          "doi": "10.46991/sbmp/2022.5.1",
+          "title": "",
+          "score": 0,
+          "year": 2022
+        },
+        {
+          "doi": "10.21467/jmm.5.1.2018",
+          "title": "",
+          "score": 0,
+          "year": 2017
+        }
+      ],
+      "asked": true
+    }
+  ]
+}
