@@ -38,8 +38,9 @@ theorem otp_self_inverse : (List.range 16).all (fun m => (List.range 16).all (fu
     nothing. -/
 theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide
 
-/-- A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it
-    binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing. -/
+/-- A linear (XOR) fold is malleable, over every one of the sixteen four-bit inputs: flipping the input by d
+    flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A
+    content-address is INTEGRITY/routing. -/
 theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide
 
 /-- The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length —

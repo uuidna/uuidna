@@ -1,0 +1,12 @@
+{
+  "handle": "8a77e6d2",
+  "address": "8a77e6d2-0a84-832a-9f2f-d8347b776bb5",
+  "kind": "chunk",
+  "keys": [
+    "the_aead_envelope_fits_inside_one_chacha_block"
+  ],
+  "statement": "(32 + 12 + 16 = 60) ∧ (60 < 64) ∧ (64 - 60 = 4) ∧ (∀ n : Fin 64, n.val + 16 - n.val = 16)",
+  "files": [
+    "Crypto.lean"
+  ]
+}

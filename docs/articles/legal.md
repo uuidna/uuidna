@@ -25,7 +25,7 @@ The ledger holds this as [legal_verdict_is_exactly_one](/theorem/legal_verdict_i
 (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; lp t h c + lr t h c + lnp t h c == 1)
 ```
 
-### only the PROVEN is ADMITTED — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays
+### only the PROVEN is ADMITTED, decided over all eight combinations of the three inputs — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays
 The ledger holds this as [legal_only_the_proven_is_admitted](/theorem/legal_only_the_proven_is_admitted) — proven `by decide`, sorry-free:
 
 ```lean

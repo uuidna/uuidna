@@ -1,0 +1,12 @@
+{
+  "handle": "5c162b0b",
+  "address": "5c162b0b-1caa-8c80-aa6c-9aa06d4f6f94",
+  "kind": "chunk",
+  "keys": [
+    "pbkdf2_block_count_is_the_ceiling_over_every_length_to_a_kilobit"
+  ],
+  "statement": "(∀ d : Fin 129, ((d.val + 31) / 32) * 32 ≥ d.val ∧ (d.val = 0 ∨ (((d.val + 31) / 32) - 1) * 32 < d.val))",
+  "files": [
+    "Crypto.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5e9acccd",
+  "address": "5e9acccd-3241-8f09-983f-146050a79c6e",
+  "kind": "chunk",
+  "keys": [
+    "sha512_doubles_the_word_block_and_digest_but_not_the_rounds"
+  ],
+  "statement": "(64 = 2 * 32) ∧ (128 = 2 * 64) ∧ (1024 = 2 * 512) ∧ (80 ≠ 2 * 64) ∧ (80 - 64 = 16)",
+  "files": [
+    "Crypto.lean"
+  ]
+}

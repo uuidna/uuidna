@@ -1,0 +1,12 @@
+{
+  "handle": "9d217a31",
+  "address": "9d217a31-ce4c-8485-926f-922f09d6a651",
+  "kind": "chunk",
+  "keys": [
+    "a_sha256_digest_is_two_uuids_and_four_boards_at_once"
+  ],
+  "statement": "(256 = 2 * 128) ∧ (256 = 4 * 64) ∧ (256 / 4 = 64) ∧ (32 * 8 = 256) ∧ (256 % 128 = 0) ∧ (256 % 64 = 0)",
+  "files": [
+    "Crypto.lean"
+  ]
+}

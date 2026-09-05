@@ -19,8 +19,8 @@ theorem solutions_not_skipped : (List.range 4).all (fun a => (List.range 4).all 
     (their indicators sum to 1) -/
 theorem legal_verdict_is_exactly_one : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; lp t h c + lr t h c + lnp t h c == 1) := by decide
 
-/-- only the PROVEN is ADMITTED — a claim is admitted exactly when a decidable test holds OR it cites a sealed
-    authority; nothing else stays -/
+/-- only the PROVEN is ADMITTED, decided over all eight combinations of the three inputs — a claim is admitted
+    exactly when a decidable test holds OR it cites a sealed authority; nothing else stays -/
 theorem legal_only_the_proven_is_admitted : (List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c == 1) == ((c == 1) || (t == 1 && h == 1))) := by decide
 
 /-- the court may not refute the NON-JUSTICIABLE — with no decidable test (t=0) the verdict is NEVER REFUTED (it

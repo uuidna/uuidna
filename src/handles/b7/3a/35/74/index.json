@@ -1,0 +1,12 @@
+{
+  "handle": "b73a3574",
+  "address": "b73a3574-b4a0-8ca1-86e1-840af2204b4c",
+  "kind": "chunk",
+  "keys": [
+    "the_claim_involution_fixes_only_the_honest_statement"
+  ],
+  "statement": "(∀ i : Fin 25, (24 - (24 - i.val) = i.val) ∧ (i.val = 12 ∨ 24 - i.val ≠ i.val)) ∧ (24 - 12 = 12)",
+  "files": [
+    "Crypto.lean"
+  ]
+}

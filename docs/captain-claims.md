@@ -3,8 +3,8 @@
 **Generated:** 2026-09-05
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2617/2617 theorems — every one, by construction
-**Claim receipt:** `592875d4-0fa4-8bd5-932c-b6e702dcc6e9`
+**Total claimed:** 2626/2626 theorems — every one, by construction
+**Claim receipt:** `d363e3c1-6693-8653-b6e1-2b7b3793fad8`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -373,6 +373,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl) · [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) · [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) · [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) · [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) · [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions)
+
+### The cryptographic primitives
+
+- **Theorems:** 9
+- **Sample lineAddress:** `0fa06ce3-72c6-8d56-88b3-c915991f8b12`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[three_sha2_digests_tile_the_sixtyfour_board_and_sha224_does_not](/theorem/three_sha2_digests_tile_the_sixtyfour_board_and_sha224_does_not) · [sha256_padding_closes_every_block_over_two_blocks_of_lengths](/theorem/sha256_padding_closes_every_block_over_two_blocks_of_lengths) · [sha512_doubles_the_word_block_and_digest_but_not_the_rounds](/theorem/sha512_doubles_the_word_block_and_digest_but_not_the_rounds) · [the_chacha_state_partitions_into_constants_key_counter_and_nonce](/theorem/the_chacha_state_partitions_into_constants_key_counter_and_nonce) · [the_aead_envelope_fits_inside_one_chacha_block](/theorem/the_aead_envelope_fits_inside_one_chacha_block) · [the_hmac_pads_differ_in_the_bits_that_carry](/theorem/the_hmac_pads_differ_in_the_bits_that_carry) · [pbkdf2_block_count_is_the_ceiling_over_every_length_to_a_kilobit](/theorem/pbkdf2_block_count_is_the_ceiling_over_every_length_to_a_kilobit) · [a_sha256_digest_is_two_uuids_and_four_boards_at_once](/theorem/a_sha256_digest_is_two_uuids_and_four_boards_at_once) · [the_claim_involution_fixes_only_the_honest_statement](/theorem/the_claim_involution_fixes_only_the_honest_statement)
 
 ### The CERN open-data records
 
@@ -1077,7 +1086,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2534 (2617 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2543 (2626 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1095,7 +1104,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2617 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2626 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

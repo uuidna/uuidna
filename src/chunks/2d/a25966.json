@@ -1,0 +1,12 @@
+{
+  "handle": "2da25966",
+  "address": "2da25966-2ba1-8baa-9cc6-41870f05220d",
+  "statement": "(0 + 2575 = 2575) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

@@ -53,7 +53,7 @@ The ledger holds this as [otp_key_reuse_leaks_xor](/theorem/otp_key_reuse_leaks_
 (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2))))
 ```
 
-### A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.
+### A linear (XOR) fold is malleable, over every one of the sixteen four-bit inputs: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.
 The ledger holds this as [xor_fold_is_malleable](/theorem/xor_fold_is_malleable) — proven `by decide`, sorry-free:
 
 ```lean

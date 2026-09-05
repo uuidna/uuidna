@@ -137,7 +137,7 @@
 - **[rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime)** — "rosette_and_vortex_are_coprime"
   - File: Crt.lean
   - Statement: `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)...`
-- **[crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection)** — "crt_pairs_are_a_bijection"
+- **[crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection)** — "CLAIMED over every one of the 63 residues: x ↦ (x mod 7, x mod 9) yields 63 distinct pairs, so the correspondence is a bijection and no residue collides with another."
   - File: Crt.lean
   - Statement: `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)...`
 

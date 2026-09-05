@@ -1,0 +1,12 @@
+{
+  "handle": "73c5e62c",
+  "address": "73c5e62c-47f8-8b07-8c04-5b19749ec0a3",
+  "statement": "(54 = 32 + 16 + 4 + 2) ∧ (92 = 64 + 16 + 8 + 4) ∧ (16 + 4 = 20) ∧ (54 + 92 - 2 * 20 = 106) ∧ (106 = 64 + 32 + 8 + 2) ∧ (92 - 54 = 38)",
+  "tactic": "decide",
+  "keys": [
+    "the_hmac_pads_differ_in_the_bits_that_carry"
+  ],
+  "files": [
+    "Crypto.lean"
+  ]
+}

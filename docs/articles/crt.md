@@ -32,21 +32,21 @@ The ledger holds this as [axes_stride_coprime](/theorem/axes_stride_coprime) —
 (3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2)
 ```
 
-### residues_identify_digit
+### CLAIMED by walking all 256 ordered pairs from the sixteen hex digits: the two residues (mod 6, mod 9) identify a digit uniquely — no two of the sixteen share both — and the pair space is 18, two larger than the sixteen it must separate.
 The ledger holds this as [residues_identify_digit](/theorem/residues_identify_digit) — proven `by decide`, sorry-free:
 
 ```lean
 ((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9 == b % 9))) || (a == b)))) ∧ (2 * 9 = 18) ∧ (18 % 6 = 0) ∧ (18 % 9 = 0) ∧ (18 - 16 = 2)
 ```
 
-### crt_pairs_are_a_bijection
+### CLAIMED over every one of the 63 residues: x ↦ (x mod 7, x mod 9) yields 63 distinct pairs, so the correspondence is a bijection and no residue collides with another.
 The ledger holds this as [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) — proven `by decide`, sorry-free:
 
 ```lean
 (((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)
 ```
 
-### fused_units_are_the_orbit_squared
+### CLAIMED by counting units across all 63 residues: the fused ring has exactly 36 units, which is 6·6 — the vortex orbit length times the rosette orbit length, each of those six counted over its own whole ring.
 The ledger holds this as [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) — proven `by decide`, sorry-free:
 
 ```lean
@@ -81,7 +81,7 @@ The ledger holds this as [hexagram_stride_totals_the_rosetta](/theorem/hexagram_
 (Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3
 ```
 
-### units_of_sixty_three_close_their_product_table
+### CLAIMED by walking all 1296 cells of the 36×36 Cayley table over the 63 residues: every product of two units is a unit, and every row is a permutation of the 36 — the group closes and no row repeats a value.
 The ledger holds this as [units_of_sixty_three_close_their_product_table](/theorem/units_of_sixty_three_close_their_product_table) — proven `by decide`, sorry-free:
 
 ```lean
