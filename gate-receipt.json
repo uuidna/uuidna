@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "874d08cd63c5b5371ff2b0ca9b49282f",
-    "lean": "11f6d701d5e498bbb2f90dc0f953e623"
+    "src": "4d371f1444ef7736da431fb8ebbf92fb",
+    "lean": "4957488509c00ab862d2f3c4cbbff938"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -129,7 +129,7 @@
     "lean/alpine-apps.json": "6f253ef38579ce12",
     "lean/alpine-apps.md": "0a62f5afcaac46bd",
     "lean/alpine-discovery.json": "a56bee2f1fb0a281",
-    "lean/alpine-hexbit-monitor.json": "cd2459881342851d",
+    "lean/alpine-hexbit-monitor.json": "905c594b08fdc78f",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
@@ -3983,7 +3983,7 @@
     "src/scripts/audit.ts": "ce990df3fb1ab963",
     "src/scripts/auto-fill-gaps.ts": "1fc401931c6c58a4",
     "src/scripts/auto-harmonise.ts": "561ff80f15d509b0",
-    "src/scripts/auto-improve.ts": "0671cac5bba7e829",
+    "src/scripts/auto-improve.ts": "1b93c643a2645980",
     "src/scripts/await-live.ts": "a9f19aa35ed67b62",
     "src/scripts/aws-analytics.ts": "b6dd37964d50f618",
     "src/scripts/axiom-hunt.ts": "b34b5d939b8c4cbc",

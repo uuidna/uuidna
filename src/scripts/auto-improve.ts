@@ -185,7 +185,12 @@ try {
     } else {
       console.log('\n  docs — building the site under the writer lock (one build at a time across sessions)')
       try {
-        execFileSync(process.execPath, [bin, 'build', 'docs'], { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
+        // THE HEAP IS PINNED HERE TOO, and it was not: `docs:build` spawns vitepress with
+        // --max-old-space-size=8192 while this spawned it bare, so the same build that succeeds from the npm
+        // script died of "Ineffective mark-compacts near heap limit" here and in the `audit` chain. The site is
+        // ~3000 pages and the render retains per page; node's default ceiling is under what it needs. One flag,
+        // in every place that spawns it, or the gate fails on a limit the working path does not have.
+        execFileSync(process.execPath, ['--max-old-space-size=8192', bin, 'build', 'docs'], { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
         console.log('  ✓ docs — the site renders from the converged derived layer')
       } catch (e) {
         failed = true
