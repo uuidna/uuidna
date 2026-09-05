@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "252055ab3ab1e020e9969362b2cf22f2",
+    "src": "34a7bbbdb9e1e6e796aecc2ab171b8a5",
     "lean": "0fe5f739cfaa76c16270bf0c9fff7cf3"
   },
   "files": {
@@ -3531,6 +3531,8 @@
     "src/messaging-handle.test.ts": "e820f2dc18448693",
     "src/microdata.test.ts": "be7c892617f1669d",
     "src/microdata.ts": "8f3946e884ea6c59",
+    "src/mirror.test.ts": "6f91d642896655e0",
+    "src/mirror.ts": "2aab29f95c958846",
     "src/models.test.ts": "3cad4fc59379783d",
     "src/no-pinned-counts.test.ts": "7892ee6a378dd09e",
     "src/nobles/LICENSE-MIT-noble.txt": "01c3f50e9238b8a8",
@@ -4072,7 +4074,7 @@
     "src/scripts/generate.ts": "88d2b8c8524d73cd",
     "src/scripts/green.ts": "e286a448ebf90fa5",
     "src/scripts/guard.test.ts": "28537249ce682000",
-    "src/scripts/guard.ts": "c9aa0bf86c7a0539",
+    "src/scripts/guard.ts": "e047455d3da4c4b8",
     "src/scripts/harmonic-scan.test.ts": "0bb9d22e5cb3c809",
     "src/scripts/harmonic-scan.ts": "b14e41db661b9a47",
     "src/scripts/hexbit-from-books.ts": "4b93ec9f5887309c",
@@ -4268,7 +4270,7 @@
     "src/scripts/ship-build.ts": "3011b920123fecf5",
     "src/scripts/spin.ts": "739bd82087728abb",
     "src/scripts/stamp.ts": "229588ad16e99500",
-    "src/scripts/state.ts": "b79a90da7cd3f934",
+    "src/scripts/state.ts": "69141c28d2fbb1d9",
     "src/scripts/steady-state.ts": "f3d95b33e19271fb",
     "src/scripts/support.ts": "674df996bb2b4242",
     "src/scripts/sync-changelog.ts": "b154b566636295d7",
