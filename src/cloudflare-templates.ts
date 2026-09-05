@@ -16,9 +16,11 @@
 // AND IT ALREADY RUNS THERE. Measured by walking the real import graph of the published package: all 13
 // subpaths of @uuidna/uuidna reach zero Node builtins, so every primitive named below imports inside a Worker
 // without a polyfill, a nodejs_compat flag, or a bundler shim.
-import { readFileSync, existsSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+// NO FILESYSTEM HERE. This module read the mirror with node:fs, vitepress pulled it into the browser bundle,
+// and the docs build failed — blocking the release gate. It also contradicted what had just been measured and
+// published: that all 13 subpaths reach ZERO Node builtins. The mirror is compiled to a module now
+// (scripts/gen-cloudflare-templates), so this imports data rather than reading a host.
+import { TEMPLATE_ROWS } from './cloudflare-templates-data.js'
 import { toUuid, merkleFold } from './address.js'
 import { handleOf } from './handle.js'
 
@@ -35,25 +37,9 @@ export interface CloudflareTemplate {
   compatibilityDate: string
 }
 
-/** allTemplateConfigs() → EVERY row the mirror holds, primary and e2e alike. Nothing is dropped at the read:
- *  the first harvest discarded the e2e rows silently and that is how a real binding went missing. */
-export function allTemplateConfigs(): CloudflareTemplate[] {
-  const p = join(ROOT, TEMPLATE_MIRROR)
-  if (!existsSync(p)) return []
-  return readFileSync(p, 'utf8').split('\n')
-    .filter((l) => l && !l.startsWith('#'))
-    .map((l) => {
-      const [template, config, workerName, bindings, main, compat] = l.split('\t')
-      return {
-        template: template ?? '',
-        config: config === 'e2e' ? 'e2e' as const : 'primary' as const,
-        workerName: workerName ?? '-',
-        bindings: (bindings ?? '-') === '-' ? [] : (bindings ?? '').split(','),
-        main: main ?? '-',
-        compatibilityDate: compat ?? '-',
-      }
-    })
-}
+/** allTemplateConfigs() → EVERY row the mirror holds, primary and e2e alike. Nothing is dropped: the first
+ *  harvest discarded the e2e rows silently and that is how a real binding went missing. */
+export const allTemplateConfigs = (): CloudflareTemplate[] => [...TEMPLATE_ROWS]
 
 /** cloudflareTemplates() → the TEMPLATES, one row each: the primary config. The e2e workers are carried by
  *  allTemplateConfigs() and reported by the census, so they are visible without being counted as templates. */

@@ -60,6 +60,9 @@ const GENERATORS: Gen[] = [
   // its character AND byte lengths, computed in one pass. It exists because peer repositories join corpora on
   // this address, and a manifest that lags the ledger would have them joining against statements this tree no
   // longer seals. Wired here rather than run by hand: a generator the chain does not invoke is rot waiting.
+  // the Cloudflare mirror compiled to a module — it must run whenever the mirror moves, or the served census
+  // describes a harvest that is no longer on disk
+  { file: 'gen-cloudflare-templates.js', args: [], note: 'src/cloudflare-templates-data.ts — the template mirror as an importable module (no fs at run time)' },
   { file: 'gen-statement-fixture.js', args: [], note: 'docs/public/statement-addresses.json — the cross-repository join manifest' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
   { file: 'gen-terminology.js', args: [], note: 'terminology.json' },

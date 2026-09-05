@@ -52,6 +52,7 @@ docs/articles/** merge=derived
 docs/public/feed.json merge=derived
 docs/public/terminology.json merge=derived
 docs/public/statement-addresses.json merge=derived
+src/cloudflare-templates-data.ts merge=derived
 docs/prose-evidence.md merge=derived
 .gitattributes merge=derived
 packages/** merge=derived

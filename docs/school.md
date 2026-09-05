@@ -1198,7 +1198,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,641 | 16 | 455,602× |
-| the sealed ledger | 1,423,582 | 16 | 88,973× |
+| the sealed ledger | 1,423,581 | 16 | 88,973× |
 | the leads record | 71,592 | 16 | 4,474× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

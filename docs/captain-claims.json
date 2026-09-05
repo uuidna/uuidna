@@ -5617,8 +5617,8 @@
     },
     {
       "key": "the_face_is_computed_not_shipped",
-      "lineAddress": "17798881-92ca-8bbc-b931-53f0197ef3e4",
-      "address": "525b7304-f5aa-8ddd-8589-18b831db470f",
+      "lineAddress": "88efce32-384f-8901-ba1a-2bfcf6f4b401",
+      "address": "9eb4d106-0b8e-8cbb-9ae1-0b6b865e9a00",
       "principle": "The site build as arithmetic"
     },
     {
@@ -5635,8 +5635,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "490c81d6-ca68-8391-bba6-b9834361ace8",
-      "address": "71d91b91-b255-8f39-94e1-ed2bceca1a31",
+      "lineAddress": "9e50c5c1-5358-8a68-9877-67837ea58af3",
+      "address": "a6d8307e-ba3d-8477-bf76-24a53d15f37f",
       "principle": "The site build as arithmetic"
     },
     {
@@ -15936,7 +15936,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "5154271b-c7ab-8331-b42b-b9c36ac13e4c",
+  "claim_receipt": "d6f0ca66-4d9f-8e38-814a-33e0a287b3d4",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
