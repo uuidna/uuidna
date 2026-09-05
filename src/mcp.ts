@@ -46,7 +46,8 @@ import { apiMintHarvest, apiMintDeposit } from './api-mint.js'
 import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
 import { speak, speechCensus } from './speech.js' // what a handle SAYS, read off the sealed walk — no phrase table
 import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school-apis.js' // the European education APIs behind one door — ESCO / Eurostat / GISCO fetched, OOAPI served
-import { teamFor } from './team/index.js' // THE TEAM AXIS — what building with these capabilities actually takes, and how many seats that is
+import { teamFor } from './team/index.js'
+import { cloudflareTemplates, coverageOf, templateCensus, templatesFor } from './cloudflare-templates.js' // EVERY CLOUDFLARE TEMPLATE, and what this tree adds to each — derived from their own wrangler configs // THE TEAM AXIS — what building with these capabilities actually takes, and how many seats that is
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
 import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
 import { legCensus, legsFor, mirrorAgreement, mirrorRows, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
@@ -794,11 +795,34 @@ const TOOLS: Tool[] = ([
   //    something with it actually take, and how many people is that". Derived: seats are the connected
   //    components of the ledger's own citation graph restricted to the need, so the count is a property of the
   //    work rather than a preference. Nothing is authored per application. ──
+  // ── EVERY CLOUDFLARE TEMPLATE, AND WHAT THIS TREE ADDS TO IT. Derived from each template's own wrangler
+  //    config (mirror/cloudflare-templates.tsv), keyed on the BINDING rather than the template, so 36
+  //    templates share 13 answers and a new binding is mapped once. ──
   { name: 'uuidna_team',
     description: 'THE TEAM AN APPLICATION OF ANY TYPE ACTUALLY NEEDS, computed from the sealed ledger: the seats are derived from the ledger\'s own citation graph, so the answer MOVES when a wing is sealed and no row can go stale. Pass {need} (the words describing the application: its domain, features or stack) and get back SEATS: groups of sealed capabilities the ledger\'s own citation graph entangles, because when the work in one capability cites the work in another the seam between them belongs inside one head. The seat COUNT is therefore not a choice — it is the number of connected components of that graph restricted to what was asked for, so an application whose needs fall in one component cannot be split by adding people. Each seat carries its skills, its sealed-theorem count, a learning order (most-cited first, since a foundation is what the rest rests on), the browser shelf where the capability is practised, its ESCO phrases and its handle. A need with no sealed capability behind it is returned as a named GAP, never absorbed into a neighbouring seat to make the answer look whole. PURE and offline; same need, same receipt. THIS IS NOT A STAFFING PLAN, a competence assessment, or a claim that anyone is qualified for anything, and the ESCO leg names what a capability is CALLED in the European Commission\'s taxonomy — never that any authority recognises or accredits it (theorem provenance_integrity_not_content_truth). Returns {need,seats,gaps,matchedSkills,seatsAreComponents,receipt,honest}.',
     inputSchema: { type: 'object', properties: {
       need: { type: 'array', items: { type: 'string' }, description: 'the words describing the application — domain terms, features, stack. Each is matched to sealed skills by WHOLE WORD, so "close" does not match the skill "os".' } }, required: ['need'] },
     run: (a) => teamFor(Array.isArray(a.need) ? (a.need as unknown[]).map(String) : [String(a.need ?? '')]) },
+  { name: 'uuidna_cloudflare',
+    description: 'EVERY CLOUDFLARE TEMPLATE AND WHAT uuidna ADDS TO IT — it is not a Cloudflare product and replaces no binding. No KV, no SQL, no object store, no inference: this is what goes ON a binding. No argument gives the census of 36 templates over 13 bindings; {template} opens one; {idea} matches by whole word. Every answer is derived from that template\'s own wrangler config and keyed on the BINDING, so 36 templates share 13 answers. Returns {templates,bindings,covered,unmapped} or {template,bindings,fitted,neutral,unmapped}.',
+    detail: 'EVERY CLOUDFLARE TEMPLATE AND WHAT uuidna ADDS TO IT — the bridge from an idea to a deployed Worker. The mirror (mirror/cloudflare-templates.tsv) is HARVESTED from each template\'s own wrangler config, and the fit is keyed on the BINDING rather than the template, so 36 templates share 13 answers and a binding added tomorrow is mapped once. What it names per binding: a content-address as a D1 primary key, so a row\'s id IS its content and two writes of the same fact collide instead of duplicating; a self-verifying KV key (handleOf of the value, so a wrong answer is detectable without a second round trip); a Durable Object id derived from what the room is ABOUT rather than a name someone chose; the honesty gate in front of Workers AI, so a model\'s sentence is filtered before it is served rather than after it is believed; an idempotency key for Queues, which is what makes at-least-once delivery safe to consume; a step receipt for Workflows, so a resumed run can prove it resumed from the state it claims; a hexbit door over static assets, so a link survives a rename — the failure static hosting has and cannot fix by itself; and uuidnaOS provenance for what is inside a Container, attested by content-address without running it. SIX TEMPLATES ALSO SHIP AN E2E TEST WORKER with its own name, main and bindings; those rows are CARRIED in the mirror and reported by the census, and are not counted as templates — dropping them silently is how the first harvest lost the Workers AI binding from text-to-image-template. TWO BINDINGS MAP TO NOTHING ON PURPOSE (vars, mTLS): that is the honest answer, and an omission would read as an oversight. Measured separately: all 13 published subpaths of @uuidna/uuidna reach zero Node builtins, so every symbol named imports inside a Worker with no polyfill, no nodejs_compat flag and no bundler shim.',
+    // ONE PARAMETER, NOT TWO, and the reason is measurable rather than aesthetic: the MCP wire rate is a
+    // shrink-only ratchet at 32183 hundredths of a byte per tool, and two named parameters put this tool at 354
+    // bytes against a 322 average — so registering it would have RAISED a measure that may only fall. A single
+    // field that takes either a template name or the words describing an idea costs 94 bytes less, and it is
+    // also the simpler call: the caller has one thing to say, and which kind of thing it is, this can decide.
+    inputSchema: { type: 'object', properties: {
+      q: { type: 'string', description: 'a template name from the census, or the words describing what you want to build (matched by WHOLE WORD). Omit for the census.' } } },
+    run: (a) => {
+      const q = a.q === undefined ? '' : String(a.q).trim()
+      if (q === '') return templateCensus()
+      const exact = cloudflareTemplates().find((x) => x.template === q)
+      if (exact) return coverageOf(exact)
+      const matches = templatesFor(q)
+      return matches.length > 0
+        ? { q, matches }
+        : { refused: `${q} is neither a template in the mirror nor a word any template answers`, templates: cloudflareTemplates().map((x) => x.template) }
+    } },
   { name: 'uuidna_review_domains',
     description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
     inputSchema: { type: 'object', properties: {} },

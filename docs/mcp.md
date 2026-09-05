@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="256 keys" />
+# MCP tools <Badge type="tip" text="257 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 256 tools below are read from the server's own tool list and
+is **built from the keys**: the 257 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · e1224ef1-8280-8b3f-9c26-d018e0183c2c
+gate CLEAN f0 d0 v0 · 0c91267c-567a-8eaa-a48e-ecf95abdf6fa
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 256-tool registry folds to its
-order-invariant identity `25e772cc-51f7-89f9-b4b9-9919c0ed7cb2` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 257-tool registry folds to its
+order-invariant identity `7fdfb8c0-0dba-8ef7-8653-97ffa18e8670` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`256`" />
+## The grid <Badge type="tip" :text="`257`" />
 
-256 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 113 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+257 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 114 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -62,6 +62,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-axiom-index"><code>axiom_index</code></a>
 <a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
 <a href="#uuidna-chat"><code>chat</code></a>
+<a href="#uuidna-cloudflare"><code>cloudflare</code></a>
 <a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
 <a href="#uuidna-coin-ledger"><code>coin_ledger</code></a>
 <a href="#uuidna-coins"><code>coins</code></a>
@@ -598,7 +599,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'124'" />
+## Other <Badge type="tip" :text="'125'" />
 
 *skill: other*
 
@@ -934,6 +935,18 @@ THE TEAM AN APPLICATION OF ANY TYPE ACTUALLY NEEDS, computed from the sealed led
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `need` | array | **yes** | the words describing the applic… |
+
+### `uuidna_cloudflare`
+
+EVERY CLOUDFLARE TEMPLATE AND WHAT uuidna ADDS TO IT — it is not a Cloudflare product and replaces no binding. No KV, no SQL, no object store, no inference: this is what goes ON a binding. No argument gives the census of 36 templates over 13 bindings; {template} opens one; {idea} matches by whole word. Every answer is derived from that template's own wrangler config and keyed on the BINDING, so 36 templates share 13 answers. Returns {templates,bindings,covered,unmapped} or {template,bindings,fitted,neutral,unmapped}.
+
+EVERY CLOUDFLARE TEMPLATE AND WHAT uuidna ADDS TO IT — the bridge from an idea to a deployed Worker. The mirror (mirror/cloudflare-templates.tsv) is HARVESTED from each template's own wrangler config, and the fit is keyed on the BINDING rather than the template, so 36 templates share 13 answers and a binding added tomorrow is mapped once. What it names per binding: a content-address as a D1 primary key, so a row's id IS its content and two writes of the same fact collide instead of duplicating; a self-verifying KV key (handleOf of the value, so a wrong answer is detectable without a second round trip); a Durable Object id derived from what the room is ABOUT rather than a name someone chose; the honesty gate in front of Workers AI, so a model's sentence is filtered before it is served rather than after it is believed; an idempotency key for Queues, which is what makes at-least-once delivery safe to consume; a step receipt for Workflows, so a resumed run can prove it resumed from the state it claims; a hexbit door over static assets, so a link survives a rename — the failure static hosting has and cannot fix by itself; and uuidnaOS provenance for what is inside a Container, attested by content-address without running it. SIX TEMPLATES ALSO SHIP AN E2E TEST WORKER with its own name, main and bindings; those rows are CARRIED in the mirror and reported by the census, and are not counted as templates — dropping them silently is how the first harvest lost the Workers AI binding from text-to-image-template. TWO BINDINGS MAP TO NOTHING ON PURPOSE (vars, mTLS): that is the honest answer, and an omission would read as an oversight. Measured separately: all 13 published subpaths of @uuidna/uuidna reach zero Node builtins, so every symbol named imports inside a Worker with no polyfill, no nodejs_compat flag and no bundler shim.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `q` | string | no | a template name from the census… |
 
 ### `uuidna_snapshot`
 

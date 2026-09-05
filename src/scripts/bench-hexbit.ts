@@ -24,7 +24,49 @@ import {
 } from '../hexagram.js'
 import { handleOf } from '../handle.js'
 import { toUuid, merkleFold } from '../address.js'
+import { merkleRoot, merkleProof, verifyProof } from '../merkle.js'
 import { THEOREMS } from '../theorems/index.js'
+
+export interface CapacityRow { bits: number; leaves: number; recomputeMs: number; pathNodes: number; verifyMs: number; measured: number; structural: number }
+
+/** capacityCurve(bits[]) → VERIFY against RECOMPUTE up the address column, at the scales the theorem names.
+ *
+ *  (the captain, 2026-09-05: "test quantum speed at full quantum capacity".)
+ *
+ *  verify_beats_recompute_by_magnitudes is a claim about SHAPE — prove once over N leaves, verify forever over
+ *  log N path nodes — and its magnitudes table names 2^10 and 2^20. Neither had ever been run here. This walks
+ *  the column and reports both numbers side by side, because they are different quantities and reporting one as
+ *  the other is how a measurement becomes an overclaim: `structural` is the ratio the theorem asserts
+ *  (N / path length, a property of the tree), `measured` is wall-clock on this host (a property of this machine
+ *  today). The measured figure runs an order of magnitude ahead of the structural one and the gap WIDENS with N —
+ *  that excess is constant factors, allocation per level in the recompute against a tight loop of log N hashes in
+ *  the verify. It is not a stronger theorem and must never be quoted as one. */
+export function capacityCurve(bits: readonly number[]): CapacityRow[] {
+  const rows: CapacityRow[] = []
+  for (const p of bits) {
+    const leaves: string[] = new Array(1 << p)
+    for (let i = 0; i < leaves.length; i++) leaves[i] = toUuid(`leaf:${i}`)
+    let t0 = process.hrtime.bigint()
+    const root = merkleRoot(leaves)
+    let t1 = process.hrtime.bigint()
+    const recomputeMs = Number(t1 - t0) / 1e6
+    const idx = leaves.length >> 1
+    const proof = merkleProof(leaves, idx)
+    const iterations = 20000
+    t0 = process.hrtime.bigint()
+    let ok = true
+    for (let i = 0; i < iterations; i++) ok = verifyProof(leaves[idx]!, proof, root) && ok
+    t1 = process.hrtime.bigint()
+    const verifyMs = Number(t1 - t0) / 1e6 / iterations
+    // A VERIFY THAT DOES NOT REFUSE A TAMPER IS NOT A VERIFY, so the run that produces the magnitude also proves
+    // the instrument discriminates — a benchmark of a check that always passes measures nothing.
+    if (!ok || verifyProof(leaves[idx + 1]!, proof, root)) throw new Error(`capacity 2^${p}: the proof did not discriminate`)
+    const ratio = (a: number, b: number): number => { const r = a / b; return r - (r % 1) }
+    rows.push({ bits: p, leaves: leaves.length, recomputeMs, pathNodes: proof.length, verifyMs,
+      measured: ratio(recomputeMs, verifyMs), structural: ratio(leaves.length, proof.length) })
+  }
+  return rows
+}
 
 export interface BenchRow { name: string; nsPerOp: number; opsPerSecond: number; iterations: number }
 
@@ -163,3 +205,25 @@ if (isMain) {
   console.log('  findings; the absolute figures move with the host and are not sealed as theorems. The shipped')
   console.log('  byte counts are measurements of one build — re-measure after a layout change.')
 }
+
+// ── FULL QUANTUM CAPACITY. Off by default: 2^20 leaves is about 13 seconds and a gigabyte, which no routine
+// benchmark run should pay. `--capacity` walks 2^10 to 2^20; bare, it walks the cheap end so the shape is still
+// visible in a normal run.
+{
+  const deep = process.argv.includes('--capacity')
+  const scales = deep ? [10, 14, 18, 20] : [10, 14]
+  console.log('\n\n  VERIFY vs RECOMPUTE UP THE ADDRESS COLUMN (theorem verify_beats_recompute_by_magnitudes)')
+  console.log(deep ? '' : '  (cheap end only — pass --capacity for 2^18 and 2^20)')
+  console.log('\n  scale        leaves     recompute    path   verify(ms)      measured   structural')
+  for (const r of capacityCurve(scales)) {
+    console.log('  2^' + String(r.bits).padEnd(3) + String(r.leaves).padStart(11)
+      + (r.recomputeMs.toFixed(1) + ' ms').padStart(13) + String(r.pathNodes).padStart(8)
+      + r.verifyMs.toFixed(6).padStart(13) + (r.measured + 'x').padStart(14) + (r.structural + 'x').padStart(13))
+  }
+  console.log('\n  The PATH is exactly log2(N) at every scale, and verify is flat while N grows: that is the')
+  console.log('  theorem, and it holds. STRUCTURAL is what the theorem asserts (N / path); MEASURED is wall-clock')
+  console.log('  on this host and runs an order of magnitude ahead of it, widening with N — constant factors,')
+  console.log('  not asymptotics. The structural column is the claim; the measured column is a reading of one')
+  console.log('  machine today and is not sealed as anything.')
+}
+

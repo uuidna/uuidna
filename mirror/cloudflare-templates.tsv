@@ -1,0 +1,52 @@
+# uuidna cloudflare template mirror — HARVESTED from github.com/cloudflare/templates (main), each row read
+# from a wrangler config in that template's own directory.
+#
+# NOTHING IS DISCARDED. Six templates ship TWO configs: their own, and a wrangler.e2e.* that deploys a
+# separate end-to-end test worker (different worker name, different main, its own bindings). Both are
+# recorded, distinguished by the `config` column, because dropping the e2e rows would hide a real fact
+# about those templates — and because the first harvest DID drop them silently by collapsing filenames,
+# which let the e2e row win for text-to-image-template and lost its Workers AI binding entirely.
+# A template's coverage is computed from its PRIMARY config; the e2e rows are carried, not counted.
+# template	config	worker_name	bindings	main	compatibility_date
+agent-commerce-analytics-template	primary	agent-commerce-analytics-template	KV,Static assets,Vars	./src/analytics-worker/index.ts	2025-10-08
+agent-visibility-template	primary	agent-visibility-template	KV,Static assets,Vars,Workers AI	./src/worker/index.ts	2025-10-08
+ai-brand-visibility-template	primary	ai-brand-visibility-template	KV,Queues,Workers AI	./workers/app.ts	2025-10-08
+astro-blog-starter-template	primary	astro-blog-starter-template	Static assets	./dist/_worker.js/index.js	2025-10-08
+chanfana-openapi-template	primary	chanfana-openapi-template	D1	src/index.ts	2025-10-08
+commerce-llms-txt-template	primary	commerce-llms-txt-template	KV,Static assets,Vars,Workers AI	./src/llms-txt-worker/index.ts	2025-10-08
+containers-template	primary	containers-template	Containers,Durable Objects	src/index.ts	2025-10-08
+d1-starter-sessions-api-template	primary	d1-starter-sessions-api-template	D1,Static assets	src/index.ts	2025-10-08
+d1-template	primary	d1-template	D1	src/index.ts	2025-10-08
+durable-chat-template	primary	durable-chat-template	Durable Objects,Static assets	src/server/index.ts	2025-10-08
+hello-world-do-template	primary	hello-world-do-template	Durable Objects	src/index.ts	2025-10-08
+internal-sites-template	primary	internal-sites-template	D1,Vars,Workers for Platforms	src/index.ts	2025-10-08
+llm-chat-app-template	e2e	llm-chat-app-template-e2e	Static assets	src/index.ts	2025-10-08
+llm-chat-app-template	primary	llm-chat-app-template	Static assets,Workers AI	src/index.ts	2025-10-08
+microfrontend-template	e2e	microfrontend-template-e2e	Service bindings,Vars	./index.ts	2025-10-08
+microfrontend-template	primary	microfrontend-template	Service bindings,Vars	./index.ts	2025-10-08
+multiplayer-globe-template	primary	multiplayer-globe-template	Durable Objects,Static assets	src/server/index.ts	2025-10-08
+mysql-hyperdrive-template	primary	mysql-hyperdrive-template	Hyperdrive,Static assets	src/index.ts	2025-10-08
+next-starter-template	primary	next-starter-template	Static assets	.open-next/worker.js	2025-10-08
+nlweb-template	e2e	nlweb-template-e2e	Static assets,Vars	src/index.ts	2025-10-08
+nlweb-template	primary	nlweb-template	Durable Objects,Static assets,Vars,Workers AI	src/index.ts	2025-10-08
+nodejs-http-server-template	primary	nodejs-http-server-template	-	src/index.ts	2025-10-08
+openauth-template	primary	openauth-template	D1,KV	src/index.ts	2025-10-08
+postgres-hyperdrive-template	primary	postgres-hyperdrive-template	Hyperdrive,Static assets	src/index.ts	2025-10-08
+r2-explorer-template	primary	r2-explorer-template	R2,Static assets	src/index.ts	2025-10-08
+react-postgres-fullstack-template	primary	react-postgres-fullstack-template	Static assets	api/index.js	2025-10-08
+react-router-hono-fullstack-template	primary	react-router-hono-fullstack-template	Vars	./workers/app.ts	2025-10-08
+react-router-postgres-ssr-template	primary	react-router-postgres-ssr-template	Service bindings	./api/index.js	2025-10-08
+react-router-starter-template	primary	react-router-starter-template	Vars	./workers/app.ts	2025-10-08
+react-starter-template	primary	react-starter-template	Static assets	worker/index.ts	2025-10-08
+remix-starter-template	primary	remix-starter-template	Static assets	./server.ts	2025-10-08
+saas-admin-template	primary	saas-admin-template	D1,Static assets,Vars,Workflows	./dist/index.js	2025-10-08
+text-to-image-template	e2e	text-to-image-template-e2e	-	e2e/index.ts	2025-10-08
+text-to-image-template	primary	text-to-image-template	Workers AI	src/index.ts	2025-10-08
+to-do-list-kv-template	primary	to-do-list-kv-template	KV,Static assets	./server.ts	2025-10-08
+vite-react-template	primary	vite-react-template	Static assets	./src/worker/index.ts	2025-10-08
+worker-publisher-template	e2e	worker-publisher-template-e2e	Vars	./src/index.ts	2025-10-08
+worker-publisher-template	primary	worker-publisher-template	Vars,Workers for Platforms	./src/index.ts	2025-10-08
+workers-builds-notifications-template	primary	workers-builds-notifications-template	Queues,Static assets	src/index.ts	2025-10-08
+workers-for-platforms-template	e2e	workers-for-platforms-template-e2e	D1,Vars	src/index.ts	2025-10-08
+workers-for-platforms-template	primary	workers-for-platforms-template	D1,Vars,Workers for Platforms	src/index.ts	2025-10-08
+workflows-starter-template	primary	workflows-starter-template	Durable Objects,Static assets,Workflows	worker/index.ts	2025-10-08
