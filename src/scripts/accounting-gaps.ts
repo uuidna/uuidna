@@ -11,7 +11,16 @@
 //   1. is any command in the universe neither ported nor refused?          (unaccounted → gap)
 //   2. is any command BOTH ported and refused?                            (contradiction → gap)
 //   3. does any family refuse a name with no cause, or carry no members?   (an empty reason → gap)
-import { shellCoverage, shellCommandUniverse } from '../quantum/os/shellapi/index.js'
+//   4. is any name refused by TWO families, or refused under a name no Alpine package provides?
+//
+// QUESTIONS 4 EXIST BECAUSE BOTH FAULTS HAPPENED. `dircolors-print` was refused for a while and is not a
+// command at all — a name I invented while filing, and a refusal for something that does not exist is a
+// verdict about nothing. `img` was filed twice, under two different causes, because it was classified from its
+// NAME and then reclassified from its package. A name with two reasons is a name with none, and the reason is
+// mechanical: refusalOf() returns the FIRST family that lists it, so which cause a reader is shown depends on
+// the order of the array rather than on the fact. Both faults are decidable against the catalogue, so neither
+// needs to be noticed by eye again.
+import { shellCoverage, shellCommandUniverse, catalogueCommandUniverse } from '../quantum/os/shellapi/index.js'
 import { REFUSAL_FAMILIES, appletAccounting, refusedNames } from '../quantum/os/refusals/index.js'
 
 export function accountingGaps(): { what: string; fix: string }[] {
@@ -32,6 +41,26 @@ export function accountingGaps(): { what: string; fix: string }[] {
     fix: 'remove each from its refusal family in src/quantum/os/refusals — a port makes its refusal false, and a false reason left standing is worse than an unported applet because nobody re-checks it',
   })
 
+  // a name refused twice resolves to whichever family the array happens to list first, so the cause a reader
+  // is shown is an artefact of ordering; the register must carry one cause per name
+  const seen = new Map<string, string>()
+  for (const f of REFUSAL_FAMILIES) {
+    for (const m of f.members) {
+      const prior = seen.get(m)
+      if (prior !== undefined) gaps.push({
+        what: `${m} is refused by two families, so it carries no single reason`,
+        fix: `remove ${m} from whichever family does not actually cover it — check which PACKAGE provides it (mirror/alpine-catalogue.tsv, the provides column) rather than reading its name, which is how this fault arises`,
+      })
+      else seen.set(m, f.cause)
+    }
+  }
+  // a refusal for a name nothing provides is a verdict about nothing
+  const allCommands = catalogueCommandUniverse()
+  const phantom = [...seen.keys()].filter((n) => !allCommands.has(n))
+  if (phantom.length) gaps.push({
+    what: `${phantom.length} refused name(s) are not provided by any Alpine package: ${phantom.join(', ')}`,
+    fix: 'remove them — a refusal for a command that does not exist is paperwork, and it hides the fact that the real command may be unaccounted for under its actual spelling',
+  })
   for (const f of REFUSAL_FAMILIES) {
     if (f.cause.trim().length < 20) gaps.push({
       what: `a refusal family refuses ${f.members.length} command(s) with a cause too short to be a reason: ${JSON.stringify(f.cause)}`,

@@ -80,3 +80,30 @@ test('the async door hands every non-codec applet straight to the synchronous on
   for (const a of CODEC_APPLETS) assert.ok(a.length > 0)
   assert.equal(CODEC_APPLETS.includes('gzip' as never), true)
 })
+
+// ── THE ALIASES. Each of these was refused until the thing it is an alias OF got ported, and each refusal was
+// then false. They are tested as aliases: the answer must be IDENTICAL to the primary name's, because that is
+// the whole claim — not similar output, the same output.
+
+test('pigz IS gzip and unpigz IS gunzip — same format, and the spelling is reported back', async () => {
+  sessionWrite('/tmp/pig', 'alpha\nbeta\nalpha')
+  const viaPigz = await uuidnaExecAsync('pigz /tmp/pig')
+  sessionWrite('/tmp/pig2', 'alpha\nbeta\nalpha')
+  const viaGzip = await uuidnaExecAsync('gzip /tmp/pig2')
+  assert.deepEqual(viaPigz.output, viaGzip.output, 'a parallel gzip must emit the same member as gzip')
+  assert.equal((viaPigz.data as { applet: string }).applet, 'pigz', 'the answer names the spelling the caller used')
+  assert.equal((viaPigz.data as { ranAs: string }).ranAs, 'gzip', 'and says which applet actually ran')
+  const back = await uuidnaExecAsync('unpigz /tmp/pig.gz')
+  assert.equal(back.output.join('\n'), 'alpha\nbeta\nalpha')
+})
+
+test('zegrep and zfgrep decode like zgrep — one decode path, not three that can drift', async () => {
+  sessionWrite('/tmp/zz', 'alpha\nbeta\nALPHA')
+  await uuidnaExecAsync('gzip /tmp/zz')
+  const a = await uuidnaExecAsync('zgrep alpha /tmp/zz.gz')
+  const e = await uuidnaExecAsync('zegrep alpha /tmp/zz.gz')
+  const f = await uuidnaExecAsync('zfgrep alpha /tmp/zz.gz')
+  assert.deepEqual(e.output, a.output)
+  assert.deepEqual(f.output, a.output)
+  assert.deepEqual(a.output, ['alpha'], 'and the match is case-sensitive, so ALPHA is not a hit')
+})

@@ -52,6 +52,9 @@ export const CORE_APPLETS = [
   'gzip', 'gunzip', 'zcat', 'zgrep', 'tar',
   // fifth wave — the SHA-2 family this tree now implements; md5 and sha1 stay refused, and why is in ../refusals
   'sha512sum', 'sha384sum', 'sha224sum',
+  // sixth wave — names whose refusal became false once gzip and the multiplexer were ported: pigz IS gzip's
+  // format, zegrep and zfgrep ship IN the gzip package, and the two busybox spellings are the same binary
+  'pigz', 'unpigz', 'zegrep', 'zfgrep', 'busybox.static', 'busybox-extras',
 ] as const
 export type CoreApplet = (typeof CORE_APPLETS)[number]
 

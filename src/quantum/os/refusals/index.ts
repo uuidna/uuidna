@@ -27,7 +27,7 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
   {
     kind: 'law',
     cause: 'reads a wall clock, and this tree hard-rejects the clock everywhere — time enters as data or not at all',
-    members: ['date', 'uptime', 'sleep', 'timeout', 'touch', 'ctail', 'logtail', 'logtail2', 'progress'],
+    members: ['date', 'uptime', 'sleep', 'timeout', 'touch'],
   },
   {
     kind: 'law',
@@ -38,17 +38,17 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
     kind: 'subject',
     cause: 'reads the HOST identity or environment, which is exactly the boundary uuidnaOS does not cross; a virtual answer would be invented, not measured',
     members: ['arch', 'uname', 'hostname', 'hostid', 'nproc', 'id', 'groups', 'users', 'who', 'whoami', 'logname',
-      'pinky', 'printenv', 'tty', 'stty', 'env', 'bbsuid', 'wifi-status'],
+      'pinky', 'printenv', 'tty', 'stty', 'env', 'wifi-status'],
   },
   {
     kind: 'subject',
     cause: 'acts on host processes, signals or scheduling, and there are none here — a faked table is attestation wearing execution\'s clothes',
-    members: ['ps', 'kill', 'nice', 'nohup', 'stdbuf', 'chroot', 'purge-old-kernels', 'dumper'],
+    members: ['ps', 'kill', 'nice', 'nohup', 'stdbuf', 'chroot', 'purge-old-kernels', 'progress', 'bbsuid'],
   },
   {
     kind: 'subject',
     cause: 'acts on block devices or a mounted filesystem; the session models a flat path-to-content map, not storage',
-    members: ['mount', 'dd', 'df', 'sync', 'mkfifo', 'mknod', 'chmod', 'chown', 'chgrp', 'install', 'shred', 'truncate', 'locate', 'updatedb'],
+    members: ['mount', 'dd', 'df', 'sync', 'mkfifo', 'mknod', 'chmod', 'chown', 'chgrp', 'install', 'shred', 'truncate', 'locate', 'updatedb', 'logtail', 'logtail2'],
   },
   {
     kind: 'subject',
@@ -65,7 +65,7 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
     cause: 'is an INTERPRETER for its own language, so porting it means porting a language rather than a transform',
     members: ['awk', 'gawk', 'gawk-5.3.2', 'gawkbug', 'sed', 'sh', 'bash', 'bashbug', 'zsh', 'zsh-5.9', 'fish',
       'fish_indent', 'fish_key_reader', 'cicada', 'shfmt', 'shellharden', 'vint', 'bats', 'shellspec',
-      'logcheck', 'logcheck-test', 'nickel', 'manifest', 'xargs'],
+      'logcheck', 'logcheck-test', 'nickel', 'xargs'],
   },
   {
     kind: 'scope',
@@ -73,23 +73,27 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
     members: ['vim', 'nvim', 'view', 'rview', 'rvim', 'vimb', 'vimiv', 'vimtutor', 'runVimTests', 'ex', 'vis',
       'vis-clipboard', 'vis-complete', 'vis-digraph', 'vis-menu', 'vis-open', 'nano', 'rnano', 'joe', 'jmacs',
       'jpico', 'jstar', 'rjoe', 'kak', 'sciteco', 'gsciteco', 'tedoc.tes', 'gtedoc.tes', 'grosciteco.tes',
-      'ggrosciteco.tes', 'less', 'lesskey', 'more', 'ranger', 'lf', 'rifle', 'hh', 'hstr', 'iamb', 'peep'],
+      'ggrosciteco.tes', 'less', 'lesskey', 'more', 'ranger', 'lf', 'rifle', 'hh', 'hstr', 'iamb', 'peep', 'mcsn'],
   },
   {
     kind: 'scope',
     cause: 'is a terminal multiplexer or session manager: its product is a live terminal, which this tree has no way to hold',
-    members: ['screen', 'screen-5.0.2', 'tmux', 'tmux-rime', 'tmuxinator', 'dtach', 'sk-tmux', 'fzf-tmux', 'chayang',
+    members: ['screen', 'screen-5.0.2', 'tmux', 'tmux-rime', 'tmuxinator', 'dtach', 'sk-tmux', 'fzf-tmux',
       'byobu', 'byobu-config', 'byobu-ctrl-a', 'byobu-disable', 'byobu-disable-prompt', 'byobu-enable',
       'byobu-enable-prompt', 'byobu-export', 'byobu-janitor', 'byobu-keybindings', 'byobu-launch',
       'byobu-launcher', 'byobu-launcher-install', 'byobu-launcher-uninstall', 'byobu-layout', 'byobu-prompt',
       'byobu-quiet', 'byobu-reconnect-sockets', 'byobu-screen', 'byobu-select-backend', 'byobu-select-profile',
       'byobu-select-session', 'byobu-shell', 'byobu-silent', 'byobu-status', 'byobu-status-detail', 'byobu-tmux',
-      'byobu-ugraph', 'byobu-ulevel'],
+      'byobu-ugraph', 'byobu-ulevel',
+      // byobu's own helper scripts, filed here by the package that PROVIDES them rather than by their names —
+      // each of these four was misfiled on 2026-09-05 from the name alone (col1 read as a text tool, manifest
+      // as a config language, ctail as a clock, vigpg as network), and the catalogue settled all four
+      'col1', 'manifest', 'ctail', 'vigpg'],
   },
   {
     kind: 'scope',
     cause: 'is a COMPRESSION CODEC THE PLATFORM DOES NOT SHIP, each its own algorithm and container; a hand-rolled partial would report success over data it never encoded, which is the failure mode this tree calls worse than none. gzip was refused here until 2026-09-05 and that was FALSE — the platform provides it, this tree already decoded Alpine indexes with it, and it is ported now',
-    members: ['gzexe', 'znew', 'zforce', 'uncompress', 'pigz', 'unpigz',
+    members: ['gzexe', 'znew', 'zforce', 'uncompress',
       'bzip2', 'bunzip2', 'bzcat', 'bzip2recover', 'bzip3', 'bunzip3', 'bz3cat',
       'lzma', 'unlzma', 'lzcat', 'lzmadec', 'lzmainfo', 'xz', 'unxz', 'xzcat', 'xzdec', 'pixz',
       'zstd', 'unzstd', 'zstdcat', 'zstdmt', 'zstd-frugal', 'pzstd', 'lrztar', 'lrzuntar',
@@ -98,7 +102,7 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
   {
     kind: 'scope',
     cause: 'is a wrapper that runs another tool over a compressed stream, so it inherits the codec refusal above — the wrapper is trivial, the codec is the work',
-    members: ['zegrep', 'zfgrep', 'zcmp', 'zdiff', 'zless', 'zmore',
+    members: ['zcmp', 'zdiff', 'zless', 'zmore',
       'bzgrep', 'bzegrep', 'bzfgrep', 'bzcmp', 'bzdiff', 'bzless', 'bzmore',
       'bz3grep', 'bz3less', 'bz3more', 'bz3most',
       'lzgrep', 'lzegrep', 'lzfgrep', 'lzcmp', 'lzdiff', 'lzless', 'lzmore',
@@ -117,18 +121,19 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
       'slurp', 'swaylock', 'slock', 'redshift', 'redshift-gtk', 'rot8', 'wf-recorder', 'wluma', 'xautolock',
       'xpra', 'xpra_launcher', 'xrefresh', 'xsct', 'matchbox-keyboard', 'mate-screensaver',
       'mate-screensaver-command', 'mate-screensaver-preferences', 'simplescreenrecorder', 'shutterbug',
-      'coreshot', 'cosmic-osd', 'hdrcalibrator', 'img', 'kscreen-console', 'kscreen-doctor', 'qutebrowser',
-      'wvkbd-deskintl', 'wvkbd-mobintl', 'run_scaled', 'ssr-glinject', 'suggpicker', 'sm', 'mcsn', 'peanutbutter', 'col1'],
+      'coreshot', 'cosmic-osd', 'hdrcalibrator', 'kscreen-console', 'kscreen-doctor', 'qutebrowser',
+      'wvkbd-deskintl', 'wvkbd-mobintl', 'run_scaled', 'ssr-glinject', 'suggpicker', 'sm', 'peanutbutter',
+      'chayang', 'dumper'],
+  },
+  {
+    kind: 'subject',
+    cause: 'needs a CONTAINER RUNTIME and an image store — namespaces, an overlay filesystem, a registry client; uuidnaOS models provenance for Alpine packages and runs none of that, so there is nothing for these to build into or schedule onto',
+    members: ['img', 'k3s'],
   },
   {
     kind: 'subject',
     cause: 'speaks to a NETWORK or to a host service, and uuidnaOS has no socket — a reply it printed would have come from nowhere',
-    members: ['mtr', 'mtr-packet', 'ssl_client', 'k3s', 'tgt-admin', 'tgt-setup-lun', 'nngcat', 'vigpg'],
-  },
-  {
-    kind: 'scope',
-    cause: 'is the multi-call binary\'s own alternate spelling, already answered by the ported multiplexer under its primary name',
-    members: ['busybox-extras', 'busybox.static'],
+    members: ['mtr', 'mtr-packet', 'ssl_client', 'tgt-admin', 'tgt-setup-lun', 'nngcat'],
   },
 ]
 

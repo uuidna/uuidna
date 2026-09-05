@@ -743,6 +743,10 @@ export function uuidnaExec(line: string): ExecResult {
     case 'zcat':
     case 'zgrep':
     case 'tar':
+    case 'pigz':
+    case 'unpigz':
+    case 'zegrep':
+    case 'zfgrep':
       err(`exec: ${applet} is ported on the ASYNC door — call uuidnaExecAsync('${line.trim()}'); the platform's gzip codec is a stream and this door is synchronous`)
       break
     // ── THE PORTED BUSYBOX FAMILY. One dispatch rather than twenty-five cases, because they share a contract:
@@ -800,6 +804,8 @@ export function uuidnaExec(line: string): ExecResult {
     case 'dir':
     case 'vdir':
     case 'busybox':
+    case 'busybox.static':
+    case 'busybox-extras':
     case 'coreutils':
     case 'uutils':
     case 'sha512sum':
@@ -985,7 +991,12 @@ export function uuidnaExec(line: string): ExecResult {
         // THE MULTIPLEXER. busybox is ONE binary carrying many applets, and `busybox wc file` is how it is
         // called; coreutils and uutils ship the same shape. Porting the multiplexer is porting the calling
         // convention, so it dispatches into this very door rather than duplicating a table of its own.
+        // ALL FOUR SPELLINGS, and leaving two out cost an empty green answer: the inner switch's default is
+        // grep, so `busybox.static rev abc` was grepping for "rev" in "abc" and reporting no match — a wrong
+        // answer that looks like a right one. Same list as CODEC_ALIAS's lesson: a spelling is not a fallthrough.
         case 'busybox':
+        case 'busybox.static':
+        case 'busybox-extras':
         case 'coreutils':
         case 'uutils': {
           if (operands.length === 0) {
@@ -1075,20 +1086,30 @@ export function uuidnaExec(line: string): ExecResult {
 import { compress, decompress, bytesToBase64, base64ToBytes, tarEntries } from '../codecs/index.js'
 
 /** the applets that need a codec stream, and therefore the async door */
-export const CODEC_APPLETS = ['gzip', 'gunzip', 'zcat', 'zgrep', 'tar'] as const
+export const CODEC_APPLETS = ['gzip', 'gunzip', 'zcat', 'zgrep', 'tar', 'pigz', 'unpigz', 'zegrep', 'zfgrep'] as const
+
+// pigz IS gzip — a parallel implementation of the same format, so its output is a gzip member and its input is
+// one too. Parallelism is a property of the host's cores, which this tree does not have and does not claim; the
+// FORMAT is what a port owes, and porting it as an alias says exactly that rather than pretending to threads.
+// zegrep and zfgrep ship inside the gzip package and are zgrep with grep's -E and -F: the same decode, a
+// different match. Aliasing them here keeps one decode path instead of three that can drift.
+const CODEC_ALIAS: Record<string, string> = { pigz: 'gzip', unpigz: 'gunzip', zegrep: 'zgrep', zfgrep: 'zgrep' }
 
 /** uuidnaExecAsync(line) → the codec applets; anything else is handed to the synchronous door unchanged. */
 export async function uuidnaExecAsync(line: string): Promise<ExecResult> {
   const parts = line.trim().split(/\s+/).filter(Boolean)
-  const applet = parts[0] ?? ''
-  if (!(CODEC_APPLETS as readonly string[]).includes(applet)) return uuidnaExec(line)
+  const spelling = parts[0] ?? ''
+  if (!(CODEC_APPLETS as readonly string[]).includes(spelling)) return uuidnaExec(line)
+  const applet = CODEC_ALIAS[spelling] ?? spelling
   const args = parts.slice(1)
   const flags = args.filter((a) => a.startsWith('-'))
   const operands = args.filter((a) => !a.startsWith('-'))
   const has = (f: string): boolean => flags.includes(f)
-  const base = { applet, mode: 'executed' as const, unrunArgs: [] as string[] }
+  // the RESULT names the spelling the caller used; the LOGIC runs under the primary name. A pigz that reported
+  // `applet: "gzip"` would be answering a question nobody asked.
+  const base = { applet: spelling, ranAs: applet, mode: 'executed' as const, unrunArgs: [] as string[] }
   const fail = (msg: string, data: unknown): ExecResult =>
-    ({ ...uuidnaExec('true'), ok: false, output: [msg], data, applet, mode: 'executed', unrunArgs: [] })
+    ({ ...uuidnaExec('true'), ok: false, output: [msg], data, applet: spelling, mode: 'executed', unrunArgs: [] })
   const done = (output: string[], data: unknown): ExecResult =>
     ({ ...uuidnaExec('true'), ok: true, output, data: { ...base, ...(typeof data === 'object' && data ? data : {}) } })
 

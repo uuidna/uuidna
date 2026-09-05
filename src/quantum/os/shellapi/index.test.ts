@@ -10,7 +10,7 @@ test('APPLETS matches the live dispatcher — a list is not a surface unless it 
   // added, and then the coverage number is a story rather than a measurement — so it is read back from the
   // dispatcher itself. This is the cross-check the module's own comment promises.
   const src = readFileSync(join(ROOT, 'src/quantum/os/exec/index.ts'), 'utf8')
-  const cases = [...src.matchAll(/^\s{4}case '([a-z0-9-]+)':/gm)].map((m) => m[1]!)
+  const cases = [...src.matchAll(/^\s{4}case '([a-z0-9.-]+)':/gm)].map((m) => m[1]!)
   assert.ok(cases.length > 0, 'the dispatcher must expose cases, or this test proves nothing')
   assert.deepEqual([...APPLETS].sort(), [...new Set(cases)].sort(), 'APPLETS drifted from the dispatcher')
 })

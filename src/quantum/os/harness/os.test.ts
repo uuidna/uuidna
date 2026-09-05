@@ -223,3 +223,15 @@ test('the busybox multiplexer dispatches into the one door, and carries an inner
   const bad = exec('busybox nosuchapplet')
   assert.equal(bad.ok, false, 'an unknown inner applet must not be laundered into a green outer answer')
 })
+
+test('every busybox spelling runs the applet — not one of them may fall through to a green empty answer', () => {
+  // busybox.static and busybox-extras were added to the OUTER switch and left out of the inner one, whose
+  // default is grep: `busybox.static rev abc` searched for "rev" inside "abc", found nothing, and returned
+  // ok:true with no output. A wrong answer wearing a right answer's shape — so all four are checked here.
+  for (const spelling of ['busybox', 'busybox.static', 'busybox-extras', 'coreutils', 'uutils']) {
+    const r = exec(`${spelling} rev abc`)
+    assert.equal(r.ok, true, `${spelling} must dispatch`)
+    assert.deepEqual(r.output, ['cba'], `${spelling} rev abc must reverse, not grep`)
+  }
+  assert.deepEqual(exec('busybox-extras factor 91').output, exec('factor 91').output)
+})
