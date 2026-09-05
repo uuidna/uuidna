@@ -12,13 +12,57 @@
 //         --wait   poll until every run for the sha has settled, then report
 import { execSync } from 'node:child_process'
 import { ROOT } from './api.js'
-import { pushVerdict, parseRunRows, type RunRow } from '../post-push.js'
+import { pushVerdict, parseRunRows, type RunRow, type CheckRow } from '../post-push.js'
 
 const sh = (cmd: string): string => execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
 
 /** the forge, asked once. A `gh` that cannot answer is UNMEASURED — it is never read as an empty run list. */
 export function runsFor(limit = 30): RunRow[] {
-  return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion,event`))
+  return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion,event,databaseId`))
+}
+
+/** THE RUNS FOR ONE COMMIT, ASKED FOR BY NAME. `gh run list --limit N` is a WINDOW, and the join that gives a
+ *  check run its event failed through it the first time it ran: three real checks on origin/main came back
+ *  "unattributed" because their workflow runs sat outside the last thirty. A window truncation wearing the
+ *  costume of an absent run — the same conflation this arm has now met four times. `?head_sha=` is exact and
+ *  needs no window at all. */
+export function runsForSha(sha: string): RunRow[] {
+  const raw: unknown = JSON.parse(sh(`gh api repos/uuidna/uuidna/actions/runs?head_sha=${encodeURIComponent(sha)} --paginate`))
+  const list = (raw as { workflow_runs?: unknown[] }).workflow_runs
+  if (!Array.isArray(list)) throw new Error('post-push: the actions/runs api did not return a list — refusing to read a malformed answer as "no runs"')
+  return list.map((r) => {
+    const o = r as Record<string, unknown>
+    return {
+      workflowName: String(o.name ?? '?'),
+      headSha: String(o.head_sha ?? ''),
+      status: String(o.status ?? ''),
+      conclusion: o.conclusion === null || o.conclusion === undefined ? null : String(o.conclusion),
+      event: String(o.event ?? ''),
+      databaseId: typeof o.id === 'number' ? o.id : Number(o.id),
+    }
+  })
+}
+
+/** THE FINER SURFACE. `gh run list` returns workflows and cannot see a check posted by a GitHub App —
+ *  `Workers Builds: uuidna` failed on five consecutive pushes and this arm reported every one of them green.
+ *  The run id is recovered from details_url so an Actions check inherits its workflow's event; a foreign app's
+ *  url carries none, which is why the roster exists. */
+export function checksFor(sha: string): CheckRow[] {
+  const raw: unknown = JSON.parse(sh(`gh api repos/uuidna/uuidna/commits/${sha}/check-runs --paginate`))
+  const list = (raw as { check_runs?: unknown[] }).check_runs
+  if (!Array.isArray(list)) throw new Error('post-push: the check-runs api did not return a list — refusing to read a malformed answer as "no failures"')
+  return list.map((r) => {
+    const o = r as Record<string, unknown>
+    const url = String(o.details_url ?? '')
+    const m = /actions\/runs\/(\d+)/.exec(url)
+    return {
+      name: String(o.name ?? '?'),
+      status: String(o.status ?? ''),
+      conclusion: o.conclusion === null || o.conclusion === undefined ? null : String(o.conclusion),
+      appSlug: String((o.app as { slug?: unknown } | undefined)?.slug ?? '?'),
+      runId: m ? Number(m[1]) : null,
+    }
+  })
 }
 
 // POLLING WITHOUT A CLOCK, which the determinism law requires: a bounded number of rounds, each waiting on the
@@ -36,13 +80,13 @@ if (isMain) {
   // yet" when it means "outside what I asked for". Two different silences wearing one sentence; the same
   // conflation this arm exists to refuse. So the limit is reported whenever the window came back full.
   const LIMIT = 30
-  let rows = runsFor(LIMIT)
-  let verdict = pushVerdict(sha, rows)
+  let rows = runsForSha(sha)
+  let verdict = pushVerdict(sha, rows, checksFor(sha))
   for (let i = 0; wait && !verdict.settled && i < ROUNDS; i++) {
     console.log(`· post-push — ${verdict.reason}`)
     sh(`sleep ${PAUSE}`)
-    rows = runsFor(LIMIT)
-    verdict = pushVerdict(sha, rows)
+    rows = runsForSha(sha)
+    verdict = pushVerdict(sha, rows, checksFor(sha))
   }
   if (verdict.ok) {
     console.log(`✓ post-push — ${verdict.reason}`)

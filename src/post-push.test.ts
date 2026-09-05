@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { pushVerdict, parseRunRows, type RunRow } from './post-push.js'
+import { pushVerdict, parseRunRows, type RunRow, type CheckRow } from './post-push.js'
 
 const SHA = '7fdb5c226aa11223344556677889900aabbccdde'
 const OTHER = '0000000011112222333344445555666677778888'
@@ -166,4 +166,61 @@ test('parseRunRows refuses a row with no event rather than defaulting it', () =>
   assert.throws(
     () => parseRunRows(JSON.stringify([{ workflowName: 'security', headSha: SHA, status: 'completed', conclusion: 'success' }])),
     /carries no `event`/)
+})
+
+// ── THE OTHER FORGE SURFACE (found by uuidna-87, 2026-09-06).
+//
+// `gh run list` returns WORKFLOWS. A commit also carries CHECK RUNS, and `Workers Builds: uuidna` — a Cloudflare
+// app check — failed on FIVE consecutive pushes while this arm reported every one of them green. The arm built
+// to stop a red forge standing under a green gate had become the green gate standing over a red forge.
+//
+// Check runs are JOBS: secret-scan, recomputable-audit and dependency-review are all jobs of ONE security run.
+// So the surface is strictly finer and larger, and when present it IS the verdict — judging both would count one
+// failure twice at two granularities.
+
+const wfRun: RunRow = { workflowName: 'security', headSha: SHA, status: 'completed', conclusion: 'success', event: 'push', databaseId: 900 }
+const chk = (name: string, conclusion: string | null, appSlug = 'github-actions', runId: number | null = 900, status = 'completed'): CheckRow =>
+  ({ name, status, conclusion, appSlug, runId })
+const green = [chk('secret-scan', 'success'), chk('recomputable-audit', 'success'), chk('deploy', 'success')]
+const cloudflare = chk('Workers Builds: uuidna', 'failure', 'cloudflare-workers-and-pages', null)
+
+test('a failing check that no workflow row shows is SEEN — the blindness that started this', () => {
+  const v = pushVerdict(SHA, [wfRun], [...green, chk('some-new-gate', 'failure')])
+  assert.equal(v.ok, false)
+  assert.deepEqual(v.failing, ['some-new-gate (failure)'])
+})
+
+test('the rostered Cloudflare build never blocks, and is never hidden either', () => {
+  const v = pushVerdict(SHA, [wfRun], [...green, cloudflare])
+  assert.equal(v.ok, true, 'it can never succeed; blocking on it would refuse every landing forever')
+  assert.ok(v.notJudging.some((n) => n.startsWith('Workers Builds')), 'but it must be named')
+  assert.match(v.reason, /Workers Builds: uuidna \(failure\)/, 'and named IN THE REASON, not only in a field')
+})
+
+// AN EXEMPTION ANSWERS ONE OF TWO QUESTIONS AND THE ROSTER SPELLS BOTH THE SAME WAY: "may not have judged yet"
+// (CodeQL is routinely still queued) and "its verdict is meaningless" (Workers Builds can never succeed). Read
+// as one word, a CodeQL FAILURE — a real security finding — passed with ok=true.
+test('an exempt FIRST-PARTY check that FAILS still refuses: exemption covers lateness, not fault', () => {
+  const v = pushVerdict(SHA, [wfRun], [...green, chk('Analyze (actions)', 'failure'), cloudflare])
+  assert.equal(v.ok, false, 'a CodeQL failure is a finding, not a scheduling quirk')
+  assert.deepEqual(v.failing, ['Analyze (actions) (failure)'])
+})
+
+test('the same check merely PENDING does not block — that is what its exemption is for', () => {
+  const v = pushVerdict(SHA, [wfRun], [...green, chk('Analyze (actions)', null, 'github-actions', 900, 'in_progress'), cloudflare])
+  assert.equal(v.ok, true)
+  assert.deepEqual(v.failing, [])
+})
+
+test('an UNROSTERED foreign check is judged normally and named, never defaulted', () => {
+  const v = pushVerdict(SHA, [wfRun], [...green, chk('Vercel', 'failure', 'vercel', null)])
+  assert.equal(v.ok, false, 'a new integration that fails must refuse until someone decides otherwise')
+  assert.ok(v.rosterGaps.some((g) => g.includes('Vercel')), 'and the decision must be forced, not defaulted')
+})
+
+test('a check belonging to a scheduled run is not this push', () => {
+  const nightly: RunRow = { workflowName: 'next', headSha: SHA, status: 'completed', conclusion: 'failure', event: 'schedule', databaseId: 901 }
+  const v = pushVerdict(SHA, [wfRun, nightly], [...green, chk('next', 'failure', 'github-actions', 901)])
+  assert.equal(v.ok, true, 'the nightly answers a different question about the same commit')
+  assert.ok(v.notThisPush.some((n) => n.startsWith('next')))
 })
