@@ -366,3 +366,15 @@ test('dircolors renders the same table in both shell dialects', () => {
   assert.match(csh.lines[0]!, /^setenv LS_COLORS/)
   assert.equal((sh.data as { entries: number }).entries, (csh.data as { entries: number }).entries)
 })
+
+test('the sha-2 applets print the digest and the stdin marker, as the coreutils tools do', () => {
+  assert.equal(CU.sha512sum('abc').lines[0],
+    'ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f  -')
+  assert.equal(CU.sha384sum('abc').lines[0],
+    'cb00753f45a35e8bb5a03d699ac65007272c32ab0eded1631a8b605a43ff5bed8086072ba1e7cc2358baeca134c825a7  -')
+  assert.equal(CU.sha224sum('abc').lines[0], '23097d223405d8228642a477bda255b32aadbce4bda0b3f7e36c9da7  -')
+  // and each is a DIFFERENT length, which is the one thing a copy-paste between them would break
+  const len = (l: string): number => l.replace('  -', '').length
+  assert.deepEqual([len(CU.sha224sum('x').lines[0]!), len(CU.sha256sum('x').lines[0]!),
+    len(CU.sha384sum('x').lines[0]!), len(CU.sha512sum('x').lines[0]!)], [56, 64, 96, 128])
+})

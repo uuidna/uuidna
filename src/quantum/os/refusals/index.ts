@@ -107,8 +107,8 @@ export const REFUSAL_FAMILIES: readonly RefusalFamily[] = [
   },
   {
     kind: 'scope',
-    cause: 'is a HASH this tree has not implemented: sha256 is the one it computes and audits, and a second implementation earns its place by being needed rather than by filling a row — md5 and sha1 additionally being broken for the purpose people reach for them',
-    members: ['md5sum', 'sha1sum', 'sha512sum', 'sha224sum', 'sha384sum', 'b2sum'],
+    cause: 'is a HASH this tree does not implement. The SHA-2 family was refused here until 2026-09-05 with the reason "sha256 is the one hash this tree computes" — a fact about the tree, not a limit on the port, so the fact was changed and sha512sum, sha384sum and sha224sum are ported. md5 and sha1 are refused for a different and unchanged reason: both are broken for the purpose people reach for them, so importing them to fill a row would be the worse trade. b2sum needs BLAKE2, a distinct primitive nothing here calls for yet',
+    members: ['md5sum', 'sha1sum', 'b2sum'],
   },
   {
     kind: 'subject',

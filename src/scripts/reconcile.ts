@@ -108,7 +108,7 @@ if (out('git status --porcelain').length === 0) {
   run('node dist/scripts/gate-receipt.js --verified guard,build')
   // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
   const staged = stageDerived(ROOT)
-  if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged' + staged.leftForHumans.join(', '))
+  if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged): ' + staged.leftForHumans.join(', '))
   // NOTHING STAGED IS NOT NOTHING TO SAY. The tree is dirty (checked above) but the drain's paths matched none of
   // it — so every changed file belongs to a sibling, or to a generator whose output is missing from DRAIN_PATHS.
   // Committing anyway hands git an empty index and the run dies on `no changes added to commit`, an error about
@@ -129,6 +129,28 @@ if (out('git status --porcelain').length === 0) {
 // worse, the wrapper exit 0 with the commit stranded local. Now the push failure is CAUGHT and named (the
 // gate's verdict is already on screen above it), and success is not claimed but VERIFIED: after the push,
 // origin is fetched and the ahead-count must be exactly 0 — reconciled means synced, or the run fails loudly.
+// AND IT DOES NOT PAY FOR A PUSH IT ALREADY KNOWS WILL BE DENIED. Three times on 2026-09-05 this chain
+// regenerated the derived layer, committed it, ran the full publish court, and was denied at the last step
+// with "the working tree is DIRTY after the derived layer settled" — because the drain stages ONLY what it
+// generated (correctly: the rest belongs to whoever wrote it), so hand-written source is still unstaged when
+// the push runs. The denial was right and the cost was wasted: reconcile knows the tree is dirty at the moment
+// it prints `left for a human`, minutes before it asks the gate. So it stops there and hands over the exact
+// sequence instead — which is also the push law (the receipt is minted AFTER staging, never before).
+const unstagedNow = shellOut('git status --porcelain').trim()
+if (unstagedNow !== '' && !deriveOnly) {
+  console.log('')
+  console.log('· reconcile — the derived layer is COMMITTED; the push is NOT attempted, because files remain unstaged:')
+  for (const l of unstagedNow.split('\n')) console.log('    ' + l)
+  console.log('  These are yours, not the drain\'s — it stages only what it generated. The gate would deny the push')
+  console.log('  for exactly this, after paying for the whole publish court. Finish it deliberately:')
+  console.log('')
+  console.log('    git add <your files>')
+  console.log('    npm run guard && npm test')
+  console.log('    node dist/scripts/gate-receipt.js --verified guard,tests   # AFTER staging: staging moves files')
+  console.log('    git add gate-receipt.json && git commit -m "… Backed by theorem <key>" && git push origin HEAD')
+  console.log('')
+  process.exit(0)
+}
 try {
   run('git push origin HEAD')                          // the pre-push readiness gate re-verifies; passes if reconciled
 } catch {

@@ -17,9 +17,16 @@ const K = new Uint32Array([
 const rotr = (x: number, n: number): number => ((x >>> n) | (x << (32 - n))) >>> 0
 const cat = (...a: Uint8Array[]): Uint8Array => { const t = new Uint8Array(a.reduce((s, x) => s + x.length, 0)); let o = 0; for (const x of a) { t.set(x, o); o += x.length } return t }
 
-/** SHA-256 (FIPS 180-4) of a byte array → 32-byte digest. */
-export function sha256(msg: Uint8Array): Uint8Array {
-  const H = new Uint32Array([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19])
+/** the SHA-256 initial value (FIPS 180-4): the first 32 bits of the fractional parts of the square roots of
+ *  the first eight primes. Named so SHA-224, which differs from SHA-256 in NOTHING BUT this vector and the
+ *  truncation, can reuse the compression rather than copying it — a second copy of a hash is a second thing to
+ *  keep correct, and the KATs would only ever exercise one of them. */
+export const IV256 = Object.freeze([0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19] as const)
+
+/** SHA-256 (FIPS 180-4) of a byte array → 32-byte digest. `iv` exists for SHA-224 and defaults to SHA-256's
+ *  own vector, so every existing caller and every existing KAT walks the identical path it always did. */
+export function sha256(msg: Uint8Array, iv: readonly number[] = IV256): Uint8Array {
+  const H = new Uint32Array(iv)
   const l = msg.length, bitLen = l * 8
   const k = ((56 - ((l + 1) % 64)) + 64) % 64
   const total = l + 1 + k + 8

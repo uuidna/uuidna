@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "7f36eb85e200391a45edaa05e45a1c52",
+    "src": "89dc7da8d8466d4b40c58b0ddbb4c8e9",
     "lean": "61ef3c35b592a51eabeaa2027bfe47cd"
   },
   "files": {
@@ -4248,6 +4248,8 @@
     "src/sessions.test.ts": "347940030d99111b",
     "src/sessions.ts": "0494b41e47cd4e1f",
     "src/sha256.ts": "97a03ba830f1d9f7",
+    "src/sha512.test.ts": "9a7d2ab5dbffd5b6",
+    "src/sha512.ts": "4220fa6067a9b6d5",
     "src/shor-capacity.test.ts": "5b2bd46b61d9d4a3",
     "src/sign.ts": "af1c70f36c48397a",
     "src/site-contents.test.ts": "ec7183d033c082f8",
@@ -4320,7 +4322,7 @@
   },
   "verified": [
     "guard",
-    "build"
+    "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

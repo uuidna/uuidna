@@ -801,7 +801,10 @@ export function uuidnaExec(line: string): ExecResult {
     case 'vdir':
     case 'busybox':
     case 'coreutils':
-    case 'uutils': {
+    case 'uutils':
+    case 'sha512sum':
+    case 'sha384sum':
+    case 'sha224sum': {
       // ── OPERAND PARSING, and the first version got three things wrong that a run exposed immediately.
       //
       // (1) FLAG VALUES LEAKED INTO THE TEXT. `fold -w 4 abcdefghij` folded "4 abcdefghij" because the 4 was
@@ -885,6 +888,9 @@ export function uuidnaExec(line: string): ExecResult {
         case 'printf': r = CU.printf(operands[0] ?? '', operands.slice(1)); break
         case 'base64': r = CU.base64(fromFile ? fromFile.content : operands.join(' '), has('-d')); break
         case 'sha256sum': r = CU.sha256sum(textOf()); break
+        case 'sha512sum': r = CU.sha512sum(textOf()); break
+        case 'sha384sum': r = CU.sha384sum(textOf()); break
+        case 'sha224sum': r = CU.sha224sum(textOf()); break
         case 'cksum': r = CU.cksum(textOf()); break
         case 'test': r = CU.testExpr(operands); break
         case 'true': r = { lines: ['true'], data: { true: true } }; break

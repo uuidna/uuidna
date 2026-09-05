@@ -22,6 +22,7 @@
 // supplies the text — from a session file or from the operands — so these can be tested without an OS at all.
 import { sha256 } from '../../../sha256.js'
 import { REFUSAL_FAMILIES } from '../refusals/index.js'
+import { sha512, sha384, sha224 } from '../../../sha512.js'
 
 /** the lines an applet returns, plus the structured data the receipt folds */
 export interface AppletOut { lines: string[]; data: unknown }
@@ -49,6 +50,8 @@ export const CORE_APPLETS = [
   'busybox', 'coreutils', 'uutils', 'dir', 'vdir', 'find',
   // fourth wave — the platform's own gzip codec and the tar container, reached through the async door
   'gzip', 'gunzip', 'zcat', 'zgrep', 'tar',
+  // fifth wave — the SHA-2 family this tree now implements; md5 and sha1 stay refused, and why is in ../refusals
+  'sha512sum', 'sha384sum', 'sha224sum',
 ] as const
 export type CoreApplet = (typeof CORE_APPLETS)[number]
 
@@ -634,4 +637,30 @@ export function matchGlob(name: string, pattern: string): boolean {
     return false
   }
   return walk(0, 0)
+}
+
+// ── THE REST OF THE SHA-2 FAMILY. These were refused with the reason "sha256 is the one hash this tree
+// implements", which was true when it was written and is a fact about the tree rather than a limit on the port.
+// So the fact was changed: src/sha512.ts implements SHA-512, SHA-384 and SHA-224 against the standard's own
+// vectors, with the round constants DERIVED from the sentence that defines them instead of transcribed. md5sum
+// and sha1sum stay refused, and their reason is unchanged and different — both are broken for the purpose
+// people reach for them, so importing them to fill a row would be the worse trade.
+const sumLine = (d: Uint8Array): string => [...d].map((b) => b.toString(16).padStart(2, '0')).join('') + '  -'
+
+/** sha512sum(text) → the digest and the `-` stdin marker, exactly as the coreutils tool prints it. */
+export const sha512sum = (text: string): AppletOut => {
+  const d = sha512(new TextEncoder().encode(text))
+  return ok([sumLine(d)], { sha512: sumLine(d).slice(0, 128) })
+}
+
+/** sha384sum(text) → the same, at 48 bytes. */
+export const sha384sum = (text: string): AppletOut => {
+  const d = sha384(new TextEncoder().encode(text))
+  return ok([sumLine(d)], { sha384: sumLine(d).slice(0, 96) })
+}
+
+/** sha224sum(text) → the same, at 28 bytes. */
+export const sha224sum = (text: string): AppletOut => {
+  const d = sha224(new TextEncoder().encode(text))
+  return ok([sumLine(d)], { sha224: sumLine(d).slice(0, 56) })
 }
