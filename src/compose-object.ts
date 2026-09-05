@@ -17,6 +17,87 @@ import { publications } from './publish.js'
 import { monographFaceOf, channelAudit } from './hexagram.js'
 import { handleOf } from './handle.js'
 import { STANDING_DOI } from './handle-permanence.js'   // the ONE place the archive DOI is written
+import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from './publication-metadata.js'
+
+// THE LICENCE IS READ ONCE PER PROCESS, and this is the SECOND time today that mattered. Each of these calls
+// reaches legalFacts(), which is not cached and costs about 34 milliseconds; deposit-records.ts spent 261
+// seconds on 7,617 of them before they were hoisted there. Then the theorem page grew a licence line and called
+// them twice per page — 60 milliseconds each of 2,617 pages, about two and a half minutes of build. The same
+// fault, in a second place, introduced minutes after fixing the first. Hoisted: two calls for the whole run.
+const LICENCE_SPDX = CANONICAL_LICENSE_SPDX()
+const LICENCE_URL = CANONICAL_LICENSE_URL()
+import { propositionAddress } from './proposition-address.js'
+
+// ── EVERY THEOREM IS A PUBLICATION, AND EACH ONE IS THE REFERRER OBSERVING THE REST.
+//
+// The captain, 2026-09-05: "one publication per theorem as referrer observing the rest." The unit of publication
+// is the theorem, not the wing — 117 monographs were a filesystem artefact, one Lean file each, and the ratio
+// hid an extreme skew: mean 22.4 but median 8, four wings holding half of all theorems, 72 wings under ten, and
+// one at 906 against another at 2. A 906-theorem object and a 2-theorem object were both called "a publication".
+//
+// A theorem page already carried almost everything a citable record needs — lead prose, its Lean proof, the
+// typeset form, its principle, the archive DOI, the credit, and links to neighbours. Measured, two things were
+// missing: no licence on any page (0 of 200 sampled), and it observed exactly THREE other theorems — min,
+// median and max all 3, a fixed window rather than a vantage on the corpus.
+//
+// SO THE OBSERVATION IS COUNTS, NOT LISTS, and that is a deliberate constraint rather than a shortcut: listing
+// what a theorem relates to across 2,617 pages is how 127 MB of markup got shipped in the first place. A
+// referrer observes the rest by stating its POSITION in it — how many share its principle, whether its
+// proposition carries a second name, where it sits in the corpus — each figure derived and none of them a list.
+// THE CORPUS VIEW IS BUILT ONCE. The first version of `observes` filtered all 2,617 theorems three times per
+// page and rebuilt the proposition index each time — 2,617 propositionAddress calls per page, 6.8 MILLION across
+// the corpus, and 70 milliseconds a page. That is the fourth time today the same fault has appeared in this
+// tree: an immutable read recomputed inside a loop. Cached, the whole view is one pass and every page reads it.
+let _corpus: {
+  total: number; wings: number; propositions: number
+  byFile: Map<string, number>; byPrinciple: Map<string, number>
+  byProposition: Map<string, string[]>
+} | null = null
+
+function corpusView(): NonNullable<typeof _corpus> {
+  if (_corpus) return _corpus
+  const all = theorems() as { key: string; file: string; principle: string; statement: string }[]
+  const byFile = new Map<string, number>()
+  const byPrinciple = new Map<string, number>()
+  const byProposition = new Map<string, string[]>()
+  for (const x of all) {
+    byFile.set(x.file, (byFile.get(x.file) ?? 0) + 1)
+    byPrinciple.set(x.principle, (byPrinciple.get(x.principle) ?? 0) + 1)
+    const a = propositionAddress(x.statement)
+    const list = byProposition.get(a)
+    if (list) list.push(x.key)
+    else byProposition.set(a, [x.key])
+  }
+  _corpus = { total: all.length, wings: byFile.size, propositions: byProposition.size, byFile, byPrinciple, byProposition }
+  return _corpus
+}
+
+function observes(t: { key: string; file: string; principle: string; statement: string; address: string }): string {
+  const c = corpusView()
+  const wing = { length: c.byFile.get(t.file) ?? 0 }
+  const kin = { length: c.byPrinciple.get(t.principle) ?? 0 }
+  const sameProposition = (c.byProposition.get(propositionAddress(t.statement)) ?? [])
+    .filter((k) => k !== t.key).map((k) => ({ key: k }))
+  const propositions = c.propositions
+  const wings = c.wings
+  const all = { length: c.total }
+  const rest = c.total - 1
+  return [
+    `This is one publication of ${all.length}, and it is the referrer for its own address: the handle above `
+      + `resolves here and nowhere else. From this vantage the corpus reads as ${propositions} distinct `
+      + `propositions across ${wings} wings — ${rest} other sealed theorems, every one of them re-derivable by `
+      + `the same kernel with no axiom beneath it.`,
+    ``,
+    `| from here | observed |`,
+    `| --- | --- |`,
+    `| its wing | ${t.file} — ${wing.length} ${wing.length === 1 ? 'theorem' : 'theorems'} |`,
+    `| its principle | ${t.principle} — shared with ${kin.length - 1} other ${kin.length - 1 === 1 ? 'theorem' : 'theorems'} |`,
+    `| its proposition | ${sameProposition.length === 0
+      ? 'sealed once, under this name alone'
+      : `sealed ${sameProposition.length + 1} times — also named ${sameProposition.map((x) => `[${x.key}](/theorem/${x.key})`).join(', ')}, one statement in ${sameProposition.length + 1} hands`} |`,
+    `| the rest | [all ${all.length} theorems](/theorems) · [${wings} wings](/axioms) |`,
+  ].join('\n')
+}
 import { buildChunks } from './handle-chunks.js'
 import { mirrorRows, legsFor } from './rosetta-legs.js'
 import { rdRoot } from './boundary.js'
@@ -189,6 +270,14 @@ ${t.lean}
 | real energy cost | Landauer floor *kT·ln2* — heartbeat ≠ joules |
 
 <ClientOnly><TheoremUse /></ClientOnly>
+
+## What this theorem observes
+
+${observes(t)}
+
+## How to cite
+
+Rouschev, Tsvetan (ORCID [0009-0000-7312-9778](https://orcid.org/0009-0000-7312-9778)). *${String(t.name).replace(/\s+/g, ' ').slice(0, 150)}* — \`${t.key}\`, sealed in ${t.file} under the principle ${t.principle}. uuidna, handle \`${handle}\`. Archived at [doi:${STANDING_DOI}](https://doi.org/${STANDING_DOI}). Page: https://uuidna.com/theorem/${t.key}. Licence: ${LICENCE_SPDX} (${LICENCE_URL}).
 
 Re-verify with \`npm run lean\`. Cite DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI}) and handle \`https://uuidna.com/${handle}\`.
 `,

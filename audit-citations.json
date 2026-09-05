@@ -1,18 +1,18 @@
 {
-  "key": "e0cfe096-d471-857a-83ba-7e4e3eb6b0e2",
-  "publications": 116,
+  "key": "91318b5e-5b66-84c7-8b1d-4e5c421e02d0",
+  "publications": 117,
   "sealedTheorems": 2617,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2612,
+    "claims": 2617,
     "theorems": 2617,
-    "bijection": false,
+    "bijection": true,
     "digitalRoots": {
-      "claims": 2,
+      "claims": 7,
       "theorems": 7,
-      "publications": 8
+      "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -333,6 +333,14 @@
       "slug": "relativity",
       "claims": 10,
       "cited": 10,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "cern",
+      "claims": 5,
+      "cited": 5,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
