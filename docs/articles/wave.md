@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 935 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 936 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 934 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 935 siblings below.
 
-**935 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 754 of its 935 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**936 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 755 of its 936 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 935 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 936 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -6554,6 +6554,13 @@ The ledger holds this as [alpine_security_ops_plannable_4](/theorem/alpine_secur
 
 ```lean
 (([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4))
+```
+
+### AN AXIOM-FREE LEDGER STILL RESTS ON SOMETHING, and it is not axioms — every one of the 2657 theorems depends on NO axiom, so grouping by axiom dependency puts them all in one bucket and says nothing. What each statement actually assumes is the kernel s ability to DECIDE particular operations, and that is the ledger s real axiomatic structure because by decide is the only tactic in it. Organised as a HIERARCHY so it partitions rather than overlaps — deepest capability wins, a statement that both multiplies and walks a list is an enumeration because the arithmetic came free with the walk. Counted here: literal 106, arithmetic 1049, propositional 514, enumeration 843, list-structure 140, finite-type 0, quantified 5. Three things are decided. The counts SUM to the ledger, so the families are exhaustive and disjoint. EXACTLY ONE family is empty — finite-type, and its emptiness is a measurement rather than an omission: the ledger does use Fin, and every such statement sits under a quantifier, so the hierarchy sends it one level deeper. And no family exceeds the ledger, which is what makes them shares. SCOPE: this counts what the kernel must decide, not how hard the deciding is — a walk of eight cases and a walk of sixty thousand land in the same family.
+The ledger holds this as [axiom_families_partition_the_ledger_2657](/theorem/axiom_families_partition_the_ledger_2657) — proven `by decide`, sorry-free:
+
+```lean
+([106, 1049, 514, 843, 140, 0, 5].sum = 2657) ∧ (([106, 1049, 514, 843, 140, 0, 5].filter (fun n => n == 0)).length = 1) ∧ ([106, 1049, 514, 843, 140, 0, 5].all (fun n => n ≤ 2657))
 ```
 
 

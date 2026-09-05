@@ -1,0 +1,12 @@
+{
+  "handle": "19c5810f",
+  "address": "19c5810f-c9fc-8518-9cc5-2252cec0e693",
+  "statement": "([106, 1049, 514, 843, 140, 0, 5].sum = 2657) ∧ (([106, 1049, 514, 843, 140, 0, 5].filter (fun n => n == 0)).length = 1) ∧ ([106, 1049, 514, 843, 140, 0, 5].all (fun n => n ≤ 2657))",
+  "tactic": "decide",
+  "keys": [
+    "axiom_families_partition_the_ledger_2657"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

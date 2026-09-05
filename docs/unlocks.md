@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,574 distinct theorems · 2,657 keys · 115 skills · 118 Lean files.
+**Board (computed).** 2,575 distinct theorems · 2,658 keys · 115 skills · 118 Lean files.
 
-Receipt `8aa5f37a-bf36-80e0-87f3-cf96564efb48` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `006d4b65-900c-808c-8021-2e0d35cd6b5b` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -55,7 +55,7 @@ Receipt `8aa5f37a-bf36-80e0-87f3-cf96564efb48` · structured form <a href="/lean
 
 | Skill | Keys |
 | --- | ---: |
-| `wave` | 935 |
+| `wave` | 936 |
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
@@ -80,7 +80,7 @@ Receipt `8aa5f37a-bf36-80e0-87f3-cf96564efb48` · structured form <a href="/lean
 
 | File | Keys |
 | --- | ---: |
-| <a href="/lean/Wave.lean">`Wave.lean`</a> | 935 |
+| <a href="/lean/Wave.lean">`Wave.lean`</a> | 936 |
 | <a href="/lean/Ring.lean">`Ring.lean`</a> | 234 |
 | <a href="/lean/Rosette.lean">`Rosette.lean`</a> | 148 |
 | <a href="/lean/Nim.lean">`Nim.lean`</a> | 93 |

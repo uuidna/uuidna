@@ -33,7 +33,7 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 ## Accepted — the cargo, each with its seal
 
-930 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+931 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -969,6 +969,7 @@ theorem page and recompute either.
 | [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) | [`7fcddeac`](/theorem/merkle_advantage_starts_above_one_bit) | `22859641` |
 | [`alpine_shell_applets_partition_85`](/theorem/alpine_shell_applets_partition_85) | [`439bea18`](/theorem/alpine_shell_applets_partition_85) | `e9891eb7` |
 | [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) | [`b3c05da4`](/theorem/alpine_security_ops_plannable_4) | `ffda0d5a` |
+| [`axiom_families_partition_the_ledger_2657`](/theorem/axiom_families_partition_the_ledger_2657) | [`e6995935`](/theorem/axiom_families_partition_the_ledger_2657) | `c10c8968` |
 
 ## Refused — the law school's enrollment roster
 

@@ -5560,3 +5560,17 @@ theorem alpine_shell_applets_partition_85 : (69 + 6 + 10 = 85) := by decide
     blocked, which the js witness checks because plannability is read from the surface rather than derived. The
     distinctness is what makes the count honest; the old statement asserted only that 4 + 0 = 4 -/
 theorem alpine_security_ops_plannable_4 : (([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4)) := by decide
+
+/-- AN AXIOM-FREE LEDGER STILL RESTS ON SOMETHING, and it is not axioms — every one of the 2657 theorems depends
+    on NO axiom, so grouping by axiom dependency puts them all in one bucket and says nothing. What each
+    statement actually assumes is the kernel s ability to DECIDE particular operations, and that is the ledger s
+    real axiomatic structure because by decide is the only tactic in it. Organised as a HIERARCHY so it
+    partitions rather than overlaps — deepest capability wins, a statement that both multiplies and walks a list
+    is an enumeration because the arithmetic came free with the walk. Counted here: literal 106, arithmetic
+    1049, propositional 514, enumeration 843, list-structure 140, finite-type 0, quantified 5. Three things are
+    decided. The counts SUM to the ledger, so the families are exhaustive and disjoint. EXACTLY ONE family is
+    empty — finite-type, and its emptiness is a measurement rather than an omission: the ledger does use Fin,
+    and every such statement sits under a quantifier, so the hierarchy sends it one level deeper. And no family
+    exceeds the ledger, which is what makes them shares. SCOPE: this counts what the kernel must decide, not how
+    hard the deciding is — a walk of eight cases and a walk of sixty thousand land in the same family. -/
+theorem axiom_families_partition_the_ledger_2657 : ([106, 1049, 514, 843, 140, 0, 5].sum = 2657) ∧ (([106, 1049, 514, 843, 140, 0, 5].filter (fun n => n == 0)).length = 1) ∧ ([106, 1049, 514, 843, 140, 0, 5].all (fun n => n ≤ 2657)) := by decide

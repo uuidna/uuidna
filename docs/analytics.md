@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-09-05
-**Data source:** Live ledger (2657 sealed theorems)
+**Data source:** Live ledger (2658 sealed theorems)
 
 ---
 
@@ -11,12 +11,12 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 2657 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 2657/2657 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 2658 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 2658/2658 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 118 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 115 | Capability axes across the ledger |
-| **Proof cost** | 1671768 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 2657 addresses | one recomputed per theorem |
+| **Proof cost** | 1673331 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 2658 addresses | one recomputed per theorem |
 | **Steps per address** | 629 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
@@ -25,7 +25,7 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 1129/1129 | Every module reachable (no dead code) |
+| **Supported modules** | 1130/1130 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 1671768 kernel decide-steps, measured
-- Every later push (verify): 2657 address recomputations
+- First push (prove): 1673331 kernel decide-steps, measured
+- Every later push (verify): 2658 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       2657
-Axiom-free (decide):  2657 (100.0%)
+Total theorems:       2658
+Axiom-free (decide):  2658 (100.0%)
 Principles:           118 domains
 Publications:         118 monographs
 MCP tools:            257 capabilities
@@ -108,7 +108,7 @@ table or it is not a measurement):
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
 | Public model feed | 431 models · widest window 2,000,000 tokens · 1,761,812,880 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 2657 theorems · 118 principles · 115 skills | [/theorems](/theorems) · every wing |
+| Ledger | 2658 theorems · 118 principles · 115 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 
