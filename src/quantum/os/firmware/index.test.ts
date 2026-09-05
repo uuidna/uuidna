@@ -55,7 +55,7 @@ test('upgradeFirmware loads the live image onto every affected seat immediately'
   assert.equal(U.image, os.receipt)
   assert.equal(U.image, F.image)
   assert.equal(U.boards, HANDLE_HEXBITS)
-  assert.equal(U.boardsUpgraded, U.boards)
+  assert.equal(U.boardsUpgraded, U.affected > 0 ? U.boards : 0)
   assert.equal(U.search, 0)
   assert.equal(U.groverFloorBits, GROVER_FLOOR_BITS)
   assert.equal(U.groverFloorBits, UUID_BITS)
@@ -69,11 +69,19 @@ test('upgradeFirmware loads the live image onto every affected seat immediately'
   const vm = U.seats.find((s) => s.name === 'VM')
   const cpu = U.seats.find((s) => s.name === 'CPU')
   const gpu = U.seats.find((s) => s.name === 'GPU')
-  assert.equal(cpu?.upgraded, true)
-  assert.equal(gpu?.upgraded, true)
-  assert.equal(qpu?.upgraded, true)
-  assert.equal(vm?.upgraded, true)
-  assert.equal(U.skipped, 0)
+  // THE QPU SEAT IS EMPTY AND MUST NOT REPORT AN UPGRADE. This block previously asserted qpu.upgraded === true
+  // and skipped === 0, which is what let a hardcoded literal pass for a measurement: `upgraded` was never
+  // computed, so `skipped` could not move off zero however many seats held no hardware.
+  assert.equal(cpu?.load, 'loaded')
+  assert.equal(gpu?.load, 'loaded')
+  assert.equal(vm?.load, 'loaded')
+  assert.equal(qpu?.load, 'unmeasured', 'an empty seat was never asked, so it has no outcome')
+  assert.equal(qpu?.seat, 'empty')
+  // the counters must FOLLOW the seats rather than be asserted beside them
+  assert.equal(U.skipped, U.seats.filter((s) => s.load === 'unmeasured').length)
+  assert.equal(U.skipped, 1, 'exactly one seat on this machine holds no hardware')
+  assert.equal(U.affected, U.seats.length - U.skipped)
+  assert.equal(U.upgraded + U.skipped, U.seats.length, 'every seat is accounted for, in one bucket or the other')
   assert.equal(upgradeFirmware().receipt, U.receipt)
 })
 

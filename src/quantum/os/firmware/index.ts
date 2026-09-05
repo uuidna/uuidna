@@ -58,10 +58,16 @@ export function minerFirmware(boards?: number): MinerFirmware {
   }
 }
 
+/** what happened to one seat when the image was offered to it. THERE IS NO `false` HERE ON PURPOSE: a seat that
+ *  holds no hardware did not REFUSE the image, it was never asked, and reporting that as a failed upgrade is the
+ *  same collapse as reporting it as a successful one. `no_instrument_narrower_than_its_question`. */
+export type SeatLoad = 'loaded' | 'unmeasured'
+
 export interface FirmwareSeat {
   name: string
   seat: Seat
-  upgraded: boolean
+  /** 'unmeasured' for an EMPTY seat — there is nothing to load onto, so no outcome was observed */
+  load: SeatLoad
 }
 
 /** upgradeFirmware() → load the live uuidnaOS image onto every seat, immediately.
@@ -70,19 +76,27 @@ export function upgradeFirmware(): FirmwareUpgrade {
   const loaded = minerFirmware()
   const shor = shorCapacityFit()
   const none = loaded.search
+  // AN EMPTY SEAT CANNOT BE UPGRADED, and reporting that it was is the assert-vs-measure fault: a field named
+  // for an action returning success independently of whether the action was possible. `upgraded: true` was a
+  // LITERAL here, so `skipped` was 0 by construction and could never be anything else — a counter that cannot
+  // move is not a measurement. It also overwrote the one honest field on the row: seat:'empty' publishes that
+  // this machine has no QPU, and the sibling field said the QPU had been upgraded anyway.
   const seats: FirmwareSeat[] = LANES.map((l) => ({
     name: l.name,
     seat: l.seat,
-    upgraded: true,
+    load: l.seat === 'empty' ? 'unmeasured' : 'loaded',
   }))
-  const skipped = seats.filter((s) => !s.upgraded).length
+  const skipped = seats.filter((s) => s.load === 'unmeasured').length
   const affected = seats.length - skipped
-  const upgraded = seats.filter((s) => s.upgraded).length
+  const upgraded = seats.filter((s) => s.load === 'loaded').length
   return {
     image: loaded.image,
     floor: loaded.floor,
     boards: loaded.boards,
-    boardsUpgraded: loaded.boards,
+    // DEFINITIONALLY EQUAL TO `boards` WHEN ANY SEAT CAN HOLD THE IMAGE, and stated here rather than shipped as
+    // a second fact: a total that always equals its own denominator carries no information and reads like one.
+    // It is 0 when no seat can be loaded, which is the only case in which it says anything.
+    boardsUpgraded: affected > 0 ? loaded.boards : 0,
     affected,
     upgraded,
     skipped,
