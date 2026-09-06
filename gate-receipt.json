@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "931c928d2f55c7f5e658d57898252e61",
-    "lean": "94bdddebd8e2738d9e31d19200f2f358"
+    "src": "190608de2c0f7e93953db10aae43fe45",
+    "lean": "0d9bb93ba6e9a0325215dd416fbf793c"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -172,7 +172,7 @@
     "lean/doi-harvest.json": "5e0f34b0ddfc72a2",
     "lean/doi-unclaimed.json": "d70f99ab6a37f66a",
     "lean/dormant-receipt.json": "5e9619cf43c0f5e0",
-    "lean/dormant-scripts.json": "acf2042321e6e74b",
+    "lean/dormant-scripts.json": "a6835429566519a1",
     "lean/doubletorus-manifest.json": "0727ead29f711507",
     "lean/editing-manifest.json": "b3f3771d677ded37",
     "lean/editor-manifest.json": "972a235e6210fffa",
@@ -221,7 +221,7 @@
     "lean/phase-manifest.json": "1138c0214d4d78bf",
     "lean/photography-manifest.json": "5d9c0b6e0ccb0e1a",
     "lean/pravets-manifest.json": "8e8e55050b9b1859",
-    "lean/prior-art-sweep.json": "c616c83a6ad2a979",
+    "lean/prior-art-sweep.json": "7aed872ee1c0d5f0",
     "lean/production-manifest.json": "4e7f568a0c815569",
     "lean/proof-cache.json": "aa1b9f2f25a8118b",
     "lean/propulsion-manifest.json": "c9470e0344be84de",
@@ -306,7 +306,7 @@
     "src/aspects.ts": "5190bd099e4ca621",
     "src/aura.ts": "809f32506c2115b8",
     "src/axiom-families.test.ts": "4ff5d53539cd420d",
-    "src/axiom-families.ts": "5326ae8e45770892",
+    "src/axiom-families.ts": "618b7c7a55e36c10",
     "src/axiom-hunt-coins.test.ts": "53ee1f56e685bfb0",
     "src/axiom-reach.test.ts": "596ea214b71a6222",
     "src/axiom-reach.ts": "644af99c6648af5f",
@@ -343,6 +343,8 @@
     "src/circle.test.ts": "9562e0f7b6d0f192",
     "src/citations/index.test.ts": "c3fdc2e5405fb57c",
     "src/citations/index.ts": "2590786dc3d7b085",
+    "src/claim-attribution.test.ts": "dcafdac472c2f877",
+    "src/claim-attribution.ts": "58f1129bf29e280f",
     "src/clay-involution.ts": "861ec8ca1cb37ea5",
     "src/cloudflare-templates-data.ts": "7888a02e074fb33b",
     "src/cloudflare-templates.test.ts": "b1ba8710dcfe9411",
@@ -366,6 +368,8 @@
     "src/corroborate.ts": "b2f272205f760197",
     "src/cost.ts": "504d644132317491",
     "src/credits.test.ts": "02c0049c1cc97ff7",
+    "src/cross-surface.test.ts": "33cd1372c1b77973",
+    "src/cross-surface.ts": "8cfc852ac34b0301",
     "src/crossref.ts": "361213bbda7274ba",
     "src/crypt-suites.ts": "ae0252f267834dfb",
     "src/crypt.ts": "3bf336ff7a1ed37a",
@@ -3765,7 +3769,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "05b7174331f956a0",
+    "src/quantum/models/mirror.ts": "59e514966b86b3e2",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "5e5d581164c75e79",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
@@ -4041,8 +4045,8 @@
     "src/scripts/entanglement-games-spec.json": "a971072db79dbf51",
     "src/scripts/entanglement-games.ts": "8d1c607b83a24497",
     "src/scripts/entanglement-research.json": "934d80c1a4435b36",
-    "src/scripts/exercise-dormant.test.ts": "a651c75c594fe9f7",
-    "src/scripts/exercise-dormant.ts": "a834cbeaa402ce0b",
+    "src/scripts/exercise-dormant.test.ts": "f4a96a0464b90f2d",
+    "src/scripts/exercise-dormant.ts": "aa2477efd2558d41",
     "src/scripts/fetch-pinned-rootfs.ts": "d869eac63a6cde1c",
     "src/scripts/fill-gaps-plan.ts": "6c522b074b815fb6",
     "src/scripts/fill-gaps-run.ts": "c77dc84a5c8df78c",
@@ -4066,7 +4070,7 @@
     "src/scripts/gen-apps.ts": "5576e223f8dc5d82",
     "src/scripts/gen-articles.ts": "8bf32614a25aac18",
     "src/scripts/gen-captain-claims-complete.ts": "afbf8d2f407e79b6",
-    "src/scripts/gen-captain-claims.ts": "017fb6c711dddce3",
+    "src/scripts/gen-captain-claims.ts": "93a2eb0c881b4ce4",
     "src/scripts/gen-changelog-section.ts": "344f471110aa63e2",
     "src/scripts/gen-cloudflare-templates.ts": "18a17c6212cb9fd2",
     "src/scripts/gen-evasion.ts": "92d5ec4db5fe4e0b",
@@ -4269,7 +4273,7 @@
     "src/scripts/predict-and-fill.ts": "20c3f35afe26d124",
     "src/scripts/prepublish-seal.ts": "af0f94199582d361",
     "src/scripts/prescribed-scripts.test.ts": "dc9bd2507e815496",
-    "src/scripts/prior-art-sweep.ts": "cc667534b19fecba",
+    "src/scripts/prior-art-sweep.ts": "614ce19b8ae06f64",
     "src/scripts/probe-public-apis.ts": "00cbc931ef73e6cd",
     "src/scripts/probe-school-apis.ts": "c2972b52be7fc623",
     "src/scripts/prove-all.ts": "3e36c2673582d4c3",
@@ -4416,8 +4420,7 @@
     "src/zenodo-seals.ts": "ae185b2343e23b65"
   },
   "verified": [
-    "guard",
-    "tests"
+    "guard"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

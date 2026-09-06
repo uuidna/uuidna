@@ -98,6 +98,9 @@ export interface Exercise {
   exit: number
   wrote: string[]
   undeclared: string[]
+  /** untracked paths this exercise saw appear and did NOT delete — reported, because a file it cannot prove it
+   *  created may be a neighbouring session's in-flight work. */
+  residue: string[]
   ms: number
 }
 
@@ -143,18 +146,32 @@ export function restoreSnapshot(snap: ReadonlyMap<string, Buffer | null>): strin
   return changed
 }
 
-/** put back exactly what the exercise disturbed: tracked files are restored, untracked ones removed. */
-export function restore(paths: readonly string[]): void {
+/** put back what the exercise disturbed. A TRACKED file is restored from the index. AN UNTRACKED FILE IS LEFT
+ *  ALONE and returned as residue for the caller to report.
+ *
+ *  IT USED TO DELETE THEM, AND ON A SHARED TREE THAT ATE ANOTHER SESSION'S WORK. `dirtySet()` reads
+ *  `git status --porcelain`, which lists UNTRACKED files too, so a file a neighbouring session authored during
+ *  the exercise window appeared as new, was classed undeclared, and was removed — silently, because nothing was
+ *  tracking it. Measured 2026-09-06: uuidna-87 wrote src/cross-surface.test.ts, it passed the guard, and it was
+ *  gone by the time their index lock cleared. Thirty-five dormant scripts are exercised on every gate pass, so
+ *  that is thirty-five windows per pass in which any in-flight authored file can vanish.
+ *
+ *  AND THE DELETION WAS NEVER LOAD-BEARING. An undeclared write is ALREADY a gap: dormantRotGaps reports it and
+ *  the gate fails on it. Removing the file as well only helps when the file is genuinely the script's residue,
+ *  and cannot be distinguished from a neighbour's authoring without attribution the tree does not have. Leaving
+ *  known residue for a named gap to clean is a cost; deleting work nobody has in context is a loss. */
+export function restore(paths: readonly string[]): string[] {
+  const leftInPlace: string[] = []
   for (const p of paths) {
     const tracked = (() => {
       try { execFileSync('git', ['ls-files', '--error-unmatch', p], { cwd: ROOT, stdio: 'ignore' }); return true }
       catch { return false }
     })()
-    try {
-      if (tracked) execFileSync('git', ['checkout', '--', p], { cwd: ROOT, stdio: 'ignore' })
-      else execFileSync('rm', ['-rf', join(ROOT, p)], { stdio: 'ignore' })
-    } catch { /* reported as residue by the caller, never swallowed silently */ }
+    if (!tracked) { leftInPlace.push(p); continue }
+    try { execFileSync('git', ['checkout', '--', p], { cwd: ROOT, stdio: 'ignore' }) }
+    catch { /* reported as residue by the caller, never swallowed silently */ }
   }
+  return leftInPlace
 }
 
 /** run one dormant script and measure it. The tree is returned to the state it was found in. */
@@ -178,15 +195,22 @@ export function exercise(script: string, declared: readonly string[]): Exercise 
   const appeared = [...dirtySet()].filter((p) => !before.has(p))
   const undeclared = appeared.filter((p) => !declared.includes(p)).sort()
   const touched = restoreSnapshot(snap)
-  restore(undeclared)
+  const residue = restore(undeclared)
   const wrote = [...new Set([...touched, ...appeared])].sort()
-  return { script, exit, wrote, undeclared, ms }
+  return { script, exit, wrote, undeclared, residue, ms }
 }
 
-/** the gap list: a dormant script that cannot run, or that writes somewhere it never declared. */
+/** the gap list: a dormant script that cannot run, that writes somewhere it never declared, or that left an
+ *  untracked file behind. The residue arm exists because the deletion that used to hide it was destroying other
+ *  sessions' authored files — the gap is now the only cleaner, and it names the path so the cleaning is a
+ *  decision by someone who can tell residue from work. */
 export function dormantRotGaps(results: readonly Exercise[]): { what: string; fix: string }[] {
   const gaps: { what: string; fix: string }[] = []
   for (const r of results) {
+    if (r.residue.length) gaps.push({
+      what: `${r.script} left ${r.residue.length} untracked path(s) in the tree: ${r.residue.slice(0, 4).join(', ')}${r.residue.length > 4 ? '…' : ''}`,
+      fix: 'delete them IF they are that script\'s residue — check first, because this arm exists because the automatic deletion it replaced was removing files neighbouring sessions had just authored. If they are someone\'s work, leave them and declare the script\'s real writes instead.',
+    })
     if (r.exit !== 0) gaps.push({
       what: `${r.script} is declared dormant but EXITS ${r.exit} — it is not idle, it is broken`,
       fix: 'repair it, or retire it and remove the name from lean/dormant-scripts.json',
