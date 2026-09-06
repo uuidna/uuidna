@@ -297,7 +297,31 @@ const emod = (a: number, b: number, ring: Ring): number => {
   return ((a % m) + m) % m
 }
 /** Lean Nat.sub saturates at 0; Int.sub is true minus. Default ring is Nat. */
-const ringSub = (a: number, b: number, ring: Ring): number => {
+// ADDITION AND SUBTRACTION MUST PROMOTE LIKE MULTIPLICATION DOES, and for a long time only multiplication did.
+// `pow` deliberately returns a BigInt above MAX_SAFE_INTEGER so sealed mod-power filters cannot float-corrupt,
+// and `mulScalar` promotes to match — so `2 ^ 32 * 2 ^ 96 == 2 ^ 128` decided, while
+// `2 ^ 32 + 2 ^ 96 != 2 ^ 128` came back UNDECIDED because `asNum` throws "overflow" on a BigInt. One sealed
+// theorem lost its falsifier leg to exactly that asymmetry: address_and_payload_exchange_at_one_twenty_eight,
+// whose whole subject is the 32/96 split of a 128-bit address, so its statement cannot avoid these magnitudes.
+// The evaluator was not wrong to refuse — an undecided answer is the honest one — but the grammar was reachable
+// all along, and a leg is owed wherever it is.
+const addScalar = (a: number | bigint, b: number | bigint): number | bigint => {
+  if (typeof a === 'bigint' || typeof b === 'bigint') {
+    const r = (typeof a === 'bigint' ? a : BigInt(a)) + (typeof b === 'bigint' ? b : BigInt(b))
+    return (r <= BigInt(Number.MAX_SAFE_INTEGER) && r >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(r) : r
+  }
+  const r = a + b
+  if (Number.isSafeInteger(r)) return r
+  return BigInt(a) + BigInt(b)
+}
+const ringSub = (a: number | bigint, b: number | bigint, ring: Ring): number | bigint => {
+  if (typeof a === 'bigint' || typeof b === 'bigint') {
+    const aa = typeof a === 'bigint' ? a : BigInt(a), bb = typeof b === 'bigint' ? b : BigInt(b)
+    // Nat subtraction TRUNCATES AT ZERO, and it must do so at BigInt width too or the promotion would change
+    // the arithmetic it was added to preserve
+    const r = ring === 'Int' || aa < 0n || bb < 0n ? aa - bb : (aa < bb ? 0n : aa - bb)
+    return (r <= BigInt(Number.MAX_SAFE_INTEGER) && r >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(r) : r
+  }
   if (ring === 'Int') return a - b
   if (a < 0 || b < 0) return a - b
   return a < b ? 0 : a - b
@@ -1326,8 +1350,8 @@ function sum(c: Cursor): Val {
   let v = product(c)
   for (;;) {
     ws(c)
-    if (eat(c, '+')) v = asNum(v) + asNum(product(c))
-    else if (c.s.startsWith('-', c.i)) { c.i++; v = ringSub(asNum(v), asNum(product(c)), c.ring) }
+    if (eat(c, '+')) v = addScalar(forceScalar(v), forceScalar(product(c)))
+    else if (c.s.startsWith('-', c.i)) { c.i++; v = ringSub(forceScalar(v), forceScalar(product(c)), c.ring) }
     else return v
   }
 }

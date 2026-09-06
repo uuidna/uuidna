@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "ac84cd365d71bc03dcf91d9243af62d3",
-    "lean": "0cf19d1d0d4b9b531306731ff2b270c2"
+    "src": "22489ac550abc09bc7a8d08702a393df",
+    "lean": "c6e3603a3af8983364fdae8830a42c78"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -172,7 +172,7 @@
     "lean/doi-harvest.json": "5e0f34b0ddfc72a2",
     "lean/doi-unclaimed.json": "d70f99ab6a37f66a",
     "lean/dormant-receipt.json": "5e9619cf43c0f5e0",
-    "lean/dormant-scripts.json": "a6835429566519a1",
+    "lean/dormant-scripts.json": "6aa2c1bc20a74812",
     "lean/doubletorus-manifest.json": "0727ead29f711507",
     "lean/editing-manifest.json": "b3f3771d677ded37",
     "lean/editor-manifest.json": "972a235e6210fffa",
@@ -456,7 +456,7 @@
     "src/falsifiers-rosette.test.ts": "4f2a5d9db9d929d6",
     "src/falsifiers-sequence.test.ts": "b79c5dcfbe420365",
     "src/falsifiers-wave.test.ts": "c6b9ecc9e8eb6b05",
-    "src/falsifiers.test.ts": "dca15a75ccbc10b3",
+    "src/falsifiers.test.ts": "36ce06415edcbf0f",
     "src/feed.test.ts": "17673b43e4dcb614",
     "src/fill-gaps-run.test.ts": "2ac8dd079842a966",
     "src/finder-controls.test.ts": "7fb0016ba5c6b191",
@@ -3512,7 +3512,8 @@
     "src/index.ts": "52650d0a63ea951f",
     "src/involution-seals.ts": "5aa65518b03fff6b",
     "src/involution.test.ts": "ff39da77512a7d1b",
-    "src/involution/index.ts": "27cb52b7c4b38d97",
+    "src/involution/index.test.ts": "b32bf5e8bf640af8",
+    "src/involution/index.ts": "0b88f0ead7c9cc9a",
     "src/involution/tables/index.ts": "6dd1b7d927546b1a",
     "src/knowledge.test.ts": "9d02b66bfc99190a",
     "src/knowledge/index.ts": "68edcd18060c0733",
@@ -3959,7 +3960,7 @@
     "src/rights-asserted.test.ts": "4f4b3a3acbd828d8",
     "src/rosetta-legs.test.ts": "0a1d9af49511e179",
     "src/rosetta-legs.ts": "69879f896a6573b7",
-    "src/rosetta-mirror.ts": "20f9344dc62e0041",
+    "src/rosetta-mirror.ts": "025843eb0f6ff180",
     "src/sanitize.ts": "59a077f417ad23b2",
     "src/schema-org-vocab.ts": "91111798e2d852e3",
     "src/school-apis.ts": "26578a1fcd5054e8",
@@ -4422,7 +4423,8 @@
     "src/zenodo-seals.ts": "ae185b2343e23b65"
   },
   "verified": [
-    "guard"
+    "guard",
+    "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

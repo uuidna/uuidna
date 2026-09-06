@@ -2533,6 +2533,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["register_holds_amplitudes", "((List.range 17).map (fun n => 2^n)).getLast! = 65536"],
   ["total_exceeds_register", "(2097152 > 16) ∧ (2097152 ≠ 16) ∧ ((2:Nat)^21 ≠ 2^16)"],
   ["total_is_not_amplitudes", "(2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16)"],
+  ["address_and_payload_exchange_at_one_twenty_eight", "((List.range 33).all (fun p => (32 - p) * 4 + p * 4 == 128)) ∧ ((32 - 24) * 4 == 32) ∧ ((32 - 0) * 4 == 128) ∧ (2 ^ 32 * 2 ^ 96 == 2 ^ 128) ∧ (2 ^ 32 + 2 ^ 96 != 2 ^ 128)"],
   ["hexbits_reconstruct_every_integer_they_span", "((List.range 4).all (fun k => (List.range 16).all (fun d => ((d * 16 ^ k) / 16 ^ k) % 16 == d))) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096)"],
   ["the_void_tile_cannot_cross", "((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1)"],
   ["the_uuid_is_two_boards", "(8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)"],

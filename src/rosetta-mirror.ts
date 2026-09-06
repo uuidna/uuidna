@@ -601,7 +601,7 @@ homeostasis_returns_to_setpoint 27
 action_reaction_and_charge_cancel 27
 pairs_share_one_centre 27
 #Hexbit.lean
-address_and_payload_exchange_at_one_twenty_eight 19
+address_and_payload_exchange_at_one_twenty_eight 27
 hexbits_reconstruct_every_integer_they_span 27
 the_void_tile_cannot_cross 27
 the_uuid_is_two_boards 27
