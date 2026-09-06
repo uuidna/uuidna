@@ -6217,8 +6217,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "e3ff482f-4436-8927-8c06-12cf3161d453",
-      "address": "9b82be29-41a3-80b3-96f1-5dd22ab3752c",
+      "lineAddress": "1afca298-8cfa-8ce6-b74b-5cd947b52f00",
+      "address": "341607c0-93f8-887f-be27-9252b4199fca",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -6539,8 +6539,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "f6915c67-ac88-8c93-87f4-79ac52518887",
-      "address": "b5960819-6bd0-8fcb-9d62-df3fd530f229",
+      "lineAddress": "7e089946-3f83-8ebe-8b36-7962ea3fb719",
+      "address": "339f5bb5-6b33-8aaa-b03b-f16d604c9bd9",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -6560,22 +6560,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "19aedd9c-43be-8d52-a12e-a8cc92abf3be",
-      "address": "4561d9ee-3de2-802d-a006-a0e84436b651",
+      "lineAddress": "c055f680-d774-884b-9436-d2d2e60bb14c",
+      "address": "404e7485-b50e-85b8-8d29-b98433acceeb",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "2dbf2490-eb26-8130-a3e5-8cd0d348d004",
-      "address": "5ec2f5d0-4834-8a05-b12b-a87f474135ae",
+      "lineAddress": "4f1a49b1-1322-858c-9fd6-353fa8cbcd4b",
+      "address": "503c1aa4-fe6c-8b78-9898-bf07221a2c22",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "0281329e-4fa7-8f49-aef7-6a7b84cf72e3",
-      "address": "b2b194bd-d453-8e1b-b892-99e2eb47b195",
+      "lineAddress": "dd93457a-09a4-8c38-ad0b-36742ac2c938",
+      "address": "b2d0c78e-9c08-8212-83c1-a0a7cb267fa3",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7036,15 +7036,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "511bb4de-49f9-86aa-b93b-21f9b6bd9cd3",
-      "address": "248b5a6a-1a77-88d1-bd05-6521e0e47ec1",
+      "lineAddress": "cb84c3d1-211f-89b2-8dbe-756c535f85ca",
+      "address": "90413175-3edd-8709-8009-55122d232454",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "97dbc3ed-e2a8-8074-bd55-dc112e348473",
-      "address": "b9715f35-dfe0-8735-99dd-6f494d1ade21",
+      "lineAddress": "a91d7272-496c-8247-a193-d097a8aeaf13",
+      "address": "d1611465-cee2-87ec-9b2c-8c949a20cbfd",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -8295,8 +8295,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "b9fda48c-8e0a-8e0f-ad28-c92141a105c9",
-      "address": "349bf774-9326-8ed1-a56a-33b8c4586070",
+      "lineAddress": "02166d2f-f56e-836c-bfa2-58e03daa689e",
+      "address": "5fe2a100-b4c2-8c21-a279-dc3b57ea9e59",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -19319,8 +19319,8 @@
     },
     {
       "key": "hexbits_reconstruct_every_integer_they_span",
-      "lineAddress": "9efc4b3f-b9ea-869f-b225-ba7ea5b4a013",
-      "address": "24472c56-000f-8a2a-ac19-413d05c4e17b",
+      "lineAddress": "eddba2f4-92dd-8758-a56e-70556d0975cf",
+      "address": "51569352-8fd7-841e-80c4-8acaecefd65e",
       "principle": "The hexbit",
       "held": "discovery+formalisation"
     },
@@ -20333,7 +20333,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "ea2b3533-4615-8fa5-8189-2d75f4e71753",
+  "claim_receipt": "8ab33c2d-6b7e-877e-b17b-44ed145e8758",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

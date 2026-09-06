@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:852b9ff9-a13f-806f-ad5a-268c59b938ae",
+  "@id": "urn:uuid:7d9a9cd0-35f1-81c8-99d6-bff33e3451af",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -19883,11 +19883,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e3ff482f-4436-8927-8c06-12cf3161d453",
+        "@id": "urn:uuid:1afca298-8cfa-8ce6-b74b-5cd947b52f00",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18]).foldl (· + ·) 0 = 2647) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18])",
-        "identifier": "9b82be29-41a3-80b3-96f1-5dd22ab3752c",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18]).foldl (· + ·) 0 = 2643) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18])",
+        "identifier": "341607c0-93f8-887f-be27-9252b4199fca",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -19905,7 +19905,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/9b82be29"
+          "https://uuidna.com/341607c0"
         ]
       }
     },
@@ -21309,11 +21309,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:f6915c67-ac88-8c93-87f4-79ac52518887",
+        "@id": "urn:uuid:7e089946-3f83-8ebe-8b36-7962ea3fb719",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 2609 of 2609 documented across 114 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 936, 18].foldl (· + ·) 0) = 2609) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 936, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 936, 18])",
-        "identifier": "b5960819-6bd0-8fcb-9d62-df3fd530f229",
+        "headline": "every generated theorem carries prose IN the Lean — 2605 of 2605 documented across 114 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18].foldl (· + ·) 0) = 2605) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18])",
+        "identifier": "339f5bb5-6b33-8aaa-b03b-f16d604c9bd9",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21331,7 +21331,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b5960819"
+          "https://uuidna.com/339f5bb5"
         ]
       }
     },
@@ -21342,7 +21342,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:0435e0c2-5eed-8401-a7f4-059934d8aa64",
         "@type": "ScholarlyArticle",
-        "headline": "THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 2609 of 2609 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to",
+        "headline": "THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 2605 of 2605 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to",
         "abstract": "(List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n))))",
         "identifier": "35450db9-57fe-8f97-9226-312c713bfd11",
         "url": "https://uuidna.com/theorem/prose_round_trips",
@@ -21373,7 +21373,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:59fd957d-c6bd-8b64-8ea1-fb9dc28fa3c9",
         "@type": "ScholarlyArticle",
-        "headline": "THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \\ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\\/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0 unescaped terminators across 2609 doc comments, which is a fact about files that something able to read a file must check",
+        "headline": "THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \\ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\\/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0 unescaped terminators across 2605 doc comments, which is a fact about files that something able to read a file must check",
         "abstract": "(List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2)))",
         "identifier": "90943424-ea63-8382-b9e7-0a5af9a8bb36",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
@@ -21402,11 +21402,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:19aedd9c-43be-8d52-a12e-a8cc92abf3be",
+        "@id": "urn:uuid:c055f680-d774-884b-9436-d2d2e60bb14c",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 2609 informative against 0 bare, of 2609; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 2609) ∧ (0 + 2609 = 2609)",
-        "identifier": "4561d9ee-3de2-802d-a006-a0e84436b651",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 2605 informative against 0 bare, of 2605; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 2605) ∧ (0 + 2605 = 2605)",
+        "identifier": "404e7485-b50e-85b8-8d29-b98433acceeb",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21424,7 +21424,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/4561d9ee"
+          "https://uuidna.com/404e7485"
         ]
       }
     },
@@ -21433,11 +21433,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2dbf2490-eb26-8130-a3e5-8cd0d348d004",
+        "@id": "urn:uuid:4f1a49b1-1322-858c-9fd6-353fa8cbcd4b",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 698502 characters across 2609 doc comments in 114 wings fold to 3; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 6894, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 13728, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1248, 6903, 1937, 3396, 1946, 1544, 2704, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 321536, 10367].foldl (· + ·) 0) = 698502) ∧ (698502 % 9 = 3) ∧ (3 < 9)",
-        "identifier": "5ec2f5d0-4834-8a05-b12b-a87f474135ae",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 696951 characters across 2605 doc comments in 114 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 6894, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 13967, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1248, 6903, 1937, 3396, 1946, 1544, 2704, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 319746, 10367].foldl (· + ·) 0) = 696951) ∧ (696951 % 9 = 0) ∧ (0 < 9)",
+        "identifier": "503c1aa4-fe6c-8b78-9898-bf07221a2c22",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21455,7 +21455,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/5ec2f5d0"
+          "https://uuidna.com/503c1aa4"
         ]
       }
     },
@@ -21464,11 +21464,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0281329e-4fa7-8f49-aef7-6a7b84cf72e3",
+        "@id": "urn:uuid:dd93457a-09a4-8c38-ad0b-36742ac2c938",
         "@type": "ScholarlyArticle",
         "headline": "the audit is TOTAL over what a generator writes — 114 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 114) ∧ (0 < 3) ∧ (2609 = 2609 + 0)",
-        "identifier": "b2b194bd-d453-8e1b-b892-99e2eb47b195",
+        "abstract": "(0 < 114) ∧ (0 < 3) ∧ (2605 = 2605 + 0)",
+        "identifier": "b2d0c78e-9c08-8212-83c1-a0a7cb267fa3",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21486,7 +21486,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b2b194bd"
+          "https://uuidna.com/b2d0c78e"
         ]
       }
     },
@@ -23510,11 +23510,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:511bb4de-49f9-86aa-b93b-21f9b6bd9cd3",
+        "@id": "urn:uuid:cb84c3d1-211f-89b2-8dbe-756c535f85ca",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 118 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 117 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2644, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
-        "abstract": "(((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18].foldl (· + ·) 0) = 2644)",
-        "identifier": "248b5a6a-1a77-88d1-bd05-6521e0e47ec1",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 118 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 117 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2640, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
+        "abstract": "(((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18].foldl (· + ·) 0) = 2640)",
+        "identifier": "90413175-3edd-8709-8009-55122d232454",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23532,7 +23532,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/248b5a6a"
+          "https://uuidna.com/90413175"
         ]
       }
     },
@@ -23541,11 +23541,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:97dbc3ed-e2a8-8074-bd55-dc112e348473",
+        "@id": "urn:uuid:a91d7272-496c-8247-a193-d097a8aeaf13",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 117 measured wing counts and lands on 2644 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18].foldl (· + ·) 0) = 2644) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 936, 18].length = 117) ∧ (117 < 2644)",
-        "identifier": "b9715f35-dfe0-8735-99dd-6f494d1ade21",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 117 measured wing counts and lands on 2640 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18].foldl (· + ·) 0) = 2640) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 932, 18].length = 117) ∧ (117 < 2640)",
+        "identifier": "d1611465-cee2-87ec-9b2c-8c949a20cbfd",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23563,7 +23563,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b9715f35"
+          "https://uuidna.com/d1611465"
         ]
       }
     },
@@ -29059,11 +29059,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b9fda48c-8e0a-8e0f-ad28-c92141a105c9",
+        "@id": "urn:uuid:02166d2f-f56e-836c-bfa2-58e03daa689e",
         "@type": "ScholarlyArticle",
         "headline": "every one of 118 monographs now carries a DISTINCT abstract — 118 distinct, 0 duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template",
-        "abstract": "([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3824555614, 1232503635, 2361209693, 2089337541, 811508052, 2094891388, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 48844650, 42133168, 2714103410, 3861855733, 1596185573, 3113885961, 3210648311, 791189161, 2756033056, 1160645508, 728125996, 2966514194, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 3333169215, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1784230919, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 3464752290, 214893959, 2051211530, 3725726193, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 2596048757, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 3586967143, 4074107130, 1328950102, 4043042332, 4225637141, 4183316518, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 239853298, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3824555614, 1232503635, 2361209693, 2089337541, 811508052, 2094891388, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 48844650, 42133168, 2714103410, 3861855733, 1596185573, 3113885961, 3210648311, 791189161, 2756033056, 1160645508, 728125996, 2966514194, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 3333169215, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1784230919, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 3464752290, 214893959, 2051211530, 3725726193, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 2596048757, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 3586967143, 4074107130, 1328950102, 4043042332, 4225637141, 4183316518, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 239853298, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118)",
-        "identifier": "349bf774-9326-8ed1-a56a-33b8c4586070",
+        "abstract": "([1512426110, 2423664848, 2800532167, 3344131939, 859681794, 688866759, 3691628889, 4164650432, 1232503635, 2361209693, 48857333, 811508052, 2094891388, 173574295, 3882145113, 3408460491, 953074809, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 1714497286, 3803076375, 1918101649, 862581719, 42133168, 2714103410, 3861855733, 1596185573, 3113885961, 3252234711, 791189161, 2756033056, 3904251766, 1533252621, 39641198, 230339181, 2198364556, 1930939537, 3939310638, 49771788, 2157653840, 3333169215, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 3816862939, 3599169530, 1784230919, 3786467659, 2197441124, 4066818595, 3653457980, 3881282864, 1898679938, 696695349, 3866620935, 3709315069, 214893959, 2051211530, 1499623147, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 2971328884, 318110582, 3720052728, 3788796472, 145518099, 186853480, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 1094831711, 4074107130, 1328950102, 4043042332, 4225637141, 98017832, 4140981702, 3515886160, 3310589142, 1382588194, 1966113413, 223784435, 171914572, 587231060, 3491541038, 2087519408, 1417126388, 547827799, 3339587690, 373938905, 911699107, 66137245, 4179464627, 113697884, 239853298, 2141964382, 2438026848, 1813654262, 720564593, 2882299779, 3854823520, 2739963212, 1531506553, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 3344131939, 859681794, 688866759, 3691628889, 4164650432, 1232503635, 2361209693, 48857333, 811508052, 2094891388, 173574295, 3882145113, 3408460491, 953074809, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 1714497286, 3803076375, 1918101649, 862581719, 42133168, 2714103410, 3861855733, 1596185573, 3113885961, 3252234711, 791189161, 2756033056, 3904251766, 1533252621, 39641198, 230339181, 2198364556, 1930939537, 3939310638, 49771788, 2157653840, 3333169215, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 3816862939, 3599169530, 1784230919, 3786467659, 2197441124, 4066818595, 3653457980, 3881282864, 1898679938, 696695349, 3866620935, 3709315069, 214893959, 2051211530, 1499623147, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 2971328884, 318110582, 3720052728, 3788796472, 145518099, 186853480, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 1094831711, 4074107130, 1328950102, 4043042332, 4225637141, 98017832, 4140981702, 3515886160, 3310589142, 1382588194, 1966113413, 223784435, 171914572, 587231060, 3491541038, 2087519408, 1417126388, 547827799, 3339587690, 373938905, 911699107, 66137245, 4179464627, 113697884, 239853298, 2141964382, 2438026848, 1813654262, 720564593, 2882299779, 3854823520, 2739963212, 1531506553, 1091139918].length = 118)",
+        "identifier": "5fe2a100-b4c2-8c21-a279-dc3b57ea9e59",
         "url": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29081,7 +29081,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/349bf774"
+          "https://uuidna.com/5fe2a100"
         ]
       }
     },
@@ -77853,11 +77853,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:9efc4b3f-b9ea-869f-b225-ba7ea5b4a013",
+        "@id": "urn:uuid:eddba2f4-92dd-8758-a56e-70556d0975cf",
         "@type": "ScholarlyArticle",
-        "headline": "THE DECOMPOSITION LAW — the hexbit is a COMPLETE BASIS for the integers, not a convenient chunking. Every position recovers its own digit: for k = 0..3 and d = 0..15, the digit of d·16^k at position k is d, decided over all 64 pairs. The ladder is exact at every step, 16^(k+1) = 16·16^k over k = 1..6, so widths compose without remainder and an integer of ANY size splits into 4-bit states losslessly — measured outside the kernel at 128, 1024, 65536 and 1048576 bits, the last giving 262,144 hexbits that rejoin to the value they came from with every digit under 16. THIS IS WHY THE ARITHMETIC HERE CARRIES NO DRIFT: a float approximates a magnitude, and a hexbit split IS the magnitude, so nothing is lost to be recovered. THE THIRD CLAUSE IS THE ONE THAT EARNS IT: three hexbits FAIL to reconstruct 4096 where four succeed, so the reconstruction is a claim about WIDTH and not a tautology of positional notation — true of any base given enough digits, false at every width below the one the value needs. Checked before sealing: 3 hexbits miss 61,440 of the 65,536 values under 16^4, and 2 hexbits miss all but 256. SCOPE: finite integers of unbounded size. No finite process splits a completed infinity; what is decided here is that no upper bound exists on what splits exactly.",
-        "abstract": "((List.range 4).all (fun k => (List.range 16).all (fun d => ((d * 16 ^ k) / 16 ^ k) % 16 == d))) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096)",
-        "identifier": "24472c56-000f-8a2a-ac19-413d05c4e17b",
+        "headline": "THE DECOMPOSITION LAW — the hexbit is a COMPLETE BASIS for the integers, not a convenient chunking. The weights ARE base sixteen and refuse every other base: 16·d differs from 10·d at every nonzero digit, and the three-digit reconstruction 10 + 16·11 + 256·12 is 3258 where base-ten weights give 1320. That clause REPLACED A VACUOUS ONE found by substitution — the first asserted (d·16^k)/16^k % 16 = d, which is x/x = 1 and passes for any base. decided over all 64 pairs. The ladder is exact at every step, 16^(k+1) = 16·16^k over k = 1..6, so widths compose without remainder and an integer of ANY size splits into 4-bit states losslessly — measured outside the kernel at 128, 1024, 65536 and 1048576 bits, the last giving 262,144 hexbits that rejoin to the value they came from with every digit under 16. THIS IS WHY THE ARITHMETIC HERE CARRIES NO DRIFT: a float approximates a magnitude, and a hexbit split IS the magnitude, so nothing is lost to be recovered. THE THIRD CLAUSE IS THE ONE THAT EARNS IT: three hexbits FAIL to reconstruct 4096 where four succeed, so the reconstruction is a claim about WIDTH and not a tautology of positional notation — true of any base given enough digits, false at every width below the one the value needs. Checked before sealing: 3 hexbits miss 61,440 of the 65,536 values under 16^4, and 2 hexbits miss all but 256. SCOPE: finite integers of unbounded size. No finite process splits a completed infinity; what is decided here is that no upper bound exists on what splits exactly.",
+        "abstract": "((List.range' 1 15).all (fun d => 16 * d != 10 * d)) ∧ ((10 + 16 * 11 + 256 * 12) == 3258) ∧ ((10 + 10 * 11 + 100 * 12) != 3258) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096)",
+        "identifier": "51569352-8fd7-841e-80c4-8acaecefd65e",
         "url": "https://uuidna.com/theorem/hexbits_reconstruct_every_integer_they_span",
         "keywords": "hexbit, The hexbit",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Hexbit.lean",
@@ -77875,7 +77875,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/24472c56"
+          "https://uuidna.com/51569352"
         ]
       }
     },

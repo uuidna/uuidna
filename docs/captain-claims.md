@@ -7,7 +7,7 @@
 **Discovery claimed:** 2412 — the other 244 restate a fact a named source found first
 
 *The 244 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 196 of 228 are found by exactly one of them and 1 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 10/16 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `ea2b3533-4615-8fa5-8189-2d75f4e71753`
+**Claim receipt:** `8ab33c2d-6b7e-877e-b17b-44ed145e8758`
 
 ### Facts the captain does not claim to have discovered
 
