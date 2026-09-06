@@ -53,6 +53,18 @@ test('external-fact — the floor exceeds what any single arm could claim', () =
 })
 
 // POSITIVE CONTROLS, one per arm, so a silent classifier cannot pass as a clean ledger.
+//
+// VERIFIED BY SUBSTITUTION 2026-09-06, uuidna-f8's method: a coverage check that tests one direction of a
+// biconditional passes every substitution erring in the untested direction, so the only way to know a suite
+// covers both is to break the implementation in each direction and watch it fail. Measured against this file:
+//
+//   externalFactGaps -> []                         2 tests fail   (the blind detector)
+//   classify -> every arm fires on everything      4 tests fail   (the indiscriminate detector)
+//   captainOverClaimGaps -> [] always              1 test fails   (the finder that certifies)
+//
+// The third is the thin one and it is thin by nature: "the shipped ledger over-claims nothing" passes happily
+// against a finder that knows nobody, and only the explicit positive control below distinguishes them. That is
+// the arm to add to first if this file grows.
 test('external-fact — each arm fires on a crafted claim in its own shape', () => {
   // ISOLATING THE ARM: Burnside is NOT in the NAMED list, so only the shape can catch this. A control using a
   // listed name (Kepler) passed on the wrong arm and proved nothing about the shape at all.
