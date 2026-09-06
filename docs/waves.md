@@ -33,7 +33,7 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 ## Accepted — the cargo, each with its seal
 
-931 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+927 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -874,13 +874,9 @@ theorem page and recompute either.
 | [`alpine_dom_as_ga_ie_50`](/theorem/alpine_dom_as_ga_ie_50) | [`5e3ddabf`](/theorem/alpine_dom_as_ga_ie_50) | `cfa42293` |
 | [`quantum_margin_after_both_advantages_73`](/theorem/quantum_margin_after_both_advantages_73) | [`8f825112`](/theorem/quantum_margin_after_both_advantages_73) | `14034eb7` |
 | [`alpine_shell_applets_partition_20`](/theorem/alpine_shell_applets_partition_20) | [`7ce22496`](/theorem/alpine_shell_applets_partition_20) | `95bc90db` |
-| [`mcp_wire_rate_fell_while_total_grew_32183`](/theorem/mcp_wire_rate_fell_while_total_grew_32183) | [`dedc4833`](/theorem/mcp_wire_rate_fell_while_total_grew_32183) | `e09277f0` |
 | [`mcp_tool_coverage_partition_244`](/theorem/mcp_tool_coverage_partition_244) | [`ef76fa64`](/theorem/mcp_tool_coverage_partition_244) | `5b459720` |
 | [`alpine_port_all_partition_28635`](/theorem/alpine_port_all_partition_28635) | [`47a27175`](/theorem/alpine_port_all_partition_28635) | `12fd4b5a` |
-| [`impossibility_claims_debt_622`](/theorem/impossibility_claims_debt_622) | [`f059bd24`](/theorem/impossibility_claims_debt_622) | `1a0fb51b` |
 | [`alpine_page_list_cap_removed_315`](/theorem/alpine_page_list_cap_removed_315) | [`2e7dc8e5`](/theorem/alpine_page_list_cap_removed_315) | `4ff1db73` |
-| [`mcp_tool_debt_100`](/theorem/mcp_tool_debt_100) | [`3c92d5ff`](/theorem/mcp_tool_debt_100) | `fca7ff87` |
-| [`impossibility_modal_debt_642`](/theorem/impossibility_modal_debt_642) | [`1ddc3cd5`](/theorem/impossibility_modal_debt_642) | `7a12eac2` |
 | [`display_gap_address_separates_4`](/theorem/display_gap_address_separates_4) | [`63a49356`](/theorem/display_gap_address_separates_4) | `a7c5d602` |
 | [`alpine_domain_social_partitions_28635`](/theorem/alpine_domain_social_partitions_28635) | [`064eb06b`](/theorem/alpine_domain_social_partitions_28635) | `d7dda0e4` |
 | [`alpine_domain_social_origins_303`](/theorem/alpine_domain_social_origins_303) | [`e7f71cd1`](/theorem/alpine_domain_social_origins_303) | `ad499c6b` |

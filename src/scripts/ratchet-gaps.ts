@@ -6,23 +6,29 @@
 // is the hardest failure to see from inside, because every step has a defensible-sounding argument and the
 // result is a tree that always passes.
 //
-// THE CONVENTION THIS TREE ALREADY HAS, and which I built by hand three times today before noticing it was a
-// mechanism: a ratchet's prior value is a SEALED THEOREM, and the key carries the value in its suffix.
+// WHERE THE CEILING LIVES, AND WHY IT MOVED. It used to be a SEALED THEOREM whose key carried the value in its
+// suffix — a wire-rate row and an impossibility-debt row, both retired (src/ratchet-record.ts). The intent was right
+// (a JSON file is edited in a second and a seal is not) and the instrument was a category error. Those rows read:
 //
-//   mcp_wire_rate_fell_while_total_grew_32183   (32183 < 32424)  — the wire cost per tool, in hundredths
-//   impossibility_claims_debt_622               (622 > 6)        — bare modal claims outstanding
-//   mcp_tool_coverage_partition_244             (100 < 119)      — tools with no dedicated test
+//   a modal-debt row : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6)      [retired]
+//   a tool-debt row  : (100 < 119) ∧ (144 + 100 = 244)            [retired]
 //
-// So the check needs no git and no history file. It RECOMPUTES the live measurement and compares it to the
-// number sealed in the ledger — the same verify-don't-recompute discipline every other gate here uses. Moving a
-// ceiling therefore costs what moving any claim costs: a new theorem, through the conveyor, past the kernel and
-// the court. A JSON file can be edited in a second; a seal cannot.
+// The subject is CONTINGENT — 642 is a reading of this repository on a Tuesday, where a theorem's subject is a
+// structure. `by decide` signs arithmetic on the NUMERALS and never saw the debt. Nothing can be derived from
+// `(6 + 0 = 6)`. And the key being prefix + value made it GENERATIVE: one more such row every time a ceiling
+// moved, for ever. The captain named the class in one word — entropy.
+//
+// The reading now lives in lean/ratchets.json, content-addressed WITH its ruler, and admitRaise refuses a
+// loosening that states no cause or names no checkable evidence. That is STRICTLY MORE FRICTION than the
+// numeral, which went green with no reason recorded anywhere — which is the only honest way to remove a gate's
+// instrument: replace it with something that refuses more, not less.
 //
 // AND THE DIRECTION IS THE WHOLE POINT. A ratchet declares which way it may travel. A live value BETTER than the
 // seal is progress and the finding is only that the seal is stale — say so and re-seal. A live value WORSE than
 // the seal is the class this exists for, and it is reported whether or not someone also edited a baseline file,
 // because the edit is the symptom and the loosening is the act.
 import { theoremByKey } from '../theorems/index.js'
+import { rd } from './api.js'
 import { toUuid } from '../address.js'
 
 export interface Gap { what: string; fix: string }
@@ -50,8 +56,31 @@ export interface Ratchet {
   live: () => number
 }
 
-/** the sealed value for a ratchet — the numeric suffix of the newest key carrying its prefix, or null */
+/** the sealed value for a ratchet — READ FROM THE RECORD, not from a theorem's name.
+ *
+ *  THE CEILING USED TO LIVE IN THE LEDGER AS A MINTED NUMERAL, `<prefix>_<value>`, so raising it cost a trip
+ *  through the conveyor and the court. The intent was right — a JSON file is edited in a second and a seal is
+ *  not — but the instrument was a category error, and the rows it produced said so out loud:
+ *  a retired modal-debt row, `(642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6)`. The subject is contingent (642 is a
+ *  reading of this repository on a Tuesday), `by decide` signs arithmetic on the NUMERALS and never saw the
+ *  debt, and nothing can ever be derived from `(6 + 0 = 6)`. Worse, the key is prefix + value, so the mechanism
+ *  minted one more of these every time a ceiling moved — entropy with a pump attached.
+ *
+ *  lean/ratchets.json now holds the reading, content-addressed with its ruler, and admitRaise refuses a
+ *  loosening with no stated cause or no checkable evidence — STRICTLY MORE FRICTION than the numeral, which went
+ *  green with no reason recorded anywhere. Falls back to the ledger suffix so a prefix not yet in the record
+ *  keeps its old ceiling rather than silently losing one. */
 export function sealedValue(prefix: string): number | null {
+  try {
+    const rec = JSON.parse(rd('lean/ratchets.json')) as { entries?: { prefix: string; reading: number }[] }
+    const hit = (rec.entries ?? []).find((e) => e.prefix === prefix)
+    if (hit && Number.isFinite(hit.reading)) return hit.reading
+  } catch { /* fall through to the ledger — an unreadable record must not silently drop a ceiling */ }
+  return sealedValueFromLedger(prefix)
+}
+
+/** the OLD reading, kept as the fallback: the numeric suffix of the newest key carrying the prefix. */
+function sealedValueFromLedger(prefix: string): number | null {
   const keys = [...theoremByKey().keys()].filter((k) => k.startsWith(prefix + '_'))
   const nums = keys
     .map((k) => k.slice(prefix.length + 1))
@@ -82,8 +111,8 @@ export function ratchetGaps(ratchets: readonly Ratchet[]): Gap[] {
     const sealed = sealedValue(r.prefix)
     if (sealed === null) {
       gaps.push({
-        what: `${r.name} has NO sealed ratchet — nothing would notice it loosening (expected a theorem keyed ${r.prefix}_<value>)`,
-        fix: `seal the current measurement as a theorem keyed ${r.prefix}_<value>, so moving the ceiling costs a trip through the conveyor and the court rather than a one-second edit to a JSON file`,
+        what: `${r.name} has NO sealed ratchet — nothing would notice it loosening (expected an entry keyed ${r.prefix} in lean/ratchets.json)`,
+        fix: `record the current measurement in lean/ratchets.json with its cause and the evidence for it — NOT as a theorem keyed ${r.prefix}_<value>, which is what this gate used to ask for and which minted a new contingent row every time a ceiling moved. A reading is a measurement of this repository; the ledger holds laws.`,
       })
       continue
     }

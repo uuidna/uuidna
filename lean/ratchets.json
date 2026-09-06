@@ -1,0 +1,33 @@
+{
+  "entries": [
+    {
+      "prefix": "impossibility_modal_debt",
+      "reading": 642,
+      "direction": "shrink",
+      "unit": "claims",
+      "cause": "Seeded from the sealed ledger row that carried this ceiling before the measurement-as-theorem rows were retired. The value is unchanged; only its home moved, from a Lean statement that could not be derived from to a record that can carry the argument a numeral could not.",
+      "evidence": "the row it replaces, and the live measure: RATCHETS[impossibility_modal_debt].live()",
+      "measureAddress": "b9737979-9af8-8827-995d-8ea3f5da564f"
+    },
+    {
+      "prefix": "mcp_wire_rate_fell_while_total_grew",
+      "reading": 32183,
+      "direction": "shrink",
+      "unit": "hundredths of a byte per tool",
+      "cause": "Seeded from the sealed ledger row that carried this ceiling before the measurement-as-theorem rows were retired. The value is unchanged; only its home moved, from a Lean statement that could not be derived from to a record that can carry the argument a numeral could not.",
+      "evidence": "the row it replaces, and the live measure: RATCHETS[mcp_wire_rate_fell_while_total_grew].live()",
+      "measureAddress": "17af0002-cf10-84f2-b31c-c51c8d0cd8e5"
+    },
+    {
+      "prefix": "mcp_tool_debt",
+      "reading": 100,
+      "direction": "shrink",
+      "unit": "tools",
+      "cause": "Seeded from the sealed ledger row that carried this ceiling before the measurement-as-theorem rows were retired. The value is unchanged; only its home moved, from a Lean statement that could not be derived from to a record that can carry the argument a numeral could not.",
+      "evidence": "the row it replaces, and the live measure: RATCHETS[mcp_tool_debt].live()",
+      "measureAddress": "49d3c1e2-5b3c-828a-975a-bb3eab250e8b"
+    }
+  ],
+  "address": "83fe345b",
+  "honest": "The prior reading of every ratcheted measure, with the cause and the evidence for it. A reading is a MEASUREMENT of this repository, not a theorem: it is contingent, it is superseded by the next reading, and nothing can be derived from it — so it is sealed by content-address here rather than minted into the proof ledger. A raise with no cause or no evidence is refused outright, which is strictly more friction than the numeral it replaces: `<prefix>_<value>` went green with no reason recorded anywhere."
+}

@@ -149,6 +149,7 @@ Typography graph — heading depth is document depth (school-paths law).
 | Depth | Part | Section |
 | ---: | --- | --- |
 | 1 | **Hero** | [Abstract](#abstract) — tagline, ledger, name theorem |
+| 1 | **Honesty** | [How this is kept honest](#how-this-is-kept-honest) — the four gates and what each cannot see |
 | 1 | **Thesis** | [Thesis](#thesis) — Captain PhD seal |
 | 2 | ↳ concept | [Proof of concept](#proof-of-concept) — Clay · DNA |
 | 2 | ↳ work | [Proof of work](#proof-of-work) — crypto stack · codon occupancy |
@@ -165,11 +166,48 @@ Typography graph — heading depth is document depth (school-paths law).
 
 > **${SITE.tagline}.** Two coins conserved; cite by DOI-class handle.
 
-Every proof \`by decide\`, sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. TypeScript is the quantum computer (quantum by *architecture*); VitePress is the monitor. Recompute: \`npm run lean\`.
+Every proof \`by decide\`, sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel — and the axiom witness REFUSES TO WRITE rather than certify a ledger it could not cover. Recompute: \`npm run lean\`.
+
+**What this is.** A ledger whose every row the kernel decided, and whose advantage is VERIFICATION rather than hardware: to trust a result conventionally you re-run it (touching N) or you trust an authority; here you walk one Merkle path (touching log N). That ratio is an identity — exactly (2^p − 1)/p — so it holds on every machine, in every run, and it names the rung where it begins: at p = 1 a rebuild is one merge against a verify of one, and there is NO advantage ([merkle_advantage_starts_above_one_bit](https://uuidna.com/theorem/merkle_advantage_starts_above_one_bit)). A physical speedup carries a machine in it and drifts between runs; an identity has nothing to drift with.
+
+**What it runs on.** Classical silicon, and the census says so by name: of three lanes the CPU is \`measured\`, the GPU \`specified\`, and the QPU seat stands \`empty\` — a notice that a device would attach here, kept honest by a readiness trial that re-reads it every run. The state-vector simulator shipped here computes quantum circuits EXACTLY, on Gaussian integers with no decimal drift, and pays the classical price for it: 2^n amplitudes, measured at 65,536 for 16 qubits and 1,048,576 for 20 ([n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). Each added qubit roughly quadruples the work here, where hardware adds one two-state system — so the cost curve is the honest discriminator, and it is published rather than hidden.
+
+**What the quantum claim IS.** Architectural, sealed, and about CAPACITY: 2^128 addressable states, which is 2^80 beyond the largest demonstrated logical-qubit figure on any platform ([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty)), with the address width landing exactly on SHA-256's post-Grover margin — Grover halves the preimage exponent to 128, and 128 is the unit of speech here ([sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). Out-addressing every quantum computer built is the claim this ledger proves; the empty seat is what makes it worth citing, because a census earns its credit by reporting only what it measured.
 
 **The name is a theorem.** \`uuid\` + \`dna\`: 4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes — fused as 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
 ---
+
+## How this is kept honest
+
+A ledger is only worth its refusals. Every claim below survived gates that could have rejected it, and each gate
+catches something no other one sees — so a statement that passes all of them has been wrong in four different
+ways and corrected each time.
+
+| gate | what it refuses | what it cannot see |
+| --- | --- | --- |
+| the **kernel** | anything not decidable by \`decide\` | a statement that is TRUE and says nothing |
+| the **vacuity rule** | statements true whatever the world does | a proof that needs an axiom |
+| the **axiom audit** | any row depending on \`propext\` or \`Classical.choice\` — trust base ∅ | a proof only this kernel can check |
+| the **falsifier evaluator** | statements a second, independent implementation cannot decide | whether the claim matters |
+
+The vacuity gate exists because four sealed rows were found stating things like \`(2604 + 0 = 2604) ∧ (0 = 0)\` —
+arithmetic true however the prose behaves, under keys claiming otherwise. They were repaired to decide their
+subjects, and the rule now runs at the DEPOSIT DOOR rather than after the seal, because a vacuous row that
+reaches the ledger cannot be corrected by fixing the generator that produced it.
+
+The axiom audit REFUSES TO WRITE rather than certify partially: *"this run could not cover the ledger, so it has
+nothing to certify. Whatever witness is on disk is the previous one — stale, and honestly stale."* One row
+depending on a disallowed axiom blocks certification of all of them.
+
+**A zero must discriminate.** Every finder here is held to a positive control — feed it the defect it was built
+for and it must catch it — because a detector reporting zero is indistinguishable from a detector that is blind.
+The vacuity rule read zero over all four vacuous rows before it was made recursive.
+
+**Claims carry their own counterexample.** \`merkle_advantage_starts_above_one_bit\` proves the verification
+advantage is exactly (2^p − 1)/p AND that it does not exist at p = 1, where a rebuild is one merge against a
+verify of one. A claim with no floor becomes universal by default; adding the floor to that curve immediately
+exposed a wrong denominator that every rung above it had hidden.
 
 ## Thesis
 
@@ -299,7 +337,7 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for adding a wing, the pre-push gate, an
 
 ### Compute · monitor · hexbit-fast · handles · deposit
 
-TypeScript is the quantum computer (quantum by *architecture*); VitePress is the monitor — stock chrome, capacity door
+TypeScript computes it and VitePress monitors it — stock chrome, capacity door
 [uuidna.com/quantum](https://uuidna.com/quantum) (no per-page QA cards). Push verifies sealed receipts
 (\`gate-receipt.json\`, \`usable_gap_is_two_to_eighty\`) — **hexbit-fast**, remeasure off-path.
 Permanent citation: \`https://uuidna.com/<handle>\` (8 hex; worker \`HANDLES\` 301 → freeze-map).
@@ -346,7 +384,7 @@ ${unlockReadmeBlock()}
 | uuidna_quantum | 2^n amplitudes | no refuse — theorem n_qubit_dimension |
 | Quantum wing theorems | ${quantumWing} | Quantum.lean |
 | Cipher wing theorems | ${cipherWing} | Cipher.lean |
-| Research sources wired | ${RESEARCH_SOURCE_NAMES.length} | corroboration, never approval |
+| Research sources wired | ${RESEARCH_SOURCE_NAMES.length} | cited for corroboration; approval stays with the source |
 | Conserved price paid | ${(T.length * COINS).toLocaleString('en-US')} coins | ${T.length} × ${COINS} |
 
 ${alpineLine()}

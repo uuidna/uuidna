@@ -93,7 +93,7 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 144 prerequisites over 172 edges at this
+that cites another sealed key IS a citation edge, 144 prerequisites over 173 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
@@ -118,6 +118,7 @@ three citers alphabetically, and the count carries the rest.
 | [`pythagorean_comma_is_the_drift`](/theorem/pythagorean_comma_is_the_drift) | 2 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two), [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) |
 | [`tet_semitone_no_integer_lattice`](/theorem/tet_semitone_no_integer_lattice) | 2 | [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`two_order_six`](/theorem/two_order_six) | 2 | [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic), [`octave_codon_address`](/theorem/octave_codon_address) |
+| [`universe_of_handles`](/theorem/universe_of_handles) | 2 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight), [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) | 2 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census), [`uuid_mix_census_halves`](/theorem/uuid_mix_census_halves) |
 | [`xor_preserves_distance`](/theorem/xor_preserves_distance) | 2 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial), [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
 | [`a440_not_on_the_vortex`](/theorem/a440_not_on_the_vortex) | 1 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) |
@@ -167,6 +168,7 @@ three citers alphabetically, and the count carries the rest.
 | [`gregorian_cycle_400_years`](/theorem/gregorian_cycle_400_years) | 1 | [`julian_cycle_closes_at_twenty_eight`](/theorem/julian_cycle_closes_at_twenty_eight) |
 | [`gregorian_cycle_closes_on_the_week`](/theorem/gregorian_cycle_closes_on_the_week) | 1 | [`gregory_deleted_ten_days`](/theorem/gregory_deleted_ten_days) |
 | [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) | 1 | [`nim_bouton_three_heap_closure`](/theorem/nim_bouton_three_heap_closure) |
+| [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) | 1 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) |
 | [`handle_is_the_first_group`](/theorem/handle_is_the_first_group) | 1 | [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`handles_give_generators`](/theorem/handles_give_generators) | 1 | [`hextorus_generators_are_the_jobs`](/theorem/hextorus_generators_are_the_jobs) |
 | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) | 1 | [`every_string_has_thirty_two_modes`](/theorem/every_string_has_thirty_two_modes) |
@@ -178,7 +180,6 @@ three citers alphabetically, and the count carries the rest.
 | [`light_on_null_cone`](/theorem/light_on_null_cone) | 1 | [`the_null_cone_carries_integer_events_in_three_dimensions`](/theorem/the_null_cone_carries_integer_events_in_three_dimensions) |
 | [`lorentz_gamma_triangle`](/theorem/lorentz_gamma_triangle) | 1 | [`every_pythagorean_velocity_dilates_exactly`](/theorem/every_pythagorean_velocity_dilates_exactly) |
 | [`manipulation_never_faster`](/theorem/manipulation_never_faster) | 1 | [`crew_verifies_instantly`](/theorem/crew_verifies_instantly) |
-| [`mcp_tool_coverage_partition_244`](/theorem/mcp_tool_coverage_partition_244) | 1 | [`mcp_tool_debt_100`](/theorem/mcp_tool_debt_100) |
 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) | 1 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) |
 | [`message_cap_is_four_hexbits`](/theorem/message_cap_is_four_hexbits) | 1 | [`message_qubit_cap_states`](/theorem/message_qubit_cap_states) |
 | [`metonic_cycle`](/theorem/metonic_cycle) | 1 | [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) |
@@ -233,7 +234,6 @@ three citers alphabetically, and the count carries the rest.
 | [`two_coins`](/theorem/two_coins) | 1 | [`containment_is_genus_one`](/theorem/containment_is_genus_one) |
 | [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) | 1 | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) |
 | [`two_plus_two_is_five_only_mod_one`](/theorem/two_plus_two_is_five_only_mod_one) | 1 | [`market_tides_and_the_strategy_bar`](/theorem/market_tides_and_the_strategy_bar) |
-| [`universe_of_handles`](/theorem/universe_of_handles) | 1 | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
 | [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) | 1 | [`usable_gap_eighty_bits`](/theorem/usable_gap_eighty_bits) |
 | [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
 | [`ve_fourteen_faces`](/theorem/ve_fourteen_faces) | 1 | [`ve_pentads_overlap_to_eight`](/theorem/ve_pentads_overlap_to_eight) |
@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 2659-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 2656-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -768,13 +768,13 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 118, computed from the ledger
 
-Every wing the ledger seals, largest first: 2659 theorems across 118 wings and 110 skills.
+Every wing the ledger seals, largest first: 2656 theorems across 118 wings and 110 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
 | Wing | File | Skill | Theorems | Open |
 | --- | --- | --- | ---: | --- |
-| The conveyor's first wave | `Wave.lean` | wave | 936 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
+| The conveyor's first wave | `Wave.lean` | wave | 932 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
 | The ring ℤ/9 | `Ring.lean` | z9-ring | 234 | [`z9add_0_0`](/theorem/z9add_0_0) |
 | The rosette ℤ/7 | `Rosette.lean` | z7-rosette | 148 | [`rosette_pairs_twentyone`](/theorem/rosette_pairs_twentyone) |
 | The heaps | `Nim.lean` | nim | 93 | [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) |
@@ -785,7 +785,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The two coins & the 64 | `Coins.lean` | coins | 25 | [`bill_never_negative`](/theorem/bill_never_negative) |
 | The rules of inference | `Reasoning.lean` | reasoning | 25 | [`absorbed_evidence_idles`](/theorem/absorbed_evidence_idles) |
 | The chess horizon | `Chessgames.lean` | chess | 24 | [`after_one_move_four_hundred`](/theorem/after_one_move_four_hundred) |
-| The hexbit | `Hexbit.lean` | hexbit | 20 | [`alphabet_names_each_nibble`](/theorem/alphabet_names_each_nibble) |
+| The hexbit | `Hexbit.lean` | hexbit | 22 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) |
 | The detectors, proven | `Audit.lean` | audit | 18 | [`backing_clears`](/theorem/backing_clears) |
 | The colour wheel | `Colour.lean` | colour | 18 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
 | The hardware-verifiable binary algebra | `Hardware.lean` | hardware | 18 | [`and_gate_truth_table`](/theorem/and_gate_truth_table) |
@@ -796,10 +796,10 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | Applied structure — the science pairs | `BioPhysics.lean` | science-pairs | 17 | [`abo_klein_four`](/theorem/abo_klein_four) |
 | The seven readings | `Readings.lean` | readings | 17 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) |
 | Self-discovered | `Discover.lean` | vortex | 16 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) |
-| The site build as arithmetic | `SiteBuild.lean` | site-build | 16 | [`a_floor_may_fall_to_what_is_anchored`](/theorem/a_floor_may_fall_to_what_is_anchored) |
 | The software-verifiable algebra | `Software.lean` | software | 16 | [`append_length_adds`](/theorem/append_length_adds) |
 | Ported from millennium-solutions | `Vortex.lean` | z9-ring | 16 | [`doubling_circuit`](/theorem/doubling_circuit) |
 | The calendar | `Calendar.lean` | calendar | 15 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
+| The site build as arithmetic | `SiteBuild.lean` | site-build | 15 | [`a_floor_may_fall_to_what_is_anchored`](/theorem/a_floor_may_fall_to_what_is_anchored) |
 | The vortex algebra | `Uuidna.lean` | vortex | 15 | [`billing_arith`](/theorem/billing_arith) |
 | The cut | `Editing.lean` | editing | 14 | [`angle_of_the_cut`](/theorem/angle_of_the_cut) |
 | The referrer song | `Referrer.lean` | referrer | 14 | [`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning) |
@@ -1179,10 +1179,10 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 358,893 | 6 | 59,815× | `theorems().length` |
-| what does the tree hold right now? | 379,451 | 225 | 1,686× | `npm run state` |
+| how many theorems are sealed? | 358,998 | 6 | 59,833× | `theorems().length` |
+| what does the tree hold right now? | 379,556 | 225 | 1,686× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 83,563 | 65 | 1,285× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 83,621 | 65 | 1,286× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **5,206×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
@@ -1198,7 +1198,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,670 | 16 | 455,604× |
-| the sealed ledger | 1,435,574 | 16 | 89,723× |
+| the sealed ledger | 1,435,993 | 16 | 89,749× |
 | the leads record | 71,592 | 16 | 4,474× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

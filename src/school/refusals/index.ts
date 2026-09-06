@@ -15,7 +15,7 @@
 //
 // A boundary that names a LAW is checkable and usually holds: the licence, the determinism hard-reject, robots
 // .txt on a site that answers 418. A boundary that names an INCAPACITY is the one to distrust, because six such
-// claims were written into this tree in a single session and all six were false (impossibility_claims_debt_622).
+// claims were written into this tree in a single session and all six were false — the reading that recorded it is retired from the ledger and lives in src/ratchet-record.ts.
 import { rd } from '../../scripts/api.js'
 
 export interface RefusalRow {

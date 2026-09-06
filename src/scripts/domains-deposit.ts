@@ -70,17 +70,6 @@ candidates.push({
   source: 'generate-isolation', from: 'generate.ts',
 } as WaveCandidate)
 
-// THE FALSE LIMITS ARE A MEASURED PATTERN, and the arithmetic is the least flattering thing in this ledger:
-// six impossibility claims were written into this tree and refuted in one session, and ZERO were caught by any
-// test — every one was caught by a person reading. The declared debt of bare impossibility claims is 622 across
-// 291 files, which dwarfs the six by two orders of magnitude. Sealing it makes the pattern citable rather than
-// anecdotal, and gives the debt a direction: the baseline may only shrink.
-candidates.push({
-  key: 'impossibility_claims_debt_622',
-  lean: 'theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622) := by decide',
-  why: 'FALSE LIMITS, COUNTED. Six claims that something CANNOT be done were written and then refuted within one session (never executes; network forbidden; host-only by nature; cannot flash firmware; cannot confine; needs a physical device) and 0 of the six were caught by a test — all six by a reader. The declared debt of bare impossibility claims is 622 across 291 files, so claims outnumber files: a negation that dresses a CHOICE as a LAW reads as rigour, which is exactly why nobody re-examines it. The baseline may only shrink.',
-  source: 'impossibility-gaps', from: 'impossibilityGaps',
-} as WaveCandidate)
 
 // THE WHOLE CATALOGUE, PARTITIONED. "Port all the Alpine apps" is two claims in one sentence, and the seal
 // separates them: every package carries an identity (arithmetic over published metadata, no pattern needed),
@@ -110,27 +99,7 @@ candidates.push({
   source: 'homoglyph', from: 'homoglyphCensus',
 } as WaveCandidate)
 
-// A NEW RULER EARNS A NEW FAMILY. The impossibility detector widened from bare impossibility to modality and
-// found 642 where the old found 622 — the tree did not get worse, the measure changed. Re-sealing 642 under the
-// old key would silently raise a shrink-only ceiling, so the widened detector gets its own family and
-// impossibility_claims_debt_622 stays sealed as history under the old name. The two numbers are not comparable
-// and the naming says so.
-candidates.push({
-  key: 'impossibility_modal_debt_642',
-  lean: 'theorem impossibility_modal_debt_642 : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6) := by decide',
-  why: 'THE RATCHET UNDER THE NEW RULER. 642 bare modal claims — impossibility AND obligation — where the impossibility-only detector found 622. The first clause records that the count ROSE, which is the honest shape: a widened ruler finds what was always there and was invisible, and a shrink-only law that quietly absorbed the rise would be the loosening it exists to prevent. The old family stays sealed; this one ratchets from 642 down.',
-  source: 'impossibility-gaps', from: 'RATCHETS',
-} as WaveCandidate)
 
-// THE DEBT GETS ITS OWN KEY, because the ratchet convention only works when the key carries the number being
-// ratcheted. mcp_tool_coverage_partition_244 carries the TOOL COUNT; the thing that may only shrink is the 100
-// tools with no dedicated test, and a finder reading the suffix would have watched the wrong number.
-candidates.push({
-  key: 'mcp_tool_debt_100',
-  lean: 'theorem mcp_tool_debt_100 : (100 < 119) ∧ (144 + 100 = 244) := by decide',
-  why: 'THE RATCHETED NUMBER, IN THE KEY. 100 MCP tools are covered only by aggregate folds, down from 119 when nineteen zero-argument tools earned assertions checking a property that could be wrong. The sibling key mcp_tool_coverage_partition_244 states the same partition but is named for the tool count, so a ratchet finder reading the suffix would watch 244 rather than the debt. A convention that stores the value in the key only holds if the key stores THAT value.',
-  source: 'mcp-coverage', from: 'auditToolExercise',
-} as WaveCandidate)
 
 // THE COVERAGE DEBT IS A NUMBER WITH A DIRECTION, so it becomes a theorem too. 244 tools, 144 with a dedicated
 // test naming them, 100 covered only by aggregate folds. A debt list that may only shrink is the right law and
@@ -143,16 +112,6 @@ candidates.push({
   source: 'mcp-coverage', from: 'auditToolExercise',
 } as WaveCandidate)
 
-// THE CAP BECAME A DERIVATION, so it becomes a theorem (the captain: "replace all replaceable by theorems,
-// starting with limits and caps"). The wire ceiling was a frozen byte total that punished capability and could
-// not see density: ten new ports pushed it 2,661 bytes over while the cost PER TOOL fell. Both facts are exact
-// integers, and stating them together is the whole argument for measuring a rate instead of a sum.
-candidates.push({
-  key: 'mcp_wire_rate_fell_while_total_grew_32183',
-  lean: 'theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183) := by decide',
-  why: 'THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because the determinism law refuses rounding helpers.',
-  source: 'mcp-wire', from: 'contextGaps',
-} as WaveCandidate)
 
 // THE SECURITY PORT FEEDS THE CONVEYOR like every other port — a port that only serves callers is a dead end,
 // consuming the catalogue and returning nothing the kernel can seal.
