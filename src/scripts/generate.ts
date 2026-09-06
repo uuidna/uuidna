@@ -65,6 +65,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-cloudflare-templates.js', args: [], note: 'src/cloudflare-templates-data.ts — the template mirror as an importable module (no fs at run time)' },
   { file: 'gen-statement-fixture.js', args: [], note: 'docs/public/statement-addresses.json — the cross-repository join manifest' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
+  { file: 'gen-refusals.js', args: [], note: 'src/school/refusals/generated.ts — the refusals register as an importable module, so uuidna_refusals serves at the hosted edge with no filesystem (it threw `process is not defined` there while every Node test passed)' },
   { file: 'gen-terminology.js', args: [], note: 'terminology.json' },
   { file: 'gen-feed.js', args: [], note: 'the feed' },
   { file: 'gen-articles.js', args: [], note: 'the desk’s own writing' },

@@ -180,6 +180,9 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_anchor": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_wave": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_editorial": 'CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side',
+  // FOUND BY AN INSTRUMENT, not by reading: the process-hidden probe in src/quantum/os/harness/mcp-edge-coverage.test.ts
+  // calls every zero-argument edge tool with `process` removed, as a Worker has it removed, and this one threw.
+  "uuidna_security_plan": 'CAPABILITY: secApi() probes the host for docker (spawnSync through resolveShell) and reads the pinned rootfs from disk (verifyPinnedRootfs) — host-side; served here it answered `process is not defined` until 2026-09-07',
   "uuidna_publication": 'CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side',
   "uuidna_search_trial": 'POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable',
   "uuidna_vies": 'POLICY: network lookup against the EU VIES register',

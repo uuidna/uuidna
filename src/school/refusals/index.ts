@@ -16,7 +16,10 @@
 // A boundary that names a LAW is checkable and usually holds: the licence, the determinism hard-reject, robots
 // .txt on a site that answers 418. A boundary that names an INCAPACITY is the one to distrust, because six such
 // claims were written into this tree in a single session and all six were false — the reading that recorded it is retired from the ledger and lives in src/ratchet-record.ts.
-import { rd } from '../../scripts/api.js'
+// THE ROWS COME FROM A GENERATED MODULE, NOT A FILE READ. This census serves at the hosted edge, which has no
+// filesystem; reading lean/leads.json here (through scripts/api.ts) loaded fine and threw `process is not defined`
+// on the first edge call. gen-refusals bakes the slice; index.test.ts holds it to the live record.
+import { REFUSAL_SLICE } from './generated.js'
 
 export interface RefusalRow {
   lead: string
@@ -44,30 +47,19 @@ const LAW = /\b(licen[cs]e|robots\.txt|determinism|hard-reject|theorem [a-z0-9_]
 const kindOf = (boundary: string): RefusalRow['kind'] =>
   LAW.test(boundary) ? 'law' : INCAPACITY.test(boundary) ? 'incapacity' : 'scope'
 
-interface RawLead { lead?: unknown; boundary?: unknown; killed_by?: unknown; owes?: unknown }
-
 /** refusalCensus() → every refusal with its boundary, classified, and the withdrawn ones kept beside them. */
 export function refusalCensus(): RefusalCensus {
-  const record = JSON.parse(rd('lean/leads.json')) as { refused?: RawLead[]; refuted?: RawLead[] }
-  const rows: RefusalRow[] = (record.refused ?? []).map((r) => ({
-    lead: String(r.lead ?? ''),
-    boundary: String(r.boundary ?? ''),
+  const rows: RefusalRow[] = REFUSAL_SLICE.refused.map((r) => ({
+    lead: r.lead,
+    boundary: r.boundary,
     survived: true,
     overturnedBy: '',
-    kind: kindOf(String(r.boundary ?? '')),
+    kind: kindOf(r.boundary),
   }))
   // a refusal that was WITHDRAWN lives in refuted[] with the measurement that overturned it — it belongs in this
   // census beside the ones that held, because a registry showing only successful refusals teaches nothing
-  for (const r of record.refuted ?? []) {
-    const blob = JSON.stringify(r)
-    if (!/REFUSAL WITHDRAWN|refusal built on|fake limit/i.test(blob)) continue
-    rows.push({
-      lead: String(r.lead ?? ''),
-      boundary: '(withdrawn)',
-      survived: false,
-      overturnedBy: String(r.killed_by ?? r.owes ?? '').slice(0, 400),
-      kind: 'incapacity',
-    })
+  for (const r of REFUSAL_SLICE.withdrawn) {
+    rows.push({ lead: r.lead, boundary: '(withdrawn)', survived: false, overturnedBy: r.overturnedBy, kind: 'incapacity' })
   }
   const byKind: Record<string, number> = {}
   for (const r of rows) byKind[r.kind] = (byKind[r.kind] ?? 0) + 1

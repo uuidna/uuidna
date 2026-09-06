@@ -147,7 +147,12 @@ const unb64 = (s: unknown): Uint8Array => { const bin = atob(String(s)); const u
 // not change under a running server, and the self-test calls each zero-argument tool twice and requires the two
 // results to be identical. Recomputing per call would be the same answer at many times the cost.
 let LEG_ROWS: Rosetta[] | null = null
-const liveLegRows = (): Rosetta[] => (LEG_ROWS ??= legCensusRows())
+// A Worker has no tree to read, so the edge answers from the shipped mirror (src/rosetta-mirror.ts) — the
+// comment on the import above promised that, and until 2026-09-07 the run() read the tree unconditionally and
+// threw `process is not defined` at uuidna.com/mcp. The mirror is not cached into LEG_ROWS: the live rows and the
+// mirror are different witnesses, and one cache holding either would let a test poison the other.
+const hostHasNode = (): boolean => typeof (globalThis as { process?: { getBuiltinModule?: unknown } }).process?.getBuiltinModule === 'function'
+const liveLegRows = (): Rosetta[] => (hostHasNode() ? (LEG_ROWS ??= legCensusRows()) : mirrorRows())
 
 const TOOLS: Tool[] = ([
   { name: 'uuidna_address',
@@ -1664,9 +1669,12 @@ const TOOLS: Tool[] = ([
     run: (a) => {
       const rows = liveLegRows()
       const hostedMirror = mirrorAgreement(rows)
+      // which witness answered: the LIVE decision (a Node host read the wings) or the SHIPPED MIRROR (the edge).
+      // At the edge hostedMirror compares the mirror with itself, so the source is named rather than implied.
+      const source = hostHasNode() ? 'live' : 'shipped-mirror'
       return a.key === undefined || a.key === null || String(a.key) === ''
-        ? { ...legCensus(rows), hostedMirror }
-        : { ...legsFor(rows, String(a.key)), hostedMirror }
+        ? { ...legCensus(rows), hostedMirror, source }
+        : { ...legsFor(rows, String(a.key)), hostedMirror, source }
     } },
 
   // ── THE ALPINE PORTS, REACHABLE THE SECOND WAY (2026-09-01) ──────────────────────────────────────────────────

@@ -1,6 +1,18 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { refusalCensus, involuteRefusals } from './index.js'
+import { REFUSAL_SLICE } from './generated.js'
+import { refusalSliceOf, type LeadsRecord } from './slice.js'
+import { ROOT } from '../../scripts/api.js'
+
+test('generated.ts IS the current derivation of lean/leads.json — a baked module that lags the record is a stale register', () => {
+  // The census no longer reads the record (the edge has no filesystem), so the one way it can go wrong is the
+  // baked slice falling behind lean/leads.json. Same derivation, live input, deep-equal — or the exact command.
+  const live = refusalSliceOf(JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as LeadsRecord)
+  assert.deepEqual(REFUSAL_SLICE, live, 'src/school/refusals/generated.ts lags lean/leads.json — run `npm run x -- gen-refusals`')
+})
 
 test('withdrawn refusals are kept BESIDE the ones that held', () => {
   // A registry showing only successful refusals teaches nothing. The one that failed is the informative row.

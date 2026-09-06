@@ -214,13 +214,18 @@ export interface HostProfile extends Capacity {
  *  something a report says and becomes something the next reader recomputes. */
 export function hostProfile(reserve = 2): HostProfile {
   const cap = capacity(reserve)
-  const shell = resolveShell()
-  const file = shell.ok ? shell.file : 'none'
-  const parts = [`platform:${process.platform}`, `arch:${process.arch}`, `logical:${cap.logical}`, `mem:${cap.memoryGiB}`, `shell:${file}`]
+  // NO HOST TO MEASURE is an answer, the same one capacity() already gives: a Worker has no `process`, and the two
+  // edge tools that fold this profile (uuidna_driver_state, uuidna_ports) threw `process is not defined` at
+  // uuidna.com/mcp until 2026-09-07. platform/arch/shell read 'none' there and the address folds over that fact.
+  const proc = (globalThis as { process?: { platform: string; arch: string } }).process
+  const shell = proc ? resolveShell(proc.platform) : null
+  const file = shell?.ok ? shell.file : 'none'
+  const platform = proc?.platform ?? 'none', arch = proc?.arch ?? 'none'
+  const parts = [`platform:${platform}`, `arch:${arch}`, `logical:${cap.logical}`, `mem:${cap.memoryGiB}`, `shell:${file}`]
   return {
     ...cap,
-    platform: process.platform,
-    arch: process.arch,
+    platform,
+    arch,
     shell: file,
     address: toUuid(`machine|${parts.join('|')}`),
     receipt: merkleGravity(parts.map(toUuid)),
