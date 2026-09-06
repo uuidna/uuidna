@@ -2753,7 +2753,7 @@
     "lean/doi-harvest.json": "2bca8ca0b58c81d7",
     "lean/doi-unclaimed.json": "8a70dccdcc928a0d",
     "lean/dormant-receipt.json": "c6f8ef460ac88afa",
-    "lean/dormant-scripts.json": "ec11d528a0c58218",
+    "lean/dormant-scripts.json": "45522fb0b10585be",
     "lean/doubletorus-manifest.json": "5718f6c5aef782ed",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
     "lean/editor-manifest.json": "4bf17f879bb78ef4",
@@ -2866,5 +2866,5 @@
     "lean/wave-queue.json": "7a13499d955081a5",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "e745a605-6599-816a-96fe-aa37fea3cc42"
+  "receipt": "90d23a88-61af-8006-b0d2-cfc35e6e2cdb"
 }
