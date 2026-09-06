@@ -194,10 +194,18 @@ function save(sealed: number, rows: Row[]): void {
   rows.sort((a, b) => a.key.localeCompare(b.key))
   const answered = rows.filter((r) => r.asked)
   writeFileSync(OUT, JSON.stringify({
-    why: 'What the registration agency returned for each theorem\'s own claim sentence. A hit is a CANDIDATE for prior art, not a finding of it; an empty result is not proof of novelty, only that this query returned nothing on this day. Neither decides novelty — a human or a later gate reads these.',
+    why: 'What the indexes returned for each theorem\'s own claim sentence. A hit is a CANDIDATE for prior art, not a finding of it. A MISS IS NOT EVIDENCE OF NOVELTY AND NEVER CAN BE — measured 2026-09-06, the sealed claim sentence is a formalisation, no paper is phrased that way, and it retrieves n=0 from PubMed and nothing relevant from Crossref, OpenAlex or arXiv. The only queries that retrieved the four known DOIs were the target papers\' own titles, which is circular. This file surfaces candidates for a human to read; it does not measure novelty in either direction.',
     sealed, asked: answered.length, unasked: rows.length - answered.length,
     withCandidates: answered.filter((r) => r.agreement >= AGREEMENT_IS_A_CANDIDATE).length,
-    clean: answered.filter((r) => r.agreement < AGREEMENT_IS_A_CANDIDATE).length,
+    // NOT `clean`. A field called clean is read as "novel" by the next hand, and this instrument may not support
+    // that word — may not, because a miss and a blind retriever produce the identical row, so the word would be
+    // asserting a distinction the data does not contain. THE ASYMMETRY IS THE WHOLE DESIGN: a hit is
+    // self-verifying — it carries an
+    // identifier anyone can check — while a miss is evidence of nothing, not from one index, not from two, not
+    // from any finite set. MEASURED 2026-09-06 across four indexes: the claim sentence returns n=0 from PubMed
+    // and nothing relevant from Crossref, OpenAlex or arXiv, because a formalisation is not a literature query.
+    // So every miss in this file is "these queries, these indexes, this day", and the name now says so.
+    notFoundByTheseQueries: answered.filter((r) => r.agreement < AGREEMENT_IS_A_CANDIDATE).length,
     rows,
   }, null, 2) + '\n')
 }
