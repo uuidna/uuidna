@@ -2,9 +2,9 @@
   "generated": "2026-09-06",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2658,
-  "novelty_claimed": 2642,
-  "formalisation_only": 16,
+  "total_claimed": 2659,
+  "novelty_claimed": 2415,
+  "formalisation_only": 244,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -71,7 +71,1658 @@
       "source": "CODATA"
     }
   ],
-  "total_theorems": 2658,
+  "external_facts": [
+    {
+      "key": "absolute_zero_and_kelvin",
+      "arms": [
+        "named",
+        "eponym",
+        "units"
+      ],
+      "evidence": "Kelvin · Kelvin scale · 0 °C"
+    },
+    {
+      "key": "a_window_exhausts_only_itself",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Mertens · Mertens conjecture"
+    },
+    {
+      "key": "action_reaction_and_charge_cancel",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Newton · Newton's third law"
+    },
+    {
+      "key": "boyles_law",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Boyle · Boyle's law"
+    },
+    {
+      "key": "carnot_efficiency_below_one",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Carnot · Carnot efficiency"
+    },
+    {
+      "key": "cassini_golden_page",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Fibonacci · Cassini's identity"
+    },
+    {
+      "key": "charles_law",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Charles · Charles's law"
+    },
+    {
+      "key": "coulomb_sign",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Coulomb · Coulomb's law"
+    },
+    {
+      "key": "faraday_needs_changing_flux",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Faraday · Faraday's law"
+    },
+    {
+      "key": "fibonacci_gcd_follows_the_index_gcd",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Fibonacci · Fibonacci number"
+    },
+    {
+      "key": "fibonacci_identity_sums_close_and_neighbours_are_coprime",
+      "arms": [
+        "named",
+        "units"
+      ],
+      "evidence": "Fibonacci · second"
+    },
+    {
+      "key": "game_tree_exceeds_universe",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Shannon · Shannon number"
+    },
+    {
+      "key": "hasse_bound_holds_at_four_primes",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Hasse · Hasse's bound"
+    },
+    {
+      "key": "hexagram_width_closes_rosetta_and_glagolitic",
+      "arms": [
+        "named",
+        "units"
+      ],
+      "evidence": "Fermat · second"
+    },
+    {
+      "key": "hicks_law_three_bits",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Hick · Hick's law"
+    },
+    {
+      "key": "hookes_law",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Hooke · Hooke's law"
+    },
+    {
+      "key": "mantel_bound_on_five_vertices",
+      "arms": [
+        "eponym",
+        "units"
+      ],
+      "evidence": "Mantel's bound · K"
+    },
+    {
+      "key": "maxwell_trichotomy_is_total_over_the_grid",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Maxwell · Maxwell’s rule"
+    },
+    {
+      "key": "momentum_conserved",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Newton · Newton's third law"
+    },
+    {
+      "key": "naismith_rule_estimate",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Naismith · Naismith's rule"
+    },
+    {
+      "key": "nim_bouton_three_heap_closure",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Bouton · Bouton's theorem"
+    },
+    {
+      "key": "nim_pposition_is_zero",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Bouton · Bouton's theorem"
+    },
+    {
+      "key": "nim_sum_is_xor",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Bouton · Bouton's theorem"
+    },
+    {
+      "key": "ohms_law",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Ohm · Ohm's law"
+    },
+    {
+      "key": "partial_pressures_sum_to_absolute",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Dalton · Dalton's law"
+    },
+    {
+      "key": "post_classes_leave_only_nor_and_nand",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Post · Post's theorem"
+    },
+    {
+      "key": "singleton_bound",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Singleton · Singleton bound"
+    },
+    {
+      "key": "snell_law",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Snell · Snell's law"
+    },
+    {
+      "key": "song_four_tongues_fuse",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Pascal · Chinese remainder theorem"
+    },
+    {
+      "key": "truss_maxwell_rule",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Maxwell · Maxwell's rule"
+    },
+    {
+      "key": "z7_quadratic_residues_euler",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Euler · Euler's criterion"
+    },
+    {
+      "key": "zeckendorf_non_adjacent_representation_is_unique",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Fibonacci · Fibonacci number"
+    },
+    {
+      "key": "a_series_halving",
+      "arms": [
+        "units"
+      ],
+      "evidence": "meters"
+    },
+    {
+      "key": "adjacent_steps_beat_at_the_tuning",
+      "arms": [
+        "units"
+      ],
+      "evidence": "432 hertz"
+    },
+    {
+      "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Lagrange"
+    },
+    {
+      "key": "agl9_fixed_point_census_gives_a_single_orbit",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Burnside's lemma"
+    },
+    {
+      "key": "alternation_needs_a_second_phase",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "anthem_chord_halves_the_bar",
+      "arms": [
+        "units"
+      ],
+      "evidence": "meter"
+    },
+    {
+      "key": "anthem_closes_on_the_coin_octave",
+      "arms": [
+        "units"
+      ],
+      "evidence": "kilograms"
+    },
+    {
+      "key": "art_spectrum_and_primaries",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Newton"
+    },
+    {
+      "key": "beat_frequency",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "bell_census_is_its_own_binomial_transform",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "bell_census_of_restricted_growth_strings",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "bounded_silence_is_not_evidence",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "bramah_stood_sixty_seven_years",
+      "arms": [
+        "units"
+      ],
+      "evidence": "seconds"
+    },
+    {
+      "key": "caesium_light_step",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "captain_singularity",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "captains_columns_sum_to_ten",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "chi_all_three_genera",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Gauss"
+    },
+    {
+      "key": "chi_crystallises_three_genera",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "clean_is_a_p_position",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Bouton"
+    },
+    {
+      "key": "compare_swap_orders",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "compound_steps_in_exact_integers",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "cubes_partition_ledger",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "debruijn_order_four_cycle_reads_every_quadruple_once",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "debruijn_order_three_cycle_reads_every_triple_once",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "depolarisation_blocks_firing",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "derivative_finite_rate",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Newton"
+    },
+    {
+      "key": "dirac_unit_mass",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Dirac"
+    },
+    {
+      "key": "distance_is_symmetric",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "drift_needs_two_to_hide_in",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "dunbar_layers_triple_and_round",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Dunbar's social layers scale"
+    },
+    {
+      "key": "entropy_never_decreases",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "euler_characteristic_two",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "fib_pentagram_cycle_20",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fibonacci"
+    },
+    {
+      "key": "fib_single_digit_cycle_24",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fibonacci"
+    },
+    {
+      "key": "four_simplex_boundary_euler_is_zero",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "frame_index_is_z24",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "from_eight_bits_to_the_dos_ceiling",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "gas_volume_walks_the_harmonic_series",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Boyle"
+    },
+    {
+      "key": "gray_code_reflects_across_the_top_bit",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "grid_rectangle_euler_is_one",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "grundy_sum_is_xor",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "hamming_differences_are_the_code",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Hamming"
+    },
+    {
+      "key": "hamming_perfect_code",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Hamming"
+    },
+    {
+      "key": "hamming_seven_four",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Hamming"
+    },
+    {
+      "key": "handle_capacity_is_quantum_by_architecture",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "handles_give_generators",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "hextorus_deficit_is_the_ten",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "horizon_curvature_finite",
+      "arms": [
+        "units"
+      ],
+      "evidence": "K"
+    },
+    {
+      "key": "hour_of_film_is_a_day_of_seconds",
+      "arms": [
+        "units"
+      ],
+      "evidence": "seconds"
+    },
+    {
+      "key": "jump_records_ascend",
+      "arms": [
+        "units"
+      ],
+      "evidence": "metre"
+    },
+    {
+      "key": "keplers_harmonic_law",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Kepler"
+    },
+    {
+      "key": "kink_needs_q_above_one",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Shafranov"
+    },
+    {
+      "key": "kirchhoff_current",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Kirchhoff's current law"
+    },
+    {
+      "key": "kirchhoff_voltage",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Kirchhoff's voltage law"
+    },
+    {
+      "key": "lagrange_units",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Lagrange"
+    },
+    {
+      "key": "light_faster_than_uuidna",
+      "arms": [
+        "units"
+      ],
+      "evidence": "299792458 m/s"
+    },
+    {
+      "key": "magnification",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Snell"
+    },
+    {
+      "key": "mcp_tool_coverage_partition_244",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "mechanism_lacks_one",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Maxwell"
+    },
+    {
+      "key": "merkle_advantage_starts_above_one_bit",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "merkle_depth_iff_leaf_bound",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "merkle_shape_moves_root_iff_nonassociative",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "mertens_squared_under_n_on_the_first_twenty",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Riemann"
+    },
+    {
+      "key": "message_qubit_cap_states",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "missing_pair_involution",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "mix_budget_closes",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "mombh_quantum_n2_population_needs_density",
+      "arms": [
+        "units"
+      ],
+      "evidence": "K"
+    },
+    {
+      "key": "monotone_paths_are_pascal_entries",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "monotone_two_bit_gates_are_threshold",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "nand_reconstructs_and",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "nim_winning_move_exists",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Bouton"
+    },
+    {
+      "key": "no_instrument_narrower_than_its_question",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "no_power_of_three_is_a_power_of_two",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "nyquist_clears_the_lattice",
+      "arms": [
+        "units"
+      ],
+      "evidence": "16000 hertz"
+    },
+    {
+      "key": "nyquist_half_samplerate",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Nyquist"
+    },
+    {
+      "key": "one_source_is_exactly_one",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "partitions_euler_distinct_eq_odd_to_seven",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "path_column_differences_close",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "path_reverse_needs_both",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "ph_plus_poh_14",
+      "arms": [
+        "units"
+      ],
+      "evidence": "25 °C"
+    },
+    {
+      "key": "photon_energy_rises_with_band",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
+    },
+    {
+      "key": "pi_bracketed_by_finite_rationals",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Archimedes"
+    },
+    {
+      "key": "pilgrims_homecoming_arithmetic",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "platonic_euler_characteristic_is_two",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "power_fixed_mod_10_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_11_number_11",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_12_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_13_number_13",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_14_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_15_number_9",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_16_number_2",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_17_number_17",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_18_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_19_number_19",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_20_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_21_number_9",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_22_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_24_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_25_number_5",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_26_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_27_number_3",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_28_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_30_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_32_number_2",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_33_number_9",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_34_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_35_number_9",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_36_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_38_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_39_number_9",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_40_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_44_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_45_number_15",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_48_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_49_number_7",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_5_number_5",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_50_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_6_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_7_number_7",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_8_number_2",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "power_fixed_mod_9_number_3",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "pressure_doubles_down_the_octave",
+      "arms": [
+        "units"
+      ],
+      "evidence": "metres"
+    },
+    {
+      "key": "readings_states_sound_the_lattice",
+      "arms": [
+        "units"
+      ],
+      "evidence": "hertz"
+    },
+    {
+      "key": "redundancy_pays_one",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Maxwell"
+    },
+    {
+      "key": "referrer_consonance_ladder",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "reflection_counts_the_dipping_words",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "refractory_absolute_and_relative",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "residue_returns_step_does_not",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "saros_counts_on_a_prime",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Archimedes"
+    },
+    {
+      "key": "saturation_deco_dominates",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Dalton"
+    },
+    {
+      "key": "scrubber_margin_holds",
+      "arms": [
+        "units"
+      ],
+      "evidence": "5 kg"
+    },
+    {
+      "key": "seconds_per_day",
+      "arms": [
+        "units"
+      ],
+      "evidence": "60 seconds"
+    },
+    {
+      "key": "self_dual_two_bit_gates_ignore_an_input",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "single_byte_tamper_space_is_enumerated",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "six_figure_grid_tenths",
+      "arms": [
+        "units"
+      ],
+      "evidence": "metre"
+    },
+    {
+      "key": "song_halves_are_strands",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "song_melody_rides_the_orbit",
+      "arms": [
+        "units"
+      ],
+      "evidence": "hertz"
+    },
+    {
+      "key": "song_pi_roof_opens",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Archimedes"
+    },
+    {
+      "key": "song_scale_is_glagolitic",
+      "arms": [
+        "units"
+      ],
+      "evidence": "hertz"
+    },
+    {
+      "key": "sport_marathon_and_the_teams",
+      "arms": [
+        "units"
+      ],
+      "evidence": "195 metres"
+    },
+    {
+      "key": "stirling_block_census_obeys_its_recurrence",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "stoichiometry_scales",
+      "arms": [
+        "units"
+      ],
+      "evidence": "moles"
+    },
+    {
+      "key": "stride_cycle_is_modulus_over_gcd",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "t7_betti_row_is_the_uuid",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "temporal_summation_decays",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "the_degree_is_the_column_count",
+      "arms": [
+        "units"
+      ],
+      "evidence": "seconds"
+    },
+    {
+      "key": "the_gregorian_cycle_counted_in_weeks",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "the_grids_minute",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "the_mix_space_is_its_own_mirror",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "the_movie_and_the_song_are_one",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "thirds_rule_sums_whole",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Boyle"
+    },
+    {
+      "key": "time_counts_of_the_books",
+      "arms": [
+        "units"
+      ],
+      "evidence": "meters"
+    },
+    {
+      "key": "time_lock_removes_the_hostage",
+      "arms": [
+        "units"
+      ],
+      "evidence": "360 metres"
+    },
+    {
+      "key": "torus_betti_alternates_to_zero",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "trinity_rosette_coprime",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Chinese remainder theorem"
+    },
+    {
+      "key": "tuning_cancels_from_every_interval",
+      "arms": [
+        "units"
+      ],
+      "evidence": "hertz"
+    },
+    {
+      "key": "types_count_as_arithmetic",
+      "arms": [
+        "units"
+      ],
+      "evidence": "seconds"
+    },
+    {
+      "key": "uhd_is_four_times_hd",
+      "arms": [
+        "units"
+      ],
+      "evidence": "4K"
+    },
+    {
+      "key": "units_mod_10_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_11_number_10",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_12_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_13_number_12",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_14_number_6",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_15_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_16_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_18_number_6",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_20_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_21_number_12",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_22_number_10",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_24_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_25_number_20",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_26_number_12",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_27_number_18",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_28_number_12",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_30_number_8",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_32_number_16",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_33_number_20",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_35_number_24",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_36_number_12",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_5_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_6_number_2",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_7_number_6",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "units_mod_8_number_4",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "usable_gap_eighty_bits",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "uuid_mix_census_halves",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "uuid_mix_census_is_quantum",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Pascal"
+    },
+    {
+      "key": "uv_partition_closed",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
+    },
+    {
+      "key": "ve_handshake_crosses",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "wait_covers_margin",
+      "arms": [
+        "units"
+      ],
+      "evidence": "420 seconds"
+    },
+    {
+      "key": "wave_speed_f_lambda",
+      "arms": [
+        "units"
+      ],
+      "evidence": "340 m/s"
+    },
+    {
+      "key": "weight_reads_distance_only_for_linear_codes",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "window_not_universal",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "xor_preserves_distance",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Hamming"
+    },
+    {
+      "key": "z7_primitive_roots_are_three_and_five",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Lagrange"
+    },
+    {
+      "key": "z7fermat",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Fermat"
+    },
+    {
+      "key": "z9_digit_sum_folds_to_the_residue_in_three",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    }
+  ],
+  "credit_grades": {
+    "on_file": {
+      "identifier": 4,
+      "standard": 8,
+      "named": 4
+    },
+    "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
+  },
+  "external_fact_floor": {
+    "floor": 228,
+    "by_arm": {
+      "named": 141,
+      "eponym": 35,
+      "units": 85
+    },
+    "found_by_one_arm_only": 196,
+    "all_arms_agree": 1,
+    "ground_truth_sensitivity": "10/16",
+    "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
+  },
+  "total_theorems": 2659,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -4566,8 +6217,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "3c85fe54-25f8-8b40-9051-f398f3129e7f",
-      "address": "136bbbca-2e9b-83ff-b2e5-4d20cbdc4a56",
+      "lineAddress": "e23284a7-7ccd-8179-aaf7-d5e690f61a04",
+      "address": "96eac68e-99bc-825c-9b47-7445d8591aa6",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -4888,8 +6539,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "808a0fe6-47bf-8b18-9bff-a5eba0e555c3",
-      "address": "bb407f1b-8001-81de-8971-171a5d850e77",
+      "lineAddress": "b1de4fb5-d3f8-89c9-a04d-db4eae1f743e",
+      "address": "82a7eb0f-421a-8223-8934-b4752afc8882",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -4909,22 +6560,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "5e844c93-a2c3-807d-8d4e-aaf57546b59a",
-      "address": "381d09a1-bd9e-8f2e-847a-42f5d6299b86",
+      "lineAddress": "5bf579ac-d148-82d7-8c1f-63f4c8b24575",
+      "address": "dcef5fb3-db83-82f1-b25d-31d496c8b662",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "a347cee6-74a8-86d2-9b36-5a77bb943841",
-      "address": "07dc7fa2-57ae-8b00-aae1-04b94527bef7",
+      "lineAddress": "c0885a30-992a-88ee-8dd8-6e2ee433467c",
+      "address": "7936ab28-d38b-8d2b-a824-c0d6dbd0c72e",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "709ab251-845b-8eee-a869-50812eb8f61d",
-      "address": "8f848cf3-642f-8420-9924-f63a0aa28c54",
+      "lineAddress": "f9fa283d-6f9b-88b8-832c-f178e2e7216f",
+      "address": "f5fd8ce1-1dc5-8467-86f2-5e0bac88a415",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -5385,15 +7036,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "d1b7a69a-94cc-84fe-afe6-fdc6e3d40ac1",
-      "address": "baaa0849-45db-84a5-877c-90250127f3e3",
+      "lineAddress": "bc1b9cea-2907-8f43-8dbb-531809852108",
+      "address": "0ae0a245-5bd9-86d5-aa3a-8f90d46f008d",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "7cff0218-ba3b-86a4-8d76-42539df1834d",
-      "address": "5809e28b-79cf-8941-942f-cd7a61e3f98e",
+      "lineAddress": "d8fc3024-d8c1-8894-ae86-537129ba7586",
+      "address": "6f5a706a-cd1b-8746-92bd-4e7d031d7f65",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9017,6 +10668,13 @@
       "lineAddress": "c4e1e9ce-d492-896a-843e-437d09209ecd",
       "address": "763d0490-09d8-8aff-ba2c-8ec4b7803f29",
       "principle": "The spectrum",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "aura_alphabet_is_pairwise_distinct",
+      "lineAddress": "3beec3b5-7726-8ffc-b088-08b61acf4499",
+      "address": "e55d28a4-3535-8060-a47d-a25fa5f59474",
+      "principle": "The colour wheel",
       "held": "discovery+formalisation"
     },
     {
@@ -18696,11 +20354,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "44af3edd-dc02-8a94-bae2-c15b03551dfe",
+  "claim_receipt": "8acc5922-2f29-8ff0-bc5d-f8eb634a9ff0",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 2658; he claims discovery of 2642 and credits the other 16 facts to their named sources",
+      "The captain formalised all 2659; he claims discovery of 2415 and credits the other 244 facts to their named sources",
       "These theorems are Lean-verified (by decide)",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -18709,9 +20367,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 16 restate a fact a named external source holds, credited in attributed_facts",
+      "That the captain DISCOVERED all of them — 244 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 2658; of these I claim discovery of 2642, and the remaining 16 restate a fact I credit to its named source. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 2659; of these I claim discovery of 2415, and the remaining 244 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

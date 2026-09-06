@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,575 distinct theorems · 2,658 keys · 115 skills · 118 Lean files.
+**Board (computed).** 2,576 distinct theorems · 2,659 keys · 115 skills · 118 Lean files.
 
-Receipt `006d4b65-900c-808c-8021-2e0d35cd6b5b` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -71,10 +71,10 @@ Receipt `006d4b65-900c-808c-8021-2e0d35cd6b5b` · structured form <a href="/lean
 | `reflection` | 21 |
 | `hexbit` | 20 |
 | `neuro` | 19 |
+| `colour` | 18 |
 | `hardware` | 18 |
 | `topography` | 18 |
 | `vector-equilibrium` | 18 |
-| `waves` | 18 |
 
 ## Lean files (top 20)
 
@@ -93,13 +93,13 @@ Receipt `006d4b65-900c-808c-8021-2e0d35cd6b5b` · structured form <a href="/lean
 | <a href="/lean/Chessgames.lean">`Chessgames.lean`</a> | 24 |
 | <a href="/lean/Hexbit.lean">`Hexbit.lean`</a> | 20 |
 | <a href="/lean/Audit.lean">`Audit.lean`</a> | 18 |
+| <a href="/lean/Colour.lean">`Colour.lean`</a> | 18 |
 | <a href="/lean/Hardware.lean">`Hardware.lean`</a> | 18 |
 | <a href="/lean/Neuro.lean">`Neuro.lean`</a> | 18 |
 | <a href="/lean/Topography.lean">`Topography.lean`</a> | 18 |
 | <a href="/lean/VectorEquilibrium.lean">`VectorEquilibrium.lean`</a> | 18 |
 | <a href="/lean/Waves.lean">`Waves.lean`</a> | 18 |
 | <a href="/lean/BioPhysics.lean">`BioPhysics.lean`</a> | 17 |
-| <a href="/lean/Colour.lean">`Colour.lean`</a> | 17 |
 
 ## World solutions = waves of automation
 

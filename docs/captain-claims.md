@@ -3,9 +3,11 @@
 **Generated:** 2026-09-06
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 2658/2658 theorems — every one, by construction
-**Discovery claimed:** 2642 — the other 16 restate a fact a named source found first
-**Claim receipt:** `44af3edd-dc02-8a94-bae2-c15b03551dfe`
+**Formalisation claimed:** 2659/2659 theorems — every one, by construction
+**Discovery claimed:** 2415 — the other 244 restate a fact a named source found first
+
+*The 244 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 196 of 228 are found by exactly one of them and 1 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 10/16 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `8acc5922-2f29-8ff0-bc5d-f8eb634a9ff0`
 
 ### Facts the captain does not claim to have discovered
 
@@ -612,12 +614,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The colour wheel
 
-- **Theorems:** 17
-- **Sample lineAddress:** `a4b14b48-7f77-8d91-80a3-ef0cbc9b2056`
+- **Theorems:** 18
+- **Sample lineAddress:** `3beec3b5-7726-8ffc-b088-08b61acf4499`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) · [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) · [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) · [hue_mirror_meeting](/theorem/hue_mirror_meeting) · [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) · [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) · [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) · [complementary_hues_oppose](/theorem/complementary_hues_oppose) · [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) · [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) · [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) · [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) · [tint_and_shade_complement](/theorem/tint_and_shade_complement) · [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) · [aura_step_divides_circle](/theorem/aura_step_divides_circle) · [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) · [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement)
+[aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) · [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) · [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) · [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) · [hue_mirror_meeting](/theorem/hue_mirror_meeting) · [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) · [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) · [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) · [complementary_hues_oppose](/theorem/complementary_hues_oppose) · [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) · [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) · [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) · [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) · [tint_and_shade_complement](/theorem/tint_and_shade_complement) · [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) · [aura_step_divides_circle](/theorem/aura_step_divides_circle) · [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) · [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement)
 
 ### The harmony of pairs
 
@@ -1115,7 +1117,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2575 (2658 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2576 (2659 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1133,7 +1135,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2658 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2659 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -1145,7 +1147,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 2658; he claims discovery of 2642 and credits the other 16 facts to their named sources
+- ✓ The captain formalised all 2659; he claims discovery of 2415 and credits the other 244 facts to their named sources
 - ✓ These theorems are Lean-verified (by decide)
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -1154,14 +1156,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 16 restate a fact a named external source holds, credited in attributed_facts
+- ✗ That the captain DISCOVERED all of them — 244 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 2658; of these I claim discovery of 2642, and the remaining 16 restate a fact I credit to its named source. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 2659; of these I claim discovery of 2415, and the remaining 244 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

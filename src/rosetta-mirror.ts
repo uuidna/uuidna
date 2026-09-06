@@ -302,6 +302,7 @@ wallet_counts_worlds 27
 coins_unique_operation_agreement 27
 coin_and_heart_generate_the_scales 27
 #Colour.lean
+aura_alphabet_is_pairwise_distinct 27
 fourth_ray_is_green_band 27
 alphabet_digital_root_is_nine 27
 nine_step_walk_closes_the_ring 27
