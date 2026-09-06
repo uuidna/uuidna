@@ -99,6 +99,32 @@ test('cross-surface — the probe pairs agree, or each disagreement is a lead', 
 // THE CONTROL. Every assertion above passes if disagreements() simply never reports — which is also what a
 // broken comparator looks like. Handed a pair that differs by one it must say so, and it must say so about the
 // LARGER gap first, because a planner reads the top of the list.
+// THE SHIPPED ARTEFACT AGAINST THE LIVE SOURCE — the probe removed to cure a race, restored without it.
+//
+// Reading docs/captain-claims.json for the probe VALUES raced the generator that writes it, so those values are
+// recomputed above and the file is no longer their source. That cured the race and BLINDED the probe: the
+// shipped artefact went stale by three rows — 2659 claims over a ledger of 2656, five claimed keys absent from
+// the source — and every test here passed, because both of the artefact's own numbers came from the same stale
+// run and agreed with each other perfectly. Internal consistency cannot detect staleness; only a second surface
+// can, which is this file's whole thesis arriving at its own blind spot.
+//
+// RACE-TOLERANT BY CONSTRUCTION: the file is read inside a try, and an unparseable read is reported as NOT
+// ASKED rather than as a disagreement. A half-written JSON does not parse, so the failure mode that caused the
+// original race becomes a skipped probe instead of a false alarm — the same "an absent instrument voids"
+// discipline the prior-art sweep uses for a 429.
+test('cross-surface — the shipped claims artefact agrees with the live ledger', () => {
+  let shipped: { total_theorems?: number; total_claimed?: number; claims_list?: { key: string }[] } | null = null
+  try {
+    shipped = JSON.parse(readFileSync(join(ROOT, 'docs', 'captain-claims.json'), 'utf8'))
+  } catch {
+    return  // UNASKED: mid-write or absent. Not evidence of agreement, and never reported as such.
+  }
+  const live = new Set(claimsFrom(theorems()).map((c) => c.key))
+  assert.equal(shipped!.total_theorems, theorems().length, 'the artefact reports a ledger size the source does not have — regenerate the derived layer')
+  const orphans = (shipped!.claims_list ?? []).map((c) => c.key).filter((k) => !live.has(k))
+  assert.deepEqual(orphans.slice(0, 8), [], 'the artefact claims keys the ledger no longer contains — a renamed or removed theorem left a claim behind')
+})
+
 test('cross-surface — the comparator REPORTS a difference when one exists', () => {
   const probes: Probe[] = [
     { what: 'small', a: { surface: 'a', value: 10 }, b: { surface: 'b', value: 11 }, why: 'w' },
