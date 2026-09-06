@@ -23,9 +23,13 @@
 // the calibration probes, and both scored agreement 2 while two synthetic misses scored 0. A full sweep that
 // returns no candidate for `dna_base_pairing_involution` has not found novelty — it has proven itself broken.
 //
-// ON-DEMAND BY ITS NATURE, and reachable as `npm run prior-art-sweep`. It is NOT declared dormant: the dormant
-// roster is exercised in full on every gate pass and required to exit 0, and a multi-hour paced network sweep
-// inside a deterministic chain would be the wrong kind of honest. Bound it with --limit= to run a slice.
+// ON-DEMAND BY ITS NATURE, and DECLARED in lean/dormant-scripts.json rather than given an npm entry point. The
+// entry point was tried first and one-receipt caught it immediately: a package.json line that only spells out
+// the dist path, called by nothing, is a thin wrapper. What the declaration needed instead was a bare run that
+// touches no network — the dormant roster is exercised in full on every gate pass and required to exit 0, and a
+// paced multi-hour network sweep inside a chain this tree requires to be deterministic is what org-fit is
+// declared to avoid. So bare REPORTS from the checkpoint file, and asking the literature costs `--run` for
+// everything left or `--limit=N` for a slice, invoked directly on the built script.
 //
 // WHAT IT DOES AND DOES NOT DECIDE. It records what the registration agency returns for each theorem's own claim
 // sentence, with the score the agency itself assigned. It does NOT decide novelty: a hit is a CANDIDATE for

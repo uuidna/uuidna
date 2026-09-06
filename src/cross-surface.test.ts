@@ -67,9 +67,18 @@ test('cross-surface — the probe pairs agree, or each disagreement is a lead', 
     },
   ]
 
+  // A DISAGREEMENT MUST NAME ITS CURE, or it gets read as flakiness and waved through. The first pair has a
+  // LEGITIMATE window in which to part — between sealing a theorem and regenerating the derived layer the
+  // mirror is honestly behind the source — and a reader who hits that mid-reconcile and sees a bare number
+  // learns nothing except that this test is noisy. The other three are written by one generator from one census
+  // and have no such window: if they part, something is stale or a row is counted twice.
   const found = disagreements(probes)
+  const cure = (what: string): string =>
+    what === 'ledger size'
+      ? 'the derived layer is behind the source — run the reconcile (generate → heartbeats --sync → messaging → rosetta → spin --seal); if it persists AFTER a reconcile, a generator is dropping rows'
+      : 'no reconcile can fix this — these are written by ONE generator from ONE census, so a row is counted twice, or not at all, or a count and its list have parted'
   assert.deepEqual(
-    found.map((d) => `${d.what}: ${d.a.surface}=${d.a.value} vs ${d.b.surface}=${d.b.value} (${d.why})`),
+    found.map((d) => `${d.what}: ${d.a.surface}=${d.a.value} vs ${d.b.surface}=${d.b.value} (delta ${d.delta}) — ${d.why}. FIX: ${cure(d.what)}`),
     [],
   )
   assert.equal(crossSurfaceCensus(probes).asked, 4)
