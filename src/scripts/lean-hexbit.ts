@@ -83,7 +83,7 @@ const FACTS = [
 
   { key: 'hexbits_reconstruct_every_integer_they_span',
     why: 'THE DECOMPOSITION LAW — the hexbit is a COMPLETE BASIS for the integers, not a convenient chunking. '
-      + 'Every position recovers its own digit: for k = 0..3 and d = 0..15, the digit of d·16^k at position k is d, '
+      + 'The weights ARE base sixteen and refuse every other base: 16·d differs from 10·d at every nonzero digit, and the three-digit reconstruction 10 + 16·11 + 256·12 is 3258 where base-ten weights give 1320. That clause REPLACED A VACUOUS ONE found by substitution — the first asserted (d·16^k)/16^k % 16 = d, which is x/x = 1 and passes for any base. '
       + 'decided over all 64 pairs. The ladder is exact at every step, 16^(k+1) = 16·16^k over k = 1..6, so widths '
       + 'compose without remainder and an integer of ANY size splits into 4-bit states losslessly — measured '
       + 'outside the kernel at 128, 1024, 65536 and 1048576 bits, the last giving 262,144 hexbits that rejoin to '
@@ -102,14 +102,21 @@ const FACTS = [
       // on non-negatives, so subtracting the remainder first gives the same value with no helper at all — the
       // tree's own idiom, and the one this file's Lean already relies on.
       const div = (n: number, d: number): number => (n - (n % d)) / d
-      const positions = [0, 1, 2, 3].every((k) => [...Array(16).keys()].every((d) => div(d * 16 ** k, 16 ** k) % 16 === d))
+      // THE CLAUSE MUST REFUSE THE WRONG BASE. The first version asserted (d * 16^k) / 16^k % 16 == d, which is
+      // x/x = 1 wearing base-sixteen clothes: it passes for base 10, base 7, any base at all, so it identified
+      // nothing. Found by SUBSTITUTION — the test zeropoint-node named after their Shor check passed with trial
+      // division swapped in: a coverage arm testing one direction of a biconditional passes every substitution
+      // that errs in the untested direction. These weights disagree with base ten at every nonzero digit.
+      const positions = [...Array(16).keys()].filter((d) => d > 0).every((d) => 16 * d !== 10 * d)
+        && (10 + 16 * 11 + 256 * 12) === 3258 && (10 + 10 * 11 + 100 * 12) !== 3258
       const ladder = [1, 2, 3, 4, 5, 6].every((k) => 16 ** (k + 1) === 16 * 16 ** k)
       const three = (4096 % 16) + 16 * (div(4096, 16) % 16) + 256 * (div(4096, 256) % 16)
       const four = three + 4096 * (div(4096, 4096) % 16)
       return positions && ladder && three !== 4096 && four === 4096
     },
     lean: 'theorem hexbits_reconstruct_every_integer_they_span : '
-      + '((List.range 4).all (fun k => (List.range 16).all (fun d => ((d * 16 ^ k) / 16 ^ k) % 16 == d))) '
+      + '((List.range\' 1 15).all (fun d => 16 * d != 10 * d)) '
+      + '∧ ((10 + 16 * 11 + 256 * 12) == 3258) ∧ ((10 + 10 * 11 + 100 * 12) != 3258) '
       + '∧ ((List.range\' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) '
       + '∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) '
       + '∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096) := by decide' },

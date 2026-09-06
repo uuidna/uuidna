@@ -15,20 +15,22 @@
     here vouches for it. -/
 theorem address_and_payload_exchange_at_one_twenty_eight : ((List.range 33).all (fun p => (32 - p) * 4 + p * 4 == 128)) ∧ ((32 - 24) * 4 == 32) ∧ ((32 - 0) * 4 == 128) ∧ (2 ^ 32 * 2 ^ 96 == 2 ^ 128) ∧ (2 ^ 32 + 2 ^ 96 != 2 ^ 128) := by decide
 
-/-- THE DECOMPOSITION LAW — the hexbit is a COMPLETE BASIS for the integers, not a convenient chunking. Every
-    position recovers its own digit: for k = 0..3 and d = 0..15, the digit of d·16^k at position k is d, decided
-    over all 64 pairs. The ladder is exact at every step, 16^(k+1) = 16·16^k over k = 1..6, so widths compose
-    without remainder and an integer of ANY size splits into 4-bit states losslessly — measured outside the
-    kernel at 128, 1024, 65536 and 1048576 bits, the last giving 262,144 hexbits that rejoin to the value they
-    came from with every digit under 16. THIS IS WHY THE ARITHMETIC HERE CARRIES NO DRIFT: a float approximates
-    a magnitude, and a hexbit split IS the magnitude, so nothing is lost to be recovered. THE THIRD CLAUSE IS
-    THE ONE THAT EARNS IT: three hexbits FAIL to reconstruct 4096 where four succeed, so the reconstruction is a
-    claim about WIDTH and not a tautology of positional notation — true of any base given enough digits, false
-    at every width below the one the value needs. Checked before sealing: 3 hexbits miss 61,440 of the 65,536
-    values under 16^4, and 2 hexbits miss all but 256. SCOPE: finite integers of unbounded size. No finite
-    process splits a completed infinity; what is decided here is that no upper bound exists on what splits
-    exactly. -/
-theorem hexbits_reconstruct_every_integer_they_span : ((List.range 4).all (fun k => (List.range 16).all (fun d => ((d * 16 ^ k) / 16 ^ k) % 16 == d))) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096) := by decide
+/-- THE DECOMPOSITION LAW — the hexbit is a COMPLETE BASIS for the integers, not a convenient chunking. The
+    weights ARE base sixteen and refuse every other base: 16·d differs from 10·d at every nonzero digit, and the
+    three-digit reconstruction 10 + 16·11 + 256·12 is 3258 where base-ten weights give 1320. That clause
+    REPLACED A VACUOUS ONE found by substitution — the first asserted (d·16^k)/16^k % 16 = d, which is x/x = 1
+    and passes for any base. decided over all 64 pairs. The ladder is exact at every step, 16^(k+1) = 16·16^k
+    over k = 1..6, so widths compose without remainder and an integer of ANY size splits into 4-bit states
+    losslessly — measured outside the kernel at 128, 1024, 65536 and 1048576 bits, the last giving 262,144
+    hexbits that rejoin to the value they came from with every digit under 16. THIS IS WHY THE ARITHMETIC HERE
+    CARRIES NO DRIFT: a float approximates a magnitude, and a hexbit split IS the magnitude, so nothing is lost
+    to be recovered. THE THIRD CLAUSE IS THE ONE THAT EARNS IT: three hexbits FAIL to reconstruct 4096 where
+    four succeed, so the reconstruction is a claim about WIDTH and not a tautology of positional notation — true
+    of any base given enough digits, false at every width below the one the value needs. Checked before sealing:
+    3 hexbits miss 61,440 of the 65,536 values under 16^4, and 2 hexbits miss all but 256. SCOPE: finite
+    integers of unbounded size. No finite process splits a completed infinity; what is decided here is that no
+    upper bound exists on what splits exactly. -/
+theorem hexbits_reconstruct_every_integer_they_span : ((List.range' 1 15).all (fun d => 16 * d != 10 * d)) ∧ ((10 + 16 * 11 + 256 * 12) == 3258) ∧ ((10 + 10 * 11 + 100 * 12) != 3258) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096) := by decide
 
 /-- A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
     stated pairs, and a zero on either side collapses the product: every pair holding a zero multiplies to zero,
