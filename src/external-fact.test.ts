@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { classify, externalFactGaps, armDisagreement } from './external-fact.js'
+import { classify, externalFactGaps, armDisagreement, gradeOf, gradeCensus } from './external-fact.js'
 import { attributions } from './claim-attribution.js'
 import { theorems } from './index.js'
 
@@ -63,4 +63,18 @@ test('external-fact — each arm fires on a crafted claim in its own shape', () 
   // …and does NOT fire on this tree's own constructs, which is the arm that certifies if it is missing.
   assert.deepEqual(classify('k', 'the hexbit carries four bits and the coin pays two').arms, [])
   assert.deepEqual(classify('k', 'The Captain rule holds for every address').arms, [], 'a capitalised in-tree noun before a law-word must not read as a person')
+})
+
+// CREDITED IS NOT ONE THING. A single "228 credited" invites the reader to assume 228 fetchable citations, and
+// the rows on file say otherwise: of the 16 already attributed, FOUR carry a DOI and twelve name a standard or
+// a person. This test holds that split so no surface can report the total without it.
+test('external-fact — the evidence behind a credit is graded, and the grades do not collapse', () => {
+  const sources = attributions().map((a) => a.source)
+  const c = gradeCensus(sources)
+  assert.equal(c.identifier + c.standard + c.named, sources.length, 'a source fell outside every grade')
+  assert.equal(c.identifier, 4, 'the DOI count moved — re-read the census before changing this number, it is the checkable subset')
+  assert.ok(c.identifier < sources.length, 'if every credit had an identifier the grades would be pointless; check the census is real')
+  assert.equal(gradeOf('10.1038/171737a0'), 'identifier')
+  assert.equal(gradeOf('CODATA'), 'standard')
+  assert.equal(gradeOf('Eratosthenes'), 'named')
 })

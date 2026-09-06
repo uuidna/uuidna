@@ -117,3 +117,32 @@ export function armDisagreement(verdicts: readonly Verdict[]): {
   }
   return { byArm, allThree, onlyOneArm, soleFinder }
 }
+
+/** How good the evidence for a credit is. NOT how true the fact is — how CHECKABLE the attribution is. */
+export type Grade =
+  | 'identifier'  // a DOI: a stranger can fetch the source and read it
+  | 'standard'    // a named body or datum (SI, CODATA, WGS 84, ISO/RFC): findable, not a single citation
+  | 'named'       // a person or law named in the claim, with no identifier on file
+
+/** gradeOf(source) → the grade of a credit's evidence.
+ *
+ *  CREDITED IS NOT ONE THING, and collapsing the grades would be the artefact-over-source fault again: a number
+ *  that says "228 credited" invites the reader to assume 228 checkable citations. MEASURED on the rows already
+ *  attributed: of 16, exactly FOUR carry a DOI — 10.1038/345229a0, 10.3181/00379727-43-11151,
+ *  10.1073/pnas.47.10.1588, 10.1038/171737a0. The other twelve are SI, CODATA, WGS 84, Landauer, Eratosthenes
+ *  and Gutenberg: real credits, findable by anyone, but not a citation anyone can fetch.
+ *
+ *  This lives with the classifier and not in a generator because it is a property of the EVIDENCE, and a second
+ *  derivation of it downstream is the two-trust-bases fault this module was built to end. */
+export function gradeOf(source: string): Grade {
+  if (/^10\.\d{4,9}\//.test(source)) return 'identifier'
+  if (/^(SI|CODATA|NIST|IUPAC|WGS ?84|ISO ?\d|RFC ?\d)\b/.test(source)) return 'standard'
+  return 'named'
+}
+
+/** gradeCensus(sources) → how many credits of each grade, so a total can never be reported without them. */
+export function gradeCensus(sources: readonly string[]): Record<Grade, number> {
+  const out: Record<Grade, number> = { identifier: 0, standard: 0, named: 0 }
+  for (const s of sources) out[gradeOf(s)]++
+  return out
+}
