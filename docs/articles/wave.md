@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 936 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 932 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 935 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 931 siblings below.
 
-**936 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 755 of its 936 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**932 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 751 of its 932 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 936 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 932 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -5891,13 +5891,6 @@ The ledger holds this as [alpine_shell_applets_partition_20](/theorem/alpine_she
 (6 + 4 + 10 = 20)
 ```
 
-### THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because the determinism law refuses rounding helpers.
-The ledger holds this as [mcp_wire_rate_fell_while_total_grew_32183](/theorem/mcp_wire_rate_fell_while_total_grew_32183) — proven `by decide`, sorry-free:
-
-```lean
-(77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183)
-```
-
 ### TOOL COVERAGE, PARTITIONED AND SHRINKING. Every MCP tool is either directly exercised by a test that names it (144) or covered only by an aggregate fold (100) — exhaustive and disjoint. The second number fell from 119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong. The debt list may only shrink; this records that it did.
 The ledger holds this as [mcp_tool_coverage_partition_244](/theorem/mcp_tool_coverage_partition_244) — proven `by decide`, sorry-free:
 
@@ -5912,32 +5905,11 @@ The ledger holds this as [alpine_port_all_partition_28635](/theorem/alpine_port_
 (28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635)
 ```
 
-### FALSE LIMITS, COUNTED. Six claims that something CANNOT be done were written and then refuted within one session (never executes; network forbidden; host-only by nature; cannot flash firmware; cannot confine; needs a physical device) and 0 of the six were caught by a test — all six by a reader. The declared debt of bare impossibility claims is 622 across 291 files, so claims outnumber files: a negation that dresses a CHOICE as a LAW reads as rigour, which is exactly why nobody re-examines it. The baseline may only shrink.
-The ledger holds this as [impossibility_claims_debt_622](/theorem/impossibility_claims_debt_622) — proven `by decide`, sorry-free:
-
-```lean
-(6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622)
-```
-
 ### THE LIST CAP, COUNTED. 315 packages of 28635 carried a list longer than the removed 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1 percent by integer division. The name states what the arithmetic proves — three counts — and does NOT claim a universal over the pages, which is what the first name did before the incomplete finder refused it.
 The ledger holds this as [alpine_page_list_cap_removed_315](/theorem/alpine_page_list_cap_removed_315) — proven `by decide`, sorry-free:
 
 ```lean
 (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1)
-```
-
-### THE RATCHETED NUMBER, IN THE KEY. 100 MCP tools are covered only by aggregate folds, down from 119 when nineteen zero-argument tools earned assertions checking a property that could be wrong. The sibling key mcp_tool_coverage_partition_244 states the same partition but is named for the tool count, so a ratchet finder reading the suffix would watch 244 rather than the debt. A convention that stores the value in the key only holds if the key stores THAT value.
-The ledger holds this as [mcp_tool_debt_100](/theorem/mcp_tool_debt_100) — proven `by decide`, sorry-free:
-
-```lean
-(100 < 119) ∧ (144 + 100 = 244)
-```
-
-### THE RATCHET UNDER THE NEW RULER. 642 bare modal claims — impossibility AND obligation — where the impossibility-only detector found 622. The first clause records that the count ROSE, which is the honest shape: a widened ruler finds what was always there and was invisible, and a shrink-only law that quietly absorbed the rise would be the loosening it exists to prevent. The old family stays sealed; this one ratchets from 642 down.
-The ledger holds this as [impossibility_modal_debt_642](/theorem/impossibility_modal_debt_642) — proven `by decide`, sorry-free:
-
-```lean
-(642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6)
 ```
 
 ### DISPLAY VERSUS BYTES. Four published classes of display/byte divergence — bidi override (CVE-2021-42574), zero-width space, non-breaking space, Cyrillic homoglyph — were measured: the content-address separates 4 of 4, a scrub collapses 1 of 4, and 3 classes are reachable ONLY by the address. The defence anticipates no trick, which is why it covers tricks nobody has published. It does not say which rendering is honest, only that two are not one — which is the fact visual review was missing.

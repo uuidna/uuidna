@@ -1,0 +1,12 @@
+{
+  "handle": "9fe14b55",
+  "address": "9fe14b55-b45f-848a-bb84-957301b928c7",
+  "kind": "chunk",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "statement": "(0 < 2609) ∧ (0 + 2609 = 2609)",
+  "files": [
+    "Audit.lean"
+  ]
+}

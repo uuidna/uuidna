@@ -1,0 +1,12 @@
+{
+  "handle": "9fe14b55",
+  "address": "9fe14b55-b45f-848a-bb84-957301b928c7",
+  "statement": "(0 < 2609) ∧ (0 + 2609 = 2609)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

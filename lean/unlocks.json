@@ -1,13 +1,13 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 2659,
- "distinct": 2576,
+ "keys": 2656,
+ "distinct": 2573,
  "skills": 115,
  "files": 118,
  "bySkill": [
   {
    "name": "wave",
-   "n": 936
+   "n": 932
   },
   {
    "name": "z9-ring",
@@ -58,12 +58,12 @@
    "n": 24
   },
   {
-   "name": "reflection",
-   "n": 21
+   "name": "hexbit",
+   "n": 22
   },
   {
-   "name": "hexbit",
-   "n": 20
+   "name": "reflection",
+   "n": 21
   },
   {
    "name": "neuro",
@@ -114,10 +114,6 @@
    "n": 14
   },
   {
-   "name": "site-build",
-   "n": 14
-  },
-  {
    "name": "anti-fraud",
    "n": 13
   },
@@ -131,6 +127,10 @@
   },
   {
    "name": "pentagram",
+   "n": 13
+  },
+  {
+   "name": "site-build",
    "n": 13
   },
   {
@@ -469,7 +469,7 @@
  "byFile": [
   {
    "name": "Wave.lean",
-   "n": 936
+   "n": 932
   },
   {
    "name": "Ring.lean",
@@ -513,7 +513,7 @@
   },
   {
    "name": "Hexbit.lean",
-   "n": 20
+   "n": 22
   },
   {
    "name": "Audit.lean",
@@ -556,10 +556,6 @@
    "n": 16
   },
   {
-   "name": "SiteBuild.lean",
-   "n": 16
-  },
-  {
    "name": "Software.lean",
    "n": 16
   },
@@ -569,6 +565,10 @@
   },
   {
    "name": "Calendar.lean",
+   "n": 15
+  },
+  {
+   "name": "SiteBuild.lean",
    "n": 15
   },
   {
@@ -840,6 +840,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "d3b6af27-4993-859d-95e2-849f360363b0",
+ "receipt": "61fd2265-51ae-814d-a312-387265380b7b",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

@@ -1,17 +1,17 @@
 {
-  "key": "df536e96-9e81-8e76-bed6-8c23b62dd39a",
+  "key": "50825ffe-e0da-8d02-b5c4-a291ec9bc210",
   "publications": 118,
-  "sealedTheorems": 2659,
+  "sealedTheorems": 2656,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2659,
-    "theorems": 2659,
+    "claims": 2656,
+    "theorems": 2656,
     "bijection": true,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 4,
+      "claims": 1,
+      "theorems": 1,
       "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -307,8 +307,8 @@
     },
     {
       "slug": "site-build",
-      "claims": 16,
-      "cited": 16,
+      "claims": 15,
+      "cited": 15,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -691,8 +691,8 @@
     },
     {
       "slug": "wave",
-      "claims": 936,
-      "cited": 936,
+      "claims": 932,
+      "cited": 932,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -835,8 +835,8 @@
     },
     {
       "slug": "hexbit",
-      "claims": 20,
-      "cited": 20,
+      "claims": 22,
+      "cited": 22,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

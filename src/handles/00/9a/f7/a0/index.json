@@ -1,0 +1,12 @@
+{
+  "handle": "009af7a0",
+  "address": "009af7a0-e96c-840f-93c7-84b6ab3fd925",
+  "kind": "chunk",
+  "keys": [
+    "hexbits_reconstruct_every_integer_they_span"
+  ],
+  "statement": "((List.range 4).all (fun k => (List.range 16).all (fun d => ((d * 16 ^ k) / 16 ^ k) % 16 == d))) ∧ ((List.range' 1 6).all (fun k => 16 ^ (k + 1) == 16 * 16 ^ k)) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16)) != 4096) ∧ (((4096 % 16) + 16 * ((4096 / 16) % 16) + 256 * ((4096 / 256) % 16) + 4096 * ((4096 / 4096) % 16)) == 4096)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

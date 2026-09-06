@@ -1,0 +1,12 @@
+{
+  "handle": "729ee965",
+  "address": "729ee965-008a-8cc7-8948-0ed89ad19c6a",
+  "kind": "chunk",
+  "keys": [
+    "address_and_payload_exchange_at_one_twenty_eight"
+  ],
+  "statement": "((List.range 33).all (fun p => (32 - p) * 4 + p * 4 == 128)) ∧ ((32 - 24) * 4 == 32) ∧ ((32 - 0) * 4 == 128) ∧ (2 ^ 32 * 2 ^ 96 == 2 ^ 128) ∧ (2 ^ 32 + 2 ^ 96 != 2 ^ 128)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

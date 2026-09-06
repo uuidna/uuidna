@@ -1182,7 +1182,7 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | how many theorems are sealed? | 358,998 | 6 | 59,833× | `theorems().length` |
 | what does the tree hold right now? | 379,556 | 225 | 1,686× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 83,621 | 65 | 1,286× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 83,632 | 65 | 1,286× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **5,206×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.

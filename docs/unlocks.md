@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,576 distinct theorems · 2,659 keys · 115 skills · 118 Lean files.
+**Board (computed).** 2,573 distinct theorems · 2,656 keys · 115 skills · 118 Lean files.
 
-Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `61fd2265-51ae-814d-a312-387265380b7b` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -55,7 +55,7 @@ Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean
 
 | Skill | Keys |
 | --- | ---: |
-| `wave` | 936 |
+| `wave` | 932 |
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
@@ -68,8 +68,8 @@ Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean
 | `science-pairs` | 27 |
 | `reasoning` | 25 |
 | `vortex` | 24 |
+| `hexbit` | 22 |
 | `reflection` | 21 |
-| `hexbit` | 20 |
 | `neuro` | 19 |
 | `colour` | 18 |
 | `hardware` | 18 |
@@ -80,7 +80,7 @@ Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean
 
 | File | Keys |
 | --- | ---: |
-| <a href="/lean/Wave.lean">`Wave.lean`</a> | 936 |
+| <a href="/lean/Wave.lean">`Wave.lean`</a> | 932 |
 | <a href="/lean/Ring.lean">`Ring.lean`</a> | 234 |
 | <a href="/lean/Rosette.lean">`Rosette.lean`</a> | 148 |
 | <a href="/lean/Nim.lean">`Nim.lean`</a> | 93 |
@@ -91,7 +91,7 @@ Receipt `d3b6af27-4993-859d-95e2-849f360363b0` · structured form <a href="/lean
 | <a href="/lean/Coins.lean">`Coins.lean`</a> | 25 |
 | <a href="/lean/Reasoning.lean">`Reasoning.lean`</a> | 25 |
 | <a href="/lean/Chessgames.lean">`Chessgames.lean`</a> | 24 |
-| <a href="/lean/Hexbit.lean">`Hexbit.lean`</a> | 20 |
+| <a href="/lean/Hexbit.lean">`Hexbit.lean`</a> | 22 |
 | <a href="/lean/Audit.lean">`Audit.lean`</a> | 18 |
 | <a href="/lean/Colour.lean">`Colour.lean`</a> | 18 |
 | <a href="/lean/Hardware.lean">`Hardware.lean`</a> | 18 |
