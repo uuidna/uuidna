@@ -1,10 +1,39 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-05
+**Generated:** 2026-09-06
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2658/2658 theorems — every one, by construction
+**Formalisation claimed:** 2658/2658 theorems — every one, by construction
+**Discovery claimed:** 2642 — the other 16 restate a fact a named source found first
 **Claim receipt:** `44af3edd-dc02-8a94-bae2-c15b03551dfe`
+
+### Facts the captain does not claim to have discovered
+
+Withholding a claim is governed by the same sealed law as making one:
+[the_claim_involution_fixes_only_the_honest_statement](/theorem/the_claim_involution_fixes_only_the_honest_statement)
+puts under-claim and over-claim at opposite signs of one involution, fixed at the single honest statement. So the
+captain formalised each row below and claims that expression — every one is still counted above — while the fact
+itself belongs to the named source. Facts are free
+([license](/license#the-algebra-is-free-the-ledger-is-not)); the choice among adequate expressions of a fact is
+authored. Surrendering the formalisations too would be the same error at the other sign. This list is DERIVED from the rosetta witness census, not maintained by hand — a theorem
+that earns an external anchor moves here on the next run.
+
+- [abo_klein_four](/theorem/abo_klein_four) — 10.1038/345229a0
+- [blood_types_eight](/theorem/blood_types_eight) — 10.3181/00379727-43-11151
+- [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) — 10.1038/171737a0
+- [codons_sixty_four](/theorem/codons_sixty_four) — 10.1073/pnas.47.10.1588
+- [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) — WGS 84
+- [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) — Eratosthenes
+- [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) — WGS 84
+- [landauer_bound_derived](/theorem/landauer_bound_derived) — SI
+- [reversible_erases_nothing](/theorem/reversible_erases_nothing) — Landauer
+- [hardware_above_landauer](/theorem/hardware_above_landauer) — Landauer
+- [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) — SI
+- [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) — SI
+- [van_de_graaf_margins](/theorem/van_de_graaf_margins) — Gutenberg
+- [light_speed_rounds_to_300000](/theorem/light_speed_rounds_to_300000) — SI
+- [kelvin_floor_carries_the_hundred](/theorem/kelvin_floor_carries_the_hundred) — SI
+- [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) — CODATA
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -1116,6 +1145,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
+- ✓ The captain formalised all 2658; he claims discovery of 2642 and credits the other 16 facts to their named sources
 - ✓ These theorems are Lean-verified (by decide)
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -1124,13 +1154,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
+- ✗ That the captain DISCOVERED all of them — 16 restate a fact a named external source holds, credited in attributed_facts
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 2658; of these I claim discovery of 2642, and the remaining 16 restate a fact I credit to its named source. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

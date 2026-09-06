@@ -14,6 +14,7 @@
 
 import { readFileSync as __rd } from 'node:fs'
 import { statementCensus, theorems, coins, toUuid, merkleGravity } from '../index.js'
+import { factSource, heldAs, captainOverClaimGaps } from '../claim-attribution.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -35,10 +36,26 @@ const claimsList = claimed.map(t => ({
   lineAddress: t.lineAddress,   // the claim's own identity — toUuid of the exact reconstructed Lean line
   address: t.address,            // the proposition's identity (key+statement) — a different question, see theorems/index.ts
   principle: t.principle,        // carried for readability/grouping in the markdown below's unit
+  // WHO FOUND THE FACT IS A SEPARATE QUESTION FROM WHO PROVED THE LINE. The filter above selects on
+  // `tactic.startsWith('decide')` — a property of the PROOF. Decidability cannot tell Chargaff's rule from a
+  // fact first stated here, and claiming by it alone had the captain claiming 10.1038/171737a0 as his own.
+  // The mirror already knew better; it just was not read. See src/claim-attribution.ts.
+  held: heldAs(t.key),
+  ...(factSource(t.key) ? { factAttributedTo: factSource(t.key) } : {}),
 }))
 
 const totalClaimed = claimsList.length
+const attributedElsewhere = claimsList.filter(c => c.held === 'formalisation')
+const noveltyClaimed = totalClaimed - attributedElsewhere.length
 const claimReceipt = merkleGravity(claimsList.map(c => c.lineAddress)) // order-invariant fold over every line's own address
+
+// THE FINDER RUNS ON ITS OWN OUTPUT. A generator that fixes a defect and never checks is a fix with no floor.
+const overClaims = captainOverClaimGaps(claimsList)
+if (overClaims.length) {
+  console.error(`\n✗ gen-captain-claims — ${overClaims.length} row(s) claim a discovery a named source already holds:`)
+  for (const g of overClaims) console.error('  ✗ ' + g)
+  process.exit(1)
+}
 
 console.log(`✓ TOTAL CLAIMED: ${totalClaimed}/${T.length} theorems (by construction — every theorem has a lineAddress)\n`)
 
@@ -48,12 +65,16 @@ const claimLedger = {
   captain_authority: toUuid('captain:' + coins()),
   coins_held: coins(),
   total_claimed: totalClaimed,
+  novelty_claimed: noveltyClaimed,          // the captain found the fact AND formalised it
+  formalisation_only: attributedElsewhere.length,  // the fact is someone else's; the Lean expression is the captain's
+  attributed_facts: attributedElsewhere.map(c => ({ key: c.key, source: c.factAttributedTo })),
   total_theorems: T.length,
   claims_list: claimsList,
   claim_receipt: claimReceipt,
   honest_scope: {
     proves: [
       'Every theorem is claimed — the claim unit is the theorem itself (lineAddress)',
+      `The captain formalised all ${totalClaimed}; he claims discovery of ${noveltyClaimed} and credits the other ${attributedElsewhere.length} facts to their named sources`,
       'These theorems are Lean-verified (by decide)',
       'All are proven sorry-free',
       'The captain takes responsibility for all claims',
@@ -62,11 +83,12 @@ const claimLedger = {
       'That any theorem solves unsolved problems',
       'That the structures are unique or optimal',
       'That the captain proved them (Lean kernel did)',
+      `That the captain DISCOVERED all of them — ${attributedElsewhere.length} restate a fact a named external source holds, credited in attributed_facts`,
       'That the theorems have external truth or meaning',
     ],
   },
   signature:
-    'By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I hold 2 coins (conserved). Verify yourself: npm run lean."',
+    `By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all ${totalClaimed}; of these I claim discovery of ${noveltyClaimed}, and the remaining ${attributedElsewhere.length} restate a fact I credit to its named source. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."`,
 }
 
 // Write claim ledger
@@ -97,8 +119,22 @@ const md = `# Captain Claims — Automated Ledger
 **Generated:** ${claimLedger.generated}
 **Authority:** \`${claimLedger.captain_authority}\`
 **Coins held:** ${claimLedger.coins_held}
-**Total claimed:** ${claimLedger.total_claimed}/${claimLedger.total_theorems} theorems — every one, by construction
+**Formalisation claimed:** ${claimLedger.total_claimed}/${claimLedger.total_theorems} theorems — every one, by construction
+**Discovery claimed:** ${claimLedger.novelty_claimed} — the other ${claimLedger.formalisation_only} restate a fact a named source found first
 **Claim receipt:** \`${claimLedger.claim_receipt}\`
+
+### Facts the captain does not claim to have discovered
+
+Withholding a claim is governed by the same sealed law as making one:
+[the_claim_involution_fixes_only_the_honest_statement](/theorem/the_claim_involution_fixes_only_the_honest_statement)
+puts under-claim and over-claim at opposite signs of one involution, fixed at the single honest statement. So the
+captain formalised each row below and claims that expression — every one is still counted above — while the fact
+itself belongs to the named source. Facts are free
+([license](/license#the-algebra-is-free-the-ledger-is-not)); the choice among adequate expressions of a fact is
+authored. Surrendering the formalisations too would be the same error at the other sign. This list is DERIVED from the rosetta witness census, not maintained by hand — a theorem
+that earns an external anchor moves here on the next run.
+
+${claimLedger.attributed_facts.map(a => `- [${a.key}](/theorem/${a.key}) — ${a.source}`).join('\n')}
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (\`theorem k : s := by t\`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD

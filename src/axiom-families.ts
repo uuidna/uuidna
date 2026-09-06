@@ -1,7 +1,7 @@
 // axiom-families — WHAT AN AXIOM-FREE LEDGER ACTUALLY RESTS ON.
 //
-// The trust base here is the bare kernel with allowed axioms ∅: `npm run axioms` reports 2657/2657 theorems
-// depending on NO axiom at all. So grouping theorems by their axiom dependencies groups them all into one bucket
+// The trust base here is the bare kernel with allowed axioms ∅: `npm run axioms` reports EVERY theorem in the
+// ledger — all of them, not a fraction — depending on NO axiom at all. So grouping theorems by their axiom dependencies groups them all into one bucket
 // and says nothing. The question that does have an answer is what the kernel must be able to DECIDE for each
 // statement to close — and that is the ledger's real axiomatic structure, since `by decide` is the only tactic
 // in it. A theorem's family is the deepest kernel capability its statement demands.

@@ -1,10 +1,10 @@
 {
   "why": "What the registration agency returned for each theorem's own claim sentence. A hit is a CANDIDATE for prior art, not a finding of it; an empty result is not proof of novelty, only that this query returned nothing on this day. Neither decides novelty — a human or a later gate reads these.",
   "sealed": 2658,
-  "asked": 4,
+  "asked": 34,
   "unasked": 0,
   "withCandidates": 0,
-  "clean": 4,
+  "clean": 34,
   "rows": [
     {
       "key": "mul9_1_1",
@@ -41,6 +41,276 @@
       "agreement": 0,
       "asked": true,
       "top": "Erratum"
+    },
+    {
+      "key": "mul9_1_5",
+      "query": "1·5 ≡ 5 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Figure 5: The interface when module\n                      <i>mod</i>\n                      <sub>1</sub>\n                "
+    },
+    {
+      "key": "mul9_1_6",
+      "query": "1·6 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_1_7",
+      "query": "1·7 ≡ 7 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Erratum"
+    },
+    {
+      "key": "mul9_1_8",
+      "query": "1·8 ≡ 8 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_2_1",
+      "query": "2·1 ≡ 2 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Standing Biceps Stretch Mod 2"
+    },
+    {
+      "key": "mul9_2_2",
+      "query": "2·2 ≡ 4 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Standing Biceps Stretch Mod 2"
+    },
+    {
+      "key": "mul9_2_3",
+      "query": "2·3 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler I"
+    },
+    {
+      "key": "mul9_2_4",
+      "query": "2·4 ≡ 8 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Septoler I"
+    },
+    {
+      "key": "mul9_2_5",
+      "query": "2·5 ≡ 1 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Kvintoler III"
+    },
+    {
+      "key": "mul9_2_6",
+      "query": "2·6 ≡ 3 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_2_7",
+      "query": "2·7 ≡ 5 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Septoler I"
+    },
+    {
+      "key": "mul9_2_8",
+      "query": "2·8 ≡ 7 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_3_1",
+      "query": "3·1 ≡ 3 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Tuberville v Savage (1669) 1 Mod Rep 3, 86 ER 684"
+    },
+    {
+      "key": "mul9_3_2",
+      "query": "3·2 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler I"
+    },
+    {
+      "key": "mul9_3_3",
+      "query": "3·3 ≡ 0 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler I"
+    },
+    {
+      "key": "mul9_3_4",
+      "query": "3·4 ≡ 3 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler I"
+    },
+    {
+      "key": "mul9_3_5",
+      "query": "3·5 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Kvintoler III"
+    },
+    {
+      "key": "mul9_3_6",
+      "query": "3·6 ≡ 0 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Pairs of mod~3 and mod~5 representations arising from elliptic curves"
+    },
+    {
+      "key": "mul9_3_7",
+      "query": "3·7 ≡ 3 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_3_8",
+      "query": "3·8 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Errata"
+    },
+    {
+      "key": "mul9_4_1",
+      "query": "4·1 ≡ 4 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Erratum"
+    },
+    {
+      "key": "mul9_4_2",
+      "query": "4·2 ≡ 8 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Septoler I"
+    },
+    {
+      "key": "mul9_4_3",
+      "query": "4·3 ≡ 3 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler I"
+    },
+    {
+      "key": "mul9_4_4",
+      "query": "4·4 ≡ 7 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler II"
+    },
+    {
+      "key": "mul9_4_5",
+      "query": "4·5 ≡ 2 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Duoler og kvartoler II"
+    },
+    {
+      "key": "mul9_4_6",
+      "query": "4·6 ≡ 6 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_4_7",
+      "query": "4·7 ≡ 1 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Septoler I"
+    },
+    {
+      "key": "mul9_4_8",
+      "query": "4·8 ≡ 5 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": ""
+    },
+    {
+      "key": "mul9_5_1",
+      "query": "5·1 ≡ 5 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Figure 5: The interface when module\n                      <i>mod</i>\n                      <sub>1</sub>\n                "
+    },
+    {
+      "key": "mul9_5_2",
+      "query": "5·2 ≡ 1 (mod 9)",
+      "crossref": 3,
+      "arxiv": 3,
+      "agreement": 0,
+      "asked": true,
+      "top": "Kvintoler III"
     }
   ]
 }
