@@ -67,3 +67,33 @@ export function captainOverClaimGaps(
     .map((c) => `${c.key} — claimed as the captain's discovery, but the fact is ${attributed.get(c.key)!}'s`)
     .sort()
 }
+
+/** One theorem, as a claim. */
+export interface Claim { key: string; held: Held; factAttributedTo?: string }
+
+/** claimsFrom(theorems) → THE claims list, from the rule that defines it. ONE IMPLEMENTATION, TWO CALLERS.
+ *
+ *  The generator and the tests both call this, so neither can drift from the other and neither reads the
+ *  artefact. That is not a tidiness point — it is the cure for a MEASURED race. cross-surface.test.ts read
+ *  docs/captain-claims.json while another test in the same suite regenerated it, so it sometimes parsed a
+ *  half-written file: intermittent, three consecutive passes then a failure on an unchanged tree, and
+ *  unreportable because every attempt to capture the diff reran the suite and the rerun won the race. A file on
+ *  disk is a cache of a computation, and a cache read during its own rewrite is the one failure mode a pure
+ *  recomputation cannot have — cannot, because there is no interval during which the answer half-exists: the
+ *  function either returns the whole list or throws. A file has that interval by construction, every time it is
+ *  written, and nothing in the reader can detect that it landed inside one.
+ *
+ *  PURE: the rows come in as an argument, so nothing here reaches for a filesystem the edge does not have. */
+export function claimsFrom(
+  rows: readonly { key: string; tactic: string }[],
+  census: string = CLAIMS,
+): Claim[] {
+  // The claim unit is a theorem the KERNEL decides. `startsWith` and not an exact match: a trailing comment on
+  // the tactic does not change the proof method, and an exact check silently dropped three real by-decide rows.
+  return rows
+    .filter((t) => t.tactic.startsWith('decide'))
+    .map((t) => {
+      const source = factSource(t.key, census)
+      return source ? { key: t.key, held: 'formalisation' as const, factAttributedTo: source } : { key: t.key, held: 'discovery+formalisation' as const }
+    })
+}

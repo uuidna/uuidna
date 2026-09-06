@@ -14,7 +14,7 @@
 
 import { readFileSync as __rd } from 'node:fs'
 import { statementCensus, theorems, coins, toUuid, merkleGravity } from '../index.js'
-import { factSource, heldAs, captainOverClaimGaps } from '../claim-attribution.js'
+import { factSource, heldAs, captainOverClaimGaps, claimsFrom } from '../claim-attribution.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -30,7 +30,10 @@ console.log(`Indexing ${T.length} theorems by lineAddress (one claim per Lean li
 // check silently dropped exactly 3 real, genuinely-by-decide theorems for this reason (involution_group,
 // light_faster_than_uuidna, division_by_zero) the first time this ran. Kept as an explicit check`true`, so
 // the claim states what it verifies.
-const claimed = T.filter(t => t.tactic.startsWith('decide'))
+// THE RULE LIVES IN claimsFrom(), not here — one implementation, so the tests can recompute this list instead
+// of reading the artefact it writes. A test that read the JSON raced this generator and failed intermittently.
+const held = new Map(claimsFrom(T).map(c => [c.key, c]))
+const claimed = T.filter(t => held.has(t.key))
 const claimsList = claimed.map(t => ({
   key: t.key,
   lineAddress: t.lineAddress,   // the claim's own identity — toUuid of the exact reconstructed Lean line

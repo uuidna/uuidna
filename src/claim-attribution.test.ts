@@ -1,7 +1,17 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { attributions, factSource, heldAs, captainOverClaimGaps } from './claim-attribution.js'
-import claims from '../docs/captain-claims.json' with { type: 'json' }
+import { attributions, factSource, heldAs, captainOverClaimGaps, claimsFrom } from './claim-attribution.js'
+import { theorems } from './index.js'
+
+// RECOMPUTED, NEVER READ — docs/captain-claims.json is a cache of claimsFrom(), and reading it raced the
+// generator that writes it. See claimsFrom's own note.
+const list = claimsFrom(theorems())
+const claims = {
+  claims_list: list,
+  total_claimed: list.length,
+  novelty_claimed: list.filter((c) => c.held === 'discovery+formalisation').length,
+  formalisation_only: list.filter((c) => c.held === 'formalisation').length,
+}
 
 // THE CENSUS IS NON-EMPTY. Every assertion below would also pass against an empty census — captainOverClaimGaps
 // returns [] when it knows about nobody, which reads exactly like "no over-claims". This is the control: the
