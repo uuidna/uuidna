@@ -68,6 +68,12 @@ The ledger holds this as [clay_gravity_equals_rosette](/theorem/clay_gravity_equ
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Rouschev, Tsvetan. (2026). All Seven Clay Millennium Problems Sealed via Universal σ-Involution. Zenodo. [https://doi.org/10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603)
+
 ::: warning 
 THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. The boundary is confirmed by the wing's own sealed theorems — e.g. [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) — never merely denied.
 :::

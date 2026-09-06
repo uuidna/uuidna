@@ -131,6 +131,15 @@ The ledger holds this as [reflection_is_total_by_the_key](/theorem/reflection_is
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. WATSON, J. D.; CRICK, F. H. C. (1953). Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid. Nature. [https://doi.org/10.1038/171737a0](https://doi.org/10.1038/171737a0)
+1. Yamamoto, Fumi-ichiro; Clausen, Henrik; White, Thayer; et al. (1990). Molecular genetic basis of the histo-blood group ABO system. Nature. [https://doi.org/10.1038/345229a0](https://doi.org/10.1038/345229a0)
+1. Nirenberg, Marshall W.; Matthaei, J. Heinrich. (1961). The dependence of cell-free protein synthesis in E. coli upon naturally occurring or synthetic polyribonucleotides. Proceedings of the National Academy of Sciences. [https://doi.org/10.1073/pnas.47.10.1588](https://doi.org/10.1073/pnas.47.10.1588)
+1. Landsteiner, K.; Wiener, A. S. (1940). An Agglutinable Factor in Human Blood Recognized by Immune Sera for Rhesus Blood. Experimental Biology and Medicine. [https://doi.org/10.3181/00379727-43-11151](https://doi.org/10.3181/00379727-43-11151)
+
 ::: warning 
 The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). The boundary is confirmed by the wing's own sealed theorems — e.g. [abo_klein_four](/theorem/abo_klein_four) — never merely denied.
 :::

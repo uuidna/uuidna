@@ -89,6 +89,13 @@ The ledger holds this as [mombh_quantum_n2_population_needs_density](/theorem/mo
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. Naidu, Rohan P.; Matthee, Jorryt; Katz, Harley; et al. (2026). A gas-enshrouded and gas-reddened black hole at cosmic dawn. Nature. [https://doi.org/10.1038/s41586-026-10846-4](https://doi.org/10.1038/s41586-026-10846-4)
+1. Naidu, Rohan. (2025). Spectra featured in Naidu et al. 2025: A "Black Hole Star" Reveals the Remarkable Gas-Enshrouded Hearts of the Little Red Dots. Zenodo. [https://doi.org/10.5281/zenodo.15059214](https://doi.org/10.5281/zenodo.15059214)
+
 ::: warning 
 THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10. The boundary is confirmed by the wing's own sealed theorems — e.g. [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) — never merely denied.
 :::

@@ -158,6 +158,45 @@ export interface EmitArgs {
   skill?: string
 }
 
+/** chunkedSum(values) → Lean that sums a long list of numbers WITHOUT a fold as deep as the list.
+ *
+ *  THE CENSUS WINGS BREAK WHEN THE LEDGER GROWS, AND THEY BREAK SILENTLY UNTIL THEY DON'T. Audit, Infinity and
+ *  Prose each state a per-wing count list and fold it to a total; `List.foldl` recurses once per element, so the
+ *  statement decides right up until the ledger gains enough wings to pass the kernel's default recursion depth,
+ *  and then a wing that nobody edited fails. That is exactly what happened when this tree gained 22 Fermat wings:
+ *  three untouched wings died at 141 entries having been fine at 119.
+ *
+ *  The cheap remedy is `set_option maxRecDepth`, and this tree refuses it — Colour.lean says NO WING BUYS ITS OWN
+ *  CEILING, and Software.lean carries the record of such a raise being taken back out. So the list is folded in
+ *  two levels instead: chunks of at most `size`, each summed, then the chunk totals summed. Depth becomes
+ *  max(size, count/size) rather than count, which is ~24 instead of 141 at this ledger's size and keeps falling
+ *  behind growth rather than racing it. The arithmetic is identical; only the association changes.
+ *
+ *  It is a helper rather than three copies because three copies is how the next one gets missed. */
+export function chunkedSum(values: readonly number[], size = 24): string {
+  const chunks: number[][] = []
+  for (let i = 0; i < values.length; i += size) chunks.push([...values.slice(i, i + size)])
+  if (chunks.length <= 1) return `[${values.join(',')}].foldl (· + ·) 0`
+  return `([${chunks.map((c) => `[${c.join(',')}]`).join(',')}].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0`
+}
+
+/** chunkedList(values) → the same values as a list OF LISTS, so a walk over them nests instead of running flat.
+ *
+ *  chunkedSum fixed the FOLDS. It did not fix the two other things these census wings do with a per-wing list:
+ *  compare it to another list, and check every entry is zero. Both recurse once per element exactly as foldl does,
+ *  so Infinity and Software kept failing at 141 wings after their sums were fixed — the same defect wearing a
+ *  different operator. Chunking the literal itself covers all three: `[[a,b],[c,d]] = [[a,b],[c,d]]` decides at
+ *  depth max(size, count/size), and so does `.all (fun c => c.all p)`.
+ *
+ *  Emitted as a list-of-lists rather than flattened back, because `List.flatten` would put the recursion straight
+ *  back. The nesting is visible in the statement, which is honest: a reader sees the chunking and can see it does
+ *  not change what is being claimed. */
+export function chunkedList(values: readonly number[], size = 24): string {
+  const chunks: number[][] = []
+  for (let i = 0; i < values.length; i += size) chunks.push([...values.slice(i, i + size)])
+  return `[${chunks.map((c) => `[${c.join(',')}]`).join(',')}]`
+}
+
 /** docComment(prose) → a real Lean `/-- … -/` DOC COMMENT, attached to the declaration that follows it.
  *
  *  THE PROSE BELONGS TO THE PROOF. Every generator already carried a sentence per fact — `name`, or
@@ -177,7 +216,12 @@ export interface EmitArgs {
  *  (it would close it early and Lean would fail to parse the theorem that follows), so it is escaped rather than
  *  trusted: today no name in the ledger contains one, and "today none do" is not a property. */
 export function docComment(prose: string, width = 108): string {
-  const clean = String(prose).replace(/\s+/g, ' ').trim().replace(/-\//g, '-\\/')
+  // `-/` was escaped from the start: it would close the doc comment early. `/-` was not, and it is the same
+  // fault in the other direction — Lean block comments NEST, so a stray opener inside a doc comment swallows
+  // everything after it and the file ends "unterminated comment" with no line near the real cause. It is not a
+  // theoretical risk: the prose "+/-1 mod 9" opened four of them in one sentence, and the wing failed to parse
+  // at a line eighteen further on. Any sentence containing +/- or and/or or a date like 3/-1 would do it.
+  const clean = String(prose).replace(/\s+/g, ' ').trim().replace(/-\//g, '-\\/').replace(/\/-/g, '\\/-')
   if (!clean) return ''
   const lines: string[] = []
   let line = ''
@@ -267,6 +311,18 @@ export interface PendingProof { file: string; path: string; address: string; the
 const PENDING: PendingProof[] = []
 /** what is written and still unsigned — a caller may inspect it, and the drain empties it */
 export const pendingProofs = (): readonly PendingProof[] => PENDING
+
+/** queueProof(p) — put a wing this module did not generate into the SAME pool.
+ *
+ *  PENDING was reachable only from emit(), so only GENERATED wings could be scheduled, and the hand-written ones
+ *  — Uuidna, Vortex, OneLeap, AntiFraud, SailingSeals, DisputedTopics — were proved by a serial execSync loop in
+ *  lean-all: six kernel spawns, one after another, on one core of eight, every full run. Nothing about them
+ *  required that; they are standalone files like any wing, and nothing orders one against another. The private
+ *  queue was the whole reason, so the queue gets a door rather than the caller getting a second scheduler.
+ *
+ *  A caller that queues MUST drain: the exit guard above fails the process for anything left unproved, and that
+ *  guard now covers hand-written wings too — which the execSync path could never have given them. */
+export const queueProof = (p: PendingProof): void => { PENDING.push(p) }
 
 // THE QUEUE MAY NOT BE ABANDONED. Deferring the spawn buys the machine, and it opens one hole that the inline
 // version could not have: a process that writes wings and exits WITHOUT draining leaves generated .lean files on

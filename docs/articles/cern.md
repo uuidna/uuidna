@@ -47,6 +47,15 @@ The ledger holds this as [the_four_cern_records_close_their_own_totals](/theorem
 ```
 
 
+## References
+
+The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
+
+1. CMS Collaboration. (2019). /MinimumBias/Run2012B-v1/RAW. CERN Open Data Portal. [https://doi.org/10.7483/OPENDATA.CMS.0LRL.BXG5](https://doi.org/10.7483/OPENDATA.CMS.0LRL.BXG5)
+1. CMS Collaboration. (2019). /SingleMu/Run2011A-v1/RAW. CERN Open Data Portal. [https://doi.org/10.7483/OPENDATA.CMS.53FG.V2S9](https://doi.org/10.7483/OPENDATA.CMS.53FG.V2S9)
+1. CMS Collaboration. (2017). MinimumBias primary dataset sample in RAW format from RunA of 2011 (from /MinimumBias/Run2011A-v1/RAW). CERN Open Data Portal. [https://doi.org/10.7483/OPENDATA.CMS.I8HN.DF32](https://doi.org/10.7483/OPENDATA.CMS.I8HN.DF32)
+1. CMS Collaboration. (2019). /SingleMu/Run2012B-v1/RAW. CERN Open Data Portal. [https://doi.org/10.7483/OPENDATA.CMS.RG9B.XJMD](https://doi.org/10.7483/OPENDATA.CMS.RG9B.XJMD)
+
 ::: warning 
 CERN OPEN DATA AS DECIDABLE ARITHMETIC — the published integers of four citable CMS primary datasets, each carrying the DOI it came from. The boundary is confirmed by the wing's own sealed theorems — e.g. [cms_events_close_over_their_files](/theorem/cms_events_close_over_their_files) — never merely denied.
 :::

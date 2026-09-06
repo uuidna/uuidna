@@ -7,7 +7,7 @@
 // It writes ONE file rather than 2596. A per-theorem document would add 2596 files to a dist whose render heap
 // is already the binding constraint (theorem render_retention_exceeds_the_container), and the single-line TeX a
 // reader actually wants for one theorem is already on that theorem's page.
-import { writeFileSync, mkdirSync } from 'node:fs'
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { THEOREMS } from '../theorems/index.js'
@@ -16,7 +16,14 @@ import { ledgerLatex, checkLatex } from '../latex.js'
 const OUT_DIR = join(ROOT, 'docs', 'public')
 const OUT = join(OUT_DIR, 'uuidna-ledger.tex')
 
+// The resolved bibliography, cached by gen-references from the registry of record. Absent cache = no bibliography
+// section rather than an invented one.
+const REFS_PATH = join(ROOT, 'lean', 'references.json')
+const REFS: { references: { doi: string; cite?: string; resolved: boolean }[] } =
+  existsSync(REFS_PATH) ? JSON.parse(readFileSync(REFS_PATH, 'utf8')) : { references: [] }
+
 const doc = ledgerLatex(THEOREMS, {
+  references: REFS.references.filter((r) => r.resolved),
   title: 'The uuidna ledger',
   author: 'uuidna --- every statement decided by the Lean 4 kernel',
   abstract:

@@ -7,7 +7,7 @@
 // `by decide` Lean theorem, writes lean/Infinity.lean, and VERIFIES it compiles sorry-free. Compute → generate →
 // verify. these are finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation,
 // quantization, closed form, regularization, removable singularity) — not derivations of the physics itself.
-import { emit, ROOT } from './lean-gen.js'
+import { emit, ROOT , chunkedSum, chunkedList } from './lean-gen.js'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems } from '../index.js'
@@ -145,12 +145,12 @@ const REACH = [
   { key: 'reach_all_decide',
     why: `EVERY THEOREM IN THE LEDGER IS DECIDED— ${notDecided} are proved by any tactic other than \`decide\`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: \`decide\` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else`,
     js: () => notDecided === 0 && LEDGER.length > 0 && decidedPer.every((d, i) => d === thmsPer[i]),
-    lean: `theorem reach_all_decide : ((${LIST(decidedPer)}).foldl (· + ·) 0 = ${LEDGER.length}) ∧ (${LIST(decidedPer)} = ${LIST(thmsPer)}) := by decide` },
+    lean: `theorem reach_all_decide : (${chunkedSum(decidedPer)} = ${LEDGER.length}) ∧ (${chunkedList(decidedPer)} = ${chunkedList(thmsPer)}) := by decide` },
 
   { key: 'reach_quantifiers_bounded',
     why: `FINITE WITHIN INFINITY, COUNTED — exactly ${quantified.length} statements in the whole ledger carry a ∀ or ∃, and ${unbounded} of them range over an unbounded domain. They are bounded in the two ways this ledger admits, and both keep the decision finite. ONE ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. The REST bind a finite type — \`Fin N\` — whose domain is finite by construction rather than by a hypothesis a reader must check, so the kernel walks all N inhabitants and stops. Every other statement in the ledger is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan, and the census is recomputed from the statements themselves, so a wing sealed tomorrow that quantified over something unbounded would break it tomorrow`,
     js: () => unbounded === 0 && quantified.length >= 1 && unboundPer.every((n) => n === 0),
-    lean: `theorem reach_quantifiers_bounded : (${LIST(unboundPer)} = ${LIST(ZEROS)}) ∧ ((${LIST(quantPer)}).foldl (· + ·) 0 = ${quantified.length}) := by decide` },
+    lean: `theorem reach_quantifiers_bounded : (${chunkedList(unboundPer)} = ${chunkedList(ZEROS)}) ∧ (${chunkedSum(quantPer)} = ${quantified.length}) := by decide` },
 
   { key: 'reach_window_finite',
     why: `THE WIDEST WINDOW IN THE LEDGER IS ${widest}, and it is a window — the largest enumeration any theorem here performs, across ${windows.length} enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number`,

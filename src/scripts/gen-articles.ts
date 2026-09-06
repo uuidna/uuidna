@@ -6,6 +6,28 @@
 // sentence is born citing a sealed proof, so the article passes the same desk that edits it (provenance,
 // citations, the prose trials) by construction. Deterministic: ledger order, no wall-clock, no RNG.
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync } from 'node:fs'
+
+// THE EXTERNAL BIBLIOGRAPHY. Every claim in an article already cites its sealed proof; none of them cited the
+// PEOPLE the wing stands on, because the internal citation graph is built from theorem names and no theorem is
+// named Euler. lean/references.json is the resolved form of the DOIs the wings' own prose carries — computed by
+// `npm run x -- gen-references` against Crossref and DataCite, never typed — so an article can now end where a
+// paper ends. A wing citing nobody simply renders no section; the absence is real, not hidden.
+interface Ref { doi: string; cite?: string; title?: string; resolved: boolean }
+const REFS_PATH = join(ROOT, 'lean', 'references.json')
+const REFS: { references: Ref[]; byWing: Record<string, string[]> } =
+  existsSync(REFS_PATH) ? JSON.parse(readFileSync(REFS_PATH, 'utf8')) : { references: [], byWing: {} }
+const REF_BY_DOI = new Map(REFS.references.map((r) => [r.doi, r]))
+
+/** the References section for one wing — resolved citations only, each linked to the DOI that resolves it */
+const referencesFor = (file: string): string => {
+  const dois = (REFS.byWing[file] ?? []).filter((d) => REF_BY_DOI.get(d)?.resolved)
+  if (!dois.length) return ''
+  const items = dois.map((d) => {
+    const r = REF_BY_DOI.get(d)!
+    return `1. ${r.cite ?? r.title ?? d} [https://doi.org/${d}](https://doi.org/${d})`
+  }).join('\n')
+  return `\n## References\n\nThe external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.\n\n${items}\n`
+}
 import { join } from 'node:path'
 import { theorems } from '../index.js'
 import { ROOT } from './api.js'
@@ -108,7 +130,7 @@ description: "Computed from lean/${file} — ${entries.length} sealed theorems, 
 **[Re-prove this wing in your browser ↗](${verifyLink(file)})** — nothing to install. The editor fetches \`lean/${file}\` from the repository and re-decides all ${entries.length} proofs on Lean ${LEAN_VERSION}, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ${body}
-${scope ? `\n::: warning \n${scope} The boundary is confirmed by the wing's own sealed theorems — e.g. [${entries[0]!.key}](/theorem/${entries[0]!.key}) — never merely denied.\n:::\n` : ''}
+${referencesFor(file)}${scope ? `\n::: warning \n${scope} The boundary is confirmed by the wing's own sealed theorems — e.g. [${entries[0]!.key}](/theorem/${entries[0]!.key}) — never merely denied.\n:::\n` : ''}
 *Computed from the sealed ledger. Re-verify any theorem with \`npm run lean\`; the article regenerates with \`npm run editorial\`.*
 `
   writeFileSync(join(OUT, slug + '.md'), md)

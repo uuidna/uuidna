@@ -84,16 +84,16 @@ theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2;
     count did not move, because removing vocabulary no theorem reaches cannot cost a proof. -/
 theorem the_axiom_index_partitions_without_remainder : (93 + 15 + 0 = 108) ∧ (19 = 15 + 4) ∧ (112 - 4 = 108) := by decide
 
-/-- every generated theorem carries prose IN the Lean — 2605 of 2605 documented across 114 wings, 0 without; the
+/-- every generated theorem carries prose IN the Lean — 4223 of 4223 documented across 136 wings, 0 without; the
     kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a
     gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a
     sentence cannot drift from the proof it describes without moving the file's content-address -/
-theorem prose_coverage_total : (([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18].foldl (· + ·) 0) = 2605) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18]) := by decide
+theorem prose_coverage_total : ((([[6,6,6,9,13,8,11,11,6,17,6,5,15,5,6,9,13,24,30,8,6,9,25,18],[7,4,5,64,11,9,16,13,8,10,6,14,4,13,8,12,10,63,75,77,102,72,82,88],[88,85,84,61,64,63,51,69,78,79,88,69,81,89,10,6,6,6,18,8,22,6,13,12],[6,10,6,5,8,11,7,7,5,8,18,93,6,6,9,9,8,13,6,8,6,10,5,6],[8,58,17,25,14,6,10,7,6,234,148,10,7,6,9,33,5,15,16,11,11,8,6,9],[6,4,6,6,6,11,6,18,8,6,13,7,2,18,932,18]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 4223) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 63, 75, 77, 102, 72, 82, 88, 88, 85, 84, 61, 64, 63, 51, 69, 78, 79, 88, 69, 81, 89, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 18, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 63, 75, 77, 102, 72, 82, 88, 88, 85, 84, 61, 64, 63, 51, 69, 78, 79, 88, 69, 81, 89, 10, 6, 6, 6, 18, 8, 22, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 15, 16, 11, 11, 8, 6, 9, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 932, 18]) := by decide
 
 /-- THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n
     and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one
-    direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 2605 of
-    2605 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because
+    direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 4223 of
+    4223 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because
     the kernel cannot read a doc comment and should not pretend to -/
 theorem prose_round_trips : (List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n)))) := by decide
 
@@ -101,22 +101,22 @@ theorem prose_round_trips : (List.range 12).all (fun n => (List.range (n+1)).all
     (- = 1, / = 2, \ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early,
     and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -\/ → -\/
     rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0
-    unescaped terminators across 2605 doc comments, which is a fact about files that something able to read a
+    unescaped terminators across 4223 doc comments, which is a fact about files that something able to read a
     file must check -/
 theorem prose_terminator_escaped : (List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2))) := by decide
 
-/-- prose that says more than the statement OUTNUMBERS prose that repeats it — 2605 informative against 0 bare,
-    of 2605; a doc comment identical to its own Lean statement carries nothing the proof did not already say,
+/-- prose that says more than the statement OUTNUMBERS prose that repeats it — 4223 informative against 0 bare,
+    of 4223; a doc comment identical to its own Lean statement carries nothing the proof did not already say,
     and this is the remaining work counted rather than a target claimed -/
-theorem prose_beats_restatement : (0 < 2605) ∧ (0 + 2605 = 2605) := by decide
+theorem prose_beats_restatement : (0 < 4223) ∧ (0 + 4223 = 4223) := by decide
 
-/-- the whole prose corpus folds to ONE ℤ/9 receipt — 696951 characters across 2605 doc comments in 114 wings
-    fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
+/-- the whole prose corpus folds to ONE ℤ/9 receipt — 1719319 characters across 4223 doc comments in 136 wings
+    fold to 4; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own
     vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit -/
-theorem prose_folds_receipt : (([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 6894, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 13967, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1248, 6903, 1937, 3396, 1946, 1544, 2704, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 319746, 10367].foldl (· + ·) 0) = 696951) ∧ (696951 % 9 = 0) ∧ (0 < 9) := by decide
+theorem prose_folds_receipt : ((([[1078,1237,1545,3403,3345,3111,1892,2906,2142,2947,1487,774,6501,796,1774,3811,3451,4156,10068,2753,1597,1647,13765,6894],[1389,1736,1372,960,5291,1889,2363,5075,1465,5416,1603,3293,761,3008,2038,2171,4705,37104,46616,47125,69526,43517,53113,60955],[58774,54653,56012,33589,36859,40504,28460,40535,49072,47744,60847,40278,52379,60000,2848,1506,1335,1330,4215,2581,13967,959,4504,5637],[1452,3162,2783,2298,1629,1299,3672,1188,753,4555,5728,15957,1575,1245,1833,2098,3162,2602,1479,1572,2341,1800,934,1027],[2126,14704,9354,10650,6393,1646,6196,1488,1539,3510,3069,2850,789,1488,3198,8336,2244,1248,6903,1937,3396,1946,1544,2704],[2571,1638,1453,2419,2104,3304,805,6250,2905,1522,3958,3675,1653,5388,319746,10367]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 1719319) ∧ (1719319 % 9 = 4) ∧ (4 < 9) := by decide
 
-/-- the audit is TOTAL over what a generator writes — 114 generated wings censused against 3 authored ones
+/-- the audit is TOTAL over what a generator writes — 136 generated wings censused against 3 authored ones
     (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by
     a typed list; the authored wings are out of scope because no generator will ever write them a doc comment,
     and this wing excludes itself because it is written after the census it states -/
-theorem prose_audit_total : (0 < 114) ∧ (0 < 3) ∧ (2605 = 2605 + 0) := by decide
+theorem prose_audit_total : (0 < 136) ∧ (0 < 3) ∧ (4223 = 4223 + 0) := by decide

@@ -30,7 +30,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, leanDecls } from './api.js'
-import { range, type Fact } from './lean-gen.js'
+import { range, chunkedList, type Fact, chunkedSum } from './lean-gen.js'
 
 const LEAN_DIR = join(ROOT, 'lean')
 const SELF = 'Software.lean'
@@ -96,7 +96,16 @@ const distinct = perCube.map((c) => c.distinct)
 const total = distinct.reduce((a, b) => a + b, 0)
 
 const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
-const SUM = (ns: number[]): string => `(${L(ns)}.foldl (· + ·) 0)`
+// SUM was a LOCAL copy here and a second local copy in the sibling generator, which is precisely how the same
+// recursion-depth failure reached three wings at once when the ledger grew past 119 entries. One helper now,
+// in lean-gen, folding in two levels so depth stops tracking the census length.
+// C(ns) — the census list, CHUNKED. A flat literal recurses once per entry under `.all`, `.length` and `=`
+// alike, so every statement below that touches the per-wing census outgrew the kernel's default depth the moment
+// the ledger passed ~every wing on disk (the count is read from the ledger at generation time, never written here — a number in a comment goes stale the first time a wing lands). Chunking is the tree's own answer (Colour.lean; Wave.lean walks 999 in five
+// blocks for exactly this reason) and the claims are unchanged — only the association is.
+const C = (ns: number[]): string => chunkedList(ns)
+const CLEN = (ns: number[]): string => `(${chunkedList(ns)}.map (fun c => c.length)).foldl (· + ·) 0`
+const SUM = (ns: number[]): string => `(${chunkedSum(ns)})`
 
 // the plan's cost algebra over two bits: s = the cube is SEALED (complete), m = its address MATCHES the standing
 // receipt. work = s·(1−m) — a held cube costs nothing because it is not decided, and a fresh one costs nothing
@@ -136,7 +145,7 @@ export const cubeFacts = (): Fact[] => [
       && range(perCube.length).filter((k) => k === perCube.length).length === 0
       && distinct.every((n) => n === n && !(n - 1 === n))
       && distinct.reduce((a, b) => a + b, 0) === total,
-    stmt: `(((List.range ${perCube.length + 1}).filter (fun k => k == ${perCube.length})).length = 1) ∧ (((List.range ${perCube.length}).filter (fun k => k == ${perCube.length})).length = 0) ∧ (${L(distinct)}.all (fun n => (n == n) && !(n - 1 == n))) ∧ (${SUM(distinct)} = ${total})` },
+    stmt: `(((List.range ${perCube.length + 1}).filter (fun k => k == ${perCube.length})).length = 1) ∧ (((List.range ${perCube.length}).filter (fun k => k == ${perCube.length})).length = 0) ∧ (${C(distinct)}.all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ (${SUM(distinct)} = ${total})` },
 
   { key: 'cubes_partition_ledger', skill: 'software',
     name: `THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the ${perCube.length} measured wing counts and lands on ${total} — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.`,
@@ -161,7 +170,7 @@ export const cubeFacts = (): Fact[] => [
       // the emitter's gate's: a wing that declares more theorems than it has distinct keys stops
       // the build here rather than being sealed as a smaller census
       && declared.length === distinct.length && declared.every((d, i) => d === distinct[i]),
-    stmt: `(${SUM(distinct)} = ${total}) ∧ (${L(distinct)}.length = ${perCube.length}) ∧ (${perCube.length} < ${total})` },
+    stmt: `(${SUM(distinct)} = ${total}) ∧ (${CLEN(distinct)} = ${perCube.length}) ∧ (${perCube.length} < ${total})` },
 
   { key: 'receipt_costs_nothing', skill: 'software',
     name: `A STANDING RECEIPT IS FREE, AND ONLY A MOVED NEIGHBOURHOOD IS PAID FOR. Over the two bits the plan decides on (s = the cube is sealed, m = its fold matches the receipt already held), the cost is s·(1−m), and of the four states EXACTLY ONE pays: sealed-and-moved. A held cube costs nothing because it has not been decided either way, and a sealed cube whose fold is unchanged costs nothing because the work was already done and recorded — verify-by-receipt at the granularity of a neighbourhood rather than a file. The same algebra as the provenance gate and the harmony law, turned on cost instead of prose: never vacuous, because it does fire, and only where it should.`,
@@ -183,5 +192,5 @@ export const cubeFacts = (): Fact[] => [
     // genuinely fail is the js predicate, which emit evaluates before a byte is written: reintroduce a raise in
     // any wing and the build stops here rather than sealing a larger census of ceilings as though it were fine.
     js: () => raises.filter((r) => r !== 0).length === 0 && raises.length === scanned.length && raises.reduce((a, b) => a + b, 0) === ceilings && ceilings === 0,
-    stmt: `((${L(raises)}.filter (fun r => r != 0)).length = 0) ∧ (${L(raises)}.length = ${scanned.length}) ∧ (${SUM(raises)} = ${ceilings})` },
+    stmt: `(${C(raises)}.all (fun c => c.all (fun r => r == 0))) ∧ (${CLEN(raises)} = ${scanned.length}) ∧ (${SUM(raises)} = ${ceilings})` },
 ]

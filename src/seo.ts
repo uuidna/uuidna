@@ -1,4 +1,5 @@
 import { STANDING_DOI } from './handle-permanence.js'
+import { RESOLVED_REFERENCES, REFERENCES_BY_WING } from './references-resolved.js'
 // seo — QUANTUM SEO: recomputable, honest discoverability derived from the sealed ledger. One function computes the
 // SEO surface for ANY subject (a theorem, a publication, or a static page): the canonical URL, a per-page description
 // drawn from the ONE verbose source (Lean — a theorem's own statement, a publication's abstract; everything else is
@@ -131,9 +132,22 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
       // ScholarlyArticle, not CreativeWork: a theorem PAGE emits ScholarlyArticle itself, so citing it as one is
       // both the accurate type and the vetted one (schema-org-vocab is the single list; a type absent from it is
       // refused by the naming audit, which is how a second unchecked vocabulary is prevented).
-      citation: cited.map((key) => ({
-        '@type': 'ScholarlyArticle', identifier: key, name: key, url: `${HOST}/theorem/${key}`,
-      })),
+      // …AND the external work the wing stands on. Until this line the citation list was entirely internal — the
+      // ledger citing itself — so to a crawler these monographs stood on nothing and credited nobody. The DOIs
+      // come from the wing's own prose and the citation text is resolved from Crossref/DataCite; a work the
+      // registries do not know is omitted rather than asserted, and none of it is claimed as this ledger's.
+      citation: [
+        ...cited.map((key) => ({
+          '@type': 'ScholarlyArticle', identifier: key, name: key, url: `${HOST}/theorem/${key}`,
+        })),
+        ...(REFERENCES_BY_WING[p.file] ?? [])
+          .map((doi) => RESOLVED_REFERENCES.find((r) => r.doi === doi && r.resolved))
+          .filter((r): r is NonNullable<typeof r> => Boolean(r))
+          .map((r) => ({
+            '@type': 'ScholarlyArticle', identifier: `https://doi.org/${r.doi}`,
+            name: r.title ?? r.cite ?? r.doi, url: `https://doi.org/${r.doi}`,
+          })),
+      ],
       // the corpus and the archive it belongs to: this is what fuses 116 monographs into one body of work
       // Dataset, not Collection: the ledger IS a dataset of sealed statements, and Dataset is the vetted type.
       // `codeRepository` was dropped — it belongs to SoftwareSourceCode, not ScholarlyArticle, and isBasedOn

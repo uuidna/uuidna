@@ -31,7 +31,7 @@
 // (drift_is_named_or_caught). Every OTHER generated wing counts.
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, docComment, m9, type Fact } from './lean-gen.js'
+import { ROOT, docComment, m9, type Fact, chunkedSum } from './lean-gen.js'
 
 const LEAN_DIR = join(ROOT, 'lean')
 const SELF = 'Audit.lean'
@@ -122,7 +122,10 @@ const perWing = files.map((f) => {
     clean: c.filter((t) => t.doc.length > 0 && !/(?<!\\)-\//.test(t.doc)).length }
 })
 const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
-const SUM = (ns: number[]): string => `(${L(ns)}.foldl (· + ·) 0)`
+// SUM was a LOCAL copy here and a second local copy in the sibling generator, which is precisely how the same
+// recursion-depth failure reached three wings at once when the ledger grew past 119 entries. One helper now,
+// in lean-gen, folding in two levels so depth stops tracking the census length.
+const SUM = (ns: number[]): string => `(${chunkedSum(ns)})`
 const docsPer = perWing.map((w) => w.docs)
 const thmsPer = perWing.map((w) => w.thms)
 const charsPer = perWing.map((w) => w.chars)

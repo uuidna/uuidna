@@ -17,11 +17,10 @@
 // is caught locally on keyed hosts. A keyless host keeps the weaker address-match floor, named; and the
 // RELEASE still consults no cache: `npm run audit` sets UUIDNA_PROVE_ALL=1, so everything shipped is
 // kernel-signed in that run regardless of any key.
-import { execSync } from 'node:child_process'
 import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { MAXBUF, readProofCache, writeProofCache, signProofEntry, proofEntryValid, pendingProofs, provePending } from './lean-gen.js'
+import { readProofCache, proofEntryValid, pendingProofs, provePending, queueProof } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
 import { capacity } from '../os/host/index.js'
@@ -71,6 +70,26 @@ for (const g of generators) {
   }
 }
 
+// 1a) THE HAND-AUTHORED WINGS JOIN THE SAME POOL. No generator writes these, so they used to be proved by a
+// serial execSync loop AFTER the concurrent phase — six spawns one at a time on one core while the other seven
+// idled, on every full run. They are standalone files exactly like generated wings: nothing imports, nothing
+// orders one against another, and their kernel cost is the same kind of cost. The only reason they ran serially
+// was that the lane queue had no public door. Queued here, BEFORE the drain, they are scheduled by their own
+// content-address like everything else — same lanes, same comparability run to run, same receipt cache, and the
+// same exit guard that fails a process leaving any wing written-but-unproved.
+const HAND_WRITTEN = ['Uuidna.lean', 'Vortex.lean', 'OneLeap.lean', 'AntiFraud.lean', 'SailingSeals.lean', 'DisputedTopics.lean'].filter((f) => existsSync(join(LEAN, f)))
+const handCache = readProofCache()
+for (const f of HAND_WRITTEN) {
+  const path = join(LEAN, f)
+  const text = readFileSync(path, 'utf8')
+  const address = toUuid(text)
+  if (proofEntryValid(handCache[f], f, address) && !process.env.UUIDNA_PROVE_ALL) {
+    console.log('✓ lean/' + f + ' — hand-written, verified by receipt (unchanged at ' + handleOf(address) + ')')
+    continue
+  }
+  queueProof({ file: f, path, address, theorems: (text.match(/^theorem /gm) ?? []).length })
+}
+
 // 1b) THE KERNEL, ACROSS THE MACHINE. Every generator above wrote its wing and QUEUED its verification rather
 // than blocking on it; the wings are independent standalone files, so nothing orders one against another and the
 // whole queue drains over however many lanes capacity() reports for the host it is running on. This is the step the
@@ -90,29 +109,6 @@ const { failed } = await provePending(lanes)
 if (failed.length) {
   console.error(`\n✗ lean-all — ${failed.length} wing(s) FAILED the kernel: ${failed.map((f) => f.file).join(', ')}`)
   process.exit(1)
-}
-
-// 2) hand-authored proofs (no generator writes them) — verified with `lean`, through the SAME receipt cache:
-// unchanged text = the kernel's prior signature stands; a moved address always re-proves; UUIDNA_PROVE_ALL=1
-// forces every spawn.
-const HAND_WRITTEN = ['Uuidna.lean', 'Vortex.lean', 'OneLeap.lean', 'AntiFraud.lean', 'SailingSeals.lean', 'DisputedTopics.lean'].filter((f) => existsSync(join(LEAN, f)))
-const cache = readProofCache()
-for (const f of HAND_WRITTEN) {
-  const text = readFileSync(join(LEAN, f), 'utf8')
-  const address = toUuid(text)
-  if (proofEntryValid(cache[f], f, address) && !process.env.UUIDNA_PROVE_ALL) {
-    console.log('✓ lean/' + f + ' — hand-written, verified by receipt (unchanged at ' + handleOf(address) + ')')
-    continue
-  }
-  try {
-    execSync('lean ' + JSON.stringify(join(LEAN, f)), { cwd: ROOT, stdio: 'inherit', maxBuffer: MAXBUF })
-    cache[f] = signProofEntry(f, address)
-    writeProofCache(cache)
-    console.log('✓ lean/' + f + ' — hand-written, verified sorry-free (receipt ' + handleOf(address) + ' cached).')
-  } catch {
-    console.error('\n✗ lean-all — hand-written proof FAILED: lean/' + f)
-    process.exit(1)
-  }
 }
 
 // 3) regenerate the single derived ledger (src/theorems/generated.ts + lean/PRINCIPLE.md) from all lean/*.lean.

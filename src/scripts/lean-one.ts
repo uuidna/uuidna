@@ -30,5 +30,12 @@ await import(pathToFileURL(path).href)
 // the generator WRITES its wing and queues the kernel call (lean-gen's PENDING); the entry point drains it. One
 // domain is one spawn, so the lane count changes nothing here — draining does, because a wing left unproved is a
 // generated file nobody signed.
-const { failed } = await provePending(capacity().lanes)
+// THE POOL WIDTH IS MEASURABLE, SO IT IS OVERRIDABLE. capacity().lanes is the host's honest default (logical
+// cores minus a reserve), and it is a GUESS about what a kernel spawn costs — Lean is mostly CPU-bound, so more
+// lanes than cores usually buys nothing and can lose to memory pressure, but "usually" is not a measurement and
+// the wings here are short enough that per-spawn startup is a real share of the cost. UUIDNA_LANES lets the
+// operator run the experiment instead of arguing it. Absent, nothing changes.
+const laneOverride = Number(process.env.UUIDNA_LANES ?? 0)
+const lanes = laneOverride > 0 ? laneOverride : capacity().lanes
+const { failed } = await provePending(lanes)
 if (failed.length) process.exit(1)

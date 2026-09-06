@@ -173,7 +173,7 @@ export function latexPreamble(title: string, subtitle: string, keywords: readonl
 /** ledgerLatex(theorems, opts) → one compilable article. Deterministic: same ledger, same bytes. */
 export function ledgerLatex(
   theorems: readonly TheoremLike[],
-  opts: { title?: string; author?: string; abstract?: string } = {},
+  opts: { title?: string; author?: string; abstract?: string; references?: readonly { doi: string; cite?: string }[] } = {},
 ): LatexDocument {
   const title = opts.title ?? 'The uuidna ledger'
   const refused: string[] = []
@@ -196,6 +196,18 @@ export function ledgerLatex(
       chunks.push(e.tex + '\n')
       entries++
     }
+  }
+  // THE BIBLIOGRAPHY. A manuscript that cites nobody is not a manuscript, and until now this one cited nobody:
+  // every reference in the ledger was internal (theorem cites theorem), so the external work the wings actually
+  // stand on — Watson and Crick, Nirenberg, Landsteiner, the CMS collaboration's open data — reached the reader
+  // as prose and never as a citation. These entries are RESOLVED from Crossref and DataCite by gen-references,
+  // keyed by the DOIs the wings' own prose carries; none is typed here, and an unresolved DOI is reported as a
+  // gap rather than printed as a citation. The ledger claims none of this work: it is other people's, cited.
+  const refs = (opts.references ?? []).filter((r) => r.cite)
+  if (refs.length) {
+    chunks.push(`\\begin{thebibliography}{${refs.length}}\n` +
+      refs.map((r) => `\\bibitem{${r.doi}} ${latexProse(r.cite!)} \\texttt{doi:${latexProse(r.doi)}}`).join('\n') +
+      '\n\\end{thebibliography}\n')
   }
   chunks.push('\\end{document}\n')
   return { tex: chunks.join('\n'), entries, refused }
