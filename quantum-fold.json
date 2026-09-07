@@ -2,14 +2,14 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "f70a01c251411ccd",
-      "principles": "5c4d2fc875b9eee3",
-      "monographs": "e8a449fa00673280"
+      "theorems": "ac7f575a4bcee8f2",
+      "principles": "b6ad994cf9b75a4d",
+      "monographs": "aa5d04a1b2b32eaa"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
       "exports": "97f398d5b00ce1dc",
-      "mcp": "3125f6fd7ff22521"
+      "mcp": "91df49b19bf15781"
     },
     "proven": {
       "tests": "c9527d4896a07019",
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "6ae0155bb05db184f3045eee2562aa0c",
-    "served": "f66e6a48be5ade837f1f9d6edf01d03b",
+    "sealed": "a54d29bd673abb197a3a35d931b065b4",
+    "served": "2ad0d5fbf2015febe74c8318ae046afb",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "a06e5bbd2dbe558e2b9d9802d638b57b",
     "walks": "7b8b2426c739e8a279911c1aea98df9e"
   },
-  "unified_fold": "36ca0bd46918ebbb",
-  "receipt": "7e9e398ca997d790",
+  "unified_fold": "83f09302f8e70d88",
+  "receipt": "9d26640bf4e1e8b3",
   "rosette_receipt": {
     "rays": [
-      "ab952edc161438c2",
+      "542ae3ab566a9300",
       "5ad598c2325f5962",
-      "9c529825bebf6b63",
+      "bbe872960c4569dd",
       "a20454282e566346",
-      "addd24c493446f55",
+      "26c68b3bfa982a82",
       "a761502744407dcd",
-      "dbb7ccdba1a8f718"
+      "51dfc14b432724a2"
     ],
-    "concurrence": "dd04ce8718cbabee3b67f4674f78607e"
+    "concurrence": "2cf01fb2df8dffb770c5c8935c8aa8df"
   },
   "aura": {
-    "rgb": "#d93a42",
-    "hsl": "hsl(357, 68%, 54%)",
+    "rgb": "#a339d0",
+    "hsl": "hsl(282, 62%, 52%)",
     "alphabet": "b6819334641853db",
-    "movie": "fb6190165daa62e6",
+    "movie": "59a95418e8213c3b",
     "lessons": "108d7097a9c59fba",
     "report": "940001b6ff9bd2fc",
     "session": "68250c885ed1ae63",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 5,
-      "ray": 3,
-      "wave": 4,
-      "hue": 357,
-      "sat": 68,
-      "light": 54,
-      "period": 18,
+      "residue": 7,
+      "ray": 0,
+      "wave": 2,
+      "hue": 282,
+      "sat": 62,
+      "light": 52,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
