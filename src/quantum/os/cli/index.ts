@@ -8,7 +8,7 @@
 //   --msg <file>  commit-msg gate (damage · overreach · sign)
 import { runCourtCli } from '../court/index.js'
 import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from '../alpine/index.js'
-import { changedFiles, fileManifest, treeCovers } from '../../../gate-receipt-index.js'
+import { changedFiles, fileManifest, treeCovers, committedTree } from '../../../gate-receipt-index.js'
 import { primeTreeCovers } from '../../../gate-receipt-compare.js'
 import { ROOT } from '../../../boundary.js'
 
@@ -30,7 +30,8 @@ export function runUuidnaOsCli(argv: readonly string[]): number {
   // PRIME THE COURT WITH THIS HOST'S DIGESTS, then let it decide. The CLI is where a filesystem exists, so the
   // gathering happens here and the JUDGEMENT stays in the court — which is why the court can now run in a tab
   // and still carry the arm. Only the push door (--proven) reads the result; priming always is harmless.
-  if (argv.includes('--proven')) primeTreeCovers(treeCovers())
+  // LEAD 235: the court judges the COMMITTED tree — what a push sends — not this directory's open edits
+  if (argv.includes('--proven')) primeTreeCovers(treeCovers(committedTree()))
   const code = runCourtCli(argv)
   // ── AND WHEN THE PUSH DOOR BLOCKS, THE FILES ARE NAMED HERE. The court is deliberately filesystem-free so it
   // can run in a tab, so all it can say is which COVERED DIRECTORY moved — `(src)`. Measured 2026-09-03: two

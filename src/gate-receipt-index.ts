@@ -1,7 +1,8 @@
 // gate-receipt-index — FILE-LEVEL FINGERPRINTS for verify-don't-recompute (verify_beats_recompute_by_magnitudes).
 // Coarse src/lean digests gate deploy; per-file manifest lets green run only the tests whose inputs moved.
 import { createHash } from 'node:crypto'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync, mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './scripts/api.js'
@@ -26,13 +27,38 @@ export const FULL_SUITE_PREFIXES = [
   'src/wave-deposit.ts',
 ] as const
 
+// A COMMITTED TREE HAS NO INDEX TO ASK. In a git checkout the covered set is `git ls-files` (tracked files); in the
+// directory committedTree() extracts — exactly HEAD's src/ and lean/, no .git — the same set is simply every file
+// present, so the walk below answers there. Both give one answer for one tree; the test holds them equal.
+const walk = (root: string, dir: string): string[] => {
+  const abs = join(root, dir)
+  if (!existsSync(abs)) return []
+  return readdirSync(abs, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() ? walk(root, dir + '/' + e.name) : [dir + '/' + e.name])
+}
 export const listCoveredFiles = (root: string = ROOT): string[] =>
   COVERED.flatMap((dir) =>
-    execSync(`git ls-files ${dir}`, { cwd: root, encoding: 'utf8' })
-      .split('\n')
+    (existsSync(join(root, '.git'))
+      ? execSync(`git ls-files ${dir}`, { cwd: root, encoding: 'utf8' }).split('\n')
+      : walk(root, dir))
       .filter(Boolean)
       .filter((f) => !EXCLUDED.test(f)),
   ).sort()
+
+// ── THE COMMITTED TREE (lead 235). A working directory is a private tree that answers like a public one: twice in
+// one day a green was true of a directory (an open peer edit made it compile) and false of committed HEAD. The
+// receipt must attest what a push SENDS, so its covers are computed over `git archive <ref> src lean` extracted
+// once per ref per process — the exact committed bytes, nothing open in this directory.
+const _committed = new Map<string, string>()
+export function committedTree(ref: string = 'HEAD', root: string = ROOT): string {
+  const key = `${root}@${ref}`
+  const hit = _committed.get(key)
+  if (hit) return hit
+  const dir = mkdtempSync(join(tmpdir(), 'uuidna-committed-'))
+  execSync(`git archive ${ref} -- ${COVERED.join(' ')} | tar -x -C ${JSON.stringify(dir)}`, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 64 * 1024 * 1024 })
+  _committed.set(key, dir)
+  return dir
+}
 
 const digestFile = (root: string, rel: string): string => {
   const h = createHash('sha256')

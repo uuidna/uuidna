@@ -15,14 +15,18 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { fileManifest, treeCovers } from '../gate-receipt-index.js'
+import { fileManifest, treeCovers, committedTree } from '../gate-receipt-index.js'
 
 const RECEIPT = join(ROOT, 'gate-receipt.json')
+// LEAD 235: THE RECEIPT ATTESTS WHAT IS PUSHED, NEVER THE DIRECTORY. --root <dir> lets land mint over a clean
+// worktree of HEAD (guard and suite ran there); --verify compares the receipt to the COMMITTED tree (git archive of
+// HEAD's src and lean), so an open edit in this directory can neither pass a stale receipt nor fail a fresh one.
+const rootArg = ((): string => { const i = process.argv.indexOf('--root'); return i >= 0 && process.argv[i + 1] ? String(process.argv[i + 1]) : ROOT })()
 
 if (process.argv.includes('--verify')) {
   if (!existsSync(RECEIPT)) { console.error('✗ gate-receipt — absent; the tree carries no push-time proof'); process.exit(1) }
   const want = JSON.parse(readFileSync(RECEIPT, 'utf8')) as { covers: Record<string, string>; verified: string[] }
-  const have = treeCovers()
+  const have = treeCovers(committedTree())
   const moved = (['src', 'lean'] as const).filter((d) => want.covers?.[d] !== have[d])
   if (moved.length) {
     console.error(`✗ gate-receipt — the tree MOVED since it was proven: ${moved.join(', ')} does not match the receipt`)
@@ -34,7 +38,7 @@ if (process.argv.includes('--verify')) {
     // about exactly that arithmetic, and it applies to the gate's own diagnosis, not only to the checks behind it.
     const prior = (want as { files?: Record<string, string> }).files ?? {}
     if (Object.keys(prior).length) {
-      const now = fileManifest()
+      const now = fileManifest(committedTree())
       const changed = Object.keys(now).filter((f) => prior[f] !== undefined && prior[f] !== now[f])
       const appeared = Object.keys(now).filter((f) => prior[f] === undefined)
       const vanished = Object.keys(prior).filter((f) => now[f] === undefined)
@@ -83,12 +87,12 @@ const VERIFIED = ((): string[] => {
 
 // --write: called by the push gate AFTER every arm passes, so the receipt can only ever describe a green tree.
 writeFileSync(RECEIPT, JSON.stringify({
-  covers: treeCovers(),
-  files: fileManifest(),
+  covers: treeCovers(rootArg),
+  files: fileManifest(rootArg),
   verified: VERIFIED,
   excludes: 'src/seeds, src/chunks — generated payloads the tests and the guard never read',
   honest: 'Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. ' +
     'Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted ' +
     '(gate-receipt-index planTestRun runs the moved tests only).',
 }, null, 2) + '\n')
-console.log('✓ gate-receipt — written; covers src, lean + per-file manifest')
+console.log('✓ gate-receipt — written; covers src, lean + per-file manifest' + (rootArg !== ROOT ? ` (minted over ${rootArg})` : ''))

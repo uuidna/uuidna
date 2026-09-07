@@ -12,7 +12,8 @@
 // --no-verify does not appear in this file, and an untaught denial is the loop's honest end, not an obstacle.
 import { execSync } from 'node:child_process'
 import { ROOT, DRAIN_PATHS, inFlightFiles } from './api.js'
-import { existsSync } from 'node:fs'
+import { existsSync, mkdtempSync, symlinkSync, copyFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { acquire, awaitAcquire, release, LOCK_PATH, working } from './one-writer.js'
 
@@ -134,30 +135,52 @@ for (let round = 1; round <= ROUNDS; round++) {
   const dirty = run(drainOnly ? 'git status --porcelain -- gate-receipt.json ' + drainPaths().map((p) => JSON.stringify(p)).join(' ') : 'git status --porcelain').out.trim()
   if (dirty) {
     stage()
-    const covered = run('node dist/scripts/gate-receipt.js --verify')
-    if (!covered.ok) {
-      console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
-      const proof = run('npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
-      if (!proof.ok) {
-        // ANCHORED, because the first version of this filter matched test NAMES containing "GAP" and "FIX" and
-        // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
-        // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
-        // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
-        console.error('✗ land — the tree does not prove green, so no receipt was minted. What it said:\n')
-        const lines = proof.out.split('\n')
-        const marked = lines.filter((l) => /^(✖|not ok|✗ (guard|gate-receipt|gen-packages)|# fail)/.test(l.trim()))
-        if (marked.length) console.error(marked.slice(0, 20).join('\n'))
-        console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
-        process.exit(1)
-      }
-    }
-    run('git add gate-receipt.json')
+    // THE ORDER (lead 235, folded 2026-09-07): stage → COMMIT the drain → mint over a clean worktree of the new HEAD →
+    // commit the receipt → push. The mint used to run in this directory, and a directory is a private tree that
+    // answers like a public one: twice in one day a green was true of a working tree (an open peer edit made it
+    // compile) and false of committed HEAD. So the guard and the suite now run in a detached worktree of HEAD
+    // — exactly the bytes a push sends — and the receipt is written from that tree into this one. The drain is
+    // committed FIRST because the receipt must cover the ledger the push carries, and gate-receipt.json itself is
+    // outside the covered src/ and lean/, so committing it afterwards moves nothing the receipt attests.
     // cites a sealed theorem so commit-msg can sign it; an unsignable automated commit is a hand-amend waiting
     const msg = 'Land: heal, re-derive and seal what the drain owns — gate-clean, unattended. Backed by theorem two_coins'
     const committed = run('git commit -m ' + JSON.stringify(msg) + pathspec())
     if (!committed.ok) {
       console.error('✗ land — the commit was REFUSED (the gate speaks below); a human decides here:\n')
       console.error(committed.out.split('\n').filter((l) => /^(✗|GAP|FIX|BLOCKED)/.test(l.trim())).join('\n') || committed.out.slice(-1200))
+      process.exit(1)
+    }
+  }
+  const covered = run('node dist/scripts/gate-receipt.js --verify')
+  if (!covered.ok) {
+    console.log('\nland — HEAD moved past its receipt; earning a new one over a clean worktree of HEAD before the push …')
+    const wt = mkdtempSync(join(tmpdir(), 'uuidna-land-'))
+    const added = run('git worktree add --detach ' + JSON.stringify(wt) + ' HEAD')
+    if (!added.ok) { console.error('✗ land — could not open a worktree of HEAD:\n' + added.out.slice(-600)); process.exit(1) }
+    try {
+      symlinkSync(join(ROOT, 'node_modules'), join(wt, 'node_modules'))
+      const proof = run('cd ' + JSON.stringify(wt) + ' && npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests --root ' + JSON.stringify(wt))
+      if (!proof.ok) {
+        // ANCHORED, because the first version of this filter matched test NAMES containing "GAP" and "FIX" and
+        // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
+        // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
+        // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
+        console.error('✗ land — the COMMITTED tree does not prove green, so no receipt was minted. What it said:\n')
+        const lines = proof.out.split('\n')
+        const marked = lines.filter((l) => /^(✖|not ok|✗ (guard|gate-receipt|gen-packages)|# fail)/.test(l.trim()))
+        if (marked.length) console.error(marked.slice(0, 20).join('\n'))
+        console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
+        process.exit(1)
+      }
+      copyFileSync(join(wt, 'gate-receipt.json'), join(ROOT, 'gate-receipt.json'))
+    } finally {
+      // the worktree carries a built dist, so it is removed as a directory and then pruned from git's list
+      run('rm -rf ' + JSON.stringify(wt) + ' && git worktree prune')
+    }
+    run('git add gate-receipt.json')
+    const sealed = run('git commit -m ' + JSON.stringify('Land: the receipt, minted over a clean worktree of HEAD. Backed by theorem two_coins') + ' -- gate-receipt.json')
+    if (!sealed.ok) {
+      console.error('✗ land — the receipt commit was REFUSED:\n' + (sealed.out.split('\n').filter((l) => /^(✗|GAP|FIX|BLOCKED)/.test(l.trim())).join('\n') || sealed.out.slice(-1200)))
       process.exit(1)
     }
   }

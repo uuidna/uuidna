@@ -221,14 +221,22 @@ test('a claim that IS a sealed theorem’s own prose counts as backed, and stays
 // is untracked and then registers as drift the moment `git add` tracks it — the court's own words were "the
 // drift is only files appearing or disappearing", and three landings in a row named the newly-added sources as
 // MOVED. Holding the ORDER rather than the presence: both calls existed before and the bug was which came first.
-test('land mints the receipt AFTER staging, so it covers the set the commit carries', () => {
+test('land commits the drain, mints over a clean worktree of HEAD, commits the receipt, then pushes', () => {
+  // LEAD 235: a working directory is a private tree that answers like a public one. The mint runs in a worktree
+  // of HEAD — the bytes the push sends — so the receipt attests the commit, never an open edit in this directory.
   const land = readFileSync(join(ROOT, 'src', 'scripts', 'land.ts'), 'utf8')
-  const stage = land.indexOf("run('git add -A')")
-  const mint = land.indexOf("gate-receipt.js --verify'")
-  const commit = land.indexOf("run('git commit -m '")
-  assert.ok(stage > 0 && mint > 0 && commit > 0, 'land must stage, mint and commit')
-  assert.ok(stage < mint, 'the staging must come FIRST — an untracked file is not in the manifest yet')
-  assert.ok(mint < commit, 'and the mint must precede the commit, so the fresh receipt rides with its work')
+  const stage = land.indexOf('stage()')
+  const commitDrain = land.indexOf("run('git commit -m ' + JSON.stringify(msg) + pathspec())")
+  const verify = land.indexOf("gate-receipt.js --verify'")
+  const worktree = land.indexOf("git worktree add --detach")
+  const mint = land.indexOf('--verified guard,tests --root')
+  const commitReceipt = land.indexOf("' -- gate-receipt.json'")
+  const push = land.indexOf("run('git push origin main')")
+  for (const [name, i] of Object.entries({ stage, commitDrain, verify, worktree, mint, commitReceipt, push })) assert.ok(i > 0, `land must ${name}`)
+  assert.ok(stage < commitDrain, 'the drain is staged, then committed — the receipt must cover the ledger the push carries')
+  assert.ok(commitDrain < verify && verify < worktree && worktree < mint, 'the mint runs over a worktree of the NEW head, only when its receipt is stale')
+  assert.ok(mint < commitReceipt && commitReceipt < push, 'the minted receipt is committed and rides with the push')
+  assert.match(land, /git worktree prune/, 'the worktree is removed whatever the verdict')
   assert.ok(land.includes("run('git add gate-receipt.json')"), 'the minted receipt must itself be staged')
 })
 
