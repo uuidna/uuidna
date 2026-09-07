@@ -3,14 +3,14 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'132 open'" />
+# Missions <Badge type="tip" :text="'133 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**132 missions** — 28 seal-finding · 67 decide-bound · 37 symbol-leg — derived from the
+**133 missions** — 28 seal-finding · 67 decide-bound · 38 symbol-leg — derived from the
 rosetta mirror, the sealed bound census (`1c1349489664a8bb`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
@@ -379,7 +379,7 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 37 open
+## Give a theorem its symbol leg — 38 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
@@ -390,6 +390,10 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
 - **`344e2cf9`** give 64 theorems in Core.lean the symbol leg
   <br><small>deliverable: 64 theorems in Core.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`mul9_1_1`](/theorem/mul9_1_1) · [`mul9_1_2`](/theorem/mul9_1_2) · [`mul9_1_3`](/theorem/mul9_1_3) · [`mul9_1_4`](/theorem/mul9_1_4) · [`mul9_1_5`](/theorem/mul9_1_5) · [`mul9_1_6`](/theorem/mul9_1_6) · [`mul9_1_7`](/theorem/mul9_1_7) · [`mul9_1_8`](/theorem/mul9_1_8) · [`mul9_2_1`](/theorem/mul9_2_1) · [`mul9_2_2`](/theorem/mul9_2_2) · [`mul9_2_3`](/theorem/mul9_2_3) · [`mul9_2_4`](/theorem/mul9_2_4) · +52 more in the wing</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`2999c812`** give 72 theorems in Equilibrium.lean the symbol leg
+  <br><small>deliverable: 72 theorems in Equilibrium.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`hexcube_degree_is_six_0`](/theorem/hexcube_degree_is_six_0) · [`hexcube_degree_is_six_1`](/theorem/hexcube_degree_is_six_1) · [`hexcube_degree_is_six_2`](/theorem/hexcube_degree_is_six_2) · [`hexcube_degree_is_six_3`](/theorem/hexcube_degree_is_six_3) · [`hexcube_degree_is_six_4`](/theorem/hexcube_degree_is_six_4) · [`hexcube_degree_is_six_5`](/theorem/hexcube_degree_is_six_5) · [`hexcube_degree_is_six_6`](/theorem/hexcube_degree_is_six_6) · [`hexcube_degree_is_six_7`](/theorem/hexcube_degree_is_six_7) · [`polarity_double_degree_is_twelve_0`](/theorem/polarity_double_degree_is_twelve_0) · [`polarity_double_degree_is_twelve_1`](/theorem/polarity_double_degree_is_twelve_1) · [`polarity_double_degree_is_twelve_2`](/theorem/polarity_double_degree_is_twelve_2) · [`polarity_double_degree_is_twelve_3`](/theorem/polarity_double_degree_is_twelve_3) · +60 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`a2e2fa2a`** give 35 theorems in FermatReduction.lean the symbol leg
   <br><small>deliverable: 35 theorems in FermatReduction.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

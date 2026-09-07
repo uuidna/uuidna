@@ -1,11 +1,11 @@
 {
-  "modules": 1175,
-  "roots": 716,
-  "supported": 1172,
+  "modules": 1177,
+  "roots": 718,
+  "supported": 1174,
   "dead": [
     "src/law-collapse.ts",
     "src/prose-completeness.ts",
     "src/quantum/shor/index.ts"
   ],
-  "receipt": "fa76d194-3f9a-81bb-8887-751a6c86f340"
+  "receipt": "c8c181fd-8e22-8879-a1c3-255f5a75ca53"
 }

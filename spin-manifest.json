@@ -6,12 +6,12 @@
     "lean/axioms.json": "5e0f73c547308889",
     "docs/mcp.md": "b2661dc84e298479",
     "audit-citations.json": "7f72077516958833",
-    "support-audit.json": "8d33c5bc43af8c63",
-    "research-leads.json": "93250fa83d278b9d",
+    "support-audit.json": "eb4072495aea8cbd",
+    "research-leads.json": "fdbdfd9e4761834c",
     ".zenodo.json": "a668aafa60888469",
     "reports.json": "9f94fd70d57c8198",
     "lean/statement-index.json": "58afe937f006885c",
-    "README.md": "15914577b3248dc7",
+    "README.md": "7aecedf4531784b8",
     "llm.txt": "33e43b44e40e8bcf",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0c2bf4.json": "b996c4e6c4d8814f",
@@ -5240,7 +5240,7 @@
     "lean/core-manifest.json": "4d458927576a8b71",
     "lean/crt-manifest.json": "f7df70a4cfb08dc2",
     "lean/crypto-manifest.json": "e4553ec003088b47",
-    "lean/cube-memory.json": "57e9288980068d54",
+    "lean/cube-memory.json": "0b28ff79987e881e",
     "lean/discover-manifest.json": "3192704bd08f8717",
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
@@ -5390,5 +5390,5 @@
     "lean/wave-queue.json": "7a13499d955081a5",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "64a0ff03-adb8-8561-89a8-ff7ac45c5559"
+  "receipt": "9f1266e1-bb04-8d40-8dae-1913ec31b670"
 }
