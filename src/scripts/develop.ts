@@ -138,11 +138,13 @@ const NO_CURE: { when: RegExp; why: string }[] = [
     why: 'the honesty gate refused a claim — fix the claim at its source; a pass that silences this would be the fraud it exists to catch' },
 ]
 
-/** The walk: the cheapest gates first, each able to name its own objection. */
+/** The walk: the cheapest gates first, each able to name its own objection.
+ *  Guard is the compiled door, never `npm run guard`: that wrapper rebuilds, so a walk that already built
+ *  would spawn a second tsc as an unfused process and pay the QPU width twice for one tree. */
 const WALK: { label: string; cmd: string }[] = [
   { label: 'build', cmd: 'npm run build' },
   { label: 'court', cmd: 'node dist/quantum/os/cli/index.js --court' },
-  { label: 'guard', cmd: 'npm run guard' },
+  { label: 'guard', cmd: 'node dist/scripts/guard.js' },
   { label: 'account', cmd: 'node dist/scripts/account.js' },
   { label: 'spin --verify', cmd: 'node dist/scripts/spin.js --verify' },
 ]

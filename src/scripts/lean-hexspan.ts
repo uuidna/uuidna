@@ -20,9 +20,9 @@
 // refuses and should: that is the kernel checking that a number equals itself, and it is the same defect the
 // cube and duality theorems carried until today. A surface that cannot fail is not a surface.
 //
-// AND IT IS EMITTED IN LANE-SIZED FILES. A flat `List.range 4096` walk exceeds Lean's recursion depth — measured
+// AND IT IS EMITTED IN LANE-SIZED FILES. A flat `List.range` walk at CHUNK exceeds Lean's recursion depth — measured
 // here, 128 passes and 256 fails, the same wall Os.lean hit — and one enormous file would block a whole lane
-// while the others idle. Chunks of 4,096 theorems compile in about 42 seconds each at roughly 10 ms per
+// while the others idle. Lane-sized chunks compile in about 42 seconds each at roughly 10 ms per
 // theorem (measured on this host, and sub-linear: 15 ms at 250, 12 at 1,000, 10 at 4,000), so the span spreads
 // across the lanes the budget actually reports instead of serialising behind one file.
 import { emit } from './lean-gen.js'

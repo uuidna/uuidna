@@ -493,7 +493,7 @@ export function composeVe(t) {
  *  span pushed the site past exactly that number, which is the same 2^16 the span is built on.
  *
  *  So the filter is named here rather than applied quietly, and both the counter and the enumerator use it —
- *  they are asserted equal in the test, so a page that stops being counted cannot keep being built. */
+ *  they are asserted equal in the test, so by construction a page that stops being counted is not built. */
 export const isPageless = (file: string): boolean => /^HexSpan\d+\.lean$/.test(file)
 
 export function objectPageCount() {
@@ -515,8 +515,8 @@ export function allObjectPaths() {
     const why = refused.map((p) => `  • ${p.slug}: ${p.findings.map((f) => `[${f.token}] "${f.unit}"`).join('; ')}`).join('\n')
     throw new Error(`publications: ${refused.length} note(s) REFUSED —\n${why}`)
   }
-  // the span's statements chunk too, and they were the real page driver: 70,780 chunk pages against
-  // 70,863 theorems, near one to one. A chunk every one of whose source files is pageless is pageless.
+  // the span's statements chunk too, and they were the real page driver: chunk pages against the key
+  // count, near one to one. A chunk every one of whose source files is pageless is pageless.
   const chunks = buildChunks().filter((c) => !c.files.every(isPageless))
   const sequence = ALL.filter((t) => t.file === 'Sequence.lean')
   const ve = ALL.filter((t) => t.file === 'VectorEquilibrium.lean')

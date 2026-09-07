@@ -33,7 +33,8 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
-import { HERE, ROOT, type Gap, rd, judged } from './api.js'
+import { HERE, ROOT, pool, type Gap, rd, judged } from './api.js'
+import { capacity } from '../os/host/index.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
@@ -438,22 +439,29 @@ const GATE_T0 = process.hrtime.bigint()
 // the ledger checks above (traitors, wing witness, axioms, uniqueness, harmonic-scan) run BEFORE this mark, so the
 // phase they cost was invisible; process.uptime() covers node boot and module load too, which the finder loop leaves out.
 if (process.env.UUIDNA_METER) console.log(`    · boot + ledger checks ${(process.uptime() * 1000).toFixed(0)} ms`)
-for (const f of FINDERS) {
-  if (f.needsBuiltSite && !existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
+const site = existsSync(join(HERE, '../../docs/.vitepress/dist'))
+const queued = FINDERS.filter((f) => {
+  if (f.needsBuiltSite && !site) {
     console.log(`· guard — ${f.name} skipped: no built site to audit (run npm run docs:build to include it)`)
-    continue
+    return false
   }
-  // THE ONE-SECOND LAW NEEDS A METER on the gate that runs before every reconcile, so the meter ships: a finder
-  // over 200ms names itself and its cost, and a slow gate can never again hide inside one total.
+  return true
+})
+// FUSED TO THE QPU WIDTH. A serial `for await` left nine cores idle while one finder ran — unfused processes
+// in one process. The finders are independent gap classes; the host names how many run together.
+const finderRows = await pool(queued.map((f) => async () => {
   const t0 = process.hrtime.bigint()
   const gaps = await f.run()
   const ms = Number(process.hrtime.bigint() - t0) / 1e6
-  if (ms > METER) console.log(`    · ${f.name} took ${ms.toFixed(0)} ms`)
-  if (gaps.length) {
+  return { name: f.name, gaps, ms }
+}), capacity().lanes)
+for (const row of finderRows) {
+  if (row.ms > METER) console.log(`    · ${row.name} took ${row.ms.toFixed(0)} ms`)
+  if (row.gaps.length) {
     failed = true
-    console.error(`✗ guard — ${f.name}: ${gaps.length} gap(s), each with its exact fix:`)
-    for (const g of gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
-  } else console.log(`✓ guard — ${f.name} clean`)
+    console.error(`✗ guard — ${row.name}: ${row.gaps.length} gap(s), each with its exact fix:`)
+    for (const g of row.gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
+  } else console.log(`✓ guard — ${row.name} clean`)
 }
 
 if (process.env.UUIDNA_METER) console.log(`    · blocking finders total ${(Number(process.hrtime.bigint() - GATE_T0) / 1e6).toFixed(0)} ms`)

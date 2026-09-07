@@ -21,18 +21,28 @@ import { ROOT, MAXBUF } from './lean-gen.js'
 const T = theorems()
 const half = (n: number): number => (n - (n % 2)) / 2 // floor(n/2), no Math.*
 
+// ONE READ PER WING. blockOf used to reopen the source for every theorem, so a 4,096-surface file was copied
+// thousands of times into the heap before a single Lean probe started — the RAM point of the QPU, spent on
+// duplicate strings rather than on lanes. Cache the lines; the fold still indexes them per key.
+const fileLines: Record<string, string[]> = {}
+const linesOf = (file: string): string[] => {
+  if (fileLines[file]) return fileLines[file]
+  try { fileLines[file] = readFileSync(join(ROOT, 'lean', file), 'utf8').split('\n') }
+  catch { fileLines[file] = [] }
+  return fileLines[file]
+}
+
 // Each theorem is made self-contained by prepending its source file's DEFS — every `def`/`abbrev` block, wherever it
 // sits in the file (generated files put them at the top; hand-written files may interleave them with theorems).
 const defPrefix: Record<string, string> = {}
 for (const file of [...new Set(T.map((t) => t.file))]) {
   try {
-    const content = readFileSync(join(ROOT, 'lean', file), 'utf8')
+    const lines = linesOf(file)
     // a def block runs to the next TOP-LEVEL DECLARATION, exactly as blockOf reads a theorem — not merely to the
     // next unindented line. A def whose continuation sits at column 0 (a list closing on its own `]`) is legal
     // Lean, so an indentation-only rule truncates it and every probe built on those defs fails to parse. The
     // failure is silent by nature: already-measured theorems keep their cached costs, so only a NEW theorem in
     // that file surfaces it — which is why this must read the same boundary the theorem reader does.
-    const lines = content.split('\n')
     const out: string[] = []
     const TOP = /^(theorem |def |abbrev |notation |namespace|end |--)/
     // A WING'S OPTIONS ARE PART OF ITS SOURCE, and the probe was rebuilding the definitions without them. A wing
@@ -74,7 +84,7 @@ const fits = (probe: string, defs: string, lean: string, N: number, attempt = 0)
 // reconstruction mangles) still measure. Falls back to the reconstructed t.lean if the block is not found.
 const blockOf = (file: string, key: string, fallback: string): string => {
   try {
-    const lines = readFileSync(join(ROOT, 'lean', file), 'utf8').split('\n')
+    const lines = linesOf(file)
     const start = lines.findIndex((l) => new RegExp('^theorem ' + key + '\\b').test(l))
     if (start < 0) return fallback
     let end = start + 1
@@ -205,14 +215,14 @@ async function main() {
     const wings = [...byWing.entries()]
     process.stderr.write(`sync: ${missing.length} theorem(s) across ${wings.length} wing(s), batched\n`)
     // THE WIDTH IS THE ENTANGLED ONE, NOT THE CPU COUNT. `capacity()` with no per-job footprint considers only
-// cores — it says so in its own `binds` field, "memory not considered" — so this asked for ten lean processes on
-// a machine whose memory admits about twelve at 2,696 MB each, and never subtracted the jobs another session had
-// already started. Measured consequence on this host: 88% system time and 15.5 GB of swap. `laneBudget` passes
-// the measured footprint so the memory point can bind, and subtracts neighbours it can actually see; yielding is
-// unilateral, so it needs no agreement between sessions. The captain uncapped the ARBITRARY ceilings — the
-// two-lane reserve and the halving — and this is what he uncapped them in favour of: five measured constraints
-// intersecting, with `binds` naming which one won.
-const perWing = await pool(wings, laneBudget(LEAN_JOB_BYTES, '[l]ean ').lanes, async ([file, ts], wi) => {
+    // cores — it says so in its own `binds` field, "memory not considered" — so this asked for ten lean processes on
+    // a machine whose memory admits about twelve at 2,696 MB each, and never subtracted the jobs another session had
+    // already started. Measured consequence on this host: 88% system time and 15.5 GB of swap. `laneBudget` passes
+    // the measured footprint so the memory point can bind, and subtracts neighbours it can actually see; yielding is
+    // unilateral, so it needs no agreement between sessions. The captain uncapped the ARBITRARY ceilings — the
+    // two-lane reserve and the halving — and this is what he uncapped them in favour of: five measured constraints
+    // intersecting, with `binds` naming which one won.
+    const perWing = await pool(wings, laneBudget(LEAN_JOB_BYTES, '[l]ean ').lanes, async ([file, ts], wi) => {
       const probes = ts.map((t) => ({ key: t.key, source: blockOf(t.file, t.key, t.lean) }))
       let got = new Map<string, number>()
       try { got = await costsBatched(probes, defPrefix[file] || '', String(wi)) } catch { got = new Map() }
@@ -292,4 +302,4 @@ const perWing = await pool(wings, laneBudget(LEAN_JOB_BYTES, '[l]ean ').lanes, a
   }
 }
 
-main()
+await main()
