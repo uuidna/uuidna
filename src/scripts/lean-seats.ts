@@ -62,7 +62,7 @@ const FACTS = [
   { key: 'ten_seats_bound_any_ring',
     why: 'A CONSEQUENCE WORTH NAMING: anything folded to a digit of the ring lands in one of ten seats, so past ten items collision is not evidence of a relation — it is arithmetic. SCOPE: this decides the counting; it asserts nothing about what any two colliding things have in common.',
     js: () => ceil(11, 10) >= 2 && 11 > 10,
-    lean: 'theorem ten_seats_bound_any_ring : (11 > 10) ∧ ((11 + 10 - 1) / 10 ≥ 2) := by decide' },
+    lean: 'theorem ten_seats_bound_any_ring : (List.range 40).all (fun i => let n := i + 11; (n > 10) && ((n + 10 - 1) / 10 ≥ 2)) := by decide' },
 ]
 
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)

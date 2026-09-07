@@ -11,6 +11,7 @@
 //   npm run x -- lean-heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
+import { capacity } from '../os/host/index.js'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
@@ -95,6 +96,57 @@ const blockOf = (file: string, key: string, fallback: string): string => {
 }
 
 // The decide-step cost = the minimum maxHeartbeats at which it still passes (binary search).
+interface BatchProbe { key: string; source: string }
+
+/** which of these exceed cap N — one spawn, answered by the lines Lean names */
+async function failingAt(probes: BatchProbe[], defs: string, N: number, tag: string): Promise<Set<string>> {
+  const file = join(tmpdir(), 'uuidna-hb-batch-' + tag + '.lean')
+  const lines: string[] = [`set_option maxHeartbeats ${N}`]
+  if (defs.trim()) lines.push(defs)
+  const startLine = new Map<number, string>()
+  for (const p of probes) { startLine.set(lines.length + 1, p.key); lines.push(p.source) }
+  writeFileSync(file, lines.join('\n') + '\n')
+  const out = await new Promise<string>((resolve) => {
+    execFile('lean', [file], { maxBuffer: MAXBUF }, (err, stdout, stderr) =>
+      resolve(err ? String(stdout || '') + String(stderr || '') : ''))
+  })
+  const bad = new Set<string>()
+  if (!out.trim()) return bad
+  const starts = [...startLine.keys()].sort((a, b) => a - b)
+  for (const m of out.matchAll(/uuidna-hb-batch-[^:]*\.lean:(\d+)/g)) {
+    const ln = Number(m[1])
+    let owner = ''
+    for (const st of starts) { if (st <= ln) owner = startLine.get(st)!; else break }
+    if (owner) bad.add(owner)
+  }
+  return bad
+}
+
+/** exact per-theorem costs for one wing, by recursive group partition — same minimum, far fewer spawns */
+async function costsBatched(probes: BatchProbe[], defs: string, tag: string): Promise<Map<string, number>> {
+  const out = new Map<string, number>()
+  if (!probes.length) return out
+  let hi = 1
+  for (;;) {
+    const bad = await failingAt(probes, defs, hi, tag)
+    if (bad.size === 0) break
+    hi *= 2
+    if (hi > 4_000_000) { for (const p of probes) out.set(p.key, hi); return out }
+  }
+  const stack: [BatchProbe[], number, number][] = [[probes, 0, hi]]
+  while (stack.length) {
+    const [grp, lo, up] = stack.pop()!
+    if (lo + 1 >= up) { for (const p of grp) out.set(p.key, up); continue }
+    const mid = (lo + up - ((lo + up) % 2)) / 2
+    const bad = await failingAt(grp, defs, mid, tag)
+    const fails = grp.filter((p) => bad.has(p.key))
+    const passes = grp.filter((p) => !bad.has(p.key))
+    if (passes.length) stack.push([passes, lo, mid])
+    if (fails.length) stack.push([fails, mid, up])
+  }
+  return out
+}
+
 async function costOf(t: (typeof T)[number]): Promise<number> {
   const probe = join(tmpdir(), 'uuidna-hb-' + t.key + '.lean')
   const defs = defPrefix[t.file] || ''
@@ -130,11 +182,36 @@ async function main() {
     for (const a of pruned) delete costs[a]
     const missing = T.filter((t) => !(t.address in costs))
     process.stderr.write(`sync: ${pruned.length} stale pruned, ${missing.length} to measure, ${Object.keys(costs).length} already current\n`)
-    const measured = await pool(missing, 8, async (t) => {
-      let c: number | null
-      try { c = await costOf(t) } catch { c = null }
-      return { address: t.address, key: t.key, cost: c }
+    // BY WING, THEN ACROSS LANES. costOf doubles from 1 and then bisects — about twenty-two Lean STARTUPS per
+    // theorem, so 2,478 new ones cost ~54,000 process launches and a --sync runs for hours. Startup, not the
+    // decide, is what a cheap theorem costs, and no number of lanes rescues thirty thousand launches.
+    //
+    // Lean names WHICH declaration exceeded the cap, so one file holding a whole wing, probed once, partitions
+    // every theorem in it: named in the errors means costlier than the cap, silent means at most. One spawn, K
+    // answers. The bisection is unchanged and shared, so each theorem lands on the same exact minimum it would
+    // have reached alone; only the probe count falls, from O(theorems x log range) to O(distinct costs x log range).
+    //
+    // A wing whose batch yields nothing falls back to the per-theorem search: a faster path that silently loses
+    // data is not faster, and an unmeasured theorem is exactly the stale figure this file exists to prevent.
+    const byWing = new Map<string, typeof missing>()
+    for (const t of missing) { const l = byWing.get(t.file); if (l) l.push(t); else byWing.set(t.file, [t]) }
+    const wings = [...byWing.entries()]
+    process.stderr.write(`sync: ${missing.length} theorem(s) across ${wings.length} wing(s), batched\n`)
+    const perWing = await pool(wings, capacity().lanes, async ([file, ts], wi) => {
+      const probes = ts.map((t) => ({ key: t.key, source: blockOf(t.file, t.key, t.lean) }))
+      let got = new Map<string, number>()
+      try { got = await costsBatched(probes, defPrefix[file] || '', String(wi)) } catch { got = new Map() }
+      const rows: { address: string; key: string; cost: number | null }[] = []
+      for (const t of ts) {
+        const c = got.get(t.key)
+        if (c !== undefined) { rows.push({ address: t.address, key: t.key, cost: c }); continue }
+        let solo: number | null = null
+        try { solo = await costOf(t) } catch { solo = null }
+        rows.push({ address: t.address, key: t.key, cost: solo })
+      }
+      return rows
     })
+    const measured = perWing.flat()
     for (const m of measured) if (m.cost !== null) costs[m.address] = m.cost
     const total = Object.values(costs).reduce((s, c) => s + c, 0)
     writeFileSync(path, JSON.stringify({ measured: Object.keys(costs).length, total, costs }) + '\n')

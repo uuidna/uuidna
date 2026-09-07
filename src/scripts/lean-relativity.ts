@@ -13,7 +13,7 @@ const FACTS = [
   { key: 'light_on_null_cone',
     why: 'Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.',
     js: () => 5 * 5 - 5 * 5 === 0,
-    lean: 'theorem light_on_null_cone : (5*5 - 5*5 : Int) = 0 := by decide' },
+    lean: 'theorem light_on_null_cone : ((5*5 - 5*5 : Int) = 0) ∧ ((5*5 - 4*4 : Int) ≠ 0) ∧ ((5*5 - 6*6 : Int) ≠ 0) := by decide' },
 
   { key: 'interval_timelike_causal',
     why: 'The invariant interval classifies events: a timelike separation (ct = 5, x = 4) gives s² = 25 − 16 = 9 > 0 — inside the light cone, reachable below light speed, so cause can reach effect. All observers agree on this interval.',

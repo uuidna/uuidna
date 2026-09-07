@@ -6,7 +6,7 @@
 // reports a hundred and a six on the exponents where solutions exist. And the near-miss is the refusal made
 // concrete: inside this window the cube sum never once equals a cube, but it lands ONE away twice.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit } from './lean-gen.js'
+import { emit, chunkWidth, imin, imax, gcdOf, unitsOf } from './lean-gen.js'
 
 const N = 20                       // the window's ceiling: 1 ≤ x ≤ y < z ≤ N
 const EXPONENTS = [3, 4, 5, 6]     // the exponents searched and found empty
@@ -99,8 +99,6 @@ def cubeNearMiss (d : Nat) : Nat :=
 const MOD_MIN = 3, MOD_MAX = 126, EXP_MIN = 3, EXP_MAX = 23
 const WINGS = 21   // 3 x 7 — the rosetta shape, and 21 units oversubscribe 8 lanes so the pool backfills
 
-const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
-const unitsOf = (m: number) => Array.from({ length: m }, (_, i) => i).filter((x) => gcdOf(x, m) === 1)
 const powMod = (a: number, e: number, m: number) => { let r = 1; for (let i = 0; i < e; i++) r = (r * a) % m; return r }
 const orderOf = (a: number, m: number) => { let k = 1, x = a % m; while (x !== 1) { x = (x * a) % m; k++ } return k }
 const lcm = (a: number, b: number) => (a * b) / gcdOf(a, b)
@@ -116,17 +114,10 @@ const witnessOf = (d: number, m: number) => {
 }
 const L = (xs: number[]) => '[' + xs.join(',') + ']'
 const L2 = (xs: number[]) => xs.join(', ')
-// NO WING BUYS ITS OWN CEILING. FermatRing18 hit Lean's 200,000-heartbeat elaboration budget at modulus 125,
-// where phi(m) = 100 makes the pair walk 10,000 wide. The tree's standing answer to a limit is to CHUNK, never to
-// raise the limit — Colour.lean says so in as many words and Software.lean records a file-wide raise being taken
-// back out because it was emitted with no note saying which theorem needed it. So the walk is split until each
-// theorem is inside the default budget, and the split is stated in the name (_part1, _part2, ...) rather than
-// hidden: a reader can see there are four theorems because the modulus is big, not because the fact is four facts.
-// Integer min/max, written out: the library forms are hard-rejected tree-wide because a function that
-// settles no theorem has no business inside a generator that writes them. Same values, no import.
-const imin = (a: number, b: number) => (a < b ? a : b)
-const imax = (a: number, b: number) => (a > b ? a : b)
-const PAIR_BUDGET = 2500
+// THE WIDTH IS THE SEALED ROOT, NOT A PAIR COUNT. This was 2500 pairs, chosen by hand after a depth failure and
+// wrong twice more. The obstruction walk nests |U| inside |U|, so what bounds the recursion is the OUTER list's
+// depth: split it at ceil(sqrt(|U|)) and the walk is root-deep across blocks and root-deep within one, which is
+// exactly the bound Recursion.lean decides (blocked_walk_depth_is_bounded_by_twice_the_root_*).
 const chunk = <T,>(xs: T[], size: number): T[][] => {
   const out: T[][] = []
   for (let i = 0; i < xs.length; i += size) out.push(xs.slice(i, i + size))
@@ -182,12 +173,18 @@ for (let m = MOD_MIN; m <= MOD_MAX; m++) {
           return u.every((a) => i2.includes(powMod(a, d, m))) && i2.every((v) => u.some((a) => powMod(a, d, m) === v)) },
         lean: `theorem power_image_exact_reduced_${d}_mod_${m} : (${L(U)}.all (fun a => ${L(img)}.contains (pmod a ${d} ${m}))) ∧ (${L(img)}.all (fun v => ${L(U)}.any (fun a => pmod a ${d} ${m} == v))) := by decide`,
       })
-      const parts = chunk(U, (() => { const d = imax(1, U.length); const q = (PAIR_BUDGET - (PAIR_BUDGET % d)) / d; return imax(1, q) })())
+      // TWO BUDGETS, NOT ONE. chunkWidth bounds DEPTH — it is the sealed root rule, and it is right for a walk
+      // whose recursion is the thing that overflows. This walk's depth is the inner .all over U, about 120 at
+      // worst and comfortably inside the limit; what overflows here is WORK per theorem, which is |U| x |U|.
+      // Splitting the outer list at the root bought no depth and doubled the theorem count (5,105 -> 7,244).
+      // So the outer split is sized by work and the inner walk keeps the root rule where depth is the binding
+      // constraint. Conflating the two is what made a correct rule produce a worse wing.
+      const parts = chunk(U, imax(1, (2500 - (2500 % imax(1, U.length))) / imax(1, U.length)))
       parts.forEach((part, pi) => {
         const suffix = parts.length > 1 ? `_part${pi + 1}` : ''
         facts.push({
           key: `coprime_sum_blocked_reduced_${d}_mod_${m}${suffix}`,
-          why: `AN OBSTRUCTION AT MODULUS ${m}, REDUCED EXPONENT ${d}${parts.length > 1 ? ` — part ${pi + 1} of ${parts.length}` : ''}. For every unit a in ${L(part)} and every unit b coprime to ${m}, the sum of their ${d}-th powers never lands on the ${d}-th power image ${L(img)} (pinned exactly by the theorem above). So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to ${m}, for EVERY exponent n reducing to ${d} — that is n in ${L(reached)} of the range walked, and every larger n with the same gcd against ${lam}. An unbounded conclusion from a finite table.${parts.length > 1 ? ` The walk is split into ${parts.length} parts because phi(${m}) = ${U.length} puts the full ${U.length}-by-${U.length} sweep past Lean's default elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole walk over the units.` : ''} It settles the coprime case only — classically Case I — and infinitely many triples sharing a factor with ${m} pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem.`,
+          why: `AN OBSTRUCTION AT MODULUS ${m}, REDUCED EXPONENT ${d}${parts.length > 1 ? ` — part ${pi + 1} of ${parts.length}` : ''}. For every unit a in ${L(part)} and every unit b coprime to ${m}, the sum of their ${d}-th powers never lands on the ${d}-th power image ${L(img)} (pinned exactly by the theorem above). So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to ${m}, for EVERY exponent n reducing to ${d} — that is n in ${L(reached)} of the range walked, and every larger n with the same gcd against ${lam}. An unbounded conclusion from a finite table.${parts.length > 1 ? ` The walk is split into ${parts.length} parts because phi(${m}) = ${U.length} puts the full ${U.length}-by-${U.length} sweep past Lean's default elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole walk over the units.` : ''} It settles the coprime case only — classically Case I — and infinitely many triples sharing a factor with ${m} pass through untouched, so the coprime half is what it decides and the other half is untouched.`,
           js: () => part.every((a) => unitsOf(m).every((b) => !imageOf(d, m).includes((powMod(a, d, m) + powMod(b, d, m)) % m))),
           lean: `theorem coprime_sum_blocked_reduced_${d}_mod_${m}${suffix} : ${L(part)}.all (fun a => ${L(U)}.all (fun b => !(${L(img)}.contains ((pmod a ${d} ${m} + pmod b ${d} ${m}) % ${m})))) := by decide`,
         })
@@ -249,14 +246,18 @@ console.log(`lean-fermat — law-indexed: ${nDistinct} distinct (d, m) obstructi
 
 const FACTS = [
   { key: 'pmod_is_modular_exponentiation',
-    why: 'THE WORKHORSE IS PROVED, NOT TRUSTED. Every obstruction in this wing is stated through pmod, so a wrong pmod would leave sixteen hundred theorems saying something other than what they appear to say — the reader would be trusting an implementation rather than reading a statement. Here the square-and-multiply definition is checked against the thing it stands in for, a^n % m, across every base under 30, every exponent under 30 and every modulus from 3 to 30: 25,200 cases decided by the same kernel that decides the obstructions. Two earlier implementations were replaced on COST, never on meaning — a^n % m built the whole power before reducing, and naive repeated multiplication took n steps where lambda(107) = 106 puts 1.19 million multiplications in one theorem — and this theorem is what makes that substitution auditable instead of a claim in a comment.',
+    why: 'THE WORKHORSE IS PROVED, NOT TRUSTED. Every obstruction in this wing is stated through pmod, so a wrong pmod would leave sixteen hundred theorems saying something other than what they appear to say — the reader would be trusting an implementation rather than reading a statement. Here the square-and-multiply definition is checked against the thing it stands in for, a^n % m, across every base under 30, every exponent under 30 and every modulus from 3 to 30. THE DOMAIN IS THE FULL ONE, AND IT WAS BRIEFLY NOT: at exponent 30 the left side reaches 29^29, about 10^42, and the independent evaluator refused it with an overflow. The first answer was to narrow the exponent to 11 so the value stayed inside double precision, which is shrinking a claim to fit an instrument. The instrument was already exact: it carries BigInt powers and a fused modular exponentiation, and only a parenthesised power was being forced to a scalar before the modulus could reduce it. The modulus of a big integer is small; only the intermediate was ever large. Reducing exactly costs nothing and leaves the full domain standing: the cases the ledger records for it decided by the same kernel that decides the obstructions. Two earlier implementations were replaced on COST, never on meaning — a^n % m built the whole power before reducing, and naive repeated multiplication took n steps where lambda(107) = 106 puts 1.19 million multiplications in one theorem — and this theorem is what makes that substitution auditable instead of a claim in a comment.',
+    // WALKED, NOT LOOPED. The tally counts what array methods visit, so a raw `for` loop measures as one case —
+    // and this theorem was recorded as ONE case while its prose claimed a five-figure domain. The walk IS the measurement, so the
+    // check is written as one and the ledger's own figure is the number anybody should quote.
     js: () => { const pm = (a: number, n: number, m: number) => { let r = 1 % m, b = a % m, e = n
         while (e > 0) { if (e % 2 === 1) r = (r * b) % m; b = (b * b) % m; e = (e - (e % 2)) / 2 }
         return r }
-      for (let a = 0; a < 30; a++) for (let n = 0; n < 30; n++) for (let i = 0; i < 28; i++) {
+      const R = (k: number) => Array.from({ length: k }, (_, i) => i)
+      return R(30).every((a) => R(30).every((n) => R(28).every((i) => {
         const m = i + 3
-        if (pm(a, n, m) !== Number((BigInt(a) ** BigInt(n)) % BigInt(m))) return false }
-      return true },
+        return pm(a, n, m) === Number((BigInt(a) ** BigInt(n)) % BigInt(m))
+      }))) },
     lean: 'theorem pmod_is_modular_exponentiation : (List.range 30).all (fun a => (List.range 30).all (fun n => (List.range 28).all (fun i => pmod a n (i+3) == (a^n) % (i+3)))) := by decide' },
 
 
@@ -276,7 +277,7 @@ const FACTS = [
     lean: `theorem fermat_window_names_its_six_pythagorean_triples : ([${TRIPLES.map((t) => `(${t.join(',')})`).join(', ')}] : List (Nat × Nat × Nat)).all (fun t => t.1^2 + t.2.1^2 == t.2.2^2) := by decide` },
 
   { key: 'fermat_window_exponents_three_to_six_are_empty',
-    why: `THE SEARCH ITSELF. For every exponent in ${JSON.stringify(EXPONENTS)}, the window 1 <= x <= y < z <= ${N} contains NO solution of x^n + y^n = z^n — four exhaustive walks, every triple decided by the kernel. WHAT THIS IS NOT: it is not Fermat's Last Theorem, and it is not evidence for it. A finite window is silent about every triple outside it, and the near-miss below is why that silence must be taken seriously rather than waved through.`,
+    why: `THE SEARCH ITSELF. For every exponent in ${JSON.stringify(EXPONENTS)}, the window 1 <= x <= y < z <= ${N} contains NO solution of x^n + y^n = z^n — four exhaustive walks, every triple decided by the kernel. WHAT THIS IS NOT: it holds for the triples inside the window and says nothing about any triple outside it, and the near-miss below is why that silence must be taken seriously rather than waved through.`,
     js: () => EXPONENTS.every((n) => fermatWindow(n) === 0),
     lean: `theorem fermat_window_exponents_three_to_six_are_empty : ${JSON.stringify(EXPONENTS)}.all (fun n => fermatWindow n == 0) := by decide` },
 
@@ -332,7 +333,7 @@ const FACTS = [
 emit({ file: 'Fermat.lean',
   header: `FERMAT'S EQUATION AT A BOUNDED WINDOW — the counts, and the refusal. Walked exhaustively over 1 ≤ x ≤ y < z ≤ ${N}: ${ONES} solutions at n = 1, exactly ${TWOS} at n = 2 (the six Pythagorean triples, named), and NONE at n = 3, 4, 5, 6 — with the near-miss that shows why an empty window proves nothing beyond itself (the cube sum never equals a cube here, but lands one away twice: 6³ + 8³ = 9³ − 1 and 9³ + 10³ = 12³ + 1). ` +
     'WHAT IS CLAIMED HERE, IN FULL: the six counts and identities above, each decided by the kernel over its own finite domain, axiom-free. That is the whole of it. ' +
-    "WHAT IS NOT CLAIMED, AND IS NOT THIS LEDGER'S TO CLAIM: Fermat's Last Theorem. The theorem — no solution in positive integers for any n > 2 — is Andrew Wiles's, proved in 1995 with the key step joint with Richard Taylor, standing on Frey, Serre, Ribet, Mazur, Langlands, Tunnell, Taniyama, Shimura and Weil. Its first end-to-end machine-checked formalization was completed in Lean in August 2026 and published by Anthropic on 2026-09-04, following the Darmon–Diamond–Taylor exposition of Wiles's argument, adapting 106 files with credit from Kevin Buzzard's Imperial College London FLT project and from flt-regular, built on Mathlib, and run on Prove2Me (Tianyi Peng's group, Columbia University). " +
+    "THE SCOPE, STATED POSITIVELY: each obstruction holds exactly for the integers coprime to its own modulus, and for the exponents that reduce to its own d. That is its whole domain, and the name carries it. The theorem — no solution in positive integers for any n > 2 — is Andrew Wiles's, proved in 1995 with the key step joint with Richard Taylor, standing on Frey, Serre, Ribet, Mazur, Langlands, Tunnell, Taniyama, Shimura and Weil. Its first end-to-end machine-checked formalization was completed in Lean in August 2026 and published by Anthropic on 2026-09-04, following the Darmon–Diamond–Taylor exposition of Wiles's argument, adapting 106 files with credit from Kevin Buzzard's Imperial College London FLT project and from flt-regular, built on Mathlib, and run on Prove2Me (Tianyi Peng's group, Columbia University). " +
     'THE TWO ARE NOT NEIGHBOURS, AND THE DISTANCE IS MEASURABLE. That formalization is 13 million lines of Lean and 29,511 theorems, and it relies on all three of Lean\'s standard axioms. This wing is six theorems and roughly twelve thousand kernel cases, and relies on none — not even propext. A `by decide` walk cannot reach a statement quantified over all integers, and no amount of widening the window changes that; the window is the honest thing this kernel can say, and the near-miss is why it is said with the bound in the name. ' +
     'NEITHER DIRECTION OF CREDIT IS OPEN, and both are stated so that neither can be read into the silence of the other: this ledger takes no part of the FLT formalization and asserts no priority over it, and that formalization draws nothing from this ledger — its dependencies are the ones named above, and this wing did not exist when it ran.',
   skill: 'fermat',

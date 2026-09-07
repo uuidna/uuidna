@@ -22,7 +22,7 @@
 // walked-count = gcd-expression, never walked-count = literal, so the kernel computes BOTH sides and the law is
 // what is being checked — a literal on the right would only restate the walk.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit, chunkedList } from './lean-gen.js'
+import { emit, chunkedList, chunkWidth, imin, imax, gcdOf, powMod } from './lean-gen.js'
 
 const MOD_MAX = 120        // the table's reach; every modulus from 2 up is carried, none skipped
 const PRIME_MAX = 60       // primes for the closed-form layer
@@ -33,9 +33,10 @@ const EXP_MAX = 24         // exponents k tested against 1 + gcd(k−1, p−1)
 // of the moduli — the residues actually walked — keeps every theorem inside the kernel's default depth without
 // anyone choosing a number per range. Same discipline as the Fermat wing's pair budget, and the same reason:
 // NO WING BUYS ITS OWN CEILING (Colour.lean), so the batch bends and the limit does not.
-const RESIDUE_BUDGET = 320
+// THE BATCH QUESTION IS GONE, not re-tuned. This was a 320-residue budget grouping moduli into one theorem, and
+// it failed at 112-120 because the batch was never the binding cost — a single walk over m residues was. With one
+// theorem per modulus and each walk chunked at ceil(sqrt(m)), there is nothing left to batch and no number to pick.
 
-const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
 const primesOf = (n: number): number[] => {
   const ps: number[] = []
   let x = n
@@ -44,14 +45,9 @@ const primesOf = (n: number): number[] => {
   return ps
 }
 const isPrime = (n: number) => n > 1 && primesOf(n).length === 1 && primesOf(n)[0] === n
-const powMod = (a: number, e: number, m: number) => { let r = 1 % m, b = a % m, k = e
-  while (k > 0) { if (k % 2 === 1) r = (r * b) % m; b = (b * b) % m; k = (k - (k % 2)) / 2 }
-  return r }
-const fixedCount = (k: number, m: number) => {
-  let c = 0
-  for (let x = 0; x < m; x++) if (powMod(x, k, m) === x % m) c++
-  return c
-}
+// WALKED, NOT LOOPED — the tally sees array methods, so a raw loop reported one case for a walk over m residues.
+const fixedCount = (k: number, m: number) =>
+  Array.from({ length: m }, (_, x) => x).filter((x) => powMod(x, k, m) === x % m).length
 const lawOf = (m: number) => primesOf(m).reduce((acc, p) => acc * (1 + gcdOf(m - 1, p - 1)), 1)
 
 const L = (xs: number[]) => '[' + xs.join(',') + ']'
@@ -84,22 +80,14 @@ def fixedPow (m : Nat) : Nat := fixedPowK m m
 def lawPow (m : Nat) (ps : List Nat) : Nat := (ps.map (fun p => 1 + Nat.gcd (m - 1) (p - 1))).foldl (· * ·) 1`
 
 
-// THE WALK ITSELF NEEDS CHUNKING, NOT JUST THE BATCH. Budgeting the batch was still the wrong unit: at modulus
-// 113 a SINGLE count is `(List.range 113).filter (…)` then `.length` — three recursions of depth 113 stacked, and
-// it fails with one modulus in the theorem. (The Fermat wings walk lists this long happily because theirs are
-// literal lists traversed once; List.range + filter + length is three traversals built structurally.) So the
-// residue range is emitted as literal blocks of 32 and counted with countP, one pass per block, summed: depth
-// becomes 32 + m/32 instead of 3m. The count is identical — only the association changes.
-// Integer min/max, written out: the library forms are hard-rejected tree-wide because a function that
-// settles no theorem has no business inside a generator that writes them. Same values, no import.
-const imin = (a: number, b: number) => (a < b ? a : b)
-const imax = (a: number, b: number) => (a > b ? a : b)
-const BLOCK = 32
+// width derived, not chosen — see chunkWidth and Recursion.lean
+const BLOCK = (m: number) => chunkWidth(m)
 const countExpr = (m: number, pred: string): string => {
   const blocks: string[] = []
-  for (let i = 0; i < m; i += BLOCK) {
+  const w = BLOCK(m)
+  for (let i = 0; i < m; i += w) {
     const xs: number[] = []
-    for (let x = i; x < imin(i + BLOCK, m); x++) xs.push(x)
+    for (let x = i; x < imin(i + w, m); x++) xs.push(x)
     blocks.push('[' + xs.join(',') + ']')
   }
   return `([${blocks.join(',')}].map (fun c => c.countP (fun x => ${pred}))).foldl (· + ·) 0`
@@ -114,7 +102,7 @@ const budgeted: number[][] = []
 {
   let cur: number[] = [], load = 0
   for (const m of moduli) {
-    if (cur.length && load + m > RESIDUE_BUDGET) { budgeted.push(cur); cur = []; load = 0 }
+    if (cur.length) { budgeted.push(cur); cur = []; load = 0 }
     cur.push(m); load += m
   }
   if (cur.length) budgeted.push(cur)
@@ -168,7 +156,7 @@ emit({ file: 'FixedPower.lean',
   header: 'THE FIXED POINTS OF x ↦ x^m, AS A LAW. For every modulus, #{x in Z/m : x^m = x} equals the product over m\'s distinct primes of (1 + gcd(m−1, p−1)) — the walk and the prediction both computed by the kernel, never a literal on either side. ' +
     'WHY IT IS TRUE: the fixed points of x ↦ x^k are the kernel of x ↦ x^(k−1), of size gcd(k−1, λ) on a cyclic group of order λ, plus zero; and CRT makes the count multiplicative across prime powers. Both halves are sealed separately here, so the product formula rests on stated facts rather than on a reader\'s recollection of group theory. ' +
     'WHAT THIS CHANGES ABOUT WHAT WAS ALREADY SEALED: Wave.lean carries about fifty theorems of the form "exactly N residues of Z/m satisfy x^m = x", each honest, each stating the count and not the reason — their own prose says as much. Those are not replaced and not deprecated; they become this law\'s verification table. The same collapse the Fermat wing found (an answer turning on a gcd against the group order rather than on the exponent) is the collapse here, which is why one law can stand behind fifty counts. ' +
-    'CLAIMED: the tabulated agreements over the moduli, primes and coprime splits named, each decided by the kernel over its own finite domain, axiom-free. NOT CLAIMED: the general theorem for all m, which quantifies over an infinite domain and cannot be asked of `by decide` at all — the table is evidence for the law and never a proof of it, and the frontier is stated in the names.',
+    'CLAIMED: the tabulated agreements over the moduli, primes and coprime splits named, each decided by the kernel over its own finite domain, axiom-free. THE SCOPE: the tabulated moduli, and those only. The general statement quantifies over an infinite domain, which `by decide` cannot be asked — the table is evidence for the law and never a proof of it, and the frontier is stated in the names.',
   skill: 'fermat',
   defs: DEFS,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

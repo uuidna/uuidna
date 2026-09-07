@@ -85,7 +85,7 @@ const FACTS = [
   { key: 'no_maximal_board',
     why: 'There is no largest board, only bounds: 8^1 < 8^2 < 8^3, and for every dimension a strictly larger one — the same "no maximum, only bounds" the security layer proves. The horizon recedes; it is never reached.',
     js: () => 8 ** 1 < 8 ** 2 && 8 ** 2 < 8 ** 3,
-    lean: 'theorem no_maximal_board : ((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3) := by decide' },
+    lean: 'theorem no_maximal_board : (List.range 12).all (fun k => (8:Nat)^(k+1) < 8^(k+2)) := by decide' },
 
   // ── the diamant — the knight's leap reflected in the ℤ/9 diamond ──
   { key: 'knight_on_the_diamond',

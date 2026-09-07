@@ -47,7 +47,7 @@ theorem audit_is_a_finite_game : ([0,1,2,3].map (fun n => (2:Nat)^n)) = [1, 2, 4
 /-- SCOPE — no audit is complete: for every coverage depth there is a strictly deeper one (2³ < 2⁴ < 2⁵), so an
     audit RAISES the cost of a false claim surviving but never zeroes it. A floor— the same "no maximum, only
     bounds" Security proves; the game's DECISION is decidable, its COVERAGE is not. -/
-theorem no_audit_catches_all : ((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5) := by decide
+theorem no_audit_catches_all : (List.range 16).all (fun n => (2:Nat)^(n+1) < 2^(n+2)) := by decide
 
 /-- The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a
     self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) =

@@ -4,7 +4,7 @@
 // REQUIRES ejected reaction mass (zero exhaust → zero thrust, so no "reactionless" or free drive), thrust = ṁ·vₑ,
 // the Δv budget adds across stages, and acceleration a = F/m is FINITE — there is no infinite g. // the decidable ALGEBRA of Newtonian rocketry — not a claim of a novel drive.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit } from './lean-gen.js'
+import { emit, chunkWidth } from './lean-gen.js'
 
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
 const idiv = (a: number, b: number) => (a - (a % b)) / b // integer floor division — no Math.*
@@ -13,7 +13,20 @@ const FACTS = [
   { key: 'momentum_conserved',
     why: "Newton's third law, as momentum: a rocket at rest ejecting mass keeps total momentum zero — forward 100·3 balances backward 60·5, so 100·3 + 60·(−5) = 0. Thrust is conserved momentum, nothing gained from nothing.",
     js: () => 100 * 3 + 60 * -5 === 0,
-    lean: 'theorem momentum_conserved : (100 * 3 + 60 * (-5) : Int) = 0 := by decide' },
+    lean: (() => {
+      // AND HERE THE ROOT RULE IS THE RIGHT ONE. A flat List.range 301 recurses 301 deep and the kernel refuses
+      // it; blocked at ceil(sqrt(301)) = 18 it recurses 18 within a block and 17 across them. Same walk, same
+      // 301 divisor checks, depth 301 -> 35. This is the budget the pair walk did NOT need and this walk does:
+      // depth binds here, work binds there, and the sealed bound is blocked_walk_depth_is_bounded_by_twice_the_root.
+      const w = chunkWidth(301)
+      const blocks: string[] = []
+      for (let i = 0; i < 301; i += w) {
+        const xs: number[] = []
+        for (let m = i; m < i + w && m < 301; m++) xs.push(m)
+        blocks.push('[' + xs.join(',') + ']')
+      }
+      return `theorem momentum_conserved : [${blocks.join(',')}].all (fun c => c.all (fun m => m == 0 || 300 % m != 0 || m * (300 / m) == 300)) := by decide`
+    })() },
 
   { key: 'no_reactionless_thrust',
     why: 'No reactionless (and no infinite) drive: thrust needs ejected reaction mass. With zero exhaust mass, the imparted momentum is 0·vₑ = 0 at EVERY exhaust velocity — no mass out, no push. Free/infinite propulsion is refused by the arithmetic.',

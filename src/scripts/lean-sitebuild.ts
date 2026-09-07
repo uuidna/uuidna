@@ -15,7 +15,7 @@
 // the threshold it explains, so the first fact states CONSISTENCY across three independent readings rather than
 // an independent measurement of retention. What the kernel decides is the arithmetic; what a person measured
 // stays a measurement.
-import { emit, range } from './lean-gen.js'
+import { emit, range, chunkedList, chunkWidth } from './lean-gen.js'
 import { publications } from '../publish.js'
 import { publicationGraph } from '../publication-graph.js'
 import { toUuid } from '../address.js'
@@ -38,6 +38,11 @@ const KIN_MIN = KIN_DEGREES.reduce((a, b) => (b < a ? b : a), KIN_MAX)
 // tautology about two equal counts: the fingerprints are enumerated and their duplicate-free length checked.
 const ABSTRACT_MARKS = PUBS.map((p) => Number.parseInt(handleOf(toUuid('abstract|' + (p.abstract ?? ''))), 16))
 const LIST_N = (xs: readonly number[]): string => '[' + xs.join(', ') + ']'
+// THE CORPUS OUTGREW THE FLAT LIST, AS IT WAS ALWAYS GOING TO. These statements walk one entry per monograph,
+// so their depth IS the corpus size — fine at 116, refused by the kernel at 144. The width is not chosen: it is
+// ceil(sqrt(n)), whose depth bound the kernel decides in Recursion.lean. Blocked, the same 144 entries walk 12
+// deep within a block and 12 across, and the statement says exactly what it said before.
+const BLOCKS = (xs: readonly number[]): string => chunkedList([...xs])
 
 const FACTS = [
   { key: 'render_retention_exceeds_the_container', name: '5260 pages at 17 tenths of a MB each = 8942 MB against an 8192 MB container', skill: 'site-build',
@@ -130,7 +135,20 @@ const FACTS = [
     why: 'A TEMPLATE\'S DISTINCTNESS IS ITS VARIABLE\'S DISTINCTNESS, and this theorem now seals the OUTCOME of that lesson rather than the fault that taught it. It read "117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent", which was a true measurement of a corpus that no longer exists: the abstracts were made derived from each wing\'s own theorems, and every one of them is distinct now. The literals also drifted the moment a wing was sealed — 117 became 118 and the proof still said 117, which is the frozen-count fault this tree refuses in prose and had left standing in Lean. So the figures are measured here and the statement DECIDES distinctness over the enumerated abstract fingerprints, because a restatement as 118 = 118 would be a tautology wearing a finding\'s name. The corpus\'s 117 publication abstracts were one fixed sentence whose only varying part was the theorem count. There are 27 distinct theorem counts across the 116 wings, so there were exactly 27 distinct abstracts: 90 monographs — 76 percent, taking 9000 over 117 — carried an abstract already worn by another. The measurement that caught it was not a reading of the prose but a count of distinct strings, and the tell was in the lengths: minimum 353, median 353, maximum 355, which is the signature of a constant rather than a corpus. A DOI is permanent, so minting 116 of them over 27 abstracts would have archived a template forever under 116 identifiers. Now every quantity in an abstract is read from the wing\'s own theorems and the distinct count is 117 of 117 — asserted in a test, so the template cannot return quietly. HONEST SCOPE: this seals the ARITHMETIC of the collision (27 variables give 27 outputs, leaving 90), not a claim that derived prose is well written; what a reader judges stays a reader\'s judgement.',
     js: () => DISTINCT_ABSTRACTS === MONOGRAPHS && DUPLICATE_ABSTRACTS === 0 && MONOGRAPHS > 0
       && new Set(ABSTRACT_MARKS).size === MONOGRAPHS,
-    lean: `theorem a_template_distinguishes_only_by_its_variable : (${LIST_N(ABSTRACT_MARKS)}.eraseDups.length = ${MONOGRAPHS}) ∧ (${LIST_N(ABSTRACT_MARKS)}.length = ${MONOGRAPHS}) := by decide` },
+    lean: (() => {
+      // DISTINCTNESS ON A SORTED RUN, CHUNKED — Colour.lean's pattern, for the same reason and with the same
+      // argument. A flat eraseDups over the marks exceeded the kernel's depth once the corpus reached 144, and no
+      // wing buys its own ceiling. Sorted and split at ceil(sqrt(n)): each chunk carries no duplicate, and every
+      // chunk's last value is strictly below the next chunk's first, which on a sorted run is exactly global
+      // distinctness. The split is arithmetic, not a weakening of the claim.
+      const sorted = [...ABSTRACT_MARKS].sort((a, b) => a - b)
+      const w = chunkWidth(sorted.length)
+      const blocks: number[][] = []
+      for (let i = 0; i < sorted.length; i += w) blocks.push(sorted.slice(i, i + w))
+      const lit = '[' + blocks.map((b) => '[' + b.join(',') + ']').join(',') + ']'
+      const rises = blocks.slice(0, -1).map((b, i) => `(${b[b.length - 1]} < ${blocks[i + 1]![0]})`).join(' ∧ ')
+      return `theorem a_template_distinguishes_only_by_its_variable : (${lit}.all (fun c => c.eraseDups.length == c.length)) ∧ ((${lit}.map (fun c => c.length)).foldl (· + ·) 0 = ${MONOGRAPHS}) ∧ (${rises}) := by decide`
+    })() },
 
   { key: 'the_kin_shortlist_accounts_for_every_edge', name: `every one of ${MONOGRAPHS} kin-degrees lies between ${KIN_MIN} and ${KIN_MAX}, and the whole degree sequence sums to all ${KIN_EDGES} edges`, skill: 'site-build',
     why: 'THE CITATION GRAPH IS EXACT, AND ITS EDGE COUNT IS NOT AN ESTIMATE. Crosslinks between monographs were measured at 0 of 116 (before the CERN wing joined; 117 now) — every publication a leaf, and a deposit that names no related work is a database row wearing a DOI. Kinship is now DERIVED: a shared modulus, a shared rare constant, or a shared rare term in the theorem names, scored and cut at the five nearest. The arithmetic closes: 115 wings reach the full five-kin shortlist and exactly two do not — core and ring, at two apiece — so 115 times 5 plus 2 plus 2 is 579, every edge accounted for, under the 585 an unbroken shortlist would allow. THAT THE TWO SHORTFALLS ARE THE FOUNDATIONS IS THE FINDING, not a defect: core and ring reason in the small constants every other wing also uses, so nothing they touch is rare and rarity-based kinship found them nothing. They are related to the corpus by ALGEBRA instead — a shared modulus of 9, weighted above any shared word — which is why the isolated count is 0 rather than 2. A basis was rejected on measurement to get here: membership by shared name-vocabulary gives a median degree of 102 out of 116 as measured then, a near-complete graph, which is the same as no graph at all.',
@@ -144,7 +162,7 @@ const FACTS = [
     // refuses in prose; measured here, it moves with the corpus.
     js: () => KIN_DEGREES.length === MONOGRAPHS && KIN_EDGES === KIN_DEGREES.reduce((a, d) => a + d, 0)
       && KIN_DEGREES.every((d) => d <= KIN_MAX && d >= KIN_MIN) && KIN_MIN >= 1,
-    lean: `theorem the_kin_shortlist_accounts_for_every_edge : (${LIST_N(KIN_DEGREES)}.length = ${MONOGRAPHS}) ∧ (${LIST_N(KIN_DEGREES)}.sum = ${KIN_EDGES}) ∧ (${LIST_N(KIN_DEGREES)}.all (fun d => d ≤ ${KIN_MAX} && d ≥ ${KIN_MIN})) := by decide` },
+    lean: `theorem the_kin_shortlist_accounts_for_every_edge : ((${BLOCKS(KIN_DEGREES)}.map (fun c => c.length)).foldl (· + ·) 0 = ${MONOGRAPHS}) ∧ ((${BLOCKS(KIN_DEGREES)}.map (fun c => c.sum)).foldl (· + ·) 0 = ${KIN_EDGES}) ∧ (${BLOCKS(KIN_DEGREES)}.all (fun c => c.all (fun d => d ≤ ${KIN_MAX} && d ≥ ${KIN_MIN}))) := by decide` },
 
   { key: 'a_shared_modulus_outranks_a_shared_word', name: 'modulus 6 over constant 2 over word 1, and a basis relating 102 of 116 is no basis',
     why: 'THE RANKING IS ORDERED BY HOW MUCH THE SHARED THING MEANS, and the order was decided by measurement rather than taste. A shared modulus is a shared algebraic structure — two wings computing inside the same finite ring — so it weighs 6; a shared rare integer constant is shared mathematics without shared structure, so it weighs 2; a shared word in the theorem names is shared prose, so it weighs 1. Each strictly above the next, which is what makes the sort a ranking and not a bag. THE REJECTED BASIS IS SEALED HERE TOO, because the negative result is the load-bearing one: taking any shared rare word as an EDGE gives a median degree of 102 out of 116, past the 58 that is half the corpus — a graph where the median node relates to seven-eighths of everything distinguishes nothing. Shared rare constants give a median of 28, under half. So neither is a membership test and both are scores, and the shortlist is what makes the result readable. HONEST SCOPE: the weights 6, 2 and 1 are a JUDGEMENT of relative meaning, declared here as constants rather than hidden in a sort; what the kernel decides is that they are strictly ordered and that the two measured medians fall on opposite sides of half the corpus.',

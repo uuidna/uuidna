@@ -5,7 +5,8 @@
 // over {0,1}³, and its guarantees are theorems: it flags only hollow prose, a demarcation clears it, a backing
 // clears it, and of the eight states EXACTLY ONE fires (precise. The detector is itself a skilled
 // theorem. COMPUTE each fact in JS, GENERATE its `by decide` Lean theorem, VERIFY sorry-free. Integrity.
-import { emit } from './lean-gen.js'
+import { emit, chunkWidth } from './lean-gen.js'
+import { axiomReach } from '../axiom-reach.js'   // the LIVE index: this partition is measured, never typed
 
 const flag = (h: number, d: number, b: number) => h * (1 - d) * (1 - b) // the provenance gate, over {0,1}³
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
@@ -68,8 +69,33 @@ const FACTS = [
     lean: 'theorem drift_is_named_or_caught : ((List.range 4).all (fun n => let r := n % 2; let d := n / 2 % 2; ((1 - r * (1 - d)) == 1) == ((r == 0) || (d == 1)))) ∧ (((List.range 4).filter (fun n => let r := n % 2; let d := n / 2 % 2; (1 - r * (1 - d)) == 0)).length = 1) := by decide' },
   { key: 'the_axiom_index_partitions_without_remainder', skill: 'audit',
     why: 'AN INDEX THAT REPORTS "UNUSED" MUST MEAN IT, and this one did not. The axiom index asks a precise question — which theorem STATEMENTS name this definition — and answered it correctly: 93 of the wing definitions were named outright and the rest were reported as unused vocabulary. Reading them is what showed the word was wrong. Nine were lxorAux, four nthR, two popAux, and the others bitOf, av, bv and units9: every one a recursion helper or a small list that a CITED definition is written in terms of. `def lxor (a b : Nat) : Nat := lxorAux 8 a b`, and lxor is cited — so lxorAux is one hop from a theorem, not unexplained. THE SAME FAULT SHAPE THIS TREE HAS PAID FOR TWICE: a measurement that asks one question and reports another (audit-citations asked "points at a proof" and reported "backed by one"; a table census measured theorem count and reported enumerated cases). The cure is the same both times — PARTITION instead of relabel. Reachability through the definition-call graph splits the nineteen into 15 explained one hop away and 4 genuinely unreached, and those four were real: nthR shipped inside a shared preamble to five wings while only one of them indexes matrix rows, so four wings declared an indexer nothing there used. The preamble is split, the dead vocabulary is gone, and the partition now closes with no remainder: 93 direct plus 15 reached plus 0 unreached is 108, which is the 112 that stood before less the 4 removed — and the theorem count did not move, because removing vocabulary no theorem reaches cannot cost a proof.',
-    js: () => 93 + 15 + 0 === 108 && 19 === 15 + 4 && 112 - 4 === 108,
-    lean: 'theorem the_axiom_index_partitions_without_remainder : (93 + 15 + 0 = 108) ∧ (19 = 15 + 4) ∧ (112 - 4 = 108) := by decide' },
+    // WALKED, THE WAY units_z9 WALKS Z/9. The figures were literals (93 + 15 + 0 = 108), frozen at the corpus of
+    // the day they were written, and the live index had since moved to 213. But staleness was the smaller fault:
+    // a + b + c = d over three literals HOLDS FOR ANY NUMBERS THAT HAPPEN TO SUM, so it never said the parts were
+    // disjoint or exhaustive — the two things "partitions without remainder" means. It could not have come out
+    // otherwise, and the vacuity rule does not catch this shape either; both facts were found by reading the
+    // sequence, where units_z9 filters all nine residues and NAMES the six units, leaving {0,3,6} as the
+    // complement. The partition is demonstrated over the domain, not asserted about it.
+    //
+    // So: every definition index is in the directly-cited set or the reached-through-a-parent set, and never in
+    // both. That is an exclusive-or over the whole index, and it FAILS if a definition is in neither (an orphan)
+    // or in both (double-counted) — which is what the old arithmetic could not notice. Walked in blocks at the
+    // sealed root width so the depth does not track the vocabulary size.
+    js: () => { const e = axiomReach().entries
+      // exactly one part per definition: direct, or reached through a parent, never both and never neither
+      return e.every((x) => (x.direct ? 1 : 0) + (!x.direct && !x.orphan ? 1 : 0) === 1) },
+    lean: (() => { const e = [...axiomReach().entries].sort((a, b) => (a.file + a.def).localeCompare(b.file + b.def))
+      const D: number[] = [], R: number[] = []
+      e.forEach((x, i) => { if (x.direct) D.push(i); else if (!x.orphan) R.push(i) })
+      const n = e.length
+      const w = chunkWidth(n)
+      const blocks: string[] = []
+      for (let i = 0; i < n; i += w) {
+        const xs: number[] = []
+        for (let k = i; k < i + w && k < n; k++) xs.push(k)
+        blocks.push('[' + xs.join(',') + ']')
+      }
+      return `theorem the_axiom_index_partitions_without_remainder : [${blocks.join(',')}].all (fun c => c.all (fun i => (${'[' + D.join(',') + ']'}.contains i) != (${'[' + R.join(',') + ']'}.contains i))) := by decide` })() },
 ]
 
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic

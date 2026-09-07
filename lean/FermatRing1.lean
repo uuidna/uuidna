@@ -59,8 +59,8 @@ theorem power_image_exact_reduced_2_mod_3 : ([1,2].all (fun a => [1].contains (p
     So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 3, for EVERY exponent n reducing
     to 2 — that is n in [4,6,8,10,12,14,16,18,20,22] of the range walked, and every larger n with the same gcd
     against 2. An unbounded conclusion from a finite table. It settles the coprime case only — classically Case
-    I — and infinitely many triples sharing a factor with 3 pass through untouched, which is why this is a
-    filter and never a proof of Fermat's Last Theorem. -/
+    I — and infinitely many triples sharing a factor with 3 pass through untouched, so the coprime half is what
+    it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_3 : [1,2].all (fun a => [1,2].all (fun b => !([1].contains ((pmod a 2 3 + pmod b 2 3) % 3)))) := by decide
 
 /-- THE ORDER STRUCTURE AT MODULUS 24. The 8 residues coprime to 24 are all killed by the exponent 2 — a^2 = 1
@@ -82,7 +82,7 @@ theorem power_image_exact_reduced_1_mod_24 : ([1,5,7,11,13,17,19,23].all (fun a 
     coprime to 24, for EVERY exponent n reducing to 1 — that is n in [3,5,7,9,11,13,15,17,19,21,23] of the range
     walked, and every larger n with the same gcd against 2. An unbounded conclusion from a finite table. It
     settles the coprime case only — classically Case I — and infinitely many triples sharing a factor with 24
-    pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    pass through untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_1_mod_24 : [1,5,7,11,13,17,19,23].all (fun a => [1,5,7,11,13,17,19,23].all (fun b => !([1,5,7,11,13,17,19,23].contains ((pmod a 1 24 + pmod b 1 24) % 24)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 24 AND REDUCED EXPONENT 2. The 8 units raise to exactly the 1 value(s) [1] —
@@ -96,8 +96,8 @@ theorem power_image_exact_reduced_2_mod_24 : ([1,5,7,11,13,17,19,23].all (fun a 
     theorem above). So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 24, for EVERY
     exponent n reducing to 2 — that is n in [4,6,8,10,12,14,16,18,20,22] of the range walked, and every larger n
     with the same gcd against 2. An unbounded conclusion from a finite table. It settles the coprime case only —
-    classically Case I — and infinitely many triples sharing a factor with 24 pass through untouched, which is
-    why this is a filter and never a proof of Fermat's Last Theorem. -/
+    classically Case I — and infinitely many triples sharing a factor with 24 pass through untouched, so the
+    coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_24 : [1,5,7,11,13,17,19,23].all (fun a => [1,5,7,11,13,17,19,23].all (fun b => !([1].contains ((pmod a 2 24 + pmod b 2 24) % 24)))) := by decide
 
 /-- THE ORDER STRUCTURE AT MODULUS 45. The 24 residues coprime to 45 are all killed by the exponent 12 — a^12 =
@@ -126,8 +126,8 @@ theorem power_image_exact_reduced_2_mod_45 : ([1,2,4,7,8,11,13,14,16,17,19,22,23
     above). So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 45, for EVERY exponent n
     reducing to 2 — that is n in [10,14,22] of the range walked, and every larger n with the same gcd against
     12. An unbounded conclusion from a finite table. It settles the coprime case only — classically Case I — and
-    infinitely many triples sharing a factor with 45 pass through untouched, which is why this is a filter and
-    never a proof of Fermat's Last Theorem. -/
+    infinitely many triples sharing a factor with 45 pass through untouched, so the coprime half is what it
+    decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_45 : [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun a => [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun b => !([1,4,16,19,31,34].contains ((pmod a 2 45 + pmod b 2 45) % 45)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 45 AND REDUCED EXPONENT 3. The 24 units raise to exactly the 8 value(s)
@@ -142,8 +142,8 @@ theorem power_image_exact_reduced_3_mod_45 : ([1,2,4,7,8,11,13,14,16,17,19,22,23
     theorem above). So x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 45, for EVERY
     exponent n reducing to 3 — that is n in [3,9,15,21] of the range walked, and every larger n with the same
     gcd against 12. An unbounded conclusion from a finite table. It settles the coprime case only — classically
-    Case I — and infinitely many triples sharing a factor with 45 pass through untouched, which is why this is a
-    filter and never a proof of Fermat's Last Theorem. -/
+    Case I — and infinitely many triples sharing a factor with 45 pass through untouched, so the coprime half is
+    what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_3_mod_45 : [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun a => [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun b => !([1,8,17,19,26,28,37,44].contains ((pmod a 3 45 + pmod b 3 45) % 45)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 45 AND REDUCED EXPONENT 4. The 24 units raise to exactly the 3 value(s)
@@ -158,8 +158,8 @@ theorem power_image_exact_reduced_4_mod_45 : ([1,2,4,7,8,11,13,14,16,17,19,22,23
     x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 45, for EVERY exponent n reducing to
     4 — that is n in [4,8,16,20] of the range walked, and every larger n with the same gcd against 12. An
     unbounded conclusion from a finite table. It settles the coprime case only — classically Case I — and
-    infinitely many triples sharing a factor with 45 pass through untouched, which is why this is a filter and
-    never a proof of Fermat's Last Theorem. -/
+    infinitely many triples sharing a factor with 45 pass through untouched, so the coprime half is what it
+    decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_4_mod_45 : [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun a => [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun b => !([1,16,31].contains ((pmod a 4 45 + pmod b 4 45) % 45)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 45 AND REDUCED EXPONENT 6. The 24 units raise to exactly the 2 value(s) [1,19]
@@ -174,8 +174,8 @@ theorem power_image_exact_reduced_6_mod_45 : ([1,2,4,7,8,11,13,14,16,17,19,22,23
     x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 45, for EVERY exponent n reducing to
     6 — that is n in [6,18] of the range walked, and every larger n with the same gcd against 12. An unbounded
     conclusion from a finite table. It settles the coprime case only — classically Case I — and infinitely many
-    triples sharing a factor with 45 pass through untouched, which is why this is a filter and never a proof of
-    Fermat's Last Theorem. -/
+    triples sharing a factor with 45 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_6_mod_45 : [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun a => [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun b => !([1,19].contains ((pmod a 6 45 + pmod b 6 45) % 45)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 45 AND REDUCED EXPONENT 12. The 24 units raise to exactly the 1 value(s) [1] —
@@ -190,8 +190,8 @@ theorem power_image_exact_reduced_12_mod_45 : ([1,2,4,7,8,11,13,14,16,17,19,22,2
     + y^n = z^n has NO solution in integers with x, y, z all coprime to 45, for EVERY exponent n reducing to 12
     — that is n in [12] of the range walked, and every larger n with the same gcd against 12. An unbounded
     conclusion from a finite table. It settles the coprime case only — classically Case I — and infinitely many
-    triples sharing a factor with 45 pass through untouched, which is why this is a filter and never a proof of
-    Fermat's Last Theorem. -/
+    triples sharing a factor with 45 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_12_mod_45 : [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun a => [1,2,4,7,8,11,13,14,16,17,19,22,23,26,28,29,31,32,34,37,38,41,43,44].all (fun b => !([1].contains ((pmod a 12 45 + pmod b 12 45) % 45)))) := by decide
 
 /-- THE ORDER STRUCTURE AT MODULUS 66. The 20 residues coprime to 66 are all killed by the exponent 10 — a^10 =
@@ -214,7 +214,7 @@ theorem power_image_exact_reduced_1_mod_66 : ([1,5,7,13,17,19,23,25,29,31,35,37,
     coprime to 66, for EVERY exponent n reducing to 1 — that is n in [3,7,9,11,13,17,19,21,23] of the range
     walked, and every larger n with the same gcd against 10. An unbounded conclusion from a finite table. It
     settles the coprime case only — classically Case I — and infinitely many triples sharing a factor with 66
-    pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    pass through untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_1_mod_66 : [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun a => [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun b => !([1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].contains ((pmod a 1 66 + pmod b 1 66) % 66)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 66 AND REDUCED EXPONENT 2. The 20 units raise to exactly the 5 value(s)
@@ -229,8 +229,8 @@ theorem power_image_exact_reduced_2_mod_66 : ([1,5,7,13,17,19,23,25,29,31,35,37,
     x^n + y^n = z^n has NO solution in integers with x, y, z all coprime to 66, for EVERY exponent n reducing to
     2 — that is n in [4,6,8,12,14,16,18,22] of the range walked, and every larger n with the same gcd against
     10. An unbounded conclusion from a finite table. It settles the coprime case only — classically Case I — and
-    infinitely many triples sharing a factor with 66 pass through untouched, which is why this is a filter and
-    never a proof of Fermat's Last Theorem. -/
+    infinitely many triples sharing a factor with 66 pass through untouched, so the coprime half is what it
+    decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_66 : [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun a => [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun b => !([1,25,31,37,49].contains ((pmod a 2 66 + pmod b 2 66) % 66)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 66 AND REDUCED EXPONENT 5. The 20 units raise to exactly the 4 value(s)
@@ -245,8 +245,8 @@ theorem power_image_exact_reduced_5_mod_66 : ([1,5,7,13,17,19,23,25,29,31,35,37,
     y^n = z^n has NO solution in integers with x, y, z all coprime to 66, for EVERY exponent n reducing to 5 —
     that is n in [5,15] of the range walked, and every larger n with the same gcd against 10. An unbounded
     conclusion from a finite table. It settles the coprime case only — classically Case I — and infinitely many
-    triples sharing a factor with 66 pass through untouched, which is why this is a filter and never a proof of
-    Fermat's Last Theorem. -/
+    triples sharing a factor with 66 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_5_mod_66 : [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun a => [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun b => !([1,23,43,65].contains ((pmod a 5 66 + pmod b 5 66) % 66)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 66 AND REDUCED EXPONENT 10. The 20 units raise to exactly the 1 value(s) [1] —
@@ -261,8 +261,8 @@ theorem power_image_exact_reduced_10_mod_66 : ([1,5,7,13,17,19,23,25,29,31,35,37
     z^n has NO solution in integers with x, y, z all coprime to 66, for EVERY exponent n reducing to 10 — that
     is n in [10,20] of the range walked, and every larger n with the same gcd against 10. An unbounded
     conclusion from a finite table. It settles the coprime case only — classically Case I — and infinitely many
-    triples sharing a factor with 66 pass through untouched, which is why this is a filter and never a proof of
-    Fermat's Last Theorem. -/
+    triples sharing a factor with 66 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_10_mod_66 : [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun a => [1,5,7,13,17,19,23,25,29,31,35,37,41,43,47,49,53,59,61,65].all (fun b => !([1].contains ((pmod a 10 66 + pmod b 10 66) % 66)))) := by decide
 
 /-- THE ORDER STRUCTURE AT MODULUS 87. The 56 residues coprime to 87 are all killed by the exponent 28 — a^28 =
@@ -294,8 +294,8 @@ theorem power_image_exact_reduced_2_mod_87 : ([1,2,4,5,7,8,10,11,13,14,16,17,19,
     from a finite table. The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56 sweep past
     Lean's default elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole
     walk over the units. It settles the coprime case only — classically Case I — and infinitely many triples
-    sharing a factor with 87 pass through untouched, which is why this is a filter and never a proof of Fermat's
-    Last Theorem. -/
+    sharing a factor with 87 pass through untouched, so the coprime half is what it decides and the other half
+    is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,4,7,13,16,22,25,28,34,49,52,64,67,82].contains ((pmod a 2 87 + pmod b 2 87) % 87)))) := by decide
 
 /-- AN OBSTRUCTION AT MODULUS 87, REDUCED EXPONENT 2 — part 2 of 2. For every unit a in
@@ -306,8 +306,8 @@ theorem coprime_sum_blocked_reduced_2_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16
     28. An unbounded conclusion from a finite table. The walk is split into 2 parts because phi(87) = 56 puts
     the full 56-by-56 sweep past Lean's default elaboration budget; the split is arithmetic bookkeeping, and the
     parts together are the whole walk over the units. It settles the coprime case only — classically Case I —
-    and infinitely many triples sharing a factor with 87 pass through untouched, which is why this is a filter
-    and never a proof of Fermat's Last Theorem. -/
+    and infinitely many triples sharing a factor with 87 pass through untouched, so the coprime half is what it
+    decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_87_part2 : [70,71,73,74,76,77,79,80,82,83,85,86].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,4,7,13,16,22,25,28,34,49,52,64,67,82].contains ((pmod a 2 87 + pmod b 2 87) % 87)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 87 AND REDUCED EXPONENT 4. The 56 units raise to exactly the 7 value(s)
@@ -325,7 +325,7 @@ theorem power_image_exact_reduced_4_mod_87 : ([1,2,4,5,7,8,10,11,13,14,16,17,19,
     The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56 sweep past Lean's default
     elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole walk over the
     units. It settles the coprime case only — classically Case I — and infinitely many triples sharing a factor
-    with 87 pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    with 87 pass through untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_4_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,7,16,25,49,52,82].contains ((pmod a 4 87 + pmod b 4 87) % 87)))) := by decide
 
 /-- AN OBSTRUCTION AT MODULUS 87, REDUCED EXPONENT 4 — part 2 of 2. For every unit a in
@@ -336,8 +336,8 @@ theorem coprime_sum_blocked_reduced_4_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16
     conclusion from a finite table. The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56
     sweep past Lean's default elaboration budget; the split is arithmetic bookkeeping, and the parts together
     are the whole walk over the units. It settles the coprime case only — classically Case I — and infinitely
-    many triples sharing a factor with 87 pass through untouched, which is why this is a filter and never a
-    proof of Fermat's Last Theorem. -/
+    many triples sharing a factor with 87 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_4_mod_87_part2 : [70,71,73,74,76,77,79,80,82,83,85,86].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,7,16,25,49,52,82].contains ((pmod a 4 87 + pmod b 4 87) % 87)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 87 AND REDUCED EXPONENT 7. The 56 units raise to exactly the 8 value(s)
@@ -355,7 +355,7 @@ theorem power_image_exact_reduced_7_mod_87 : ([1,2,4,5,7,8,10,11,13,14,16,17,19,
     The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56 sweep past Lean's default
     elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole walk over the
     units. It settles the coprime case only — classically Case I — and infinitely many triples sharing a factor
-    with 87 pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    with 87 pass through untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_7_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,17,28,41,46,59,70,86].contains ((pmod a 7 87 + pmod b 7 87) % 87)))) := by decide
 
 /-- AN OBSTRUCTION AT MODULUS 87, REDUCED EXPONENT 7 — part 2 of 2. For every unit a in
@@ -366,8 +366,8 @@ theorem coprime_sum_blocked_reduced_7_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16
     from a finite table. The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56 sweep past
     Lean's default elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole
     walk over the units. It settles the coprime case only — classically Case I — and infinitely many triples
-    sharing a factor with 87 pass through untouched, which is why this is a filter and never a proof of Fermat's
-    Last Theorem. -/
+    sharing a factor with 87 pass through untouched, so the coprime half is what it decides and the other half
+    is untouched. -/
 theorem coprime_sum_blocked_reduced_7_mod_87_part2 : [70,71,73,74,76,77,79,80,82,83,85,86].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,17,28,41,46,59,70,86].contains ((pmod a 7 87 + pmod b 7 87) % 87)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 87 AND REDUCED EXPONENT 14. The 56 units raise to exactly the 2 value(s)
@@ -385,7 +385,7 @@ theorem power_image_exact_reduced_14_mod_87 : ([1,2,4,5,7,8,10,11,13,14,16,17,19
     because phi(87) = 56 puts the full 56-by-56 sweep past Lean's default elaboration budget; the split is
     arithmetic bookkeeping, and the parts together are the whole walk over the units. It settles the coprime
     case only — classically Case I — and infinitely many triples sharing a factor with 87 pass through
-    untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_14_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,28].contains ((pmod a 14 87 + pmod b 14 87) % 87)))) := by decide
 
 /-- AN OBSTRUCTION AT MODULUS 87, REDUCED EXPONENT 14 — part 2 of 2. For every unit a in
@@ -396,7 +396,7 @@ theorem coprime_sum_blocked_reduced_14_mod_87_part1 : [1,2,4,5,7,8,10,11,13,14,1
     table. The walk is split into 2 parts because phi(87) = 56 puts the full 56-by-56 sweep past Lean's default
     elaboration budget; the split is arithmetic bookkeeping, and the parts together are the whole walk over the
     units. It settles the coprime case only — classically Case I — and infinitely many triples sharing a factor
-    with 87 pass through untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    with 87 pass through untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_14_mod_87_part2 : [70,71,73,74,76,77,79,80,82,83,85,86].all (fun a => [1,2,4,5,7,8,10,11,13,14,16,17,19,20,22,23,25,26,28,31,32,34,35,37,38,40,41,43,44,46,47,49,50,52,53,55,56,59,61,62,64,65,67,68,70,71,73,74,76,77,79,80,82,83,85,86].all (fun b => !([1,28].contains ((pmod a 14 87 + pmod b 14 87) % 87)))) := by decide
 
 /-- THE ORDER STRUCTURE AT MODULUS 108. The 36 residues coprime to 108 are all killed by the exponent 18 — a^18
@@ -421,7 +421,7 @@ theorem power_image_exact_reduced_1_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,35
     coprime to 108, for EVERY exponent n reducing to 1 — that is n in [5,7,11,13,17,19,23] of the range walked,
     and every larger n with the same gcd against 18. An unbounded conclusion from a finite table. It settles the
     coprime case only — classically Case I — and infinitely many triples sharing a factor with 108 pass through
-    untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_1_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].contains ((pmod a 1 108 + pmod b 1 108) % 108)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 108 AND REDUCED EXPONENT 2. The 36 units raise to exactly the 9 value(s)
@@ -437,8 +437,8 @@ theorem power_image_exact_reduced_2_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,35
     integers with x, y, z all coprime to 108, for EVERY exponent n reducing to 2 — that is n in
     [4,8,10,14,16,20,22] of the range walked, and every larger n with the same gcd against 18. An unbounded
     conclusion from a finite table. It settles the coprime case only — classically Case I — and infinitely many
-    triples sharing a factor with 108 pass through untouched, which is why this is a filter and never a proof of
-    Fermat's Last Theorem. -/
+    triples sharing a factor with 108 pass through untouched, so the coprime half is what it decides and the
+    other half is untouched. -/
 theorem coprime_sum_blocked_reduced_2_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1,13,25,37,49,61,73,85,97].contains ((pmod a 2 108 + pmod b 2 108) % 108)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 108 AND REDUCED EXPONENT 3. The 36 units raise to exactly the 12 value(s)
@@ -454,8 +454,8 @@ theorem power_image_exact_reduced_3_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,35
     solution in integers with x, y, z all coprime to 108, for EVERY exponent n reducing to 3 — that is n in
     [3,15,21] of the range walked, and every larger n with the same gcd against 18. An unbounded conclusion from
     a finite table. It settles the coprime case only — classically Case I — and infinitely many triples sharing
-    a factor with 108 pass through untouched, which is why this is a filter and never a proof of Fermat's Last
-    Theorem. -/
+    a factor with 108 pass through untouched, so the coprime half is what it decides and the other half is
+    untouched. -/
 theorem coprime_sum_blocked_reduced_3_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1,17,19,35,37,53,55,71,73,89,91,107].contains ((pmod a 3 108 + pmod b 3 108) % 108)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 108 AND REDUCED EXPONENT 6. The 36 units raise to exactly the 3 value(s)
@@ -471,7 +471,7 @@ theorem power_image_exact_reduced_6_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,35
     coprime to 108, for EVERY exponent n reducing to 6 — that is n in [6,12] of the range walked, and every
     larger n with the same gcd against 18. An unbounded conclusion from a finite table. It settles the coprime
     case only — classically Case I — and infinitely many triples sharing a factor with 108 pass through
-    untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_6_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1,37,73].contains ((pmod a 6 108 + pmod b 6 108) % 108)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 108 AND REDUCED EXPONENT 9. The 36 units raise to exactly the 4 value(s)
@@ -487,7 +487,7 @@ theorem power_image_exact_reduced_9_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,35
     y, z all coprime to 108, for EVERY exponent n reducing to 9 — that is n in [9] of the range walked, and
     every larger n with the same gcd against 18. An unbounded conclusion from a finite table. It settles the
     coprime case only — classically Case I — and infinitely many triples sharing a factor with 108 pass through
-    untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_9_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1,53,55,107].contains ((pmod a 9 108 + pmod b 9 108) % 108)))) := by decide
 
 /-- THE IMAGE, PINNED, AT MODULUS 108 AND REDUCED EXPONENT 18. The 36 units raise to exactly the 1 value(s) [1]
@@ -503,5 +503,5 @@ theorem power_image_exact_reduced_18_mod_108 : ([1,5,7,11,13,17,19,23,25,29,31,3
     coprime to 108, for EVERY exponent n reducing to 18 — that is n in [18] of the range walked, and every
     larger n with the same gcd against 18. An unbounded conclusion from a finite table. It settles the coprime
     case only — classically Case I — and infinitely many triples sharing a factor with 108 pass through
-    untouched, which is why this is a filter and never a proof of Fermat's Last Theorem. -/
+    untouched, so the coprime half is what it decides and the other half is untouched. -/
 theorem coprime_sum_blocked_reduced_18_mod_108 : [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71,73,77,79,83,85,89,91,95,97,101,103,107].all (fun b => !([1].contains ((pmod a 18 108 + pmod b 18 108) % 108)))) := by decide

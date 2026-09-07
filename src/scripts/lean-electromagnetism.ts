@@ -70,7 +70,7 @@ const FACTS = [
   { key: 'faraday_needs_changing_flux',
     why: "Faraday's law induces EMF only from a CHANGING magnetic flux (EMF = −dΦ/dt): a constant flux induces nothing — 5 − 5 = 0. No change, no current; it is the change that drives induction.",
     js: () => 5 - 5 === 0,
-    lean: 'theorem faraday_needs_changing_flux : (5 - 5 : Int) = 0 := by decide' },
+    lean: 'theorem faraday_needs_changing_flux : ((5 - 5 : Int) = 0) ∧ ((7 - 5 : Int) ≠ 0) := by decide' },
 ]
 
 // compute → generate → verify. The field domain — Coulomb, Ohm, power, series/parallel, Kirchhoff, Faraday — as

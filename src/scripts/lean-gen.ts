@@ -173,7 +173,77 @@ export interface EmitArgs {
  *  behind growth rather than racing it. The arithmetic is identical; only the association changes.
  *
  *  It is a helper rather than three copies because three copies is how the next one gets missed. */
-export function chunkedSum(values: readonly number[], size = 24): string {
+/** chunkWidth(n) → ⌈√n⌉, the block width that minimises a blocked walk's recursion depth.
+ *
+ *  THE NUMBER IS DERIVED, AND THE DERIVATION IS SEALED. A flat `.all` over n recurses n deep; blocked at width c
+ *  it recurses c + ⌈n/c⌉, which is smallest at c = √n and bounded by 2c + 1 — decided by the kernel over a table
+ *  of sizes in Recursion.lean (chunk_width_is_the_ceiling_root_*, blocked_walk_depth_is_bounded_by_twice_the_root_*).
+ *
+ *  It replaces four constants that were chosen by hand — blocks of 32, batches of 10 moduli, a 320 residue budget,
+ *  a 2,500 pair budget — after `maximum recursion depth has been reached` was hit five times in one session and
+ *  four of the five guesses were wrong. A width nobody can recompute is a width that will be wrong again; this one
+ *  is a function of the walk it is chunking.
+ *
+ *  Integer root by remainder: the library call settles no theorem and is hard-rejected tree-wide. */
+
+// ── THE ARITHMETIC EVERY NUMBER-THEORY WING NEEDS, ONCE ─────────────────────────────────────────────────────
+//
+// These were copy-pasted across the wings sealed on 2026-09-06 — imin, imax and gcdOf into three generators
+// each, unitsOf, powMod, orderOf and the block emitter into two — while chunkedSum and chunkedList sat in this
+// file doing exactly what a shared helper should. Seven duplicates written by the same hand in one session, and
+// the tree's duplication finder could not see them: it compares whole-FILE shape, and these are functions inside
+// files that are otherwise unalike. A copy is two rules the moment either is edited, which is how the same
+// recursion-depth defect reached three census wings at once earlier the same day.
+//
+// The library forms of min/max/abs/sqrt are absent on purpose: a call that settles no theorem is hard-rejected
+// tree-wide, so the integer versions are written out where a reader can check them.
+export const imin = (a: number, b: number): number => (a < b ? a : b)
+export const imax = (a: number, b: number): number => (a > b ? a : b)
+export const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
+export const lcmOf = (a: number, b: number): number => (a * b) / gcdOf(a, b)
+
+/** the residues coprime to m — the unit group of Z/m, as the wings walk it */
+export const unitsOf = (m: number): number[] =>
+  Array.from({ length: m }, (_, i) => i).filter((x) => gcdOf(x, m) === 1)
+
+/** a^e mod m by square-and-multiply; its agreement with a^e % m is sealed as pmod_is_modular_exponentiation */
+export const powMod = (a: number, e: number, m: number): number => {
+  let r = 1 % m, b = a % m, k = e
+  while (k > 0) { if (k % 2 === 1) r = (r * b) % m; b = (b * b) % m; k = (k - (k % 2)) / 2 }
+  return r
+}
+
+/** the multiplicative order of a unit modulo m */
+export const orderOf = (a: number, m: number): number => {
+  let k = 1, x = a % m
+  while (x !== 1) { x = (x * a) % m; k += 1 }
+  return k
+}
+
+/** blocksOf(m) → the residues 0..m-1 as literal Lean blocks at the sealed root width, so a walk over them
+ *  recurses at ceil(sqrt(m)) rather than m. countExprOf pairs it with countP for the common "count the residues
+ *  satisfying P" shape that three wings were each spelling out for themselves. */
+export const blocksOf = (m: number): string => {
+  const w = chunkWidth(m), out: string[] = []
+  for (let i = 0; i < m; i += w) {
+    const xs: number[] = []
+    for (let x = i; x < imin(i + w, m); x++) xs.push(x)
+    out.push('[' + xs.join(',') + ']')
+  }
+  return '[' + out.join(',') + ']'
+}
+
+export const countExprOf = (m: number, pred: string): string =>
+  `(${blocksOf(m)}.map (fun c => c.countP (fun x => ${pred}))).foldl (· + ·) 0`
+
+export function chunkWidth(n: number): number {
+  if (n <= 1) return 1
+  let c = 1
+  while (c * c < n) c += 1
+  return c
+}
+
+export function chunkedSum(values: readonly number[], size = chunkWidth(values.length)): string {
   const chunks: number[][] = []
   for (let i = 0; i < values.length; i += size) chunks.push([...values.slice(i, i + size)])
   if (chunks.length <= 1) return `[${values.join(',')}].foldl (· + ·) 0`
@@ -191,7 +261,7 @@ export function chunkedSum(values: readonly number[], size = 24): string {
  *  Emitted as a list-of-lists rather than flattened back, because `List.flatten` would put the recursion straight
  *  back. The nesting is visible in the statement, which is honest: a reader sees the chunking and can see it does
  *  not change what is being claimed. */
-export function chunkedList(values: readonly number[], size = 24): string {
+export function chunkedList(values: readonly number[], size = chunkWidth(values.length)): string {
   const chunks: number[][] = []
   for (let i = 0; i < values.length; i += size) chunks.push([...values.slice(i, i + size)])
   return `[${chunks.map((c) => `[${c.join(',')}]`).join(',')}]`

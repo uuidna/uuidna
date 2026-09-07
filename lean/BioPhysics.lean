@@ -52,7 +52,7 @@ theorem tritone_involution : (List.range 12).all (fun p => ((p + 6) % 12 + 6) % 
 theorem ph_reflection_seven : ((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14 - p == p)) = [7] := by decide
 
 /-- every acid/base conjugate pair sums to 14: pH + pOH = 14 across the whole scale -/
-theorem ph_conjugate_sum_14 : (List.range 15).all (fun p => p + (14 - p) == 14) := by decide
+theorem ph_conjugate_sum_14 : ((List.range 15).all (fun p => p + (14 - p) == 14)) ∧ (((List.range 15).filter (fun p => 14 - p == p)).length = 1) ∧ (((List.range 15).map (fun p => 14 - p)).eraseDups.length = 15) := by decide
 
 /-- the monohybrid cross gives 3:1 — of the four allele pairings only (a,a) is recessive; dominance is a logical
     OR -/

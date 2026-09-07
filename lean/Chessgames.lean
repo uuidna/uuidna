@@ -52,7 +52,7 @@ theorem hyperchess_eight_dimensions : ((8:Nat)^8 = 2^24) ∧ ((2:Nat)^8 = 256) :
 
 /-- There is no largest board, only bounds: 8^1 < 8^2 < 8^3, and for every dimension a strictly larger one — the
     same "no maximum, only bounds" the security layer proves. The horizon recedes; it is never reached. -/
-theorem no_maximal_board : ((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3) := by decide
+theorem no_maximal_board : (List.range 12).all (fun k => (8:Nat)^(k+1) < 8^(k+2)) := by decide
 
 /-- The knight's leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3
     = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count

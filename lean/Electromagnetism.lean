@@ -59,4 +59,4 @@ theorem kirchhoff_voltage : (12 - 4 - 8 : Int) = 0 := by decide
 
 /-- Faraday's law induces EMF only from a CHANGING magnetic flux (EMF = −dΦ/dt): a constant flux induces nothing
     — 5 − 5 = 0. No change, no current; it is the change that drives induction. -/
-theorem faraday_needs_changing_flux : (5 - 5 : Int) = 0 := by decide
+theorem faraday_needs_changing_flux : ((5 - 5 : Int) = 0) ∧ ((7 - 5 : Int) ≠ 0) := by decide

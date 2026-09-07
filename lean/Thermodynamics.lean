@@ -23,7 +23,7 @@ theorem charles_law : 2 * 600 = 4 * 300 := by decide
 
 /-- No perpetual motion: the work out never exceeds the heat in, and some is always wasted — from 100 units of
     heat at most 40 become work (40 ≤ 100), leaving 60 as waste heat. A 100%-efficient engine is forbidden. -/
-theorem no_perpetual_motion : (40 <= 100) ∧ ((100 - 40) = 60) := by decide
+theorem no_perpetual_motion : [((400,100),(60,45)),((500,150),(80,56)),((600,200),(100,66)),((700,250),(120,77)),((800,300),(140,87)),((900,350),(160,97)),((1000,400),(180,108)),((1100,450),(200,118)),((1200,500),(220,128)),((1300,550),(240,138)),((1400,600),(260,148)),((1500,650),(280,158))].all (fun e => e.2.2 * e.1.1 <= e.2.1 * (e.1.1 - e.1.2)) := by decide
 
 /-- Specific heat is linear: Q = m·c·ΔT, so with m·c = 10 the heat scales with the temperature change — ΔT of
     [1,2,3] needs Q of [10,20,30]. Double the rise, double the heat. -/

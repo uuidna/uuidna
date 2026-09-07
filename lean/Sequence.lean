@@ -47,10 +47,10 @@ theorem commutator_is_shift : (List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 
 theorem one_orbit : (List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y)) := by decide
 
 /-- the reflection equilibrium: d + m(d) = 10 for every d in 1..9 -/
-theorem ten_pairs : (List.range' 1 9).all (fun d => d + (10 - d) == 10) := by decide
+theorem ten_pairs : ((List.range' 1 9).all (fun d => d + (10 - d) == 10)) ∧ (((List.range' 1 9).map (fun d => 10 - d)).eraseDups.length = 9) ∧ (((List.range' 1 9).filter (fun d => 10 - d == d)).length = 1) := by decide
 
 /-- the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9 -/
-theorem polar_nine_pairs : (List.range' 1 8).all (fun d => d + (9 - d) == 9) := by decide
+theorem polar_nine_pairs : ((List.range' 1 8).all (fun d => d + (9 - d) == 9)) ∧ (((List.range' 1 8).map (fun d => 9 - d)).eraseDups.length = 8) ∧ (((List.range' 1 8).filter (fun d => 9 - d == d)).length = 0) := by decide
 
 /-- the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9} -/
 theorem partition_six_three : ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3 := by decide

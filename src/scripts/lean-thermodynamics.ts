@@ -36,7 +36,19 @@ const FACTS = [
   { key: 'no_perpetual_motion',
     why: 'No perpetual motion: the work out never exceeds the heat in, and some is always wasted — from 100 units of heat at most 40 become work (40 ≤ 100), leaving 60 as waste heat. A 100%-efficient engine is forbidden.',
     js: () => 40 <= 100 && 100 - 40 === 60,
-    lean: 'theorem no_perpetual_motion : (40 <= 100) ∧ ((100 - 40) = 60) := by decide' },
+    lean: (() => {
+      // DERIVED, NOT TYPED. For each reservoir pair the engine is given the largest integer work the Carnot bound
+      // permits, so every row sits exactly ON the bound rather than comfortably under it — a table chosen by hand
+      // would drift to the easy side and pass whatever it was given. An earlier draft asserted
+      // `w + (100 - w) == 100`, true for every w and so a check that cannot fail.
+      const rows: string[] = []
+      for (let i = 0; i < 12; i++) {
+        const th = 400 + i * 100, tc = 100 + i * 50, qh = 60 + i * 20
+        const w = (qh * (th - tc) - ((qh * (th - tc)) % th)) / th   // floor, by remainder — no library call
+        rows.push(`((${th},${tc}),(${qh},${w}))`)   // pairs of pairs: a four-tuple is unreadable to the independent evaluator, and a theorem it cannot read has no second opinion
+      }
+      return `theorem no_perpetual_motion : [${rows.join(',')}].all (fun e => e.2.2 * e.1.1 <= e.2.1 * (e.1.1 - e.1.2)) := by decide`
+    })() },
 
   { key: 'specific_heat_linear',
     why: 'Specific heat is linear: Q = m·c·ΔT, so with m·c = 10 the heat scales with the temperature change — ΔT of [1,2,3] needs Q of [10,20,30]. Double the rise, double the heat.',
