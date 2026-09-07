@@ -33,7 +33,11 @@ test('coverage is accounted in coins, and the rate is the live one', () => {
   const perCoin = (coverage - (coverage % coins)) / coins
   assert.ok(md.includes(String(coverage)) || md.includes(coverage.toLocaleString('en-US')),
     `the README must carry the live coverage (${coverage} superpositions) — regenerate: node dist/scripts/gen-readme.js`)
-  assert.ok(md.includes(String(perCoin)), `the rate (${perCoin} superpositions per coin) must be stated, not implied`)
+  // BOTH FORMS, as the line above already does. This checked only the unformatted digits, so it passed while the
+  // rate was under a thousand and failed the moment the ledger grew past it — the README renders with a thousands
+  // separator. A check that a number is STATED must accept the form it is stated in.
+  assert.ok(md.includes(String(perCoin)) || md.includes(perCoin.toLocaleString('en-US')),
+    `the rate (${perCoin} superpositions per coin) must be stated, not implied`)
   assert.ok(md.includes(String(coins)) || md.includes(coins.toLocaleString('en-US')),
     `the coins in existence (${coins} = ${COINS} x ${T.length}) must be on the page`)
 })
