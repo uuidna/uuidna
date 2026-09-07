@@ -6,6 +6,7 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import { pqcPosture } from './pqc/index.js'
+import { handleStoreCensus } from './handle-store-census.js'
 import {
   toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes, coins, coinSupply,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
@@ -183,6 +184,25 @@ const TOOLS: Tool[] = ([
           loadPayload: a.loadPayload === true,
         },
     ) },
+  { name: 'uuidna_handle_store',
+    description: 'Handle store census — OCCUPANCY (leaves and keys on disk, by kind), CAPACITY (what the addressing admits: 2^32 leaves, and n(n-1)/2 links among the leaves present), and USE (the tree takes n-1 of those pairs). Three numbers a surface must never quote as one. Soundness is reported as a fraction — path spells handle, handle is the address prefix — and a file that cannot be read is UNMEASURED, never counted sound.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => {
+      const c = handleStoreCensus(ROOT)
+      return {
+        occupancy: { leaves: c.leaves, keys: c.keys, kinds: c.kinds, keysPerLeaf: c.keysPerLeaf },
+        capacity: { leavesAdmitted: 4294967296, pairsAmongPresent: c.pairs },
+        use: { treeLinks: c.treeLinks },
+        sound: {
+          pathSpellsHandle: c.leaves - c.pathMismatch.length,
+          handleIsAddressPrefix: c.leaves - c.prefixMismatch.length,
+          of: c.leaves,
+        },
+        unmeasured: c.unreadable.length,
+        sealed: ['the_index_factorises_the_whole_space', 'the_smallest_leaf_outruns_the_whole_index',
+          'the_measured_store_uses_a_vanishing_share', 'seventeen_leaves_already_pass_the_whole_uuid'],
+      }
+    } },
   { name: 'uuidna_send_trial',
     description: 'Send prose to trial — enrich sealed-topic citations, then detail audit (controls first). For video use uuidna_audit_video. Returns audit receipt + per-detail verdicts.',
     inputSchema: { type: 'object', properties: {
