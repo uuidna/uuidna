@@ -1,0 +1,12 @@
+{
+  "handle": "c397758b",
+  "address": "c397758b-b438-8d0b-8c7b-8ec1d68c5cd2",
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun b => !([1].contains ((pmod a 18 54 + pmod b 18 54) % 54))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_18_mod_54"
+  ],
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

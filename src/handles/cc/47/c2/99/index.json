@@ -1,0 +1,12 @@
+{
+  "handle": "cc47c299",
+  "address": "cc47c299-58b6-8221-8039-7864c666d1e6",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_24"
+  ],
+  "statement": "[1,5,7,11,13,17,19,23].all (fun a => [1,5,7,11,13,17,19,23].all (fun b => !([1].contains ((pmod a 2 24 + pmod b 2 24) % 24))))",
+  "files": [
+    "FermatRing1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "983db323",
+  "address": "983db323-dc10-8ede-a5fc-2acc6bca8e6c",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_open_reduced_3_mod_93"
+  ],
+  "statement": "(pmod 1 3 93 + pmod 1 3 93) % 93 = pmod 20 3 93",
+  "files": [
+    "FermatRing7.lean"
+  ]
+}

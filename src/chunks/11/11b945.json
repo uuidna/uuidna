@@ -1,0 +1,12 @@
+{
+  "handle": "1111b945",
+  "address": "1111b945-c2d6-827d-89e8-2a8aa3bed135",
+  "statement": "([1,3,7,9,11,13,17,19].all (fun a => pmod a 4 20 == 1)) ∧ ([1,2].all (fun k => !([1,3,7,9,11,13,17,19].all (fun a => pmod a k 20 == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "unit_group_exponent_mod_20"
+  ],
+  "files": [
+    "FermatRing18.lean"
+  ]
+}

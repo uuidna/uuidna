@@ -1,0 +1,12 @@
+{
+  "handle": "13957bbd",
+  "address": "13957bbd-e5b2-8dfa-8fe3-268aad967c81",
+  "statement": "(pmod 1 6 67 + pmod 5 6 67) % 67 = pmod 17 6 67",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_6_mod_67"
+  ],
+  "files": [
+    "FermatRing2.lean"
+  ]
+}

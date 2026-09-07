@@ -1,0 +1,12 @@
+{
+  "handle": "c95a986e",
+  "address": "c95a986e-d2b6-8bcb-9e9d-0ae18b85bc75",
+  "statement": "(pmod 1 6 109 + pmod 4 6 109) % 109 = pmod 2 6 109",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_6_mod_109"
+  ],
+  "files": [
+    "FermatRing2.lean"
+  ]
+}

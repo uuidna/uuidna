@@ -1,0 +1,12 @@
+{
+  "handle": "83dc9425",
+  "address": "83dc9425-5d19-8f4c-b029-072dd3208551",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_9"
+  ],
+  "statement": "[1,2,4,5,7,8].all (fun a => [1,2,4,5,7,8].all (fun b => !([1,4,7].contains ((pmod a 2 9 + pmod b 2 9) % 9))))",
+  "files": [
+    "FermatRing7.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "492af95b",
+  "address": "492af95b-48d9-8313-8708-907b55e0bf69",
+  "statement": "(List.range 9).all (fun a => [0,1,8].contains ((a^3) % 9))",
+  "tactic": "decide",
+  "keys": [
+    "cube_residues_mod_nine_are_zero_one_eight"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

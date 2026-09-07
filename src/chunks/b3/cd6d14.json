@@ -1,0 +1,12 @@
+{
+  "handle": "b3cd6d14",
+  "address": "b3cd6d14-a8d9-899d-8591-d543acb8ecd8",
+  "statement": "(pmod 1 1 87 + pmod 1 1 87) % 87 = pmod 2 1 87",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_87"
+  ],
+  "files": [
+    "FermatRing1.lean"
+  ]
+}

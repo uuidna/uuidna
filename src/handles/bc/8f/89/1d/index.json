@@ -1,0 +1,12 @@
+{
+  "handle": "bc8f891d",
+  "address": "bc8f891d-bd84-8745-8fd3-874a05a8a927",
+  "kind": "chunk",
+  "keys": [
+    "idempotent_count_law_mod_21"
+  ],
+  "statement": "([[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16,17,18,19],[20]].map (fun c => c.countP (fun x => (x * x) % 21 == x))).foldl (· + ·) 0 = lawIdempotents [(3,1),(7,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

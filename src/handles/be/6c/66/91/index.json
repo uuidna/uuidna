@@ -1,0 +1,12 @@
+{
+  "handle": "be6c6691",
+  "address": "be6c6691-ab06-8937-9088-00b5c5c5022f",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_6_mod_84"
+  ],
+  "statement": "[1,5,11,13,17,19,23,25,29,31,37,41,43,47,53,55,59,61,65,67,71,73,79,83].all (fun a => [1,5,11,13,17,19,23,25,29,31,37,41,43,47,53,55,59,61,65,67,71,73,79,83].all (fun b => !([1].contains ((pmod a 6 84 + pmod b 6 84) % 84))))",
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c999b981",
+  "address": "c999b981-5c86-8e4c-a716-9d455af2106b",
+  "statement": "(32183 * 258 / 100 = 83032) ∧ (83032 - 82616 = 416) ∧ (373 ≤ 416) ∧ (460 > 416)",
+  "tactic": "decide",
+  "keys": [
+    "a_new_tool_pays_at_most_the_mean_wire_cost"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

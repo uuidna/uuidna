@@ -1,0 +1,12 @@
+{
+  "handle": "c58ea75c",
+  "address": "c58ea75c-761f-8319-ba52-0db003e1c50b",
+  "kind": "chunk",
+  "keys": [
+    "unit_group_exponent_mod_7"
+  ],
+  "statement": "([1,2,3,4,5,6].all (fun a => pmod a 6 7 == 1)) ∧ ([1,2,3].all (fun k => !([1,2,3,4,5,6].all (fun a => pmod a k 7 == 1))))",
+  "files": [
+    "FermatRing5.lean"
+  ]
+}

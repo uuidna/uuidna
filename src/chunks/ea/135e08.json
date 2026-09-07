@@ -1,0 +1,12 @@
+{
+  "handle": "ea135e08",
+  "address": "ea135e08-c10f-8820-ad5d-267b601e1ee2",
+  "statement": "(pmod 1 1 95 + pmod 1 1 95) % 95 = pmod 2 1 95",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_95"
+  ],
+  "files": [
+    "FermatRing9.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "227068d1",
+  "address": "227068d1-c3f8-8a3a-80b5-d87256899d2b",
+  "statement": "([[0,1]].map (fun c => c.countP (fun x => pmod x 2 2 == x % 2))).foldl (· + ·) 0 = lawPow 2 [2]",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_law_mod_2"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

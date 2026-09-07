@@ -1,0 +1,12 @@
+{
+  "handle": "0417cee3",
+  "address": "0417cee3-468c-881c-922a-74c30e69fdca",
+  "statement": "(28 + 67 + 37 = 132) ∧ (503 > 67) ∧ (3952 > 37) ∧ (67 + 37 = 104)",
+  "tactic": "decide",
+  "keys": [
+    "the_missions_are_the_open_records"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "162e22a4",
+  "address": "162e22a4-9734-8197-84f0-8f5382b88cfa",
+  "statement": "(pmod 1 2 19 + pmod 2 2 19) % 19 = pmod 9 2 19",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_2_mod_19"
+  ],
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

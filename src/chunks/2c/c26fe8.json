@@ -1,0 +1,12 @@
+{
+  "handle": "2cc26fe8",
+  "address": "2cc26fe8-14ae-8dce-84d7-87520ec8c238",
+  "statement": "[1,7,11,13,17,19,23,29].all (fun a => [1,7,11,13,17,19,23,29].all (fun b => !([1].contains ((pmod a 4 30 + pmod b 4 30) % 30))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_30"
+  ],
+  "files": [
+    "FermatRing7.lean"
+  ]
+}

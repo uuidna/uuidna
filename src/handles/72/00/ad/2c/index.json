@@ -1,0 +1,12 @@
+{
+  "handle": "7200ad2c",
+  "address": "7200ad2c-b377-8f63-b242-e63ea583faaf",
+  "kind": "chunk",
+  "keys": [
+    "carmichael_exponent_is_attained_mod_2"
+  ],
+  "statement": "([[1]].all (fun c => c.all (fun a => pw a (lawLambda [(2,1)]) 2 == 1))) ∧ (ordOf 1 2 == lawLambda [(2,1)])",
+  "files": [
+    "Laws.lean"
+  ]
+}

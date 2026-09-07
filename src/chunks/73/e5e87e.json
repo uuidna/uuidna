@@ -1,0 +1,12 @@
+{
+  "handle": "73e5e87e",
+  "address": "73e5e87e-8a32-8889-8e6c-03002a277a29",
+  "statement": "[3,4,5,6].all (fun n => fermatWindow n == 0)",
+  "tactic": "decide",
+  "keys": [
+    "fermat_window_exponents_three_to_six_are_empty"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

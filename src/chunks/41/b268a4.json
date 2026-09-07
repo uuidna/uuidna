@@ -1,0 +1,12 @@
+{
+  "handle": "41b268a4",
+  "address": "41b268a4-c51f-8a06-a9b3-32e224fb1f5a",
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun b => !([1].contains ((pmod a 4 48 + pmod b 4 48) % 48))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_48"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

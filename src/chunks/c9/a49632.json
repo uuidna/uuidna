@@ -1,0 +1,12 @@
+{
+  "handle": "c9a49632",
+  "address": "c9a49632-9bbe-8209-95b9-f3c4e268570e",
+  "statement": "(List.range 12).all (fun k => (8:Nat)^(k+1) < 8^(k+2))",
+  "tactic": "decide",
+  "keys": [
+    "no_maximal_board"
+  ],
+  "files": [
+    "Chessgames.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e98ff141",
+  "address": "e98ff141-18e2-8a26-afca-a134225f0c9c",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28]].map (fun c => c.countP (fun x => (x * x) % 29 == x))).foldl (· + ·) 0 = lawIdempotents [(29,1)]",
+  "tactic": "decide",
+  "keys": [
+    "idempotent_count_law_mod_29"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

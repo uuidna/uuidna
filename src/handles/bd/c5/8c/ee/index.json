@@ -1,0 +1,12 @@
+{
+  "handle": "bdc58cee",
+  "address": "bdc58cee-49bc-8c3d-a8d4-f7c8d6c16699",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_6_mod_54"
+  ],
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun b => !([1,19,37].contains ((pmod a 6 54 + pmod b 6 54) % 54))))",
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d1f2af59",
+  "address": "d1f2af59-0ff6-83cf-8800-da117496076e",
+  "statement": "[1,2,3,4,5,6,7,8,9,10,11,12].all (fun a => [1,2,3,4,5,6,7,8,9,10,11,12].all (fun b => !([1].contains ((pmod a 12 13 + pmod b 12 13) % 13))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_12_mod_13"
+  ],
+  "files": [
+    "FermatRing11.lean"
+  ]
+}

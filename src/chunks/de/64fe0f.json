@@ -1,0 +1,12 @@
+{
+  "handle": "de64fe0f",
+  "address": "de64fe0f-141c-88ac-b76d-49c178d95b51",
+  "statement": "(pmod 1 1 35 + pmod 1 1 35) % 35 = pmod 2 1 35",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_35"
+  ],
+  "files": [
+    "FermatRing12.lean"
+  ]
+}

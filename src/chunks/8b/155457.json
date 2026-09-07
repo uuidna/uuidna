@@ -1,0 +1,12 @@
+{
+  "handle": "8b155457",
+  "address": "8b155457-ad49-8890-9ab1-65af360f7bae",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28]].map (fun c => c.countP (fun x => pmod x 29 29 == x % 29))).foldl (· + ·) 0 = lawPow 29 [29]",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_law_mod_29"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

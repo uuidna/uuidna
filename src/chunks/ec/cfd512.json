@@ -1,0 +1,12 @@
+{
+  "handle": "eccfd512",
+  "address": "eccfd512-65c6-8ff3-ad35-c469c607468f",
+  "statement": "([[0,1],[2,3]].map (fun c => c.countP (fun x => pmod x 4 4 == x % 4))).foldl (· + ·) 0 = lawPow 4 [2]",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_law_mod_4"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "abade221",
+  "address": "abade221-6cf1-8136-9c29-18b6450e69dd",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_open_reduced_13_mod_79"
+  ],
+  "statement": "(pmod 1 13 79 + pmod 2 13 79) % 79 = pmod 6 13 79",
+  "files": [
+    "FermatRing14.lean"
+  ]
+}

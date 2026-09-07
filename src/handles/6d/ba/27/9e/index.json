@@ -1,0 +1,12 @@
+{
+  "handle": "6dba279e",
+  "address": "6dba279e-9e5c-8eaf-ba51-8eddde004299",
+  "kind": "chunk",
+  "keys": [
+    "blocked_walk_depth_is_bounded_by_twice_the_root_61_to_4096"
+  ],
+  "statement": "[(61,8),(62,8),(63,8),(64,8),(96,10),(128,12),(192,14),(256,16),(384,20),(512,23),(768,28),(1024,32),(2048,46),(4096,64)].all (fun t => t.2 + (t.1 + t.2 - 1) / t.2 <= 2 * t.2 + 1)",
+  "files": [
+    "Recursion.lean"
+  ]
+}

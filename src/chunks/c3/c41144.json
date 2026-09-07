@@ -1,0 +1,12 @@
+{
+  "handle": "c3c41144",
+  "address": "c3c41144-f52a-818c-9209-9981cb2df46a",
+  "statement": "[1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59].all (fun a => [1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59].all (fun b => !([1,49].contains ((pmod a 2 60 + pmod b 2 60) % 60))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_60"
+  ],
+  "files": [
+    "FermatRing16.lean"
+  ]
+}

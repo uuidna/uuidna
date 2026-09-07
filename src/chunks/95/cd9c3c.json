@@ -1,0 +1,12 @@
+{
+  "handle": "95cd9c3c",
+  "address": "95cd9c3c-2e63-84d1-aa95-dfdd059a4049",
+  "statement": "[1,2,3,4,5,6,7,8,9,10,11,12].all (fun a => [1,2,3,4,5,6,7,8,9,10,11,12].all (fun b => !([1,5,8,12].contains ((pmod a 3 13 + pmod b 3 13) % 13))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_3_mod_13"
+  ],
+  "files": [
+    "FermatRing11.lean"
+  ]
+}

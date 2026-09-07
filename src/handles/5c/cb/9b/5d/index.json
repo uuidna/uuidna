@@ -1,0 +1,12 @@
+{
+  "handle": "5ccb9b5d",
+  "address": "5ccb9b5d-8ef7-8264-b32a-5884d2cb37f2",
+  "kind": "chunk",
+  "keys": [
+    "power_image_exact_reduced_3_mod_28"
+  ],
+  "statement": "([1,3,5,9,11,13,15,17,19,23,25,27].all (fun a => [1,13,15,27].contains (pmod a 3 28))) ∧ ([1,13,15,27].all (fun v => [1,3,5,9,11,13,15,17,19,23,25,27].any (fun a => pmod a 3 28 == v)))",
+  "files": [
+    "FermatRing5.lean"
+  ]
+}

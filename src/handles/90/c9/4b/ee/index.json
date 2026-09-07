@@ -1,0 +1,12 @@
+{
+  "handle": "90c94bee",
+  "address": "90c94bee-de01-8c34-9e9b-d0ffab5f9e58",
+  "kind": "chunk",
+  "keys": [
+    "divisor_count_law_mod_11"
+  ],
+  "statement": "([[0,1,2,3],[4,5,6,7],[8,9,10,11]].map (fun c => c.countP (fun x => x != 0 && 11 % x == 0))).foldl (· + ·) 0 = lawDivisors [(11,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

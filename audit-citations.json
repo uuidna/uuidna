@@ -1,18 +1,18 @@
 {
-  "key": "b6f1cf8b-baf6-815f-9848-ee50ed50e47f",
-  "publications": 119,
-  "sealedTheorems": 2662,
+  "key": "e5041202-3a8a-8952-a8a0-6dbca92e1341",
+  "publications": 145,
+  "sealedTheorems": 5124,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2662,
-    "theorems": 2662,
+    "claims": 5124,
+    "theorems": 5124,
     "bijection": true,
     "digitalRoots": {
-      "claims": 7,
-      "theorems": 7,
-      "publications": 2
+      "claims": 3,
+      "theorems": 3,
+      "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -301,6 +301,14 @@
       "slug": "electromagnetism",
       "claims": 13,
       "cited": 13,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "render-budget",
+      "claims": 8,
+      "cited": 8,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -962,9 +970,209 @@
       "fabricated": []
     },
     {
+      "slug": "fixed-power",
+      "claims": 567,
+      "cited": 567,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-reduction",
+      "claims": 35,
+      "cited": 35,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "recursion",
+      "claims": 11,
+      "cited": 11,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "laws",
+      "claims": 353,
+      "cited": 353,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "fermat",
-      "claims": 6,
-      "cited": 6,
+      "claims": 10,
+      "cited": 10,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring1",
+      "claims": 57,
+      "cited": 57,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring2",
+      "claims": 58,
+      "cited": 58,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring3",
+      "claims": 63,
+      "cited": 63,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring4",
+      "claims": 72,
+      "cited": 72,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring5",
+      "claims": 73,
+      "cited": 73,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring6",
+      "claims": 82,
+      "cited": 82,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring7",
+      "claims": 63,
+      "cited": 63,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring8",
+      "claims": 75,
+      "cited": 75,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring9",
+      "claims": 83,
+      "cited": 83,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring10",
+      "claims": 69,
+      "cited": 69,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring11",
+      "claims": 71,
+      "cited": 71,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring12",
+      "claims": 96,
+      "cited": 96,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring13",
+      "claims": 66,
+      "cited": 66,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring14",
+      "claims": 76,
+      "cited": 76,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring15",
+      "claims": 82,
+      "cited": 82,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring16",
+      "claims": 82,
+      "cited": 82,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring17",
+      "claims": 79,
+      "cited": 79,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring18",
+      "claims": 78,
+      "cited": 78,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring19",
+      "claims": 55,
+      "cited": 55,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring20",
+      "claims": 58,
+      "cited": 58,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "fermat-ring21",
+      "claims": 46,
+      "cited": 46,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

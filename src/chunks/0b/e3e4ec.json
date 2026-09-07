@@ -1,0 +1,12 @@
+{
+  "handle": "0be3e4ec",
+  "address": "0be3e4ec-07f8-80c3-9013-9e611d8c7b05",
+  "statement": "(pmod 1 2 89 + pmod 1 2 89) % 89 = pmod 25 2 89",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_2_mod_89"
+  ],
+  "files": [
+    "FermatRing3.lean"
+  ]
+}

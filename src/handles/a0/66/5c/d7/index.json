@@ -1,0 +1,12 @@
+{
+  "handle": "a0665cd7",
+  "address": "a0665cd7-eb7b-8861-8040-c74a977319b0",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_9_mod_19"
+  ],
+  "statement": "[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].all (fun a => [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].all (fun b => !([1,18].contains ((pmod a 9 19 + pmod b 9 19) % 19))))",
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

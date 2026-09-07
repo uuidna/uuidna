@@ -1,0 +1,12 @@
+{
+  "handle": "c32fa6cf",
+  "address": "c32fa6cf-1f76-842f-b761-85494c9efa23",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_vanishes_mod_6"
+  ],
+  "statement": "(([[0,1,2],[3,4,5]].map (fun c => (c.filter (fun x => Nat.gcd x 6 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 6 = 0",
+  "files": [
+    "Laws.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ba5ea9d1",
+  "address": "ba5ea9d1-bf33-8e08-bd9b-dee705dc2e80",
+  "statement": "([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun a => pmod a 4 48 == 1)) ∧ ([1,2].all (fun k => !([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun a => pmod a k 48 == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "unit_group_exponent_mod_48"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

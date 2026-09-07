@@ -1,0 +1,12 @@
+{
+  "handle": "8cbcc34c",
+  "address": "8cbcc34c-7806-8b4b-82e1-5551dd95abc4",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28,29],[30,31,32,33,34]].map (fun c => c.countP (fun x => pw x 35 35 == 0))).foldl (· + ·) 0 = 35 / lawRadical [(5,1),(7,1)]",
+  "tactic": "decide",
+  "keys": [
+    "nilpotent_count_law_mod_35"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

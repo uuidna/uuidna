@@ -1,0 +1,12 @@
+{
+  "handle": "d5bcd48c",
+  "address": "d5bcd48c-e348-8b54-9fff-e164d08e137c",
+  "kind": "chunk",
+  "keys": [
+    "euler_phi_law_mod_32"
+  ],
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28,29],[30,31]].map (fun c => c.countP (fun x => Nat.gcd x 32 == 1))).foldl (· + ·) 0 = lawPhi [(2,5)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

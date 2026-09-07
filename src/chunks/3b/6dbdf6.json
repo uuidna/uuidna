@@ -1,0 +1,12 @@
+{
+  "handle": "3b6dbdf6",
+  "address": "3b6dbdf6-6dfc-8f14-8f2a-c776d6f308dd",
+  "statement": "((5 - 5 : Int) = 0) ∧ ((7 - 5 : Int) ≠ 0)",
+  "tactic": "decide",
+  "keys": [
+    "faraday_needs_changing_flux"
+  ],
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

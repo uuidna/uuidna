@@ -1,0 +1,12 @@
+{
+  "handle": "071947c8",
+  "address": "071947c8-bb77-86bc-aaa7-bf86e7fef13a",
+  "kind": "chunk",
+  "keys": [
+    "euler_phi_law_mod_15"
+  ],
+  "statement": "([[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14]].map (fun c => c.countP (fun x => Nat.gcd x 15 == 1))).foldl (· + ·) 0 = lawPhi [(3,1),(5,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

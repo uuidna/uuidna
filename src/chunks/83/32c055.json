@@ -1,0 +1,12 @@
+{
+  "handle": "8332c055",
+  "address": "8332c055-39ad-84cc-8d3f-3fc32a0e0c6a",
+  "statement": "([[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16,17,18,19],[20,21,22]].map (fun c => c.countP (fun x => Nat.gcd x 23 == 1))).foldl (· + ·) 0 = lawPhi [(23,1)]",
+  "tactic": "decide",
+  "keys": [
+    "euler_phi_law_mod_23"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

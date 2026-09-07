@@ -7,7 +7,7 @@ description: "Computed from lean/AuditGame.lean — 11 sealed theorems, every cl
 
 > THE AUDIT GAME — why an audit is more ACCURATE as a game, sealed by decide: a finding is FLAGGED iff some independent refuter has a winning move (the OR), a claim is CLEAN iff none does (a P-position, the Nim/Bouton decidability), the verdict is exactly one of the two (survive + flag = 1), and N independent refuters are strictly more accurate — adding a refuter is monotone (never un-flags), a 3-vote panel confirms on a majority (4 of 8 profiles), and a unanimous acquittal is the product of clears ∏(1−rᵢ); the honesty gate drains only the hollow-and-unbacked citation (1 of 4 states, echoing Audit.lean); and the game is finite (2ⁿ outcomes) so the value is decidable. the DECISION is decidable but the COVERAGE is not — the refutation lexicon is incomplete, so an audit raises the cost of a false claim surviving, it does NOT reduce it to zero. — held by [flag_is_any_refutation](/theorem/flag_is_any_refutation) and its 10 siblings below.
 
-**11 theorems**, from [flag_is_any_refutation](/theorem/flag_is_any_refutation) onward, each proven `by decide` in <a href="/lean/AuditGame.lean">lean/AuditGame.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clean_is_a_p_position](/theorem/clean_is_a_p_position). A boundary stated here is decided.
+**11 theorems** and **70 decided cases**, from [flag_is_any_refutation](/theorem/flag_is_any_refutation) onward, each proven `by decide` in <a href="/lean/AuditGame.lean">lean/AuditGame.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [clean_is_a_p_position](/theorem/clean_is_a_p_position). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAuditGame.lean)** — nothing to install. The editor fetches `lean/AuditGame.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -78,7 +78,7 @@ The ledger holds this as [audit_is_a_finite_game](/theorem/audit_is_a_finite_gam
 The ledger holds this as [no_audit_catches_all](/theorem/no_audit_catches_all) — proven `by decide`, sorry-free:
 
 ```lean
-((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5)
+(List.range 16).all (fun n => (2:Nat)^(n+1) < 2^(n+2))
 ```
 
 ### The audit enters the ℤ/9 diamond and MEETS chess there: the 8-outcome space (2³) is residue 8, a self-inverse (8·8 ≡ 1) — the SAME residue the 3D chess board (512 ≡ 8) lands on — and its reflection dz(8) = 10 − 8 = 2 is the first step of the vortex orbit. The three games interact in the diamond: chess at the units {1, 8}, the audit at 8, nim at the nilpotent 6. a structural residue.

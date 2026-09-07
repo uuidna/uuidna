@@ -1,0 +1,12 @@
+{
+  "handle": "8618b8fa",
+  "address": "8618b8fa-311d-84fa-adc7-e30b14b77fc9",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_3_mod_7"
+  ],
+  "statement": "[1,2,3,4,5,6].all (fun a => [1,2,3,4,5,6].all (fun b => !([1,6].contains ((pmod a 3 7 + pmod b 3 7) % 7))))",
+  "files": [
+    "FermatRing5.lean"
+  ]
+}

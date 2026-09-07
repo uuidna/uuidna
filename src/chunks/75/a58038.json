@@ -1,0 +1,12 @@
+{
+  "handle": "75a58038",
+  "address": "75a58038-ec0f-8f8e-9cb3-edc8ab97aab1",
+  "statement": "([1,2].all (fun a => [1].contains (pmod a 2 3))) ∧ ([1].all (fun v => [1,2].any (fun a => pmod a 2 3 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_2_mod_3"
+  ],
+  "files": [
+    "FermatRing1.lean"
+  ]
+}

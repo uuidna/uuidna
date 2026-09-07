@@ -1,0 +1,12 @@
+{
+  "handle": "992927bd",
+  "address": "992927bd-3110-89e5-80e8-3abccf9617b3",
+  "statement": "[1,3,5,7,9,11,13,15,19,21,23,25,27,29,31,33].all (fun a => [1,3,5,7,9,11,13,15,19,21,23,25,27,29,31,33].all (fun b => !([1,9,13,15,19,21,25,33].contains ((pmod a 2 34 + pmod b 2 34) % 34))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_34"
+  ],
+  "files": [
+    "FermatRing11.lean"
+  ]
+}

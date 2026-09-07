@@ -1,0 +1,12 @@
+{
+  "handle": "82870a5e",
+  "address": "82870a5e-dfeb-85f8-9c8e-e8695abeb3ee",
+  "statement": "([[0,1,2,3,4,5,6],[7,8,9,10,11,12,13],[14,15,16,17,18,19,20],[21,22,23,24,25,26,27],[28,29,30,31,32,33,34],[35,36,37,38,39,40]].map (fun c => c.countP (fun x => x != 0 && 40 % x == 0))).foldl (· + ·) 0 = lawDivisors [(2,3),(5,1)]",
+  "tactic": "decide",
+  "keys": [
+    "divisor_count_law_mod_40"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

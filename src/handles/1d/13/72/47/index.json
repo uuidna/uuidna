@@ -1,0 +1,12 @@
+{
+  "handle": "1d137247",
+  "address": "1d137247-b3fb-893a-b47c-57f3490b0b56",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_10"
+  ],
+  "statement": "[1,3,7,9].all (fun a => [1,3,7,9].all (fun b => !([1].contains ((pmod a 4 10 + pmod b 4 10) % 10))))",
+  "files": [
+    "FermatRing8.lean"
+  ]
+}

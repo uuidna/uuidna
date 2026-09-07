@@ -1,0 +1,12 @@
+{
+  "handle": "d6d9edeb",
+  "address": "d6d9edeb-e627-8770-848e-7d1addb30dd4",
+  "statement": "(5153 * 1000 / 10344 = 498) ∧ ((8192 - 5153) * 1000 / 498 = 6102) ∧ (10344 + 6102 = 16446) ∧ (2 * 932 = 1864) ∧ (10344 + 1864 = 12208) ∧ (12208 < 16446)",
+  "tactic": "decide",
+  "keys": [
+    "the_budget_re_measured_from_the_resident_reading"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

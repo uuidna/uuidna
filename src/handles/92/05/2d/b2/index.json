@@ -1,0 +1,12 @@
+{
+  "handle": "92052db2",
+  "address": "92052db2-9f9d-8f3e-b6c7-021734cfe558",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_vanishes_mod_15"
+  ],
+  "statement": "(([[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14]].map (fun c => (c.filter (fun x => Nat.gcd x 15 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 15 = 0",
+  "files": [
+    "Laws.lean"
+  ]
+}

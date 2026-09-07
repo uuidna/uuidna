@@ -1,0 +1,12 @@
+{
+  "handle": "e1d00799",
+  "address": "e1d00799-cffd-8f55-b936-aba9ab24cad6",
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun b => !([1,53].contains ((pmod a 9 54 + pmod b 9 54) % 54))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_9_mod_54"
+  ],
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

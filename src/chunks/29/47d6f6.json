@@ -1,0 +1,12 @@
+{
+  "handle": "2947d6f6",
+  "address": "2947d6f6-4ec7-8584-a5d3-fc8129a4077f",
+  "statement": "([[0,1,2,3],[4,5,6,7],[8,9,10]].map (fun c => c.countP (fun x => Nat.gcd x 11 == 1))).foldl (· + ·) 0 = lawPhi [(11,1)]",
+  "tactic": "decide",
+  "keys": [
+    "euler_phi_law_mod_11"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

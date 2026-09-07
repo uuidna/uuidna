@@ -1,0 +1,12 @@
+{
+  "handle": "d833703c",
+  "address": "d833703c-8a3b-8882-a162-8960c2a9a959",
+  "statement": "(List.range 30).all (fun a => (List.range 30).all (fun n => (List.range 28).all (fun i => pmod a n (i+3) == (a^n) % (i+3))))",
+  "tactic": "decide",
+  "keys": [
+    "pmod_is_modular_exponentiation"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

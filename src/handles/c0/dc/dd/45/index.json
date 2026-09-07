@@ -1,0 +1,12 @@
+{
+  "handle": "c0dcdd45",
+  "address": "c0dcdd45-133d-8bd1-9dc4-8f6628935a15",
+  "kind": "chunk",
+  "keys": [
+    "ten_seats_bound_any_ring"
+  ],
+  "statement": "(List.range 40).all (fun i => let n := i + 11; (n > 10) && ((n + 10 - 1) / 10 ≥ 2))",
+  "files": [
+    "Seats.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "74ee7a45",
+  "address": "74ee7a45-52ac-8b58-b468-77533d5908c2",
+  "kind": "chunk",
+  "keys": [
+    "ph_conjugate_sum_14"
+  ],
+  "statement": "((List.range 15).all (fun p => p + (14 - p) == 14)) ∧ (((List.range 15).filter (fun p => 14 - p == p)).length = 1) ∧ (((List.range 15).map (fun p => 14 - p)).eraseDups.length = 15)",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

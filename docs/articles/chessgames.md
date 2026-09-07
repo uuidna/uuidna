@@ -7,7 +7,7 @@ description: "Computed from lean/Chessgames.lean — 24 sealed theorems, every c
 
 > THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves). uuidna does NOT enumerate or precompute the game tree — a content-address proves INTEGRITY; the diamond and combination facts are STRUCTURE. — held by [first_move_twenty](/theorem/first_move_twenty) and its 23 siblings below.
 
-**24 theorems**, from [first_move_twenty](/theorem/first_move_twenty) onward, each proven `by decide` in <a href="/lean/Chessgames.lean">lean/Chessgames.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 24 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [game_tree_exceeds_universe](/theorem/game_tree_exceeds_universe). A boundary stated here is decided.
+**24 theorems** and **82 decided cases**, from [first_move_twenty](/theorem/first_move_twenty) onward, each proven `by decide` in <a href="/lean/Chessgames.lean">lean/Chessgames.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 24 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [game_tree_exceeds_universe](/theorem/game_tree_exceeds_universe). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChessgames.lean)** — nothing to install. The editor fetches `lean/Chessgames.lean` from the repository and re-decides all 24 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -92,7 +92,7 @@ The ledger holds this as [hyperchess_eight_dimensions](/theorem/hyperchess_eight
 The ledger holds this as [no_maximal_board](/theorem/no_maximal_board) — proven `by decide`, sorry-free:
 
 ```lean
-((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3)
+(List.range 12).all (fun k => (8:Nat)^(k+1) < 8^(k+2))
 ```
 
 ### The knight's leap 1 + 2 = 3 lands on residue 3 of the ℤ/9 vortex, and the diamond reflection dz(3) = 10 − 3 = 7 sends it to 7 — the same reflection the whole ledger centres on. a structural analogy (the move-count read as a residue).

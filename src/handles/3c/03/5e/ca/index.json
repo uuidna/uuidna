@@ -1,0 +1,12 @@
+{
+  "handle": "3c035eca",
+  "address": "3c035eca-b137-8b13-b208-714bd8c73706",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_21"
+  ],
+  "statement": "[1,2,4,5,8,10,11,13,16,17,19,20].all (fun a => [1,2,4,5,8,10,11,13,16,17,19,20].all (fun b => !([1,4,16].contains ((pmod a 2 21 + pmod b 2 21) % 21))))",
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fe7ddc63",
+  "address": "fe7ddc63-5dd7-8b33-ab80-741753cf465a",
+  "statement": "([1,3,5,9,11,13,15,17,19,23,25,27,29,31,33,37,39,41,43,45,47,51,53,55].all (fun a => [1].contains (pmod a 6 56))) ∧ ([1].all (fun v => [1,3,5,9,11,13,15,17,19,23,25,27,29,31,33,37,39,41,43,45,47,51,53,55].any (fun a => pmod a 6 56 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_6_mod_56"
+  ],
+  "files": [
+    "FermatRing12.lean"
+  ]
+}

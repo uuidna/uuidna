@@ -1,0 +1,12 @@
+{
+  "handle": "99832261",
+  "address": "99832261-4743-8a78-928f-6f9c6e18a48f",
+  "statement": "((List.range' 1 8).all (fun d => d + (9 - d) == 9)) ∧ (((List.range' 1 8).map (fun d => 9 - d)).eraseDups.length = 8) ∧ (((List.range' 1 8).filter (fun d => 9 - d == d)).length = 0)",
+  "tactic": "decide",
+  "keys": [
+    "polar_nine_pairs"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

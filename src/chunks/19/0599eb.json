@@ -1,0 +1,12 @@
+{
+  "handle": "190599eb",
+  "address": "190599eb-3519-870c-aa95-042948ade0e1",
+  "statement": "(pmod 1 4 89 + pmod 1 4 89) % 89 = pmod 5 4 89",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_4_mod_89"
+  ],
+  "files": [
+    "FermatRing3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a08410e5",
+  "address": "a08410e5-60e5-8730-93b3-b2611a37e769",
+  "statement": "(pmod 1 1 63 + pmod 1 1 63) % 63 = pmod 2 1 63",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_63"
+  ],
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

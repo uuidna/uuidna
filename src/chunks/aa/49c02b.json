@@ -1,0 +1,12 @@
+{
+  "handle": "aa49c02b",
+  "address": "aa49c02b-729b-8062-977d-0781edc542e4",
+  "statement": "([1,5,7,11,13,17,19,23].all (fun a => pmod a 2 24 == 1)) ∧ ([1].all (fun k => !([1,5,7,11,13,17,19,23].all (fun a => pmod a k 24 == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "unit_group_exponent_mod_24"
+  ],
+  "files": [
+    "FermatRing1.lean"
+  ]
+}

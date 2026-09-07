@@ -1,0 +1,12 @@
+{
+  "handle": "b289467c",
+  "address": "b289467c-e0cb-82f4-9187-c8cd5f90e4e0",
+  "kind": "chunk",
+  "keys": [
+    "unit_group_exponent_mod_8"
+  ],
+  "statement": "([1,3,5,7].all (fun a => pmod a 2 8 == 1)) ∧ ([1].all (fun k => !([1,3,5,7].all (fun a => pmod a k 8 == 1))))",
+  "files": [
+    "FermatRing6.lean"
+  ]
+}

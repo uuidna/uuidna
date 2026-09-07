@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **5123 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **5124 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -125,7 +125,7 @@
 36. **The field domain** — `lean/Electromagnetism.lean` · **13** theorems
    electromagnetism as decidable arithmetic, demarcated — Coulomb sets the sign (like repel, opposite attract), Ohm's law V=I·R, power V·I=I²R, series resistance adds and parallel combines reciprocally, Kirchhoff conserves current at a node and voltage around a loop, and Faraday induces EMF only from a changing flux — circuit and field arithmetic, not a full Maxwell derivation, distinct from the light waves in Optics
 
-37. **The render budget re-measured** — `lean/RenderBudget.lean` · **7** theorems
+37. **The render budget re-measured** — `lean/RenderBudget.lean` · **8** theorems
    the page ceiling measured again at twice the pages, and the integer facts the re-measurement walked past — a population chosen by an instrument rather than a word, a wire allowance, a citation table, a mission count
 
 38. **The site build as arithmetic** — `lean/SiteBuild.lean` · **15** theorems

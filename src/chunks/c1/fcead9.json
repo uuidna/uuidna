@@ -1,0 +1,12 @@
+{
+  "handle": "c1fcead9",
+  "address": "c1fcead9-9e19-82c8-acb1-e12b9aa98a4a",
+  "statement": "([[1,5],[7,11]].all (fun c => c.all (fun a => pw a (lawLambda [(2,2),(3,1)]) 12 == 1))) ∧ (ordOf 5 12 == lawLambda [(2,2),(3,1)])",
+  "tactic": "decide",
+  "keys": [
+    "carmichael_exponent_is_attained_mod_12"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

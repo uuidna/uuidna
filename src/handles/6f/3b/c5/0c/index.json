@@ -1,0 +1,12 @@
+{
+  "handle": "6f3bc50c",
+  "address": "6f3bc50c-44c1-8ba4-9c09-438270d35220",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_1_mod_60"
+  ],
+  "statement": "[1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59].all (fun a => [1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59].all (fun b => !([1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59].contains ((pmod a 1 60 + pmod b 1 60) % 60))))",
+  "files": [
+    "FermatRing16.lean"
+  ]
+}

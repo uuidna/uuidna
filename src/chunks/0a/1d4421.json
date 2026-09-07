@@ -1,0 +1,12 @@
+{
+  "handle": "0a1d4421",
+  "address": "0a1d4421-bc1e-8054-9c8e-e474b36dc75f",
+  "statement": "([[0,1],[2,3]].map (fun c => c.countP (fun x => pw x 4 4 == 0))).foldl (· + ·) 0 = 4 / lawRadical [(2,2)]",
+  "tactic": "decide",
+  "keys": [
+    "nilpotent_count_law_mod_4"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

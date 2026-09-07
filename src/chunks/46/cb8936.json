@@ -1,0 +1,12 @@
+{
+  "handle": "46cb8936",
+  "address": "46cb8936-2a90-8392-b675-1cb7aa3d9cac",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27]].map (fun c => c.countP (fun x => pmod x 28 28 == x % 28))).foldl (· + ·) 0 = (([[0,1],[2,3]].map (fun c => c.countP (fun x => pmod x 28 4 == x % 4))).foldl (· + ·) 0) * (([[0,1,2],[3,4,5],[6]].map (fun c => c.countP (fun x => pmod x 28 7 == x % 7))).foldl (· + ·) 0)",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_multiplicative_4_by_7"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

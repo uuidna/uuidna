@@ -1,0 +1,12 @@
+{
+  "handle": "34f95445",
+  "address": "34f95445-757c-897c-b6a7-89d552c9a70a",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_6_mod_28"
+  ],
+  "statement": "[1,3,5,9,11,13,15,17,19,23,25,27].all (fun a => [1,3,5,9,11,13,15,17,19,23,25,27].all (fun b => !([1].contains ((pmod a 6 28 + pmod b 6 28) % 28))))",
+  "files": [
+    "FermatRing5.lean"
+  ]
+}

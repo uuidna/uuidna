@@ -6,7 +6,7 @@
 
 ## Summary
 
-uuidna is a corpus of 2575 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
+uuidna is a corpus of 5043 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
 
 **Why this route.** A kernel-verified, axiom-free formal ledger with reproducible receipts is R&D with a public-good output; individuals are eligible and no legal entity is needed.
 
@@ -16,14 +16,14 @@ uuidna is a corpus of 2575 distinct mathematical propositions, each proven in Le
 
 | quantity | value | how it is checked |
 | --- | --- | --- |
-| distinct propositions, formally proven | **2575** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
-| proof-name keys over those propositions | 2656 | 81 are renamings, folded to one record each |
+| distinct propositions, formally proven | **5043** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
+| proof-name keys over those propositions | 5124 | 81 are renamings, folded to one record each |
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
-| published monographs | 118 | every claim links the proof that earns it, or is one |
+| published monographs | 145 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
 | permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
 
-**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 2575 from the source and the kernel.
+**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 5043 from the source and the kernel.
 
 ## Licensing of the funded deliverables
 
@@ -44,7 +44,7 @@ This proposal was drafted with the assistance of a large language model (Anthrop
 
 ## What is claimed, and whose claim is whose
 
-Both halves at full strength. The results below are CLAIMED outright — 2575 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
+Both halves at full strength. The results below are CLAIMED outright — 5043 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
 
 - **The finite instances are claimed; the open conjectures are not solved by anyone here.** `decide` settles a decidable proposition over a FINITE domain, and every famous open conjecture quantifies over an infinite one — so no such proof exists in this corpus or can. What the corpus DOES hold, and claims, are finite instances and counting facts adjacent to those problems, each scoped in its own theorem name.
 - **No quantum-computational speedup.** The project's advantage claims are about verification costing less than recomputation, in measured magnitudes, on ordinary hardware.
@@ -57,10 +57,10 @@ Both halves at full strength. The results below are CLAIMED outright — 2575 pr
   - To meet it: CC-BY-NC-ND-4.0 carries NC, which fails the freedom to use for any purpose; and ND, which fails the freedom to modify, and redistribute modified versions. Neither the FSF nor the OSI recognises a licence with either restriction, and NLnet requires an open licence IN ITS ENTIRETY, so this is an eligibility gate rather than a preference. It does NOT require relicensing the archive: a funded deliverable can be a separate, openly-licensed work. The drafts written by gen-funding-drafts take that route — CC-BY-4.0 for the document, an OSI licence named for any code — leaving the archive licence untouched. Whether to do so is the captain's decision.
 - MET — genai-disclosure: this repository discloses machine assistance by construction — every claim carries the proof that earns it, and the honesty gate refuses prose that overreaches one
 - MET — european-dimension: author and work are EU-based (Bulgaria)
-- MET — open-access-outputs: 118 monographs published openly, archived at 10.5281/zenodo.22256708
+- MET — open-access-outputs: 145 monographs published openly, archived at 10.5281/zenodo.22256708
 
 Deadline 2026-11-03.
 
 ---
 
-Draft address `0b7ccbf3-7913-8508-9f2d-109360803b85` — recomputes from the route, the ledger receipt (undated: no countdown was requested).
+Draft address `53e517b1-5fa4-8fb0-84d3-57242136be5c` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

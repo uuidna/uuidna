@@ -1,0 +1,12 @@
+{
+  "handle": "8265fc0e",
+  "address": "8265fc0e-d9c1-8768-bdbe-4f3c6c9ef4e7",
+  "statement": "(811 - 807 = 4) ∧ (295 + 503 + 7 + 2 = 807) ∧ (807 < 811)",
+  "tactic": "decide",
+  "keys": [
+    "the_word_and_the_instrument_select_different_populations"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

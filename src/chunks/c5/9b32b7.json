@@ -1,0 +1,12 @@
+{
+  "handle": "c59b32b7",
+  "address": "c59b32b7-08e5-8f0a-b198-c36415416980",
+  "statement": "[1,3,5,7].all (fun a => [1,3,5,7].all (fun b => !([1].contains ((pmod a 2 8 + pmod b 2 8) % 8))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_8"
+  ],
+  "files": [
+    "FermatRing6.lean"
+  ]
+}

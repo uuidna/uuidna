@@ -1,0 +1,12 @@
+{
+  "handle": "add8ee7e",
+  "address": "add8ee7e-cafe-8d8f-bb26-08f3aa93ce87",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_6_mod_26"
+  ],
+  "statement": "[1,3,5,7,9,11,15,17,19,21,23,25].all (fun a => [1,3,5,7,9,11,15,17,19,21,23,25].all (fun b => !([1,25].contains ((pmod a 6 26 + pmod b 6 26) % 26))))",
+  "files": [
+    "FermatRing3.lean"
+  ]
+}

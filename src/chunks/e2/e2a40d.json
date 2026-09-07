@@ -1,0 +1,12 @@
+{
+  "handle": "e2e2a40d",
+  "address": "e2e2a40d-ddc3-8d8f-8eb8-7a294fd10f8d",
+  "statement": "(pmod 1 10 61 + pmod 4 10 61) % 61 = pmod 2 10 61",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_10_mod_61"
+  ],
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "afcc4e14",
+  "address": "afcc4e14-ea80-8b6e-9db8-43821a577eeb",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_10"
+  ],
+  "statement": "[1,3,7,9].all (fun a => [1,3,7,9].all (fun b => !([1,9].contains ((pmod a 2 10 + pmod b 2 10) % 10))))",
+  "files": [
+    "FermatRing8.lean"
+  ]
+}

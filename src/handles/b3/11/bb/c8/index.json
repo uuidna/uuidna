@@ -1,0 +1,12 @@
+{
+  "handle": "b311bbc8",
+  "address": "b311bbc8-c720-813e-b964-1b243396fd0a",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_99"
+  ],
+  "statement": "(pmod 1 1 99 + pmod 1 1 99) % 99 = pmod 2 1 99",
+  "files": [
+    "FermatRing13.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6973ffad",
+  "address": "6973ffad-1d82-898d-bdd1-3d2cfb5d4f76",
+  "kind": "chunk",
+  "keys": [
+    "carmichael_exponent_is_attained_mod_15"
+  ],
+  "statement": "([[1,2,4],[7,8,11],[13,14]].all (fun c => c.all (fun a => pw a (lawLambda [(3,1),(5,1)]) 15 == 1))) ∧ (ordOf 2 15 == lawLambda [(3,1),(5,1)])",
+  "files": [
+    "Laws.lean"
+  ]
+}

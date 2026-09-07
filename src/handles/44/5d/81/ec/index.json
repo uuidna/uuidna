@@ -1,0 +1,12 @@
+{
+  "handle": "445d81ec",
+  "address": "445d81ec-068f-8dc9-9873-70d94ed56216",
+  "kind": "chunk",
+  "keys": [
+    "fourth_power_residues_mod_sixteen_are_zero_or_one"
+  ],
+  "statement": "(List.range 16).all (fun a => [0,1].contains ((a^4) % 16))",
+  "files": [
+    "Fermat.lean"
+  ]
+}

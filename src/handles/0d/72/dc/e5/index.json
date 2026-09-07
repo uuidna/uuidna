@@ -1,0 +1,12 @@
+{
+  "handle": "0d72dce5",
+  "address": "0d72dce5-a7a2-8f48-8103-049209404550",
+  "kind": "chunk",
+  "keys": [
+    "ten_pairs"
+  ],
+  "statement": "((List.range' 1 9).all (fun d => d + (10 - d) == 10)) ∧ (((List.range' 1 9).map (fun d => 10 - d)).eraseDups.length = 9) ∧ (((List.range' 1 9).filter (fun d => 10 - d == d)).length = 1)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

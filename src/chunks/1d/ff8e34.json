@@ -1,0 +1,12 @@
+{
+  "handle": "1dff8e34",
+  "address": "1dff8e34-066b-8daf-bd73-41a99f39bb65",
+  "statement": "[1,3,5,7,9,11,15,17,19,21,23,25].all (fun a => [1,3,5,7,9,11,15,17,19,21,23,25].all (fun b => !([1,3,9].contains ((pmod a 4 26 + pmod b 4 26) % 26))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_26"
+  ],
+  "files": [
+    "FermatRing3.lean"
+  ]
+}

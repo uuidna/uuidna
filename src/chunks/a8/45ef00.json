@@ -1,0 +1,12 @@
+{
+  "handle": "a845ef00",
+  "address": "a845ef00-ca4f-8ccc-a2c3-b811db7e43d1",
+  "statement": "[1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].all (fun a => [1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].all (fun b => !([1,9,17,25,29,49].contains ((pmod a 2 52 + pmod b 2 52) % 52))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_52"
+  ],
+  "files": [
+    "FermatRing8.lean"
+  ]
+}

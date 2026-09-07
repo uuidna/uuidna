@@ -1,0 +1,12 @@
+{
+  "handle": "803ddede",
+  "address": "803ddede-fe0d-8217-8edb-d0a9be587387",
+  "statement": "([1,2,4,5,8,10,11,13,16,17,19,20].all (fun a => pmod a 6 21 == 1)) ∧ ([1,2,3].all (fun k => !([1,2,4,5,8,10,11,13,16,17,19,20].all (fun a => pmod a k 21 == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "unit_group_exponent_mod_21"
+  ],
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

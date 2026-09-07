@@ -1,0 +1,12 @@
+{
+  "handle": "f67fb684",
+  "address": "f67fb684-3782-8987-95c3-b17e84f1f84c",
+  "kind": "chunk",
+  "keys": [
+    "nilpotent_count_law_mod_17"
+  ],
+  "statement": "([[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16]].map (fun c => c.countP (fun x => pw x 17 17 == 0))).foldl (· + ·) 0 = 17 / lawRadical [(17,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

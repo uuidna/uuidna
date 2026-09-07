@@ -1,0 +1,12 @@
+{
+  "handle": "040c88df",
+  "address": "040c88df-f2ba-85a5-aff6-f48f9537b778",
+  "statement": "((List.range 21).all (fun z => (List.range z).all (fun y => (List.range (y+1)).all (fun x => x == 0 || !(x^3 + y^3 == z^3))))) ∧ cubeNearMiss 1 = 2",
+  "tactic": "decide",
+  "keys": [
+    "cube_window_never_lands_but_misses_by_one_twice"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "de0e8186",
+  "address": "de0e8186-5194-81f6-b311-b5b9aae1e5d7",
+  "kind": "chunk",
+  "keys": [
+    "the_render_samples_sit_below_the_peak_by_more_than_the_swing"
+  ],
+  "statement": "(542 < 2610) ∧ (501 < 2610) ∧ (1619 < 2610) ∧ (2610 + 2543 = 5153) ∧ (2543 > 1489) ∧ (2610 * 2 > 5153)",
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

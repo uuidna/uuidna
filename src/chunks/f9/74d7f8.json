@@ -1,0 +1,12 @@
+{
+  "handle": "f974d7f8",
+  "address": "f974d7f8-94af-8807-aec9-daaac02b8adb",
+  "statement": "[1,5].all (fun a => [1,5].all (fun b => !([1,5].contains ((pmod a 1 6 + pmod b 1 6) % 6))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_1_mod_6"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

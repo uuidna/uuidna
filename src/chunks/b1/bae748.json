@@ -1,0 +1,12 @@
+{
+  "handle": "b1bae748",
+  "address": "b1bae748-7a60-8b7c-9d6c-68f265fac0e1",
+  "statement": "([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,17,19,35,37,53].contains (pmod a 3 54))) ∧ ([1,17,19,35,37,53].all (fun v => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].any (fun a => pmod a 3 54 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_3_mod_54"
+  ],
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

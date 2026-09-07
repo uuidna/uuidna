@@ -1,0 +1,12 @@
+{
+  "handle": "b6d073d0",
+  "address": "b6d073d0-376c-834e-afad-e35d81799cd3",
+  "statement": "([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].contains (pmod a 1 48))) ∧ ([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].all (fun v => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47].any (fun a => pmod a 1 48 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_1_mod_48"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

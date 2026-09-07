@@ -1,0 +1,12 @@
+{
+  "handle": "4f62b973",
+  "address": "4f62b973-b343-81e2-8fe4-c423a29c30c6",
+  "statement": "([[0,1,2,3],[4,5,6,7],[8,9]].map (fun c => c.countP (fun x => x != 0 && 9 % x == 0))).foldl (· + ·) 0 = lawDivisors [(3,2)]",
+  "tactic": "decide",
+  "keys": [
+    "divisor_count_law_mod_9"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

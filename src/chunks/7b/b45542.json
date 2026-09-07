@@ -1,0 +1,12 @@
+{
+  "handle": "7bb45542",
+  "address": "7bb45542-d542-8b7b-9a91-f61c57d33052",
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,65,67,71].all (fun b => !([1,25,49].contains ((pmod a 2 72 + pmod b 2 72) % 72))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_72"
+  ],
+  "files": [
+    "FermatRing7.lean"
+  ]
+}

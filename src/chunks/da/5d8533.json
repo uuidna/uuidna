@@ -1,0 +1,12 @@
+{
+  "handle": "da5d8533",
+  "address": "da5d8533-beb1-88bd-9d72-eb2a6e547d5a",
+  "statement": "(([[0,1,2,3],[4,5,6,7],[8,9,10,11]].map (fun c => (c.filter (fun x => Nat.gcd x 12 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 12 = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_vanishes_mod_12"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

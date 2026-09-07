@@ -1,0 +1,12 @@
+{
+  "handle": "ab3edf28",
+  "address": "ab3edf28-522d-8218-b8f5-02298b3562da",
+  "statement": "(pmod 1 2 109 + pmod 2 2 109) % 109 = pmod 21 2 109",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_2_mod_109"
+  ],
+  "files": [
+    "FermatRing2.lean"
+  ]
+}

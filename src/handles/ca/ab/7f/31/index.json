@@ -1,0 +1,12 @@
+{
+  "handle": "caab7f31",
+  "address": "caab7f31-4cb6-8424-9a66-46dff38baf5f",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_35"
+  ],
+  "statement": "[1,2,3,4,6,8,9,11,12,13,16,17,18,19,22,23,24,26,27,29,31,32,33,34].all (fun a => [1,2,3,4,6,8,9,11,12,13,16,17,18,19,22,23,24,26,27,29,31,32,33,34].all (fun b => !([1,11,16].contains ((pmod a 4 35 + pmod b 4 35) % 35))))",
+  "files": [
+    "FermatRing12.lean"
+  ]
+}

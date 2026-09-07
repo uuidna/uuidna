@@ -1,0 +1,12 @@
+{
+  "handle": "e1a57a96",
+  "address": "e1a57a96-f384-87a5-ac2a-0ac5fe535567",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_61"
+  ],
+  "statement": "(pmod 1 1 61 + pmod 1 1 61) % 61 = pmod 2 1 61",
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

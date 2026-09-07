@@ -1,0 +1,12 @@
+{
+  "handle": "134b7375",
+  "address": "134b7375-107a-85ef-9b2e-cd85370b11b1",
+  "statement": "([1,5,7,11,13,17,19,23].all (fun a => [1].contains (pmod a 2 24))) ∧ ([1].all (fun v => [1,5,7,11,13,17,19,23].any (fun a => pmod a 2 24 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_2_mod_24"
+  ],
+  "files": [
+    "FermatRing1.lean"
+  ]
+}

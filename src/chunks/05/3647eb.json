@@ -1,0 +1,12 @@
+{
+  "handle": "053647eb",
+  "address": "053647eb-c3df-8e1a-aba9-35b89c4ecc7c",
+  "statement": "([[1,3,5,9],[11,13,15,17],[19,23,25,27]].all (fun c => c.all (fun a => pw a (lawLambda [(2,2),(7,1)]) 28 == 1))) ∧ (ordOf 3 28 == lawLambda [(2,2),(7,1)])",
+  "tactic": "decide",
+  "keys": [
+    "carmichael_exponent_is_attained_mod_28"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

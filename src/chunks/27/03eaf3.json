@@ -1,0 +1,12 @@
+{
+  "handle": "2703eaf3",
+  "address": "2703eaf3-a9a6-8b78-96d5-4ef1ecbe589d",
+  "statement": "(pmod 1 1 121 + pmod 1 1 121) % 121 = pmod 2 1 121",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_121"
+  ],
+  "files": [
+    "FermatRing14.lean"
+  ]
+}

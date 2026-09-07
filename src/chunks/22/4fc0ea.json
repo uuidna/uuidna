@@ -1,0 +1,12 @@
+{
+  "handle": "224fc0ea",
+  "address": "224fc0ea-5ff5-8ace-8232-c997fe5f2eec",
+  "statement": "[1,3,5,9,11,13,15,17,19,23,25,27].all (fun a => [1,3,5,9,11,13,15,17,19,23,25,27].all (fun b => !([1,13,15,27].contains ((pmod a 3 28 + pmod b 3 28) % 28))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_3_mod_28"
+  ],
+  "files": [
+    "FermatRing5.lean"
+  ]
+}

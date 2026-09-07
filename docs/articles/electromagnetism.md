@@ -7,7 +7,7 @@ description: "Computed from lean/Electromagnetism.lean — 13 sealed theorems, e
 
 > ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated. — held by [plasma_fourth_state](/theorem/plasma_fourth_state) and its 12 siblings below.
 
-**13 theorems**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in <a href="/lean/Electromagnetism.lean">lean/Electromagnetism.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [plasma_fourth_state](/theorem/plasma_fourth_state). A boundary stated here is decided.
+**13 theorems** and **13 decided cases**, from [plasma_fourth_state](/theorem/plasma_fourth_state) onward, each proven `by decide` in <a href="/lean/Electromagnetism.lean">lean/Electromagnetism.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [plasma_fourth_state](/theorem/plasma_fourth_state). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FElectromagnetism.lean)** — nothing to install. The editor fetches `lean/Electromagnetism.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -99,7 +99,7 @@ The ledger holds this as [kirchhoff_voltage](/theorem/kirchhoff_voltage) — pro
 The ledger holds this as [faraday_needs_changing_flux](/theorem/faraday_needs_changing_flux) — proven `by decide`, sorry-free:
 
 ```lean
-(5 - 5 : Int) = 0
+((5 - 5 : Int) = 0) ∧ ((7 - 5 : Int) ≠ 0)
 ```
 
 

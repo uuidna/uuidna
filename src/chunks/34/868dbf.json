@@ -1,0 +1,12 @@
+{
+  "handle": "34868dbf",
+  "address": "34868dbf-8278-89fc-868f-63589aa1e62b",
+  "statement": "([1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].all (fun a => [1].contains (pmod a 12 52))) ∧ ([1].all (fun v => [1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].any (fun a => pmod a 12 52 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_12_mod_52"
+  ],
+  "files": [
+    "FermatRing8.lean"
+  ]
+}

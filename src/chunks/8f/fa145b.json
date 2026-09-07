@@ -1,0 +1,12 @@
+{
+  "handle": "8ffa145b",
+  "address": "8ffa145b-05d7-8fdc-b2a7-dd0ce42040d8",
+  "statement": "(pmod 1 1 39 + pmod 1 1 39) % 39 = pmod 2 1 39",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_39"
+  ],
+  "files": [
+    "FermatRing16.lean"
+  ]
+}

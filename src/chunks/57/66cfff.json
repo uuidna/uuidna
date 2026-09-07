@@ -1,0 +1,12 @@
+{
+  "handle": "5766cfff",
+  "address": "5766cfff-5770-817d-81f9-b312f9d8f8ae",
+  "statement": "[1,5,11,13,17,19,23,25,29,31,37,41].all (fun a => [1,5,11,13,17,19,23,25,29,31,37,41].all (fun b => !([1,5,11,13,17,19,23,25,29,31,37,41].contains ((pmod a 1 42 + pmod b 1 42) % 42))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_1_mod_42"
+  ],
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

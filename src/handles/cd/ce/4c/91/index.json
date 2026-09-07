@@ -1,0 +1,12 @@
+{
+  "handle": "cdce4c91",
+  "address": "cdce4c91-9c51-840d-89b1-dc02d307f65c",
+  "kind": "chunk",
+  "keys": [
+    "power_image_exact_reduced_4_mod_52"
+  ],
+  "statement": "([1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].all (fun a => [1,9,29].contains (pmod a 4 52))) ∧ ([1,9,29].all (fun v => [1,3,5,7,9,11,15,17,19,21,23,25,27,29,31,33,35,37,41,43,45,47,49,51].any (fun a => pmod a 4 52 == v)))",
+  "files": [
+    "FermatRing8.lean"
+  ]
+}

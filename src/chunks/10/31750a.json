@@ -1,0 +1,12 @@
+{
+  "handle": "1031750a",
+  "address": "1031750a-a0d0-8388-8477-648c430b4b26",
+  "statement": "(16 ^ 3 = 4096) ∧ (16 ^ 4 = 65536) ∧ (65536 / 4096 = 16) ∧ (4096 < 65536)",
+  "tactic": "decide",
+  "keys": [
+    "the_cube_filled_and_the_tesseract_opens"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

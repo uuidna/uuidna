@@ -1,0 +1,12 @@
+{
+  "handle": "bcb2428a",
+  "address": "bcb2428a-d3b5-82e8-a38f-e18bfaaa8622",
+  "statement": "[1,5].all (fun a => [1,5].all (fun b => !([1].contains ((pmod a 2 6 + pmod b 2 6) % 6))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_6"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

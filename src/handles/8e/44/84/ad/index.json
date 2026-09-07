@@ -1,0 +1,12 @@
+{
+  "handle": "8e4484ad",
+  "address": "8e4484ad-39fe-8bb8-9d93-ab2d193ee72e",
+  "kind": "chunk",
+  "keys": [
+    "nilpotent_count_law_mod_5"
+  ],
+  "statement": "([[0,1,2],[3,4]].map (fun c => c.countP (fun x => pw x 5 5 == 0))).foldl (· + ·) 0 = 5 / lawRadical [(5,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

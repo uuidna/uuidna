@@ -1,0 +1,12 @@
+{
+  "handle": "3f931f1f",
+  "address": "3f931f1f-fa42-8bcf-b792-3976ac35493c",
+  "kind": "chunk",
+  "keys": [
+    "exponent_reduces_at_lambda_40"
+  ],
+  "statement": "[(3,1),(4,4),(5,5),(6,2),(7,1),(8,8),(9,1),(10,10),(11,1),(12,4),(13,1),(14,2),(15,5),(16,8),(17,1),(18,2),(19,1),(20,20),(21,1),(22,2),(23,1)].all (fun p => Nat.gcd p.1 40 == p.2)",
+  "files": [
+    "FermatReduction.lean"
+  ]
+}

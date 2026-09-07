@@ -1,0 +1,12 @@
+{
+  "handle": "3b2d46d8",
+  "address": "3b2d46d8-662d-813b-8dce-b65b1e628a0b",
+  "kind": "chunk",
+  "keys": [
+    "carmichael_exponent_is_attained_mod_39"
+  ],
+  "statement": "([[1,2,4,5,7],[8,10,11,14,16],[17,19,20,22,23],[25,28,29,31,32],[34,35,37,38]].all (fun c => c.all (fun a => pw a (lawLambda [(3,1),(13,1)]) 39 == 1))) ∧ (ordOf 2 39 == lawLambda [(3,1),(13,1)])",
+  "files": [
+    "Laws.lean"
+  ]
+}

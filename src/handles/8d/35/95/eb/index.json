@@ -1,0 +1,12 @@
+{
+  "handle": "8d3595eb",
+  "address": "8d3595eb-7eea-8459-8a88-f7f7998ae2bc",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_open_reduced_17_mod_103"
+  ],
+  "statement": "(pmod 1 17 103 + pmod 2 17 103) % 103 = pmod 5 17 103",
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

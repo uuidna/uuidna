@@ -1,0 +1,12 @@
+{
+  "handle": "df467263",
+  "address": "df467263-1929-8e91-b33d-ed1dde749e6c",
+  "statement": "([1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,19,37].contains (pmod a 6 54))) ∧ ([1,19,37].all (fun v => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].any (fun a => pmod a 6 54 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_6_mod_54"
+  ],
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

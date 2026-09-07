@@ -1,15 +1,15 @@
 {
  "why": "Each refused lead trialed against the sealed ledger, book corpus, pairwise refusal collisions, and per-key theorem adjudication. Witness keys push across colliding lean→open neighbours until stable. verified = policy boundary OR lean with every sealed key adjudicated VERIFIED; purged = duplicate lead; open = still unsettled. Desk proposes; captain seals.",
- "recorded": "7980c073-8",
- "refused": 20,
+ "recorded": "b3dc96d1-f",
+ "refused": 21,
  "lean": 11,
- "policy": 9,
+ "policy": 10,
  "open": 0,
- "verified": 20,
+ "verified": 21,
  "purged": 0,
- "collisionPairs": 27,
+ "collisionPairs": 38,
  "rounds": 0,
- "receipt": "7980c073-8f35-8783-896a-05782bcc1ce4",
+ "receipt": "b3dc96d1-fa16-8df4-8ce0-06409c634115",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -22,17 +22,7 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "four points",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "both"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -83,7 +73,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "435bfcd3-d92e-8665-88ec-7ddc5bed8a8c"
+   "receipt": "5a339755-e574-8199-b567-34c66dea4e75"
   },
   {
    "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
@@ -108,64 +98,7 @@
     "two_order_six"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "And one day",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "witness",
-      "against",
-      "witness",
-      "against"
-     ]
-    },
-    {
-     "claim": "Four points, or forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "points",
-      "never",
-      "order",
-      "points"
-     ]
-    },
-    {
-     "claim": "forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "never",
-      "order",
-      "points"
-     ]
-    },
-    {
-     "claim": "six days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "witness",
-      "before",
-      "before"
-     ]
-    },
-    {
-     "claim": "45 degrees, or four points",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "points",
-      "points"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -247,7 +180,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "784ed87c-aa24-852e-b039-683451afb024"
+   "receipt": "a1bb4740-ea5a-8c44-b05c-9840f1703fc3"
   },
   {
    "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
@@ -270,56 +203,7 @@
     "reversible_erases_nothing"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "four days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "tower",
-      "whether",
-      "against"
-     ]
-    },
-    {
-     "claim": "And one day",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "against",
-      "against"
-     ]
-    },
-    {
-     "claim": "20 miles",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "source"
-     ]
-    },
-    {
-     "claim": "9 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "alone"
-     ]
-    },
-    {
-     "claim": "and eight days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "against"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -351,6 +235,16 @@
      "overlap": [
       "refuse"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "exists",
+      "involution",
+      "neither",
+      "involution"
+     ]
     }
    ],
    "theoremTrials": [
@@ -372,7 +266,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "624d45dc-042e-8b48-8ccb-a5fa637aad14"
+   "receipt": "cefa71d9-0540-8022-8b8b-4c5b153899c0"
   },
   {
    "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
@@ -393,55 +287,7 @@
     "seats_pigeonhole"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "direction",
-      "direction"
-     ]
-    },
-    {
-     "claim": "Four points, or forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "direction",
-      "direction"
-     ]
-    },
-    {
-     "claim": "12 inches",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "bound"
-     ]
-    },
-    {
-     "claim": "45 degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "direction"
-     ]
-    },
-    {
-     "claim": "45 degrees, or four points",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "direction"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -494,7 +340,7 @@
      ]
     },
     {
-     "handle": "a56e35a0",
+     "handle": "62b5ab2f",
      "sharedKeys": [],
      "overlap": [
       "covering",
@@ -510,6 +356,16 @@
       "shown",
       "without",
       "bound"
+     ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "involution",
+      "free",
+      "involution",
+      "measured"
      ]
     }
    ],
@@ -528,7 +384,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "52699345-d2b7-8695-ba43-ee2e418f2a13"
+   "receipt": "f227f05e-2b4e-8f2a-ae02-e50857972f8a"
   },
   {
    "lead": "Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate",
@@ -545,54 +401,7 @@
     "reversal_escapes_arithmetic"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "fifty days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "after",
-      "after"
-     ]
-    },
-    {
-     "claim": "100 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "after"
-     ]
-    },
-    {
-     "claim": "12 inches",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "after"
-     ]
-    },
-    {
-     "claim": "Forty days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "after"
-     ]
-    },
-    {
-     "claim": "four points",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "both"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -642,6 +451,17 @@
       "harmonic",
       "tree"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "tree",
+      "tree",
+      "both",
+      "measured",
+      "both"
+     ]
     }
    ],
    "theoremTrials": [
@@ -651,7 +471,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "1233cfc9-e768-8136-8afe-901a827f8526"
+   "receipt": "4454796f-eea4-8b48-90b0-fd9b43d788a9"
   },
   {
    "lead": "Over-unity / free energy devices",
@@ -678,61 +498,7 @@
     "oxidation_states_sum"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "60 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "written",
-      "only",
-      "only"
-     ]
-    },
-    {
-     "claim": "four feet",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "water",
-      "what",
-      "over"
-     ]
-    },
-    {
-     "claim": "two feet",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "water",
-      "what",
-      "over"
-     ]
-    },
-    {
-     "claim": "10 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "over",
-      "full"
-     ]
-    },
-    {
-     "claim": "16 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "over",
-      "were"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "63632e0e",
@@ -758,6 +524,15 @@
       "water",
       "water",
       "only"
+     ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "only",
+      "only",
+      "free"
      ]
     }
    ],
@@ -788,7 +563,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "61527f1d-205e-8350-be15-17c47263bad8"
+   "receipt": "dbef780d-8a7b-8acf-93d4-6c4bf86c40a5"
   },
   {
    "lead": "Water itself as fuel",
@@ -817,53 +592,7 @@
     "reversible_erases_nothing"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "00 Year",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "water"
-     ]
-    },
-    {
-     "claim": "and seven days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "itself"
-     ]
-    },
-    {
-     "claim": "four feet",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "water"
-     ]
-    },
-    {
-     "claim": "six feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "same"
-     ]
-    },
-    {
-     "claim": "three months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "same"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -944,7 +673,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "dd6eda63-2d06-88f9-bc50-0e0c5eaa46ca"
+   "receipt": "c884db9a-e9e3-8309-8140-555d132ef1f2"
   },
   {
    "lead": "MFC exhausting pure drinkable water",
@@ -965,55 +694,7 @@
     "oxidation_states_sum"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "60 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "only",
-      "only"
-     ]
-    },
-    {
-     "claim": "And one day",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "against",
-      "against"
-     ]
-    },
-    {
-     "claim": "00 Knots",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "pilot"
-     ]
-    },
-    {
-     "claim": "00 Year",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "water"
-     ]
-    },
-    {
-     "claim": "10 miles",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "only"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "ff24b99e",
@@ -1040,6 +721,15 @@
       "combustion",
       "water"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "only",
+      "only",
+      "measured"
+     ]
     }
    ],
    "theoremTrials": [
@@ -1057,7 +747,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "ea94708b-c05b-8d71-947c-f89d35a362ce"
+   "receipt": "d56e654e-3ff6-878f-b601-3e7e70349631"
   },
   {
    "lead": "Bulk crawling of chitanka.info",
@@ -1070,57 +760,11 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "10 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "full"
-     ]
-    },
-    {
-     "claim": "20 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "full"
-     ]
-    },
-    {
-     "claim": "20 inches",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "full"
-     ]
-    },
-    {
-     "claim": "32 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "full"
-     ]
-    },
-    {
-     "claim": "60 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "single"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "6e482bfa-3961-82c8-9f56-ad9030aeddc4"
+   "receipt": "9b645562-1add-8c93-8e71-cfd47c04cf82"
   },
   {
    "lead": "Quantum advantage or speedup claims",
@@ -1137,54 +781,7 @@
     "n_qubit_dimension"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "four feet",
-     "bookTitle": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-     "bookId": 2388,
-     "address": "dd8e92be-df49-823f-b232-57d824d45e19",
-     "overlap": [
-      "such",
-      "such"
-     ]
-    },
-    {
-     "claim": "16 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "such"
-     ]
-    },
-    {
-     "claim": "5 feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "such"
-     ]
-    },
-    {
-     "claim": "forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "never"
-     ]
-    },
-    {
-     "claim": "Four points, or forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "never"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -1227,7 +824,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "766bef34-2da6-819c-baaa-41304216b3e9"
+   "receipt": "f46e5dcf-0317-8a09-9d07-05cb9f98e77c"
   },
   {
    "lead": "stackoverflow.com /ai-assist as a theorem source",
@@ -1240,68 +837,21 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
+   "bookHits": [],
+   "collisions": [
     {
-     "claim": "four months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "handle": "fa07226e",
+     "sharedKeys": [],
      "overlap": [
+      "door",
       "which",
-      "they",
-      "they",
-      "they"
-     ]
-    },
-    {
-     "claim": "and eight days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "they",
-      "which",
-      "they"
-     ]
-    },
-    {
-     "claim": "and ten days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "they",
-      "which",
-      "they"
-     ]
-    },
-    {
-     "claim": "seven years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "they",
-      "which",
-      "which"
-     ]
-    },
-    {
-     "claim": "ten days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "they",
-      "which",
-      "they"
+      "product"
      ]
     }
    ],
-   "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "b3022456-bf54-8f05-adc5-0bbd6b39aedf"
+   "receipt": "6c2b130c-06f1-8de4-a51e-da1f2f10e668"
   },
   {
    "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
@@ -1314,58 +864,7 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "and ten days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "their",
-      "their"
-     ]
-    },
-    {
-     "claim": "five years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "their",
-      "origin"
-     ]
-    },
-    {
-     "claim": "four months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "their",
-      "their"
-     ]
-    },
-    {
-     "claim": "thousand years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "their",
-      "their"
-     ]
-    },
-    {
-     "claim": "three months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "their",
-      "their"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -1399,7 +898,7 @@
      ]
     },
     {
-     "handle": "a56e35a0",
+     "handle": "62b5ab2f",
      "sharedKeys": [],
      "overlap": [
       "decide",
@@ -1428,11 +927,24 @@
       "desk",
       "does"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "uuidna",
+      "does",
+      "tree",
+      "tree",
+      "their"
+     ]
     }
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "e1fb7af7-ed22-8067-8683-efa129e4f65f"
+   "receipt": "88662fc4-b4e4-85cb-a8c0-35a8114f2d7f"
   },
   {
    "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
@@ -1456,53 +968,7 @@
     "z7rays_seven"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "five years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "origin"
-     ]
-    },
-    {
-     "claim": "forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "never"
-     ]
-    },
-    {
-     "claim": "Four points, or forty-five degrees",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "never"
-     ]
-    },
-    {
-     "claim": "six feet",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "port"
-     ]
-    },
-    {
-     "claim": "two months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "free"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "607701a3",
@@ -1528,6 +994,16 @@
       "uuidna",
       "origin"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "uuidna",
+      "free"
+     ]
     }
    ],
    "theoremTrials": [
@@ -1549,7 +1025,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "8d5b755e-9528-8f87-bb9e-1d2d4cea5bf9"
+   "receipt": "bce69225-4b53-87ed-87bd-1981aaffb5c8"
   },
   {
    "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
@@ -1562,58 +1038,7 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "one day",
-     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-     "bookId": 2017,
-     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-     "overlap": [
-      "life",
-      "life",
-      "life"
-     ]
-    },
-    {
-     "claim": "100 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "tradition",
-      "life"
-     ]
-    },
-    {
-     "claim": "hundred years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "life",
-      "life"
-     ]
-    },
-    {
-     "claim": "hundred years",
-     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-     "bookId": 2017,
-     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-     "overlap": [
-      "always",
-      "whose"
-     ]
-    },
-    {
-     "claim": "250 miles",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "numbers"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -1646,15 +1071,24 @@
       "tree",
       "keys"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "name",
+      "tree",
+      "tree"
+     ]
     }
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "87acc0e4-8c58-89dc-b6ec-962faa692dd3"
+   "receipt": "fa017d57-f5ea-8ca6-8f89-84e60befe4ce"
   },
   {
    "lead": "Honesty /  fields, covering hunts, or includes() disclaimer tests on new constructors.",
-   "handle": "a56e35a0",
+   "handle": "62b5ab2f",
    "boundary": "Honesty is the court (by decide keys, docs/doctrine.md), not TypeScript. Captain 2026-08-30: strip existing honest: payloads from constructors on touch; no new  fields, covering hunts, or includes() disclaimer tests. Scope lives in doctrine and sealed keys; R&D continues unrestricted.",
    "leadVerdict": "UNVERIFIED",
    "boundaryVerdict": "UNVERIFIED",
@@ -1663,27 +1097,7 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "one day",
-     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-     "bookId": 2017,
-     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-     "overlap": [
-      "lives",
-      "lives"
-     ]
-    },
-    {
-     "claim": "hundred years",
-     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-     "bookId": 2017,
-     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-     "overlap": [
-      "lives"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -1707,7 +1121,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "38ae4952-df06-8049-9060-04eeb0678d2f"
+   "receipt": "80eca436-4530-872e-b58e-c7f244951c42"
   },
   {
    "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
@@ -1720,58 +1134,21 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
+   "bookHits": [],
+   "collisions": [
     {
-     "claim": "60 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "handle": "fa07226e",
+     "sharedKeys": [],
      "overlap": [
+      "name",
       "only",
-      "only"
-     ]
-    },
-    {
-     "claim": "10 miles",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "only"
-     ]
-    },
-    {
-     "claim": "20 miles",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "only"
-     ]
-    },
-    {
-     "claim": "37 miles",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "name"
-     ]
-    },
-    {
-     "claim": "five years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
       "only"
      ]
     }
    ],
-   "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "98e672f7-6d22-83b5-8d43-29a7eb1c938a"
+   "receipt": "48c3c8ef-d01f-832c-b43f-7aa6a3b34310"
   },
   {
    "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
@@ -1823,17 +1200,7 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "forty years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "derived"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "4495c8dd",
@@ -1856,7 +1223,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "711cfad1-8409-8df4-84d4-33de49cb1f98"
+   "receipt": "71559748-dd4d-85dc-9877-bfb9b92270cc"
   },
   {
    "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
@@ -1869,63 +1236,11 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "policy",
-   "bookHits": [
-    {
-     "claim": "four feet",
-     "bookTitle": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-     "bookId": 2388,
-     "address": "dd8e92be-df49-823f-b232-57d824d45e19",
-     "overlap": [
-      "four",
-      "four",
-      "safe"
-     ]
-    },
-    {
-     "claim": "45 degrees, or four points",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "four",
-      "four"
-     ]
-    },
-    {
-     "claim": "four days",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "four",
-      "four"
-     ]
-    },
-    {
-     "claim": "four feet",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "four",
-      "four"
-     ]
-    },
-    {
-     "claim": "four months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "four",
-      "four"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "6f4af2fe-0c05-8b00-8b4d-56954316e45e"
+   "receipt": "759ae527-2dc8-8cb9-94cd-f3b5b42c0bbd"
   },
   {
    "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
@@ -1948,57 +1263,7 @@
     "sha256_grover_margin_is_the_address"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "thousand months",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "power",
-      "power",
-      "power"
-     ]
-    },
-    {
-     "claim": "60 years",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "only",
-      "only"
-     ]
-    },
-    {
-     "claim": "seventy cubits",
-     "bookTitle": "The Koran (Al-Qur'an)",
-     "bookId": 2800,
-     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-     "overlap": [
-      "chain",
-      "chain"
-     ]
-    },
-    {
-     "claim": "00 Year",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "power"
-     ]
-    },
-    {
-     "claim": "10 miles",
-     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-     "bookId": 45493,
-     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-     "overlap": [
-      "only"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -2044,6 +1309,19 @@
       "ledger",
       "quantum"
      ]
+    },
+    {
+     "handle": "fa07226e",
+     "sharedKeys": [],
+     "overlap": [
+      "door",
+      "uuidna",
+      "uuidna",
+      "only",
+      "uuidna",
+      "does",
+      "only"
+     ]
     }
    ],
    "theoremTrials": [
@@ -2065,7 +1343,137 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "99971e2a-a86f-8e5f-b17e-b060b4c38eee"
+   "receipt": "689a2433-1dca-8764-99d5-9c28e50508e6"
+  },
+  {
+   "lead": "shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255 MCP tools and six @uuidna/* surfaces reachable ONLY by calling its own MCP: no catalogue a downstream can resolve, no namespace under which anyone can pin and fetch a dependency closure. uuidna_registry exists as a TOOL; a registry as a SERVED ARTIFACT does not.",
+   "handle": "fa07226e",
+   "boundary": "An INVOLUTION, not a licence clash. shadcn gives the CODE away (MIT, the consumer owns the copy) and KEEPS the catalogue as its product surface; this tree keeps the CODE (CC-BY-NC-ND, no derivative, no commerce) and GIVES the catalogue away (read-only tools, free to call). Those are the two ends of one map. Adopting shadcn-s distribution while holding NC-ND would put this tree at NEITHER end, keeping both the code and the catalogue — the one position the involution has no fixed point for. The licence text is downstream of that, not the cause. Measured: npm shadcn 4.21.0, MIT; shadcn-ui/ui 123069 stars; both schemas fetched and their enums enumerated from the served JSON. NOT CLAIMED: that any downstream has asked for a registry — none has.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [],
+   "collisions": [
+    {
+     "handle": "c83060ec",
+     "sharedKeys": [],
+     "overlap": [
+      "exists",
+      "involution",
+      "neither",
+      "involution"
+     ]
+    },
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "involution",
+      "free",
+      "involution",
+      "measured"
+     ]
+    },
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "tree",
+      "tree",
+      "both",
+      "measured",
+      "both"
+     ]
+    },
+    {
+     "handle": "ff24b99e",
+     "sharedKeys": [],
+     "overlap": [
+      "only",
+      "only",
+      "free"
+     ]
+    },
+    {
+     "handle": "24641eb5",
+     "sharedKeys": [],
+     "overlap": [
+      "only",
+      "only",
+      "measured"
+     ]
+    },
+    {
+     "handle": "228e89d2",
+     "sharedKeys": [],
+     "overlap": [
+      "door",
+      "which",
+      "product"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "uuidna",
+      "does",
+      "tree",
+      "tree",
+      "their"
+     ]
+    },
+    {
+     "handle": "1a11d61c",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "uuidna",
+      "free"
+     ]
+    },
+    {
+     "handle": "d84f3bfe",
+     "sharedKeys": [],
+     "overlap": [
+      "name",
+      "tree",
+      "tree"
+     ]
+    },
+    {
+     "handle": "a7480598",
+     "sharedKeys": [],
+     "overlap": [
+      "name",
+      "only",
+      "only"
+     ]
+    },
+    {
+     "handle": "c9ddc617",
+     "sharedKeys": [],
+     "overlap": [
+      "door",
+      "uuidna",
+      "uuidna",
+      "only",
+      "uuidna",
+      "does",
+      "only"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "e3d6ad10-59ad-80dc-bfa1-8c1f95b6a8ef"
   }
  ]
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "b195f035",
+  "address": "b195f035-5ce1-8df5-8818-caf957ceab05",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_3_mod_54"
+  ],
+  "statement": "[1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun a => [1,5,7,11,13,17,19,23,25,29,31,35,37,41,43,47,49,53].all (fun b => !([1,17,19,35,37,53].contains ((pmod a 3 54 + pmod b 3 54) % 54))))",
+  "files": [
+    "FermatRing10.lean"
+  ]
+}

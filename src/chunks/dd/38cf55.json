@@ -1,0 +1,12 @@
+{
+  "handle": "dd38cf55",
+  "address": "dd38cf55-1537-8a09-ae34-74e495c05a10",
+  "statement": "(([[0,1,2],[3,4,5],[6,7]].map (fun c => (c.filter (fun x => Nat.gcd x 8 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 8 = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_vanishes_mod_8"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

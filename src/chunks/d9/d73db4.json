@@ -1,0 +1,12 @@
+{
+  "handle": "d9d73db4",
+  "address": "d9d73db4-8ab0-8cc2-94d4-b1b687631ba4",
+  "statement": "[1,2,3,4].all (fun a => [1,2,3,4].all (fun b => !([1].contains ((pmod a 4 5 + pmod b 4 5) % 5))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_5"
+  ],
+  "files": [
+    "FermatRing3.lean"
+  ]
+}

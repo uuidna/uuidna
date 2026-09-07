@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,573 distinct theorems · 2,656 keys · 115 skills · 118 Lean files.
+**Board (computed).** 5,041 distinct theorems · 5,124 keys · 117 skills · 145 Lean files.
 
-Receipt `61fd2265-51ae-814d-a312-387265380b7b` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `88c36a32-acae-8a98-925c-b2cf79a48e6e` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -55,7 +55,8 @@ Receipt `61fd2265-51ae-814d-a312-387265380b7b` · structured form <a href="/lean
 
 | Skill | Keys |
 | --- | ---: |
-| `wave` | 932 |
+| `fermat` | 2096 |
+| `wave` | 1296 |
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
@@ -74,32 +75,31 @@ Receipt `61fd2265-51ae-814d-a312-387265380b7b` · structured form <a href="/lean
 | `colour` | 18 |
 | `hardware` | 18 |
 | `topography` | 18 |
-| `vector-equilibrium` | 18 |
 
 ## Lean files (top 20)
 
 | File | Keys |
 | --- | ---: |
 | <a href="/lean/Wave.lean">`Wave.lean`</a> | 932 |
+| <a href="/lean/FixedPower.lean">`FixedPower.lean`</a> | 567 |
+| <a href="/lean/Laws.lean">`Laws.lean`</a> | 353 |
 | <a href="/lean/Ring.lean">`Ring.lean`</a> | 234 |
 | <a href="/lean/Rosette.lean">`Rosette.lean`</a> | 148 |
+| <a href="/lean/FermatRing12.lean">`FermatRing12.lean`</a> | 96 |
 | <a href="/lean/Nim.lean">`Nim.lean`</a> | 93 |
-| <a href="/lean/Core.lean">`Core.lean`</a> | 64 |
-| <a href="/lean/Quantum.lean">`Quantum.lean`</a> | 58 |
-| <a href="/lean/Sequence.lean">`Sequence.lean`</a> | 33 |
-| <a href="/lean/Cipher.lean">`Cipher.lean`</a> | 30 |
-| <a href="/lean/Coins.lean">`Coins.lean`</a> | 25 |
-| <a href="/lean/Reasoning.lean">`Reasoning.lean`</a> | 25 |
-| <a href="/lean/Chessgames.lean">`Chessgames.lean`</a> | 24 |
-| <a href="/lean/Hexbit.lean">`Hexbit.lean`</a> | 22 |
-| <a href="/lean/Audit.lean">`Audit.lean`</a> | 18 |
-| <a href="/lean/Colour.lean">`Colour.lean`</a> | 18 |
-| <a href="/lean/Hardware.lean">`Hardware.lean`</a> | 18 |
-| <a href="/lean/Neuro.lean">`Neuro.lean`</a> | 18 |
-| <a href="/lean/Topography.lean">`Topography.lean`</a> | 18 |
-| <a href="/lean/VectorEquilibrium.lean">`VectorEquilibrium.lean`</a> | 18 |
-| <a href="/lean/Waves.lean">`Waves.lean`</a> | 18 |
-| <a href="/lean/BioPhysics.lean">`BioPhysics.lean`</a> | 17 |
+| <a href="/lean/FermatRing9.lean">`FermatRing9.lean`</a> | 83 |
+| <a href="/lean/FermatRing15.lean">`FermatRing15.lean`</a> | 82 |
+| <a href="/lean/FermatRing16.lean">`FermatRing16.lean`</a> | 82 |
+| <a href="/lean/FermatRing6.lean">`FermatRing6.lean`</a> | 82 |
+| <a href="/lean/FermatRing17.lean">`FermatRing17.lean`</a> | 79 |
+| <a href="/lean/FermatRing18.lean">`FermatRing18.lean`</a> | 78 |
+| <a href="/lean/FermatRing14.lean">`FermatRing14.lean`</a> | 76 |
+| <a href="/lean/FermatRing8.lean">`FermatRing8.lean`</a> | 75 |
+| <a href="/lean/FermatRing5.lean">`FermatRing5.lean`</a> | 73 |
+| <a href="/lean/FermatRing4.lean">`FermatRing4.lean`</a> | 72 |
+| <a href="/lean/FermatRing11.lean">`FermatRing11.lean`</a> | 71 |
+| <a href="/lean/FermatRing10.lean">`FermatRing10.lean`</a> | 69 |
+| <a href="/lean/FermatRing13.lean">`FermatRing13.lean`</a> | 66 |
 
 ## World solutions = waves of automation
 

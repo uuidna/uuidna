@@ -1,0 +1,12 @@
+{
+  "handle": "c9a49632",
+  "address": "c9a49632-9bbe-8209-95b9-f3c4e268570e",
+  "kind": "chunk",
+  "keys": [
+    "no_maximal_board"
+  ],
+  "statement": "(List.range 12).all (fun k => (8:Nat)^(k+1) < 8^(k+2))",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

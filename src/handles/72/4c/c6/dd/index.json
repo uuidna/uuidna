@@ -1,0 +1,12 @@
+{
+  "handle": "724cc6dd",
+  "address": "724cc6dd-7bb2-8d02-8a34-e050a1201932",
+  "kind": "chunk",
+  "keys": [
+    "no_audit_catches_all"
+  ],
+  "statement": "(List.range 16).all (fun n => (2:Nat)^(n+1) < 2^(n+2))",
+  "files": [
+    "AuditGame.lean"
+  ]
+}

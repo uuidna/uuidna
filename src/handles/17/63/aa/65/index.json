@@ -1,0 +1,12 @@
+{
+  "handle": "1763aa65",
+  "address": "1763aa65-fed6-8869-9de3-ee30eb3797ed",
+  "kind": "chunk",
+  "keys": [
+    "exponent_reduces_at_lambda_78"
+  ],
+  "statement": "[(3,3),(4,2),(5,1),(6,6),(7,1),(8,2),(9,3),(10,2),(11,1),(12,6),(13,13),(14,2),(15,3),(16,2),(17,1),(18,6),(19,1),(20,2),(21,3),(22,2),(23,1)].all (fun p => Nat.gcd p.1 78 == p.2)",
+  "files": [
+    "FermatReduction.lean"
+  ]
+}

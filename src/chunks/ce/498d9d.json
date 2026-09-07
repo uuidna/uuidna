@@ -1,0 +1,12 @@
+{
+  "handle": "ce498d9d",
+  "address": "ce498d9d-27ae-86de-8000-d08220bd19de",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28]].map (fun c => c.countP (fun x => pw x 29 29 == 0))).foldl (· + ·) 0 = 29 / lawRadical [(29,1)]",
+  "tactic": "decide",
+  "keys": [
+    "nilpotent_count_law_mod_29"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

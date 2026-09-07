@@ -1,0 +1,12 @@
+{
+  "handle": "8634c309",
+  "address": "8634c309-ee39-8539-9d24-fd06dadedcb6",
+  "statement": "(pmod 1 3 61 + pmod 2 3 61) % 61 = pmod 16 3 61",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_3_mod_61"
+  ],
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "70a60355",
+  "address": "70a60355-145c-8f09-948f-d00741985358",
+  "kind": "chunk",
+  "keys": [
+    "nilpotent_count_law_mod_2"
+  ],
+  "statement": "([[0,1]].map (fun c => c.countP (fun x => pw x 2 2 == 0))).foldl (· + ·) 0 = 2 / lawRadical [(2,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1d8431c7",
+  "address": "1d8431c7-6a28-81dd-aea3-da3f1724afef",
+  "kind": "chunk",
+  "keys": [
+    "unit_group_exponent_mod_19"
+  ],
+  "statement": "([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].all (fun a => pmod a 18 19 == 1)) ∧ ([1,2,3,6,9].all (fun k => !([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18].all (fun a => pmod a k 19 == 1))))",
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

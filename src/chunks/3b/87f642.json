@@ -1,0 +1,12 @@
+{
+  "handle": "3b87f642",
+  "address": "3b87f642-e12c-8d52-9fba-b40acbaf0b17",
+  "statement": "([1,5,11,13,17,19,23,25,29,31,37,41,43,47,53,55,59,61,65,67,71,73,79,83].all (fun a => pmod a 6 84 == 1)) ∧ ([1,2,3].all (fun k => !([1,5,11,13,17,19,23,25,29,31,37,41,43,47,53,55,59,61,65,67,71,73,79,83].all (fun a => pmod a k 84 == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "unit_group_exponent_mod_84"
+  ],
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

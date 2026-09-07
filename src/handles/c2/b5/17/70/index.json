@@ -1,0 +1,12 @@
+{
+  "handle": "c2b51770",
+  "address": "c2b51770-3205-8c43-8b71-cdc80df8d7e0",
+  "kind": "chunk",
+  "keys": [
+    "divisor_count_law_mod_37"
+  ],
+  "statement": "([[0,1,2,3,4,5,6],[7,8,9,10,11,12,13],[14,15,16,17,18,19,20],[21,22,23,24,25,26,27],[28,29,30,31,32,33,34],[35,36,37]].map (fun c => c.countP (fun x => x != 0 && 37 % x == 0))).foldl (· + ·) 0 = lawDivisors [(37,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

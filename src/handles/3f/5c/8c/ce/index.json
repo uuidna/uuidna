@@ -1,0 +1,12 @@
+{
+  "handle": "3f5c8cce",
+  "address": "3f5c8cce-9628-8f1e-a1dd-2705e8e2e6bc",
+  "kind": "chunk",
+  "keys": [
+    "fixed_power_law_mod_26"
+  ],
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25]].map (fun c => c.countP (fun x => pmod x 26 26 == x % 26))).foldl (· + ·) 0 = lawPow 26 [2,13]",
+  "files": [
+    "FixedPower.lean"
+  ]
+}

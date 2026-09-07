@@ -1,0 +1,12 @@
+{
+  "handle": "248fe59f",
+  "address": "248fe59f-f62b-8f38-a086-1e31c6e6baa8",
+  "statement": "(([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28]].map (fun c => (c.filter (fun x => Nat.gcd x 29 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 29 = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_vanishes_mod_29"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

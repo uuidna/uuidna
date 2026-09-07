@@ -1,0 +1,12 @@
+{
+  "handle": "53d708ef",
+  "address": "53d708ef-de6c-8ce0-8be9-7779f0f1615f",
+  "statement": "(pmod 1 9 109 + pmod 3 9 109) % 109 = pmod 31 9 109",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_9_mod_109"
+  ],
+  "files": [
+    "FermatRing2.lean"
+  ]
+}

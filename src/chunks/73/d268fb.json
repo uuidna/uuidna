@@ -1,0 +1,12 @@
+{
+  "handle": "73d268fb",
+  "address": "73d268fb-b1df-84cd-8d89-5c87872e953b",
+  "statement": "([[0,1,2],[3,4,5],[6,7]].map (fun c => c.countP (fun x => pw x 8 8 == 0))).foldl (· + ·) 0 = 8 / lawRadical [(2,3)]",
+  "tactic": "decide",
+  "keys": [
+    "nilpotent_count_law_mod_8"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

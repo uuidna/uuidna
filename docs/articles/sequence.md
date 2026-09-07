@@ -7,7 +7,7 @@ description: "Computed from lean/Sequence.lean — 33 sealed theorems, every cla
 
 > The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 32 siblings below.
 
-**33 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in <a href="/lean/Sequence.lean">lean/Sequence.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 33 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
+**33 theorems** and **1,687 decided cases**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in <a href="/lean/Sequence.lean">lean/Sequence.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 33 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSequence.lean)** — nothing to install. The editor fetches `lean/Sequence.lean` from the repository and re-decides all 33 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -64,14 +64,14 @@ The ledger holds this as [one_orbit](/theorem/one_orbit) — proven `by decide`,
 The ledger holds this as [ten_pairs](/theorem/ten_pairs) — proven `by decide`, sorry-free:
 
 ```lean
-(List.range' 1 9).all (fun d => d + (10 - d) == 10)
+((List.range' 1 9).all (fun d => d + (10 - d) == 10)) ∧ (((List.range' 1 9).map (fun d => 10 - d)).eraseDups.length = 9) ∧ (((List.range' 1 9).filter (fun d => 10 - d == d)).length = 1)
 ```
 
 ### the polar equilibrium: d + (9−d) = 9 across the negation of ℤ/9
 The ledger holds this as [polar_nine_pairs](/theorem/polar_nine_pairs) — proven `by decide`, sorry-free:
 
 ```lean
-(List.range' 1 8).all (fun d => d + (9 - d) == 9)
+((List.range' 1 8).all (fun d => d + (9 - d) == 9)) ∧ (((List.range' 1 8).map (fun d => 9 - d)).eraseDups.length = 8) ∧ (((List.range' 1 8).filter (fun d => 9 - d == d)).length = 0)
 ```
 
 ### the 6+3 partition: 6 units {1,2,4,5,7,8} and 3 non-units {3,6,9}

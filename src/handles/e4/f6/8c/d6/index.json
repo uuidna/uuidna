@@ -1,0 +1,12 @@
+{
+  "handle": "e4f68cd6",
+  "address": "e4f68cd6-5581-801b-aa82-a796717b2e3b",
+  "kind": "chunk",
+  "keys": [
+    "light_on_null_cone"
+  ],
+  "statement": "((5*5 - 5*5 : Int) = 0) ∧ ((5*5 - 4*4 : Int) ≠ 0) ∧ ((5*5 - 6*6 : Int) ≠ 0)",
+  "files": [
+    "Relativity.lean"
+  ]
+}

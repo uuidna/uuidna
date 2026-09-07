@@ -1,0 +1,12 @@
+{
+  "handle": "298b69ef",
+  "address": "298b69ef-1f72-81c7-8489-1daa773157af",
+  "statement": "[(1,1),(2,2),(3,2),(4,2),(5,3),(6,3),(7,3),(8,3),(9,3),(10,4),(11,4),(12,4),(13,4),(14,4),(15,4),(16,4),(17,5),(18,5),(19,5),(20,5)].all (fun t => t.2 + (t.1 + t.2 - 1) / t.2 <= 2 * t.2 + 1)",
+  "tactic": "decide",
+  "keys": [
+    "blocked_walk_depth_is_bounded_by_twice_the_root_1_to_20"
+  ],
+  "files": [
+    "Recursion.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "63eef454",
+  "address": "63eef454-296e-8490-9ef9-875f420319ed",
+  "statement": "6^3 + 8^3 + 1 = 9^3 ∧ 9^3 + 10^3 = 12^3 + 1 ∧ 9^3 + 10^3 = 1729",
+  "tactic": "decide",
+  "keys": [
+    "cube_near_misses_are_the_taxicab_and_its_neighbour"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

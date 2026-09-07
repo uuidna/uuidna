@@ -1,0 +1,12 @@
+{
+  "handle": "dc163314",
+  "address": "dc163314-3ae5-8d10-a1bf-d8a5cfc44ea2",
+  "statement": "([1,2,4,5,7,8,10,11,14,16,17,19,20,22,23,25,28,29,31,32,34,35,37,38].all (fun a => [1,25].contains (pmod a 6 39))) ∧ ([1,25].all (fun v => [1,2,4,5,7,8,10,11,14,16,17,19,20,22,23,25,28,29,31,32,34,35,37,38].any (fun a => pmod a 6 39 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_6_mod_39"
+  ],
+  "files": [
+    "FermatRing16.lean"
+  ]
+}

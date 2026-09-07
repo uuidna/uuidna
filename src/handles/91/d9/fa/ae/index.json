@@ -1,0 +1,12 @@
+{
+  "handle": "91d9faae",
+  "address": "91d9faae-a776-840e-98a2-81a70ce7e8fe",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_16"
+  ],
+  "statement": "[1,3,5,7,9,11,13,15].all (fun a => [1,3,5,7,9,11,13,15].all (fun b => !([1].contains ((pmod a 4 16 + pmod b 4 16) % 16))))",
+  "files": [
+    "FermatRing14.lean"
+  ]
+}

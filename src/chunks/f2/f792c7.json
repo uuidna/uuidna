@@ -1,0 +1,12 @@
+{
+  "handle": "f2f792c7",
+  "address": "f2f792c7-5bba-8813-a9e7-673354d61f50",
+  "statement": "(pmod 1 2 17 + pmod 1 2 17) % 17 = pmod 6 2 17",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_2_mod_17"
+  ],
+  "files": [
+    "FermatRing15.lean"
+  ]
+}

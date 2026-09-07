@@ -1,0 +1,12 @@
+{
+  "handle": "3d188a23",
+  "address": "3d188a23-c748-88ec-9628-06877e1c4b35",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_vanishes_mod_18"
+  ],
+  "statement": "(([[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16,17]].map (fun c => (c.filter (fun x => Nat.gcd x 18 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 18 = 0",
+  "files": [
+    "Laws.lean"
+  ]
+}

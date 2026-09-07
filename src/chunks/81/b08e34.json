@@ -1,0 +1,12 @@
+{
+  "handle": "81b08e34",
+  "address": "81b08e34-ddfc-8a68-8c12-22ba9d02790f",
+  "statement": "[(3,3),(4,4),(5,1),(6,6),(7,1),(8,8),(9,3),(10,2),(11,1),(12,12),(13,1),(14,2),(15,3),(16,16),(17,1),(18,6),(19,1),(20,4),(21,3),(22,2),(23,1)].all (fun p => Nat.gcd p.1 48 == p.2)",
+  "tactic": "decide",
+  "keys": [
+    "exponent_reduces_at_lambda_48"
+  ],
+  "files": [
+    "FermatReduction.lean"
+  ]
+}

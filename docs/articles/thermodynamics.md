@@ -7,7 +7,7 @@ description: "Computed from lean/Thermodynamics.lean — 11 sealed theorems, eve
 
 > THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 10 siblings below.
 
-**11 theorems**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
+**11 theorems** and **21 decided cases**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FThermodynamics.lean)** — nothing to install. The editor fetches `lean/Thermodynamics.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -50,7 +50,7 @@ The ledger holds this as [charles_law](/theorem/charles_law) — proven `by deci
 The ledger holds this as [no_perpetual_motion](/theorem/no_perpetual_motion) — proven `by decide`, sorry-free:
 
 ```lean
-(40 <= 100) ∧ ((100 - 40) = 60)
+[((400,100),(60,45)),((500,150),(80,56)),((600,200),(100,66)),((700,250),(120,77)),((800,300),(140,87)),((900,350),(160,97)),((1000,400),(180,108)),((1100,450),(200,118)),((1200,500),(220,128)),((1300,550),(240,138)),((1400,600),(260,148)),((1500,650),(280,158))].all (fun e => e.2.2 * e.1.1 <= e.2.1 * (e.1.1 - e.1.2))
 ```
 
 ### Specific heat is linear: Q = m·c·ΔT, so with m·c = 10 the heat scales with the temperature change — ΔT of [1,2,3] needs Q of [10,20,30]. Double the rise, double the heat.

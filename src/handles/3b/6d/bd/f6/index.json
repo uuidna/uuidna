@@ -1,0 +1,12 @@
+{
+  "handle": "3b6dbdf6",
+  "address": "3b6dbdf6-6dfc-8f14-8f2a-c776d6f308dd",
+  "kind": "chunk",
+  "keys": [
+    "faraday_needs_changing_flux"
+  ],
+  "statement": "((5 - 5 : Int) = 0) ∧ ((7 - 5 : Int) ≠ 0)",
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

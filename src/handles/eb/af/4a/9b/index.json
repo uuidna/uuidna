@@ -1,0 +1,12 @@
+{
+  "handle": "ebaf4a9b",
+  "address": "ebaf4a9b-a000-8c1e-9498-d429e99c28cf",
+  "kind": "chunk",
+  "keys": [
+    "divisor_count_law_mod_7"
+  ],
+  "statement": "([[0,1,2],[3,4,5],[6,7]].map (fun c => c.countP (fun x => x != 0 && 7 % x == 0))).foldl (· + ·) 0 = lawDivisors [(7,1)]",
+  "files": [
+    "Laws.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d762737e",
+  "address": "d762737e-8f71-8c8e-aa91-b9872e0d96c1",
+  "statement": "(pmod 1 1 103 + pmod 1 1 103) % 103 = pmod 2 1 103",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_103"
+  ],
+  "files": [
+    "FermatRing17.lean"
+  ]
+}

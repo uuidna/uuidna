@@ -1,0 +1,12 @@
+{
+  "handle": "98adc095",
+  "address": "98adc095-79dd-840f-88b9-ec7f9ac5565c",
+  "statement": "(10344 * 17 = 175848) ∧ (175848 > 81920) ∧ (81920 / 10344 = 7) ∧ (7 < 17) ∧ (7 * 2 < 17)",
+  "tactic": "decide",
+  "keys": [
+    "the_retention_model_did_not_survive_the_doubling"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

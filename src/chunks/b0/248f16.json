@@ -1,0 +1,12 @@
+{
+  "handle": "b0248f16",
+  "address": "b0248f16-eb02-8bd8-9ec8-d84275cb7174",
+  "statement": "fermatWindow 1 = 100",
+  "tactic": "decide",
+  "keys": [
+    "fermat_window_exponent_one_counts_one_hundred"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

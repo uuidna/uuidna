@@ -1,0 +1,12 @@
+{
+  "handle": "4f3aa05b",
+  "address": "4f3aa05b-ae3f-8cec-b7ca-eb4b7ae0d89a",
+  "kind": "chunk",
+  "keys": [
+    "coprime_sum_blocked_reduced_18_mod_38"
+  ],
+  "statement": "[1,3,5,7,9,11,13,15,17,21,23,25,27,29,31,33,35,37].all (fun a => [1,3,5,7,9,11,13,15,17,21,23,25,27,29,31,33,35,37].all (fun b => !([1].contains ((pmod a 18 38 + pmod b 18 38) % 38))))",
+  "files": [
+    "FermatRing15.lean"
+  ]
+}

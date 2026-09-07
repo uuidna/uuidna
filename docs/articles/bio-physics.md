@@ -7,7 +7,7 @@ description: "Computed from lean/BioPhysics.lean — 17 sealed theorems, every c
 
 > The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). the combinatorial skeleton only — NOT a medical, genetic, chemical or physical claim about any person or measurement. — held by [abo_klein_four](/theorem/abo_klein_four) and its 16 siblings below.
 
-**17 theorems**, from [abo_klein_four](/theorem/abo_klein_four) onward, each proven `by decide` in <a href="/lean/BioPhysics.lean">lean/BioPhysics.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [punnett_three_to_one](/theorem/punnett_three_to_one). A boundary stated here is decided.
+**17 theorems** and **411 decided cases**, from [abo_klein_four](/theorem/abo_klein_four) onward, each proven `by decide` in <a href="/lean/BioPhysics.lean">lean/BioPhysics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [punnett_three_to_one](/theorem/punnett_three_to_one). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FBioPhysics.lean)** — nothing to install. The editor fetches `lean/BioPhysics.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -92,7 +92,7 @@ The ledger holds this as [ph_reflection_seven](/theorem/ph_reflection_seven) —
 The ledger holds this as [ph_conjugate_sum_14](/theorem/ph_conjugate_sum_14) — proven `by decide`, sorry-free:
 
 ```lean
-(List.range 15).all (fun p => p + (14 - p) == 14)
+((List.range 15).all (fun p => p + (14 - p) == 14)) ∧ (((List.range 15).filter (fun p => 14 - p == p)).length = 1) ∧ (((List.range 15).map (fun p => 14 - p)).eraseDups.length = 15)
 ```
 
 ### the monohybrid cross gives 3:1 — of the four allele pairings only (a,a) is recessive; dominance is a logical OR

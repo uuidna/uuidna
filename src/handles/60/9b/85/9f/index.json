@@ -1,0 +1,12 @@
+{
+  "handle": "609b859f",
+  "address": "609b859f-f28a-80a2-98ec-9d631e081fe5",
+  "kind": "chunk",
+  "keys": [
+    "fixed_power_multiplicative_2_by_7"
+  ],
+  "statement": "([[0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13]].map (fun c => c.countP (fun x => pmod x 14 14 == x % 14))).foldl (· + ·) 0 = (([[0,1]].map (fun c => c.countP (fun x => pmod x 14 2 == x % 2))).foldl (· + ·) 0) * (([[0,1,2],[3,4,5],[6]].map (fun c => c.countP (fun x => pmod x 14 7 == x % 7))).foldl (· + ·) 0)",
+  "files": [
+    "FixedPower.lean"
+  ]
+}

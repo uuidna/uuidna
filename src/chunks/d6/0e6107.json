@@ -1,0 +1,12 @@
+{
+  "handle": "d60e6107",
+  "address": "d60e6107-cdac-8c66-a3f0-c47680a9c08b",
+  "statement": "[2,3,5,11,23,29,41,53,83,89].all (fun p => (List.range p).all (fun d => d < 2 || p % d != 0 || d * d > p) && (List.range (2*p+1)).all (fun d => d < 2 || (2*p+1) % d != 0 || d * d > (2*p+1)))",
+  "tactic": "decide",
+  "keys": [
+    "sophie_germain_primes_below_one_hundred"
+  ],
+  "files": [
+    "Fermat.lean"
+  ]
+}

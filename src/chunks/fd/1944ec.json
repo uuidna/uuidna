@@ -1,0 +1,12 @@
+{
+  "handle": "fd1944ec",
+  "address": "fd1944ec-fce5-8b28-91bf-a93728d9a04c",
+  "statement": "[1,5,11,13,17,19,23,25,29,31,37,41].all (fun a => [1,5,11,13,17,19,23,25,29,31,37,41].all (fun b => !([1,25,37].contains ((pmod a 2 42 + pmod b 2 42) % 42))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_42"
+  ],
+  "files": [
+    "FermatRing19.lean"
+  ]
+}

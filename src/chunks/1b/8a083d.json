@@ -1,0 +1,12 @@
+{
+  "handle": "1b8a083d",
+  "address": "1b8a083d-f7ff-89a8-bc8d-ae88cb3cafa9",
+  "statement": "(5116 + 144 + 5033 + 33 + 18 = 10344) ∧ (57800000 / 6250 = 9248) ∧ (1305 - 725 = 580) ∧ (9248 < 10344)",
+  "tactic": "decide",
+  "keys": [
+    "the_citations_were_one_table_shipped_nine_thousand_times"
+  ],
+  "files": [
+    "RenderBudget.lean"
+  ]
+}

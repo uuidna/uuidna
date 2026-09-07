@@ -1,0 +1,12 @@
+{
+  "handle": "b276685f",
+  "address": "b276685f-0cf6-89eb-8a32-010f6d8e57b3",
+  "statement": "([[0,1]].map (fun c => c.countP (fun x => pmod x 20 2 == x % 2))).foldl (· + ·) 0 = 1 + Nat.gcd 19 1",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_on_prime_2_exp_20"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

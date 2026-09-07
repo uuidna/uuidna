@@ -1,0 +1,12 @@
+{
+  "handle": "ddac586f",
+  "address": "ddac586f-055e-8a45-84fd-61e3e5c37ed4",
+  "statement": "([[0,1,2],[3,4,5],[6,7]].map (fun c => c.countP (fun x => pmod x 8 8 == x % 8))).foldl (· + ·) 0 = lawPow 8 [2]",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_law_mod_8"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

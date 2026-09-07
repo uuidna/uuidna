@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="41 doors" />
+# Public APIs <Badge type="tip" text="42 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**41 APIs** · sweep 13 · door [`92b49ee5`](https://uuidna.com/92b49ee5) · receipt `92b49ee5-421b-829d-a1b7-7fcd9b24c555`
+**42 APIs** · sweep 13 · door [`bd2d3e27`](https://uuidna.com/bd2d3e27) · receipt `bd2d3e27-858c-8de5-8bb6-5db86b9ccc3f`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -88,7 +88,8 @@ never summed.
 | `zenodo-communities` | zenodo.org | registry | keyless | fetched | no | yes |
 | `stooq` | stooq.com | market | keyless | fetched | no | no |
 | `beacon-nist` | beacon.nist.gov | metadata | keyless | fetched | no | no |
+| `datacite` | api.datacite.org | registry | keyless | fetched | no | no |
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/92b49ee5`.
+Cite handle `https://uuidna.com/bd2d3e27`.

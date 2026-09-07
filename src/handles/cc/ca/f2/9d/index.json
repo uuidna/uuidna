@@ -1,0 +1,12 @@
+{
+  "handle": "cccaf29d",
+  "address": "cccaf29d-5acb-8c99-8625-258c5c3aad1c",
+  "kind": "chunk",
+  "keys": [
+    "fermat_window_exponent_two_counts_six"
+  ],
+  "statement": "fermatWindow 2 = 6",
+  "files": [
+    "Fermat.lean"
+  ]
+}

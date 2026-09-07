@@ -1,0 +1,12 @@
+{
+  "handle": "599e9cc6",
+  "address": "599e9cc6-e720-8114-8503-c035346a075f",
+  "statement": "(pmod 1 1 97 + pmod 1 1 97) % 97 = pmod 2 1 97",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_97"
+  ],
+  "files": [
+    "FermatRing11.lean"
+  ]
+}

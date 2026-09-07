@@ -1,0 +1,12 @@
+{
+  "handle": "a46d0429",
+  "address": "a46d0429-b1c8-8052-b6af-97281e8e713b",
+  "statement": "(([[2,3,4,5,7,8,9],[11,13,15,16,17,19,23],[24,25,29,31,37,41,43],[45,47,49,53,59,61,67],[71,73,79,83,89,97,101],[103,107,109,113]].map (fun c => c.length)).foldl (· + ·) 0 = 39) ∧ (2 < 113)",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_law_is_not_vacuous"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

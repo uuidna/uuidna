@@ -1,0 +1,12 @@
+{
+  "handle": "cdc2c7f4",
+  "address": "cdc2c7f4-6e26-8c27-a059-7f4166901cb7",
+  "statement": "(([[0,1,2],[3,4,5],[6]].map (fun c => (c.filter (fun x => Nat.gcd x 7 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 7 = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_vanishes_mod_7"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a4ef5ec9",
+  "address": "a4ef5ec9-17e5-8fa1-8625-64fe206c68c1",
+  "statement": "[1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59,61,67,71,73,77,79,83,89].all (fun a => [1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59,61,67,71,73,77,79,83,89].all (fun b => !([1,31,61].contains ((pmod a 4 90 + pmod b 4 90) % 90))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_4_mod_90"
+  ],
+  "files": [
+    "FermatRing4.lean"
+  ]
+}

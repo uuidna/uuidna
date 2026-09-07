@@ -1,0 +1,12 @@
+{
+  "handle": "d09f556b",
+  "address": "d09f556b-ca8f-8b45-8bf5-e591ea37b50a",
+  "statement": "([[0,1,2],[3,4,5]].map (fun c => c.countP (fun x => x != 0 && 5 % x == 0))).foldl (· + ·) 0 = lawDivisors [(5,1)]",
+  "tactic": "decide",
+  "keys": [
+    "divisor_count_law_mod_5"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

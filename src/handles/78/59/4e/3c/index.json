@@ -1,0 +1,12 @@
+{
+  "handle": "78594e3c",
+  "address": "78594e3c-dd28-8d95-8a69-bdb935ecbe6c",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_vanishes_mod_27"
+  ],
+  "statement": "(([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26]].map (fun c => (c.filter (fun x => Nat.gcd x 27 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 27 = 0",
+  "files": [
+    "Laws.lean"
+  ]
+}

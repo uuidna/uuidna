@@ -1,0 +1,12 @@
+{
+  "handle": "9b41fd61",
+  "address": "9b41fd61-5773-8e46-9b00-65c38f7d9adf",
+  "kind": "chunk",
+  "keys": [
+    "fixed_power_law_mod_24"
+  ],
+  "statement": "([[0,1,2,3,4],[5,6,7,8,9],[10,11,12,13,14],[15,16,17,18,19],[20,21,22,23]].map (fun c => c.countP (fun x => pmod x 24 24 == x % 24))).foldl (· + ·) 0 = lawPow 24 [2,3]",
+  "files": [
+    "FixedPower.lean"
+  ]
+}

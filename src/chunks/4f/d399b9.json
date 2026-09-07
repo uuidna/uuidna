@@ -1,0 +1,12 @@
+{
+  "handle": "4fd399b9",
+  "address": "4fd399b9-939f-8126-bae6-2b545929f497",
+  "statement": "(0 < 141) ∧ (0 < 3) ∧ (5073 = 5073 + 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

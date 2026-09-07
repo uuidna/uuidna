@@ -1,0 +1,12 @@
+{
+  "handle": "51475e01",
+  "address": "51475e01-4e67-86dd-9346-9fdbeeedb813",
+  "statement": "[1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19,21,22,23,24].all (fun a => [1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19,21,22,23,24].all (fun b => !([1,4,6,9,11,14,16,19,21,24].contains ((pmod a 2 25 + pmod b 2 25) % 25))))",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_blocked_reduced_2_mod_25"
+  ],
+  "files": [
+    "FermatRing2.lean"
+  ]
+}

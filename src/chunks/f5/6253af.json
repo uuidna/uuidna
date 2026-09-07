@@ -1,0 +1,12 @@
+{
+  "handle": "f56253af",
+  "address": "f56253af-296c-8591-93c2-8be9b38a71ff",
+  "statement": "(pmod 1 1 29 + pmod 1 1 29) % 29 = pmod 2 1 29",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_1_mod_29"
+  ],
+  "files": [
+    "FermatRing6.lean"
+  ]
+}

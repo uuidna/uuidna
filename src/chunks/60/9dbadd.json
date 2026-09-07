@@ -1,0 +1,12 @@
+{
+  "handle": "609dbadd",
+  "address": "609dbadd-eafb-881a-9d83-6667c2ccb6f9",
+  "statement": "([1,5,7,11,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,67,71,73,77].all (fun a => [1,25,43,49,55,61].contains (pmod a 2 78))) ∧ ([1,25,43,49,55,61].all (fun v => [1,5,7,11,17,19,23,25,29,31,35,37,41,43,47,49,53,55,59,61,67,71,73,77].any (fun a => pmod a 2 78 == v)))",
+  "tactic": "decide",
+  "keys": [
+    "power_image_exact_reduced_2_mod_78"
+  ],
+  "files": [
+    "FermatRing13.lean"
+  ]
+}

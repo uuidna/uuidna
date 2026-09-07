@@ -1,0 +1,12 @@
+{
+  "handle": "ea53b5da",
+  "address": "ea53b5da-e947-8662-b45d-16aeda3caa46",
+  "statement": "([[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14,15,16,17],[18,19,20,21,22,23],[24,25,26,27,28,29]].map (fun c => c.countP (fun x => pmod x 30 30 == x % 30))).foldl (· + ·) 0 = (([[0,1],[2]].map (fun c => c.countP (fun x => pmod x 30 3 == x % 3))).foldl (· + ·) 0) * (([[0,1,2,3],[4,5,6,7],[8,9]].map (fun c => c.countP (fun x => pmod x 30 10 == x % 10))).foldl (· + ·) 0)",
+  "tactic": "decide",
+  "keys": [
+    "fixed_power_multiplicative_3_by_10"
+  ],
+  "files": [
+    "FixedPower.lean"
+  ]
+}

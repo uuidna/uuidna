@@ -1,0 +1,12 @@
+{
+  "handle": "40241892",
+  "address": "40241892-7810-86a4-8e28-9192a7d91fea",
+  "statement": "(([[0,1,2],[3,4,5],[6,7,8]].map (fun c => (c.filter (fun x => Nat.gcd x 9 == 1)).foldl (fun a x => a + x) 0)).foldl (· + ·) 0) % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_vanishes_mod_9"
+  ],
+  "files": [
+    "Laws.lean"
+  ]
+}

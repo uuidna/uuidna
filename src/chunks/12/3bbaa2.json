@@ -1,0 +1,12 @@
+{
+  "handle": "123bbaa2",
+  "address": "123bbaa2-33e2-856a-bd3b-d0b01fab12fc",
+  "statement": "(pmod 1 2 101 + pmod 2 2 101) % 101 = pmod 45 2 101",
+  "tactic": "decide",
+  "keys": [
+    "coprime_sum_open_reduced_2_mod_101"
+  ],
+  "files": [
+    "FermatRing15.lean"
+  ]
+}

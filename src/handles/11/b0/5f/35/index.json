@@ -1,0 +1,12 @@
+{
+  "handle": "11b05f35",
+  "address": "11b05f35-ded1-860d-a9f6-88822da02c0c",
+  "kind": "chunk",
+  "keys": [
+    "fixed_power_on_prime_3_exp_16"
+  ],
+  "statement": "([[0,1],[2]].map (fun c => c.countP (fun x => pmod x 16 3 == x % 3))).foldl (· + ·) 0 = 1 + Nat.gcd 15 2",
+  "files": [
+    "FixedPower.lean"
+  ]
+}
