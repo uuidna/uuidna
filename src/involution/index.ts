@@ -35,6 +35,7 @@
 // belongs to passes the second. Whether that root MEANS anything is a separate question, and `control` below
 // is the reason it is not asserted: a digital root computed from one pile is not evidence until same-sized
 // piles drawn at random are shown to do something else.
+import { KNOWN_DEFS, simpleDefs } from '../wing-defs.js'
 import { theorems } from '../theorems/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import {
@@ -193,9 +194,25 @@ export function desugarFinForall(statement: string): string {
   return out
 }
 
-export const evaluable = (statement: string): boolean =>
+/** the identifiers a wing defines — stripped before the character whitelist, because a name this evaluator can
+ *  now RESOLVE must not be rejected for containing letters. Without this the gate refuses the statement before
+ *  the environment ever gets a chance to interpret it. */
+const wingNames = (wingSource: string): RegExp | null => {
+  if (!wingSource) return null
+  const names = new Set<string>(Object.keys(KNOWN_DEFS))
+  for (const d of simpleDefs(wingSource)) { names.add(d.name); for (const p of d.params) names.add(p) }
+  const live = [...names].filter((n) => new RegExp('\\b' + n + '\\b').test(wingSource))
+  if (!live.length) return null
+  return new RegExp('\\b(' + live.sort((a, b) => b.length - a.length).join('|') + ')\\b', 'g')
+}
+
+export const evaluable = (statement: string, wingSource = ''): boolean =>
   /^[\s0-9()+*%/^=∧∨<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
-    stripFunBinders(stripStrings(stripAscriptions(stripComments(desugarFinForall(statement))))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
+    ((): string => {
+      const base = stripFunBinders(stripStrings(stripAscriptions(stripComments(desugarFinForall(statement))))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, '')
+      const wn = wingNames(wingSource)
+      return wn ? base.replace(wn, '') : base
+    })(),
   )
 
 
@@ -1294,7 +1311,18 @@ const atom = (c: Cursor): Val => {
         ws(c)
         const argSave = c.i
         try {
-          const arg = atom(c)
+          // A NUMERAL ARGUMENT IS PARSED WITHOUT POSTFIX, because `f 2 [3]` is APPLICATION in Lean and postfix
+          // would read the bracket as a slice ON the numeral. That is what it did: a two-parameter definition
+          // whose second argument is a list — lawPow 2 [2] — swallowed the list into the first argument, threw,
+          // and reported the theorem unreachable. One-argument defs and all-numeral defs were unaffected, which
+          // is why it looked like a grammar gap rather than a precedence bug. A postfix on a bare numeral is
+          // meaningless anyway: `.length`, `.1` and a slice all want a list or a pair.
+          let arg: Val
+          if (/[0-9]/.test(c.s[c.i] ?? '')) {
+            const numStart = c.i
+            while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
+            arg = Number(c.s.slice(numStart, c.i))
+          } else arg = atom(c)
           v = asFun(v).run(arg)
         } catch {
           c.i = argSave
@@ -1340,7 +1368,18 @@ const product = (c: Cursor): Val => {
     if (eat(c, '*')) v = mulScalar(forceScalar(v), forceScalar(power(c)))
     else if (eat(c, '%')) {
       const d = asNum(power(c))
-      v = isPow(v) ? modPow(v.b, v.e, d, c.ring) : emod(asNum(v), d, c.ring)
+      if (isPow(v)) { v = modPow(v.b, v.e, d, c.ring); continue }
+      // A PARENTHESISED POWER ARRIVES AS A BIGINT, AND REDUCING IT IS ARITHMETIC, NOT AN OVERFLOW. `a ^ n % m`
+      // keeps its Pow and takes the fused modular route; `(a ^ n) % m` does not, because leaving the paren forces
+      // the power to a scalar — and asNum then refused the bigint. The refusal read as "the grammar cannot decide
+      // this", and the answer was to narrow the theorem's exponent domain from 30 to 11 so the value stayed under
+      // 2^53. That was shrinking a claim to fit an instrument that was already exact three lines away. The modulus
+      // of a big integer is small; only the intermediate was ever large.
+      const x = forceScalar(v)
+      if (typeof x === 'bigint') {
+        const m = BigInt(d === 0 ? 0 : d < 0 ? -d : d)
+        v = m === 0n ? Number(x) : Number(((x % m) + m) % m)
+      } else v = emod(x, d, c.ring)
     } else if (eat(c, '/')) {
       v = divScalar(forceScalar(isPow(v) ? forceScalar(v) : v), forceScalar(power(c)), c.ring)
     } else return isPow(v) ? forceScalar(v) : v
@@ -1615,33 +1654,86 @@ function conjunction(c: Cursor): boolean {
 // about its involution. The statements are the shared work; the involution only decides what happens after.
 const HOLDS = new Map<string, boolean | null>()
 
-export function holds(statement: string): boolean | null {
-  const memo = HOLDS.get(statement)
-  if (memo !== undefined || HOLDS.has(statement)) return memo as boolean | null
-  const verdict = holdsUncached(statement)
-  HOLDS.set(statement, verdict)
+export function holds(statement: string, wingSource = ''): boolean | null {
+  const key = wingSource ? statement + '\u0000' + wingSource.length : statement
+  const memo = HOLDS.get(key)
+  if (memo !== undefined || HOLDS.has(key)) return memo as boolean | null
+  const verdict = holdsUncached(statement, wingSource)
+  HOLDS.set(key, verdict)
   return verdict
 }
 
-function holdsUncached(statement: string): boolean | null {
+/** the wing's own definitions, as an environment this evaluator can use.
+ *
+ *  A theorem stated through `pmod` or `lawPow` was unreachable not because the grammar was missing but because
+ *  the MEANING was: those definitions live in the wing, and the evaluator only ever saw the statement. Reading
+ *  them in is what lets the second implementation recompute the same proposition — which is the whole point of
+ *  the leg. Simple defs are evaluated by this same parser; the recursive helpers are given their mathematical
+ *  meaning instead of having their recursion parsed, so the wing's algorithm and this one agree by computing the
+ *  same function two different ways rather than by sharing an implementation. */
+function wingEnv(wingSource: string, ring: Ring): Env {
+  const env: Env = new Map()
+  if (!wingSource) return env
+  for (const [name, fn] of Object.entries(KNOWN_DEFS)) {
+    const curried = (got: number[]): Val => ({ t: 'f', run: (x: Val): Val => {
+      const n = typeof x === 'bigint' ? Number(x) : x
+      if (typeof n !== 'number') throw new Error('non-numeric argument')
+      const next = [...got, n]
+      const want = fn.length === 1 ? (name === 'ordOf' ? 2 : 3) : 3
+      if (next.length < want) return curried(next)
+      const v = fn(next)
+      if (v === null) throw new Error('undefined at these arguments')
+      return v
+    } })
+    if (new RegExp('\\b' + name + '\\b').test(wingSource)) env.set(name, curried([]))
+  }
+  for (const d of simpleDefs(wingSource)) {
+    if (env.has(d.name)) continue
+    const build = (got: Val[]): Val => ({ t: 'f', run: (x: Val): Val => {
+      const next = [...got, x]
+      if (next.length < d.params.length) return build(next)
+      const inner: Env = new Map(env)
+      d.params.forEach((pname, k) => inner.set(pname, next[k]!))
+      const c: Cursor = { s: stripAscriptions(stripComments(d.body)), i: 0, env: inner, ring }
+      return junction(c)
+    } })
+    env.set(d.name, d.params.length === 0 ? build([]) : build([]))
+  }
+  return env
+}
+
+function holdsUncached(statement: string, wingSource = ''): boolean | null {
   const cleaned = desugarFinForall(stripComments(statement))
-  if (!evaluable(cleaned)) return null
+  if (!evaluable(cleaned, wingSource)) return null
   const src = stripAscriptions(cleaned)
   // Lean elaborates the whole chain as Int once any `: Int` ascription appears (expected type); Nat otherwise.
   const ring: Ring = /\bInt\b/.test(statement) ? 'Int' : 'Nat'
   try {
-    const c: Cursor = { s: src, i: 0, env: new Map(), ring }
+    const c: Cursor = { s: src, i: 0, env: wingEnv(wingSource, ring), ring }
     const v = conjunction(c)
     ws(c)
     if (c.i === src.length) return v
     // Bare `(fun … => …) arg` or `let …; …` with no top-level ∧ — still a decidable Bool.
     c.i = 0
-    c.env = new Map()
+    c.env = wingEnv(wingSource, ring)
     const j = junction(c)
     ws(c)
     if (c.i === src.length && typeof j === 'boolean') return j
     return null
-  } catch { return null }
+  } catch (e) {
+    // THE SWALLOWED THROW IS WHY FOUR BUGS LOOKED LIKE A GRAMMAR GAP. A statement that fails to PARSE and one the
+    // grammar genuinely cannot express both arrive here as null, and null is reported to the operator as "the
+    // evaluator's grammar cannot decide these". Four separate defects — the wrong return-type call, a body scan
+    // that ate a doc comment, a fold given a bare function name, and a missing wing environment — each wore that
+    // sentence while being an ordinary bug three lines away. The diagnostic stays, behind a flag, because the
+    // next one will wear it too.
+    // @non-harmonic: reads an environment flag. It gates PRINTING only — the returned verdict is null either
+    // way, so no theorem's decision depends on the host. Without it a parse failure and a genuine grammar
+    // limit are indistinguishable from outside, which is exactly how four bugs hid behind one honest-
+    // sounding sentence in a single session.
+    if (process.env.UUIDNA_HOLDS_DEBUG) console.error('holds threw: ' + String(e))
+    return null
+  }
 }
 
 /** Apply an involution to the ELEMENTS of a statement, never to a modulus and never inside a multi-digit
