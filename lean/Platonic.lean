@@ -1,5 +1,16 @@
 -- lean/Platonic.lean — GENERATED. THE FIVE PLATONIC SOLIDS, AND WHY THERE ARE EXACTLY FIVE. Each solid carries a cluster: its Schläfli symbol {p,q}, its three counts, Euler's V − E + F = 2, and the incidence identities q·V = 2E = p·F which say the same edges are counted twice, once from the vertices and once from the faces. A triple satisfying Euler alone could still be impossible; satisfying all three is what makes these counts a solid. THE COUNT FIVE IS DECIDED, NOT RECALLED. A vertex of q regular p-gons closes in three dimensions exactly when 1/p + 1/q > 1/2, carried here in integers as 2(p + q) > p·q since this tree holds no rationals. Walking every symbol from 3 to 8 in both coordinates, exactly five pairs satisfy it — and a separate theorem decides that every pair with a coordinate of six or more FAILS, so the grid already extends past where a solution can live and the bound is not assumed by the walk that uses it. DUALITY closes the family on itself: cube with octahedron, dodecahedron with icosahedron, tetrahedron with itself; vertices and faces exchange, edges do not move, and the symbol reverses. SCOPE: the combinatorics. Nothing here constructs a solid or embeds one in space, and the enumeration is complete over the stated grid for the stated reason — which is sealed beside it rather than left in prose. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
+def nth : List Nat → Nat → Nat
+  | [], _ => 0
+  | x :: _, 0 => x
+  | _ :: xs, n+1 => nth xs n
+def solidV : List Nat := [4,8,6,20,12]
+def solidE : List Nat := [6,12,12,30,30]
+def solidF : List Nat := [4,6,8,12,20]
+def solidP : List Nat := [3,4,3,5,3]
+def solidQ : List Nat := [3,3,4,3,5]
+def dualIx : List Nat := [0,2,1,4,3]
+
 /-- THE CLUSTER OF THE TETRAHEDRON, {3,3}: 4 vertices, 6 edges, 4 faces. Three facts hold together and each
     would catch a wrong count on its own — Euler's V − E + F = 2, and the two incidence identities q·V = 2E and
     p·F = 2E, which say that counting edges from the vertices and from the faces reaches the same edges twice. A
@@ -62,7 +73,7 @@ theorem every_admitted_symbol_is_a_tabulated_solid : ([(3,3),(3,4),(3,5),(3,6),(
     conjunction per pair rather than a walk over ten-wide tuples — the first version indexed those by hand and
     Lean refused to synthesise the projections, which is the tell that the shape was carrying the reader and not
     the kernel. -/
-theorem duality_swaps_vertices_and_faces : ((4 = 4) ∧ (4 = 4) ∧ (6 = 6) ∧ (3 = 3) ∧ (3 = 3)) ∧ ((6 = 6) ∧ (8 = 8) ∧ (12 = 12) ∧ (3 = 3) ∧ (4 = 4)) ∧ ((8 = 8) ∧ (6 = 6) ∧ (12 = 12) ∧ (4 = 4) ∧ (3 = 3)) ∧ ((12 = 12) ∧ (20 = 20) ∧ (30 = 30) ∧ (3 = 3) ∧ (5 = 5)) ∧ ((20 = 20) ∧ (12 = 12) ∧ (30 = 30) ∧ (5 = 5) ∧ (3 = 3)) := by decide
+theorem duality_swaps_vertices_and_faces : (List.range 5).all (fun i => (nth solidV (nth dualIx i) == nth solidF i) && (nth solidF (nth dualIx i) == nth solidV i) && (nth solidE (nth dualIx i) == nth solidE i) && (nth solidP (nth dualIx i) == nth solidQ i) && (nth solidQ (nth dualIx i) == nth solidP i)) := by decide
 
 /-- THE FAMILY IS SMALL AND BOUNDED, which is the fact that makes exhaustive treatment possible at all. No
     Platonic solid has more than thirty edges, twenty faces or twenty vertices, so every claim about "all

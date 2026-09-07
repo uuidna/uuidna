@@ -72,9 +72,10 @@ export function handleStoreCensus(root: string): HandleStoreCensus {
       const kind = j.kind ?? 'unnamed'
       kinds[kind] = (kinds[kind] ?? 0) + 1
       if (seg.join('') !== j.handle) pathMismatch.push(here)
-      // NO RAW CONTROL BYTE IN THE SOURCE. A literal NUL here made grep treat this whole file as binary and skip
-      // it silently — a file that searches cannot find is a file nobody reviews. The sentinel is written as an
-      // escape instead: the compiled string is identical and the file stays searchable.
+      // NO RAW CONTROL BYTE IN THE SOURCE. A literal NUL byte makes grep classify the whole file as binary and
+      // skip it — that is grep's documented behaviour on a NUL, a HOST FACT and not a choice, so a reviewer's
+      // search cannot reach this file while the byte is present. The sentinel is written as an escape instead:
+      // the compiled string is identical and the file stays searchable.
       const handle = j.handle ?? '\u0000'
       if (!String(j.address ?? '').replace(/-/g, '').startsWith(handle)) prefixMismatch.push(here)
     }

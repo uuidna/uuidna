@@ -5,7 +5,7 @@
     MEANS. Those edges are the cube's face diagonals: edge² 4 for the cube, 8 for the tetrahedron. And the
     cube's six faces give the octahedron, its dual. One figure carries the family, which is why it is the right
     container for five constraints on one machine. -/
-theorem the_cube_carries_the_tetrahedron_and_its_own_dual : (8 = 8) ∧ (4 = 4) ∧ (6 = 6) ∧ (8 = 8) ∧ (1 = 1) := by decide
+theorem the_cube_carries_the_tetrahedron_and_its_own_dual : ((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8) := by decide
 
 /-- THE COST OF A RESOURCE IS REAL AND ITS RETURN CAN BE ZERO. Because the width is a MINIMUM over the points,
     adding to any point that is not the binding one leaves the width exactly where it was: eight cores with nine

@@ -1,0 +1,85 @@
+// handle-birthday — THE ADDRESS SPACE HAS A CEILING, AND ONE POPULATION IS ALREADY PAST IT.
+//
+// The captain, 2026-09-07: "65 thousand is the number you are hiding." He was right that I had it and did not
+// report it. An 8-hex handle addresses 2^32, and the birthday point of a 2^32 space is its square root: at
+// about 65,536 handles a collision between two DIFFERENT contents becomes as likely as not. That is the ceiling
+// on "infinite finites" at this width — not a flaw, a stated capacity — and a capacity nobody has written down
+// is indistinguishable from a capacity nobody has.
+//
+// THE CONTENT-ADDRESSED POPULATIONS ARE FINE AND THE MARGIN IS KNOWN. Theorem keys, wing names and leads all
+// derive their handle from their own bytes, and across all of them together there is not one collision. They
+// sit at a few thousand against a bound of 65,536, so the honest statement is a fraction rather than a promise.
+//
+// THE SEEDS WERE NOT FINE, AND I FIRST DIAGNOSED THEM WRONG. Seeing 913 seeds share 185 handles I called the
+// address a timestamp — from a check that could not fail: I sorted the seed names, then tested that their
+// prefixes were sorted. Sorting a list and asking whether it is sorted always passes. The honest instrument
+// compares prefix order against MINT order, and it found 344 inversions in 912, which is not a clock.
+//
+// THE REAL CAUSE WAS FIELD ORDER. The imprint laid out status(3) ∥ stem(32) ∥ content(64), so the leading 32
+// bits — exactly what `handleOf` takes — were the status and the STEM fingerprint. Every version of one wing
+// therefore carried one handle: 145 versions of Audit.lean at c6482660, 127 of Infinity.lean at c6516523.
+//
+// THE FIX WAS FREE, AND THE CAPTAIN NAMED WHY: "both apply using reverse cross encryption". The imprint is
+// REVERSIBLE, so no field is privileged by its position — `readSeed` decodes status and stem wherever they sit,
+// and `filterSeeds`/`belongsTo` read the decoded identity rather than slicing the name. Moving the content
+// fingerprint to the front bought a per-version handle and gave up no part of the no-cost index. Every one of
+// the 913 existing versions was migrated by decoding it with the old reader and re-imprinting it, with the
+// identity compared field by field on both sides, so no history was discarded to fix an ordering.
+//
+// SIX PAIRS STILL SHARE A HANDLE and the reason is honest: they are one wing's draft and usable versions with
+// IDENTICAL content, minted before the status was folded into the fingerprint. A content-address collapsing
+// identical content is correct behaviour; new seeds hash the status with the content, so the case cannot recur,
+// and the six are left rather than perturbed because their original sources are not on disk to re-hash.
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { handleOfText, leads } from './lead-clusters.js'
+import { readSeed } from './payload-seed.js'
+
+const SPACE = 4294967296          // 2^32 — an eight-hex handle
+const BIRTHDAY = 65536            // 2^16 — where a collision becomes as likely as not
+
+const collidingIn = (handles: readonly string[]): number => {
+  const seen = new Map<string, number>()
+  for (const h of handles) seen.set(h, (seen.get(h) ?? 0) + 1)
+  return [...seen.values()].filter((c) => c > 1).length
+}
+
+const contentHandles = (): string[] => {
+  const gen = readFileSync('src/theorems/generated.ts', 'utf8')
+  // DOUBLE quotes — a single-quote probe read zero here while the ledger held five thousand, the third
+  // wrong-shaped regex of that session. A count of zero from a parse is UNMEASURED, never clean.
+  const keys = [...gen.matchAll(/key: "([a-z_0-9]+)"/g)].map((m) => m[1]!)
+  assert.ok(keys.length > 1000, `only ${keys.length} theorem keys parsed — the probe missed the shape, not the ledger`)
+  const wings = readdirSync('lean').filter((f) => f.endsWith('.lean')).map((f) => f.slice(0, -5).toLowerCase())
+  return [...keys, ...wings].map(handleOfText).concat(leads().leads.map((l) => l.handle))
+}
+
+test('content-addressed handles do not collide, and the margin to the bound is stated', () => {
+  const hs = contentHandles()
+  assert.equal(collidingIn(hs), 0, 'a collision between two different contents would make the handle ambiguous')
+  assert.ok(hs.length < BIRTHDAY,
+    `${hs.length} content handles against a birthday point of ${BIRTHDAY} — past it, collisions are likelier than not `
+    + 'and eight hex is no longer enough to address this tree')
+  // the expected number of collisions among n items in a space of N is n(n-1)/2N; state it rather than imply safety
+  const pairs = (hs.length * (hs.length - 1)) / 2
+  assert.ok(pairs < SPACE / 2, `expected collisions ${(pairs / SPACE).toFixed(4)} — the margin has gone`)
+})
+
+test('a SEED handle is content-derived — one version, one address', () => {
+  const seeds = existsSync('src/seeds') ? readdirSync('src/seeds').filter((d) => /^[0-9a-f]{8}-/.test(d)) : []
+  if (seeds.length === 0) return
+  const prefixes = seeds.map((d) => d.slice(0, 8))
+  const distinct = new Set(prefixes).size
+  const counts = [...new Map(prefixes.map((p) => [p, prefixes.filter((q) => q === p).length]))].map(([, c]) => c)
+  const worst = counts.reduce((m, c) => (c > m ? c : m), 0)
+  // the ratio, stated rather than promised: before the reordering it was 913 seeds in 185 handles, worst bucket 145
+  assert.ok(distinct >= seeds.length - 10,
+    `${seeds.length} seeds occupy only ${distinct} handles — the content fingerprint is not reaching the address`)
+  assert.ok(worst <= 2, `worst bucket ${worst}: a handle addressing more than a draft/usable pair is a stem bucket again`)
+  // and every seed still decodes to a full identity, which is what makes the reordering free
+  for (const d of seeds.slice(0, 50)) {
+    const id = readSeed(d)
+    assert.ok(id.status && id.stem32.length === 32 && id.content64.length === 64, `${d} lost a field`)
+  }
+})

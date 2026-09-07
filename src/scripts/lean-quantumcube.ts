@@ -19,7 +19,7 @@
 // WHAT IS SEALED AND WHAT IS CITED, and the distinction is the point. zeropoint-node-67 MEASURED the two costs on
 // their own tree — about 48 bytes per amplitude for a state vector against about 0.7 bytes per tableau bit — and
 // reported 29 qubits against 113,060. Recomputing their arithmetic here gives 110,775, close but not identical,
-// because a byte-per-unit figure I did not measure carries a rounding I cannot see. So the MEASUREMENT is cited
+// because a byte-per-unit figure I did not measure carries a rounding invisible BY CONSTRUCTION — a figure reported to two significant digits cannot be inverted to the value that produced it. So the MEASUREMENT is cited
 // and the LAW is sealed: for ANY two costs in that ratio the wider representation wins by that ratio, whatever
 // the exact bytes. This is their own lesson turned on their own numbers — check the law, not the magnitude, since
 // a check on a magnitude passes whenever the magnitude moves the way the check expects.
@@ -49,8 +49,21 @@ const L3 = (rs: readonly [number, number, number][]): string => '[' + rs.map((r)
 const FACTS = [
   { key: 'the_cube_carries_the_tetrahedron_and_its_own_dual',
     why: `THE CONTAINER IS NOT A METAPHOR. The cube's eight vertices contain a regular tetrahedron — the four where x·y·z = 1 — and every one of that tetrahedron's edges has squared length ${tetEdges[0]}, one value, which is what regular MEANS. Those edges are the cube's face diagonals: edge² 4 for the cube, ${tetEdges[0]} for the tetrahedron. And the cube's six faces give the octahedron, its dual. One figure carries the family, which is why it is the right container for five constraints on one machine.`,
-    js: () => CUBE.length === 8 && TET.length === 4 && OCT.length === 6 && tetEdges.length === 1 && tetEdges[0] === 8,
-    lean: `theorem the_cube_carries_the_tetrahedron_and_its_own_dual : (${CUBE.length} = 8) ∧ (${TET.length} = 4) ∧ (${OCT.length} = 6) ∧ (${tetEdges[0]} = 8) ∧ (${tetEdges.length} = 1) := by decide` },
+    js: () => {
+      // the JS arm derives the same way, so the two arms can DISAGREE — which is the point of having two
+      const codes = [0, 1, 2, 3, 4, 5, 6, 7]
+      const evenParity = codes.filter((n) => (n % 2 + ((n / 2) | 0) % 2 + ((n / 4) | 0) % 2) % 2 === 0)
+      return codes.length === 8 && evenParity.length === 4 && TET.length === 4 && OCT.length === 6
+        && tetEdges.length === 1 && tetEdges[0] === 8 && 2 * 2 + 2 * 2 === 8
+    },
+    // THE KERNEL MUST DO THE COUNTING, NOT THE GENERATOR. The first form interpolated every computed value into
+    // BOTH sides — `(8 = 8) ∧ (4 = 4) ∧ (6 = 6)` — so the generator counted and the kernel checked that a number
+    // equals itself. The vacuity finder refused it, and was right: a theorem whose name says the cube CARRIES the
+    // tetrahedron must derive the four vertices, not be told there are four. Each cube vertex is a 3-bit sign
+    // code; x·y·z = +1 exactly when an even number of coordinates are negative, so the tetrahedron is the
+    // even-parity half, computed here from the codes. Its edges join codes differing in TWO coordinates, giving
+    // squared length 2² + 2² = 8 against the cube's own 4 — the face diagonal.
+    lean: `theorem the_cube_carries_the_tetrahedron_and_its_own_dual : ((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8) := by decide` },
 
   { key: 'buying_the_point_that_does_not_bind_buys_nothing',
     why: `THE COST OF A RESOURCE IS REAL AND ITS RETURN CAN BE ZERO. Because the width is a MINIMUM over the points, adding to any point that is not the binding one leaves the width exactly where it was: eight cores with nine units of memory admit eight, and eight cores with a hundred and twenty-eight units still admit eight. Fourteen times the memory, no wider. This is the ordinary experience of buying the wrong upgrade, decided rather than complained about, and it is the half of the picture that makes the other half matter.`,

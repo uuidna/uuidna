@@ -22,7 +22,7 @@
 // works. A lead that names no wing is UNANCHORED — real work with nowhere sealed to land — and it is reported
 // rather than dropped, because a missing anchor is a finding and an omission looks like an oversight.
 //
-// AND ALL OF IT IS ONE PASS. The first draft asked each of ~161 wing terms against each lead: a regex compiled
+// AND ALL OF IT IS ONE PASS. The first draft asked every wing term against every lead: a regex compiled
 // and run per pair, tens of thousands of scans for a question one scan wide. Inverting the loop — tokenise a
 // lead ONCE, look each token up in the vocabulary — computes every cluster a lead belongs to in the same walk.
 // Linear in the corpus, independent of vocabulary size: the hundred-and-sixty-first name costs nothing new.
@@ -92,7 +92,8 @@ export const wingTerms = (root = '.'): string[] => {
  *  no boundary after `uuidna` and the regex declines it, while a maximal-alphanumeric-run tokeniser reads it as
  *  the word it plainly is. Two defensible rules, one instrument — which is a surface that can answer the same
  *  question two ways depending on which door you knock at. The rule is fixed here and the old one survives only
- *  as the test's control, where a disagreement it cannot explain is a failure. */
+ *  as the test's control, where a disagreement is a failure unless the test can name its cause — word-character
+ *  adjacency, which is a property of the two regexes and so is decidable BY CONSTRUCTION from the text itself. */
 export const tokens = (text: string): Set<string> => new Set(text.toLowerCase().match(/[a-z][a-z0-9]+/g) ?? [])
 
 /** EVERY CLUSTER, EVERY EDGE, ONE PASS. Tokenise each lead once; every wing it names falls out together. */

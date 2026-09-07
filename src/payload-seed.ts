@@ -20,12 +20,30 @@ const BODY_W = 64
 
 const hexBits = (hex: string, width: number): string => BigInt('0x' + hex).toString(2).padStart(width, '0').slice(-width)
 
-/** seedUuid(fileStem, contents, status) → the version's uuid: a reversible imprint of status ∥ stem32 ∥ content64.
- *  Same stem + same contents + same status → the same uuid for everyone; any content change mints a NEW version. */
+/** seedUuid(fileStem, contents, status) → the version's uuid: a reversible imprint of content64 ∥ status ∥ stem32.
+ *  Same stem + same contents + same status → the same uuid for everyone; any content change mints a NEW version.
+ *
+ *  THE CONTENT LEADS, AND THAT ORDERING IS THE WHOLE FIX. The layout was status ∥ stem32 ∥ content64, which put
+ *  the status and the STEM fingerprint in the leading 32 bits — exactly the eight hex characters `handleOf`
+ *  takes. So every version of one wing carried the SAME handle: 145 versions of Audit.lean all addressed
+ *  c6482660, 127 of Infinity.lean all addressed c6516523, and 913 seeds occupied 185 handles between them. A
+ *  handle that names a wing rather than a version is a time bucket with a different name, and any map keyed by
+ *  it silently merges what it holds.
+ *
+ *  THE CAPTAIN'S POINT IS WHY THIS COSTS NOTHING: "both apply using reverse cross encryption". The imprint is
+ *  REVERSIBLE, so no field is privileged by its position — `readSeed` decodes status and stem from wherever they
+ *  sit, and `filterSeeds` and `belongsTo` read the decoded identity rather than slicing the name. Moving the
+ *  content fingerprint to the front therefore buys a handle that is unique per version and gives up no part of
+ *  the no-cost index. Both readings apply at once, which is what a reversible imprint is for. */
 export function seedUuid(fileStem: string, contents: string, status: SeedStatus): string {
   const stem32 = hexBits(coin64('lean-seed-stem|' + fileStem), STEM_W)
-  const body64 = hexBits(coin64(contents), BODY_W)
-  return imprint(STATUS_BITS[status] + stem32 + body64)
+  // THE STATUS IS INSIDE THE FINGERPRINT, not merely beside it. With `coin64(contents)` alone, one wing's draft
+  // and usable versions carry the SAME content64 and therefore the same handle — six such pairs exist on disk.
+  // A content-address collapsing identical content is correct behaviour, so the fix is not to shuffle bits until
+  // they separate: it is to say that a seed's content INCLUDES which status it was sealed at. The status bits
+  // still travel in the payload as well, so `readSeed` decodes them at no cost and the index is unchanged.
+  const body64 = hexBits(coin64(STATUS_BITS[status] + '|' + contents), BODY_W)
+  return imprint(body64 + STATUS_BITS[status] + stem32)
 }
 
 export interface SeedIdentity { status: SeedStatus; stem32: string; content64: string }
@@ -35,9 +53,28 @@ export interface SeedIdentity { status: SeedStatus; stem32: string; content64: s
 export function readSeed(uuid: string): SeedIdentity {
   const bits = readImprint(uuid)
   if (bits.length !== STATUS_W + STEM_W + BODY_W) throw new Error('readSeed: not a seed uuid (payload width mismatch)')
-  const status = BITS_STATUS[bits.slice(0, STATUS_W)]
+  // content ∥ status ∥ stem — the content leads so the HANDLE is content-derived; every field is still decoded
+  // here rather than sliced out of the name, which is what makes the reordering free.
+  const status = BITS_STATUS[bits.slice(BODY_W, BODY_W + STATUS_W)]
   if (!status) throw new Error('readSeed: unknown status bits')
+  return { status, stem32: bits.slice(BODY_W + STATUS_W), content64: bits.slice(0, BODY_W) }
+}
+
+/** readSeedLegacy(uuid) → the SAME identity out of a uuid minted under the old status ∥ stem ∥ content layout.
+ *  Kept only so existing versions can be migrated exactly rather than discarded: the imprint is reversible, so a
+ *  seed's identity survives the move and 913 versions of history need not be thrown away to fix an ordering. */
+export function readSeedLegacy(uuid: string): SeedIdentity {
+  const bits = readImprint(uuid)
+  if (bits.length !== STATUS_W + STEM_W + BODY_W) throw new Error('readSeedLegacy: width mismatch')
+  const status = BITS_STATUS[bits.slice(0, STATUS_W)]
+  if (!status) throw new Error('readSeedLegacy: unknown status bits')
   return { status, stem32: bits.slice(STATUS_W, STATUS_W + STEM_W), content64: bits.slice(STATUS_W + STEM_W) }
+}
+
+/** reimprint(uuid) → the same seed identity under the content-leading layout. Exact, by reversibility. */
+export function reimprint(uuid: string): string {
+  const id = readSeedLegacy(uuid)
+  return imprint(id.content64 + STATUS_BITS[id.status] + id.stem32)
 }
 
 /** filterSeeds(uuids, status) → the no-cost index in action: filter a folder listing by status decoded from the

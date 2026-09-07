@@ -42,7 +42,8 @@ test('every PRINCIPLE row names a wing that exists, or is dropped rather than co
     .map((m) => m[1]!)
   const missing = rows.filter((r) => !wingFiles.includes(r))
   // rows for unwritten wings are FILTERED by the generator, so they are allowed to stand as intent — but they
-  // must never reach the emitted index, or the site links a principle to a file nobody can open
+  // must never reach the emitted index: the site would link a principle to a file that is not in the tree, and
+  // a dead link cannot be repaired by the reader BY CONSTRUCTION, since the target was never written
   const md = readFileSync('lean/PRINCIPLE.md', 'utf8')
   for (const m of missing) assert.ok(!md.includes(m), `${m} has no wing yet reaches the published index`)
 })

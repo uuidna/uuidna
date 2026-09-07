@@ -79,10 +79,15 @@ const FACTS = [
       const d = SOLIDS.find((x) => x.name === s2.dual)!
       return d.V === s2.F && d.F === s2.V && d.E === s2.E && d.p === s2.q && d.q === s2.p
     }),
-    lean: `theorem duality_swaps_vertices_and_faces : ${SOLIDS.map((s2) => {
-      const d = SOLIDS.find((x) => x.name === s2.dual)!
-      return `((${d.V} = ${s2.F}) ∧ (${d.F} = ${s2.V}) ∧ (${d.E} = ${s2.E}) ∧ (${d.p} = ${s2.q}) ∧ (${d.q} = ${s2.p}))`
-    }).join(' ∧ ')} := by decide` },
+    // THE KERNEL MUST DO THE LOOKUP. The first form resolved the duality IN THE GENERATOR and emitted the
+    // resolved pairs — `(4 = 4) ∧ (6 = 6)` — so the kernel checked that numbers equal themselves and the
+    // vacuity finder refused it. The tables and the dual PERMUTATION are data now; the kernel indexes one by
+    // the other and compares, which is the claim the name makes. Written this way it can also FAIL: permute
+    // the dual list wrongly and `decide` says so, where the old form could not.
+    lean: `theorem duality_swaps_vertices_and_faces : (List.range ${SOLIDS.length}).all (fun i => `
+      + `(nth solidV (nth dualIx i) == nth solidF i) && (nth solidF (nth dualIx i) == nth solidV i) `
+      + `&& (nth solidE (nth dualIx i) == nth solidE i) && (nth solidP (nth dualIx i) == nth solidQ i) `
+      + `&& (nth solidQ (nth dualIx i) == nth solidP i)) := by decide` },
 
   { key: 'the_five_clusters_carry_thirty_edges_at_most',
     why: 'THE FAMILY IS SMALL AND BOUNDED, which is the fact that makes exhaustive treatment possible at all. No Platonic solid has more than thirty edges, twenty faces or twenty vertices, so every claim about "all Platonic solids" in this ledger is a walk over five tabulated rows and never an appeal to a general argument. Written over plain (V,E,F) triples: a five-wide tuple needed projections Lean would not synthesise, and reaching for them by hand is how the earlier version indexed the vertex count while believing it read the edges.',
@@ -90,7 +95,23 @@ const FACTS = [
     lean: `theorem the_five_clusters_carry_thirty_edges_at_most : ${'[' + SOLIDS.map((s2) => `(${s2.V},${s2.E},${s2.F})`).join(',') + ']'}.all (fun t => (t.1 <= 20) && (t.2.1 <= 30) && (t.2.2 <= 20)) := by decide` },
 ]
 
+const DEFS = [
+  // INDEXING IS DEFINED, NOT IMPORTED. `List.get!` is not in this toolchain's environment — the kernel said so
+  // rather than being assumed — so the walk is written out. Structural recursion, total, and `decide`-friendly.
+  `def nth : List Nat → Nat → Nat
+  | [], _ => 0
+  | x :: _, 0 => x
+  | _ :: xs, n+1 => nth xs n`,
+  `def solidV : List Nat := [${SOLIDS.map((x) => x.V).join(',')}]`,
+  `def solidE : List Nat := [${SOLIDS.map((x) => x.E).join(',')}]`,
+  `def solidF : List Nat := [${SOLIDS.map((x) => x.F).join(',')}]`,
+  `def solidP : List Nat := [${SOLIDS.map((x) => x.p).join(',')}]`,
+  `def solidQ : List Nat := [${SOLIDS.map((x) => x.q).join(',')}]`,
+  `def dualIx : List Nat := [${SOLIDS.map((x) => SOLIDS.findIndex((y) => y.name === x.dual)).join(',')}]`,
+].join('\n')
+
 emit({ file: 'Platonic.lean',
+  defs: DEFS,
   header: 'THE FIVE PLATONIC SOLIDS, AND WHY THERE ARE EXACTLY FIVE. Each solid carries a cluster: its Schläfli symbol {p,q}, its three counts, Euler\'s V − E + F = 2, and the incidence identities q·V = 2E = p·F which say the same edges are counted twice, once from the vertices and once from the faces. A triple satisfying Euler alone could still be impossible; satisfying all three is what makes these counts a solid. '
     + 'THE COUNT FIVE IS DECIDED, NOT RECALLED. A vertex of q regular p-gons closes in three dimensions exactly when 1/p + 1/q > 1/2, carried here in integers as 2(p + q) > p·q since this tree holds no rationals. Walking every symbol from 3 to 8 in both coordinates, exactly five pairs satisfy it — and a separate theorem decides that every pair with a coordinate of six or more FAILS, so the grid already extends past where a solution can live and the bound is not assumed by the walk that uses it. '
     + 'DUALITY closes the family on itself: cube with octahedron, dodecahedron with icosahedron, tetrahedron with itself; vertices and faces exchange, edges do not move, and the symbol reverses. '
