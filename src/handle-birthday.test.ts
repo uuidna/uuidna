@@ -36,8 +36,14 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { handleOfText, leads } from './lead-clusters.js'
 import { readSeed } from './payload-seed.js'
 
-const SPACE = 4294967296          // 2^32 — an eight-hex handle
-const BIRTHDAY = 65536            // 2^16 — where a collision becomes as likely as not
+// COMPUTED, NOT COPIED. Both numbers were written as literals with the arithmetic in a comment beside them,
+// and the constant finder refused it: a derivation the compiler never checks is prose, and prose drifts away
+// from its value silently. A handle is HEX_WIDTH hex characters, each 4 bits, so the space is 2^(4·width) and
+// the birthday point is its square root — change the width and both move together, which is the whole point.
+const HEX_WIDTH = 8
+const pow2 = (n: number): number => { let v = 1; for (let i = 0; i < n; i++) v *= 2; return v }
+const SPACE = pow2(4 * HEX_WIDTH)        // an eight-hex handle addresses 2^32
+const BIRTHDAY = pow2(2 * HEX_WIDTH)     // 2^16 — its square root, where a collision becomes as likely as not
 
 const collidingIn = (handles: readonly string[]): number => {
   const seen = new Map<string, number>()

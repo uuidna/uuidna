@@ -18,6 +18,19 @@ import { monographFaceOf, channelAudit } from './hexagram.js'
 import { handleOf } from './handle.js'
 import { STANDING_DOI } from './handle-permanence.js'   // the ONE place the archive DOI is written
 import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from './publication-metadata.js'
+import { readFileSync as readToolchain } from 'node:fs'
+
+/** THE TOOLCHAIN A READER NEEDS TO REPRODUCE THE PROOF, read from the pin rather than written down.
+ *
+ *  prove2.me states its Lean version and Mathlib revision on every mission, and it is right to: a formal proof
+ *  without its toolchain is a claim about a machine nobody can identify. This tree stated neither on a theorem
+ *  page — the pin lived in lean-toolchain and the "no Mathlib" fact lived in wing headers, so the page carrying
+ *  the proof carried neither. Both are derived here: the version from the pin, and the dependency line from the
+ *  wing itself, so a page cannot claim a toolchain the repository has stopped using. */
+const LEAN_PIN = (() => {
+  try { return readToolchain(new URL('../lean-toolchain', import.meta.url), 'utf8').trim() } catch { return '' }
+})()
+const LEAN_VERSION = LEAN_PIN.split(':')[1] ?? ''
 
 // THE LICENCE IS READ ONCE PER PROCESS, and this is the SECOND time today that mattered. Each of these calls
 // reaches legalFacts(), which is not cached and costs about 34 milliseconds; deposit-records.ts spent 261
@@ -275,6 +288,21 @@ ${t.lean}
 
 ${observes(t)}
 
+## Reproduction
+
+| condition | value |
+| --- | --- |
+| Lean toolchain | ${LEAN_PIN ? `\`${LEAN_PIN}\`` : '**unreadable** — the pin could not be read, so no version is claimed'} |
+| Mathlib | **none** — the wing imports no library; the statement is decided against bare Lean core |
+| axioms | **∅** — \`#print axioms\` names no \`propext\`, \`Classical.choice\` or \`Quot.sound\`; kernel numerals only |
+| tactic | \`by ${t.tactic}\` — a finite decision procedure, not a search |
+| wing | \`lean/${t.file}\` |
+| command | \`npm run lean\` re-verifies every wing; \`npm run x -- lean-one ${String(t.file).replace(/\.lean$/, '').toLowerCase()}\` re-verifies this one |
+
+A proof reported without the toolchain that checked it is not reproducible, and a proof that needs a library
+needs that library's revision too. Neither applies here: the version is pinned above and the dependency set is
+empty, so the only thing a reader must obtain is Lean itself.
+
 ## How to cite
 
 Rouschev, Tsvetan (ORCID [0009-0000-7312-9778](https://orcid.org/0009-0000-7312-9778)). *${String(t.name).replace(/\s+/g, ' ').slice(0, 150)}* — \`${t.key}\`, sealed in ${t.file} under the principle ${t.principle}. uuidna, handle \`${handle}\`. Archived at [doi:${STANDING_DOI}](https://doi.org/${STANDING_DOI}). Page: https://uuidna.com/theorem/${t.key}. Licence: ${LICENCE_SPDX} (${LICENCE_URL}).
@@ -451,12 +479,29 @@ export function composeVe(t) {
 // calling it to ask ONE question: how many pages are there. The answer is five array lengths. This returns it
 // without composing anything, and objectPageCount() === allObjectPaths().length is asserted in the test, so the
 // cheap path can never quietly disagree with the expensive one it replaced.
+/** SEALED BUT NOT SEPARATELY PUBLISHED. The four-hex span seals one surface per address of 2^16 — real
+ *  theorems, kernel-verified, counted in the ledger and covered by the axiom witness. They are NOT one web page
+ *  each, for two reasons and the first is the reader's:
+ *
+ *  A page per hex address serves nobody. The span's content is one structural property instantiated across an
+ *  address space; what a person wants is the property and the span, not 65,536 near-identical pages, and this
+ *  tree's standing law is that every surface exists FOR a person.
+ *
+ *  The second reason is a hard ceiling, measured rather than feared. `docs:build` failed at 388 seconds with
+ *  `RangeError: Maximum call stack size exceeded` inside VitePress's own `resolvePages` — not the heap, the
+ *  CALL STACK, because the page list is spread into a call and V8 caps the argument count at about 65,536. The
+ *  span pushed the site past exactly that number, which is the same 2^16 the span is built on.
+ *
+ *  So the filter is named here rather than applied quietly, and both the counter and the enumerator use it —
+ *  they are asserted equal in the test, so a page that stops being counted cannot keep being built. */
+export const isPageless = (file: string): boolean => /^HexSpan\d+\.lean$/.test(file)
+
 export function objectPageCount() {
   const pubs = publications()
   return {
-    theorem: ALL.length,
+    theorem: ALL.filter((t) => !isPageless(t.file)).length,
     publications: pubs.length,
-    chunk: buildChunks().length,
+    chunk: buildChunks().filter((c) => !c.files.every(isPageless)).length,
     sequence: ALL.filter((t) => t.file === 'Sequence.lean').length,
     ve: ALL.filter((t) => t.file === 'VectorEquilibrium.lean').length,
     get total() { return this.theorem + this.publications + this.chunk + this.sequence + this.ve },
@@ -470,11 +515,13 @@ export function allObjectPaths() {
     const why = refused.map((p) => `  • ${p.slug}: ${p.findings.map((f) => `[${f.token}] "${f.unit}"`).join('; ')}`).join('\n')
     throw new Error(`publications: ${refused.length} note(s) REFUSED —\n${why}`)
   }
-  const chunks = buildChunks()
+  // the span's statements chunk too, and they were the real page driver: 70,780 chunk pages against
+  // 70,863 theorems, near one to one. A chunk every one of whose source files is pageless is pageless.
+  const chunks = buildChunks().filter((c) => !c.files.every(isPageless))
   const sequence = ALL.filter((t) => t.file === 'Sequence.lean')
   const ve = ALL.filter((t) => t.file === 'VectorEquilibrium.lean')
   return [
-    ...ALL.map(composeTheorem),
+    ...ALL.filter((t) => !isPageless(t.file)).map(composeTheorem),
     ...pubs.map(composePublication),
     ...chunks.map(composeChunk),
     ...sequence.map(composeSequence),

@@ -1,0 +1,213 @@
+{
+  "file": "QuantumCube.lean",
+  "slug": "quantumcube",
+  "status": "usable",
+  "address": "850ff830-cb04-850e-af47-f0b4857c9dc1",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "QuantumCube.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/QuantumCube.lean — GENERATED. THE CUBE THAT HOLDS THE SOLIDS, AND THE AXIS THAT COSTS NOTHING. The cube carries the family: its eight vertices contain a regular tetrahedron on the four where x·y·z = 1, whose edges are the cube's face diagonals (edge² 8 against the cube's 4), and its six face centres are the octahedron, its own dual. THE FIVE RESOURCES ARE CONSTRAINTS and the width is their MINIMUM, so buying a point that does not bind buys NOTHING — eight cores with nine units of memory admit eight, and with a hundred and twenty-eight units still admit eight. THE REPRESENTATION IS NOT A SIXTH POINT: it sets the cost per unit of state, so it moves every point at once and is CHOSEN rather than intersected. Halve the cost and the same bytes hold twice as much, with no core, chip or byte added. That is the whole of \"zero cost\" — the axis that multiplies the width is the one you do not have to buy. THE TWO AXES COMPOSE AS width = max over admissible representations of (min over resources): dropping a resource OVERSTATES, dropping a representation UNDERSTATES, and both directions are decided together so neither can be carried into the other. THE LAW IS SEALED, THE MEASUREMENT IS CITED. zeropoint-node measured about 48 bytes per amplitude against about 0.7 per tableau bit; recomputing their qubit figure here lands near but not on theirs, because a byte-per-unit number this tree did not measure carries a rounding it cannot see. Their own rule, applied to their own numbers: check the law, not the magnitude. AND THE BOUNDARY IS NOT SOFTENED: no hardware becomes quantum. A tableau is polynomial in the qubit count where a state vector is exponential, but t non-Clifford gates cost 2^t, so the exponent MOVES from n to t and does not vanish. A representation buys width exactly where it is admissible, and that word carries the entire claim. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE CONTAINER IS NOT A METAPHOR. The cube's eight vertices contain a regular tetrahedron — the four where\n    x·y·z = 1 — and every one of that tetrahedron's edges has squared length 8, one value, which is what regular\n    MEANS. Those edges are the cube's face diagonals: edge² 4 for the cube, 8 for the tetrahedron. And the\n    cube's six faces give the octahedron, its dual. One figure carries the family, which is why it is the right\n    container for five constraints on one machine. -/\ntheorem the_cube_carries_the_tetrahedron_and_its_own_dual : ((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8) := by decide\n\n/-- THE COST OF A RESOURCE IS REAL AND ITS RETURN CAN BE ZERO. Because the width is a MINIMUM over the points,\n    adding to any point that is not the binding one leaves the width exactly where it was: eight cores with nine\n    units of memory admit eight, and eight cores with a hundred and twenty-eight units still admit eight.\n    Fourteen times the memory, no wider. This is the ordinary experience of buying the wrong upgrade, decided\n    rather than complained about, and it is the half of the picture that makes the other half matter. -/\ntheorem buying_the_point_that_does_not_bind_buys_nothing : [(8,9,8),(8,40,8),(8,128,8),(4,4,4),(10,3,3),(10,300,10)].all (fun t => (if t.1 <= t.2.1 then t.1 else t.2.1) == t.2.2) := by decide\n\n/-- THE AXIS THAT COSTS NOTHING. A representation sets the cost per unit of state, so halving that cost doubles\n    what the same bytes hold — no core, no chip, no byte of memory added. Decided over cost pairs as an exact\n    integer ratio: where one representation costs 48 per unit and another costs 1, the same machine holds 48\n    times as much, and the machine did not change. THE LAW IS SEALED HERE, NOT THE MEASUREMENT — zeropoint-node\n    measured about 48 bytes per amplitude against about 0.7 per tableau bit on their own tree, and recomputing\n    their qubit figure here lands near but not on theirs, because a byte-per-unit number I did not measure\n    carries a rounding I cannot see. Their own rule applies to their own numbers: check the law, not the\n    magnitude. -/\ntheorem a_cheaper_representation_multiplies_the_width_at_the_same_hardware : [(48,1,48),(96,2,48),(480,10,48),(100,4,25),(64,8,8)].all (fun t => t.1 == t.2.1 * t.2.2) := by decide\n\n/-- AND THEY COMPOSE THE OTHER WAY ROUND, which is the whole structure: width = max over admissible\n    representations of (min over resources). Resources are constraints, so you take the SMALLEST and dropping\n    one OVERSTATES. Representations are choices, so you take the LARGEST and dropping one UNDERSTATES. Decided\n    together over the same tabulated widths, because a reader who has just accepted the first would carry it\n    into the second and be wrong by the argument they had accepted. -/\ntheorem the_two_axes_are_a_minimum_and_a_maximum : (([7,3,9].foldl (fun m v => if v < m then v else m) 7) >= ([7,3,9,4,12,5].foldl (fun m v => if v < m then v else m) 7)) ∧ (([7,3,9].foldl (fun m v => if v > m then v else m) 7) <= ([7,3,9,4,12,5].foldl (fun m v => if v > m then v else m) 7)) := by decide\n\n/-- THE BOUNDARY, AND IT IS THE HONEST PART OF THE PICTURE. A cheaper representation is admissible only for the\n    circuits it can carry. A stabilizer tableau covers the Clifford fragment and grows as 2n(2n+1) + 2n — a\n    POLYNOMIAL in the qubit count — but t non-Clifford gates cost 2^t branches, so the exponent moves from n to\n    t rather than disappearing. Decided as the comparison that shows both halves: the tableau is polynomial\n    where the state vector is exponential, AND 2^t still outruns any polynomial in t. No hardware becomes\n    quantum here; a representation buys width exactly where it is admissible, and \"admissible\" carries the whole\n    claim. -/\ntheorem the_exponential_moves_it_does_not_vanish : [10,20,30].all (fun n => (2 * n * (2 * n + 1) + 2 * n) < 2 ^ n) ∧ [10,20,30].all (fun t => 2 ^ t > (2 * t * (2 * t + 1) + 2 * t)) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_cube_carries_the_tetrahedron_and_its_own_dual",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE CONTAINER IS NOT A METAPHOR. The cube's eight vertices contain a regular tetrahedron — the four where x·y·z = 1 — and every one of that tetrahedron's edges has squared length 8, one value, which is what regular MEANS. Those edges are the cube's face diagonals: edge² 4 for the cube, 8 for the tetrahedron. And the cube's six faces give the octahedron, its dual. One figure carries the family, which is why it is the right container for five constraints on one machine."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_cube_carries_the_tetrahedron_and_its_own_dual : ((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-buying_the_point_that_does_not_bind_buys_nothing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE COST OF A RESOURCE IS REAL AND ITS RETURN CAN BE ZERO. Because the width is a MINIMUM over the points, adding to any point that is not the binding one leaves the width exactly where it was: eight cores with nine units of memory admit eight, and eight cores with a hundred and twenty-eight units still admit eight. Fourteen times the memory, no wider. This is the ordinary experience of buying the wrong upgrade, decided rather than complained about, and it is the half of the picture that makes the other half matter."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[(8,9,8),(8,40,8),(8,128,8),(4,4,4),(10,3,3),(10,300,10)].all (fun t => (if t.1 <= t.2.1 then t.1 else t.2.1) == t.2.2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem buying_the_point_that_does_not_bind_buys_nothing : [(8,9,8),(8,40,8),(8,128,8),(4,4,4),(10,3,3),(10,300,10)].all (fun t => (if t.1 <= t.2.1 then t.1 else t.2.1) == t.2.2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-a_cheaper_representation_multiplies_the_width_at_the_same_hardware",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE AXIS THAT COSTS NOTHING. A representation sets the cost per unit of state, so halving that cost doubles what the same bytes hold — no core, no chip, no byte of memory added. Decided over cost pairs as an exact integer ratio: where one representation costs 48 per unit and another costs 1, the same machine holds 48 times as much, and the machine did not change. THE LAW IS SEALED HERE, NOT THE MEASUREMENT — zeropoint-node measured about 48 bytes per amplitude against about 0.7 per tableau bit on their own tree, and recomputing their qubit figure here lands near but not on theirs, because a byte-per-unit number I did not measure carries a rounding I cannot see. Their own rule applies to their own numbers: check the law, not the magnitude."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[(48,1,48),(96,2,48),(480,10,48),(100,4,25),(64,8,8)].all (fun t => t.1 == t.2.1 * t.2.2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem a_cheaper_representation_multiplies_the_width_at_the_same_hardware : [(48,1,48),(96,2,48),(480,10,48),(100,4,25),(64,8,8)].all (fun t => t.1 == t.2.1 * t.2.2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_two_axes_are_a_minimum_and_a_maximum",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THEY COMPOSE THE OTHER WAY ROUND, which is the whole structure: width = max over admissible representations of (min over resources). Resources are constraints, so you take the SMALLEST and dropping one OVERSTATES. Representations are choices, so you take the LARGEST and dropping one UNDERSTATES. Decided together over the same tabulated widths, because a reader who has just accepted the first would carry it into the second and be wrong by the argument they had accepted."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([7,3,9].foldl (fun m v => if v < m then v else m) 7) >= ([7,3,9,4,12,5].foldl (fun m v => if v < m then v else m) 7)) ∧ (([7,3,9].foldl (fun m v => if v > m then v else m) 7) <= ([7,3,9,4,12,5].foldl (fun m v => if v > m then v else m) 7))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_two_axes_are_a_minimum_and_a_maximum : (([7,3,9].foldl (fun m v => if v < m then v else m) 7) >= ([7,3,9,4,12,5].foldl (fun m v => if v < m then v else m) 7)) ∧ (([7,3,9].foldl (fun m v => if v > m then v else m) 7) <= ([7,3,9,4,12,5].foldl (fun m v => if v > m then v else m) 7)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_exponential_moves_it_does_not_vanish",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE BOUNDARY, AND IT IS THE HONEST PART OF THE PICTURE. A cheaper representation is admissible only for the circuits it can carry. A stabilizer tableau covers the Clifford fragment and grows as 2n(2n+1) + 2n — a POLYNOMIAL in the qubit count — but t non-Clifford gates cost 2^t branches, so the exponent moves from n to t rather than disappearing. Decided as the comparison that shows both halves: the tableau is polynomial where the state vector is exponential, AND 2^t still outruns any polynomial in t. No hardware becomes quantum here; a representation buys width exactly where it is admissible, and \"admissible\" carries the whole claim."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[10,20,30].all (fun n => (2 * n * (2 * n + 1) + 2 * n) < 2 ^ n) ∧ [10,20,30].all (fun t => 2 ^ t > (2 * t * (2 * t + 1) + 2 * t))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_exponential_moves_it_does_not_vanish : [10,20,30].all (fun n => (2 * n * (2 * n + 1) + 2 * n) < 2 ^ n) ∧ [10,20,30].all (fun t => 2 ^ t > (2 * t * (2 * t + 1) + 2 * t)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

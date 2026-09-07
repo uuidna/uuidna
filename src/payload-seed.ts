@@ -37,12 +37,13 @@ const hexBits = (hex: string, width: number): string => BigInt('0x' + hex).toStr
  *  the no-cost index. Both readings apply at once, which is what a reversible imprint is for. */
 export function seedUuid(fileStem: string, contents: string, status: SeedStatus): string {
   const stem32 = hexBits(coin64('lean-seed-stem|' + fileStem), STEM_W)
-  // THE STATUS IS INSIDE THE FINGERPRINT, not merely beside it. With `coin64(contents)` alone, one wing's draft
-  // and usable versions carry the SAME content64 and therefore the same handle — six such pairs exist on disk.
-  // A content-address collapsing identical content is correct behaviour, so the fix is not to shuffle bits until
-  // they separate: it is to say that a seed's content INCLUDES which status it was sealed at. The status bits
-  // still travel in the payload as well, so `readSeed` decodes them at no cost and the index is unchanged.
-  const body64 = hexBits(coin64(STATUS_BITS[status] + '|' + contents), BODY_W)
+  // THE CONTENT FINGERPRINT IS PURE CONTENT, AND STATUS STAYS ORTHOGONAL TO IT. I folded the status into this
+  // hash to separate the six draft/usable pairs that share a handle at identical content — and payload-seed's
+  // own test refused it, because "same contents, same content fingerprint" is a SEALED property: it is what
+  // lets a reader see that a draft and a usable version hold the same bytes. Chasing six collisions is not
+  // worth destroying that, and the collisions are correct anyway — a content-address SHOULD collapse identical
+  // content. The six are left as they are, named in handle-birthday.test.ts rather than engineered away.
+  const body64 = hexBits(coin64(contents), BODY_W)
   return imprint(body64 + STATUS_BITS[status] + stem32)
 }
 

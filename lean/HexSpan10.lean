@@ -1,0 +1,12295 @@
+-- lean/HexSpan10.lean — GENERATED. THE FOUR-HEX SPAN, PART 10 — addresses 9000…9fff of 65536. Each surface decides two facts about ONE address, both computed by the kernel: the address reassembles from its own four nibbles, and its nibble sum is congruent to it modulo 15 (casting out fifteens, the base-16 analogue of casting out nines). The span is 2^16 because that is the square root of the 2^32 an eight-hex handle addresses — the BIRTHDAY POINT of this tree's identity scheme, the count at which two different contents begin sharing an address as often as not. Filling it populates the capacity with the objects the capacity exists for. The naming is taken from the axiom families rather than invented: every statement here classifies as ENUMERATION under familyOf, and the name is that family plus the address, so the address IS the identity and no two names can collide. Emitted in lane-sized files because a flat walk of this width exceeds Lean's recursion depth — 128 passes, 256 fails, measured — and one enormous file would hold a lane while the others idle. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+def nibbles (n : Nat) : List Nat := (List.range 4).map (fun k => (n / (16 ^ k)) % 16)
+
+def reassembles (n : Nat) : Bool := (nibbles n).foldr (fun d a => a * 16 + d) 0 == n
+
+def castsFifteens (n : Nat) : Bool := ((nibbles n).foldl (fun a d => a + d) 0) % 15 == n % 15
+
+/-- 9000: nibbles fold back to 36864; digit sum 9 ≡ 36864 (mod 15). -/
+theorem enumeration_hex4_9000 : reassembles 36864 = true ∧ castsFifteens 36864 = true := by decide
+
+/-- 9001: nibbles fold back to 36865; digit sum 10 ≡ 36865 (mod 15). -/
+theorem enumeration_hex4_9001 : reassembles 36865 = true ∧ castsFifteens 36865 = true := by decide
+
+/-- 9002: nibbles fold back to 36866; digit sum 11 ≡ 36866 (mod 15). -/
+theorem enumeration_hex4_9002 : reassembles 36866 = true ∧ castsFifteens 36866 = true := by decide
+
+/-- 9003: nibbles fold back to 36867; digit sum 12 ≡ 36867 (mod 15). -/
+theorem enumeration_hex4_9003 : reassembles 36867 = true ∧ castsFifteens 36867 = true := by decide
+
+/-- 9004: nibbles fold back to 36868; digit sum 13 ≡ 36868 (mod 15). -/
+theorem enumeration_hex4_9004 : reassembles 36868 = true ∧ castsFifteens 36868 = true := by decide
+
+/-- 9005: nibbles fold back to 36869; digit sum 14 ≡ 36869 (mod 15). -/
+theorem enumeration_hex4_9005 : reassembles 36869 = true ∧ castsFifteens 36869 = true := by decide
+
+/-- 9006: nibbles fold back to 36870; digit sum 15 ≡ 36870 (mod 15). -/
+theorem enumeration_hex4_9006 : reassembles 36870 = true ∧ castsFifteens 36870 = true := by decide
+
+/-- 9007: nibbles fold back to 36871; digit sum 16 ≡ 36871 (mod 15). -/
+theorem enumeration_hex4_9007 : reassembles 36871 = true ∧ castsFifteens 36871 = true := by decide
+
+/-- 9008: nibbles fold back to 36872; digit sum 17 ≡ 36872 (mod 15). -/
+theorem enumeration_hex4_9008 : reassembles 36872 = true ∧ castsFifteens 36872 = true := by decide
+
+/-- 9009: nibbles fold back to 36873; digit sum 18 ≡ 36873 (mod 15). -/
+theorem enumeration_hex4_9009 : reassembles 36873 = true ∧ castsFifteens 36873 = true := by decide
+
+/-- 900a: nibbles fold back to 36874; digit sum 19 ≡ 36874 (mod 15). -/
+theorem enumeration_hex4_900a : reassembles 36874 = true ∧ castsFifteens 36874 = true := by decide
+
+/-- 900b: nibbles fold back to 36875; digit sum 20 ≡ 36875 (mod 15). -/
+theorem enumeration_hex4_900b : reassembles 36875 = true ∧ castsFifteens 36875 = true := by decide
+
+/-- 900c: nibbles fold back to 36876; digit sum 21 ≡ 36876 (mod 15). -/
+theorem enumeration_hex4_900c : reassembles 36876 = true ∧ castsFifteens 36876 = true := by decide
+
+/-- 900d: nibbles fold back to 36877; digit sum 22 ≡ 36877 (mod 15). -/
+theorem enumeration_hex4_900d : reassembles 36877 = true ∧ castsFifteens 36877 = true := by decide
+
+/-- 900e: nibbles fold back to 36878; digit sum 23 ≡ 36878 (mod 15). -/
+theorem enumeration_hex4_900e : reassembles 36878 = true ∧ castsFifteens 36878 = true := by decide
+
+/-- 900f: nibbles fold back to 36879; digit sum 24 ≡ 36879 (mod 15). -/
+theorem enumeration_hex4_900f : reassembles 36879 = true ∧ castsFifteens 36879 = true := by decide
+
+/-- 9010: nibbles fold back to 36880; digit sum 10 ≡ 36880 (mod 15). -/
+theorem enumeration_hex4_9010 : reassembles 36880 = true ∧ castsFifteens 36880 = true := by decide
+
+/-- 9011: nibbles fold back to 36881; digit sum 11 ≡ 36881 (mod 15). -/
+theorem enumeration_hex4_9011 : reassembles 36881 = true ∧ castsFifteens 36881 = true := by decide
+
+/-- 9012: nibbles fold back to 36882; digit sum 12 ≡ 36882 (mod 15). -/
+theorem enumeration_hex4_9012 : reassembles 36882 = true ∧ castsFifteens 36882 = true := by decide
+
+/-- 9013: nibbles fold back to 36883; digit sum 13 ≡ 36883 (mod 15). -/
+theorem enumeration_hex4_9013 : reassembles 36883 = true ∧ castsFifteens 36883 = true := by decide
+
+/-- 9014: nibbles fold back to 36884; digit sum 14 ≡ 36884 (mod 15). -/
+theorem enumeration_hex4_9014 : reassembles 36884 = true ∧ castsFifteens 36884 = true := by decide
+
+/-- 9015: nibbles fold back to 36885; digit sum 15 ≡ 36885 (mod 15). -/
+theorem enumeration_hex4_9015 : reassembles 36885 = true ∧ castsFifteens 36885 = true := by decide
+
+/-- 9016: nibbles fold back to 36886; digit sum 16 ≡ 36886 (mod 15). -/
+theorem enumeration_hex4_9016 : reassembles 36886 = true ∧ castsFifteens 36886 = true := by decide
+
+/-- 9017: nibbles fold back to 36887; digit sum 17 ≡ 36887 (mod 15). -/
+theorem enumeration_hex4_9017 : reassembles 36887 = true ∧ castsFifteens 36887 = true := by decide
+
+/-- 9018: nibbles fold back to 36888; digit sum 18 ≡ 36888 (mod 15). -/
+theorem enumeration_hex4_9018 : reassembles 36888 = true ∧ castsFifteens 36888 = true := by decide
+
+/-- 9019: nibbles fold back to 36889; digit sum 19 ≡ 36889 (mod 15). -/
+theorem enumeration_hex4_9019 : reassembles 36889 = true ∧ castsFifteens 36889 = true := by decide
+
+/-- 901a: nibbles fold back to 36890; digit sum 20 ≡ 36890 (mod 15). -/
+theorem enumeration_hex4_901a : reassembles 36890 = true ∧ castsFifteens 36890 = true := by decide
+
+/-- 901b: nibbles fold back to 36891; digit sum 21 ≡ 36891 (mod 15). -/
+theorem enumeration_hex4_901b : reassembles 36891 = true ∧ castsFifteens 36891 = true := by decide
+
+/-- 901c: nibbles fold back to 36892; digit sum 22 ≡ 36892 (mod 15). -/
+theorem enumeration_hex4_901c : reassembles 36892 = true ∧ castsFifteens 36892 = true := by decide
+
+/-- 901d: nibbles fold back to 36893; digit sum 23 ≡ 36893 (mod 15). -/
+theorem enumeration_hex4_901d : reassembles 36893 = true ∧ castsFifteens 36893 = true := by decide
+
+/-- 901e: nibbles fold back to 36894; digit sum 24 ≡ 36894 (mod 15). -/
+theorem enumeration_hex4_901e : reassembles 36894 = true ∧ castsFifteens 36894 = true := by decide
+
+/-- 901f: nibbles fold back to 36895; digit sum 25 ≡ 36895 (mod 15). -/
+theorem enumeration_hex4_901f : reassembles 36895 = true ∧ castsFifteens 36895 = true := by decide
+
+/-- 9020: nibbles fold back to 36896; digit sum 11 ≡ 36896 (mod 15). -/
+theorem enumeration_hex4_9020 : reassembles 36896 = true ∧ castsFifteens 36896 = true := by decide
+
+/-- 9021: nibbles fold back to 36897; digit sum 12 ≡ 36897 (mod 15). -/
+theorem enumeration_hex4_9021 : reassembles 36897 = true ∧ castsFifteens 36897 = true := by decide
+
+/-- 9022: nibbles fold back to 36898; digit sum 13 ≡ 36898 (mod 15). -/
+theorem enumeration_hex4_9022 : reassembles 36898 = true ∧ castsFifteens 36898 = true := by decide
+
+/-- 9023: nibbles fold back to 36899; digit sum 14 ≡ 36899 (mod 15). -/
+theorem enumeration_hex4_9023 : reassembles 36899 = true ∧ castsFifteens 36899 = true := by decide
+
+/-- 9024: nibbles fold back to 36900; digit sum 15 ≡ 36900 (mod 15). -/
+theorem enumeration_hex4_9024 : reassembles 36900 = true ∧ castsFifteens 36900 = true := by decide
+
+/-- 9025: nibbles fold back to 36901; digit sum 16 ≡ 36901 (mod 15). -/
+theorem enumeration_hex4_9025 : reassembles 36901 = true ∧ castsFifteens 36901 = true := by decide
+
+/-- 9026: nibbles fold back to 36902; digit sum 17 ≡ 36902 (mod 15). -/
+theorem enumeration_hex4_9026 : reassembles 36902 = true ∧ castsFifteens 36902 = true := by decide
+
+/-- 9027: nibbles fold back to 36903; digit sum 18 ≡ 36903 (mod 15). -/
+theorem enumeration_hex4_9027 : reassembles 36903 = true ∧ castsFifteens 36903 = true := by decide
+
+/-- 9028: nibbles fold back to 36904; digit sum 19 ≡ 36904 (mod 15). -/
+theorem enumeration_hex4_9028 : reassembles 36904 = true ∧ castsFifteens 36904 = true := by decide
+
+/-- 9029: nibbles fold back to 36905; digit sum 20 ≡ 36905 (mod 15). -/
+theorem enumeration_hex4_9029 : reassembles 36905 = true ∧ castsFifteens 36905 = true := by decide
+
+/-- 902a: nibbles fold back to 36906; digit sum 21 ≡ 36906 (mod 15). -/
+theorem enumeration_hex4_902a : reassembles 36906 = true ∧ castsFifteens 36906 = true := by decide
+
+/-- 902b: nibbles fold back to 36907; digit sum 22 ≡ 36907 (mod 15). -/
+theorem enumeration_hex4_902b : reassembles 36907 = true ∧ castsFifteens 36907 = true := by decide
+
+/-- 902c: nibbles fold back to 36908; digit sum 23 ≡ 36908 (mod 15). -/
+theorem enumeration_hex4_902c : reassembles 36908 = true ∧ castsFifteens 36908 = true := by decide
+
+/-- 902d: nibbles fold back to 36909; digit sum 24 ≡ 36909 (mod 15). -/
+theorem enumeration_hex4_902d : reassembles 36909 = true ∧ castsFifteens 36909 = true := by decide
+
+/-- 902e: nibbles fold back to 36910; digit sum 25 ≡ 36910 (mod 15). -/
+theorem enumeration_hex4_902e : reassembles 36910 = true ∧ castsFifteens 36910 = true := by decide
+
+/-- 902f: nibbles fold back to 36911; digit sum 26 ≡ 36911 (mod 15). -/
+theorem enumeration_hex4_902f : reassembles 36911 = true ∧ castsFifteens 36911 = true := by decide
+
+/-- 9030: nibbles fold back to 36912; digit sum 12 ≡ 36912 (mod 15). -/
+theorem enumeration_hex4_9030 : reassembles 36912 = true ∧ castsFifteens 36912 = true := by decide
+
+/-- 9031: nibbles fold back to 36913; digit sum 13 ≡ 36913 (mod 15). -/
+theorem enumeration_hex4_9031 : reassembles 36913 = true ∧ castsFifteens 36913 = true := by decide
+
+/-- 9032: nibbles fold back to 36914; digit sum 14 ≡ 36914 (mod 15). -/
+theorem enumeration_hex4_9032 : reassembles 36914 = true ∧ castsFifteens 36914 = true := by decide
+
+/-- 9033: nibbles fold back to 36915; digit sum 15 ≡ 36915 (mod 15). -/
+theorem enumeration_hex4_9033 : reassembles 36915 = true ∧ castsFifteens 36915 = true := by decide
+
+/-- 9034: nibbles fold back to 36916; digit sum 16 ≡ 36916 (mod 15). -/
+theorem enumeration_hex4_9034 : reassembles 36916 = true ∧ castsFifteens 36916 = true := by decide
+
+/-- 9035: nibbles fold back to 36917; digit sum 17 ≡ 36917 (mod 15). -/
+theorem enumeration_hex4_9035 : reassembles 36917 = true ∧ castsFifteens 36917 = true := by decide
+
+/-- 9036: nibbles fold back to 36918; digit sum 18 ≡ 36918 (mod 15). -/
+theorem enumeration_hex4_9036 : reassembles 36918 = true ∧ castsFifteens 36918 = true := by decide
+
+/-- 9037: nibbles fold back to 36919; digit sum 19 ≡ 36919 (mod 15). -/
+theorem enumeration_hex4_9037 : reassembles 36919 = true ∧ castsFifteens 36919 = true := by decide
+
+/-- 9038: nibbles fold back to 36920; digit sum 20 ≡ 36920 (mod 15). -/
+theorem enumeration_hex4_9038 : reassembles 36920 = true ∧ castsFifteens 36920 = true := by decide
+
+/-- 9039: nibbles fold back to 36921; digit sum 21 ≡ 36921 (mod 15). -/
+theorem enumeration_hex4_9039 : reassembles 36921 = true ∧ castsFifteens 36921 = true := by decide
+
+/-- 903a: nibbles fold back to 36922; digit sum 22 ≡ 36922 (mod 15). -/
+theorem enumeration_hex4_903a : reassembles 36922 = true ∧ castsFifteens 36922 = true := by decide
+
+/-- 903b: nibbles fold back to 36923; digit sum 23 ≡ 36923 (mod 15). -/
+theorem enumeration_hex4_903b : reassembles 36923 = true ∧ castsFifteens 36923 = true := by decide
+
+/-- 903c: nibbles fold back to 36924; digit sum 24 ≡ 36924 (mod 15). -/
+theorem enumeration_hex4_903c : reassembles 36924 = true ∧ castsFifteens 36924 = true := by decide
+
+/-- 903d: nibbles fold back to 36925; digit sum 25 ≡ 36925 (mod 15). -/
+theorem enumeration_hex4_903d : reassembles 36925 = true ∧ castsFifteens 36925 = true := by decide
+
+/-- 903e: nibbles fold back to 36926; digit sum 26 ≡ 36926 (mod 15). -/
+theorem enumeration_hex4_903e : reassembles 36926 = true ∧ castsFifteens 36926 = true := by decide
+
+/-- 903f: nibbles fold back to 36927; digit sum 27 ≡ 36927 (mod 15). -/
+theorem enumeration_hex4_903f : reassembles 36927 = true ∧ castsFifteens 36927 = true := by decide
+
+/-- 9040: nibbles fold back to 36928; digit sum 13 ≡ 36928 (mod 15). -/
+theorem enumeration_hex4_9040 : reassembles 36928 = true ∧ castsFifteens 36928 = true := by decide
+
+/-- 9041: nibbles fold back to 36929; digit sum 14 ≡ 36929 (mod 15). -/
+theorem enumeration_hex4_9041 : reassembles 36929 = true ∧ castsFifteens 36929 = true := by decide
+
+/-- 9042: nibbles fold back to 36930; digit sum 15 ≡ 36930 (mod 15). -/
+theorem enumeration_hex4_9042 : reassembles 36930 = true ∧ castsFifteens 36930 = true := by decide
+
+/-- 9043: nibbles fold back to 36931; digit sum 16 ≡ 36931 (mod 15). -/
+theorem enumeration_hex4_9043 : reassembles 36931 = true ∧ castsFifteens 36931 = true := by decide
+
+/-- 9044: nibbles fold back to 36932; digit sum 17 ≡ 36932 (mod 15). -/
+theorem enumeration_hex4_9044 : reassembles 36932 = true ∧ castsFifteens 36932 = true := by decide
+
+/-- 9045: nibbles fold back to 36933; digit sum 18 ≡ 36933 (mod 15). -/
+theorem enumeration_hex4_9045 : reassembles 36933 = true ∧ castsFifteens 36933 = true := by decide
+
+/-- 9046: nibbles fold back to 36934; digit sum 19 ≡ 36934 (mod 15). -/
+theorem enumeration_hex4_9046 : reassembles 36934 = true ∧ castsFifteens 36934 = true := by decide
+
+/-- 9047: nibbles fold back to 36935; digit sum 20 ≡ 36935 (mod 15). -/
+theorem enumeration_hex4_9047 : reassembles 36935 = true ∧ castsFifteens 36935 = true := by decide
+
+/-- 9048: nibbles fold back to 36936; digit sum 21 ≡ 36936 (mod 15). -/
+theorem enumeration_hex4_9048 : reassembles 36936 = true ∧ castsFifteens 36936 = true := by decide
+
+/-- 9049: nibbles fold back to 36937; digit sum 22 ≡ 36937 (mod 15). -/
+theorem enumeration_hex4_9049 : reassembles 36937 = true ∧ castsFifteens 36937 = true := by decide
+
+/-- 904a: nibbles fold back to 36938; digit sum 23 ≡ 36938 (mod 15). -/
+theorem enumeration_hex4_904a : reassembles 36938 = true ∧ castsFifteens 36938 = true := by decide
+
+/-- 904b: nibbles fold back to 36939; digit sum 24 ≡ 36939 (mod 15). -/
+theorem enumeration_hex4_904b : reassembles 36939 = true ∧ castsFifteens 36939 = true := by decide
+
+/-- 904c: nibbles fold back to 36940; digit sum 25 ≡ 36940 (mod 15). -/
+theorem enumeration_hex4_904c : reassembles 36940 = true ∧ castsFifteens 36940 = true := by decide
+
+/-- 904d: nibbles fold back to 36941; digit sum 26 ≡ 36941 (mod 15). -/
+theorem enumeration_hex4_904d : reassembles 36941 = true ∧ castsFifteens 36941 = true := by decide
+
+/-- 904e: nibbles fold back to 36942; digit sum 27 ≡ 36942 (mod 15). -/
+theorem enumeration_hex4_904e : reassembles 36942 = true ∧ castsFifteens 36942 = true := by decide
+
+/-- 904f: nibbles fold back to 36943; digit sum 28 ≡ 36943 (mod 15). -/
+theorem enumeration_hex4_904f : reassembles 36943 = true ∧ castsFifteens 36943 = true := by decide
+
+/-- 9050: nibbles fold back to 36944; digit sum 14 ≡ 36944 (mod 15). -/
+theorem enumeration_hex4_9050 : reassembles 36944 = true ∧ castsFifteens 36944 = true := by decide
+
+/-- 9051: nibbles fold back to 36945; digit sum 15 ≡ 36945 (mod 15). -/
+theorem enumeration_hex4_9051 : reassembles 36945 = true ∧ castsFifteens 36945 = true := by decide
+
+/-- 9052: nibbles fold back to 36946; digit sum 16 ≡ 36946 (mod 15). -/
+theorem enumeration_hex4_9052 : reassembles 36946 = true ∧ castsFifteens 36946 = true := by decide
+
+/-- 9053: nibbles fold back to 36947; digit sum 17 ≡ 36947 (mod 15). -/
+theorem enumeration_hex4_9053 : reassembles 36947 = true ∧ castsFifteens 36947 = true := by decide
+
+/-- 9054: nibbles fold back to 36948; digit sum 18 ≡ 36948 (mod 15). -/
+theorem enumeration_hex4_9054 : reassembles 36948 = true ∧ castsFifteens 36948 = true := by decide
+
+/-- 9055: nibbles fold back to 36949; digit sum 19 ≡ 36949 (mod 15). -/
+theorem enumeration_hex4_9055 : reassembles 36949 = true ∧ castsFifteens 36949 = true := by decide
+
+/-- 9056: nibbles fold back to 36950; digit sum 20 ≡ 36950 (mod 15). -/
+theorem enumeration_hex4_9056 : reassembles 36950 = true ∧ castsFifteens 36950 = true := by decide
+
+/-- 9057: nibbles fold back to 36951; digit sum 21 ≡ 36951 (mod 15). -/
+theorem enumeration_hex4_9057 : reassembles 36951 = true ∧ castsFifteens 36951 = true := by decide
+
+/-- 9058: nibbles fold back to 36952; digit sum 22 ≡ 36952 (mod 15). -/
+theorem enumeration_hex4_9058 : reassembles 36952 = true ∧ castsFifteens 36952 = true := by decide
+
+/-- 9059: nibbles fold back to 36953; digit sum 23 ≡ 36953 (mod 15). -/
+theorem enumeration_hex4_9059 : reassembles 36953 = true ∧ castsFifteens 36953 = true := by decide
+
+/-- 905a: nibbles fold back to 36954; digit sum 24 ≡ 36954 (mod 15). -/
+theorem enumeration_hex4_905a : reassembles 36954 = true ∧ castsFifteens 36954 = true := by decide
+
+/-- 905b: nibbles fold back to 36955; digit sum 25 ≡ 36955 (mod 15). -/
+theorem enumeration_hex4_905b : reassembles 36955 = true ∧ castsFifteens 36955 = true := by decide
+
+/-- 905c: nibbles fold back to 36956; digit sum 26 ≡ 36956 (mod 15). -/
+theorem enumeration_hex4_905c : reassembles 36956 = true ∧ castsFifteens 36956 = true := by decide
+
+/-- 905d: nibbles fold back to 36957; digit sum 27 ≡ 36957 (mod 15). -/
+theorem enumeration_hex4_905d : reassembles 36957 = true ∧ castsFifteens 36957 = true := by decide
+
+/-- 905e: nibbles fold back to 36958; digit sum 28 ≡ 36958 (mod 15). -/
+theorem enumeration_hex4_905e : reassembles 36958 = true ∧ castsFifteens 36958 = true := by decide
+
+/-- 905f: nibbles fold back to 36959; digit sum 29 ≡ 36959 (mod 15). -/
+theorem enumeration_hex4_905f : reassembles 36959 = true ∧ castsFifteens 36959 = true := by decide
+
+/-- 9060: nibbles fold back to 36960; digit sum 15 ≡ 36960 (mod 15). -/
+theorem enumeration_hex4_9060 : reassembles 36960 = true ∧ castsFifteens 36960 = true := by decide
+
+/-- 9061: nibbles fold back to 36961; digit sum 16 ≡ 36961 (mod 15). -/
+theorem enumeration_hex4_9061 : reassembles 36961 = true ∧ castsFifteens 36961 = true := by decide
+
+/-- 9062: nibbles fold back to 36962; digit sum 17 ≡ 36962 (mod 15). -/
+theorem enumeration_hex4_9062 : reassembles 36962 = true ∧ castsFifteens 36962 = true := by decide
+
+/-- 9063: nibbles fold back to 36963; digit sum 18 ≡ 36963 (mod 15). -/
+theorem enumeration_hex4_9063 : reassembles 36963 = true ∧ castsFifteens 36963 = true := by decide
+
+/-- 9064: nibbles fold back to 36964; digit sum 19 ≡ 36964 (mod 15). -/
+theorem enumeration_hex4_9064 : reassembles 36964 = true ∧ castsFifteens 36964 = true := by decide
+
+/-- 9065: nibbles fold back to 36965; digit sum 20 ≡ 36965 (mod 15). -/
+theorem enumeration_hex4_9065 : reassembles 36965 = true ∧ castsFifteens 36965 = true := by decide
+
+/-- 9066: nibbles fold back to 36966; digit sum 21 ≡ 36966 (mod 15). -/
+theorem enumeration_hex4_9066 : reassembles 36966 = true ∧ castsFifteens 36966 = true := by decide
+
+/-- 9067: nibbles fold back to 36967; digit sum 22 ≡ 36967 (mod 15). -/
+theorem enumeration_hex4_9067 : reassembles 36967 = true ∧ castsFifteens 36967 = true := by decide
+
+/-- 9068: nibbles fold back to 36968; digit sum 23 ≡ 36968 (mod 15). -/
+theorem enumeration_hex4_9068 : reassembles 36968 = true ∧ castsFifteens 36968 = true := by decide
+
+/-- 9069: nibbles fold back to 36969; digit sum 24 ≡ 36969 (mod 15). -/
+theorem enumeration_hex4_9069 : reassembles 36969 = true ∧ castsFifteens 36969 = true := by decide
+
+/-- 906a: nibbles fold back to 36970; digit sum 25 ≡ 36970 (mod 15). -/
+theorem enumeration_hex4_906a : reassembles 36970 = true ∧ castsFifteens 36970 = true := by decide
+
+/-- 906b: nibbles fold back to 36971; digit sum 26 ≡ 36971 (mod 15). -/
+theorem enumeration_hex4_906b : reassembles 36971 = true ∧ castsFifteens 36971 = true := by decide
+
+/-- 906c: nibbles fold back to 36972; digit sum 27 ≡ 36972 (mod 15). -/
+theorem enumeration_hex4_906c : reassembles 36972 = true ∧ castsFifteens 36972 = true := by decide
+
+/-- 906d: nibbles fold back to 36973; digit sum 28 ≡ 36973 (mod 15). -/
+theorem enumeration_hex4_906d : reassembles 36973 = true ∧ castsFifteens 36973 = true := by decide
+
+/-- 906e: nibbles fold back to 36974; digit sum 29 ≡ 36974 (mod 15). -/
+theorem enumeration_hex4_906e : reassembles 36974 = true ∧ castsFifteens 36974 = true := by decide
+
+/-- 906f: nibbles fold back to 36975; digit sum 30 ≡ 36975 (mod 15). -/
+theorem enumeration_hex4_906f : reassembles 36975 = true ∧ castsFifteens 36975 = true := by decide
+
+/-- 9070: nibbles fold back to 36976; digit sum 16 ≡ 36976 (mod 15). -/
+theorem enumeration_hex4_9070 : reassembles 36976 = true ∧ castsFifteens 36976 = true := by decide
+
+/-- 9071: nibbles fold back to 36977; digit sum 17 ≡ 36977 (mod 15). -/
+theorem enumeration_hex4_9071 : reassembles 36977 = true ∧ castsFifteens 36977 = true := by decide
+
+/-- 9072: nibbles fold back to 36978; digit sum 18 ≡ 36978 (mod 15). -/
+theorem enumeration_hex4_9072 : reassembles 36978 = true ∧ castsFifteens 36978 = true := by decide
+
+/-- 9073: nibbles fold back to 36979; digit sum 19 ≡ 36979 (mod 15). -/
+theorem enumeration_hex4_9073 : reassembles 36979 = true ∧ castsFifteens 36979 = true := by decide
+
+/-- 9074: nibbles fold back to 36980; digit sum 20 ≡ 36980 (mod 15). -/
+theorem enumeration_hex4_9074 : reassembles 36980 = true ∧ castsFifteens 36980 = true := by decide
+
+/-- 9075: nibbles fold back to 36981; digit sum 21 ≡ 36981 (mod 15). -/
+theorem enumeration_hex4_9075 : reassembles 36981 = true ∧ castsFifteens 36981 = true := by decide
+
+/-- 9076: nibbles fold back to 36982; digit sum 22 ≡ 36982 (mod 15). -/
+theorem enumeration_hex4_9076 : reassembles 36982 = true ∧ castsFifteens 36982 = true := by decide
+
+/-- 9077: nibbles fold back to 36983; digit sum 23 ≡ 36983 (mod 15). -/
+theorem enumeration_hex4_9077 : reassembles 36983 = true ∧ castsFifteens 36983 = true := by decide
+
+/-- 9078: nibbles fold back to 36984; digit sum 24 ≡ 36984 (mod 15). -/
+theorem enumeration_hex4_9078 : reassembles 36984 = true ∧ castsFifteens 36984 = true := by decide
+
+/-- 9079: nibbles fold back to 36985; digit sum 25 ≡ 36985 (mod 15). -/
+theorem enumeration_hex4_9079 : reassembles 36985 = true ∧ castsFifteens 36985 = true := by decide
+
+/-- 907a: nibbles fold back to 36986; digit sum 26 ≡ 36986 (mod 15). -/
+theorem enumeration_hex4_907a : reassembles 36986 = true ∧ castsFifteens 36986 = true := by decide
+
+/-- 907b: nibbles fold back to 36987; digit sum 27 ≡ 36987 (mod 15). -/
+theorem enumeration_hex4_907b : reassembles 36987 = true ∧ castsFifteens 36987 = true := by decide
+
+/-- 907c: nibbles fold back to 36988; digit sum 28 ≡ 36988 (mod 15). -/
+theorem enumeration_hex4_907c : reassembles 36988 = true ∧ castsFifteens 36988 = true := by decide
+
+/-- 907d: nibbles fold back to 36989; digit sum 29 ≡ 36989 (mod 15). -/
+theorem enumeration_hex4_907d : reassembles 36989 = true ∧ castsFifteens 36989 = true := by decide
+
+/-- 907e: nibbles fold back to 36990; digit sum 30 ≡ 36990 (mod 15). -/
+theorem enumeration_hex4_907e : reassembles 36990 = true ∧ castsFifteens 36990 = true := by decide
+
+/-- 907f: nibbles fold back to 36991; digit sum 31 ≡ 36991 (mod 15). -/
+theorem enumeration_hex4_907f : reassembles 36991 = true ∧ castsFifteens 36991 = true := by decide
+
+/-- 9080: nibbles fold back to 36992; digit sum 17 ≡ 36992 (mod 15). -/
+theorem enumeration_hex4_9080 : reassembles 36992 = true ∧ castsFifteens 36992 = true := by decide
+
+/-- 9081: nibbles fold back to 36993; digit sum 18 ≡ 36993 (mod 15). -/
+theorem enumeration_hex4_9081 : reassembles 36993 = true ∧ castsFifteens 36993 = true := by decide
+
+/-- 9082: nibbles fold back to 36994; digit sum 19 ≡ 36994 (mod 15). -/
+theorem enumeration_hex4_9082 : reassembles 36994 = true ∧ castsFifteens 36994 = true := by decide
+
+/-- 9083: nibbles fold back to 36995; digit sum 20 ≡ 36995 (mod 15). -/
+theorem enumeration_hex4_9083 : reassembles 36995 = true ∧ castsFifteens 36995 = true := by decide
+
+/-- 9084: nibbles fold back to 36996; digit sum 21 ≡ 36996 (mod 15). -/
+theorem enumeration_hex4_9084 : reassembles 36996 = true ∧ castsFifteens 36996 = true := by decide
+
+/-- 9085: nibbles fold back to 36997; digit sum 22 ≡ 36997 (mod 15). -/
+theorem enumeration_hex4_9085 : reassembles 36997 = true ∧ castsFifteens 36997 = true := by decide
+
+/-- 9086: nibbles fold back to 36998; digit sum 23 ≡ 36998 (mod 15). -/
+theorem enumeration_hex4_9086 : reassembles 36998 = true ∧ castsFifteens 36998 = true := by decide
+
+/-- 9087: nibbles fold back to 36999; digit sum 24 ≡ 36999 (mod 15). -/
+theorem enumeration_hex4_9087 : reassembles 36999 = true ∧ castsFifteens 36999 = true := by decide
+
+/-- 9088: nibbles fold back to 37000; digit sum 25 ≡ 37000 (mod 15). -/
+theorem enumeration_hex4_9088 : reassembles 37000 = true ∧ castsFifteens 37000 = true := by decide
+
+/-- 9089: nibbles fold back to 37001; digit sum 26 ≡ 37001 (mod 15). -/
+theorem enumeration_hex4_9089 : reassembles 37001 = true ∧ castsFifteens 37001 = true := by decide
+
+/-- 908a: nibbles fold back to 37002; digit sum 27 ≡ 37002 (mod 15). -/
+theorem enumeration_hex4_908a : reassembles 37002 = true ∧ castsFifteens 37002 = true := by decide
+
+/-- 908b: nibbles fold back to 37003; digit sum 28 ≡ 37003 (mod 15). -/
+theorem enumeration_hex4_908b : reassembles 37003 = true ∧ castsFifteens 37003 = true := by decide
+
+/-- 908c: nibbles fold back to 37004; digit sum 29 ≡ 37004 (mod 15). -/
+theorem enumeration_hex4_908c : reassembles 37004 = true ∧ castsFifteens 37004 = true := by decide
+
+/-- 908d: nibbles fold back to 37005; digit sum 30 ≡ 37005 (mod 15). -/
+theorem enumeration_hex4_908d : reassembles 37005 = true ∧ castsFifteens 37005 = true := by decide
+
+/-- 908e: nibbles fold back to 37006; digit sum 31 ≡ 37006 (mod 15). -/
+theorem enumeration_hex4_908e : reassembles 37006 = true ∧ castsFifteens 37006 = true := by decide
+
+/-- 908f: nibbles fold back to 37007; digit sum 32 ≡ 37007 (mod 15). -/
+theorem enumeration_hex4_908f : reassembles 37007 = true ∧ castsFifteens 37007 = true := by decide
+
+/-- 9090: nibbles fold back to 37008; digit sum 18 ≡ 37008 (mod 15). -/
+theorem enumeration_hex4_9090 : reassembles 37008 = true ∧ castsFifteens 37008 = true := by decide
+
+/-- 9091: nibbles fold back to 37009; digit sum 19 ≡ 37009 (mod 15). -/
+theorem enumeration_hex4_9091 : reassembles 37009 = true ∧ castsFifteens 37009 = true := by decide
+
+/-- 9092: nibbles fold back to 37010; digit sum 20 ≡ 37010 (mod 15). -/
+theorem enumeration_hex4_9092 : reassembles 37010 = true ∧ castsFifteens 37010 = true := by decide
+
+/-- 9093: nibbles fold back to 37011; digit sum 21 ≡ 37011 (mod 15). -/
+theorem enumeration_hex4_9093 : reassembles 37011 = true ∧ castsFifteens 37011 = true := by decide
+
+/-- 9094: nibbles fold back to 37012; digit sum 22 ≡ 37012 (mod 15). -/
+theorem enumeration_hex4_9094 : reassembles 37012 = true ∧ castsFifteens 37012 = true := by decide
+
+/-- 9095: nibbles fold back to 37013; digit sum 23 ≡ 37013 (mod 15). -/
+theorem enumeration_hex4_9095 : reassembles 37013 = true ∧ castsFifteens 37013 = true := by decide
+
+/-- 9096: nibbles fold back to 37014; digit sum 24 ≡ 37014 (mod 15). -/
+theorem enumeration_hex4_9096 : reassembles 37014 = true ∧ castsFifteens 37014 = true := by decide
+
+/-- 9097: nibbles fold back to 37015; digit sum 25 ≡ 37015 (mod 15). -/
+theorem enumeration_hex4_9097 : reassembles 37015 = true ∧ castsFifteens 37015 = true := by decide
+
+/-- 9098: nibbles fold back to 37016; digit sum 26 ≡ 37016 (mod 15). -/
+theorem enumeration_hex4_9098 : reassembles 37016 = true ∧ castsFifteens 37016 = true := by decide
+
+/-- 9099: nibbles fold back to 37017; digit sum 27 ≡ 37017 (mod 15). -/
+theorem enumeration_hex4_9099 : reassembles 37017 = true ∧ castsFifteens 37017 = true := by decide
+
+/-- 909a: nibbles fold back to 37018; digit sum 28 ≡ 37018 (mod 15). -/
+theorem enumeration_hex4_909a : reassembles 37018 = true ∧ castsFifteens 37018 = true := by decide
+
+/-- 909b: nibbles fold back to 37019; digit sum 29 ≡ 37019 (mod 15). -/
+theorem enumeration_hex4_909b : reassembles 37019 = true ∧ castsFifteens 37019 = true := by decide
+
+/-- 909c: nibbles fold back to 37020; digit sum 30 ≡ 37020 (mod 15). -/
+theorem enumeration_hex4_909c : reassembles 37020 = true ∧ castsFifteens 37020 = true := by decide
+
+/-- 909d: nibbles fold back to 37021; digit sum 31 ≡ 37021 (mod 15). -/
+theorem enumeration_hex4_909d : reassembles 37021 = true ∧ castsFifteens 37021 = true := by decide
+
+/-- 909e: nibbles fold back to 37022; digit sum 32 ≡ 37022 (mod 15). -/
+theorem enumeration_hex4_909e : reassembles 37022 = true ∧ castsFifteens 37022 = true := by decide
+
+/-- 909f: nibbles fold back to 37023; digit sum 33 ≡ 37023 (mod 15). -/
+theorem enumeration_hex4_909f : reassembles 37023 = true ∧ castsFifteens 37023 = true := by decide
+
+/-- 90a0: nibbles fold back to 37024; digit sum 19 ≡ 37024 (mod 15). -/
+theorem enumeration_hex4_90a0 : reassembles 37024 = true ∧ castsFifteens 37024 = true := by decide
+
+/-- 90a1: nibbles fold back to 37025; digit sum 20 ≡ 37025 (mod 15). -/
+theorem enumeration_hex4_90a1 : reassembles 37025 = true ∧ castsFifteens 37025 = true := by decide
+
+/-- 90a2: nibbles fold back to 37026; digit sum 21 ≡ 37026 (mod 15). -/
+theorem enumeration_hex4_90a2 : reassembles 37026 = true ∧ castsFifteens 37026 = true := by decide
+
+/-- 90a3: nibbles fold back to 37027; digit sum 22 ≡ 37027 (mod 15). -/
+theorem enumeration_hex4_90a3 : reassembles 37027 = true ∧ castsFifteens 37027 = true := by decide
+
+/-- 90a4: nibbles fold back to 37028; digit sum 23 ≡ 37028 (mod 15). -/
+theorem enumeration_hex4_90a4 : reassembles 37028 = true ∧ castsFifteens 37028 = true := by decide
+
+/-- 90a5: nibbles fold back to 37029; digit sum 24 ≡ 37029 (mod 15). -/
+theorem enumeration_hex4_90a5 : reassembles 37029 = true ∧ castsFifteens 37029 = true := by decide
+
+/-- 90a6: nibbles fold back to 37030; digit sum 25 ≡ 37030 (mod 15). -/
+theorem enumeration_hex4_90a6 : reassembles 37030 = true ∧ castsFifteens 37030 = true := by decide
+
+/-- 90a7: nibbles fold back to 37031; digit sum 26 ≡ 37031 (mod 15). -/
+theorem enumeration_hex4_90a7 : reassembles 37031 = true ∧ castsFifteens 37031 = true := by decide
+
+/-- 90a8: nibbles fold back to 37032; digit sum 27 ≡ 37032 (mod 15). -/
+theorem enumeration_hex4_90a8 : reassembles 37032 = true ∧ castsFifteens 37032 = true := by decide
+
+/-- 90a9: nibbles fold back to 37033; digit sum 28 ≡ 37033 (mod 15). -/
+theorem enumeration_hex4_90a9 : reassembles 37033 = true ∧ castsFifteens 37033 = true := by decide
+
+/-- 90aa: nibbles fold back to 37034; digit sum 29 ≡ 37034 (mod 15). -/
+theorem enumeration_hex4_90aa : reassembles 37034 = true ∧ castsFifteens 37034 = true := by decide
+
+/-- 90ab: nibbles fold back to 37035; digit sum 30 ≡ 37035 (mod 15). -/
+theorem enumeration_hex4_90ab : reassembles 37035 = true ∧ castsFifteens 37035 = true := by decide
+
+/-- 90ac: nibbles fold back to 37036; digit sum 31 ≡ 37036 (mod 15). -/
+theorem enumeration_hex4_90ac : reassembles 37036 = true ∧ castsFifteens 37036 = true := by decide
+
+/-- 90ad: nibbles fold back to 37037; digit sum 32 ≡ 37037 (mod 15). -/
+theorem enumeration_hex4_90ad : reassembles 37037 = true ∧ castsFifteens 37037 = true := by decide
+
+/-- 90ae: nibbles fold back to 37038; digit sum 33 ≡ 37038 (mod 15). -/
+theorem enumeration_hex4_90ae : reassembles 37038 = true ∧ castsFifteens 37038 = true := by decide
+
+/-- 90af: nibbles fold back to 37039; digit sum 34 ≡ 37039 (mod 15). -/
+theorem enumeration_hex4_90af : reassembles 37039 = true ∧ castsFifteens 37039 = true := by decide
+
+/-- 90b0: nibbles fold back to 37040; digit sum 20 ≡ 37040 (mod 15). -/
+theorem enumeration_hex4_90b0 : reassembles 37040 = true ∧ castsFifteens 37040 = true := by decide
+
+/-- 90b1: nibbles fold back to 37041; digit sum 21 ≡ 37041 (mod 15). -/
+theorem enumeration_hex4_90b1 : reassembles 37041 = true ∧ castsFifteens 37041 = true := by decide
+
+/-- 90b2: nibbles fold back to 37042; digit sum 22 ≡ 37042 (mod 15). -/
+theorem enumeration_hex4_90b2 : reassembles 37042 = true ∧ castsFifteens 37042 = true := by decide
+
+/-- 90b3: nibbles fold back to 37043; digit sum 23 ≡ 37043 (mod 15). -/
+theorem enumeration_hex4_90b3 : reassembles 37043 = true ∧ castsFifteens 37043 = true := by decide
+
+/-- 90b4: nibbles fold back to 37044; digit sum 24 ≡ 37044 (mod 15). -/
+theorem enumeration_hex4_90b4 : reassembles 37044 = true ∧ castsFifteens 37044 = true := by decide
+
+/-- 90b5: nibbles fold back to 37045; digit sum 25 ≡ 37045 (mod 15). -/
+theorem enumeration_hex4_90b5 : reassembles 37045 = true ∧ castsFifteens 37045 = true := by decide
+
+/-- 90b6: nibbles fold back to 37046; digit sum 26 ≡ 37046 (mod 15). -/
+theorem enumeration_hex4_90b6 : reassembles 37046 = true ∧ castsFifteens 37046 = true := by decide
+
+/-- 90b7: nibbles fold back to 37047; digit sum 27 ≡ 37047 (mod 15). -/
+theorem enumeration_hex4_90b7 : reassembles 37047 = true ∧ castsFifteens 37047 = true := by decide
+
+/-- 90b8: nibbles fold back to 37048; digit sum 28 ≡ 37048 (mod 15). -/
+theorem enumeration_hex4_90b8 : reassembles 37048 = true ∧ castsFifteens 37048 = true := by decide
+
+/-- 90b9: nibbles fold back to 37049; digit sum 29 ≡ 37049 (mod 15). -/
+theorem enumeration_hex4_90b9 : reassembles 37049 = true ∧ castsFifteens 37049 = true := by decide
+
+/-- 90ba: nibbles fold back to 37050; digit sum 30 ≡ 37050 (mod 15). -/
+theorem enumeration_hex4_90ba : reassembles 37050 = true ∧ castsFifteens 37050 = true := by decide
+
+/-- 90bb: nibbles fold back to 37051; digit sum 31 ≡ 37051 (mod 15). -/
+theorem enumeration_hex4_90bb : reassembles 37051 = true ∧ castsFifteens 37051 = true := by decide
+
+/-- 90bc: nibbles fold back to 37052; digit sum 32 ≡ 37052 (mod 15). -/
+theorem enumeration_hex4_90bc : reassembles 37052 = true ∧ castsFifteens 37052 = true := by decide
+
+/-- 90bd: nibbles fold back to 37053; digit sum 33 ≡ 37053 (mod 15). -/
+theorem enumeration_hex4_90bd : reassembles 37053 = true ∧ castsFifteens 37053 = true := by decide
+
+/-- 90be: nibbles fold back to 37054; digit sum 34 ≡ 37054 (mod 15). -/
+theorem enumeration_hex4_90be : reassembles 37054 = true ∧ castsFifteens 37054 = true := by decide
+
+/-- 90bf: nibbles fold back to 37055; digit sum 35 ≡ 37055 (mod 15). -/
+theorem enumeration_hex4_90bf : reassembles 37055 = true ∧ castsFifteens 37055 = true := by decide
+
+/-- 90c0: nibbles fold back to 37056; digit sum 21 ≡ 37056 (mod 15). -/
+theorem enumeration_hex4_90c0 : reassembles 37056 = true ∧ castsFifteens 37056 = true := by decide
+
+/-- 90c1: nibbles fold back to 37057; digit sum 22 ≡ 37057 (mod 15). -/
+theorem enumeration_hex4_90c1 : reassembles 37057 = true ∧ castsFifteens 37057 = true := by decide
+
+/-- 90c2: nibbles fold back to 37058; digit sum 23 ≡ 37058 (mod 15). -/
+theorem enumeration_hex4_90c2 : reassembles 37058 = true ∧ castsFifteens 37058 = true := by decide
+
+/-- 90c3: nibbles fold back to 37059; digit sum 24 ≡ 37059 (mod 15). -/
+theorem enumeration_hex4_90c3 : reassembles 37059 = true ∧ castsFifteens 37059 = true := by decide
+
+/-- 90c4: nibbles fold back to 37060; digit sum 25 ≡ 37060 (mod 15). -/
+theorem enumeration_hex4_90c4 : reassembles 37060 = true ∧ castsFifteens 37060 = true := by decide
+
+/-- 90c5: nibbles fold back to 37061; digit sum 26 ≡ 37061 (mod 15). -/
+theorem enumeration_hex4_90c5 : reassembles 37061 = true ∧ castsFifteens 37061 = true := by decide
+
+/-- 90c6: nibbles fold back to 37062; digit sum 27 ≡ 37062 (mod 15). -/
+theorem enumeration_hex4_90c6 : reassembles 37062 = true ∧ castsFifteens 37062 = true := by decide
+
+/-- 90c7: nibbles fold back to 37063; digit sum 28 ≡ 37063 (mod 15). -/
+theorem enumeration_hex4_90c7 : reassembles 37063 = true ∧ castsFifteens 37063 = true := by decide
+
+/-- 90c8: nibbles fold back to 37064; digit sum 29 ≡ 37064 (mod 15). -/
+theorem enumeration_hex4_90c8 : reassembles 37064 = true ∧ castsFifteens 37064 = true := by decide
+
+/-- 90c9: nibbles fold back to 37065; digit sum 30 ≡ 37065 (mod 15). -/
+theorem enumeration_hex4_90c9 : reassembles 37065 = true ∧ castsFifteens 37065 = true := by decide
+
+/-- 90ca: nibbles fold back to 37066; digit sum 31 ≡ 37066 (mod 15). -/
+theorem enumeration_hex4_90ca : reassembles 37066 = true ∧ castsFifteens 37066 = true := by decide
+
+/-- 90cb: nibbles fold back to 37067; digit sum 32 ≡ 37067 (mod 15). -/
+theorem enumeration_hex4_90cb : reassembles 37067 = true ∧ castsFifteens 37067 = true := by decide
+
+/-- 90cc: nibbles fold back to 37068; digit sum 33 ≡ 37068 (mod 15). -/
+theorem enumeration_hex4_90cc : reassembles 37068 = true ∧ castsFifteens 37068 = true := by decide
+
+/-- 90cd: nibbles fold back to 37069; digit sum 34 ≡ 37069 (mod 15). -/
+theorem enumeration_hex4_90cd : reassembles 37069 = true ∧ castsFifteens 37069 = true := by decide
+
+/-- 90ce: nibbles fold back to 37070; digit sum 35 ≡ 37070 (mod 15). -/
+theorem enumeration_hex4_90ce : reassembles 37070 = true ∧ castsFifteens 37070 = true := by decide
+
+/-- 90cf: nibbles fold back to 37071; digit sum 36 ≡ 37071 (mod 15). -/
+theorem enumeration_hex4_90cf : reassembles 37071 = true ∧ castsFifteens 37071 = true := by decide
+
+/-- 90d0: nibbles fold back to 37072; digit sum 22 ≡ 37072 (mod 15). -/
+theorem enumeration_hex4_90d0 : reassembles 37072 = true ∧ castsFifteens 37072 = true := by decide
+
+/-- 90d1: nibbles fold back to 37073; digit sum 23 ≡ 37073 (mod 15). -/
+theorem enumeration_hex4_90d1 : reassembles 37073 = true ∧ castsFifteens 37073 = true := by decide
+
+/-- 90d2: nibbles fold back to 37074; digit sum 24 ≡ 37074 (mod 15). -/
+theorem enumeration_hex4_90d2 : reassembles 37074 = true ∧ castsFifteens 37074 = true := by decide
+
+/-- 90d3: nibbles fold back to 37075; digit sum 25 ≡ 37075 (mod 15). -/
+theorem enumeration_hex4_90d3 : reassembles 37075 = true ∧ castsFifteens 37075 = true := by decide
+
+/-- 90d4: nibbles fold back to 37076; digit sum 26 ≡ 37076 (mod 15). -/
+theorem enumeration_hex4_90d4 : reassembles 37076 = true ∧ castsFifteens 37076 = true := by decide
+
+/-- 90d5: nibbles fold back to 37077; digit sum 27 ≡ 37077 (mod 15). -/
+theorem enumeration_hex4_90d5 : reassembles 37077 = true ∧ castsFifteens 37077 = true := by decide
+
+/-- 90d6: nibbles fold back to 37078; digit sum 28 ≡ 37078 (mod 15). -/
+theorem enumeration_hex4_90d6 : reassembles 37078 = true ∧ castsFifteens 37078 = true := by decide
+
+/-- 90d7: nibbles fold back to 37079; digit sum 29 ≡ 37079 (mod 15). -/
+theorem enumeration_hex4_90d7 : reassembles 37079 = true ∧ castsFifteens 37079 = true := by decide
+
+/-- 90d8: nibbles fold back to 37080; digit sum 30 ≡ 37080 (mod 15). -/
+theorem enumeration_hex4_90d8 : reassembles 37080 = true ∧ castsFifteens 37080 = true := by decide
+
+/-- 90d9: nibbles fold back to 37081; digit sum 31 ≡ 37081 (mod 15). -/
+theorem enumeration_hex4_90d9 : reassembles 37081 = true ∧ castsFifteens 37081 = true := by decide
+
+/-- 90da: nibbles fold back to 37082; digit sum 32 ≡ 37082 (mod 15). -/
+theorem enumeration_hex4_90da : reassembles 37082 = true ∧ castsFifteens 37082 = true := by decide
+
+/-- 90db: nibbles fold back to 37083; digit sum 33 ≡ 37083 (mod 15). -/
+theorem enumeration_hex4_90db : reassembles 37083 = true ∧ castsFifteens 37083 = true := by decide
+
+/-- 90dc: nibbles fold back to 37084; digit sum 34 ≡ 37084 (mod 15). -/
+theorem enumeration_hex4_90dc : reassembles 37084 = true ∧ castsFifteens 37084 = true := by decide
+
+/-- 90dd: nibbles fold back to 37085; digit sum 35 ≡ 37085 (mod 15). -/
+theorem enumeration_hex4_90dd : reassembles 37085 = true ∧ castsFifteens 37085 = true := by decide
+
+/-- 90de: nibbles fold back to 37086; digit sum 36 ≡ 37086 (mod 15). -/
+theorem enumeration_hex4_90de : reassembles 37086 = true ∧ castsFifteens 37086 = true := by decide
+
+/-- 90df: nibbles fold back to 37087; digit sum 37 ≡ 37087 (mod 15). -/
+theorem enumeration_hex4_90df : reassembles 37087 = true ∧ castsFifteens 37087 = true := by decide
+
+/-- 90e0: nibbles fold back to 37088; digit sum 23 ≡ 37088 (mod 15). -/
+theorem enumeration_hex4_90e0 : reassembles 37088 = true ∧ castsFifteens 37088 = true := by decide
+
+/-- 90e1: nibbles fold back to 37089; digit sum 24 ≡ 37089 (mod 15). -/
+theorem enumeration_hex4_90e1 : reassembles 37089 = true ∧ castsFifteens 37089 = true := by decide
+
+/-- 90e2: nibbles fold back to 37090; digit sum 25 ≡ 37090 (mod 15). -/
+theorem enumeration_hex4_90e2 : reassembles 37090 = true ∧ castsFifteens 37090 = true := by decide
+
+/-- 90e3: nibbles fold back to 37091; digit sum 26 ≡ 37091 (mod 15). -/
+theorem enumeration_hex4_90e3 : reassembles 37091 = true ∧ castsFifteens 37091 = true := by decide
+
+/-- 90e4: nibbles fold back to 37092; digit sum 27 ≡ 37092 (mod 15). -/
+theorem enumeration_hex4_90e4 : reassembles 37092 = true ∧ castsFifteens 37092 = true := by decide
+
+/-- 90e5: nibbles fold back to 37093; digit sum 28 ≡ 37093 (mod 15). -/
+theorem enumeration_hex4_90e5 : reassembles 37093 = true ∧ castsFifteens 37093 = true := by decide
+
+/-- 90e6: nibbles fold back to 37094; digit sum 29 ≡ 37094 (mod 15). -/
+theorem enumeration_hex4_90e6 : reassembles 37094 = true ∧ castsFifteens 37094 = true := by decide
+
+/-- 90e7: nibbles fold back to 37095; digit sum 30 ≡ 37095 (mod 15). -/
+theorem enumeration_hex4_90e7 : reassembles 37095 = true ∧ castsFifteens 37095 = true := by decide
+
+/-- 90e8: nibbles fold back to 37096; digit sum 31 ≡ 37096 (mod 15). -/
+theorem enumeration_hex4_90e8 : reassembles 37096 = true ∧ castsFifteens 37096 = true := by decide
+
+/-- 90e9: nibbles fold back to 37097; digit sum 32 ≡ 37097 (mod 15). -/
+theorem enumeration_hex4_90e9 : reassembles 37097 = true ∧ castsFifteens 37097 = true := by decide
+
+/-- 90ea: nibbles fold back to 37098; digit sum 33 ≡ 37098 (mod 15). -/
+theorem enumeration_hex4_90ea : reassembles 37098 = true ∧ castsFifteens 37098 = true := by decide
+
+/-- 90eb: nibbles fold back to 37099; digit sum 34 ≡ 37099 (mod 15). -/
+theorem enumeration_hex4_90eb : reassembles 37099 = true ∧ castsFifteens 37099 = true := by decide
+
+/-- 90ec: nibbles fold back to 37100; digit sum 35 ≡ 37100 (mod 15). -/
+theorem enumeration_hex4_90ec : reassembles 37100 = true ∧ castsFifteens 37100 = true := by decide
+
+/-- 90ed: nibbles fold back to 37101; digit sum 36 ≡ 37101 (mod 15). -/
+theorem enumeration_hex4_90ed : reassembles 37101 = true ∧ castsFifteens 37101 = true := by decide
+
+/-- 90ee: nibbles fold back to 37102; digit sum 37 ≡ 37102 (mod 15). -/
+theorem enumeration_hex4_90ee : reassembles 37102 = true ∧ castsFifteens 37102 = true := by decide
+
+/-- 90ef: nibbles fold back to 37103; digit sum 38 ≡ 37103 (mod 15). -/
+theorem enumeration_hex4_90ef : reassembles 37103 = true ∧ castsFifteens 37103 = true := by decide
+
+/-- 90f0: nibbles fold back to 37104; digit sum 24 ≡ 37104 (mod 15). -/
+theorem enumeration_hex4_90f0 : reassembles 37104 = true ∧ castsFifteens 37104 = true := by decide
+
+/-- 90f1: nibbles fold back to 37105; digit sum 25 ≡ 37105 (mod 15). -/
+theorem enumeration_hex4_90f1 : reassembles 37105 = true ∧ castsFifteens 37105 = true := by decide
+
+/-- 90f2: nibbles fold back to 37106; digit sum 26 ≡ 37106 (mod 15). -/
+theorem enumeration_hex4_90f2 : reassembles 37106 = true ∧ castsFifteens 37106 = true := by decide
+
+/-- 90f3: nibbles fold back to 37107; digit sum 27 ≡ 37107 (mod 15). -/
+theorem enumeration_hex4_90f3 : reassembles 37107 = true ∧ castsFifteens 37107 = true := by decide
+
+/-- 90f4: nibbles fold back to 37108; digit sum 28 ≡ 37108 (mod 15). -/
+theorem enumeration_hex4_90f4 : reassembles 37108 = true ∧ castsFifteens 37108 = true := by decide
+
+/-- 90f5: nibbles fold back to 37109; digit sum 29 ≡ 37109 (mod 15). -/
+theorem enumeration_hex4_90f5 : reassembles 37109 = true ∧ castsFifteens 37109 = true := by decide
+
+/-- 90f6: nibbles fold back to 37110; digit sum 30 ≡ 37110 (mod 15). -/
+theorem enumeration_hex4_90f6 : reassembles 37110 = true ∧ castsFifteens 37110 = true := by decide
+
+/-- 90f7: nibbles fold back to 37111; digit sum 31 ≡ 37111 (mod 15). -/
+theorem enumeration_hex4_90f7 : reassembles 37111 = true ∧ castsFifteens 37111 = true := by decide
+
+/-- 90f8: nibbles fold back to 37112; digit sum 32 ≡ 37112 (mod 15). -/
+theorem enumeration_hex4_90f8 : reassembles 37112 = true ∧ castsFifteens 37112 = true := by decide
+
+/-- 90f9: nibbles fold back to 37113; digit sum 33 ≡ 37113 (mod 15). -/
+theorem enumeration_hex4_90f9 : reassembles 37113 = true ∧ castsFifteens 37113 = true := by decide
+
+/-- 90fa: nibbles fold back to 37114; digit sum 34 ≡ 37114 (mod 15). -/
+theorem enumeration_hex4_90fa : reassembles 37114 = true ∧ castsFifteens 37114 = true := by decide
+
+/-- 90fb: nibbles fold back to 37115; digit sum 35 ≡ 37115 (mod 15). -/
+theorem enumeration_hex4_90fb : reassembles 37115 = true ∧ castsFifteens 37115 = true := by decide
+
+/-- 90fc: nibbles fold back to 37116; digit sum 36 ≡ 37116 (mod 15). -/
+theorem enumeration_hex4_90fc : reassembles 37116 = true ∧ castsFifteens 37116 = true := by decide
+
+/-- 90fd: nibbles fold back to 37117; digit sum 37 ≡ 37117 (mod 15). -/
+theorem enumeration_hex4_90fd : reassembles 37117 = true ∧ castsFifteens 37117 = true := by decide
+
+/-- 90fe: nibbles fold back to 37118; digit sum 38 ≡ 37118 (mod 15). -/
+theorem enumeration_hex4_90fe : reassembles 37118 = true ∧ castsFifteens 37118 = true := by decide
+
+/-- 90ff: nibbles fold back to 37119; digit sum 39 ≡ 37119 (mod 15). -/
+theorem enumeration_hex4_90ff : reassembles 37119 = true ∧ castsFifteens 37119 = true := by decide
+
+/-- 9100: nibbles fold back to 37120; digit sum 10 ≡ 37120 (mod 15). -/
+theorem enumeration_hex4_9100 : reassembles 37120 = true ∧ castsFifteens 37120 = true := by decide
+
+/-- 9101: nibbles fold back to 37121; digit sum 11 ≡ 37121 (mod 15). -/
+theorem enumeration_hex4_9101 : reassembles 37121 = true ∧ castsFifteens 37121 = true := by decide
+
+/-- 9102: nibbles fold back to 37122; digit sum 12 ≡ 37122 (mod 15). -/
+theorem enumeration_hex4_9102 : reassembles 37122 = true ∧ castsFifteens 37122 = true := by decide
+
+/-- 9103: nibbles fold back to 37123; digit sum 13 ≡ 37123 (mod 15). -/
+theorem enumeration_hex4_9103 : reassembles 37123 = true ∧ castsFifteens 37123 = true := by decide
+
+/-- 9104: nibbles fold back to 37124; digit sum 14 ≡ 37124 (mod 15). -/
+theorem enumeration_hex4_9104 : reassembles 37124 = true ∧ castsFifteens 37124 = true := by decide
+
+/-- 9105: nibbles fold back to 37125; digit sum 15 ≡ 37125 (mod 15). -/
+theorem enumeration_hex4_9105 : reassembles 37125 = true ∧ castsFifteens 37125 = true := by decide
+
+/-- 9106: nibbles fold back to 37126; digit sum 16 ≡ 37126 (mod 15). -/
+theorem enumeration_hex4_9106 : reassembles 37126 = true ∧ castsFifteens 37126 = true := by decide
+
+/-- 9107: nibbles fold back to 37127; digit sum 17 ≡ 37127 (mod 15). -/
+theorem enumeration_hex4_9107 : reassembles 37127 = true ∧ castsFifteens 37127 = true := by decide
+
+/-- 9108: nibbles fold back to 37128; digit sum 18 ≡ 37128 (mod 15). -/
+theorem enumeration_hex4_9108 : reassembles 37128 = true ∧ castsFifteens 37128 = true := by decide
+
+/-- 9109: nibbles fold back to 37129; digit sum 19 ≡ 37129 (mod 15). -/
+theorem enumeration_hex4_9109 : reassembles 37129 = true ∧ castsFifteens 37129 = true := by decide
+
+/-- 910a: nibbles fold back to 37130; digit sum 20 ≡ 37130 (mod 15). -/
+theorem enumeration_hex4_910a : reassembles 37130 = true ∧ castsFifteens 37130 = true := by decide
+
+/-- 910b: nibbles fold back to 37131; digit sum 21 ≡ 37131 (mod 15). -/
+theorem enumeration_hex4_910b : reassembles 37131 = true ∧ castsFifteens 37131 = true := by decide
+
+/-- 910c: nibbles fold back to 37132; digit sum 22 ≡ 37132 (mod 15). -/
+theorem enumeration_hex4_910c : reassembles 37132 = true ∧ castsFifteens 37132 = true := by decide
+
+/-- 910d: nibbles fold back to 37133; digit sum 23 ≡ 37133 (mod 15). -/
+theorem enumeration_hex4_910d : reassembles 37133 = true ∧ castsFifteens 37133 = true := by decide
+
+/-- 910e: nibbles fold back to 37134; digit sum 24 ≡ 37134 (mod 15). -/
+theorem enumeration_hex4_910e : reassembles 37134 = true ∧ castsFifteens 37134 = true := by decide
+
+/-- 910f: nibbles fold back to 37135; digit sum 25 ≡ 37135 (mod 15). -/
+theorem enumeration_hex4_910f : reassembles 37135 = true ∧ castsFifteens 37135 = true := by decide
+
+/-- 9110: nibbles fold back to 37136; digit sum 11 ≡ 37136 (mod 15). -/
+theorem enumeration_hex4_9110 : reassembles 37136 = true ∧ castsFifteens 37136 = true := by decide
+
+/-- 9111: nibbles fold back to 37137; digit sum 12 ≡ 37137 (mod 15). -/
+theorem enumeration_hex4_9111 : reassembles 37137 = true ∧ castsFifteens 37137 = true := by decide
+
+/-- 9112: nibbles fold back to 37138; digit sum 13 ≡ 37138 (mod 15). -/
+theorem enumeration_hex4_9112 : reassembles 37138 = true ∧ castsFifteens 37138 = true := by decide
+
+/-- 9113: nibbles fold back to 37139; digit sum 14 ≡ 37139 (mod 15). -/
+theorem enumeration_hex4_9113 : reassembles 37139 = true ∧ castsFifteens 37139 = true := by decide
+
+/-- 9114: nibbles fold back to 37140; digit sum 15 ≡ 37140 (mod 15). -/
+theorem enumeration_hex4_9114 : reassembles 37140 = true ∧ castsFifteens 37140 = true := by decide
+
+/-- 9115: nibbles fold back to 37141; digit sum 16 ≡ 37141 (mod 15). -/
+theorem enumeration_hex4_9115 : reassembles 37141 = true ∧ castsFifteens 37141 = true := by decide
+
+/-- 9116: nibbles fold back to 37142; digit sum 17 ≡ 37142 (mod 15). -/
+theorem enumeration_hex4_9116 : reassembles 37142 = true ∧ castsFifteens 37142 = true := by decide
+
+/-- 9117: nibbles fold back to 37143; digit sum 18 ≡ 37143 (mod 15). -/
+theorem enumeration_hex4_9117 : reassembles 37143 = true ∧ castsFifteens 37143 = true := by decide
+
+/-- 9118: nibbles fold back to 37144; digit sum 19 ≡ 37144 (mod 15). -/
+theorem enumeration_hex4_9118 : reassembles 37144 = true ∧ castsFifteens 37144 = true := by decide
+
+/-- 9119: nibbles fold back to 37145; digit sum 20 ≡ 37145 (mod 15). -/
+theorem enumeration_hex4_9119 : reassembles 37145 = true ∧ castsFifteens 37145 = true := by decide
+
+/-- 911a: nibbles fold back to 37146; digit sum 21 ≡ 37146 (mod 15). -/
+theorem enumeration_hex4_911a : reassembles 37146 = true ∧ castsFifteens 37146 = true := by decide
+
+/-- 911b: nibbles fold back to 37147; digit sum 22 ≡ 37147 (mod 15). -/
+theorem enumeration_hex4_911b : reassembles 37147 = true ∧ castsFifteens 37147 = true := by decide
+
+/-- 911c: nibbles fold back to 37148; digit sum 23 ≡ 37148 (mod 15). -/
+theorem enumeration_hex4_911c : reassembles 37148 = true ∧ castsFifteens 37148 = true := by decide
+
+/-- 911d: nibbles fold back to 37149; digit sum 24 ≡ 37149 (mod 15). -/
+theorem enumeration_hex4_911d : reassembles 37149 = true ∧ castsFifteens 37149 = true := by decide
+
+/-- 911e: nibbles fold back to 37150; digit sum 25 ≡ 37150 (mod 15). -/
+theorem enumeration_hex4_911e : reassembles 37150 = true ∧ castsFifteens 37150 = true := by decide
+
+/-- 911f: nibbles fold back to 37151; digit sum 26 ≡ 37151 (mod 15). -/
+theorem enumeration_hex4_911f : reassembles 37151 = true ∧ castsFifteens 37151 = true := by decide
+
+/-- 9120: nibbles fold back to 37152; digit sum 12 ≡ 37152 (mod 15). -/
+theorem enumeration_hex4_9120 : reassembles 37152 = true ∧ castsFifteens 37152 = true := by decide
+
+/-- 9121: nibbles fold back to 37153; digit sum 13 ≡ 37153 (mod 15). -/
+theorem enumeration_hex4_9121 : reassembles 37153 = true ∧ castsFifteens 37153 = true := by decide
+
+/-- 9122: nibbles fold back to 37154; digit sum 14 ≡ 37154 (mod 15). -/
+theorem enumeration_hex4_9122 : reassembles 37154 = true ∧ castsFifteens 37154 = true := by decide
+
+/-- 9123: nibbles fold back to 37155; digit sum 15 ≡ 37155 (mod 15). -/
+theorem enumeration_hex4_9123 : reassembles 37155 = true ∧ castsFifteens 37155 = true := by decide
+
+/-- 9124: nibbles fold back to 37156; digit sum 16 ≡ 37156 (mod 15). -/
+theorem enumeration_hex4_9124 : reassembles 37156 = true ∧ castsFifteens 37156 = true := by decide
+
+/-- 9125: nibbles fold back to 37157; digit sum 17 ≡ 37157 (mod 15). -/
+theorem enumeration_hex4_9125 : reassembles 37157 = true ∧ castsFifteens 37157 = true := by decide
+
+/-- 9126: nibbles fold back to 37158; digit sum 18 ≡ 37158 (mod 15). -/
+theorem enumeration_hex4_9126 : reassembles 37158 = true ∧ castsFifteens 37158 = true := by decide
+
+/-- 9127: nibbles fold back to 37159; digit sum 19 ≡ 37159 (mod 15). -/
+theorem enumeration_hex4_9127 : reassembles 37159 = true ∧ castsFifteens 37159 = true := by decide
+
+/-- 9128: nibbles fold back to 37160; digit sum 20 ≡ 37160 (mod 15). -/
+theorem enumeration_hex4_9128 : reassembles 37160 = true ∧ castsFifteens 37160 = true := by decide
+
+/-- 9129: nibbles fold back to 37161; digit sum 21 ≡ 37161 (mod 15). -/
+theorem enumeration_hex4_9129 : reassembles 37161 = true ∧ castsFifteens 37161 = true := by decide
+
+/-- 912a: nibbles fold back to 37162; digit sum 22 ≡ 37162 (mod 15). -/
+theorem enumeration_hex4_912a : reassembles 37162 = true ∧ castsFifteens 37162 = true := by decide
+
+/-- 912b: nibbles fold back to 37163; digit sum 23 ≡ 37163 (mod 15). -/
+theorem enumeration_hex4_912b : reassembles 37163 = true ∧ castsFifteens 37163 = true := by decide
+
+/-- 912c: nibbles fold back to 37164; digit sum 24 ≡ 37164 (mod 15). -/
+theorem enumeration_hex4_912c : reassembles 37164 = true ∧ castsFifteens 37164 = true := by decide
+
+/-- 912d: nibbles fold back to 37165; digit sum 25 ≡ 37165 (mod 15). -/
+theorem enumeration_hex4_912d : reassembles 37165 = true ∧ castsFifteens 37165 = true := by decide
+
+/-- 912e: nibbles fold back to 37166; digit sum 26 ≡ 37166 (mod 15). -/
+theorem enumeration_hex4_912e : reassembles 37166 = true ∧ castsFifteens 37166 = true := by decide
+
+/-- 912f: nibbles fold back to 37167; digit sum 27 ≡ 37167 (mod 15). -/
+theorem enumeration_hex4_912f : reassembles 37167 = true ∧ castsFifteens 37167 = true := by decide
+
+/-- 9130: nibbles fold back to 37168; digit sum 13 ≡ 37168 (mod 15). -/
+theorem enumeration_hex4_9130 : reassembles 37168 = true ∧ castsFifteens 37168 = true := by decide
+
+/-- 9131: nibbles fold back to 37169; digit sum 14 ≡ 37169 (mod 15). -/
+theorem enumeration_hex4_9131 : reassembles 37169 = true ∧ castsFifteens 37169 = true := by decide
+
+/-- 9132: nibbles fold back to 37170; digit sum 15 ≡ 37170 (mod 15). -/
+theorem enumeration_hex4_9132 : reassembles 37170 = true ∧ castsFifteens 37170 = true := by decide
+
+/-- 9133: nibbles fold back to 37171; digit sum 16 ≡ 37171 (mod 15). -/
+theorem enumeration_hex4_9133 : reassembles 37171 = true ∧ castsFifteens 37171 = true := by decide
+
+/-- 9134: nibbles fold back to 37172; digit sum 17 ≡ 37172 (mod 15). -/
+theorem enumeration_hex4_9134 : reassembles 37172 = true ∧ castsFifteens 37172 = true := by decide
+
+/-- 9135: nibbles fold back to 37173; digit sum 18 ≡ 37173 (mod 15). -/
+theorem enumeration_hex4_9135 : reassembles 37173 = true ∧ castsFifteens 37173 = true := by decide
+
+/-- 9136: nibbles fold back to 37174; digit sum 19 ≡ 37174 (mod 15). -/
+theorem enumeration_hex4_9136 : reassembles 37174 = true ∧ castsFifteens 37174 = true := by decide
+
+/-- 9137: nibbles fold back to 37175; digit sum 20 ≡ 37175 (mod 15). -/
+theorem enumeration_hex4_9137 : reassembles 37175 = true ∧ castsFifteens 37175 = true := by decide
+
+/-- 9138: nibbles fold back to 37176; digit sum 21 ≡ 37176 (mod 15). -/
+theorem enumeration_hex4_9138 : reassembles 37176 = true ∧ castsFifteens 37176 = true := by decide
+
+/-- 9139: nibbles fold back to 37177; digit sum 22 ≡ 37177 (mod 15). -/
+theorem enumeration_hex4_9139 : reassembles 37177 = true ∧ castsFifteens 37177 = true := by decide
+
+/-- 913a: nibbles fold back to 37178; digit sum 23 ≡ 37178 (mod 15). -/
+theorem enumeration_hex4_913a : reassembles 37178 = true ∧ castsFifteens 37178 = true := by decide
+
+/-- 913b: nibbles fold back to 37179; digit sum 24 ≡ 37179 (mod 15). -/
+theorem enumeration_hex4_913b : reassembles 37179 = true ∧ castsFifteens 37179 = true := by decide
+
+/-- 913c: nibbles fold back to 37180; digit sum 25 ≡ 37180 (mod 15). -/
+theorem enumeration_hex4_913c : reassembles 37180 = true ∧ castsFifteens 37180 = true := by decide
+
+/-- 913d: nibbles fold back to 37181; digit sum 26 ≡ 37181 (mod 15). -/
+theorem enumeration_hex4_913d : reassembles 37181 = true ∧ castsFifteens 37181 = true := by decide
+
+/-- 913e: nibbles fold back to 37182; digit sum 27 ≡ 37182 (mod 15). -/
+theorem enumeration_hex4_913e : reassembles 37182 = true ∧ castsFifteens 37182 = true := by decide
+
+/-- 913f: nibbles fold back to 37183; digit sum 28 ≡ 37183 (mod 15). -/
+theorem enumeration_hex4_913f : reassembles 37183 = true ∧ castsFifteens 37183 = true := by decide
+
+/-- 9140: nibbles fold back to 37184; digit sum 14 ≡ 37184 (mod 15). -/
+theorem enumeration_hex4_9140 : reassembles 37184 = true ∧ castsFifteens 37184 = true := by decide
+
+/-- 9141: nibbles fold back to 37185; digit sum 15 ≡ 37185 (mod 15). -/
+theorem enumeration_hex4_9141 : reassembles 37185 = true ∧ castsFifteens 37185 = true := by decide
+
+/-- 9142: nibbles fold back to 37186; digit sum 16 ≡ 37186 (mod 15). -/
+theorem enumeration_hex4_9142 : reassembles 37186 = true ∧ castsFifteens 37186 = true := by decide
+
+/-- 9143: nibbles fold back to 37187; digit sum 17 ≡ 37187 (mod 15). -/
+theorem enumeration_hex4_9143 : reassembles 37187 = true ∧ castsFifteens 37187 = true := by decide
+
+/-- 9144: nibbles fold back to 37188; digit sum 18 ≡ 37188 (mod 15). -/
+theorem enumeration_hex4_9144 : reassembles 37188 = true ∧ castsFifteens 37188 = true := by decide
+
+/-- 9145: nibbles fold back to 37189; digit sum 19 ≡ 37189 (mod 15). -/
+theorem enumeration_hex4_9145 : reassembles 37189 = true ∧ castsFifteens 37189 = true := by decide
+
+/-- 9146: nibbles fold back to 37190; digit sum 20 ≡ 37190 (mod 15). -/
+theorem enumeration_hex4_9146 : reassembles 37190 = true ∧ castsFifteens 37190 = true := by decide
+
+/-- 9147: nibbles fold back to 37191; digit sum 21 ≡ 37191 (mod 15). -/
+theorem enumeration_hex4_9147 : reassembles 37191 = true ∧ castsFifteens 37191 = true := by decide
+
+/-- 9148: nibbles fold back to 37192; digit sum 22 ≡ 37192 (mod 15). -/
+theorem enumeration_hex4_9148 : reassembles 37192 = true ∧ castsFifteens 37192 = true := by decide
+
+/-- 9149: nibbles fold back to 37193; digit sum 23 ≡ 37193 (mod 15). -/
+theorem enumeration_hex4_9149 : reassembles 37193 = true ∧ castsFifteens 37193 = true := by decide
+
+/-- 914a: nibbles fold back to 37194; digit sum 24 ≡ 37194 (mod 15). -/
+theorem enumeration_hex4_914a : reassembles 37194 = true ∧ castsFifteens 37194 = true := by decide
+
+/-- 914b: nibbles fold back to 37195; digit sum 25 ≡ 37195 (mod 15). -/
+theorem enumeration_hex4_914b : reassembles 37195 = true ∧ castsFifteens 37195 = true := by decide
+
+/-- 914c: nibbles fold back to 37196; digit sum 26 ≡ 37196 (mod 15). -/
+theorem enumeration_hex4_914c : reassembles 37196 = true ∧ castsFifteens 37196 = true := by decide
+
+/-- 914d: nibbles fold back to 37197; digit sum 27 ≡ 37197 (mod 15). -/
+theorem enumeration_hex4_914d : reassembles 37197 = true ∧ castsFifteens 37197 = true := by decide
+
+/-- 914e: nibbles fold back to 37198; digit sum 28 ≡ 37198 (mod 15). -/
+theorem enumeration_hex4_914e : reassembles 37198 = true ∧ castsFifteens 37198 = true := by decide
+
+/-- 914f: nibbles fold back to 37199; digit sum 29 ≡ 37199 (mod 15). -/
+theorem enumeration_hex4_914f : reassembles 37199 = true ∧ castsFifteens 37199 = true := by decide
+
+/-- 9150: nibbles fold back to 37200; digit sum 15 ≡ 37200 (mod 15). -/
+theorem enumeration_hex4_9150 : reassembles 37200 = true ∧ castsFifteens 37200 = true := by decide
+
+/-- 9151: nibbles fold back to 37201; digit sum 16 ≡ 37201 (mod 15). -/
+theorem enumeration_hex4_9151 : reassembles 37201 = true ∧ castsFifteens 37201 = true := by decide
+
+/-- 9152: nibbles fold back to 37202; digit sum 17 ≡ 37202 (mod 15). -/
+theorem enumeration_hex4_9152 : reassembles 37202 = true ∧ castsFifteens 37202 = true := by decide
+
+/-- 9153: nibbles fold back to 37203; digit sum 18 ≡ 37203 (mod 15). -/
+theorem enumeration_hex4_9153 : reassembles 37203 = true ∧ castsFifteens 37203 = true := by decide
+
+/-- 9154: nibbles fold back to 37204; digit sum 19 ≡ 37204 (mod 15). -/
+theorem enumeration_hex4_9154 : reassembles 37204 = true ∧ castsFifteens 37204 = true := by decide
+
+/-- 9155: nibbles fold back to 37205; digit sum 20 ≡ 37205 (mod 15). -/
+theorem enumeration_hex4_9155 : reassembles 37205 = true ∧ castsFifteens 37205 = true := by decide
+
+/-- 9156: nibbles fold back to 37206; digit sum 21 ≡ 37206 (mod 15). -/
+theorem enumeration_hex4_9156 : reassembles 37206 = true ∧ castsFifteens 37206 = true := by decide
+
+/-- 9157: nibbles fold back to 37207; digit sum 22 ≡ 37207 (mod 15). -/
+theorem enumeration_hex4_9157 : reassembles 37207 = true ∧ castsFifteens 37207 = true := by decide
+
+/-- 9158: nibbles fold back to 37208; digit sum 23 ≡ 37208 (mod 15). -/
+theorem enumeration_hex4_9158 : reassembles 37208 = true ∧ castsFifteens 37208 = true := by decide
+
+/-- 9159: nibbles fold back to 37209; digit sum 24 ≡ 37209 (mod 15). -/
+theorem enumeration_hex4_9159 : reassembles 37209 = true ∧ castsFifteens 37209 = true := by decide
+
+/-- 915a: nibbles fold back to 37210; digit sum 25 ≡ 37210 (mod 15). -/
+theorem enumeration_hex4_915a : reassembles 37210 = true ∧ castsFifteens 37210 = true := by decide
+
+/-- 915b: nibbles fold back to 37211; digit sum 26 ≡ 37211 (mod 15). -/
+theorem enumeration_hex4_915b : reassembles 37211 = true ∧ castsFifteens 37211 = true := by decide
+
+/-- 915c: nibbles fold back to 37212; digit sum 27 ≡ 37212 (mod 15). -/
+theorem enumeration_hex4_915c : reassembles 37212 = true ∧ castsFifteens 37212 = true := by decide
+
+/-- 915d: nibbles fold back to 37213; digit sum 28 ≡ 37213 (mod 15). -/
+theorem enumeration_hex4_915d : reassembles 37213 = true ∧ castsFifteens 37213 = true := by decide
+
+/-- 915e: nibbles fold back to 37214; digit sum 29 ≡ 37214 (mod 15). -/
+theorem enumeration_hex4_915e : reassembles 37214 = true ∧ castsFifteens 37214 = true := by decide
+
+/-- 915f: nibbles fold back to 37215; digit sum 30 ≡ 37215 (mod 15). -/
+theorem enumeration_hex4_915f : reassembles 37215 = true ∧ castsFifteens 37215 = true := by decide
+
+/-- 9160: nibbles fold back to 37216; digit sum 16 ≡ 37216 (mod 15). -/
+theorem enumeration_hex4_9160 : reassembles 37216 = true ∧ castsFifteens 37216 = true := by decide
+
+/-- 9161: nibbles fold back to 37217; digit sum 17 ≡ 37217 (mod 15). -/
+theorem enumeration_hex4_9161 : reassembles 37217 = true ∧ castsFifteens 37217 = true := by decide
+
+/-- 9162: nibbles fold back to 37218; digit sum 18 ≡ 37218 (mod 15). -/
+theorem enumeration_hex4_9162 : reassembles 37218 = true ∧ castsFifteens 37218 = true := by decide
+
+/-- 9163: nibbles fold back to 37219; digit sum 19 ≡ 37219 (mod 15). -/
+theorem enumeration_hex4_9163 : reassembles 37219 = true ∧ castsFifteens 37219 = true := by decide
+
+/-- 9164: nibbles fold back to 37220; digit sum 20 ≡ 37220 (mod 15). -/
+theorem enumeration_hex4_9164 : reassembles 37220 = true ∧ castsFifteens 37220 = true := by decide
+
+/-- 9165: nibbles fold back to 37221; digit sum 21 ≡ 37221 (mod 15). -/
+theorem enumeration_hex4_9165 : reassembles 37221 = true ∧ castsFifteens 37221 = true := by decide
+
+/-- 9166: nibbles fold back to 37222; digit sum 22 ≡ 37222 (mod 15). -/
+theorem enumeration_hex4_9166 : reassembles 37222 = true ∧ castsFifteens 37222 = true := by decide
+
+/-- 9167: nibbles fold back to 37223; digit sum 23 ≡ 37223 (mod 15). -/
+theorem enumeration_hex4_9167 : reassembles 37223 = true ∧ castsFifteens 37223 = true := by decide
+
+/-- 9168: nibbles fold back to 37224; digit sum 24 ≡ 37224 (mod 15). -/
+theorem enumeration_hex4_9168 : reassembles 37224 = true ∧ castsFifteens 37224 = true := by decide
+
+/-- 9169: nibbles fold back to 37225; digit sum 25 ≡ 37225 (mod 15). -/
+theorem enumeration_hex4_9169 : reassembles 37225 = true ∧ castsFifteens 37225 = true := by decide
+
+/-- 916a: nibbles fold back to 37226; digit sum 26 ≡ 37226 (mod 15). -/
+theorem enumeration_hex4_916a : reassembles 37226 = true ∧ castsFifteens 37226 = true := by decide
+
+/-- 916b: nibbles fold back to 37227; digit sum 27 ≡ 37227 (mod 15). -/
+theorem enumeration_hex4_916b : reassembles 37227 = true ∧ castsFifteens 37227 = true := by decide
+
+/-- 916c: nibbles fold back to 37228; digit sum 28 ≡ 37228 (mod 15). -/
+theorem enumeration_hex4_916c : reassembles 37228 = true ∧ castsFifteens 37228 = true := by decide
+
+/-- 916d: nibbles fold back to 37229; digit sum 29 ≡ 37229 (mod 15). -/
+theorem enumeration_hex4_916d : reassembles 37229 = true ∧ castsFifteens 37229 = true := by decide
+
+/-- 916e: nibbles fold back to 37230; digit sum 30 ≡ 37230 (mod 15). -/
+theorem enumeration_hex4_916e : reassembles 37230 = true ∧ castsFifteens 37230 = true := by decide
+
+/-- 916f: nibbles fold back to 37231; digit sum 31 ≡ 37231 (mod 15). -/
+theorem enumeration_hex4_916f : reassembles 37231 = true ∧ castsFifteens 37231 = true := by decide
+
+/-- 9170: nibbles fold back to 37232; digit sum 17 ≡ 37232 (mod 15). -/
+theorem enumeration_hex4_9170 : reassembles 37232 = true ∧ castsFifteens 37232 = true := by decide
+
+/-- 9171: nibbles fold back to 37233; digit sum 18 ≡ 37233 (mod 15). -/
+theorem enumeration_hex4_9171 : reassembles 37233 = true ∧ castsFifteens 37233 = true := by decide
+
+/-- 9172: nibbles fold back to 37234; digit sum 19 ≡ 37234 (mod 15). -/
+theorem enumeration_hex4_9172 : reassembles 37234 = true ∧ castsFifteens 37234 = true := by decide
+
+/-- 9173: nibbles fold back to 37235; digit sum 20 ≡ 37235 (mod 15). -/
+theorem enumeration_hex4_9173 : reassembles 37235 = true ∧ castsFifteens 37235 = true := by decide
+
+/-- 9174: nibbles fold back to 37236; digit sum 21 ≡ 37236 (mod 15). -/
+theorem enumeration_hex4_9174 : reassembles 37236 = true ∧ castsFifteens 37236 = true := by decide
+
+/-- 9175: nibbles fold back to 37237; digit sum 22 ≡ 37237 (mod 15). -/
+theorem enumeration_hex4_9175 : reassembles 37237 = true ∧ castsFifteens 37237 = true := by decide
+
+/-- 9176: nibbles fold back to 37238; digit sum 23 ≡ 37238 (mod 15). -/
+theorem enumeration_hex4_9176 : reassembles 37238 = true ∧ castsFifteens 37238 = true := by decide
+
+/-- 9177: nibbles fold back to 37239; digit sum 24 ≡ 37239 (mod 15). -/
+theorem enumeration_hex4_9177 : reassembles 37239 = true ∧ castsFifteens 37239 = true := by decide
+
+/-- 9178: nibbles fold back to 37240; digit sum 25 ≡ 37240 (mod 15). -/
+theorem enumeration_hex4_9178 : reassembles 37240 = true ∧ castsFifteens 37240 = true := by decide
+
+/-- 9179: nibbles fold back to 37241; digit sum 26 ≡ 37241 (mod 15). -/
+theorem enumeration_hex4_9179 : reassembles 37241 = true ∧ castsFifteens 37241 = true := by decide
+
+/-- 917a: nibbles fold back to 37242; digit sum 27 ≡ 37242 (mod 15). -/
+theorem enumeration_hex4_917a : reassembles 37242 = true ∧ castsFifteens 37242 = true := by decide
+
+/-- 917b: nibbles fold back to 37243; digit sum 28 ≡ 37243 (mod 15). -/
+theorem enumeration_hex4_917b : reassembles 37243 = true ∧ castsFifteens 37243 = true := by decide
+
+/-- 917c: nibbles fold back to 37244; digit sum 29 ≡ 37244 (mod 15). -/
+theorem enumeration_hex4_917c : reassembles 37244 = true ∧ castsFifteens 37244 = true := by decide
+
+/-- 917d: nibbles fold back to 37245; digit sum 30 ≡ 37245 (mod 15). -/
+theorem enumeration_hex4_917d : reassembles 37245 = true ∧ castsFifteens 37245 = true := by decide
+
+/-- 917e: nibbles fold back to 37246; digit sum 31 ≡ 37246 (mod 15). -/
+theorem enumeration_hex4_917e : reassembles 37246 = true ∧ castsFifteens 37246 = true := by decide
+
+/-- 917f: nibbles fold back to 37247; digit sum 32 ≡ 37247 (mod 15). -/
+theorem enumeration_hex4_917f : reassembles 37247 = true ∧ castsFifteens 37247 = true := by decide
+
+/-- 9180: nibbles fold back to 37248; digit sum 18 ≡ 37248 (mod 15). -/
+theorem enumeration_hex4_9180 : reassembles 37248 = true ∧ castsFifteens 37248 = true := by decide
+
+/-- 9181: nibbles fold back to 37249; digit sum 19 ≡ 37249 (mod 15). -/
+theorem enumeration_hex4_9181 : reassembles 37249 = true ∧ castsFifteens 37249 = true := by decide
+
+/-- 9182: nibbles fold back to 37250; digit sum 20 ≡ 37250 (mod 15). -/
+theorem enumeration_hex4_9182 : reassembles 37250 = true ∧ castsFifteens 37250 = true := by decide
+
+/-- 9183: nibbles fold back to 37251; digit sum 21 ≡ 37251 (mod 15). -/
+theorem enumeration_hex4_9183 : reassembles 37251 = true ∧ castsFifteens 37251 = true := by decide
+
+/-- 9184: nibbles fold back to 37252; digit sum 22 ≡ 37252 (mod 15). -/
+theorem enumeration_hex4_9184 : reassembles 37252 = true ∧ castsFifteens 37252 = true := by decide
+
+/-- 9185: nibbles fold back to 37253; digit sum 23 ≡ 37253 (mod 15). -/
+theorem enumeration_hex4_9185 : reassembles 37253 = true ∧ castsFifteens 37253 = true := by decide
+
+/-- 9186: nibbles fold back to 37254; digit sum 24 ≡ 37254 (mod 15). -/
+theorem enumeration_hex4_9186 : reassembles 37254 = true ∧ castsFifteens 37254 = true := by decide
+
+/-- 9187: nibbles fold back to 37255; digit sum 25 ≡ 37255 (mod 15). -/
+theorem enumeration_hex4_9187 : reassembles 37255 = true ∧ castsFifteens 37255 = true := by decide
+
+/-- 9188: nibbles fold back to 37256; digit sum 26 ≡ 37256 (mod 15). -/
+theorem enumeration_hex4_9188 : reassembles 37256 = true ∧ castsFifteens 37256 = true := by decide
+
+/-- 9189: nibbles fold back to 37257; digit sum 27 ≡ 37257 (mod 15). -/
+theorem enumeration_hex4_9189 : reassembles 37257 = true ∧ castsFifteens 37257 = true := by decide
+
+/-- 918a: nibbles fold back to 37258; digit sum 28 ≡ 37258 (mod 15). -/
+theorem enumeration_hex4_918a : reassembles 37258 = true ∧ castsFifteens 37258 = true := by decide
+
+/-- 918b: nibbles fold back to 37259; digit sum 29 ≡ 37259 (mod 15). -/
+theorem enumeration_hex4_918b : reassembles 37259 = true ∧ castsFifteens 37259 = true := by decide
+
+/-- 918c: nibbles fold back to 37260; digit sum 30 ≡ 37260 (mod 15). -/
+theorem enumeration_hex4_918c : reassembles 37260 = true ∧ castsFifteens 37260 = true := by decide
+
+/-- 918d: nibbles fold back to 37261; digit sum 31 ≡ 37261 (mod 15). -/
+theorem enumeration_hex4_918d : reassembles 37261 = true ∧ castsFifteens 37261 = true := by decide
+
+/-- 918e: nibbles fold back to 37262; digit sum 32 ≡ 37262 (mod 15). -/
+theorem enumeration_hex4_918e : reassembles 37262 = true ∧ castsFifteens 37262 = true := by decide
+
+/-- 918f: nibbles fold back to 37263; digit sum 33 ≡ 37263 (mod 15). -/
+theorem enumeration_hex4_918f : reassembles 37263 = true ∧ castsFifteens 37263 = true := by decide
+
+/-- 9190: nibbles fold back to 37264; digit sum 19 ≡ 37264 (mod 15). -/
+theorem enumeration_hex4_9190 : reassembles 37264 = true ∧ castsFifteens 37264 = true := by decide
+
+/-- 9191: nibbles fold back to 37265; digit sum 20 ≡ 37265 (mod 15). -/
+theorem enumeration_hex4_9191 : reassembles 37265 = true ∧ castsFifteens 37265 = true := by decide
+
+/-- 9192: nibbles fold back to 37266; digit sum 21 ≡ 37266 (mod 15). -/
+theorem enumeration_hex4_9192 : reassembles 37266 = true ∧ castsFifteens 37266 = true := by decide
+
+/-- 9193: nibbles fold back to 37267; digit sum 22 ≡ 37267 (mod 15). -/
+theorem enumeration_hex4_9193 : reassembles 37267 = true ∧ castsFifteens 37267 = true := by decide
+
+/-- 9194: nibbles fold back to 37268; digit sum 23 ≡ 37268 (mod 15). -/
+theorem enumeration_hex4_9194 : reassembles 37268 = true ∧ castsFifteens 37268 = true := by decide
+
+/-- 9195: nibbles fold back to 37269; digit sum 24 ≡ 37269 (mod 15). -/
+theorem enumeration_hex4_9195 : reassembles 37269 = true ∧ castsFifteens 37269 = true := by decide
+
+/-- 9196: nibbles fold back to 37270; digit sum 25 ≡ 37270 (mod 15). -/
+theorem enumeration_hex4_9196 : reassembles 37270 = true ∧ castsFifteens 37270 = true := by decide
+
+/-- 9197: nibbles fold back to 37271; digit sum 26 ≡ 37271 (mod 15). -/
+theorem enumeration_hex4_9197 : reassembles 37271 = true ∧ castsFifteens 37271 = true := by decide
+
+/-- 9198: nibbles fold back to 37272; digit sum 27 ≡ 37272 (mod 15). -/
+theorem enumeration_hex4_9198 : reassembles 37272 = true ∧ castsFifteens 37272 = true := by decide
+
+/-- 9199: nibbles fold back to 37273; digit sum 28 ≡ 37273 (mod 15). -/
+theorem enumeration_hex4_9199 : reassembles 37273 = true ∧ castsFifteens 37273 = true := by decide
+
+/-- 919a: nibbles fold back to 37274; digit sum 29 ≡ 37274 (mod 15). -/
+theorem enumeration_hex4_919a : reassembles 37274 = true ∧ castsFifteens 37274 = true := by decide
+
+/-- 919b: nibbles fold back to 37275; digit sum 30 ≡ 37275 (mod 15). -/
+theorem enumeration_hex4_919b : reassembles 37275 = true ∧ castsFifteens 37275 = true := by decide
+
+/-- 919c: nibbles fold back to 37276; digit sum 31 ≡ 37276 (mod 15). -/
+theorem enumeration_hex4_919c : reassembles 37276 = true ∧ castsFifteens 37276 = true := by decide
+
+/-- 919d: nibbles fold back to 37277; digit sum 32 ≡ 37277 (mod 15). -/
+theorem enumeration_hex4_919d : reassembles 37277 = true ∧ castsFifteens 37277 = true := by decide
+
+/-- 919e: nibbles fold back to 37278; digit sum 33 ≡ 37278 (mod 15). -/
+theorem enumeration_hex4_919e : reassembles 37278 = true ∧ castsFifteens 37278 = true := by decide
+
+/-- 919f: nibbles fold back to 37279; digit sum 34 ≡ 37279 (mod 15). -/
+theorem enumeration_hex4_919f : reassembles 37279 = true ∧ castsFifteens 37279 = true := by decide
+
+/-- 91a0: nibbles fold back to 37280; digit sum 20 ≡ 37280 (mod 15). -/
+theorem enumeration_hex4_91a0 : reassembles 37280 = true ∧ castsFifteens 37280 = true := by decide
+
+/-- 91a1: nibbles fold back to 37281; digit sum 21 ≡ 37281 (mod 15). -/
+theorem enumeration_hex4_91a1 : reassembles 37281 = true ∧ castsFifteens 37281 = true := by decide
+
+/-- 91a2: nibbles fold back to 37282; digit sum 22 ≡ 37282 (mod 15). -/
+theorem enumeration_hex4_91a2 : reassembles 37282 = true ∧ castsFifteens 37282 = true := by decide
+
+/-- 91a3: nibbles fold back to 37283; digit sum 23 ≡ 37283 (mod 15). -/
+theorem enumeration_hex4_91a3 : reassembles 37283 = true ∧ castsFifteens 37283 = true := by decide
+
+/-- 91a4: nibbles fold back to 37284; digit sum 24 ≡ 37284 (mod 15). -/
+theorem enumeration_hex4_91a4 : reassembles 37284 = true ∧ castsFifteens 37284 = true := by decide
+
+/-- 91a5: nibbles fold back to 37285; digit sum 25 ≡ 37285 (mod 15). -/
+theorem enumeration_hex4_91a5 : reassembles 37285 = true ∧ castsFifteens 37285 = true := by decide
+
+/-- 91a6: nibbles fold back to 37286; digit sum 26 ≡ 37286 (mod 15). -/
+theorem enumeration_hex4_91a6 : reassembles 37286 = true ∧ castsFifteens 37286 = true := by decide
+
+/-- 91a7: nibbles fold back to 37287; digit sum 27 ≡ 37287 (mod 15). -/
+theorem enumeration_hex4_91a7 : reassembles 37287 = true ∧ castsFifteens 37287 = true := by decide
+
+/-- 91a8: nibbles fold back to 37288; digit sum 28 ≡ 37288 (mod 15). -/
+theorem enumeration_hex4_91a8 : reassembles 37288 = true ∧ castsFifteens 37288 = true := by decide
+
+/-- 91a9: nibbles fold back to 37289; digit sum 29 ≡ 37289 (mod 15). -/
+theorem enumeration_hex4_91a9 : reassembles 37289 = true ∧ castsFifteens 37289 = true := by decide
+
+/-- 91aa: nibbles fold back to 37290; digit sum 30 ≡ 37290 (mod 15). -/
+theorem enumeration_hex4_91aa : reassembles 37290 = true ∧ castsFifteens 37290 = true := by decide
+
+/-- 91ab: nibbles fold back to 37291; digit sum 31 ≡ 37291 (mod 15). -/
+theorem enumeration_hex4_91ab : reassembles 37291 = true ∧ castsFifteens 37291 = true := by decide
+
+/-- 91ac: nibbles fold back to 37292; digit sum 32 ≡ 37292 (mod 15). -/
+theorem enumeration_hex4_91ac : reassembles 37292 = true ∧ castsFifteens 37292 = true := by decide
+
+/-- 91ad: nibbles fold back to 37293; digit sum 33 ≡ 37293 (mod 15). -/
+theorem enumeration_hex4_91ad : reassembles 37293 = true ∧ castsFifteens 37293 = true := by decide
+
+/-- 91ae: nibbles fold back to 37294; digit sum 34 ≡ 37294 (mod 15). -/
+theorem enumeration_hex4_91ae : reassembles 37294 = true ∧ castsFifteens 37294 = true := by decide
+
+/-- 91af: nibbles fold back to 37295; digit sum 35 ≡ 37295 (mod 15). -/
+theorem enumeration_hex4_91af : reassembles 37295 = true ∧ castsFifteens 37295 = true := by decide
+
+/-- 91b0: nibbles fold back to 37296; digit sum 21 ≡ 37296 (mod 15). -/
+theorem enumeration_hex4_91b0 : reassembles 37296 = true ∧ castsFifteens 37296 = true := by decide
+
+/-- 91b1: nibbles fold back to 37297; digit sum 22 ≡ 37297 (mod 15). -/
+theorem enumeration_hex4_91b1 : reassembles 37297 = true ∧ castsFifteens 37297 = true := by decide
+
+/-- 91b2: nibbles fold back to 37298; digit sum 23 ≡ 37298 (mod 15). -/
+theorem enumeration_hex4_91b2 : reassembles 37298 = true ∧ castsFifteens 37298 = true := by decide
+
+/-- 91b3: nibbles fold back to 37299; digit sum 24 ≡ 37299 (mod 15). -/
+theorem enumeration_hex4_91b3 : reassembles 37299 = true ∧ castsFifteens 37299 = true := by decide
+
+/-- 91b4: nibbles fold back to 37300; digit sum 25 ≡ 37300 (mod 15). -/
+theorem enumeration_hex4_91b4 : reassembles 37300 = true ∧ castsFifteens 37300 = true := by decide
+
+/-- 91b5: nibbles fold back to 37301; digit sum 26 ≡ 37301 (mod 15). -/
+theorem enumeration_hex4_91b5 : reassembles 37301 = true ∧ castsFifteens 37301 = true := by decide
+
+/-- 91b6: nibbles fold back to 37302; digit sum 27 ≡ 37302 (mod 15). -/
+theorem enumeration_hex4_91b6 : reassembles 37302 = true ∧ castsFifteens 37302 = true := by decide
+
+/-- 91b7: nibbles fold back to 37303; digit sum 28 ≡ 37303 (mod 15). -/
+theorem enumeration_hex4_91b7 : reassembles 37303 = true ∧ castsFifteens 37303 = true := by decide
+
+/-- 91b8: nibbles fold back to 37304; digit sum 29 ≡ 37304 (mod 15). -/
+theorem enumeration_hex4_91b8 : reassembles 37304 = true ∧ castsFifteens 37304 = true := by decide
+
+/-- 91b9: nibbles fold back to 37305; digit sum 30 ≡ 37305 (mod 15). -/
+theorem enumeration_hex4_91b9 : reassembles 37305 = true ∧ castsFifteens 37305 = true := by decide
+
+/-- 91ba: nibbles fold back to 37306; digit sum 31 ≡ 37306 (mod 15). -/
+theorem enumeration_hex4_91ba : reassembles 37306 = true ∧ castsFifteens 37306 = true := by decide
+
+/-- 91bb: nibbles fold back to 37307; digit sum 32 ≡ 37307 (mod 15). -/
+theorem enumeration_hex4_91bb : reassembles 37307 = true ∧ castsFifteens 37307 = true := by decide
+
+/-- 91bc: nibbles fold back to 37308; digit sum 33 ≡ 37308 (mod 15). -/
+theorem enumeration_hex4_91bc : reassembles 37308 = true ∧ castsFifteens 37308 = true := by decide
+
+/-- 91bd: nibbles fold back to 37309; digit sum 34 ≡ 37309 (mod 15). -/
+theorem enumeration_hex4_91bd : reassembles 37309 = true ∧ castsFifteens 37309 = true := by decide
+
+/-- 91be: nibbles fold back to 37310; digit sum 35 ≡ 37310 (mod 15). -/
+theorem enumeration_hex4_91be : reassembles 37310 = true ∧ castsFifteens 37310 = true := by decide
+
+/-- 91bf: nibbles fold back to 37311; digit sum 36 ≡ 37311 (mod 15). -/
+theorem enumeration_hex4_91bf : reassembles 37311 = true ∧ castsFifteens 37311 = true := by decide
+
+/-- 91c0: nibbles fold back to 37312; digit sum 22 ≡ 37312 (mod 15). -/
+theorem enumeration_hex4_91c0 : reassembles 37312 = true ∧ castsFifteens 37312 = true := by decide
+
+/-- 91c1: nibbles fold back to 37313; digit sum 23 ≡ 37313 (mod 15). -/
+theorem enumeration_hex4_91c1 : reassembles 37313 = true ∧ castsFifteens 37313 = true := by decide
+
+/-- 91c2: nibbles fold back to 37314; digit sum 24 ≡ 37314 (mod 15). -/
+theorem enumeration_hex4_91c2 : reassembles 37314 = true ∧ castsFifteens 37314 = true := by decide
+
+/-- 91c3: nibbles fold back to 37315; digit sum 25 ≡ 37315 (mod 15). -/
+theorem enumeration_hex4_91c3 : reassembles 37315 = true ∧ castsFifteens 37315 = true := by decide
+
+/-- 91c4: nibbles fold back to 37316; digit sum 26 ≡ 37316 (mod 15). -/
+theorem enumeration_hex4_91c4 : reassembles 37316 = true ∧ castsFifteens 37316 = true := by decide
+
+/-- 91c5: nibbles fold back to 37317; digit sum 27 ≡ 37317 (mod 15). -/
+theorem enumeration_hex4_91c5 : reassembles 37317 = true ∧ castsFifteens 37317 = true := by decide
+
+/-- 91c6: nibbles fold back to 37318; digit sum 28 ≡ 37318 (mod 15). -/
+theorem enumeration_hex4_91c6 : reassembles 37318 = true ∧ castsFifteens 37318 = true := by decide
+
+/-- 91c7: nibbles fold back to 37319; digit sum 29 ≡ 37319 (mod 15). -/
+theorem enumeration_hex4_91c7 : reassembles 37319 = true ∧ castsFifteens 37319 = true := by decide
+
+/-- 91c8: nibbles fold back to 37320; digit sum 30 ≡ 37320 (mod 15). -/
+theorem enumeration_hex4_91c8 : reassembles 37320 = true ∧ castsFifteens 37320 = true := by decide
+
+/-- 91c9: nibbles fold back to 37321; digit sum 31 ≡ 37321 (mod 15). -/
+theorem enumeration_hex4_91c9 : reassembles 37321 = true ∧ castsFifteens 37321 = true := by decide
+
+/-- 91ca: nibbles fold back to 37322; digit sum 32 ≡ 37322 (mod 15). -/
+theorem enumeration_hex4_91ca : reassembles 37322 = true ∧ castsFifteens 37322 = true := by decide
+
+/-- 91cb: nibbles fold back to 37323; digit sum 33 ≡ 37323 (mod 15). -/
+theorem enumeration_hex4_91cb : reassembles 37323 = true ∧ castsFifteens 37323 = true := by decide
+
+/-- 91cc: nibbles fold back to 37324; digit sum 34 ≡ 37324 (mod 15). -/
+theorem enumeration_hex4_91cc : reassembles 37324 = true ∧ castsFifteens 37324 = true := by decide
+
+/-- 91cd: nibbles fold back to 37325; digit sum 35 ≡ 37325 (mod 15). -/
+theorem enumeration_hex4_91cd : reassembles 37325 = true ∧ castsFifteens 37325 = true := by decide
+
+/-- 91ce: nibbles fold back to 37326; digit sum 36 ≡ 37326 (mod 15). -/
+theorem enumeration_hex4_91ce : reassembles 37326 = true ∧ castsFifteens 37326 = true := by decide
+
+/-- 91cf: nibbles fold back to 37327; digit sum 37 ≡ 37327 (mod 15). -/
+theorem enumeration_hex4_91cf : reassembles 37327 = true ∧ castsFifteens 37327 = true := by decide
+
+/-- 91d0: nibbles fold back to 37328; digit sum 23 ≡ 37328 (mod 15). -/
+theorem enumeration_hex4_91d0 : reassembles 37328 = true ∧ castsFifteens 37328 = true := by decide
+
+/-- 91d1: nibbles fold back to 37329; digit sum 24 ≡ 37329 (mod 15). -/
+theorem enumeration_hex4_91d1 : reassembles 37329 = true ∧ castsFifteens 37329 = true := by decide
+
+/-- 91d2: nibbles fold back to 37330; digit sum 25 ≡ 37330 (mod 15). -/
+theorem enumeration_hex4_91d2 : reassembles 37330 = true ∧ castsFifteens 37330 = true := by decide
+
+/-- 91d3: nibbles fold back to 37331; digit sum 26 ≡ 37331 (mod 15). -/
+theorem enumeration_hex4_91d3 : reassembles 37331 = true ∧ castsFifteens 37331 = true := by decide
+
+/-- 91d4: nibbles fold back to 37332; digit sum 27 ≡ 37332 (mod 15). -/
+theorem enumeration_hex4_91d4 : reassembles 37332 = true ∧ castsFifteens 37332 = true := by decide
+
+/-- 91d5: nibbles fold back to 37333; digit sum 28 ≡ 37333 (mod 15). -/
+theorem enumeration_hex4_91d5 : reassembles 37333 = true ∧ castsFifteens 37333 = true := by decide
+
+/-- 91d6: nibbles fold back to 37334; digit sum 29 ≡ 37334 (mod 15). -/
+theorem enumeration_hex4_91d6 : reassembles 37334 = true ∧ castsFifteens 37334 = true := by decide
+
+/-- 91d7: nibbles fold back to 37335; digit sum 30 ≡ 37335 (mod 15). -/
+theorem enumeration_hex4_91d7 : reassembles 37335 = true ∧ castsFifteens 37335 = true := by decide
+
+/-- 91d8: nibbles fold back to 37336; digit sum 31 ≡ 37336 (mod 15). -/
+theorem enumeration_hex4_91d8 : reassembles 37336 = true ∧ castsFifteens 37336 = true := by decide
+
+/-- 91d9: nibbles fold back to 37337; digit sum 32 ≡ 37337 (mod 15). -/
+theorem enumeration_hex4_91d9 : reassembles 37337 = true ∧ castsFifteens 37337 = true := by decide
+
+/-- 91da: nibbles fold back to 37338; digit sum 33 ≡ 37338 (mod 15). -/
+theorem enumeration_hex4_91da : reassembles 37338 = true ∧ castsFifteens 37338 = true := by decide
+
+/-- 91db: nibbles fold back to 37339; digit sum 34 ≡ 37339 (mod 15). -/
+theorem enumeration_hex4_91db : reassembles 37339 = true ∧ castsFifteens 37339 = true := by decide
+
+/-- 91dc: nibbles fold back to 37340; digit sum 35 ≡ 37340 (mod 15). -/
+theorem enumeration_hex4_91dc : reassembles 37340 = true ∧ castsFifteens 37340 = true := by decide
+
+/-- 91dd: nibbles fold back to 37341; digit sum 36 ≡ 37341 (mod 15). -/
+theorem enumeration_hex4_91dd : reassembles 37341 = true ∧ castsFifteens 37341 = true := by decide
+
+/-- 91de: nibbles fold back to 37342; digit sum 37 ≡ 37342 (mod 15). -/
+theorem enumeration_hex4_91de : reassembles 37342 = true ∧ castsFifteens 37342 = true := by decide
+
+/-- 91df: nibbles fold back to 37343; digit sum 38 ≡ 37343 (mod 15). -/
+theorem enumeration_hex4_91df : reassembles 37343 = true ∧ castsFifteens 37343 = true := by decide
+
+/-- 91e0: nibbles fold back to 37344; digit sum 24 ≡ 37344 (mod 15). -/
+theorem enumeration_hex4_91e0 : reassembles 37344 = true ∧ castsFifteens 37344 = true := by decide
+
+/-- 91e1: nibbles fold back to 37345; digit sum 25 ≡ 37345 (mod 15). -/
+theorem enumeration_hex4_91e1 : reassembles 37345 = true ∧ castsFifteens 37345 = true := by decide
+
+/-- 91e2: nibbles fold back to 37346; digit sum 26 ≡ 37346 (mod 15). -/
+theorem enumeration_hex4_91e2 : reassembles 37346 = true ∧ castsFifteens 37346 = true := by decide
+
+/-- 91e3: nibbles fold back to 37347; digit sum 27 ≡ 37347 (mod 15). -/
+theorem enumeration_hex4_91e3 : reassembles 37347 = true ∧ castsFifteens 37347 = true := by decide
+
+/-- 91e4: nibbles fold back to 37348; digit sum 28 ≡ 37348 (mod 15). -/
+theorem enumeration_hex4_91e4 : reassembles 37348 = true ∧ castsFifteens 37348 = true := by decide
+
+/-- 91e5: nibbles fold back to 37349; digit sum 29 ≡ 37349 (mod 15). -/
+theorem enumeration_hex4_91e5 : reassembles 37349 = true ∧ castsFifteens 37349 = true := by decide
+
+/-- 91e6: nibbles fold back to 37350; digit sum 30 ≡ 37350 (mod 15). -/
+theorem enumeration_hex4_91e6 : reassembles 37350 = true ∧ castsFifteens 37350 = true := by decide
+
+/-- 91e7: nibbles fold back to 37351; digit sum 31 ≡ 37351 (mod 15). -/
+theorem enumeration_hex4_91e7 : reassembles 37351 = true ∧ castsFifteens 37351 = true := by decide
+
+/-- 91e8: nibbles fold back to 37352; digit sum 32 ≡ 37352 (mod 15). -/
+theorem enumeration_hex4_91e8 : reassembles 37352 = true ∧ castsFifteens 37352 = true := by decide
+
+/-- 91e9: nibbles fold back to 37353; digit sum 33 ≡ 37353 (mod 15). -/
+theorem enumeration_hex4_91e9 : reassembles 37353 = true ∧ castsFifteens 37353 = true := by decide
+
+/-- 91ea: nibbles fold back to 37354; digit sum 34 ≡ 37354 (mod 15). -/
+theorem enumeration_hex4_91ea : reassembles 37354 = true ∧ castsFifteens 37354 = true := by decide
+
+/-- 91eb: nibbles fold back to 37355; digit sum 35 ≡ 37355 (mod 15). -/
+theorem enumeration_hex4_91eb : reassembles 37355 = true ∧ castsFifteens 37355 = true := by decide
+
+/-- 91ec: nibbles fold back to 37356; digit sum 36 ≡ 37356 (mod 15). -/
+theorem enumeration_hex4_91ec : reassembles 37356 = true ∧ castsFifteens 37356 = true := by decide
+
+/-- 91ed: nibbles fold back to 37357; digit sum 37 ≡ 37357 (mod 15). -/
+theorem enumeration_hex4_91ed : reassembles 37357 = true ∧ castsFifteens 37357 = true := by decide
+
+/-- 91ee: nibbles fold back to 37358; digit sum 38 ≡ 37358 (mod 15). -/
+theorem enumeration_hex4_91ee : reassembles 37358 = true ∧ castsFifteens 37358 = true := by decide
+
+/-- 91ef: nibbles fold back to 37359; digit sum 39 ≡ 37359 (mod 15). -/
+theorem enumeration_hex4_91ef : reassembles 37359 = true ∧ castsFifteens 37359 = true := by decide
+
+/-- 91f0: nibbles fold back to 37360; digit sum 25 ≡ 37360 (mod 15). -/
+theorem enumeration_hex4_91f0 : reassembles 37360 = true ∧ castsFifteens 37360 = true := by decide
+
+/-- 91f1: nibbles fold back to 37361; digit sum 26 ≡ 37361 (mod 15). -/
+theorem enumeration_hex4_91f1 : reassembles 37361 = true ∧ castsFifteens 37361 = true := by decide
+
+/-- 91f2: nibbles fold back to 37362; digit sum 27 ≡ 37362 (mod 15). -/
+theorem enumeration_hex4_91f2 : reassembles 37362 = true ∧ castsFifteens 37362 = true := by decide
+
+/-- 91f3: nibbles fold back to 37363; digit sum 28 ≡ 37363 (mod 15). -/
+theorem enumeration_hex4_91f3 : reassembles 37363 = true ∧ castsFifteens 37363 = true := by decide
+
+/-- 91f4: nibbles fold back to 37364; digit sum 29 ≡ 37364 (mod 15). -/
+theorem enumeration_hex4_91f4 : reassembles 37364 = true ∧ castsFifteens 37364 = true := by decide
+
+/-- 91f5: nibbles fold back to 37365; digit sum 30 ≡ 37365 (mod 15). -/
+theorem enumeration_hex4_91f5 : reassembles 37365 = true ∧ castsFifteens 37365 = true := by decide
+
+/-- 91f6: nibbles fold back to 37366; digit sum 31 ≡ 37366 (mod 15). -/
+theorem enumeration_hex4_91f6 : reassembles 37366 = true ∧ castsFifteens 37366 = true := by decide
+
+/-- 91f7: nibbles fold back to 37367; digit sum 32 ≡ 37367 (mod 15). -/
+theorem enumeration_hex4_91f7 : reassembles 37367 = true ∧ castsFifteens 37367 = true := by decide
+
+/-- 91f8: nibbles fold back to 37368; digit sum 33 ≡ 37368 (mod 15). -/
+theorem enumeration_hex4_91f8 : reassembles 37368 = true ∧ castsFifteens 37368 = true := by decide
+
+/-- 91f9: nibbles fold back to 37369; digit sum 34 ≡ 37369 (mod 15). -/
+theorem enumeration_hex4_91f9 : reassembles 37369 = true ∧ castsFifteens 37369 = true := by decide
+
+/-- 91fa: nibbles fold back to 37370; digit sum 35 ≡ 37370 (mod 15). -/
+theorem enumeration_hex4_91fa : reassembles 37370 = true ∧ castsFifteens 37370 = true := by decide
+
+/-- 91fb: nibbles fold back to 37371; digit sum 36 ≡ 37371 (mod 15). -/
+theorem enumeration_hex4_91fb : reassembles 37371 = true ∧ castsFifteens 37371 = true := by decide
+
+/-- 91fc: nibbles fold back to 37372; digit sum 37 ≡ 37372 (mod 15). -/
+theorem enumeration_hex4_91fc : reassembles 37372 = true ∧ castsFifteens 37372 = true := by decide
+
+/-- 91fd: nibbles fold back to 37373; digit sum 38 ≡ 37373 (mod 15). -/
+theorem enumeration_hex4_91fd : reassembles 37373 = true ∧ castsFifteens 37373 = true := by decide
+
+/-- 91fe: nibbles fold back to 37374; digit sum 39 ≡ 37374 (mod 15). -/
+theorem enumeration_hex4_91fe : reassembles 37374 = true ∧ castsFifteens 37374 = true := by decide
+
+/-- 91ff: nibbles fold back to 37375; digit sum 40 ≡ 37375 (mod 15). -/
+theorem enumeration_hex4_91ff : reassembles 37375 = true ∧ castsFifteens 37375 = true := by decide
+
+/-- 9200: nibbles fold back to 37376; digit sum 11 ≡ 37376 (mod 15). -/
+theorem enumeration_hex4_9200 : reassembles 37376 = true ∧ castsFifteens 37376 = true := by decide
+
+/-- 9201: nibbles fold back to 37377; digit sum 12 ≡ 37377 (mod 15). -/
+theorem enumeration_hex4_9201 : reassembles 37377 = true ∧ castsFifteens 37377 = true := by decide
+
+/-- 9202: nibbles fold back to 37378; digit sum 13 ≡ 37378 (mod 15). -/
+theorem enumeration_hex4_9202 : reassembles 37378 = true ∧ castsFifteens 37378 = true := by decide
+
+/-- 9203: nibbles fold back to 37379; digit sum 14 ≡ 37379 (mod 15). -/
+theorem enumeration_hex4_9203 : reassembles 37379 = true ∧ castsFifteens 37379 = true := by decide
+
+/-- 9204: nibbles fold back to 37380; digit sum 15 ≡ 37380 (mod 15). -/
+theorem enumeration_hex4_9204 : reassembles 37380 = true ∧ castsFifteens 37380 = true := by decide
+
+/-- 9205: nibbles fold back to 37381; digit sum 16 ≡ 37381 (mod 15). -/
+theorem enumeration_hex4_9205 : reassembles 37381 = true ∧ castsFifteens 37381 = true := by decide
+
+/-- 9206: nibbles fold back to 37382; digit sum 17 ≡ 37382 (mod 15). -/
+theorem enumeration_hex4_9206 : reassembles 37382 = true ∧ castsFifteens 37382 = true := by decide
+
+/-- 9207: nibbles fold back to 37383; digit sum 18 ≡ 37383 (mod 15). -/
+theorem enumeration_hex4_9207 : reassembles 37383 = true ∧ castsFifteens 37383 = true := by decide
+
+/-- 9208: nibbles fold back to 37384; digit sum 19 ≡ 37384 (mod 15). -/
+theorem enumeration_hex4_9208 : reassembles 37384 = true ∧ castsFifteens 37384 = true := by decide
+
+/-- 9209: nibbles fold back to 37385; digit sum 20 ≡ 37385 (mod 15). -/
+theorem enumeration_hex4_9209 : reassembles 37385 = true ∧ castsFifteens 37385 = true := by decide
+
+/-- 920a: nibbles fold back to 37386; digit sum 21 ≡ 37386 (mod 15). -/
+theorem enumeration_hex4_920a : reassembles 37386 = true ∧ castsFifteens 37386 = true := by decide
+
+/-- 920b: nibbles fold back to 37387; digit sum 22 ≡ 37387 (mod 15). -/
+theorem enumeration_hex4_920b : reassembles 37387 = true ∧ castsFifteens 37387 = true := by decide
+
+/-- 920c: nibbles fold back to 37388; digit sum 23 ≡ 37388 (mod 15). -/
+theorem enumeration_hex4_920c : reassembles 37388 = true ∧ castsFifteens 37388 = true := by decide
+
+/-- 920d: nibbles fold back to 37389; digit sum 24 ≡ 37389 (mod 15). -/
+theorem enumeration_hex4_920d : reassembles 37389 = true ∧ castsFifteens 37389 = true := by decide
+
+/-- 920e: nibbles fold back to 37390; digit sum 25 ≡ 37390 (mod 15). -/
+theorem enumeration_hex4_920e : reassembles 37390 = true ∧ castsFifteens 37390 = true := by decide
+
+/-- 920f: nibbles fold back to 37391; digit sum 26 ≡ 37391 (mod 15). -/
+theorem enumeration_hex4_920f : reassembles 37391 = true ∧ castsFifteens 37391 = true := by decide
+
+/-- 9210: nibbles fold back to 37392; digit sum 12 ≡ 37392 (mod 15). -/
+theorem enumeration_hex4_9210 : reassembles 37392 = true ∧ castsFifteens 37392 = true := by decide
+
+/-- 9211: nibbles fold back to 37393; digit sum 13 ≡ 37393 (mod 15). -/
+theorem enumeration_hex4_9211 : reassembles 37393 = true ∧ castsFifteens 37393 = true := by decide
+
+/-- 9212: nibbles fold back to 37394; digit sum 14 ≡ 37394 (mod 15). -/
+theorem enumeration_hex4_9212 : reassembles 37394 = true ∧ castsFifteens 37394 = true := by decide
+
+/-- 9213: nibbles fold back to 37395; digit sum 15 ≡ 37395 (mod 15). -/
+theorem enumeration_hex4_9213 : reassembles 37395 = true ∧ castsFifteens 37395 = true := by decide
+
+/-- 9214: nibbles fold back to 37396; digit sum 16 ≡ 37396 (mod 15). -/
+theorem enumeration_hex4_9214 : reassembles 37396 = true ∧ castsFifteens 37396 = true := by decide
+
+/-- 9215: nibbles fold back to 37397; digit sum 17 ≡ 37397 (mod 15). -/
+theorem enumeration_hex4_9215 : reassembles 37397 = true ∧ castsFifteens 37397 = true := by decide
+
+/-- 9216: nibbles fold back to 37398; digit sum 18 ≡ 37398 (mod 15). -/
+theorem enumeration_hex4_9216 : reassembles 37398 = true ∧ castsFifteens 37398 = true := by decide
+
+/-- 9217: nibbles fold back to 37399; digit sum 19 ≡ 37399 (mod 15). -/
+theorem enumeration_hex4_9217 : reassembles 37399 = true ∧ castsFifteens 37399 = true := by decide
+
+/-- 9218: nibbles fold back to 37400; digit sum 20 ≡ 37400 (mod 15). -/
+theorem enumeration_hex4_9218 : reassembles 37400 = true ∧ castsFifteens 37400 = true := by decide
+
+/-- 9219: nibbles fold back to 37401; digit sum 21 ≡ 37401 (mod 15). -/
+theorem enumeration_hex4_9219 : reassembles 37401 = true ∧ castsFifteens 37401 = true := by decide
+
+/-- 921a: nibbles fold back to 37402; digit sum 22 ≡ 37402 (mod 15). -/
+theorem enumeration_hex4_921a : reassembles 37402 = true ∧ castsFifteens 37402 = true := by decide
+
+/-- 921b: nibbles fold back to 37403; digit sum 23 ≡ 37403 (mod 15). -/
+theorem enumeration_hex4_921b : reassembles 37403 = true ∧ castsFifteens 37403 = true := by decide
+
+/-- 921c: nibbles fold back to 37404; digit sum 24 ≡ 37404 (mod 15). -/
+theorem enumeration_hex4_921c : reassembles 37404 = true ∧ castsFifteens 37404 = true := by decide
+
+/-- 921d: nibbles fold back to 37405; digit sum 25 ≡ 37405 (mod 15). -/
+theorem enumeration_hex4_921d : reassembles 37405 = true ∧ castsFifteens 37405 = true := by decide
+
+/-- 921e: nibbles fold back to 37406; digit sum 26 ≡ 37406 (mod 15). -/
+theorem enumeration_hex4_921e : reassembles 37406 = true ∧ castsFifteens 37406 = true := by decide
+
+/-- 921f: nibbles fold back to 37407; digit sum 27 ≡ 37407 (mod 15). -/
+theorem enumeration_hex4_921f : reassembles 37407 = true ∧ castsFifteens 37407 = true := by decide
+
+/-- 9220: nibbles fold back to 37408; digit sum 13 ≡ 37408 (mod 15). -/
+theorem enumeration_hex4_9220 : reassembles 37408 = true ∧ castsFifteens 37408 = true := by decide
+
+/-- 9221: nibbles fold back to 37409; digit sum 14 ≡ 37409 (mod 15). -/
+theorem enumeration_hex4_9221 : reassembles 37409 = true ∧ castsFifteens 37409 = true := by decide
+
+/-- 9222: nibbles fold back to 37410; digit sum 15 ≡ 37410 (mod 15). -/
+theorem enumeration_hex4_9222 : reassembles 37410 = true ∧ castsFifteens 37410 = true := by decide
+
+/-- 9223: nibbles fold back to 37411; digit sum 16 ≡ 37411 (mod 15). -/
+theorem enumeration_hex4_9223 : reassembles 37411 = true ∧ castsFifteens 37411 = true := by decide
+
+/-- 9224: nibbles fold back to 37412; digit sum 17 ≡ 37412 (mod 15). -/
+theorem enumeration_hex4_9224 : reassembles 37412 = true ∧ castsFifteens 37412 = true := by decide
+
+/-- 9225: nibbles fold back to 37413; digit sum 18 ≡ 37413 (mod 15). -/
+theorem enumeration_hex4_9225 : reassembles 37413 = true ∧ castsFifteens 37413 = true := by decide
+
+/-- 9226: nibbles fold back to 37414; digit sum 19 ≡ 37414 (mod 15). -/
+theorem enumeration_hex4_9226 : reassembles 37414 = true ∧ castsFifteens 37414 = true := by decide
+
+/-- 9227: nibbles fold back to 37415; digit sum 20 ≡ 37415 (mod 15). -/
+theorem enumeration_hex4_9227 : reassembles 37415 = true ∧ castsFifteens 37415 = true := by decide
+
+/-- 9228: nibbles fold back to 37416; digit sum 21 ≡ 37416 (mod 15). -/
+theorem enumeration_hex4_9228 : reassembles 37416 = true ∧ castsFifteens 37416 = true := by decide
+
+/-- 9229: nibbles fold back to 37417; digit sum 22 ≡ 37417 (mod 15). -/
+theorem enumeration_hex4_9229 : reassembles 37417 = true ∧ castsFifteens 37417 = true := by decide
+
+/-- 922a: nibbles fold back to 37418; digit sum 23 ≡ 37418 (mod 15). -/
+theorem enumeration_hex4_922a : reassembles 37418 = true ∧ castsFifteens 37418 = true := by decide
+
+/-- 922b: nibbles fold back to 37419; digit sum 24 ≡ 37419 (mod 15). -/
+theorem enumeration_hex4_922b : reassembles 37419 = true ∧ castsFifteens 37419 = true := by decide
+
+/-- 922c: nibbles fold back to 37420; digit sum 25 ≡ 37420 (mod 15). -/
+theorem enumeration_hex4_922c : reassembles 37420 = true ∧ castsFifteens 37420 = true := by decide
+
+/-- 922d: nibbles fold back to 37421; digit sum 26 ≡ 37421 (mod 15). -/
+theorem enumeration_hex4_922d : reassembles 37421 = true ∧ castsFifteens 37421 = true := by decide
+
+/-- 922e: nibbles fold back to 37422; digit sum 27 ≡ 37422 (mod 15). -/
+theorem enumeration_hex4_922e : reassembles 37422 = true ∧ castsFifteens 37422 = true := by decide
+
+/-- 922f: nibbles fold back to 37423; digit sum 28 ≡ 37423 (mod 15). -/
+theorem enumeration_hex4_922f : reassembles 37423 = true ∧ castsFifteens 37423 = true := by decide
+
+/-- 9230: nibbles fold back to 37424; digit sum 14 ≡ 37424 (mod 15). -/
+theorem enumeration_hex4_9230 : reassembles 37424 = true ∧ castsFifteens 37424 = true := by decide
+
+/-- 9231: nibbles fold back to 37425; digit sum 15 ≡ 37425 (mod 15). -/
+theorem enumeration_hex4_9231 : reassembles 37425 = true ∧ castsFifteens 37425 = true := by decide
+
+/-- 9232: nibbles fold back to 37426; digit sum 16 ≡ 37426 (mod 15). -/
+theorem enumeration_hex4_9232 : reassembles 37426 = true ∧ castsFifteens 37426 = true := by decide
+
+/-- 9233: nibbles fold back to 37427; digit sum 17 ≡ 37427 (mod 15). -/
+theorem enumeration_hex4_9233 : reassembles 37427 = true ∧ castsFifteens 37427 = true := by decide
+
+/-- 9234: nibbles fold back to 37428; digit sum 18 ≡ 37428 (mod 15). -/
+theorem enumeration_hex4_9234 : reassembles 37428 = true ∧ castsFifteens 37428 = true := by decide
+
+/-- 9235: nibbles fold back to 37429; digit sum 19 ≡ 37429 (mod 15). -/
+theorem enumeration_hex4_9235 : reassembles 37429 = true ∧ castsFifteens 37429 = true := by decide
+
+/-- 9236: nibbles fold back to 37430; digit sum 20 ≡ 37430 (mod 15). -/
+theorem enumeration_hex4_9236 : reassembles 37430 = true ∧ castsFifteens 37430 = true := by decide
+
+/-- 9237: nibbles fold back to 37431; digit sum 21 ≡ 37431 (mod 15). -/
+theorem enumeration_hex4_9237 : reassembles 37431 = true ∧ castsFifteens 37431 = true := by decide
+
+/-- 9238: nibbles fold back to 37432; digit sum 22 ≡ 37432 (mod 15). -/
+theorem enumeration_hex4_9238 : reassembles 37432 = true ∧ castsFifteens 37432 = true := by decide
+
+/-- 9239: nibbles fold back to 37433; digit sum 23 ≡ 37433 (mod 15). -/
+theorem enumeration_hex4_9239 : reassembles 37433 = true ∧ castsFifteens 37433 = true := by decide
+
+/-- 923a: nibbles fold back to 37434; digit sum 24 ≡ 37434 (mod 15). -/
+theorem enumeration_hex4_923a : reassembles 37434 = true ∧ castsFifteens 37434 = true := by decide
+
+/-- 923b: nibbles fold back to 37435; digit sum 25 ≡ 37435 (mod 15). -/
+theorem enumeration_hex4_923b : reassembles 37435 = true ∧ castsFifteens 37435 = true := by decide
+
+/-- 923c: nibbles fold back to 37436; digit sum 26 ≡ 37436 (mod 15). -/
+theorem enumeration_hex4_923c : reassembles 37436 = true ∧ castsFifteens 37436 = true := by decide
+
+/-- 923d: nibbles fold back to 37437; digit sum 27 ≡ 37437 (mod 15). -/
+theorem enumeration_hex4_923d : reassembles 37437 = true ∧ castsFifteens 37437 = true := by decide
+
+/-- 923e: nibbles fold back to 37438; digit sum 28 ≡ 37438 (mod 15). -/
+theorem enumeration_hex4_923e : reassembles 37438 = true ∧ castsFifteens 37438 = true := by decide
+
+/-- 923f: nibbles fold back to 37439; digit sum 29 ≡ 37439 (mod 15). -/
+theorem enumeration_hex4_923f : reassembles 37439 = true ∧ castsFifteens 37439 = true := by decide
+
+/-- 9240: nibbles fold back to 37440; digit sum 15 ≡ 37440 (mod 15). -/
+theorem enumeration_hex4_9240 : reassembles 37440 = true ∧ castsFifteens 37440 = true := by decide
+
+/-- 9241: nibbles fold back to 37441; digit sum 16 ≡ 37441 (mod 15). -/
+theorem enumeration_hex4_9241 : reassembles 37441 = true ∧ castsFifteens 37441 = true := by decide
+
+/-- 9242: nibbles fold back to 37442; digit sum 17 ≡ 37442 (mod 15). -/
+theorem enumeration_hex4_9242 : reassembles 37442 = true ∧ castsFifteens 37442 = true := by decide
+
+/-- 9243: nibbles fold back to 37443; digit sum 18 ≡ 37443 (mod 15). -/
+theorem enumeration_hex4_9243 : reassembles 37443 = true ∧ castsFifteens 37443 = true := by decide
+
+/-- 9244: nibbles fold back to 37444; digit sum 19 ≡ 37444 (mod 15). -/
+theorem enumeration_hex4_9244 : reassembles 37444 = true ∧ castsFifteens 37444 = true := by decide
+
+/-- 9245: nibbles fold back to 37445; digit sum 20 ≡ 37445 (mod 15). -/
+theorem enumeration_hex4_9245 : reassembles 37445 = true ∧ castsFifteens 37445 = true := by decide
+
+/-- 9246: nibbles fold back to 37446; digit sum 21 ≡ 37446 (mod 15). -/
+theorem enumeration_hex4_9246 : reassembles 37446 = true ∧ castsFifteens 37446 = true := by decide
+
+/-- 9247: nibbles fold back to 37447; digit sum 22 ≡ 37447 (mod 15). -/
+theorem enumeration_hex4_9247 : reassembles 37447 = true ∧ castsFifteens 37447 = true := by decide
+
+/-- 9248: nibbles fold back to 37448; digit sum 23 ≡ 37448 (mod 15). -/
+theorem enumeration_hex4_9248 : reassembles 37448 = true ∧ castsFifteens 37448 = true := by decide
+
+/-- 9249: nibbles fold back to 37449; digit sum 24 ≡ 37449 (mod 15). -/
+theorem enumeration_hex4_9249 : reassembles 37449 = true ∧ castsFifteens 37449 = true := by decide
+
+/-- 924a: nibbles fold back to 37450; digit sum 25 ≡ 37450 (mod 15). -/
+theorem enumeration_hex4_924a : reassembles 37450 = true ∧ castsFifteens 37450 = true := by decide
+
+/-- 924b: nibbles fold back to 37451; digit sum 26 ≡ 37451 (mod 15). -/
+theorem enumeration_hex4_924b : reassembles 37451 = true ∧ castsFifteens 37451 = true := by decide
+
+/-- 924c: nibbles fold back to 37452; digit sum 27 ≡ 37452 (mod 15). -/
+theorem enumeration_hex4_924c : reassembles 37452 = true ∧ castsFifteens 37452 = true := by decide
+
+/-- 924d: nibbles fold back to 37453; digit sum 28 ≡ 37453 (mod 15). -/
+theorem enumeration_hex4_924d : reassembles 37453 = true ∧ castsFifteens 37453 = true := by decide
+
+/-- 924e: nibbles fold back to 37454; digit sum 29 ≡ 37454 (mod 15). -/
+theorem enumeration_hex4_924e : reassembles 37454 = true ∧ castsFifteens 37454 = true := by decide
+
+/-- 924f: nibbles fold back to 37455; digit sum 30 ≡ 37455 (mod 15). -/
+theorem enumeration_hex4_924f : reassembles 37455 = true ∧ castsFifteens 37455 = true := by decide
+
+/-- 9250: nibbles fold back to 37456; digit sum 16 ≡ 37456 (mod 15). -/
+theorem enumeration_hex4_9250 : reassembles 37456 = true ∧ castsFifteens 37456 = true := by decide
+
+/-- 9251: nibbles fold back to 37457; digit sum 17 ≡ 37457 (mod 15). -/
+theorem enumeration_hex4_9251 : reassembles 37457 = true ∧ castsFifteens 37457 = true := by decide
+
+/-- 9252: nibbles fold back to 37458; digit sum 18 ≡ 37458 (mod 15). -/
+theorem enumeration_hex4_9252 : reassembles 37458 = true ∧ castsFifteens 37458 = true := by decide
+
+/-- 9253: nibbles fold back to 37459; digit sum 19 ≡ 37459 (mod 15). -/
+theorem enumeration_hex4_9253 : reassembles 37459 = true ∧ castsFifteens 37459 = true := by decide
+
+/-- 9254: nibbles fold back to 37460; digit sum 20 ≡ 37460 (mod 15). -/
+theorem enumeration_hex4_9254 : reassembles 37460 = true ∧ castsFifteens 37460 = true := by decide
+
+/-- 9255: nibbles fold back to 37461; digit sum 21 ≡ 37461 (mod 15). -/
+theorem enumeration_hex4_9255 : reassembles 37461 = true ∧ castsFifteens 37461 = true := by decide
+
+/-- 9256: nibbles fold back to 37462; digit sum 22 ≡ 37462 (mod 15). -/
+theorem enumeration_hex4_9256 : reassembles 37462 = true ∧ castsFifteens 37462 = true := by decide
+
+/-- 9257: nibbles fold back to 37463; digit sum 23 ≡ 37463 (mod 15). -/
+theorem enumeration_hex4_9257 : reassembles 37463 = true ∧ castsFifteens 37463 = true := by decide
+
+/-- 9258: nibbles fold back to 37464; digit sum 24 ≡ 37464 (mod 15). -/
+theorem enumeration_hex4_9258 : reassembles 37464 = true ∧ castsFifteens 37464 = true := by decide
+
+/-- 9259: nibbles fold back to 37465; digit sum 25 ≡ 37465 (mod 15). -/
+theorem enumeration_hex4_9259 : reassembles 37465 = true ∧ castsFifteens 37465 = true := by decide
+
+/-- 925a: nibbles fold back to 37466; digit sum 26 ≡ 37466 (mod 15). -/
+theorem enumeration_hex4_925a : reassembles 37466 = true ∧ castsFifteens 37466 = true := by decide
+
+/-- 925b: nibbles fold back to 37467; digit sum 27 ≡ 37467 (mod 15). -/
+theorem enumeration_hex4_925b : reassembles 37467 = true ∧ castsFifteens 37467 = true := by decide
+
+/-- 925c: nibbles fold back to 37468; digit sum 28 ≡ 37468 (mod 15). -/
+theorem enumeration_hex4_925c : reassembles 37468 = true ∧ castsFifteens 37468 = true := by decide
+
+/-- 925d: nibbles fold back to 37469; digit sum 29 ≡ 37469 (mod 15). -/
+theorem enumeration_hex4_925d : reassembles 37469 = true ∧ castsFifteens 37469 = true := by decide
+
+/-- 925e: nibbles fold back to 37470; digit sum 30 ≡ 37470 (mod 15). -/
+theorem enumeration_hex4_925e : reassembles 37470 = true ∧ castsFifteens 37470 = true := by decide
+
+/-- 925f: nibbles fold back to 37471; digit sum 31 ≡ 37471 (mod 15). -/
+theorem enumeration_hex4_925f : reassembles 37471 = true ∧ castsFifteens 37471 = true := by decide
+
+/-- 9260: nibbles fold back to 37472; digit sum 17 ≡ 37472 (mod 15). -/
+theorem enumeration_hex4_9260 : reassembles 37472 = true ∧ castsFifteens 37472 = true := by decide
+
+/-- 9261: nibbles fold back to 37473; digit sum 18 ≡ 37473 (mod 15). -/
+theorem enumeration_hex4_9261 : reassembles 37473 = true ∧ castsFifteens 37473 = true := by decide
+
+/-- 9262: nibbles fold back to 37474; digit sum 19 ≡ 37474 (mod 15). -/
+theorem enumeration_hex4_9262 : reassembles 37474 = true ∧ castsFifteens 37474 = true := by decide
+
+/-- 9263: nibbles fold back to 37475; digit sum 20 ≡ 37475 (mod 15). -/
+theorem enumeration_hex4_9263 : reassembles 37475 = true ∧ castsFifteens 37475 = true := by decide
+
+/-- 9264: nibbles fold back to 37476; digit sum 21 ≡ 37476 (mod 15). -/
+theorem enumeration_hex4_9264 : reassembles 37476 = true ∧ castsFifteens 37476 = true := by decide
+
+/-- 9265: nibbles fold back to 37477; digit sum 22 ≡ 37477 (mod 15). -/
+theorem enumeration_hex4_9265 : reassembles 37477 = true ∧ castsFifteens 37477 = true := by decide
+
+/-- 9266: nibbles fold back to 37478; digit sum 23 ≡ 37478 (mod 15). -/
+theorem enumeration_hex4_9266 : reassembles 37478 = true ∧ castsFifteens 37478 = true := by decide
+
+/-- 9267: nibbles fold back to 37479; digit sum 24 ≡ 37479 (mod 15). -/
+theorem enumeration_hex4_9267 : reassembles 37479 = true ∧ castsFifteens 37479 = true := by decide
+
+/-- 9268: nibbles fold back to 37480; digit sum 25 ≡ 37480 (mod 15). -/
+theorem enumeration_hex4_9268 : reassembles 37480 = true ∧ castsFifteens 37480 = true := by decide
+
+/-- 9269: nibbles fold back to 37481; digit sum 26 ≡ 37481 (mod 15). -/
+theorem enumeration_hex4_9269 : reassembles 37481 = true ∧ castsFifteens 37481 = true := by decide
+
+/-- 926a: nibbles fold back to 37482; digit sum 27 ≡ 37482 (mod 15). -/
+theorem enumeration_hex4_926a : reassembles 37482 = true ∧ castsFifteens 37482 = true := by decide
+
+/-- 926b: nibbles fold back to 37483; digit sum 28 ≡ 37483 (mod 15). -/
+theorem enumeration_hex4_926b : reassembles 37483 = true ∧ castsFifteens 37483 = true := by decide
+
+/-- 926c: nibbles fold back to 37484; digit sum 29 ≡ 37484 (mod 15). -/
+theorem enumeration_hex4_926c : reassembles 37484 = true ∧ castsFifteens 37484 = true := by decide
+
+/-- 926d: nibbles fold back to 37485; digit sum 30 ≡ 37485 (mod 15). -/
+theorem enumeration_hex4_926d : reassembles 37485 = true ∧ castsFifteens 37485 = true := by decide
+
+/-- 926e: nibbles fold back to 37486; digit sum 31 ≡ 37486 (mod 15). -/
+theorem enumeration_hex4_926e : reassembles 37486 = true ∧ castsFifteens 37486 = true := by decide
+
+/-- 926f: nibbles fold back to 37487; digit sum 32 ≡ 37487 (mod 15). -/
+theorem enumeration_hex4_926f : reassembles 37487 = true ∧ castsFifteens 37487 = true := by decide
+
+/-- 9270: nibbles fold back to 37488; digit sum 18 ≡ 37488 (mod 15). -/
+theorem enumeration_hex4_9270 : reassembles 37488 = true ∧ castsFifteens 37488 = true := by decide
+
+/-- 9271: nibbles fold back to 37489; digit sum 19 ≡ 37489 (mod 15). -/
+theorem enumeration_hex4_9271 : reassembles 37489 = true ∧ castsFifteens 37489 = true := by decide
+
+/-- 9272: nibbles fold back to 37490; digit sum 20 ≡ 37490 (mod 15). -/
+theorem enumeration_hex4_9272 : reassembles 37490 = true ∧ castsFifteens 37490 = true := by decide
+
+/-- 9273: nibbles fold back to 37491; digit sum 21 ≡ 37491 (mod 15). -/
+theorem enumeration_hex4_9273 : reassembles 37491 = true ∧ castsFifteens 37491 = true := by decide
+
+/-- 9274: nibbles fold back to 37492; digit sum 22 ≡ 37492 (mod 15). -/
+theorem enumeration_hex4_9274 : reassembles 37492 = true ∧ castsFifteens 37492 = true := by decide
+
+/-- 9275: nibbles fold back to 37493; digit sum 23 ≡ 37493 (mod 15). -/
+theorem enumeration_hex4_9275 : reassembles 37493 = true ∧ castsFifteens 37493 = true := by decide
+
+/-- 9276: nibbles fold back to 37494; digit sum 24 ≡ 37494 (mod 15). -/
+theorem enumeration_hex4_9276 : reassembles 37494 = true ∧ castsFifteens 37494 = true := by decide
+
+/-- 9277: nibbles fold back to 37495; digit sum 25 ≡ 37495 (mod 15). -/
+theorem enumeration_hex4_9277 : reassembles 37495 = true ∧ castsFifteens 37495 = true := by decide
+
+/-- 9278: nibbles fold back to 37496; digit sum 26 ≡ 37496 (mod 15). -/
+theorem enumeration_hex4_9278 : reassembles 37496 = true ∧ castsFifteens 37496 = true := by decide
+
+/-- 9279: nibbles fold back to 37497; digit sum 27 ≡ 37497 (mod 15). -/
+theorem enumeration_hex4_9279 : reassembles 37497 = true ∧ castsFifteens 37497 = true := by decide
+
+/-- 927a: nibbles fold back to 37498; digit sum 28 ≡ 37498 (mod 15). -/
+theorem enumeration_hex4_927a : reassembles 37498 = true ∧ castsFifteens 37498 = true := by decide
+
+/-- 927b: nibbles fold back to 37499; digit sum 29 ≡ 37499 (mod 15). -/
+theorem enumeration_hex4_927b : reassembles 37499 = true ∧ castsFifteens 37499 = true := by decide
+
+/-- 927c: nibbles fold back to 37500; digit sum 30 ≡ 37500 (mod 15). -/
+theorem enumeration_hex4_927c : reassembles 37500 = true ∧ castsFifteens 37500 = true := by decide
+
+/-- 927d: nibbles fold back to 37501; digit sum 31 ≡ 37501 (mod 15). -/
+theorem enumeration_hex4_927d : reassembles 37501 = true ∧ castsFifteens 37501 = true := by decide
+
+/-- 927e: nibbles fold back to 37502; digit sum 32 ≡ 37502 (mod 15). -/
+theorem enumeration_hex4_927e : reassembles 37502 = true ∧ castsFifteens 37502 = true := by decide
+
+/-- 927f: nibbles fold back to 37503; digit sum 33 ≡ 37503 (mod 15). -/
+theorem enumeration_hex4_927f : reassembles 37503 = true ∧ castsFifteens 37503 = true := by decide
+
+/-- 9280: nibbles fold back to 37504; digit sum 19 ≡ 37504 (mod 15). -/
+theorem enumeration_hex4_9280 : reassembles 37504 = true ∧ castsFifteens 37504 = true := by decide
+
+/-- 9281: nibbles fold back to 37505; digit sum 20 ≡ 37505 (mod 15). -/
+theorem enumeration_hex4_9281 : reassembles 37505 = true ∧ castsFifteens 37505 = true := by decide
+
+/-- 9282: nibbles fold back to 37506; digit sum 21 ≡ 37506 (mod 15). -/
+theorem enumeration_hex4_9282 : reassembles 37506 = true ∧ castsFifteens 37506 = true := by decide
+
+/-- 9283: nibbles fold back to 37507; digit sum 22 ≡ 37507 (mod 15). -/
+theorem enumeration_hex4_9283 : reassembles 37507 = true ∧ castsFifteens 37507 = true := by decide
+
+/-- 9284: nibbles fold back to 37508; digit sum 23 ≡ 37508 (mod 15). -/
+theorem enumeration_hex4_9284 : reassembles 37508 = true ∧ castsFifteens 37508 = true := by decide
+
+/-- 9285: nibbles fold back to 37509; digit sum 24 ≡ 37509 (mod 15). -/
+theorem enumeration_hex4_9285 : reassembles 37509 = true ∧ castsFifteens 37509 = true := by decide
+
+/-- 9286: nibbles fold back to 37510; digit sum 25 ≡ 37510 (mod 15). -/
+theorem enumeration_hex4_9286 : reassembles 37510 = true ∧ castsFifteens 37510 = true := by decide
+
+/-- 9287: nibbles fold back to 37511; digit sum 26 ≡ 37511 (mod 15). -/
+theorem enumeration_hex4_9287 : reassembles 37511 = true ∧ castsFifteens 37511 = true := by decide
+
+/-- 9288: nibbles fold back to 37512; digit sum 27 ≡ 37512 (mod 15). -/
+theorem enumeration_hex4_9288 : reassembles 37512 = true ∧ castsFifteens 37512 = true := by decide
+
+/-- 9289: nibbles fold back to 37513; digit sum 28 ≡ 37513 (mod 15). -/
+theorem enumeration_hex4_9289 : reassembles 37513 = true ∧ castsFifteens 37513 = true := by decide
+
+/-- 928a: nibbles fold back to 37514; digit sum 29 ≡ 37514 (mod 15). -/
+theorem enumeration_hex4_928a : reassembles 37514 = true ∧ castsFifteens 37514 = true := by decide
+
+/-- 928b: nibbles fold back to 37515; digit sum 30 ≡ 37515 (mod 15). -/
+theorem enumeration_hex4_928b : reassembles 37515 = true ∧ castsFifteens 37515 = true := by decide
+
+/-- 928c: nibbles fold back to 37516; digit sum 31 ≡ 37516 (mod 15). -/
+theorem enumeration_hex4_928c : reassembles 37516 = true ∧ castsFifteens 37516 = true := by decide
+
+/-- 928d: nibbles fold back to 37517; digit sum 32 ≡ 37517 (mod 15). -/
+theorem enumeration_hex4_928d : reassembles 37517 = true ∧ castsFifteens 37517 = true := by decide
+
+/-- 928e: nibbles fold back to 37518; digit sum 33 ≡ 37518 (mod 15). -/
+theorem enumeration_hex4_928e : reassembles 37518 = true ∧ castsFifteens 37518 = true := by decide
+
+/-- 928f: nibbles fold back to 37519; digit sum 34 ≡ 37519 (mod 15). -/
+theorem enumeration_hex4_928f : reassembles 37519 = true ∧ castsFifteens 37519 = true := by decide
+
+/-- 9290: nibbles fold back to 37520; digit sum 20 ≡ 37520 (mod 15). -/
+theorem enumeration_hex4_9290 : reassembles 37520 = true ∧ castsFifteens 37520 = true := by decide
+
+/-- 9291: nibbles fold back to 37521; digit sum 21 ≡ 37521 (mod 15). -/
+theorem enumeration_hex4_9291 : reassembles 37521 = true ∧ castsFifteens 37521 = true := by decide
+
+/-- 9292: nibbles fold back to 37522; digit sum 22 ≡ 37522 (mod 15). -/
+theorem enumeration_hex4_9292 : reassembles 37522 = true ∧ castsFifteens 37522 = true := by decide
+
+/-- 9293: nibbles fold back to 37523; digit sum 23 ≡ 37523 (mod 15). -/
+theorem enumeration_hex4_9293 : reassembles 37523 = true ∧ castsFifteens 37523 = true := by decide
+
+/-- 9294: nibbles fold back to 37524; digit sum 24 ≡ 37524 (mod 15). -/
+theorem enumeration_hex4_9294 : reassembles 37524 = true ∧ castsFifteens 37524 = true := by decide
+
+/-- 9295: nibbles fold back to 37525; digit sum 25 ≡ 37525 (mod 15). -/
+theorem enumeration_hex4_9295 : reassembles 37525 = true ∧ castsFifteens 37525 = true := by decide
+
+/-- 9296: nibbles fold back to 37526; digit sum 26 ≡ 37526 (mod 15). -/
+theorem enumeration_hex4_9296 : reassembles 37526 = true ∧ castsFifteens 37526 = true := by decide
+
+/-- 9297: nibbles fold back to 37527; digit sum 27 ≡ 37527 (mod 15). -/
+theorem enumeration_hex4_9297 : reassembles 37527 = true ∧ castsFifteens 37527 = true := by decide
+
+/-- 9298: nibbles fold back to 37528; digit sum 28 ≡ 37528 (mod 15). -/
+theorem enumeration_hex4_9298 : reassembles 37528 = true ∧ castsFifteens 37528 = true := by decide
+
+/-- 9299: nibbles fold back to 37529; digit sum 29 ≡ 37529 (mod 15). -/
+theorem enumeration_hex4_9299 : reassembles 37529 = true ∧ castsFifteens 37529 = true := by decide
+
+/-- 929a: nibbles fold back to 37530; digit sum 30 ≡ 37530 (mod 15). -/
+theorem enumeration_hex4_929a : reassembles 37530 = true ∧ castsFifteens 37530 = true := by decide
+
+/-- 929b: nibbles fold back to 37531; digit sum 31 ≡ 37531 (mod 15). -/
+theorem enumeration_hex4_929b : reassembles 37531 = true ∧ castsFifteens 37531 = true := by decide
+
+/-- 929c: nibbles fold back to 37532; digit sum 32 ≡ 37532 (mod 15). -/
+theorem enumeration_hex4_929c : reassembles 37532 = true ∧ castsFifteens 37532 = true := by decide
+
+/-- 929d: nibbles fold back to 37533; digit sum 33 ≡ 37533 (mod 15). -/
+theorem enumeration_hex4_929d : reassembles 37533 = true ∧ castsFifteens 37533 = true := by decide
+
+/-- 929e: nibbles fold back to 37534; digit sum 34 ≡ 37534 (mod 15). -/
+theorem enumeration_hex4_929e : reassembles 37534 = true ∧ castsFifteens 37534 = true := by decide
+
+/-- 929f: nibbles fold back to 37535; digit sum 35 ≡ 37535 (mod 15). -/
+theorem enumeration_hex4_929f : reassembles 37535 = true ∧ castsFifteens 37535 = true := by decide
+
+/-- 92a0: nibbles fold back to 37536; digit sum 21 ≡ 37536 (mod 15). -/
+theorem enumeration_hex4_92a0 : reassembles 37536 = true ∧ castsFifteens 37536 = true := by decide
+
+/-- 92a1: nibbles fold back to 37537; digit sum 22 ≡ 37537 (mod 15). -/
+theorem enumeration_hex4_92a1 : reassembles 37537 = true ∧ castsFifteens 37537 = true := by decide
+
+/-- 92a2: nibbles fold back to 37538; digit sum 23 ≡ 37538 (mod 15). -/
+theorem enumeration_hex4_92a2 : reassembles 37538 = true ∧ castsFifteens 37538 = true := by decide
+
+/-- 92a3: nibbles fold back to 37539; digit sum 24 ≡ 37539 (mod 15). -/
+theorem enumeration_hex4_92a3 : reassembles 37539 = true ∧ castsFifteens 37539 = true := by decide
+
+/-- 92a4: nibbles fold back to 37540; digit sum 25 ≡ 37540 (mod 15). -/
+theorem enumeration_hex4_92a4 : reassembles 37540 = true ∧ castsFifteens 37540 = true := by decide
+
+/-- 92a5: nibbles fold back to 37541; digit sum 26 ≡ 37541 (mod 15). -/
+theorem enumeration_hex4_92a5 : reassembles 37541 = true ∧ castsFifteens 37541 = true := by decide
+
+/-- 92a6: nibbles fold back to 37542; digit sum 27 ≡ 37542 (mod 15). -/
+theorem enumeration_hex4_92a6 : reassembles 37542 = true ∧ castsFifteens 37542 = true := by decide
+
+/-- 92a7: nibbles fold back to 37543; digit sum 28 ≡ 37543 (mod 15). -/
+theorem enumeration_hex4_92a7 : reassembles 37543 = true ∧ castsFifteens 37543 = true := by decide
+
+/-- 92a8: nibbles fold back to 37544; digit sum 29 ≡ 37544 (mod 15). -/
+theorem enumeration_hex4_92a8 : reassembles 37544 = true ∧ castsFifteens 37544 = true := by decide
+
+/-- 92a9: nibbles fold back to 37545; digit sum 30 ≡ 37545 (mod 15). -/
+theorem enumeration_hex4_92a9 : reassembles 37545 = true ∧ castsFifteens 37545 = true := by decide
+
+/-- 92aa: nibbles fold back to 37546; digit sum 31 ≡ 37546 (mod 15). -/
+theorem enumeration_hex4_92aa : reassembles 37546 = true ∧ castsFifteens 37546 = true := by decide
+
+/-- 92ab: nibbles fold back to 37547; digit sum 32 ≡ 37547 (mod 15). -/
+theorem enumeration_hex4_92ab : reassembles 37547 = true ∧ castsFifteens 37547 = true := by decide
+
+/-- 92ac: nibbles fold back to 37548; digit sum 33 ≡ 37548 (mod 15). -/
+theorem enumeration_hex4_92ac : reassembles 37548 = true ∧ castsFifteens 37548 = true := by decide
+
+/-- 92ad: nibbles fold back to 37549; digit sum 34 ≡ 37549 (mod 15). -/
+theorem enumeration_hex4_92ad : reassembles 37549 = true ∧ castsFifteens 37549 = true := by decide
+
+/-- 92ae: nibbles fold back to 37550; digit sum 35 ≡ 37550 (mod 15). -/
+theorem enumeration_hex4_92ae : reassembles 37550 = true ∧ castsFifteens 37550 = true := by decide
+
+/-- 92af: nibbles fold back to 37551; digit sum 36 ≡ 37551 (mod 15). -/
+theorem enumeration_hex4_92af : reassembles 37551 = true ∧ castsFifteens 37551 = true := by decide
+
+/-- 92b0: nibbles fold back to 37552; digit sum 22 ≡ 37552 (mod 15). -/
+theorem enumeration_hex4_92b0 : reassembles 37552 = true ∧ castsFifteens 37552 = true := by decide
+
+/-- 92b1: nibbles fold back to 37553; digit sum 23 ≡ 37553 (mod 15). -/
+theorem enumeration_hex4_92b1 : reassembles 37553 = true ∧ castsFifteens 37553 = true := by decide
+
+/-- 92b2: nibbles fold back to 37554; digit sum 24 ≡ 37554 (mod 15). -/
+theorem enumeration_hex4_92b2 : reassembles 37554 = true ∧ castsFifteens 37554 = true := by decide
+
+/-- 92b3: nibbles fold back to 37555; digit sum 25 ≡ 37555 (mod 15). -/
+theorem enumeration_hex4_92b3 : reassembles 37555 = true ∧ castsFifteens 37555 = true := by decide
+
+/-- 92b4: nibbles fold back to 37556; digit sum 26 ≡ 37556 (mod 15). -/
+theorem enumeration_hex4_92b4 : reassembles 37556 = true ∧ castsFifteens 37556 = true := by decide
+
+/-- 92b5: nibbles fold back to 37557; digit sum 27 ≡ 37557 (mod 15). -/
+theorem enumeration_hex4_92b5 : reassembles 37557 = true ∧ castsFifteens 37557 = true := by decide
+
+/-- 92b6: nibbles fold back to 37558; digit sum 28 ≡ 37558 (mod 15). -/
+theorem enumeration_hex4_92b6 : reassembles 37558 = true ∧ castsFifteens 37558 = true := by decide
+
+/-- 92b7: nibbles fold back to 37559; digit sum 29 ≡ 37559 (mod 15). -/
+theorem enumeration_hex4_92b7 : reassembles 37559 = true ∧ castsFifteens 37559 = true := by decide
+
+/-- 92b8: nibbles fold back to 37560; digit sum 30 ≡ 37560 (mod 15). -/
+theorem enumeration_hex4_92b8 : reassembles 37560 = true ∧ castsFifteens 37560 = true := by decide
+
+/-- 92b9: nibbles fold back to 37561; digit sum 31 ≡ 37561 (mod 15). -/
+theorem enumeration_hex4_92b9 : reassembles 37561 = true ∧ castsFifteens 37561 = true := by decide
+
+/-- 92ba: nibbles fold back to 37562; digit sum 32 ≡ 37562 (mod 15). -/
+theorem enumeration_hex4_92ba : reassembles 37562 = true ∧ castsFifteens 37562 = true := by decide
+
+/-- 92bb: nibbles fold back to 37563; digit sum 33 ≡ 37563 (mod 15). -/
+theorem enumeration_hex4_92bb : reassembles 37563 = true ∧ castsFifteens 37563 = true := by decide
+
+/-- 92bc: nibbles fold back to 37564; digit sum 34 ≡ 37564 (mod 15). -/
+theorem enumeration_hex4_92bc : reassembles 37564 = true ∧ castsFifteens 37564 = true := by decide
+
+/-- 92bd: nibbles fold back to 37565; digit sum 35 ≡ 37565 (mod 15). -/
+theorem enumeration_hex4_92bd : reassembles 37565 = true ∧ castsFifteens 37565 = true := by decide
+
+/-- 92be: nibbles fold back to 37566; digit sum 36 ≡ 37566 (mod 15). -/
+theorem enumeration_hex4_92be : reassembles 37566 = true ∧ castsFifteens 37566 = true := by decide
+
+/-- 92bf: nibbles fold back to 37567; digit sum 37 ≡ 37567 (mod 15). -/
+theorem enumeration_hex4_92bf : reassembles 37567 = true ∧ castsFifteens 37567 = true := by decide
+
+/-- 92c0: nibbles fold back to 37568; digit sum 23 ≡ 37568 (mod 15). -/
+theorem enumeration_hex4_92c0 : reassembles 37568 = true ∧ castsFifteens 37568 = true := by decide
+
+/-- 92c1: nibbles fold back to 37569; digit sum 24 ≡ 37569 (mod 15). -/
+theorem enumeration_hex4_92c1 : reassembles 37569 = true ∧ castsFifteens 37569 = true := by decide
+
+/-- 92c2: nibbles fold back to 37570; digit sum 25 ≡ 37570 (mod 15). -/
+theorem enumeration_hex4_92c2 : reassembles 37570 = true ∧ castsFifteens 37570 = true := by decide
+
+/-- 92c3: nibbles fold back to 37571; digit sum 26 ≡ 37571 (mod 15). -/
+theorem enumeration_hex4_92c3 : reassembles 37571 = true ∧ castsFifteens 37571 = true := by decide
+
+/-- 92c4: nibbles fold back to 37572; digit sum 27 ≡ 37572 (mod 15). -/
+theorem enumeration_hex4_92c4 : reassembles 37572 = true ∧ castsFifteens 37572 = true := by decide
+
+/-- 92c5: nibbles fold back to 37573; digit sum 28 ≡ 37573 (mod 15). -/
+theorem enumeration_hex4_92c5 : reassembles 37573 = true ∧ castsFifteens 37573 = true := by decide
+
+/-- 92c6: nibbles fold back to 37574; digit sum 29 ≡ 37574 (mod 15). -/
+theorem enumeration_hex4_92c6 : reassembles 37574 = true ∧ castsFifteens 37574 = true := by decide
+
+/-- 92c7: nibbles fold back to 37575; digit sum 30 ≡ 37575 (mod 15). -/
+theorem enumeration_hex4_92c7 : reassembles 37575 = true ∧ castsFifteens 37575 = true := by decide
+
+/-- 92c8: nibbles fold back to 37576; digit sum 31 ≡ 37576 (mod 15). -/
+theorem enumeration_hex4_92c8 : reassembles 37576 = true ∧ castsFifteens 37576 = true := by decide
+
+/-- 92c9: nibbles fold back to 37577; digit sum 32 ≡ 37577 (mod 15). -/
+theorem enumeration_hex4_92c9 : reassembles 37577 = true ∧ castsFifteens 37577 = true := by decide
+
+/-- 92ca: nibbles fold back to 37578; digit sum 33 ≡ 37578 (mod 15). -/
+theorem enumeration_hex4_92ca : reassembles 37578 = true ∧ castsFifteens 37578 = true := by decide
+
+/-- 92cb: nibbles fold back to 37579; digit sum 34 ≡ 37579 (mod 15). -/
+theorem enumeration_hex4_92cb : reassembles 37579 = true ∧ castsFifteens 37579 = true := by decide
+
+/-- 92cc: nibbles fold back to 37580; digit sum 35 ≡ 37580 (mod 15). -/
+theorem enumeration_hex4_92cc : reassembles 37580 = true ∧ castsFifteens 37580 = true := by decide
+
+/-- 92cd: nibbles fold back to 37581; digit sum 36 ≡ 37581 (mod 15). -/
+theorem enumeration_hex4_92cd : reassembles 37581 = true ∧ castsFifteens 37581 = true := by decide
+
+/-- 92ce: nibbles fold back to 37582; digit sum 37 ≡ 37582 (mod 15). -/
+theorem enumeration_hex4_92ce : reassembles 37582 = true ∧ castsFifteens 37582 = true := by decide
+
+/-- 92cf: nibbles fold back to 37583; digit sum 38 ≡ 37583 (mod 15). -/
+theorem enumeration_hex4_92cf : reassembles 37583 = true ∧ castsFifteens 37583 = true := by decide
+
+/-- 92d0: nibbles fold back to 37584; digit sum 24 ≡ 37584 (mod 15). -/
+theorem enumeration_hex4_92d0 : reassembles 37584 = true ∧ castsFifteens 37584 = true := by decide
+
+/-- 92d1: nibbles fold back to 37585; digit sum 25 ≡ 37585 (mod 15). -/
+theorem enumeration_hex4_92d1 : reassembles 37585 = true ∧ castsFifteens 37585 = true := by decide
+
+/-- 92d2: nibbles fold back to 37586; digit sum 26 ≡ 37586 (mod 15). -/
+theorem enumeration_hex4_92d2 : reassembles 37586 = true ∧ castsFifteens 37586 = true := by decide
+
+/-- 92d3: nibbles fold back to 37587; digit sum 27 ≡ 37587 (mod 15). -/
+theorem enumeration_hex4_92d3 : reassembles 37587 = true ∧ castsFifteens 37587 = true := by decide
+
+/-- 92d4: nibbles fold back to 37588; digit sum 28 ≡ 37588 (mod 15). -/
+theorem enumeration_hex4_92d4 : reassembles 37588 = true ∧ castsFifteens 37588 = true := by decide
+
+/-- 92d5: nibbles fold back to 37589; digit sum 29 ≡ 37589 (mod 15). -/
+theorem enumeration_hex4_92d5 : reassembles 37589 = true ∧ castsFifteens 37589 = true := by decide
+
+/-- 92d6: nibbles fold back to 37590; digit sum 30 ≡ 37590 (mod 15). -/
+theorem enumeration_hex4_92d6 : reassembles 37590 = true ∧ castsFifteens 37590 = true := by decide
+
+/-- 92d7: nibbles fold back to 37591; digit sum 31 ≡ 37591 (mod 15). -/
+theorem enumeration_hex4_92d7 : reassembles 37591 = true ∧ castsFifteens 37591 = true := by decide
+
+/-- 92d8: nibbles fold back to 37592; digit sum 32 ≡ 37592 (mod 15). -/
+theorem enumeration_hex4_92d8 : reassembles 37592 = true ∧ castsFifteens 37592 = true := by decide
+
+/-- 92d9: nibbles fold back to 37593; digit sum 33 ≡ 37593 (mod 15). -/
+theorem enumeration_hex4_92d9 : reassembles 37593 = true ∧ castsFifteens 37593 = true := by decide
+
+/-- 92da: nibbles fold back to 37594; digit sum 34 ≡ 37594 (mod 15). -/
+theorem enumeration_hex4_92da : reassembles 37594 = true ∧ castsFifteens 37594 = true := by decide
+
+/-- 92db: nibbles fold back to 37595; digit sum 35 ≡ 37595 (mod 15). -/
+theorem enumeration_hex4_92db : reassembles 37595 = true ∧ castsFifteens 37595 = true := by decide
+
+/-- 92dc: nibbles fold back to 37596; digit sum 36 ≡ 37596 (mod 15). -/
+theorem enumeration_hex4_92dc : reassembles 37596 = true ∧ castsFifteens 37596 = true := by decide
+
+/-- 92dd: nibbles fold back to 37597; digit sum 37 ≡ 37597 (mod 15). -/
+theorem enumeration_hex4_92dd : reassembles 37597 = true ∧ castsFifteens 37597 = true := by decide
+
+/-- 92de: nibbles fold back to 37598; digit sum 38 ≡ 37598 (mod 15). -/
+theorem enumeration_hex4_92de : reassembles 37598 = true ∧ castsFifteens 37598 = true := by decide
+
+/-- 92df: nibbles fold back to 37599; digit sum 39 ≡ 37599 (mod 15). -/
+theorem enumeration_hex4_92df : reassembles 37599 = true ∧ castsFifteens 37599 = true := by decide
+
+/-- 92e0: nibbles fold back to 37600; digit sum 25 ≡ 37600 (mod 15). -/
+theorem enumeration_hex4_92e0 : reassembles 37600 = true ∧ castsFifteens 37600 = true := by decide
+
+/-- 92e1: nibbles fold back to 37601; digit sum 26 ≡ 37601 (mod 15). -/
+theorem enumeration_hex4_92e1 : reassembles 37601 = true ∧ castsFifteens 37601 = true := by decide
+
+/-- 92e2: nibbles fold back to 37602; digit sum 27 ≡ 37602 (mod 15). -/
+theorem enumeration_hex4_92e2 : reassembles 37602 = true ∧ castsFifteens 37602 = true := by decide
+
+/-- 92e3: nibbles fold back to 37603; digit sum 28 ≡ 37603 (mod 15). -/
+theorem enumeration_hex4_92e3 : reassembles 37603 = true ∧ castsFifteens 37603 = true := by decide
+
+/-- 92e4: nibbles fold back to 37604; digit sum 29 ≡ 37604 (mod 15). -/
+theorem enumeration_hex4_92e4 : reassembles 37604 = true ∧ castsFifteens 37604 = true := by decide
+
+/-- 92e5: nibbles fold back to 37605; digit sum 30 ≡ 37605 (mod 15). -/
+theorem enumeration_hex4_92e5 : reassembles 37605 = true ∧ castsFifteens 37605 = true := by decide
+
+/-- 92e6: nibbles fold back to 37606; digit sum 31 ≡ 37606 (mod 15). -/
+theorem enumeration_hex4_92e6 : reassembles 37606 = true ∧ castsFifteens 37606 = true := by decide
+
+/-- 92e7: nibbles fold back to 37607; digit sum 32 ≡ 37607 (mod 15). -/
+theorem enumeration_hex4_92e7 : reassembles 37607 = true ∧ castsFifteens 37607 = true := by decide
+
+/-- 92e8: nibbles fold back to 37608; digit sum 33 ≡ 37608 (mod 15). -/
+theorem enumeration_hex4_92e8 : reassembles 37608 = true ∧ castsFifteens 37608 = true := by decide
+
+/-- 92e9: nibbles fold back to 37609; digit sum 34 ≡ 37609 (mod 15). -/
+theorem enumeration_hex4_92e9 : reassembles 37609 = true ∧ castsFifteens 37609 = true := by decide
+
+/-- 92ea: nibbles fold back to 37610; digit sum 35 ≡ 37610 (mod 15). -/
+theorem enumeration_hex4_92ea : reassembles 37610 = true ∧ castsFifteens 37610 = true := by decide
+
+/-- 92eb: nibbles fold back to 37611; digit sum 36 ≡ 37611 (mod 15). -/
+theorem enumeration_hex4_92eb : reassembles 37611 = true ∧ castsFifteens 37611 = true := by decide
+
+/-- 92ec: nibbles fold back to 37612; digit sum 37 ≡ 37612 (mod 15). -/
+theorem enumeration_hex4_92ec : reassembles 37612 = true ∧ castsFifteens 37612 = true := by decide
+
+/-- 92ed: nibbles fold back to 37613; digit sum 38 ≡ 37613 (mod 15). -/
+theorem enumeration_hex4_92ed : reassembles 37613 = true ∧ castsFifteens 37613 = true := by decide
+
+/-- 92ee: nibbles fold back to 37614; digit sum 39 ≡ 37614 (mod 15). -/
+theorem enumeration_hex4_92ee : reassembles 37614 = true ∧ castsFifteens 37614 = true := by decide
+
+/-- 92ef: nibbles fold back to 37615; digit sum 40 ≡ 37615 (mod 15). -/
+theorem enumeration_hex4_92ef : reassembles 37615 = true ∧ castsFifteens 37615 = true := by decide
+
+/-- 92f0: nibbles fold back to 37616; digit sum 26 ≡ 37616 (mod 15). -/
+theorem enumeration_hex4_92f0 : reassembles 37616 = true ∧ castsFifteens 37616 = true := by decide
+
+/-- 92f1: nibbles fold back to 37617; digit sum 27 ≡ 37617 (mod 15). -/
+theorem enumeration_hex4_92f1 : reassembles 37617 = true ∧ castsFifteens 37617 = true := by decide
+
+/-- 92f2: nibbles fold back to 37618; digit sum 28 ≡ 37618 (mod 15). -/
+theorem enumeration_hex4_92f2 : reassembles 37618 = true ∧ castsFifteens 37618 = true := by decide
+
+/-- 92f3: nibbles fold back to 37619; digit sum 29 ≡ 37619 (mod 15). -/
+theorem enumeration_hex4_92f3 : reassembles 37619 = true ∧ castsFifteens 37619 = true := by decide
+
+/-- 92f4: nibbles fold back to 37620; digit sum 30 ≡ 37620 (mod 15). -/
+theorem enumeration_hex4_92f4 : reassembles 37620 = true ∧ castsFifteens 37620 = true := by decide
+
+/-- 92f5: nibbles fold back to 37621; digit sum 31 ≡ 37621 (mod 15). -/
+theorem enumeration_hex4_92f5 : reassembles 37621 = true ∧ castsFifteens 37621 = true := by decide
+
+/-- 92f6: nibbles fold back to 37622; digit sum 32 ≡ 37622 (mod 15). -/
+theorem enumeration_hex4_92f6 : reassembles 37622 = true ∧ castsFifteens 37622 = true := by decide
+
+/-- 92f7: nibbles fold back to 37623; digit sum 33 ≡ 37623 (mod 15). -/
+theorem enumeration_hex4_92f7 : reassembles 37623 = true ∧ castsFifteens 37623 = true := by decide
+
+/-- 92f8: nibbles fold back to 37624; digit sum 34 ≡ 37624 (mod 15). -/
+theorem enumeration_hex4_92f8 : reassembles 37624 = true ∧ castsFifteens 37624 = true := by decide
+
+/-- 92f9: nibbles fold back to 37625; digit sum 35 ≡ 37625 (mod 15). -/
+theorem enumeration_hex4_92f9 : reassembles 37625 = true ∧ castsFifteens 37625 = true := by decide
+
+/-- 92fa: nibbles fold back to 37626; digit sum 36 ≡ 37626 (mod 15). -/
+theorem enumeration_hex4_92fa : reassembles 37626 = true ∧ castsFifteens 37626 = true := by decide
+
+/-- 92fb: nibbles fold back to 37627; digit sum 37 ≡ 37627 (mod 15). -/
+theorem enumeration_hex4_92fb : reassembles 37627 = true ∧ castsFifteens 37627 = true := by decide
+
+/-- 92fc: nibbles fold back to 37628; digit sum 38 ≡ 37628 (mod 15). -/
+theorem enumeration_hex4_92fc : reassembles 37628 = true ∧ castsFifteens 37628 = true := by decide
+
+/-- 92fd: nibbles fold back to 37629; digit sum 39 ≡ 37629 (mod 15). -/
+theorem enumeration_hex4_92fd : reassembles 37629 = true ∧ castsFifteens 37629 = true := by decide
+
+/-- 92fe: nibbles fold back to 37630; digit sum 40 ≡ 37630 (mod 15). -/
+theorem enumeration_hex4_92fe : reassembles 37630 = true ∧ castsFifteens 37630 = true := by decide
+
+/-- 92ff: nibbles fold back to 37631; digit sum 41 ≡ 37631 (mod 15). -/
+theorem enumeration_hex4_92ff : reassembles 37631 = true ∧ castsFifteens 37631 = true := by decide
+
+/-- 9300: nibbles fold back to 37632; digit sum 12 ≡ 37632 (mod 15). -/
+theorem enumeration_hex4_9300 : reassembles 37632 = true ∧ castsFifteens 37632 = true := by decide
+
+/-- 9301: nibbles fold back to 37633; digit sum 13 ≡ 37633 (mod 15). -/
+theorem enumeration_hex4_9301 : reassembles 37633 = true ∧ castsFifteens 37633 = true := by decide
+
+/-- 9302: nibbles fold back to 37634; digit sum 14 ≡ 37634 (mod 15). -/
+theorem enumeration_hex4_9302 : reassembles 37634 = true ∧ castsFifteens 37634 = true := by decide
+
+/-- 9303: nibbles fold back to 37635; digit sum 15 ≡ 37635 (mod 15). -/
+theorem enumeration_hex4_9303 : reassembles 37635 = true ∧ castsFifteens 37635 = true := by decide
+
+/-- 9304: nibbles fold back to 37636; digit sum 16 ≡ 37636 (mod 15). -/
+theorem enumeration_hex4_9304 : reassembles 37636 = true ∧ castsFifteens 37636 = true := by decide
+
+/-- 9305: nibbles fold back to 37637; digit sum 17 ≡ 37637 (mod 15). -/
+theorem enumeration_hex4_9305 : reassembles 37637 = true ∧ castsFifteens 37637 = true := by decide
+
+/-- 9306: nibbles fold back to 37638; digit sum 18 ≡ 37638 (mod 15). -/
+theorem enumeration_hex4_9306 : reassembles 37638 = true ∧ castsFifteens 37638 = true := by decide
+
+/-- 9307: nibbles fold back to 37639; digit sum 19 ≡ 37639 (mod 15). -/
+theorem enumeration_hex4_9307 : reassembles 37639 = true ∧ castsFifteens 37639 = true := by decide
+
+/-- 9308: nibbles fold back to 37640; digit sum 20 ≡ 37640 (mod 15). -/
+theorem enumeration_hex4_9308 : reassembles 37640 = true ∧ castsFifteens 37640 = true := by decide
+
+/-- 9309: nibbles fold back to 37641; digit sum 21 ≡ 37641 (mod 15). -/
+theorem enumeration_hex4_9309 : reassembles 37641 = true ∧ castsFifteens 37641 = true := by decide
+
+/-- 930a: nibbles fold back to 37642; digit sum 22 ≡ 37642 (mod 15). -/
+theorem enumeration_hex4_930a : reassembles 37642 = true ∧ castsFifteens 37642 = true := by decide
+
+/-- 930b: nibbles fold back to 37643; digit sum 23 ≡ 37643 (mod 15). -/
+theorem enumeration_hex4_930b : reassembles 37643 = true ∧ castsFifteens 37643 = true := by decide
+
+/-- 930c: nibbles fold back to 37644; digit sum 24 ≡ 37644 (mod 15). -/
+theorem enumeration_hex4_930c : reassembles 37644 = true ∧ castsFifteens 37644 = true := by decide
+
+/-- 930d: nibbles fold back to 37645; digit sum 25 ≡ 37645 (mod 15). -/
+theorem enumeration_hex4_930d : reassembles 37645 = true ∧ castsFifteens 37645 = true := by decide
+
+/-- 930e: nibbles fold back to 37646; digit sum 26 ≡ 37646 (mod 15). -/
+theorem enumeration_hex4_930e : reassembles 37646 = true ∧ castsFifteens 37646 = true := by decide
+
+/-- 930f: nibbles fold back to 37647; digit sum 27 ≡ 37647 (mod 15). -/
+theorem enumeration_hex4_930f : reassembles 37647 = true ∧ castsFifteens 37647 = true := by decide
+
+/-- 9310: nibbles fold back to 37648; digit sum 13 ≡ 37648 (mod 15). -/
+theorem enumeration_hex4_9310 : reassembles 37648 = true ∧ castsFifteens 37648 = true := by decide
+
+/-- 9311: nibbles fold back to 37649; digit sum 14 ≡ 37649 (mod 15). -/
+theorem enumeration_hex4_9311 : reassembles 37649 = true ∧ castsFifteens 37649 = true := by decide
+
+/-- 9312: nibbles fold back to 37650; digit sum 15 ≡ 37650 (mod 15). -/
+theorem enumeration_hex4_9312 : reassembles 37650 = true ∧ castsFifteens 37650 = true := by decide
+
+/-- 9313: nibbles fold back to 37651; digit sum 16 ≡ 37651 (mod 15). -/
+theorem enumeration_hex4_9313 : reassembles 37651 = true ∧ castsFifteens 37651 = true := by decide
+
+/-- 9314: nibbles fold back to 37652; digit sum 17 ≡ 37652 (mod 15). -/
+theorem enumeration_hex4_9314 : reassembles 37652 = true ∧ castsFifteens 37652 = true := by decide
+
+/-- 9315: nibbles fold back to 37653; digit sum 18 ≡ 37653 (mod 15). -/
+theorem enumeration_hex4_9315 : reassembles 37653 = true ∧ castsFifteens 37653 = true := by decide
+
+/-- 9316: nibbles fold back to 37654; digit sum 19 ≡ 37654 (mod 15). -/
+theorem enumeration_hex4_9316 : reassembles 37654 = true ∧ castsFifteens 37654 = true := by decide
+
+/-- 9317: nibbles fold back to 37655; digit sum 20 ≡ 37655 (mod 15). -/
+theorem enumeration_hex4_9317 : reassembles 37655 = true ∧ castsFifteens 37655 = true := by decide
+
+/-- 9318: nibbles fold back to 37656; digit sum 21 ≡ 37656 (mod 15). -/
+theorem enumeration_hex4_9318 : reassembles 37656 = true ∧ castsFifteens 37656 = true := by decide
+
+/-- 9319: nibbles fold back to 37657; digit sum 22 ≡ 37657 (mod 15). -/
+theorem enumeration_hex4_9319 : reassembles 37657 = true ∧ castsFifteens 37657 = true := by decide
+
+/-- 931a: nibbles fold back to 37658; digit sum 23 ≡ 37658 (mod 15). -/
+theorem enumeration_hex4_931a : reassembles 37658 = true ∧ castsFifteens 37658 = true := by decide
+
+/-- 931b: nibbles fold back to 37659; digit sum 24 ≡ 37659 (mod 15). -/
+theorem enumeration_hex4_931b : reassembles 37659 = true ∧ castsFifteens 37659 = true := by decide
+
+/-- 931c: nibbles fold back to 37660; digit sum 25 ≡ 37660 (mod 15). -/
+theorem enumeration_hex4_931c : reassembles 37660 = true ∧ castsFifteens 37660 = true := by decide
+
+/-- 931d: nibbles fold back to 37661; digit sum 26 ≡ 37661 (mod 15). -/
+theorem enumeration_hex4_931d : reassembles 37661 = true ∧ castsFifteens 37661 = true := by decide
+
+/-- 931e: nibbles fold back to 37662; digit sum 27 ≡ 37662 (mod 15). -/
+theorem enumeration_hex4_931e : reassembles 37662 = true ∧ castsFifteens 37662 = true := by decide
+
+/-- 931f: nibbles fold back to 37663; digit sum 28 ≡ 37663 (mod 15). -/
+theorem enumeration_hex4_931f : reassembles 37663 = true ∧ castsFifteens 37663 = true := by decide
+
+/-- 9320: nibbles fold back to 37664; digit sum 14 ≡ 37664 (mod 15). -/
+theorem enumeration_hex4_9320 : reassembles 37664 = true ∧ castsFifteens 37664 = true := by decide
+
+/-- 9321: nibbles fold back to 37665; digit sum 15 ≡ 37665 (mod 15). -/
+theorem enumeration_hex4_9321 : reassembles 37665 = true ∧ castsFifteens 37665 = true := by decide
+
+/-- 9322: nibbles fold back to 37666; digit sum 16 ≡ 37666 (mod 15). -/
+theorem enumeration_hex4_9322 : reassembles 37666 = true ∧ castsFifteens 37666 = true := by decide
+
+/-- 9323: nibbles fold back to 37667; digit sum 17 ≡ 37667 (mod 15). -/
+theorem enumeration_hex4_9323 : reassembles 37667 = true ∧ castsFifteens 37667 = true := by decide
+
+/-- 9324: nibbles fold back to 37668; digit sum 18 ≡ 37668 (mod 15). -/
+theorem enumeration_hex4_9324 : reassembles 37668 = true ∧ castsFifteens 37668 = true := by decide
+
+/-- 9325: nibbles fold back to 37669; digit sum 19 ≡ 37669 (mod 15). -/
+theorem enumeration_hex4_9325 : reassembles 37669 = true ∧ castsFifteens 37669 = true := by decide
+
+/-- 9326: nibbles fold back to 37670; digit sum 20 ≡ 37670 (mod 15). -/
+theorem enumeration_hex4_9326 : reassembles 37670 = true ∧ castsFifteens 37670 = true := by decide
+
+/-- 9327: nibbles fold back to 37671; digit sum 21 ≡ 37671 (mod 15). -/
+theorem enumeration_hex4_9327 : reassembles 37671 = true ∧ castsFifteens 37671 = true := by decide
+
+/-- 9328: nibbles fold back to 37672; digit sum 22 ≡ 37672 (mod 15). -/
+theorem enumeration_hex4_9328 : reassembles 37672 = true ∧ castsFifteens 37672 = true := by decide
+
+/-- 9329: nibbles fold back to 37673; digit sum 23 ≡ 37673 (mod 15). -/
+theorem enumeration_hex4_9329 : reassembles 37673 = true ∧ castsFifteens 37673 = true := by decide
+
+/-- 932a: nibbles fold back to 37674; digit sum 24 ≡ 37674 (mod 15). -/
+theorem enumeration_hex4_932a : reassembles 37674 = true ∧ castsFifteens 37674 = true := by decide
+
+/-- 932b: nibbles fold back to 37675; digit sum 25 ≡ 37675 (mod 15). -/
+theorem enumeration_hex4_932b : reassembles 37675 = true ∧ castsFifteens 37675 = true := by decide
+
+/-- 932c: nibbles fold back to 37676; digit sum 26 ≡ 37676 (mod 15). -/
+theorem enumeration_hex4_932c : reassembles 37676 = true ∧ castsFifteens 37676 = true := by decide
+
+/-- 932d: nibbles fold back to 37677; digit sum 27 ≡ 37677 (mod 15). -/
+theorem enumeration_hex4_932d : reassembles 37677 = true ∧ castsFifteens 37677 = true := by decide
+
+/-- 932e: nibbles fold back to 37678; digit sum 28 ≡ 37678 (mod 15). -/
+theorem enumeration_hex4_932e : reassembles 37678 = true ∧ castsFifteens 37678 = true := by decide
+
+/-- 932f: nibbles fold back to 37679; digit sum 29 ≡ 37679 (mod 15). -/
+theorem enumeration_hex4_932f : reassembles 37679 = true ∧ castsFifteens 37679 = true := by decide
+
+/-- 9330: nibbles fold back to 37680; digit sum 15 ≡ 37680 (mod 15). -/
+theorem enumeration_hex4_9330 : reassembles 37680 = true ∧ castsFifteens 37680 = true := by decide
+
+/-- 9331: nibbles fold back to 37681; digit sum 16 ≡ 37681 (mod 15). -/
+theorem enumeration_hex4_9331 : reassembles 37681 = true ∧ castsFifteens 37681 = true := by decide
+
+/-- 9332: nibbles fold back to 37682; digit sum 17 ≡ 37682 (mod 15). -/
+theorem enumeration_hex4_9332 : reassembles 37682 = true ∧ castsFifteens 37682 = true := by decide
+
+/-- 9333: nibbles fold back to 37683; digit sum 18 ≡ 37683 (mod 15). -/
+theorem enumeration_hex4_9333 : reassembles 37683 = true ∧ castsFifteens 37683 = true := by decide
+
+/-- 9334: nibbles fold back to 37684; digit sum 19 ≡ 37684 (mod 15). -/
+theorem enumeration_hex4_9334 : reassembles 37684 = true ∧ castsFifteens 37684 = true := by decide
+
+/-- 9335: nibbles fold back to 37685; digit sum 20 ≡ 37685 (mod 15). -/
+theorem enumeration_hex4_9335 : reassembles 37685 = true ∧ castsFifteens 37685 = true := by decide
+
+/-- 9336: nibbles fold back to 37686; digit sum 21 ≡ 37686 (mod 15). -/
+theorem enumeration_hex4_9336 : reassembles 37686 = true ∧ castsFifteens 37686 = true := by decide
+
+/-- 9337: nibbles fold back to 37687; digit sum 22 ≡ 37687 (mod 15). -/
+theorem enumeration_hex4_9337 : reassembles 37687 = true ∧ castsFifteens 37687 = true := by decide
+
+/-- 9338: nibbles fold back to 37688; digit sum 23 ≡ 37688 (mod 15). -/
+theorem enumeration_hex4_9338 : reassembles 37688 = true ∧ castsFifteens 37688 = true := by decide
+
+/-- 9339: nibbles fold back to 37689; digit sum 24 ≡ 37689 (mod 15). -/
+theorem enumeration_hex4_9339 : reassembles 37689 = true ∧ castsFifteens 37689 = true := by decide
+
+/-- 933a: nibbles fold back to 37690; digit sum 25 ≡ 37690 (mod 15). -/
+theorem enumeration_hex4_933a : reassembles 37690 = true ∧ castsFifteens 37690 = true := by decide
+
+/-- 933b: nibbles fold back to 37691; digit sum 26 ≡ 37691 (mod 15). -/
+theorem enumeration_hex4_933b : reassembles 37691 = true ∧ castsFifteens 37691 = true := by decide
+
+/-- 933c: nibbles fold back to 37692; digit sum 27 ≡ 37692 (mod 15). -/
+theorem enumeration_hex4_933c : reassembles 37692 = true ∧ castsFifteens 37692 = true := by decide
+
+/-- 933d: nibbles fold back to 37693; digit sum 28 ≡ 37693 (mod 15). -/
+theorem enumeration_hex4_933d : reassembles 37693 = true ∧ castsFifteens 37693 = true := by decide
+
+/-- 933e: nibbles fold back to 37694; digit sum 29 ≡ 37694 (mod 15). -/
+theorem enumeration_hex4_933e : reassembles 37694 = true ∧ castsFifteens 37694 = true := by decide
+
+/-- 933f: nibbles fold back to 37695; digit sum 30 ≡ 37695 (mod 15). -/
+theorem enumeration_hex4_933f : reassembles 37695 = true ∧ castsFifteens 37695 = true := by decide
+
+/-- 9340: nibbles fold back to 37696; digit sum 16 ≡ 37696 (mod 15). -/
+theorem enumeration_hex4_9340 : reassembles 37696 = true ∧ castsFifteens 37696 = true := by decide
+
+/-- 9341: nibbles fold back to 37697; digit sum 17 ≡ 37697 (mod 15). -/
+theorem enumeration_hex4_9341 : reassembles 37697 = true ∧ castsFifteens 37697 = true := by decide
+
+/-- 9342: nibbles fold back to 37698; digit sum 18 ≡ 37698 (mod 15). -/
+theorem enumeration_hex4_9342 : reassembles 37698 = true ∧ castsFifteens 37698 = true := by decide
+
+/-- 9343: nibbles fold back to 37699; digit sum 19 ≡ 37699 (mod 15). -/
+theorem enumeration_hex4_9343 : reassembles 37699 = true ∧ castsFifteens 37699 = true := by decide
+
+/-- 9344: nibbles fold back to 37700; digit sum 20 ≡ 37700 (mod 15). -/
+theorem enumeration_hex4_9344 : reassembles 37700 = true ∧ castsFifteens 37700 = true := by decide
+
+/-- 9345: nibbles fold back to 37701; digit sum 21 ≡ 37701 (mod 15). -/
+theorem enumeration_hex4_9345 : reassembles 37701 = true ∧ castsFifteens 37701 = true := by decide
+
+/-- 9346: nibbles fold back to 37702; digit sum 22 ≡ 37702 (mod 15). -/
+theorem enumeration_hex4_9346 : reassembles 37702 = true ∧ castsFifteens 37702 = true := by decide
+
+/-- 9347: nibbles fold back to 37703; digit sum 23 ≡ 37703 (mod 15). -/
+theorem enumeration_hex4_9347 : reassembles 37703 = true ∧ castsFifteens 37703 = true := by decide
+
+/-- 9348: nibbles fold back to 37704; digit sum 24 ≡ 37704 (mod 15). -/
+theorem enumeration_hex4_9348 : reassembles 37704 = true ∧ castsFifteens 37704 = true := by decide
+
+/-- 9349: nibbles fold back to 37705; digit sum 25 ≡ 37705 (mod 15). -/
+theorem enumeration_hex4_9349 : reassembles 37705 = true ∧ castsFifteens 37705 = true := by decide
+
+/-- 934a: nibbles fold back to 37706; digit sum 26 ≡ 37706 (mod 15). -/
+theorem enumeration_hex4_934a : reassembles 37706 = true ∧ castsFifteens 37706 = true := by decide
+
+/-- 934b: nibbles fold back to 37707; digit sum 27 ≡ 37707 (mod 15). -/
+theorem enumeration_hex4_934b : reassembles 37707 = true ∧ castsFifteens 37707 = true := by decide
+
+/-- 934c: nibbles fold back to 37708; digit sum 28 ≡ 37708 (mod 15). -/
+theorem enumeration_hex4_934c : reassembles 37708 = true ∧ castsFifteens 37708 = true := by decide
+
+/-- 934d: nibbles fold back to 37709; digit sum 29 ≡ 37709 (mod 15). -/
+theorem enumeration_hex4_934d : reassembles 37709 = true ∧ castsFifteens 37709 = true := by decide
+
+/-- 934e: nibbles fold back to 37710; digit sum 30 ≡ 37710 (mod 15). -/
+theorem enumeration_hex4_934e : reassembles 37710 = true ∧ castsFifteens 37710 = true := by decide
+
+/-- 934f: nibbles fold back to 37711; digit sum 31 ≡ 37711 (mod 15). -/
+theorem enumeration_hex4_934f : reassembles 37711 = true ∧ castsFifteens 37711 = true := by decide
+
+/-- 9350: nibbles fold back to 37712; digit sum 17 ≡ 37712 (mod 15). -/
+theorem enumeration_hex4_9350 : reassembles 37712 = true ∧ castsFifteens 37712 = true := by decide
+
+/-- 9351: nibbles fold back to 37713; digit sum 18 ≡ 37713 (mod 15). -/
+theorem enumeration_hex4_9351 : reassembles 37713 = true ∧ castsFifteens 37713 = true := by decide
+
+/-- 9352: nibbles fold back to 37714; digit sum 19 ≡ 37714 (mod 15). -/
+theorem enumeration_hex4_9352 : reassembles 37714 = true ∧ castsFifteens 37714 = true := by decide
+
+/-- 9353: nibbles fold back to 37715; digit sum 20 ≡ 37715 (mod 15). -/
+theorem enumeration_hex4_9353 : reassembles 37715 = true ∧ castsFifteens 37715 = true := by decide
+
+/-- 9354: nibbles fold back to 37716; digit sum 21 ≡ 37716 (mod 15). -/
+theorem enumeration_hex4_9354 : reassembles 37716 = true ∧ castsFifteens 37716 = true := by decide
+
+/-- 9355: nibbles fold back to 37717; digit sum 22 ≡ 37717 (mod 15). -/
+theorem enumeration_hex4_9355 : reassembles 37717 = true ∧ castsFifteens 37717 = true := by decide
+
+/-- 9356: nibbles fold back to 37718; digit sum 23 ≡ 37718 (mod 15). -/
+theorem enumeration_hex4_9356 : reassembles 37718 = true ∧ castsFifteens 37718 = true := by decide
+
+/-- 9357: nibbles fold back to 37719; digit sum 24 ≡ 37719 (mod 15). -/
+theorem enumeration_hex4_9357 : reassembles 37719 = true ∧ castsFifteens 37719 = true := by decide
+
+/-- 9358: nibbles fold back to 37720; digit sum 25 ≡ 37720 (mod 15). -/
+theorem enumeration_hex4_9358 : reassembles 37720 = true ∧ castsFifteens 37720 = true := by decide
+
+/-- 9359: nibbles fold back to 37721; digit sum 26 ≡ 37721 (mod 15). -/
+theorem enumeration_hex4_9359 : reassembles 37721 = true ∧ castsFifteens 37721 = true := by decide
+
+/-- 935a: nibbles fold back to 37722; digit sum 27 ≡ 37722 (mod 15). -/
+theorem enumeration_hex4_935a : reassembles 37722 = true ∧ castsFifteens 37722 = true := by decide
+
+/-- 935b: nibbles fold back to 37723; digit sum 28 ≡ 37723 (mod 15). -/
+theorem enumeration_hex4_935b : reassembles 37723 = true ∧ castsFifteens 37723 = true := by decide
+
+/-- 935c: nibbles fold back to 37724; digit sum 29 ≡ 37724 (mod 15). -/
+theorem enumeration_hex4_935c : reassembles 37724 = true ∧ castsFifteens 37724 = true := by decide
+
+/-- 935d: nibbles fold back to 37725; digit sum 30 ≡ 37725 (mod 15). -/
+theorem enumeration_hex4_935d : reassembles 37725 = true ∧ castsFifteens 37725 = true := by decide
+
+/-- 935e: nibbles fold back to 37726; digit sum 31 ≡ 37726 (mod 15). -/
+theorem enumeration_hex4_935e : reassembles 37726 = true ∧ castsFifteens 37726 = true := by decide
+
+/-- 935f: nibbles fold back to 37727; digit sum 32 ≡ 37727 (mod 15). -/
+theorem enumeration_hex4_935f : reassembles 37727 = true ∧ castsFifteens 37727 = true := by decide
+
+/-- 9360: nibbles fold back to 37728; digit sum 18 ≡ 37728 (mod 15). -/
+theorem enumeration_hex4_9360 : reassembles 37728 = true ∧ castsFifteens 37728 = true := by decide
+
+/-- 9361: nibbles fold back to 37729; digit sum 19 ≡ 37729 (mod 15). -/
+theorem enumeration_hex4_9361 : reassembles 37729 = true ∧ castsFifteens 37729 = true := by decide
+
+/-- 9362: nibbles fold back to 37730; digit sum 20 ≡ 37730 (mod 15). -/
+theorem enumeration_hex4_9362 : reassembles 37730 = true ∧ castsFifteens 37730 = true := by decide
+
+/-- 9363: nibbles fold back to 37731; digit sum 21 ≡ 37731 (mod 15). -/
+theorem enumeration_hex4_9363 : reassembles 37731 = true ∧ castsFifteens 37731 = true := by decide
+
+/-- 9364: nibbles fold back to 37732; digit sum 22 ≡ 37732 (mod 15). -/
+theorem enumeration_hex4_9364 : reassembles 37732 = true ∧ castsFifteens 37732 = true := by decide
+
+/-- 9365: nibbles fold back to 37733; digit sum 23 ≡ 37733 (mod 15). -/
+theorem enumeration_hex4_9365 : reassembles 37733 = true ∧ castsFifteens 37733 = true := by decide
+
+/-- 9366: nibbles fold back to 37734; digit sum 24 ≡ 37734 (mod 15). -/
+theorem enumeration_hex4_9366 : reassembles 37734 = true ∧ castsFifteens 37734 = true := by decide
+
+/-- 9367: nibbles fold back to 37735; digit sum 25 ≡ 37735 (mod 15). -/
+theorem enumeration_hex4_9367 : reassembles 37735 = true ∧ castsFifteens 37735 = true := by decide
+
+/-- 9368: nibbles fold back to 37736; digit sum 26 ≡ 37736 (mod 15). -/
+theorem enumeration_hex4_9368 : reassembles 37736 = true ∧ castsFifteens 37736 = true := by decide
+
+/-- 9369: nibbles fold back to 37737; digit sum 27 ≡ 37737 (mod 15). -/
+theorem enumeration_hex4_9369 : reassembles 37737 = true ∧ castsFifteens 37737 = true := by decide
+
+/-- 936a: nibbles fold back to 37738; digit sum 28 ≡ 37738 (mod 15). -/
+theorem enumeration_hex4_936a : reassembles 37738 = true ∧ castsFifteens 37738 = true := by decide
+
+/-- 936b: nibbles fold back to 37739; digit sum 29 ≡ 37739 (mod 15). -/
+theorem enumeration_hex4_936b : reassembles 37739 = true ∧ castsFifteens 37739 = true := by decide
+
+/-- 936c: nibbles fold back to 37740; digit sum 30 ≡ 37740 (mod 15). -/
+theorem enumeration_hex4_936c : reassembles 37740 = true ∧ castsFifteens 37740 = true := by decide
+
+/-- 936d: nibbles fold back to 37741; digit sum 31 ≡ 37741 (mod 15). -/
+theorem enumeration_hex4_936d : reassembles 37741 = true ∧ castsFifteens 37741 = true := by decide
+
+/-- 936e: nibbles fold back to 37742; digit sum 32 ≡ 37742 (mod 15). -/
+theorem enumeration_hex4_936e : reassembles 37742 = true ∧ castsFifteens 37742 = true := by decide
+
+/-- 936f: nibbles fold back to 37743; digit sum 33 ≡ 37743 (mod 15). -/
+theorem enumeration_hex4_936f : reassembles 37743 = true ∧ castsFifteens 37743 = true := by decide
+
+/-- 9370: nibbles fold back to 37744; digit sum 19 ≡ 37744 (mod 15). -/
+theorem enumeration_hex4_9370 : reassembles 37744 = true ∧ castsFifteens 37744 = true := by decide
+
+/-- 9371: nibbles fold back to 37745; digit sum 20 ≡ 37745 (mod 15). -/
+theorem enumeration_hex4_9371 : reassembles 37745 = true ∧ castsFifteens 37745 = true := by decide
+
+/-- 9372: nibbles fold back to 37746; digit sum 21 ≡ 37746 (mod 15). -/
+theorem enumeration_hex4_9372 : reassembles 37746 = true ∧ castsFifteens 37746 = true := by decide
+
+/-- 9373: nibbles fold back to 37747; digit sum 22 ≡ 37747 (mod 15). -/
+theorem enumeration_hex4_9373 : reassembles 37747 = true ∧ castsFifteens 37747 = true := by decide
+
+/-- 9374: nibbles fold back to 37748; digit sum 23 ≡ 37748 (mod 15). -/
+theorem enumeration_hex4_9374 : reassembles 37748 = true ∧ castsFifteens 37748 = true := by decide
+
+/-- 9375: nibbles fold back to 37749; digit sum 24 ≡ 37749 (mod 15). -/
+theorem enumeration_hex4_9375 : reassembles 37749 = true ∧ castsFifteens 37749 = true := by decide
+
+/-- 9376: nibbles fold back to 37750; digit sum 25 ≡ 37750 (mod 15). -/
+theorem enumeration_hex4_9376 : reassembles 37750 = true ∧ castsFifteens 37750 = true := by decide
+
+/-- 9377: nibbles fold back to 37751; digit sum 26 ≡ 37751 (mod 15). -/
+theorem enumeration_hex4_9377 : reassembles 37751 = true ∧ castsFifteens 37751 = true := by decide
+
+/-- 9378: nibbles fold back to 37752; digit sum 27 ≡ 37752 (mod 15). -/
+theorem enumeration_hex4_9378 : reassembles 37752 = true ∧ castsFifteens 37752 = true := by decide
+
+/-- 9379: nibbles fold back to 37753; digit sum 28 ≡ 37753 (mod 15). -/
+theorem enumeration_hex4_9379 : reassembles 37753 = true ∧ castsFifteens 37753 = true := by decide
+
+/-- 937a: nibbles fold back to 37754; digit sum 29 ≡ 37754 (mod 15). -/
+theorem enumeration_hex4_937a : reassembles 37754 = true ∧ castsFifteens 37754 = true := by decide
+
+/-- 937b: nibbles fold back to 37755; digit sum 30 ≡ 37755 (mod 15). -/
+theorem enumeration_hex4_937b : reassembles 37755 = true ∧ castsFifteens 37755 = true := by decide
+
+/-- 937c: nibbles fold back to 37756; digit sum 31 ≡ 37756 (mod 15). -/
+theorem enumeration_hex4_937c : reassembles 37756 = true ∧ castsFifteens 37756 = true := by decide
+
+/-- 937d: nibbles fold back to 37757; digit sum 32 ≡ 37757 (mod 15). -/
+theorem enumeration_hex4_937d : reassembles 37757 = true ∧ castsFifteens 37757 = true := by decide
+
+/-- 937e: nibbles fold back to 37758; digit sum 33 ≡ 37758 (mod 15). -/
+theorem enumeration_hex4_937e : reassembles 37758 = true ∧ castsFifteens 37758 = true := by decide
+
+/-- 937f: nibbles fold back to 37759; digit sum 34 ≡ 37759 (mod 15). -/
+theorem enumeration_hex4_937f : reassembles 37759 = true ∧ castsFifteens 37759 = true := by decide
+
+/-- 9380: nibbles fold back to 37760; digit sum 20 ≡ 37760 (mod 15). -/
+theorem enumeration_hex4_9380 : reassembles 37760 = true ∧ castsFifteens 37760 = true := by decide
+
+/-- 9381: nibbles fold back to 37761; digit sum 21 ≡ 37761 (mod 15). -/
+theorem enumeration_hex4_9381 : reassembles 37761 = true ∧ castsFifteens 37761 = true := by decide
+
+/-- 9382: nibbles fold back to 37762; digit sum 22 ≡ 37762 (mod 15). -/
+theorem enumeration_hex4_9382 : reassembles 37762 = true ∧ castsFifteens 37762 = true := by decide
+
+/-- 9383: nibbles fold back to 37763; digit sum 23 ≡ 37763 (mod 15). -/
+theorem enumeration_hex4_9383 : reassembles 37763 = true ∧ castsFifteens 37763 = true := by decide
+
+/-- 9384: nibbles fold back to 37764; digit sum 24 ≡ 37764 (mod 15). -/
+theorem enumeration_hex4_9384 : reassembles 37764 = true ∧ castsFifteens 37764 = true := by decide
+
+/-- 9385: nibbles fold back to 37765; digit sum 25 ≡ 37765 (mod 15). -/
+theorem enumeration_hex4_9385 : reassembles 37765 = true ∧ castsFifteens 37765 = true := by decide
+
+/-- 9386: nibbles fold back to 37766; digit sum 26 ≡ 37766 (mod 15). -/
+theorem enumeration_hex4_9386 : reassembles 37766 = true ∧ castsFifteens 37766 = true := by decide
+
+/-- 9387: nibbles fold back to 37767; digit sum 27 ≡ 37767 (mod 15). -/
+theorem enumeration_hex4_9387 : reassembles 37767 = true ∧ castsFifteens 37767 = true := by decide
+
+/-- 9388: nibbles fold back to 37768; digit sum 28 ≡ 37768 (mod 15). -/
+theorem enumeration_hex4_9388 : reassembles 37768 = true ∧ castsFifteens 37768 = true := by decide
+
+/-- 9389: nibbles fold back to 37769; digit sum 29 ≡ 37769 (mod 15). -/
+theorem enumeration_hex4_9389 : reassembles 37769 = true ∧ castsFifteens 37769 = true := by decide
+
+/-- 938a: nibbles fold back to 37770; digit sum 30 ≡ 37770 (mod 15). -/
+theorem enumeration_hex4_938a : reassembles 37770 = true ∧ castsFifteens 37770 = true := by decide
+
+/-- 938b: nibbles fold back to 37771; digit sum 31 ≡ 37771 (mod 15). -/
+theorem enumeration_hex4_938b : reassembles 37771 = true ∧ castsFifteens 37771 = true := by decide
+
+/-- 938c: nibbles fold back to 37772; digit sum 32 ≡ 37772 (mod 15). -/
+theorem enumeration_hex4_938c : reassembles 37772 = true ∧ castsFifteens 37772 = true := by decide
+
+/-- 938d: nibbles fold back to 37773; digit sum 33 ≡ 37773 (mod 15). -/
+theorem enumeration_hex4_938d : reassembles 37773 = true ∧ castsFifteens 37773 = true := by decide
+
+/-- 938e: nibbles fold back to 37774; digit sum 34 ≡ 37774 (mod 15). -/
+theorem enumeration_hex4_938e : reassembles 37774 = true ∧ castsFifteens 37774 = true := by decide
+
+/-- 938f: nibbles fold back to 37775; digit sum 35 ≡ 37775 (mod 15). -/
+theorem enumeration_hex4_938f : reassembles 37775 = true ∧ castsFifteens 37775 = true := by decide
+
+/-- 9390: nibbles fold back to 37776; digit sum 21 ≡ 37776 (mod 15). -/
+theorem enumeration_hex4_9390 : reassembles 37776 = true ∧ castsFifteens 37776 = true := by decide
+
+/-- 9391: nibbles fold back to 37777; digit sum 22 ≡ 37777 (mod 15). -/
+theorem enumeration_hex4_9391 : reassembles 37777 = true ∧ castsFifteens 37777 = true := by decide
+
+/-- 9392: nibbles fold back to 37778; digit sum 23 ≡ 37778 (mod 15). -/
+theorem enumeration_hex4_9392 : reassembles 37778 = true ∧ castsFifteens 37778 = true := by decide
+
+/-- 9393: nibbles fold back to 37779; digit sum 24 ≡ 37779 (mod 15). -/
+theorem enumeration_hex4_9393 : reassembles 37779 = true ∧ castsFifteens 37779 = true := by decide
+
+/-- 9394: nibbles fold back to 37780; digit sum 25 ≡ 37780 (mod 15). -/
+theorem enumeration_hex4_9394 : reassembles 37780 = true ∧ castsFifteens 37780 = true := by decide
+
+/-- 9395: nibbles fold back to 37781; digit sum 26 ≡ 37781 (mod 15). -/
+theorem enumeration_hex4_9395 : reassembles 37781 = true ∧ castsFifteens 37781 = true := by decide
+
+/-- 9396: nibbles fold back to 37782; digit sum 27 ≡ 37782 (mod 15). -/
+theorem enumeration_hex4_9396 : reassembles 37782 = true ∧ castsFifteens 37782 = true := by decide
+
+/-- 9397: nibbles fold back to 37783; digit sum 28 ≡ 37783 (mod 15). -/
+theorem enumeration_hex4_9397 : reassembles 37783 = true ∧ castsFifteens 37783 = true := by decide
+
+/-- 9398: nibbles fold back to 37784; digit sum 29 ≡ 37784 (mod 15). -/
+theorem enumeration_hex4_9398 : reassembles 37784 = true ∧ castsFifteens 37784 = true := by decide
+
+/-- 9399: nibbles fold back to 37785; digit sum 30 ≡ 37785 (mod 15). -/
+theorem enumeration_hex4_9399 : reassembles 37785 = true ∧ castsFifteens 37785 = true := by decide
+
+/-- 939a: nibbles fold back to 37786; digit sum 31 ≡ 37786 (mod 15). -/
+theorem enumeration_hex4_939a : reassembles 37786 = true ∧ castsFifteens 37786 = true := by decide
+
+/-- 939b: nibbles fold back to 37787; digit sum 32 ≡ 37787 (mod 15). -/
+theorem enumeration_hex4_939b : reassembles 37787 = true ∧ castsFifteens 37787 = true := by decide
+
+/-- 939c: nibbles fold back to 37788; digit sum 33 ≡ 37788 (mod 15). -/
+theorem enumeration_hex4_939c : reassembles 37788 = true ∧ castsFifteens 37788 = true := by decide
+
+/-- 939d: nibbles fold back to 37789; digit sum 34 ≡ 37789 (mod 15). -/
+theorem enumeration_hex4_939d : reassembles 37789 = true ∧ castsFifteens 37789 = true := by decide
+
+/-- 939e: nibbles fold back to 37790; digit sum 35 ≡ 37790 (mod 15). -/
+theorem enumeration_hex4_939e : reassembles 37790 = true ∧ castsFifteens 37790 = true := by decide
+
+/-- 939f: nibbles fold back to 37791; digit sum 36 ≡ 37791 (mod 15). -/
+theorem enumeration_hex4_939f : reassembles 37791 = true ∧ castsFifteens 37791 = true := by decide
+
+/-- 93a0: nibbles fold back to 37792; digit sum 22 ≡ 37792 (mod 15). -/
+theorem enumeration_hex4_93a0 : reassembles 37792 = true ∧ castsFifteens 37792 = true := by decide
+
+/-- 93a1: nibbles fold back to 37793; digit sum 23 ≡ 37793 (mod 15). -/
+theorem enumeration_hex4_93a1 : reassembles 37793 = true ∧ castsFifteens 37793 = true := by decide
+
+/-- 93a2: nibbles fold back to 37794; digit sum 24 ≡ 37794 (mod 15). -/
+theorem enumeration_hex4_93a2 : reassembles 37794 = true ∧ castsFifteens 37794 = true := by decide
+
+/-- 93a3: nibbles fold back to 37795; digit sum 25 ≡ 37795 (mod 15). -/
+theorem enumeration_hex4_93a3 : reassembles 37795 = true ∧ castsFifteens 37795 = true := by decide
+
+/-- 93a4: nibbles fold back to 37796; digit sum 26 ≡ 37796 (mod 15). -/
+theorem enumeration_hex4_93a4 : reassembles 37796 = true ∧ castsFifteens 37796 = true := by decide
+
+/-- 93a5: nibbles fold back to 37797; digit sum 27 ≡ 37797 (mod 15). -/
+theorem enumeration_hex4_93a5 : reassembles 37797 = true ∧ castsFifteens 37797 = true := by decide
+
+/-- 93a6: nibbles fold back to 37798; digit sum 28 ≡ 37798 (mod 15). -/
+theorem enumeration_hex4_93a6 : reassembles 37798 = true ∧ castsFifteens 37798 = true := by decide
+
+/-- 93a7: nibbles fold back to 37799; digit sum 29 ≡ 37799 (mod 15). -/
+theorem enumeration_hex4_93a7 : reassembles 37799 = true ∧ castsFifteens 37799 = true := by decide
+
+/-- 93a8: nibbles fold back to 37800; digit sum 30 ≡ 37800 (mod 15). -/
+theorem enumeration_hex4_93a8 : reassembles 37800 = true ∧ castsFifteens 37800 = true := by decide
+
+/-- 93a9: nibbles fold back to 37801; digit sum 31 ≡ 37801 (mod 15). -/
+theorem enumeration_hex4_93a9 : reassembles 37801 = true ∧ castsFifteens 37801 = true := by decide
+
+/-- 93aa: nibbles fold back to 37802; digit sum 32 ≡ 37802 (mod 15). -/
+theorem enumeration_hex4_93aa : reassembles 37802 = true ∧ castsFifteens 37802 = true := by decide
+
+/-- 93ab: nibbles fold back to 37803; digit sum 33 ≡ 37803 (mod 15). -/
+theorem enumeration_hex4_93ab : reassembles 37803 = true ∧ castsFifteens 37803 = true := by decide
+
+/-- 93ac: nibbles fold back to 37804; digit sum 34 ≡ 37804 (mod 15). -/
+theorem enumeration_hex4_93ac : reassembles 37804 = true ∧ castsFifteens 37804 = true := by decide
+
+/-- 93ad: nibbles fold back to 37805; digit sum 35 ≡ 37805 (mod 15). -/
+theorem enumeration_hex4_93ad : reassembles 37805 = true ∧ castsFifteens 37805 = true := by decide
+
+/-- 93ae: nibbles fold back to 37806; digit sum 36 ≡ 37806 (mod 15). -/
+theorem enumeration_hex4_93ae : reassembles 37806 = true ∧ castsFifteens 37806 = true := by decide
+
+/-- 93af: nibbles fold back to 37807; digit sum 37 ≡ 37807 (mod 15). -/
+theorem enumeration_hex4_93af : reassembles 37807 = true ∧ castsFifteens 37807 = true := by decide
+
+/-- 93b0: nibbles fold back to 37808; digit sum 23 ≡ 37808 (mod 15). -/
+theorem enumeration_hex4_93b0 : reassembles 37808 = true ∧ castsFifteens 37808 = true := by decide
+
+/-- 93b1: nibbles fold back to 37809; digit sum 24 ≡ 37809 (mod 15). -/
+theorem enumeration_hex4_93b1 : reassembles 37809 = true ∧ castsFifteens 37809 = true := by decide
+
+/-- 93b2: nibbles fold back to 37810; digit sum 25 ≡ 37810 (mod 15). -/
+theorem enumeration_hex4_93b2 : reassembles 37810 = true ∧ castsFifteens 37810 = true := by decide
+
+/-- 93b3: nibbles fold back to 37811; digit sum 26 ≡ 37811 (mod 15). -/
+theorem enumeration_hex4_93b3 : reassembles 37811 = true ∧ castsFifteens 37811 = true := by decide
+
+/-- 93b4: nibbles fold back to 37812; digit sum 27 ≡ 37812 (mod 15). -/
+theorem enumeration_hex4_93b4 : reassembles 37812 = true ∧ castsFifteens 37812 = true := by decide
+
+/-- 93b5: nibbles fold back to 37813; digit sum 28 ≡ 37813 (mod 15). -/
+theorem enumeration_hex4_93b5 : reassembles 37813 = true ∧ castsFifteens 37813 = true := by decide
+
+/-- 93b6: nibbles fold back to 37814; digit sum 29 ≡ 37814 (mod 15). -/
+theorem enumeration_hex4_93b6 : reassembles 37814 = true ∧ castsFifteens 37814 = true := by decide
+
+/-- 93b7: nibbles fold back to 37815; digit sum 30 ≡ 37815 (mod 15). -/
+theorem enumeration_hex4_93b7 : reassembles 37815 = true ∧ castsFifteens 37815 = true := by decide
+
+/-- 93b8: nibbles fold back to 37816; digit sum 31 ≡ 37816 (mod 15). -/
+theorem enumeration_hex4_93b8 : reassembles 37816 = true ∧ castsFifteens 37816 = true := by decide
+
+/-- 93b9: nibbles fold back to 37817; digit sum 32 ≡ 37817 (mod 15). -/
+theorem enumeration_hex4_93b9 : reassembles 37817 = true ∧ castsFifteens 37817 = true := by decide
+
+/-- 93ba: nibbles fold back to 37818; digit sum 33 ≡ 37818 (mod 15). -/
+theorem enumeration_hex4_93ba : reassembles 37818 = true ∧ castsFifteens 37818 = true := by decide
+
+/-- 93bb: nibbles fold back to 37819; digit sum 34 ≡ 37819 (mod 15). -/
+theorem enumeration_hex4_93bb : reassembles 37819 = true ∧ castsFifteens 37819 = true := by decide
+
+/-- 93bc: nibbles fold back to 37820; digit sum 35 ≡ 37820 (mod 15). -/
+theorem enumeration_hex4_93bc : reassembles 37820 = true ∧ castsFifteens 37820 = true := by decide
+
+/-- 93bd: nibbles fold back to 37821; digit sum 36 ≡ 37821 (mod 15). -/
+theorem enumeration_hex4_93bd : reassembles 37821 = true ∧ castsFifteens 37821 = true := by decide
+
+/-- 93be: nibbles fold back to 37822; digit sum 37 ≡ 37822 (mod 15). -/
+theorem enumeration_hex4_93be : reassembles 37822 = true ∧ castsFifteens 37822 = true := by decide
+
+/-- 93bf: nibbles fold back to 37823; digit sum 38 ≡ 37823 (mod 15). -/
+theorem enumeration_hex4_93bf : reassembles 37823 = true ∧ castsFifteens 37823 = true := by decide
+
+/-- 93c0: nibbles fold back to 37824; digit sum 24 ≡ 37824 (mod 15). -/
+theorem enumeration_hex4_93c0 : reassembles 37824 = true ∧ castsFifteens 37824 = true := by decide
+
+/-- 93c1: nibbles fold back to 37825; digit sum 25 ≡ 37825 (mod 15). -/
+theorem enumeration_hex4_93c1 : reassembles 37825 = true ∧ castsFifteens 37825 = true := by decide
+
+/-- 93c2: nibbles fold back to 37826; digit sum 26 ≡ 37826 (mod 15). -/
+theorem enumeration_hex4_93c2 : reassembles 37826 = true ∧ castsFifteens 37826 = true := by decide
+
+/-- 93c3: nibbles fold back to 37827; digit sum 27 ≡ 37827 (mod 15). -/
+theorem enumeration_hex4_93c3 : reassembles 37827 = true ∧ castsFifteens 37827 = true := by decide
+
+/-- 93c4: nibbles fold back to 37828; digit sum 28 ≡ 37828 (mod 15). -/
+theorem enumeration_hex4_93c4 : reassembles 37828 = true ∧ castsFifteens 37828 = true := by decide
+
+/-- 93c5: nibbles fold back to 37829; digit sum 29 ≡ 37829 (mod 15). -/
+theorem enumeration_hex4_93c5 : reassembles 37829 = true ∧ castsFifteens 37829 = true := by decide
+
+/-- 93c6: nibbles fold back to 37830; digit sum 30 ≡ 37830 (mod 15). -/
+theorem enumeration_hex4_93c6 : reassembles 37830 = true ∧ castsFifteens 37830 = true := by decide
+
+/-- 93c7: nibbles fold back to 37831; digit sum 31 ≡ 37831 (mod 15). -/
+theorem enumeration_hex4_93c7 : reassembles 37831 = true ∧ castsFifteens 37831 = true := by decide
+
+/-- 93c8: nibbles fold back to 37832; digit sum 32 ≡ 37832 (mod 15). -/
+theorem enumeration_hex4_93c8 : reassembles 37832 = true ∧ castsFifteens 37832 = true := by decide
+
+/-- 93c9: nibbles fold back to 37833; digit sum 33 ≡ 37833 (mod 15). -/
+theorem enumeration_hex4_93c9 : reassembles 37833 = true ∧ castsFifteens 37833 = true := by decide
+
+/-- 93ca: nibbles fold back to 37834; digit sum 34 ≡ 37834 (mod 15). -/
+theorem enumeration_hex4_93ca : reassembles 37834 = true ∧ castsFifteens 37834 = true := by decide
+
+/-- 93cb: nibbles fold back to 37835; digit sum 35 ≡ 37835 (mod 15). -/
+theorem enumeration_hex4_93cb : reassembles 37835 = true ∧ castsFifteens 37835 = true := by decide
+
+/-- 93cc: nibbles fold back to 37836; digit sum 36 ≡ 37836 (mod 15). -/
+theorem enumeration_hex4_93cc : reassembles 37836 = true ∧ castsFifteens 37836 = true := by decide
+
+/-- 93cd: nibbles fold back to 37837; digit sum 37 ≡ 37837 (mod 15). -/
+theorem enumeration_hex4_93cd : reassembles 37837 = true ∧ castsFifteens 37837 = true := by decide
+
+/-- 93ce: nibbles fold back to 37838; digit sum 38 ≡ 37838 (mod 15). -/
+theorem enumeration_hex4_93ce : reassembles 37838 = true ∧ castsFifteens 37838 = true := by decide
+
+/-- 93cf: nibbles fold back to 37839; digit sum 39 ≡ 37839 (mod 15). -/
+theorem enumeration_hex4_93cf : reassembles 37839 = true ∧ castsFifteens 37839 = true := by decide
+
+/-- 93d0: nibbles fold back to 37840; digit sum 25 ≡ 37840 (mod 15). -/
+theorem enumeration_hex4_93d0 : reassembles 37840 = true ∧ castsFifteens 37840 = true := by decide
+
+/-- 93d1: nibbles fold back to 37841; digit sum 26 ≡ 37841 (mod 15). -/
+theorem enumeration_hex4_93d1 : reassembles 37841 = true ∧ castsFifteens 37841 = true := by decide
+
+/-- 93d2: nibbles fold back to 37842; digit sum 27 ≡ 37842 (mod 15). -/
+theorem enumeration_hex4_93d2 : reassembles 37842 = true ∧ castsFifteens 37842 = true := by decide
+
+/-- 93d3: nibbles fold back to 37843; digit sum 28 ≡ 37843 (mod 15). -/
+theorem enumeration_hex4_93d3 : reassembles 37843 = true ∧ castsFifteens 37843 = true := by decide
+
+/-- 93d4: nibbles fold back to 37844; digit sum 29 ≡ 37844 (mod 15). -/
+theorem enumeration_hex4_93d4 : reassembles 37844 = true ∧ castsFifteens 37844 = true := by decide
+
+/-- 93d5: nibbles fold back to 37845; digit sum 30 ≡ 37845 (mod 15). -/
+theorem enumeration_hex4_93d5 : reassembles 37845 = true ∧ castsFifteens 37845 = true := by decide
+
+/-- 93d6: nibbles fold back to 37846; digit sum 31 ≡ 37846 (mod 15). -/
+theorem enumeration_hex4_93d6 : reassembles 37846 = true ∧ castsFifteens 37846 = true := by decide
+
+/-- 93d7: nibbles fold back to 37847; digit sum 32 ≡ 37847 (mod 15). -/
+theorem enumeration_hex4_93d7 : reassembles 37847 = true ∧ castsFifteens 37847 = true := by decide
+
+/-- 93d8: nibbles fold back to 37848; digit sum 33 ≡ 37848 (mod 15). -/
+theorem enumeration_hex4_93d8 : reassembles 37848 = true ∧ castsFifteens 37848 = true := by decide
+
+/-- 93d9: nibbles fold back to 37849; digit sum 34 ≡ 37849 (mod 15). -/
+theorem enumeration_hex4_93d9 : reassembles 37849 = true ∧ castsFifteens 37849 = true := by decide
+
+/-- 93da: nibbles fold back to 37850; digit sum 35 ≡ 37850 (mod 15). -/
+theorem enumeration_hex4_93da : reassembles 37850 = true ∧ castsFifteens 37850 = true := by decide
+
+/-- 93db: nibbles fold back to 37851; digit sum 36 ≡ 37851 (mod 15). -/
+theorem enumeration_hex4_93db : reassembles 37851 = true ∧ castsFifteens 37851 = true := by decide
+
+/-- 93dc: nibbles fold back to 37852; digit sum 37 ≡ 37852 (mod 15). -/
+theorem enumeration_hex4_93dc : reassembles 37852 = true ∧ castsFifteens 37852 = true := by decide
+
+/-- 93dd: nibbles fold back to 37853; digit sum 38 ≡ 37853 (mod 15). -/
+theorem enumeration_hex4_93dd : reassembles 37853 = true ∧ castsFifteens 37853 = true := by decide
+
+/-- 93de: nibbles fold back to 37854; digit sum 39 ≡ 37854 (mod 15). -/
+theorem enumeration_hex4_93de : reassembles 37854 = true ∧ castsFifteens 37854 = true := by decide
+
+/-- 93df: nibbles fold back to 37855; digit sum 40 ≡ 37855 (mod 15). -/
+theorem enumeration_hex4_93df : reassembles 37855 = true ∧ castsFifteens 37855 = true := by decide
+
+/-- 93e0: nibbles fold back to 37856; digit sum 26 ≡ 37856 (mod 15). -/
+theorem enumeration_hex4_93e0 : reassembles 37856 = true ∧ castsFifteens 37856 = true := by decide
+
+/-- 93e1: nibbles fold back to 37857; digit sum 27 ≡ 37857 (mod 15). -/
+theorem enumeration_hex4_93e1 : reassembles 37857 = true ∧ castsFifteens 37857 = true := by decide
+
+/-- 93e2: nibbles fold back to 37858; digit sum 28 ≡ 37858 (mod 15). -/
+theorem enumeration_hex4_93e2 : reassembles 37858 = true ∧ castsFifteens 37858 = true := by decide
+
+/-- 93e3: nibbles fold back to 37859; digit sum 29 ≡ 37859 (mod 15). -/
+theorem enumeration_hex4_93e3 : reassembles 37859 = true ∧ castsFifteens 37859 = true := by decide
+
+/-- 93e4: nibbles fold back to 37860; digit sum 30 ≡ 37860 (mod 15). -/
+theorem enumeration_hex4_93e4 : reassembles 37860 = true ∧ castsFifteens 37860 = true := by decide
+
+/-- 93e5: nibbles fold back to 37861; digit sum 31 ≡ 37861 (mod 15). -/
+theorem enumeration_hex4_93e5 : reassembles 37861 = true ∧ castsFifteens 37861 = true := by decide
+
+/-- 93e6: nibbles fold back to 37862; digit sum 32 ≡ 37862 (mod 15). -/
+theorem enumeration_hex4_93e6 : reassembles 37862 = true ∧ castsFifteens 37862 = true := by decide
+
+/-- 93e7: nibbles fold back to 37863; digit sum 33 ≡ 37863 (mod 15). -/
+theorem enumeration_hex4_93e7 : reassembles 37863 = true ∧ castsFifteens 37863 = true := by decide
+
+/-- 93e8: nibbles fold back to 37864; digit sum 34 ≡ 37864 (mod 15). -/
+theorem enumeration_hex4_93e8 : reassembles 37864 = true ∧ castsFifteens 37864 = true := by decide
+
+/-- 93e9: nibbles fold back to 37865; digit sum 35 ≡ 37865 (mod 15). -/
+theorem enumeration_hex4_93e9 : reassembles 37865 = true ∧ castsFifteens 37865 = true := by decide
+
+/-- 93ea: nibbles fold back to 37866; digit sum 36 ≡ 37866 (mod 15). -/
+theorem enumeration_hex4_93ea : reassembles 37866 = true ∧ castsFifteens 37866 = true := by decide
+
+/-- 93eb: nibbles fold back to 37867; digit sum 37 ≡ 37867 (mod 15). -/
+theorem enumeration_hex4_93eb : reassembles 37867 = true ∧ castsFifteens 37867 = true := by decide
+
+/-- 93ec: nibbles fold back to 37868; digit sum 38 ≡ 37868 (mod 15). -/
+theorem enumeration_hex4_93ec : reassembles 37868 = true ∧ castsFifteens 37868 = true := by decide
+
+/-- 93ed: nibbles fold back to 37869; digit sum 39 ≡ 37869 (mod 15). -/
+theorem enumeration_hex4_93ed : reassembles 37869 = true ∧ castsFifteens 37869 = true := by decide
+
+/-- 93ee: nibbles fold back to 37870; digit sum 40 ≡ 37870 (mod 15). -/
+theorem enumeration_hex4_93ee : reassembles 37870 = true ∧ castsFifteens 37870 = true := by decide
+
+/-- 93ef: nibbles fold back to 37871; digit sum 41 ≡ 37871 (mod 15). -/
+theorem enumeration_hex4_93ef : reassembles 37871 = true ∧ castsFifteens 37871 = true := by decide
+
+/-- 93f0: nibbles fold back to 37872; digit sum 27 ≡ 37872 (mod 15). -/
+theorem enumeration_hex4_93f0 : reassembles 37872 = true ∧ castsFifteens 37872 = true := by decide
+
+/-- 93f1: nibbles fold back to 37873; digit sum 28 ≡ 37873 (mod 15). -/
+theorem enumeration_hex4_93f1 : reassembles 37873 = true ∧ castsFifteens 37873 = true := by decide
+
+/-- 93f2: nibbles fold back to 37874; digit sum 29 ≡ 37874 (mod 15). -/
+theorem enumeration_hex4_93f2 : reassembles 37874 = true ∧ castsFifteens 37874 = true := by decide
+
+/-- 93f3: nibbles fold back to 37875; digit sum 30 ≡ 37875 (mod 15). -/
+theorem enumeration_hex4_93f3 : reassembles 37875 = true ∧ castsFifteens 37875 = true := by decide
+
+/-- 93f4: nibbles fold back to 37876; digit sum 31 ≡ 37876 (mod 15). -/
+theorem enumeration_hex4_93f4 : reassembles 37876 = true ∧ castsFifteens 37876 = true := by decide
+
+/-- 93f5: nibbles fold back to 37877; digit sum 32 ≡ 37877 (mod 15). -/
+theorem enumeration_hex4_93f5 : reassembles 37877 = true ∧ castsFifteens 37877 = true := by decide
+
+/-- 93f6: nibbles fold back to 37878; digit sum 33 ≡ 37878 (mod 15). -/
+theorem enumeration_hex4_93f6 : reassembles 37878 = true ∧ castsFifteens 37878 = true := by decide
+
+/-- 93f7: nibbles fold back to 37879; digit sum 34 ≡ 37879 (mod 15). -/
+theorem enumeration_hex4_93f7 : reassembles 37879 = true ∧ castsFifteens 37879 = true := by decide
+
+/-- 93f8: nibbles fold back to 37880; digit sum 35 ≡ 37880 (mod 15). -/
+theorem enumeration_hex4_93f8 : reassembles 37880 = true ∧ castsFifteens 37880 = true := by decide
+
+/-- 93f9: nibbles fold back to 37881; digit sum 36 ≡ 37881 (mod 15). -/
+theorem enumeration_hex4_93f9 : reassembles 37881 = true ∧ castsFifteens 37881 = true := by decide
+
+/-- 93fa: nibbles fold back to 37882; digit sum 37 ≡ 37882 (mod 15). -/
+theorem enumeration_hex4_93fa : reassembles 37882 = true ∧ castsFifteens 37882 = true := by decide
+
+/-- 93fb: nibbles fold back to 37883; digit sum 38 ≡ 37883 (mod 15). -/
+theorem enumeration_hex4_93fb : reassembles 37883 = true ∧ castsFifteens 37883 = true := by decide
+
+/-- 93fc: nibbles fold back to 37884; digit sum 39 ≡ 37884 (mod 15). -/
+theorem enumeration_hex4_93fc : reassembles 37884 = true ∧ castsFifteens 37884 = true := by decide
+
+/-- 93fd: nibbles fold back to 37885; digit sum 40 ≡ 37885 (mod 15). -/
+theorem enumeration_hex4_93fd : reassembles 37885 = true ∧ castsFifteens 37885 = true := by decide
+
+/-- 93fe: nibbles fold back to 37886; digit sum 41 ≡ 37886 (mod 15). -/
+theorem enumeration_hex4_93fe : reassembles 37886 = true ∧ castsFifteens 37886 = true := by decide
+
+/-- 93ff: nibbles fold back to 37887; digit sum 42 ≡ 37887 (mod 15). -/
+theorem enumeration_hex4_93ff : reassembles 37887 = true ∧ castsFifteens 37887 = true := by decide
+
+/-- 9400: nibbles fold back to 37888; digit sum 13 ≡ 37888 (mod 15). -/
+theorem enumeration_hex4_9400 : reassembles 37888 = true ∧ castsFifteens 37888 = true := by decide
+
+/-- 9401: nibbles fold back to 37889; digit sum 14 ≡ 37889 (mod 15). -/
+theorem enumeration_hex4_9401 : reassembles 37889 = true ∧ castsFifteens 37889 = true := by decide
+
+/-- 9402: nibbles fold back to 37890; digit sum 15 ≡ 37890 (mod 15). -/
+theorem enumeration_hex4_9402 : reassembles 37890 = true ∧ castsFifteens 37890 = true := by decide
+
+/-- 9403: nibbles fold back to 37891; digit sum 16 ≡ 37891 (mod 15). -/
+theorem enumeration_hex4_9403 : reassembles 37891 = true ∧ castsFifteens 37891 = true := by decide
+
+/-- 9404: nibbles fold back to 37892; digit sum 17 ≡ 37892 (mod 15). -/
+theorem enumeration_hex4_9404 : reassembles 37892 = true ∧ castsFifteens 37892 = true := by decide
+
+/-- 9405: nibbles fold back to 37893; digit sum 18 ≡ 37893 (mod 15). -/
+theorem enumeration_hex4_9405 : reassembles 37893 = true ∧ castsFifteens 37893 = true := by decide
+
+/-- 9406: nibbles fold back to 37894; digit sum 19 ≡ 37894 (mod 15). -/
+theorem enumeration_hex4_9406 : reassembles 37894 = true ∧ castsFifteens 37894 = true := by decide
+
+/-- 9407: nibbles fold back to 37895; digit sum 20 ≡ 37895 (mod 15). -/
+theorem enumeration_hex4_9407 : reassembles 37895 = true ∧ castsFifteens 37895 = true := by decide
+
+/-- 9408: nibbles fold back to 37896; digit sum 21 ≡ 37896 (mod 15). -/
+theorem enumeration_hex4_9408 : reassembles 37896 = true ∧ castsFifteens 37896 = true := by decide
+
+/-- 9409: nibbles fold back to 37897; digit sum 22 ≡ 37897 (mod 15). -/
+theorem enumeration_hex4_9409 : reassembles 37897 = true ∧ castsFifteens 37897 = true := by decide
+
+/-- 940a: nibbles fold back to 37898; digit sum 23 ≡ 37898 (mod 15). -/
+theorem enumeration_hex4_940a : reassembles 37898 = true ∧ castsFifteens 37898 = true := by decide
+
+/-- 940b: nibbles fold back to 37899; digit sum 24 ≡ 37899 (mod 15). -/
+theorem enumeration_hex4_940b : reassembles 37899 = true ∧ castsFifteens 37899 = true := by decide
+
+/-- 940c: nibbles fold back to 37900; digit sum 25 ≡ 37900 (mod 15). -/
+theorem enumeration_hex4_940c : reassembles 37900 = true ∧ castsFifteens 37900 = true := by decide
+
+/-- 940d: nibbles fold back to 37901; digit sum 26 ≡ 37901 (mod 15). -/
+theorem enumeration_hex4_940d : reassembles 37901 = true ∧ castsFifteens 37901 = true := by decide
+
+/-- 940e: nibbles fold back to 37902; digit sum 27 ≡ 37902 (mod 15). -/
+theorem enumeration_hex4_940e : reassembles 37902 = true ∧ castsFifteens 37902 = true := by decide
+
+/-- 940f: nibbles fold back to 37903; digit sum 28 ≡ 37903 (mod 15). -/
+theorem enumeration_hex4_940f : reassembles 37903 = true ∧ castsFifteens 37903 = true := by decide
+
+/-- 9410: nibbles fold back to 37904; digit sum 14 ≡ 37904 (mod 15). -/
+theorem enumeration_hex4_9410 : reassembles 37904 = true ∧ castsFifteens 37904 = true := by decide
+
+/-- 9411: nibbles fold back to 37905; digit sum 15 ≡ 37905 (mod 15). -/
+theorem enumeration_hex4_9411 : reassembles 37905 = true ∧ castsFifteens 37905 = true := by decide
+
+/-- 9412: nibbles fold back to 37906; digit sum 16 ≡ 37906 (mod 15). -/
+theorem enumeration_hex4_9412 : reassembles 37906 = true ∧ castsFifteens 37906 = true := by decide
+
+/-- 9413: nibbles fold back to 37907; digit sum 17 ≡ 37907 (mod 15). -/
+theorem enumeration_hex4_9413 : reassembles 37907 = true ∧ castsFifteens 37907 = true := by decide
+
+/-- 9414: nibbles fold back to 37908; digit sum 18 ≡ 37908 (mod 15). -/
+theorem enumeration_hex4_9414 : reassembles 37908 = true ∧ castsFifteens 37908 = true := by decide
+
+/-- 9415: nibbles fold back to 37909; digit sum 19 ≡ 37909 (mod 15). -/
+theorem enumeration_hex4_9415 : reassembles 37909 = true ∧ castsFifteens 37909 = true := by decide
+
+/-- 9416: nibbles fold back to 37910; digit sum 20 ≡ 37910 (mod 15). -/
+theorem enumeration_hex4_9416 : reassembles 37910 = true ∧ castsFifteens 37910 = true := by decide
+
+/-- 9417: nibbles fold back to 37911; digit sum 21 ≡ 37911 (mod 15). -/
+theorem enumeration_hex4_9417 : reassembles 37911 = true ∧ castsFifteens 37911 = true := by decide
+
+/-- 9418: nibbles fold back to 37912; digit sum 22 ≡ 37912 (mod 15). -/
+theorem enumeration_hex4_9418 : reassembles 37912 = true ∧ castsFifteens 37912 = true := by decide
+
+/-- 9419: nibbles fold back to 37913; digit sum 23 ≡ 37913 (mod 15). -/
+theorem enumeration_hex4_9419 : reassembles 37913 = true ∧ castsFifteens 37913 = true := by decide
+
+/-- 941a: nibbles fold back to 37914; digit sum 24 ≡ 37914 (mod 15). -/
+theorem enumeration_hex4_941a : reassembles 37914 = true ∧ castsFifteens 37914 = true := by decide
+
+/-- 941b: nibbles fold back to 37915; digit sum 25 ≡ 37915 (mod 15). -/
+theorem enumeration_hex4_941b : reassembles 37915 = true ∧ castsFifteens 37915 = true := by decide
+
+/-- 941c: nibbles fold back to 37916; digit sum 26 ≡ 37916 (mod 15). -/
+theorem enumeration_hex4_941c : reassembles 37916 = true ∧ castsFifteens 37916 = true := by decide
+
+/-- 941d: nibbles fold back to 37917; digit sum 27 ≡ 37917 (mod 15). -/
+theorem enumeration_hex4_941d : reassembles 37917 = true ∧ castsFifteens 37917 = true := by decide
+
+/-- 941e: nibbles fold back to 37918; digit sum 28 ≡ 37918 (mod 15). -/
+theorem enumeration_hex4_941e : reassembles 37918 = true ∧ castsFifteens 37918 = true := by decide
+
+/-- 941f: nibbles fold back to 37919; digit sum 29 ≡ 37919 (mod 15). -/
+theorem enumeration_hex4_941f : reassembles 37919 = true ∧ castsFifteens 37919 = true := by decide
+
+/-- 9420: nibbles fold back to 37920; digit sum 15 ≡ 37920 (mod 15). -/
+theorem enumeration_hex4_9420 : reassembles 37920 = true ∧ castsFifteens 37920 = true := by decide
+
+/-- 9421: nibbles fold back to 37921; digit sum 16 ≡ 37921 (mod 15). -/
+theorem enumeration_hex4_9421 : reassembles 37921 = true ∧ castsFifteens 37921 = true := by decide
+
+/-- 9422: nibbles fold back to 37922; digit sum 17 ≡ 37922 (mod 15). -/
+theorem enumeration_hex4_9422 : reassembles 37922 = true ∧ castsFifteens 37922 = true := by decide
+
+/-- 9423: nibbles fold back to 37923; digit sum 18 ≡ 37923 (mod 15). -/
+theorem enumeration_hex4_9423 : reassembles 37923 = true ∧ castsFifteens 37923 = true := by decide
+
+/-- 9424: nibbles fold back to 37924; digit sum 19 ≡ 37924 (mod 15). -/
+theorem enumeration_hex4_9424 : reassembles 37924 = true ∧ castsFifteens 37924 = true := by decide
+
+/-- 9425: nibbles fold back to 37925; digit sum 20 ≡ 37925 (mod 15). -/
+theorem enumeration_hex4_9425 : reassembles 37925 = true ∧ castsFifteens 37925 = true := by decide
+
+/-- 9426: nibbles fold back to 37926; digit sum 21 ≡ 37926 (mod 15). -/
+theorem enumeration_hex4_9426 : reassembles 37926 = true ∧ castsFifteens 37926 = true := by decide
+
+/-- 9427: nibbles fold back to 37927; digit sum 22 ≡ 37927 (mod 15). -/
+theorem enumeration_hex4_9427 : reassembles 37927 = true ∧ castsFifteens 37927 = true := by decide
+
+/-- 9428: nibbles fold back to 37928; digit sum 23 ≡ 37928 (mod 15). -/
+theorem enumeration_hex4_9428 : reassembles 37928 = true ∧ castsFifteens 37928 = true := by decide
+
+/-- 9429: nibbles fold back to 37929; digit sum 24 ≡ 37929 (mod 15). -/
+theorem enumeration_hex4_9429 : reassembles 37929 = true ∧ castsFifteens 37929 = true := by decide
+
+/-- 942a: nibbles fold back to 37930; digit sum 25 ≡ 37930 (mod 15). -/
+theorem enumeration_hex4_942a : reassembles 37930 = true ∧ castsFifteens 37930 = true := by decide
+
+/-- 942b: nibbles fold back to 37931; digit sum 26 ≡ 37931 (mod 15). -/
+theorem enumeration_hex4_942b : reassembles 37931 = true ∧ castsFifteens 37931 = true := by decide
+
+/-- 942c: nibbles fold back to 37932; digit sum 27 ≡ 37932 (mod 15). -/
+theorem enumeration_hex4_942c : reassembles 37932 = true ∧ castsFifteens 37932 = true := by decide
+
+/-- 942d: nibbles fold back to 37933; digit sum 28 ≡ 37933 (mod 15). -/
+theorem enumeration_hex4_942d : reassembles 37933 = true ∧ castsFifteens 37933 = true := by decide
+
+/-- 942e: nibbles fold back to 37934; digit sum 29 ≡ 37934 (mod 15). -/
+theorem enumeration_hex4_942e : reassembles 37934 = true ∧ castsFifteens 37934 = true := by decide
+
+/-- 942f: nibbles fold back to 37935; digit sum 30 ≡ 37935 (mod 15). -/
+theorem enumeration_hex4_942f : reassembles 37935 = true ∧ castsFifteens 37935 = true := by decide
+
+/-- 9430: nibbles fold back to 37936; digit sum 16 ≡ 37936 (mod 15). -/
+theorem enumeration_hex4_9430 : reassembles 37936 = true ∧ castsFifteens 37936 = true := by decide
+
+/-- 9431: nibbles fold back to 37937; digit sum 17 ≡ 37937 (mod 15). -/
+theorem enumeration_hex4_9431 : reassembles 37937 = true ∧ castsFifteens 37937 = true := by decide
+
+/-- 9432: nibbles fold back to 37938; digit sum 18 ≡ 37938 (mod 15). -/
+theorem enumeration_hex4_9432 : reassembles 37938 = true ∧ castsFifteens 37938 = true := by decide
+
+/-- 9433: nibbles fold back to 37939; digit sum 19 ≡ 37939 (mod 15). -/
+theorem enumeration_hex4_9433 : reassembles 37939 = true ∧ castsFifteens 37939 = true := by decide
+
+/-- 9434: nibbles fold back to 37940; digit sum 20 ≡ 37940 (mod 15). -/
+theorem enumeration_hex4_9434 : reassembles 37940 = true ∧ castsFifteens 37940 = true := by decide
+
+/-- 9435: nibbles fold back to 37941; digit sum 21 ≡ 37941 (mod 15). -/
+theorem enumeration_hex4_9435 : reassembles 37941 = true ∧ castsFifteens 37941 = true := by decide
+
+/-- 9436: nibbles fold back to 37942; digit sum 22 ≡ 37942 (mod 15). -/
+theorem enumeration_hex4_9436 : reassembles 37942 = true ∧ castsFifteens 37942 = true := by decide
+
+/-- 9437: nibbles fold back to 37943; digit sum 23 ≡ 37943 (mod 15). -/
+theorem enumeration_hex4_9437 : reassembles 37943 = true ∧ castsFifteens 37943 = true := by decide
+
+/-- 9438: nibbles fold back to 37944; digit sum 24 ≡ 37944 (mod 15). -/
+theorem enumeration_hex4_9438 : reassembles 37944 = true ∧ castsFifteens 37944 = true := by decide
+
+/-- 9439: nibbles fold back to 37945; digit sum 25 ≡ 37945 (mod 15). -/
+theorem enumeration_hex4_9439 : reassembles 37945 = true ∧ castsFifteens 37945 = true := by decide
+
+/-- 943a: nibbles fold back to 37946; digit sum 26 ≡ 37946 (mod 15). -/
+theorem enumeration_hex4_943a : reassembles 37946 = true ∧ castsFifteens 37946 = true := by decide
+
+/-- 943b: nibbles fold back to 37947; digit sum 27 ≡ 37947 (mod 15). -/
+theorem enumeration_hex4_943b : reassembles 37947 = true ∧ castsFifteens 37947 = true := by decide
+
+/-- 943c: nibbles fold back to 37948; digit sum 28 ≡ 37948 (mod 15). -/
+theorem enumeration_hex4_943c : reassembles 37948 = true ∧ castsFifteens 37948 = true := by decide
+
+/-- 943d: nibbles fold back to 37949; digit sum 29 ≡ 37949 (mod 15). -/
+theorem enumeration_hex4_943d : reassembles 37949 = true ∧ castsFifteens 37949 = true := by decide
+
+/-- 943e: nibbles fold back to 37950; digit sum 30 ≡ 37950 (mod 15). -/
+theorem enumeration_hex4_943e : reassembles 37950 = true ∧ castsFifteens 37950 = true := by decide
+
+/-- 943f: nibbles fold back to 37951; digit sum 31 ≡ 37951 (mod 15). -/
+theorem enumeration_hex4_943f : reassembles 37951 = true ∧ castsFifteens 37951 = true := by decide
+
+/-- 9440: nibbles fold back to 37952; digit sum 17 ≡ 37952 (mod 15). -/
+theorem enumeration_hex4_9440 : reassembles 37952 = true ∧ castsFifteens 37952 = true := by decide
+
+/-- 9441: nibbles fold back to 37953; digit sum 18 ≡ 37953 (mod 15). -/
+theorem enumeration_hex4_9441 : reassembles 37953 = true ∧ castsFifteens 37953 = true := by decide
+
+/-- 9442: nibbles fold back to 37954; digit sum 19 ≡ 37954 (mod 15). -/
+theorem enumeration_hex4_9442 : reassembles 37954 = true ∧ castsFifteens 37954 = true := by decide
+
+/-- 9443: nibbles fold back to 37955; digit sum 20 ≡ 37955 (mod 15). -/
+theorem enumeration_hex4_9443 : reassembles 37955 = true ∧ castsFifteens 37955 = true := by decide
+
+/-- 9444: nibbles fold back to 37956; digit sum 21 ≡ 37956 (mod 15). -/
+theorem enumeration_hex4_9444 : reassembles 37956 = true ∧ castsFifteens 37956 = true := by decide
+
+/-- 9445: nibbles fold back to 37957; digit sum 22 ≡ 37957 (mod 15). -/
+theorem enumeration_hex4_9445 : reassembles 37957 = true ∧ castsFifteens 37957 = true := by decide
+
+/-- 9446: nibbles fold back to 37958; digit sum 23 ≡ 37958 (mod 15). -/
+theorem enumeration_hex4_9446 : reassembles 37958 = true ∧ castsFifteens 37958 = true := by decide
+
+/-- 9447: nibbles fold back to 37959; digit sum 24 ≡ 37959 (mod 15). -/
+theorem enumeration_hex4_9447 : reassembles 37959 = true ∧ castsFifteens 37959 = true := by decide
+
+/-- 9448: nibbles fold back to 37960; digit sum 25 ≡ 37960 (mod 15). -/
+theorem enumeration_hex4_9448 : reassembles 37960 = true ∧ castsFifteens 37960 = true := by decide
+
+/-- 9449: nibbles fold back to 37961; digit sum 26 ≡ 37961 (mod 15). -/
+theorem enumeration_hex4_9449 : reassembles 37961 = true ∧ castsFifteens 37961 = true := by decide
+
+/-- 944a: nibbles fold back to 37962; digit sum 27 ≡ 37962 (mod 15). -/
+theorem enumeration_hex4_944a : reassembles 37962 = true ∧ castsFifteens 37962 = true := by decide
+
+/-- 944b: nibbles fold back to 37963; digit sum 28 ≡ 37963 (mod 15). -/
+theorem enumeration_hex4_944b : reassembles 37963 = true ∧ castsFifteens 37963 = true := by decide
+
+/-- 944c: nibbles fold back to 37964; digit sum 29 ≡ 37964 (mod 15). -/
+theorem enumeration_hex4_944c : reassembles 37964 = true ∧ castsFifteens 37964 = true := by decide
+
+/-- 944d: nibbles fold back to 37965; digit sum 30 ≡ 37965 (mod 15). -/
+theorem enumeration_hex4_944d : reassembles 37965 = true ∧ castsFifteens 37965 = true := by decide
+
+/-- 944e: nibbles fold back to 37966; digit sum 31 ≡ 37966 (mod 15). -/
+theorem enumeration_hex4_944e : reassembles 37966 = true ∧ castsFifteens 37966 = true := by decide
+
+/-- 944f: nibbles fold back to 37967; digit sum 32 ≡ 37967 (mod 15). -/
+theorem enumeration_hex4_944f : reassembles 37967 = true ∧ castsFifteens 37967 = true := by decide
+
+/-- 9450: nibbles fold back to 37968; digit sum 18 ≡ 37968 (mod 15). -/
+theorem enumeration_hex4_9450 : reassembles 37968 = true ∧ castsFifteens 37968 = true := by decide
+
+/-- 9451: nibbles fold back to 37969; digit sum 19 ≡ 37969 (mod 15). -/
+theorem enumeration_hex4_9451 : reassembles 37969 = true ∧ castsFifteens 37969 = true := by decide
+
+/-- 9452: nibbles fold back to 37970; digit sum 20 ≡ 37970 (mod 15). -/
+theorem enumeration_hex4_9452 : reassembles 37970 = true ∧ castsFifteens 37970 = true := by decide
+
+/-- 9453: nibbles fold back to 37971; digit sum 21 ≡ 37971 (mod 15). -/
+theorem enumeration_hex4_9453 : reassembles 37971 = true ∧ castsFifteens 37971 = true := by decide
+
+/-- 9454: nibbles fold back to 37972; digit sum 22 ≡ 37972 (mod 15). -/
+theorem enumeration_hex4_9454 : reassembles 37972 = true ∧ castsFifteens 37972 = true := by decide
+
+/-- 9455: nibbles fold back to 37973; digit sum 23 ≡ 37973 (mod 15). -/
+theorem enumeration_hex4_9455 : reassembles 37973 = true ∧ castsFifteens 37973 = true := by decide
+
+/-- 9456: nibbles fold back to 37974; digit sum 24 ≡ 37974 (mod 15). -/
+theorem enumeration_hex4_9456 : reassembles 37974 = true ∧ castsFifteens 37974 = true := by decide
+
+/-- 9457: nibbles fold back to 37975; digit sum 25 ≡ 37975 (mod 15). -/
+theorem enumeration_hex4_9457 : reassembles 37975 = true ∧ castsFifteens 37975 = true := by decide
+
+/-- 9458: nibbles fold back to 37976; digit sum 26 ≡ 37976 (mod 15). -/
+theorem enumeration_hex4_9458 : reassembles 37976 = true ∧ castsFifteens 37976 = true := by decide
+
+/-- 9459: nibbles fold back to 37977; digit sum 27 ≡ 37977 (mod 15). -/
+theorem enumeration_hex4_9459 : reassembles 37977 = true ∧ castsFifteens 37977 = true := by decide
+
+/-- 945a: nibbles fold back to 37978; digit sum 28 ≡ 37978 (mod 15). -/
+theorem enumeration_hex4_945a : reassembles 37978 = true ∧ castsFifteens 37978 = true := by decide
+
+/-- 945b: nibbles fold back to 37979; digit sum 29 ≡ 37979 (mod 15). -/
+theorem enumeration_hex4_945b : reassembles 37979 = true ∧ castsFifteens 37979 = true := by decide
+
+/-- 945c: nibbles fold back to 37980; digit sum 30 ≡ 37980 (mod 15). -/
+theorem enumeration_hex4_945c : reassembles 37980 = true ∧ castsFifteens 37980 = true := by decide
+
+/-- 945d: nibbles fold back to 37981; digit sum 31 ≡ 37981 (mod 15). -/
+theorem enumeration_hex4_945d : reassembles 37981 = true ∧ castsFifteens 37981 = true := by decide
+
+/-- 945e: nibbles fold back to 37982; digit sum 32 ≡ 37982 (mod 15). -/
+theorem enumeration_hex4_945e : reassembles 37982 = true ∧ castsFifteens 37982 = true := by decide
+
+/-- 945f: nibbles fold back to 37983; digit sum 33 ≡ 37983 (mod 15). -/
+theorem enumeration_hex4_945f : reassembles 37983 = true ∧ castsFifteens 37983 = true := by decide
+
+/-- 9460: nibbles fold back to 37984; digit sum 19 ≡ 37984 (mod 15). -/
+theorem enumeration_hex4_9460 : reassembles 37984 = true ∧ castsFifteens 37984 = true := by decide
+
+/-- 9461: nibbles fold back to 37985; digit sum 20 ≡ 37985 (mod 15). -/
+theorem enumeration_hex4_9461 : reassembles 37985 = true ∧ castsFifteens 37985 = true := by decide
+
+/-- 9462: nibbles fold back to 37986; digit sum 21 ≡ 37986 (mod 15). -/
+theorem enumeration_hex4_9462 : reassembles 37986 = true ∧ castsFifteens 37986 = true := by decide
+
+/-- 9463: nibbles fold back to 37987; digit sum 22 ≡ 37987 (mod 15). -/
+theorem enumeration_hex4_9463 : reassembles 37987 = true ∧ castsFifteens 37987 = true := by decide
+
+/-- 9464: nibbles fold back to 37988; digit sum 23 ≡ 37988 (mod 15). -/
+theorem enumeration_hex4_9464 : reassembles 37988 = true ∧ castsFifteens 37988 = true := by decide
+
+/-- 9465: nibbles fold back to 37989; digit sum 24 ≡ 37989 (mod 15). -/
+theorem enumeration_hex4_9465 : reassembles 37989 = true ∧ castsFifteens 37989 = true := by decide
+
+/-- 9466: nibbles fold back to 37990; digit sum 25 ≡ 37990 (mod 15). -/
+theorem enumeration_hex4_9466 : reassembles 37990 = true ∧ castsFifteens 37990 = true := by decide
+
+/-- 9467: nibbles fold back to 37991; digit sum 26 ≡ 37991 (mod 15). -/
+theorem enumeration_hex4_9467 : reassembles 37991 = true ∧ castsFifteens 37991 = true := by decide
+
+/-- 9468: nibbles fold back to 37992; digit sum 27 ≡ 37992 (mod 15). -/
+theorem enumeration_hex4_9468 : reassembles 37992 = true ∧ castsFifteens 37992 = true := by decide
+
+/-- 9469: nibbles fold back to 37993; digit sum 28 ≡ 37993 (mod 15). -/
+theorem enumeration_hex4_9469 : reassembles 37993 = true ∧ castsFifteens 37993 = true := by decide
+
+/-- 946a: nibbles fold back to 37994; digit sum 29 ≡ 37994 (mod 15). -/
+theorem enumeration_hex4_946a : reassembles 37994 = true ∧ castsFifteens 37994 = true := by decide
+
+/-- 946b: nibbles fold back to 37995; digit sum 30 ≡ 37995 (mod 15). -/
+theorem enumeration_hex4_946b : reassembles 37995 = true ∧ castsFifteens 37995 = true := by decide
+
+/-- 946c: nibbles fold back to 37996; digit sum 31 ≡ 37996 (mod 15). -/
+theorem enumeration_hex4_946c : reassembles 37996 = true ∧ castsFifteens 37996 = true := by decide
+
+/-- 946d: nibbles fold back to 37997; digit sum 32 ≡ 37997 (mod 15). -/
+theorem enumeration_hex4_946d : reassembles 37997 = true ∧ castsFifteens 37997 = true := by decide
+
+/-- 946e: nibbles fold back to 37998; digit sum 33 ≡ 37998 (mod 15). -/
+theorem enumeration_hex4_946e : reassembles 37998 = true ∧ castsFifteens 37998 = true := by decide
+
+/-- 946f: nibbles fold back to 37999; digit sum 34 ≡ 37999 (mod 15). -/
+theorem enumeration_hex4_946f : reassembles 37999 = true ∧ castsFifteens 37999 = true := by decide
+
+/-- 9470: nibbles fold back to 38000; digit sum 20 ≡ 38000 (mod 15). -/
+theorem enumeration_hex4_9470 : reassembles 38000 = true ∧ castsFifteens 38000 = true := by decide
+
+/-- 9471: nibbles fold back to 38001; digit sum 21 ≡ 38001 (mod 15). -/
+theorem enumeration_hex4_9471 : reassembles 38001 = true ∧ castsFifteens 38001 = true := by decide
+
+/-- 9472: nibbles fold back to 38002; digit sum 22 ≡ 38002 (mod 15). -/
+theorem enumeration_hex4_9472 : reassembles 38002 = true ∧ castsFifteens 38002 = true := by decide
+
+/-- 9473: nibbles fold back to 38003; digit sum 23 ≡ 38003 (mod 15). -/
+theorem enumeration_hex4_9473 : reassembles 38003 = true ∧ castsFifteens 38003 = true := by decide
+
+/-- 9474: nibbles fold back to 38004; digit sum 24 ≡ 38004 (mod 15). -/
+theorem enumeration_hex4_9474 : reassembles 38004 = true ∧ castsFifteens 38004 = true := by decide
+
+/-- 9475: nibbles fold back to 38005; digit sum 25 ≡ 38005 (mod 15). -/
+theorem enumeration_hex4_9475 : reassembles 38005 = true ∧ castsFifteens 38005 = true := by decide
+
+/-- 9476: nibbles fold back to 38006; digit sum 26 ≡ 38006 (mod 15). -/
+theorem enumeration_hex4_9476 : reassembles 38006 = true ∧ castsFifteens 38006 = true := by decide
+
+/-- 9477: nibbles fold back to 38007; digit sum 27 ≡ 38007 (mod 15). -/
+theorem enumeration_hex4_9477 : reassembles 38007 = true ∧ castsFifteens 38007 = true := by decide
+
+/-- 9478: nibbles fold back to 38008; digit sum 28 ≡ 38008 (mod 15). -/
+theorem enumeration_hex4_9478 : reassembles 38008 = true ∧ castsFifteens 38008 = true := by decide
+
+/-- 9479: nibbles fold back to 38009; digit sum 29 ≡ 38009 (mod 15). -/
+theorem enumeration_hex4_9479 : reassembles 38009 = true ∧ castsFifteens 38009 = true := by decide
+
+/-- 947a: nibbles fold back to 38010; digit sum 30 ≡ 38010 (mod 15). -/
+theorem enumeration_hex4_947a : reassembles 38010 = true ∧ castsFifteens 38010 = true := by decide
+
+/-- 947b: nibbles fold back to 38011; digit sum 31 ≡ 38011 (mod 15). -/
+theorem enumeration_hex4_947b : reassembles 38011 = true ∧ castsFifteens 38011 = true := by decide
+
+/-- 947c: nibbles fold back to 38012; digit sum 32 ≡ 38012 (mod 15). -/
+theorem enumeration_hex4_947c : reassembles 38012 = true ∧ castsFifteens 38012 = true := by decide
+
+/-- 947d: nibbles fold back to 38013; digit sum 33 ≡ 38013 (mod 15). -/
+theorem enumeration_hex4_947d : reassembles 38013 = true ∧ castsFifteens 38013 = true := by decide
+
+/-- 947e: nibbles fold back to 38014; digit sum 34 ≡ 38014 (mod 15). -/
+theorem enumeration_hex4_947e : reassembles 38014 = true ∧ castsFifteens 38014 = true := by decide
+
+/-- 947f: nibbles fold back to 38015; digit sum 35 ≡ 38015 (mod 15). -/
+theorem enumeration_hex4_947f : reassembles 38015 = true ∧ castsFifteens 38015 = true := by decide
+
+/-- 9480: nibbles fold back to 38016; digit sum 21 ≡ 38016 (mod 15). -/
+theorem enumeration_hex4_9480 : reassembles 38016 = true ∧ castsFifteens 38016 = true := by decide
+
+/-- 9481: nibbles fold back to 38017; digit sum 22 ≡ 38017 (mod 15). -/
+theorem enumeration_hex4_9481 : reassembles 38017 = true ∧ castsFifteens 38017 = true := by decide
+
+/-- 9482: nibbles fold back to 38018; digit sum 23 ≡ 38018 (mod 15). -/
+theorem enumeration_hex4_9482 : reassembles 38018 = true ∧ castsFifteens 38018 = true := by decide
+
+/-- 9483: nibbles fold back to 38019; digit sum 24 ≡ 38019 (mod 15). -/
+theorem enumeration_hex4_9483 : reassembles 38019 = true ∧ castsFifteens 38019 = true := by decide
+
+/-- 9484: nibbles fold back to 38020; digit sum 25 ≡ 38020 (mod 15). -/
+theorem enumeration_hex4_9484 : reassembles 38020 = true ∧ castsFifteens 38020 = true := by decide
+
+/-- 9485: nibbles fold back to 38021; digit sum 26 ≡ 38021 (mod 15). -/
+theorem enumeration_hex4_9485 : reassembles 38021 = true ∧ castsFifteens 38021 = true := by decide
+
+/-- 9486: nibbles fold back to 38022; digit sum 27 ≡ 38022 (mod 15). -/
+theorem enumeration_hex4_9486 : reassembles 38022 = true ∧ castsFifteens 38022 = true := by decide
+
+/-- 9487: nibbles fold back to 38023; digit sum 28 ≡ 38023 (mod 15). -/
+theorem enumeration_hex4_9487 : reassembles 38023 = true ∧ castsFifteens 38023 = true := by decide
+
+/-- 9488: nibbles fold back to 38024; digit sum 29 ≡ 38024 (mod 15). -/
+theorem enumeration_hex4_9488 : reassembles 38024 = true ∧ castsFifteens 38024 = true := by decide
+
+/-- 9489: nibbles fold back to 38025; digit sum 30 ≡ 38025 (mod 15). -/
+theorem enumeration_hex4_9489 : reassembles 38025 = true ∧ castsFifteens 38025 = true := by decide
+
+/-- 948a: nibbles fold back to 38026; digit sum 31 ≡ 38026 (mod 15). -/
+theorem enumeration_hex4_948a : reassembles 38026 = true ∧ castsFifteens 38026 = true := by decide
+
+/-- 948b: nibbles fold back to 38027; digit sum 32 ≡ 38027 (mod 15). -/
+theorem enumeration_hex4_948b : reassembles 38027 = true ∧ castsFifteens 38027 = true := by decide
+
+/-- 948c: nibbles fold back to 38028; digit sum 33 ≡ 38028 (mod 15). -/
+theorem enumeration_hex4_948c : reassembles 38028 = true ∧ castsFifteens 38028 = true := by decide
+
+/-- 948d: nibbles fold back to 38029; digit sum 34 ≡ 38029 (mod 15). -/
+theorem enumeration_hex4_948d : reassembles 38029 = true ∧ castsFifteens 38029 = true := by decide
+
+/-- 948e: nibbles fold back to 38030; digit sum 35 ≡ 38030 (mod 15). -/
+theorem enumeration_hex4_948e : reassembles 38030 = true ∧ castsFifteens 38030 = true := by decide
+
+/-- 948f: nibbles fold back to 38031; digit sum 36 ≡ 38031 (mod 15). -/
+theorem enumeration_hex4_948f : reassembles 38031 = true ∧ castsFifteens 38031 = true := by decide
+
+/-- 9490: nibbles fold back to 38032; digit sum 22 ≡ 38032 (mod 15). -/
+theorem enumeration_hex4_9490 : reassembles 38032 = true ∧ castsFifteens 38032 = true := by decide
+
+/-- 9491: nibbles fold back to 38033; digit sum 23 ≡ 38033 (mod 15). -/
+theorem enumeration_hex4_9491 : reassembles 38033 = true ∧ castsFifteens 38033 = true := by decide
+
+/-- 9492: nibbles fold back to 38034; digit sum 24 ≡ 38034 (mod 15). -/
+theorem enumeration_hex4_9492 : reassembles 38034 = true ∧ castsFifteens 38034 = true := by decide
+
+/-- 9493: nibbles fold back to 38035; digit sum 25 ≡ 38035 (mod 15). -/
+theorem enumeration_hex4_9493 : reassembles 38035 = true ∧ castsFifteens 38035 = true := by decide
+
+/-- 9494: nibbles fold back to 38036; digit sum 26 ≡ 38036 (mod 15). -/
+theorem enumeration_hex4_9494 : reassembles 38036 = true ∧ castsFifteens 38036 = true := by decide
+
+/-- 9495: nibbles fold back to 38037; digit sum 27 ≡ 38037 (mod 15). -/
+theorem enumeration_hex4_9495 : reassembles 38037 = true ∧ castsFifteens 38037 = true := by decide
+
+/-- 9496: nibbles fold back to 38038; digit sum 28 ≡ 38038 (mod 15). -/
+theorem enumeration_hex4_9496 : reassembles 38038 = true ∧ castsFifteens 38038 = true := by decide
+
+/-- 9497: nibbles fold back to 38039; digit sum 29 ≡ 38039 (mod 15). -/
+theorem enumeration_hex4_9497 : reassembles 38039 = true ∧ castsFifteens 38039 = true := by decide
+
+/-- 9498: nibbles fold back to 38040; digit sum 30 ≡ 38040 (mod 15). -/
+theorem enumeration_hex4_9498 : reassembles 38040 = true ∧ castsFifteens 38040 = true := by decide
+
+/-- 9499: nibbles fold back to 38041; digit sum 31 ≡ 38041 (mod 15). -/
+theorem enumeration_hex4_9499 : reassembles 38041 = true ∧ castsFifteens 38041 = true := by decide
+
+/-- 949a: nibbles fold back to 38042; digit sum 32 ≡ 38042 (mod 15). -/
+theorem enumeration_hex4_949a : reassembles 38042 = true ∧ castsFifteens 38042 = true := by decide
+
+/-- 949b: nibbles fold back to 38043; digit sum 33 ≡ 38043 (mod 15). -/
+theorem enumeration_hex4_949b : reassembles 38043 = true ∧ castsFifteens 38043 = true := by decide
+
+/-- 949c: nibbles fold back to 38044; digit sum 34 ≡ 38044 (mod 15). -/
+theorem enumeration_hex4_949c : reassembles 38044 = true ∧ castsFifteens 38044 = true := by decide
+
+/-- 949d: nibbles fold back to 38045; digit sum 35 ≡ 38045 (mod 15). -/
+theorem enumeration_hex4_949d : reassembles 38045 = true ∧ castsFifteens 38045 = true := by decide
+
+/-- 949e: nibbles fold back to 38046; digit sum 36 ≡ 38046 (mod 15). -/
+theorem enumeration_hex4_949e : reassembles 38046 = true ∧ castsFifteens 38046 = true := by decide
+
+/-- 949f: nibbles fold back to 38047; digit sum 37 ≡ 38047 (mod 15). -/
+theorem enumeration_hex4_949f : reassembles 38047 = true ∧ castsFifteens 38047 = true := by decide
+
+/-- 94a0: nibbles fold back to 38048; digit sum 23 ≡ 38048 (mod 15). -/
+theorem enumeration_hex4_94a0 : reassembles 38048 = true ∧ castsFifteens 38048 = true := by decide
+
+/-- 94a1: nibbles fold back to 38049; digit sum 24 ≡ 38049 (mod 15). -/
+theorem enumeration_hex4_94a1 : reassembles 38049 = true ∧ castsFifteens 38049 = true := by decide
+
+/-- 94a2: nibbles fold back to 38050; digit sum 25 ≡ 38050 (mod 15). -/
+theorem enumeration_hex4_94a2 : reassembles 38050 = true ∧ castsFifteens 38050 = true := by decide
+
+/-- 94a3: nibbles fold back to 38051; digit sum 26 ≡ 38051 (mod 15). -/
+theorem enumeration_hex4_94a3 : reassembles 38051 = true ∧ castsFifteens 38051 = true := by decide
+
+/-- 94a4: nibbles fold back to 38052; digit sum 27 ≡ 38052 (mod 15). -/
+theorem enumeration_hex4_94a4 : reassembles 38052 = true ∧ castsFifteens 38052 = true := by decide
+
+/-- 94a5: nibbles fold back to 38053; digit sum 28 ≡ 38053 (mod 15). -/
+theorem enumeration_hex4_94a5 : reassembles 38053 = true ∧ castsFifteens 38053 = true := by decide
+
+/-- 94a6: nibbles fold back to 38054; digit sum 29 ≡ 38054 (mod 15). -/
+theorem enumeration_hex4_94a6 : reassembles 38054 = true ∧ castsFifteens 38054 = true := by decide
+
+/-- 94a7: nibbles fold back to 38055; digit sum 30 ≡ 38055 (mod 15). -/
+theorem enumeration_hex4_94a7 : reassembles 38055 = true ∧ castsFifteens 38055 = true := by decide
+
+/-- 94a8: nibbles fold back to 38056; digit sum 31 ≡ 38056 (mod 15). -/
+theorem enumeration_hex4_94a8 : reassembles 38056 = true ∧ castsFifteens 38056 = true := by decide
+
+/-- 94a9: nibbles fold back to 38057; digit sum 32 ≡ 38057 (mod 15). -/
+theorem enumeration_hex4_94a9 : reassembles 38057 = true ∧ castsFifteens 38057 = true := by decide
+
+/-- 94aa: nibbles fold back to 38058; digit sum 33 ≡ 38058 (mod 15). -/
+theorem enumeration_hex4_94aa : reassembles 38058 = true ∧ castsFifteens 38058 = true := by decide
+
+/-- 94ab: nibbles fold back to 38059; digit sum 34 ≡ 38059 (mod 15). -/
+theorem enumeration_hex4_94ab : reassembles 38059 = true ∧ castsFifteens 38059 = true := by decide
+
+/-- 94ac: nibbles fold back to 38060; digit sum 35 ≡ 38060 (mod 15). -/
+theorem enumeration_hex4_94ac : reassembles 38060 = true ∧ castsFifteens 38060 = true := by decide
+
+/-- 94ad: nibbles fold back to 38061; digit sum 36 ≡ 38061 (mod 15). -/
+theorem enumeration_hex4_94ad : reassembles 38061 = true ∧ castsFifteens 38061 = true := by decide
+
+/-- 94ae: nibbles fold back to 38062; digit sum 37 ≡ 38062 (mod 15). -/
+theorem enumeration_hex4_94ae : reassembles 38062 = true ∧ castsFifteens 38062 = true := by decide
+
+/-- 94af: nibbles fold back to 38063; digit sum 38 ≡ 38063 (mod 15). -/
+theorem enumeration_hex4_94af : reassembles 38063 = true ∧ castsFifteens 38063 = true := by decide
+
+/-- 94b0: nibbles fold back to 38064; digit sum 24 ≡ 38064 (mod 15). -/
+theorem enumeration_hex4_94b0 : reassembles 38064 = true ∧ castsFifteens 38064 = true := by decide
+
+/-- 94b1: nibbles fold back to 38065; digit sum 25 ≡ 38065 (mod 15). -/
+theorem enumeration_hex4_94b1 : reassembles 38065 = true ∧ castsFifteens 38065 = true := by decide
+
+/-- 94b2: nibbles fold back to 38066; digit sum 26 ≡ 38066 (mod 15). -/
+theorem enumeration_hex4_94b2 : reassembles 38066 = true ∧ castsFifteens 38066 = true := by decide
+
+/-- 94b3: nibbles fold back to 38067; digit sum 27 ≡ 38067 (mod 15). -/
+theorem enumeration_hex4_94b3 : reassembles 38067 = true ∧ castsFifteens 38067 = true := by decide
+
+/-- 94b4: nibbles fold back to 38068; digit sum 28 ≡ 38068 (mod 15). -/
+theorem enumeration_hex4_94b4 : reassembles 38068 = true ∧ castsFifteens 38068 = true := by decide
+
+/-- 94b5: nibbles fold back to 38069; digit sum 29 ≡ 38069 (mod 15). -/
+theorem enumeration_hex4_94b5 : reassembles 38069 = true ∧ castsFifteens 38069 = true := by decide
+
+/-- 94b6: nibbles fold back to 38070; digit sum 30 ≡ 38070 (mod 15). -/
+theorem enumeration_hex4_94b6 : reassembles 38070 = true ∧ castsFifteens 38070 = true := by decide
+
+/-- 94b7: nibbles fold back to 38071; digit sum 31 ≡ 38071 (mod 15). -/
+theorem enumeration_hex4_94b7 : reassembles 38071 = true ∧ castsFifteens 38071 = true := by decide
+
+/-- 94b8: nibbles fold back to 38072; digit sum 32 ≡ 38072 (mod 15). -/
+theorem enumeration_hex4_94b8 : reassembles 38072 = true ∧ castsFifteens 38072 = true := by decide
+
+/-- 94b9: nibbles fold back to 38073; digit sum 33 ≡ 38073 (mod 15). -/
+theorem enumeration_hex4_94b9 : reassembles 38073 = true ∧ castsFifteens 38073 = true := by decide
+
+/-- 94ba: nibbles fold back to 38074; digit sum 34 ≡ 38074 (mod 15). -/
+theorem enumeration_hex4_94ba : reassembles 38074 = true ∧ castsFifteens 38074 = true := by decide
+
+/-- 94bb: nibbles fold back to 38075; digit sum 35 ≡ 38075 (mod 15). -/
+theorem enumeration_hex4_94bb : reassembles 38075 = true ∧ castsFifteens 38075 = true := by decide
+
+/-- 94bc: nibbles fold back to 38076; digit sum 36 ≡ 38076 (mod 15). -/
+theorem enumeration_hex4_94bc : reassembles 38076 = true ∧ castsFifteens 38076 = true := by decide
+
+/-- 94bd: nibbles fold back to 38077; digit sum 37 ≡ 38077 (mod 15). -/
+theorem enumeration_hex4_94bd : reassembles 38077 = true ∧ castsFifteens 38077 = true := by decide
+
+/-- 94be: nibbles fold back to 38078; digit sum 38 ≡ 38078 (mod 15). -/
+theorem enumeration_hex4_94be : reassembles 38078 = true ∧ castsFifteens 38078 = true := by decide
+
+/-- 94bf: nibbles fold back to 38079; digit sum 39 ≡ 38079 (mod 15). -/
+theorem enumeration_hex4_94bf : reassembles 38079 = true ∧ castsFifteens 38079 = true := by decide
+
+/-- 94c0: nibbles fold back to 38080; digit sum 25 ≡ 38080 (mod 15). -/
+theorem enumeration_hex4_94c0 : reassembles 38080 = true ∧ castsFifteens 38080 = true := by decide
+
+/-- 94c1: nibbles fold back to 38081; digit sum 26 ≡ 38081 (mod 15). -/
+theorem enumeration_hex4_94c1 : reassembles 38081 = true ∧ castsFifteens 38081 = true := by decide
+
+/-- 94c2: nibbles fold back to 38082; digit sum 27 ≡ 38082 (mod 15). -/
+theorem enumeration_hex4_94c2 : reassembles 38082 = true ∧ castsFifteens 38082 = true := by decide
+
+/-- 94c3: nibbles fold back to 38083; digit sum 28 ≡ 38083 (mod 15). -/
+theorem enumeration_hex4_94c3 : reassembles 38083 = true ∧ castsFifteens 38083 = true := by decide
+
+/-- 94c4: nibbles fold back to 38084; digit sum 29 ≡ 38084 (mod 15). -/
+theorem enumeration_hex4_94c4 : reassembles 38084 = true ∧ castsFifteens 38084 = true := by decide
+
+/-- 94c5: nibbles fold back to 38085; digit sum 30 ≡ 38085 (mod 15). -/
+theorem enumeration_hex4_94c5 : reassembles 38085 = true ∧ castsFifteens 38085 = true := by decide
+
+/-- 94c6: nibbles fold back to 38086; digit sum 31 ≡ 38086 (mod 15). -/
+theorem enumeration_hex4_94c6 : reassembles 38086 = true ∧ castsFifteens 38086 = true := by decide
+
+/-- 94c7: nibbles fold back to 38087; digit sum 32 ≡ 38087 (mod 15). -/
+theorem enumeration_hex4_94c7 : reassembles 38087 = true ∧ castsFifteens 38087 = true := by decide
+
+/-- 94c8: nibbles fold back to 38088; digit sum 33 ≡ 38088 (mod 15). -/
+theorem enumeration_hex4_94c8 : reassembles 38088 = true ∧ castsFifteens 38088 = true := by decide
+
+/-- 94c9: nibbles fold back to 38089; digit sum 34 ≡ 38089 (mod 15). -/
+theorem enumeration_hex4_94c9 : reassembles 38089 = true ∧ castsFifteens 38089 = true := by decide
+
+/-- 94ca: nibbles fold back to 38090; digit sum 35 ≡ 38090 (mod 15). -/
+theorem enumeration_hex4_94ca : reassembles 38090 = true ∧ castsFifteens 38090 = true := by decide
+
+/-- 94cb: nibbles fold back to 38091; digit sum 36 ≡ 38091 (mod 15). -/
+theorem enumeration_hex4_94cb : reassembles 38091 = true ∧ castsFifteens 38091 = true := by decide
+
+/-- 94cc: nibbles fold back to 38092; digit sum 37 ≡ 38092 (mod 15). -/
+theorem enumeration_hex4_94cc : reassembles 38092 = true ∧ castsFifteens 38092 = true := by decide
+
+/-- 94cd: nibbles fold back to 38093; digit sum 38 ≡ 38093 (mod 15). -/
+theorem enumeration_hex4_94cd : reassembles 38093 = true ∧ castsFifteens 38093 = true := by decide
+
+/-- 94ce: nibbles fold back to 38094; digit sum 39 ≡ 38094 (mod 15). -/
+theorem enumeration_hex4_94ce : reassembles 38094 = true ∧ castsFifteens 38094 = true := by decide
+
+/-- 94cf: nibbles fold back to 38095; digit sum 40 ≡ 38095 (mod 15). -/
+theorem enumeration_hex4_94cf : reassembles 38095 = true ∧ castsFifteens 38095 = true := by decide
+
+/-- 94d0: nibbles fold back to 38096; digit sum 26 ≡ 38096 (mod 15). -/
+theorem enumeration_hex4_94d0 : reassembles 38096 = true ∧ castsFifteens 38096 = true := by decide
+
+/-- 94d1: nibbles fold back to 38097; digit sum 27 ≡ 38097 (mod 15). -/
+theorem enumeration_hex4_94d1 : reassembles 38097 = true ∧ castsFifteens 38097 = true := by decide
+
+/-- 94d2: nibbles fold back to 38098; digit sum 28 ≡ 38098 (mod 15). -/
+theorem enumeration_hex4_94d2 : reassembles 38098 = true ∧ castsFifteens 38098 = true := by decide
+
+/-- 94d3: nibbles fold back to 38099; digit sum 29 ≡ 38099 (mod 15). -/
+theorem enumeration_hex4_94d3 : reassembles 38099 = true ∧ castsFifteens 38099 = true := by decide
+
+/-- 94d4: nibbles fold back to 38100; digit sum 30 ≡ 38100 (mod 15). -/
+theorem enumeration_hex4_94d4 : reassembles 38100 = true ∧ castsFifteens 38100 = true := by decide
+
+/-- 94d5: nibbles fold back to 38101; digit sum 31 ≡ 38101 (mod 15). -/
+theorem enumeration_hex4_94d5 : reassembles 38101 = true ∧ castsFifteens 38101 = true := by decide
+
+/-- 94d6: nibbles fold back to 38102; digit sum 32 ≡ 38102 (mod 15). -/
+theorem enumeration_hex4_94d6 : reassembles 38102 = true ∧ castsFifteens 38102 = true := by decide
+
+/-- 94d7: nibbles fold back to 38103; digit sum 33 ≡ 38103 (mod 15). -/
+theorem enumeration_hex4_94d7 : reassembles 38103 = true ∧ castsFifteens 38103 = true := by decide
+
+/-- 94d8: nibbles fold back to 38104; digit sum 34 ≡ 38104 (mod 15). -/
+theorem enumeration_hex4_94d8 : reassembles 38104 = true ∧ castsFifteens 38104 = true := by decide
+
+/-- 94d9: nibbles fold back to 38105; digit sum 35 ≡ 38105 (mod 15). -/
+theorem enumeration_hex4_94d9 : reassembles 38105 = true ∧ castsFifteens 38105 = true := by decide
+
+/-- 94da: nibbles fold back to 38106; digit sum 36 ≡ 38106 (mod 15). -/
+theorem enumeration_hex4_94da : reassembles 38106 = true ∧ castsFifteens 38106 = true := by decide
+
+/-- 94db: nibbles fold back to 38107; digit sum 37 ≡ 38107 (mod 15). -/
+theorem enumeration_hex4_94db : reassembles 38107 = true ∧ castsFifteens 38107 = true := by decide
+
+/-- 94dc: nibbles fold back to 38108; digit sum 38 ≡ 38108 (mod 15). -/
+theorem enumeration_hex4_94dc : reassembles 38108 = true ∧ castsFifteens 38108 = true := by decide
+
+/-- 94dd: nibbles fold back to 38109; digit sum 39 ≡ 38109 (mod 15). -/
+theorem enumeration_hex4_94dd : reassembles 38109 = true ∧ castsFifteens 38109 = true := by decide
+
+/-- 94de: nibbles fold back to 38110; digit sum 40 ≡ 38110 (mod 15). -/
+theorem enumeration_hex4_94de : reassembles 38110 = true ∧ castsFifteens 38110 = true := by decide
+
+/-- 94df: nibbles fold back to 38111; digit sum 41 ≡ 38111 (mod 15). -/
+theorem enumeration_hex4_94df : reassembles 38111 = true ∧ castsFifteens 38111 = true := by decide
+
+/-- 94e0: nibbles fold back to 38112; digit sum 27 ≡ 38112 (mod 15). -/
+theorem enumeration_hex4_94e0 : reassembles 38112 = true ∧ castsFifteens 38112 = true := by decide
+
+/-- 94e1: nibbles fold back to 38113; digit sum 28 ≡ 38113 (mod 15). -/
+theorem enumeration_hex4_94e1 : reassembles 38113 = true ∧ castsFifteens 38113 = true := by decide
+
+/-- 94e2: nibbles fold back to 38114; digit sum 29 ≡ 38114 (mod 15). -/
+theorem enumeration_hex4_94e2 : reassembles 38114 = true ∧ castsFifteens 38114 = true := by decide
+
+/-- 94e3: nibbles fold back to 38115; digit sum 30 ≡ 38115 (mod 15). -/
+theorem enumeration_hex4_94e3 : reassembles 38115 = true ∧ castsFifteens 38115 = true := by decide
+
+/-- 94e4: nibbles fold back to 38116; digit sum 31 ≡ 38116 (mod 15). -/
+theorem enumeration_hex4_94e4 : reassembles 38116 = true ∧ castsFifteens 38116 = true := by decide
+
+/-- 94e5: nibbles fold back to 38117; digit sum 32 ≡ 38117 (mod 15). -/
+theorem enumeration_hex4_94e5 : reassembles 38117 = true ∧ castsFifteens 38117 = true := by decide
+
+/-- 94e6: nibbles fold back to 38118; digit sum 33 ≡ 38118 (mod 15). -/
+theorem enumeration_hex4_94e6 : reassembles 38118 = true ∧ castsFifteens 38118 = true := by decide
+
+/-- 94e7: nibbles fold back to 38119; digit sum 34 ≡ 38119 (mod 15). -/
+theorem enumeration_hex4_94e7 : reassembles 38119 = true ∧ castsFifteens 38119 = true := by decide
+
+/-- 94e8: nibbles fold back to 38120; digit sum 35 ≡ 38120 (mod 15). -/
+theorem enumeration_hex4_94e8 : reassembles 38120 = true ∧ castsFifteens 38120 = true := by decide
+
+/-- 94e9: nibbles fold back to 38121; digit sum 36 ≡ 38121 (mod 15). -/
+theorem enumeration_hex4_94e9 : reassembles 38121 = true ∧ castsFifteens 38121 = true := by decide
+
+/-- 94ea: nibbles fold back to 38122; digit sum 37 ≡ 38122 (mod 15). -/
+theorem enumeration_hex4_94ea : reassembles 38122 = true ∧ castsFifteens 38122 = true := by decide
+
+/-- 94eb: nibbles fold back to 38123; digit sum 38 ≡ 38123 (mod 15). -/
+theorem enumeration_hex4_94eb : reassembles 38123 = true ∧ castsFifteens 38123 = true := by decide
+
+/-- 94ec: nibbles fold back to 38124; digit sum 39 ≡ 38124 (mod 15). -/
+theorem enumeration_hex4_94ec : reassembles 38124 = true ∧ castsFifteens 38124 = true := by decide
+
+/-- 94ed: nibbles fold back to 38125; digit sum 40 ≡ 38125 (mod 15). -/
+theorem enumeration_hex4_94ed : reassembles 38125 = true ∧ castsFifteens 38125 = true := by decide
+
+/-- 94ee: nibbles fold back to 38126; digit sum 41 ≡ 38126 (mod 15). -/
+theorem enumeration_hex4_94ee : reassembles 38126 = true ∧ castsFifteens 38126 = true := by decide
+
+/-- 94ef: nibbles fold back to 38127; digit sum 42 ≡ 38127 (mod 15). -/
+theorem enumeration_hex4_94ef : reassembles 38127 = true ∧ castsFifteens 38127 = true := by decide
+
+/-- 94f0: nibbles fold back to 38128; digit sum 28 ≡ 38128 (mod 15). -/
+theorem enumeration_hex4_94f0 : reassembles 38128 = true ∧ castsFifteens 38128 = true := by decide
+
+/-- 94f1: nibbles fold back to 38129; digit sum 29 ≡ 38129 (mod 15). -/
+theorem enumeration_hex4_94f1 : reassembles 38129 = true ∧ castsFifteens 38129 = true := by decide
+
+/-- 94f2: nibbles fold back to 38130; digit sum 30 ≡ 38130 (mod 15). -/
+theorem enumeration_hex4_94f2 : reassembles 38130 = true ∧ castsFifteens 38130 = true := by decide
+
+/-- 94f3: nibbles fold back to 38131; digit sum 31 ≡ 38131 (mod 15). -/
+theorem enumeration_hex4_94f3 : reassembles 38131 = true ∧ castsFifteens 38131 = true := by decide
+
+/-- 94f4: nibbles fold back to 38132; digit sum 32 ≡ 38132 (mod 15). -/
+theorem enumeration_hex4_94f4 : reassembles 38132 = true ∧ castsFifteens 38132 = true := by decide
+
+/-- 94f5: nibbles fold back to 38133; digit sum 33 ≡ 38133 (mod 15). -/
+theorem enumeration_hex4_94f5 : reassembles 38133 = true ∧ castsFifteens 38133 = true := by decide
+
+/-- 94f6: nibbles fold back to 38134; digit sum 34 ≡ 38134 (mod 15). -/
+theorem enumeration_hex4_94f6 : reassembles 38134 = true ∧ castsFifteens 38134 = true := by decide
+
+/-- 94f7: nibbles fold back to 38135; digit sum 35 ≡ 38135 (mod 15). -/
+theorem enumeration_hex4_94f7 : reassembles 38135 = true ∧ castsFifteens 38135 = true := by decide
+
+/-- 94f8: nibbles fold back to 38136; digit sum 36 ≡ 38136 (mod 15). -/
+theorem enumeration_hex4_94f8 : reassembles 38136 = true ∧ castsFifteens 38136 = true := by decide
+
+/-- 94f9: nibbles fold back to 38137; digit sum 37 ≡ 38137 (mod 15). -/
+theorem enumeration_hex4_94f9 : reassembles 38137 = true ∧ castsFifteens 38137 = true := by decide
+
+/-- 94fa: nibbles fold back to 38138; digit sum 38 ≡ 38138 (mod 15). -/
+theorem enumeration_hex4_94fa : reassembles 38138 = true ∧ castsFifteens 38138 = true := by decide
+
+/-- 94fb: nibbles fold back to 38139; digit sum 39 ≡ 38139 (mod 15). -/
+theorem enumeration_hex4_94fb : reassembles 38139 = true ∧ castsFifteens 38139 = true := by decide
+
+/-- 94fc: nibbles fold back to 38140; digit sum 40 ≡ 38140 (mod 15). -/
+theorem enumeration_hex4_94fc : reassembles 38140 = true ∧ castsFifteens 38140 = true := by decide
+
+/-- 94fd: nibbles fold back to 38141; digit sum 41 ≡ 38141 (mod 15). -/
+theorem enumeration_hex4_94fd : reassembles 38141 = true ∧ castsFifteens 38141 = true := by decide
+
+/-- 94fe: nibbles fold back to 38142; digit sum 42 ≡ 38142 (mod 15). -/
+theorem enumeration_hex4_94fe : reassembles 38142 = true ∧ castsFifteens 38142 = true := by decide
+
+/-- 94ff: nibbles fold back to 38143; digit sum 43 ≡ 38143 (mod 15). -/
+theorem enumeration_hex4_94ff : reassembles 38143 = true ∧ castsFifteens 38143 = true := by decide
+
+/-- 9500: nibbles fold back to 38144; digit sum 14 ≡ 38144 (mod 15). -/
+theorem enumeration_hex4_9500 : reassembles 38144 = true ∧ castsFifteens 38144 = true := by decide
+
+/-- 9501: nibbles fold back to 38145; digit sum 15 ≡ 38145 (mod 15). -/
+theorem enumeration_hex4_9501 : reassembles 38145 = true ∧ castsFifteens 38145 = true := by decide
+
+/-- 9502: nibbles fold back to 38146; digit sum 16 ≡ 38146 (mod 15). -/
+theorem enumeration_hex4_9502 : reassembles 38146 = true ∧ castsFifteens 38146 = true := by decide
+
+/-- 9503: nibbles fold back to 38147; digit sum 17 ≡ 38147 (mod 15). -/
+theorem enumeration_hex4_9503 : reassembles 38147 = true ∧ castsFifteens 38147 = true := by decide
+
+/-- 9504: nibbles fold back to 38148; digit sum 18 ≡ 38148 (mod 15). -/
+theorem enumeration_hex4_9504 : reassembles 38148 = true ∧ castsFifteens 38148 = true := by decide
+
+/-- 9505: nibbles fold back to 38149; digit sum 19 ≡ 38149 (mod 15). -/
+theorem enumeration_hex4_9505 : reassembles 38149 = true ∧ castsFifteens 38149 = true := by decide
+
+/-- 9506: nibbles fold back to 38150; digit sum 20 ≡ 38150 (mod 15). -/
+theorem enumeration_hex4_9506 : reassembles 38150 = true ∧ castsFifteens 38150 = true := by decide
+
+/-- 9507: nibbles fold back to 38151; digit sum 21 ≡ 38151 (mod 15). -/
+theorem enumeration_hex4_9507 : reassembles 38151 = true ∧ castsFifteens 38151 = true := by decide
+
+/-- 9508: nibbles fold back to 38152; digit sum 22 ≡ 38152 (mod 15). -/
+theorem enumeration_hex4_9508 : reassembles 38152 = true ∧ castsFifteens 38152 = true := by decide
+
+/-- 9509: nibbles fold back to 38153; digit sum 23 ≡ 38153 (mod 15). -/
+theorem enumeration_hex4_9509 : reassembles 38153 = true ∧ castsFifteens 38153 = true := by decide
+
+/-- 950a: nibbles fold back to 38154; digit sum 24 ≡ 38154 (mod 15). -/
+theorem enumeration_hex4_950a : reassembles 38154 = true ∧ castsFifteens 38154 = true := by decide
+
+/-- 950b: nibbles fold back to 38155; digit sum 25 ≡ 38155 (mod 15). -/
+theorem enumeration_hex4_950b : reassembles 38155 = true ∧ castsFifteens 38155 = true := by decide
+
+/-- 950c: nibbles fold back to 38156; digit sum 26 ≡ 38156 (mod 15). -/
+theorem enumeration_hex4_950c : reassembles 38156 = true ∧ castsFifteens 38156 = true := by decide
+
+/-- 950d: nibbles fold back to 38157; digit sum 27 ≡ 38157 (mod 15). -/
+theorem enumeration_hex4_950d : reassembles 38157 = true ∧ castsFifteens 38157 = true := by decide
+
+/-- 950e: nibbles fold back to 38158; digit sum 28 ≡ 38158 (mod 15). -/
+theorem enumeration_hex4_950e : reassembles 38158 = true ∧ castsFifteens 38158 = true := by decide
+
+/-- 950f: nibbles fold back to 38159; digit sum 29 ≡ 38159 (mod 15). -/
+theorem enumeration_hex4_950f : reassembles 38159 = true ∧ castsFifteens 38159 = true := by decide
+
+/-- 9510: nibbles fold back to 38160; digit sum 15 ≡ 38160 (mod 15). -/
+theorem enumeration_hex4_9510 : reassembles 38160 = true ∧ castsFifteens 38160 = true := by decide
+
+/-- 9511: nibbles fold back to 38161; digit sum 16 ≡ 38161 (mod 15). -/
+theorem enumeration_hex4_9511 : reassembles 38161 = true ∧ castsFifteens 38161 = true := by decide
+
+/-- 9512: nibbles fold back to 38162; digit sum 17 ≡ 38162 (mod 15). -/
+theorem enumeration_hex4_9512 : reassembles 38162 = true ∧ castsFifteens 38162 = true := by decide
+
+/-- 9513: nibbles fold back to 38163; digit sum 18 ≡ 38163 (mod 15). -/
+theorem enumeration_hex4_9513 : reassembles 38163 = true ∧ castsFifteens 38163 = true := by decide
+
+/-- 9514: nibbles fold back to 38164; digit sum 19 ≡ 38164 (mod 15). -/
+theorem enumeration_hex4_9514 : reassembles 38164 = true ∧ castsFifteens 38164 = true := by decide
+
+/-- 9515: nibbles fold back to 38165; digit sum 20 ≡ 38165 (mod 15). -/
+theorem enumeration_hex4_9515 : reassembles 38165 = true ∧ castsFifteens 38165 = true := by decide
+
+/-- 9516: nibbles fold back to 38166; digit sum 21 ≡ 38166 (mod 15). -/
+theorem enumeration_hex4_9516 : reassembles 38166 = true ∧ castsFifteens 38166 = true := by decide
+
+/-- 9517: nibbles fold back to 38167; digit sum 22 ≡ 38167 (mod 15). -/
+theorem enumeration_hex4_9517 : reassembles 38167 = true ∧ castsFifteens 38167 = true := by decide
+
+/-- 9518: nibbles fold back to 38168; digit sum 23 ≡ 38168 (mod 15). -/
+theorem enumeration_hex4_9518 : reassembles 38168 = true ∧ castsFifteens 38168 = true := by decide
+
+/-- 9519: nibbles fold back to 38169; digit sum 24 ≡ 38169 (mod 15). -/
+theorem enumeration_hex4_9519 : reassembles 38169 = true ∧ castsFifteens 38169 = true := by decide
+
+/-- 951a: nibbles fold back to 38170; digit sum 25 ≡ 38170 (mod 15). -/
+theorem enumeration_hex4_951a : reassembles 38170 = true ∧ castsFifteens 38170 = true := by decide
+
+/-- 951b: nibbles fold back to 38171; digit sum 26 ≡ 38171 (mod 15). -/
+theorem enumeration_hex4_951b : reassembles 38171 = true ∧ castsFifteens 38171 = true := by decide
+
+/-- 951c: nibbles fold back to 38172; digit sum 27 ≡ 38172 (mod 15). -/
+theorem enumeration_hex4_951c : reassembles 38172 = true ∧ castsFifteens 38172 = true := by decide
+
+/-- 951d: nibbles fold back to 38173; digit sum 28 ≡ 38173 (mod 15). -/
+theorem enumeration_hex4_951d : reassembles 38173 = true ∧ castsFifteens 38173 = true := by decide
+
+/-- 951e: nibbles fold back to 38174; digit sum 29 ≡ 38174 (mod 15). -/
+theorem enumeration_hex4_951e : reassembles 38174 = true ∧ castsFifteens 38174 = true := by decide
+
+/-- 951f: nibbles fold back to 38175; digit sum 30 ≡ 38175 (mod 15). -/
+theorem enumeration_hex4_951f : reassembles 38175 = true ∧ castsFifteens 38175 = true := by decide
+
+/-- 9520: nibbles fold back to 38176; digit sum 16 ≡ 38176 (mod 15). -/
+theorem enumeration_hex4_9520 : reassembles 38176 = true ∧ castsFifteens 38176 = true := by decide
+
+/-- 9521: nibbles fold back to 38177; digit sum 17 ≡ 38177 (mod 15). -/
+theorem enumeration_hex4_9521 : reassembles 38177 = true ∧ castsFifteens 38177 = true := by decide
+
+/-- 9522: nibbles fold back to 38178; digit sum 18 ≡ 38178 (mod 15). -/
+theorem enumeration_hex4_9522 : reassembles 38178 = true ∧ castsFifteens 38178 = true := by decide
+
+/-- 9523: nibbles fold back to 38179; digit sum 19 ≡ 38179 (mod 15). -/
+theorem enumeration_hex4_9523 : reassembles 38179 = true ∧ castsFifteens 38179 = true := by decide
+
+/-- 9524: nibbles fold back to 38180; digit sum 20 ≡ 38180 (mod 15). -/
+theorem enumeration_hex4_9524 : reassembles 38180 = true ∧ castsFifteens 38180 = true := by decide
+
+/-- 9525: nibbles fold back to 38181; digit sum 21 ≡ 38181 (mod 15). -/
+theorem enumeration_hex4_9525 : reassembles 38181 = true ∧ castsFifteens 38181 = true := by decide
+
+/-- 9526: nibbles fold back to 38182; digit sum 22 ≡ 38182 (mod 15). -/
+theorem enumeration_hex4_9526 : reassembles 38182 = true ∧ castsFifteens 38182 = true := by decide
+
+/-- 9527: nibbles fold back to 38183; digit sum 23 ≡ 38183 (mod 15). -/
+theorem enumeration_hex4_9527 : reassembles 38183 = true ∧ castsFifteens 38183 = true := by decide
+
+/-- 9528: nibbles fold back to 38184; digit sum 24 ≡ 38184 (mod 15). -/
+theorem enumeration_hex4_9528 : reassembles 38184 = true ∧ castsFifteens 38184 = true := by decide
+
+/-- 9529: nibbles fold back to 38185; digit sum 25 ≡ 38185 (mod 15). -/
+theorem enumeration_hex4_9529 : reassembles 38185 = true ∧ castsFifteens 38185 = true := by decide
+
+/-- 952a: nibbles fold back to 38186; digit sum 26 ≡ 38186 (mod 15). -/
+theorem enumeration_hex4_952a : reassembles 38186 = true ∧ castsFifteens 38186 = true := by decide
+
+/-- 952b: nibbles fold back to 38187; digit sum 27 ≡ 38187 (mod 15). -/
+theorem enumeration_hex4_952b : reassembles 38187 = true ∧ castsFifteens 38187 = true := by decide
+
+/-- 952c: nibbles fold back to 38188; digit sum 28 ≡ 38188 (mod 15). -/
+theorem enumeration_hex4_952c : reassembles 38188 = true ∧ castsFifteens 38188 = true := by decide
+
+/-- 952d: nibbles fold back to 38189; digit sum 29 ≡ 38189 (mod 15). -/
+theorem enumeration_hex4_952d : reassembles 38189 = true ∧ castsFifteens 38189 = true := by decide
+
+/-- 952e: nibbles fold back to 38190; digit sum 30 ≡ 38190 (mod 15). -/
+theorem enumeration_hex4_952e : reassembles 38190 = true ∧ castsFifteens 38190 = true := by decide
+
+/-- 952f: nibbles fold back to 38191; digit sum 31 ≡ 38191 (mod 15). -/
+theorem enumeration_hex4_952f : reassembles 38191 = true ∧ castsFifteens 38191 = true := by decide
+
+/-- 9530: nibbles fold back to 38192; digit sum 17 ≡ 38192 (mod 15). -/
+theorem enumeration_hex4_9530 : reassembles 38192 = true ∧ castsFifteens 38192 = true := by decide
+
+/-- 9531: nibbles fold back to 38193; digit sum 18 ≡ 38193 (mod 15). -/
+theorem enumeration_hex4_9531 : reassembles 38193 = true ∧ castsFifteens 38193 = true := by decide
+
+/-- 9532: nibbles fold back to 38194; digit sum 19 ≡ 38194 (mod 15). -/
+theorem enumeration_hex4_9532 : reassembles 38194 = true ∧ castsFifteens 38194 = true := by decide
+
+/-- 9533: nibbles fold back to 38195; digit sum 20 ≡ 38195 (mod 15). -/
+theorem enumeration_hex4_9533 : reassembles 38195 = true ∧ castsFifteens 38195 = true := by decide
+
+/-- 9534: nibbles fold back to 38196; digit sum 21 ≡ 38196 (mod 15). -/
+theorem enumeration_hex4_9534 : reassembles 38196 = true ∧ castsFifteens 38196 = true := by decide
+
+/-- 9535: nibbles fold back to 38197; digit sum 22 ≡ 38197 (mod 15). -/
+theorem enumeration_hex4_9535 : reassembles 38197 = true ∧ castsFifteens 38197 = true := by decide
+
+/-- 9536: nibbles fold back to 38198; digit sum 23 ≡ 38198 (mod 15). -/
+theorem enumeration_hex4_9536 : reassembles 38198 = true ∧ castsFifteens 38198 = true := by decide
+
+/-- 9537: nibbles fold back to 38199; digit sum 24 ≡ 38199 (mod 15). -/
+theorem enumeration_hex4_9537 : reassembles 38199 = true ∧ castsFifteens 38199 = true := by decide
+
+/-- 9538: nibbles fold back to 38200; digit sum 25 ≡ 38200 (mod 15). -/
+theorem enumeration_hex4_9538 : reassembles 38200 = true ∧ castsFifteens 38200 = true := by decide
+
+/-- 9539: nibbles fold back to 38201; digit sum 26 ≡ 38201 (mod 15). -/
+theorem enumeration_hex4_9539 : reassembles 38201 = true ∧ castsFifteens 38201 = true := by decide
+
+/-- 953a: nibbles fold back to 38202; digit sum 27 ≡ 38202 (mod 15). -/
+theorem enumeration_hex4_953a : reassembles 38202 = true ∧ castsFifteens 38202 = true := by decide
+
+/-- 953b: nibbles fold back to 38203; digit sum 28 ≡ 38203 (mod 15). -/
+theorem enumeration_hex4_953b : reassembles 38203 = true ∧ castsFifteens 38203 = true := by decide
+
+/-- 953c: nibbles fold back to 38204; digit sum 29 ≡ 38204 (mod 15). -/
+theorem enumeration_hex4_953c : reassembles 38204 = true ∧ castsFifteens 38204 = true := by decide
+
+/-- 953d: nibbles fold back to 38205; digit sum 30 ≡ 38205 (mod 15). -/
+theorem enumeration_hex4_953d : reassembles 38205 = true ∧ castsFifteens 38205 = true := by decide
+
+/-- 953e: nibbles fold back to 38206; digit sum 31 ≡ 38206 (mod 15). -/
+theorem enumeration_hex4_953e : reassembles 38206 = true ∧ castsFifteens 38206 = true := by decide
+
+/-- 953f: nibbles fold back to 38207; digit sum 32 ≡ 38207 (mod 15). -/
+theorem enumeration_hex4_953f : reassembles 38207 = true ∧ castsFifteens 38207 = true := by decide
+
+/-- 9540: nibbles fold back to 38208; digit sum 18 ≡ 38208 (mod 15). -/
+theorem enumeration_hex4_9540 : reassembles 38208 = true ∧ castsFifteens 38208 = true := by decide
+
+/-- 9541: nibbles fold back to 38209; digit sum 19 ≡ 38209 (mod 15). -/
+theorem enumeration_hex4_9541 : reassembles 38209 = true ∧ castsFifteens 38209 = true := by decide
+
+/-- 9542: nibbles fold back to 38210; digit sum 20 ≡ 38210 (mod 15). -/
+theorem enumeration_hex4_9542 : reassembles 38210 = true ∧ castsFifteens 38210 = true := by decide
+
+/-- 9543: nibbles fold back to 38211; digit sum 21 ≡ 38211 (mod 15). -/
+theorem enumeration_hex4_9543 : reassembles 38211 = true ∧ castsFifteens 38211 = true := by decide
+
+/-- 9544: nibbles fold back to 38212; digit sum 22 ≡ 38212 (mod 15). -/
+theorem enumeration_hex4_9544 : reassembles 38212 = true ∧ castsFifteens 38212 = true := by decide
+
+/-- 9545: nibbles fold back to 38213; digit sum 23 ≡ 38213 (mod 15). -/
+theorem enumeration_hex4_9545 : reassembles 38213 = true ∧ castsFifteens 38213 = true := by decide
+
+/-- 9546: nibbles fold back to 38214; digit sum 24 ≡ 38214 (mod 15). -/
+theorem enumeration_hex4_9546 : reassembles 38214 = true ∧ castsFifteens 38214 = true := by decide
+
+/-- 9547: nibbles fold back to 38215; digit sum 25 ≡ 38215 (mod 15). -/
+theorem enumeration_hex4_9547 : reassembles 38215 = true ∧ castsFifteens 38215 = true := by decide
+
+/-- 9548: nibbles fold back to 38216; digit sum 26 ≡ 38216 (mod 15). -/
+theorem enumeration_hex4_9548 : reassembles 38216 = true ∧ castsFifteens 38216 = true := by decide
+
+/-- 9549: nibbles fold back to 38217; digit sum 27 ≡ 38217 (mod 15). -/
+theorem enumeration_hex4_9549 : reassembles 38217 = true ∧ castsFifteens 38217 = true := by decide
+
+/-- 954a: nibbles fold back to 38218; digit sum 28 ≡ 38218 (mod 15). -/
+theorem enumeration_hex4_954a : reassembles 38218 = true ∧ castsFifteens 38218 = true := by decide
+
+/-- 954b: nibbles fold back to 38219; digit sum 29 ≡ 38219 (mod 15). -/
+theorem enumeration_hex4_954b : reassembles 38219 = true ∧ castsFifteens 38219 = true := by decide
+
+/-- 954c: nibbles fold back to 38220; digit sum 30 ≡ 38220 (mod 15). -/
+theorem enumeration_hex4_954c : reassembles 38220 = true ∧ castsFifteens 38220 = true := by decide
+
+/-- 954d: nibbles fold back to 38221; digit sum 31 ≡ 38221 (mod 15). -/
+theorem enumeration_hex4_954d : reassembles 38221 = true ∧ castsFifteens 38221 = true := by decide
+
+/-- 954e: nibbles fold back to 38222; digit sum 32 ≡ 38222 (mod 15). -/
+theorem enumeration_hex4_954e : reassembles 38222 = true ∧ castsFifteens 38222 = true := by decide
+
+/-- 954f: nibbles fold back to 38223; digit sum 33 ≡ 38223 (mod 15). -/
+theorem enumeration_hex4_954f : reassembles 38223 = true ∧ castsFifteens 38223 = true := by decide
+
+/-- 9550: nibbles fold back to 38224; digit sum 19 ≡ 38224 (mod 15). -/
+theorem enumeration_hex4_9550 : reassembles 38224 = true ∧ castsFifteens 38224 = true := by decide
+
+/-- 9551: nibbles fold back to 38225; digit sum 20 ≡ 38225 (mod 15). -/
+theorem enumeration_hex4_9551 : reassembles 38225 = true ∧ castsFifteens 38225 = true := by decide
+
+/-- 9552: nibbles fold back to 38226; digit sum 21 ≡ 38226 (mod 15). -/
+theorem enumeration_hex4_9552 : reassembles 38226 = true ∧ castsFifteens 38226 = true := by decide
+
+/-- 9553: nibbles fold back to 38227; digit sum 22 ≡ 38227 (mod 15). -/
+theorem enumeration_hex4_9553 : reassembles 38227 = true ∧ castsFifteens 38227 = true := by decide
+
+/-- 9554: nibbles fold back to 38228; digit sum 23 ≡ 38228 (mod 15). -/
+theorem enumeration_hex4_9554 : reassembles 38228 = true ∧ castsFifteens 38228 = true := by decide
+
+/-- 9555: nibbles fold back to 38229; digit sum 24 ≡ 38229 (mod 15). -/
+theorem enumeration_hex4_9555 : reassembles 38229 = true ∧ castsFifteens 38229 = true := by decide
+
+/-- 9556: nibbles fold back to 38230; digit sum 25 ≡ 38230 (mod 15). -/
+theorem enumeration_hex4_9556 : reassembles 38230 = true ∧ castsFifteens 38230 = true := by decide
+
+/-- 9557: nibbles fold back to 38231; digit sum 26 ≡ 38231 (mod 15). -/
+theorem enumeration_hex4_9557 : reassembles 38231 = true ∧ castsFifteens 38231 = true := by decide
+
+/-- 9558: nibbles fold back to 38232; digit sum 27 ≡ 38232 (mod 15). -/
+theorem enumeration_hex4_9558 : reassembles 38232 = true ∧ castsFifteens 38232 = true := by decide
+
+/-- 9559: nibbles fold back to 38233; digit sum 28 ≡ 38233 (mod 15). -/
+theorem enumeration_hex4_9559 : reassembles 38233 = true ∧ castsFifteens 38233 = true := by decide
+
+/-- 955a: nibbles fold back to 38234; digit sum 29 ≡ 38234 (mod 15). -/
+theorem enumeration_hex4_955a : reassembles 38234 = true ∧ castsFifteens 38234 = true := by decide
+
+/-- 955b: nibbles fold back to 38235; digit sum 30 ≡ 38235 (mod 15). -/
+theorem enumeration_hex4_955b : reassembles 38235 = true ∧ castsFifteens 38235 = true := by decide
+
+/-- 955c: nibbles fold back to 38236; digit sum 31 ≡ 38236 (mod 15). -/
+theorem enumeration_hex4_955c : reassembles 38236 = true ∧ castsFifteens 38236 = true := by decide
+
+/-- 955d: nibbles fold back to 38237; digit sum 32 ≡ 38237 (mod 15). -/
+theorem enumeration_hex4_955d : reassembles 38237 = true ∧ castsFifteens 38237 = true := by decide
+
+/-- 955e: nibbles fold back to 38238; digit sum 33 ≡ 38238 (mod 15). -/
+theorem enumeration_hex4_955e : reassembles 38238 = true ∧ castsFifteens 38238 = true := by decide
+
+/-- 955f: nibbles fold back to 38239; digit sum 34 ≡ 38239 (mod 15). -/
+theorem enumeration_hex4_955f : reassembles 38239 = true ∧ castsFifteens 38239 = true := by decide
+
+/-- 9560: nibbles fold back to 38240; digit sum 20 ≡ 38240 (mod 15). -/
+theorem enumeration_hex4_9560 : reassembles 38240 = true ∧ castsFifteens 38240 = true := by decide
+
+/-- 9561: nibbles fold back to 38241; digit sum 21 ≡ 38241 (mod 15). -/
+theorem enumeration_hex4_9561 : reassembles 38241 = true ∧ castsFifteens 38241 = true := by decide
+
+/-- 9562: nibbles fold back to 38242; digit sum 22 ≡ 38242 (mod 15). -/
+theorem enumeration_hex4_9562 : reassembles 38242 = true ∧ castsFifteens 38242 = true := by decide
+
+/-- 9563: nibbles fold back to 38243; digit sum 23 ≡ 38243 (mod 15). -/
+theorem enumeration_hex4_9563 : reassembles 38243 = true ∧ castsFifteens 38243 = true := by decide
+
+/-- 9564: nibbles fold back to 38244; digit sum 24 ≡ 38244 (mod 15). -/
+theorem enumeration_hex4_9564 : reassembles 38244 = true ∧ castsFifteens 38244 = true := by decide
+
+/-- 9565: nibbles fold back to 38245; digit sum 25 ≡ 38245 (mod 15). -/
+theorem enumeration_hex4_9565 : reassembles 38245 = true ∧ castsFifteens 38245 = true := by decide
+
+/-- 9566: nibbles fold back to 38246; digit sum 26 ≡ 38246 (mod 15). -/
+theorem enumeration_hex4_9566 : reassembles 38246 = true ∧ castsFifteens 38246 = true := by decide
+
+/-- 9567: nibbles fold back to 38247; digit sum 27 ≡ 38247 (mod 15). -/
+theorem enumeration_hex4_9567 : reassembles 38247 = true ∧ castsFifteens 38247 = true := by decide
+
+/-- 9568: nibbles fold back to 38248; digit sum 28 ≡ 38248 (mod 15). -/
+theorem enumeration_hex4_9568 : reassembles 38248 = true ∧ castsFifteens 38248 = true := by decide
+
+/-- 9569: nibbles fold back to 38249; digit sum 29 ≡ 38249 (mod 15). -/
+theorem enumeration_hex4_9569 : reassembles 38249 = true ∧ castsFifteens 38249 = true := by decide
+
+/-- 956a: nibbles fold back to 38250; digit sum 30 ≡ 38250 (mod 15). -/
+theorem enumeration_hex4_956a : reassembles 38250 = true ∧ castsFifteens 38250 = true := by decide
+
+/-- 956b: nibbles fold back to 38251; digit sum 31 ≡ 38251 (mod 15). -/
+theorem enumeration_hex4_956b : reassembles 38251 = true ∧ castsFifteens 38251 = true := by decide
+
+/-- 956c: nibbles fold back to 38252; digit sum 32 ≡ 38252 (mod 15). -/
+theorem enumeration_hex4_956c : reassembles 38252 = true ∧ castsFifteens 38252 = true := by decide
+
+/-- 956d: nibbles fold back to 38253; digit sum 33 ≡ 38253 (mod 15). -/
+theorem enumeration_hex4_956d : reassembles 38253 = true ∧ castsFifteens 38253 = true := by decide
+
+/-- 956e: nibbles fold back to 38254; digit sum 34 ≡ 38254 (mod 15). -/
+theorem enumeration_hex4_956e : reassembles 38254 = true ∧ castsFifteens 38254 = true := by decide
+
+/-- 956f: nibbles fold back to 38255; digit sum 35 ≡ 38255 (mod 15). -/
+theorem enumeration_hex4_956f : reassembles 38255 = true ∧ castsFifteens 38255 = true := by decide
+
+/-- 9570: nibbles fold back to 38256; digit sum 21 ≡ 38256 (mod 15). -/
+theorem enumeration_hex4_9570 : reassembles 38256 = true ∧ castsFifteens 38256 = true := by decide
+
+/-- 9571: nibbles fold back to 38257; digit sum 22 ≡ 38257 (mod 15). -/
+theorem enumeration_hex4_9571 : reassembles 38257 = true ∧ castsFifteens 38257 = true := by decide
+
+/-- 9572: nibbles fold back to 38258; digit sum 23 ≡ 38258 (mod 15). -/
+theorem enumeration_hex4_9572 : reassembles 38258 = true ∧ castsFifteens 38258 = true := by decide
+
+/-- 9573: nibbles fold back to 38259; digit sum 24 ≡ 38259 (mod 15). -/
+theorem enumeration_hex4_9573 : reassembles 38259 = true ∧ castsFifteens 38259 = true := by decide
+
+/-- 9574: nibbles fold back to 38260; digit sum 25 ≡ 38260 (mod 15). -/
+theorem enumeration_hex4_9574 : reassembles 38260 = true ∧ castsFifteens 38260 = true := by decide
+
+/-- 9575: nibbles fold back to 38261; digit sum 26 ≡ 38261 (mod 15). -/
+theorem enumeration_hex4_9575 : reassembles 38261 = true ∧ castsFifteens 38261 = true := by decide
+
+/-- 9576: nibbles fold back to 38262; digit sum 27 ≡ 38262 (mod 15). -/
+theorem enumeration_hex4_9576 : reassembles 38262 = true ∧ castsFifteens 38262 = true := by decide
+
+/-- 9577: nibbles fold back to 38263; digit sum 28 ≡ 38263 (mod 15). -/
+theorem enumeration_hex4_9577 : reassembles 38263 = true ∧ castsFifteens 38263 = true := by decide
+
+/-- 9578: nibbles fold back to 38264; digit sum 29 ≡ 38264 (mod 15). -/
+theorem enumeration_hex4_9578 : reassembles 38264 = true ∧ castsFifteens 38264 = true := by decide
+
+/-- 9579: nibbles fold back to 38265; digit sum 30 ≡ 38265 (mod 15). -/
+theorem enumeration_hex4_9579 : reassembles 38265 = true ∧ castsFifteens 38265 = true := by decide
+
+/-- 957a: nibbles fold back to 38266; digit sum 31 ≡ 38266 (mod 15). -/
+theorem enumeration_hex4_957a : reassembles 38266 = true ∧ castsFifteens 38266 = true := by decide
+
+/-- 957b: nibbles fold back to 38267; digit sum 32 ≡ 38267 (mod 15). -/
+theorem enumeration_hex4_957b : reassembles 38267 = true ∧ castsFifteens 38267 = true := by decide
+
+/-- 957c: nibbles fold back to 38268; digit sum 33 ≡ 38268 (mod 15). -/
+theorem enumeration_hex4_957c : reassembles 38268 = true ∧ castsFifteens 38268 = true := by decide
+
+/-- 957d: nibbles fold back to 38269; digit sum 34 ≡ 38269 (mod 15). -/
+theorem enumeration_hex4_957d : reassembles 38269 = true ∧ castsFifteens 38269 = true := by decide
+
+/-- 957e: nibbles fold back to 38270; digit sum 35 ≡ 38270 (mod 15). -/
+theorem enumeration_hex4_957e : reassembles 38270 = true ∧ castsFifteens 38270 = true := by decide
+
+/-- 957f: nibbles fold back to 38271; digit sum 36 ≡ 38271 (mod 15). -/
+theorem enumeration_hex4_957f : reassembles 38271 = true ∧ castsFifteens 38271 = true := by decide
+
+/-- 9580: nibbles fold back to 38272; digit sum 22 ≡ 38272 (mod 15). -/
+theorem enumeration_hex4_9580 : reassembles 38272 = true ∧ castsFifteens 38272 = true := by decide
+
+/-- 9581: nibbles fold back to 38273; digit sum 23 ≡ 38273 (mod 15). -/
+theorem enumeration_hex4_9581 : reassembles 38273 = true ∧ castsFifteens 38273 = true := by decide
+
+/-- 9582: nibbles fold back to 38274; digit sum 24 ≡ 38274 (mod 15). -/
+theorem enumeration_hex4_9582 : reassembles 38274 = true ∧ castsFifteens 38274 = true := by decide
+
+/-- 9583: nibbles fold back to 38275; digit sum 25 ≡ 38275 (mod 15). -/
+theorem enumeration_hex4_9583 : reassembles 38275 = true ∧ castsFifteens 38275 = true := by decide
+
+/-- 9584: nibbles fold back to 38276; digit sum 26 ≡ 38276 (mod 15). -/
+theorem enumeration_hex4_9584 : reassembles 38276 = true ∧ castsFifteens 38276 = true := by decide
+
+/-- 9585: nibbles fold back to 38277; digit sum 27 ≡ 38277 (mod 15). -/
+theorem enumeration_hex4_9585 : reassembles 38277 = true ∧ castsFifteens 38277 = true := by decide
+
+/-- 9586: nibbles fold back to 38278; digit sum 28 ≡ 38278 (mod 15). -/
+theorem enumeration_hex4_9586 : reassembles 38278 = true ∧ castsFifteens 38278 = true := by decide
+
+/-- 9587: nibbles fold back to 38279; digit sum 29 ≡ 38279 (mod 15). -/
+theorem enumeration_hex4_9587 : reassembles 38279 = true ∧ castsFifteens 38279 = true := by decide
+
+/-- 9588: nibbles fold back to 38280; digit sum 30 ≡ 38280 (mod 15). -/
+theorem enumeration_hex4_9588 : reassembles 38280 = true ∧ castsFifteens 38280 = true := by decide
+
+/-- 9589: nibbles fold back to 38281; digit sum 31 ≡ 38281 (mod 15). -/
+theorem enumeration_hex4_9589 : reassembles 38281 = true ∧ castsFifteens 38281 = true := by decide
+
+/-- 958a: nibbles fold back to 38282; digit sum 32 ≡ 38282 (mod 15). -/
+theorem enumeration_hex4_958a : reassembles 38282 = true ∧ castsFifteens 38282 = true := by decide
+
+/-- 958b: nibbles fold back to 38283; digit sum 33 ≡ 38283 (mod 15). -/
+theorem enumeration_hex4_958b : reassembles 38283 = true ∧ castsFifteens 38283 = true := by decide
+
+/-- 958c: nibbles fold back to 38284; digit sum 34 ≡ 38284 (mod 15). -/
+theorem enumeration_hex4_958c : reassembles 38284 = true ∧ castsFifteens 38284 = true := by decide
+
+/-- 958d: nibbles fold back to 38285; digit sum 35 ≡ 38285 (mod 15). -/
+theorem enumeration_hex4_958d : reassembles 38285 = true ∧ castsFifteens 38285 = true := by decide
+
+/-- 958e: nibbles fold back to 38286; digit sum 36 ≡ 38286 (mod 15). -/
+theorem enumeration_hex4_958e : reassembles 38286 = true ∧ castsFifteens 38286 = true := by decide
+
+/-- 958f: nibbles fold back to 38287; digit sum 37 ≡ 38287 (mod 15). -/
+theorem enumeration_hex4_958f : reassembles 38287 = true ∧ castsFifteens 38287 = true := by decide
+
+/-- 9590: nibbles fold back to 38288; digit sum 23 ≡ 38288 (mod 15). -/
+theorem enumeration_hex4_9590 : reassembles 38288 = true ∧ castsFifteens 38288 = true := by decide
+
+/-- 9591: nibbles fold back to 38289; digit sum 24 ≡ 38289 (mod 15). -/
+theorem enumeration_hex4_9591 : reassembles 38289 = true ∧ castsFifteens 38289 = true := by decide
+
+/-- 9592: nibbles fold back to 38290; digit sum 25 ≡ 38290 (mod 15). -/
+theorem enumeration_hex4_9592 : reassembles 38290 = true ∧ castsFifteens 38290 = true := by decide
+
+/-- 9593: nibbles fold back to 38291; digit sum 26 ≡ 38291 (mod 15). -/
+theorem enumeration_hex4_9593 : reassembles 38291 = true ∧ castsFifteens 38291 = true := by decide
+
+/-- 9594: nibbles fold back to 38292; digit sum 27 ≡ 38292 (mod 15). -/
+theorem enumeration_hex4_9594 : reassembles 38292 = true ∧ castsFifteens 38292 = true := by decide
+
+/-- 9595: nibbles fold back to 38293; digit sum 28 ≡ 38293 (mod 15). -/
+theorem enumeration_hex4_9595 : reassembles 38293 = true ∧ castsFifteens 38293 = true := by decide
+
+/-- 9596: nibbles fold back to 38294; digit sum 29 ≡ 38294 (mod 15). -/
+theorem enumeration_hex4_9596 : reassembles 38294 = true ∧ castsFifteens 38294 = true := by decide
+
+/-- 9597: nibbles fold back to 38295; digit sum 30 ≡ 38295 (mod 15). -/
+theorem enumeration_hex4_9597 : reassembles 38295 = true ∧ castsFifteens 38295 = true := by decide
+
+/-- 9598: nibbles fold back to 38296; digit sum 31 ≡ 38296 (mod 15). -/
+theorem enumeration_hex4_9598 : reassembles 38296 = true ∧ castsFifteens 38296 = true := by decide
+
+/-- 9599: nibbles fold back to 38297; digit sum 32 ≡ 38297 (mod 15). -/
+theorem enumeration_hex4_9599 : reassembles 38297 = true ∧ castsFifteens 38297 = true := by decide
+
+/-- 959a: nibbles fold back to 38298; digit sum 33 ≡ 38298 (mod 15). -/
+theorem enumeration_hex4_959a : reassembles 38298 = true ∧ castsFifteens 38298 = true := by decide
+
+/-- 959b: nibbles fold back to 38299; digit sum 34 ≡ 38299 (mod 15). -/
+theorem enumeration_hex4_959b : reassembles 38299 = true ∧ castsFifteens 38299 = true := by decide
+
+/-- 959c: nibbles fold back to 38300; digit sum 35 ≡ 38300 (mod 15). -/
+theorem enumeration_hex4_959c : reassembles 38300 = true ∧ castsFifteens 38300 = true := by decide
+
+/-- 959d: nibbles fold back to 38301; digit sum 36 ≡ 38301 (mod 15). -/
+theorem enumeration_hex4_959d : reassembles 38301 = true ∧ castsFifteens 38301 = true := by decide
+
+/-- 959e: nibbles fold back to 38302; digit sum 37 ≡ 38302 (mod 15). -/
+theorem enumeration_hex4_959e : reassembles 38302 = true ∧ castsFifteens 38302 = true := by decide
+
+/-- 959f: nibbles fold back to 38303; digit sum 38 ≡ 38303 (mod 15). -/
+theorem enumeration_hex4_959f : reassembles 38303 = true ∧ castsFifteens 38303 = true := by decide
+
+/-- 95a0: nibbles fold back to 38304; digit sum 24 ≡ 38304 (mod 15). -/
+theorem enumeration_hex4_95a0 : reassembles 38304 = true ∧ castsFifteens 38304 = true := by decide
+
+/-- 95a1: nibbles fold back to 38305; digit sum 25 ≡ 38305 (mod 15). -/
+theorem enumeration_hex4_95a1 : reassembles 38305 = true ∧ castsFifteens 38305 = true := by decide
+
+/-- 95a2: nibbles fold back to 38306; digit sum 26 ≡ 38306 (mod 15). -/
+theorem enumeration_hex4_95a2 : reassembles 38306 = true ∧ castsFifteens 38306 = true := by decide
+
+/-- 95a3: nibbles fold back to 38307; digit sum 27 ≡ 38307 (mod 15). -/
+theorem enumeration_hex4_95a3 : reassembles 38307 = true ∧ castsFifteens 38307 = true := by decide
+
+/-- 95a4: nibbles fold back to 38308; digit sum 28 ≡ 38308 (mod 15). -/
+theorem enumeration_hex4_95a4 : reassembles 38308 = true ∧ castsFifteens 38308 = true := by decide
+
+/-- 95a5: nibbles fold back to 38309; digit sum 29 ≡ 38309 (mod 15). -/
+theorem enumeration_hex4_95a5 : reassembles 38309 = true ∧ castsFifteens 38309 = true := by decide
+
+/-- 95a6: nibbles fold back to 38310; digit sum 30 ≡ 38310 (mod 15). -/
+theorem enumeration_hex4_95a6 : reassembles 38310 = true ∧ castsFifteens 38310 = true := by decide
+
+/-- 95a7: nibbles fold back to 38311; digit sum 31 ≡ 38311 (mod 15). -/
+theorem enumeration_hex4_95a7 : reassembles 38311 = true ∧ castsFifteens 38311 = true := by decide
+
+/-- 95a8: nibbles fold back to 38312; digit sum 32 ≡ 38312 (mod 15). -/
+theorem enumeration_hex4_95a8 : reassembles 38312 = true ∧ castsFifteens 38312 = true := by decide
+
+/-- 95a9: nibbles fold back to 38313; digit sum 33 ≡ 38313 (mod 15). -/
+theorem enumeration_hex4_95a9 : reassembles 38313 = true ∧ castsFifteens 38313 = true := by decide
+
+/-- 95aa: nibbles fold back to 38314; digit sum 34 ≡ 38314 (mod 15). -/
+theorem enumeration_hex4_95aa : reassembles 38314 = true ∧ castsFifteens 38314 = true := by decide
+
+/-- 95ab: nibbles fold back to 38315; digit sum 35 ≡ 38315 (mod 15). -/
+theorem enumeration_hex4_95ab : reassembles 38315 = true ∧ castsFifteens 38315 = true := by decide
+
+/-- 95ac: nibbles fold back to 38316; digit sum 36 ≡ 38316 (mod 15). -/
+theorem enumeration_hex4_95ac : reassembles 38316 = true ∧ castsFifteens 38316 = true := by decide
+
+/-- 95ad: nibbles fold back to 38317; digit sum 37 ≡ 38317 (mod 15). -/
+theorem enumeration_hex4_95ad : reassembles 38317 = true ∧ castsFifteens 38317 = true := by decide
+
+/-- 95ae: nibbles fold back to 38318; digit sum 38 ≡ 38318 (mod 15). -/
+theorem enumeration_hex4_95ae : reassembles 38318 = true ∧ castsFifteens 38318 = true := by decide
+
+/-- 95af: nibbles fold back to 38319; digit sum 39 ≡ 38319 (mod 15). -/
+theorem enumeration_hex4_95af : reassembles 38319 = true ∧ castsFifteens 38319 = true := by decide
+
+/-- 95b0: nibbles fold back to 38320; digit sum 25 ≡ 38320 (mod 15). -/
+theorem enumeration_hex4_95b0 : reassembles 38320 = true ∧ castsFifteens 38320 = true := by decide
+
+/-- 95b1: nibbles fold back to 38321; digit sum 26 ≡ 38321 (mod 15). -/
+theorem enumeration_hex4_95b1 : reassembles 38321 = true ∧ castsFifteens 38321 = true := by decide
+
+/-- 95b2: nibbles fold back to 38322; digit sum 27 ≡ 38322 (mod 15). -/
+theorem enumeration_hex4_95b2 : reassembles 38322 = true ∧ castsFifteens 38322 = true := by decide
+
+/-- 95b3: nibbles fold back to 38323; digit sum 28 ≡ 38323 (mod 15). -/
+theorem enumeration_hex4_95b3 : reassembles 38323 = true ∧ castsFifteens 38323 = true := by decide
+
+/-- 95b4: nibbles fold back to 38324; digit sum 29 ≡ 38324 (mod 15). -/
+theorem enumeration_hex4_95b4 : reassembles 38324 = true ∧ castsFifteens 38324 = true := by decide
+
+/-- 95b5: nibbles fold back to 38325; digit sum 30 ≡ 38325 (mod 15). -/
+theorem enumeration_hex4_95b5 : reassembles 38325 = true ∧ castsFifteens 38325 = true := by decide
+
+/-- 95b6: nibbles fold back to 38326; digit sum 31 ≡ 38326 (mod 15). -/
+theorem enumeration_hex4_95b6 : reassembles 38326 = true ∧ castsFifteens 38326 = true := by decide
+
+/-- 95b7: nibbles fold back to 38327; digit sum 32 ≡ 38327 (mod 15). -/
+theorem enumeration_hex4_95b7 : reassembles 38327 = true ∧ castsFifteens 38327 = true := by decide
+
+/-- 95b8: nibbles fold back to 38328; digit sum 33 ≡ 38328 (mod 15). -/
+theorem enumeration_hex4_95b8 : reassembles 38328 = true ∧ castsFifteens 38328 = true := by decide
+
+/-- 95b9: nibbles fold back to 38329; digit sum 34 ≡ 38329 (mod 15). -/
+theorem enumeration_hex4_95b9 : reassembles 38329 = true ∧ castsFifteens 38329 = true := by decide
+
+/-- 95ba: nibbles fold back to 38330; digit sum 35 ≡ 38330 (mod 15). -/
+theorem enumeration_hex4_95ba : reassembles 38330 = true ∧ castsFifteens 38330 = true := by decide
+
+/-- 95bb: nibbles fold back to 38331; digit sum 36 ≡ 38331 (mod 15). -/
+theorem enumeration_hex4_95bb : reassembles 38331 = true ∧ castsFifteens 38331 = true := by decide
+
+/-- 95bc: nibbles fold back to 38332; digit sum 37 ≡ 38332 (mod 15). -/
+theorem enumeration_hex4_95bc : reassembles 38332 = true ∧ castsFifteens 38332 = true := by decide
+
+/-- 95bd: nibbles fold back to 38333; digit sum 38 ≡ 38333 (mod 15). -/
+theorem enumeration_hex4_95bd : reassembles 38333 = true ∧ castsFifteens 38333 = true := by decide
+
+/-- 95be: nibbles fold back to 38334; digit sum 39 ≡ 38334 (mod 15). -/
+theorem enumeration_hex4_95be : reassembles 38334 = true ∧ castsFifteens 38334 = true := by decide
+
+/-- 95bf: nibbles fold back to 38335; digit sum 40 ≡ 38335 (mod 15). -/
+theorem enumeration_hex4_95bf : reassembles 38335 = true ∧ castsFifteens 38335 = true := by decide
+
+/-- 95c0: nibbles fold back to 38336; digit sum 26 ≡ 38336 (mod 15). -/
+theorem enumeration_hex4_95c0 : reassembles 38336 = true ∧ castsFifteens 38336 = true := by decide
+
+/-- 95c1: nibbles fold back to 38337; digit sum 27 ≡ 38337 (mod 15). -/
+theorem enumeration_hex4_95c1 : reassembles 38337 = true ∧ castsFifteens 38337 = true := by decide
+
+/-- 95c2: nibbles fold back to 38338; digit sum 28 ≡ 38338 (mod 15). -/
+theorem enumeration_hex4_95c2 : reassembles 38338 = true ∧ castsFifteens 38338 = true := by decide
+
+/-- 95c3: nibbles fold back to 38339; digit sum 29 ≡ 38339 (mod 15). -/
+theorem enumeration_hex4_95c3 : reassembles 38339 = true ∧ castsFifteens 38339 = true := by decide
+
+/-- 95c4: nibbles fold back to 38340; digit sum 30 ≡ 38340 (mod 15). -/
+theorem enumeration_hex4_95c4 : reassembles 38340 = true ∧ castsFifteens 38340 = true := by decide
+
+/-- 95c5: nibbles fold back to 38341; digit sum 31 ≡ 38341 (mod 15). -/
+theorem enumeration_hex4_95c5 : reassembles 38341 = true ∧ castsFifteens 38341 = true := by decide
+
+/-- 95c6: nibbles fold back to 38342; digit sum 32 ≡ 38342 (mod 15). -/
+theorem enumeration_hex4_95c6 : reassembles 38342 = true ∧ castsFifteens 38342 = true := by decide
+
+/-- 95c7: nibbles fold back to 38343; digit sum 33 ≡ 38343 (mod 15). -/
+theorem enumeration_hex4_95c7 : reassembles 38343 = true ∧ castsFifteens 38343 = true := by decide
+
+/-- 95c8: nibbles fold back to 38344; digit sum 34 ≡ 38344 (mod 15). -/
+theorem enumeration_hex4_95c8 : reassembles 38344 = true ∧ castsFifteens 38344 = true := by decide
+
+/-- 95c9: nibbles fold back to 38345; digit sum 35 ≡ 38345 (mod 15). -/
+theorem enumeration_hex4_95c9 : reassembles 38345 = true ∧ castsFifteens 38345 = true := by decide
+
+/-- 95ca: nibbles fold back to 38346; digit sum 36 ≡ 38346 (mod 15). -/
+theorem enumeration_hex4_95ca : reassembles 38346 = true ∧ castsFifteens 38346 = true := by decide
+
+/-- 95cb: nibbles fold back to 38347; digit sum 37 ≡ 38347 (mod 15). -/
+theorem enumeration_hex4_95cb : reassembles 38347 = true ∧ castsFifteens 38347 = true := by decide
+
+/-- 95cc: nibbles fold back to 38348; digit sum 38 ≡ 38348 (mod 15). -/
+theorem enumeration_hex4_95cc : reassembles 38348 = true ∧ castsFifteens 38348 = true := by decide
+
+/-- 95cd: nibbles fold back to 38349; digit sum 39 ≡ 38349 (mod 15). -/
+theorem enumeration_hex4_95cd : reassembles 38349 = true ∧ castsFifteens 38349 = true := by decide
+
+/-- 95ce: nibbles fold back to 38350; digit sum 40 ≡ 38350 (mod 15). -/
+theorem enumeration_hex4_95ce : reassembles 38350 = true ∧ castsFifteens 38350 = true := by decide
+
+/-- 95cf: nibbles fold back to 38351; digit sum 41 ≡ 38351 (mod 15). -/
+theorem enumeration_hex4_95cf : reassembles 38351 = true ∧ castsFifteens 38351 = true := by decide
+
+/-- 95d0: nibbles fold back to 38352; digit sum 27 ≡ 38352 (mod 15). -/
+theorem enumeration_hex4_95d0 : reassembles 38352 = true ∧ castsFifteens 38352 = true := by decide
+
+/-- 95d1: nibbles fold back to 38353; digit sum 28 ≡ 38353 (mod 15). -/
+theorem enumeration_hex4_95d1 : reassembles 38353 = true ∧ castsFifteens 38353 = true := by decide
+
+/-- 95d2: nibbles fold back to 38354; digit sum 29 ≡ 38354 (mod 15). -/
+theorem enumeration_hex4_95d2 : reassembles 38354 = true ∧ castsFifteens 38354 = true := by decide
+
+/-- 95d3: nibbles fold back to 38355; digit sum 30 ≡ 38355 (mod 15). -/
+theorem enumeration_hex4_95d3 : reassembles 38355 = true ∧ castsFifteens 38355 = true := by decide
+
+/-- 95d4: nibbles fold back to 38356; digit sum 31 ≡ 38356 (mod 15). -/
+theorem enumeration_hex4_95d4 : reassembles 38356 = true ∧ castsFifteens 38356 = true := by decide
+
+/-- 95d5: nibbles fold back to 38357; digit sum 32 ≡ 38357 (mod 15). -/
+theorem enumeration_hex4_95d5 : reassembles 38357 = true ∧ castsFifteens 38357 = true := by decide
+
+/-- 95d6: nibbles fold back to 38358; digit sum 33 ≡ 38358 (mod 15). -/
+theorem enumeration_hex4_95d6 : reassembles 38358 = true ∧ castsFifteens 38358 = true := by decide
+
+/-- 95d7: nibbles fold back to 38359; digit sum 34 ≡ 38359 (mod 15). -/
+theorem enumeration_hex4_95d7 : reassembles 38359 = true ∧ castsFifteens 38359 = true := by decide
+
+/-- 95d8: nibbles fold back to 38360; digit sum 35 ≡ 38360 (mod 15). -/
+theorem enumeration_hex4_95d8 : reassembles 38360 = true ∧ castsFifteens 38360 = true := by decide
+
+/-- 95d9: nibbles fold back to 38361; digit sum 36 ≡ 38361 (mod 15). -/
+theorem enumeration_hex4_95d9 : reassembles 38361 = true ∧ castsFifteens 38361 = true := by decide
+
+/-- 95da: nibbles fold back to 38362; digit sum 37 ≡ 38362 (mod 15). -/
+theorem enumeration_hex4_95da : reassembles 38362 = true ∧ castsFifteens 38362 = true := by decide
+
+/-- 95db: nibbles fold back to 38363; digit sum 38 ≡ 38363 (mod 15). -/
+theorem enumeration_hex4_95db : reassembles 38363 = true ∧ castsFifteens 38363 = true := by decide
+
+/-- 95dc: nibbles fold back to 38364; digit sum 39 ≡ 38364 (mod 15). -/
+theorem enumeration_hex4_95dc : reassembles 38364 = true ∧ castsFifteens 38364 = true := by decide
+
+/-- 95dd: nibbles fold back to 38365; digit sum 40 ≡ 38365 (mod 15). -/
+theorem enumeration_hex4_95dd : reassembles 38365 = true ∧ castsFifteens 38365 = true := by decide
+
+/-- 95de: nibbles fold back to 38366; digit sum 41 ≡ 38366 (mod 15). -/
+theorem enumeration_hex4_95de : reassembles 38366 = true ∧ castsFifteens 38366 = true := by decide
+
+/-- 95df: nibbles fold back to 38367; digit sum 42 ≡ 38367 (mod 15). -/
+theorem enumeration_hex4_95df : reassembles 38367 = true ∧ castsFifteens 38367 = true := by decide
+
+/-- 95e0: nibbles fold back to 38368; digit sum 28 ≡ 38368 (mod 15). -/
+theorem enumeration_hex4_95e0 : reassembles 38368 = true ∧ castsFifteens 38368 = true := by decide
+
+/-- 95e1: nibbles fold back to 38369; digit sum 29 ≡ 38369 (mod 15). -/
+theorem enumeration_hex4_95e1 : reassembles 38369 = true ∧ castsFifteens 38369 = true := by decide
+
+/-- 95e2: nibbles fold back to 38370; digit sum 30 ≡ 38370 (mod 15). -/
+theorem enumeration_hex4_95e2 : reassembles 38370 = true ∧ castsFifteens 38370 = true := by decide
+
+/-- 95e3: nibbles fold back to 38371; digit sum 31 ≡ 38371 (mod 15). -/
+theorem enumeration_hex4_95e3 : reassembles 38371 = true ∧ castsFifteens 38371 = true := by decide
+
+/-- 95e4: nibbles fold back to 38372; digit sum 32 ≡ 38372 (mod 15). -/
+theorem enumeration_hex4_95e4 : reassembles 38372 = true ∧ castsFifteens 38372 = true := by decide
+
+/-- 95e5: nibbles fold back to 38373; digit sum 33 ≡ 38373 (mod 15). -/
+theorem enumeration_hex4_95e5 : reassembles 38373 = true ∧ castsFifteens 38373 = true := by decide
+
+/-- 95e6: nibbles fold back to 38374; digit sum 34 ≡ 38374 (mod 15). -/
+theorem enumeration_hex4_95e6 : reassembles 38374 = true ∧ castsFifteens 38374 = true := by decide
+
+/-- 95e7: nibbles fold back to 38375; digit sum 35 ≡ 38375 (mod 15). -/
+theorem enumeration_hex4_95e7 : reassembles 38375 = true ∧ castsFifteens 38375 = true := by decide
+
+/-- 95e8: nibbles fold back to 38376; digit sum 36 ≡ 38376 (mod 15). -/
+theorem enumeration_hex4_95e8 : reassembles 38376 = true ∧ castsFifteens 38376 = true := by decide
+
+/-- 95e9: nibbles fold back to 38377; digit sum 37 ≡ 38377 (mod 15). -/
+theorem enumeration_hex4_95e9 : reassembles 38377 = true ∧ castsFifteens 38377 = true := by decide
+
+/-- 95ea: nibbles fold back to 38378; digit sum 38 ≡ 38378 (mod 15). -/
+theorem enumeration_hex4_95ea : reassembles 38378 = true ∧ castsFifteens 38378 = true := by decide
+
+/-- 95eb: nibbles fold back to 38379; digit sum 39 ≡ 38379 (mod 15). -/
+theorem enumeration_hex4_95eb : reassembles 38379 = true ∧ castsFifteens 38379 = true := by decide
+
+/-- 95ec: nibbles fold back to 38380; digit sum 40 ≡ 38380 (mod 15). -/
+theorem enumeration_hex4_95ec : reassembles 38380 = true ∧ castsFifteens 38380 = true := by decide
+
+/-- 95ed: nibbles fold back to 38381; digit sum 41 ≡ 38381 (mod 15). -/
+theorem enumeration_hex4_95ed : reassembles 38381 = true ∧ castsFifteens 38381 = true := by decide
+
+/-- 95ee: nibbles fold back to 38382; digit sum 42 ≡ 38382 (mod 15). -/
+theorem enumeration_hex4_95ee : reassembles 38382 = true ∧ castsFifteens 38382 = true := by decide
+
+/-- 95ef: nibbles fold back to 38383; digit sum 43 ≡ 38383 (mod 15). -/
+theorem enumeration_hex4_95ef : reassembles 38383 = true ∧ castsFifteens 38383 = true := by decide
+
+/-- 95f0: nibbles fold back to 38384; digit sum 29 ≡ 38384 (mod 15). -/
+theorem enumeration_hex4_95f0 : reassembles 38384 = true ∧ castsFifteens 38384 = true := by decide
+
+/-- 95f1: nibbles fold back to 38385; digit sum 30 ≡ 38385 (mod 15). -/
+theorem enumeration_hex4_95f1 : reassembles 38385 = true ∧ castsFifteens 38385 = true := by decide
+
+/-- 95f2: nibbles fold back to 38386; digit sum 31 ≡ 38386 (mod 15). -/
+theorem enumeration_hex4_95f2 : reassembles 38386 = true ∧ castsFifteens 38386 = true := by decide
+
+/-- 95f3: nibbles fold back to 38387; digit sum 32 ≡ 38387 (mod 15). -/
+theorem enumeration_hex4_95f3 : reassembles 38387 = true ∧ castsFifteens 38387 = true := by decide
+
+/-- 95f4: nibbles fold back to 38388; digit sum 33 ≡ 38388 (mod 15). -/
+theorem enumeration_hex4_95f4 : reassembles 38388 = true ∧ castsFifteens 38388 = true := by decide
+
+/-- 95f5: nibbles fold back to 38389; digit sum 34 ≡ 38389 (mod 15). -/
+theorem enumeration_hex4_95f5 : reassembles 38389 = true ∧ castsFifteens 38389 = true := by decide
+
+/-- 95f6: nibbles fold back to 38390; digit sum 35 ≡ 38390 (mod 15). -/
+theorem enumeration_hex4_95f6 : reassembles 38390 = true ∧ castsFifteens 38390 = true := by decide
+
+/-- 95f7: nibbles fold back to 38391; digit sum 36 ≡ 38391 (mod 15). -/
+theorem enumeration_hex4_95f7 : reassembles 38391 = true ∧ castsFifteens 38391 = true := by decide
+
+/-- 95f8: nibbles fold back to 38392; digit sum 37 ≡ 38392 (mod 15). -/
+theorem enumeration_hex4_95f8 : reassembles 38392 = true ∧ castsFifteens 38392 = true := by decide
+
+/-- 95f9: nibbles fold back to 38393; digit sum 38 ≡ 38393 (mod 15). -/
+theorem enumeration_hex4_95f9 : reassembles 38393 = true ∧ castsFifteens 38393 = true := by decide
+
+/-- 95fa: nibbles fold back to 38394; digit sum 39 ≡ 38394 (mod 15). -/
+theorem enumeration_hex4_95fa : reassembles 38394 = true ∧ castsFifteens 38394 = true := by decide
+
+/-- 95fb: nibbles fold back to 38395; digit sum 40 ≡ 38395 (mod 15). -/
+theorem enumeration_hex4_95fb : reassembles 38395 = true ∧ castsFifteens 38395 = true := by decide
+
+/-- 95fc: nibbles fold back to 38396; digit sum 41 ≡ 38396 (mod 15). -/
+theorem enumeration_hex4_95fc : reassembles 38396 = true ∧ castsFifteens 38396 = true := by decide
+
+/-- 95fd: nibbles fold back to 38397; digit sum 42 ≡ 38397 (mod 15). -/
+theorem enumeration_hex4_95fd : reassembles 38397 = true ∧ castsFifteens 38397 = true := by decide
+
+/-- 95fe: nibbles fold back to 38398; digit sum 43 ≡ 38398 (mod 15). -/
+theorem enumeration_hex4_95fe : reassembles 38398 = true ∧ castsFifteens 38398 = true := by decide
+
+/-- 95ff: nibbles fold back to 38399; digit sum 44 ≡ 38399 (mod 15). -/
+theorem enumeration_hex4_95ff : reassembles 38399 = true ∧ castsFifteens 38399 = true := by decide
+
+/-- 9600: nibbles fold back to 38400; digit sum 15 ≡ 38400 (mod 15). -/
+theorem enumeration_hex4_9600 : reassembles 38400 = true ∧ castsFifteens 38400 = true := by decide
+
+/-- 9601: nibbles fold back to 38401; digit sum 16 ≡ 38401 (mod 15). -/
+theorem enumeration_hex4_9601 : reassembles 38401 = true ∧ castsFifteens 38401 = true := by decide
+
+/-- 9602: nibbles fold back to 38402; digit sum 17 ≡ 38402 (mod 15). -/
+theorem enumeration_hex4_9602 : reassembles 38402 = true ∧ castsFifteens 38402 = true := by decide
+
+/-- 9603: nibbles fold back to 38403; digit sum 18 ≡ 38403 (mod 15). -/
+theorem enumeration_hex4_9603 : reassembles 38403 = true ∧ castsFifteens 38403 = true := by decide
+
+/-- 9604: nibbles fold back to 38404; digit sum 19 ≡ 38404 (mod 15). -/
+theorem enumeration_hex4_9604 : reassembles 38404 = true ∧ castsFifteens 38404 = true := by decide
+
+/-- 9605: nibbles fold back to 38405; digit sum 20 ≡ 38405 (mod 15). -/
+theorem enumeration_hex4_9605 : reassembles 38405 = true ∧ castsFifteens 38405 = true := by decide
+
+/-- 9606: nibbles fold back to 38406; digit sum 21 ≡ 38406 (mod 15). -/
+theorem enumeration_hex4_9606 : reassembles 38406 = true ∧ castsFifteens 38406 = true := by decide
+
+/-- 9607: nibbles fold back to 38407; digit sum 22 ≡ 38407 (mod 15). -/
+theorem enumeration_hex4_9607 : reassembles 38407 = true ∧ castsFifteens 38407 = true := by decide
+
+/-- 9608: nibbles fold back to 38408; digit sum 23 ≡ 38408 (mod 15). -/
+theorem enumeration_hex4_9608 : reassembles 38408 = true ∧ castsFifteens 38408 = true := by decide
+
+/-- 9609: nibbles fold back to 38409; digit sum 24 ≡ 38409 (mod 15). -/
+theorem enumeration_hex4_9609 : reassembles 38409 = true ∧ castsFifteens 38409 = true := by decide
+
+/-- 960a: nibbles fold back to 38410; digit sum 25 ≡ 38410 (mod 15). -/
+theorem enumeration_hex4_960a : reassembles 38410 = true ∧ castsFifteens 38410 = true := by decide
+
+/-- 960b: nibbles fold back to 38411; digit sum 26 ≡ 38411 (mod 15). -/
+theorem enumeration_hex4_960b : reassembles 38411 = true ∧ castsFifteens 38411 = true := by decide
+
+/-- 960c: nibbles fold back to 38412; digit sum 27 ≡ 38412 (mod 15). -/
+theorem enumeration_hex4_960c : reassembles 38412 = true ∧ castsFifteens 38412 = true := by decide
+
+/-- 960d: nibbles fold back to 38413; digit sum 28 ≡ 38413 (mod 15). -/
+theorem enumeration_hex4_960d : reassembles 38413 = true ∧ castsFifteens 38413 = true := by decide
+
+/-- 960e: nibbles fold back to 38414; digit sum 29 ≡ 38414 (mod 15). -/
+theorem enumeration_hex4_960e : reassembles 38414 = true ∧ castsFifteens 38414 = true := by decide
+
+/-- 960f: nibbles fold back to 38415; digit sum 30 ≡ 38415 (mod 15). -/
+theorem enumeration_hex4_960f : reassembles 38415 = true ∧ castsFifteens 38415 = true := by decide
+
+/-- 9610: nibbles fold back to 38416; digit sum 16 ≡ 38416 (mod 15). -/
+theorem enumeration_hex4_9610 : reassembles 38416 = true ∧ castsFifteens 38416 = true := by decide
+
+/-- 9611: nibbles fold back to 38417; digit sum 17 ≡ 38417 (mod 15). -/
+theorem enumeration_hex4_9611 : reassembles 38417 = true ∧ castsFifteens 38417 = true := by decide
+
+/-- 9612: nibbles fold back to 38418; digit sum 18 ≡ 38418 (mod 15). -/
+theorem enumeration_hex4_9612 : reassembles 38418 = true ∧ castsFifteens 38418 = true := by decide
+
+/-- 9613: nibbles fold back to 38419; digit sum 19 ≡ 38419 (mod 15). -/
+theorem enumeration_hex4_9613 : reassembles 38419 = true ∧ castsFifteens 38419 = true := by decide
+
+/-- 9614: nibbles fold back to 38420; digit sum 20 ≡ 38420 (mod 15). -/
+theorem enumeration_hex4_9614 : reassembles 38420 = true ∧ castsFifteens 38420 = true := by decide
+
+/-- 9615: nibbles fold back to 38421; digit sum 21 ≡ 38421 (mod 15). -/
+theorem enumeration_hex4_9615 : reassembles 38421 = true ∧ castsFifteens 38421 = true := by decide
+
+/-- 9616: nibbles fold back to 38422; digit sum 22 ≡ 38422 (mod 15). -/
+theorem enumeration_hex4_9616 : reassembles 38422 = true ∧ castsFifteens 38422 = true := by decide
+
+/-- 9617: nibbles fold back to 38423; digit sum 23 ≡ 38423 (mod 15). -/
+theorem enumeration_hex4_9617 : reassembles 38423 = true ∧ castsFifteens 38423 = true := by decide
+
+/-- 9618: nibbles fold back to 38424; digit sum 24 ≡ 38424 (mod 15). -/
+theorem enumeration_hex4_9618 : reassembles 38424 = true ∧ castsFifteens 38424 = true := by decide
+
+/-- 9619: nibbles fold back to 38425; digit sum 25 ≡ 38425 (mod 15). -/
+theorem enumeration_hex4_9619 : reassembles 38425 = true ∧ castsFifteens 38425 = true := by decide
+
+/-- 961a: nibbles fold back to 38426; digit sum 26 ≡ 38426 (mod 15). -/
+theorem enumeration_hex4_961a : reassembles 38426 = true ∧ castsFifteens 38426 = true := by decide
+
+/-- 961b: nibbles fold back to 38427; digit sum 27 ≡ 38427 (mod 15). -/
+theorem enumeration_hex4_961b : reassembles 38427 = true ∧ castsFifteens 38427 = true := by decide
+
+/-- 961c: nibbles fold back to 38428; digit sum 28 ≡ 38428 (mod 15). -/
+theorem enumeration_hex4_961c : reassembles 38428 = true ∧ castsFifteens 38428 = true := by decide
+
+/-- 961d: nibbles fold back to 38429; digit sum 29 ≡ 38429 (mod 15). -/
+theorem enumeration_hex4_961d : reassembles 38429 = true ∧ castsFifteens 38429 = true := by decide
+
+/-- 961e: nibbles fold back to 38430; digit sum 30 ≡ 38430 (mod 15). -/
+theorem enumeration_hex4_961e : reassembles 38430 = true ∧ castsFifteens 38430 = true := by decide
+
+/-- 961f: nibbles fold back to 38431; digit sum 31 ≡ 38431 (mod 15). -/
+theorem enumeration_hex4_961f : reassembles 38431 = true ∧ castsFifteens 38431 = true := by decide
+
+/-- 9620: nibbles fold back to 38432; digit sum 17 ≡ 38432 (mod 15). -/
+theorem enumeration_hex4_9620 : reassembles 38432 = true ∧ castsFifteens 38432 = true := by decide
+
+/-- 9621: nibbles fold back to 38433; digit sum 18 ≡ 38433 (mod 15). -/
+theorem enumeration_hex4_9621 : reassembles 38433 = true ∧ castsFifteens 38433 = true := by decide
+
+/-- 9622: nibbles fold back to 38434; digit sum 19 ≡ 38434 (mod 15). -/
+theorem enumeration_hex4_9622 : reassembles 38434 = true ∧ castsFifteens 38434 = true := by decide
+
+/-- 9623: nibbles fold back to 38435; digit sum 20 ≡ 38435 (mod 15). -/
+theorem enumeration_hex4_9623 : reassembles 38435 = true ∧ castsFifteens 38435 = true := by decide
+
+/-- 9624: nibbles fold back to 38436; digit sum 21 ≡ 38436 (mod 15). -/
+theorem enumeration_hex4_9624 : reassembles 38436 = true ∧ castsFifteens 38436 = true := by decide
+
+/-- 9625: nibbles fold back to 38437; digit sum 22 ≡ 38437 (mod 15). -/
+theorem enumeration_hex4_9625 : reassembles 38437 = true ∧ castsFifteens 38437 = true := by decide
+
+/-- 9626: nibbles fold back to 38438; digit sum 23 ≡ 38438 (mod 15). -/
+theorem enumeration_hex4_9626 : reassembles 38438 = true ∧ castsFifteens 38438 = true := by decide
+
+/-- 9627: nibbles fold back to 38439; digit sum 24 ≡ 38439 (mod 15). -/
+theorem enumeration_hex4_9627 : reassembles 38439 = true ∧ castsFifteens 38439 = true := by decide
+
+/-- 9628: nibbles fold back to 38440; digit sum 25 ≡ 38440 (mod 15). -/
+theorem enumeration_hex4_9628 : reassembles 38440 = true ∧ castsFifteens 38440 = true := by decide
+
+/-- 9629: nibbles fold back to 38441; digit sum 26 ≡ 38441 (mod 15). -/
+theorem enumeration_hex4_9629 : reassembles 38441 = true ∧ castsFifteens 38441 = true := by decide
+
+/-- 962a: nibbles fold back to 38442; digit sum 27 ≡ 38442 (mod 15). -/
+theorem enumeration_hex4_962a : reassembles 38442 = true ∧ castsFifteens 38442 = true := by decide
+
+/-- 962b: nibbles fold back to 38443; digit sum 28 ≡ 38443 (mod 15). -/
+theorem enumeration_hex4_962b : reassembles 38443 = true ∧ castsFifteens 38443 = true := by decide
+
+/-- 962c: nibbles fold back to 38444; digit sum 29 ≡ 38444 (mod 15). -/
+theorem enumeration_hex4_962c : reassembles 38444 = true ∧ castsFifteens 38444 = true := by decide
+
+/-- 962d: nibbles fold back to 38445; digit sum 30 ≡ 38445 (mod 15). -/
+theorem enumeration_hex4_962d : reassembles 38445 = true ∧ castsFifteens 38445 = true := by decide
+
+/-- 962e: nibbles fold back to 38446; digit sum 31 ≡ 38446 (mod 15). -/
+theorem enumeration_hex4_962e : reassembles 38446 = true ∧ castsFifteens 38446 = true := by decide
+
+/-- 962f: nibbles fold back to 38447; digit sum 32 ≡ 38447 (mod 15). -/
+theorem enumeration_hex4_962f : reassembles 38447 = true ∧ castsFifteens 38447 = true := by decide
+
+/-- 9630: nibbles fold back to 38448; digit sum 18 ≡ 38448 (mod 15). -/
+theorem enumeration_hex4_9630 : reassembles 38448 = true ∧ castsFifteens 38448 = true := by decide
+
+/-- 9631: nibbles fold back to 38449; digit sum 19 ≡ 38449 (mod 15). -/
+theorem enumeration_hex4_9631 : reassembles 38449 = true ∧ castsFifteens 38449 = true := by decide
+
+/-- 9632: nibbles fold back to 38450; digit sum 20 ≡ 38450 (mod 15). -/
+theorem enumeration_hex4_9632 : reassembles 38450 = true ∧ castsFifteens 38450 = true := by decide
+
+/-- 9633: nibbles fold back to 38451; digit sum 21 ≡ 38451 (mod 15). -/
+theorem enumeration_hex4_9633 : reassembles 38451 = true ∧ castsFifteens 38451 = true := by decide
+
+/-- 9634: nibbles fold back to 38452; digit sum 22 ≡ 38452 (mod 15). -/
+theorem enumeration_hex4_9634 : reassembles 38452 = true ∧ castsFifteens 38452 = true := by decide
+
+/-- 9635: nibbles fold back to 38453; digit sum 23 ≡ 38453 (mod 15). -/
+theorem enumeration_hex4_9635 : reassembles 38453 = true ∧ castsFifteens 38453 = true := by decide
+
+/-- 9636: nibbles fold back to 38454; digit sum 24 ≡ 38454 (mod 15). -/
+theorem enumeration_hex4_9636 : reassembles 38454 = true ∧ castsFifteens 38454 = true := by decide
+
+/-- 9637: nibbles fold back to 38455; digit sum 25 ≡ 38455 (mod 15). -/
+theorem enumeration_hex4_9637 : reassembles 38455 = true ∧ castsFifteens 38455 = true := by decide
+
+/-- 9638: nibbles fold back to 38456; digit sum 26 ≡ 38456 (mod 15). -/
+theorem enumeration_hex4_9638 : reassembles 38456 = true ∧ castsFifteens 38456 = true := by decide
+
+/-- 9639: nibbles fold back to 38457; digit sum 27 ≡ 38457 (mod 15). -/
+theorem enumeration_hex4_9639 : reassembles 38457 = true ∧ castsFifteens 38457 = true := by decide
+
+/-- 963a: nibbles fold back to 38458; digit sum 28 ≡ 38458 (mod 15). -/
+theorem enumeration_hex4_963a : reassembles 38458 = true ∧ castsFifteens 38458 = true := by decide
+
+/-- 963b: nibbles fold back to 38459; digit sum 29 ≡ 38459 (mod 15). -/
+theorem enumeration_hex4_963b : reassembles 38459 = true ∧ castsFifteens 38459 = true := by decide
+
+/-- 963c: nibbles fold back to 38460; digit sum 30 ≡ 38460 (mod 15). -/
+theorem enumeration_hex4_963c : reassembles 38460 = true ∧ castsFifteens 38460 = true := by decide
+
+/-- 963d: nibbles fold back to 38461; digit sum 31 ≡ 38461 (mod 15). -/
+theorem enumeration_hex4_963d : reassembles 38461 = true ∧ castsFifteens 38461 = true := by decide
+
+/-- 963e: nibbles fold back to 38462; digit sum 32 ≡ 38462 (mod 15). -/
+theorem enumeration_hex4_963e : reassembles 38462 = true ∧ castsFifteens 38462 = true := by decide
+
+/-- 963f: nibbles fold back to 38463; digit sum 33 ≡ 38463 (mod 15). -/
+theorem enumeration_hex4_963f : reassembles 38463 = true ∧ castsFifteens 38463 = true := by decide
+
+/-- 9640: nibbles fold back to 38464; digit sum 19 ≡ 38464 (mod 15). -/
+theorem enumeration_hex4_9640 : reassembles 38464 = true ∧ castsFifteens 38464 = true := by decide
+
+/-- 9641: nibbles fold back to 38465; digit sum 20 ≡ 38465 (mod 15). -/
+theorem enumeration_hex4_9641 : reassembles 38465 = true ∧ castsFifteens 38465 = true := by decide
+
+/-- 9642: nibbles fold back to 38466; digit sum 21 ≡ 38466 (mod 15). -/
+theorem enumeration_hex4_9642 : reassembles 38466 = true ∧ castsFifteens 38466 = true := by decide
+
+/-- 9643: nibbles fold back to 38467; digit sum 22 ≡ 38467 (mod 15). -/
+theorem enumeration_hex4_9643 : reassembles 38467 = true ∧ castsFifteens 38467 = true := by decide
+
+/-- 9644: nibbles fold back to 38468; digit sum 23 ≡ 38468 (mod 15). -/
+theorem enumeration_hex4_9644 : reassembles 38468 = true ∧ castsFifteens 38468 = true := by decide
+
+/-- 9645: nibbles fold back to 38469; digit sum 24 ≡ 38469 (mod 15). -/
+theorem enumeration_hex4_9645 : reassembles 38469 = true ∧ castsFifteens 38469 = true := by decide
+
+/-- 9646: nibbles fold back to 38470; digit sum 25 ≡ 38470 (mod 15). -/
+theorem enumeration_hex4_9646 : reassembles 38470 = true ∧ castsFifteens 38470 = true := by decide
+
+/-- 9647: nibbles fold back to 38471; digit sum 26 ≡ 38471 (mod 15). -/
+theorem enumeration_hex4_9647 : reassembles 38471 = true ∧ castsFifteens 38471 = true := by decide
+
+/-- 9648: nibbles fold back to 38472; digit sum 27 ≡ 38472 (mod 15). -/
+theorem enumeration_hex4_9648 : reassembles 38472 = true ∧ castsFifteens 38472 = true := by decide
+
+/-- 9649: nibbles fold back to 38473; digit sum 28 ≡ 38473 (mod 15). -/
+theorem enumeration_hex4_9649 : reassembles 38473 = true ∧ castsFifteens 38473 = true := by decide
+
+/-- 964a: nibbles fold back to 38474; digit sum 29 ≡ 38474 (mod 15). -/
+theorem enumeration_hex4_964a : reassembles 38474 = true ∧ castsFifteens 38474 = true := by decide
+
+/-- 964b: nibbles fold back to 38475; digit sum 30 ≡ 38475 (mod 15). -/
+theorem enumeration_hex4_964b : reassembles 38475 = true ∧ castsFifteens 38475 = true := by decide
+
+/-- 964c: nibbles fold back to 38476; digit sum 31 ≡ 38476 (mod 15). -/
+theorem enumeration_hex4_964c : reassembles 38476 = true ∧ castsFifteens 38476 = true := by decide
+
+/-- 964d: nibbles fold back to 38477; digit sum 32 ≡ 38477 (mod 15). -/
+theorem enumeration_hex4_964d : reassembles 38477 = true ∧ castsFifteens 38477 = true := by decide
+
+/-- 964e: nibbles fold back to 38478; digit sum 33 ≡ 38478 (mod 15). -/
+theorem enumeration_hex4_964e : reassembles 38478 = true ∧ castsFifteens 38478 = true := by decide
+
+/-- 964f: nibbles fold back to 38479; digit sum 34 ≡ 38479 (mod 15). -/
+theorem enumeration_hex4_964f : reassembles 38479 = true ∧ castsFifteens 38479 = true := by decide
+
+/-- 9650: nibbles fold back to 38480; digit sum 20 ≡ 38480 (mod 15). -/
+theorem enumeration_hex4_9650 : reassembles 38480 = true ∧ castsFifteens 38480 = true := by decide
+
+/-- 9651: nibbles fold back to 38481; digit sum 21 ≡ 38481 (mod 15). -/
+theorem enumeration_hex4_9651 : reassembles 38481 = true ∧ castsFifteens 38481 = true := by decide
+
+/-- 9652: nibbles fold back to 38482; digit sum 22 ≡ 38482 (mod 15). -/
+theorem enumeration_hex4_9652 : reassembles 38482 = true ∧ castsFifteens 38482 = true := by decide
+
+/-- 9653: nibbles fold back to 38483; digit sum 23 ≡ 38483 (mod 15). -/
+theorem enumeration_hex4_9653 : reassembles 38483 = true ∧ castsFifteens 38483 = true := by decide
+
+/-- 9654: nibbles fold back to 38484; digit sum 24 ≡ 38484 (mod 15). -/
+theorem enumeration_hex4_9654 : reassembles 38484 = true ∧ castsFifteens 38484 = true := by decide
+
+/-- 9655: nibbles fold back to 38485; digit sum 25 ≡ 38485 (mod 15). -/
+theorem enumeration_hex4_9655 : reassembles 38485 = true ∧ castsFifteens 38485 = true := by decide
+
+/-- 9656: nibbles fold back to 38486; digit sum 26 ≡ 38486 (mod 15). -/
+theorem enumeration_hex4_9656 : reassembles 38486 = true ∧ castsFifteens 38486 = true := by decide
+
+/-- 9657: nibbles fold back to 38487; digit sum 27 ≡ 38487 (mod 15). -/
+theorem enumeration_hex4_9657 : reassembles 38487 = true ∧ castsFifteens 38487 = true := by decide
+
+/-- 9658: nibbles fold back to 38488; digit sum 28 ≡ 38488 (mod 15). -/
+theorem enumeration_hex4_9658 : reassembles 38488 = true ∧ castsFifteens 38488 = true := by decide
+
+/-- 9659: nibbles fold back to 38489; digit sum 29 ≡ 38489 (mod 15). -/
+theorem enumeration_hex4_9659 : reassembles 38489 = true ∧ castsFifteens 38489 = true := by decide
+
+/-- 965a: nibbles fold back to 38490; digit sum 30 ≡ 38490 (mod 15). -/
+theorem enumeration_hex4_965a : reassembles 38490 = true ∧ castsFifteens 38490 = true := by decide
+
+/-- 965b: nibbles fold back to 38491; digit sum 31 ≡ 38491 (mod 15). -/
+theorem enumeration_hex4_965b : reassembles 38491 = true ∧ castsFifteens 38491 = true := by decide
+
+/-- 965c: nibbles fold back to 38492; digit sum 32 ≡ 38492 (mod 15). -/
+theorem enumeration_hex4_965c : reassembles 38492 = true ∧ castsFifteens 38492 = true := by decide
+
+/-- 965d: nibbles fold back to 38493; digit sum 33 ≡ 38493 (mod 15). -/
+theorem enumeration_hex4_965d : reassembles 38493 = true ∧ castsFifteens 38493 = true := by decide
+
+/-- 965e: nibbles fold back to 38494; digit sum 34 ≡ 38494 (mod 15). -/
+theorem enumeration_hex4_965e : reassembles 38494 = true ∧ castsFifteens 38494 = true := by decide
+
+/-- 965f: nibbles fold back to 38495; digit sum 35 ≡ 38495 (mod 15). -/
+theorem enumeration_hex4_965f : reassembles 38495 = true ∧ castsFifteens 38495 = true := by decide
+
+/-- 9660: nibbles fold back to 38496; digit sum 21 ≡ 38496 (mod 15). -/
+theorem enumeration_hex4_9660 : reassembles 38496 = true ∧ castsFifteens 38496 = true := by decide
+
+/-- 9661: nibbles fold back to 38497; digit sum 22 ≡ 38497 (mod 15). -/
+theorem enumeration_hex4_9661 : reassembles 38497 = true ∧ castsFifteens 38497 = true := by decide
+
+/-- 9662: nibbles fold back to 38498; digit sum 23 ≡ 38498 (mod 15). -/
+theorem enumeration_hex4_9662 : reassembles 38498 = true ∧ castsFifteens 38498 = true := by decide
+
+/-- 9663: nibbles fold back to 38499; digit sum 24 ≡ 38499 (mod 15). -/
+theorem enumeration_hex4_9663 : reassembles 38499 = true ∧ castsFifteens 38499 = true := by decide
+
+/-- 9664: nibbles fold back to 38500; digit sum 25 ≡ 38500 (mod 15). -/
+theorem enumeration_hex4_9664 : reassembles 38500 = true ∧ castsFifteens 38500 = true := by decide
+
+/-- 9665: nibbles fold back to 38501; digit sum 26 ≡ 38501 (mod 15). -/
+theorem enumeration_hex4_9665 : reassembles 38501 = true ∧ castsFifteens 38501 = true := by decide
+
+/-- 9666: nibbles fold back to 38502; digit sum 27 ≡ 38502 (mod 15). -/
+theorem enumeration_hex4_9666 : reassembles 38502 = true ∧ castsFifteens 38502 = true := by decide
+
+/-- 9667: nibbles fold back to 38503; digit sum 28 ≡ 38503 (mod 15). -/
+theorem enumeration_hex4_9667 : reassembles 38503 = true ∧ castsFifteens 38503 = true := by decide
+
+/-- 9668: nibbles fold back to 38504; digit sum 29 ≡ 38504 (mod 15). -/
+theorem enumeration_hex4_9668 : reassembles 38504 = true ∧ castsFifteens 38504 = true := by decide
+
+/-- 9669: nibbles fold back to 38505; digit sum 30 ≡ 38505 (mod 15). -/
+theorem enumeration_hex4_9669 : reassembles 38505 = true ∧ castsFifteens 38505 = true := by decide
+
+/-- 966a: nibbles fold back to 38506; digit sum 31 ≡ 38506 (mod 15). -/
+theorem enumeration_hex4_966a : reassembles 38506 = true ∧ castsFifteens 38506 = true := by decide
+
+/-- 966b: nibbles fold back to 38507; digit sum 32 ≡ 38507 (mod 15). -/
+theorem enumeration_hex4_966b : reassembles 38507 = true ∧ castsFifteens 38507 = true := by decide
+
+/-- 966c: nibbles fold back to 38508; digit sum 33 ≡ 38508 (mod 15). -/
+theorem enumeration_hex4_966c : reassembles 38508 = true ∧ castsFifteens 38508 = true := by decide
+
+/-- 966d: nibbles fold back to 38509; digit sum 34 ≡ 38509 (mod 15). -/
+theorem enumeration_hex4_966d : reassembles 38509 = true ∧ castsFifteens 38509 = true := by decide
+
+/-- 966e: nibbles fold back to 38510; digit sum 35 ≡ 38510 (mod 15). -/
+theorem enumeration_hex4_966e : reassembles 38510 = true ∧ castsFifteens 38510 = true := by decide
+
+/-- 966f: nibbles fold back to 38511; digit sum 36 ≡ 38511 (mod 15). -/
+theorem enumeration_hex4_966f : reassembles 38511 = true ∧ castsFifteens 38511 = true := by decide
+
+/-- 9670: nibbles fold back to 38512; digit sum 22 ≡ 38512 (mod 15). -/
+theorem enumeration_hex4_9670 : reassembles 38512 = true ∧ castsFifteens 38512 = true := by decide
+
+/-- 9671: nibbles fold back to 38513; digit sum 23 ≡ 38513 (mod 15). -/
+theorem enumeration_hex4_9671 : reassembles 38513 = true ∧ castsFifteens 38513 = true := by decide
+
+/-- 9672: nibbles fold back to 38514; digit sum 24 ≡ 38514 (mod 15). -/
+theorem enumeration_hex4_9672 : reassembles 38514 = true ∧ castsFifteens 38514 = true := by decide
+
+/-- 9673: nibbles fold back to 38515; digit sum 25 ≡ 38515 (mod 15). -/
+theorem enumeration_hex4_9673 : reassembles 38515 = true ∧ castsFifteens 38515 = true := by decide
+
+/-- 9674: nibbles fold back to 38516; digit sum 26 ≡ 38516 (mod 15). -/
+theorem enumeration_hex4_9674 : reassembles 38516 = true ∧ castsFifteens 38516 = true := by decide
+
+/-- 9675: nibbles fold back to 38517; digit sum 27 ≡ 38517 (mod 15). -/
+theorem enumeration_hex4_9675 : reassembles 38517 = true ∧ castsFifteens 38517 = true := by decide
+
+/-- 9676: nibbles fold back to 38518; digit sum 28 ≡ 38518 (mod 15). -/
+theorem enumeration_hex4_9676 : reassembles 38518 = true ∧ castsFifteens 38518 = true := by decide
+
+/-- 9677: nibbles fold back to 38519; digit sum 29 ≡ 38519 (mod 15). -/
+theorem enumeration_hex4_9677 : reassembles 38519 = true ∧ castsFifteens 38519 = true := by decide
+
+/-- 9678: nibbles fold back to 38520; digit sum 30 ≡ 38520 (mod 15). -/
+theorem enumeration_hex4_9678 : reassembles 38520 = true ∧ castsFifteens 38520 = true := by decide
+
+/-- 9679: nibbles fold back to 38521; digit sum 31 ≡ 38521 (mod 15). -/
+theorem enumeration_hex4_9679 : reassembles 38521 = true ∧ castsFifteens 38521 = true := by decide
+
+/-- 967a: nibbles fold back to 38522; digit sum 32 ≡ 38522 (mod 15). -/
+theorem enumeration_hex4_967a : reassembles 38522 = true ∧ castsFifteens 38522 = true := by decide
+
+/-- 967b: nibbles fold back to 38523; digit sum 33 ≡ 38523 (mod 15). -/
+theorem enumeration_hex4_967b : reassembles 38523 = true ∧ castsFifteens 38523 = true := by decide
+
+/-- 967c: nibbles fold back to 38524; digit sum 34 ≡ 38524 (mod 15). -/
+theorem enumeration_hex4_967c : reassembles 38524 = true ∧ castsFifteens 38524 = true := by decide
+
+/-- 967d: nibbles fold back to 38525; digit sum 35 ≡ 38525 (mod 15). -/
+theorem enumeration_hex4_967d : reassembles 38525 = true ∧ castsFifteens 38525 = true := by decide
+
+/-- 967e: nibbles fold back to 38526; digit sum 36 ≡ 38526 (mod 15). -/
+theorem enumeration_hex4_967e : reassembles 38526 = true ∧ castsFifteens 38526 = true := by decide
+
+/-- 967f: nibbles fold back to 38527; digit sum 37 ≡ 38527 (mod 15). -/
+theorem enumeration_hex4_967f : reassembles 38527 = true ∧ castsFifteens 38527 = true := by decide
+
+/-- 9680: nibbles fold back to 38528; digit sum 23 ≡ 38528 (mod 15). -/
+theorem enumeration_hex4_9680 : reassembles 38528 = true ∧ castsFifteens 38528 = true := by decide
+
+/-- 9681: nibbles fold back to 38529; digit sum 24 ≡ 38529 (mod 15). -/
+theorem enumeration_hex4_9681 : reassembles 38529 = true ∧ castsFifteens 38529 = true := by decide
+
+/-- 9682: nibbles fold back to 38530; digit sum 25 ≡ 38530 (mod 15). -/
+theorem enumeration_hex4_9682 : reassembles 38530 = true ∧ castsFifteens 38530 = true := by decide
+
+/-- 9683: nibbles fold back to 38531; digit sum 26 ≡ 38531 (mod 15). -/
+theorem enumeration_hex4_9683 : reassembles 38531 = true ∧ castsFifteens 38531 = true := by decide
+
+/-- 9684: nibbles fold back to 38532; digit sum 27 ≡ 38532 (mod 15). -/
+theorem enumeration_hex4_9684 : reassembles 38532 = true ∧ castsFifteens 38532 = true := by decide
+
+/-- 9685: nibbles fold back to 38533; digit sum 28 ≡ 38533 (mod 15). -/
+theorem enumeration_hex4_9685 : reassembles 38533 = true ∧ castsFifteens 38533 = true := by decide
+
+/-- 9686: nibbles fold back to 38534; digit sum 29 ≡ 38534 (mod 15). -/
+theorem enumeration_hex4_9686 : reassembles 38534 = true ∧ castsFifteens 38534 = true := by decide
+
+/-- 9687: nibbles fold back to 38535; digit sum 30 ≡ 38535 (mod 15). -/
+theorem enumeration_hex4_9687 : reassembles 38535 = true ∧ castsFifteens 38535 = true := by decide
+
+/-- 9688: nibbles fold back to 38536; digit sum 31 ≡ 38536 (mod 15). -/
+theorem enumeration_hex4_9688 : reassembles 38536 = true ∧ castsFifteens 38536 = true := by decide
+
+/-- 9689: nibbles fold back to 38537; digit sum 32 ≡ 38537 (mod 15). -/
+theorem enumeration_hex4_9689 : reassembles 38537 = true ∧ castsFifteens 38537 = true := by decide
+
+/-- 968a: nibbles fold back to 38538; digit sum 33 ≡ 38538 (mod 15). -/
+theorem enumeration_hex4_968a : reassembles 38538 = true ∧ castsFifteens 38538 = true := by decide
+
+/-- 968b: nibbles fold back to 38539; digit sum 34 ≡ 38539 (mod 15). -/
+theorem enumeration_hex4_968b : reassembles 38539 = true ∧ castsFifteens 38539 = true := by decide
+
+/-- 968c: nibbles fold back to 38540; digit sum 35 ≡ 38540 (mod 15). -/
+theorem enumeration_hex4_968c : reassembles 38540 = true ∧ castsFifteens 38540 = true := by decide
+
+/-- 968d: nibbles fold back to 38541; digit sum 36 ≡ 38541 (mod 15). -/
+theorem enumeration_hex4_968d : reassembles 38541 = true ∧ castsFifteens 38541 = true := by decide
+
+/-- 968e: nibbles fold back to 38542; digit sum 37 ≡ 38542 (mod 15). -/
+theorem enumeration_hex4_968e : reassembles 38542 = true ∧ castsFifteens 38542 = true := by decide
+
+/-- 968f: nibbles fold back to 38543; digit sum 38 ≡ 38543 (mod 15). -/
+theorem enumeration_hex4_968f : reassembles 38543 = true ∧ castsFifteens 38543 = true := by decide
+
+/-- 9690: nibbles fold back to 38544; digit sum 24 ≡ 38544 (mod 15). -/
+theorem enumeration_hex4_9690 : reassembles 38544 = true ∧ castsFifteens 38544 = true := by decide
+
+/-- 9691: nibbles fold back to 38545; digit sum 25 ≡ 38545 (mod 15). -/
+theorem enumeration_hex4_9691 : reassembles 38545 = true ∧ castsFifteens 38545 = true := by decide
+
+/-- 9692: nibbles fold back to 38546; digit sum 26 ≡ 38546 (mod 15). -/
+theorem enumeration_hex4_9692 : reassembles 38546 = true ∧ castsFifteens 38546 = true := by decide
+
+/-- 9693: nibbles fold back to 38547; digit sum 27 ≡ 38547 (mod 15). -/
+theorem enumeration_hex4_9693 : reassembles 38547 = true ∧ castsFifteens 38547 = true := by decide
+
+/-- 9694: nibbles fold back to 38548; digit sum 28 ≡ 38548 (mod 15). -/
+theorem enumeration_hex4_9694 : reassembles 38548 = true ∧ castsFifteens 38548 = true := by decide
+
+/-- 9695: nibbles fold back to 38549; digit sum 29 ≡ 38549 (mod 15). -/
+theorem enumeration_hex4_9695 : reassembles 38549 = true ∧ castsFifteens 38549 = true := by decide
+
+/-- 9696: nibbles fold back to 38550; digit sum 30 ≡ 38550 (mod 15). -/
+theorem enumeration_hex4_9696 : reassembles 38550 = true ∧ castsFifteens 38550 = true := by decide
+
+/-- 9697: nibbles fold back to 38551; digit sum 31 ≡ 38551 (mod 15). -/
+theorem enumeration_hex4_9697 : reassembles 38551 = true ∧ castsFifteens 38551 = true := by decide
+
+/-- 9698: nibbles fold back to 38552; digit sum 32 ≡ 38552 (mod 15). -/
+theorem enumeration_hex4_9698 : reassembles 38552 = true ∧ castsFifteens 38552 = true := by decide
+
+/-- 9699: nibbles fold back to 38553; digit sum 33 ≡ 38553 (mod 15). -/
+theorem enumeration_hex4_9699 : reassembles 38553 = true ∧ castsFifteens 38553 = true := by decide
+
+/-- 969a: nibbles fold back to 38554; digit sum 34 ≡ 38554 (mod 15). -/
+theorem enumeration_hex4_969a : reassembles 38554 = true ∧ castsFifteens 38554 = true := by decide
+
+/-- 969b: nibbles fold back to 38555; digit sum 35 ≡ 38555 (mod 15). -/
+theorem enumeration_hex4_969b : reassembles 38555 = true ∧ castsFifteens 38555 = true := by decide
+
+/-- 969c: nibbles fold back to 38556; digit sum 36 ≡ 38556 (mod 15). -/
+theorem enumeration_hex4_969c : reassembles 38556 = true ∧ castsFifteens 38556 = true := by decide
+
+/-- 969d: nibbles fold back to 38557; digit sum 37 ≡ 38557 (mod 15). -/
+theorem enumeration_hex4_969d : reassembles 38557 = true ∧ castsFifteens 38557 = true := by decide
+
+/-- 969e: nibbles fold back to 38558; digit sum 38 ≡ 38558 (mod 15). -/
+theorem enumeration_hex4_969e : reassembles 38558 = true ∧ castsFifteens 38558 = true := by decide
+
+/-- 969f: nibbles fold back to 38559; digit sum 39 ≡ 38559 (mod 15). -/
+theorem enumeration_hex4_969f : reassembles 38559 = true ∧ castsFifteens 38559 = true := by decide
+
+/-- 96a0: nibbles fold back to 38560; digit sum 25 ≡ 38560 (mod 15). -/
+theorem enumeration_hex4_96a0 : reassembles 38560 = true ∧ castsFifteens 38560 = true := by decide
+
+/-- 96a1: nibbles fold back to 38561; digit sum 26 ≡ 38561 (mod 15). -/
+theorem enumeration_hex4_96a1 : reassembles 38561 = true ∧ castsFifteens 38561 = true := by decide
+
+/-- 96a2: nibbles fold back to 38562; digit sum 27 ≡ 38562 (mod 15). -/
+theorem enumeration_hex4_96a2 : reassembles 38562 = true ∧ castsFifteens 38562 = true := by decide
+
+/-- 96a3: nibbles fold back to 38563; digit sum 28 ≡ 38563 (mod 15). -/
+theorem enumeration_hex4_96a3 : reassembles 38563 = true ∧ castsFifteens 38563 = true := by decide
+
+/-- 96a4: nibbles fold back to 38564; digit sum 29 ≡ 38564 (mod 15). -/
+theorem enumeration_hex4_96a4 : reassembles 38564 = true ∧ castsFifteens 38564 = true := by decide
+
+/-- 96a5: nibbles fold back to 38565; digit sum 30 ≡ 38565 (mod 15). -/
+theorem enumeration_hex4_96a5 : reassembles 38565 = true ∧ castsFifteens 38565 = true := by decide
+
+/-- 96a6: nibbles fold back to 38566; digit sum 31 ≡ 38566 (mod 15). -/
+theorem enumeration_hex4_96a6 : reassembles 38566 = true ∧ castsFifteens 38566 = true := by decide
+
+/-- 96a7: nibbles fold back to 38567; digit sum 32 ≡ 38567 (mod 15). -/
+theorem enumeration_hex4_96a7 : reassembles 38567 = true ∧ castsFifteens 38567 = true := by decide
+
+/-- 96a8: nibbles fold back to 38568; digit sum 33 ≡ 38568 (mod 15). -/
+theorem enumeration_hex4_96a8 : reassembles 38568 = true ∧ castsFifteens 38568 = true := by decide
+
+/-- 96a9: nibbles fold back to 38569; digit sum 34 ≡ 38569 (mod 15). -/
+theorem enumeration_hex4_96a9 : reassembles 38569 = true ∧ castsFifteens 38569 = true := by decide
+
+/-- 96aa: nibbles fold back to 38570; digit sum 35 ≡ 38570 (mod 15). -/
+theorem enumeration_hex4_96aa : reassembles 38570 = true ∧ castsFifteens 38570 = true := by decide
+
+/-- 96ab: nibbles fold back to 38571; digit sum 36 ≡ 38571 (mod 15). -/
+theorem enumeration_hex4_96ab : reassembles 38571 = true ∧ castsFifteens 38571 = true := by decide
+
+/-- 96ac: nibbles fold back to 38572; digit sum 37 ≡ 38572 (mod 15). -/
+theorem enumeration_hex4_96ac : reassembles 38572 = true ∧ castsFifteens 38572 = true := by decide
+
+/-- 96ad: nibbles fold back to 38573; digit sum 38 ≡ 38573 (mod 15). -/
+theorem enumeration_hex4_96ad : reassembles 38573 = true ∧ castsFifteens 38573 = true := by decide
+
+/-- 96ae: nibbles fold back to 38574; digit sum 39 ≡ 38574 (mod 15). -/
+theorem enumeration_hex4_96ae : reassembles 38574 = true ∧ castsFifteens 38574 = true := by decide
+
+/-- 96af: nibbles fold back to 38575; digit sum 40 ≡ 38575 (mod 15). -/
+theorem enumeration_hex4_96af : reassembles 38575 = true ∧ castsFifteens 38575 = true := by decide
+
+/-- 96b0: nibbles fold back to 38576; digit sum 26 ≡ 38576 (mod 15). -/
+theorem enumeration_hex4_96b0 : reassembles 38576 = true ∧ castsFifteens 38576 = true := by decide
+
+/-- 96b1: nibbles fold back to 38577; digit sum 27 ≡ 38577 (mod 15). -/
+theorem enumeration_hex4_96b1 : reassembles 38577 = true ∧ castsFifteens 38577 = true := by decide
+
+/-- 96b2: nibbles fold back to 38578; digit sum 28 ≡ 38578 (mod 15). -/
+theorem enumeration_hex4_96b2 : reassembles 38578 = true ∧ castsFifteens 38578 = true := by decide
+
+/-- 96b3: nibbles fold back to 38579; digit sum 29 ≡ 38579 (mod 15). -/
+theorem enumeration_hex4_96b3 : reassembles 38579 = true ∧ castsFifteens 38579 = true := by decide
+
+/-- 96b4: nibbles fold back to 38580; digit sum 30 ≡ 38580 (mod 15). -/
+theorem enumeration_hex4_96b4 : reassembles 38580 = true ∧ castsFifteens 38580 = true := by decide
+
+/-- 96b5: nibbles fold back to 38581; digit sum 31 ≡ 38581 (mod 15). -/
+theorem enumeration_hex4_96b5 : reassembles 38581 = true ∧ castsFifteens 38581 = true := by decide
+
+/-- 96b6: nibbles fold back to 38582; digit sum 32 ≡ 38582 (mod 15). -/
+theorem enumeration_hex4_96b6 : reassembles 38582 = true ∧ castsFifteens 38582 = true := by decide
+
+/-- 96b7: nibbles fold back to 38583; digit sum 33 ≡ 38583 (mod 15). -/
+theorem enumeration_hex4_96b7 : reassembles 38583 = true ∧ castsFifteens 38583 = true := by decide
+
+/-- 96b8: nibbles fold back to 38584; digit sum 34 ≡ 38584 (mod 15). -/
+theorem enumeration_hex4_96b8 : reassembles 38584 = true ∧ castsFifteens 38584 = true := by decide
+
+/-- 96b9: nibbles fold back to 38585; digit sum 35 ≡ 38585 (mod 15). -/
+theorem enumeration_hex4_96b9 : reassembles 38585 = true ∧ castsFifteens 38585 = true := by decide
+
+/-- 96ba: nibbles fold back to 38586; digit sum 36 ≡ 38586 (mod 15). -/
+theorem enumeration_hex4_96ba : reassembles 38586 = true ∧ castsFifteens 38586 = true := by decide
+
+/-- 96bb: nibbles fold back to 38587; digit sum 37 ≡ 38587 (mod 15). -/
+theorem enumeration_hex4_96bb : reassembles 38587 = true ∧ castsFifteens 38587 = true := by decide
+
+/-- 96bc: nibbles fold back to 38588; digit sum 38 ≡ 38588 (mod 15). -/
+theorem enumeration_hex4_96bc : reassembles 38588 = true ∧ castsFifteens 38588 = true := by decide
+
+/-- 96bd: nibbles fold back to 38589; digit sum 39 ≡ 38589 (mod 15). -/
+theorem enumeration_hex4_96bd : reassembles 38589 = true ∧ castsFifteens 38589 = true := by decide
+
+/-- 96be: nibbles fold back to 38590; digit sum 40 ≡ 38590 (mod 15). -/
+theorem enumeration_hex4_96be : reassembles 38590 = true ∧ castsFifteens 38590 = true := by decide
+
+/-- 96bf: nibbles fold back to 38591; digit sum 41 ≡ 38591 (mod 15). -/
+theorem enumeration_hex4_96bf : reassembles 38591 = true ∧ castsFifteens 38591 = true := by decide
+
+/-- 96c0: nibbles fold back to 38592; digit sum 27 ≡ 38592 (mod 15). -/
+theorem enumeration_hex4_96c0 : reassembles 38592 = true ∧ castsFifteens 38592 = true := by decide
+
+/-- 96c1: nibbles fold back to 38593; digit sum 28 ≡ 38593 (mod 15). -/
+theorem enumeration_hex4_96c1 : reassembles 38593 = true ∧ castsFifteens 38593 = true := by decide
+
+/-- 96c2: nibbles fold back to 38594; digit sum 29 ≡ 38594 (mod 15). -/
+theorem enumeration_hex4_96c2 : reassembles 38594 = true ∧ castsFifteens 38594 = true := by decide
+
+/-- 96c3: nibbles fold back to 38595; digit sum 30 ≡ 38595 (mod 15). -/
+theorem enumeration_hex4_96c3 : reassembles 38595 = true ∧ castsFifteens 38595 = true := by decide
+
+/-- 96c4: nibbles fold back to 38596; digit sum 31 ≡ 38596 (mod 15). -/
+theorem enumeration_hex4_96c4 : reassembles 38596 = true ∧ castsFifteens 38596 = true := by decide
+
+/-- 96c5: nibbles fold back to 38597; digit sum 32 ≡ 38597 (mod 15). -/
+theorem enumeration_hex4_96c5 : reassembles 38597 = true ∧ castsFifteens 38597 = true := by decide
+
+/-- 96c6: nibbles fold back to 38598; digit sum 33 ≡ 38598 (mod 15). -/
+theorem enumeration_hex4_96c6 : reassembles 38598 = true ∧ castsFifteens 38598 = true := by decide
+
+/-- 96c7: nibbles fold back to 38599; digit sum 34 ≡ 38599 (mod 15). -/
+theorem enumeration_hex4_96c7 : reassembles 38599 = true ∧ castsFifteens 38599 = true := by decide
+
+/-- 96c8: nibbles fold back to 38600; digit sum 35 ≡ 38600 (mod 15). -/
+theorem enumeration_hex4_96c8 : reassembles 38600 = true ∧ castsFifteens 38600 = true := by decide
+
+/-- 96c9: nibbles fold back to 38601; digit sum 36 ≡ 38601 (mod 15). -/
+theorem enumeration_hex4_96c9 : reassembles 38601 = true ∧ castsFifteens 38601 = true := by decide
+
+/-- 96ca: nibbles fold back to 38602; digit sum 37 ≡ 38602 (mod 15). -/
+theorem enumeration_hex4_96ca : reassembles 38602 = true ∧ castsFifteens 38602 = true := by decide
+
+/-- 96cb: nibbles fold back to 38603; digit sum 38 ≡ 38603 (mod 15). -/
+theorem enumeration_hex4_96cb : reassembles 38603 = true ∧ castsFifteens 38603 = true := by decide
+
+/-- 96cc: nibbles fold back to 38604; digit sum 39 ≡ 38604 (mod 15). -/
+theorem enumeration_hex4_96cc : reassembles 38604 = true ∧ castsFifteens 38604 = true := by decide
+
+/-- 96cd: nibbles fold back to 38605; digit sum 40 ≡ 38605 (mod 15). -/
+theorem enumeration_hex4_96cd : reassembles 38605 = true ∧ castsFifteens 38605 = true := by decide
+
+/-- 96ce: nibbles fold back to 38606; digit sum 41 ≡ 38606 (mod 15). -/
+theorem enumeration_hex4_96ce : reassembles 38606 = true ∧ castsFifteens 38606 = true := by decide
+
+/-- 96cf: nibbles fold back to 38607; digit sum 42 ≡ 38607 (mod 15). -/
+theorem enumeration_hex4_96cf : reassembles 38607 = true ∧ castsFifteens 38607 = true := by decide
+
+/-- 96d0: nibbles fold back to 38608; digit sum 28 ≡ 38608 (mod 15). -/
+theorem enumeration_hex4_96d0 : reassembles 38608 = true ∧ castsFifteens 38608 = true := by decide
+
+/-- 96d1: nibbles fold back to 38609; digit sum 29 ≡ 38609 (mod 15). -/
+theorem enumeration_hex4_96d1 : reassembles 38609 = true ∧ castsFifteens 38609 = true := by decide
+
+/-- 96d2: nibbles fold back to 38610; digit sum 30 ≡ 38610 (mod 15). -/
+theorem enumeration_hex4_96d2 : reassembles 38610 = true ∧ castsFifteens 38610 = true := by decide
+
+/-- 96d3: nibbles fold back to 38611; digit sum 31 ≡ 38611 (mod 15). -/
+theorem enumeration_hex4_96d3 : reassembles 38611 = true ∧ castsFifteens 38611 = true := by decide
+
+/-- 96d4: nibbles fold back to 38612; digit sum 32 ≡ 38612 (mod 15). -/
+theorem enumeration_hex4_96d4 : reassembles 38612 = true ∧ castsFifteens 38612 = true := by decide
+
+/-- 96d5: nibbles fold back to 38613; digit sum 33 ≡ 38613 (mod 15). -/
+theorem enumeration_hex4_96d5 : reassembles 38613 = true ∧ castsFifteens 38613 = true := by decide
+
+/-- 96d6: nibbles fold back to 38614; digit sum 34 ≡ 38614 (mod 15). -/
+theorem enumeration_hex4_96d6 : reassembles 38614 = true ∧ castsFifteens 38614 = true := by decide
+
+/-- 96d7: nibbles fold back to 38615; digit sum 35 ≡ 38615 (mod 15). -/
+theorem enumeration_hex4_96d7 : reassembles 38615 = true ∧ castsFifteens 38615 = true := by decide
+
+/-- 96d8: nibbles fold back to 38616; digit sum 36 ≡ 38616 (mod 15). -/
+theorem enumeration_hex4_96d8 : reassembles 38616 = true ∧ castsFifteens 38616 = true := by decide
+
+/-- 96d9: nibbles fold back to 38617; digit sum 37 ≡ 38617 (mod 15). -/
+theorem enumeration_hex4_96d9 : reassembles 38617 = true ∧ castsFifteens 38617 = true := by decide
+
+/-- 96da: nibbles fold back to 38618; digit sum 38 ≡ 38618 (mod 15). -/
+theorem enumeration_hex4_96da : reassembles 38618 = true ∧ castsFifteens 38618 = true := by decide
+
+/-- 96db: nibbles fold back to 38619; digit sum 39 ≡ 38619 (mod 15). -/
+theorem enumeration_hex4_96db : reassembles 38619 = true ∧ castsFifteens 38619 = true := by decide
+
+/-- 96dc: nibbles fold back to 38620; digit sum 40 ≡ 38620 (mod 15). -/
+theorem enumeration_hex4_96dc : reassembles 38620 = true ∧ castsFifteens 38620 = true := by decide
+
+/-- 96dd: nibbles fold back to 38621; digit sum 41 ≡ 38621 (mod 15). -/
+theorem enumeration_hex4_96dd : reassembles 38621 = true ∧ castsFifteens 38621 = true := by decide
+
+/-- 96de: nibbles fold back to 38622; digit sum 42 ≡ 38622 (mod 15). -/
+theorem enumeration_hex4_96de : reassembles 38622 = true ∧ castsFifteens 38622 = true := by decide
+
+/-- 96df: nibbles fold back to 38623; digit sum 43 ≡ 38623 (mod 15). -/
+theorem enumeration_hex4_96df : reassembles 38623 = true ∧ castsFifteens 38623 = true := by decide
+
+/-- 96e0: nibbles fold back to 38624; digit sum 29 ≡ 38624 (mod 15). -/
+theorem enumeration_hex4_96e0 : reassembles 38624 = true ∧ castsFifteens 38624 = true := by decide
+
+/-- 96e1: nibbles fold back to 38625; digit sum 30 ≡ 38625 (mod 15). -/
+theorem enumeration_hex4_96e1 : reassembles 38625 = true ∧ castsFifteens 38625 = true := by decide
+
+/-- 96e2: nibbles fold back to 38626; digit sum 31 ≡ 38626 (mod 15). -/
+theorem enumeration_hex4_96e2 : reassembles 38626 = true ∧ castsFifteens 38626 = true := by decide
+
+/-- 96e3: nibbles fold back to 38627; digit sum 32 ≡ 38627 (mod 15). -/
+theorem enumeration_hex4_96e3 : reassembles 38627 = true ∧ castsFifteens 38627 = true := by decide
+
+/-- 96e4: nibbles fold back to 38628; digit sum 33 ≡ 38628 (mod 15). -/
+theorem enumeration_hex4_96e4 : reassembles 38628 = true ∧ castsFifteens 38628 = true := by decide
+
+/-- 96e5: nibbles fold back to 38629; digit sum 34 ≡ 38629 (mod 15). -/
+theorem enumeration_hex4_96e5 : reassembles 38629 = true ∧ castsFifteens 38629 = true := by decide
+
+/-- 96e6: nibbles fold back to 38630; digit sum 35 ≡ 38630 (mod 15). -/
+theorem enumeration_hex4_96e6 : reassembles 38630 = true ∧ castsFifteens 38630 = true := by decide
+
+/-- 96e7: nibbles fold back to 38631; digit sum 36 ≡ 38631 (mod 15). -/
+theorem enumeration_hex4_96e7 : reassembles 38631 = true ∧ castsFifteens 38631 = true := by decide
+
+/-- 96e8: nibbles fold back to 38632; digit sum 37 ≡ 38632 (mod 15). -/
+theorem enumeration_hex4_96e8 : reassembles 38632 = true ∧ castsFifteens 38632 = true := by decide
+
+/-- 96e9: nibbles fold back to 38633; digit sum 38 ≡ 38633 (mod 15). -/
+theorem enumeration_hex4_96e9 : reassembles 38633 = true ∧ castsFifteens 38633 = true := by decide
+
+/-- 96ea: nibbles fold back to 38634; digit sum 39 ≡ 38634 (mod 15). -/
+theorem enumeration_hex4_96ea : reassembles 38634 = true ∧ castsFifteens 38634 = true := by decide
+
+/-- 96eb: nibbles fold back to 38635; digit sum 40 ≡ 38635 (mod 15). -/
+theorem enumeration_hex4_96eb : reassembles 38635 = true ∧ castsFifteens 38635 = true := by decide
+
+/-- 96ec: nibbles fold back to 38636; digit sum 41 ≡ 38636 (mod 15). -/
+theorem enumeration_hex4_96ec : reassembles 38636 = true ∧ castsFifteens 38636 = true := by decide
+
+/-- 96ed: nibbles fold back to 38637; digit sum 42 ≡ 38637 (mod 15). -/
+theorem enumeration_hex4_96ed : reassembles 38637 = true ∧ castsFifteens 38637 = true := by decide
+
+/-- 96ee: nibbles fold back to 38638; digit sum 43 ≡ 38638 (mod 15). -/
+theorem enumeration_hex4_96ee : reassembles 38638 = true ∧ castsFifteens 38638 = true := by decide
+
+/-- 96ef: nibbles fold back to 38639; digit sum 44 ≡ 38639 (mod 15). -/
+theorem enumeration_hex4_96ef : reassembles 38639 = true ∧ castsFifteens 38639 = true := by decide
+
+/-- 96f0: nibbles fold back to 38640; digit sum 30 ≡ 38640 (mod 15). -/
+theorem enumeration_hex4_96f0 : reassembles 38640 = true ∧ castsFifteens 38640 = true := by decide
+
+/-- 96f1: nibbles fold back to 38641; digit sum 31 ≡ 38641 (mod 15). -/
+theorem enumeration_hex4_96f1 : reassembles 38641 = true ∧ castsFifteens 38641 = true := by decide
+
+/-- 96f2: nibbles fold back to 38642; digit sum 32 ≡ 38642 (mod 15). -/
+theorem enumeration_hex4_96f2 : reassembles 38642 = true ∧ castsFifteens 38642 = true := by decide
+
+/-- 96f3: nibbles fold back to 38643; digit sum 33 ≡ 38643 (mod 15). -/
+theorem enumeration_hex4_96f3 : reassembles 38643 = true ∧ castsFifteens 38643 = true := by decide
+
+/-- 96f4: nibbles fold back to 38644; digit sum 34 ≡ 38644 (mod 15). -/
+theorem enumeration_hex4_96f4 : reassembles 38644 = true ∧ castsFifteens 38644 = true := by decide
+
+/-- 96f5: nibbles fold back to 38645; digit sum 35 ≡ 38645 (mod 15). -/
+theorem enumeration_hex4_96f5 : reassembles 38645 = true ∧ castsFifteens 38645 = true := by decide
+
+/-- 96f6: nibbles fold back to 38646; digit sum 36 ≡ 38646 (mod 15). -/
+theorem enumeration_hex4_96f6 : reassembles 38646 = true ∧ castsFifteens 38646 = true := by decide
+
+/-- 96f7: nibbles fold back to 38647; digit sum 37 ≡ 38647 (mod 15). -/
+theorem enumeration_hex4_96f7 : reassembles 38647 = true ∧ castsFifteens 38647 = true := by decide
+
+/-- 96f8: nibbles fold back to 38648; digit sum 38 ≡ 38648 (mod 15). -/
+theorem enumeration_hex4_96f8 : reassembles 38648 = true ∧ castsFifteens 38648 = true := by decide
+
+/-- 96f9: nibbles fold back to 38649; digit sum 39 ≡ 38649 (mod 15). -/
+theorem enumeration_hex4_96f9 : reassembles 38649 = true ∧ castsFifteens 38649 = true := by decide
+
+/-- 96fa: nibbles fold back to 38650; digit sum 40 ≡ 38650 (mod 15). -/
+theorem enumeration_hex4_96fa : reassembles 38650 = true ∧ castsFifteens 38650 = true := by decide
+
+/-- 96fb: nibbles fold back to 38651; digit sum 41 ≡ 38651 (mod 15). -/
+theorem enumeration_hex4_96fb : reassembles 38651 = true ∧ castsFifteens 38651 = true := by decide
+
+/-- 96fc: nibbles fold back to 38652; digit sum 42 ≡ 38652 (mod 15). -/
+theorem enumeration_hex4_96fc : reassembles 38652 = true ∧ castsFifteens 38652 = true := by decide
+
+/-- 96fd: nibbles fold back to 38653; digit sum 43 ≡ 38653 (mod 15). -/
+theorem enumeration_hex4_96fd : reassembles 38653 = true ∧ castsFifteens 38653 = true := by decide
+
+/-- 96fe: nibbles fold back to 38654; digit sum 44 ≡ 38654 (mod 15). -/
+theorem enumeration_hex4_96fe : reassembles 38654 = true ∧ castsFifteens 38654 = true := by decide
+
+/-- 96ff: nibbles fold back to 38655; digit sum 45 ≡ 38655 (mod 15). -/
+theorem enumeration_hex4_96ff : reassembles 38655 = true ∧ castsFifteens 38655 = true := by decide
+
+/-- 9700: nibbles fold back to 38656; digit sum 16 ≡ 38656 (mod 15). -/
+theorem enumeration_hex4_9700 : reassembles 38656 = true ∧ castsFifteens 38656 = true := by decide
+
+/-- 9701: nibbles fold back to 38657; digit sum 17 ≡ 38657 (mod 15). -/
+theorem enumeration_hex4_9701 : reassembles 38657 = true ∧ castsFifteens 38657 = true := by decide
+
+/-- 9702: nibbles fold back to 38658; digit sum 18 ≡ 38658 (mod 15). -/
+theorem enumeration_hex4_9702 : reassembles 38658 = true ∧ castsFifteens 38658 = true := by decide
+
+/-- 9703: nibbles fold back to 38659; digit sum 19 ≡ 38659 (mod 15). -/
+theorem enumeration_hex4_9703 : reassembles 38659 = true ∧ castsFifteens 38659 = true := by decide
+
+/-- 9704: nibbles fold back to 38660; digit sum 20 ≡ 38660 (mod 15). -/
+theorem enumeration_hex4_9704 : reassembles 38660 = true ∧ castsFifteens 38660 = true := by decide
+
+/-- 9705: nibbles fold back to 38661; digit sum 21 ≡ 38661 (mod 15). -/
+theorem enumeration_hex4_9705 : reassembles 38661 = true ∧ castsFifteens 38661 = true := by decide
+
+/-- 9706: nibbles fold back to 38662; digit sum 22 ≡ 38662 (mod 15). -/
+theorem enumeration_hex4_9706 : reassembles 38662 = true ∧ castsFifteens 38662 = true := by decide
+
+/-- 9707: nibbles fold back to 38663; digit sum 23 ≡ 38663 (mod 15). -/
+theorem enumeration_hex4_9707 : reassembles 38663 = true ∧ castsFifteens 38663 = true := by decide
+
+/-- 9708: nibbles fold back to 38664; digit sum 24 ≡ 38664 (mod 15). -/
+theorem enumeration_hex4_9708 : reassembles 38664 = true ∧ castsFifteens 38664 = true := by decide
+
+/-- 9709: nibbles fold back to 38665; digit sum 25 ≡ 38665 (mod 15). -/
+theorem enumeration_hex4_9709 : reassembles 38665 = true ∧ castsFifteens 38665 = true := by decide
+
+/-- 970a: nibbles fold back to 38666; digit sum 26 ≡ 38666 (mod 15). -/
+theorem enumeration_hex4_970a : reassembles 38666 = true ∧ castsFifteens 38666 = true := by decide
+
+/-- 970b: nibbles fold back to 38667; digit sum 27 ≡ 38667 (mod 15). -/
+theorem enumeration_hex4_970b : reassembles 38667 = true ∧ castsFifteens 38667 = true := by decide
+
+/-- 970c: nibbles fold back to 38668; digit sum 28 ≡ 38668 (mod 15). -/
+theorem enumeration_hex4_970c : reassembles 38668 = true ∧ castsFifteens 38668 = true := by decide
+
+/-- 970d: nibbles fold back to 38669; digit sum 29 ≡ 38669 (mod 15). -/
+theorem enumeration_hex4_970d : reassembles 38669 = true ∧ castsFifteens 38669 = true := by decide
+
+/-- 970e: nibbles fold back to 38670; digit sum 30 ≡ 38670 (mod 15). -/
+theorem enumeration_hex4_970e : reassembles 38670 = true ∧ castsFifteens 38670 = true := by decide
+
+/-- 970f: nibbles fold back to 38671; digit sum 31 ≡ 38671 (mod 15). -/
+theorem enumeration_hex4_970f : reassembles 38671 = true ∧ castsFifteens 38671 = true := by decide
+
+/-- 9710: nibbles fold back to 38672; digit sum 17 ≡ 38672 (mod 15). -/
+theorem enumeration_hex4_9710 : reassembles 38672 = true ∧ castsFifteens 38672 = true := by decide
+
+/-- 9711: nibbles fold back to 38673; digit sum 18 ≡ 38673 (mod 15). -/
+theorem enumeration_hex4_9711 : reassembles 38673 = true ∧ castsFifteens 38673 = true := by decide
+
+/-- 9712: nibbles fold back to 38674; digit sum 19 ≡ 38674 (mod 15). -/
+theorem enumeration_hex4_9712 : reassembles 38674 = true ∧ castsFifteens 38674 = true := by decide
+
+/-- 9713: nibbles fold back to 38675; digit sum 20 ≡ 38675 (mod 15). -/
+theorem enumeration_hex4_9713 : reassembles 38675 = true ∧ castsFifteens 38675 = true := by decide
+
+/-- 9714: nibbles fold back to 38676; digit sum 21 ≡ 38676 (mod 15). -/
+theorem enumeration_hex4_9714 : reassembles 38676 = true ∧ castsFifteens 38676 = true := by decide
+
+/-- 9715: nibbles fold back to 38677; digit sum 22 ≡ 38677 (mod 15). -/
+theorem enumeration_hex4_9715 : reassembles 38677 = true ∧ castsFifteens 38677 = true := by decide
+
+/-- 9716: nibbles fold back to 38678; digit sum 23 ≡ 38678 (mod 15). -/
+theorem enumeration_hex4_9716 : reassembles 38678 = true ∧ castsFifteens 38678 = true := by decide
+
+/-- 9717: nibbles fold back to 38679; digit sum 24 ≡ 38679 (mod 15). -/
+theorem enumeration_hex4_9717 : reassembles 38679 = true ∧ castsFifteens 38679 = true := by decide
+
+/-- 9718: nibbles fold back to 38680; digit sum 25 ≡ 38680 (mod 15). -/
+theorem enumeration_hex4_9718 : reassembles 38680 = true ∧ castsFifteens 38680 = true := by decide
+
+/-- 9719: nibbles fold back to 38681; digit sum 26 ≡ 38681 (mod 15). -/
+theorem enumeration_hex4_9719 : reassembles 38681 = true ∧ castsFifteens 38681 = true := by decide
+
+/-- 971a: nibbles fold back to 38682; digit sum 27 ≡ 38682 (mod 15). -/
+theorem enumeration_hex4_971a : reassembles 38682 = true ∧ castsFifteens 38682 = true := by decide
+
+/-- 971b: nibbles fold back to 38683; digit sum 28 ≡ 38683 (mod 15). -/
+theorem enumeration_hex4_971b : reassembles 38683 = true ∧ castsFifteens 38683 = true := by decide
+
+/-- 971c: nibbles fold back to 38684; digit sum 29 ≡ 38684 (mod 15). -/
+theorem enumeration_hex4_971c : reassembles 38684 = true ∧ castsFifteens 38684 = true := by decide
+
+/-- 971d: nibbles fold back to 38685; digit sum 30 ≡ 38685 (mod 15). -/
+theorem enumeration_hex4_971d : reassembles 38685 = true ∧ castsFifteens 38685 = true := by decide
+
+/-- 971e: nibbles fold back to 38686; digit sum 31 ≡ 38686 (mod 15). -/
+theorem enumeration_hex4_971e : reassembles 38686 = true ∧ castsFifteens 38686 = true := by decide
+
+/-- 971f: nibbles fold back to 38687; digit sum 32 ≡ 38687 (mod 15). -/
+theorem enumeration_hex4_971f : reassembles 38687 = true ∧ castsFifteens 38687 = true := by decide
+
+/-- 9720: nibbles fold back to 38688; digit sum 18 ≡ 38688 (mod 15). -/
+theorem enumeration_hex4_9720 : reassembles 38688 = true ∧ castsFifteens 38688 = true := by decide
+
+/-- 9721: nibbles fold back to 38689; digit sum 19 ≡ 38689 (mod 15). -/
+theorem enumeration_hex4_9721 : reassembles 38689 = true ∧ castsFifteens 38689 = true := by decide
+
+/-- 9722: nibbles fold back to 38690; digit sum 20 ≡ 38690 (mod 15). -/
+theorem enumeration_hex4_9722 : reassembles 38690 = true ∧ castsFifteens 38690 = true := by decide
+
+/-- 9723: nibbles fold back to 38691; digit sum 21 ≡ 38691 (mod 15). -/
+theorem enumeration_hex4_9723 : reassembles 38691 = true ∧ castsFifteens 38691 = true := by decide
+
+/-- 9724: nibbles fold back to 38692; digit sum 22 ≡ 38692 (mod 15). -/
+theorem enumeration_hex4_9724 : reassembles 38692 = true ∧ castsFifteens 38692 = true := by decide
+
+/-- 9725: nibbles fold back to 38693; digit sum 23 ≡ 38693 (mod 15). -/
+theorem enumeration_hex4_9725 : reassembles 38693 = true ∧ castsFifteens 38693 = true := by decide
+
+/-- 9726: nibbles fold back to 38694; digit sum 24 ≡ 38694 (mod 15). -/
+theorem enumeration_hex4_9726 : reassembles 38694 = true ∧ castsFifteens 38694 = true := by decide
+
+/-- 9727: nibbles fold back to 38695; digit sum 25 ≡ 38695 (mod 15). -/
+theorem enumeration_hex4_9727 : reassembles 38695 = true ∧ castsFifteens 38695 = true := by decide
+
+/-- 9728: nibbles fold back to 38696; digit sum 26 ≡ 38696 (mod 15). -/
+theorem enumeration_hex4_9728 : reassembles 38696 = true ∧ castsFifteens 38696 = true := by decide
+
+/-- 9729: nibbles fold back to 38697; digit sum 27 ≡ 38697 (mod 15). -/
+theorem enumeration_hex4_9729 : reassembles 38697 = true ∧ castsFifteens 38697 = true := by decide
+
+/-- 972a: nibbles fold back to 38698; digit sum 28 ≡ 38698 (mod 15). -/
+theorem enumeration_hex4_972a : reassembles 38698 = true ∧ castsFifteens 38698 = true := by decide
+
+/-- 972b: nibbles fold back to 38699; digit sum 29 ≡ 38699 (mod 15). -/
+theorem enumeration_hex4_972b : reassembles 38699 = true ∧ castsFifteens 38699 = true := by decide
+
+/-- 972c: nibbles fold back to 38700; digit sum 30 ≡ 38700 (mod 15). -/
+theorem enumeration_hex4_972c : reassembles 38700 = true ∧ castsFifteens 38700 = true := by decide
+
+/-- 972d: nibbles fold back to 38701; digit sum 31 ≡ 38701 (mod 15). -/
+theorem enumeration_hex4_972d : reassembles 38701 = true ∧ castsFifteens 38701 = true := by decide
+
+/-- 972e: nibbles fold back to 38702; digit sum 32 ≡ 38702 (mod 15). -/
+theorem enumeration_hex4_972e : reassembles 38702 = true ∧ castsFifteens 38702 = true := by decide
+
+/-- 972f: nibbles fold back to 38703; digit sum 33 ≡ 38703 (mod 15). -/
+theorem enumeration_hex4_972f : reassembles 38703 = true ∧ castsFifteens 38703 = true := by decide
+
+/-- 9730: nibbles fold back to 38704; digit sum 19 ≡ 38704 (mod 15). -/
+theorem enumeration_hex4_9730 : reassembles 38704 = true ∧ castsFifteens 38704 = true := by decide
+
+/-- 9731: nibbles fold back to 38705; digit sum 20 ≡ 38705 (mod 15). -/
+theorem enumeration_hex4_9731 : reassembles 38705 = true ∧ castsFifteens 38705 = true := by decide
+
+/-- 9732: nibbles fold back to 38706; digit sum 21 ≡ 38706 (mod 15). -/
+theorem enumeration_hex4_9732 : reassembles 38706 = true ∧ castsFifteens 38706 = true := by decide
+
+/-- 9733: nibbles fold back to 38707; digit sum 22 ≡ 38707 (mod 15). -/
+theorem enumeration_hex4_9733 : reassembles 38707 = true ∧ castsFifteens 38707 = true := by decide
+
+/-- 9734: nibbles fold back to 38708; digit sum 23 ≡ 38708 (mod 15). -/
+theorem enumeration_hex4_9734 : reassembles 38708 = true ∧ castsFifteens 38708 = true := by decide
+
+/-- 9735: nibbles fold back to 38709; digit sum 24 ≡ 38709 (mod 15). -/
+theorem enumeration_hex4_9735 : reassembles 38709 = true ∧ castsFifteens 38709 = true := by decide
+
+/-- 9736: nibbles fold back to 38710; digit sum 25 ≡ 38710 (mod 15). -/
+theorem enumeration_hex4_9736 : reassembles 38710 = true ∧ castsFifteens 38710 = true := by decide
+
+/-- 9737: nibbles fold back to 38711; digit sum 26 ≡ 38711 (mod 15). -/
+theorem enumeration_hex4_9737 : reassembles 38711 = true ∧ castsFifteens 38711 = true := by decide
+
+/-- 9738: nibbles fold back to 38712; digit sum 27 ≡ 38712 (mod 15). -/
+theorem enumeration_hex4_9738 : reassembles 38712 = true ∧ castsFifteens 38712 = true := by decide
+
+/-- 9739: nibbles fold back to 38713; digit sum 28 ≡ 38713 (mod 15). -/
+theorem enumeration_hex4_9739 : reassembles 38713 = true ∧ castsFifteens 38713 = true := by decide
+
+/-- 973a: nibbles fold back to 38714; digit sum 29 ≡ 38714 (mod 15). -/
+theorem enumeration_hex4_973a : reassembles 38714 = true ∧ castsFifteens 38714 = true := by decide
+
+/-- 973b: nibbles fold back to 38715; digit sum 30 ≡ 38715 (mod 15). -/
+theorem enumeration_hex4_973b : reassembles 38715 = true ∧ castsFifteens 38715 = true := by decide
+
+/-- 973c: nibbles fold back to 38716; digit sum 31 ≡ 38716 (mod 15). -/
+theorem enumeration_hex4_973c : reassembles 38716 = true ∧ castsFifteens 38716 = true := by decide
+
+/-- 973d: nibbles fold back to 38717; digit sum 32 ≡ 38717 (mod 15). -/
+theorem enumeration_hex4_973d : reassembles 38717 = true ∧ castsFifteens 38717 = true := by decide
+
+/-- 973e: nibbles fold back to 38718; digit sum 33 ≡ 38718 (mod 15). -/
+theorem enumeration_hex4_973e : reassembles 38718 = true ∧ castsFifteens 38718 = true := by decide
+
+/-- 973f: nibbles fold back to 38719; digit sum 34 ≡ 38719 (mod 15). -/
+theorem enumeration_hex4_973f : reassembles 38719 = true ∧ castsFifteens 38719 = true := by decide
+
+/-- 9740: nibbles fold back to 38720; digit sum 20 ≡ 38720 (mod 15). -/
+theorem enumeration_hex4_9740 : reassembles 38720 = true ∧ castsFifteens 38720 = true := by decide
+
+/-- 9741: nibbles fold back to 38721; digit sum 21 ≡ 38721 (mod 15). -/
+theorem enumeration_hex4_9741 : reassembles 38721 = true ∧ castsFifteens 38721 = true := by decide
+
+/-- 9742: nibbles fold back to 38722; digit sum 22 ≡ 38722 (mod 15). -/
+theorem enumeration_hex4_9742 : reassembles 38722 = true ∧ castsFifteens 38722 = true := by decide
+
+/-- 9743: nibbles fold back to 38723; digit sum 23 ≡ 38723 (mod 15). -/
+theorem enumeration_hex4_9743 : reassembles 38723 = true ∧ castsFifteens 38723 = true := by decide
+
+/-- 9744: nibbles fold back to 38724; digit sum 24 ≡ 38724 (mod 15). -/
+theorem enumeration_hex4_9744 : reassembles 38724 = true ∧ castsFifteens 38724 = true := by decide
+
+/-- 9745: nibbles fold back to 38725; digit sum 25 ≡ 38725 (mod 15). -/
+theorem enumeration_hex4_9745 : reassembles 38725 = true ∧ castsFifteens 38725 = true := by decide
+
+/-- 9746: nibbles fold back to 38726; digit sum 26 ≡ 38726 (mod 15). -/
+theorem enumeration_hex4_9746 : reassembles 38726 = true ∧ castsFifteens 38726 = true := by decide
+
+/-- 9747: nibbles fold back to 38727; digit sum 27 ≡ 38727 (mod 15). -/
+theorem enumeration_hex4_9747 : reassembles 38727 = true ∧ castsFifteens 38727 = true := by decide
+
+/-- 9748: nibbles fold back to 38728; digit sum 28 ≡ 38728 (mod 15). -/
+theorem enumeration_hex4_9748 : reassembles 38728 = true ∧ castsFifteens 38728 = true := by decide
+
+/-- 9749: nibbles fold back to 38729; digit sum 29 ≡ 38729 (mod 15). -/
+theorem enumeration_hex4_9749 : reassembles 38729 = true ∧ castsFifteens 38729 = true := by decide
+
+/-- 974a: nibbles fold back to 38730; digit sum 30 ≡ 38730 (mod 15). -/
+theorem enumeration_hex4_974a : reassembles 38730 = true ∧ castsFifteens 38730 = true := by decide
+
+/-- 974b: nibbles fold back to 38731; digit sum 31 ≡ 38731 (mod 15). -/
+theorem enumeration_hex4_974b : reassembles 38731 = true ∧ castsFifteens 38731 = true := by decide
+
+/-- 974c: nibbles fold back to 38732; digit sum 32 ≡ 38732 (mod 15). -/
+theorem enumeration_hex4_974c : reassembles 38732 = true ∧ castsFifteens 38732 = true := by decide
+
+/-- 974d: nibbles fold back to 38733; digit sum 33 ≡ 38733 (mod 15). -/
+theorem enumeration_hex4_974d : reassembles 38733 = true ∧ castsFifteens 38733 = true := by decide
+
+/-- 974e: nibbles fold back to 38734; digit sum 34 ≡ 38734 (mod 15). -/
+theorem enumeration_hex4_974e : reassembles 38734 = true ∧ castsFifteens 38734 = true := by decide
+
+/-- 974f: nibbles fold back to 38735; digit sum 35 ≡ 38735 (mod 15). -/
+theorem enumeration_hex4_974f : reassembles 38735 = true ∧ castsFifteens 38735 = true := by decide
+
+/-- 9750: nibbles fold back to 38736; digit sum 21 ≡ 38736 (mod 15). -/
+theorem enumeration_hex4_9750 : reassembles 38736 = true ∧ castsFifteens 38736 = true := by decide
+
+/-- 9751: nibbles fold back to 38737; digit sum 22 ≡ 38737 (mod 15). -/
+theorem enumeration_hex4_9751 : reassembles 38737 = true ∧ castsFifteens 38737 = true := by decide
+
+/-- 9752: nibbles fold back to 38738; digit sum 23 ≡ 38738 (mod 15). -/
+theorem enumeration_hex4_9752 : reassembles 38738 = true ∧ castsFifteens 38738 = true := by decide
+
+/-- 9753: nibbles fold back to 38739; digit sum 24 ≡ 38739 (mod 15). -/
+theorem enumeration_hex4_9753 : reassembles 38739 = true ∧ castsFifteens 38739 = true := by decide
+
+/-- 9754: nibbles fold back to 38740; digit sum 25 ≡ 38740 (mod 15). -/
+theorem enumeration_hex4_9754 : reassembles 38740 = true ∧ castsFifteens 38740 = true := by decide
+
+/-- 9755: nibbles fold back to 38741; digit sum 26 ≡ 38741 (mod 15). -/
+theorem enumeration_hex4_9755 : reassembles 38741 = true ∧ castsFifteens 38741 = true := by decide
+
+/-- 9756: nibbles fold back to 38742; digit sum 27 ≡ 38742 (mod 15). -/
+theorem enumeration_hex4_9756 : reassembles 38742 = true ∧ castsFifteens 38742 = true := by decide
+
+/-- 9757: nibbles fold back to 38743; digit sum 28 ≡ 38743 (mod 15). -/
+theorem enumeration_hex4_9757 : reassembles 38743 = true ∧ castsFifteens 38743 = true := by decide
+
+/-- 9758: nibbles fold back to 38744; digit sum 29 ≡ 38744 (mod 15). -/
+theorem enumeration_hex4_9758 : reassembles 38744 = true ∧ castsFifteens 38744 = true := by decide
+
+/-- 9759: nibbles fold back to 38745; digit sum 30 ≡ 38745 (mod 15). -/
+theorem enumeration_hex4_9759 : reassembles 38745 = true ∧ castsFifteens 38745 = true := by decide
+
+/-- 975a: nibbles fold back to 38746; digit sum 31 ≡ 38746 (mod 15). -/
+theorem enumeration_hex4_975a : reassembles 38746 = true ∧ castsFifteens 38746 = true := by decide
+
+/-- 975b: nibbles fold back to 38747; digit sum 32 ≡ 38747 (mod 15). -/
+theorem enumeration_hex4_975b : reassembles 38747 = true ∧ castsFifteens 38747 = true := by decide
+
+/-- 975c: nibbles fold back to 38748; digit sum 33 ≡ 38748 (mod 15). -/
+theorem enumeration_hex4_975c : reassembles 38748 = true ∧ castsFifteens 38748 = true := by decide
+
+/-- 975d: nibbles fold back to 38749; digit sum 34 ≡ 38749 (mod 15). -/
+theorem enumeration_hex4_975d : reassembles 38749 = true ∧ castsFifteens 38749 = true := by decide
+
+/-- 975e: nibbles fold back to 38750; digit sum 35 ≡ 38750 (mod 15). -/
+theorem enumeration_hex4_975e : reassembles 38750 = true ∧ castsFifteens 38750 = true := by decide
+
+/-- 975f: nibbles fold back to 38751; digit sum 36 ≡ 38751 (mod 15). -/
+theorem enumeration_hex4_975f : reassembles 38751 = true ∧ castsFifteens 38751 = true := by decide
+
+/-- 9760: nibbles fold back to 38752; digit sum 22 ≡ 38752 (mod 15). -/
+theorem enumeration_hex4_9760 : reassembles 38752 = true ∧ castsFifteens 38752 = true := by decide
+
+/-- 9761: nibbles fold back to 38753; digit sum 23 ≡ 38753 (mod 15). -/
+theorem enumeration_hex4_9761 : reassembles 38753 = true ∧ castsFifteens 38753 = true := by decide
+
+/-- 9762: nibbles fold back to 38754; digit sum 24 ≡ 38754 (mod 15). -/
+theorem enumeration_hex4_9762 : reassembles 38754 = true ∧ castsFifteens 38754 = true := by decide
+
+/-- 9763: nibbles fold back to 38755; digit sum 25 ≡ 38755 (mod 15). -/
+theorem enumeration_hex4_9763 : reassembles 38755 = true ∧ castsFifteens 38755 = true := by decide
+
+/-- 9764: nibbles fold back to 38756; digit sum 26 ≡ 38756 (mod 15). -/
+theorem enumeration_hex4_9764 : reassembles 38756 = true ∧ castsFifteens 38756 = true := by decide
+
+/-- 9765: nibbles fold back to 38757; digit sum 27 ≡ 38757 (mod 15). -/
+theorem enumeration_hex4_9765 : reassembles 38757 = true ∧ castsFifteens 38757 = true := by decide
+
+/-- 9766: nibbles fold back to 38758; digit sum 28 ≡ 38758 (mod 15). -/
+theorem enumeration_hex4_9766 : reassembles 38758 = true ∧ castsFifteens 38758 = true := by decide
+
+/-- 9767: nibbles fold back to 38759; digit sum 29 ≡ 38759 (mod 15). -/
+theorem enumeration_hex4_9767 : reassembles 38759 = true ∧ castsFifteens 38759 = true := by decide
+
+/-- 9768: nibbles fold back to 38760; digit sum 30 ≡ 38760 (mod 15). -/
+theorem enumeration_hex4_9768 : reassembles 38760 = true ∧ castsFifteens 38760 = true := by decide
+
+/-- 9769: nibbles fold back to 38761; digit sum 31 ≡ 38761 (mod 15). -/
+theorem enumeration_hex4_9769 : reassembles 38761 = true ∧ castsFifteens 38761 = true := by decide
+
+/-- 976a: nibbles fold back to 38762; digit sum 32 ≡ 38762 (mod 15). -/
+theorem enumeration_hex4_976a : reassembles 38762 = true ∧ castsFifteens 38762 = true := by decide
+
+/-- 976b: nibbles fold back to 38763; digit sum 33 ≡ 38763 (mod 15). -/
+theorem enumeration_hex4_976b : reassembles 38763 = true ∧ castsFifteens 38763 = true := by decide
+
+/-- 976c: nibbles fold back to 38764; digit sum 34 ≡ 38764 (mod 15). -/
+theorem enumeration_hex4_976c : reassembles 38764 = true ∧ castsFifteens 38764 = true := by decide
+
+/-- 976d: nibbles fold back to 38765; digit sum 35 ≡ 38765 (mod 15). -/
+theorem enumeration_hex4_976d : reassembles 38765 = true ∧ castsFifteens 38765 = true := by decide
+
+/-- 976e: nibbles fold back to 38766; digit sum 36 ≡ 38766 (mod 15). -/
+theorem enumeration_hex4_976e : reassembles 38766 = true ∧ castsFifteens 38766 = true := by decide
+
+/-- 976f: nibbles fold back to 38767; digit sum 37 ≡ 38767 (mod 15). -/
+theorem enumeration_hex4_976f : reassembles 38767 = true ∧ castsFifteens 38767 = true := by decide
+
+/-- 9770: nibbles fold back to 38768; digit sum 23 ≡ 38768 (mod 15). -/
+theorem enumeration_hex4_9770 : reassembles 38768 = true ∧ castsFifteens 38768 = true := by decide
+
+/-- 9771: nibbles fold back to 38769; digit sum 24 ≡ 38769 (mod 15). -/
+theorem enumeration_hex4_9771 : reassembles 38769 = true ∧ castsFifteens 38769 = true := by decide
+
+/-- 9772: nibbles fold back to 38770; digit sum 25 ≡ 38770 (mod 15). -/
+theorem enumeration_hex4_9772 : reassembles 38770 = true ∧ castsFifteens 38770 = true := by decide
+
+/-- 9773: nibbles fold back to 38771; digit sum 26 ≡ 38771 (mod 15). -/
+theorem enumeration_hex4_9773 : reassembles 38771 = true ∧ castsFifteens 38771 = true := by decide
+
+/-- 9774: nibbles fold back to 38772; digit sum 27 ≡ 38772 (mod 15). -/
+theorem enumeration_hex4_9774 : reassembles 38772 = true ∧ castsFifteens 38772 = true := by decide
+
+/-- 9775: nibbles fold back to 38773; digit sum 28 ≡ 38773 (mod 15). -/
+theorem enumeration_hex4_9775 : reassembles 38773 = true ∧ castsFifteens 38773 = true := by decide
+
+/-- 9776: nibbles fold back to 38774; digit sum 29 ≡ 38774 (mod 15). -/
+theorem enumeration_hex4_9776 : reassembles 38774 = true ∧ castsFifteens 38774 = true := by decide
+
+/-- 9777: nibbles fold back to 38775; digit sum 30 ≡ 38775 (mod 15). -/
+theorem enumeration_hex4_9777 : reassembles 38775 = true ∧ castsFifteens 38775 = true := by decide
+
+/-- 9778: nibbles fold back to 38776; digit sum 31 ≡ 38776 (mod 15). -/
+theorem enumeration_hex4_9778 : reassembles 38776 = true ∧ castsFifteens 38776 = true := by decide
+
+/-- 9779: nibbles fold back to 38777; digit sum 32 ≡ 38777 (mod 15). -/
+theorem enumeration_hex4_9779 : reassembles 38777 = true ∧ castsFifteens 38777 = true := by decide
+
+/-- 977a: nibbles fold back to 38778; digit sum 33 ≡ 38778 (mod 15). -/
+theorem enumeration_hex4_977a : reassembles 38778 = true ∧ castsFifteens 38778 = true := by decide
+
+/-- 977b: nibbles fold back to 38779; digit sum 34 ≡ 38779 (mod 15). -/
+theorem enumeration_hex4_977b : reassembles 38779 = true ∧ castsFifteens 38779 = true := by decide
+
+/-- 977c: nibbles fold back to 38780; digit sum 35 ≡ 38780 (mod 15). -/
+theorem enumeration_hex4_977c : reassembles 38780 = true ∧ castsFifteens 38780 = true := by decide
+
+/-- 977d: nibbles fold back to 38781; digit sum 36 ≡ 38781 (mod 15). -/
+theorem enumeration_hex4_977d : reassembles 38781 = true ∧ castsFifteens 38781 = true := by decide
+
+/-- 977e: nibbles fold back to 38782; digit sum 37 ≡ 38782 (mod 15). -/
+theorem enumeration_hex4_977e : reassembles 38782 = true ∧ castsFifteens 38782 = true := by decide
+
+/-- 977f: nibbles fold back to 38783; digit sum 38 ≡ 38783 (mod 15). -/
+theorem enumeration_hex4_977f : reassembles 38783 = true ∧ castsFifteens 38783 = true := by decide
+
+/-- 9780: nibbles fold back to 38784; digit sum 24 ≡ 38784 (mod 15). -/
+theorem enumeration_hex4_9780 : reassembles 38784 = true ∧ castsFifteens 38784 = true := by decide
+
+/-- 9781: nibbles fold back to 38785; digit sum 25 ≡ 38785 (mod 15). -/
+theorem enumeration_hex4_9781 : reassembles 38785 = true ∧ castsFifteens 38785 = true := by decide
+
+/-- 9782: nibbles fold back to 38786; digit sum 26 ≡ 38786 (mod 15). -/
+theorem enumeration_hex4_9782 : reassembles 38786 = true ∧ castsFifteens 38786 = true := by decide
+
+/-- 9783: nibbles fold back to 38787; digit sum 27 ≡ 38787 (mod 15). -/
+theorem enumeration_hex4_9783 : reassembles 38787 = true ∧ castsFifteens 38787 = true := by decide
+
+/-- 9784: nibbles fold back to 38788; digit sum 28 ≡ 38788 (mod 15). -/
+theorem enumeration_hex4_9784 : reassembles 38788 = true ∧ castsFifteens 38788 = true := by decide
+
+/-- 9785: nibbles fold back to 38789; digit sum 29 ≡ 38789 (mod 15). -/
+theorem enumeration_hex4_9785 : reassembles 38789 = true ∧ castsFifteens 38789 = true := by decide
+
+/-- 9786: nibbles fold back to 38790; digit sum 30 ≡ 38790 (mod 15). -/
+theorem enumeration_hex4_9786 : reassembles 38790 = true ∧ castsFifteens 38790 = true := by decide
+
+/-- 9787: nibbles fold back to 38791; digit sum 31 ≡ 38791 (mod 15). -/
+theorem enumeration_hex4_9787 : reassembles 38791 = true ∧ castsFifteens 38791 = true := by decide
+
+/-- 9788: nibbles fold back to 38792; digit sum 32 ≡ 38792 (mod 15). -/
+theorem enumeration_hex4_9788 : reassembles 38792 = true ∧ castsFifteens 38792 = true := by decide
+
+/-- 9789: nibbles fold back to 38793; digit sum 33 ≡ 38793 (mod 15). -/
+theorem enumeration_hex4_9789 : reassembles 38793 = true ∧ castsFifteens 38793 = true := by decide
+
+/-- 978a: nibbles fold back to 38794; digit sum 34 ≡ 38794 (mod 15). -/
+theorem enumeration_hex4_978a : reassembles 38794 = true ∧ castsFifteens 38794 = true := by decide
+
+/-- 978b: nibbles fold back to 38795; digit sum 35 ≡ 38795 (mod 15). -/
+theorem enumeration_hex4_978b : reassembles 38795 = true ∧ castsFifteens 38795 = true := by decide
+
+/-- 978c: nibbles fold back to 38796; digit sum 36 ≡ 38796 (mod 15). -/
+theorem enumeration_hex4_978c : reassembles 38796 = true ∧ castsFifteens 38796 = true := by decide
+
+/-- 978d: nibbles fold back to 38797; digit sum 37 ≡ 38797 (mod 15). -/
+theorem enumeration_hex4_978d : reassembles 38797 = true ∧ castsFifteens 38797 = true := by decide
+
+/-- 978e: nibbles fold back to 38798; digit sum 38 ≡ 38798 (mod 15). -/
+theorem enumeration_hex4_978e : reassembles 38798 = true ∧ castsFifteens 38798 = true := by decide
+
+/-- 978f: nibbles fold back to 38799; digit sum 39 ≡ 38799 (mod 15). -/
+theorem enumeration_hex4_978f : reassembles 38799 = true ∧ castsFifteens 38799 = true := by decide
+
+/-- 9790: nibbles fold back to 38800; digit sum 25 ≡ 38800 (mod 15). -/
+theorem enumeration_hex4_9790 : reassembles 38800 = true ∧ castsFifteens 38800 = true := by decide
+
+/-- 9791: nibbles fold back to 38801; digit sum 26 ≡ 38801 (mod 15). -/
+theorem enumeration_hex4_9791 : reassembles 38801 = true ∧ castsFifteens 38801 = true := by decide
+
+/-- 9792: nibbles fold back to 38802; digit sum 27 ≡ 38802 (mod 15). -/
+theorem enumeration_hex4_9792 : reassembles 38802 = true ∧ castsFifteens 38802 = true := by decide
+
+/-- 9793: nibbles fold back to 38803; digit sum 28 ≡ 38803 (mod 15). -/
+theorem enumeration_hex4_9793 : reassembles 38803 = true ∧ castsFifteens 38803 = true := by decide
+
+/-- 9794: nibbles fold back to 38804; digit sum 29 ≡ 38804 (mod 15). -/
+theorem enumeration_hex4_9794 : reassembles 38804 = true ∧ castsFifteens 38804 = true := by decide
+
+/-- 9795: nibbles fold back to 38805; digit sum 30 ≡ 38805 (mod 15). -/
+theorem enumeration_hex4_9795 : reassembles 38805 = true ∧ castsFifteens 38805 = true := by decide
+
+/-- 9796: nibbles fold back to 38806; digit sum 31 ≡ 38806 (mod 15). -/
+theorem enumeration_hex4_9796 : reassembles 38806 = true ∧ castsFifteens 38806 = true := by decide
+
+/-- 9797: nibbles fold back to 38807; digit sum 32 ≡ 38807 (mod 15). -/
+theorem enumeration_hex4_9797 : reassembles 38807 = true ∧ castsFifteens 38807 = true := by decide
+
+/-- 9798: nibbles fold back to 38808; digit sum 33 ≡ 38808 (mod 15). -/
+theorem enumeration_hex4_9798 : reassembles 38808 = true ∧ castsFifteens 38808 = true := by decide
+
+/-- 9799: nibbles fold back to 38809; digit sum 34 ≡ 38809 (mod 15). -/
+theorem enumeration_hex4_9799 : reassembles 38809 = true ∧ castsFifteens 38809 = true := by decide
+
+/-- 979a: nibbles fold back to 38810; digit sum 35 ≡ 38810 (mod 15). -/
+theorem enumeration_hex4_979a : reassembles 38810 = true ∧ castsFifteens 38810 = true := by decide
+
+/-- 979b: nibbles fold back to 38811; digit sum 36 ≡ 38811 (mod 15). -/
+theorem enumeration_hex4_979b : reassembles 38811 = true ∧ castsFifteens 38811 = true := by decide
+
+/-- 979c: nibbles fold back to 38812; digit sum 37 ≡ 38812 (mod 15). -/
+theorem enumeration_hex4_979c : reassembles 38812 = true ∧ castsFifteens 38812 = true := by decide
+
+/-- 979d: nibbles fold back to 38813; digit sum 38 ≡ 38813 (mod 15). -/
+theorem enumeration_hex4_979d : reassembles 38813 = true ∧ castsFifteens 38813 = true := by decide
+
+/-- 979e: nibbles fold back to 38814; digit sum 39 ≡ 38814 (mod 15). -/
+theorem enumeration_hex4_979e : reassembles 38814 = true ∧ castsFifteens 38814 = true := by decide
+
+/-- 979f: nibbles fold back to 38815; digit sum 40 ≡ 38815 (mod 15). -/
+theorem enumeration_hex4_979f : reassembles 38815 = true ∧ castsFifteens 38815 = true := by decide
+
+/-- 97a0: nibbles fold back to 38816; digit sum 26 ≡ 38816 (mod 15). -/
+theorem enumeration_hex4_97a0 : reassembles 38816 = true ∧ castsFifteens 38816 = true := by decide
+
+/-- 97a1: nibbles fold back to 38817; digit sum 27 ≡ 38817 (mod 15). -/
+theorem enumeration_hex4_97a1 : reassembles 38817 = true ∧ castsFifteens 38817 = true := by decide
+
+/-- 97a2: nibbles fold back to 38818; digit sum 28 ≡ 38818 (mod 15). -/
+theorem enumeration_hex4_97a2 : reassembles 38818 = true ∧ castsFifteens 38818 = true := by decide
+
+/-- 97a3: nibbles fold back to 38819; digit sum 29 ≡ 38819 (mod 15). -/
+theorem enumeration_hex4_97a3 : reassembles 38819 = true ∧ castsFifteens 38819 = true := by decide
+
+/-- 97a4: nibbles fold back to 38820; digit sum 30 ≡ 38820 (mod 15). -/
+theorem enumeration_hex4_97a4 : reassembles 38820 = true ∧ castsFifteens 38820 = true := by decide
+
+/-- 97a5: nibbles fold back to 38821; digit sum 31 ≡ 38821 (mod 15). -/
+theorem enumeration_hex4_97a5 : reassembles 38821 = true ∧ castsFifteens 38821 = true := by decide
+
+/-- 97a6: nibbles fold back to 38822; digit sum 32 ≡ 38822 (mod 15). -/
+theorem enumeration_hex4_97a6 : reassembles 38822 = true ∧ castsFifteens 38822 = true := by decide
+
+/-- 97a7: nibbles fold back to 38823; digit sum 33 ≡ 38823 (mod 15). -/
+theorem enumeration_hex4_97a7 : reassembles 38823 = true ∧ castsFifteens 38823 = true := by decide
+
+/-- 97a8: nibbles fold back to 38824; digit sum 34 ≡ 38824 (mod 15). -/
+theorem enumeration_hex4_97a8 : reassembles 38824 = true ∧ castsFifteens 38824 = true := by decide
+
+/-- 97a9: nibbles fold back to 38825; digit sum 35 ≡ 38825 (mod 15). -/
+theorem enumeration_hex4_97a9 : reassembles 38825 = true ∧ castsFifteens 38825 = true := by decide
+
+/-- 97aa: nibbles fold back to 38826; digit sum 36 ≡ 38826 (mod 15). -/
+theorem enumeration_hex4_97aa : reassembles 38826 = true ∧ castsFifteens 38826 = true := by decide
+
+/-- 97ab: nibbles fold back to 38827; digit sum 37 ≡ 38827 (mod 15). -/
+theorem enumeration_hex4_97ab : reassembles 38827 = true ∧ castsFifteens 38827 = true := by decide
+
+/-- 97ac: nibbles fold back to 38828; digit sum 38 ≡ 38828 (mod 15). -/
+theorem enumeration_hex4_97ac : reassembles 38828 = true ∧ castsFifteens 38828 = true := by decide
+
+/-- 97ad: nibbles fold back to 38829; digit sum 39 ≡ 38829 (mod 15). -/
+theorem enumeration_hex4_97ad : reassembles 38829 = true ∧ castsFifteens 38829 = true := by decide
+
+/-- 97ae: nibbles fold back to 38830; digit sum 40 ≡ 38830 (mod 15). -/
+theorem enumeration_hex4_97ae : reassembles 38830 = true ∧ castsFifteens 38830 = true := by decide
+
+/-- 97af: nibbles fold back to 38831; digit sum 41 ≡ 38831 (mod 15). -/
+theorem enumeration_hex4_97af : reassembles 38831 = true ∧ castsFifteens 38831 = true := by decide
+
+/-- 97b0: nibbles fold back to 38832; digit sum 27 ≡ 38832 (mod 15). -/
+theorem enumeration_hex4_97b0 : reassembles 38832 = true ∧ castsFifteens 38832 = true := by decide
+
+/-- 97b1: nibbles fold back to 38833; digit sum 28 ≡ 38833 (mod 15). -/
+theorem enumeration_hex4_97b1 : reassembles 38833 = true ∧ castsFifteens 38833 = true := by decide
+
+/-- 97b2: nibbles fold back to 38834; digit sum 29 ≡ 38834 (mod 15). -/
+theorem enumeration_hex4_97b2 : reassembles 38834 = true ∧ castsFifteens 38834 = true := by decide
+
+/-- 97b3: nibbles fold back to 38835; digit sum 30 ≡ 38835 (mod 15). -/
+theorem enumeration_hex4_97b3 : reassembles 38835 = true ∧ castsFifteens 38835 = true := by decide
+
+/-- 97b4: nibbles fold back to 38836; digit sum 31 ≡ 38836 (mod 15). -/
+theorem enumeration_hex4_97b4 : reassembles 38836 = true ∧ castsFifteens 38836 = true := by decide
+
+/-- 97b5: nibbles fold back to 38837; digit sum 32 ≡ 38837 (mod 15). -/
+theorem enumeration_hex4_97b5 : reassembles 38837 = true ∧ castsFifteens 38837 = true := by decide
+
+/-- 97b6: nibbles fold back to 38838; digit sum 33 ≡ 38838 (mod 15). -/
+theorem enumeration_hex4_97b6 : reassembles 38838 = true ∧ castsFifteens 38838 = true := by decide
+
+/-- 97b7: nibbles fold back to 38839; digit sum 34 ≡ 38839 (mod 15). -/
+theorem enumeration_hex4_97b7 : reassembles 38839 = true ∧ castsFifteens 38839 = true := by decide
+
+/-- 97b8: nibbles fold back to 38840; digit sum 35 ≡ 38840 (mod 15). -/
+theorem enumeration_hex4_97b8 : reassembles 38840 = true ∧ castsFifteens 38840 = true := by decide
+
+/-- 97b9: nibbles fold back to 38841; digit sum 36 ≡ 38841 (mod 15). -/
+theorem enumeration_hex4_97b9 : reassembles 38841 = true ∧ castsFifteens 38841 = true := by decide
+
+/-- 97ba: nibbles fold back to 38842; digit sum 37 ≡ 38842 (mod 15). -/
+theorem enumeration_hex4_97ba : reassembles 38842 = true ∧ castsFifteens 38842 = true := by decide
+
+/-- 97bb: nibbles fold back to 38843; digit sum 38 ≡ 38843 (mod 15). -/
+theorem enumeration_hex4_97bb : reassembles 38843 = true ∧ castsFifteens 38843 = true := by decide
+
+/-- 97bc: nibbles fold back to 38844; digit sum 39 ≡ 38844 (mod 15). -/
+theorem enumeration_hex4_97bc : reassembles 38844 = true ∧ castsFifteens 38844 = true := by decide
+
+/-- 97bd: nibbles fold back to 38845; digit sum 40 ≡ 38845 (mod 15). -/
+theorem enumeration_hex4_97bd : reassembles 38845 = true ∧ castsFifteens 38845 = true := by decide
+
+/-- 97be: nibbles fold back to 38846; digit sum 41 ≡ 38846 (mod 15). -/
+theorem enumeration_hex4_97be : reassembles 38846 = true ∧ castsFifteens 38846 = true := by decide
+
+/-- 97bf: nibbles fold back to 38847; digit sum 42 ≡ 38847 (mod 15). -/
+theorem enumeration_hex4_97bf : reassembles 38847 = true ∧ castsFifteens 38847 = true := by decide
+
+/-- 97c0: nibbles fold back to 38848; digit sum 28 ≡ 38848 (mod 15). -/
+theorem enumeration_hex4_97c0 : reassembles 38848 = true ∧ castsFifteens 38848 = true := by decide
+
+/-- 97c1: nibbles fold back to 38849; digit sum 29 ≡ 38849 (mod 15). -/
+theorem enumeration_hex4_97c1 : reassembles 38849 = true ∧ castsFifteens 38849 = true := by decide
+
+/-- 97c2: nibbles fold back to 38850; digit sum 30 ≡ 38850 (mod 15). -/
+theorem enumeration_hex4_97c2 : reassembles 38850 = true ∧ castsFifteens 38850 = true := by decide
+
+/-- 97c3: nibbles fold back to 38851; digit sum 31 ≡ 38851 (mod 15). -/
+theorem enumeration_hex4_97c3 : reassembles 38851 = true ∧ castsFifteens 38851 = true := by decide
+
+/-- 97c4: nibbles fold back to 38852; digit sum 32 ≡ 38852 (mod 15). -/
+theorem enumeration_hex4_97c4 : reassembles 38852 = true ∧ castsFifteens 38852 = true := by decide
+
+/-- 97c5: nibbles fold back to 38853; digit sum 33 ≡ 38853 (mod 15). -/
+theorem enumeration_hex4_97c5 : reassembles 38853 = true ∧ castsFifteens 38853 = true := by decide
+
+/-- 97c6: nibbles fold back to 38854; digit sum 34 ≡ 38854 (mod 15). -/
+theorem enumeration_hex4_97c6 : reassembles 38854 = true ∧ castsFifteens 38854 = true := by decide
+
+/-- 97c7: nibbles fold back to 38855; digit sum 35 ≡ 38855 (mod 15). -/
+theorem enumeration_hex4_97c7 : reassembles 38855 = true ∧ castsFifteens 38855 = true := by decide
+
+/-- 97c8: nibbles fold back to 38856; digit sum 36 ≡ 38856 (mod 15). -/
+theorem enumeration_hex4_97c8 : reassembles 38856 = true ∧ castsFifteens 38856 = true := by decide
+
+/-- 97c9: nibbles fold back to 38857; digit sum 37 ≡ 38857 (mod 15). -/
+theorem enumeration_hex4_97c9 : reassembles 38857 = true ∧ castsFifteens 38857 = true := by decide
+
+/-- 97ca: nibbles fold back to 38858; digit sum 38 ≡ 38858 (mod 15). -/
+theorem enumeration_hex4_97ca : reassembles 38858 = true ∧ castsFifteens 38858 = true := by decide
+
+/-- 97cb: nibbles fold back to 38859; digit sum 39 ≡ 38859 (mod 15). -/
+theorem enumeration_hex4_97cb : reassembles 38859 = true ∧ castsFifteens 38859 = true := by decide
+
+/-- 97cc: nibbles fold back to 38860; digit sum 40 ≡ 38860 (mod 15). -/
+theorem enumeration_hex4_97cc : reassembles 38860 = true ∧ castsFifteens 38860 = true := by decide
+
+/-- 97cd: nibbles fold back to 38861; digit sum 41 ≡ 38861 (mod 15). -/
+theorem enumeration_hex4_97cd : reassembles 38861 = true ∧ castsFifteens 38861 = true := by decide
+
+/-- 97ce: nibbles fold back to 38862; digit sum 42 ≡ 38862 (mod 15). -/
+theorem enumeration_hex4_97ce : reassembles 38862 = true ∧ castsFifteens 38862 = true := by decide
+
+/-- 97cf: nibbles fold back to 38863; digit sum 43 ≡ 38863 (mod 15). -/
+theorem enumeration_hex4_97cf : reassembles 38863 = true ∧ castsFifteens 38863 = true := by decide
+
+/-- 97d0: nibbles fold back to 38864; digit sum 29 ≡ 38864 (mod 15). -/
+theorem enumeration_hex4_97d0 : reassembles 38864 = true ∧ castsFifteens 38864 = true := by decide
+
+/-- 97d1: nibbles fold back to 38865; digit sum 30 ≡ 38865 (mod 15). -/
+theorem enumeration_hex4_97d1 : reassembles 38865 = true ∧ castsFifteens 38865 = true := by decide
+
+/-- 97d2: nibbles fold back to 38866; digit sum 31 ≡ 38866 (mod 15). -/
+theorem enumeration_hex4_97d2 : reassembles 38866 = true ∧ castsFifteens 38866 = true := by decide
+
+/-- 97d3: nibbles fold back to 38867; digit sum 32 ≡ 38867 (mod 15). -/
+theorem enumeration_hex4_97d3 : reassembles 38867 = true ∧ castsFifteens 38867 = true := by decide
+
+/-- 97d4: nibbles fold back to 38868; digit sum 33 ≡ 38868 (mod 15). -/
+theorem enumeration_hex4_97d4 : reassembles 38868 = true ∧ castsFifteens 38868 = true := by decide
+
+/-- 97d5: nibbles fold back to 38869; digit sum 34 ≡ 38869 (mod 15). -/
+theorem enumeration_hex4_97d5 : reassembles 38869 = true ∧ castsFifteens 38869 = true := by decide
+
+/-- 97d6: nibbles fold back to 38870; digit sum 35 ≡ 38870 (mod 15). -/
+theorem enumeration_hex4_97d6 : reassembles 38870 = true ∧ castsFifteens 38870 = true := by decide
+
+/-- 97d7: nibbles fold back to 38871; digit sum 36 ≡ 38871 (mod 15). -/
+theorem enumeration_hex4_97d7 : reassembles 38871 = true ∧ castsFifteens 38871 = true := by decide
+
+/-- 97d8: nibbles fold back to 38872; digit sum 37 ≡ 38872 (mod 15). -/
+theorem enumeration_hex4_97d8 : reassembles 38872 = true ∧ castsFifteens 38872 = true := by decide
+
+/-- 97d9: nibbles fold back to 38873; digit sum 38 ≡ 38873 (mod 15). -/
+theorem enumeration_hex4_97d9 : reassembles 38873 = true ∧ castsFifteens 38873 = true := by decide
+
+/-- 97da: nibbles fold back to 38874; digit sum 39 ≡ 38874 (mod 15). -/
+theorem enumeration_hex4_97da : reassembles 38874 = true ∧ castsFifteens 38874 = true := by decide
+
+/-- 97db: nibbles fold back to 38875; digit sum 40 ≡ 38875 (mod 15). -/
+theorem enumeration_hex4_97db : reassembles 38875 = true ∧ castsFifteens 38875 = true := by decide
+
+/-- 97dc: nibbles fold back to 38876; digit sum 41 ≡ 38876 (mod 15). -/
+theorem enumeration_hex4_97dc : reassembles 38876 = true ∧ castsFifteens 38876 = true := by decide
+
+/-- 97dd: nibbles fold back to 38877; digit sum 42 ≡ 38877 (mod 15). -/
+theorem enumeration_hex4_97dd : reassembles 38877 = true ∧ castsFifteens 38877 = true := by decide
+
+/-- 97de: nibbles fold back to 38878; digit sum 43 ≡ 38878 (mod 15). -/
+theorem enumeration_hex4_97de : reassembles 38878 = true ∧ castsFifteens 38878 = true := by decide
+
+/-- 97df: nibbles fold back to 38879; digit sum 44 ≡ 38879 (mod 15). -/
+theorem enumeration_hex4_97df : reassembles 38879 = true ∧ castsFifteens 38879 = true := by decide
+
+/-- 97e0: nibbles fold back to 38880; digit sum 30 ≡ 38880 (mod 15). -/
+theorem enumeration_hex4_97e0 : reassembles 38880 = true ∧ castsFifteens 38880 = true := by decide
+
+/-- 97e1: nibbles fold back to 38881; digit sum 31 ≡ 38881 (mod 15). -/
+theorem enumeration_hex4_97e1 : reassembles 38881 = true ∧ castsFifteens 38881 = true := by decide
+
+/-- 97e2: nibbles fold back to 38882; digit sum 32 ≡ 38882 (mod 15). -/
+theorem enumeration_hex4_97e2 : reassembles 38882 = true ∧ castsFifteens 38882 = true := by decide
+
+/-- 97e3: nibbles fold back to 38883; digit sum 33 ≡ 38883 (mod 15). -/
+theorem enumeration_hex4_97e3 : reassembles 38883 = true ∧ castsFifteens 38883 = true := by decide
+
+/-- 97e4: nibbles fold back to 38884; digit sum 34 ≡ 38884 (mod 15). -/
+theorem enumeration_hex4_97e4 : reassembles 38884 = true ∧ castsFifteens 38884 = true := by decide
+
+/-- 97e5: nibbles fold back to 38885; digit sum 35 ≡ 38885 (mod 15). -/
+theorem enumeration_hex4_97e5 : reassembles 38885 = true ∧ castsFifteens 38885 = true := by decide
+
+/-- 97e6: nibbles fold back to 38886; digit sum 36 ≡ 38886 (mod 15). -/
+theorem enumeration_hex4_97e6 : reassembles 38886 = true ∧ castsFifteens 38886 = true := by decide
+
+/-- 97e7: nibbles fold back to 38887; digit sum 37 ≡ 38887 (mod 15). -/
+theorem enumeration_hex4_97e7 : reassembles 38887 = true ∧ castsFifteens 38887 = true := by decide
+
+/-- 97e8: nibbles fold back to 38888; digit sum 38 ≡ 38888 (mod 15). -/
+theorem enumeration_hex4_97e8 : reassembles 38888 = true ∧ castsFifteens 38888 = true := by decide
+
+/-- 97e9: nibbles fold back to 38889; digit sum 39 ≡ 38889 (mod 15). -/
+theorem enumeration_hex4_97e9 : reassembles 38889 = true ∧ castsFifteens 38889 = true := by decide
+
+/-- 97ea: nibbles fold back to 38890; digit sum 40 ≡ 38890 (mod 15). -/
+theorem enumeration_hex4_97ea : reassembles 38890 = true ∧ castsFifteens 38890 = true := by decide
+
+/-- 97eb: nibbles fold back to 38891; digit sum 41 ≡ 38891 (mod 15). -/
+theorem enumeration_hex4_97eb : reassembles 38891 = true ∧ castsFifteens 38891 = true := by decide
+
+/-- 97ec: nibbles fold back to 38892; digit sum 42 ≡ 38892 (mod 15). -/
+theorem enumeration_hex4_97ec : reassembles 38892 = true ∧ castsFifteens 38892 = true := by decide
+
+/-- 97ed: nibbles fold back to 38893; digit sum 43 ≡ 38893 (mod 15). -/
+theorem enumeration_hex4_97ed : reassembles 38893 = true ∧ castsFifteens 38893 = true := by decide
+
+/-- 97ee: nibbles fold back to 38894; digit sum 44 ≡ 38894 (mod 15). -/
+theorem enumeration_hex4_97ee : reassembles 38894 = true ∧ castsFifteens 38894 = true := by decide
+
+/-- 97ef: nibbles fold back to 38895; digit sum 45 ≡ 38895 (mod 15). -/
+theorem enumeration_hex4_97ef : reassembles 38895 = true ∧ castsFifteens 38895 = true := by decide
+
+/-- 97f0: nibbles fold back to 38896; digit sum 31 ≡ 38896 (mod 15). -/
+theorem enumeration_hex4_97f0 : reassembles 38896 = true ∧ castsFifteens 38896 = true := by decide
+
+/-- 97f1: nibbles fold back to 38897; digit sum 32 ≡ 38897 (mod 15). -/
+theorem enumeration_hex4_97f1 : reassembles 38897 = true ∧ castsFifteens 38897 = true := by decide
+
+/-- 97f2: nibbles fold back to 38898; digit sum 33 ≡ 38898 (mod 15). -/
+theorem enumeration_hex4_97f2 : reassembles 38898 = true ∧ castsFifteens 38898 = true := by decide
+
+/-- 97f3: nibbles fold back to 38899; digit sum 34 ≡ 38899 (mod 15). -/
+theorem enumeration_hex4_97f3 : reassembles 38899 = true ∧ castsFifteens 38899 = true := by decide
+
+/-- 97f4: nibbles fold back to 38900; digit sum 35 ≡ 38900 (mod 15). -/
+theorem enumeration_hex4_97f4 : reassembles 38900 = true ∧ castsFifteens 38900 = true := by decide
+
+/-- 97f5: nibbles fold back to 38901; digit sum 36 ≡ 38901 (mod 15). -/
+theorem enumeration_hex4_97f5 : reassembles 38901 = true ∧ castsFifteens 38901 = true := by decide
+
+/-- 97f6: nibbles fold back to 38902; digit sum 37 ≡ 38902 (mod 15). -/
+theorem enumeration_hex4_97f6 : reassembles 38902 = true ∧ castsFifteens 38902 = true := by decide
+
+/-- 97f7: nibbles fold back to 38903; digit sum 38 ≡ 38903 (mod 15). -/
+theorem enumeration_hex4_97f7 : reassembles 38903 = true ∧ castsFifteens 38903 = true := by decide
+
+/-- 97f8: nibbles fold back to 38904; digit sum 39 ≡ 38904 (mod 15). -/
+theorem enumeration_hex4_97f8 : reassembles 38904 = true ∧ castsFifteens 38904 = true := by decide
+
+/-- 97f9: nibbles fold back to 38905; digit sum 40 ≡ 38905 (mod 15). -/
+theorem enumeration_hex4_97f9 : reassembles 38905 = true ∧ castsFifteens 38905 = true := by decide
+
+/-- 97fa: nibbles fold back to 38906; digit sum 41 ≡ 38906 (mod 15). -/
+theorem enumeration_hex4_97fa : reassembles 38906 = true ∧ castsFifteens 38906 = true := by decide
+
+/-- 97fb: nibbles fold back to 38907; digit sum 42 ≡ 38907 (mod 15). -/
+theorem enumeration_hex4_97fb : reassembles 38907 = true ∧ castsFifteens 38907 = true := by decide
+
+/-- 97fc: nibbles fold back to 38908; digit sum 43 ≡ 38908 (mod 15). -/
+theorem enumeration_hex4_97fc : reassembles 38908 = true ∧ castsFifteens 38908 = true := by decide
+
+/-- 97fd: nibbles fold back to 38909; digit sum 44 ≡ 38909 (mod 15). -/
+theorem enumeration_hex4_97fd : reassembles 38909 = true ∧ castsFifteens 38909 = true := by decide
+
+/-- 97fe: nibbles fold back to 38910; digit sum 45 ≡ 38910 (mod 15). -/
+theorem enumeration_hex4_97fe : reassembles 38910 = true ∧ castsFifteens 38910 = true := by decide
+
+/-- 97ff: nibbles fold back to 38911; digit sum 46 ≡ 38911 (mod 15). -/
+theorem enumeration_hex4_97ff : reassembles 38911 = true ∧ castsFifteens 38911 = true := by decide
+
+/-- 9800: nibbles fold back to 38912; digit sum 17 ≡ 38912 (mod 15). -/
+theorem enumeration_hex4_9800 : reassembles 38912 = true ∧ castsFifteens 38912 = true := by decide
+
+/-- 9801: nibbles fold back to 38913; digit sum 18 ≡ 38913 (mod 15). -/
+theorem enumeration_hex4_9801 : reassembles 38913 = true ∧ castsFifteens 38913 = true := by decide
+
+/-- 9802: nibbles fold back to 38914; digit sum 19 ≡ 38914 (mod 15). -/
+theorem enumeration_hex4_9802 : reassembles 38914 = true ∧ castsFifteens 38914 = true := by decide
+
+/-- 9803: nibbles fold back to 38915; digit sum 20 ≡ 38915 (mod 15). -/
+theorem enumeration_hex4_9803 : reassembles 38915 = true ∧ castsFifteens 38915 = true := by decide
+
+/-- 9804: nibbles fold back to 38916; digit sum 21 ≡ 38916 (mod 15). -/
+theorem enumeration_hex4_9804 : reassembles 38916 = true ∧ castsFifteens 38916 = true := by decide
+
+/-- 9805: nibbles fold back to 38917; digit sum 22 ≡ 38917 (mod 15). -/
+theorem enumeration_hex4_9805 : reassembles 38917 = true ∧ castsFifteens 38917 = true := by decide
+
+/-- 9806: nibbles fold back to 38918; digit sum 23 ≡ 38918 (mod 15). -/
+theorem enumeration_hex4_9806 : reassembles 38918 = true ∧ castsFifteens 38918 = true := by decide
+
+/-- 9807: nibbles fold back to 38919; digit sum 24 ≡ 38919 (mod 15). -/
+theorem enumeration_hex4_9807 : reassembles 38919 = true ∧ castsFifteens 38919 = true := by decide
+
+/-- 9808: nibbles fold back to 38920; digit sum 25 ≡ 38920 (mod 15). -/
+theorem enumeration_hex4_9808 : reassembles 38920 = true ∧ castsFifteens 38920 = true := by decide
+
+/-- 9809: nibbles fold back to 38921; digit sum 26 ≡ 38921 (mod 15). -/
+theorem enumeration_hex4_9809 : reassembles 38921 = true ∧ castsFifteens 38921 = true := by decide
+
+/-- 980a: nibbles fold back to 38922; digit sum 27 ≡ 38922 (mod 15). -/
+theorem enumeration_hex4_980a : reassembles 38922 = true ∧ castsFifteens 38922 = true := by decide
+
+/-- 980b: nibbles fold back to 38923; digit sum 28 ≡ 38923 (mod 15). -/
+theorem enumeration_hex4_980b : reassembles 38923 = true ∧ castsFifteens 38923 = true := by decide
+
+/-- 980c: nibbles fold back to 38924; digit sum 29 ≡ 38924 (mod 15). -/
+theorem enumeration_hex4_980c : reassembles 38924 = true ∧ castsFifteens 38924 = true := by decide
+
+/-- 980d: nibbles fold back to 38925; digit sum 30 ≡ 38925 (mod 15). -/
+theorem enumeration_hex4_980d : reassembles 38925 = true ∧ castsFifteens 38925 = true := by decide
+
+/-- 980e: nibbles fold back to 38926; digit sum 31 ≡ 38926 (mod 15). -/
+theorem enumeration_hex4_980e : reassembles 38926 = true ∧ castsFifteens 38926 = true := by decide
+
+/-- 980f: nibbles fold back to 38927; digit sum 32 ≡ 38927 (mod 15). -/
+theorem enumeration_hex4_980f : reassembles 38927 = true ∧ castsFifteens 38927 = true := by decide
+
+/-- 9810: nibbles fold back to 38928; digit sum 18 ≡ 38928 (mod 15). -/
+theorem enumeration_hex4_9810 : reassembles 38928 = true ∧ castsFifteens 38928 = true := by decide
+
+/-- 9811: nibbles fold back to 38929; digit sum 19 ≡ 38929 (mod 15). -/
+theorem enumeration_hex4_9811 : reassembles 38929 = true ∧ castsFifteens 38929 = true := by decide
+
+/-- 9812: nibbles fold back to 38930; digit sum 20 ≡ 38930 (mod 15). -/
+theorem enumeration_hex4_9812 : reassembles 38930 = true ∧ castsFifteens 38930 = true := by decide
+
+/-- 9813: nibbles fold back to 38931; digit sum 21 ≡ 38931 (mod 15). -/
+theorem enumeration_hex4_9813 : reassembles 38931 = true ∧ castsFifteens 38931 = true := by decide
+
+/-- 9814: nibbles fold back to 38932; digit sum 22 ≡ 38932 (mod 15). -/
+theorem enumeration_hex4_9814 : reassembles 38932 = true ∧ castsFifteens 38932 = true := by decide
+
+/-- 9815: nibbles fold back to 38933; digit sum 23 ≡ 38933 (mod 15). -/
+theorem enumeration_hex4_9815 : reassembles 38933 = true ∧ castsFifteens 38933 = true := by decide
+
+/-- 9816: nibbles fold back to 38934; digit sum 24 ≡ 38934 (mod 15). -/
+theorem enumeration_hex4_9816 : reassembles 38934 = true ∧ castsFifteens 38934 = true := by decide
+
+/-- 9817: nibbles fold back to 38935; digit sum 25 ≡ 38935 (mod 15). -/
+theorem enumeration_hex4_9817 : reassembles 38935 = true ∧ castsFifteens 38935 = true := by decide
+
+/-- 9818: nibbles fold back to 38936; digit sum 26 ≡ 38936 (mod 15). -/
+theorem enumeration_hex4_9818 : reassembles 38936 = true ∧ castsFifteens 38936 = true := by decide
+
+/-- 9819: nibbles fold back to 38937; digit sum 27 ≡ 38937 (mod 15). -/
+theorem enumeration_hex4_9819 : reassembles 38937 = true ∧ castsFifteens 38937 = true := by decide
+
+/-- 981a: nibbles fold back to 38938; digit sum 28 ≡ 38938 (mod 15). -/
+theorem enumeration_hex4_981a : reassembles 38938 = true ∧ castsFifteens 38938 = true := by decide
+
+/-- 981b: nibbles fold back to 38939; digit sum 29 ≡ 38939 (mod 15). -/
+theorem enumeration_hex4_981b : reassembles 38939 = true ∧ castsFifteens 38939 = true := by decide
+
+/-- 981c: nibbles fold back to 38940; digit sum 30 ≡ 38940 (mod 15). -/
+theorem enumeration_hex4_981c : reassembles 38940 = true ∧ castsFifteens 38940 = true := by decide
+
+/-- 981d: nibbles fold back to 38941; digit sum 31 ≡ 38941 (mod 15). -/
+theorem enumeration_hex4_981d : reassembles 38941 = true ∧ castsFifteens 38941 = true := by decide
+
+/-- 981e: nibbles fold back to 38942; digit sum 32 ≡ 38942 (mod 15). -/
+theorem enumeration_hex4_981e : reassembles 38942 = true ∧ castsFifteens 38942 = true := by decide
+
+/-- 981f: nibbles fold back to 38943; digit sum 33 ≡ 38943 (mod 15). -/
+theorem enumeration_hex4_981f : reassembles 38943 = true ∧ castsFifteens 38943 = true := by decide
+
+/-- 9820: nibbles fold back to 38944; digit sum 19 ≡ 38944 (mod 15). -/
+theorem enumeration_hex4_9820 : reassembles 38944 = true ∧ castsFifteens 38944 = true := by decide
+
+/-- 9821: nibbles fold back to 38945; digit sum 20 ≡ 38945 (mod 15). -/
+theorem enumeration_hex4_9821 : reassembles 38945 = true ∧ castsFifteens 38945 = true := by decide
+
+/-- 9822: nibbles fold back to 38946; digit sum 21 ≡ 38946 (mod 15). -/
+theorem enumeration_hex4_9822 : reassembles 38946 = true ∧ castsFifteens 38946 = true := by decide
+
+/-- 9823: nibbles fold back to 38947; digit sum 22 ≡ 38947 (mod 15). -/
+theorem enumeration_hex4_9823 : reassembles 38947 = true ∧ castsFifteens 38947 = true := by decide
+
+/-- 9824: nibbles fold back to 38948; digit sum 23 ≡ 38948 (mod 15). -/
+theorem enumeration_hex4_9824 : reassembles 38948 = true ∧ castsFifteens 38948 = true := by decide
+
+/-- 9825: nibbles fold back to 38949; digit sum 24 ≡ 38949 (mod 15). -/
+theorem enumeration_hex4_9825 : reassembles 38949 = true ∧ castsFifteens 38949 = true := by decide
+
+/-- 9826: nibbles fold back to 38950; digit sum 25 ≡ 38950 (mod 15). -/
+theorem enumeration_hex4_9826 : reassembles 38950 = true ∧ castsFifteens 38950 = true := by decide
+
+/-- 9827: nibbles fold back to 38951; digit sum 26 ≡ 38951 (mod 15). -/
+theorem enumeration_hex4_9827 : reassembles 38951 = true ∧ castsFifteens 38951 = true := by decide
+
+/-- 9828: nibbles fold back to 38952; digit sum 27 ≡ 38952 (mod 15). -/
+theorem enumeration_hex4_9828 : reassembles 38952 = true ∧ castsFifteens 38952 = true := by decide
+
+/-- 9829: nibbles fold back to 38953; digit sum 28 ≡ 38953 (mod 15). -/
+theorem enumeration_hex4_9829 : reassembles 38953 = true ∧ castsFifteens 38953 = true := by decide
+
+/-- 982a: nibbles fold back to 38954; digit sum 29 ≡ 38954 (mod 15). -/
+theorem enumeration_hex4_982a : reassembles 38954 = true ∧ castsFifteens 38954 = true := by decide
+
+/-- 982b: nibbles fold back to 38955; digit sum 30 ≡ 38955 (mod 15). -/
+theorem enumeration_hex4_982b : reassembles 38955 = true ∧ castsFifteens 38955 = true := by decide
+
+/-- 982c: nibbles fold back to 38956; digit sum 31 ≡ 38956 (mod 15). -/
+theorem enumeration_hex4_982c : reassembles 38956 = true ∧ castsFifteens 38956 = true := by decide
+
+/-- 982d: nibbles fold back to 38957; digit sum 32 ≡ 38957 (mod 15). -/
+theorem enumeration_hex4_982d : reassembles 38957 = true ∧ castsFifteens 38957 = true := by decide
+
+/-- 982e: nibbles fold back to 38958; digit sum 33 ≡ 38958 (mod 15). -/
+theorem enumeration_hex4_982e : reassembles 38958 = true ∧ castsFifteens 38958 = true := by decide
+
+/-- 982f: nibbles fold back to 38959; digit sum 34 ≡ 38959 (mod 15). -/
+theorem enumeration_hex4_982f : reassembles 38959 = true ∧ castsFifteens 38959 = true := by decide
+
+/-- 9830: nibbles fold back to 38960; digit sum 20 ≡ 38960 (mod 15). -/
+theorem enumeration_hex4_9830 : reassembles 38960 = true ∧ castsFifteens 38960 = true := by decide
+
+/-- 9831: nibbles fold back to 38961; digit sum 21 ≡ 38961 (mod 15). -/
+theorem enumeration_hex4_9831 : reassembles 38961 = true ∧ castsFifteens 38961 = true := by decide
+
+/-- 9832: nibbles fold back to 38962; digit sum 22 ≡ 38962 (mod 15). -/
+theorem enumeration_hex4_9832 : reassembles 38962 = true ∧ castsFifteens 38962 = true := by decide
+
+/-- 9833: nibbles fold back to 38963; digit sum 23 ≡ 38963 (mod 15). -/
+theorem enumeration_hex4_9833 : reassembles 38963 = true ∧ castsFifteens 38963 = true := by decide
+
+/-- 9834: nibbles fold back to 38964; digit sum 24 ≡ 38964 (mod 15). -/
+theorem enumeration_hex4_9834 : reassembles 38964 = true ∧ castsFifteens 38964 = true := by decide
+
+/-- 9835: nibbles fold back to 38965; digit sum 25 ≡ 38965 (mod 15). -/
+theorem enumeration_hex4_9835 : reassembles 38965 = true ∧ castsFifteens 38965 = true := by decide
+
+/-- 9836: nibbles fold back to 38966; digit sum 26 ≡ 38966 (mod 15). -/
+theorem enumeration_hex4_9836 : reassembles 38966 = true ∧ castsFifteens 38966 = true := by decide
+
+/-- 9837: nibbles fold back to 38967; digit sum 27 ≡ 38967 (mod 15). -/
+theorem enumeration_hex4_9837 : reassembles 38967 = true ∧ castsFifteens 38967 = true := by decide
+
+/-- 9838: nibbles fold back to 38968; digit sum 28 ≡ 38968 (mod 15). -/
+theorem enumeration_hex4_9838 : reassembles 38968 = true ∧ castsFifteens 38968 = true := by decide
+
+/-- 9839: nibbles fold back to 38969; digit sum 29 ≡ 38969 (mod 15). -/
+theorem enumeration_hex4_9839 : reassembles 38969 = true ∧ castsFifteens 38969 = true := by decide
+
+/-- 983a: nibbles fold back to 38970; digit sum 30 ≡ 38970 (mod 15). -/
+theorem enumeration_hex4_983a : reassembles 38970 = true ∧ castsFifteens 38970 = true := by decide
+
+/-- 983b: nibbles fold back to 38971; digit sum 31 ≡ 38971 (mod 15). -/
+theorem enumeration_hex4_983b : reassembles 38971 = true ∧ castsFifteens 38971 = true := by decide
+
+/-- 983c: nibbles fold back to 38972; digit sum 32 ≡ 38972 (mod 15). -/
+theorem enumeration_hex4_983c : reassembles 38972 = true ∧ castsFifteens 38972 = true := by decide
+
+/-- 983d: nibbles fold back to 38973; digit sum 33 ≡ 38973 (mod 15). -/
+theorem enumeration_hex4_983d : reassembles 38973 = true ∧ castsFifteens 38973 = true := by decide
+
+/-- 983e: nibbles fold back to 38974; digit sum 34 ≡ 38974 (mod 15). -/
+theorem enumeration_hex4_983e : reassembles 38974 = true ∧ castsFifteens 38974 = true := by decide
+
+/-- 983f: nibbles fold back to 38975; digit sum 35 ≡ 38975 (mod 15). -/
+theorem enumeration_hex4_983f : reassembles 38975 = true ∧ castsFifteens 38975 = true := by decide
+
+/-- 9840: nibbles fold back to 38976; digit sum 21 ≡ 38976 (mod 15). -/
+theorem enumeration_hex4_9840 : reassembles 38976 = true ∧ castsFifteens 38976 = true := by decide
+
+/-- 9841: nibbles fold back to 38977; digit sum 22 ≡ 38977 (mod 15). -/
+theorem enumeration_hex4_9841 : reassembles 38977 = true ∧ castsFifteens 38977 = true := by decide
+
+/-- 9842: nibbles fold back to 38978; digit sum 23 ≡ 38978 (mod 15). -/
+theorem enumeration_hex4_9842 : reassembles 38978 = true ∧ castsFifteens 38978 = true := by decide
+
+/-- 9843: nibbles fold back to 38979; digit sum 24 ≡ 38979 (mod 15). -/
+theorem enumeration_hex4_9843 : reassembles 38979 = true ∧ castsFifteens 38979 = true := by decide
+
+/-- 9844: nibbles fold back to 38980; digit sum 25 ≡ 38980 (mod 15). -/
+theorem enumeration_hex4_9844 : reassembles 38980 = true ∧ castsFifteens 38980 = true := by decide
+
+/-- 9845: nibbles fold back to 38981; digit sum 26 ≡ 38981 (mod 15). -/
+theorem enumeration_hex4_9845 : reassembles 38981 = true ∧ castsFifteens 38981 = true := by decide
+
+/-- 9846: nibbles fold back to 38982; digit sum 27 ≡ 38982 (mod 15). -/
+theorem enumeration_hex4_9846 : reassembles 38982 = true ∧ castsFifteens 38982 = true := by decide
+
+/-- 9847: nibbles fold back to 38983; digit sum 28 ≡ 38983 (mod 15). -/
+theorem enumeration_hex4_9847 : reassembles 38983 = true ∧ castsFifteens 38983 = true := by decide
+
+/-- 9848: nibbles fold back to 38984; digit sum 29 ≡ 38984 (mod 15). -/
+theorem enumeration_hex4_9848 : reassembles 38984 = true ∧ castsFifteens 38984 = true := by decide
+
+/-- 9849: nibbles fold back to 38985; digit sum 30 ≡ 38985 (mod 15). -/
+theorem enumeration_hex4_9849 : reassembles 38985 = true ∧ castsFifteens 38985 = true := by decide
+
+/-- 984a: nibbles fold back to 38986; digit sum 31 ≡ 38986 (mod 15). -/
+theorem enumeration_hex4_984a : reassembles 38986 = true ∧ castsFifteens 38986 = true := by decide
+
+/-- 984b: nibbles fold back to 38987; digit sum 32 ≡ 38987 (mod 15). -/
+theorem enumeration_hex4_984b : reassembles 38987 = true ∧ castsFifteens 38987 = true := by decide
+
+/-- 984c: nibbles fold back to 38988; digit sum 33 ≡ 38988 (mod 15). -/
+theorem enumeration_hex4_984c : reassembles 38988 = true ∧ castsFifteens 38988 = true := by decide
+
+/-- 984d: nibbles fold back to 38989; digit sum 34 ≡ 38989 (mod 15). -/
+theorem enumeration_hex4_984d : reassembles 38989 = true ∧ castsFifteens 38989 = true := by decide
+
+/-- 984e: nibbles fold back to 38990; digit sum 35 ≡ 38990 (mod 15). -/
+theorem enumeration_hex4_984e : reassembles 38990 = true ∧ castsFifteens 38990 = true := by decide
+
+/-- 984f: nibbles fold back to 38991; digit sum 36 ≡ 38991 (mod 15). -/
+theorem enumeration_hex4_984f : reassembles 38991 = true ∧ castsFifteens 38991 = true := by decide
+
+/-- 9850: nibbles fold back to 38992; digit sum 22 ≡ 38992 (mod 15). -/
+theorem enumeration_hex4_9850 : reassembles 38992 = true ∧ castsFifteens 38992 = true := by decide
+
+/-- 9851: nibbles fold back to 38993; digit sum 23 ≡ 38993 (mod 15). -/
+theorem enumeration_hex4_9851 : reassembles 38993 = true ∧ castsFifteens 38993 = true := by decide
+
+/-- 9852: nibbles fold back to 38994; digit sum 24 ≡ 38994 (mod 15). -/
+theorem enumeration_hex4_9852 : reassembles 38994 = true ∧ castsFifteens 38994 = true := by decide
+
+/-- 9853: nibbles fold back to 38995; digit sum 25 ≡ 38995 (mod 15). -/
+theorem enumeration_hex4_9853 : reassembles 38995 = true ∧ castsFifteens 38995 = true := by decide
+
+/-- 9854: nibbles fold back to 38996; digit sum 26 ≡ 38996 (mod 15). -/
+theorem enumeration_hex4_9854 : reassembles 38996 = true ∧ castsFifteens 38996 = true := by decide
+
+/-- 9855: nibbles fold back to 38997; digit sum 27 ≡ 38997 (mod 15). -/
+theorem enumeration_hex4_9855 : reassembles 38997 = true ∧ castsFifteens 38997 = true := by decide
+
+/-- 9856: nibbles fold back to 38998; digit sum 28 ≡ 38998 (mod 15). -/
+theorem enumeration_hex4_9856 : reassembles 38998 = true ∧ castsFifteens 38998 = true := by decide
+
+/-- 9857: nibbles fold back to 38999; digit sum 29 ≡ 38999 (mod 15). -/
+theorem enumeration_hex4_9857 : reassembles 38999 = true ∧ castsFifteens 38999 = true := by decide
+
+/-- 9858: nibbles fold back to 39000; digit sum 30 ≡ 39000 (mod 15). -/
+theorem enumeration_hex4_9858 : reassembles 39000 = true ∧ castsFifteens 39000 = true := by decide
+
+/-- 9859: nibbles fold back to 39001; digit sum 31 ≡ 39001 (mod 15). -/
+theorem enumeration_hex4_9859 : reassembles 39001 = true ∧ castsFifteens 39001 = true := by decide
+
+/-- 985a: nibbles fold back to 39002; digit sum 32 ≡ 39002 (mod 15). -/
+theorem enumeration_hex4_985a : reassembles 39002 = true ∧ castsFifteens 39002 = true := by decide
+
+/-- 985b: nibbles fold back to 39003; digit sum 33 ≡ 39003 (mod 15). -/
+theorem enumeration_hex4_985b : reassembles 39003 = true ∧ castsFifteens 39003 = true := by decide
+
+/-- 985c: nibbles fold back to 39004; digit sum 34 ≡ 39004 (mod 15). -/
+theorem enumeration_hex4_985c : reassembles 39004 = true ∧ castsFifteens 39004 = true := by decide
+
+/-- 985d: nibbles fold back to 39005; digit sum 35 ≡ 39005 (mod 15). -/
+theorem enumeration_hex4_985d : reassembles 39005 = true ∧ castsFifteens 39005 = true := by decide
+
+/-- 985e: nibbles fold back to 39006; digit sum 36 ≡ 39006 (mod 15). -/
+theorem enumeration_hex4_985e : reassembles 39006 = true ∧ castsFifteens 39006 = true := by decide
+
+/-- 985f: nibbles fold back to 39007; digit sum 37 ≡ 39007 (mod 15). -/
+theorem enumeration_hex4_985f : reassembles 39007 = true ∧ castsFifteens 39007 = true := by decide
+
+/-- 9860: nibbles fold back to 39008; digit sum 23 ≡ 39008 (mod 15). -/
+theorem enumeration_hex4_9860 : reassembles 39008 = true ∧ castsFifteens 39008 = true := by decide
+
+/-- 9861: nibbles fold back to 39009; digit sum 24 ≡ 39009 (mod 15). -/
+theorem enumeration_hex4_9861 : reassembles 39009 = true ∧ castsFifteens 39009 = true := by decide
+
+/-- 9862: nibbles fold back to 39010; digit sum 25 ≡ 39010 (mod 15). -/
+theorem enumeration_hex4_9862 : reassembles 39010 = true ∧ castsFifteens 39010 = true := by decide
+
+/-- 9863: nibbles fold back to 39011; digit sum 26 ≡ 39011 (mod 15). -/
+theorem enumeration_hex4_9863 : reassembles 39011 = true ∧ castsFifteens 39011 = true := by decide
+
+/-- 9864: nibbles fold back to 39012; digit sum 27 ≡ 39012 (mod 15). -/
+theorem enumeration_hex4_9864 : reassembles 39012 = true ∧ castsFifteens 39012 = true := by decide
+
+/-- 9865: nibbles fold back to 39013; digit sum 28 ≡ 39013 (mod 15). -/
+theorem enumeration_hex4_9865 : reassembles 39013 = true ∧ castsFifteens 39013 = true := by decide
+
+/-- 9866: nibbles fold back to 39014; digit sum 29 ≡ 39014 (mod 15). -/
+theorem enumeration_hex4_9866 : reassembles 39014 = true ∧ castsFifteens 39014 = true := by decide
+
+/-- 9867: nibbles fold back to 39015; digit sum 30 ≡ 39015 (mod 15). -/
+theorem enumeration_hex4_9867 : reassembles 39015 = true ∧ castsFifteens 39015 = true := by decide
+
+/-- 9868: nibbles fold back to 39016; digit sum 31 ≡ 39016 (mod 15). -/
+theorem enumeration_hex4_9868 : reassembles 39016 = true ∧ castsFifteens 39016 = true := by decide
+
+/-- 9869: nibbles fold back to 39017; digit sum 32 ≡ 39017 (mod 15). -/
+theorem enumeration_hex4_9869 : reassembles 39017 = true ∧ castsFifteens 39017 = true := by decide
+
+/-- 986a: nibbles fold back to 39018; digit sum 33 ≡ 39018 (mod 15). -/
+theorem enumeration_hex4_986a : reassembles 39018 = true ∧ castsFifteens 39018 = true := by decide
+
+/-- 986b: nibbles fold back to 39019; digit sum 34 ≡ 39019 (mod 15). -/
+theorem enumeration_hex4_986b : reassembles 39019 = true ∧ castsFifteens 39019 = true := by decide
+
+/-- 986c: nibbles fold back to 39020; digit sum 35 ≡ 39020 (mod 15). -/
+theorem enumeration_hex4_986c : reassembles 39020 = true ∧ castsFifteens 39020 = true := by decide
+
+/-- 986d: nibbles fold back to 39021; digit sum 36 ≡ 39021 (mod 15). -/
+theorem enumeration_hex4_986d : reassembles 39021 = true ∧ castsFifteens 39021 = true := by decide
+
+/-- 986e: nibbles fold back to 39022; digit sum 37 ≡ 39022 (mod 15). -/
+theorem enumeration_hex4_986e : reassembles 39022 = true ∧ castsFifteens 39022 = true := by decide
+
+/-- 986f: nibbles fold back to 39023; digit sum 38 ≡ 39023 (mod 15). -/
+theorem enumeration_hex4_986f : reassembles 39023 = true ∧ castsFifteens 39023 = true := by decide
+
+/-- 9870: nibbles fold back to 39024; digit sum 24 ≡ 39024 (mod 15). -/
+theorem enumeration_hex4_9870 : reassembles 39024 = true ∧ castsFifteens 39024 = true := by decide
+
+/-- 9871: nibbles fold back to 39025; digit sum 25 ≡ 39025 (mod 15). -/
+theorem enumeration_hex4_9871 : reassembles 39025 = true ∧ castsFifteens 39025 = true := by decide
+
+/-- 9872: nibbles fold back to 39026; digit sum 26 ≡ 39026 (mod 15). -/
+theorem enumeration_hex4_9872 : reassembles 39026 = true ∧ castsFifteens 39026 = true := by decide
+
+/-- 9873: nibbles fold back to 39027; digit sum 27 ≡ 39027 (mod 15). -/
+theorem enumeration_hex4_9873 : reassembles 39027 = true ∧ castsFifteens 39027 = true := by decide
+
+/-- 9874: nibbles fold back to 39028; digit sum 28 ≡ 39028 (mod 15). -/
+theorem enumeration_hex4_9874 : reassembles 39028 = true ∧ castsFifteens 39028 = true := by decide
+
+/-- 9875: nibbles fold back to 39029; digit sum 29 ≡ 39029 (mod 15). -/
+theorem enumeration_hex4_9875 : reassembles 39029 = true ∧ castsFifteens 39029 = true := by decide
+
+/-- 9876: nibbles fold back to 39030; digit sum 30 ≡ 39030 (mod 15). -/
+theorem enumeration_hex4_9876 : reassembles 39030 = true ∧ castsFifteens 39030 = true := by decide
+
+/-- 9877: nibbles fold back to 39031; digit sum 31 ≡ 39031 (mod 15). -/
+theorem enumeration_hex4_9877 : reassembles 39031 = true ∧ castsFifteens 39031 = true := by decide
+
+/-- 9878: nibbles fold back to 39032; digit sum 32 ≡ 39032 (mod 15). -/
+theorem enumeration_hex4_9878 : reassembles 39032 = true ∧ castsFifteens 39032 = true := by decide
+
+/-- 9879: nibbles fold back to 39033; digit sum 33 ≡ 39033 (mod 15). -/
+theorem enumeration_hex4_9879 : reassembles 39033 = true ∧ castsFifteens 39033 = true := by decide
+
+/-- 987a: nibbles fold back to 39034; digit sum 34 ≡ 39034 (mod 15). -/
+theorem enumeration_hex4_987a : reassembles 39034 = true ∧ castsFifteens 39034 = true := by decide
+
+/-- 987b: nibbles fold back to 39035; digit sum 35 ≡ 39035 (mod 15). -/
+theorem enumeration_hex4_987b : reassembles 39035 = true ∧ castsFifteens 39035 = true := by decide
+
+/-- 987c: nibbles fold back to 39036; digit sum 36 ≡ 39036 (mod 15). -/
+theorem enumeration_hex4_987c : reassembles 39036 = true ∧ castsFifteens 39036 = true := by decide
+
+/-- 987d: nibbles fold back to 39037; digit sum 37 ≡ 39037 (mod 15). -/
+theorem enumeration_hex4_987d : reassembles 39037 = true ∧ castsFifteens 39037 = true := by decide
+
+/-- 987e: nibbles fold back to 39038; digit sum 38 ≡ 39038 (mod 15). -/
+theorem enumeration_hex4_987e : reassembles 39038 = true ∧ castsFifteens 39038 = true := by decide
+
+/-- 987f: nibbles fold back to 39039; digit sum 39 ≡ 39039 (mod 15). -/
+theorem enumeration_hex4_987f : reassembles 39039 = true ∧ castsFifteens 39039 = true := by decide
+
+/-- 9880: nibbles fold back to 39040; digit sum 25 ≡ 39040 (mod 15). -/
+theorem enumeration_hex4_9880 : reassembles 39040 = true ∧ castsFifteens 39040 = true := by decide
+
+/-- 9881: nibbles fold back to 39041; digit sum 26 ≡ 39041 (mod 15). -/
+theorem enumeration_hex4_9881 : reassembles 39041 = true ∧ castsFifteens 39041 = true := by decide
+
+/-- 9882: nibbles fold back to 39042; digit sum 27 ≡ 39042 (mod 15). -/
+theorem enumeration_hex4_9882 : reassembles 39042 = true ∧ castsFifteens 39042 = true := by decide
+
+/-- 9883: nibbles fold back to 39043; digit sum 28 ≡ 39043 (mod 15). -/
+theorem enumeration_hex4_9883 : reassembles 39043 = true ∧ castsFifteens 39043 = true := by decide
+
+/-- 9884: nibbles fold back to 39044; digit sum 29 ≡ 39044 (mod 15). -/
+theorem enumeration_hex4_9884 : reassembles 39044 = true ∧ castsFifteens 39044 = true := by decide
+
+/-- 9885: nibbles fold back to 39045; digit sum 30 ≡ 39045 (mod 15). -/
+theorem enumeration_hex4_9885 : reassembles 39045 = true ∧ castsFifteens 39045 = true := by decide
+
+/-- 9886: nibbles fold back to 39046; digit sum 31 ≡ 39046 (mod 15). -/
+theorem enumeration_hex4_9886 : reassembles 39046 = true ∧ castsFifteens 39046 = true := by decide
+
+/-- 9887: nibbles fold back to 39047; digit sum 32 ≡ 39047 (mod 15). -/
+theorem enumeration_hex4_9887 : reassembles 39047 = true ∧ castsFifteens 39047 = true := by decide
+
+/-- 9888: nibbles fold back to 39048; digit sum 33 ≡ 39048 (mod 15). -/
+theorem enumeration_hex4_9888 : reassembles 39048 = true ∧ castsFifteens 39048 = true := by decide
+
+/-- 9889: nibbles fold back to 39049; digit sum 34 ≡ 39049 (mod 15). -/
+theorem enumeration_hex4_9889 : reassembles 39049 = true ∧ castsFifteens 39049 = true := by decide
+
+/-- 988a: nibbles fold back to 39050; digit sum 35 ≡ 39050 (mod 15). -/
+theorem enumeration_hex4_988a : reassembles 39050 = true ∧ castsFifteens 39050 = true := by decide
+
+/-- 988b: nibbles fold back to 39051; digit sum 36 ≡ 39051 (mod 15). -/
+theorem enumeration_hex4_988b : reassembles 39051 = true ∧ castsFifteens 39051 = true := by decide
+
+/-- 988c: nibbles fold back to 39052; digit sum 37 ≡ 39052 (mod 15). -/
+theorem enumeration_hex4_988c : reassembles 39052 = true ∧ castsFifteens 39052 = true := by decide
+
+/-- 988d: nibbles fold back to 39053; digit sum 38 ≡ 39053 (mod 15). -/
+theorem enumeration_hex4_988d : reassembles 39053 = true ∧ castsFifteens 39053 = true := by decide
+
+/-- 988e: nibbles fold back to 39054; digit sum 39 ≡ 39054 (mod 15). -/
+theorem enumeration_hex4_988e : reassembles 39054 = true ∧ castsFifteens 39054 = true := by decide
+
+/-- 988f: nibbles fold back to 39055; digit sum 40 ≡ 39055 (mod 15). -/
+theorem enumeration_hex4_988f : reassembles 39055 = true ∧ castsFifteens 39055 = true := by decide
+
+/-- 9890: nibbles fold back to 39056; digit sum 26 ≡ 39056 (mod 15). -/
+theorem enumeration_hex4_9890 : reassembles 39056 = true ∧ castsFifteens 39056 = true := by decide
+
+/-- 9891: nibbles fold back to 39057; digit sum 27 ≡ 39057 (mod 15). -/
+theorem enumeration_hex4_9891 : reassembles 39057 = true ∧ castsFifteens 39057 = true := by decide
+
+/-- 9892: nibbles fold back to 39058; digit sum 28 ≡ 39058 (mod 15). -/
+theorem enumeration_hex4_9892 : reassembles 39058 = true ∧ castsFifteens 39058 = true := by decide
+
+/-- 9893: nibbles fold back to 39059; digit sum 29 ≡ 39059 (mod 15). -/
+theorem enumeration_hex4_9893 : reassembles 39059 = true ∧ castsFifteens 39059 = true := by decide
+
+/-- 9894: nibbles fold back to 39060; digit sum 30 ≡ 39060 (mod 15). -/
+theorem enumeration_hex4_9894 : reassembles 39060 = true ∧ castsFifteens 39060 = true := by decide
+
+/-- 9895: nibbles fold back to 39061; digit sum 31 ≡ 39061 (mod 15). -/
+theorem enumeration_hex4_9895 : reassembles 39061 = true ∧ castsFifteens 39061 = true := by decide
+
+/-- 9896: nibbles fold back to 39062; digit sum 32 ≡ 39062 (mod 15). -/
+theorem enumeration_hex4_9896 : reassembles 39062 = true ∧ castsFifteens 39062 = true := by decide
+
+/-- 9897: nibbles fold back to 39063; digit sum 33 ≡ 39063 (mod 15). -/
+theorem enumeration_hex4_9897 : reassembles 39063 = true ∧ castsFifteens 39063 = true := by decide
+
+/-- 9898: nibbles fold back to 39064; digit sum 34 ≡ 39064 (mod 15). -/
+theorem enumeration_hex4_9898 : reassembles 39064 = true ∧ castsFifteens 39064 = true := by decide
+
+/-- 9899: nibbles fold back to 39065; digit sum 35 ≡ 39065 (mod 15). -/
+theorem enumeration_hex4_9899 : reassembles 39065 = true ∧ castsFifteens 39065 = true := by decide
+
+/-- 989a: nibbles fold back to 39066; digit sum 36 ≡ 39066 (mod 15). -/
+theorem enumeration_hex4_989a : reassembles 39066 = true ∧ castsFifteens 39066 = true := by decide
+
+/-- 989b: nibbles fold back to 39067; digit sum 37 ≡ 39067 (mod 15). -/
+theorem enumeration_hex4_989b : reassembles 39067 = true ∧ castsFifteens 39067 = true := by decide
+
+/-- 989c: nibbles fold back to 39068; digit sum 38 ≡ 39068 (mod 15). -/
+theorem enumeration_hex4_989c : reassembles 39068 = true ∧ castsFifteens 39068 = true := by decide
+
+/-- 989d: nibbles fold back to 39069; digit sum 39 ≡ 39069 (mod 15). -/
+theorem enumeration_hex4_989d : reassembles 39069 = true ∧ castsFifteens 39069 = true := by decide
+
+/-- 989e: nibbles fold back to 39070; digit sum 40 ≡ 39070 (mod 15). -/
+theorem enumeration_hex4_989e : reassembles 39070 = true ∧ castsFifteens 39070 = true := by decide
+
+/-- 989f: nibbles fold back to 39071; digit sum 41 ≡ 39071 (mod 15). -/
+theorem enumeration_hex4_989f : reassembles 39071 = true ∧ castsFifteens 39071 = true := by decide
+
+/-- 98a0: nibbles fold back to 39072; digit sum 27 ≡ 39072 (mod 15). -/
+theorem enumeration_hex4_98a0 : reassembles 39072 = true ∧ castsFifteens 39072 = true := by decide
+
+/-- 98a1: nibbles fold back to 39073; digit sum 28 ≡ 39073 (mod 15). -/
+theorem enumeration_hex4_98a1 : reassembles 39073 = true ∧ castsFifteens 39073 = true := by decide
+
+/-- 98a2: nibbles fold back to 39074; digit sum 29 ≡ 39074 (mod 15). -/
+theorem enumeration_hex4_98a2 : reassembles 39074 = true ∧ castsFifteens 39074 = true := by decide
+
+/-- 98a3: nibbles fold back to 39075; digit sum 30 ≡ 39075 (mod 15). -/
+theorem enumeration_hex4_98a3 : reassembles 39075 = true ∧ castsFifteens 39075 = true := by decide
+
+/-- 98a4: nibbles fold back to 39076; digit sum 31 ≡ 39076 (mod 15). -/
+theorem enumeration_hex4_98a4 : reassembles 39076 = true ∧ castsFifteens 39076 = true := by decide
+
+/-- 98a5: nibbles fold back to 39077; digit sum 32 ≡ 39077 (mod 15). -/
+theorem enumeration_hex4_98a5 : reassembles 39077 = true ∧ castsFifteens 39077 = true := by decide
+
+/-- 98a6: nibbles fold back to 39078; digit sum 33 ≡ 39078 (mod 15). -/
+theorem enumeration_hex4_98a6 : reassembles 39078 = true ∧ castsFifteens 39078 = true := by decide
+
+/-- 98a7: nibbles fold back to 39079; digit sum 34 ≡ 39079 (mod 15). -/
+theorem enumeration_hex4_98a7 : reassembles 39079 = true ∧ castsFifteens 39079 = true := by decide
+
+/-- 98a8: nibbles fold back to 39080; digit sum 35 ≡ 39080 (mod 15). -/
+theorem enumeration_hex4_98a8 : reassembles 39080 = true ∧ castsFifteens 39080 = true := by decide
+
+/-- 98a9: nibbles fold back to 39081; digit sum 36 ≡ 39081 (mod 15). -/
+theorem enumeration_hex4_98a9 : reassembles 39081 = true ∧ castsFifteens 39081 = true := by decide
+
+/-- 98aa: nibbles fold back to 39082; digit sum 37 ≡ 39082 (mod 15). -/
+theorem enumeration_hex4_98aa : reassembles 39082 = true ∧ castsFifteens 39082 = true := by decide
+
+/-- 98ab: nibbles fold back to 39083; digit sum 38 ≡ 39083 (mod 15). -/
+theorem enumeration_hex4_98ab : reassembles 39083 = true ∧ castsFifteens 39083 = true := by decide
+
+/-- 98ac: nibbles fold back to 39084; digit sum 39 ≡ 39084 (mod 15). -/
+theorem enumeration_hex4_98ac : reassembles 39084 = true ∧ castsFifteens 39084 = true := by decide
+
+/-- 98ad: nibbles fold back to 39085; digit sum 40 ≡ 39085 (mod 15). -/
+theorem enumeration_hex4_98ad : reassembles 39085 = true ∧ castsFifteens 39085 = true := by decide
+
+/-- 98ae: nibbles fold back to 39086; digit sum 41 ≡ 39086 (mod 15). -/
+theorem enumeration_hex4_98ae : reassembles 39086 = true ∧ castsFifteens 39086 = true := by decide
+
+/-- 98af: nibbles fold back to 39087; digit sum 42 ≡ 39087 (mod 15). -/
+theorem enumeration_hex4_98af : reassembles 39087 = true ∧ castsFifteens 39087 = true := by decide
+
+/-- 98b0: nibbles fold back to 39088; digit sum 28 ≡ 39088 (mod 15). -/
+theorem enumeration_hex4_98b0 : reassembles 39088 = true ∧ castsFifteens 39088 = true := by decide
+
+/-- 98b1: nibbles fold back to 39089; digit sum 29 ≡ 39089 (mod 15). -/
+theorem enumeration_hex4_98b1 : reassembles 39089 = true ∧ castsFifteens 39089 = true := by decide
+
+/-- 98b2: nibbles fold back to 39090; digit sum 30 ≡ 39090 (mod 15). -/
+theorem enumeration_hex4_98b2 : reassembles 39090 = true ∧ castsFifteens 39090 = true := by decide
+
+/-- 98b3: nibbles fold back to 39091; digit sum 31 ≡ 39091 (mod 15). -/
+theorem enumeration_hex4_98b3 : reassembles 39091 = true ∧ castsFifteens 39091 = true := by decide
+
+/-- 98b4: nibbles fold back to 39092; digit sum 32 ≡ 39092 (mod 15). -/
+theorem enumeration_hex4_98b4 : reassembles 39092 = true ∧ castsFifteens 39092 = true := by decide
+
+/-- 98b5: nibbles fold back to 39093; digit sum 33 ≡ 39093 (mod 15). -/
+theorem enumeration_hex4_98b5 : reassembles 39093 = true ∧ castsFifteens 39093 = true := by decide
+
+/-- 98b6: nibbles fold back to 39094; digit sum 34 ≡ 39094 (mod 15). -/
+theorem enumeration_hex4_98b6 : reassembles 39094 = true ∧ castsFifteens 39094 = true := by decide
+
+/-- 98b7: nibbles fold back to 39095; digit sum 35 ≡ 39095 (mod 15). -/
+theorem enumeration_hex4_98b7 : reassembles 39095 = true ∧ castsFifteens 39095 = true := by decide
+
+/-- 98b8: nibbles fold back to 39096; digit sum 36 ≡ 39096 (mod 15). -/
+theorem enumeration_hex4_98b8 : reassembles 39096 = true ∧ castsFifteens 39096 = true := by decide
+
+/-- 98b9: nibbles fold back to 39097; digit sum 37 ≡ 39097 (mod 15). -/
+theorem enumeration_hex4_98b9 : reassembles 39097 = true ∧ castsFifteens 39097 = true := by decide
+
+/-- 98ba: nibbles fold back to 39098; digit sum 38 ≡ 39098 (mod 15). -/
+theorem enumeration_hex4_98ba : reassembles 39098 = true ∧ castsFifteens 39098 = true := by decide
+
+/-- 98bb: nibbles fold back to 39099; digit sum 39 ≡ 39099 (mod 15). -/
+theorem enumeration_hex4_98bb : reassembles 39099 = true ∧ castsFifteens 39099 = true := by decide
+
+/-- 98bc: nibbles fold back to 39100; digit sum 40 ≡ 39100 (mod 15). -/
+theorem enumeration_hex4_98bc : reassembles 39100 = true ∧ castsFifteens 39100 = true := by decide
+
+/-- 98bd: nibbles fold back to 39101; digit sum 41 ≡ 39101 (mod 15). -/
+theorem enumeration_hex4_98bd : reassembles 39101 = true ∧ castsFifteens 39101 = true := by decide
+
+/-- 98be: nibbles fold back to 39102; digit sum 42 ≡ 39102 (mod 15). -/
+theorem enumeration_hex4_98be : reassembles 39102 = true ∧ castsFifteens 39102 = true := by decide
+
+/-- 98bf: nibbles fold back to 39103; digit sum 43 ≡ 39103 (mod 15). -/
+theorem enumeration_hex4_98bf : reassembles 39103 = true ∧ castsFifteens 39103 = true := by decide
+
+/-- 98c0: nibbles fold back to 39104; digit sum 29 ≡ 39104 (mod 15). -/
+theorem enumeration_hex4_98c0 : reassembles 39104 = true ∧ castsFifteens 39104 = true := by decide
+
+/-- 98c1: nibbles fold back to 39105; digit sum 30 ≡ 39105 (mod 15). -/
+theorem enumeration_hex4_98c1 : reassembles 39105 = true ∧ castsFifteens 39105 = true := by decide
+
+/-- 98c2: nibbles fold back to 39106; digit sum 31 ≡ 39106 (mod 15). -/
+theorem enumeration_hex4_98c2 : reassembles 39106 = true ∧ castsFifteens 39106 = true := by decide
+
+/-- 98c3: nibbles fold back to 39107; digit sum 32 ≡ 39107 (mod 15). -/
+theorem enumeration_hex4_98c3 : reassembles 39107 = true ∧ castsFifteens 39107 = true := by decide
+
+/-- 98c4: nibbles fold back to 39108; digit sum 33 ≡ 39108 (mod 15). -/
+theorem enumeration_hex4_98c4 : reassembles 39108 = true ∧ castsFifteens 39108 = true := by decide
+
+/-- 98c5: nibbles fold back to 39109; digit sum 34 ≡ 39109 (mod 15). -/
+theorem enumeration_hex4_98c5 : reassembles 39109 = true ∧ castsFifteens 39109 = true := by decide
+
+/-- 98c6: nibbles fold back to 39110; digit sum 35 ≡ 39110 (mod 15). -/
+theorem enumeration_hex4_98c6 : reassembles 39110 = true ∧ castsFifteens 39110 = true := by decide
+
+/-- 98c7: nibbles fold back to 39111; digit sum 36 ≡ 39111 (mod 15). -/
+theorem enumeration_hex4_98c7 : reassembles 39111 = true ∧ castsFifteens 39111 = true := by decide
+
+/-- 98c8: nibbles fold back to 39112; digit sum 37 ≡ 39112 (mod 15). -/
+theorem enumeration_hex4_98c8 : reassembles 39112 = true ∧ castsFifteens 39112 = true := by decide
+
+/-- 98c9: nibbles fold back to 39113; digit sum 38 ≡ 39113 (mod 15). -/
+theorem enumeration_hex4_98c9 : reassembles 39113 = true ∧ castsFifteens 39113 = true := by decide
+
+/-- 98ca: nibbles fold back to 39114; digit sum 39 ≡ 39114 (mod 15). -/
+theorem enumeration_hex4_98ca : reassembles 39114 = true ∧ castsFifteens 39114 = true := by decide
+
+/-- 98cb: nibbles fold back to 39115; digit sum 40 ≡ 39115 (mod 15). -/
+theorem enumeration_hex4_98cb : reassembles 39115 = true ∧ castsFifteens 39115 = true := by decide
+
+/-- 98cc: nibbles fold back to 39116; digit sum 41 ≡ 39116 (mod 15). -/
+theorem enumeration_hex4_98cc : reassembles 39116 = true ∧ castsFifteens 39116 = true := by decide
+
+/-- 98cd: nibbles fold back to 39117; digit sum 42 ≡ 39117 (mod 15). -/
+theorem enumeration_hex4_98cd : reassembles 39117 = true ∧ castsFifteens 39117 = true := by decide
+
+/-- 98ce: nibbles fold back to 39118; digit sum 43 ≡ 39118 (mod 15). -/
+theorem enumeration_hex4_98ce : reassembles 39118 = true ∧ castsFifteens 39118 = true := by decide
+
+/-- 98cf: nibbles fold back to 39119; digit sum 44 ≡ 39119 (mod 15). -/
+theorem enumeration_hex4_98cf : reassembles 39119 = true ∧ castsFifteens 39119 = true := by decide
+
+/-- 98d0: nibbles fold back to 39120; digit sum 30 ≡ 39120 (mod 15). -/
+theorem enumeration_hex4_98d0 : reassembles 39120 = true ∧ castsFifteens 39120 = true := by decide
+
+/-- 98d1: nibbles fold back to 39121; digit sum 31 ≡ 39121 (mod 15). -/
+theorem enumeration_hex4_98d1 : reassembles 39121 = true ∧ castsFifteens 39121 = true := by decide
+
+/-- 98d2: nibbles fold back to 39122; digit sum 32 ≡ 39122 (mod 15). -/
+theorem enumeration_hex4_98d2 : reassembles 39122 = true ∧ castsFifteens 39122 = true := by decide
+
+/-- 98d3: nibbles fold back to 39123; digit sum 33 ≡ 39123 (mod 15). -/
+theorem enumeration_hex4_98d3 : reassembles 39123 = true ∧ castsFifteens 39123 = true := by decide
+
+/-- 98d4: nibbles fold back to 39124; digit sum 34 ≡ 39124 (mod 15). -/
+theorem enumeration_hex4_98d4 : reassembles 39124 = true ∧ castsFifteens 39124 = true := by decide
+
+/-- 98d5: nibbles fold back to 39125; digit sum 35 ≡ 39125 (mod 15). -/
+theorem enumeration_hex4_98d5 : reassembles 39125 = true ∧ castsFifteens 39125 = true := by decide
+
+/-- 98d6: nibbles fold back to 39126; digit sum 36 ≡ 39126 (mod 15). -/
+theorem enumeration_hex4_98d6 : reassembles 39126 = true ∧ castsFifteens 39126 = true := by decide
+
+/-- 98d7: nibbles fold back to 39127; digit sum 37 ≡ 39127 (mod 15). -/
+theorem enumeration_hex4_98d7 : reassembles 39127 = true ∧ castsFifteens 39127 = true := by decide
+
+/-- 98d8: nibbles fold back to 39128; digit sum 38 ≡ 39128 (mod 15). -/
+theorem enumeration_hex4_98d8 : reassembles 39128 = true ∧ castsFifteens 39128 = true := by decide
+
+/-- 98d9: nibbles fold back to 39129; digit sum 39 ≡ 39129 (mod 15). -/
+theorem enumeration_hex4_98d9 : reassembles 39129 = true ∧ castsFifteens 39129 = true := by decide
+
+/-- 98da: nibbles fold back to 39130; digit sum 40 ≡ 39130 (mod 15). -/
+theorem enumeration_hex4_98da : reassembles 39130 = true ∧ castsFifteens 39130 = true := by decide
+
+/-- 98db: nibbles fold back to 39131; digit sum 41 ≡ 39131 (mod 15). -/
+theorem enumeration_hex4_98db : reassembles 39131 = true ∧ castsFifteens 39131 = true := by decide
+
+/-- 98dc: nibbles fold back to 39132; digit sum 42 ≡ 39132 (mod 15). -/
+theorem enumeration_hex4_98dc : reassembles 39132 = true ∧ castsFifteens 39132 = true := by decide
+
+/-- 98dd: nibbles fold back to 39133; digit sum 43 ≡ 39133 (mod 15). -/
+theorem enumeration_hex4_98dd : reassembles 39133 = true ∧ castsFifteens 39133 = true := by decide
+
+/-- 98de: nibbles fold back to 39134; digit sum 44 ≡ 39134 (mod 15). -/
+theorem enumeration_hex4_98de : reassembles 39134 = true ∧ castsFifteens 39134 = true := by decide
+
+/-- 98df: nibbles fold back to 39135; digit sum 45 ≡ 39135 (mod 15). -/
+theorem enumeration_hex4_98df : reassembles 39135 = true ∧ castsFifteens 39135 = true := by decide
+
+/-- 98e0: nibbles fold back to 39136; digit sum 31 ≡ 39136 (mod 15). -/
+theorem enumeration_hex4_98e0 : reassembles 39136 = true ∧ castsFifteens 39136 = true := by decide
+
+/-- 98e1: nibbles fold back to 39137; digit sum 32 ≡ 39137 (mod 15). -/
+theorem enumeration_hex4_98e1 : reassembles 39137 = true ∧ castsFifteens 39137 = true := by decide
+
+/-- 98e2: nibbles fold back to 39138; digit sum 33 ≡ 39138 (mod 15). -/
+theorem enumeration_hex4_98e2 : reassembles 39138 = true ∧ castsFifteens 39138 = true := by decide
+
+/-- 98e3: nibbles fold back to 39139; digit sum 34 ≡ 39139 (mod 15). -/
+theorem enumeration_hex4_98e3 : reassembles 39139 = true ∧ castsFifteens 39139 = true := by decide
+
+/-- 98e4: nibbles fold back to 39140; digit sum 35 ≡ 39140 (mod 15). -/
+theorem enumeration_hex4_98e4 : reassembles 39140 = true ∧ castsFifteens 39140 = true := by decide
+
+/-- 98e5: nibbles fold back to 39141; digit sum 36 ≡ 39141 (mod 15). -/
+theorem enumeration_hex4_98e5 : reassembles 39141 = true ∧ castsFifteens 39141 = true := by decide
+
+/-- 98e6: nibbles fold back to 39142; digit sum 37 ≡ 39142 (mod 15). -/
+theorem enumeration_hex4_98e6 : reassembles 39142 = true ∧ castsFifteens 39142 = true := by decide
+
+/-- 98e7: nibbles fold back to 39143; digit sum 38 ≡ 39143 (mod 15). -/
+theorem enumeration_hex4_98e7 : reassembles 39143 = true ∧ castsFifteens 39143 = true := by decide
+
+/-- 98e8: nibbles fold back to 39144; digit sum 39 ≡ 39144 (mod 15). -/
+theorem enumeration_hex4_98e8 : reassembles 39144 = true ∧ castsFifteens 39144 = true := by decide
+
+/-- 98e9: nibbles fold back to 39145; digit sum 40 ≡ 39145 (mod 15). -/
+theorem enumeration_hex4_98e9 : reassembles 39145 = true ∧ castsFifteens 39145 = true := by decide
+
+/-- 98ea: nibbles fold back to 39146; digit sum 41 ≡ 39146 (mod 15). -/
+theorem enumeration_hex4_98ea : reassembles 39146 = true ∧ castsFifteens 39146 = true := by decide
+
+/-- 98eb: nibbles fold back to 39147; digit sum 42 ≡ 39147 (mod 15). -/
+theorem enumeration_hex4_98eb : reassembles 39147 = true ∧ castsFifteens 39147 = true := by decide
+
+/-- 98ec: nibbles fold back to 39148; digit sum 43 ≡ 39148 (mod 15). -/
+theorem enumeration_hex4_98ec : reassembles 39148 = true ∧ castsFifteens 39148 = true := by decide
+
+/-- 98ed: nibbles fold back to 39149; digit sum 44 ≡ 39149 (mod 15). -/
+theorem enumeration_hex4_98ed : reassembles 39149 = true ∧ castsFifteens 39149 = true := by decide
+
+/-- 98ee: nibbles fold back to 39150; digit sum 45 ≡ 39150 (mod 15). -/
+theorem enumeration_hex4_98ee : reassembles 39150 = true ∧ castsFifteens 39150 = true := by decide
+
+/-- 98ef: nibbles fold back to 39151; digit sum 46 ≡ 39151 (mod 15). -/
+theorem enumeration_hex4_98ef : reassembles 39151 = true ∧ castsFifteens 39151 = true := by decide
+
+/-- 98f0: nibbles fold back to 39152; digit sum 32 ≡ 39152 (mod 15). -/
+theorem enumeration_hex4_98f0 : reassembles 39152 = true ∧ castsFifteens 39152 = true := by decide
+
+/-- 98f1: nibbles fold back to 39153; digit sum 33 ≡ 39153 (mod 15). -/
+theorem enumeration_hex4_98f1 : reassembles 39153 = true ∧ castsFifteens 39153 = true := by decide
+
+/-- 98f2: nibbles fold back to 39154; digit sum 34 ≡ 39154 (mod 15). -/
+theorem enumeration_hex4_98f2 : reassembles 39154 = true ∧ castsFifteens 39154 = true := by decide
+
+/-- 98f3: nibbles fold back to 39155; digit sum 35 ≡ 39155 (mod 15). -/
+theorem enumeration_hex4_98f3 : reassembles 39155 = true ∧ castsFifteens 39155 = true := by decide
+
+/-- 98f4: nibbles fold back to 39156; digit sum 36 ≡ 39156 (mod 15). -/
+theorem enumeration_hex4_98f4 : reassembles 39156 = true ∧ castsFifteens 39156 = true := by decide
+
+/-- 98f5: nibbles fold back to 39157; digit sum 37 ≡ 39157 (mod 15). -/
+theorem enumeration_hex4_98f5 : reassembles 39157 = true ∧ castsFifteens 39157 = true := by decide
+
+/-- 98f6: nibbles fold back to 39158; digit sum 38 ≡ 39158 (mod 15). -/
+theorem enumeration_hex4_98f6 : reassembles 39158 = true ∧ castsFifteens 39158 = true := by decide
+
+/-- 98f7: nibbles fold back to 39159; digit sum 39 ≡ 39159 (mod 15). -/
+theorem enumeration_hex4_98f7 : reassembles 39159 = true ∧ castsFifteens 39159 = true := by decide
+
+/-- 98f8: nibbles fold back to 39160; digit sum 40 ≡ 39160 (mod 15). -/
+theorem enumeration_hex4_98f8 : reassembles 39160 = true ∧ castsFifteens 39160 = true := by decide
+
+/-- 98f9: nibbles fold back to 39161; digit sum 41 ≡ 39161 (mod 15). -/
+theorem enumeration_hex4_98f9 : reassembles 39161 = true ∧ castsFifteens 39161 = true := by decide
+
+/-- 98fa: nibbles fold back to 39162; digit sum 42 ≡ 39162 (mod 15). -/
+theorem enumeration_hex4_98fa : reassembles 39162 = true ∧ castsFifteens 39162 = true := by decide
+
+/-- 98fb: nibbles fold back to 39163; digit sum 43 ≡ 39163 (mod 15). -/
+theorem enumeration_hex4_98fb : reassembles 39163 = true ∧ castsFifteens 39163 = true := by decide
+
+/-- 98fc: nibbles fold back to 39164; digit sum 44 ≡ 39164 (mod 15). -/
+theorem enumeration_hex4_98fc : reassembles 39164 = true ∧ castsFifteens 39164 = true := by decide
+
+/-- 98fd: nibbles fold back to 39165; digit sum 45 ≡ 39165 (mod 15). -/
+theorem enumeration_hex4_98fd : reassembles 39165 = true ∧ castsFifteens 39165 = true := by decide
+
+/-- 98fe: nibbles fold back to 39166; digit sum 46 ≡ 39166 (mod 15). -/
+theorem enumeration_hex4_98fe : reassembles 39166 = true ∧ castsFifteens 39166 = true := by decide
+
+/-- 98ff: nibbles fold back to 39167; digit sum 47 ≡ 39167 (mod 15). -/
+theorem enumeration_hex4_98ff : reassembles 39167 = true ∧ castsFifteens 39167 = true := by decide
+
+/-- 9900: nibbles fold back to 39168; digit sum 18 ≡ 39168 (mod 15). -/
+theorem enumeration_hex4_9900 : reassembles 39168 = true ∧ castsFifteens 39168 = true := by decide
+
+/-- 9901: nibbles fold back to 39169; digit sum 19 ≡ 39169 (mod 15). -/
+theorem enumeration_hex4_9901 : reassembles 39169 = true ∧ castsFifteens 39169 = true := by decide
+
+/-- 9902: nibbles fold back to 39170; digit sum 20 ≡ 39170 (mod 15). -/
+theorem enumeration_hex4_9902 : reassembles 39170 = true ∧ castsFifteens 39170 = true := by decide
+
+/-- 9903: nibbles fold back to 39171; digit sum 21 ≡ 39171 (mod 15). -/
+theorem enumeration_hex4_9903 : reassembles 39171 = true ∧ castsFifteens 39171 = true := by decide
+
+/-- 9904: nibbles fold back to 39172; digit sum 22 ≡ 39172 (mod 15). -/
+theorem enumeration_hex4_9904 : reassembles 39172 = true ∧ castsFifteens 39172 = true := by decide
+
+/-- 9905: nibbles fold back to 39173; digit sum 23 ≡ 39173 (mod 15). -/
+theorem enumeration_hex4_9905 : reassembles 39173 = true ∧ castsFifteens 39173 = true := by decide
+
+/-- 9906: nibbles fold back to 39174; digit sum 24 ≡ 39174 (mod 15). -/
+theorem enumeration_hex4_9906 : reassembles 39174 = true ∧ castsFifteens 39174 = true := by decide
+
+/-- 9907: nibbles fold back to 39175; digit sum 25 ≡ 39175 (mod 15). -/
+theorem enumeration_hex4_9907 : reassembles 39175 = true ∧ castsFifteens 39175 = true := by decide
+
+/-- 9908: nibbles fold back to 39176; digit sum 26 ≡ 39176 (mod 15). -/
+theorem enumeration_hex4_9908 : reassembles 39176 = true ∧ castsFifteens 39176 = true := by decide
+
+/-- 9909: nibbles fold back to 39177; digit sum 27 ≡ 39177 (mod 15). -/
+theorem enumeration_hex4_9909 : reassembles 39177 = true ∧ castsFifteens 39177 = true := by decide
+
+/-- 990a: nibbles fold back to 39178; digit sum 28 ≡ 39178 (mod 15). -/
+theorem enumeration_hex4_990a : reassembles 39178 = true ∧ castsFifteens 39178 = true := by decide
+
+/-- 990b: nibbles fold back to 39179; digit sum 29 ≡ 39179 (mod 15). -/
+theorem enumeration_hex4_990b : reassembles 39179 = true ∧ castsFifteens 39179 = true := by decide
+
+/-- 990c: nibbles fold back to 39180; digit sum 30 ≡ 39180 (mod 15). -/
+theorem enumeration_hex4_990c : reassembles 39180 = true ∧ castsFifteens 39180 = true := by decide
+
+/-- 990d: nibbles fold back to 39181; digit sum 31 ≡ 39181 (mod 15). -/
+theorem enumeration_hex4_990d : reassembles 39181 = true ∧ castsFifteens 39181 = true := by decide
+
+/-- 990e: nibbles fold back to 39182; digit sum 32 ≡ 39182 (mod 15). -/
+theorem enumeration_hex4_990e : reassembles 39182 = true ∧ castsFifteens 39182 = true := by decide
+
+/-- 990f: nibbles fold back to 39183; digit sum 33 ≡ 39183 (mod 15). -/
+theorem enumeration_hex4_990f : reassembles 39183 = true ∧ castsFifteens 39183 = true := by decide
+
+/-- 9910: nibbles fold back to 39184; digit sum 19 ≡ 39184 (mod 15). -/
+theorem enumeration_hex4_9910 : reassembles 39184 = true ∧ castsFifteens 39184 = true := by decide
+
+/-- 9911: nibbles fold back to 39185; digit sum 20 ≡ 39185 (mod 15). -/
+theorem enumeration_hex4_9911 : reassembles 39185 = true ∧ castsFifteens 39185 = true := by decide
+
+/-- 9912: nibbles fold back to 39186; digit sum 21 ≡ 39186 (mod 15). -/
+theorem enumeration_hex4_9912 : reassembles 39186 = true ∧ castsFifteens 39186 = true := by decide
+
+/-- 9913: nibbles fold back to 39187; digit sum 22 ≡ 39187 (mod 15). -/
+theorem enumeration_hex4_9913 : reassembles 39187 = true ∧ castsFifteens 39187 = true := by decide
+
+/-- 9914: nibbles fold back to 39188; digit sum 23 ≡ 39188 (mod 15). -/
+theorem enumeration_hex4_9914 : reassembles 39188 = true ∧ castsFifteens 39188 = true := by decide
+
+/-- 9915: nibbles fold back to 39189; digit sum 24 ≡ 39189 (mod 15). -/
+theorem enumeration_hex4_9915 : reassembles 39189 = true ∧ castsFifteens 39189 = true := by decide
+
+/-- 9916: nibbles fold back to 39190; digit sum 25 ≡ 39190 (mod 15). -/
+theorem enumeration_hex4_9916 : reassembles 39190 = true ∧ castsFifteens 39190 = true := by decide
+
+/-- 9917: nibbles fold back to 39191; digit sum 26 ≡ 39191 (mod 15). -/
+theorem enumeration_hex4_9917 : reassembles 39191 = true ∧ castsFifteens 39191 = true := by decide
+
+/-- 9918: nibbles fold back to 39192; digit sum 27 ≡ 39192 (mod 15). -/
+theorem enumeration_hex4_9918 : reassembles 39192 = true ∧ castsFifteens 39192 = true := by decide
+
+/-- 9919: nibbles fold back to 39193; digit sum 28 ≡ 39193 (mod 15). -/
+theorem enumeration_hex4_9919 : reassembles 39193 = true ∧ castsFifteens 39193 = true := by decide
+
+/-- 991a: nibbles fold back to 39194; digit sum 29 ≡ 39194 (mod 15). -/
+theorem enumeration_hex4_991a : reassembles 39194 = true ∧ castsFifteens 39194 = true := by decide
+
+/-- 991b: nibbles fold back to 39195; digit sum 30 ≡ 39195 (mod 15). -/
+theorem enumeration_hex4_991b : reassembles 39195 = true ∧ castsFifteens 39195 = true := by decide
+
+/-- 991c: nibbles fold back to 39196; digit sum 31 ≡ 39196 (mod 15). -/
+theorem enumeration_hex4_991c : reassembles 39196 = true ∧ castsFifteens 39196 = true := by decide
+
+/-- 991d: nibbles fold back to 39197; digit sum 32 ≡ 39197 (mod 15). -/
+theorem enumeration_hex4_991d : reassembles 39197 = true ∧ castsFifteens 39197 = true := by decide
+
+/-- 991e: nibbles fold back to 39198; digit sum 33 ≡ 39198 (mod 15). -/
+theorem enumeration_hex4_991e : reassembles 39198 = true ∧ castsFifteens 39198 = true := by decide
+
+/-- 991f: nibbles fold back to 39199; digit sum 34 ≡ 39199 (mod 15). -/
+theorem enumeration_hex4_991f : reassembles 39199 = true ∧ castsFifteens 39199 = true := by decide
+
+/-- 9920: nibbles fold back to 39200; digit sum 20 ≡ 39200 (mod 15). -/
+theorem enumeration_hex4_9920 : reassembles 39200 = true ∧ castsFifteens 39200 = true := by decide
+
+/-- 9921: nibbles fold back to 39201; digit sum 21 ≡ 39201 (mod 15). -/
+theorem enumeration_hex4_9921 : reassembles 39201 = true ∧ castsFifteens 39201 = true := by decide
+
+/-- 9922: nibbles fold back to 39202; digit sum 22 ≡ 39202 (mod 15). -/
+theorem enumeration_hex4_9922 : reassembles 39202 = true ∧ castsFifteens 39202 = true := by decide
+
+/-- 9923: nibbles fold back to 39203; digit sum 23 ≡ 39203 (mod 15). -/
+theorem enumeration_hex4_9923 : reassembles 39203 = true ∧ castsFifteens 39203 = true := by decide
+
+/-- 9924: nibbles fold back to 39204; digit sum 24 ≡ 39204 (mod 15). -/
+theorem enumeration_hex4_9924 : reassembles 39204 = true ∧ castsFifteens 39204 = true := by decide
+
+/-- 9925: nibbles fold back to 39205; digit sum 25 ≡ 39205 (mod 15). -/
+theorem enumeration_hex4_9925 : reassembles 39205 = true ∧ castsFifteens 39205 = true := by decide
+
+/-- 9926: nibbles fold back to 39206; digit sum 26 ≡ 39206 (mod 15). -/
+theorem enumeration_hex4_9926 : reassembles 39206 = true ∧ castsFifteens 39206 = true := by decide
+
+/-- 9927: nibbles fold back to 39207; digit sum 27 ≡ 39207 (mod 15). -/
+theorem enumeration_hex4_9927 : reassembles 39207 = true ∧ castsFifteens 39207 = true := by decide
+
+/-- 9928: nibbles fold back to 39208; digit sum 28 ≡ 39208 (mod 15). -/
+theorem enumeration_hex4_9928 : reassembles 39208 = true ∧ castsFifteens 39208 = true := by decide
+
+/-- 9929: nibbles fold back to 39209; digit sum 29 ≡ 39209 (mod 15). -/
+theorem enumeration_hex4_9929 : reassembles 39209 = true ∧ castsFifteens 39209 = true := by decide
+
+/-- 992a: nibbles fold back to 39210; digit sum 30 ≡ 39210 (mod 15). -/
+theorem enumeration_hex4_992a : reassembles 39210 = true ∧ castsFifteens 39210 = true := by decide
+
+/-- 992b: nibbles fold back to 39211; digit sum 31 ≡ 39211 (mod 15). -/
+theorem enumeration_hex4_992b : reassembles 39211 = true ∧ castsFifteens 39211 = true := by decide
+
+/-- 992c: nibbles fold back to 39212; digit sum 32 ≡ 39212 (mod 15). -/
+theorem enumeration_hex4_992c : reassembles 39212 = true ∧ castsFifteens 39212 = true := by decide
+
+/-- 992d: nibbles fold back to 39213; digit sum 33 ≡ 39213 (mod 15). -/
+theorem enumeration_hex4_992d : reassembles 39213 = true ∧ castsFifteens 39213 = true := by decide
+
+/-- 992e: nibbles fold back to 39214; digit sum 34 ≡ 39214 (mod 15). -/
+theorem enumeration_hex4_992e : reassembles 39214 = true ∧ castsFifteens 39214 = true := by decide
+
+/-- 992f: nibbles fold back to 39215; digit sum 35 ≡ 39215 (mod 15). -/
+theorem enumeration_hex4_992f : reassembles 39215 = true ∧ castsFifteens 39215 = true := by decide
+
+/-- 9930: nibbles fold back to 39216; digit sum 21 ≡ 39216 (mod 15). -/
+theorem enumeration_hex4_9930 : reassembles 39216 = true ∧ castsFifteens 39216 = true := by decide
+
+/-- 9931: nibbles fold back to 39217; digit sum 22 ≡ 39217 (mod 15). -/
+theorem enumeration_hex4_9931 : reassembles 39217 = true ∧ castsFifteens 39217 = true := by decide
+
+/-- 9932: nibbles fold back to 39218; digit sum 23 ≡ 39218 (mod 15). -/
+theorem enumeration_hex4_9932 : reassembles 39218 = true ∧ castsFifteens 39218 = true := by decide
+
+/-- 9933: nibbles fold back to 39219; digit sum 24 ≡ 39219 (mod 15). -/
+theorem enumeration_hex4_9933 : reassembles 39219 = true ∧ castsFifteens 39219 = true := by decide
+
+/-- 9934: nibbles fold back to 39220; digit sum 25 ≡ 39220 (mod 15). -/
+theorem enumeration_hex4_9934 : reassembles 39220 = true ∧ castsFifteens 39220 = true := by decide
+
+/-- 9935: nibbles fold back to 39221; digit sum 26 ≡ 39221 (mod 15). -/
+theorem enumeration_hex4_9935 : reassembles 39221 = true ∧ castsFifteens 39221 = true := by decide
+
+/-- 9936: nibbles fold back to 39222; digit sum 27 ≡ 39222 (mod 15). -/
+theorem enumeration_hex4_9936 : reassembles 39222 = true ∧ castsFifteens 39222 = true := by decide
+
+/-- 9937: nibbles fold back to 39223; digit sum 28 ≡ 39223 (mod 15). -/
+theorem enumeration_hex4_9937 : reassembles 39223 = true ∧ castsFifteens 39223 = true := by decide
+
+/-- 9938: nibbles fold back to 39224; digit sum 29 ≡ 39224 (mod 15). -/
+theorem enumeration_hex4_9938 : reassembles 39224 = true ∧ castsFifteens 39224 = true := by decide
+
+/-- 9939: nibbles fold back to 39225; digit sum 30 ≡ 39225 (mod 15). -/
+theorem enumeration_hex4_9939 : reassembles 39225 = true ∧ castsFifteens 39225 = true := by decide
+
+/-- 993a: nibbles fold back to 39226; digit sum 31 ≡ 39226 (mod 15). -/
+theorem enumeration_hex4_993a : reassembles 39226 = true ∧ castsFifteens 39226 = true := by decide
+
+/-- 993b: nibbles fold back to 39227; digit sum 32 ≡ 39227 (mod 15). -/
+theorem enumeration_hex4_993b : reassembles 39227 = true ∧ castsFifteens 39227 = true := by decide
+
+/-- 993c: nibbles fold back to 39228; digit sum 33 ≡ 39228 (mod 15). -/
+theorem enumeration_hex4_993c : reassembles 39228 = true ∧ castsFifteens 39228 = true := by decide
+
+/-- 993d: nibbles fold back to 39229; digit sum 34 ≡ 39229 (mod 15). -/
+theorem enumeration_hex4_993d : reassembles 39229 = true ∧ castsFifteens 39229 = true := by decide
+
+/-- 993e: nibbles fold back to 39230; digit sum 35 ≡ 39230 (mod 15). -/
+theorem enumeration_hex4_993e : reassembles 39230 = true ∧ castsFifteens 39230 = true := by decide
+
+/-- 993f: nibbles fold back to 39231; digit sum 36 ≡ 39231 (mod 15). -/
+theorem enumeration_hex4_993f : reassembles 39231 = true ∧ castsFifteens 39231 = true := by decide
+
+/-- 9940: nibbles fold back to 39232; digit sum 22 ≡ 39232 (mod 15). -/
+theorem enumeration_hex4_9940 : reassembles 39232 = true ∧ castsFifteens 39232 = true := by decide
+
+/-- 9941: nibbles fold back to 39233; digit sum 23 ≡ 39233 (mod 15). -/
+theorem enumeration_hex4_9941 : reassembles 39233 = true ∧ castsFifteens 39233 = true := by decide
+
+/-- 9942: nibbles fold back to 39234; digit sum 24 ≡ 39234 (mod 15). -/
+theorem enumeration_hex4_9942 : reassembles 39234 = true ∧ castsFifteens 39234 = true := by decide
+
+/-- 9943: nibbles fold back to 39235; digit sum 25 ≡ 39235 (mod 15). -/
+theorem enumeration_hex4_9943 : reassembles 39235 = true ∧ castsFifteens 39235 = true := by decide
+
+/-- 9944: nibbles fold back to 39236; digit sum 26 ≡ 39236 (mod 15). -/
+theorem enumeration_hex4_9944 : reassembles 39236 = true ∧ castsFifteens 39236 = true := by decide
+
+/-- 9945: nibbles fold back to 39237; digit sum 27 ≡ 39237 (mod 15). -/
+theorem enumeration_hex4_9945 : reassembles 39237 = true ∧ castsFifteens 39237 = true := by decide
+
+/-- 9946: nibbles fold back to 39238; digit sum 28 ≡ 39238 (mod 15). -/
+theorem enumeration_hex4_9946 : reassembles 39238 = true ∧ castsFifteens 39238 = true := by decide
+
+/-- 9947: nibbles fold back to 39239; digit sum 29 ≡ 39239 (mod 15). -/
+theorem enumeration_hex4_9947 : reassembles 39239 = true ∧ castsFifteens 39239 = true := by decide
+
+/-- 9948: nibbles fold back to 39240; digit sum 30 ≡ 39240 (mod 15). -/
+theorem enumeration_hex4_9948 : reassembles 39240 = true ∧ castsFifteens 39240 = true := by decide
+
+/-- 9949: nibbles fold back to 39241; digit sum 31 ≡ 39241 (mod 15). -/
+theorem enumeration_hex4_9949 : reassembles 39241 = true ∧ castsFifteens 39241 = true := by decide
+
+/-- 994a: nibbles fold back to 39242; digit sum 32 ≡ 39242 (mod 15). -/
+theorem enumeration_hex4_994a : reassembles 39242 = true ∧ castsFifteens 39242 = true := by decide
+
+/-- 994b: nibbles fold back to 39243; digit sum 33 ≡ 39243 (mod 15). -/
+theorem enumeration_hex4_994b : reassembles 39243 = true ∧ castsFifteens 39243 = true := by decide
+
+/-- 994c: nibbles fold back to 39244; digit sum 34 ≡ 39244 (mod 15). -/
+theorem enumeration_hex4_994c : reassembles 39244 = true ∧ castsFifteens 39244 = true := by decide
+
+/-- 994d: nibbles fold back to 39245; digit sum 35 ≡ 39245 (mod 15). -/
+theorem enumeration_hex4_994d : reassembles 39245 = true ∧ castsFifteens 39245 = true := by decide
+
+/-- 994e: nibbles fold back to 39246; digit sum 36 ≡ 39246 (mod 15). -/
+theorem enumeration_hex4_994e : reassembles 39246 = true ∧ castsFifteens 39246 = true := by decide
+
+/-- 994f: nibbles fold back to 39247; digit sum 37 ≡ 39247 (mod 15). -/
+theorem enumeration_hex4_994f : reassembles 39247 = true ∧ castsFifteens 39247 = true := by decide
+
+/-- 9950: nibbles fold back to 39248; digit sum 23 ≡ 39248 (mod 15). -/
+theorem enumeration_hex4_9950 : reassembles 39248 = true ∧ castsFifteens 39248 = true := by decide
+
+/-- 9951: nibbles fold back to 39249; digit sum 24 ≡ 39249 (mod 15). -/
+theorem enumeration_hex4_9951 : reassembles 39249 = true ∧ castsFifteens 39249 = true := by decide
+
+/-- 9952: nibbles fold back to 39250; digit sum 25 ≡ 39250 (mod 15). -/
+theorem enumeration_hex4_9952 : reassembles 39250 = true ∧ castsFifteens 39250 = true := by decide
+
+/-- 9953: nibbles fold back to 39251; digit sum 26 ≡ 39251 (mod 15). -/
+theorem enumeration_hex4_9953 : reassembles 39251 = true ∧ castsFifteens 39251 = true := by decide
+
+/-- 9954: nibbles fold back to 39252; digit sum 27 ≡ 39252 (mod 15). -/
+theorem enumeration_hex4_9954 : reassembles 39252 = true ∧ castsFifteens 39252 = true := by decide
+
+/-- 9955: nibbles fold back to 39253; digit sum 28 ≡ 39253 (mod 15). -/
+theorem enumeration_hex4_9955 : reassembles 39253 = true ∧ castsFifteens 39253 = true := by decide
+
+/-- 9956: nibbles fold back to 39254; digit sum 29 ≡ 39254 (mod 15). -/
+theorem enumeration_hex4_9956 : reassembles 39254 = true ∧ castsFifteens 39254 = true := by decide
+
+/-- 9957: nibbles fold back to 39255; digit sum 30 ≡ 39255 (mod 15). -/
+theorem enumeration_hex4_9957 : reassembles 39255 = true ∧ castsFifteens 39255 = true := by decide
+
+/-- 9958: nibbles fold back to 39256; digit sum 31 ≡ 39256 (mod 15). -/
+theorem enumeration_hex4_9958 : reassembles 39256 = true ∧ castsFifteens 39256 = true := by decide
+
+/-- 9959: nibbles fold back to 39257; digit sum 32 ≡ 39257 (mod 15). -/
+theorem enumeration_hex4_9959 : reassembles 39257 = true ∧ castsFifteens 39257 = true := by decide
+
+/-- 995a: nibbles fold back to 39258; digit sum 33 ≡ 39258 (mod 15). -/
+theorem enumeration_hex4_995a : reassembles 39258 = true ∧ castsFifteens 39258 = true := by decide
+
+/-- 995b: nibbles fold back to 39259; digit sum 34 ≡ 39259 (mod 15). -/
+theorem enumeration_hex4_995b : reassembles 39259 = true ∧ castsFifteens 39259 = true := by decide
+
+/-- 995c: nibbles fold back to 39260; digit sum 35 ≡ 39260 (mod 15). -/
+theorem enumeration_hex4_995c : reassembles 39260 = true ∧ castsFifteens 39260 = true := by decide
+
+/-- 995d: nibbles fold back to 39261; digit sum 36 ≡ 39261 (mod 15). -/
+theorem enumeration_hex4_995d : reassembles 39261 = true ∧ castsFifteens 39261 = true := by decide
+
+/-- 995e: nibbles fold back to 39262; digit sum 37 ≡ 39262 (mod 15). -/
+theorem enumeration_hex4_995e : reassembles 39262 = true ∧ castsFifteens 39262 = true := by decide
+
+/-- 995f: nibbles fold back to 39263; digit sum 38 ≡ 39263 (mod 15). -/
+theorem enumeration_hex4_995f : reassembles 39263 = true ∧ castsFifteens 39263 = true := by decide
+
+/-- 9960: nibbles fold back to 39264; digit sum 24 ≡ 39264 (mod 15). -/
+theorem enumeration_hex4_9960 : reassembles 39264 = true ∧ castsFifteens 39264 = true := by decide
+
+/-- 9961: nibbles fold back to 39265; digit sum 25 ≡ 39265 (mod 15). -/
+theorem enumeration_hex4_9961 : reassembles 39265 = true ∧ castsFifteens 39265 = true := by decide
+
+/-- 9962: nibbles fold back to 39266; digit sum 26 ≡ 39266 (mod 15). -/
+theorem enumeration_hex4_9962 : reassembles 39266 = true ∧ castsFifteens 39266 = true := by decide
+
+/-- 9963: nibbles fold back to 39267; digit sum 27 ≡ 39267 (mod 15). -/
+theorem enumeration_hex4_9963 : reassembles 39267 = true ∧ castsFifteens 39267 = true := by decide
+
+/-- 9964: nibbles fold back to 39268; digit sum 28 ≡ 39268 (mod 15). -/
+theorem enumeration_hex4_9964 : reassembles 39268 = true ∧ castsFifteens 39268 = true := by decide
+
+/-- 9965: nibbles fold back to 39269; digit sum 29 ≡ 39269 (mod 15). -/
+theorem enumeration_hex4_9965 : reassembles 39269 = true ∧ castsFifteens 39269 = true := by decide
+
+/-- 9966: nibbles fold back to 39270; digit sum 30 ≡ 39270 (mod 15). -/
+theorem enumeration_hex4_9966 : reassembles 39270 = true ∧ castsFifteens 39270 = true := by decide
+
+/-- 9967: nibbles fold back to 39271; digit sum 31 ≡ 39271 (mod 15). -/
+theorem enumeration_hex4_9967 : reassembles 39271 = true ∧ castsFifteens 39271 = true := by decide
+
+/-- 9968: nibbles fold back to 39272; digit sum 32 ≡ 39272 (mod 15). -/
+theorem enumeration_hex4_9968 : reassembles 39272 = true ∧ castsFifteens 39272 = true := by decide
+
+/-- 9969: nibbles fold back to 39273; digit sum 33 ≡ 39273 (mod 15). -/
+theorem enumeration_hex4_9969 : reassembles 39273 = true ∧ castsFifteens 39273 = true := by decide
+
+/-- 996a: nibbles fold back to 39274; digit sum 34 ≡ 39274 (mod 15). -/
+theorem enumeration_hex4_996a : reassembles 39274 = true ∧ castsFifteens 39274 = true := by decide
+
+/-- 996b: nibbles fold back to 39275; digit sum 35 ≡ 39275 (mod 15). -/
+theorem enumeration_hex4_996b : reassembles 39275 = true ∧ castsFifteens 39275 = true := by decide
+
+/-- 996c: nibbles fold back to 39276; digit sum 36 ≡ 39276 (mod 15). -/
+theorem enumeration_hex4_996c : reassembles 39276 = true ∧ castsFifteens 39276 = true := by decide
+
+/-- 996d: nibbles fold back to 39277; digit sum 37 ≡ 39277 (mod 15). -/
+theorem enumeration_hex4_996d : reassembles 39277 = true ∧ castsFifteens 39277 = true := by decide
+
+/-- 996e: nibbles fold back to 39278; digit sum 38 ≡ 39278 (mod 15). -/
+theorem enumeration_hex4_996e : reassembles 39278 = true ∧ castsFifteens 39278 = true := by decide
+
+/-- 996f: nibbles fold back to 39279; digit sum 39 ≡ 39279 (mod 15). -/
+theorem enumeration_hex4_996f : reassembles 39279 = true ∧ castsFifteens 39279 = true := by decide
+
+/-- 9970: nibbles fold back to 39280; digit sum 25 ≡ 39280 (mod 15). -/
+theorem enumeration_hex4_9970 : reassembles 39280 = true ∧ castsFifteens 39280 = true := by decide
+
+/-- 9971: nibbles fold back to 39281; digit sum 26 ≡ 39281 (mod 15). -/
+theorem enumeration_hex4_9971 : reassembles 39281 = true ∧ castsFifteens 39281 = true := by decide
+
+/-- 9972: nibbles fold back to 39282; digit sum 27 ≡ 39282 (mod 15). -/
+theorem enumeration_hex4_9972 : reassembles 39282 = true ∧ castsFifteens 39282 = true := by decide
+
+/-- 9973: nibbles fold back to 39283; digit sum 28 ≡ 39283 (mod 15). -/
+theorem enumeration_hex4_9973 : reassembles 39283 = true ∧ castsFifteens 39283 = true := by decide
+
+/-- 9974: nibbles fold back to 39284; digit sum 29 ≡ 39284 (mod 15). -/
+theorem enumeration_hex4_9974 : reassembles 39284 = true ∧ castsFifteens 39284 = true := by decide
+
+/-- 9975: nibbles fold back to 39285; digit sum 30 ≡ 39285 (mod 15). -/
+theorem enumeration_hex4_9975 : reassembles 39285 = true ∧ castsFifteens 39285 = true := by decide
+
+/-- 9976: nibbles fold back to 39286; digit sum 31 ≡ 39286 (mod 15). -/
+theorem enumeration_hex4_9976 : reassembles 39286 = true ∧ castsFifteens 39286 = true := by decide
+
+/-- 9977: nibbles fold back to 39287; digit sum 32 ≡ 39287 (mod 15). -/
+theorem enumeration_hex4_9977 : reassembles 39287 = true ∧ castsFifteens 39287 = true := by decide
+
+/-- 9978: nibbles fold back to 39288; digit sum 33 ≡ 39288 (mod 15). -/
+theorem enumeration_hex4_9978 : reassembles 39288 = true ∧ castsFifteens 39288 = true := by decide
+
+/-- 9979: nibbles fold back to 39289; digit sum 34 ≡ 39289 (mod 15). -/
+theorem enumeration_hex4_9979 : reassembles 39289 = true ∧ castsFifteens 39289 = true := by decide
+
+/-- 997a: nibbles fold back to 39290; digit sum 35 ≡ 39290 (mod 15). -/
+theorem enumeration_hex4_997a : reassembles 39290 = true ∧ castsFifteens 39290 = true := by decide
+
+/-- 997b: nibbles fold back to 39291; digit sum 36 ≡ 39291 (mod 15). -/
+theorem enumeration_hex4_997b : reassembles 39291 = true ∧ castsFifteens 39291 = true := by decide
+
+/-- 997c: nibbles fold back to 39292; digit sum 37 ≡ 39292 (mod 15). -/
+theorem enumeration_hex4_997c : reassembles 39292 = true ∧ castsFifteens 39292 = true := by decide
+
+/-- 997d: nibbles fold back to 39293; digit sum 38 ≡ 39293 (mod 15). -/
+theorem enumeration_hex4_997d : reassembles 39293 = true ∧ castsFifteens 39293 = true := by decide
+
+/-- 997e: nibbles fold back to 39294; digit sum 39 ≡ 39294 (mod 15). -/
+theorem enumeration_hex4_997e : reassembles 39294 = true ∧ castsFifteens 39294 = true := by decide
+
+/-- 997f: nibbles fold back to 39295; digit sum 40 ≡ 39295 (mod 15). -/
+theorem enumeration_hex4_997f : reassembles 39295 = true ∧ castsFifteens 39295 = true := by decide
+
+/-- 9980: nibbles fold back to 39296; digit sum 26 ≡ 39296 (mod 15). -/
+theorem enumeration_hex4_9980 : reassembles 39296 = true ∧ castsFifteens 39296 = true := by decide
+
+/-- 9981: nibbles fold back to 39297; digit sum 27 ≡ 39297 (mod 15). -/
+theorem enumeration_hex4_9981 : reassembles 39297 = true ∧ castsFifteens 39297 = true := by decide
+
+/-- 9982: nibbles fold back to 39298; digit sum 28 ≡ 39298 (mod 15). -/
+theorem enumeration_hex4_9982 : reassembles 39298 = true ∧ castsFifteens 39298 = true := by decide
+
+/-- 9983: nibbles fold back to 39299; digit sum 29 ≡ 39299 (mod 15). -/
+theorem enumeration_hex4_9983 : reassembles 39299 = true ∧ castsFifteens 39299 = true := by decide
+
+/-- 9984: nibbles fold back to 39300; digit sum 30 ≡ 39300 (mod 15). -/
+theorem enumeration_hex4_9984 : reassembles 39300 = true ∧ castsFifteens 39300 = true := by decide
+
+/-- 9985: nibbles fold back to 39301; digit sum 31 ≡ 39301 (mod 15). -/
+theorem enumeration_hex4_9985 : reassembles 39301 = true ∧ castsFifteens 39301 = true := by decide
+
+/-- 9986: nibbles fold back to 39302; digit sum 32 ≡ 39302 (mod 15). -/
+theorem enumeration_hex4_9986 : reassembles 39302 = true ∧ castsFifteens 39302 = true := by decide
+
+/-- 9987: nibbles fold back to 39303; digit sum 33 ≡ 39303 (mod 15). -/
+theorem enumeration_hex4_9987 : reassembles 39303 = true ∧ castsFifteens 39303 = true := by decide
+
+/-- 9988: nibbles fold back to 39304; digit sum 34 ≡ 39304 (mod 15). -/
+theorem enumeration_hex4_9988 : reassembles 39304 = true ∧ castsFifteens 39304 = true := by decide
+
+/-- 9989: nibbles fold back to 39305; digit sum 35 ≡ 39305 (mod 15). -/
+theorem enumeration_hex4_9989 : reassembles 39305 = true ∧ castsFifteens 39305 = true := by decide
+
+/-- 998a: nibbles fold back to 39306; digit sum 36 ≡ 39306 (mod 15). -/
+theorem enumeration_hex4_998a : reassembles 39306 = true ∧ castsFifteens 39306 = true := by decide
+
+/-- 998b: nibbles fold back to 39307; digit sum 37 ≡ 39307 (mod 15). -/
+theorem enumeration_hex4_998b : reassembles 39307 = true ∧ castsFifteens 39307 = true := by decide
+
+/-- 998c: nibbles fold back to 39308; digit sum 38 ≡ 39308 (mod 15). -/
+theorem enumeration_hex4_998c : reassembles 39308 = true ∧ castsFifteens 39308 = true := by decide
+
+/-- 998d: nibbles fold back to 39309; digit sum 39 ≡ 39309 (mod 15). -/
+theorem enumeration_hex4_998d : reassembles 39309 = true ∧ castsFifteens 39309 = true := by decide
+
+/-- 998e: nibbles fold back to 39310; digit sum 40 ≡ 39310 (mod 15). -/
+theorem enumeration_hex4_998e : reassembles 39310 = true ∧ castsFifteens 39310 = true := by decide
+
+/-- 998f: nibbles fold back to 39311; digit sum 41 ≡ 39311 (mod 15). -/
+theorem enumeration_hex4_998f : reassembles 39311 = true ∧ castsFifteens 39311 = true := by decide
+
+/-- 9990: nibbles fold back to 39312; digit sum 27 ≡ 39312 (mod 15). -/
+theorem enumeration_hex4_9990 : reassembles 39312 = true ∧ castsFifteens 39312 = true := by decide
+
+/-- 9991: nibbles fold back to 39313; digit sum 28 ≡ 39313 (mod 15). -/
+theorem enumeration_hex4_9991 : reassembles 39313 = true ∧ castsFifteens 39313 = true := by decide
+
+/-- 9992: nibbles fold back to 39314; digit sum 29 ≡ 39314 (mod 15). -/
+theorem enumeration_hex4_9992 : reassembles 39314 = true ∧ castsFifteens 39314 = true := by decide
+
+/-- 9993: nibbles fold back to 39315; digit sum 30 ≡ 39315 (mod 15). -/
+theorem enumeration_hex4_9993 : reassembles 39315 = true ∧ castsFifteens 39315 = true := by decide
+
+/-- 9994: nibbles fold back to 39316; digit sum 31 ≡ 39316 (mod 15). -/
+theorem enumeration_hex4_9994 : reassembles 39316 = true ∧ castsFifteens 39316 = true := by decide
+
+/-- 9995: nibbles fold back to 39317; digit sum 32 ≡ 39317 (mod 15). -/
+theorem enumeration_hex4_9995 : reassembles 39317 = true ∧ castsFifteens 39317 = true := by decide
+
+/-- 9996: nibbles fold back to 39318; digit sum 33 ≡ 39318 (mod 15). -/
+theorem enumeration_hex4_9996 : reassembles 39318 = true ∧ castsFifteens 39318 = true := by decide
+
+/-- 9997: nibbles fold back to 39319; digit sum 34 ≡ 39319 (mod 15). -/
+theorem enumeration_hex4_9997 : reassembles 39319 = true ∧ castsFifteens 39319 = true := by decide
+
+/-- 9998: nibbles fold back to 39320; digit sum 35 ≡ 39320 (mod 15). -/
+theorem enumeration_hex4_9998 : reassembles 39320 = true ∧ castsFifteens 39320 = true := by decide
+
+/-- 9999: nibbles fold back to 39321; digit sum 36 ≡ 39321 (mod 15). -/
+theorem enumeration_hex4_9999 : reassembles 39321 = true ∧ castsFifteens 39321 = true := by decide
+
+/-- 999a: nibbles fold back to 39322; digit sum 37 ≡ 39322 (mod 15). -/
+theorem enumeration_hex4_999a : reassembles 39322 = true ∧ castsFifteens 39322 = true := by decide
+
+/-- 999b: nibbles fold back to 39323; digit sum 38 ≡ 39323 (mod 15). -/
+theorem enumeration_hex4_999b : reassembles 39323 = true ∧ castsFifteens 39323 = true := by decide
+
+/-- 999c: nibbles fold back to 39324; digit sum 39 ≡ 39324 (mod 15). -/
+theorem enumeration_hex4_999c : reassembles 39324 = true ∧ castsFifteens 39324 = true := by decide
+
+/-- 999d: nibbles fold back to 39325; digit sum 40 ≡ 39325 (mod 15). -/
+theorem enumeration_hex4_999d : reassembles 39325 = true ∧ castsFifteens 39325 = true := by decide
+
+/-- 999e: nibbles fold back to 39326; digit sum 41 ≡ 39326 (mod 15). -/
+theorem enumeration_hex4_999e : reassembles 39326 = true ∧ castsFifteens 39326 = true := by decide
+
+/-- 999f: nibbles fold back to 39327; digit sum 42 ≡ 39327 (mod 15). -/
+theorem enumeration_hex4_999f : reassembles 39327 = true ∧ castsFifteens 39327 = true := by decide
+
+/-- 99a0: nibbles fold back to 39328; digit sum 28 ≡ 39328 (mod 15). -/
+theorem enumeration_hex4_99a0 : reassembles 39328 = true ∧ castsFifteens 39328 = true := by decide
+
+/-- 99a1: nibbles fold back to 39329; digit sum 29 ≡ 39329 (mod 15). -/
+theorem enumeration_hex4_99a1 : reassembles 39329 = true ∧ castsFifteens 39329 = true := by decide
+
+/-- 99a2: nibbles fold back to 39330; digit sum 30 ≡ 39330 (mod 15). -/
+theorem enumeration_hex4_99a2 : reassembles 39330 = true ∧ castsFifteens 39330 = true := by decide
+
+/-- 99a3: nibbles fold back to 39331; digit sum 31 ≡ 39331 (mod 15). -/
+theorem enumeration_hex4_99a3 : reassembles 39331 = true ∧ castsFifteens 39331 = true := by decide
+
+/-- 99a4: nibbles fold back to 39332; digit sum 32 ≡ 39332 (mod 15). -/
+theorem enumeration_hex4_99a4 : reassembles 39332 = true ∧ castsFifteens 39332 = true := by decide
+
+/-- 99a5: nibbles fold back to 39333; digit sum 33 ≡ 39333 (mod 15). -/
+theorem enumeration_hex4_99a5 : reassembles 39333 = true ∧ castsFifteens 39333 = true := by decide
+
+/-- 99a6: nibbles fold back to 39334; digit sum 34 ≡ 39334 (mod 15). -/
+theorem enumeration_hex4_99a6 : reassembles 39334 = true ∧ castsFifteens 39334 = true := by decide
+
+/-- 99a7: nibbles fold back to 39335; digit sum 35 ≡ 39335 (mod 15). -/
+theorem enumeration_hex4_99a7 : reassembles 39335 = true ∧ castsFifteens 39335 = true := by decide
+
+/-- 99a8: nibbles fold back to 39336; digit sum 36 ≡ 39336 (mod 15). -/
+theorem enumeration_hex4_99a8 : reassembles 39336 = true ∧ castsFifteens 39336 = true := by decide
+
+/-- 99a9: nibbles fold back to 39337; digit sum 37 ≡ 39337 (mod 15). -/
+theorem enumeration_hex4_99a9 : reassembles 39337 = true ∧ castsFifteens 39337 = true := by decide
+
+/-- 99aa: nibbles fold back to 39338; digit sum 38 ≡ 39338 (mod 15). -/
+theorem enumeration_hex4_99aa : reassembles 39338 = true ∧ castsFifteens 39338 = true := by decide
+
+/-- 99ab: nibbles fold back to 39339; digit sum 39 ≡ 39339 (mod 15). -/
+theorem enumeration_hex4_99ab : reassembles 39339 = true ∧ castsFifteens 39339 = true := by decide
+
+/-- 99ac: nibbles fold back to 39340; digit sum 40 ≡ 39340 (mod 15). -/
+theorem enumeration_hex4_99ac : reassembles 39340 = true ∧ castsFifteens 39340 = true := by decide
+
+/-- 99ad: nibbles fold back to 39341; digit sum 41 ≡ 39341 (mod 15). -/
+theorem enumeration_hex4_99ad : reassembles 39341 = true ∧ castsFifteens 39341 = true := by decide
+
+/-- 99ae: nibbles fold back to 39342; digit sum 42 ≡ 39342 (mod 15). -/
+theorem enumeration_hex4_99ae : reassembles 39342 = true ∧ castsFifteens 39342 = true := by decide
+
+/-- 99af: nibbles fold back to 39343; digit sum 43 ≡ 39343 (mod 15). -/
+theorem enumeration_hex4_99af : reassembles 39343 = true ∧ castsFifteens 39343 = true := by decide
+
+/-- 99b0: nibbles fold back to 39344; digit sum 29 ≡ 39344 (mod 15). -/
+theorem enumeration_hex4_99b0 : reassembles 39344 = true ∧ castsFifteens 39344 = true := by decide
+
+/-- 99b1: nibbles fold back to 39345; digit sum 30 ≡ 39345 (mod 15). -/
+theorem enumeration_hex4_99b1 : reassembles 39345 = true ∧ castsFifteens 39345 = true := by decide
+
+/-- 99b2: nibbles fold back to 39346; digit sum 31 ≡ 39346 (mod 15). -/
+theorem enumeration_hex4_99b2 : reassembles 39346 = true ∧ castsFifteens 39346 = true := by decide
+
+/-- 99b3: nibbles fold back to 39347; digit sum 32 ≡ 39347 (mod 15). -/
+theorem enumeration_hex4_99b3 : reassembles 39347 = true ∧ castsFifteens 39347 = true := by decide
+
+/-- 99b4: nibbles fold back to 39348; digit sum 33 ≡ 39348 (mod 15). -/
+theorem enumeration_hex4_99b4 : reassembles 39348 = true ∧ castsFifteens 39348 = true := by decide
+
+/-- 99b5: nibbles fold back to 39349; digit sum 34 ≡ 39349 (mod 15). -/
+theorem enumeration_hex4_99b5 : reassembles 39349 = true ∧ castsFifteens 39349 = true := by decide
+
+/-- 99b6: nibbles fold back to 39350; digit sum 35 ≡ 39350 (mod 15). -/
+theorem enumeration_hex4_99b6 : reassembles 39350 = true ∧ castsFifteens 39350 = true := by decide
+
+/-- 99b7: nibbles fold back to 39351; digit sum 36 ≡ 39351 (mod 15). -/
+theorem enumeration_hex4_99b7 : reassembles 39351 = true ∧ castsFifteens 39351 = true := by decide
+
+/-- 99b8: nibbles fold back to 39352; digit sum 37 ≡ 39352 (mod 15). -/
+theorem enumeration_hex4_99b8 : reassembles 39352 = true ∧ castsFifteens 39352 = true := by decide
+
+/-- 99b9: nibbles fold back to 39353; digit sum 38 ≡ 39353 (mod 15). -/
+theorem enumeration_hex4_99b9 : reassembles 39353 = true ∧ castsFifteens 39353 = true := by decide
+
+/-- 99ba: nibbles fold back to 39354; digit sum 39 ≡ 39354 (mod 15). -/
+theorem enumeration_hex4_99ba : reassembles 39354 = true ∧ castsFifteens 39354 = true := by decide
+
+/-- 99bb: nibbles fold back to 39355; digit sum 40 ≡ 39355 (mod 15). -/
+theorem enumeration_hex4_99bb : reassembles 39355 = true ∧ castsFifteens 39355 = true := by decide
+
+/-- 99bc: nibbles fold back to 39356; digit sum 41 ≡ 39356 (mod 15). -/
+theorem enumeration_hex4_99bc : reassembles 39356 = true ∧ castsFifteens 39356 = true := by decide
+
+/-- 99bd: nibbles fold back to 39357; digit sum 42 ≡ 39357 (mod 15). -/
+theorem enumeration_hex4_99bd : reassembles 39357 = true ∧ castsFifteens 39357 = true := by decide
+
+/-- 99be: nibbles fold back to 39358; digit sum 43 ≡ 39358 (mod 15). -/
+theorem enumeration_hex4_99be : reassembles 39358 = true ∧ castsFifteens 39358 = true := by decide
+
+/-- 99bf: nibbles fold back to 39359; digit sum 44 ≡ 39359 (mod 15). -/
+theorem enumeration_hex4_99bf : reassembles 39359 = true ∧ castsFifteens 39359 = true := by decide
+
+/-- 99c0: nibbles fold back to 39360; digit sum 30 ≡ 39360 (mod 15). -/
+theorem enumeration_hex4_99c0 : reassembles 39360 = true ∧ castsFifteens 39360 = true := by decide
+
+/-- 99c1: nibbles fold back to 39361; digit sum 31 ≡ 39361 (mod 15). -/
+theorem enumeration_hex4_99c1 : reassembles 39361 = true ∧ castsFifteens 39361 = true := by decide
+
+/-- 99c2: nibbles fold back to 39362; digit sum 32 ≡ 39362 (mod 15). -/
+theorem enumeration_hex4_99c2 : reassembles 39362 = true ∧ castsFifteens 39362 = true := by decide
+
+/-- 99c3: nibbles fold back to 39363; digit sum 33 ≡ 39363 (mod 15). -/
+theorem enumeration_hex4_99c3 : reassembles 39363 = true ∧ castsFifteens 39363 = true := by decide
+
+/-- 99c4: nibbles fold back to 39364; digit sum 34 ≡ 39364 (mod 15). -/
+theorem enumeration_hex4_99c4 : reassembles 39364 = true ∧ castsFifteens 39364 = true := by decide
+
+/-- 99c5: nibbles fold back to 39365; digit sum 35 ≡ 39365 (mod 15). -/
+theorem enumeration_hex4_99c5 : reassembles 39365 = true ∧ castsFifteens 39365 = true := by decide
+
+/-- 99c6: nibbles fold back to 39366; digit sum 36 ≡ 39366 (mod 15). -/
+theorem enumeration_hex4_99c6 : reassembles 39366 = true ∧ castsFifteens 39366 = true := by decide
+
+/-- 99c7: nibbles fold back to 39367; digit sum 37 ≡ 39367 (mod 15). -/
+theorem enumeration_hex4_99c7 : reassembles 39367 = true ∧ castsFifteens 39367 = true := by decide
+
+/-- 99c8: nibbles fold back to 39368; digit sum 38 ≡ 39368 (mod 15). -/
+theorem enumeration_hex4_99c8 : reassembles 39368 = true ∧ castsFifteens 39368 = true := by decide
+
+/-- 99c9: nibbles fold back to 39369; digit sum 39 ≡ 39369 (mod 15). -/
+theorem enumeration_hex4_99c9 : reassembles 39369 = true ∧ castsFifteens 39369 = true := by decide
+
+/-- 99ca: nibbles fold back to 39370; digit sum 40 ≡ 39370 (mod 15). -/
+theorem enumeration_hex4_99ca : reassembles 39370 = true ∧ castsFifteens 39370 = true := by decide
+
+/-- 99cb: nibbles fold back to 39371; digit sum 41 ≡ 39371 (mod 15). -/
+theorem enumeration_hex4_99cb : reassembles 39371 = true ∧ castsFifteens 39371 = true := by decide
+
+/-- 99cc: nibbles fold back to 39372; digit sum 42 ≡ 39372 (mod 15). -/
+theorem enumeration_hex4_99cc : reassembles 39372 = true ∧ castsFifteens 39372 = true := by decide
+
+/-- 99cd: nibbles fold back to 39373; digit sum 43 ≡ 39373 (mod 15). -/
+theorem enumeration_hex4_99cd : reassembles 39373 = true ∧ castsFifteens 39373 = true := by decide
+
+/-- 99ce: nibbles fold back to 39374; digit sum 44 ≡ 39374 (mod 15). -/
+theorem enumeration_hex4_99ce : reassembles 39374 = true ∧ castsFifteens 39374 = true := by decide
+
+/-- 99cf: nibbles fold back to 39375; digit sum 45 ≡ 39375 (mod 15). -/
+theorem enumeration_hex4_99cf : reassembles 39375 = true ∧ castsFifteens 39375 = true := by decide
+
+/-- 99d0: nibbles fold back to 39376; digit sum 31 ≡ 39376 (mod 15). -/
+theorem enumeration_hex4_99d0 : reassembles 39376 = true ∧ castsFifteens 39376 = true := by decide
+
+/-- 99d1: nibbles fold back to 39377; digit sum 32 ≡ 39377 (mod 15). -/
+theorem enumeration_hex4_99d1 : reassembles 39377 = true ∧ castsFifteens 39377 = true := by decide
+
+/-- 99d2: nibbles fold back to 39378; digit sum 33 ≡ 39378 (mod 15). -/
+theorem enumeration_hex4_99d2 : reassembles 39378 = true ∧ castsFifteens 39378 = true := by decide
+
+/-- 99d3: nibbles fold back to 39379; digit sum 34 ≡ 39379 (mod 15). -/
+theorem enumeration_hex4_99d3 : reassembles 39379 = true ∧ castsFifteens 39379 = true := by decide
+
+/-- 99d4: nibbles fold back to 39380; digit sum 35 ≡ 39380 (mod 15). -/
+theorem enumeration_hex4_99d4 : reassembles 39380 = true ∧ castsFifteens 39380 = true := by decide
+
+/-- 99d5: nibbles fold back to 39381; digit sum 36 ≡ 39381 (mod 15). -/
+theorem enumeration_hex4_99d5 : reassembles 39381 = true ∧ castsFifteens 39381 = true := by decide
+
+/-- 99d6: nibbles fold back to 39382; digit sum 37 ≡ 39382 (mod 15). -/
+theorem enumeration_hex4_99d6 : reassembles 39382 = true ∧ castsFifteens 39382 = true := by decide
+
+/-- 99d7: nibbles fold back to 39383; digit sum 38 ≡ 39383 (mod 15). -/
+theorem enumeration_hex4_99d7 : reassembles 39383 = true ∧ castsFifteens 39383 = true := by decide
+
+/-- 99d8: nibbles fold back to 39384; digit sum 39 ≡ 39384 (mod 15). -/
+theorem enumeration_hex4_99d8 : reassembles 39384 = true ∧ castsFifteens 39384 = true := by decide
+
+/-- 99d9: nibbles fold back to 39385; digit sum 40 ≡ 39385 (mod 15). -/
+theorem enumeration_hex4_99d9 : reassembles 39385 = true ∧ castsFifteens 39385 = true := by decide
+
+/-- 99da: nibbles fold back to 39386; digit sum 41 ≡ 39386 (mod 15). -/
+theorem enumeration_hex4_99da : reassembles 39386 = true ∧ castsFifteens 39386 = true := by decide
+
+/-- 99db: nibbles fold back to 39387; digit sum 42 ≡ 39387 (mod 15). -/
+theorem enumeration_hex4_99db : reassembles 39387 = true ∧ castsFifteens 39387 = true := by decide
+
+/-- 99dc: nibbles fold back to 39388; digit sum 43 ≡ 39388 (mod 15). -/
+theorem enumeration_hex4_99dc : reassembles 39388 = true ∧ castsFifteens 39388 = true := by decide
+
+/-- 99dd: nibbles fold back to 39389; digit sum 44 ≡ 39389 (mod 15). -/
+theorem enumeration_hex4_99dd : reassembles 39389 = true ∧ castsFifteens 39389 = true := by decide
+
+/-- 99de: nibbles fold back to 39390; digit sum 45 ≡ 39390 (mod 15). -/
+theorem enumeration_hex4_99de : reassembles 39390 = true ∧ castsFifteens 39390 = true := by decide
+
+/-- 99df: nibbles fold back to 39391; digit sum 46 ≡ 39391 (mod 15). -/
+theorem enumeration_hex4_99df : reassembles 39391 = true ∧ castsFifteens 39391 = true := by decide
+
+/-- 99e0: nibbles fold back to 39392; digit sum 32 ≡ 39392 (mod 15). -/
+theorem enumeration_hex4_99e0 : reassembles 39392 = true ∧ castsFifteens 39392 = true := by decide
+
+/-- 99e1: nibbles fold back to 39393; digit sum 33 ≡ 39393 (mod 15). -/
+theorem enumeration_hex4_99e1 : reassembles 39393 = true ∧ castsFifteens 39393 = true := by decide
+
+/-- 99e2: nibbles fold back to 39394; digit sum 34 ≡ 39394 (mod 15). -/
+theorem enumeration_hex4_99e2 : reassembles 39394 = true ∧ castsFifteens 39394 = true := by decide
+
+/-- 99e3: nibbles fold back to 39395; digit sum 35 ≡ 39395 (mod 15). -/
+theorem enumeration_hex4_99e3 : reassembles 39395 = true ∧ castsFifteens 39395 = true := by decide
+
+/-- 99e4: nibbles fold back to 39396; digit sum 36 ≡ 39396 (mod 15). -/
+theorem enumeration_hex4_99e4 : reassembles 39396 = true ∧ castsFifteens 39396 = true := by decide
+
+/-- 99e5: nibbles fold back to 39397; digit sum 37 ≡ 39397 (mod 15). -/
+theorem enumeration_hex4_99e5 : reassembles 39397 = true ∧ castsFifteens 39397 = true := by decide
+
+/-- 99e6: nibbles fold back to 39398; digit sum 38 ≡ 39398 (mod 15). -/
+theorem enumeration_hex4_99e6 : reassembles 39398 = true ∧ castsFifteens 39398 = true := by decide
+
+/-- 99e7: nibbles fold back to 39399; digit sum 39 ≡ 39399 (mod 15). -/
+theorem enumeration_hex4_99e7 : reassembles 39399 = true ∧ castsFifteens 39399 = true := by decide
+
+/-- 99e8: nibbles fold back to 39400; digit sum 40 ≡ 39400 (mod 15). -/
+theorem enumeration_hex4_99e8 : reassembles 39400 = true ∧ castsFifteens 39400 = true := by decide
+
+/-- 99e9: nibbles fold back to 39401; digit sum 41 ≡ 39401 (mod 15). -/
+theorem enumeration_hex4_99e9 : reassembles 39401 = true ∧ castsFifteens 39401 = true := by decide
+
+/-- 99ea: nibbles fold back to 39402; digit sum 42 ≡ 39402 (mod 15). -/
+theorem enumeration_hex4_99ea : reassembles 39402 = true ∧ castsFifteens 39402 = true := by decide
+
+/-- 99eb: nibbles fold back to 39403; digit sum 43 ≡ 39403 (mod 15). -/
+theorem enumeration_hex4_99eb : reassembles 39403 = true ∧ castsFifteens 39403 = true := by decide
+
+/-- 99ec: nibbles fold back to 39404; digit sum 44 ≡ 39404 (mod 15). -/
+theorem enumeration_hex4_99ec : reassembles 39404 = true ∧ castsFifteens 39404 = true := by decide
+
+/-- 99ed: nibbles fold back to 39405; digit sum 45 ≡ 39405 (mod 15). -/
+theorem enumeration_hex4_99ed : reassembles 39405 = true ∧ castsFifteens 39405 = true := by decide
+
+/-- 99ee: nibbles fold back to 39406; digit sum 46 ≡ 39406 (mod 15). -/
+theorem enumeration_hex4_99ee : reassembles 39406 = true ∧ castsFifteens 39406 = true := by decide
+
+/-- 99ef: nibbles fold back to 39407; digit sum 47 ≡ 39407 (mod 15). -/
+theorem enumeration_hex4_99ef : reassembles 39407 = true ∧ castsFifteens 39407 = true := by decide
+
+/-- 99f0: nibbles fold back to 39408; digit sum 33 ≡ 39408 (mod 15). -/
+theorem enumeration_hex4_99f0 : reassembles 39408 = true ∧ castsFifteens 39408 = true := by decide
+
+/-- 99f1: nibbles fold back to 39409; digit sum 34 ≡ 39409 (mod 15). -/
+theorem enumeration_hex4_99f1 : reassembles 39409 = true ∧ castsFifteens 39409 = true := by decide
+
+/-- 99f2: nibbles fold back to 39410; digit sum 35 ≡ 39410 (mod 15). -/
+theorem enumeration_hex4_99f2 : reassembles 39410 = true ∧ castsFifteens 39410 = true := by decide
+
+/-- 99f3: nibbles fold back to 39411; digit sum 36 ≡ 39411 (mod 15). -/
+theorem enumeration_hex4_99f3 : reassembles 39411 = true ∧ castsFifteens 39411 = true := by decide
+
+/-- 99f4: nibbles fold back to 39412; digit sum 37 ≡ 39412 (mod 15). -/
+theorem enumeration_hex4_99f4 : reassembles 39412 = true ∧ castsFifteens 39412 = true := by decide
+
+/-- 99f5: nibbles fold back to 39413; digit sum 38 ≡ 39413 (mod 15). -/
+theorem enumeration_hex4_99f5 : reassembles 39413 = true ∧ castsFifteens 39413 = true := by decide
+
+/-- 99f6: nibbles fold back to 39414; digit sum 39 ≡ 39414 (mod 15). -/
+theorem enumeration_hex4_99f6 : reassembles 39414 = true ∧ castsFifteens 39414 = true := by decide
+
+/-- 99f7: nibbles fold back to 39415; digit sum 40 ≡ 39415 (mod 15). -/
+theorem enumeration_hex4_99f7 : reassembles 39415 = true ∧ castsFifteens 39415 = true := by decide
+
+/-- 99f8: nibbles fold back to 39416; digit sum 41 ≡ 39416 (mod 15). -/
+theorem enumeration_hex4_99f8 : reassembles 39416 = true ∧ castsFifteens 39416 = true := by decide
+
+/-- 99f9: nibbles fold back to 39417; digit sum 42 ≡ 39417 (mod 15). -/
+theorem enumeration_hex4_99f9 : reassembles 39417 = true ∧ castsFifteens 39417 = true := by decide
+
+/-- 99fa: nibbles fold back to 39418; digit sum 43 ≡ 39418 (mod 15). -/
+theorem enumeration_hex4_99fa : reassembles 39418 = true ∧ castsFifteens 39418 = true := by decide
+
+/-- 99fb: nibbles fold back to 39419; digit sum 44 ≡ 39419 (mod 15). -/
+theorem enumeration_hex4_99fb : reassembles 39419 = true ∧ castsFifteens 39419 = true := by decide
+
+/-- 99fc: nibbles fold back to 39420; digit sum 45 ≡ 39420 (mod 15). -/
+theorem enumeration_hex4_99fc : reassembles 39420 = true ∧ castsFifteens 39420 = true := by decide
+
+/-- 99fd: nibbles fold back to 39421; digit sum 46 ≡ 39421 (mod 15). -/
+theorem enumeration_hex4_99fd : reassembles 39421 = true ∧ castsFifteens 39421 = true := by decide
+
+/-- 99fe: nibbles fold back to 39422; digit sum 47 ≡ 39422 (mod 15). -/
+theorem enumeration_hex4_99fe : reassembles 39422 = true ∧ castsFifteens 39422 = true := by decide
+
+/-- 99ff: nibbles fold back to 39423; digit sum 48 ≡ 39423 (mod 15). -/
+theorem enumeration_hex4_99ff : reassembles 39423 = true ∧ castsFifteens 39423 = true := by decide
+
+/-- 9a00: nibbles fold back to 39424; digit sum 19 ≡ 39424 (mod 15). -/
+theorem enumeration_hex4_9a00 : reassembles 39424 = true ∧ castsFifteens 39424 = true := by decide
+
+/-- 9a01: nibbles fold back to 39425; digit sum 20 ≡ 39425 (mod 15). -/
+theorem enumeration_hex4_9a01 : reassembles 39425 = true ∧ castsFifteens 39425 = true := by decide
+
+/-- 9a02: nibbles fold back to 39426; digit sum 21 ≡ 39426 (mod 15). -/
+theorem enumeration_hex4_9a02 : reassembles 39426 = true ∧ castsFifteens 39426 = true := by decide
+
+/-- 9a03: nibbles fold back to 39427; digit sum 22 ≡ 39427 (mod 15). -/
+theorem enumeration_hex4_9a03 : reassembles 39427 = true ∧ castsFifteens 39427 = true := by decide
+
+/-- 9a04: nibbles fold back to 39428; digit sum 23 ≡ 39428 (mod 15). -/
+theorem enumeration_hex4_9a04 : reassembles 39428 = true ∧ castsFifteens 39428 = true := by decide
+
+/-- 9a05: nibbles fold back to 39429; digit sum 24 ≡ 39429 (mod 15). -/
+theorem enumeration_hex4_9a05 : reassembles 39429 = true ∧ castsFifteens 39429 = true := by decide
+
+/-- 9a06: nibbles fold back to 39430; digit sum 25 ≡ 39430 (mod 15). -/
+theorem enumeration_hex4_9a06 : reassembles 39430 = true ∧ castsFifteens 39430 = true := by decide
+
+/-- 9a07: nibbles fold back to 39431; digit sum 26 ≡ 39431 (mod 15). -/
+theorem enumeration_hex4_9a07 : reassembles 39431 = true ∧ castsFifteens 39431 = true := by decide
+
+/-- 9a08: nibbles fold back to 39432; digit sum 27 ≡ 39432 (mod 15). -/
+theorem enumeration_hex4_9a08 : reassembles 39432 = true ∧ castsFifteens 39432 = true := by decide
+
+/-- 9a09: nibbles fold back to 39433; digit sum 28 ≡ 39433 (mod 15). -/
+theorem enumeration_hex4_9a09 : reassembles 39433 = true ∧ castsFifteens 39433 = true := by decide
+
+/-- 9a0a: nibbles fold back to 39434; digit sum 29 ≡ 39434 (mod 15). -/
+theorem enumeration_hex4_9a0a : reassembles 39434 = true ∧ castsFifteens 39434 = true := by decide
+
+/-- 9a0b: nibbles fold back to 39435; digit sum 30 ≡ 39435 (mod 15). -/
+theorem enumeration_hex4_9a0b : reassembles 39435 = true ∧ castsFifteens 39435 = true := by decide
+
+/-- 9a0c: nibbles fold back to 39436; digit sum 31 ≡ 39436 (mod 15). -/
+theorem enumeration_hex4_9a0c : reassembles 39436 = true ∧ castsFifteens 39436 = true := by decide
+
+/-- 9a0d: nibbles fold back to 39437; digit sum 32 ≡ 39437 (mod 15). -/
+theorem enumeration_hex4_9a0d : reassembles 39437 = true ∧ castsFifteens 39437 = true := by decide
+
+/-- 9a0e: nibbles fold back to 39438; digit sum 33 ≡ 39438 (mod 15). -/
+theorem enumeration_hex4_9a0e : reassembles 39438 = true ∧ castsFifteens 39438 = true := by decide
+
+/-- 9a0f: nibbles fold back to 39439; digit sum 34 ≡ 39439 (mod 15). -/
+theorem enumeration_hex4_9a0f : reassembles 39439 = true ∧ castsFifteens 39439 = true := by decide
+
+/-- 9a10: nibbles fold back to 39440; digit sum 20 ≡ 39440 (mod 15). -/
+theorem enumeration_hex4_9a10 : reassembles 39440 = true ∧ castsFifteens 39440 = true := by decide
+
+/-- 9a11: nibbles fold back to 39441; digit sum 21 ≡ 39441 (mod 15). -/
+theorem enumeration_hex4_9a11 : reassembles 39441 = true ∧ castsFifteens 39441 = true := by decide
+
+/-- 9a12: nibbles fold back to 39442; digit sum 22 ≡ 39442 (mod 15). -/
+theorem enumeration_hex4_9a12 : reassembles 39442 = true ∧ castsFifteens 39442 = true := by decide
+
+/-- 9a13: nibbles fold back to 39443; digit sum 23 ≡ 39443 (mod 15). -/
+theorem enumeration_hex4_9a13 : reassembles 39443 = true ∧ castsFifteens 39443 = true := by decide
+
+/-- 9a14: nibbles fold back to 39444; digit sum 24 ≡ 39444 (mod 15). -/
+theorem enumeration_hex4_9a14 : reassembles 39444 = true ∧ castsFifteens 39444 = true := by decide
+
+/-- 9a15: nibbles fold back to 39445; digit sum 25 ≡ 39445 (mod 15). -/
+theorem enumeration_hex4_9a15 : reassembles 39445 = true ∧ castsFifteens 39445 = true := by decide
+
+/-- 9a16: nibbles fold back to 39446; digit sum 26 ≡ 39446 (mod 15). -/
+theorem enumeration_hex4_9a16 : reassembles 39446 = true ∧ castsFifteens 39446 = true := by decide
+
+/-- 9a17: nibbles fold back to 39447; digit sum 27 ≡ 39447 (mod 15). -/
+theorem enumeration_hex4_9a17 : reassembles 39447 = true ∧ castsFifteens 39447 = true := by decide
+
+/-- 9a18: nibbles fold back to 39448; digit sum 28 ≡ 39448 (mod 15). -/
+theorem enumeration_hex4_9a18 : reassembles 39448 = true ∧ castsFifteens 39448 = true := by decide
+
+/-- 9a19: nibbles fold back to 39449; digit sum 29 ≡ 39449 (mod 15). -/
+theorem enumeration_hex4_9a19 : reassembles 39449 = true ∧ castsFifteens 39449 = true := by decide
+
+/-- 9a1a: nibbles fold back to 39450; digit sum 30 ≡ 39450 (mod 15). -/
+theorem enumeration_hex4_9a1a : reassembles 39450 = true ∧ castsFifteens 39450 = true := by decide
+
+/-- 9a1b: nibbles fold back to 39451; digit sum 31 ≡ 39451 (mod 15). -/
+theorem enumeration_hex4_9a1b : reassembles 39451 = true ∧ castsFifteens 39451 = true := by decide
+
+/-- 9a1c: nibbles fold back to 39452; digit sum 32 ≡ 39452 (mod 15). -/
+theorem enumeration_hex4_9a1c : reassembles 39452 = true ∧ castsFifteens 39452 = true := by decide
+
+/-- 9a1d: nibbles fold back to 39453; digit sum 33 ≡ 39453 (mod 15). -/
+theorem enumeration_hex4_9a1d : reassembles 39453 = true ∧ castsFifteens 39453 = true := by decide
+
+/-- 9a1e: nibbles fold back to 39454; digit sum 34 ≡ 39454 (mod 15). -/
+theorem enumeration_hex4_9a1e : reassembles 39454 = true ∧ castsFifteens 39454 = true := by decide
+
+/-- 9a1f: nibbles fold back to 39455; digit sum 35 ≡ 39455 (mod 15). -/
+theorem enumeration_hex4_9a1f : reassembles 39455 = true ∧ castsFifteens 39455 = true := by decide
+
+/-- 9a20: nibbles fold back to 39456; digit sum 21 ≡ 39456 (mod 15). -/
+theorem enumeration_hex4_9a20 : reassembles 39456 = true ∧ castsFifteens 39456 = true := by decide
+
+/-- 9a21: nibbles fold back to 39457; digit sum 22 ≡ 39457 (mod 15). -/
+theorem enumeration_hex4_9a21 : reassembles 39457 = true ∧ castsFifteens 39457 = true := by decide
+
+/-- 9a22: nibbles fold back to 39458; digit sum 23 ≡ 39458 (mod 15). -/
+theorem enumeration_hex4_9a22 : reassembles 39458 = true ∧ castsFifteens 39458 = true := by decide
+
+/-- 9a23: nibbles fold back to 39459; digit sum 24 ≡ 39459 (mod 15). -/
+theorem enumeration_hex4_9a23 : reassembles 39459 = true ∧ castsFifteens 39459 = true := by decide
+
+/-- 9a24: nibbles fold back to 39460; digit sum 25 ≡ 39460 (mod 15). -/
+theorem enumeration_hex4_9a24 : reassembles 39460 = true ∧ castsFifteens 39460 = true := by decide
+
+/-- 9a25: nibbles fold back to 39461; digit sum 26 ≡ 39461 (mod 15). -/
+theorem enumeration_hex4_9a25 : reassembles 39461 = true ∧ castsFifteens 39461 = true := by decide
+
+/-- 9a26: nibbles fold back to 39462; digit sum 27 ≡ 39462 (mod 15). -/
+theorem enumeration_hex4_9a26 : reassembles 39462 = true ∧ castsFifteens 39462 = true := by decide
+
+/-- 9a27: nibbles fold back to 39463; digit sum 28 ≡ 39463 (mod 15). -/
+theorem enumeration_hex4_9a27 : reassembles 39463 = true ∧ castsFifteens 39463 = true := by decide
+
+/-- 9a28: nibbles fold back to 39464; digit sum 29 ≡ 39464 (mod 15). -/
+theorem enumeration_hex4_9a28 : reassembles 39464 = true ∧ castsFifteens 39464 = true := by decide
+
+/-- 9a29: nibbles fold back to 39465; digit sum 30 ≡ 39465 (mod 15). -/
+theorem enumeration_hex4_9a29 : reassembles 39465 = true ∧ castsFifteens 39465 = true := by decide
+
+/-- 9a2a: nibbles fold back to 39466; digit sum 31 ≡ 39466 (mod 15). -/
+theorem enumeration_hex4_9a2a : reassembles 39466 = true ∧ castsFifteens 39466 = true := by decide
+
+/-- 9a2b: nibbles fold back to 39467; digit sum 32 ≡ 39467 (mod 15). -/
+theorem enumeration_hex4_9a2b : reassembles 39467 = true ∧ castsFifteens 39467 = true := by decide
+
+/-- 9a2c: nibbles fold back to 39468; digit sum 33 ≡ 39468 (mod 15). -/
+theorem enumeration_hex4_9a2c : reassembles 39468 = true ∧ castsFifteens 39468 = true := by decide
+
+/-- 9a2d: nibbles fold back to 39469; digit sum 34 ≡ 39469 (mod 15). -/
+theorem enumeration_hex4_9a2d : reassembles 39469 = true ∧ castsFifteens 39469 = true := by decide
+
+/-- 9a2e: nibbles fold back to 39470; digit sum 35 ≡ 39470 (mod 15). -/
+theorem enumeration_hex4_9a2e : reassembles 39470 = true ∧ castsFifteens 39470 = true := by decide
+
+/-- 9a2f: nibbles fold back to 39471; digit sum 36 ≡ 39471 (mod 15). -/
+theorem enumeration_hex4_9a2f : reassembles 39471 = true ∧ castsFifteens 39471 = true := by decide
+
+/-- 9a30: nibbles fold back to 39472; digit sum 22 ≡ 39472 (mod 15). -/
+theorem enumeration_hex4_9a30 : reassembles 39472 = true ∧ castsFifteens 39472 = true := by decide
+
+/-- 9a31: nibbles fold back to 39473; digit sum 23 ≡ 39473 (mod 15). -/
+theorem enumeration_hex4_9a31 : reassembles 39473 = true ∧ castsFifteens 39473 = true := by decide
+
+/-- 9a32: nibbles fold back to 39474; digit sum 24 ≡ 39474 (mod 15). -/
+theorem enumeration_hex4_9a32 : reassembles 39474 = true ∧ castsFifteens 39474 = true := by decide
+
+/-- 9a33: nibbles fold back to 39475; digit sum 25 ≡ 39475 (mod 15). -/
+theorem enumeration_hex4_9a33 : reassembles 39475 = true ∧ castsFifteens 39475 = true := by decide
+
+/-- 9a34: nibbles fold back to 39476; digit sum 26 ≡ 39476 (mod 15). -/
+theorem enumeration_hex4_9a34 : reassembles 39476 = true ∧ castsFifteens 39476 = true := by decide
+
+/-- 9a35: nibbles fold back to 39477; digit sum 27 ≡ 39477 (mod 15). -/
+theorem enumeration_hex4_9a35 : reassembles 39477 = true ∧ castsFifteens 39477 = true := by decide
+
+/-- 9a36: nibbles fold back to 39478; digit sum 28 ≡ 39478 (mod 15). -/
+theorem enumeration_hex4_9a36 : reassembles 39478 = true ∧ castsFifteens 39478 = true := by decide
+
+/-- 9a37: nibbles fold back to 39479; digit sum 29 ≡ 39479 (mod 15). -/
+theorem enumeration_hex4_9a37 : reassembles 39479 = true ∧ castsFifteens 39479 = true := by decide
+
+/-- 9a38: nibbles fold back to 39480; digit sum 30 ≡ 39480 (mod 15). -/
+theorem enumeration_hex4_9a38 : reassembles 39480 = true ∧ castsFifteens 39480 = true := by decide
+
+/-- 9a39: nibbles fold back to 39481; digit sum 31 ≡ 39481 (mod 15). -/
+theorem enumeration_hex4_9a39 : reassembles 39481 = true ∧ castsFifteens 39481 = true := by decide
+
+/-- 9a3a: nibbles fold back to 39482; digit sum 32 ≡ 39482 (mod 15). -/
+theorem enumeration_hex4_9a3a : reassembles 39482 = true ∧ castsFifteens 39482 = true := by decide
+
+/-- 9a3b: nibbles fold back to 39483; digit sum 33 ≡ 39483 (mod 15). -/
+theorem enumeration_hex4_9a3b : reassembles 39483 = true ∧ castsFifteens 39483 = true := by decide
+
+/-- 9a3c: nibbles fold back to 39484; digit sum 34 ≡ 39484 (mod 15). -/
+theorem enumeration_hex4_9a3c : reassembles 39484 = true ∧ castsFifteens 39484 = true := by decide
+
+/-- 9a3d: nibbles fold back to 39485; digit sum 35 ≡ 39485 (mod 15). -/
+theorem enumeration_hex4_9a3d : reassembles 39485 = true ∧ castsFifteens 39485 = true := by decide
+
+/-- 9a3e: nibbles fold back to 39486; digit sum 36 ≡ 39486 (mod 15). -/
+theorem enumeration_hex4_9a3e : reassembles 39486 = true ∧ castsFifteens 39486 = true := by decide
+
+/-- 9a3f: nibbles fold back to 39487; digit sum 37 ≡ 39487 (mod 15). -/
+theorem enumeration_hex4_9a3f : reassembles 39487 = true ∧ castsFifteens 39487 = true := by decide
+
+/-- 9a40: nibbles fold back to 39488; digit sum 23 ≡ 39488 (mod 15). -/
+theorem enumeration_hex4_9a40 : reassembles 39488 = true ∧ castsFifteens 39488 = true := by decide
+
+/-- 9a41: nibbles fold back to 39489; digit sum 24 ≡ 39489 (mod 15). -/
+theorem enumeration_hex4_9a41 : reassembles 39489 = true ∧ castsFifteens 39489 = true := by decide
+
+/-- 9a42: nibbles fold back to 39490; digit sum 25 ≡ 39490 (mod 15). -/
+theorem enumeration_hex4_9a42 : reassembles 39490 = true ∧ castsFifteens 39490 = true := by decide
+
+/-- 9a43: nibbles fold back to 39491; digit sum 26 ≡ 39491 (mod 15). -/
+theorem enumeration_hex4_9a43 : reassembles 39491 = true ∧ castsFifteens 39491 = true := by decide
+
+/-- 9a44: nibbles fold back to 39492; digit sum 27 ≡ 39492 (mod 15). -/
+theorem enumeration_hex4_9a44 : reassembles 39492 = true ∧ castsFifteens 39492 = true := by decide
+
+/-- 9a45: nibbles fold back to 39493; digit sum 28 ≡ 39493 (mod 15). -/
+theorem enumeration_hex4_9a45 : reassembles 39493 = true ∧ castsFifteens 39493 = true := by decide
+
+/-- 9a46: nibbles fold back to 39494; digit sum 29 ≡ 39494 (mod 15). -/
+theorem enumeration_hex4_9a46 : reassembles 39494 = true ∧ castsFifteens 39494 = true := by decide
+
+/-- 9a47: nibbles fold back to 39495; digit sum 30 ≡ 39495 (mod 15). -/
+theorem enumeration_hex4_9a47 : reassembles 39495 = true ∧ castsFifteens 39495 = true := by decide
+
+/-- 9a48: nibbles fold back to 39496; digit sum 31 ≡ 39496 (mod 15). -/
+theorem enumeration_hex4_9a48 : reassembles 39496 = true ∧ castsFifteens 39496 = true := by decide
+
+/-- 9a49: nibbles fold back to 39497; digit sum 32 ≡ 39497 (mod 15). -/
+theorem enumeration_hex4_9a49 : reassembles 39497 = true ∧ castsFifteens 39497 = true := by decide
+
+/-- 9a4a: nibbles fold back to 39498; digit sum 33 ≡ 39498 (mod 15). -/
+theorem enumeration_hex4_9a4a : reassembles 39498 = true ∧ castsFifteens 39498 = true := by decide
+
+/-- 9a4b: nibbles fold back to 39499; digit sum 34 ≡ 39499 (mod 15). -/
+theorem enumeration_hex4_9a4b : reassembles 39499 = true ∧ castsFifteens 39499 = true := by decide
+
+/-- 9a4c: nibbles fold back to 39500; digit sum 35 ≡ 39500 (mod 15). -/
+theorem enumeration_hex4_9a4c : reassembles 39500 = true ∧ castsFifteens 39500 = true := by decide
+
+/-- 9a4d: nibbles fold back to 39501; digit sum 36 ≡ 39501 (mod 15). -/
+theorem enumeration_hex4_9a4d : reassembles 39501 = true ∧ castsFifteens 39501 = true := by decide
+
+/-- 9a4e: nibbles fold back to 39502; digit sum 37 ≡ 39502 (mod 15). -/
+theorem enumeration_hex4_9a4e : reassembles 39502 = true ∧ castsFifteens 39502 = true := by decide
+
+/-- 9a4f: nibbles fold back to 39503; digit sum 38 ≡ 39503 (mod 15). -/
+theorem enumeration_hex4_9a4f : reassembles 39503 = true ∧ castsFifteens 39503 = true := by decide
+
+/-- 9a50: nibbles fold back to 39504; digit sum 24 ≡ 39504 (mod 15). -/
+theorem enumeration_hex4_9a50 : reassembles 39504 = true ∧ castsFifteens 39504 = true := by decide
+
+/-- 9a51: nibbles fold back to 39505; digit sum 25 ≡ 39505 (mod 15). -/
+theorem enumeration_hex4_9a51 : reassembles 39505 = true ∧ castsFifteens 39505 = true := by decide
+
+/-- 9a52: nibbles fold back to 39506; digit sum 26 ≡ 39506 (mod 15). -/
+theorem enumeration_hex4_9a52 : reassembles 39506 = true ∧ castsFifteens 39506 = true := by decide
+
+/-- 9a53: nibbles fold back to 39507; digit sum 27 ≡ 39507 (mod 15). -/
+theorem enumeration_hex4_9a53 : reassembles 39507 = true ∧ castsFifteens 39507 = true := by decide
+
+/-- 9a54: nibbles fold back to 39508; digit sum 28 ≡ 39508 (mod 15). -/
+theorem enumeration_hex4_9a54 : reassembles 39508 = true ∧ castsFifteens 39508 = true := by decide
+
+/-- 9a55: nibbles fold back to 39509; digit sum 29 ≡ 39509 (mod 15). -/
+theorem enumeration_hex4_9a55 : reassembles 39509 = true ∧ castsFifteens 39509 = true := by decide
+
+/-- 9a56: nibbles fold back to 39510; digit sum 30 ≡ 39510 (mod 15). -/
+theorem enumeration_hex4_9a56 : reassembles 39510 = true ∧ castsFifteens 39510 = true := by decide
+
+/-- 9a57: nibbles fold back to 39511; digit sum 31 ≡ 39511 (mod 15). -/
+theorem enumeration_hex4_9a57 : reassembles 39511 = true ∧ castsFifteens 39511 = true := by decide
+
+/-- 9a58: nibbles fold back to 39512; digit sum 32 ≡ 39512 (mod 15). -/
+theorem enumeration_hex4_9a58 : reassembles 39512 = true ∧ castsFifteens 39512 = true := by decide
+
+/-- 9a59: nibbles fold back to 39513; digit sum 33 ≡ 39513 (mod 15). -/
+theorem enumeration_hex4_9a59 : reassembles 39513 = true ∧ castsFifteens 39513 = true := by decide
+
+/-- 9a5a: nibbles fold back to 39514; digit sum 34 ≡ 39514 (mod 15). -/
+theorem enumeration_hex4_9a5a : reassembles 39514 = true ∧ castsFifteens 39514 = true := by decide
+
+/-- 9a5b: nibbles fold back to 39515; digit sum 35 ≡ 39515 (mod 15). -/
+theorem enumeration_hex4_9a5b : reassembles 39515 = true ∧ castsFifteens 39515 = true := by decide
+
+/-- 9a5c: nibbles fold back to 39516; digit sum 36 ≡ 39516 (mod 15). -/
+theorem enumeration_hex4_9a5c : reassembles 39516 = true ∧ castsFifteens 39516 = true := by decide
+
+/-- 9a5d: nibbles fold back to 39517; digit sum 37 ≡ 39517 (mod 15). -/
+theorem enumeration_hex4_9a5d : reassembles 39517 = true ∧ castsFifteens 39517 = true := by decide
+
+/-- 9a5e: nibbles fold back to 39518; digit sum 38 ≡ 39518 (mod 15). -/
+theorem enumeration_hex4_9a5e : reassembles 39518 = true ∧ castsFifteens 39518 = true := by decide
+
+/-- 9a5f: nibbles fold back to 39519; digit sum 39 ≡ 39519 (mod 15). -/
+theorem enumeration_hex4_9a5f : reassembles 39519 = true ∧ castsFifteens 39519 = true := by decide
+
+/-- 9a60: nibbles fold back to 39520; digit sum 25 ≡ 39520 (mod 15). -/
+theorem enumeration_hex4_9a60 : reassembles 39520 = true ∧ castsFifteens 39520 = true := by decide
+
+/-- 9a61: nibbles fold back to 39521; digit sum 26 ≡ 39521 (mod 15). -/
+theorem enumeration_hex4_9a61 : reassembles 39521 = true ∧ castsFifteens 39521 = true := by decide
+
+/-- 9a62: nibbles fold back to 39522; digit sum 27 ≡ 39522 (mod 15). -/
+theorem enumeration_hex4_9a62 : reassembles 39522 = true ∧ castsFifteens 39522 = true := by decide
+
+/-- 9a63: nibbles fold back to 39523; digit sum 28 ≡ 39523 (mod 15). -/
+theorem enumeration_hex4_9a63 : reassembles 39523 = true ∧ castsFifteens 39523 = true := by decide
+
+/-- 9a64: nibbles fold back to 39524; digit sum 29 ≡ 39524 (mod 15). -/
+theorem enumeration_hex4_9a64 : reassembles 39524 = true ∧ castsFifteens 39524 = true := by decide
+
+/-- 9a65: nibbles fold back to 39525; digit sum 30 ≡ 39525 (mod 15). -/
+theorem enumeration_hex4_9a65 : reassembles 39525 = true ∧ castsFifteens 39525 = true := by decide
+
+/-- 9a66: nibbles fold back to 39526; digit sum 31 ≡ 39526 (mod 15). -/
+theorem enumeration_hex4_9a66 : reassembles 39526 = true ∧ castsFifteens 39526 = true := by decide
+
+/-- 9a67: nibbles fold back to 39527; digit sum 32 ≡ 39527 (mod 15). -/
+theorem enumeration_hex4_9a67 : reassembles 39527 = true ∧ castsFifteens 39527 = true := by decide
+
+/-- 9a68: nibbles fold back to 39528; digit sum 33 ≡ 39528 (mod 15). -/
+theorem enumeration_hex4_9a68 : reassembles 39528 = true ∧ castsFifteens 39528 = true := by decide
+
+/-- 9a69: nibbles fold back to 39529; digit sum 34 ≡ 39529 (mod 15). -/
+theorem enumeration_hex4_9a69 : reassembles 39529 = true ∧ castsFifteens 39529 = true := by decide
+
+/-- 9a6a: nibbles fold back to 39530; digit sum 35 ≡ 39530 (mod 15). -/
+theorem enumeration_hex4_9a6a : reassembles 39530 = true ∧ castsFifteens 39530 = true := by decide
+
+/-- 9a6b: nibbles fold back to 39531; digit sum 36 ≡ 39531 (mod 15). -/
+theorem enumeration_hex4_9a6b : reassembles 39531 = true ∧ castsFifteens 39531 = true := by decide
+
+/-- 9a6c: nibbles fold back to 39532; digit sum 37 ≡ 39532 (mod 15). -/
+theorem enumeration_hex4_9a6c : reassembles 39532 = true ∧ castsFifteens 39532 = true := by decide
+
+/-- 9a6d: nibbles fold back to 39533; digit sum 38 ≡ 39533 (mod 15). -/
+theorem enumeration_hex4_9a6d : reassembles 39533 = true ∧ castsFifteens 39533 = true := by decide
+
+/-- 9a6e: nibbles fold back to 39534; digit sum 39 ≡ 39534 (mod 15). -/
+theorem enumeration_hex4_9a6e : reassembles 39534 = true ∧ castsFifteens 39534 = true := by decide
+
+/-- 9a6f: nibbles fold back to 39535; digit sum 40 ≡ 39535 (mod 15). -/
+theorem enumeration_hex4_9a6f : reassembles 39535 = true ∧ castsFifteens 39535 = true := by decide
+
+/-- 9a70: nibbles fold back to 39536; digit sum 26 ≡ 39536 (mod 15). -/
+theorem enumeration_hex4_9a70 : reassembles 39536 = true ∧ castsFifteens 39536 = true := by decide
+
+/-- 9a71: nibbles fold back to 39537; digit sum 27 ≡ 39537 (mod 15). -/
+theorem enumeration_hex4_9a71 : reassembles 39537 = true ∧ castsFifteens 39537 = true := by decide
+
+/-- 9a72: nibbles fold back to 39538; digit sum 28 ≡ 39538 (mod 15). -/
+theorem enumeration_hex4_9a72 : reassembles 39538 = true ∧ castsFifteens 39538 = true := by decide
+
+/-- 9a73: nibbles fold back to 39539; digit sum 29 ≡ 39539 (mod 15). -/
+theorem enumeration_hex4_9a73 : reassembles 39539 = true ∧ castsFifteens 39539 = true := by decide
+
+/-- 9a74: nibbles fold back to 39540; digit sum 30 ≡ 39540 (mod 15). -/
+theorem enumeration_hex4_9a74 : reassembles 39540 = true ∧ castsFifteens 39540 = true := by decide
+
+/-- 9a75: nibbles fold back to 39541; digit sum 31 ≡ 39541 (mod 15). -/
+theorem enumeration_hex4_9a75 : reassembles 39541 = true ∧ castsFifteens 39541 = true := by decide
+
+/-- 9a76: nibbles fold back to 39542; digit sum 32 ≡ 39542 (mod 15). -/
+theorem enumeration_hex4_9a76 : reassembles 39542 = true ∧ castsFifteens 39542 = true := by decide
+
+/-- 9a77: nibbles fold back to 39543; digit sum 33 ≡ 39543 (mod 15). -/
+theorem enumeration_hex4_9a77 : reassembles 39543 = true ∧ castsFifteens 39543 = true := by decide
+
+/-- 9a78: nibbles fold back to 39544; digit sum 34 ≡ 39544 (mod 15). -/
+theorem enumeration_hex4_9a78 : reassembles 39544 = true ∧ castsFifteens 39544 = true := by decide
+
+/-- 9a79: nibbles fold back to 39545; digit sum 35 ≡ 39545 (mod 15). -/
+theorem enumeration_hex4_9a79 : reassembles 39545 = true ∧ castsFifteens 39545 = true := by decide
+
+/-- 9a7a: nibbles fold back to 39546; digit sum 36 ≡ 39546 (mod 15). -/
+theorem enumeration_hex4_9a7a : reassembles 39546 = true ∧ castsFifteens 39546 = true := by decide
+
+/-- 9a7b: nibbles fold back to 39547; digit sum 37 ≡ 39547 (mod 15). -/
+theorem enumeration_hex4_9a7b : reassembles 39547 = true ∧ castsFifteens 39547 = true := by decide
+
+/-- 9a7c: nibbles fold back to 39548; digit sum 38 ≡ 39548 (mod 15). -/
+theorem enumeration_hex4_9a7c : reassembles 39548 = true ∧ castsFifteens 39548 = true := by decide
+
+/-- 9a7d: nibbles fold back to 39549; digit sum 39 ≡ 39549 (mod 15). -/
+theorem enumeration_hex4_9a7d : reassembles 39549 = true ∧ castsFifteens 39549 = true := by decide
+
+/-- 9a7e: nibbles fold back to 39550; digit sum 40 ≡ 39550 (mod 15). -/
+theorem enumeration_hex4_9a7e : reassembles 39550 = true ∧ castsFifteens 39550 = true := by decide
+
+/-- 9a7f: nibbles fold back to 39551; digit sum 41 ≡ 39551 (mod 15). -/
+theorem enumeration_hex4_9a7f : reassembles 39551 = true ∧ castsFifteens 39551 = true := by decide
+
+/-- 9a80: nibbles fold back to 39552; digit sum 27 ≡ 39552 (mod 15). -/
+theorem enumeration_hex4_9a80 : reassembles 39552 = true ∧ castsFifteens 39552 = true := by decide
+
+/-- 9a81: nibbles fold back to 39553; digit sum 28 ≡ 39553 (mod 15). -/
+theorem enumeration_hex4_9a81 : reassembles 39553 = true ∧ castsFifteens 39553 = true := by decide
+
+/-- 9a82: nibbles fold back to 39554; digit sum 29 ≡ 39554 (mod 15). -/
+theorem enumeration_hex4_9a82 : reassembles 39554 = true ∧ castsFifteens 39554 = true := by decide
+
+/-- 9a83: nibbles fold back to 39555; digit sum 30 ≡ 39555 (mod 15). -/
+theorem enumeration_hex4_9a83 : reassembles 39555 = true ∧ castsFifteens 39555 = true := by decide
+
+/-- 9a84: nibbles fold back to 39556; digit sum 31 ≡ 39556 (mod 15). -/
+theorem enumeration_hex4_9a84 : reassembles 39556 = true ∧ castsFifteens 39556 = true := by decide
+
+/-- 9a85: nibbles fold back to 39557; digit sum 32 ≡ 39557 (mod 15). -/
+theorem enumeration_hex4_9a85 : reassembles 39557 = true ∧ castsFifteens 39557 = true := by decide
+
+/-- 9a86: nibbles fold back to 39558; digit sum 33 ≡ 39558 (mod 15). -/
+theorem enumeration_hex4_9a86 : reassembles 39558 = true ∧ castsFifteens 39558 = true := by decide
+
+/-- 9a87: nibbles fold back to 39559; digit sum 34 ≡ 39559 (mod 15). -/
+theorem enumeration_hex4_9a87 : reassembles 39559 = true ∧ castsFifteens 39559 = true := by decide
+
+/-- 9a88: nibbles fold back to 39560; digit sum 35 ≡ 39560 (mod 15). -/
+theorem enumeration_hex4_9a88 : reassembles 39560 = true ∧ castsFifteens 39560 = true := by decide
+
+/-- 9a89: nibbles fold back to 39561; digit sum 36 ≡ 39561 (mod 15). -/
+theorem enumeration_hex4_9a89 : reassembles 39561 = true ∧ castsFifteens 39561 = true := by decide
+
+/-- 9a8a: nibbles fold back to 39562; digit sum 37 ≡ 39562 (mod 15). -/
+theorem enumeration_hex4_9a8a : reassembles 39562 = true ∧ castsFifteens 39562 = true := by decide
+
+/-- 9a8b: nibbles fold back to 39563; digit sum 38 ≡ 39563 (mod 15). -/
+theorem enumeration_hex4_9a8b : reassembles 39563 = true ∧ castsFifteens 39563 = true := by decide
+
+/-- 9a8c: nibbles fold back to 39564; digit sum 39 ≡ 39564 (mod 15). -/
+theorem enumeration_hex4_9a8c : reassembles 39564 = true ∧ castsFifteens 39564 = true := by decide
+
+/-- 9a8d: nibbles fold back to 39565; digit sum 40 ≡ 39565 (mod 15). -/
+theorem enumeration_hex4_9a8d : reassembles 39565 = true ∧ castsFifteens 39565 = true := by decide
+
+/-- 9a8e: nibbles fold back to 39566; digit sum 41 ≡ 39566 (mod 15). -/
+theorem enumeration_hex4_9a8e : reassembles 39566 = true ∧ castsFifteens 39566 = true := by decide
+
+/-- 9a8f: nibbles fold back to 39567; digit sum 42 ≡ 39567 (mod 15). -/
+theorem enumeration_hex4_9a8f : reassembles 39567 = true ∧ castsFifteens 39567 = true := by decide
+
+/-- 9a90: nibbles fold back to 39568; digit sum 28 ≡ 39568 (mod 15). -/
+theorem enumeration_hex4_9a90 : reassembles 39568 = true ∧ castsFifteens 39568 = true := by decide
+
+/-- 9a91: nibbles fold back to 39569; digit sum 29 ≡ 39569 (mod 15). -/
+theorem enumeration_hex4_9a91 : reassembles 39569 = true ∧ castsFifteens 39569 = true := by decide
+
+/-- 9a92: nibbles fold back to 39570; digit sum 30 ≡ 39570 (mod 15). -/
+theorem enumeration_hex4_9a92 : reassembles 39570 = true ∧ castsFifteens 39570 = true := by decide
+
+/-- 9a93: nibbles fold back to 39571; digit sum 31 ≡ 39571 (mod 15). -/
+theorem enumeration_hex4_9a93 : reassembles 39571 = true ∧ castsFifteens 39571 = true := by decide
+
+/-- 9a94: nibbles fold back to 39572; digit sum 32 ≡ 39572 (mod 15). -/
+theorem enumeration_hex4_9a94 : reassembles 39572 = true ∧ castsFifteens 39572 = true := by decide
+
+/-- 9a95: nibbles fold back to 39573; digit sum 33 ≡ 39573 (mod 15). -/
+theorem enumeration_hex4_9a95 : reassembles 39573 = true ∧ castsFifteens 39573 = true := by decide
+
+/-- 9a96: nibbles fold back to 39574; digit sum 34 ≡ 39574 (mod 15). -/
+theorem enumeration_hex4_9a96 : reassembles 39574 = true ∧ castsFifteens 39574 = true := by decide
+
+/-- 9a97: nibbles fold back to 39575; digit sum 35 ≡ 39575 (mod 15). -/
+theorem enumeration_hex4_9a97 : reassembles 39575 = true ∧ castsFifteens 39575 = true := by decide
+
+/-- 9a98: nibbles fold back to 39576; digit sum 36 ≡ 39576 (mod 15). -/
+theorem enumeration_hex4_9a98 : reassembles 39576 = true ∧ castsFifteens 39576 = true := by decide
+
+/-- 9a99: nibbles fold back to 39577; digit sum 37 ≡ 39577 (mod 15). -/
+theorem enumeration_hex4_9a99 : reassembles 39577 = true ∧ castsFifteens 39577 = true := by decide
+
+/-- 9a9a: nibbles fold back to 39578; digit sum 38 ≡ 39578 (mod 15). -/
+theorem enumeration_hex4_9a9a : reassembles 39578 = true ∧ castsFifteens 39578 = true := by decide
+
+/-- 9a9b: nibbles fold back to 39579; digit sum 39 ≡ 39579 (mod 15). -/
+theorem enumeration_hex4_9a9b : reassembles 39579 = true ∧ castsFifteens 39579 = true := by decide
+
+/-- 9a9c: nibbles fold back to 39580; digit sum 40 ≡ 39580 (mod 15). -/
+theorem enumeration_hex4_9a9c : reassembles 39580 = true ∧ castsFifteens 39580 = true := by decide
+
+/-- 9a9d: nibbles fold back to 39581; digit sum 41 ≡ 39581 (mod 15). -/
+theorem enumeration_hex4_9a9d : reassembles 39581 = true ∧ castsFifteens 39581 = true := by decide
+
+/-- 9a9e: nibbles fold back to 39582; digit sum 42 ≡ 39582 (mod 15). -/
+theorem enumeration_hex4_9a9e : reassembles 39582 = true ∧ castsFifteens 39582 = true := by decide
+
+/-- 9a9f: nibbles fold back to 39583; digit sum 43 ≡ 39583 (mod 15). -/
+theorem enumeration_hex4_9a9f : reassembles 39583 = true ∧ castsFifteens 39583 = true := by decide
+
+/-- 9aa0: nibbles fold back to 39584; digit sum 29 ≡ 39584 (mod 15). -/
+theorem enumeration_hex4_9aa0 : reassembles 39584 = true ∧ castsFifteens 39584 = true := by decide
+
+/-- 9aa1: nibbles fold back to 39585; digit sum 30 ≡ 39585 (mod 15). -/
+theorem enumeration_hex4_9aa1 : reassembles 39585 = true ∧ castsFifteens 39585 = true := by decide
+
+/-- 9aa2: nibbles fold back to 39586; digit sum 31 ≡ 39586 (mod 15). -/
+theorem enumeration_hex4_9aa2 : reassembles 39586 = true ∧ castsFifteens 39586 = true := by decide
+
+/-- 9aa3: nibbles fold back to 39587; digit sum 32 ≡ 39587 (mod 15). -/
+theorem enumeration_hex4_9aa3 : reassembles 39587 = true ∧ castsFifteens 39587 = true := by decide
+
+/-- 9aa4: nibbles fold back to 39588; digit sum 33 ≡ 39588 (mod 15). -/
+theorem enumeration_hex4_9aa4 : reassembles 39588 = true ∧ castsFifteens 39588 = true := by decide
+
+/-- 9aa5: nibbles fold back to 39589; digit sum 34 ≡ 39589 (mod 15). -/
+theorem enumeration_hex4_9aa5 : reassembles 39589 = true ∧ castsFifteens 39589 = true := by decide
+
+/-- 9aa6: nibbles fold back to 39590; digit sum 35 ≡ 39590 (mod 15). -/
+theorem enumeration_hex4_9aa6 : reassembles 39590 = true ∧ castsFifteens 39590 = true := by decide
+
+/-- 9aa7: nibbles fold back to 39591; digit sum 36 ≡ 39591 (mod 15). -/
+theorem enumeration_hex4_9aa7 : reassembles 39591 = true ∧ castsFifteens 39591 = true := by decide
+
+/-- 9aa8: nibbles fold back to 39592; digit sum 37 ≡ 39592 (mod 15). -/
+theorem enumeration_hex4_9aa8 : reassembles 39592 = true ∧ castsFifteens 39592 = true := by decide
+
+/-- 9aa9: nibbles fold back to 39593; digit sum 38 ≡ 39593 (mod 15). -/
+theorem enumeration_hex4_9aa9 : reassembles 39593 = true ∧ castsFifteens 39593 = true := by decide
+
+/-- 9aaa: nibbles fold back to 39594; digit sum 39 ≡ 39594 (mod 15). -/
+theorem enumeration_hex4_9aaa : reassembles 39594 = true ∧ castsFifteens 39594 = true := by decide
+
+/-- 9aab: nibbles fold back to 39595; digit sum 40 ≡ 39595 (mod 15). -/
+theorem enumeration_hex4_9aab : reassembles 39595 = true ∧ castsFifteens 39595 = true := by decide
+
+/-- 9aac: nibbles fold back to 39596; digit sum 41 ≡ 39596 (mod 15). -/
+theorem enumeration_hex4_9aac : reassembles 39596 = true ∧ castsFifteens 39596 = true := by decide
+
+/-- 9aad: nibbles fold back to 39597; digit sum 42 ≡ 39597 (mod 15). -/
+theorem enumeration_hex4_9aad : reassembles 39597 = true ∧ castsFifteens 39597 = true := by decide
+
+/-- 9aae: nibbles fold back to 39598; digit sum 43 ≡ 39598 (mod 15). -/
+theorem enumeration_hex4_9aae : reassembles 39598 = true ∧ castsFifteens 39598 = true := by decide
+
+/-- 9aaf: nibbles fold back to 39599; digit sum 44 ≡ 39599 (mod 15). -/
+theorem enumeration_hex4_9aaf : reassembles 39599 = true ∧ castsFifteens 39599 = true := by decide
+
+/-- 9ab0: nibbles fold back to 39600; digit sum 30 ≡ 39600 (mod 15). -/
+theorem enumeration_hex4_9ab0 : reassembles 39600 = true ∧ castsFifteens 39600 = true := by decide
+
+/-- 9ab1: nibbles fold back to 39601; digit sum 31 ≡ 39601 (mod 15). -/
+theorem enumeration_hex4_9ab1 : reassembles 39601 = true ∧ castsFifteens 39601 = true := by decide
+
+/-- 9ab2: nibbles fold back to 39602; digit sum 32 ≡ 39602 (mod 15). -/
+theorem enumeration_hex4_9ab2 : reassembles 39602 = true ∧ castsFifteens 39602 = true := by decide
+
+/-- 9ab3: nibbles fold back to 39603; digit sum 33 ≡ 39603 (mod 15). -/
+theorem enumeration_hex4_9ab3 : reassembles 39603 = true ∧ castsFifteens 39603 = true := by decide
+
+/-- 9ab4: nibbles fold back to 39604; digit sum 34 ≡ 39604 (mod 15). -/
+theorem enumeration_hex4_9ab4 : reassembles 39604 = true ∧ castsFifteens 39604 = true := by decide
+
+/-- 9ab5: nibbles fold back to 39605; digit sum 35 ≡ 39605 (mod 15). -/
+theorem enumeration_hex4_9ab5 : reassembles 39605 = true ∧ castsFifteens 39605 = true := by decide
+
+/-- 9ab6: nibbles fold back to 39606; digit sum 36 ≡ 39606 (mod 15). -/
+theorem enumeration_hex4_9ab6 : reassembles 39606 = true ∧ castsFifteens 39606 = true := by decide
+
+/-- 9ab7: nibbles fold back to 39607; digit sum 37 ≡ 39607 (mod 15). -/
+theorem enumeration_hex4_9ab7 : reassembles 39607 = true ∧ castsFifteens 39607 = true := by decide
+
+/-- 9ab8: nibbles fold back to 39608; digit sum 38 ≡ 39608 (mod 15). -/
+theorem enumeration_hex4_9ab8 : reassembles 39608 = true ∧ castsFifteens 39608 = true := by decide
+
+/-- 9ab9: nibbles fold back to 39609; digit sum 39 ≡ 39609 (mod 15). -/
+theorem enumeration_hex4_9ab9 : reassembles 39609 = true ∧ castsFifteens 39609 = true := by decide
+
+/-- 9aba: nibbles fold back to 39610; digit sum 40 ≡ 39610 (mod 15). -/
+theorem enumeration_hex4_9aba : reassembles 39610 = true ∧ castsFifteens 39610 = true := by decide
+
+/-- 9abb: nibbles fold back to 39611; digit sum 41 ≡ 39611 (mod 15). -/
+theorem enumeration_hex4_9abb : reassembles 39611 = true ∧ castsFifteens 39611 = true := by decide
+
+/-- 9abc: nibbles fold back to 39612; digit sum 42 ≡ 39612 (mod 15). -/
+theorem enumeration_hex4_9abc : reassembles 39612 = true ∧ castsFifteens 39612 = true := by decide
+
+/-- 9abd: nibbles fold back to 39613; digit sum 43 ≡ 39613 (mod 15). -/
+theorem enumeration_hex4_9abd : reassembles 39613 = true ∧ castsFifteens 39613 = true := by decide
+
+/-- 9abe: nibbles fold back to 39614; digit sum 44 ≡ 39614 (mod 15). -/
+theorem enumeration_hex4_9abe : reassembles 39614 = true ∧ castsFifteens 39614 = true := by decide
+
+/-- 9abf: nibbles fold back to 39615; digit sum 45 ≡ 39615 (mod 15). -/
+theorem enumeration_hex4_9abf : reassembles 39615 = true ∧ castsFifteens 39615 = true := by decide
+
+/-- 9ac0: nibbles fold back to 39616; digit sum 31 ≡ 39616 (mod 15). -/
+theorem enumeration_hex4_9ac0 : reassembles 39616 = true ∧ castsFifteens 39616 = true := by decide
+
+/-- 9ac1: nibbles fold back to 39617; digit sum 32 ≡ 39617 (mod 15). -/
+theorem enumeration_hex4_9ac1 : reassembles 39617 = true ∧ castsFifteens 39617 = true := by decide
+
+/-- 9ac2: nibbles fold back to 39618; digit sum 33 ≡ 39618 (mod 15). -/
+theorem enumeration_hex4_9ac2 : reassembles 39618 = true ∧ castsFifteens 39618 = true := by decide
+
+/-- 9ac3: nibbles fold back to 39619; digit sum 34 ≡ 39619 (mod 15). -/
+theorem enumeration_hex4_9ac3 : reassembles 39619 = true ∧ castsFifteens 39619 = true := by decide
+
+/-- 9ac4: nibbles fold back to 39620; digit sum 35 ≡ 39620 (mod 15). -/
+theorem enumeration_hex4_9ac4 : reassembles 39620 = true ∧ castsFifteens 39620 = true := by decide
+
+/-- 9ac5: nibbles fold back to 39621; digit sum 36 ≡ 39621 (mod 15). -/
+theorem enumeration_hex4_9ac5 : reassembles 39621 = true ∧ castsFifteens 39621 = true := by decide
+
+/-- 9ac6: nibbles fold back to 39622; digit sum 37 ≡ 39622 (mod 15). -/
+theorem enumeration_hex4_9ac6 : reassembles 39622 = true ∧ castsFifteens 39622 = true := by decide
+
+/-- 9ac7: nibbles fold back to 39623; digit sum 38 ≡ 39623 (mod 15). -/
+theorem enumeration_hex4_9ac7 : reassembles 39623 = true ∧ castsFifteens 39623 = true := by decide
+
+/-- 9ac8: nibbles fold back to 39624; digit sum 39 ≡ 39624 (mod 15). -/
+theorem enumeration_hex4_9ac8 : reassembles 39624 = true ∧ castsFifteens 39624 = true := by decide
+
+/-- 9ac9: nibbles fold back to 39625; digit sum 40 ≡ 39625 (mod 15). -/
+theorem enumeration_hex4_9ac9 : reassembles 39625 = true ∧ castsFifteens 39625 = true := by decide
+
+/-- 9aca: nibbles fold back to 39626; digit sum 41 ≡ 39626 (mod 15). -/
+theorem enumeration_hex4_9aca : reassembles 39626 = true ∧ castsFifteens 39626 = true := by decide
+
+/-- 9acb: nibbles fold back to 39627; digit sum 42 ≡ 39627 (mod 15). -/
+theorem enumeration_hex4_9acb : reassembles 39627 = true ∧ castsFifteens 39627 = true := by decide
+
+/-- 9acc: nibbles fold back to 39628; digit sum 43 ≡ 39628 (mod 15). -/
+theorem enumeration_hex4_9acc : reassembles 39628 = true ∧ castsFifteens 39628 = true := by decide
+
+/-- 9acd: nibbles fold back to 39629; digit sum 44 ≡ 39629 (mod 15). -/
+theorem enumeration_hex4_9acd : reassembles 39629 = true ∧ castsFifteens 39629 = true := by decide
+
+/-- 9ace: nibbles fold back to 39630; digit sum 45 ≡ 39630 (mod 15). -/
+theorem enumeration_hex4_9ace : reassembles 39630 = true ∧ castsFifteens 39630 = true := by decide
+
+/-- 9acf: nibbles fold back to 39631; digit sum 46 ≡ 39631 (mod 15). -/
+theorem enumeration_hex4_9acf : reassembles 39631 = true ∧ castsFifteens 39631 = true := by decide
+
+/-- 9ad0: nibbles fold back to 39632; digit sum 32 ≡ 39632 (mod 15). -/
+theorem enumeration_hex4_9ad0 : reassembles 39632 = true ∧ castsFifteens 39632 = true := by decide
+
+/-- 9ad1: nibbles fold back to 39633; digit sum 33 ≡ 39633 (mod 15). -/
+theorem enumeration_hex4_9ad1 : reassembles 39633 = true ∧ castsFifteens 39633 = true := by decide
+
+/-- 9ad2: nibbles fold back to 39634; digit sum 34 ≡ 39634 (mod 15). -/
+theorem enumeration_hex4_9ad2 : reassembles 39634 = true ∧ castsFifteens 39634 = true := by decide
+
+/-- 9ad3: nibbles fold back to 39635; digit sum 35 ≡ 39635 (mod 15). -/
+theorem enumeration_hex4_9ad3 : reassembles 39635 = true ∧ castsFifteens 39635 = true := by decide
+
+/-- 9ad4: nibbles fold back to 39636; digit sum 36 ≡ 39636 (mod 15). -/
+theorem enumeration_hex4_9ad4 : reassembles 39636 = true ∧ castsFifteens 39636 = true := by decide
+
+/-- 9ad5: nibbles fold back to 39637; digit sum 37 ≡ 39637 (mod 15). -/
+theorem enumeration_hex4_9ad5 : reassembles 39637 = true ∧ castsFifteens 39637 = true := by decide
+
+/-- 9ad6: nibbles fold back to 39638; digit sum 38 ≡ 39638 (mod 15). -/
+theorem enumeration_hex4_9ad6 : reassembles 39638 = true ∧ castsFifteens 39638 = true := by decide
+
+/-- 9ad7: nibbles fold back to 39639; digit sum 39 ≡ 39639 (mod 15). -/
+theorem enumeration_hex4_9ad7 : reassembles 39639 = true ∧ castsFifteens 39639 = true := by decide
+
+/-- 9ad8: nibbles fold back to 39640; digit sum 40 ≡ 39640 (mod 15). -/
+theorem enumeration_hex4_9ad8 : reassembles 39640 = true ∧ castsFifteens 39640 = true := by decide
+
+/-- 9ad9: nibbles fold back to 39641; digit sum 41 ≡ 39641 (mod 15). -/
+theorem enumeration_hex4_9ad9 : reassembles 39641 = true ∧ castsFifteens 39641 = true := by decide
+
+/-- 9ada: nibbles fold back to 39642; digit sum 42 ≡ 39642 (mod 15). -/
+theorem enumeration_hex4_9ada : reassembles 39642 = true ∧ castsFifteens 39642 = true := by decide
+
+/-- 9adb: nibbles fold back to 39643; digit sum 43 ≡ 39643 (mod 15). -/
+theorem enumeration_hex4_9adb : reassembles 39643 = true ∧ castsFifteens 39643 = true := by decide
+
+/-- 9adc: nibbles fold back to 39644; digit sum 44 ≡ 39644 (mod 15). -/
+theorem enumeration_hex4_9adc : reassembles 39644 = true ∧ castsFifteens 39644 = true := by decide
+
+/-- 9add: nibbles fold back to 39645; digit sum 45 ≡ 39645 (mod 15). -/
+theorem enumeration_hex4_9add : reassembles 39645 = true ∧ castsFifteens 39645 = true := by decide
+
+/-- 9ade: nibbles fold back to 39646; digit sum 46 ≡ 39646 (mod 15). -/
+theorem enumeration_hex4_9ade : reassembles 39646 = true ∧ castsFifteens 39646 = true := by decide
+
+/-- 9adf: nibbles fold back to 39647; digit sum 47 ≡ 39647 (mod 15). -/
+theorem enumeration_hex4_9adf : reassembles 39647 = true ∧ castsFifteens 39647 = true := by decide
+
+/-- 9ae0: nibbles fold back to 39648; digit sum 33 ≡ 39648 (mod 15). -/
+theorem enumeration_hex4_9ae0 : reassembles 39648 = true ∧ castsFifteens 39648 = true := by decide
+
+/-- 9ae1: nibbles fold back to 39649; digit sum 34 ≡ 39649 (mod 15). -/
+theorem enumeration_hex4_9ae1 : reassembles 39649 = true ∧ castsFifteens 39649 = true := by decide
+
+/-- 9ae2: nibbles fold back to 39650; digit sum 35 ≡ 39650 (mod 15). -/
+theorem enumeration_hex4_9ae2 : reassembles 39650 = true ∧ castsFifteens 39650 = true := by decide
+
+/-- 9ae3: nibbles fold back to 39651; digit sum 36 ≡ 39651 (mod 15). -/
+theorem enumeration_hex4_9ae3 : reassembles 39651 = true ∧ castsFifteens 39651 = true := by decide
+
+/-- 9ae4: nibbles fold back to 39652; digit sum 37 ≡ 39652 (mod 15). -/
+theorem enumeration_hex4_9ae4 : reassembles 39652 = true ∧ castsFifteens 39652 = true := by decide
+
+/-- 9ae5: nibbles fold back to 39653; digit sum 38 ≡ 39653 (mod 15). -/
+theorem enumeration_hex4_9ae5 : reassembles 39653 = true ∧ castsFifteens 39653 = true := by decide
+
+/-- 9ae6: nibbles fold back to 39654; digit sum 39 ≡ 39654 (mod 15). -/
+theorem enumeration_hex4_9ae6 : reassembles 39654 = true ∧ castsFifteens 39654 = true := by decide
+
+/-- 9ae7: nibbles fold back to 39655; digit sum 40 ≡ 39655 (mod 15). -/
+theorem enumeration_hex4_9ae7 : reassembles 39655 = true ∧ castsFifteens 39655 = true := by decide
+
+/-- 9ae8: nibbles fold back to 39656; digit sum 41 ≡ 39656 (mod 15). -/
+theorem enumeration_hex4_9ae8 : reassembles 39656 = true ∧ castsFifteens 39656 = true := by decide
+
+/-- 9ae9: nibbles fold back to 39657; digit sum 42 ≡ 39657 (mod 15). -/
+theorem enumeration_hex4_9ae9 : reassembles 39657 = true ∧ castsFifteens 39657 = true := by decide
+
+/-- 9aea: nibbles fold back to 39658; digit sum 43 ≡ 39658 (mod 15). -/
+theorem enumeration_hex4_9aea : reassembles 39658 = true ∧ castsFifteens 39658 = true := by decide
+
+/-- 9aeb: nibbles fold back to 39659; digit sum 44 ≡ 39659 (mod 15). -/
+theorem enumeration_hex4_9aeb : reassembles 39659 = true ∧ castsFifteens 39659 = true := by decide
+
+/-- 9aec: nibbles fold back to 39660; digit sum 45 ≡ 39660 (mod 15). -/
+theorem enumeration_hex4_9aec : reassembles 39660 = true ∧ castsFifteens 39660 = true := by decide
+
+/-- 9aed: nibbles fold back to 39661; digit sum 46 ≡ 39661 (mod 15). -/
+theorem enumeration_hex4_9aed : reassembles 39661 = true ∧ castsFifteens 39661 = true := by decide
+
+/-- 9aee: nibbles fold back to 39662; digit sum 47 ≡ 39662 (mod 15). -/
+theorem enumeration_hex4_9aee : reassembles 39662 = true ∧ castsFifteens 39662 = true := by decide
+
+/-- 9aef: nibbles fold back to 39663; digit sum 48 ≡ 39663 (mod 15). -/
+theorem enumeration_hex4_9aef : reassembles 39663 = true ∧ castsFifteens 39663 = true := by decide
+
+/-- 9af0: nibbles fold back to 39664; digit sum 34 ≡ 39664 (mod 15). -/
+theorem enumeration_hex4_9af0 : reassembles 39664 = true ∧ castsFifteens 39664 = true := by decide
+
+/-- 9af1: nibbles fold back to 39665; digit sum 35 ≡ 39665 (mod 15). -/
+theorem enumeration_hex4_9af1 : reassembles 39665 = true ∧ castsFifteens 39665 = true := by decide
+
+/-- 9af2: nibbles fold back to 39666; digit sum 36 ≡ 39666 (mod 15). -/
+theorem enumeration_hex4_9af2 : reassembles 39666 = true ∧ castsFifteens 39666 = true := by decide
+
+/-- 9af3: nibbles fold back to 39667; digit sum 37 ≡ 39667 (mod 15). -/
+theorem enumeration_hex4_9af3 : reassembles 39667 = true ∧ castsFifteens 39667 = true := by decide
+
+/-- 9af4: nibbles fold back to 39668; digit sum 38 ≡ 39668 (mod 15). -/
+theorem enumeration_hex4_9af4 : reassembles 39668 = true ∧ castsFifteens 39668 = true := by decide
+
+/-- 9af5: nibbles fold back to 39669; digit sum 39 ≡ 39669 (mod 15). -/
+theorem enumeration_hex4_9af5 : reassembles 39669 = true ∧ castsFifteens 39669 = true := by decide
+
+/-- 9af6: nibbles fold back to 39670; digit sum 40 ≡ 39670 (mod 15). -/
+theorem enumeration_hex4_9af6 : reassembles 39670 = true ∧ castsFifteens 39670 = true := by decide
+
+/-- 9af7: nibbles fold back to 39671; digit sum 41 ≡ 39671 (mod 15). -/
+theorem enumeration_hex4_9af7 : reassembles 39671 = true ∧ castsFifteens 39671 = true := by decide
+
+/-- 9af8: nibbles fold back to 39672; digit sum 42 ≡ 39672 (mod 15). -/
+theorem enumeration_hex4_9af8 : reassembles 39672 = true ∧ castsFifteens 39672 = true := by decide
+
+/-- 9af9: nibbles fold back to 39673; digit sum 43 ≡ 39673 (mod 15). -/
+theorem enumeration_hex4_9af9 : reassembles 39673 = true ∧ castsFifteens 39673 = true := by decide
+
+/-- 9afa: nibbles fold back to 39674; digit sum 44 ≡ 39674 (mod 15). -/
+theorem enumeration_hex4_9afa : reassembles 39674 = true ∧ castsFifteens 39674 = true := by decide
+
+/-- 9afb: nibbles fold back to 39675; digit sum 45 ≡ 39675 (mod 15). -/
+theorem enumeration_hex4_9afb : reassembles 39675 = true ∧ castsFifteens 39675 = true := by decide
+
+/-- 9afc: nibbles fold back to 39676; digit sum 46 ≡ 39676 (mod 15). -/
+theorem enumeration_hex4_9afc : reassembles 39676 = true ∧ castsFifteens 39676 = true := by decide
+
+/-- 9afd: nibbles fold back to 39677; digit sum 47 ≡ 39677 (mod 15). -/
+theorem enumeration_hex4_9afd : reassembles 39677 = true ∧ castsFifteens 39677 = true := by decide
+
+/-- 9afe: nibbles fold back to 39678; digit sum 48 ≡ 39678 (mod 15). -/
+theorem enumeration_hex4_9afe : reassembles 39678 = true ∧ castsFifteens 39678 = true := by decide
+
+/-- 9aff: nibbles fold back to 39679; digit sum 49 ≡ 39679 (mod 15). -/
+theorem enumeration_hex4_9aff : reassembles 39679 = true ∧ castsFifteens 39679 = true := by decide
+
+/-- 9b00: nibbles fold back to 39680; digit sum 20 ≡ 39680 (mod 15). -/
+theorem enumeration_hex4_9b00 : reassembles 39680 = true ∧ castsFifteens 39680 = true := by decide
+
+/-- 9b01: nibbles fold back to 39681; digit sum 21 ≡ 39681 (mod 15). -/
+theorem enumeration_hex4_9b01 : reassembles 39681 = true ∧ castsFifteens 39681 = true := by decide
+
+/-- 9b02: nibbles fold back to 39682; digit sum 22 ≡ 39682 (mod 15). -/
+theorem enumeration_hex4_9b02 : reassembles 39682 = true ∧ castsFifteens 39682 = true := by decide
+
+/-- 9b03: nibbles fold back to 39683; digit sum 23 ≡ 39683 (mod 15). -/
+theorem enumeration_hex4_9b03 : reassembles 39683 = true ∧ castsFifteens 39683 = true := by decide
+
+/-- 9b04: nibbles fold back to 39684; digit sum 24 ≡ 39684 (mod 15). -/
+theorem enumeration_hex4_9b04 : reassembles 39684 = true ∧ castsFifteens 39684 = true := by decide
+
+/-- 9b05: nibbles fold back to 39685; digit sum 25 ≡ 39685 (mod 15). -/
+theorem enumeration_hex4_9b05 : reassembles 39685 = true ∧ castsFifteens 39685 = true := by decide
+
+/-- 9b06: nibbles fold back to 39686; digit sum 26 ≡ 39686 (mod 15). -/
+theorem enumeration_hex4_9b06 : reassembles 39686 = true ∧ castsFifteens 39686 = true := by decide
+
+/-- 9b07: nibbles fold back to 39687; digit sum 27 ≡ 39687 (mod 15). -/
+theorem enumeration_hex4_9b07 : reassembles 39687 = true ∧ castsFifteens 39687 = true := by decide
+
+/-- 9b08: nibbles fold back to 39688; digit sum 28 ≡ 39688 (mod 15). -/
+theorem enumeration_hex4_9b08 : reassembles 39688 = true ∧ castsFifteens 39688 = true := by decide
+
+/-- 9b09: nibbles fold back to 39689; digit sum 29 ≡ 39689 (mod 15). -/
+theorem enumeration_hex4_9b09 : reassembles 39689 = true ∧ castsFifteens 39689 = true := by decide
+
+/-- 9b0a: nibbles fold back to 39690; digit sum 30 ≡ 39690 (mod 15). -/
+theorem enumeration_hex4_9b0a : reassembles 39690 = true ∧ castsFifteens 39690 = true := by decide
+
+/-- 9b0b: nibbles fold back to 39691; digit sum 31 ≡ 39691 (mod 15). -/
+theorem enumeration_hex4_9b0b : reassembles 39691 = true ∧ castsFifteens 39691 = true := by decide
+
+/-- 9b0c: nibbles fold back to 39692; digit sum 32 ≡ 39692 (mod 15). -/
+theorem enumeration_hex4_9b0c : reassembles 39692 = true ∧ castsFifteens 39692 = true := by decide
+
+/-- 9b0d: nibbles fold back to 39693; digit sum 33 ≡ 39693 (mod 15). -/
+theorem enumeration_hex4_9b0d : reassembles 39693 = true ∧ castsFifteens 39693 = true := by decide
+
+/-- 9b0e: nibbles fold back to 39694; digit sum 34 ≡ 39694 (mod 15). -/
+theorem enumeration_hex4_9b0e : reassembles 39694 = true ∧ castsFifteens 39694 = true := by decide
+
+/-- 9b0f: nibbles fold back to 39695; digit sum 35 ≡ 39695 (mod 15). -/
+theorem enumeration_hex4_9b0f : reassembles 39695 = true ∧ castsFifteens 39695 = true := by decide
+
+/-- 9b10: nibbles fold back to 39696; digit sum 21 ≡ 39696 (mod 15). -/
+theorem enumeration_hex4_9b10 : reassembles 39696 = true ∧ castsFifteens 39696 = true := by decide
+
+/-- 9b11: nibbles fold back to 39697; digit sum 22 ≡ 39697 (mod 15). -/
+theorem enumeration_hex4_9b11 : reassembles 39697 = true ∧ castsFifteens 39697 = true := by decide
+
+/-- 9b12: nibbles fold back to 39698; digit sum 23 ≡ 39698 (mod 15). -/
+theorem enumeration_hex4_9b12 : reassembles 39698 = true ∧ castsFifteens 39698 = true := by decide
+
+/-- 9b13: nibbles fold back to 39699; digit sum 24 ≡ 39699 (mod 15). -/
+theorem enumeration_hex4_9b13 : reassembles 39699 = true ∧ castsFifteens 39699 = true := by decide
+
+/-- 9b14: nibbles fold back to 39700; digit sum 25 ≡ 39700 (mod 15). -/
+theorem enumeration_hex4_9b14 : reassembles 39700 = true ∧ castsFifteens 39700 = true := by decide
+
+/-- 9b15: nibbles fold back to 39701; digit sum 26 ≡ 39701 (mod 15). -/
+theorem enumeration_hex4_9b15 : reassembles 39701 = true ∧ castsFifteens 39701 = true := by decide
+
+/-- 9b16: nibbles fold back to 39702; digit sum 27 ≡ 39702 (mod 15). -/
+theorem enumeration_hex4_9b16 : reassembles 39702 = true ∧ castsFifteens 39702 = true := by decide
+
+/-- 9b17: nibbles fold back to 39703; digit sum 28 ≡ 39703 (mod 15). -/
+theorem enumeration_hex4_9b17 : reassembles 39703 = true ∧ castsFifteens 39703 = true := by decide
+
+/-- 9b18: nibbles fold back to 39704; digit sum 29 ≡ 39704 (mod 15). -/
+theorem enumeration_hex4_9b18 : reassembles 39704 = true ∧ castsFifteens 39704 = true := by decide
+
+/-- 9b19: nibbles fold back to 39705; digit sum 30 ≡ 39705 (mod 15). -/
+theorem enumeration_hex4_9b19 : reassembles 39705 = true ∧ castsFifteens 39705 = true := by decide
+
+/-- 9b1a: nibbles fold back to 39706; digit sum 31 ≡ 39706 (mod 15). -/
+theorem enumeration_hex4_9b1a : reassembles 39706 = true ∧ castsFifteens 39706 = true := by decide
+
+/-- 9b1b: nibbles fold back to 39707; digit sum 32 ≡ 39707 (mod 15). -/
+theorem enumeration_hex4_9b1b : reassembles 39707 = true ∧ castsFifteens 39707 = true := by decide
+
+/-- 9b1c: nibbles fold back to 39708; digit sum 33 ≡ 39708 (mod 15). -/
+theorem enumeration_hex4_9b1c : reassembles 39708 = true ∧ castsFifteens 39708 = true := by decide
+
+/-- 9b1d: nibbles fold back to 39709; digit sum 34 ≡ 39709 (mod 15). -/
+theorem enumeration_hex4_9b1d : reassembles 39709 = true ∧ castsFifteens 39709 = true := by decide
+
+/-- 9b1e: nibbles fold back to 39710; digit sum 35 ≡ 39710 (mod 15). -/
+theorem enumeration_hex4_9b1e : reassembles 39710 = true ∧ castsFifteens 39710 = true := by decide
+
+/-- 9b1f: nibbles fold back to 39711; digit sum 36 ≡ 39711 (mod 15). -/
+theorem enumeration_hex4_9b1f : reassembles 39711 = true ∧ castsFifteens 39711 = true := by decide
+
+/-- 9b20: nibbles fold back to 39712; digit sum 22 ≡ 39712 (mod 15). -/
+theorem enumeration_hex4_9b20 : reassembles 39712 = true ∧ castsFifteens 39712 = true := by decide
+
+/-- 9b21: nibbles fold back to 39713; digit sum 23 ≡ 39713 (mod 15). -/
+theorem enumeration_hex4_9b21 : reassembles 39713 = true ∧ castsFifteens 39713 = true := by decide
+
+/-- 9b22: nibbles fold back to 39714; digit sum 24 ≡ 39714 (mod 15). -/
+theorem enumeration_hex4_9b22 : reassembles 39714 = true ∧ castsFifteens 39714 = true := by decide
+
+/-- 9b23: nibbles fold back to 39715; digit sum 25 ≡ 39715 (mod 15). -/
+theorem enumeration_hex4_9b23 : reassembles 39715 = true ∧ castsFifteens 39715 = true := by decide
+
+/-- 9b24: nibbles fold back to 39716; digit sum 26 ≡ 39716 (mod 15). -/
+theorem enumeration_hex4_9b24 : reassembles 39716 = true ∧ castsFifteens 39716 = true := by decide
+
+/-- 9b25: nibbles fold back to 39717; digit sum 27 ≡ 39717 (mod 15). -/
+theorem enumeration_hex4_9b25 : reassembles 39717 = true ∧ castsFifteens 39717 = true := by decide
+
+/-- 9b26: nibbles fold back to 39718; digit sum 28 ≡ 39718 (mod 15). -/
+theorem enumeration_hex4_9b26 : reassembles 39718 = true ∧ castsFifteens 39718 = true := by decide
+
+/-- 9b27: nibbles fold back to 39719; digit sum 29 ≡ 39719 (mod 15). -/
+theorem enumeration_hex4_9b27 : reassembles 39719 = true ∧ castsFifteens 39719 = true := by decide
+
+/-- 9b28: nibbles fold back to 39720; digit sum 30 ≡ 39720 (mod 15). -/
+theorem enumeration_hex4_9b28 : reassembles 39720 = true ∧ castsFifteens 39720 = true := by decide
+
+/-- 9b29: nibbles fold back to 39721; digit sum 31 ≡ 39721 (mod 15). -/
+theorem enumeration_hex4_9b29 : reassembles 39721 = true ∧ castsFifteens 39721 = true := by decide
+
+/-- 9b2a: nibbles fold back to 39722; digit sum 32 ≡ 39722 (mod 15). -/
+theorem enumeration_hex4_9b2a : reassembles 39722 = true ∧ castsFifteens 39722 = true := by decide
+
+/-- 9b2b: nibbles fold back to 39723; digit sum 33 ≡ 39723 (mod 15). -/
+theorem enumeration_hex4_9b2b : reassembles 39723 = true ∧ castsFifteens 39723 = true := by decide
+
+/-- 9b2c: nibbles fold back to 39724; digit sum 34 ≡ 39724 (mod 15). -/
+theorem enumeration_hex4_9b2c : reassembles 39724 = true ∧ castsFifteens 39724 = true := by decide
+
+/-- 9b2d: nibbles fold back to 39725; digit sum 35 ≡ 39725 (mod 15). -/
+theorem enumeration_hex4_9b2d : reassembles 39725 = true ∧ castsFifteens 39725 = true := by decide
+
+/-- 9b2e: nibbles fold back to 39726; digit sum 36 ≡ 39726 (mod 15). -/
+theorem enumeration_hex4_9b2e : reassembles 39726 = true ∧ castsFifteens 39726 = true := by decide
+
+/-- 9b2f: nibbles fold back to 39727; digit sum 37 ≡ 39727 (mod 15). -/
+theorem enumeration_hex4_9b2f : reassembles 39727 = true ∧ castsFifteens 39727 = true := by decide
+
+/-- 9b30: nibbles fold back to 39728; digit sum 23 ≡ 39728 (mod 15). -/
+theorem enumeration_hex4_9b30 : reassembles 39728 = true ∧ castsFifteens 39728 = true := by decide
+
+/-- 9b31: nibbles fold back to 39729; digit sum 24 ≡ 39729 (mod 15). -/
+theorem enumeration_hex4_9b31 : reassembles 39729 = true ∧ castsFifteens 39729 = true := by decide
+
+/-- 9b32: nibbles fold back to 39730; digit sum 25 ≡ 39730 (mod 15). -/
+theorem enumeration_hex4_9b32 : reassembles 39730 = true ∧ castsFifteens 39730 = true := by decide
+
+/-- 9b33: nibbles fold back to 39731; digit sum 26 ≡ 39731 (mod 15). -/
+theorem enumeration_hex4_9b33 : reassembles 39731 = true ∧ castsFifteens 39731 = true := by decide
+
+/-- 9b34: nibbles fold back to 39732; digit sum 27 ≡ 39732 (mod 15). -/
+theorem enumeration_hex4_9b34 : reassembles 39732 = true ∧ castsFifteens 39732 = true := by decide
+
+/-- 9b35: nibbles fold back to 39733; digit sum 28 ≡ 39733 (mod 15). -/
+theorem enumeration_hex4_9b35 : reassembles 39733 = true ∧ castsFifteens 39733 = true := by decide
+
+/-- 9b36: nibbles fold back to 39734; digit sum 29 ≡ 39734 (mod 15). -/
+theorem enumeration_hex4_9b36 : reassembles 39734 = true ∧ castsFifteens 39734 = true := by decide
+
+/-- 9b37: nibbles fold back to 39735; digit sum 30 ≡ 39735 (mod 15). -/
+theorem enumeration_hex4_9b37 : reassembles 39735 = true ∧ castsFifteens 39735 = true := by decide
+
+/-- 9b38: nibbles fold back to 39736; digit sum 31 ≡ 39736 (mod 15). -/
+theorem enumeration_hex4_9b38 : reassembles 39736 = true ∧ castsFifteens 39736 = true := by decide
+
+/-- 9b39: nibbles fold back to 39737; digit sum 32 ≡ 39737 (mod 15). -/
+theorem enumeration_hex4_9b39 : reassembles 39737 = true ∧ castsFifteens 39737 = true := by decide
+
+/-- 9b3a: nibbles fold back to 39738; digit sum 33 ≡ 39738 (mod 15). -/
+theorem enumeration_hex4_9b3a : reassembles 39738 = true ∧ castsFifteens 39738 = true := by decide
+
+/-- 9b3b: nibbles fold back to 39739; digit sum 34 ≡ 39739 (mod 15). -/
+theorem enumeration_hex4_9b3b : reassembles 39739 = true ∧ castsFifteens 39739 = true := by decide
+
+/-- 9b3c: nibbles fold back to 39740; digit sum 35 ≡ 39740 (mod 15). -/
+theorem enumeration_hex4_9b3c : reassembles 39740 = true ∧ castsFifteens 39740 = true := by decide
+
+/-- 9b3d: nibbles fold back to 39741; digit sum 36 ≡ 39741 (mod 15). -/
+theorem enumeration_hex4_9b3d : reassembles 39741 = true ∧ castsFifteens 39741 = true := by decide
+
+/-- 9b3e: nibbles fold back to 39742; digit sum 37 ≡ 39742 (mod 15). -/
+theorem enumeration_hex4_9b3e : reassembles 39742 = true ∧ castsFifteens 39742 = true := by decide
+
+/-- 9b3f: nibbles fold back to 39743; digit sum 38 ≡ 39743 (mod 15). -/
+theorem enumeration_hex4_9b3f : reassembles 39743 = true ∧ castsFifteens 39743 = true := by decide
+
+/-- 9b40: nibbles fold back to 39744; digit sum 24 ≡ 39744 (mod 15). -/
+theorem enumeration_hex4_9b40 : reassembles 39744 = true ∧ castsFifteens 39744 = true := by decide
+
+/-- 9b41: nibbles fold back to 39745; digit sum 25 ≡ 39745 (mod 15). -/
+theorem enumeration_hex4_9b41 : reassembles 39745 = true ∧ castsFifteens 39745 = true := by decide
+
+/-- 9b42: nibbles fold back to 39746; digit sum 26 ≡ 39746 (mod 15). -/
+theorem enumeration_hex4_9b42 : reassembles 39746 = true ∧ castsFifteens 39746 = true := by decide
+
+/-- 9b43: nibbles fold back to 39747; digit sum 27 ≡ 39747 (mod 15). -/
+theorem enumeration_hex4_9b43 : reassembles 39747 = true ∧ castsFifteens 39747 = true := by decide
+
+/-- 9b44: nibbles fold back to 39748; digit sum 28 ≡ 39748 (mod 15). -/
+theorem enumeration_hex4_9b44 : reassembles 39748 = true ∧ castsFifteens 39748 = true := by decide
+
+/-- 9b45: nibbles fold back to 39749; digit sum 29 ≡ 39749 (mod 15). -/
+theorem enumeration_hex4_9b45 : reassembles 39749 = true ∧ castsFifteens 39749 = true := by decide
+
+/-- 9b46: nibbles fold back to 39750; digit sum 30 ≡ 39750 (mod 15). -/
+theorem enumeration_hex4_9b46 : reassembles 39750 = true ∧ castsFifteens 39750 = true := by decide
+
+/-- 9b47: nibbles fold back to 39751; digit sum 31 ≡ 39751 (mod 15). -/
+theorem enumeration_hex4_9b47 : reassembles 39751 = true ∧ castsFifteens 39751 = true := by decide
+
+/-- 9b48: nibbles fold back to 39752; digit sum 32 ≡ 39752 (mod 15). -/
+theorem enumeration_hex4_9b48 : reassembles 39752 = true ∧ castsFifteens 39752 = true := by decide
+
+/-- 9b49: nibbles fold back to 39753; digit sum 33 ≡ 39753 (mod 15). -/
+theorem enumeration_hex4_9b49 : reassembles 39753 = true ∧ castsFifteens 39753 = true := by decide
+
+/-- 9b4a: nibbles fold back to 39754; digit sum 34 ≡ 39754 (mod 15). -/
+theorem enumeration_hex4_9b4a : reassembles 39754 = true ∧ castsFifteens 39754 = true := by decide
+
+/-- 9b4b: nibbles fold back to 39755; digit sum 35 ≡ 39755 (mod 15). -/
+theorem enumeration_hex4_9b4b : reassembles 39755 = true ∧ castsFifteens 39755 = true := by decide
+
+/-- 9b4c: nibbles fold back to 39756; digit sum 36 ≡ 39756 (mod 15). -/
+theorem enumeration_hex4_9b4c : reassembles 39756 = true ∧ castsFifteens 39756 = true := by decide
+
+/-- 9b4d: nibbles fold back to 39757; digit sum 37 ≡ 39757 (mod 15). -/
+theorem enumeration_hex4_9b4d : reassembles 39757 = true ∧ castsFifteens 39757 = true := by decide
+
+/-- 9b4e: nibbles fold back to 39758; digit sum 38 ≡ 39758 (mod 15). -/
+theorem enumeration_hex4_9b4e : reassembles 39758 = true ∧ castsFifteens 39758 = true := by decide
+
+/-- 9b4f: nibbles fold back to 39759; digit sum 39 ≡ 39759 (mod 15). -/
+theorem enumeration_hex4_9b4f : reassembles 39759 = true ∧ castsFifteens 39759 = true := by decide
+
+/-- 9b50: nibbles fold back to 39760; digit sum 25 ≡ 39760 (mod 15). -/
+theorem enumeration_hex4_9b50 : reassembles 39760 = true ∧ castsFifteens 39760 = true := by decide
+
+/-- 9b51: nibbles fold back to 39761; digit sum 26 ≡ 39761 (mod 15). -/
+theorem enumeration_hex4_9b51 : reassembles 39761 = true ∧ castsFifteens 39761 = true := by decide
+
+/-- 9b52: nibbles fold back to 39762; digit sum 27 ≡ 39762 (mod 15). -/
+theorem enumeration_hex4_9b52 : reassembles 39762 = true ∧ castsFifteens 39762 = true := by decide
+
+/-- 9b53: nibbles fold back to 39763; digit sum 28 ≡ 39763 (mod 15). -/
+theorem enumeration_hex4_9b53 : reassembles 39763 = true ∧ castsFifteens 39763 = true := by decide
+
+/-- 9b54: nibbles fold back to 39764; digit sum 29 ≡ 39764 (mod 15). -/
+theorem enumeration_hex4_9b54 : reassembles 39764 = true ∧ castsFifteens 39764 = true := by decide
+
+/-- 9b55: nibbles fold back to 39765; digit sum 30 ≡ 39765 (mod 15). -/
+theorem enumeration_hex4_9b55 : reassembles 39765 = true ∧ castsFifteens 39765 = true := by decide
+
+/-- 9b56: nibbles fold back to 39766; digit sum 31 ≡ 39766 (mod 15). -/
+theorem enumeration_hex4_9b56 : reassembles 39766 = true ∧ castsFifteens 39766 = true := by decide
+
+/-- 9b57: nibbles fold back to 39767; digit sum 32 ≡ 39767 (mod 15). -/
+theorem enumeration_hex4_9b57 : reassembles 39767 = true ∧ castsFifteens 39767 = true := by decide
+
+/-- 9b58: nibbles fold back to 39768; digit sum 33 ≡ 39768 (mod 15). -/
+theorem enumeration_hex4_9b58 : reassembles 39768 = true ∧ castsFifteens 39768 = true := by decide
+
+/-- 9b59: nibbles fold back to 39769; digit sum 34 ≡ 39769 (mod 15). -/
+theorem enumeration_hex4_9b59 : reassembles 39769 = true ∧ castsFifteens 39769 = true := by decide
+
+/-- 9b5a: nibbles fold back to 39770; digit sum 35 ≡ 39770 (mod 15). -/
+theorem enumeration_hex4_9b5a : reassembles 39770 = true ∧ castsFifteens 39770 = true := by decide
+
+/-- 9b5b: nibbles fold back to 39771; digit sum 36 ≡ 39771 (mod 15). -/
+theorem enumeration_hex4_9b5b : reassembles 39771 = true ∧ castsFifteens 39771 = true := by decide
+
+/-- 9b5c: nibbles fold back to 39772; digit sum 37 ≡ 39772 (mod 15). -/
+theorem enumeration_hex4_9b5c : reassembles 39772 = true ∧ castsFifteens 39772 = true := by decide
+
+/-- 9b5d: nibbles fold back to 39773; digit sum 38 ≡ 39773 (mod 15). -/
+theorem enumeration_hex4_9b5d : reassembles 39773 = true ∧ castsFifteens 39773 = true := by decide
+
+/-- 9b5e: nibbles fold back to 39774; digit sum 39 ≡ 39774 (mod 15). -/
+theorem enumeration_hex4_9b5e : reassembles 39774 = true ∧ castsFifteens 39774 = true := by decide
+
+/-- 9b5f: nibbles fold back to 39775; digit sum 40 ≡ 39775 (mod 15). -/
+theorem enumeration_hex4_9b5f : reassembles 39775 = true ∧ castsFifteens 39775 = true := by decide
+
+/-- 9b60: nibbles fold back to 39776; digit sum 26 ≡ 39776 (mod 15). -/
+theorem enumeration_hex4_9b60 : reassembles 39776 = true ∧ castsFifteens 39776 = true := by decide
+
+/-- 9b61: nibbles fold back to 39777; digit sum 27 ≡ 39777 (mod 15). -/
+theorem enumeration_hex4_9b61 : reassembles 39777 = true ∧ castsFifteens 39777 = true := by decide
+
+/-- 9b62: nibbles fold back to 39778; digit sum 28 ≡ 39778 (mod 15). -/
+theorem enumeration_hex4_9b62 : reassembles 39778 = true ∧ castsFifteens 39778 = true := by decide
+
+/-- 9b63: nibbles fold back to 39779; digit sum 29 ≡ 39779 (mod 15). -/
+theorem enumeration_hex4_9b63 : reassembles 39779 = true ∧ castsFifteens 39779 = true := by decide
+
+/-- 9b64: nibbles fold back to 39780; digit sum 30 ≡ 39780 (mod 15). -/
+theorem enumeration_hex4_9b64 : reassembles 39780 = true ∧ castsFifteens 39780 = true := by decide
+
+/-- 9b65: nibbles fold back to 39781; digit sum 31 ≡ 39781 (mod 15). -/
+theorem enumeration_hex4_9b65 : reassembles 39781 = true ∧ castsFifteens 39781 = true := by decide
+
+/-- 9b66: nibbles fold back to 39782; digit sum 32 ≡ 39782 (mod 15). -/
+theorem enumeration_hex4_9b66 : reassembles 39782 = true ∧ castsFifteens 39782 = true := by decide
+
+/-- 9b67: nibbles fold back to 39783; digit sum 33 ≡ 39783 (mod 15). -/
+theorem enumeration_hex4_9b67 : reassembles 39783 = true ∧ castsFifteens 39783 = true := by decide
+
+/-- 9b68: nibbles fold back to 39784; digit sum 34 ≡ 39784 (mod 15). -/
+theorem enumeration_hex4_9b68 : reassembles 39784 = true ∧ castsFifteens 39784 = true := by decide
+
+/-- 9b69: nibbles fold back to 39785; digit sum 35 ≡ 39785 (mod 15). -/
+theorem enumeration_hex4_9b69 : reassembles 39785 = true ∧ castsFifteens 39785 = true := by decide
+
+/-- 9b6a: nibbles fold back to 39786; digit sum 36 ≡ 39786 (mod 15). -/
+theorem enumeration_hex4_9b6a : reassembles 39786 = true ∧ castsFifteens 39786 = true := by decide
+
+/-- 9b6b: nibbles fold back to 39787; digit sum 37 ≡ 39787 (mod 15). -/
+theorem enumeration_hex4_9b6b : reassembles 39787 = true ∧ castsFifteens 39787 = true := by decide
+
+/-- 9b6c: nibbles fold back to 39788; digit sum 38 ≡ 39788 (mod 15). -/
+theorem enumeration_hex4_9b6c : reassembles 39788 = true ∧ castsFifteens 39788 = true := by decide
+
+/-- 9b6d: nibbles fold back to 39789; digit sum 39 ≡ 39789 (mod 15). -/
+theorem enumeration_hex4_9b6d : reassembles 39789 = true ∧ castsFifteens 39789 = true := by decide
+
+/-- 9b6e: nibbles fold back to 39790; digit sum 40 ≡ 39790 (mod 15). -/
+theorem enumeration_hex4_9b6e : reassembles 39790 = true ∧ castsFifteens 39790 = true := by decide
+
+/-- 9b6f: nibbles fold back to 39791; digit sum 41 ≡ 39791 (mod 15). -/
+theorem enumeration_hex4_9b6f : reassembles 39791 = true ∧ castsFifteens 39791 = true := by decide
+
+/-- 9b70: nibbles fold back to 39792; digit sum 27 ≡ 39792 (mod 15). -/
+theorem enumeration_hex4_9b70 : reassembles 39792 = true ∧ castsFifteens 39792 = true := by decide
+
+/-- 9b71: nibbles fold back to 39793; digit sum 28 ≡ 39793 (mod 15). -/
+theorem enumeration_hex4_9b71 : reassembles 39793 = true ∧ castsFifteens 39793 = true := by decide
+
+/-- 9b72: nibbles fold back to 39794; digit sum 29 ≡ 39794 (mod 15). -/
+theorem enumeration_hex4_9b72 : reassembles 39794 = true ∧ castsFifteens 39794 = true := by decide
+
+/-- 9b73: nibbles fold back to 39795; digit sum 30 ≡ 39795 (mod 15). -/
+theorem enumeration_hex4_9b73 : reassembles 39795 = true ∧ castsFifteens 39795 = true := by decide
+
+/-- 9b74: nibbles fold back to 39796; digit sum 31 ≡ 39796 (mod 15). -/
+theorem enumeration_hex4_9b74 : reassembles 39796 = true ∧ castsFifteens 39796 = true := by decide
+
+/-- 9b75: nibbles fold back to 39797; digit sum 32 ≡ 39797 (mod 15). -/
+theorem enumeration_hex4_9b75 : reassembles 39797 = true ∧ castsFifteens 39797 = true := by decide
+
+/-- 9b76: nibbles fold back to 39798; digit sum 33 ≡ 39798 (mod 15). -/
+theorem enumeration_hex4_9b76 : reassembles 39798 = true ∧ castsFifteens 39798 = true := by decide
+
+/-- 9b77: nibbles fold back to 39799; digit sum 34 ≡ 39799 (mod 15). -/
+theorem enumeration_hex4_9b77 : reassembles 39799 = true ∧ castsFifteens 39799 = true := by decide
+
+/-- 9b78: nibbles fold back to 39800; digit sum 35 ≡ 39800 (mod 15). -/
+theorem enumeration_hex4_9b78 : reassembles 39800 = true ∧ castsFifteens 39800 = true := by decide
+
+/-- 9b79: nibbles fold back to 39801; digit sum 36 ≡ 39801 (mod 15). -/
+theorem enumeration_hex4_9b79 : reassembles 39801 = true ∧ castsFifteens 39801 = true := by decide
+
+/-- 9b7a: nibbles fold back to 39802; digit sum 37 ≡ 39802 (mod 15). -/
+theorem enumeration_hex4_9b7a : reassembles 39802 = true ∧ castsFifteens 39802 = true := by decide
+
+/-- 9b7b: nibbles fold back to 39803; digit sum 38 ≡ 39803 (mod 15). -/
+theorem enumeration_hex4_9b7b : reassembles 39803 = true ∧ castsFifteens 39803 = true := by decide
+
+/-- 9b7c: nibbles fold back to 39804; digit sum 39 ≡ 39804 (mod 15). -/
+theorem enumeration_hex4_9b7c : reassembles 39804 = true ∧ castsFifteens 39804 = true := by decide
+
+/-- 9b7d: nibbles fold back to 39805; digit sum 40 ≡ 39805 (mod 15). -/
+theorem enumeration_hex4_9b7d : reassembles 39805 = true ∧ castsFifteens 39805 = true := by decide
+
+/-- 9b7e: nibbles fold back to 39806; digit sum 41 ≡ 39806 (mod 15). -/
+theorem enumeration_hex4_9b7e : reassembles 39806 = true ∧ castsFifteens 39806 = true := by decide
+
+/-- 9b7f: nibbles fold back to 39807; digit sum 42 ≡ 39807 (mod 15). -/
+theorem enumeration_hex4_9b7f : reassembles 39807 = true ∧ castsFifteens 39807 = true := by decide
+
+/-- 9b80: nibbles fold back to 39808; digit sum 28 ≡ 39808 (mod 15). -/
+theorem enumeration_hex4_9b80 : reassembles 39808 = true ∧ castsFifteens 39808 = true := by decide
+
+/-- 9b81: nibbles fold back to 39809; digit sum 29 ≡ 39809 (mod 15). -/
+theorem enumeration_hex4_9b81 : reassembles 39809 = true ∧ castsFifteens 39809 = true := by decide
+
+/-- 9b82: nibbles fold back to 39810; digit sum 30 ≡ 39810 (mod 15). -/
+theorem enumeration_hex4_9b82 : reassembles 39810 = true ∧ castsFifteens 39810 = true := by decide
+
+/-- 9b83: nibbles fold back to 39811; digit sum 31 ≡ 39811 (mod 15). -/
+theorem enumeration_hex4_9b83 : reassembles 39811 = true ∧ castsFifteens 39811 = true := by decide
+
+/-- 9b84: nibbles fold back to 39812; digit sum 32 ≡ 39812 (mod 15). -/
+theorem enumeration_hex4_9b84 : reassembles 39812 = true ∧ castsFifteens 39812 = true := by decide
+
+/-- 9b85: nibbles fold back to 39813; digit sum 33 ≡ 39813 (mod 15). -/
+theorem enumeration_hex4_9b85 : reassembles 39813 = true ∧ castsFifteens 39813 = true := by decide
+
+/-- 9b86: nibbles fold back to 39814; digit sum 34 ≡ 39814 (mod 15). -/
+theorem enumeration_hex4_9b86 : reassembles 39814 = true ∧ castsFifteens 39814 = true := by decide
+
+/-- 9b87: nibbles fold back to 39815; digit sum 35 ≡ 39815 (mod 15). -/
+theorem enumeration_hex4_9b87 : reassembles 39815 = true ∧ castsFifteens 39815 = true := by decide
+
+/-- 9b88: nibbles fold back to 39816; digit sum 36 ≡ 39816 (mod 15). -/
+theorem enumeration_hex4_9b88 : reassembles 39816 = true ∧ castsFifteens 39816 = true := by decide
+
+/-- 9b89: nibbles fold back to 39817; digit sum 37 ≡ 39817 (mod 15). -/
+theorem enumeration_hex4_9b89 : reassembles 39817 = true ∧ castsFifteens 39817 = true := by decide
+
+/-- 9b8a: nibbles fold back to 39818; digit sum 38 ≡ 39818 (mod 15). -/
+theorem enumeration_hex4_9b8a : reassembles 39818 = true ∧ castsFifteens 39818 = true := by decide
+
+/-- 9b8b: nibbles fold back to 39819; digit sum 39 ≡ 39819 (mod 15). -/
+theorem enumeration_hex4_9b8b : reassembles 39819 = true ∧ castsFifteens 39819 = true := by decide
+
+/-- 9b8c: nibbles fold back to 39820; digit sum 40 ≡ 39820 (mod 15). -/
+theorem enumeration_hex4_9b8c : reassembles 39820 = true ∧ castsFifteens 39820 = true := by decide
+
+/-- 9b8d: nibbles fold back to 39821; digit sum 41 ≡ 39821 (mod 15). -/
+theorem enumeration_hex4_9b8d : reassembles 39821 = true ∧ castsFifteens 39821 = true := by decide
+
+/-- 9b8e: nibbles fold back to 39822; digit sum 42 ≡ 39822 (mod 15). -/
+theorem enumeration_hex4_9b8e : reassembles 39822 = true ∧ castsFifteens 39822 = true := by decide
+
+/-- 9b8f: nibbles fold back to 39823; digit sum 43 ≡ 39823 (mod 15). -/
+theorem enumeration_hex4_9b8f : reassembles 39823 = true ∧ castsFifteens 39823 = true := by decide
+
+/-- 9b90: nibbles fold back to 39824; digit sum 29 ≡ 39824 (mod 15). -/
+theorem enumeration_hex4_9b90 : reassembles 39824 = true ∧ castsFifteens 39824 = true := by decide
+
+/-- 9b91: nibbles fold back to 39825; digit sum 30 ≡ 39825 (mod 15). -/
+theorem enumeration_hex4_9b91 : reassembles 39825 = true ∧ castsFifteens 39825 = true := by decide
+
+/-- 9b92: nibbles fold back to 39826; digit sum 31 ≡ 39826 (mod 15). -/
+theorem enumeration_hex4_9b92 : reassembles 39826 = true ∧ castsFifteens 39826 = true := by decide
+
+/-- 9b93: nibbles fold back to 39827; digit sum 32 ≡ 39827 (mod 15). -/
+theorem enumeration_hex4_9b93 : reassembles 39827 = true ∧ castsFifteens 39827 = true := by decide
+
+/-- 9b94: nibbles fold back to 39828; digit sum 33 ≡ 39828 (mod 15). -/
+theorem enumeration_hex4_9b94 : reassembles 39828 = true ∧ castsFifteens 39828 = true := by decide
+
+/-- 9b95: nibbles fold back to 39829; digit sum 34 ≡ 39829 (mod 15). -/
+theorem enumeration_hex4_9b95 : reassembles 39829 = true ∧ castsFifteens 39829 = true := by decide
+
+/-- 9b96: nibbles fold back to 39830; digit sum 35 ≡ 39830 (mod 15). -/
+theorem enumeration_hex4_9b96 : reassembles 39830 = true ∧ castsFifteens 39830 = true := by decide
+
+/-- 9b97: nibbles fold back to 39831; digit sum 36 ≡ 39831 (mod 15). -/
+theorem enumeration_hex4_9b97 : reassembles 39831 = true ∧ castsFifteens 39831 = true := by decide
+
+/-- 9b98: nibbles fold back to 39832; digit sum 37 ≡ 39832 (mod 15). -/
+theorem enumeration_hex4_9b98 : reassembles 39832 = true ∧ castsFifteens 39832 = true := by decide
+
+/-- 9b99: nibbles fold back to 39833; digit sum 38 ≡ 39833 (mod 15). -/
+theorem enumeration_hex4_9b99 : reassembles 39833 = true ∧ castsFifteens 39833 = true := by decide
+
+/-- 9b9a: nibbles fold back to 39834; digit sum 39 ≡ 39834 (mod 15). -/
+theorem enumeration_hex4_9b9a : reassembles 39834 = true ∧ castsFifteens 39834 = true := by decide
+
+/-- 9b9b: nibbles fold back to 39835; digit sum 40 ≡ 39835 (mod 15). -/
+theorem enumeration_hex4_9b9b : reassembles 39835 = true ∧ castsFifteens 39835 = true := by decide
+
+/-- 9b9c: nibbles fold back to 39836; digit sum 41 ≡ 39836 (mod 15). -/
+theorem enumeration_hex4_9b9c : reassembles 39836 = true ∧ castsFifteens 39836 = true := by decide
+
+/-- 9b9d: nibbles fold back to 39837; digit sum 42 ≡ 39837 (mod 15). -/
+theorem enumeration_hex4_9b9d : reassembles 39837 = true ∧ castsFifteens 39837 = true := by decide
+
+/-- 9b9e: nibbles fold back to 39838; digit sum 43 ≡ 39838 (mod 15). -/
+theorem enumeration_hex4_9b9e : reassembles 39838 = true ∧ castsFifteens 39838 = true := by decide
+
+/-- 9b9f: nibbles fold back to 39839; digit sum 44 ≡ 39839 (mod 15). -/
+theorem enumeration_hex4_9b9f : reassembles 39839 = true ∧ castsFifteens 39839 = true := by decide
+
+/-- 9ba0: nibbles fold back to 39840; digit sum 30 ≡ 39840 (mod 15). -/
+theorem enumeration_hex4_9ba0 : reassembles 39840 = true ∧ castsFifteens 39840 = true := by decide
+
+/-- 9ba1: nibbles fold back to 39841; digit sum 31 ≡ 39841 (mod 15). -/
+theorem enumeration_hex4_9ba1 : reassembles 39841 = true ∧ castsFifteens 39841 = true := by decide
+
+/-- 9ba2: nibbles fold back to 39842; digit sum 32 ≡ 39842 (mod 15). -/
+theorem enumeration_hex4_9ba2 : reassembles 39842 = true ∧ castsFifteens 39842 = true := by decide
+
+/-- 9ba3: nibbles fold back to 39843; digit sum 33 ≡ 39843 (mod 15). -/
+theorem enumeration_hex4_9ba3 : reassembles 39843 = true ∧ castsFifteens 39843 = true := by decide
+
+/-- 9ba4: nibbles fold back to 39844; digit sum 34 ≡ 39844 (mod 15). -/
+theorem enumeration_hex4_9ba4 : reassembles 39844 = true ∧ castsFifteens 39844 = true := by decide
+
+/-- 9ba5: nibbles fold back to 39845; digit sum 35 ≡ 39845 (mod 15). -/
+theorem enumeration_hex4_9ba5 : reassembles 39845 = true ∧ castsFifteens 39845 = true := by decide
+
+/-- 9ba6: nibbles fold back to 39846; digit sum 36 ≡ 39846 (mod 15). -/
+theorem enumeration_hex4_9ba6 : reassembles 39846 = true ∧ castsFifteens 39846 = true := by decide
+
+/-- 9ba7: nibbles fold back to 39847; digit sum 37 ≡ 39847 (mod 15). -/
+theorem enumeration_hex4_9ba7 : reassembles 39847 = true ∧ castsFifteens 39847 = true := by decide
+
+/-- 9ba8: nibbles fold back to 39848; digit sum 38 ≡ 39848 (mod 15). -/
+theorem enumeration_hex4_9ba8 : reassembles 39848 = true ∧ castsFifteens 39848 = true := by decide
+
+/-- 9ba9: nibbles fold back to 39849; digit sum 39 ≡ 39849 (mod 15). -/
+theorem enumeration_hex4_9ba9 : reassembles 39849 = true ∧ castsFifteens 39849 = true := by decide
+
+/-- 9baa: nibbles fold back to 39850; digit sum 40 ≡ 39850 (mod 15). -/
+theorem enumeration_hex4_9baa : reassembles 39850 = true ∧ castsFifteens 39850 = true := by decide
+
+/-- 9bab: nibbles fold back to 39851; digit sum 41 ≡ 39851 (mod 15). -/
+theorem enumeration_hex4_9bab : reassembles 39851 = true ∧ castsFifteens 39851 = true := by decide
+
+/-- 9bac: nibbles fold back to 39852; digit sum 42 ≡ 39852 (mod 15). -/
+theorem enumeration_hex4_9bac : reassembles 39852 = true ∧ castsFifteens 39852 = true := by decide
+
+/-- 9bad: nibbles fold back to 39853; digit sum 43 ≡ 39853 (mod 15). -/
+theorem enumeration_hex4_9bad : reassembles 39853 = true ∧ castsFifteens 39853 = true := by decide
+
+/-- 9bae: nibbles fold back to 39854; digit sum 44 ≡ 39854 (mod 15). -/
+theorem enumeration_hex4_9bae : reassembles 39854 = true ∧ castsFifteens 39854 = true := by decide
+
+/-- 9baf: nibbles fold back to 39855; digit sum 45 ≡ 39855 (mod 15). -/
+theorem enumeration_hex4_9baf : reassembles 39855 = true ∧ castsFifteens 39855 = true := by decide
+
+/-- 9bb0: nibbles fold back to 39856; digit sum 31 ≡ 39856 (mod 15). -/
+theorem enumeration_hex4_9bb0 : reassembles 39856 = true ∧ castsFifteens 39856 = true := by decide
+
+/-- 9bb1: nibbles fold back to 39857; digit sum 32 ≡ 39857 (mod 15). -/
+theorem enumeration_hex4_9bb1 : reassembles 39857 = true ∧ castsFifteens 39857 = true := by decide
+
+/-- 9bb2: nibbles fold back to 39858; digit sum 33 ≡ 39858 (mod 15). -/
+theorem enumeration_hex4_9bb2 : reassembles 39858 = true ∧ castsFifteens 39858 = true := by decide
+
+/-- 9bb3: nibbles fold back to 39859; digit sum 34 ≡ 39859 (mod 15). -/
+theorem enumeration_hex4_9bb3 : reassembles 39859 = true ∧ castsFifteens 39859 = true := by decide
+
+/-- 9bb4: nibbles fold back to 39860; digit sum 35 ≡ 39860 (mod 15). -/
+theorem enumeration_hex4_9bb4 : reassembles 39860 = true ∧ castsFifteens 39860 = true := by decide
+
+/-- 9bb5: nibbles fold back to 39861; digit sum 36 ≡ 39861 (mod 15). -/
+theorem enumeration_hex4_9bb5 : reassembles 39861 = true ∧ castsFifteens 39861 = true := by decide
+
+/-- 9bb6: nibbles fold back to 39862; digit sum 37 ≡ 39862 (mod 15). -/
+theorem enumeration_hex4_9bb6 : reassembles 39862 = true ∧ castsFifteens 39862 = true := by decide
+
+/-- 9bb7: nibbles fold back to 39863; digit sum 38 ≡ 39863 (mod 15). -/
+theorem enumeration_hex4_9bb7 : reassembles 39863 = true ∧ castsFifteens 39863 = true := by decide
+
+/-- 9bb8: nibbles fold back to 39864; digit sum 39 ≡ 39864 (mod 15). -/
+theorem enumeration_hex4_9bb8 : reassembles 39864 = true ∧ castsFifteens 39864 = true := by decide
+
+/-- 9bb9: nibbles fold back to 39865; digit sum 40 ≡ 39865 (mod 15). -/
+theorem enumeration_hex4_9bb9 : reassembles 39865 = true ∧ castsFifteens 39865 = true := by decide
+
+/-- 9bba: nibbles fold back to 39866; digit sum 41 ≡ 39866 (mod 15). -/
+theorem enumeration_hex4_9bba : reassembles 39866 = true ∧ castsFifteens 39866 = true := by decide
+
+/-- 9bbb: nibbles fold back to 39867; digit sum 42 ≡ 39867 (mod 15). -/
+theorem enumeration_hex4_9bbb : reassembles 39867 = true ∧ castsFifteens 39867 = true := by decide
+
+/-- 9bbc: nibbles fold back to 39868; digit sum 43 ≡ 39868 (mod 15). -/
+theorem enumeration_hex4_9bbc : reassembles 39868 = true ∧ castsFifteens 39868 = true := by decide
+
+/-- 9bbd: nibbles fold back to 39869; digit sum 44 ≡ 39869 (mod 15). -/
+theorem enumeration_hex4_9bbd : reassembles 39869 = true ∧ castsFifteens 39869 = true := by decide
+
+/-- 9bbe: nibbles fold back to 39870; digit sum 45 ≡ 39870 (mod 15). -/
+theorem enumeration_hex4_9bbe : reassembles 39870 = true ∧ castsFifteens 39870 = true := by decide
+
+/-- 9bbf: nibbles fold back to 39871; digit sum 46 ≡ 39871 (mod 15). -/
+theorem enumeration_hex4_9bbf : reassembles 39871 = true ∧ castsFifteens 39871 = true := by decide
+
+/-- 9bc0: nibbles fold back to 39872; digit sum 32 ≡ 39872 (mod 15). -/
+theorem enumeration_hex4_9bc0 : reassembles 39872 = true ∧ castsFifteens 39872 = true := by decide
+
+/-- 9bc1: nibbles fold back to 39873; digit sum 33 ≡ 39873 (mod 15). -/
+theorem enumeration_hex4_9bc1 : reassembles 39873 = true ∧ castsFifteens 39873 = true := by decide
+
+/-- 9bc2: nibbles fold back to 39874; digit sum 34 ≡ 39874 (mod 15). -/
+theorem enumeration_hex4_9bc2 : reassembles 39874 = true ∧ castsFifteens 39874 = true := by decide
+
+/-- 9bc3: nibbles fold back to 39875; digit sum 35 ≡ 39875 (mod 15). -/
+theorem enumeration_hex4_9bc3 : reassembles 39875 = true ∧ castsFifteens 39875 = true := by decide
+
+/-- 9bc4: nibbles fold back to 39876; digit sum 36 ≡ 39876 (mod 15). -/
+theorem enumeration_hex4_9bc4 : reassembles 39876 = true ∧ castsFifteens 39876 = true := by decide
+
+/-- 9bc5: nibbles fold back to 39877; digit sum 37 ≡ 39877 (mod 15). -/
+theorem enumeration_hex4_9bc5 : reassembles 39877 = true ∧ castsFifteens 39877 = true := by decide
+
+/-- 9bc6: nibbles fold back to 39878; digit sum 38 ≡ 39878 (mod 15). -/
+theorem enumeration_hex4_9bc6 : reassembles 39878 = true ∧ castsFifteens 39878 = true := by decide
+
+/-- 9bc7: nibbles fold back to 39879; digit sum 39 ≡ 39879 (mod 15). -/
+theorem enumeration_hex4_9bc7 : reassembles 39879 = true ∧ castsFifteens 39879 = true := by decide
+
+/-- 9bc8: nibbles fold back to 39880; digit sum 40 ≡ 39880 (mod 15). -/
+theorem enumeration_hex4_9bc8 : reassembles 39880 = true ∧ castsFifteens 39880 = true := by decide
+
+/-- 9bc9: nibbles fold back to 39881; digit sum 41 ≡ 39881 (mod 15). -/
+theorem enumeration_hex4_9bc9 : reassembles 39881 = true ∧ castsFifteens 39881 = true := by decide
+
+/-- 9bca: nibbles fold back to 39882; digit sum 42 ≡ 39882 (mod 15). -/
+theorem enumeration_hex4_9bca : reassembles 39882 = true ∧ castsFifteens 39882 = true := by decide
+
+/-- 9bcb: nibbles fold back to 39883; digit sum 43 ≡ 39883 (mod 15). -/
+theorem enumeration_hex4_9bcb : reassembles 39883 = true ∧ castsFifteens 39883 = true := by decide
+
+/-- 9bcc: nibbles fold back to 39884; digit sum 44 ≡ 39884 (mod 15). -/
+theorem enumeration_hex4_9bcc : reassembles 39884 = true ∧ castsFifteens 39884 = true := by decide
+
+/-- 9bcd: nibbles fold back to 39885; digit sum 45 ≡ 39885 (mod 15). -/
+theorem enumeration_hex4_9bcd : reassembles 39885 = true ∧ castsFifteens 39885 = true := by decide
+
+/-- 9bce: nibbles fold back to 39886; digit sum 46 ≡ 39886 (mod 15). -/
+theorem enumeration_hex4_9bce : reassembles 39886 = true ∧ castsFifteens 39886 = true := by decide
+
+/-- 9bcf: nibbles fold back to 39887; digit sum 47 ≡ 39887 (mod 15). -/
+theorem enumeration_hex4_9bcf : reassembles 39887 = true ∧ castsFifteens 39887 = true := by decide
+
+/-- 9bd0: nibbles fold back to 39888; digit sum 33 ≡ 39888 (mod 15). -/
+theorem enumeration_hex4_9bd0 : reassembles 39888 = true ∧ castsFifteens 39888 = true := by decide
+
+/-- 9bd1: nibbles fold back to 39889; digit sum 34 ≡ 39889 (mod 15). -/
+theorem enumeration_hex4_9bd1 : reassembles 39889 = true ∧ castsFifteens 39889 = true := by decide
+
+/-- 9bd2: nibbles fold back to 39890; digit sum 35 ≡ 39890 (mod 15). -/
+theorem enumeration_hex4_9bd2 : reassembles 39890 = true ∧ castsFifteens 39890 = true := by decide
+
+/-- 9bd3: nibbles fold back to 39891; digit sum 36 ≡ 39891 (mod 15). -/
+theorem enumeration_hex4_9bd3 : reassembles 39891 = true ∧ castsFifteens 39891 = true := by decide
+
+/-- 9bd4: nibbles fold back to 39892; digit sum 37 ≡ 39892 (mod 15). -/
+theorem enumeration_hex4_9bd4 : reassembles 39892 = true ∧ castsFifteens 39892 = true := by decide
+
+/-- 9bd5: nibbles fold back to 39893; digit sum 38 ≡ 39893 (mod 15). -/
+theorem enumeration_hex4_9bd5 : reassembles 39893 = true ∧ castsFifteens 39893 = true := by decide
+
+/-- 9bd6: nibbles fold back to 39894; digit sum 39 ≡ 39894 (mod 15). -/
+theorem enumeration_hex4_9bd6 : reassembles 39894 = true ∧ castsFifteens 39894 = true := by decide
+
+/-- 9bd7: nibbles fold back to 39895; digit sum 40 ≡ 39895 (mod 15). -/
+theorem enumeration_hex4_9bd7 : reassembles 39895 = true ∧ castsFifteens 39895 = true := by decide
+
+/-- 9bd8: nibbles fold back to 39896; digit sum 41 ≡ 39896 (mod 15). -/
+theorem enumeration_hex4_9bd8 : reassembles 39896 = true ∧ castsFifteens 39896 = true := by decide
+
+/-- 9bd9: nibbles fold back to 39897; digit sum 42 ≡ 39897 (mod 15). -/
+theorem enumeration_hex4_9bd9 : reassembles 39897 = true ∧ castsFifteens 39897 = true := by decide
+
+/-- 9bda: nibbles fold back to 39898; digit sum 43 ≡ 39898 (mod 15). -/
+theorem enumeration_hex4_9bda : reassembles 39898 = true ∧ castsFifteens 39898 = true := by decide
+
+/-- 9bdb: nibbles fold back to 39899; digit sum 44 ≡ 39899 (mod 15). -/
+theorem enumeration_hex4_9bdb : reassembles 39899 = true ∧ castsFifteens 39899 = true := by decide
+
+/-- 9bdc: nibbles fold back to 39900; digit sum 45 ≡ 39900 (mod 15). -/
+theorem enumeration_hex4_9bdc : reassembles 39900 = true ∧ castsFifteens 39900 = true := by decide
+
+/-- 9bdd: nibbles fold back to 39901; digit sum 46 ≡ 39901 (mod 15). -/
+theorem enumeration_hex4_9bdd : reassembles 39901 = true ∧ castsFifteens 39901 = true := by decide
+
+/-- 9bde: nibbles fold back to 39902; digit sum 47 ≡ 39902 (mod 15). -/
+theorem enumeration_hex4_9bde : reassembles 39902 = true ∧ castsFifteens 39902 = true := by decide
+
+/-- 9bdf: nibbles fold back to 39903; digit sum 48 ≡ 39903 (mod 15). -/
+theorem enumeration_hex4_9bdf : reassembles 39903 = true ∧ castsFifteens 39903 = true := by decide
+
+/-- 9be0: nibbles fold back to 39904; digit sum 34 ≡ 39904 (mod 15). -/
+theorem enumeration_hex4_9be0 : reassembles 39904 = true ∧ castsFifteens 39904 = true := by decide
+
+/-- 9be1: nibbles fold back to 39905; digit sum 35 ≡ 39905 (mod 15). -/
+theorem enumeration_hex4_9be1 : reassembles 39905 = true ∧ castsFifteens 39905 = true := by decide
+
+/-- 9be2: nibbles fold back to 39906; digit sum 36 ≡ 39906 (mod 15). -/
+theorem enumeration_hex4_9be2 : reassembles 39906 = true ∧ castsFifteens 39906 = true := by decide
+
+/-- 9be3: nibbles fold back to 39907; digit sum 37 ≡ 39907 (mod 15). -/
+theorem enumeration_hex4_9be3 : reassembles 39907 = true ∧ castsFifteens 39907 = true := by decide
+
+/-- 9be4: nibbles fold back to 39908; digit sum 38 ≡ 39908 (mod 15). -/
+theorem enumeration_hex4_9be4 : reassembles 39908 = true ∧ castsFifteens 39908 = true := by decide
+
+/-- 9be5: nibbles fold back to 39909; digit sum 39 ≡ 39909 (mod 15). -/
+theorem enumeration_hex4_9be5 : reassembles 39909 = true ∧ castsFifteens 39909 = true := by decide
+
+/-- 9be6: nibbles fold back to 39910; digit sum 40 ≡ 39910 (mod 15). -/
+theorem enumeration_hex4_9be6 : reassembles 39910 = true ∧ castsFifteens 39910 = true := by decide
+
+/-- 9be7: nibbles fold back to 39911; digit sum 41 ≡ 39911 (mod 15). -/
+theorem enumeration_hex4_9be7 : reassembles 39911 = true ∧ castsFifteens 39911 = true := by decide
+
+/-- 9be8: nibbles fold back to 39912; digit sum 42 ≡ 39912 (mod 15). -/
+theorem enumeration_hex4_9be8 : reassembles 39912 = true ∧ castsFifteens 39912 = true := by decide
+
+/-- 9be9: nibbles fold back to 39913; digit sum 43 ≡ 39913 (mod 15). -/
+theorem enumeration_hex4_9be9 : reassembles 39913 = true ∧ castsFifteens 39913 = true := by decide
+
+/-- 9bea: nibbles fold back to 39914; digit sum 44 ≡ 39914 (mod 15). -/
+theorem enumeration_hex4_9bea : reassembles 39914 = true ∧ castsFifteens 39914 = true := by decide
+
+/-- 9beb: nibbles fold back to 39915; digit sum 45 ≡ 39915 (mod 15). -/
+theorem enumeration_hex4_9beb : reassembles 39915 = true ∧ castsFifteens 39915 = true := by decide
+
+/-- 9bec: nibbles fold back to 39916; digit sum 46 ≡ 39916 (mod 15). -/
+theorem enumeration_hex4_9bec : reassembles 39916 = true ∧ castsFifteens 39916 = true := by decide
+
+/-- 9bed: nibbles fold back to 39917; digit sum 47 ≡ 39917 (mod 15). -/
+theorem enumeration_hex4_9bed : reassembles 39917 = true ∧ castsFifteens 39917 = true := by decide
+
+/-- 9bee: nibbles fold back to 39918; digit sum 48 ≡ 39918 (mod 15). -/
+theorem enumeration_hex4_9bee : reassembles 39918 = true ∧ castsFifteens 39918 = true := by decide
+
+/-- 9bef: nibbles fold back to 39919; digit sum 49 ≡ 39919 (mod 15). -/
+theorem enumeration_hex4_9bef : reassembles 39919 = true ∧ castsFifteens 39919 = true := by decide
+
+/-- 9bf0: nibbles fold back to 39920; digit sum 35 ≡ 39920 (mod 15). -/
+theorem enumeration_hex4_9bf0 : reassembles 39920 = true ∧ castsFifteens 39920 = true := by decide
+
+/-- 9bf1: nibbles fold back to 39921; digit sum 36 ≡ 39921 (mod 15). -/
+theorem enumeration_hex4_9bf1 : reassembles 39921 = true ∧ castsFifteens 39921 = true := by decide
+
+/-- 9bf2: nibbles fold back to 39922; digit sum 37 ≡ 39922 (mod 15). -/
+theorem enumeration_hex4_9bf2 : reassembles 39922 = true ∧ castsFifteens 39922 = true := by decide
+
+/-- 9bf3: nibbles fold back to 39923; digit sum 38 ≡ 39923 (mod 15). -/
+theorem enumeration_hex4_9bf3 : reassembles 39923 = true ∧ castsFifteens 39923 = true := by decide
+
+/-- 9bf4: nibbles fold back to 39924; digit sum 39 ≡ 39924 (mod 15). -/
+theorem enumeration_hex4_9bf4 : reassembles 39924 = true ∧ castsFifteens 39924 = true := by decide
+
+/-- 9bf5: nibbles fold back to 39925; digit sum 40 ≡ 39925 (mod 15). -/
+theorem enumeration_hex4_9bf5 : reassembles 39925 = true ∧ castsFifteens 39925 = true := by decide
+
+/-- 9bf6: nibbles fold back to 39926; digit sum 41 ≡ 39926 (mod 15). -/
+theorem enumeration_hex4_9bf6 : reassembles 39926 = true ∧ castsFifteens 39926 = true := by decide
+
+/-- 9bf7: nibbles fold back to 39927; digit sum 42 ≡ 39927 (mod 15). -/
+theorem enumeration_hex4_9bf7 : reassembles 39927 = true ∧ castsFifteens 39927 = true := by decide
+
+/-- 9bf8: nibbles fold back to 39928; digit sum 43 ≡ 39928 (mod 15). -/
+theorem enumeration_hex4_9bf8 : reassembles 39928 = true ∧ castsFifteens 39928 = true := by decide
+
+/-- 9bf9: nibbles fold back to 39929; digit sum 44 ≡ 39929 (mod 15). -/
+theorem enumeration_hex4_9bf9 : reassembles 39929 = true ∧ castsFifteens 39929 = true := by decide
+
+/-- 9bfa: nibbles fold back to 39930; digit sum 45 ≡ 39930 (mod 15). -/
+theorem enumeration_hex4_9bfa : reassembles 39930 = true ∧ castsFifteens 39930 = true := by decide
+
+/-- 9bfb: nibbles fold back to 39931; digit sum 46 ≡ 39931 (mod 15). -/
+theorem enumeration_hex4_9bfb : reassembles 39931 = true ∧ castsFifteens 39931 = true := by decide
+
+/-- 9bfc: nibbles fold back to 39932; digit sum 47 ≡ 39932 (mod 15). -/
+theorem enumeration_hex4_9bfc : reassembles 39932 = true ∧ castsFifteens 39932 = true := by decide
+
+/-- 9bfd: nibbles fold back to 39933; digit sum 48 ≡ 39933 (mod 15). -/
+theorem enumeration_hex4_9bfd : reassembles 39933 = true ∧ castsFifteens 39933 = true := by decide
+
+/-- 9bfe: nibbles fold back to 39934; digit sum 49 ≡ 39934 (mod 15). -/
+theorem enumeration_hex4_9bfe : reassembles 39934 = true ∧ castsFifteens 39934 = true := by decide
+
+/-- 9bff: nibbles fold back to 39935; digit sum 50 ≡ 39935 (mod 15). -/
+theorem enumeration_hex4_9bff : reassembles 39935 = true ∧ castsFifteens 39935 = true := by decide
+
+/-- 9c00: nibbles fold back to 39936; digit sum 21 ≡ 39936 (mod 15). -/
+theorem enumeration_hex4_9c00 : reassembles 39936 = true ∧ castsFifteens 39936 = true := by decide
+
+/-- 9c01: nibbles fold back to 39937; digit sum 22 ≡ 39937 (mod 15). -/
+theorem enumeration_hex4_9c01 : reassembles 39937 = true ∧ castsFifteens 39937 = true := by decide
+
+/-- 9c02: nibbles fold back to 39938; digit sum 23 ≡ 39938 (mod 15). -/
+theorem enumeration_hex4_9c02 : reassembles 39938 = true ∧ castsFifteens 39938 = true := by decide
+
+/-- 9c03: nibbles fold back to 39939; digit sum 24 ≡ 39939 (mod 15). -/
+theorem enumeration_hex4_9c03 : reassembles 39939 = true ∧ castsFifteens 39939 = true := by decide
+
+/-- 9c04: nibbles fold back to 39940; digit sum 25 ≡ 39940 (mod 15). -/
+theorem enumeration_hex4_9c04 : reassembles 39940 = true ∧ castsFifteens 39940 = true := by decide
+
+/-- 9c05: nibbles fold back to 39941; digit sum 26 ≡ 39941 (mod 15). -/
+theorem enumeration_hex4_9c05 : reassembles 39941 = true ∧ castsFifteens 39941 = true := by decide
+
+/-- 9c06: nibbles fold back to 39942; digit sum 27 ≡ 39942 (mod 15). -/
+theorem enumeration_hex4_9c06 : reassembles 39942 = true ∧ castsFifteens 39942 = true := by decide
+
+/-- 9c07: nibbles fold back to 39943; digit sum 28 ≡ 39943 (mod 15). -/
+theorem enumeration_hex4_9c07 : reassembles 39943 = true ∧ castsFifteens 39943 = true := by decide
+
+/-- 9c08: nibbles fold back to 39944; digit sum 29 ≡ 39944 (mod 15). -/
+theorem enumeration_hex4_9c08 : reassembles 39944 = true ∧ castsFifteens 39944 = true := by decide
+
+/-- 9c09: nibbles fold back to 39945; digit sum 30 ≡ 39945 (mod 15). -/
+theorem enumeration_hex4_9c09 : reassembles 39945 = true ∧ castsFifteens 39945 = true := by decide
+
+/-- 9c0a: nibbles fold back to 39946; digit sum 31 ≡ 39946 (mod 15). -/
+theorem enumeration_hex4_9c0a : reassembles 39946 = true ∧ castsFifteens 39946 = true := by decide
+
+/-- 9c0b: nibbles fold back to 39947; digit sum 32 ≡ 39947 (mod 15). -/
+theorem enumeration_hex4_9c0b : reassembles 39947 = true ∧ castsFifteens 39947 = true := by decide
+
+/-- 9c0c: nibbles fold back to 39948; digit sum 33 ≡ 39948 (mod 15). -/
+theorem enumeration_hex4_9c0c : reassembles 39948 = true ∧ castsFifteens 39948 = true := by decide
+
+/-- 9c0d: nibbles fold back to 39949; digit sum 34 ≡ 39949 (mod 15). -/
+theorem enumeration_hex4_9c0d : reassembles 39949 = true ∧ castsFifteens 39949 = true := by decide
+
+/-- 9c0e: nibbles fold back to 39950; digit sum 35 ≡ 39950 (mod 15). -/
+theorem enumeration_hex4_9c0e : reassembles 39950 = true ∧ castsFifteens 39950 = true := by decide
+
+/-- 9c0f: nibbles fold back to 39951; digit sum 36 ≡ 39951 (mod 15). -/
+theorem enumeration_hex4_9c0f : reassembles 39951 = true ∧ castsFifteens 39951 = true := by decide
+
+/-- 9c10: nibbles fold back to 39952; digit sum 22 ≡ 39952 (mod 15). -/
+theorem enumeration_hex4_9c10 : reassembles 39952 = true ∧ castsFifteens 39952 = true := by decide
+
+/-- 9c11: nibbles fold back to 39953; digit sum 23 ≡ 39953 (mod 15). -/
+theorem enumeration_hex4_9c11 : reassembles 39953 = true ∧ castsFifteens 39953 = true := by decide
+
+/-- 9c12: nibbles fold back to 39954; digit sum 24 ≡ 39954 (mod 15). -/
+theorem enumeration_hex4_9c12 : reassembles 39954 = true ∧ castsFifteens 39954 = true := by decide
+
+/-- 9c13: nibbles fold back to 39955; digit sum 25 ≡ 39955 (mod 15). -/
+theorem enumeration_hex4_9c13 : reassembles 39955 = true ∧ castsFifteens 39955 = true := by decide
+
+/-- 9c14: nibbles fold back to 39956; digit sum 26 ≡ 39956 (mod 15). -/
+theorem enumeration_hex4_9c14 : reassembles 39956 = true ∧ castsFifteens 39956 = true := by decide
+
+/-- 9c15: nibbles fold back to 39957; digit sum 27 ≡ 39957 (mod 15). -/
+theorem enumeration_hex4_9c15 : reassembles 39957 = true ∧ castsFifteens 39957 = true := by decide
+
+/-- 9c16: nibbles fold back to 39958; digit sum 28 ≡ 39958 (mod 15). -/
+theorem enumeration_hex4_9c16 : reassembles 39958 = true ∧ castsFifteens 39958 = true := by decide
+
+/-- 9c17: nibbles fold back to 39959; digit sum 29 ≡ 39959 (mod 15). -/
+theorem enumeration_hex4_9c17 : reassembles 39959 = true ∧ castsFifteens 39959 = true := by decide
+
+/-- 9c18: nibbles fold back to 39960; digit sum 30 ≡ 39960 (mod 15). -/
+theorem enumeration_hex4_9c18 : reassembles 39960 = true ∧ castsFifteens 39960 = true := by decide
+
+/-- 9c19: nibbles fold back to 39961; digit sum 31 ≡ 39961 (mod 15). -/
+theorem enumeration_hex4_9c19 : reassembles 39961 = true ∧ castsFifteens 39961 = true := by decide
+
+/-- 9c1a: nibbles fold back to 39962; digit sum 32 ≡ 39962 (mod 15). -/
+theorem enumeration_hex4_9c1a : reassembles 39962 = true ∧ castsFifteens 39962 = true := by decide
+
+/-- 9c1b: nibbles fold back to 39963; digit sum 33 ≡ 39963 (mod 15). -/
+theorem enumeration_hex4_9c1b : reassembles 39963 = true ∧ castsFifteens 39963 = true := by decide
+
+/-- 9c1c: nibbles fold back to 39964; digit sum 34 ≡ 39964 (mod 15). -/
+theorem enumeration_hex4_9c1c : reassembles 39964 = true ∧ castsFifteens 39964 = true := by decide
+
+/-- 9c1d: nibbles fold back to 39965; digit sum 35 ≡ 39965 (mod 15). -/
+theorem enumeration_hex4_9c1d : reassembles 39965 = true ∧ castsFifteens 39965 = true := by decide
+
+/-- 9c1e: nibbles fold back to 39966; digit sum 36 ≡ 39966 (mod 15). -/
+theorem enumeration_hex4_9c1e : reassembles 39966 = true ∧ castsFifteens 39966 = true := by decide
+
+/-- 9c1f: nibbles fold back to 39967; digit sum 37 ≡ 39967 (mod 15). -/
+theorem enumeration_hex4_9c1f : reassembles 39967 = true ∧ castsFifteens 39967 = true := by decide
+
+/-- 9c20: nibbles fold back to 39968; digit sum 23 ≡ 39968 (mod 15). -/
+theorem enumeration_hex4_9c20 : reassembles 39968 = true ∧ castsFifteens 39968 = true := by decide
+
+/-- 9c21: nibbles fold back to 39969; digit sum 24 ≡ 39969 (mod 15). -/
+theorem enumeration_hex4_9c21 : reassembles 39969 = true ∧ castsFifteens 39969 = true := by decide
+
+/-- 9c22: nibbles fold back to 39970; digit sum 25 ≡ 39970 (mod 15). -/
+theorem enumeration_hex4_9c22 : reassembles 39970 = true ∧ castsFifteens 39970 = true := by decide
+
+/-- 9c23: nibbles fold back to 39971; digit sum 26 ≡ 39971 (mod 15). -/
+theorem enumeration_hex4_9c23 : reassembles 39971 = true ∧ castsFifteens 39971 = true := by decide
+
+/-- 9c24: nibbles fold back to 39972; digit sum 27 ≡ 39972 (mod 15). -/
+theorem enumeration_hex4_9c24 : reassembles 39972 = true ∧ castsFifteens 39972 = true := by decide
+
+/-- 9c25: nibbles fold back to 39973; digit sum 28 ≡ 39973 (mod 15). -/
+theorem enumeration_hex4_9c25 : reassembles 39973 = true ∧ castsFifteens 39973 = true := by decide
+
+/-- 9c26: nibbles fold back to 39974; digit sum 29 ≡ 39974 (mod 15). -/
+theorem enumeration_hex4_9c26 : reassembles 39974 = true ∧ castsFifteens 39974 = true := by decide
+
+/-- 9c27: nibbles fold back to 39975; digit sum 30 ≡ 39975 (mod 15). -/
+theorem enumeration_hex4_9c27 : reassembles 39975 = true ∧ castsFifteens 39975 = true := by decide
+
+/-- 9c28: nibbles fold back to 39976; digit sum 31 ≡ 39976 (mod 15). -/
+theorem enumeration_hex4_9c28 : reassembles 39976 = true ∧ castsFifteens 39976 = true := by decide
+
+/-- 9c29: nibbles fold back to 39977; digit sum 32 ≡ 39977 (mod 15). -/
+theorem enumeration_hex4_9c29 : reassembles 39977 = true ∧ castsFifteens 39977 = true := by decide
+
+/-- 9c2a: nibbles fold back to 39978; digit sum 33 ≡ 39978 (mod 15). -/
+theorem enumeration_hex4_9c2a : reassembles 39978 = true ∧ castsFifteens 39978 = true := by decide
+
+/-- 9c2b: nibbles fold back to 39979; digit sum 34 ≡ 39979 (mod 15). -/
+theorem enumeration_hex4_9c2b : reassembles 39979 = true ∧ castsFifteens 39979 = true := by decide
+
+/-- 9c2c: nibbles fold back to 39980; digit sum 35 ≡ 39980 (mod 15). -/
+theorem enumeration_hex4_9c2c : reassembles 39980 = true ∧ castsFifteens 39980 = true := by decide
+
+/-- 9c2d: nibbles fold back to 39981; digit sum 36 ≡ 39981 (mod 15). -/
+theorem enumeration_hex4_9c2d : reassembles 39981 = true ∧ castsFifteens 39981 = true := by decide
+
+/-- 9c2e: nibbles fold back to 39982; digit sum 37 ≡ 39982 (mod 15). -/
+theorem enumeration_hex4_9c2e : reassembles 39982 = true ∧ castsFifteens 39982 = true := by decide
+
+/-- 9c2f: nibbles fold back to 39983; digit sum 38 ≡ 39983 (mod 15). -/
+theorem enumeration_hex4_9c2f : reassembles 39983 = true ∧ castsFifteens 39983 = true := by decide
+
+/-- 9c30: nibbles fold back to 39984; digit sum 24 ≡ 39984 (mod 15). -/
+theorem enumeration_hex4_9c30 : reassembles 39984 = true ∧ castsFifteens 39984 = true := by decide
+
+/-- 9c31: nibbles fold back to 39985; digit sum 25 ≡ 39985 (mod 15). -/
+theorem enumeration_hex4_9c31 : reassembles 39985 = true ∧ castsFifteens 39985 = true := by decide
+
+/-- 9c32: nibbles fold back to 39986; digit sum 26 ≡ 39986 (mod 15). -/
+theorem enumeration_hex4_9c32 : reassembles 39986 = true ∧ castsFifteens 39986 = true := by decide
+
+/-- 9c33: nibbles fold back to 39987; digit sum 27 ≡ 39987 (mod 15). -/
+theorem enumeration_hex4_9c33 : reassembles 39987 = true ∧ castsFifteens 39987 = true := by decide
+
+/-- 9c34: nibbles fold back to 39988; digit sum 28 ≡ 39988 (mod 15). -/
+theorem enumeration_hex4_9c34 : reassembles 39988 = true ∧ castsFifteens 39988 = true := by decide
+
+/-- 9c35: nibbles fold back to 39989; digit sum 29 ≡ 39989 (mod 15). -/
+theorem enumeration_hex4_9c35 : reassembles 39989 = true ∧ castsFifteens 39989 = true := by decide
+
+/-- 9c36: nibbles fold back to 39990; digit sum 30 ≡ 39990 (mod 15). -/
+theorem enumeration_hex4_9c36 : reassembles 39990 = true ∧ castsFifteens 39990 = true := by decide
+
+/-- 9c37: nibbles fold back to 39991; digit sum 31 ≡ 39991 (mod 15). -/
+theorem enumeration_hex4_9c37 : reassembles 39991 = true ∧ castsFifteens 39991 = true := by decide
+
+/-- 9c38: nibbles fold back to 39992; digit sum 32 ≡ 39992 (mod 15). -/
+theorem enumeration_hex4_9c38 : reassembles 39992 = true ∧ castsFifteens 39992 = true := by decide
+
+/-- 9c39: nibbles fold back to 39993; digit sum 33 ≡ 39993 (mod 15). -/
+theorem enumeration_hex4_9c39 : reassembles 39993 = true ∧ castsFifteens 39993 = true := by decide
+
+/-- 9c3a: nibbles fold back to 39994; digit sum 34 ≡ 39994 (mod 15). -/
+theorem enumeration_hex4_9c3a : reassembles 39994 = true ∧ castsFifteens 39994 = true := by decide
+
+/-- 9c3b: nibbles fold back to 39995; digit sum 35 ≡ 39995 (mod 15). -/
+theorem enumeration_hex4_9c3b : reassembles 39995 = true ∧ castsFifteens 39995 = true := by decide
+
+/-- 9c3c: nibbles fold back to 39996; digit sum 36 ≡ 39996 (mod 15). -/
+theorem enumeration_hex4_9c3c : reassembles 39996 = true ∧ castsFifteens 39996 = true := by decide
+
+/-- 9c3d: nibbles fold back to 39997; digit sum 37 ≡ 39997 (mod 15). -/
+theorem enumeration_hex4_9c3d : reassembles 39997 = true ∧ castsFifteens 39997 = true := by decide
+
+/-- 9c3e: nibbles fold back to 39998; digit sum 38 ≡ 39998 (mod 15). -/
+theorem enumeration_hex4_9c3e : reassembles 39998 = true ∧ castsFifteens 39998 = true := by decide
+
+/-- 9c3f: nibbles fold back to 39999; digit sum 39 ≡ 39999 (mod 15). -/
+theorem enumeration_hex4_9c3f : reassembles 39999 = true ∧ castsFifteens 39999 = true := by decide
+
+/-- 9c40: nibbles fold back to 40000; digit sum 25 ≡ 40000 (mod 15). -/
+theorem enumeration_hex4_9c40 : reassembles 40000 = true ∧ castsFifteens 40000 = true := by decide
+
+/-- 9c41: nibbles fold back to 40001; digit sum 26 ≡ 40001 (mod 15). -/
+theorem enumeration_hex4_9c41 : reassembles 40001 = true ∧ castsFifteens 40001 = true := by decide
+
+/-- 9c42: nibbles fold back to 40002; digit sum 27 ≡ 40002 (mod 15). -/
+theorem enumeration_hex4_9c42 : reassembles 40002 = true ∧ castsFifteens 40002 = true := by decide
+
+/-- 9c43: nibbles fold back to 40003; digit sum 28 ≡ 40003 (mod 15). -/
+theorem enumeration_hex4_9c43 : reassembles 40003 = true ∧ castsFifteens 40003 = true := by decide
+
+/-- 9c44: nibbles fold back to 40004; digit sum 29 ≡ 40004 (mod 15). -/
+theorem enumeration_hex4_9c44 : reassembles 40004 = true ∧ castsFifteens 40004 = true := by decide
+
+/-- 9c45: nibbles fold back to 40005; digit sum 30 ≡ 40005 (mod 15). -/
+theorem enumeration_hex4_9c45 : reassembles 40005 = true ∧ castsFifteens 40005 = true := by decide
+
+/-- 9c46: nibbles fold back to 40006; digit sum 31 ≡ 40006 (mod 15). -/
+theorem enumeration_hex4_9c46 : reassembles 40006 = true ∧ castsFifteens 40006 = true := by decide
+
+/-- 9c47: nibbles fold back to 40007; digit sum 32 ≡ 40007 (mod 15). -/
+theorem enumeration_hex4_9c47 : reassembles 40007 = true ∧ castsFifteens 40007 = true := by decide
+
+/-- 9c48: nibbles fold back to 40008; digit sum 33 ≡ 40008 (mod 15). -/
+theorem enumeration_hex4_9c48 : reassembles 40008 = true ∧ castsFifteens 40008 = true := by decide
+
+/-- 9c49: nibbles fold back to 40009; digit sum 34 ≡ 40009 (mod 15). -/
+theorem enumeration_hex4_9c49 : reassembles 40009 = true ∧ castsFifteens 40009 = true := by decide
+
+/-- 9c4a: nibbles fold back to 40010; digit sum 35 ≡ 40010 (mod 15). -/
+theorem enumeration_hex4_9c4a : reassembles 40010 = true ∧ castsFifteens 40010 = true := by decide
+
+/-- 9c4b: nibbles fold back to 40011; digit sum 36 ≡ 40011 (mod 15). -/
+theorem enumeration_hex4_9c4b : reassembles 40011 = true ∧ castsFifteens 40011 = true := by decide
+
+/-- 9c4c: nibbles fold back to 40012; digit sum 37 ≡ 40012 (mod 15). -/
+theorem enumeration_hex4_9c4c : reassembles 40012 = true ∧ castsFifteens 40012 = true := by decide
+
+/-- 9c4d: nibbles fold back to 40013; digit sum 38 ≡ 40013 (mod 15). -/
+theorem enumeration_hex4_9c4d : reassembles 40013 = true ∧ castsFifteens 40013 = true := by decide
+
+/-- 9c4e: nibbles fold back to 40014; digit sum 39 ≡ 40014 (mod 15). -/
+theorem enumeration_hex4_9c4e : reassembles 40014 = true ∧ castsFifteens 40014 = true := by decide
+
+/-- 9c4f: nibbles fold back to 40015; digit sum 40 ≡ 40015 (mod 15). -/
+theorem enumeration_hex4_9c4f : reassembles 40015 = true ∧ castsFifteens 40015 = true := by decide
+
+/-- 9c50: nibbles fold back to 40016; digit sum 26 ≡ 40016 (mod 15). -/
+theorem enumeration_hex4_9c50 : reassembles 40016 = true ∧ castsFifteens 40016 = true := by decide
+
+/-- 9c51: nibbles fold back to 40017; digit sum 27 ≡ 40017 (mod 15). -/
+theorem enumeration_hex4_9c51 : reassembles 40017 = true ∧ castsFifteens 40017 = true := by decide
+
+/-- 9c52: nibbles fold back to 40018; digit sum 28 ≡ 40018 (mod 15). -/
+theorem enumeration_hex4_9c52 : reassembles 40018 = true ∧ castsFifteens 40018 = true := by decide
+
+/-- 9c53: nibbles fold back to 40019; digit sum 29 ≡ 40019 (mod 15). -/
+theorem enumeration_hex4_9c53 : reassembles 40019 = true ∧ castsFifteens 40019 = true := by decide
+
+/-- 9c54: nibbles fold back to 40020; digit sum 30 ≡ 40020 (mod 15). -/
+theorem enumeration_hex4_9c54 : reassembles 40020 = true ∧ castsFifteens 40020 = true := by decide
+
+/-- 9c55: nibbles fold back to 40021; digit sum 31 ≡ 40021 (mod 15). -/
+theorem enumeration_hex4_9c55 : reassembles 40021 = true ∧ castsFifteens 40021 = true := by decide
+
+/-- 9c56: nibbles fold back to 40022; digit sum 32 ≡ 40022 (mod 15). -/
+theorem enumeration_hex4_9c56 : reassembles 40022 = true ∧ castsFifteens 40022 = true := by decide
+
+/-- 9c57: nibbles fold back to 40023; digit sum 33 ≡ 40023 (mod 15). -/
+theorem enumeration_hex4_9c57 : reassembles 40023 = true ∧ castsFifteens 40023 = true := by decide
+
+/-- 9c58: nibbles fold back to 40024; digit sum 34 ≡ 40024 (mod 15). -/
+theorem enumeration_hex4_9c58 : reassembles 40024 = true ∧ castsFifteens 40024 = true := by decide
+
+/-- 9c59: nibbles fold back to 40025; digit sum 35 ≡ 40025 (mod 15). -/
+theorem enumeration_hex4_9c59 : reassembles 40025 = true ∧ castsFifteens 40025 = true := by decide
+
+/-- 9c5a: nibbles fold back to 40026; digit sum 36 ≡ 40026 (mod 15). -/
+theorem enumeration_hex4_9c5a : reassembles 40026 = true ∧ castsFifteens 40026 = true := by decide
+
+/-- 9c5b: nibbles fold back to 40027; digit sum 37 ≡ 40027 (mod 15). -/
+theorem enumeration_hex4_9c5b : reassembles 40027 = true ∧ castsFifteens 40027 = true := by decide
+
+/-- 9c5c: nibbles fold back to 40028; digit sum 38 ≡ 40028 (mod 15). -/
+theorem enumeration_hex4_9c5c : reassembles 40028 = true ∧ castsFifteens 40028 = true := by decide
+
+/-- 9c5d: nibbles fold back to 40029; digit sum 39 ≡ 40029 (mod 15). -/
+theorem enumeration_hex4_9c5d : reassembles 40029 = true ∧ castsFifteens 40029 = true := by decide
+
+/-- 9c5e: nibbles fold back to 40030; digit sum 40 ≡ 40030 (mod 15). -/
+theorem enumeration_hex4_9c5e : reassembles 40030 = true ∧ castsFifteens 40030 = true := by decide
+
+/-- 9c5f: nibbles fold back to 40031; digit sum 41 ≡ 40031 (mod 15). -/
+theorem enumeration_hex4_9c5f : reassembles 40031 = true ∧ castsFifteens 40031 = true := by decide
+
+/-- 9c60: nibbles fold back to 40032; digit sum 27 ≡ 40032 (mod 15). -/
+theorem enumeration_hex4_9c60 : reassembles 40032 = true ∧ castsFifteens 40032 = true := by decide
+
+/-- 9c61: nibbles fold back to 40033; digit sum 28 ≡ 40033 (mod 15). -/
+theorem enumeration_hex4_9c61 : reassembles 40033 = true ∧ castsFifteens 40033 = true := by decide
+
+/-- 9c62: nibbles fold back to 40034; digit sum 29 ≡ 40034 (mod 15). -/
+theorem enumeration_hex4_9c62 : reassembles 40034 = true ∧ castsFifteens 40034 = true := by decide
+
+/-- 9c63: nibbles fold back to 40035; digit sum 30 ≡ 40035 (mod 15). -/
+theorem enumeration_hex4_9c63 : reassembles 40035 = true ∧ castsFifteens 40035 = true := by decide
+
+/-- 9c64: nibbles fold back to 40036; digit sum 31 ≡ 40036 (mod 15). -/
+theorem enumeration_hex4_9c64 : reassembles 40036 = true ∧ castsFifteens 40036 = true := by decide
+
+/-- 9c65: nibbles fold back to 40037; digit sum 32 ≡ 40037 (mod 15). -/
+theorem enumeration_hex4_9c65 : reassembles 40037 = true ∧ castsFifteens 40037 = true := by decide
+
+/-- 9c66: nibbles fold back to 40038; digit sum 33 ≡ 40038 (mod 15). -/
+theorem enumeration_hex4_9c66 : reassembles 40038 = true ∧ castsFifteens 40038 = true := by decide
+
+/-- 9c67: nibbles fold back to 40039; digit sum 34 ≡ 40039 (mod 15). -/
+theorem enumeration_hex4_9c67 : reassembles 40039 = true ∧ castsFifteens 40039 = true := by decide
+
+/-- 9c68: nibbles fold back to 40040; digit sum 35 ≡ 40040 (mod 15). -/
+theorem enumeration_hex4_9c68 : reassembles 40040 = true ∧ castsFifteens 40040 = true := by decide
+
+/-- 9c69: nibbles fold back to 40041; digit sum 36 ≡ 40041 (mod 15). -/
+theorem enumeration_hex4_9c69 : reassembles 40041 = true ∧ castsFifteens 40041 = true := by decide
+
+/-- 9c6a: nibbles fold back to 40042; digit sum 37 ≡ 40042 (mod 15). -/
+theorem enumeration_hex4_9c6a : reassembles 40042 = true ∧ castsFifteens 40042 = true := by decide
+
+/-- 9c6b: nibbles fold back to 40043; digit sum 38 ≡ 40043 (mod 15). -/
+theorem enumeration_hex4_9c6b : reassembles 40043 = true ∧ castsFifteens 40043 = true := by decide
+
+/-- 9c6c: nibbles fold back to 40044; digit sum 39 ≡ 40044 (mod 15). -/
+theorem enumeration_hex4_9c6c : reassembles 40044 = true ∧ castsFifteens 40044 = true := by decide
+
+/-- 9c6d: nibbles fold back to 40045; digit sum 40 ≡ 40045 (mod 15). -/
+theorem enumeration_hex4_9c6d : reassembles 40045 = true ∧ castsFifteens 40045 = true := by decide
+
+/-- 9c6e: nibbles fold back to 40046; digit sum 41 ≡ 40046 (mod 15). -/
+theorem enumeration_hex4_9c6e : reassembles 40046 = true ∧ castsFifteens 40046 = true := by decide
+
+/-- 9c6f: nibbles fold back to 40047; digit sum 42 ≡ 40047 (mod 15). -/
+theorem enumeration_hex4_9c6f : reassembles 40047 = true ∧ castsFifteens 40047 = true := by decide
+
+/-- 9c70: nibbles fold back to 40048; digit sum 28 ≡ 40048 (mod 15). -/
+theorem enumeration_hex4_9c70 : reassembles 40048 = true ∧ castsFifteens 40048 = true := by decide
+
+/-- 9c71: nibbles fold back to 40049; digit sum 29 ≡ 40049 (mod 15). -/
+theorem enumeration_hex4_9c71 : reassembles 40049 = true ∧ castsFifteens 40049 = true := by decide
+
+/-- 9c72: nibbles fold back to 40050; digit sum 30 ≡ 40050 (mod 15). -/
+theorem enumeration_hex4_9c72 : reassembles 40050 = true ∧ castsFifteens 40050 = true := by decide
+
+/-- 9c73: nibbles fold back to 40051; digit sum 31 ≡ 40051 (mod 15). -/
+theorem enumeration_hex4_9c73 : reassembles 40051 = true ∧ castsFifteens 40051 = true := by decide
+
+/-- 9c74: nibbles fold back to 40052; digit sum 32 ≡ 40052 (mod 15). -/
+theorem enumeration_hex4_9c74 : reassembles 40052 = true ∧ castsFifteens 40052 = true := by decide
+
+/-- 9c75: nibbles fold back to 40053; digit sum 33 ≡ 40053 (mod 15). -/
+theorem enumeration_hex4_9c75 : reassembles 40053 = true ∧ castsFifteens 40053 = true := by decide
+
+/-- 9c76: nibbles fold back to 40054; digit sum 34 ≡ 40054 (mod 15). -/
+theorem enumeration_hex4_9c76 : reassembles 40054 = true ∧ castsFifteens 40054 = true := by decide
+
+/-- 9c77: nibbles fold back to 40055; digit sum 35 ≡ 40055 (mod 15). -/
+theorem enumeration_hex4_9c77 : reassembles 40055 = true ∧ castsFifteens 40055 = true := by decide
+
+/-- 9c78: nibbles fold back to 40056; digit sum 36 ≡ 40056 (mod 15). -/
+theorem enumeration_hex4_9c78 : reassembles 40056 = true ∧ castsFifteens 40056 = true := by decide
+
+/-- 9c79: nibbles fold back to 40057; digit sum 37 ≡ 40057 (mod 15). -/
+theorem enumeration_hex4_9c79 : reassembles 40057 = true ∧ castsFifteens 40057 = true := by decide
+
+/-- 9c7a: nibbles fold back to 40058; digit sum 38 ≡ 40058 (mod 15). -/
+theorem enumeration_hex4_9c7a : reassembles 40058 = true ∧ castsFifteens 40058 = true := by decide
+
+/-- 9c7b: nibbles fold back to 40059; digit sum 39 ≡ 40059 (mod 15). -/
+theorem enumeration_hex4_9c7b : reassembles 40059 = true ∧ castsFifteens 40059 = true := by decide
+
+/-- 9c7c: nibbles fold back to 40060; digit sum 40 ≡ 40060 (mod 15). -/
+theorem enumeration_hex4_9c7c : reassembles 40060 = true ∧ castsFifteens 40060 = true := by decide
+
+/-- 9c7d: nibbles fold back to 40061; digit sum 41 ≡ 40061 (mod 15). -/
+theorem enumeration_hex4_9c7d : reassembles 40061 = true ∧ castsFifteens 40061 = true := by decide
+
+/-- 9c7e: nibbles fold back to 40062; digit sum 42 ≡ 40062 (mod 15). -/
+theorem enumeration_hex4_9c7e : reassembles 40062 = true ∧ castsFifteens 40062 = true := by decide
+
+/-- 9c7f: nibbles fold back to 40063; digit sum 43 ≡ 40063 (mod 15). -/
+theorem enumeration_hex4_9c7f : reassembles 40063 = true ∧ castsFifteens 40063 = true := by decide
+
+/-- 9c80: nibbles fold back to 40064; digit sum 29 ≡ 40064 (mod 15). -/
+theorem enumeration_hex4_9c80 : reassembles 40064 = true ∧ castsFifteens 40064 = true := by decide
+
+/-- 9c81: nibbles fold back to 40065; digit sum 30 ≡ 40065 (mod 15). -/
+theorem enumeration_hex4_9c81 : reassembles 40065 = true ∧ castsFifteens 40065 = true := by decide
+
+/-- 9c82: nibbles fold back to 40066; digit sum 31 ≡ 40066 (mod 15). -/
+theorem enumeration_hex4_9c82 : reassembles 40066 = true ∧ castsFifteens 40066 = true := by decide
+
+/-- 9c83: nibbles fold back to 40067; digit sum 32 ≡ 40067 (mod 15). -/
+theorem enumeration_hex4_9c83 : reassembles 40067 = true ∧ castsFifteens 40067 = true := by decide
+
+/-- 9c84: nibbles fold back to 40068; digit sum 33 ≡ 40068 (mod 15). -/
+theorem enumeration_hex4_9c84 : reassembles 40068 = true ∧ castsFifteens 40068 = true := by decide
+
+/-- 9c85: nibbles fold back to 40069; digit sum 34 ≡ 40069 (mod 15). -/
+theorem enumeration_hex4_9c85 : reassembles 40069 = true ∧ castsFifteens 40069 = true := by decide
+
+/-- 9c86: nibbles fold back to 40070; digit sum 35 ≡ 40070 (mod 15). -/
+theorem enumeration_hex4_9c86 : reassembles 40070 = true ∧ castsFifteens 40070 = true := by decide
+
+/-- 9c87: nibbles fold back to 40071; digit sum 36 ≡ 40071 (mod 15). -/
+theorem enumeration_hex4_9c87 : reassembles 40071 = true ∧ castsFifteens 40071 = true := by decide
+
+/-- 9c88: nibbles fold back to 40072; digit sum 37 ≡ 40072 (mod 15). -/
+theorem enumeration_hex4_9c88 : reassembles 40072 = true ∧ castsFifteens 40072 = true := by decide
+
+/-- 9c89: nibbles fold back to 40073; digit sum 38 ≡ 40073 (mod 15). -/
+theorem enumeration_hex4_9c89 : reassembles 40073 = true ∧ castsFifteens 40073 = true := by decide
+
+/-- 9c8a: nibbles fold back to 40074; digit sum 39 ≡ 40074 (mod 15). -/
+theorem enumeration_hex4_9c8a : reassembles 40074 = true ∧ castsFifteens 40074 = true := by decide
+
+/-- 9c8b: nibbles fold back to 40075; digit sum 40 ≡ 40075 (mod 15). -/
+theorem enumeration_hex4_9c8b : reassembles 40075 = true ∧ castsFifteens 40075 = true := by decide
+
+/-- 9c8c: nibbles fold back to 40076; digit sum 41 ≡ 40076 (mod 15). -/
+theorem enumeration_hex4_9c8c : reassembles 40076 = true ∧ castsFifteens 40076 = true := by decide
+
+/-- 9c8d: nibbles fold back to 40077; digit sum 42 ≡ 40077 (mod 15). -/
+theorem enumeration_hex4_9c8d : reassembles 40077 = true ∧ castsFifteens 40077 = true := by decide
+
+/-- 9c8e: nibbles fold back to 40078; digit sum 43 ≡ 40078 (mod 15). -/
+theorem enumeration_hex4_9c8e : reassembles 40078 = true ∧ castsFifteens 40078 = true := by decide
+
+/-- 9c8f: nibbles fold back to 40079; digit sum 44 ≡ 40079 (mod 15). -/
+theorem enumeration_hex4_9c8f : reassembles 40079 = true ∧ castsFifteens 40079 = true := by decide
+
+/-- 9c90: nibbles fold back to 40080; digit sum 30 ≡ 40080 (mod 15). -/
+theorem enumeration_hex4_9c90 : reassembles 40080 = true ∧ castsFifteens 40080 = true := by decide
+
+/-- 9c91: nibbles fold back to 40081; digit sum 31 ≡ 40081 (mod 15). -/
+theorem enumeration_hex4_9c91 : reassembles 40081 = true ∧ castsFifteens 40081 = true := by decide
+
+/-- 9c92: nibbles fold back to 40082; digit sum 32 ≡ 40082 (mod 15). -/
+theorem enumeration_hex4_9c92 : reassembles 40082 = true ∧ castsFifteens 40082 = true := by decide
+
+/-- 9c93: nibbles fold back to 40083; digit sum 33 ≡ 40083 (mod 15). -/
+theorem enumeration_hex4_9c93 : reassembles 40083 = true ∧ castsFifteens 40083 = true := by decide
+
+/-- 9c94: nibbles fold back to 40084; digit sum 34 ≡ 40084 (mod 15). -/
+theorem enumeration_hex4_9c94 : reassembles 40084 = true ∧ castsFifteens 40084 = true := by decide
+
+/-- 9c95: nibbles fold back to 40085; digit sum 35 ≡ 40085 (mod 15). -/
+theorem enumeration_hex4_9c95 : reassembles 40085 = true ∧ castsFifteens 40085 = true := by decide
+
+/-- 9c96: nibbles fold back to 40086; digit sum 36 ≡ 40086 (mod 15). -/
+theorem enumeration_hex4_9c96 : reassembles 40086 = true ∧ castsFifteens 40086 = true := by decide
+
+/-- 9c97: nibbles fold back to 40087; digit sum 37 ≡ 40087 (mod 15). -/
+theorem enumeration_hex4_9c97 : reassembles 40087 = true ∧ castsFifteens 40087 = true := by decide
+
+/-- 9c98: nibbles fold back to 40088; digit sum 38 ≡ 40088 (mod 15). -/
+theorem enumeration_hex4_9c98 : reassembles 40088 = true ∧ castsFifteens 40088 = true := by decide
+
+/-- 9c99: nibbles fold back to 40089; digit sum 39 ≡ 40089 (mod 15). -/
+theorem enumeration_hex4_9c99 : reassembles 40089 = true ∧ castsFifteens 40089 = true := by decide
+
+/-- 9c9a: nibbles fold back to 40090; digit sum 40 ≡ 40090 (mod 15). -/
+theorem enumeration_hex4_9c9a : reassembles 40090 = true ∧ castsFifteens 40090 = true := by decide
+
+/-- 9c9b: nibbles fold back to 40091; digit sum 41 ≡ 40091 (mod 15). -/
+theorem enumeration_hex4_9c9b : reassembles 40091 = true ∧ castsFifteens 40091 = true := by decide
+
+/-- 9c9c: nibbles fold back to 40092; digit sum 42 ≡ 40092 (mod 15). -/
+theorem enumeration_hex4_9c9c : reassembles 40092 = true ∧ castsFifteens 40092 = true := by decide
+
+/-- 9c9d: nibbles fold back to 40093; digit sum 43 ≡ 40093 (mod 15). -/
+theorem enumeration_hex4_9c9d : reassembles 40093 = true ∧ castsFifteens 40093 = true := by decide
+
+/-- 9c9e: nibbles fold back to 40094; digit sum 44 ≡ 40094 (mod 15). -/
+theorem enumeration_hex4_9c9e : reassembles 40094 = true ∧ castsFifteens 40094 = true := by decide
+
+/-- 9c9f: nibbles fold back to 40095; digit sum 45 ≡ 40095 (mod 15). -/
+theorem enumeration_hex4_9c9f : reassembles 40095 = true ∧ castsFifteens 40095 = true := by decide
+
+/-- 9ca0: nibbles fold back to 40096; digit sum 31 ≡ 40096 (mod 15). -/
+theorem enumeration_hex4_9ca0 : reassembles 40096 = true ∧ castsFifteens 40096 = true := by decide
+
+/-- 9ca1: nibbles fold back to 40097; digit sum 32 ≡ 40097 (mod 15). -/
+theorem enumeration_hex4_9ca1 : reassembles 40097 = true ∧ castsFifteens 40097 = true := by decide
+
+/-- 9ca2: nibbles fold back to 40098; digit sum 33 ≡ 40098 (mod 15). -/
+theorem enumeration_hex4_9ca2 : reassembles 40098 = true ∧ castsFifteens 40098 = true := by decide
+
+/-- 9ca3: nibbles fold back to 40099; digit sum 34 ≡ 40099 (mod 15). -/
+theorem enumeration_hex4_9ca3 : reassembles 40099 = true ∧ castsFifteens 40099 = true := by decide
+
+/-- 9ca4: nibbles fold back to 40100; digit sum 35 ≡ 40100 (mod 15). -/
+theorem enumeration_hex4_9ca4 : reassembles 40100 = true ∧ castsFifteens 40100 = true := by decide
+
+/-- 9ca5: nibbles fold back to 40101; digit sum 36 ≡ 40101 (mod 15). -/
+theorem enumeration_hex4_9ca5 : reassembles 40101 = true ∧ castsFifteens 40101 = true := by decide
+
+/-- 9ca6: nibbles fold back to 40102; digit sum 37 ≡ 40102 (mod 15). -/
+theorem enumeration_hex4_9ca6 : reassembles 40102 = true ∧ castsFifteens 40102 = true := by decide
+
+/-- 9ca7: nibbles fold back to 40103; digit sum 38 ≡ 40103 (mod 15). -/
+theorem enumeration_hex4_9ca7 : reassembles 40103 = true ∧ castsFifteens 40103 = true := by decide
+
+/-- 9ca8: nibbles fold back to 40104; digit sum 39 ≡ 40104 (mod 15). -/
+theorem enumeration_hex4_9ca8 : reassembles 40104 = true ∧ castsFifteens 40104 = true := by decide
+
+/-- 9ca9: nibbles fold back to 40105; digit sum 40 ≡ 40105 (mod 15). -/
+theorem enumeration_hex4_9ca9 : reassembles 40105 = true ∧ castsFifteens 40105 = true := by decide
+
+/-- 9caa: nibbles fold back to 40106; digit sum 41 ≡ 40106 (mod 15). -/
+theorem enumeration_hex4_9caa : reassembles 40106 = true ∧ castsFifteens 40106 = true := by decide
+
+/-- 9cab: nibbles fold back to 40107; digit sum 42 ≡ 40107 (mod 15). -/
+theorem enumeration_hex4_9cab : reassembles 40107 = true ∧ castsFifteens 40107 = true := by decide
+
+/-- 9cac: nibbles fold back to 40108; digit sum 43 ≡ 40108 (mod 15). -/
+theorem enumeration_hex4_9cac : reassembles 40108 = true ∧ castsFifteens 40108 = true := by decide
+
+/-- 9cad: nibbles fold back to 40109; digit sum 44 ≡ 40109 (mod 15). -/
+theorem enumeration_hex4_9cad : reassembles 40109 = true ∧ castsFifteens 40109 = true := by decide
+
+/-- 9cae: nibbles fold back to 40110; digit sum 45 ≡ 40110 (mod 15). -/
+theorem enumeration_hex4_9cae : reassembles 40110 = true ∧ castsFifteens 40110 = true := by decide
+
+/-- 9caf: nibbles fold back to 40111; digit sum 46 ≡ 40111 (mod 15). -/
+theorem enumeration_hex4_9caf : reassembles 40111 = true ∧ castsFifteens 40111 = true := by decide
+
+/-- 9cb0: nibbles fold back to 40112; digit sum 32 ≡ 40112 (mod 15). -/
+theorem enumeration_hex4_9cb0 : reassembles 40112 = true ∧ castsFifteens 40112 = true := by decide
+
+/-- 9cb1: nibbles fold back to 40113; digit sum 33 ≡ 40113 (mod 15). -/
+theorem enumeration_hex4_9cb1 : reassembles 40113 = true ∧ castsFifteens 40113 = true := by decide
+
+/-- 9cb2: nibbles fold back to 40114; digit sum 34 ≡ 40114 (mod 15). -/
+theorem enumeration_hex4_9cb2 : reassembles 40114 = true ∧ castsFifteens 40114 = true := by decide
+
+/-- 9cb3: nibbles fold back to 40115; digit sum 35 ≡ 40115 (mod 15). -/
+theorem enumeration_hex4_9cb3 : reassembles 40115 = true ∧ castsFifteens 40115 = true := by decide
+
+/-- 9cb4: nibbles fold back to 40116; digit sum 36 ≡ 40116 (mod 15). -/
+theorem enumeration_hex4_9cb4 : reassembles 40116 = true ∧ castsFifteens 40116 = true := by decide
+
+/-- 9cb5: nibbles fold back to 40117; digit sum 37 ≡ 40117 (mod 15). -/
+theorem enumeration_hex4_9cb5 : reassembles 40117 = true ∧ castsFifteens 40117 = true := by decide
+
+/-- 9cb6: nibbles fold back to 40118; digit sum 38 ≡ 40118 (mod 15). -/
+theorem enumeration_hex4_9cb6 : reassembles 40118 = true ∧ castsFifteens 40118 = true := by decide
+
+/-- 9cb7: nibbles fold back to 40119; digit sum 39 ≡ 40119 (mod 15). -/
+theorem enumeration_hex4_9cb7 : reassembles 40119 = true ∧ castsFifteens 40119 = true := by decide
+
+/-- 9cb8: nibbles fold back to 40120; digit sum 40 ≡ 40120 (mod 15). -/
+theorem enumeration_hex4_9cb8 : reassembles 40120 = true ∧ castsFifteens 40120 = true := by decide
+
+/-- 9cb9: nibbles fold back to 40121; digit sum 41 ≡ 40121 (mod 15). -/
+theorem enumeration_hex4_9cb9 : reassembles 40121 = true ∧ castsFifteens 40121 = true := by decide
+
+/-- 9cba: nibbles fold back to 40122; digit sum 42 ≡ 40122 (mod 15). -/
+theorem enumeration_hex4_9cba : reassembles 40122 = true ∧ castsFifteens 40122 = true := by decide
+
+/-- 9cbb: nibbles fold back to 40123; digit sum 43 ≡ 40123 (mod 15). -/
+theorem enumeration_hex4_9cbb : reassembles 40123 = true ∧ castsFifteens 40123 = true := by decide
+
+/-- 9cbc: nibbles fold back to 40124; digit sum 44 ≡ 40124 (mod 15). -/
+theorem enumeration_hex4_9cbc : reassembles 40124 = true ∧ castsFifteens 40124 = true := by decide
+
+/-- 9cbd: nibbles fold back to 40125; digit sum 45 ≡ 40125 (mod 15). -/
+theorem enumeration_hex4_9cbd : reassembles 40125 = true ∧ castsFifteens 40125 = true := by decide
+
+/-- 9cbe: nibbles fold back to 40126; digit sum 46 ≡ 40126 (mod 15). -/
+theorem enumeration_hex4_9cbe : reassembles 40126 = true ∧ castsFifteens 40126 = true := by decide
+
+/-- 9cbf: nibbles fold back to 40127; digit sum 47 ≡ 40127 (mod 15). -/
+theorem enumeration_hex4_9cbf : reassembles 40127 = true ∧ castsFifteens 40127 = true := by decide
+
+/-- 9cc0: nibbles fold back to 40128; digit sum 33 ≡ 40128 (mod 15). -/
+theorem enumeration_hex4_9cc0 : reassembles 40128 = true ∧ castsFifteens 40128 = true := by decide
+
+/-- 9cc1: nibbles fold back to 40129; digit sum 34 ≡ 40129 (mod 15). -/
+theorem enumeration_hex4_9cc1 : reassembles 40129 = true ∧ castsFifteens 40129 = true := by decide
+
+/-- 9cc2: nibbles fold back to 40130; digit sum 35 ≡ 40130 (mod 15). -/
+theorem enumeration_hex4_9cc2 : reassembles 40130 = true ∧ castsFifteens 40130 = true := by decide
+
+/-- 9cc3: nibbles fold back to 40131; digit sum 36 ≡ 40131 (mod 15). -/
+theorem enumeration_hex4_9cc3 : reassembles 40131 = true ∧ castsFifteens 40131 = true := by decide
+
+/-- 9cc4: nibbles fold back to 40132; digit sum 37 ≡ 40132 (mod 15). -/
+theorem enumeration_hex4_9cc4 : reassembles 40132 = true ∧ castsFifteens 40132 = true := by decide
+
+/-- 9cc5: nibbles fold back to 40133; digit sum 38 ≡ 40133 (mod 15). -/
+theorem enumeration_hex4_9cc5 : reassembles 40133 = true ∧ castsFifteens 40133 = true := by decide
+
+/-- 9cc6: nibbles fold back to 40134; digit sum 39 ≡ 40134 (mod 15). -/
+theorem enumeration_hex4_9cc6 : reassembles 40134 = true ∧ castsFifteens 40134 = true := by decide
+
+/-- 9cc7: nibbles fold back to 40135; digit sum 40 ≡ 40135 (mod 15). -/
+theorem enumeration_hex4_9cc7 : reassembles 40135 = true ∧ castsFifteens 40135 = true := by decide
+
+/-- 9cc8: nibbles fold back to 40136; digit sum 41 ≡ 40136 (mod 15). -/
+theorem enumeration_hex4_9cc8 : reassembles 40136 = true ∧ castsFifteens 40136 = true := by decide
+
+/-- 9cc9: nibbles fold back to 40137; digit sum 42 ≡ 40137 (mod 15). -/
+theorem enumeration_hex4_9cc9 : reassembles 40137 = true ∧ castsFifteens 40137 = true := by decide
+
+/-- 9cca: nibbles fold back to 40138; digit sum 43 ≡ 40138 (mod 15). -/
+theorem enumeration_hex4_9cca : reassembles 40138 = true ∧ castsFifteens 40138 = true := by decide
+
+/-- 9ccb: nibbles fold back to 40139; digit sum 44 ≡ 40139 (mod 15). -/
+theorem enumeration_hex4_9ccb : reassembles 40139 = true ∧ castsFifteens 40139 = true := by decide
+
+/-- 9ccc: nibbles fold back to 40140; digit sum 45 ≡ 40140 (mod 15). -/
+theorem enumeration_hex4_9ccc : reassembles 40140 = true ∧ castsFifteens 40140 = true := by decide
+
+/-- 9ccd: nibbles fold back to 40141; digit sum 46 ≡ 40141 (mod 15). -/
+theorem enumeration_hex4_9ccd : reassembles 40141 = true ∧ castsFifteens 40141 = true := by decide
+
+/-- 9cce: nibbles fold back to 40142; digit sum 47 ≡ 40142 (mod 15). -/
+theorem enumeration_hex4_9cce : reassembles 40142 = true ∧ castsFifteens 40142 = true := by decide
+
+/-- 9ccf: nibbles fold back to 40143; digit sum 48 ≡ 40143 (mod 15). -/
+theorem enumeration_hex4_9ccf : reassembles 40143 = true ∧ castsFifteens 40143 = true := by decide
+
+/-- 9cd0: nibbles fold back to 40144; digit sum 34 ≡ 40144 (mod 15). -/
+theorem enumeration_hex4_9cd0 : reassembles 40144 = true ∧ castsFifteens 40144 = true := by decide
+
+/-- 9cd1: nibbles fold back to 40145; digit sum 35 ≡ 40145 (mod 15). -/
+theorem enumeration_hex4_9cd1 : reassembles 40145 = true ∧ castsFifteens 40145 = true := by decide
+
+/-- 9cd2: nibbles fold back to 40146; digit sum 36 ≡ 40146 (mod 15). -/
+theorem enumeration_hex4_9cd2 : reassembles 40146 = true ∧ castsFifteens 40146 = true := by decide
+
+/-- 9cd3: nibbles fold back to 40147; digit sum 37 ≡ 40147 (mod 15). -/
+theorem enumeration_hex4_9cd3 : reassembles 40147 = true ∧ castsFifteens 40147 = true := by decide
+
+/-- 9cd4: nibbles fold back to 40148; digit sum 38 ≡ 40148 (mod 15). -/
+theorem enumeration_hex4_9cd4 : reassembles 40148 = true ∧ castsFifteens 40148 = true := by decide
+
+/-- 9cd5: nibbles fold back to 40149; digit sum 39 ≡ 40149 (mod 15). -/
+theorem enumeration_hex4_9cd5 : reassembles 40149 = true ∧ castsFifteens 40149 = true := by decide
+
+/-- 9cd6: nibbles fold back to 40150; digit sum 40 ≡ 40150 (mod 15). -/
+theorem enumeration_hex4_9cd6 : reassembles 40150 = true ∧ castsFifteens 40150 = true := by decide
+
+/-- 9cd7: nibbles fold back to 40151; digit sum 41 ≡ 40151 (mod 15). -/
+theorem enumeration_hex4_9cd7 : reassembles 40151 = true ∧ castsFifteens 40151 = true := by decide
+
+/-- 9cd8: nibbles fold back to 40152; digit sum 42 ≡ 40152 (mod 15). -/
+theorem enumeration_hex4_9cd8 : reassembles 40152 = true ∧ castsFifteens 40152 = true := by decide
+
+/-- 9cd9: nibbles fold back to 40153; digit sum 43 ≡ 40153 (mod 15). -/
+theorem enumeration_hex4_9cd9 : reassembles 40153 = true ∧ castsFifteens 40153 = true := by decide
+
+/-- 9cda: nibbles fold back to 40154; digit sum 44 ≡ 40154 (mod 15). -/
+theorem enumeration_hex4_9cda : reassembles 40154 = true ∧ castsFifteens 40154 = true := by decide
+
+/-- 9cdb: nibbles fold back to 40155; digit sum 45 ≡ 40155 (mod 15). -/
+theorem enumeration_hex4_9cdb : reassembles 40155 = true ∧ castsFifteens 40155 = true := by decide
+
+/-- 9cdc: nibbles fold back to 40156; digit sum 46 ≡ 40156 (mod 15). -/
+theorem enumeration_hex4_9cdc : reassembles 40156 = true ∧ castsFifteens 40156 = true := by decide
+
+/-- 9cdd: nibbles fold back to 40157; digit sum 47 ≡ 40157 (mod 15). -/
+theorem enumeration_hex4_9cdd : reassembles 40157 = true ∧ castsFifteens 40157 = true := by decide
+
+/-- 9cde: nibbles fold back to 40158; digit sum 48 ≡ 40158 (mod 15). -/
+theorem enumeration_hex4_9cde : reassembles 40158 = true ∧ castsFifteens 40158 = true := by decide
+
+/-- 9cdf: nibbles fold back to 40159; digit sum 49 ≡ 40159 (mod 15). -/
+theorem enumeration_hex4_9cdf : reassembles 40159 = true ∧ castsFifteens 40159 = true := by decide
+
+/-- 9ce0: nibbles fold back to 40160; digit sum 35 ≡ 40160 (mod 15). -/
+theorem enumeration_hex4_9ce0 : reassembles 40160 = true ∧ castsFifteens 40160 = true := by decide
+
+/-- 9ce1: nibbles fold back to 40161; digit sum 36 ≡ 40161 (mod 15). -/
+theorem enumeration_hex4_9ce1 : reassembles 40161 = true ∧ castsFifteens 40161 = true := by decide
+
+/-- 9ce2: nibbles fold back to 40162; digit sum 37 ≡ 40162 (mod 15). -/
+theorem enumeration_hex4_9ce2 : reassembles 40162 = true ∧ castsFifteens 40162 = true := by decide
+
+/-- 9ce3: nibbles fold back to 40163; digit sum 38 ≡ 40163 (mod 15). -/
+theorem enumeration_hex4_9ce3 : reassembles 40163 = true ∧ castsFifteens 40163 = true := by decide
+
+/-- 9ce4: nibbles fold back to 40164; digit sum 39 ≡ 40164 (mod 15). -/
+theorem enumeration_hex4_9ce4 : reassembles 40164 = true ∧ castsFifteens 40164 = true := by decide
+
+/-- 9ce5: nibbles fold back to 40165; digit sum 40 ≡ 40165 (mod 15). -/
+theorem enumeration_hex4_9ce5 : reassembles 40165 = true ∧ castsFifteens 40165 = true := by decide
+
+/-- 9ce6: nibbles fold back to 40166; digit sum 41 ≡ 40166 (mod 15). -/
+theorem enumeration_hex4_9ce6 : reassembles 40166 = true ∧ castsFifteens 40166 = true := by decide
+
+/-- 9ce7: nibbles fold back to 40167; digit sum 42 ≡ 40167 (mod 15). -/
+theorem enumeration_hex4_9ce7 : reassembles 40167 = true ∧ castsFifteens 40167 = true := by decide
+
+/-- 9ce8: nibbles fold back to 40168; digit sum 43 ≡ 40168 (mod 15). -/
+theorem enumeration_hex4_9ce8 : reassembles 40168 = true ∧ castsFifteens 40168 = true := by decide
+
+/-- 9ce9: nibbles fold back to 40169; digit sum 44 ≡ 40169 (mod 15). -/
+theorem enumeration_hex4_9ce9 : reassembles 40169 = true ∧ castsFifteens 40169 = true := by decide
+
+/-- 9cea: nibbles fold back to 40170; digit sum 45 ≡ 40170 (mod 15). -/
+theorem enumeration_hex4_9cea : reassembles 40170 = true ∧ castsFifteens 40170 = true := by decide
+
+/-- 9ceb: nibbles fold back to 40171; digit sum 46 ≡ 40171 (mod 15). -/
+theorem enumeration_hex4_9ceb : reassembles 40171 = true ∧ castsFifteens 40171 = true := by decide
+
+/-- 9cec: nibbles fold back to 40172; digit sum 47 ≡ 40172 (mod 15). -/
+theorem enumeration_hex4_9cec : reassembles 40172 = true ∧ castsFifteens 40172 = true := by decide
+
+/-- 9ced: nibbles fold back to 40173; digit sum 48 ≡ 40173 (mod 15). -/
+theorem enumeration_hex4_9ced : reassembles 40173 = true ∧ castsFifteens 40173 = true := by decide
+
+/-- 9cee: nibbles fold back to 40174; digit sum 49 ≡ 40174 (mod 15). -/
+theorem enumeration_hex4_9cee : reassembles 40174 = true ∧ castsFifteens 40174 = true := by decide
+
+/-- 9cef: nibbles fold back to 40175; digit sum 50 ≡ 40175 (mod 15). -/
+theorem enumeration_hex4_9cef : reassembles 40175 = true ∧ castsFifteens 40175 = true := by decide
+
+/-- 9cf0: nibbles fold back to 40176; digit sum 36 ≡ 40176 (mod 15). -/
+theorem enumeration_hex4_9cf0 : reassembles 40176 = true ∧ castsFifteens 40176 = true := by decide
+
+/-- 9cf1: nibbles fold back to 40177; digit sum 37 ≡ 40177 (mod 15). -/
+theorem enumeration_hex4_9cf1 : reassembles 40177 = true ∧ castsFifteens 40177 = true := by decide
+
+/-- 9cf2: nibbles fold back to 40178; digit sum 38 ≡ 40178 (mod 15). -/
+theorem enumeration_hex4_9cf2 : reassembles 40178 = true ∧ castsFifteens 40178 = true := by decide
+
+/-- 9cf3: nibbles fold back to 40179; digit sum 39 ≡ 40179 (mod 15). -/
+theorem enumeration_hex4_9cf3 : reassembles 40179 = true ∧ castsFifteens 40179 = true := by decide
+
+/-- 9cf4: nibbles fold back to 40180; digit sum 40 ≡ 40180 (mod 15). -/
+theorem enumeration_hex4_9cf4 : reassembles 40180 = true ∧ castsFifteens 40180 = true := by decide
+
+/-- 9cf5: nibbles fold back to 40181; digit sum 41 ≡ 40181 (mod 15). -/
+theorem enumeration_hex4_9cf5 : reassembles 40181 = true ∧ castsFifteens 40181 = true := by decide
+
+/-- 9cf6: nibbles fold back to 40182; digit sum 42 ≡ 40182 (mod 15). -/
+theorem enumeration_hex4_9cf6 : reassembles 40182 = true ∧ castsFifteens 40182 = true := by decide
+
+/-- 9cf7: nibbles fold back to 40183; digit sum 43 ≡ 40183 (mod 15). -/
+theorem enumeration_hex4_9cf7 : reassembles 40183 = true ∧ castsFifteens 40183 = true := by decide
+
+/-- 9cf8: nibbles fold back to 40184; digit sum 44 ≡ 40184 (mod 15). -/
+theorem enumeration_hex4_9cf8 : reassembles 40184 = true ∧ castsFifteens 40184 = true := by decide
+
+/-- 9cf9: nibbles fold back to 40185; digit sum 45 ≡ 40185 (mod 15). -/
+theorem enumeration_hex4_9cf9 : reassembles 40185 = true ∧ castsFifteens 40185 = true := by decide
+
+/-- 9cfa: nibbles fold back to 40186; digit sum 46 ≡ 40186 (mod 15). -/
+theorem enumeration_hex4_9cfa : reassembles 40186 = true ∧ castsFifteens 40186 = true := by decide
+
+/-- 9cfb: nibbles fold back to 40187; digit sum 47 ≡ 40187 (mod 15). -/
+theorem enumeration_hex4_9cfb : reassembles 40187 = true ∧ castsFifteens 40187 = true := by decide
+
+/-- 9cfc: nibbles fold back to 40188; digit sum 48 ≡ 40188 (mod 15). -/
+theorem enumeration_hex4_9cfc : reassembles 40188 = true ∧ castsFifteens 40188 = true := by decide
+
+/-- 9cfd: nibbles fold back to 40189; digit sum 49 ≡ 40189 (mod 15). -/
+theorem enumeration_hex4_9cfd : reassembles 40189 = true ∧ castsFifteens 40189 = true := by decide
+
+/-- 9cfe: nibbles fold back to 40190; digit sum 50 ≡ 40190 (mod 15). -/
+theorem enumeration_hex4_9cfe : reassembles 40190 = true ∧ castsFifteens 40190 = true := by decide
+
+/-- 9cff: nibbles fold back to 40191; digit sum 51 ≡ 40191 (mod 15). -/
+theorem enumeration_hex4_9cff : reassembles 40191 = true ∧ castsFifteens 40191 = true := by decide
+
+/-- 9d00: nibbles fold back to 40192; digit sum 22 ≡ 40192 (mod 15). -/
+theorem enumeration_hex4_9d00 : reassembles 40192 = true ∧ castsFifteens 40192 = true := by decide
+
+/-- 9d01: nibbles fold back to 40193; digit sum 23 ≡ 40193 (mod 15). -/
+theorem enumeration_hex4_9d01 : reassembles 40193 = true ∧ castsFifteens 40193 = true := by decide
+
+/-- 9d02: nibbles fold back to 40194; digit sum 24 ≡ 40194 (mod 15). -/
+theorem enumeration_hex4_9d02 : reassembles 40194 = true ∧ castsFifteens 40194 = true := by decide
+
+/-- 9d03: nibbles fold back to 40195; digit sum 25 ≡ 40195 (mod 15). -/
+theorem enumeration_hex4_9d03 : reassembles 40195 = true ∧ castsFifteens 40195 = true := by decide
+
+/-- 9d04: nibbles fold back to 40196; digit sum 26 ≡ 40196 (mod 15). -/
+theorem enumeration_hex4_9d04 : reassembles 40196 = true ∧ castsFifteens 40196 = true := by decide
+
+/-- 9d05: nibbles fold back to 40197; digit sum 27 ≡ 40197 (mod 15). -/
+theorem enumeration_hex4_9d05 : reassembles 40197 = true ∧ castsFifteens 40197 = true := by decide
+
+/-- 9d06: nibbles fold back to 40198; digit sum 28 ≡ 40198 (mod 15). -/
+theorem enumeration_hex4_9d06 : reassembles 40198 = true ∧ castsFifteens 40198 = true := by decide
+
+/-- 9d07: nibbles fold back to 40199; digit sum 29 ≡ 40199 (mod 15). -/
+theorem enumeration_hex4_9d07 : reassembles 40199 = true ∧ castsFifteens 40199 = true := by decide
+
+/-- 9d08: nibbles fold back to 40200; digit sum 30 ≡ 40200 (mod 15). -/
+theorem enumeration_hex4_9d08 : reassembles 40200 = true ∧ castsFifteens 40200 = true := by decide
+
+/-- 9d09: nibbles fold back to 40201; digit sum 31 ≡ 40201 (mod 15). -/
+theorem enumeration_hex4_9d09 : reassembles 40201 = true ∧ castsFifteens 40201 = true := by decide
+
+/-- 9d0a: nibbles fold back to 40202; digit sum 32 ≡ 40202 (mod 15). -/
+theorem enumeration_hex4_9d0a : reassembles 40202 = true ∧ castsFifteens 40202 = true := by decide
+
+/-- 9d0b: nibbles fold back to 40203; digit sum 33 ≡ 40203 (mod 15). -/
+theorem enumeration_hex4_9d0b : reassembles 40203 = true ∧ castsFifteens 40203 = true := by decide
+
+/-- 9d0c: nibbles fold back to 40204; digit sum 34 ≡ 40204 (mod 15). -/
+theorem enumeration_hex4_9d0c : reassembles 40204 = true ∧ castsFifteens 40204 = true := by decide
+
+/-- 9d0d: nibbles fold back to 40205; digit sum 35 ≡ 40205 (mod 15). -/
+theorem enumeration_hex4_9d0d : reassembles 40205 = true ∧ castsFifteens 40205 = true := by decide
+
+/-- 9d0e: nibbles fold back to 40206; digit sum 36 ≡ 40206 (mod 15). -/
+theorem enumeration_hex4_9d0e : reassembles 40206 = true ∧ castsFifteens 40206 = true := by decide
+
+/-- 9d0f: nibbles fold back to 40207; digit sum 37 ≡ 40207 (mod 15). -/
+theorem enumeration_hex4_9d0f : reassembles 40207 = true ∧ castsFifteens 40207 = true := by decide
+
+/-- 9d10: nibbles fold back to 40208; digit sum 23 ≡ 40208 (mod 15). -/
+theorem enumeration_hex4_9d10 : reassembles 40208 = true ∧ castsFifteens 40208 = true := by decide
+
+/-- 9d11: nibbles fold back to 40209; digit sum 24 ≡ 40209 (mod 15). -/
+theorem enumeration_hex4_9d11 : reassembles 40209 = true ∧ castsFifteens 40209 = true := by decide
+
+/-- 9d12: nibbles fold back to 40210; digit sum 25 ≡ 40210 (mod 15). -/
+theorem enumeration_hex4_9d12 : reassembles 40210 = true ∧ castsFifteens 40210 = true := by decide
+
+/-- 9d13: nibbles fold back to 40211; digit sum 26 ≡ 40211 (mod 15). -/
+theorem enumeration_hex4_9d13 : reassembles 40211 = true ∧ castsFifteens 40211 = true := by decide
+
+/-- 9d14: nibbles fold back to 40212; digit sum 27 ≡ 40212 (mod 15). -/
+theorem enumeration_hex4_9d14 : reassembles 40212 = true ∧ castsFifteens 40212 = true := by decide
+
+/-- 9d15: nibbles fold back to 40213; digit sum 28 ≡ 40213 (mod 15). -/
+theorem enumeration_hex4_9d15 : reassembles 40213 = true ∧ castsFifteens 40213 = true := by decide
+
+/-- 9d16: nibbles fold back to 40214; digit sum 29 ≡ 40214 (mod 15). -/
+theorem enumeration_hex4_9d16 : reassembles 40214 = true ∧ castsFifteens 40214 = true := by decide
+
+/-- 9d17: nibbles fold back to 40215; digit sum 30 ≡ 40215 (mod 15). -/
+theorem enumeration_hex4_9d17 : reassembles 40215 = true ∧ castsFifteens 40215 = true := by decide
+
+/-- 9d18: nibbles fold back to 40216; digit sum 31 ≡ 40216 (mod 15). -/
+theorem enumeration_hex4_9d18 : reassembles 40216 = true ∧ castsFifteens 40216 = true := by decide
+
+/-- 9d19: nibbles fold back to 40217; digit sum 32 ≡ 40217 (mod 15). -/
+theorem enumeration_hex4_9d19 : reassembles 40217 = true ∧ castsFifteens 40217 = true := by decide
+
+/-- 9d1a: nibbles fold back to 40218; digit sum 33 ≡ 40218 (mod 15). -/
+theorem enumeration_hex4_9d1a : reassembles 40218 = true ∧ castsFifteens 40218 = true := by decide
+
+/-- 9d1b: nibbles fold back to 40219; digit sum 34 ≡ 40219 (mod 15). -/
+theorem enumeration_hex4_9d1b : reassembles 40219 = true ∧ castsFifteens 40219 = true := by decide
+
+/-- 9d1c: nibbles fold back to 40220; digit sum 35 ≡ 40220 (mod 15). -/
+theorem enumeration_hex4_9d1c : reassembles 40220 = true ∧ castsFifteens 40220 = true := by decide
+
+/-- 9d1d: nibbles fold back to 40221; digit sum 36 ≡ 40221 (mod 15). -/
+theorem enumeration_hex4_9d1d : reassembles 40221 = true ∧ castsFifteens 40221 = true := by decide
+
+/-- 9d1e: nibbles fold back to 40222; digit sum 37 ≡ 40222 (mod 15). -/
+theorem enumeration_hex4_9d1e : reassembles 40222 = true ∧ castsFifteens 40222 = true := by decide
+
+/-- 9d1f: nibbles fold back to 40223; digit sum 38 ≡ 40223 (mod 15). -/
+theorem enumeration_hex4_9d1f : reassembles 40223 = true ∧ castsFifteens 40223 = true := by decide
+
+/-- 9d20: nibbles fold back to 40224; digit sum 24 ≡ 40224 (mod 15). -/
+theorem enumeration_hex4_9d20 : reassembles 40224 = true ∧ castsFifteens 40224 = true := by decide
+
+/-- 9d21: nibbles fold back to 40225; digit sum 25 ≡ 40225 (mod 15). -/
+theorem enumeration_hex4_9d21 : reassembles 40225 = true ∧ castsFifteens 40225 = true := by decide
+
+/-- 9d22: nibbles fold back to 40226; digit sum 26 ≡ 40226 (mod 15). -/
+theorem enumeration_hex4_9d22 : reassembles 40226 = true ∧ castsFifteens 40226 = true := by decide
+
+/-- 9d23: nibbles fold back to 40227; digit sum 27 ≡ 40227 (mod 15). -/
+theorem enumeration_hex4_9d23 : reassembles 40227 = true ∧ castsFifteens 40227 = true := by decide
+
+/-- 9d24: nibbles fold back to 40228; digit sum 28 ≡ 40228 (mod 15). -/
+theorem enumeration_hex4_9d24 : reassembles 40228 = true ∧ castsFifteens 40228 = true := by decide
+
+/-- 9d25: nibbles fold back to 40229; digit sum 29 ≡ 40229 (mod 15). -/
+theorem enumeration_hex4_9d25 : reassembles 40229 = true ∧ castsFifteens 40229 = true := by decide
+
+/-- 9d26: nibbles fold back to 40230; digit sum 30 ≡ 40230 (mod 15). -/
+theorem enumeration_hex4_9d26 : reassembles 40230 = true ∧ castsFifteens 40230 = true := by decide
+
+/-- 9d27: nibbles fold back to 40231; digit sum 31 ≡ 40231 (mod 15). -/
+theorem enumeration_hex4_9d27 : reassembles 40231 = true ∧ castsFifteens 40231 = true := by decide
+
+/-- 9d28: nibbles fold back to 40232; digit sum 32 ≡ 40232 (mod 15). -/
+theorem enumeration_hex4_9d28 : reassembles 40232 = true ∧ castsFifteens 40232 = true := by decide
+
+/-- 9d29: nibbles fold back to 40233; digit sum 33 ≡ 40233 (mod 15). -/
+theorem enumeration_hex4_9d29 : reassembles 40233 = true ∧ castsFifteens 40233 = true := by decide
+
+/-- 9d2a: nibbles fold back to 40234; digit sum 34 ≡ 40234 (mod 15). -/
+theorem enumeration_hex4_9d2a : reassembles 40234 = true ∧ castsFifteens 40234 = true := by decide
+
+/-- 9d2b: nibbles fold back to 40235; digit sum 35 ≡ 40235 (mod 15). -/
+theorem enumeration_hex4_9d2b : reassembles 40235 = true ∧ castsFifteens 40235 = true := by decide
+
+/-- 9d2c: nibbles fold back to 40236; digit sum 36 ≡ 40236 (mod 15). -/
+theorem enumeration_hex4_9d2c : reassembles 40236 = true ∧ castsFifteens 40236 = true := by decide
+
+/-- 9d2d: nibbles fold back to 40237; digit sum 37 ≡ 40237 (mod 15). -/
+theorem enumeration_hex4_9d2d : reassembles 40237 = true ∧ castsFifteens 40237 = true := by decide
+
+/-- 9d2e: nibbles fold back to 40238; digit sum 38 ≡ 40238 (mod 15). -/
+theorem enumeration_hex4_9d2e : reassembles 40238 = true ∧ castsFifteens 40238 = true := by decide
+
+/-- 9d2f: nibbles fold back to 40239; digit sum 39 ≡ 40239 (mod 15). -/
+theorem enumeration_hex4_9d2f : reassembles 40239 = true ∧ castsFifteens 40239 = true := by decide
+
+/-- 9d30: nibbles fold back to 40240; digit sum 25 ≡ 40240 (mod 15). -/
+theorem enumeration_hex4_9d30 : reassembles 40240 = true ∧ castsFifteens 40240 = true := by decide
+
+/-- 9d31: nibbles fold back to 40241; digit sum 26 ≡ 40241 (mod 15). -/
+theorem enumeration_hex4_9d31 : reassembles 40241 = true ∧ castsFifteens 40241 = true := by decide
+
+/-- 9d32: nibbles fold back to 40242; digit sum 27 ≡ 40242 (mod 15). -/
+theorem enumeration_hex4_9d32 : reassembles 40242 = true ∧ castsFifteens 40242 = true := by decide
+
+/-- 9d33: nibbles fold back to 40243; digit sum 28 ≡ 40243 (mod 15). -/
+theorem enumeration_hex4_9d33 : reassembles 40243 = true ∧ castsFifteens 40243 = true := by decide
+
+/-- 9d34: nibbles fold back to 40244; digit sum 29 ≡ 40244 (mod 15). -/
+theorem enumeration_hex4_9d34 : reassembles 40244 = true ∧ castsFifteens 40244 = true := by decide
+
+/-- 9d35: nibbles fold back to 40245; digit sum 30 ≡ 40245 (mod 15). -/
+theorem enumeration_hex4_9d35 : reassembles 40245 = true ∧ castsFifteens 40245 = true := by decide
+
+/-- 9d36: nibbles fold back to 40246; digit sum 31 ≡ 40246 (mod 15). -/
+theorem enumeration_hex4_9d36 : reassembles 40246 = true ∧ castsFifteens 40246 = true := by decide
+
+/-- 9d37: nibbles fold back to 40247; digit sum 32 ≡ 40247 (mod 15). -/
+theorem enumeration_hex4_9d37 : reassembles 40247 = true ∧ castsFifteens 40247 = true := by decide
+
+/-- 9d38: nibbles fold back to 40248; digit sum 33 ≡ 40248 (mod 15). -/
+theorem enumeration_hex4_9d38 : reassembles 40248 = true ∧ castsFifteens 40248 = true := by decide
+
+/-- 9d39: nibbles fold back to 40249; digit sum 34 ≡ 40249 (mod 15). -/
+theorem enumeration_hex4_9d39 : reassembles 40249 = true ∧ castsFifteens 40249 = true := by decide
+
+/-- 9d3a: nibbles fold back to 40250; digit sum 35 ≡ 40250 (mod 15). -/
+theorem enumeration_hex4_9d3a : reassembles 40250 = true ∧ castsFifteens 40250 = true := by decide
+
+/-- 9d3b: nibbles fold back to 40251; digit sum 36 ≡ 40251 (mod 15). -/
+theorem enumeration_hex4_9d3b : reassembles 40251 = true ∧ castsFifteens 40251 = true := by decide
+
+/-- 9d3c: nibbles fold back to 40252; digit sum 37 ≡ 40252 (mod 15). -/
+theorem enumeration_hex4_9d3c : reassembles 40252 = true ∧ castsFifteens 40252 = true := by decide
+
+/-- 9d3d: nibbles fold back to 40253; digit sum 38 ≡ 40253 (mod 15). -/
+theorem enumeration_hex4_9d3d : reassembles 40253 = true ∧ castsFifteens 40253 = true := by decide
+
+/-- 9d3e: nibbles fold back to 40254; digit sum 39 ≡ 40254 (mod 15). -/
+theorem enumeration_hex4_9d3e : reassembles 40254 = true ∧ castsFifteens 40254 = true := by decide
+
+/-- 9d3f: nibbles fold back to 40255; digit sum 40 ≡ 40255 (mod 15). -/
+theorem enumeration_hex4_9d3f : reassembles 40255 = true ∧ castsFifteens 40255 = true := by decide
+
+/-- 9d40: nibbles fold back to 40256; digit sum 26 ≡ 40256 (mod 15). -/
+theorem enumeration_hex4_9d40 : reassembles 40256 = true ∧ castsFifteens 40256 = true := by decide
+
+/-- 9d41: nibbles fold back to 40257; digit sum 27 ≡ 40257 (mod 15). -/
+theorem enumeration_hex4_9d41 : reassembles 40257 = true ∧ castsFifteens 40257 = true := by decide
+
+/-- 9d42: nibbles fold back to 40258; digit sum 28 ≡ 40258 (mod 15). -/
+theorem enumeration_hex4_9d42 : reassembles 40258 = true ∧ castsFifteens 40258 = true := by decide
+
+/-- 9d43: nibbles fold back to 40259; digit sum 29 ≡ 40259 (mod 15). -/
+theorem enumeration_hex4_9d43 : reassembles 40259 = true ∧ castsFifteens 40259 = true := by decide
+
+/-- 9d44: nibbles fold back to 40260; digit sum 30 ≡ 40260 (mod 15). -/
+theorem enumeration_hex4_9d44 : reassembles 40260 = true ∧ castsFifteens 40260 = true := by decide
+
+/-- 9d45: nibbles fold back to 40261; digit sum 31 ≡ 40261 (mod 15). -/
+theorem enumeration_hex4_9d45 : reassembles 40261 = true ∧ castsFifteens 40261 = true := by decide
+
+/-- 9d46: nibbles fold back to 40262; digit sum 32 ≡ 40262 (mod 15). -/
+theorem enumeration_hex4_9d46 : reassembles 40262 = true ∧ castsFifteens 40262 = true := by decide
+
+/-- 9d47: nibbles fold back to 40263; digit sum 33 ≡ 40263 (mod 15). -/
+theorem enumeration_hex4_9d47 : reassembles 40263 = true ∧ castsFifteens 40263 = true := by decide
+
+/-- 9d48: nibbles fold back to 40264; digit sum 34 ≡ 40264 (mod 15). -/
+theorem enumeration_hex4_9d48 : reassembles 40264 = true ∧ castsFifteens 40264 = true := by decide
+
+/-- 9d49: nibbles fold back to 40265; digit sum 35 ≡ 40265 (mod 15). -/
+theorem enumeration_hex4_9d49 : reassembles 40265 = true ∧ castsFifteens 40265 = true := by decide
+
+/-- 9d4a: nibbles fold back to 40266; digit sum 36 ≡ 40266 (mod 15). -/
+theorem enumeration_hex4_9d4a : reassembles 40266 = true ∧ castsFifteens 40266 = true := by decide
+
+/-- 9d4b: nibbles fold back to 40267; digit sum 37 ≡ 40267 (mod 15). -/
+theorem enumeration_hex4_9d4b : reassembles 40267 = true ∧ castsFifteens 40267 = true := by decide
+
+/-- 9d4c: nibbles fold back to 40268; digit sum 38 ≡ 40268 (mod 15). -/
+theorem enumeration_hex4_9d4c : reassembles 40268 = true ∧ castsFifteens 40268 = true := by decide
+
+/-- 9d4d: nibbles fold back to 40269; digit sum 39 ≡ 40269 (mod 15). -/
+theorem enumeration_hex4_9d4d : reassembles 40269 = true ∧ castsFifteens 40269 = true := by decide
+
+/-- 9d4e: nibbles fold back to 40270; digit sum 40 ≡ 40270 (mod 15). -/
+theorem enumeration_hex4_9d4e : reassembles 40270 = true ∧ castsFifteens 40270 = true := by decide
+
+/-- 9d4f: nibbles fold back to 40271; digit sum 41 ≡ 40271 (mod 15). -/
+theorem enumeration_hex4_9d4f : reassembles 40271 = true ∧ castsFifteens 40271 = true := by decide
+
+/-- 9d50: nibbles fold back to 40272; digit sum 27 ≡ 40272 (mod 15). -/
+theorem enumeration_hex4_9d50 : reassembles 40272 = true ∧ castsFifteens 40272 = true := by decide
+
+/-- 9d51: nibbles fold back to 40273; digit sum 28 ≡ 40273 (mod 15). -/
+theorem enumeration_hex4_9d51 : reassembles 40273 = true ∧ castsFifteens 40273 = true := by decide
+
+/-- 9d52: nibbles fold back to 40274; digit sum 29 ≡ 40274 (mod 15). -/
+theorem enumeration_hex4_9d52 : reassembles 40274 = true ∧ castsFifteens 40274 = true := by decide
+
+/-- 9d53: nibbles fold back to 40275; digit sum 30 ≡ 40275 (mod 15). -/
+theorem enumeration_hex4_9d53 : reassembles 40275 = true ∧ castsFifteens 40275 = true := by decide
+
+/-- 9d54: nibbles fold back to 40276; digit sum 31 ≡ 40276 (mod 15). -/
+theorem enumeration_hex4_9d54 : reassembles 40276 = true ∧ castsFifteens 40276 = true := by decide
+
+/-- 9d55: nibbles fold back to 40277; digit sum 32 ≡ 40277 (mod 15). -/
+theorem enumeration_hex4_9d55 : reassembles 40277 = true ∧ castsFifteens 40277 = true := by decide
+
+/-- 9d56: nibbles fold back to 40278; digit sum 33 ≡ 40278 (mod 15). -/
+theorem enumeration_hex4_9d56 : reassembles 40278 = true ∧ castsFifteens 40278 = true := by decide
+
+/-- 9d57: nibbles fold back to 40279; digit sum 34 ≡ 40279 (mod 15). -/
+theorem enumeration_hex4_9d57 : reassembles 40279 = true ∧ castsFifteens 40279 = true := by decide
+
+/-- 9d58: nibbles fold back to 40280; digit sum 35 ≡ 40280 (mod 15). -/
+theorem enumeration_hex4_9d58 : reassembles 40280 = true ∧ castsFifteens 40280 = true := by decide
+
+/-- 9d59: nibbles fold back to 40281; digit sum 36 ≡ 40281 (mod 15). -/
+theorem enumeration_hex4_9d59 : reassembles 40281 = true ∧ castsFifteens 40281 = true := by decide
+
+/-- 9d5a: nibbles fold back to 40282; digit sum 37 ≡ 40282 (mod 15). -/
+theorem enumeration_hex4_9d5a : reassembles 40282 = true ∧ castsFifteens 40282 = true := by decide
+
+/-- 9d5b: nibbles fold back to 40283; digit sum 38 ≡ 40283 (mod 15). -/
+theorem enumeration_hex4_9d5b : reassembles 40283 = true ∧ castsFifteens 40283 = true := by decide
+
+/-- 9d5c: nibbles fold back to 40284; digit sum 39 ≡ 40284 (mod 15). -/
+theorem enumeration_hex4_9d5c : reassembles 40284 = true ∧ castsFifteens 40284 = true := by decide
+
+/-- 9d5d: nibbles fold back to 40285; digit sum 40 ≡ 40285 (mod 15). -/
+theorem enumeration_hex4_9d5d : reassembles 40285 = true ∧ castsFifteens 40285 = true := by decide
+
+/-- 9d5e: nibbles fold back to 40286; digit sum 41 ≡ 40286 (mod 15). -/
+theorem enumeration_hex4_9d5e : reassembles 40286 = true ∧ castsFifteens 40286 = true := by decide
+
+/-- 9d5f: nibbles fold back to 40287; digit sum 42 ≡ 40287 (mod 15). -/
+theorem enumeration_hex4_9d5f : reassembles 40287 = true ∧ castsFifteens 40287 = true := by decide
+
+/-- 9d60: nibbles fold back to 40288; digit sum 28 ≡ 40288 (mod 15). -/
+theorem enumeration_hex4_9d60 : reassembles 40288 = true ∧ castsFifteens 40288 = true := by decide
+
+/-- 9d61: nibbles fold back to 40289; digit sum 29 ≡ 40289 (mod 15). -/
+theorem enumeration_hex4_9d61 : reassembles 40289 = true ∧ castsFifteens 40289 = true := by decide
+
+/-- 9d62: nibbles fold back to 40290; digit sum 30 ≡ 40290 (mod 15). -/
+theorem enumeration_hex4_9d62 : reassembles 40290 = true ∧ castsFifteens 40290 = true := by decide
+
+/-- 9d63: nibbles fold back to 40291; digit sum 31 ≡ 40291 (mod 15). -/
+theorem enumeration_hex4_9d63 : reassembles 40291 = true ∧ castsFifteens 40291 = true := by decide
+
+/-- 9d64: nibbles fold back to 40292; digit sum 32 ≡ 40292 (mod 15). -/
+theorem enumeration_hex4_9d64 : reassembles 40292 = true ∧ castsFifteens 40292 = true := by decide
+
+/-- 9d65: nibbles fold back to 40293; digit sum 33 ≡ 40293 (mod 15). -/
+theorem enumeration_hex4_9d65 : reassembles 40293 = true ∧ castsFifteens 40293 = true := by decide
+
+/-- 9d66: nibbles fold back to 40294; digit sum 34 ≡ 40294 (mod 15). -/
+theorem enumeration_hex4_9d66 : reassembles 40294 = true ∧ castsFifteens 40294 = true := by decide
+
+/-- 9d67: nibbles fold back to 40295; digit sum 35 ≡ 40295 (mod 15). -/
+theorem enumeration_hex4_9d67 : reassembles 40295 = true ∧ castsFifteens 40295 = true := by decide
+
+/-- 9d68: nibbles fold back to 40296; digit sum 36 ≡ 40296 (mod 15). -/
+theorem enumeration_hex4_9d68 : reassembles 40296 = true ∧ castsFifteens 40296 = true := by decide
+
+/-- 9d69: nibbles fold back to 40297; digit sum 37 ≡ 40297 (mod 15). -/
+theorem enumeration_hex4_9d69 : reassembles 40297 = true ∧ castsFifteens 40297 = true := by decide
+
+/-- 9d6a: nibbles fold back to 40298; digit sum 38 ≡ 40298 (mod 15). -/
+theorem enumeration_hex4_9d6a : reassembles 40298 = true ∧ castsFifteens 40298 = true := by decide
+
+/-- 9d6b: nibbles fold back to 40299; digit sum 39 ≡ 40299 (mod 15). -/
+theorem enumeration_hex4_9d6b : reassembles 40299 = true ∧ castsFifteens 40299 = true := by decide
+
+/-- 9d6c: nibbles fold back to 40300; digit sum 40 ≡ 40300 (mod 15). -/
+theorem enumeration_hex4_9d6c : reassembles 40300 = true ∧ castsFifteens 40300 = true := by decide
+
+/-- 9d6d: nibbles fold back to 40301; digit sum 41 ≡ 40301 (mod 15). -/
+theorem enumeration_hex4_9d6d : reassembles 40301 = true ∧ castsFifteens 40301 = true := by decide
+
+/-- 9d6e: nibbles fold back to 40302; digit sum 42 ≡ 40302 (mod 15). -/
+theorem enumeration_hex4_9d6e : reassembles 40302 = true ∧ castsFifteens 40302 = true := by decide
+
+/-- 9d6f: nibbles fold back to 40303; digit sum 43 ≡ 40303 (mod 15). -/
+theorem enumeration_hex4_9d6f : reassembles 40303 = true ∧ castsFifteens 40303 = true := by decide
+
+/-- 9d70: nibbles fold back to 40304; digit sum 29 ≡ 40304 (mod 15). -/
+theorem enumeration_hex4_9d70 : reassembles 40304 = true ∧ castsFifteens 40304 = true := by decide
+
+/-- 9d71: nibbles fold back to 40305; digit sum 30 ≡ 40305 (mod 15). -/
+theorem enumeration_hex4_9d71 : reassembles 40305 = true ∧ castsFifteens 40305 = true := by decide
+
+/-- 9d72: nibbles fold back to 40306; digit sum 31 ≡ 40306 (mod 15). -/
+theorem enumeration_hex4_9d72 : reassembles 40306 = true ∧ castsFifteens 40306 = true := by decide
+
+/-- 9d73: nibbles fold back to 40307; digit sum 32 ≡ 40307 (mod 15). -/
+theorem enumeration_hex4_9d73 : reassembles 40307 = true ∧ castsFifteens 40307 = true := by decide
+
+/-- 9d74: nibbles fold back to 40308; digit sum 33 ≡ 40308 (mod 15). -/
+theorem enumeration_hex4_9d74 : reassembles 40308 = true ∧ castsFifteens 40308 = true := by decide
+
+/-- 9d75: nibbles fold back to 40309; digit sum 34 ≡ 40309 (mod 15). -/
+theorem enumeration_hex4_9d75 : reassembles 40309 = true ∧ castsFifteens 40309 = true := by decide
+
+/-- 9d76: nibbles fold back to 40310; digit sum 35 ≡ 40310 (mod 15). -/
+theorem enumeration_hex4_9d76 : reassembles 40310 = true ∧ castsFifteens 40310 = true := by decide
+
+/-- 9d77: nibbles fold back to 40311; digit sum 36 ≡ 40311 (mod 15). -/
+theorem enumeration_hex4_9d77 : reassembles 40311 = true ∧ castsFifteens 40311 = true := by decide
+
+/-- 9d78: nibbles fold back to 40312; digit sum 37 ≡ 40312 (mod 15). -/
+theorem enumeration_hex4_9d78 : reassembles 40312 = true ∧ castsFifteens 40312 = true := by decide
+
+/-- 9d79: nibbles fold back to 40313; digit sum 38 ≡ 40313 (mod 15). -/
+theorem enumeration_hex4_9d79 : reassembles 40313 = true ∧ castsFifteens 40313 = true := by decide
+
+/-- 9d7a: nibbles fold back to 40314; digit sum 39 ≡ 40314 (mod 15). -/
+theorem enumeration_hex4_9d7a : reassembles 40314 = true ∧ castsFifteens 40314 = true := by decide
+
+/-- 9d7b: nibbles fold back to 40315; digit sum 40 ≡ 40315 (mod 15). -/
+theorem enumeration_hex4_9d7b : reassembles 40315 = true ∧ castsFifteens 40315 = true := by decide
+
+/-- 9d7c: nibbles fold back to 40316; digit sum 41 ≡ 40316 (mod 15). -/
+theorem enumeration_hex4_9d7c : reassembles 40316 = true ∧ castsFifteens 40316 = true := by decide
+
+/-- 9d7d: nibbles fold back to 40317; digit sum 42 ≡ 40317 (mod 15). -/
+theorem enumeration_hex4_9d7d : reassembles 40317 = true ∧ castsFifteens 40317 = true := by decide
+
+/-- 9d7e: nibbles fold back to 40318; digit sum 43 ≡ 40318 (mod 15). -/
+theorem enumeration_hex4_9d7e : reassembles 40318 = true ∧ castsFifteens 40318 = true := by decide
+
+/-- 9d7f: nibbles fold back to 40319; digit sum 44 ≡ 40319 (mod 15). -/
+theorem enumeration_hex4_9d7f : reassembles 40319 = true ∧ castsFifteens 40319 = true := by decide
+
+/-- 9d80: nibbles fold back to 40320; digit sum 30 ≡ 40320 (mod 15). -/
+theorem enumeration_hex4_9d80 : reassembles 40320 = true ∧ castsFifteens 40320 = true := by decide
+
+/-- 9d81: nibbles fold back to 40321; digit sum 31 ≡ 40321 (mod 15). -/
+theorem enumeration_hex4_9d81 : reassembles 40321 = true ∧ castsFifteens 40321 = true := by decide
+
+/-- 9d82: nibbles fold back to 40322; digit sum 32 ≡ 40322 (mod 15). -/
+theorem enumeration_hex4_9d82 : reassembles 40322 = true ∧ castsFifteens 40322 = true := by decide
+
+/-- 9d83: nibbles fold back to 40323; digit sum 33 ≡ 40323 (mod 15). -/
+theorem enumeration_hex4_9d83 : reassembles 40323 = true ∧ castsFifteens 40323 = true := by decide
+
+/-- 9d84: nibbles fold back to 40324; digit sum 34 ≡ 40324 (mod 15). -/
+theorem enumeration_hex4_9d84 : reassembles 40324 = true ∧ castsFifteens 40324 = true := by decide
+
+/-- 9d85: nibbles fold back to 40325; digit sum 35 ≡ 40325 (mod 15). -/
+theorem enumeration_hex4_9d85 : reassembles 40325 = true ∧ castsFifteens 40325 = true := by decide
+
+/-- 9d86: nibbles fold back to 40326; digit sum 36 ≡ 40326 (mod 15). -/
+theorem enumeration_hex4_9d86 : reassembles 40326 = true ∧ castsFifteens 40326 = true := by decide
+
+/-- 9d87: nibbles fold back to 40327; digit sum 37 ≡ 40327 (mod 15). -/
+theorem enumeration_hex4_9d87 : reassembles 40327 = true ∧ castsFifteens 40327 = true := by decide
+
+/-- 9d88: nibbles fold back to 40328; digit sum 38 ≡ 40328 (mod 15). -/
+theorem enumeration_hex4_9d88 : reassembles 40328 = true ∧ castsFifteens 40328 = true := by decide
+
+/-- 9d89: nibbles fold back to 40329; digit sum 39 ≡ 40329 (mod 15). -/
+theorem enumeration_hex4_9d89 : reassembles 40329 = true ∧ castsFifteens 40329 = true := by decide
+
+/-- 9d8a: nibbles fold back to 40330; digit sum 40 ≡ 40330 (mod 15). -/
+theorem enumeration_hex4_9d8a : reassembles 40330 = true ∧ castsFifteens 40330 = true := by decide
+
+/-- 9d8b: nibbles fold back to 40331; digit sum 41 ≡ 40331 (mod 15). -/
+theorem enumeration_hex4_9d8b : reassembles 40331 = true ∧ castsFifteens 40331 = true := by decide
+
+/-- 9d8c: nibbles fold back to 40332; digit sum 42 ≡ 40332 (mod 15). -/
+theorem enumeration_hex4_9d8c : reassembles 40332 = true ∧ castsFifteens 40332 = true := by decide
+
+/-- 9d8d: nibbles fold back to 40333; digit sum 43 ≡ 40333 (mod 15). -/
+theorem enumeration_hex4_9d8d : reassembles 40333 = true ∧ castsFifteens 40333 = true := by decide
+
+/-- 9d8e: nibbles fold back to 40334; digit sum 44 ≡ 40334 (mod 15). -/
+theorem enumeration_hex4_9d8e : reassembles 40334 = true ∧ castsFifteens 40334 = true := by decide
+
+/-- 9d8f: nibbles fold back to 40335; digit sum 45 ≡ 40335 (mod 15). -/
+theorem enumeration_hex4_9d8f : reassembles 40335 = true ∧ castsFifteens 40335 = true := by decide
+
+/-- 9d90: nibbles fold back to 40336; digit sum 31 ≡ 40336 (mod 15). -/
+theorem enumeration_hex4_9d90 : reassembles 40336 = true ∧ castsFifteens 40336 = true := by decide
+
+/-- 9d91: nibbles fold back to 40337; digit sum 32 ≡ 40337 (mod 15). -/
+theorem enumeration_hex4_9d91 : reassembles 40337 = true ∧ castsFifteens 40337 = true := by decide
+
+/-- 9d92: nibbles fold back to 40338; digit sum 33 ≡ 40338 (mod 15). -/
+theorem enumeration_hex4_9d92 : reassembles 40338 = true ∧ castsFifteens 40338 = true := by decide
+
+/-- 9d93: nibbles fold back to 40339; digit sum 34 ≡ 40339 (mod 15). -/
+theorem enumeration_hex4_9d93 : reassembles 40339 = true ∧ castsFifteens 40339 = true := by decide
+
+/-- 9d94: nibbles fold back to 40340; digit sum 35 ≡ 40340 (mod 15). -/
+theorem enumeration_hex4_9d94 : reassembles 40340 = true ∧ castsFifteens 40340 = true := by decide
+
+/-- 9d95: nibbles fold back to 40341; digit sum 36 ≡ 40341 (mod 15). -/
+theorem enumeration_hex4_9d95 : reassembles 40341 = true ∧ castsFifteens 40341 = true := by decide
+
+/-- 9d96: nibbles fold back to 40342; digit sum 37 ≡ 40342 (mod 15). -/
+theorem enumeration_hex4_9d96 : reassembles 40342 = true ∧ castsFifteens 40342 = true := by decide
+
+/-- 9d97: nibbles fold back to 40343; digit sum 38 ≡ 40343 (mod 15). -/
+theorem enumeration_hex4_9d97 : reassembles 40343 = true ∧ castsFifteens 40343 = true := by decide
+
+/-- 9d98: nibbles fold back to 40344; digit sum 39 ≡ 40344 (mod 15). -/
+theorem enumeration_hex4_9d98 : reassembles 40344 = true ∧ castsFifteens 40344 = true := by decide
+
+/-- 9d99: nibbles fold back to 40345; digit sum 40 ≡ 40345 (mod 15). -/
+theorem enumeration_hex4_9d99 : reassembles 40345 = true ∧ castsFifteens 40345 = true := by decide
+
+/-- 9d9a: nibbles fold back to 40346; digit sum 41 ≡ 40346 (mod 15). -/
+theorem enumeration_hex4_9d9a : reassembles 40346 = true ∧ castsFifteens 40346 = true := by decide
+
+/-- 9d9b: nibbles fold back to 40347; digit sum 42 ≡ 40347 (mod 15). -/
+theorem enumeration_hex4_9d9b : reassembles 40347 = true ∧ castsFifteens 40347 = true := by decide
+
+/-- 9d9c: nibbles fold back to 40348; digit sum 43 ≡ 40348 (mod 15). -/
+theorem enumeration_hex4_9d9c : reassembles 40348 = true ∧ castsFifteens 40348 = true := by decide
+
+/-- 9d9d: nibbles fold back to 40349; digit sum 44 ≡ 40349 (mod 15). -/
+theorem enumeration_hex4_9d9d : reassembles 40349 = true ∧ castsFifteens 40349 = true := by decide
+
+/-- 9d9e: nibbles fold back to 40350; digit sum 45 ≡ 40350 (mod 15). -/
+theorem enumeration_hex4_9d9e : reassembles 40350 = true ∧ castsFifteens 40350 = true := by decide
+
+/-- 9d9f: nibbles fold back to 40351; digit sum 46 ≡ 40351 (mod 15). -/
+theorem enumeration_hex4_9d9f : reassembles 40351 = true ∧ castsFifteens 40351 = true := by decide
+
+/-- 9da0: nibbles fold back to 40352; digit sum 32 ≡ 40352 (mod 15). -/
+theorem enumeration_hex4_9da0 : reassembles 40352 = true ∧ castsFifteens 40352 = true := by decide
+
+/-- 9da1: nibbles fold back to 40353; digit sum 33 ≡ 40353 (mod 15). -/
+theorem enumeration_hex4_9da1 : reassembles 40353 = true ∧ castsFifteens 40353 = true := by decide
+
+/-- 9da2: nibbles fold back to 40354; digit sum 34 ≡ 40354 (mod 15). -/
+theorem enumeration_hex4_9da2 : reassembles 40354 = true ∧ castsFifteens 40354 = true := by decide
+
+/-- 9da3: nibbles fold back to 40355; digit sum 35 ≡ 40355 (mod 15). -/
+theorem enumeration_hex4_9da3 : reassembles 40355 = true ∧ castsFifteens 40355 = true := by decide
+
+/-- 9da4: nibbles fold back to 40356; digit sum 36 ≡ 40356 (mod 15). -/
+theorem enumeration_hex4_9da4 : reassembles 40356 = true ∧ castsFifteens 40356 = true := by decide
+
+/-- 9da5: nibbles fold back to 40357; digit sum 37 ≡ 40357 (mod 15). -/
+theorem enumeration_hex4_9da5 : reassembles 40357 = true ∧ castsFifteens 40357 = true := by decide
+
+/-- 9da6: nibbles fold back to 40358; digit sum 38 ≡ 40358 (mod 15). -/
+theorem enumeration_hex4_9da6 : reassembles 40358 = true ∧ castsFifteens 40358 = true := by decide
+
+/-- 9da7: nibbles fold back to 40359; digit sum 39 ≡ 40359 (mod 15). -/
+theorem enumeration_hex4_9da7 : reassembles 40359 = true ∧ castsFifteens 40359 = true := by decide
+
+/-- 9da8: nibbles fold back to 40360; digit sum 40 ≡ 40360 (mod 15). -/
+theorem enumeration_hex4_9da8 : reassembles 40360 = true ∧ castsFifteens 40360 = true := by decide
+
+/-- 9da9: nibbles fold back to 40361; digit sum 41 ≡ 40361 (mod 15). -/
+theorem enumeration_hex4_9da9 : reassembles 40361 = true ∧ castsFifteens 40361 = true := by decide
+
+/-- 9daa: nibbles fold back to 40362; digit sum 42 ≡ 40362 (mod 15). -/
+theorem enumeration_hex4_9daa : reassembles 40362 = true ∧ castsFifteens 40362 = true := by decide
+
+/-- 9dab: nibbles fold back to 40363; digit sum 43 ≡ 40363 (mod 15). -/
+theorem enumeration_hex4_9dab : reassembles 40363 = true ∧ castsFifteens 40363 = true := by decide
+
+/-- 9dac: nibbles fold back to 40364; digit sum 44 ≡ 40364 (mod 15). -/
+theorem enumeration_hex4_9dac : reassembles 40364 = true ∧ castsFifteens 40364 = true := by decide
+
+/-- 9dad: nibbles fold back to 40365; digit sum 45 ≡ 40365 (mod 15). -/
+theorem enumeration_hex4_9dad : reassembles 40365 = true ∧ castsFifteens 40365 = true := by decide
+
+/-- 9dae: nibbles fold back to 40366; digit sum 46 ≡ 40366 (mod 15). -/
+theorem enumeration_hex4_9dae : reassembles 40366 = true ∧ castsFifteens 40366 = true := by decide
+
+/-- 9daf: nibbles fold back to 40367; digit sum 47 ≡ 40367 (mod 15). -/
+theorem enumeration_hex4_9daf : reassembles 40367 = true ∧ castsFifteens 40367 = true := by decide
+
+/-- 9db0: nibbles fold back to 40368; digit sum 33 ≡ 40368 (mod 15). -/
+theorem enumeration_hex4_9db0 : reassembles 40368 = true ∧ castsFifteens 40368 = true := by decide
+
+/-- 9db1: nibbles fold back to 40369; digit sum 34 ≡ 40369 (mod 15). -/
+theorem enumeration_hex4_9db1 : reassembles 40369 = true ∧ castsFifteens 40369 = true := by decide
+
+/-- 9db2: nibbles fold back to 40370; digit sum 35 ≡ 40370 (mod 15). -/
+theorem enumeration_hex4_9db2 : reassembles 40370 = true ∧ castsFifteens 40370 = true := by decide
+
+/-- 9db3: nibbles fold back to 40371; digit sum 36 ≡ 40371 (mod 15). -/
+theorem enumeration_hex4_9db3 : reassembles 40371 = true ∧ castsFifteens 40371 = true := by decide
+
+/-- 9db4: nibbles fold back to 40372; digit sum 37 ≡ 40372 (mod 15). -/
+theorem enumeration_hex4_9db4 : reassembles 40372 = true ∧ castsFifteens 40372 = true := by decide
+
+/-- 9db5: nibbles fold back to 40373; digit sum 38 ≡ 40373 (mod 15). -/
+theorem enumeration_hex4_9db5 : reassembles 40373 = true ∧ castsFifteens 40373 = true := by decide
+
+/-- 9db6: nibbles fold back to 40374; digit sum 39 ≡ 40374 (mod 15). -/
+theorem enumeration_hex4_9db6 : reassembles 40374 = true ∧ castsFifteens 40374 = true := by decide
+
+/-- 9db7: nibbles fold back to 40375; digit sum 40 ≡ 40375 (mod 15). -/
+theorem enumeration_hex4_9db7 : reassembles 40375 = true ∧ castsFifteens 40375 = true := by decide
+
+/-- 9db8: nibbles fold back to 40376; digit sum 41 ≡ 40376 (mod 15). -/
+theorem enumeration_hex4_9db8 : reassembles 40376 = true ∧ castsFifteens 40376 = true := by decide
+
+/-- 9db9: nibbles fold back to 40377; digit sum 42 ≡ 40377 (mod 15). -/
+theorem enumeration_hex4_9db9 : reassembles 40377 = true ∧ castsFifteens 40377 = true := by decide
+
+/-- 9dba: nibbles fold back to 40378; digit sum 43 ≡ 40378 (mod 15). -/
+theorem enumeration_hex4_9dba : reassembles 40378 = true ∧ castsFifteens 40378 = true := by decide
+
+/-- 9dbb: nibbles fold back to 40379; digit sum 44 ≡ 40379 (mod 15). -/
+theorem enumeration_hex4_9dbb : reassembles 40379 = true ∧ castsFifteens 40379 = true := by decide
+
+/-- 9dbc: nibbles fold back to 40380; digit sum 45 ≡ 40380 (mod 15). -/
+theorem enumeration_hex4_9dbc : reassembles 40380 = true ∧ castsFifteens 40380 = true := by decide
+
+/-- 9dbd: nibbles fold back to 40381; digit sum 46 ≡ 40381 (mod 15). -/
+theorem enumeration_hex4_9dbd : reassembles 40381 = true ∧ castsFifteens 40381 = true := by decide
+
+/-- 9dbe: nibbles fold back to 40382; digit sum 47 ≡ 40382 (mod 15). -/
+theorem enumeration_hex4_9dbe : reassembles 40382 = true ∧ castsFifteens 40382 = true := by decide
+
+/-- 9dbf: nibbles fold back to 40383; digit sum 48 ≡ 40383 (mod 15). -/
+theorem enumeration_hex4_9dbf : reassembles 40383 = true ∧ castsFifteens 40383 = true := by decide
+
+/-- 9dc0: nibbles fold back to 40384; digit sum 34 ≡ 40384 (mod 15). -/
+theorem enumeration_hex4_9dc0 : reassembles 40384 = true ∧ castsFifteens 40384 = true := by decide
+
+/-- 9dc1: nibbles fold back to 40385; digit sum 35 ≡ 40385 (mod 15). -/
+theorem enumeration_hex4_9dc1 : reassembles 40385 = true ∧ castsFifteens 40385 = true := by decide
+
+/-- 9dc2: nibbles fold back to 40386; digit sum 36 ≡ 40386 (mod 15). -/
+theorem enumeration_hex4_9dc2 : reassembles 40386 = true ∧ castsFifteens 40386 = true := by decide
+
+/-- 9dc3: nibbles fold back to 40387; digit sum 37 ≡ 40387 (mod 15). -/
+theorem enumeration_hex4_9dc3 : reassembles 40387 = true ∧ castsFifteens 40387 = true := by decide
+
+/-- 9dc4: nibbles fold back to 40388; digit sum 38 ≡ 40388 (mod 15). -/
+theorem enumeration_hex4_9dc4 : reassembles 40388 = true ∧ castsFifteens 40388 = true := by decide
+
+/-- 9dc5: nibbles fold back to 40389; digit sum 39 ≡ 40389 (mod 15). -/
+theorem enumeration_hex4_9dc5 : reassembles 40389 = true ∧ castsFifteens 40389 = true := by decide
+
+/-- 9dc6: nibbles fold back to 40390; digit sum 40 ≡ 40390 (mod 15). -/
+theorem enumeration_hex4_9dc6 : reassembles 40390 = true ∧ castsFifteens 40390 = true := by decide
+
+/-- 9dc7: nibbles fold back to 40391; digit sum 41 ≡ 40391 (mod 15). -/
+theorem enumeration_hex4_9dc7 : reassembles 40391 = true ∧ castsFifteens 40391 = true := by decide
+
+/-- 9dc8: nibbles fold back to 40392; digit sum 42 ≡ 40392 (mod 15). -/
+theorem enumeration_hex4_9dc8 : reassembles 40392 = true ∧ castsFifteens 40392 = true := by decide
+
+/-- 9dc9: nibbles fold back to 40393; digit sum 43 ≡ 40393 (mod 15). -/
+theorem enumeration_hex4_9dc9 : reassembles 40393 = true ∧ castsFifteens 40393 = true := by decide
+
+/-- 9dca: nibbles fold back to 40394; digit sum 44 ≡ 40394 (mod 15). -/
+theorem enumeration_hex4_9dca : reassembles 40394 = true ∧ castsFifteens 40394 = true := by decide
+
+/-- 9dcb: nibbles fold back to 40395; digit sum 45 ≡ 40395 (mod 15). -/
+theorem enumeration_hex4_9dcb : reassembles 40395 = true ∧ castsFifteens 40395 = true := by decide
+
+/-- 9dcc: nibbles fold back to 40396; digit sum 46 ≡ 40396 (mod 15). -/
+theorem enumeration_hex4_9dcc : reassembles 40396 = true ∧ castsFifteens 40396 = true := by decide
+
+/-- 9dcd: nibbles fold back to 40397; digit sum 47 ≡ 40397 (mod 15). -/
+theorem enumeration_hex4_9dcd : reassembles 40397 = true ∧ castsFifteens 40397 = true := by decide
+
+/-- 9dce: nibbles fold back to 40398; digit sum 48 ≡ 40398 (mod 15). -/
+theorem enumeration_hex4_9dce : reassembles 40398 = true ∧ castsFifteens 40398 = true := by decide
+
+/-- 9dcf: nibbles fold back to 40399; digit sum 49 ≡ 40399 (mod 15). -/
+theorem enumeration_hex4_9dcf : reassembles 40399 = true ∧ castsFifteens 40399 = true := by decide
+
+/-- 9dd0: nibbles fold back to 40400; digit sum 35 ≡ 40400 (mod 15). -/
+theorem enumeration_hex4_9dd0 : reassembles 40400 = true ∧ castsFifteens 40400 = true := by decide
+
+/-- 9dd1: nibbles fold back to 40401; digit sum 36 ≡ 40401 (mod 15). -/
+theorem enumeration_hex4_9dd1 : reassembles 40401 = true ∧ castsFifteens 40401 = true := by decide
+
+/-- 9dd2: nibbles fold back to 40402; digit sum 37 ≡ 40402 (mod 15). -/
+theorem enumeration_hex4_9dd2 : reassembles 40402 = true ∧ castsFifteens 40402 = true := by decide
+
+/-- 9dd3: nibbles fold back to 40403; digit sum 38 ≡ 40403 (mod 15). -/
+theorem enumeration_hex4_9dd3 : reassembles 40403 = true ∧ castsFifteens 40403 = true := by decide
+
+/-- 9dd4: nibbles fold back to 40404; digit sum 39 ≡ 40404 (mod 15). -/
+theorem enumeration_hex4_9dd4 : reassembles 40404 = true ∧ castsFifteens 40404 = true := by decide
+
+/-- 9dd5: nibbles fold back to 40405; digit sum 40 ≡ 40405 (mod 15). -/
+theorem enumeration_hex4_9dd5 : reassembles 40405 = true ∧ castsFifteens 40405 = true := by decide
+
+/-- 9dd6: nibbles fold back to 40406; digit sum 41 ≡ 40406 (mod 15). -/
+theorem enumeration_hex4_9dd6 : reassembles 40406 = true ∧ castsFifteens 40406 = true := by decide
+
+/-- 9dd7: nibbles fold back to 40407; digit sum 42 ≡ 40407 (mod 15). -/
+theorem enumeration_hex4_9dd7 : reassembles 40407 = true ∧ castsFifteens 40407 = true := by decide
+
+/-- 9dd8: nibbles fold back to 40408; digit sum 43 ≡ 40408 (mod 15). -/
+theorem enumeration_hex4_9dd8 : reassembles 40408 = true ∧ castsFifteens 40408 = true := by decide
+
+/-- 9dd9: nibbles fold back to 40409; digit sum 44 ≡ 40409 (mod 15). -/
+theorem enumeration_hex4_9dd9 : reassembles 40409 = true ∧ castsFifteens 40409 = true := by decide
+
+/-- 9dda: nibbles fold back to 40410; digit sum 45 ≡ 40410 (mod 15). -/
+theorem enumeration_hex4_9dda : reassembles 40410 = true ∧ castsFifteens 40410 = true := by decide
+
+/-- 9ddb: nibbles fold back to 40411; digit sum 46 ≡ 40411 (mod 15). -/
+theorem enumeration_hex4_9ddb : reassembles 40411 = true ∧ castsFifteens 40411 = true := by decide
+
+/-- 9ddc: nibbles fold back to 40412; digit sum 47 ≡ 40412 (mod 15). -/
+theorem enumeration_hex4_9ddc : reassembles 40412 = true ∧ castsFifteens 40412 = true := by decide
+
+/-- 9ddd: nibbles fold back to 40413; digit sum 48 ≡ 40413 (mod 15). -/
+theorem enumeration_hex4_9ddd : reassembles 40413 = true ∧ castsFifteens 40413 = true := by decide
+
+/-- 9dde: nibbles fold back to 40414; digit sum 49 ≡ 40414 (mod 15). -/
+theorem enumeration_hex4_9dde : reassembles 40414 = true ∧ castsFifteens 40414 = true := by decide
+
+/-- 9ddf: nibbles fold back to 40415; digit sum 50 ≡ 40415 (mod 15). -/
+theorem enumeration_hex4_9ddf : reassembles 40415 = true ∧ castsFifteens 40415 = true := by decide
+
+/-- 9de0: nibbles fold back to 40416; digit sum 36 ≡ 40416 (mod 15). -/
+theorem enumeration_hex4_9de0 : reassembles 40416 = true ∧ castsFifteens 40416 = true := by decide
+
+/-- 9de1: nibbles fold back to 40417; digit sum 37 ≡ 40417 (mod 15). -/
+theorem enumeration_hex4_9de1 : reassembles 40417 = true ∧ castsFifteens 40417 = true := by decide
+
+/-- 9de2: nibbles fold back to 40418; digit sum 38 ≡ 40418 (mod 15). -/
+theorem enumeration_hex4_9de2 : reassembles 40418 = true ∧ castsFifteens 40418 = true := by decide
+
+/-- 9de3: nibbles fold back to 40419; digit sum 39 ≡ 40419 (mod 15). -/
+theorem enumeration_hex4_9de3 : reassembles 40419 = true ∧ castsFifteens 40419 = true := by decide
+
+/-- 9de4: nibbles fold back to 40420; digit sum 40 ≡ 40420 (mod 15). -/
+theorem enumeration_hex4_9de4 : reassembles 40420 = true ∧ castsFifteens 40420 = true := by decide
+
+/-- 9de5: nibbles fold back to 40421; digit sum 41 ≡ 40421 (mod 15). -/
+theorem enumeration_hex4_9de5 : reassembles 40421 = true ∧ castsFifteens 40421 = true := by decide
+
+/-- 9de6: nibbles fold back to 40422; digit sum 42 ≡ 40422 (mod 15). -/
+theorem enumeration_hex4_9de6 : reassembles 40422 = true ∧ castsFifteens 40422 = true := by decide
+
+/-- 9de7: nibbles fold back to 40423; digit sum 43 ≡ 40423 (mod 15). -/
+theorem enumeration_hex4_9de7 : reassembles 40423 = true ∧ castsFifteens 40423 = true := by decide
+
+/-- 9de8: nibbles fold back to 40424; digit sum 44 ≡ 40424 (mod 15). -/
+theorem enumeration_hex4_9de8 : reassembles 40424 = true ∧ castsFifteens 40424 = true := by decide
+
+/-- 9de9: nibbles fold back to 40425; digit sum 45 ≡ 40425 (mod 15). -/
+theorem enumeration_hex4_9de9 : reassembles 40425 = true ∧ castsFifteens 40425 = true := by decide
+
+/-- 9dea: nibbles fold back to 40426; digit sum 46 ≡ 40426 (mod 15). -/
+theorem enumeration_hex4_9dea : reassembles 40426 = true ∧ castsFifteens 40426 = true := by decide
+
+/-- 9deb: nibbles fold back to 40427; digit sum 47 ≡ 40427 (mod 15). -/
+theorem enumeration_hex4_9deb : reassembles 40427 = true ∧ castsFifteens 40427 = true := by decide
+
+/-- 9dec: nibbles fold back to 40428; digit sum 48 ≡ 40428 (mod 15). -/
+theorem enumeration_hex4_9dec : reassembles 40428 = true ∧ castsFifteens 40428 = true := by decide
+
+/-- 9ded: nibbles fold back to 40429; digit sum 49 ≡ 40429 (mod 15). -/
+theorem enumeration_hex4_9ded : reassembles 40429 = true ∧ castsFifteens 40429 = true := by decide
+
+/-- 9dee: nibbles fold back to 40430; digit sum 50 ≡ 40430 (mod 15). -/
+theorem enumeration_hex4_9dee : reassembles 40430 = true ∧ castsFifteens 40430 = true := by decide
+
+/-- 9def: nibbles fold back to 40431; digit sum 51 ≡ 40431 (mod 15). -/
+theorem enumeration_hex4_9def : reassembles 40431 = true ∧ castsFifteens 40431 = true := by decide
+
+/-- 9df0: nibbles fold back to 40432; digit sum 37 ≡ 40432 (mod 15). -/
+theorem enumeration_hex4_9df0 : reassembles 40432 = true ∧ castsFifteens 40432 = true := by decide
+
+/-- 9df1: nibbles fold back to 40433; digit sum 38 ≡ 40433 (mod 15). -/
+theorem enumeration_hex4_9df1 : reassembles 40433 = true ∧ castsFifteens 40433 = true := by decide
+
+/-- 9df2: nibbles fold back to 40434; digit sum 39 ≡ 40434 (mod 15). -/
+theorem enumeration_hex4_9df2 : reassembles 40434 = true ∧ castsFifteens 40434 = true := by decide
+
+/-- 9df3: nibbles fold back to 40435; digit sum 40 ≡ 40435 (mod 15). -/
+theorem enumeration_hex4_9df3 : reassembles 40435 = true ∧ castsFifteens 40435 = true := by decide
+
+/-- 9df4: nibbles fold back to 40436; digit sum 41 ≡ 40436 (mod 15). -/
+theorem enumeration_hex4_9df4 : reassembles 40436 = true ∧ castsFifteens 40436 = true := by decide
+
+/-- 9df5: nibbles fold back to 40437; digit sum 42 ≡ 40437 (mod 15). -/
+theorem enumeration_hex4_9df5 : reassembles 40437 = true ∧ castsFifteens 40437 = true := by decide
+
+/-- 9df6: nibbles fold back to 40438; digit sum 43 ≡ 40438 (mod 15). -/
+theorem enumeration_hex4_9df6 : reassembles 40438 = true ∧ castsFifteens 40438 = true := by decide
+
+/-- 9df7: nibbles fold back to 40439; digit sum 44 ≡ 40439 (mod 15). -/
+theorem enumeration_hex4_9df7 : reassembles 40439 = true ∧ castsFifteens 40439 = true := by decide
+
+/-- 9df8: nibbles fold back to 40440; digit sum 45 ≡ 40440 (mod 15). -/
+theorem enumeration_hex4_9df8 : reassembles 40440 = true ∧ castsFifteens 40440 = true := by decide
+
+/-- 9df9: nibbles fold back to 40441; digit sum 46 ≡ 40441 (mod 15). -/
+theorem enumeration_hex4_9df9 : reassembles 40441 = true ∧ castsFifteens 40441 = true := by decide
+
+/-- 9dfa: nibbles fold back to 40442; digit sum 47 ≡ 40442 (mod 15). -/
+theorem enumeration_hex4_9dfa : reassembles 40442 = true ∧ castsFifteens 40442 = true := by decide
+
+/-- 9dfb: nibbles fold back to 40443; digit sum 48 ≡ 40443 (mod 15). -/
+theorem enumeration_hex4_9dfb : reassembles 40443 = true ∧ castsFifteens 40443 = true := by decide
+
+/-- 9dfc: nibbles fold back to 40444; digit sum 49 ≡ 40444 (mod 15). -/
+theorem enumeration_hex4_9dfc : reassembles 40444 = true ∧ castsFifteens 40444 = true := by decide
+
+/-- 9dfd: nibbles fold back to 40445; digit sum 50 ≡ 40445 (mod 15). -/
+theorem enumeration_hex4_9dfd : reassembles 40445 = true ∧ castsFifteens 40445 = true := by decide
+
+/-- 9dfe: nibbles fold back to 40446; digit sum 51 ≡ 40446 (mod 15). -/
+theorem enumeration_hex4_9dfe : reassembles 40446 = true ∧ castsFifteens 40446 = true := by decide
+
+/-- 9dff: nibbles fold back to 40447; digit sum 52 ≡ 40447 (mod 15). -/
+theorem enumeration_hex4_9dff : reassembles 40447 = true ∧ castsFifteens 40447 = true := by decide
+
+/-- 9e00: nibbles fold back to 40448; digit sum 23 ≡ 40448 (mod 15). -/
+theorem enumeration_hex4_9e00 : reassembles 40448 = true ∧ castsFifteens 40448 = true := by decide
+
+/-- 9e01: nibbles fold back to 40449; digit sum 24 ≡ 40449 (mod 15). -/
+theorem enumeration_hex4_9e01 : reassembles 40449 = true ∧ castsFifteens 40449 = true := by decide
+
+/-- 9e02: nibbles fold back to 40450; digit sum 25 ≡ 40450 (mod 15). -/
+theorem enumeration_hex4_9e02 : reassembles 40450 = true ∧ castsFifteens 40450 = true := by decide
+
+/-- 9e03: nibbles fold back to 40451; digit sum 26 ≡ 40451 (mod 15). -/
+theorem enumeration_hex4_9e03 : reassembles 40451 = true ∧ castsFifteens 40451 = true := by decide
+
+/-- 9e04: nibbles fold back to 40452; digit sum 27 ≡ 40452 (mod 15). -/
+theorem enumeration_hex4_9e04 : reassembles 40452 = true ∧ castsFifteens 40452 = true := by decide
+
+/-- 9e05: nibbles fold back to 40453; digit sum 28 ≡ 40453 (mod 15). -/
+theorem enumeration_hex4_9e05 : reassembles 40453 = true ∧ castsFifteens 40453 = true := by decide
+
+/-- 9e06: nibbles fold back to 40454; digit sum 29 ≡ 40454 (mod 15). -/
+theorem enumeration_hex4_9e06 : reassembles 40454 = true ∧ castsFifteens 40454 = true := by decide
+
+/-- 9e07: nibbles fold back to 40455; digit sum 30 ≡ 40455 (mod 15). -/
+theorem enumeration_hex4_9e07 : reassembles 40455 = true ∧ castsFifteens 40455 = true := by decide
+
+/-- 9e08: nibbles fold back to 40456; digit sum 31 ≡ 40456 (mod 15). -/
+theorem enumeration_hex4_9e08 : reassembles 40456 = true ∧ castsFifteens 40456 = true := by decide
+
+/-- 9e09: nibbles fold back to 40457; digit sum 32 ≡ 40457 (mod 15). -/
+theorem enumeration_hex4_9e09 : reassembles 40457 = true ∧ castsFifteens 40457 = true := by decide
+
+/-- 9e0a: nibbles fold back to 40458; digit sum 33 ≡ 40458 (mod 15). -/
+theorem enumeration_hex4_9e0a : reassembles 40458 = true ∧ castsFifteens 40458 = true := by decide
+
+/-- 9e0b: nibbles fold back to 40459; digit sum 34 ≡ 40459 (mod 15). -/
+theorem enumeration_hex4_9e0b : reassembles 40459 = true ∧ castsFifteens 40459 = true := by decide
+
+/-- 9e0c: nibbles fold back to 40460; digit sum 35 ≡ 40460 (mod 15). -/
+theorem enumeration_hex4_9e0c : reassembles 40460 = true ∧ castsFifteens 40460 = true := by decide
+
+/-- 9e0d: nibbles fold back to 40461; digit sum 36 ≡ 40461 (mod 15). -/
+theorem enumeration_hex4_9e0d : reassembles 40461 = true ∧ castsFifteens 40461 = true := by decide
+
+/-- 9e0e: nibbles fold back to 40462; digit sum 37 ≡ 40462 (mod 15). -/
+theorem enumeration_hex4_9e0e : reassembles 40462 = true ∧ castsFifteens 40462 = true := by decide
+
+/-- 9e0f: nibbles fold back to 40463; digit sum 38 ≡ 40463 (mod 15). -/
+theorem enumeration_hex4_9e0f : reassembles 40463 = true ∧ castsFifteens 40463 = true := by decide
+
+/-- 9e10: nibbles fold back to 40464; digit sum 24 ≡ 40464 (mod 15). -/
+theorem enumeration_hex4_9e10 : reassembles 40464 = true ∧ castsFifteens 40464 = true := by decide
+
+/-- 9e11: nibbles fold back to 40465; digit sum 25 ≡ 40465 (mod 15). -/
+theorem enumeration_hex4_9e11 : reassembles 40465 = true ∧ castsFifteens 40465 = true := by decide
+
+/-- 9e12: nibbles fold back to 40466; digit sum 26 ≡ 40466 (mod 15). -/
+theorem enumeration_hex4_9e12 : reassembles 40466 = true ∧ castsFifteens 40466 = true := by decide
+
+/-- 9e13: nibbles fold back to 40467; digit sum 27 ≡ 40467 (mod 15). -/
+theorem enumeration_hex4_9e13 : reassembles 40467 = true ∧ castsFifteens 40467 = true := by decide
+
+/-- 9e14: nibbles fold back to 40468; digit sum 28 ≡ 40468 (mod 15). -/
+theorem enumeration_hex4_9e14 : reassembles 40468 = true ∧ castsFifteens 40468 = true := by decide
+
+/-- 9e15: nibbles fold back to 40469; digit sum 29 ≡ 40469 (mod 15). -/
+theorem enumeration_hex4_9e15 : reassembles 40469 = true ∧ castsFifteens 40469 = true := by decide
+
+/-- 9e16: nibbles fold back to 40470; digit sum 30 ≡ 40470 (mod 15). -/
+theorem enumeration_hex4_9e16 : reassembles 40470 = true ∧ castsFifteens 40470 = true := by decide
+
+/-- 9e17: nibbles fold back to 40471; digit sum 31 ≡ 40471 (mod 15). -/
+theorem enumeration_hex4_9e17 : reassembles 40471 = true ∧ castsFifteens 40471 = true := by decide
+
+/-- 9e18: nibbles fold back to 40472; digit sum 32 ≡ 40472 (mod 15). -/
+theorem enumeration_hex4_9e18 : reassembles 40472 = true ∧ castsFifteens 40472 = true := by decide
+
+/-- 9e19: nibbles fold back to 40473; digit sum 33 ≡ 40473 (mod 15). -/
+theorem enumeration_hex4_9e19 : reassembles 40473 = true ∧ castsFifteens 40473 = true := by decide
+
+/-- 9e1a: nibbles fold back to 40474; digit sum 34 ≡ 40474 (mod 15). -/
+theorem enumeration_hex4_9e1a : reassembles 40474 = true ∧ castsFifteens 40474 = true := by decide
+
+/-- 9e1b: nibbles fold back to 40475; digit sum 35 ≡ 40475 (mod 15). -/
+theorem enumeration_hex4_9e1b : reassembles 40475 = true ∧ castsFifteens 40475 = true := by decide
+
+/-- 9e1c: nibbles fold back to 40476; digit sum 36 ≡ 40476 (mod 15). -/
+theorem enumeration_hex4_9e1c : reassembles 40476 = true ∧ castsFifteens 40476 = true := by decide
+
+/-- 9e1d: nibbles fold back to 40477; digit sum 37 ≡ 40477 (mod 15). -/
+theorem enumeration_hex4_9e1d : reassembles 40477 = true ∧ castsFifteens 40477 = true := by decide
+
+/-- 9e1e: nibbles fold back to 40478; digit sum 38 ≡ 40478 (mod 15). -/
+theorem enumeration_hex4_9e1e : reassembles 40478 = true ∧ castsFifteens 40478 = true := by decide
+
+/-- 9e1f: nibbles fold back to 40479; digit sum 39 ≡ 40479 (mod 15). -/
+theorem enumeration_hex4_9e1f : reassembles 40479 = true ∧ castsFifteens 40479 = true := by decide
+
+/-- 9e20: nibbles fold back to 40480; digit sum 25 ≡ 40480 (mod 15). -/
+theorem enumeration_hex4_9e20 : reassembles 40480 = true ∧ castsFifteens 40480 = true := by decide
+
+/-- 9e21: nibbles fold back to 40481; digit sum 26 ≡ 40481 (mod 15). -/
+theorem enumeration_hex4_9e21 : reassembles 40481 = true ∧ castsFifteens 40481 = true := by decide
+
+/-- 9e22: nibbles fold back to 40482; digit sum 27 ≡ 40482 (mod 15). -/
+theorem enumeration_hex4_9e22 : reassembles 40482 = true ∧ castsFifteens 40482 = true := by decide
+
+/-- 9e23: nibbles fold back to 40483; digit sum 28 ≡ 40483 (mod 15). -/
+theorem enumeration_hex4_9e23 : reassembles 40483 = true ∧ castsFifteens 40483 = true := by decide
+
+/-- 9e24: nibbles fold back to 40484; digit sum 29 ≡ 40484 (mod 15). -/
+theorem enumeration_hex4_9e24 : reassembles 40484 = true ∧ castsFifteens 40484 = true := by decide
+
+/-- 9e25: nibbles fold back to 40485; digit sum 30 ≡ 40485 (mod 15). -/
+theorem enumeration_hex4_9e25 : reassembles 40485 = true ∧ castsFifteens 40485 = true := by decide
+
+/-- 9e26: nibbles fold back to 40486; digit sum 31 ≡ 40486 (mod 15). -/
+theorem enumeration_hex4_9e26 : reassembles 40486 = true ∧ castsFifteens 40486 = true := by decide
+
+/-- 9e27: nibbles fold back to 40487; digit sum 32 ≡ 40487 (mod 15). -/
+theorem enumeration_hex4_9e27 : reassembles 40487 = true ∧ castsFifteens 40487 = true := by decide
+
+/-- 9e28: nibbles fold back to 40488; digit sum 33 ≡ 40488 (mod 15). -/
+theorem enumeration_hex4_9e28 : reassembles 40488 = true ∧ castsFifteens 40488 = true := by decide
+
+/-- 9e29: nibbles fold back to 40489; digit sum 34 ≡ 40489 (mod 15). -/
+theorem enumeration_hex4_9e29 : reassembles 40489 = true ∧ castsFifteens 40489 = true := by decide
+
+/-- 9e2a: nibbles fold back to 40490; digit sum 35 ≡ 40490 (mod 15). -/
+theorem enumeration_hex4_9e2a : reassembles 40490 = true ∧ castsFifteens 40490 = true := by decide
+
+/-- 9e2b: nibbles fold back to 40491; digit sum 36 ≡ 40491 (mod 15). -/
+theorem enumeration_hex4_9e2b : reassembles 40491 = true ∧ castsFifteens 40491 = true := by decide
+
+/-- 9e2c: nibbles fold back to 40492; digit sum 37 ≡ 40492 (mod 15). -/
+theorem enumeration_hex4_9e2c : reassembles 40492 = true ∧ castsFifteens 40492 = true := by decide
+
+/-- 9e2d: nibbles fold back to 40493; digit sum 38 ≡ 40493 (mod 15). -/
+theorem enumeration_hex4_9e2d : reassembles 40493 = true ∧ castsFifteens 40493 = true := by decide
+
+/-- 9e2e: nibbles fold back to 40494; digit sum 39 ≡ 40494 (mod 15). -/
+theorem enumeration_hex4_9e2e : reassembles 40494 = true ∧ castsFifteens 40494 = true := by decide
+
+/-- 9e2f: nibbles fold back to 40495; digit sum 40 ≡ 40495 (mod 15). -/
+theorem enumeration_hex4_9e2f : reassembles 40495 = true ∧ castsFifteens 40495 = true := by decide
+
+/-- 9e30: nibbles fold back to 40496; digit sum 26 ≡ 40496 (mod 15). -/
+theorem enumeration_hex4_9e30 : reassembles 40496 = true ∧ castsFifteens 40496 = true := by decide
+
+/-- 9e31: nibbles fold back to 40497; digit sum 27 ≡ 40497 (mod 15). -/
+theorem enumeration_hex4_9e31 : reassembles 40497 = true ∧ castsFifteens 40497 = true := by decide
+
+/-- 9e32: nibbles fold back to 40498; digit sum 28 ≡ 40498 (mod 15). -/
+theorem enumeration_hex4_9e32 : reassembles 40498 = true ∧ castsFifteens 40498 = true := by decide
+
+/-- 9e33: nibbles fold back to 40499; digit sum 29 ≡ 40499 (mod 15). -/
+theorem enumeration_hex4_9e33 : reassembles 40499 = true ∧ castsFifteens 40499 = true := by decide
+
+/-- 9e34: nibbles fold back to 40500; digit sum 30 ≡ 40500 (mod 15). -/
+theorem enumeration_hex4_9e34 : reassembles 40500 = true ∧ castsFifteens 40500 = true := by decide
+
+/-- 9e35: nibbles fold back to 40501; digit sum 31 ≡ 40501 (mod 15). -/
+theorem enumeration_hex4_9e35 : reassembles 40501 = true ∧ castsFifteens 40501 = true := by decide
+
+/-- 9e36: nibbles fold back to 40502; digit sum 32 ≡ 40502 (mod 15). -/
+theorem enumeration_hex4_9e36 : reassembles 40502 = true ∧ castsFifteens 40502 = true := by decide
+
+/-- 9e37: nibbles fold back to 40503; digit sum 33 ≡ 40503 (mod 15). -/
+theorem enumeration_hex4_9e37 : reassembles 40503 = true ∧ castsFifteens 40503 = true := by decide
+
+/-- 9e38: nibbles fold back to 40504; digit sum 34 ≡ 40504 (mod 15). -/
+theorem enumeration_hex4_9e38 : reassembles 40504 = true ∧ castsFifteens 40504 = true := by decide
+
+/-- 9e39: nibbles fold back to 40505; digit sum 35 ≡ 40505 (mod 15). -/
+theorem enumeration_hex4_9e39 : reassembles 40505 = true ∧ castsFifteens 40505 = true := by decide
+
+/-- 9e3a: nibbles fold back to 40506; digit sum 36 ≡ 40506 (mod 15). -/
+theorem enumeration_hex4_9e3a : reassembles 40506 = true ∧ castsFifteens 40506 = true := by decide
+
+/-- 9e3b: nibbles fold back to 40507; digit sum 37 ≡ 40507 (mod 15). -/
+theorem enumeration_hex4_9e3b : reassembles 40507 = true ∧ castsFifteens 40507 = true := by decide
+
+/-- 9e3c: nibbles fold back to 40508; digit sum 38 ≡ 40508 (mod 15). -/
+theorem enumeration_hex4_9e3c : reassembles 40508 = true ∧ castsFifteens 40508 = true := by decide
+
+/-- 9e3d: nibbles fold back to 40509; digit sum 39 ≡ 40509 (mod 15). -/
+theorem enumeration_hex4_9e3d : reassembles 40509 = true ∧ castsFifteens 40509 = true := by decide
+
+/-- 9e3e: nibbles fold back to 40510; digit sum 40 ≡ 40510 (mod 15). -/
+theorem enumeration_hex4_9e3e : reassembles 40510 = true ∧ castsFifteens 40510 = true := by decide
+
+/-- 9e3f: nibbles fold back to 40511; digit sum 41 ≡ 40511 (mod 15). -/
+theorem enumeration_hex4_9e3f : reassembles 40511 = true ∧ castsFifteens 40511 = true := by decide
+
+/-- 9e40: nibbles fold back to 40512; digit sum 27 ≡ 40512 (mod 15). -/
+theorem enumeration_hex4_9e40 : reassembles 40512 = true ∧ castsFifteens 40512 = true := by decide
+
+/-- 9e41: nibbles fold back to 40513; digit sum 28 ≡ 40513 (mod 15). -/
+theorem enumeration_hex4_9e41 : reassembles 40513 = true ∧ castsFifteens 40513 = true := by decide
+
+/-- 9e42: nibbles fold back to 40514; digit sum 29 ≡ 40514 (mod 15). -/
+theorem enumeration_hex4_9e42 : reassembles 40514 = true ∧ castsFifteens 40514 = true := by decide
+
+/-- 9e43: nibbles fold back to 40515; digit sum 30 ≡ 40515 (mod 15). -/
+theorem enumeration_hex4_9e43 : reassembles 40515 = true ∧ castsFifteens 40515 = true := by decide
+
+/-- 9e44: nibbles fold back to 40516; digit sum 31 ≡ 40516 (mod 15). -/
+theorem enumeration_hex4_9e44 : reassembles 40516 = true ∧ castsFifteens 40516 = true := by decide
+
+/-- 9e45: nibbles fold back to 40517; digit sum 32 ≡ 40517 (mod 15). -/
+theorem enumeration_hex4_9e45 : reassembles 40517 = true ∧ castsFifteens 40517 = true := by decide
+
+/-- 9e46: nibbles fold back to 40518; digit sum 33 ≡ 40518 (mod 15). -/
+theorem enumeration_hex4_9e46 : reassembles 40518 = true ∧ castsFifteens 40518 = true := by decide
+
+/-- 9e47: nibbles fold back to 40519; digit sum 34 ≡ 40519 (mod 15). -/
+theorem enumeration_hex4_9e47 : reassembles 40519 = true ∧ castsFifteens 40519 = true := by decide
+
+/-- 9e48: nibbles fold back to 40520; digit sum 35 ≡ 40520 (mod 15). -/
+theorem enumeration_hex4_9e48 : reassembles 40520 = true ∧ castsFifteens 40520 = true := by decide
+
+/-- 9e49: nibbles fold back to 40521; digit sum 36 ≡ 40521 (mod 15). -/
+theorem enumeration_hex4_9e49 : reassembles 40521 = true ∧ castsFifteens 40521 = true := by decide
+
+/-- 9e4a: nibbles fold back to 40522; digit sum 37 ≡ 40522 (mod 15). -/
+theorem enumeration_hex4_9e4a : reassembles 40522 = true ∧ castsFifteens 40522 = true := by decide
+
+/-- 9e4b: nibbles fold back to 40523; digit sum 38 ≡ 40523 (mod 15). -/
+theorem enumeration_hex4_9e4b : reassembles 40523 = true ∧ castsFifteens 40523 = true := by decide
+
+/-- 9e4c: nibbles fold back to 40524; digit sum 39 ≡ 40524 (mod 15). -/
+theorem enumeration_hex4_9e4c : reassembles 40524 = true ∧ castsFifteens 40524 = true := by decide
+
+/-- 9e4d: nibbles fold back to 40525; digit sum 40 ≡ 40525 (mod 15). -/
+theorem enumeration_hex4_9e4d : reassembles 40525 = true ∧ castsFifteens 40525 = true := by decide
+
+/-- 9e4e: nibbles fold back to 40526; digit sum 41 ≡ 40526 (mod 15). -/
+theorem enumeration_hex4_9e4e : reassembles 40526 = true ∧ castsFifteens 40526 = true := by decide
+
+/-- 9e4f: nibbles fold back to 40527; digit sum 42 ≡ 40527 (mod 15). -/
+theorem enumeration_hex4_9e4f : reassembles 40527 = true ∧ castsFifteens 40527 = true := by decide
+
+/-- 9e50: nibbles fold back to 40528; digit sum 28 ≡ 40528 (mod 15). -/
+theorem enumeration_hex4_9e50 : reassembles 40528 = true ∧ castsFifteens 40528 = true := by decide
+
+/-- 9e51: nibbles fold back to 40529; digit sum 29 ≡ 40529 (mod 15). -/
+theorem enumeration_hex4_9e51 : reassembles 40529 = true ∧ castsFifteens 40529 = true := by decide
+
+/-- 9e52: nibbles fold back to 40530; digit sum 30 ≡ 40530 (mod 15). -/
+theorem enumeration_hex4_9e52 : reassembles 40530 = true ∧ castsFifteens 40530 = true := by decide
+
+/-- 9e53: nibbles fold back to 40531; digit sum 31 ≡ 40531 (mod 15). -/
+theorem enumeration_hex4_9e53 : reassembles 40531 = true ∧ castsFifteens 40531 = true := by decide
+
+/-- 9e54: nibbles fold back to 40532; digit sum 32 ≡ 40532 (mod 15). -/
+theorem enumeration_hex4_9e54 : reassembles 40532 = true ∧ castsFifteens 40532 = true := by decide
+
+/-- 9e55: nibbles fold back to 40533; digit sum 33 ≡ 40533 (mod 15). -/
+theorem enumeration_hex4_9e55 : reassembles 40533 = true ∧ castsFifteens 40533 = true := by decide
+
+/-- 9e56: nibbles fold back to 40534; digit sum 34 ≡ 40534 (mod 15). -/
+theorem enumeration_hex4_9e56 : reassembles 40534 = true ∧ castsFifteens 40534 = true := by decide
+
+/-- 9e57: nibbles fold back to 40535; digit sum 35 ≡ 40535 (mod 15). -/
+theorem enumeration_hex4_9e57 : reassembles 40535 = true ∧ castsFifteens 40535 = true := by decide
+
+/-- 9e58: nibbles fold back to 40536; digit sum 36 ≡ 40536 (mod 15). -/
+theorem enumeration_hex4_9e58 : reassembles 40536 = true ∧ castsFifteens 40536 = true := by decide
+
+/-- 9e59: nibbles fold back to 40537; digit sum 37 ≡ 40537 (mod 15). -/
+theorem enumeration_hex4_9e59 : reassembles 40537 = true ∧ castsFifteens 40537 = true := by decide
+
+/-- 9e5a: nibbles fold back to 40538; digit sum 38 ≡ 40538 (mod 15). -/
+theorem enumeration_hex4_9e5a : reassembles 40538 = true ∧ castsFifteens 40538 = true := by decide
+
+/-- 9e5b: nibbles fold back to 40539; digit sum 39 ≡ 40539 (mod 15). -/
+theorem enumeration_hex4_9e5b : reassembles 40539 = true ∧ castsFifteens 40539 = true := by decide
+
+/-- 9e5c: nibbles fold back to 40540; digit sum 40 ≡ 40540 (mod 15). -/
+theorem enumeration_hex4_9e5c : reassembles 40540 = true ∧ castsFifteens 40540 = true := by decide
+
+/-- 9e5d: nibbles fold back to 40541; digit sum 41 ≡ 40541 (mod 15). -/
+theorem enumeration_hex4_9e5d : reassembles 40541 = true ∧ castsFifteens 40541 = true := by decide
+
+/-- 9e5e: nibbles fold back to 40542; digit sum 42 ≡ 40542 (mod 15). -/
+theorem enumeration_hex4_9e5e : reassembles 40542 = true ∧ castsFifteens 40542 = true := by decide
+
+/-- 9e5f: nibbles fold back to 40543; digit sum 43 ≡ 40543 (mod 15). -/
+theorem enumeration_hex4_9e5f : reassembles 40543 = true ∧ castsFifteens 40543 = true := by decide
+
+/-- 9e60: nibbles fold back to 40544; digit sum 29 ≡ 40544 (mod 15). -/
+theorem enumeration_hex4_9e60 : reassembles 40544 = true ∧ castsFifteens 40544 = true := by decide
+
+/-- 9e61: nibbles fold back to 40545; digit sum 30 ≡ 40545 (mod 15). -/
+theorem enumeration_hex4_9e61 : reassembles 40545 = true ∧ castsFifteens 40545 = true := by decide
+
+/-- 9e62: nibbles fold back to 40546; digit sum 31 ≡ 40546 (mod 15). -/
+theorem enumeration_hex4_9e62 : reassembles 40546 = true ∧ castsFifteens 40546 = true := by decide
+
+/-- 9e63: nibbles fold back to 40547; digit sum 32 ≡ 40547 (mod 15). -/
+theorem enumeration_hex4_9e63 : reassembles 40547 = true ∧ castsFifteens 40547 = true := by decide
+
+/-- 9e64: nibbles fold back to 40548; digit sum 33 ≡ 40548 (mod 15). -/
+theorem enumeration_hex4_9e64 : reassembles 40548 = true ∧ castsFifteens 40548 = true := by decide
+
+/-- 9e65: nibbles fold back to 40549; digit sum 34 ≡ 40549 (mod 15). -/
+theorem enumeration_hex4_9e65 : reassembles 40549 = true ∧ castsFifteens 40549 = true := by decide
+
+/-- 9e66: nibbles fold back to 40550; digit sum 35 ≡ 40550 (mod 15). -/
+theorem enumeration_hex4_9e66 : reassembles 40550 = true ∧ castsFifteens 40550 = true := by decide
+
+/-- 9e67: nibbles fold back to 40551; digit sum 36 ≡ 40551 (mod 15). -/
+theorem enumeration_hex4_9e67 : reassembles 40551 = true ∧ castsFifteens 40551 = true := by decide
+
+/-- 9e68: nibbles fold back to 40552; digit sum 37 ≡ 40552 (mod 15). -/
+theorem enumeration_hex4_9e68 : reassembles 40552 = true ∧ castsFifteens 40552 = true := by decide
+
+/-- 9e69: nibbles fold back to 40553; digit sum 38 ≡ 40553 (mod 15). -/
+theorem enumeration_hex4_9e69 : reassembles 40553 = true ∧ castsFifteens 40553 = true := by decide
+
+/-- 9e6a: nibbles fold back to 40554; digit sum 39 ≡ 40554 (mod 15). -/
+theorem enumeration_hex4_9e6a : reassembles 40554 = true ∧ castsFifteens 40554 = true := by decide
+
+/-- 9e6b: nibbles fold back to 40555; digit sum 40 ≡ 40555 (mod 15). -/
+theorem enumeration_hex4_9e6b : reassembles 40555 = true ∧ castsFifteens 40555 = true := by decide
+
+/-- 9e6c: nibbles fold back to 40556; digit sum 41 ≡ 40556 (mod 15). -/
+theorem enumeration_hex4_9e6c : reassembles 40556 = true ∧ castsFifteens 40556 = true := by decide
+
+/-- 9e6d: nibbles fold back to 40557; digit sum 42 ≡ 40557 (mod 15). -/
+theorem enumeration_hex4_9e6d : reassembles 40557 = true ∧ castsFifteens 40557 = true := by decide
+
+/-- 9e6e: nibbles fold back to 40558; digit sum 43 ≡ 40558 (mod 15). -/
+theorem enumeration_hex4_9e6e : reassembles 40558 = true ∧ castsFifteens 40558 = true := by decide
+
+/-- 9e6f: nibbles fold back to 40559; digit sum 44 ≡ 40559 (mod 15). -/
+theorem enumeration_hex4_9e6f : reassembles 40559 = true ∧ castsFifteens 40559 = true := by decide
+
+/-- 9e70: nibbles fold back to 40560; digit sum 30 ≡ 40560 (mod 15). -/
+theorem enumeration_hex4_9e70 : reassembles 40560 = true ∧ castsFifteens 40560 = true := by decide
+
+/-- 9e71: nibbles fold back to 40561; digit sum 31 ≡ 40561 (mod 15). -/
+theorem enumeration_hex4_9e71 : reassembles 40561 = true ∧ castsFifteens 40561 = true := by decide
+
+/-- 9e72: nibbles fold back to 40562; digit sum 32 ≡ 40562 (mod 15). -/
+theorem enumeration_hex4_9e72 : reassembles 40562 = true ∧ castsFifteens 40562 = true := by decide
+
+/-- 9e73: nibbles fold back to 40563; digit sum 33 ≡ 40563 (mod 15). -/
+theorem enumeration_hex4_9e73 : reassembles 40563 = true ∧ castsFifteens 40563 = true := by decide
+
+/-- 9e74: nibbles fold back to 40564; digit sum 34 ≡ 40564 (mod 15). -/
+theorem enumeration_hex4_9e74 : reassembles 40564 = true ∧ castsFifteens 40564 = true := by decide
+
+/-- 9e75: nibbles fold back to 40565; digit sum 35 ≡ 40565 (mod 15). -/
+theorem enumeration_hex4_9e75 : reassembles 40565 = true ∧ castsFifteens 40565 = true := by decide
+
+/-- 9e76: nibbles fold back to 40566; digit sum 36 ≡ 40566 (mod 15). -/
+theorem enumeration_hex4_9e76 : reassembles 40566 = true ∧ castsFifteens 40566 = true := by decide
+
+/-- 9e77: nibbles fold back to 40567; digit sum 37 ≡ 40567 (mod 15). -/
+theorem enumeration_hex4_9e77 : reassembles 40567 = true ∧ castsFifteens 40567 = true := by decide
+
+/-- 9e78: nibbles fold back to 40568; digit sum 38 ≡ 40568 (mod 15). -/
+theorem enumeration_hex4_9e78 : reassembles 40568 = true ∧ castsFifteens 40568 = true := by decide
+
+/-- 9e79: nibbles fold back to 40569; digit sum 39 ≡ 40569 (mod 15). -/
+theorem enumeration_hex4_9e79 : reassembles 40569 = true ∧ castsFifteens 40569 = true := by decide
+
+/-- 9e7a: nibbles fold back to 40570; digit sum 40 ≡ 40570 (mod 15). -/
+theorem enumeration_hex4_9e7a : reassembles 40570 = true ∧ castsFifteens 40570 = true := by decide
+
+/-- 9e7b: nibbles fold back to 40571; digit sum 41 ≡ 40571 (mod 15). -/
+theorem enumeration_hex4_9e7b : reassembles 40571 = true ∧ castsFifteens 40571 = true := by decide
+
+/-- 9e7c: nibbles fold back to 40572; digit sum 42 ≡ 40572 (mod 15). -/
+theorem enumeration_hex4_9e7c : reassembles 40572 = true ∧ castsFifteens 40572 = true := by decide
+
+/-- 9e7d: nibbles fold back to 40573; digit sum 43 ≡ 40573 (mod 15). -/
+theorem enumeration_hex4_9e7d : reassembles 40573 = true ∧ castsFifteens 40573 = true := by decide
+
+/-- 9e7e: nibbles fold back to 40574; digit sum 44 ≡ 40574 (mod 15). -/
+theorem enumeration_hex4_9e7e : reassembles 40574 = true ∧ castsFifteens 40574 = true := by decide
+
+/-- 9e7f: nibbles fold back to 40575; digit sum 45 ≡ 40575 (mod 15). -/
+theorem enumeration_hex4_9e7f : reassembles 40575 = true ∧ castsFifteens 40575 = true := by decide
+
+/-- 9e80: nibbles fold back to 40576; digit sum 31 ≡ 40576 (mod 15). -/
+theorem enumeration_hex4_9e80 : reassembles 40576 = true ∧ castsFifteens 40576 = true := by decide
+
+/-- 9e81: nibbles fold back to 40577; digit sum 32 ≡ 40577 (mod 15). -/
+theorem enumeration_hex4_9e81 : reassembles 40577 = true ∧ castsFifteens 40577 = true := by decide
+
+/-- 9e82: nibbles fold back to 40578; digit sum 33 ≡ 40578 (mod 15). -/
+theorem enumeration_hex4_9e82 : reassembles 40578 = true ∧ castsFifteens 40578 = true := by decide
+
+/-- 9e83: nibbles fold back to 40579; digit sum 34 ≡ 40579 (mod 15). -/
+theorem enumeration_hex4_9e83 : reassembles 40579 = true ∧ castsFifteens 40579 = true := by decide
+
+/-- 9e84: nibbles fold back to 40580; digit sum 35 ≡ 40580 (mod 15). -/
+theorem enumeration_hex4_9e84 : reassembles 40580 = true ∧ castsFifteens 40580 = true := by decide
+
+/-- 9e85: nibbles fold back to 40581; digit sum 36 ≡ 40581 (mod 15). -/
+theorem enumeration_hex4_9e85 : reassembles 40581 = true ∧ castsFifteens 40581 = true := by decide
+
+/-- 9e86: nibbles fold back to 40582; digit sum 37 ≡ 40582 (mod 15). -/
+theorem enumeration_hex4_9e86 : reassembles 40582 = true ∧ castsFifteens 40582 = true := by decide
+
+/-- 9e87: nibbles fold back to 40583; digit sum 38 ≡ 40583 (mod 15). -/
+theorem enumeration_hex4_9e87 : reassembles 40583 = true ∧ castsFifteens 40583 = true := by decide
+
+/-- 9e88: nibbles fold back to 40584; digit sum 39 ≡ 40584 (mod 15). -/
+theorem enumeration_hex4_9e88 : reassembles 40584 = true ∧ castsFifteens 40584 = true := by decide
+
+/-- 9e89: nibbles fold back to 40585; digit sum 40 ≡ 40585 (mod 15). -/
+theorem enumeration_hex4_9e89 : reassembles 40585 = true ∧ castsFifteens 40585 = true := by decide
+
+/-- 9e8a: nibbles fold back to 40586; digit sum 41 ≡ 40586 (mod 15). -/
+theorem enumeration_hex4_9e8a : reassembles 40586 = true ∧ castsFifteens 40586 = true := by decide
+
+/-- 9e8b: nibbles fold back to 40587; digit sum 42 ≡ 40587 (mod 15). -/
+theorem enumeration_hex4_9e8b : reassembles 40587 = true ∧ castsFifteens 40587 = true := by decide
+
+/-- 9e8c: nibbles fold back to 40588; digit sum 43 ≡ 40588 (mod 15). -/
+theorem enumeration_hex4_9e8c : reassembles 40588 = true ∧ castsFifteens 40588 = true := by decide
+
+/-- 9e8d: nibbles fold back to 40589; digit sum 44 ≡ 40589 (mod 15). -/
+theorem enumeration_hex4_9e8d : reassembles 40589 = true ∧ castsFifteens 40589 = true := by decide
+
+/-- 9e8e: nibbles fold back to 40590; digit sum 45 ≡ 40590 (mod 15). -/
+theorem enumeration_hex4_9e8e : reassembles 40590 = true ∧ castsFifteens 40590 = true := by decide
+
+/-- 9e8f: nibbles fold back to 40591; digit sum 46 ≡ 40591 (mod 15). -/
+theorem enumeration_hex4_9e8f : reassembles 40591 = true ∧ castsFifteens 40591 = true := by decide
+
+/-- 9e90: nibbles fold back to 40592; digit sum 32 ≡ 40592 (mod 15). -/
+theorem enumeration_hex4_9e90 : reassembles 40592 = true ∧ castsFifteens 40592 = true := by decide
+
+/-- 9e91: nibbles fold back to 40593; digit sum 33 ≡ 40593 (mod 15). -/
+theorem enumeration_hex4_9e91 : reassembles 40593 = true ∧ castsFifteens 40593 = true := by decide
+
+/-- 9e92: nibbles fold back to 40594; digit sum 34 ≡ 40594 (mod 15). -/
+theorem enumeration_hex4_9e92 : reassembles 40594 = true ∧ castsFifteens 40594 = true := by decide
+
+/-- 9e93: nibbles fold back to 40595; digit sum 35 ≡ 40595 (mod 15). -/
+theorem enumeration_hex4_9e93 : reassembles 40595 = true ∧ castsFifteens 40595 = true := by decide
+
+/-- 9e94: nibbles fold back to 40596; digit sum 36 ≡ 40596 (mod 15). -/
+theorem enumeration_hex4_9e94 : reassembles 40596 = true ∧ castsFifteens 40596 = true := by decide
+
+/-- 9e95: nibbles fold back to 40597; digit sum 37 ≡ 40597 (mod 15). -/
+theorem enumeration_hex4_9e95 : reassembles 40597 = true ∧ castsFifteens 40597 = true := by decide
+
+/-- 9e96: nibbles fold back to 40598; digit sum 38 ≡ 40598 (mod 15). -/
+theorem enumeration_hex4_9e96 : reassembles 40598 = true ∧ castsFifteens 40598 = true := by decide
+
+/-- 9e97: nibbles fold back to 40599; digit sum 39 ≡ 40599 (mod 15). -/
+theorem enumeration_hex4_9e97 : reassembles 40599 = true ∧ castsFifteens 40599 = true := by decide
+
+/-- 9e98: nibbles fold back to 40600; digit sum 40 ≡ 40600 (mod 15). -/
+theorem enumeration_hex4_9e98 : reassembles 40600 = true ∧ castsFifteens 40600 = true := by decide
+
+/-- 9e99: nibbles fold back to 40601; digit sum 41 ≡ 40601 (mod 15). -/
+theorem enumeration_hex4_9e99 : reassembles 40601 = true ∧ castsFifteens 40601 = true := by decide
+
+/-- 9e9a: nibbles fold back to 40602; digit sum 42 ≡ 40602 (mod 15). -/
+theorem enumeration_hex4_9e9a : reassembles 40602 = true ∧ castsFifteens 40602 = true := by decide
+
+/-- 9e9b: nibbles fold back to 40603; digit sum 43 ≡ 40603 (mod 15). -/
+theorem enumeration_hex4_9e9b : reassembles 40603 = true ∧ castsFifteens 40603 = true := by decide
+
+/-- 9e9c: nibbles fold back to 40604; digit sum 44 ≡ 40604 (mod 15). -/
+theorem enumeration_hex4_9e9c : reassembles 40604 = true ∧ castsFifteens 40604 = true := by decide
+
+/-- 9e9d: nibbles fold back to 40605; digit sum 45 ≡ 40605 (mod 15). -/
+theorem enumeration_hex4_9e9d : reassembles 40605 = true ∧ castsFifteens 40605 = true := by decide
+
+/-- 9e9e: nibbles fold back to 40606; digit sum 46 ≡ 40606 (mod 15). -/
+theorem enumeration_hex4_9e9e : reassembles 40606 = true ∧ castsFifteens 40606 = true := by decide
+
+/-- 9e9f: nibbles fold back to 40607; digit sum 47 ≡ 40607 (mod 15). -/
+theorem enumeration_hex4_9e9f : reassembles 40607 = true ∧ castsFifteens 40607 = true := by decide
+
+/-- 9ea0: nibbles fold back to 40608; digit sum 33 ≡ 40608 (mod 15). -/
+theorem enumeration_hex4_9ea0 : reassembles 40608 = true ∧ castsFifteens 40608 = true := by decide
+
+/-- 9ea1: nibbles fold back to 40609; digit sum 34 ≡ 40609 (mod 15). -/
+theorem enumeration_hex4_9ea1 : reassembles 40609 = true ∧ castsFifteens 40609 = true := by decide
+
+/-- 9ea2: nibbles fold back to 40610; digit sum 35 ≡ 40610 (mod 15). -/
+theorem enumeration_hex4_9ea2 : reassembles 40610 = true ∧ castsFifteens 40610 = true := by decide
+
+/-- 9ea3: nibbles fold back to 40611; digit sum 36 ≡ 40611 (mod 15). -/
+theorem enumeration_hex4_9ea3 : reassembles 40611 = true ∧ castsFifteens 40611 = true := by decide
+
+/-- 9ea4: nibbles fold back to 40612; digit sum 37 ≡ 40612 (mod 15). -/
+theorem enumeration_hex4_9ea4 : reassembles 40612 = true ∧ castsFifteens 40612 = true := by decide
+
+/-- 9ea5: nibbles fold back to 40613; digit sum 38 ≡ 40613 (mod 15). -/
+theorem enumeration_hex4_9ea5 : reassembles 40613 = true ∧ castsFifteens 40613 = true := by decide
+
+/-- 9ea6: nibbles fold back to 40614; digit sum 39 ≡ 40614 (mod 15). -/
+theorem enumeration_hex4_9ea6 : reassembles 40614 = true ∧ castsFifteens 40614 = true := by decide
+
+/-- 9ea7: nibbles fold back to 40615; digit sum 40 ≡ 40615 (mod 15). -/
+theorem enumeration_hex4_9ea7 : reassembles 40615 = true ∧ castsFifteens 40615 = true := by decide
+
+/-- 9ea8: nibbles fold back to 40616; digit sum 41 ≡ 40616 (mod 15). -/
+theorem enumeration_hex4_9ea8 : reassembles 40616 = true ∧ castsFifteens 40616 = true := by decide
+
+/-- 9ea9: nibbles fold back to 40617; digit sum 42 ≡ 40617 (mod 15). -/
+theorem enumeration_hex4_9ea9 : reassembles 40617 = true ∧ castsFifteens 40617 = true := by decide
+
+/-- 9eaa: nibbles fold back to 40618; digit sum 43 ≡ 40618 (mod 15). -/
+theorem enumeration_hex4_9eaa : reassembles 40618 = true ∧ castsFifteens 40618 = true := by decide
+
+/-- 9eab: nibbles fold back to 40619; digit sum 44 ≡ 40619 (mod 15). -/
+theorem enumeration_hex4_9eab : reassembles 40619 = true ∧ castsFifteens 40619 = true := by decide
+
+/-- 9eac: nibbles fold back to 40620; digit sum 45 ≡ 40620 (mod 15). -/
+theorem enumeration_hex4_9eac : reassembles 40620 = true ∧ castsFifteens 40620 = true := by decide
+
+/-- 9ead: nibbles fold back to 40621; digit sum 46 ≡ 40621 (mod 15). -/
+theorem enumeration_hex4_9ead : reassembles 40621 = true ∧ castsFifteens 40621 = true := by decide
+
+/-- 9eae: nibbles fold back to 40622; digit sum 47 ≡ 40622 (mod 15). -/
+theorem enumeration_hex4_9eae : reassembles 40622 = true ∧ castsFifteens 40622 = true := by decide
+
+/-- 9eaf: nibbles fold back to 40623; digit sum 48 ≡ 40623 (mod 15). -/
+theorem enumeration_hex4_9eaf : reassembles 40623 = true ∧ castsFifteens 40623 = true := by decide
+
+/-- 9eb0: nibbles fold back to 40624; digit sum 34 ≡ 40624 (mod 15). -/
+theorem enumeration_hex4_9eb0 : reassembles 40624 = true ∧ castsFifteens 40624 = true := by decide
+
+/-- 9eb1: nibbles fold back to 40625; digit sum 35 ≡ 40625 (mod 15). -/
+theorem enumeration_hex4_9eb1 : reassembles 40625 = true ∧ castsFifteens 40625 = true := by decide
+
+/-- 9eb2: nibbles fold back to 40626; digit sum 36 ≡ 40626 (mod 15). -/
+theorem enumeration_hex4_9eb2 : reassembles 40626 = true ∧ castsFifteens 40626 = true := by decide
+
+/-- 9eb3: nibbles fold back to 40627; digit sum 37 ≡ 40627 (mod 15). -/
+theorem enumeration_hex4_9eb3 : reassembles 40627 = true ∧ castsFifteens 40627 = true := by decide
+
+/-- 9eb4: nibbles fold back to 40628; digit sum 38 ≡ 40628 (mod 15). -/
+theorem enumeration_hex4_9eb4 : reassembles 40628 = true ∧ castsFifteens 40628 = true := by decide
+
+/-- 9eb5: nibbles fold back to 40629; digit sum 39 ≡ 40629 (mod 15). -/
+theorem enumeration_hex4_9eb5 : reassembles 40629 = true ∧ castsFifteens 40629 = true := by decide
+
+/-- 9eb6: nibbles fold back to 40630; digit sum 40 ≡ 40630 (mod 15). -/
+theorem enumeration_hex4_9eb6 : reassembles 40630 = true ∧ castsFifteens 40630 = true := by decide
+
+/-- 9eb7: nibbles fold back to 40631; digit sum 41 ≡ 40631 (mod 15). -/
+theorem enumeration_hex4_9eb7 : reassembles 40631 = true ∧ castsFifteens 40631 = true := by decide
+
+/-- 9eb8: nibbles fold back to 40632; digit sum 42 ≡ 40632 (mod 15). -/
+theorem enumeration_hex4_9eb8 : reassembles 40632 = true ∧ castsFifteens 40632 = true := by decide
+
+/-- 9eb9: nibbles fold back to 40633; digit sum 43 ≡ 40633 (mod 15). -/
+theorem enumeration_hex4_9eb9 : reassembles 40633 = true ∧ castsFifteens 40633 = true := by decide
+
+/-- 9eba: nibbles fold back to 40634; digit sum 44 ≡ 40634 (mod 15). -/
+theorem enumeration_hex4_9eba : reassembles 40634 = true ∧ castsFifteens 40634 = true := by decide
+
+/-- 9ebb: nibbles fold back to 40635; digit sum 45 ≡ 40635 (mod 15). -/
+theorem enumeration_hex4_9ebb : reassembles 40635 = true ∧ castsFifteens 40635 = true := by decide
+
+/-- 9ebc: nibbles fold back to 40636; digit sum 46 ≡ 40636 (mod 15). -/
+theorem enumeration_hex4_9ebc : reassembles 40636 = true ∧ castsFifteens 40636 = true := by decide
+
+/-- 9ebd: nibbles fold back to 40637; digit sum 47 ≡ 40637 (mod 15). -/
+theorem enumeration_hex4_9ebd : reassembles 40637 = true ∧ castsFifteens 40637 = true := by decide
+
+/-- 9ebe: nibbles fold back to 40638; digit sum 48 ≡ 40638 (mod 15). -/
+theorem enumeration_hex4_9ebe : reassembles 40638 = true ∧ castsFifteens 40638 = true := by decide
+
+/-- 9ebf: nibbles fold back to 40639; digit sum 49 ≡ 40639 (mod 15). -/
+theorem enumeration_hex4_9ebf : reassembles 40639 = true ∧ castsFifteens 40639 = true := by decide
+
+/-- 9ec0: nibbles fold back to 40640; digit sum 35 ≡ 40640 (mod 15). -/
+theorem enumeration_hex4_9ec0 : reassembles 40640 = true ∧ castsFifteens 40640 = true := by decide
+
+/-- 9ec1: nibbles fold back to 40641; digit sum 36 ≡ 40641 (mod 15). -/
+theorem enumeration_hex4_9ec1 : reassembles 40641 = true ∧ castsFifteens 40641 = true := by decide
+
+/-- 9ec2: nibbles fold back to 40642; digit sum 37 ≡ 40642 (mod 15). -/
+theorem enumeration_hex4_9ec2 : reassembles 40642 = true ∧ castsFifteens 40642 = true := by decide
+
+/-- 9ec3: nibbles fold back to 40643; digit sum 38 ≡ 40643 (mod 15). -/
+theorem enumeration_hex4_9ec3 : reassembles 40643 = true ∧ castsFifteens 40643 = true := by decide
+
+/-- 9ec4: nibbles fold back to 40644; digit sum 39 ≡ 40644 (mod 15). -/
+theorem enumeration_hex4_9ec4 : reassembles 40644 = true ∧ castsFifteens 40644 = true := by decide
+
+/-- 9ec5: nibbles fold back to 40645; digit sum 40 ≡ 40645 (mod 15). -/
+theorem enumeration_hex4_9ec5 : reassembles 40645 = true ∧ castsFifteens 40645 = true := by decide
+
+/-- 9ec6: nibbles fold back to 40646; digit sum 41 ≡ 40646 (mod 15). -/
+theorem enumeration_hex4_9ec6 : reassembles 40646 = true ∧ castsFifteens 40646 = true := by decide
+
+/-- 9ec7: nibbles fold back to 40647; digit sum 42 ≡ 40647 (mod 15). -/
+theorem enumeration_hex4_9ec7 : reassembles 40647 = true ∧ castsFifteens 40647 = true := by decide
+
+/-- 9ec8: nibbles fold back to 40648; digit sum 43 ≡ 40648 (mod 15). -/
+theorem enumeration_hex4_9ec8 : reassembles 40648 = true ∧ castsFifteens 40648 = true := by decide
+
+/-- 9ec9: nibbles fold back to 40649; digit sum 44 ≡ 40649 (mod 15). -/
+theorem enumeration_hex4_9ec9 : reassembles 40649 = true ∧ castsFifteens 40649 = true := by decide
+
+/-- 9eca: nibbles fold back to 40650; digit sum 45 ≡ 40650 (mod 15). -/
+theorem enumeration_hex4_9eca : reassembles 40650 = true ∧ castsFifteens 40650 = true := by decide
+
+/-- 9ecb: nibbles fold back to 40651; digit sum 46 ≡ 40651 (mod 15). -/
+theorem enumeration_hex4_9ecb : reassembles 40651 = true ∧ castsFifteens 40651 = true := by decide
+
+/-- 9ecc: nibbles fold back to 40652; digit sum 47 ≡ 40652 (mod 15). -/
+theorem enumeration_hex4_9ecc : reassembles 40652 = true ∧ castsFifteens 40652 = true := by decide
+
+/-- 9ecd: nibbles fold back to 40653; digit sum 48 ≡ 40653 (mod 15). -/
+theorem enumeration_hex4_9ecd : reassembles 40653 = true ∧ castsFifteens 40653 = true := by decide
+
+/-- 9ece: nibbles fold back to 40654; digit sum 49 ≡ 40654 (mod 15). -/
+theorem enumeration_hex4_9ece : reassembles 40654 = true ∧ castsFifteens 40654 = true := by decide
+
+/-- 9ecf: nibbles fold back to 40655; digit sum 50 ≡ 40655 (mod 15). -/
+theorem enumeration_hex4_9ecf : reassembles 40655 = true ∧ castsFifteens 40655 = true := by decide
+
+/-- 9ed0: nibbles fold back to 40656; digit sum 36 ≡ 40656 (mod 15). -/
+theorem enumeration_hex4_9ed0 : reassembles 40656 = true ∧ castsFifteens 40656 = true := by decide
+
+/-- 9ed1: nibbles fold back to 40657; digit sum 37 ≡ 40657 (mod 15). -/
+theorem enumeration_hex4_9ed1 : reassembles 40657 = true ∧ castsFifteens 40657 = true := by decide
+
+/-- 9ed2: nibbles fold back to 40658; digit sum 38 ≡ 40658 (mod 15). -/
+theorem enumeration_hex4_9ed2 : reassembles 40658 = true ∧ castsFifteens 40658 = true := by decide
+
+/-- 9ed3: nibbles fold back to 40659; digit sum 39 ≡ 40659 (mod 15). -/
+theorem enumeration_hex4_9ed3 : reassembles 40659 = true ∧ castsFifteens 40659 = true := by decide
+
+/-- 9ed4: nibbles fold back to 40660; digit sum 40 ≡ 40660 (mod 15). -/
+theorem enumeration_hex4_9ed4 : reassembles 40660 = true ∧ castsFifteens 40660 = true := by decide
+
+/-- 9ed5: nibbles fold back to 40661; digit sum 41 ≡ 40661 (mod 15). -/
+theorem enumeration_hex4_9ed5 : reassembles 40661 = true ∧ castsFifteens 40661 = true := by decide
+
+/-- 9ed6: nibbles fold back to 40662; digit sum 42 ≡ 40662 (mod 15). -/
+theorem enumeration_hex4_9ed6 : reassembles 40662 = true ∧ castsFifteens 40662 = true := by decide
+
+/-- 9ed7: nibbles fold back to 40663; digit sum 43 ≡ 40663 (mod 15). -/
+theorem enumeration_hex4_9ed7 : reassembles 40663 = true ∧ castsFifteens 40663 = true := by decide
+
+/-- 9ed8: nibbles fold back to 40664; digit sum 44 ≡ 40664 (mod 15). -/
+theorem enumeration_hex4_9ed8 : reassembles 40664 = true ∧ castsFifteens 40664 = true := by decide
+
+/-- 9ed9: nibbles fold back to 40665; digit sum 45 ≡ 40665 (mod 15). -/
+theorem enumeration_hex4_9ed9 : reassembles 40665 = true ∧ castsFifteens 40665 = true := by decide
+
+/-- 9eda: nibbles fold back to 40666; digit sum 46 ≡ 40666 (mod 15). -/
+theorem enumeration_hex4_9eda : reassembles 40666 = true ∧ castsFifteens 40666 = true := by decide
+
+/-- 9edb: nibbles fold back to 40667; digit sum 47 ≡ 40667 (mod 15). -/
+theorem enumeration_hex4_9edb : reassembles 40667 = true ∧ castsFifteens 40667 = true := by decide
+
+/-- 9edc: nibbles fold back to 40668; digit sum 48 ≡ 40668 (mod 15). -/
+theorem enumeration_hex4_9edc : reassembles 40668 = true ∧ castsFifteens 40668 = true := by decide
+
+/-- 9edd: nibbles fold back to 40669; digit sum 49 ≡ 40669 (mod 15). -/
+theorem enumeration_hex4_9edd : reassembles 40669 = true ∧ castsFifteens 40669 = true := by decide
+
+/-- 9ede: nibbles fold back to 40670; digit sum 50 ≡ 40670 (mod 15). -/
+theorem enumeration_hex4_9ede : reassembles 40670 = true ∧ castsFifteens 40670 = true := by decide
+
+/-- 9edf: nibbles fold back to 40671; digit sum 51 ≡ 40671 (mod 15). -/
+theorem enumeration_hex4_9edf : reassembles 40671 = true ∧ castsFifteens 40671 = true := by decide
+
+/-- 9ee0: nibbles fold back to 40672; digit sum 37 ≡ 40672 (mod 15). -/
+theorem enumeration_hex4_9ee0 : reassembles 40672 = true ∧ castsFifteens 40672 = true := by decide
+
+/-- 9ee1: nibbles fold back to 40673; digit sum 38 ≡ 40673 (mod 15). -/
+theorem enumeration_hex4_9ee1 : reassembles 40673 = true ∧ castsFifteens 40673 = true := by decide
+
+/-- 9ee2: nibbles fold back to 40674; digit sum 39 ≡ 40674 (mod 15). -/
+theorem enumeration_hex4_9ee2 : reassembles 40674 = true ∧ castsFifteens 40674 = true := by decide
+
+/-- 9ee3: nibbles fold back to 40675; digit sum 40 ≡ 40675 (mod 15). -/
+theorem enumeration_hex4_9ee3 : reassembles 40675 = true ∧ castsFifteens 40675 = true := by decide
+
+/-- 9ee4: nibbles fold back to 40676; digit sum 41 ≡ 40676 (mod 15). -/
+theorem enumeration_hex4_9ee4 : reassembles 40676 = true ∧ castsFifteens 40676 = true := by decide
+
+/-- 9ee5: nibbles fold back to 40677; digit sum 42 ≡ 40677 (mod 15). -/
+theorem enumeration_hex4_9ee5 : reassembles 40677 = true ∧ castsFifteens 40677 = true := by decide
+
+/-- 9ee6: nibbles fold back to 40678; digit sum 43 ≡ 40678 (mod 15). -/
+theorem enumeration_hex4_9ee6 : reassembles 40678 = true ∧ castsFifteens 40678 = true := by decide
+
+/-- 9ee7: nibbles fold back to 40679; digit sum 44 ≡ 40679 (mod 15). -/
+theorem enumeration_hex4_9ee7 : reassembles 40679 = true ∧ castsFifteens 40679 = true := by decide
+
+/-- 9ee8: nibbles fold back to 40680; digit sum 45 ≡ 40680 (mod 15). -/
+theorem enumeration_hex4_9ee8 : reassembles 40680 = true ∧ castsFifteens 40680 = true := by decide
+
+/-- 9ee9: nibbles fold back to 40681; digit sum 46 ≡ 40681 (mod 15). -/
+theorem enumeration_hex4_9ee9 : reassembles 40681 = true ∧ castsFifteens 40681 = true := by decide
+
+/-- 9eea: nibbles fold back to 40682; digit sum 47 ≡ 40682 (mod 15). -/
+theorem enumeration_hex4_9eea : reassembles 40682 = true ∧ castsFifteens 40682 = true := by decide
+
+/-- 9eeb: nibbles fold back to 40683; digit sum 48 ≡ 40683 (mod 15). -/
+theorem enumeration_hex4_9eeb : reassembles 40683 = true ∧ castsFifteens 40683 = true := by decide
+
+/-- 9eec: nibbles fold back to 40684; digit sum 49 ≡ 40684 (mod 15). -/
+theorem enumeration_hex4_9eec : reassembles 40684 = true ∧ castsFifteens 40684 = true := by decide
+
+/-- 9eed: nibbles fold back to 40685; digit sum 50 ≡ 40685 (mod 15). -/
+theorem enumeration_hex4_9eed : reassembles 40685 = true ∧ castsFifteens 40685 = true := by decide
+
+/-- 9eee: nibbles fold back to 40686; digit sum 51 ≡ 40686 (mod 15). -/
+theorem enumeration_hex4_9eee : reassembles 40686 = true ∧ castsFifteens 40686 = true := by decide
+
+/-- 9eef: nibbles fold back to 40687; digit sum 52 ≡ 40687 (mod 15). -/
+theorem enumeration_hex4_9eef : reassembles 40687 = true ∧ castsFifteens 40687 = true := by decide
+
+/-- 9ef0: nibbles fold back to 40688; digit sum 38 ≡ 40688 (mod 15). -/
+theorem enumeration_hex4_9ef0 : reassembles 40688 = true ∧ castsFifteens 40688 = true := by decide
+
+/-- 9ef1: nibbles fold back to 40689; digit sum 39 ≡ 40689 (mod 15). -/
+theorem enumeration_hex4_9ef1 : reassembles 40689 = true ∧ castsFifteens 40689 = true := by decide
+
+/-- 9ef2: nibbles fold back to 40690; digit sum 40 ≡ 40690 (mod 15). -/
+theorem enumeration_hex4_9ef2 : reassembles 40690 = true ∧ castsFifteens 40690 = true := by decide
+
+/-- 9ef3: nibbles fold back to 40691; digit sum 41 ≡ 40691 (mod 15). -/
+theorem enumeration_hex4_9ef3 : reassembles 40691 = true ∧ castsFifteens 40691 = true := by decide
+
+/-- 9ef4: nibbles fold back to 40692; digit sum 42 ≡ 40692 (mod 15). -/
+theorem enumeration_hex4_9ef4 : reassembles 40692 = true ∧ castsFifteens 40692 = true := by decide
+
+/-- 9ef5: nibbles fold back to 40693; digit sum 43 ≡ 40693 (mod 15). -/
+theorem enumeration_hex4_9ef5 : reassembles 40693 = true ∧ castsFifteens 40693 = true := by decide
+
+/-- 9ef6: nibbles fold back to 40694; digit sum 44 ≡ 40694 (mod 15). -/
+theorem enumeration_hex4_9ef6 : reassembles 40694 = true ∧ castsFifteens 40694 = true := by decide
+
+/-- 9ef7: nibbles fold back to 40695; digit sum 45 ≡ 40695 (mod 15). -/
+theorem enumeration_hex4_9ef7 : reassembles 40695 = true ∧ castsFifteens 40695 = true := by decide
+
+/-- 9ef8: nibbles fold back to 40696; digit sum 46 ≡ 40696 (mod 15). -/
+theorem enumeration_hex4_9ef8 : reassembles 40696 = true ∧ castsFifteens 40696 = true := by decide
+
+/-- 9ef9: nibbles fold back to 40697; digit sum 47 ≡ 40697 (mod 15). -/
+theorem enumeration_hex4_9ef9 : reassembles 40697 = true ∧ castsFifteens 40697 = true := by decide
+
+/-- 9efa: nibbles fold back to 40698; digit sum 48 ≡ 40698 (mod 15). -/
+theorem enumeration_hex4_9efa : reassembles 40698 = true ∧ castsFifteens 40698 = true := by decide
+
+/-- 9efb: nibbles fold back to 40699; digit sum 49 ≡ 40699 (mod 15). -/
+theorem enumeration_hex4_9efb : reassembles 40699 = true ∧ castsFifteens 40699 = true := by decide
+
+/-- 9efc: nibbles fold back to 40700; digit sum 50 ≡ 40700 (mod 15). -/
+theorem enumeration_hex4_9efc : reassembles 40700 = true ∧ castsFifteens 40700 = true := by decide
+
+/-- 9efd: nibbles fold back to 40701; digit sum 51 ≡ 40701 (mod 15). -/
+theorem enumeration_hex4_9efd : reassembles 40701 = true ∧ castsFifteens 40701 = true := by decide
+
+/-- 9efe: nibbles fold back to 40702; digit sum 52 ≡ 40702 (mod 15). -/
+theorem enumeration_hex4_9efe : reassembles 40702 = true ∧ castsFifteens 40702 = true := by decide
+
+/-- 9eff: nibbles fold back to 40703; digit sum 53 ≡ 40703 (mod 15). -/
+theorem enumeration_hex4_9eff : reassembles 40703 = true ∧ castsFifteens 40703 = true := by decide
+
+/-- 9f00: nibbles fold back to 40704; digit sum 24 ≡ 40704 (mod 15). -/
+theorem enumeration_hex4_9f00 : reassembles 40704 = true ∧ castsFifteens 40704 = true := by decide
+
+/-- 9f01: nibbles fold back to 40705; digit sum 25 ≡ 40705 (mod 15). -/
+theorem enumeration_hex4_9f01 : reassembles 40705 = true ∧ castsFifteens 40705 = true := by decide
+
+/-- 9f02: nibbles fold back to 40706; digit sum 26 ≡ 40706 (mod 15). -/
+theorem enumeration_hex4_9f02 : reassembles 40706 = true ∧ castsFifteens 40706 = true := by decide
+
+/-- 9f03: nibbles fold back to 40707; digit sum 27 ≡ 40707 (mod 15). -/
+theorem enumeration_hex4_9f03 : reassembles 40707 = true ∧ castsFifteens 40707 = true := by decide
+
+/-- 9f04: nibbles fold back to 40708; digit sum 28 ≡ 40708 (mod 15). -/
+theorem enumeration_hex4_9f04 : reassembles 40708 = true ∧ castsFifteens 40708 = true := by decide
+
+/-- 9f05: nibbles fold back to 40709; digit sum 29 ≡ 40709 (mod 15). -/
+theorem enumeration_hex4_9f05 : reassembles 40709 = true ∧ castsFifteens 40709 = true := by decide
+
+/-- 9f06: nibbles fold back to 40710; digit sum 30 ≡ 40710 (mod 15). -/
+theorem enumeration_hex4_9f06 : reassembles 40710 = true ∧ castsFifteens 40710 = true := by decide
+
+/-- 9f07: nibbles fold back to 40711; digit sum 31 ≡ 40711 (mod 15). -/
+theorem enumeration_hex4_9f07 : reassembles 40711 = true ∧ castsFifteens 40711 = true := by decide
+
+/-- 9f08: nibbles fold back to 40712; digit sum 32 ≡ 40712 (mod 15). -/
+theorem enumeration_hex4_9f08 : reassembles 40712 = true ∧ castsFifteens 40712 = true := by decide
+
+/-- 9f09: nibbles fold back to 40713; digit sum 33 ≡ 40713 (mod 15). -/
+theorem enumeration_hex4_9f09 : reassembles 40713 = true ∧ castsFifteens 40713 = true := by decide
+
+/-- 9f0a: nibbles fold back to 40714; digit sum 34 ≡ 40714 (mod 15). -/
+theorem enumeration_hex4_9f0a : reassembles 40714 = true ∧ castsFifteens 40714 = true := by decide
+
+/-- 9f0b: nibbles fold back to 40715; digit sum 35 ≡ 40715 (mod 15). -/
+theorem enumeration_hex4_9f0b : reassembles 40715 = true ∧ castsFifteens 40715 = true := by decide
+
+/-- 9f0c: nibbles fold back to 40716; digit sum 36 ≡ 40716 (mod 15). -/
+theorem enumeration_hex4_9f0c : reassembles 40716 = true ∧ castsFifteens 40716 = true := by decide
+
+/-- 9f0d: nibbles fold back to 40717; digit sum 37 ≡ 40717 (mod 15). -/
+theorem enumeration_hex4_9f0d : reassembles 40717 = true ∧ castsFifteens 40717 = true := by decide
+
+/-- 9f0e: nibbles fold back to 40718; digit sum 38 ≡ 40718 (mod 15). -/
+theorem enumeration_hex4_9f0e : reassembles 40718 = true ∧ castsFifteens 40718 = true := by decide
+
+/-- 9f0f: nibbles fold back to 40719; digit sum 39 ≡ 40719 (mod 15). -/
+theorem enumeration_hex4_9f0f : reassembles 40719 = true ∧ castsFifteens 40719 = true := by decide
+
+/-- 9f10: nibbles fold back to 40720; digit sum 25 ≡ 40720 (mod 15). -/
+theorem enumeration_hex4_9f10 : reassembles 40720 = true ∧ castsFifteens 40720 = true := by decide
+
+/-- 9f11: nibbles fold back to 40721; digit sum 26 ≡ 40721 (mod 15). -/
+theorem enumeration_hex4_9f11 : reassembles 40721 = true ∧ castsFifteens 40721 = true := by decide
+
+/-- 9f12: nibbles fold back to 40722; digit sum 27 ≡ 40722 (mod 15). -/
+theorem enumeration_hex4_9f12 : reassembles 40722 = true ∧ castsFifteens 40722 = true := by decide
+
+/-- 9f13: nibbles fold back to 40723; digit sum 28 ≡ 40723 (mod 15). -/
+theorem enumeration_hex4_9f13 : reassembles 40723 = true ∧ castsFifteens 40723 = true := by decide
+
+/-- 9f14: nibbles fold back to 40724; digit sum 29 ≡ 40724 (mod 15). -/
+theorem enumeration_hex4_9f14 : reassembles 40724 = true ∧ castsFifteens 40724 = true := by decide
+
+/-- 9f15: nibbles fold back to 40725; digit sum 30 ≡ 40725 (mod 15). -/
+theorem enumeration_hex4_9f15 : reassembles 40725 = true ∧ castsFifteens 40725 = true := by decide
+
+/-- 9f16: nibbles fold back to 40726; digit sum 31 ≡ 40726 (mod 15). -/
+theorem enumeration_hex4_9f16 : reassembles 40726 = true ∧ castsFifteens 40726 = true := by decide
+
+/-- 9f17: nibbles fold back to 40727; digit sum 32 ≡ 40727 (mod 15). -/
+theorem enumeration_hex4_9f17 : reassembles 40727 = true ∧ castsFifteens 40727 = true := by decide
+
+/-- 9f18: nibbles fold back to 40728; digit sum 33 ≡ 40728 (mod 15). -/
+theorem enumeration_hex4_9f18 : reassembles 40728 = true ∧ castsFifteens 40728 = true := by decide
+
+/-- 9f19: nibbles fold back to 40729; digit sum 34 ≡ 40729 (mod 15). -/
+theorem enumeration_hex4_9f19 : reassembles 40729 = true ∧ castsFifteens 40729 = true := by decide
+
+/-- 9f1a: nibbles fold back to 40730; digit sum 35 ≡ 40730 (mod 15). -/
+theorem enumeration_hex4_9f1a : reassembles 40730 = true ∧ castsFifteens 40730 = true := by decide
+
+/-- 9f1b: nibbles fold back to 40731; digit sum 36 ≡ 40731 (mod 15). -/
+theorem enumeration_hex4_9f1b : reassembles 40731 = true ∧ castsFifteens 40731 = true := by decide
+
+/-- 9f1c: nibbles fold back to 40732; digit sum 37 ≡ 40732 (mod 15). -/
+theorem enumeration_hex4_9f1c : reassembles 40732 = true ∧ castsFifteens 40732 = true := by decide
+
+/-- 9f1d: nibbles fold back to 40733; digit sum 38 ≡ 40733 (mod 15). -/
+theorem enumeration_hex4_9f1d : reassembles 40733 = true ∧ castsFifteens 40733 = true := by decide
+
+/-- 9f1e: nibbles fold back to 40734; digit sum 39 ≡ 40734 (mod 15). -/
+theorem enumeration_hex4_9f1e : reassembles 40734 = true ∧ castsFifteens 40734 = true := by decide
+
+/-- 9f1f: nibbles fold back to 40735; digit sum 40 ≡ 40735 (mod 15). -/
+theorem enumeration_hex4_9f1f : reassembles 40735 = true ∧ castsFifteens 40735 = true := by decide
+
+/-- 9f20: nibbles fold back to 40736; digit sum 26 ≡ 40736 (mod 15). -/
+theorem enumeration_hex4_9f20 : reassembles 40736 = true ∧ castsFifteens 40736 = true := by decide
+
+/-- 9f21: nibbles fold back to 40737; digit sum 27 ≡ 40737 (mod 15). -/
+theorem enumeration_hex4_9f21 : reassembles 40737 = true ∧ castsFifteens 40737 = true := by decide
+
+/-- 9f22: nibbles fold back to 40738; digit sum 28 ≡ 40738 (mod 15). -/
+theorem enumeration_hex4_9f22 : reassembles 40738 = true ∧ castsFifteens 40738 = true := by decide
+
+/-- 9f23: nibbles fold back to 40739; digit sum 29 ≡ 40739 (mod 15). -/
+theorem enumeration_hex4_9f23 : reassembles 40739 = true ∧ castsFifteens 40739 = true := by decide
+
+/-- 9f24: nibbles fold back to 40740; digit sum 30 ≡ 40740 (mod 15). -/
+theorem enumeration_hex4_9f24 : reassembles 40740 = true ∧ castsFifteens 40740 = true := by decide
+
+/-- 9f25: nibbles fold back to 40741; digit sum 31 ≡ 40741 (mod 15). -/
+theorem enumeration_hex4_9f25 : reassembles 40741 = true ∧ castsFifteens 40741 = true := by decide
+
+/-- 9f26: nibbles fold back to 40742; digit sum 32 ≡ 40742 (mod 15). -/
+theorem enumeration_hex4_9f26 : reassembles 40742 = true ∧ castsFifteens 40742 = true := by decide
+
+/-- 9f27: nibbles fold back to 40743; digit sum 33 ≡ 40743 (mod 15). -/
+theorem enumeration_hex4_9f27 : reassembles 40743 = true ∧ castsFifteens 40743 = true := by decide
+
+/-- 9f28: nibbles fold back to 40744; digit sum 34 ≡ 40744 (mod 15). -/
+theorem enumeration_hex4_9f28 : reassembles 40744 = true ∧ castsFifteens 40744 = true := by decide
+
+/-- 9f29: nibbles fold back to 40745; digit sum 35 ≡ 40745 (mod 15). -/
+theorem enumeration_hex4_9f29 : reassembles 40745 = true ∧ castsFifteens 40745 = true := by decide
+
+/-- 9f2a: nibbles fold back to 40746; digit sum 36 ≡ 40746 (mod 15). -/
+theorem enumeration_hex4_9f2a : reassembles 40746 = true ∧ castsFifteens 40746 = true := by decide
+
+/-- 9f2b: nibbles fold back to 40747; digit sum 37 ≡ 40747 (mod 15). -/
+theorem enumeration_hex4_9f2b : reassembles 40747 = true ∧ castsFifteens 40747 = true := by decide
+
+/-- 9f2c: nibbles fold back to 40748; digit sum 38 ≡ 40748 (mod 15). -/
+theorem enumeration_hex4_9f2c : reassembles 40748 = true ∧ castsFifteens 40748 = true := by decide
+
+/-- 9f2d: nibbles fold back to 40749; digit sum 39 ≡ 40749 (mod 15). -/
+theorem enumeration_hex4_9f2d : reassembles 40749 = true ∧ castsFifteens 40749 = true := by decide
+
+/-- 9f2e: nibbles fold back to 40750; digit sum 40 ≡ 40750 (mod 15). -/
+theorem enumeration_hex4_9f2e : reassembles 40750 = true ∧ castsFifteens 40750 = true := by decide
+
+/-- 9f2f: nibbles fold back to 40751; digit sum 41 ≡ 40751 (mod 15). -/
+theorem enumeration_hex4_9f2f : reassembles 40751 = true ∧ castsFifteens 40751 = true := by decide
+
+/-- 9f30: nibbles fold back to 40752; digit sum 27 ≡ 40752 (mod 15). -/
+theorem enumeration_hex4_9f30 : reassembles 40752 = true ∧ castsFifteens 40752 = true := by decide
+
+/-- 9f31: nibbles fold back to 40753; digit sum 28 ≡ 40753 (mod 15). -/
+theorem enumeration_hex4_9f31 : reassembles 40753 = true ∧ castsFifteens 40753 = true := by decide
+
+/-- 9f32: nibbles fold back to 40754; digit sum 29 ≡ 40754 (mod 15). -/
+theorem enumeration_hex4_9f32 : reassembles 40754 = true ∧ castsFifteens 40754 = true := by decide
+
+/-- 9f33: nibbles fold back to 40755; digit sum 30 ≡ 40755 (mod 15). -/
+theorem enumeration_hex4_9f33 : reassembles 40755 = true ∧ castsFifteens 40755 = true := by decide
+
+/-- 9f34: nibbles fold back to 40756; digit sum 31 ≡ 40756 (mod 15). -/
+theorem enumeration_hex4_9f34 : reassembles 40756 = true ∧ castsFifteens 40756 = true := by decide
+
+/-- 9f35: nibbles fold back to 40757; digit sum 32 ≡ 40757 (mod 15). -/
+theorem enumeration_hex4_9f35 : reassembles 40757 = true ∧ castsFifteens 40757 = true := by decide
+
+/-- 9f36: nibbles fold back to 40758; digit sum 33 ≡ 40758 (mod 15). -/
+theorem enumeration_hex4_9f36 : reassembles 40758 = true ∧ castsFifteens 40758 = true := by decide
+
+/-- 9f37: nibbles fold back to 40759; digit sum 34 ≡ 40759 (mod 15). -/
+theorem enumeration_hex4_9f37 : reassembles 40759 = true ∧ castsFifteens 40759 = true := by decide
+
+/-- 9f38: nibbles fold back to 40760; digit sum 35 ≡ 40760 (mod 15). -/
+theorem enumeration_hex4_9f38 : reassembles 40760 = true ∧ castsFifteens 40760 = true := by decide
+
+/-- 9f39: nibbles fold back to 40761; digit sum 36 ≡ 40761 (mod 15). -/
+theorem enumeration_hex4_9f39 : reassembles 40761 = true ∧ castsFifteens 40761 = true := by decide
+
+/-- 9f3a: nibbles fold back to 40762; digit sum 37 ≡ 40762 (mod 15). -/
+theorem enumeration_hex4_9f3a : reassembles 40762 = true ∧ castsFifteens 40762 = true := by decide
+
+/-- 9f3b: nibbles fold back to 40763; digit sum 38 ≡ 40763 (mod 15). -/
+theorem enumeration_hex4_9f3b : reassembles 40763 = true ∧ castsFifteens 40763 = true := by decide
+
+/-- 9f3c: nibbles fold back to 40764; digit sum 39 ≡ 40764 (mod 15). -/
+theorem enumeration_hex4_9f3c : reassembles 40764 = true ∧ castsFifteens 40764 = true := by decide
+
+/-- 9f3d: nibbles fold back to 40765; digit sum 40 ≡ 40765 (mod 15). -/
+theorem enumeration_hex4_9f3d : reassembles 40765 = true ∧ castsFifteens 40765 = true := by decide
+
+/-- 9f3e: nibbles fold back to 40766; digit sum 41 ≡ 40766 (mod 15). -/
+theorem enumeration_hex4_9f3e : reassembles 40766 = true ∧ castsFifteens 40766 = true := by decide
+
+/-- 9f3f: nibbles fold back to 40767; digit sum 42 ≡ 40767 (mod 15). -/
+theorem enumeration_hex4_9f3f : reassembles 40767 = true ∧ castsFifteens 40767 = true := by decide
+
+/-- 9f40: nibbles fold back to 40768; digit sum 28 ≡ 40768 (mod 15). -/
+theorem enumeration_hex4_9f40 : reassembles 40768 = true ∧ castsFifteens 40768 = true := by decide
+
+/-- 9f41: nibbles fold back to 40769; digit sum 29 ≡ 40769 (mod 15). -/
+theorem enumeration_hex4_9f41 : reassembles 40769 = true ∧ castsFifteens 40769 = true := by decide
+
+/-- 9f42: nibbles fold back to 40770; digit sum 30 ≡ 40770 (mod 15). -/
+theorem enumeration_hex4_9f42 : reassembles 40770 = true ∧ castsFifteens 40770 = true := by decide
+
+/-- 9f43: nibbles fold back to 40771; digit sum 31 ≡ 40771 (mod 15). -/
+theorem enumeration_hex4_9f43 : reassembles 40771 = true ∧ castsFifteens 40771 = true := by decide
+
+/-- 9f44: nibbles fold back to 40772; digit sum 32 ≡ 40772 (mod 15). -/
+theorem enumeration_hex4_9f44 : reassembles 40772 = true ∧ castsFifteens 40772 = true := by decide
+
+/-- 9f45: nibbles fold back to 40773; digit sum 33 ≡ 40773 (mod 15). -/
+theorem enumeration_hex4_9f45 : reassembles 40773 = true ∧ castsFifteens 40773 = true := by decide
+
+/-- 9f46: nibbles fold back to 40774; digit sum 34 ≡ 40774 (mod 15). -/
+theorem enumeration_hex4_9f46 : reassembles 40774 = true ∧ castsFifteens 40774 = true := by decide
+
+/-- 9f47: nibbles fold back to 40775; digit sum 35 ≡ 40775 (mod 15). -/
+theorem enumeration_hex4_9f47 : reassembles 40775 = true ∧ castsFifteens 40775 = true := by decide
+
+/-- 9f48: nibbles fold back to 40776; digit sum 36 ≡ 40776 (mod 15). -/
+theorem enumeration_hex4_9f48 : reassembles 40776 = true ∧ castsFifteens 40776 = true := by decide
+
+/-- 9f49: nibbles fold back to 40777; digit sum 37 ≡ 40777 (mod 15). -/
+theorem enumeration_hex4_9f49 : reassembles 40777 = true ∧ castsFifteens 40777 = true := by decide
+
+/-- 9f4a: nibbles fold back to 40778; digit sum 38 ≡ 40778 (mod 15). -/
+theorem enumeration_hex4_9f4a : reassembles 40778 = true ∧ castsFifteens 40778 = true := by decide
+
+/-- 9f4b: nibbles fold back to 40779; digit sum 39 ≡ 40779 (mod 15). -/
+theorem enumeration_hex4_9f4b : reassembles 40779 = true ∧ castsFifteens 40779 = true := by decide
+
+/-- 9f4c: nibbles fold back to 40780; digit sum 40 ≡ 40780 (mod 15). -/
+theorem enumeration_hex4_9f4c : reassembles 40780 = true ∧ castsFifteens 40780 = true := by decide
+
+/-- 9f4d: nibbles fold back to 40781; digit sum 41 ≡ 40781 (mod 15). -/
+theorem enumeration_hex4_9f4d : reassembles 40781 = true ∧ castsFifteens 40781 = true := by decide
+
+/-- 9f4e: nibbles fold back to 40782; digit sum 42 ≡ 40782 (mod 15). -/
+theorem enumeration_hex4_9f4e : reassembles 40782 = true ∧ castsFifteens 40782 = true := by decide
+
+/-- 9f4f: nibbles fold back to 40783; digit sum 43 ≡ 40783 (mod 15). -/
+theorem enumeration_hex4_9f4f : reassembles 40783 = true ∧ castsFifteens 40783 = true := by decide
+
+/-- 9f50: nibbles fold back to 40784; digit sum 29 ≡ 40784 (mod 15). -/
+theorem enumeration_hex4_9f50 : reassembles 40784 = true ∧ castsFifteens 40784 = true := by decide
+
+/-- 9f51: nibbles fold back to 40785; digit sum 30 ≡ 40785 (mod 15). -/
+theorem enumeration_hex4_9f51 : reassembles 40785 = true ∧ castsFifteens 40785 = true := by decide
+
+/-- 9f52: nibbles fold back to 40786; digit sum 31 ≡ 40786 (mod 15). -/
+theorem enumeration_hex4_9f52 : reassembles 40786 = true ∧ castsFifteens 40786 = true := by decide
+
+/-- 9f53: nibbles fold back to 40787; digit sum 32 ≡ 40787 (mod 15). -/
+theorem enumeration_hex4_9f53 : reassembles 40787 = true ∧ castsFifteens 40787 = true := by decide
+
+/-- 9f54: nibbles fold back to 40788; digit sum 33 ≡ 40788 (mod 15). -/
+theorem enumeration_hex4_9f54 : reassembles 40788 = true ∧ castsFifteens 40788 = true := by decide
+
+/-- 9f55: nibbles fold back to 40789; digit sum 34 ≡ 40789 (mod 15). -/
+theorem enumeration_hex4_9f55 : reassembles 40789 = true ∧ castsFifteens 40789 = true := by decide
+
+/-- 9f56: nibbles fold back to 40790; digit sum 35 ≡ 40790 (mod 15). -/
+theorem enumeration_hex4_9f56 : reassembles 40790 = true ∧ castsFifteens 40790 = true := by decide
+
+/-- 9f57: nibbles fold back to 40791; digit sum 36 ≡ 40791 (mod 15). -/
+theorem enumeration_hex4_9f57 : reassembles 40791 = true ∧ castsFifteens 40791 = true := by decide
+
+/-- 9f58: nibbles fold back to 40792; digit sum 37 ≡ 40792 (mod 15). -/
+theorem enumeration_hex4_9f58 : reassembles 40792 = true ∧ castsFifteens 40792 = true := by decide
+
+/-- 9f59: nibbles fold back to 40793; digit sum 38 ≡ 40793 (mod 15). -/
+theorem enumeration_hex4_9f59 : reassembles 40793 = true ∧ castsFifteens 40793 = true := by decide
+
+/-- 9f5a: nibbles fold back to 40794; digit sum 39 ≡ 40794 (mod 15). -/
+theorem enumeration_hex4_9f5a : reassembles 40794 = true ∧ castsFifteens 40794 = true := by decide
+
+/-- 9f5b: nibbles fold back to 40795; digit sum 40 ≡ 40795 (mod 15). -/
+theorem enumeration_hex4_9f5b : reassembles 40795 = true ∧ castsFifteens 40795 = true := by decide
+
+/-- 9f5c: nibbles fold back to 40796; digit sum 41 ≡ 40796 (mod 15). -/
+theorem enumeration_hex4_9f5c : reassembles 40796 = true ∧ castsFifteens 40796 = true := by decide
+
+/-- 9f5d: nibbles fold back to 40797; digit sum 42 ≡ 40797 (mod 15). -/
+theorem enumeration_hex4_9f5d : reassembles 40797 = true ∧ castsFifteens 40797 = true := by decide
+
+/-- 9f5e: nibbles fold back to 40798; digit sum 43 ≡ 40798 (mod 15). -/
+theorem enumeration_hex4_9f5e : reassembles 40798 = true ∧ castsFifteens 40798 = true := by decide
+
+/-- 9f5f: nibbles fold back to 40799; digit sum 44 ≡ 40799 (mod 15). -/
+theorem enumeration_hex4_9f5f : reassembles 40799 = true ∧ castsFifteens 40799 = true := by decide
+
+/-- 9f60: nibbles fold back to 40800; digit sum 30 ≡ 40800 (mod 15). -/
+theorem enumeration_hex4_9f60 : reassembles 40800 = true ∧ castsFifteens 40800 = true := by decide
+
+/-- 9f61: nibbles fold back to 40801; digit sum 31 ≡ 40801 (mod 15). -/
+theorem enumeration_hex4_9f61 : reassembles 40801 = true ∧ castsFifteens 40801 = true := by decide
+
+/-- 9f62: nibbles fold back to 40802; digit sum 32 ≡ 40802 (mod 15). -/
+theorem enumeration_hex4_9f62 : reassembles 40802 = true ∧ castsFifteens 40802 = true := by decide
+
+/-- 9f63: nibbles fold back to 40803; digit sum 33 ≡ 40803 (mod 15). -/
+theorem enumeration_hex4_9f63 : reassembles 40803 = true ∧ castsFifteens 40803 = true := by decide
+
+/-- 9f64: nibbles fold back to 40804; digit sum 34 ≡ 40804 (mod 15). -/
+theorem enumeration_hex4_9f64 : reassembles 40804 = true ∧ castsFifteens 40804 = true := by decide
+
+/-- 9f65: nibbles fold back to 40805; digit sum 35 ≡ 40805 (mod 15). -/
+theorem enumeration_hex4_9f65 : reassembles 40805 = true ∧ castsFifteens 40805 = true := by decide
+
+/-- 9f66: nibbles fold back to 40806; digit sum 36 ≡ 40806 (mod 15). -/
+theorem enumeration_hex4_9f66 : reassembles 40806 = true ∧ castsFifteens 40806 = true := by decide
+
+/-- 9f67: nibbles fold back to 40807; digit sum 37 ≡ 40807 (mod 15). -/
+theorem enumeration_hex4_9f67 : reassembles 40807 = true ∧ castsFifteens 40807 = true := by decide
+
+/-- 9f68: nibbles fold back to 40808; digit sum 38 ≡ 40808 (mod 15). -/
+theorem enumeration_hex4_9f68 : reassembles 40808 = true ∧ castsFifteens 40808 = true := by decide
+
+/-- 9f69: nibbles fold back to 40809; digit sum 39 ≡ 40809 (mod 15). -/
+theorem enumeration_hex4_9f69 : reassembles 40809 = true ∧ castsFifteens 40809 = true := by decide
+
+/-- 9f6a: nibbles fold back to 40810; digit sum 40 ≡ 40810 (mod 15). -/
+theorem enumeration_hex4_9f6a : reassembles 40810 = true ∧ castsFifteens 40810 = true := by decide
+
+/-- 9f6b: nibbles fold back to 40811; digit sum 41 ≡ 40811 (mod 15). -/
+theorem enumeration_hex4_9f6b : reassembles 40811 = true ∧ castsFifteens 40811 = true := by decide
+
+/-- 9f6c: nibbles fold back to 40812; digit sum 42 ≡ 40812 (mod 15). -/
+theorem enumeration_hex4_9f6c : reassembles 40812 = true ∧ castsFifteens 40812 = true := by decide
+
+/-- 9f6d: nibbles fold back to 40813; digit sum 43 ≡ 40813 (mod 15). -/
+theorem enumeration_hex4_9f6d : reassembles 40813 = true ∧ castsFifteens 40813 = true := by decide
+
+/-- 9f6e: nibbles fold back to 40814; digit sum 44 ≡ 40814 (mod 15). -/
+theorem enumeration_hex4_9f6e : reassembles 40814 = true ∧ castsFifteens 40814 = true := by decide
+
+/-- 9f6f: nibbles fold back to 40815; digit sum 45 ≡ 40815 (mod 15). -/
+theorem enumeration_hex4_9f6f : reassembles 40815 = true ∧ castsFifteens 40815 = true := by decide
+
+/-- 9f70: nibbles fold back to 40816; digit sum 31 ≡ 40816 (mod 15). -/
+theorem enumeration_hex4_9f70 : reassembles 40816 = true ∧ castsFifteens 40816 = true := by decide
+
+/-- 9f71: nibbles fold back to 40817; digit sum 32 ≡ 40817 (mod 15). -/
+theorem enumeration_hex4_9f71 : reassembles 40817 = true ∧ castsFifteens 40817 = true := by decide
+
+/-- 9f72: nibbles fold back to 40818; digit sum 33 ≡ 40818 (mod 15). -/
+theorem enumeration_hex4_9f72 : reassembles 40818 = true ∧ castsFifteens 40818 = true := by decide
+
+/-- 9f73: nibbles fold back to 40819; digit sum 34 ≡ 40819 (mod 15). -/
+theorem enumeration_hex4_9f73 : reassembles 40819 = true ∧ castsFifteens 40819 = true := by decide
+
+/-- 9f74: nibbles fold back to 40820; digit sum 35 ≡ 40820 (mod 15). -/
+theorem enumeration_hex4_9f74 : reassembles 40820 = true ∧ castsFifteens 40820 = true := by decide
+
+/-- 9f75: nibbles fold back to 40821; digit sum 36 ≡ 40821 (mod 15). -/
+theorem enumeration_hex4_9f75 : reassembles 40821 = true ∧ castsFifteens 40821 = true := by decide
+
+/-- 9f76: nibbles fold back to 40822; digit sum 37 ≡ 40822 (mod 15). -/
+theorem enumeration_hex4_9f76 : reassembles 40822 = true ∧ castsFifteens 40822 = true := by decide
+
+/-- 9f77: nibbles fold back to 40823; digit sum 38 ≡ 40823 (mod 15). -/
+theorem enumeration_hex4_9f77 : reassembles 40823 = true ∧ castsFifteens 40823 = true := by decide
+
+/-- 9f78: nibbles fold back to 40824; digit sum 39 ≡ 40824 (mod 15). -/
+theorem enumeration_hex4_9f78 : reassembles 40824 = true ∧ castsFifteens 40824 = true := by decide
+
+/-- 9f79: nibbles fold back to 40825; digit sum 40 ≡ 40825 (mod 15). -/
+theorem enumeration_hex4_9f79 : reassembles 40825 = true ∧ castsFifteens 40825 = true := by decide
+
+/-- 9f7a: nibbles fold back to 40826; digit sum 41 ≡ 40826 (mod 15). -/
+theorem enumeration_hex4_9f7a : reassembles 40826 = true ∧ castsFifteens 40826 = true := by decide
+
+/-- 9f7b: nibbles fold back to 40827; digit sum 42 ≡ 40827 (mod 15). -/
+theorem enumeration_hex4_9f7b : reassembles 40827 = true ∧ castsFifteens 40827 = true := by decide
+
+/-- 9f7c: nibbles fold back to 40828; digit sum 43 ≡ 40828 (mod 15). -/
+theorem enumeration_hex4_9f7c : reassembles 40828 = true ∧ castsFifteens 40828 = true := by decide
+
+/-- 9f7d: nibbles fold back to 40829; digit sum 44 ≡ 40829 (mod 15). -/
+theorem enumeration_hex4_9f7d : reassembles 40829 = true ∧ castsFifteens 40829 = true := by decide
+
+/-- 9f7e: nibbles fold back to 40830; digit sum 45 ≡ 40830 (mod 15). -/
+theorem enumeration_hex4_9f7e : reassembles 40830 = true ∧ castsFifteens 40830 = true := by decide
+
+/-- 9f7f: nibbles fold back to 40831; digit sum 46 ≡ 40831 (mod 15). -/
+theorem enumeration_hex4_9f7f : reassembles 40831 = true ∧ castsFifteens 40831 = true := by decide
+
+/-- 9f80: nibbles fold back to 40832; digit sum 32 ≡ 40832 (mod 15). -/
+theorem enumeration_hex4_9f80 : reassembles 40832 = true ∧ castsFifteens 40832 = true := by decide
+
+/-- 9f81: nibbles fold back to 40833; digit sum 33 ≡ 40833 (mod 15). -/
+theorem enumeration_hex4_9f81 : reassembles 40833 = true ∧ castsFifteens 40833 = true := by decide
+
+/-- 9f82: nibbles fold back to 40834; digit sum 34 ≡ 40834 (mod 15). -/
+theorem enumeration_hex4_9f82 : reassembles 40834 = true ∧ castsFifteens 40834 = true := by decide
+
+/-- 9f83: nibbles fold back to 40835; digit sum 35 ≡ 40835 (mod 15). -/
+theorem enumeration_hex4_9f83 : reassembles 40835 = true ∧ castsFifteens 40835 = true := by decide
+
+/-- 9f84: nibbles fold back to 40836; digit sum 36 ≡ 40836 (mod 15). -/
+theorem enumeration_hex4_9f84 : reassembles 40836 = true ∧ castsFifteens 40836 = true := by decide
+
+/-- 9f85: nibbles fold back to 40837; digit sum 37 ≡ 40837 (mod 15). -/
+theorem enumeration_hex4_9f85 : reassembles 40837 = true ∧ castsFifteens 40837 = true := by decide
+
+/-- 9f86: nibbles fold back to 40838; digit sum 38 ≡ 40838 (mod 15). -/
+theorem enumeration_hex4_9f86 : reassembles 40838 = true ∧ castsFifteens 40838 = true := by decide
+
+/-- 9f87: nibbles fold back to 40839; digit sum 39 ≡ 40839 (mod 15). -/
+theorem enumeration_hex4_9f87 : reassembles 40839 = true ∧ castsFifteens 40839 = true := by decide
+
+/-- 9f88: nibbles fold back to 40840; digit sum 40 ≡ 40840 (mod 15). -/
+theorem enumeration_hex4_9f88 : reassembles 40840 = true ∧ castsFifteens 40840 = true := by decide
+
+/-- 9f89: nibbles fold back to 40841; digit sum 41 ≡ 40841 (mod 15). -/
+theorem enumeration_hex4_9f89 : reassembles 40841 = true ∧ castsFifteens 40841 = true := by decide
+
+/-- 9f8a: nibbles fold back to 40842; digit sum 42 ≡ 40842 (mod 15). -/
+theorem enumeration_hex4_9f8a : reassembles 40842 = true ∧ castsFifteens 40842 = true := by decide
+
+/-- 9f8b: nibbles fold back to 40843; digit sum 43 ≡ 40843 (mod 15). -/
+theorem enumeration_hex4_9f8b : reassembles 40843 = true ∧ castsFifteens 40843 = true := by decide
+
+/-- 9f8c: nibbles fold back to 40844; digit sum 44 ≡ 40844 (mod 15). -/
+theorem enumeration_hex4_9f8c : reassembles 40844 = true ∧ castsFifteens 40844 = true := by decide
+
+/-- 9f8d: nibbles fold back to 40845; digit sum 45 ≡ 40845 (mod 15). -/
+theorem enumeration_hex4_9f8d : reassembles 40845 = true ∧ castsFifteens 40845 = true := by decide
+
+/-- 9f8e: nibbles fold back to 40846; digit sum 46 ≡ 40846 (mod 15). -/
+theorem enumeration_hex4_9f8e : reassembles 40846 = true ∧ castsFifteens 40846 = true := by decide
+
+/-- 9f8f: nibbles fold back to 40847; digit sum 47 ≡ 40847 (mod 15). -/
+theorem enumeration_hex4_9f8f : reassembles 40847 = true ∧ castsFifteens 40847 = true := by decide
+
+/-- 9f90: nibbles fold back to 40848; digit sum 33 ≡ 40848 (mod 15). -/
+theorem enumeration_hex4_9f90 : reassembles 40848 = true ∧ castsFifteens 40848 = true := by decide
+
+/-- 9f91: nibbles fold back to 40849; digit sum 34 ≡ 40849 (mod 15). -/
+theorem enumeration_hex4_9f91 : reassembles 40849 = true ∧ castsFifteens 40849 = true := by decide
+
+/-- 9f92: nibbles fold back to 40850; digit sum 35 ≡ 40850 (mod 15). -/
+theorem enumeration_hex4_9f92 : reassembles 40850 = true ∧ castsFifteens 40850 = true := by decide
+
+/-- 9f93: nibbles fold back to 40851; digit sum 36 ≡ 40851 (mod 15). -/
+theorem enumeration_hex4_9f93 : reassembles 40851 = true ∧ castsFifteens 40851 = true := by decide
+
+/-- 9f94: nibbles fold back to 40852; digit sum 37 ≡ 40852 (mod 15). -/
+theorem enumeration_hex4_9f94 : reassembles 40852 = true ∧ castsFifteens 40852 = true := by decide
+
+/-- 9f95: nibbles fold back to 40853; digit sum 38 ≡ 40853 (mod 15). -/
+theorem enumeration_hex4_9f95 : reassembles 40853 = true ∧ castsFifteens 40853 = true := by decide
+
+/-- 9f96: nibbles fold back to 40854; digit sum 39 ≡ 40854 (mod 15). -/
+theorem enumeration_hex4_9f96 : reassembles 40854 = true ∧ castsFifteens 40854 = true := by decide
+
+/-- 9f97: nibbles fold back to 40855; digit sum 40 ≡ 40855 (mod 15). -/
+theorem enumeration_hex4_9f97 : reassembles 40855 = true ∧ castsFifteens 40855 = true := by decide
+
+/-- 9f98: nibbles fold back to 40856; digit sum 41 ≡ 40856 (mod 15). -/
+theorem enumeration_hex4_9f98 : reassembles 40856 = true ∧ castsFifteens 40856 = true := by decide
+
+/-- 9f99: nibbles fold back to 40857; digit sum 42 ≡ 40857 (mod 15). -/
+theorem enumeration_hex4_9f99 : reassembles 40857 = true ∧ castsFifteens 40857 = true := by decide
+
+/-- 9f9a: nibbles fold back to 40858; digit sum 43 ≡ 40858 (mod 15). -/
+theorem enumeration_hex4_9f9a : reassembles 40858 = true ∧ castsFifteens 40858 = true := by decide
+
+/-- 9f9b: nibbles fold back to 40859; digit sum 44 ≡ 40859 (mod 15). -/
+theorem enumeration_hex4_9f9b : reassembles 40859 = true ∧ castsFifteens 40859 = true := by decide
+
+/-- 9f9c: nibbles fold back to 40860; digit sum 45 ≡ 40860 (mod 15). -/
+theorem enumeration_hex4_9f9c : reassembles 40860 = true ∧ castsFifteens 40860 = true := by decide
+
+/-- 9f9d: nibbles fold back to 40861; digit sum 46 ≡ 40861 (mod 15). -/
+theorem enumeration_hex4_9f9d : reassembles 40861 = true ∧ castsFifteens 40861 = true := by decide
+
+/-- 9f9e: nibbles fold back to 40862; digit sum 47 ≡ 40862 (mod 15). -/
+theorem enumeration_hex4_9f9e : reassembles 40862 = true ∧ castsFifteens 40862 = true := by decide
+
+/-- 9f9f: nibbles fold back to 40863; digit sum 48 ≡ 40863 (mod 15). -/
+theorem enumeration_hex4_9f9f : reassembles 40863 = true ∧ castsFifteens 40863 = true := by decide
+
+/-- 9fa0: nibbles fold back to 40864; digit sum 34 ≡ 40864 (mod 15). -/
+theorem enumeration_hex4_9fa0 : reassembles 40864 = true ∧ castsFifteens 40864 = true := by decide
+
+/-- 9fa1: nibbles fold back to 40865; digit sum 35 ≡ 40865 (mod 15). -/
+theorem enumeration_hex4_9fa1 : reassembles 40865 = true ∧ castsFifteens 40865 = true := by decide
+
+/-- 9fa2: nibbles fold back to 40866; digit sum 36 ≡ 40866 (mod 15). -/
+theorem enumeration_hex4_9fa2 : reassembles 40866 = true ∧ castsFifteens 40866 = true := by decide
+
+/-- 9fa3: nibbles fold back to 40867; digit sum 37 ≡ 40867 (mod 15). -/
+theorem enumeration_hex4_9fa3 : reassembles 40867 = true ∧ castsFifteens 40867 = true := by decide
+
+/-- 9fa4: nibbles fold back to 40868; digit sum 38 ≡ 40868 (mod 15). -/
+theorem enumeration_hex4_9fa4 : reassembles 40868 = true ∧ castsFifteens 40868 = true := by decide
+
+/-- 9fa5: nibbles fold back to 40869; digit sum 39 ≡ 40869 (mod 15). -/
+theorem enumeration_hex4_9fa5 : reassembles 40869 = true ∧ castsFifteens 40869 = true := by decide
+
+/-- 9fa6: nibbles fold back to 40870; digit sum 40 ≡ 40870 (mod 15). -/
+theorem enumeration_hex4_9fa6 : reassembles 40870 = true ∧ castsFifteens 40870 = true := by decide
+
+/-- 9fa7: nibbles fold back to 40871; digit sum 41 ≡ 40871 (mod 15). -/
+theorem enumeration_hex4_9fa7 : reassembles 40871 = true ∧ castsFifteens 40871 = true := by decide
+
+/-- 9fa8: nibbles fold back to 40872; digit sum 42 ≡ 40872 (mod 15). -/
+theorem enumeration_hex4_9fa8 : reassembles 40872 = true ∧ castsFifteens 40872 = true := by decide
+
+/-- 9fa9: nibbles fold back to 40873; digit sum 43 ≡ 40873 (mod 15). -/
+theorem enumeration_hex4_9fa9 : reassembles 40873 = true ∧ castsFifteens 40873 = true := by decide
+
+/-- 9faa: nibbles fold back to 40874; digit sum 44 ≡ 40874 (mod 15). -/
+theorem enumeration_hex4_9faa : reassembles 40874 = true ∧ castsFifteens 40874 = true := by decide
+
+/-- 9fab: nibbles fold back to 40875; digit sum 45 ≡ 40875 (mod 15). -/
+theorem enumeration_hex4_9fab : reassembles 40875 = true ∧ castsFifteens 40875 = true := by decide
+
+/-- 9fac: nibbles fold back to 40876; digit sum 46 ≡ 40876 (mod 15). -/
+theorem enumeration_hex4_9fac : reassembles 40876 = true ∧ castsFifteens 40876 = true := by decide
+
+/-- 9fad: nibbles fold back to 40877; digit sum 47 ≡ 40877 (mod 15). -/
+theorem enumeration_hex4_9fad : reassembles 40877 = true ∧ castsFifteens 40877 = true := by decide
+
+/-- 9fae: nibbles fold back to 40878; digit sum 48 ≡ 40878 (mod 15). -/
+theorem enumeration_hex4_9fae : reassembles 40878 = true ∧ castsFifteens 40878 = true := by decide
+
+/-- 9faf: nibbles fold back to 40879; digit sum 49 ≡ 40879 (mod 15). -/
+theorem enumeration_hex4_9faf : reassembles 40879 = true ∧ castsFifteens 40879 = true := by decide
+
+/-- 9fb0: nibbles fold back to 40880; digit sum 35 ≡ 40880 (mod 15). -/
+theorem enumeration_hex4_9fb0 : reassembles 40880 = true ∧ castsFifteens 40880 = true := by decide
+
+/-- 9fb1: nibbles fold back to 40881; digit sum 36 ≡ 40881 (mod 15). -/
+theorem enumeration_hex4_9fb1 : reassembles 40881 = true ∧ castsFifteens 40881 = true := by decide
+
+/-- 9fb2: nibbles fold back to 40882; digit sum 37 ≡ 40882 (mod 15). -/
+theorem enumeration_hex4_9fb2 : reassembles 40882 = true ∧ castsFifteens 40882 = true := by decide
+
+/-- 9fb3: nibbles fold back to 40883; digit sum 38 ≡ 40883 (mod 15). -/
+theorem enumeration_hex4_9fb3 : reassembles 40883 = true ∧ castsFifteens 40883 = true := by decide
+
+/-- 9fb4: nibbles fold back to 40884; digit sum 39 ≡ 40884 (mod 15). -/
+theorem enumeration_hex4_9fb4 : reassembles 40884 = true ∧ castsFifteens 40884 = true := by decide
+
+/-- 9fb5: nibbles fold back to 40885; digit sum 40 ≡ 40885 (mod 15). -/
+theorem enumeration_hex4_9fb5 : reassembles 40885 = true ∧ castsFifteens 40885 = true := by decide
+
+/-- 9fb6: nibbles fold back to 40886; digit sum 41 ≡ 40886 (mod 15). -/
+theorem enumeration_hex4_9fb6 : reassembles 40886 = true ∧ castsFifteens 40886 = true := by decide
+
+/-- 9fb7: nibbles fold back to 40887; digit sum 42 ≡ 40887 (mod 15). -/
+theorem enumeration_hex4_9fb7 : reassembles 40887 = true ∧ castsFifteens 40887 = true := by decide
+
+/-- 9fb8: nibbles fold back to 40888; digit sum 43 ≡ 40888 (mod 15). -/
+theorem enumeration_hex4_9fb8 : reassembles 40888 = true ∧ castsFifteens 40888 = true := by decide
+
+/-- 9fb9: nibbles fold back to 40889; digit sum 44 ≡ 40889 (mod 15). -/
+theorem enumeration_hex4_9fb9 : reassembles 40889 = true ∧ castsFifteens 40889 = true := by decide
+
+/-- 9fba: nibbles fold back to 40890; digit sum 45 ≡ 40890 (mod 15). -/
+theorem enumeration_hex4_9fba : reassembles 40890 = true ∧ castsFifteens 40890 = true := by decide
+
+/-- 9fbb: nibbles fold back to 40891; digit sum 46 ≡ 40891 (mod 15). -/
+theorem enumeration_hex4_9fbb : reassembles 40891 = true ∧ castsFifteens 40891 = true := by decide
+
+/-- 9fbc: nibbles fold back to 40892; digit sum 47 ≡ 40892 (mod 15). -/
+theorem enumeration_hex4_9fbc : reassembles 40892 = true ∧ castsFifteens 40892 = true := by decide
+
+/-- 9fbd: nibbles fold back to 40893; digit sum 48 ≡ 40893 (mod 15). -/
+theorem enumeration_hex4_9fbd : reassembles 40893 = true ∧ castsFifteens 40893 = true := by decide
+
+/-- 9fbe: nibbles fold back to 40894; digit sum 49 ≡ 40894 (mod 15). -/
+theorem enumeration_hex4_9fbe : reassembles 40894 = true ∧ castsFifteens 40894 = true := by decide
+
+/-- 9fbf: nibbles fold back to 40895; digit sum 50 ≡ 40895 (mod 15). -/
+theorem enumeration_hex4_9fbf : reassembles 40895 = true ∧ castsFifteens 40895 = true := by decide
+
+/-- 9fc0: nibbles fold back to 40896; digit sum 36 ≡ 40896 (mod 15). -/
+theorem enumeration_hex4_9fc0 : reassembles 40896 = true ∧ castsFifteens 40896 = true := by decide
+
+/-- 9fc1: nibbles fold back to 40897; digit sum 37 ≡ 40897 (mod 15). -/
+theorem enumeration_hex4_9fc1 : reassembles 40897 = true ∧ castsFifteens 40897 = true := by decide
+
+/-- 9fc2: nibbles fold back to 40898; digit sum 38 ≡ 40898 (mod 15). -/
+theorem enumeration_hex4_9fc2 : reassembles 40898 = true ∧ castsFifteens 40898 = true := by decide
+
+/-- 9fc3: nibbles fold back to 40899; digit sum 39 ≡ 40899 (mod 15). -/
+theorem enumeration_hex4_9fc3 : reassembles 40899 = true ∧ castsFifteens 40899 = true := by decide
+
+/-- 9fc4: nibbles fold back to 40900; digit sum 40 ≡ 40900 (mod 15). -/
+theorem enumeration_hex4_9fc4 : reassembles 40900 = true ∧ castsFifteens 40900 = true := by decide
+
+/-- 9fc5: nibbles fold back to 40901; digit sum 41 ≡ 40901 (mod 15). -/
+theorem enumeration_hex4_9fc5 : reassembles 40901 = true ∧ castsFifteens 40901 = true := by decide
+
+/-- 9fc6: nibbles fold back to 40902; digit sum 42 ≡ 40902 (mod 15). -/
+theorem enumeration_hex4_9fc6 : reassembles 40902 = true ∧ castsFifteens 40902 = true := by decide
+
+/-- 9fc7: nibbles fold back to 40903; digit sum 43 ≡ 40903 (mod 15). -/
+theorem enumeration_hex4_9fc7 : reassembles 40903 = true ∧ castsFifteens 40903 = true := by decide
+
+/-- 9fc8: nibbles fold back to 40904; digit sum 44 ≡ 40904 (mod 15). -/
+theorem enumeration_hex4_9fc8 : reassembles 40904 = true ∧ castsFifteens 40904 = true := by decide
+
+/-- 9fc9: nibbles fold back to 40905; digit sum 45 ≡ 40905 (mod 15). -/
+theorem enumeration_hex4_9fc9 : reassembles 40905 = true ∧ castsFifteens 40905 = true := by decide
+
+/-- 9fca: nibbles fold back to 40906; digit sum 46 ≡ 40906 (mod 15). -/
+theorem enumeration_hex4_9fca : reassembles 40906 = true ∧ castsFifteens 40906 = true := by decide
+
+/-- 9fcb: nibbles fold back to 40907; digit sum 47 ≡ 40907 (mod 15). -/
+theorem enumeration_hex4_9fcb : reassembles 40907 = true ∧ castsFifteens 40907 = true := by decide
+
+/-- 9fcc: nibbles fold back to 40908; digit sum 48 ≡ 40908 (mod 15). -/
+theorem enumeration_hex4_9fcc : reassembles 40908 = true ∧ castsFifteens 40908 = true := by decide
+
+/-- 9fcd: nibbles fold back to 40909; digit sum 49 ≡ 40909 (mod 15). -/
+theorem enumeration_hex4_9fcd : reassembles 40909 = true ∧ castsFifteens 40909 = true := by decide
+
+/-- 9fce: nibbles fold back to 40910; digit sum 50 ≡ 40910 (mod 15). -/
+theorem enumeration_hex4_9fce : reassembles 40910 = true ∧ castsFifteens 40910 = true := by decide
+
+/-- 9fcf: nibbles fold back to 40911; digit sum 51 ≡ 40911 (mod 15). -/
+theorem enumeration_hex4_9fcf : reassembles 40911 = true ∧ castsFifteens 40911 = true := by decide
+
+/-- 9fd0: nibbles fold back to 40912; digit sum 37 ≡ 40912 (mod 15). -/
+theorem enumeration_hex4_9fd0 : reassembles 40912 = true ∧ castsFifteens 40912 = true := by decide
+
+/-- 9fd1: nibbles fold back to 40913; digit sum 38 ≡ 40913 (mod 15). -/
+theorem enumeration_hex4_9fd1 : reassembles 40913 = true ∧ castsFifteens 40913 = true := by decide
+
+/-- 9fd2: nibbles fold back to 40914; digit sum 39 ≡ 40914 (mod 15). -/
+theorem enumeration_hex4_9fd2 : reassembles 40914 = true ∧ castsFifteens 40914 = true := by decide
+
+/-- 9fd3: nibbles fold back to 40915; digit sum 40 ≡ 40915 (mod 15). -/
+theorem enumeration_hex4_9fd3 : reassembles 40915 = true ∧ castsFifteens 40915 = true := by decide
+
+/-- 9fd4: nibbles fold back to 40916; digit sum 41 ≡ 40916 (mod 15). -/
+theorem enumeration_hex4_9fd4 : reassembles 40916 = true ∧ castsFifteens 40916 = true := by decide
+
+/-- 9fd5: nibbles fold back to 40917; digit sum 42 ≡ 40917 (mod 15). -/
+theorem enumeration_hex4_9fd5 : reassembles 40917 = true ∧ castsFifteens 40917 = true := by decide
+
+/-- 9fd6: nibbles fold back to 40918; digit sum 43 ≡ 40918 (mod 15). -/
+theorem enumeration_hex4_9fd6 : reassembles 40918 = true ∧ castsFifteens 40918 = true := by decide
+
+/-- 9fd7: nibbles fold back to 40919; digit sum 44 ≡ 40919 (mod 15). -/
+theorem enumeration_hex4_9fd7 : reassembles 40919 = true ∧ castsFifteens 40919 = true := by decide
+
+/-- 9fd8: nibbles fold back to 40920; digit sum 45 ≡ 40920 (mod 15). -/
+theorem enumeration_hex4_9fd8 : reassembles 40920 = true ∧ castsFifteens 40920 = true := by decide
+
+/-- 9fd9: nibbles fold back to 40921; digit sum 46 ≡ 40921 (mod 15). -/
+theorem enumeration_hex4_9fd9 : reassembles 40921 = true ∧ castsFifteens 40921 = true := by decide
+
+/-- 9fda: nibbles fold back to 40922; digit sum 47 ≡ 40922 (mod 15). -/
+theorem enumeration_hex4_9fda : reassembles 40922 = true ∧ castsFifteens 40922 = true := by decide
+
+/-- 9fdb: nibbles fold back to 40923; digit sum 48 ≡ 40923 (mod 15). -/
+theorem enumeration_hex4_9fdb : reassembles 40923 = true ∧ castsFifteens 40923 = true := by decide
+
+/-- 9fdc: nibbles fold back to 40924; digit sum 49 ≡ 40924 (mod 15). -/
+theorem enumeration_hex4_9fdc : reassembles 40924 = true ∧ castsFifteens 40924 = true := by decide
+
+/-- 9fdd: nibbles fold back to 40925; digit sum 50 ≡ 40925 (mod 15). -/
+theorem enumeration_hex4_9fdd : reassembles 40925 = true ∧ castsFifteens 40925 = true := by decide
+
+/-- 9fde: nibbles fold back to 40926; digit sum 51 ≡ 40926 (mod 15). -/
+theorem enumeration_hex4_9fde : reassembles 40926 = true ∧ castsFifteens 40926 = true := by decide
+
+/-- 9fdf: nibbles fold back to 40927; digit sum 52 ≡ 40927 (mod 15). -/
+theorem enumeration_hex4_9fdf : reassembles 40927 = true ∧ castsFifteens 40927 = true := by decide
+
+/-- 9fe0: nibbles fold back to 40928; digit sum 38 ≡ 40928 (mod 15). -/
+theorem enumeration_hex4_9fe0 : reassembles 40928 = true ∧ castsFifteens 40928 = true := by decide
+
+/-- 9fe1: nibbles fold back to 40929; digit sum 39 ≡ 40929 (mod 15). -/
+theorem enumeration_hex4_9fe1 : reassembles 40929 = true ∧ castsFifteens 40929 = true := by decide
+
+/-- 9fe2: nibbles fold back to 40930; digit sum 40 ≡ 40930 (mod 15). -/
+theorem enumeration_hex4_9fe2 : reassembles 40930 = true ∧ castsFifteens 40930 = true := by decide
+
+/-- 9fe3: nibbles fold back to 40931; digit sum 41 ≡ 40931 (mod 15). -/
+theorem enumeration_hex4_9fe3 : reassembles 40931 = true ∧ castsFifteens 40931 = true := by decide
+
+/-- 9fe4: nibbles fold back to 40932; digit sum 42 ≡ 40932 (mod 15). -/
+theorem enumeration_hex4_9fe4 : reassembles 40932 = true ∧ castsFifteens 40932 = true := by decide
+
+/-- 9fe5: nibbles fold back to 40933; digit sum 43 ≡ 40933 (mod 15). -/
+theorem enumeration_hex4_9fe5 : reassembles 40933 = true ∧ castsFifteens 40933 = true := by decide
+
+/-- 9fe6: nibbles fold back to 40934; digit sum 44 ≡ 40934 (mod 15). -/
+theorem enumeration_hex4_9fe6 : reassembles 40934 = true ∧ castsFifteens 40934 = true := by decide
+
+/-- 9fe7: nibbles fold back to 40935; digit sum 45 ≡ 40935 (mod 15). -/
+theorem enumeration_hex4_9fe7 : reassembles 40935 = true ∧ castsFifteens 40935 = true := by decide
+
+/-- 9fe8: nibbles fold back to 40936; digit sum 46 ≡ 40936 (mod 15). -/
+theorem enumeration_hex4_9fe8 : reassembles 40936 = true ∧ castsFifteens 40936 = true := by decide
+
+/-- 9fe9: nibbles fold back to 40937; digit sum 47 ≡ 40937 (mod 15). -/
+theorem enumeration_hex4_9fe9 : reassembles 40937 = true ∧ castsFifteens 40937 = true := by decide
+
+/-- 9fea: nibbles fold back to 40938; digit sum 48 ≡ 40938 (mod 15). -/
+theorem enumeration_hex4_9fea : reassembles 40938 = true ∧ castsFifteens 40938 = true := by decide
+
+/-- 9feb: nibbles fold back to 40939; digit sum 49 ≡ 40939 (mod 15). -/
+theorem enumeration_hex4_9feb : reassembles 40939 = true ∧ castsFifteens 40939 = true := by decide
+
+/-- 9fec: nibbles fold back to 40940; digit sum 50 ≡ 40940 (mod 15). -/
+theorem enumeration_hex4_9fec : reassembles 40940 = true ∧ castsFifteens 40940 = true := by decide
+
+/-- 9fed: nibbles fold back to 40941; digit sum 51 ≡ 40941 (mod 15). -/
+theorem enumeration_hex4_9fed : reassembles 40941 = true ∧ castsFifteens 40941 = true := by decide
+
+/-- 9fee: nibbles fold back to 40942; digit sum 52 ≡ 40942 (mod 15). -/
+theorem enumeration_hex4_9fee : reassembles 40942 = true ∧ castsFifteens 40942 = true := by decide
+
+/-- 9fef: nibbles fold back to 40943; digit sum 53 ≡ 40943 (mod 15). -/
+theorem enumeration_hex4_9fef : reassembles 40943 = true ∧ castsFifteens 40943 = true := by decide
+
+/-- 9ff0: nibbles fold back to 40944; digit sum 39 ≡ 40944 (mod 15). -/
+theorem enumeration_hex4_9ff0 : reassembles 40944 = true ∧ castsFifteens 40944 = true := by decide
+
+/-- 9ff1: nibbles fold back to 40945; digit sum 40 ≡ 40945 (mod 15). -/
+theorem enumeration_hex4_9ff1 : reassembles 40945 = true ∧ castsFifteens 40945 = true := by decide
+
+/-- 9ff2: nibbles fold back to 40946; digit sum 41 ≡ 40946 (mod 15). -/
+theorem enumeration_hex4_9ff2 : reassembles 40946 = true ∧ castsFifteens 40946 = true := by decide
+
+/-- 9ff3: nibbles fold back to 40947; digit sum 42 ≡ 40947 (mod 15). -/
+theorem enumeration_hex4_9ff3 : reassembles 40947 = true ∧ castsFifteens 40947 = true := by decide
+
+/-- 9ff4: nibbles fold back to 40948; digit sum 43 ≡ 40948 (mod 15). -/
+theorem enumeration_hex4_9ff4 : reassembles 40948 = true ∧ castsFifteens 40948 = true := by decide
+
+/-- 9ff5: nibbles fold back to 40949; digit sum 44 ≡ 40949 (mod 15). -/
+theorem enumeration_hex4_9ff5 : reassembles 40949 = true ∧ castsFifteens 40949 = true := by decide
+
+/-- 9ff6: nibbles fold back to 40950; digit sum 45 ≡ 40950 (mod 15). -/
+theorem enumeration_hex4_9ff6 : reassembles 40950 = true ∧ castsFifteens 40950 = true := by decide
+
+/-- 9ff7: nibbles fold back to 40951; digit sum 46 ≡ 40951 (mod 15). -/
+theorem enumeration_hex4_9ff7 : reassembles 40951 = true ∧ castsFifteens 40951 = true := by decide
+
+/-- 9ff8: nibbles fold back to 40952; digit sum 47 ≡ 40952 (mod 15). -/
+theorem enumeration_hex4_9ff8 : reassembles 40952 = true ∧ castsFifteens 40952 = true := by decide
+
+/-- 9ff9: nibbles fold back to 40953; digit sum 48 ≡ 40953 (mod 15). -/
+theorem enumeration_hex4_9ff9 : reassembles 40953 = true ∧ castsFifteens 40953 = true := by decide
+
+/-- 9ffa: nibbles fold back to 40954; digit sum 49 ≡ 40954 (mod 15). -/
+theorem enumeration_hex4_9ffa : reassembles 40954 = true ∧ castsFifteens 40954 = true := by decide
+
+/-- 9ffb: nibbles fold back to 40955; digit sum 50 ≡ 40955 (mod 15). -/
+theorem enumeration_hex4_9ffb : reassembles 40955 = true ∧ castsFifteens 40955 = true := by decide
+
+/-- 9ffc: nibbles fold back to 40956; digit sum 51 ≡ 40956 (mod 15). -/
+theorem enumeration_hex4_9ffc : reassembles 40956 = true ∧ castsFifteens 40956 = true := by decide
+
+/-- 9ffd: nibbles fold back to 40957; digit sum 52 ≡ 40957 (mod 15). -/
+theorem enumeration_hex4_9ffd : reassembles 40957 = true ∧ castsFifteens 40957 = true := by decide
+
+/-- 9ffe: nibbles fold back to 40958; digit sum 53 ≡ 40958 (mod 15). -/
+theorem enumeration_hex4_9ffe : reassembles 40958 = true ∧ castsFifteens 40958 = true := by decide
+
+/-- 9fff: nibbles fold back to 40959; digit sum 54 ≡ 40959 (mod 15). -/
+theorem enumeration_hex4_9fff : reassembles 40959 = true ∧ castsFifteens 40959 = true := by decide

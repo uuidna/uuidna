@@ -1163,7 +1163,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "mistralai/mistral-medium-3-5:batch",
    "name": "Mistral: Mistral Medium 3.5 (batch)",
-   "contextTokens": 32768,
+   "contextTokens": 262144,
    "promptPrice": "0.00000075",
    "completionPrice": "0.00000375"
   },

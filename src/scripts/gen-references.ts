@@ -39,7 +39,18 @@ const fromDataCite = (a: Record<string, unknown>): Partial<Reference> => {
 // titles) and with authors whose own initials already end in a period. Both are the registry's business, not the
 // citation's, so the text is normalised on the way out: tags stripped, whitespace collapsed, and a terminating
 // period added only where one is not already there. Nothing is invented — only the punctuation is ours.
-const tidy = (t: string) => t.replace(/<[^>]*>/g, '').replace(/&[a-z]+;/gi, ' ').replace(/\s+/g, ' ').trim()
+const tidy = (t: string): string => {
+  // ONE REPLACE IS NOT A SANITIZER. Stripping `<[^>]*>` once leaves `<scr<script>ipt>` as `<script>` — the
+  // incomplete multi-character case CodeQL names. The title is a citation, not markup, so tags are drained
+  // until a pass changes nothing, then entities collapse to space.
+  let s = t
+  for (;;) {
+    const next = s.replace(/<[^>]*>/g, '')
+    if (next === s) break
+    s = next
+  }
+  return s.replace(/&[a-z]+;/gi, ' ').replace(/\s+/g, ' ').trim()
+}
 const dot = (t: string) => (/[.?!]$/.test(t) ? t : t + '.')
 
 // the human citation, ASSEMBLED from resolved fields — never a typed string

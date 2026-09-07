@@ -31,7 +31,7 @@
 // (drift_is_named_or_caught). Every OTHER generated wing counts.
 import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, docComment, m9, type Fact, chunkedSum } from './lean-gen.js'
+import { ROOT, docComment, m9, type Fact, chunkedSum, chunkedList } from './lean-gen.js'
 
 const LEAN_DIR = join(ROOT, 'lean')
 const SELF = 'Audit.lean'
@@ -121,7 +121,12 @@ const perWing = files.map((f) => {
     trips: c.filter((t) => t.doc.length > 0 && reparse(t.doc) === t.doc).length,
     clean: c.filter((t) => t.doc.length > 0 && !/(?<!\\)-\//.test(t.doc)).length }
 })
-const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
+// CHUNKED, LIKE THE SUM BESIDE IT. This was a FLAT list, so comparing two per-wing censuses recursed once per
+// wing — and the wing that carries this statement died at 174 entries having been fine at 150, the same failure
+// chunkedSum was written to end and in the same file. The sum was fixed and the equality beside it was left
+// flat, which is what a partial fix looks like from the outside: a gate that passes until the tree grows.
+// chunkedList associates the comparison the same way, so depth stops tracking the census length here too.
+const L = (ns: number[]): string => chunkedList(ns)
 // SUM was a LOCAL copy here and a second local copy in the sibling generator, which is precisely how the same
 // recursion-depth failure reached three wings at once when the ledger grew past 119 entries. One helper now,
 // in lean-gen, folding in two levels so depth stops tracking the census length.
