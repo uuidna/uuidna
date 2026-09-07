@@ -60,13 +60,16 @@ test('the receipt is deterministic', () => {
 })
 
 // A SEALED LITERAL MUST STILL EQUAL THE LIVE FIGURE — see the note in publication-graph.test.ts. The theorem
-// `the_axiom_index_partitions_without_remainder` seals 93 direct + 15 reached + 0 unreached = 108 definitions.
-// Recomputed here so a new wing's vocabulary cannot silently make that sentence historical.
+// `the_axiom_index_partitions_without_remainder` seals 126 direct + 87 reached + 0 unreached = 213 definitions.
+// Recomputed here so a new wing's vocabulary cannot silently make that sentence historical. It fired exactly as
+// intended on 2026-09-06: five new wings brought pmod, ordOf, unitsOf, lawLambda and their kin into the index,
+// the figure moved 108 -> 213, and the ratchet refused to let the sealed sentence stay behind. The numbers below
+// are the live ones AFTER re-minting the theorem — they are not a widening of the test, they are its point.
 test('the sealed partition figures still ARE the live index', () => {
   const r = axiomReach()
-  assert.equal(r.defs, 108, 'the theorem seals 108 definitions')
-  assert.equal(r.direct, 93, 'the theorem seals 93 directly cited')
-  assert.equal(r.reached, 15, 'the theorem seals 15 reached through a parent')
+  assert.equal(r.defs, 213, 'the theorem seals 213 definitions')
+  assert.equal(r.direct, 126, 'the theorem seals 126 directly cited')
+  assert.equal(r.reached, 87, 'the theorem seals 87 reached through a parent')
   assert.equal(r.orphans.length, 0, 'the theorem seals 0 unreached')
   assert.equal(r.direct + r.reached + r.orphans.length, r.defs)
 })
