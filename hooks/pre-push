@@ -51,9 +51,19 @@ fi
 # declared drain paths (what reconcile regenerates) and reports, by count, what it left to the sessions that own it.
 drain=$(node -e 'import("./dist/scripts/api.js").then(m=>console.log(m.DRAIN_PATHS.join(" ")))' 2>/dev/null)
 if [ -n "$drain" ] && ! eval git diff --exit-code --quiet -- $drain; then
-  echo "pre-push: the DERIVED layer is DIRTY after it settled — push BLOCKED."
-  echo "  gate-all's own 'git diff' arm fails on exactly this, ~12 minutes into a publish. Commit or re-derive."
-  exit 1
+  # THE PRECEDE LAW'S OTHER HALF (lead 231). A derived file may not be COMMITTED ahead of an unstaged source it is
+  # computed from (one-receipt precede); the same file may not then be BLOCKED for staying uncommitted. When any
+  # wing or wing generator is modified and unstaged — another session's live work — the derived layer is waiting
+  # for its source, by law, and this arm names that instead of refusing. With every source committed, a dirty
+  # derived layer is a settle nobody committed, and the refusal stands.
+  waiting=$(git diff --name-only | grep -cE '^(lean/[^/]+\.lean|src/scripts/lean-.+\.ts)$')
+  if [ "$waiting" -gt 0 ]; then
+    echo "pre-push: the derived layer is dirty and WAITS for $waiting in-flight source file(s) (precede: derived may not be committed ahead of them) — not judged here"
+  else
+    echo "pre-push: the DERIVED layer is DIRTY after it settled — push BLOCKED."
+    echo "  gate-all's own 'git diff' arm fails on exactly this, ~12 minutes into a publish. Commit or re-derive."
+    exit 1
+  fi
 fi
 if [ -z "$drain" ] && ! git diff --exit-code --quiet; then
   echo "pre-push: the working tree is DIRTY and the drain paths could not be read — push BLOCKED."

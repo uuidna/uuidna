@@ -20,3 +20,10 @@ test('drain-only stages the declared drain paths and commits with a pathspec; --
   assert.doesNotMatch(land, /git (push|commit)[^\n]*--no-verify/, 'no git command in land bypasses a hook')
   assert.ok(DRAIN_PATHS.length > 50, 'the drain is the declared derived layer, not a guess')
 })
+
+test('the push arm judges the derived layer it names, and defers what the precede law forbids committing', () => {
+  const hook = readFileSync(join(ROOT, 'hooks', 'pre-push'), 'utf8')
+  assert.match(hook, /DRAIN_PATHS\.join/, 'the arm diffs the declared drain, not the whole tree')
+  assert.match(hook, /lean\/\[\^\/\]\+\\\.lean\|src\/scripts\/lean-\.\+\\\.ts/, 'the waiting set is precede\'s own source set')
+  assert.match(hook, /push BLOCKED/, 'a settle nobody committed is still refused')
+})
