@@ -11,7 +11,7 @@
 //   npm run x -- lean-heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
-import { capacity } from '../os/host/index.js'
+import { capacity, laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
@@ -204,7 +204,15 @@ async function main() {
     for (const t of missing) { const l = byWing.get(t.file); if (l) l.push(t); else byWing.set(t.file, [t]) }
     const wings = [...byWing.entries()]
     process.stderr.write(`sync: ${missing.length} theorem(s) across ${wings.length} wing(s), batched\n`)
-    const perWing = await pool(wings, capacity().lanes, async ([file, ts], wi) => {
+    // THE WIDTH IS THE ENTANGLED ONE, NOT THE CPU COUNT. `capacity()` with no per-job footprint considers only
+// cores — it says so in its own `binds` field, "memory not considered" — so this asked for ten lean processes on
+// a machine whose memory admits about twelve at 2,696 MB each, and never subtracted the jobs another session had
+// already started. Measured consequence on this host: 88% system time and 15.5 GB of swap. `laneBudget` passes
+// the measured footprint so the memory point can bind, and subtracts neighbours it can actually see; yielding is
+// unilateral, so it needs no agreement between sessions. The captain uncapped the ARBITRARY ceilings — the
+// two-lane reserve and the halving — and this is what he uncapped them in favour of: five measured constraints
+// intersecting, with `binds` naming which one won.
+const perWing = await pool(wings, laneBudget(LEAN_JOB_BYTES, '[l]ean ').lanes, async ([file, ts], wi) => {
       const probes = ts.map((t) => ({ key: t.key, source: blockOf(t.file, t.key, t.lean) }))
       let got = new Map<string, number>()
       try { got = await costsBatched(probes, defPrefix[file] || '', String(wi)) } catch { got = new Map() }
@@ -246,7 +254,7 @@ async function main() {
     // --sync path beside it asks capacity().lanes — two widths for one machine, and the hardcoded one wins
     // whenever --all is used. A lane count that does not come from the host is a second opinion about the
     // hardware, and the host is the only one entitled to it.
-    const costs = await pool(T as unknown as (typeof T)[number][], capacity().lanes, async (t) => {
+    const costs = await pool(T as unknown as (typeof T)[number][], laneBudget(LEAN_JOB_BYTES, '[l]ean ').lanes, async (t) => {
       let c: number | null
       try { c = await costOf(t) } catch { c = null }
       done += 1

@@ -57,11 +57,57 @@ const identity = (raw: string): string | null => {
   }
   return null
   }
+
+// A WALK DOES NOT RESCUE A TAUTOLOGY, and this rule was blind to that. Every check above reads the TOP-LEVEL
+// statement, so a body hidden inside `.all (fun x => …)` was never examined — and on 2026-09-06 two theorems were
+// rewritten to remove overreach and both came back as tautologies under a walk: `w + (100 - w) == 100` over
+// List.range 101, and `(k+1)*300 - (k+1)*300 == 0` over List.range 60. Every quantifier check passed, because the
+// quantifier was real; the proposition inside it was true before the domain was consulted. They were caught by
+// re-reading, which is the instrument this ledger trusts least.
+//
+// Two additions close that. selfCancel matches the shapes on EXPRESSIONS rather than digits, so a bound variable
+// is covered; and why() now descends into a lambda body, because the vacuity of a walk is the vacuity of what it
+// walks. The domain size is irrelevant: a hundred and one true-for-every-input checks decide nothing at all.
+const selfCancel = (raw: string): string | null => {
+  const t = strip(raw)
+  // E - E = 0, decided STRUCTURALLY rather than by pattern: split the left side of the comparison on its
+  // top-level minus and compare the two halves as normalised text. A regex was tried first and missed the exact
+  // statement it was written for, because a trailing paren sat between the second E and the operator — which is
+  // the whole argument for splitting on the operator the module already knows how to find.
+  for (const eq of ['==', '=']) {
+    const cmp = split(t, eq)
+    if (!cmp) continue
+    if (strip(cmp[1]) !== '0') continue
+    const minus = split(strip(cmp[0]), '-')
+    if (minus && strip(minus[0]) && strip(minus[0]) === strip(minus[1])) return 'E - E = 0 — self-cancelling, true for ANY E'
+  }
+  // E + (n - E) == n, the complement sum
+  // ANCHORED, because unanchored it over-fired. A long conjunction that happens to CONTAIN a complement clause
+  // is not vacuous — the existing rule is right that a conjunction is vacuous only when every conjunct is, and a
+  // substring match walked straight past that, flagging two substantive theorems (vortex_one_leap and
+  // the_passage_costs_a_coin_at_each_end) on one clause out of a dozen. Same defect as the two detectors written
+  // earlier the same day: a pattern that fires on part of a thing and reports the whole.
+  const m = /^\(?([A-Za-z0-9_.()*+\s]{1,48}?)\s*\+\s*\(\s*(\d+)\s*-\s*\1\s*\)\s*(?:==|=)\s*(\d+)\)?$/.exec(t)
+  if (m && m[2] === m[3]) return 'E + (n - E) = n — the complement sum, true for ANY E ≤ n'
+  return null
+  }
+
+/** the body of a walk, when the statement is one — `.all (fun x => BODY)` and friends */
+const walkBody = (raw: string): string | null => {
+  const m = /\.\s*(?:all|any|countP|filter)\s*\(\s*fun\s+[A-Za-z0-9_]+\s*=>\s*([\s\S]+)\)\s*$/.exec(strip(raw))
+  return m ? m[1]!.trim() : null
+  }
+
 const why = (raw: string): string | null => {
   const s = strip(raw)
   if (s === 'True') return 'True — proves nothing at all'
   const id = identity(s)
   if (id) return id
+  const sc = selfCancel(s)
+  if (sc) return sc
+  // descend: a walk is exactly as vacuous as the proposition it walks
+  const body = walkBody(s)
+  if (body) { const bw = why(body); if (bw) return `the walk is real but its body is not — ${bw}` }
   for (const op of ['↔', '→', '∨', '∧', '=']) {
   const parts = split(s, op)
     if (!parts) continue

@@ -23,7 +23,7 @@ import { pathToFileURL } from 'node:url'
 import { readProofCache, proofEntryValid, pendingProofs, provePending, queueProof } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
-import { capacity } from '../os/host/index.js'
+import { capacity, laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 const SCRIPTS = join(ROOT, 'dist', 'scripts')
@@ -102,9 +102,17 @@ for (const f of HAND_WRITTEN) {
 // slower disk moves the figure, and none of it is sealed — the instrument is named here precisely so a reader who
 // sees another number can tell a changed machine from a changed repository. Naming the toolchain buys provenance,
 // not proof: the kernel below confirms theorems, and it has never confirmed a timing.
-const lanes = capacity().lanes
+// THE WIDTH IS THE ENTANGLED ONE, NOT THE CPU COUNT. `capacity()` with no per-job footprint considers only
+// cores — it says so in its own `binds` field, "memory not considered" — so this asked for ten lean processes on
+// a machine whose memory admits about twelve at 2,696 MB each, and never subtracted the jobs another session had
+// already started. Measured consequence on this host: 88% system time and 15.5 GB of swap. `laneBudget` passes
+// the measured footprint so the memory point can bind, and subtracts neighbours it can actually see; yielding is
+// unilateral, so it needs no agreement between sessions. The captain uncapped the ARBITRARY ceilings — the
+// two-lane reserve and the halving — and this is what he uncapped them in favour of: five measured constraints
+// intersecting, with `binds` naming which one won.
+const { lanes, binds } = laneBudget(LEAN_JOB_BYTES, '[l]ean ')
 const queued = pendingProofs().length
-if (queued) console.log(`lean-all — ${queued} wing(s) to prove, ${lanes} lanes …`)
+if (queued) console.log(`lean-all — ${queued} wing(s) to prove, ${lanes} lanes (${binds}) …`)
 const { failed } = await provePending(lanes)
 if (failed.length) {
   console.error(`\n✗ lean-all — ${failed.length} wing(s) FAILED the kernel: ${failed.map((f) => f.file).join(', ')}`)

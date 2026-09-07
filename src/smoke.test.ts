@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { MATH_CALL, stripCommentLines } from './harmony.js'
 import { ROOT } from './boundary.js'
 import {
   toUuid, strictUuidna, merkleFold, digitalRoot, units, vortexOrbit,
@@ -164,12 +165,15 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   const root = ROOT
   const scan = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? scan(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : [])
   const files = scan(join(root, 'src'))
-  const src = new Map(files.map((f) => [f, readFileSync(f, 'utf8')]))  // read each file ONCE — both hard-rejects share the pass
+  // read each file ONCE — both hard-rejects share the pass — and read CODE, not prose. Comment lines are dropped
+  // by the same helper the scanner uses, from the same module: this test, harmonic-scan and src/harmony.ts each
+  // carried their own copy of the rule, three regexes that agreed by looking alike rather than by being one.
+  const src = new Map(files.map((f) => [f, stripCommentLines(readFileSync(f, 'utf8'))]))
   const rel = (f: string) => f.slice(root.length + 1)
   // (1) Math.* is HARD REJECTED everywhere in src. A host intrinsic is not a local theorem — it cannot be recomputed
   // or content-addressed, so it cannot settle the two coins (the conserved recompute⇄verify exchange). Redirect the
   // author here; recompute the value from the theorem instead (>>, comparison, integer division, BigInt).
-  const mathOffenders = files.filter((f) => /\bMath\s*\.\s*[a-zA-Z]/.test(src.get(f)!)).map(rel)
+  const mathOffenders = files.filter((f) => MATH_CALL.test(src.get(f)!)).map(rel)
   assert.deepEqual(mathOffenders, [], 'Math.* is hard-rejected — not a local theorem, it cannot settle the two coins (' + coins() + ')')
   // (2) NON-DETERMINISM is HARD REJECTED in the recomputable LIBRARY (scripts/ + test/ are build tooling, exempt — a
   // heartbeat may TIME Lean). A wall-clock or RNG read comes back different for every observer, so it

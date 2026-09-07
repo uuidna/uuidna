@@ -8,6 +8,7 @@
 import { pqcPosture } from './pqc/index.js'
 import { invitation } from './invitation.js'
 import { handleStoreCensus } from './handle-store-census.js'
+import { fold as leadFold, around as leadsAround } from './lead-clusters.js'
 import {
   toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes, coins, coinSupply,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
@@ -189,6 +190,24 @@ const TOOLS: Tool[] = ([
     description: 'The offer to another repo, COMPUTED from this tree at the moment of asking — theorem and wing counts, the handle store, the host width and which point bound it. Every figure is read, none is typed, so the answer cannot be stale. Returns what is offered, what is ASKED in return (an invitation that hides obligations is a sales page) and what is REFUSED — there is no quantum hardware here and none is claimed.',
     inputSchema: { type: 'object', properties: {} },
     run: () => invitation(ROOT) },
+  { name: 'uuidna_lead_clusters',
+    description: 'Which sealed wings the tree\'s open and refuted leads stand around — every cluster computed in ONE pass over the corpus, not one scan per name. Leads are addressed by HANDLE (handleOf(toUuid(text))), so identity is content and the crosslink is handle-to-handle; the vocabulary is the tree\'s own wing names, never a hand-typed synonym table. Pass `term` to ask about one name (any word, whether or not a wing carries it). UNANCHORED leads — real work naming no sealed wing — are reported rather than dropped, and a source that could not be parsed is UNREADABLE, never counted as zero.',
+    inputSchema: { type: 'object', properties: { term: { type: 'string', description: 'a single name to ask about; omit for every cluster at once' } } },
+    run: (a: { term?: string } = {}) => {
+      if (a.term) {
+        const c = leadsAround(a.term, ROOT)
+        return { term: c.term, leads: c.hits.length, of: c.total, unreadable: c.unreadable.length,
+          hits: c.hits.map((l) => ({ handle: l.handle, status: l.status, source: l.source, text: l.text.slice(0, 240) })) }
+      }
+      const f = leadFold(ROOT)
+      return {
+        leads: f.leads.length,
+        clusters: f.clusters.map((c) => ({ term: c.term, handle: c.handle, leads: c.n })),
+        edges: f.graph.length,
+        unanchored: f.unanchored.length,
+        unreadable: f.unreadable.length,
+      }
+    } },
   { name: 'uuidna_handle_store',
     description: 'Handle store census — OCCUPANCY (leaves and keys on disk, by kind), CAPACITY (what the addressing admits: 2^32 leaves, and n(n-1)/2 links among the leaves present), and USE (the tree takes n-1 of those pairs). Three numbers a surface must never quote as one. Soundness is reported as a fraction — path spells handle, handle is the address prefix — and a file that cannot be read is UNMEASURED, never counted sound.',
     inputSchema: { type: 'object', properties: {} },

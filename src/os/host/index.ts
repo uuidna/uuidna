@@ -167,16 +167,34 @@ export interface Capacity {
  *  caller that does not is answered as before and TOLD memory was not considered — the third answer again: a lane
  *  count bounded by one point and a lane count bounded by the binding point must not look alike. `binds` names
  *  which point won, so a report can say why a wide machine ran narrow. */
-export function capacity(reserve = 2, perJobBytes = 0): Capacity {
+// UNCAPPED BY DEFAULT — the captain, 2026-09-07: "leave all uncapped and qpu will balance all", then "uncap so
+// all entangle naturally and then you will be amazed by the speed."
+//
+// The reserve was an ARBITRARY ceiling: two lanes held back by a number I chose, sitting in front of a model
+// whose whole purpose is to intersect five measured constraints. A hand-picked reserve does not entangle with
+// anything — it overrides whichever point would otherwise have bound, so the machine reports a width that no
+// measurement produced. Zero by default lets the points decide, and `binds` still names which one won.
+//
+// WHAT IS NOT UNCAPPED IS THE MEASURED BOUND. `memLanes` comes from real total memory divided by a real measured
+// per-job footprint; that is not a cap, it is the binding point doing its job, and removing it would not free
+// the machine but oversubscribe it — measured on this host as 88% system time and 15.5 GB of swap. The captain's
+// balance IS this minimum. A caller that wants lanes held back can still pass a reserve; nothing is taken away.
+export function capacity(reserve = 0, perJobBytes = 0): Capacity {
   const os = builtin<OsModule>('node:os')
   if (!os) return { logical: 1, lanes: 2, reserved: reserve, memoryGiB: 0, cpu: 'unknown — no host to measure', binds: 'unmeasured' }
   const logical = os.availableParallelism()
   const free = logical - reserve
-  const cpuLanes = free < 2 ? 2 : free
+  // the floor is ONE, not two: zero lanes is a stop rather than a measurement, and a second lane conjured on a
+  // single-core host is the same invented number the reserve was
+  const cpuLanes = free < 1 ? 1 : free
   const bytes = os.totalmem()
   // the memory a fan-out may spend: total less the same proportion the CPU reserve holds back, floored exactly
   const usable = bytes - (bytes / logical) * reserve
-  const memLanes = perJobBytes > 0 ? Math.trunc(usable / perJobBytes) : 0
+  // FLOORED BY REMAINDER, NEVER BY A HOST ROUTINE. The first version of this line called the global numeric
+  // namespace — inside the very function that now seals which point binds a width. The scan hard-rejects it with
+  // no exemption anywhere, and is right to: a fold that reaches for a host routine is a fold whose answer depends
+  // on the host, which is the whole defect this function was rewritten to end.
+  const memLanes = perJobBytes > 0 ? (usable - (usable % perJobBytes)) / perJobBytes : 0
   const bounded = perJobBytes > 0 && memLanes < cpuLanes
   return {
     logical,
@@ -186,6 +204,84 @@ export function capacity(reserve = 2, perJobBytes = 0): Capacity {
     cpu: os.cpus()[0]?.model.trim() ?? 'unknown',
     binds: perJobBytes > 0 ? (bounded ? 'memory' : 'cpu') : 'cpu-only — no per-job footprint given, memory not considered',
   }
+}
+
+/** A LEAN ELABORATION'S PEAK RESIDENT COST, MEASURED ON THIS HOST rather than assumed.
+ *
+ *  2026-09-07: `lean lean/Equilibrium.lean` sampled every 200 ms peaked at 2,696 MB. millennium-solutions
+ *  measured 2.9 GB independently on their own wing, which is the corroboration that makes this a host fact and
+ *  not one machine's accident. It is written down because a measurement has to live somewhere; it is written
+ *  down WITH ITS PROVENANCE because a constant without one is indistinguishable from a guess, and this tree has
+ *  four defects on record from numbers that arrived without a source.
+ *
+ *  WHY IT MATTERS AT ALL: ten lanes of this is 27 GB on a 32 GB machine, FROM ONE SESSION. Cores were never the
+ *  binding term. A lane count derived from availableParallelism alone asks for more memory than the host has and
+ *  discovers it as swap. */
+export const LEAN_JOB_BYTES = 2696 * 1024 * 1024
+
+/** runningLike(pattern) → how many processes match, or NULL when the probe could not answer.
+ *
+ *  THREE ANSWERS, NOT TWO, and the reason is a defect millennium-solutions found in their own tree and handed
+ *  over: their neighbour probe called `pgrep -c`, which is Linux — macOS has no such flag — so every call threw a
+ *  usage error, the catch reported ZERO, and the term answered "empty machine" for the entire time it was being
+ *  written. The feature was off and said nothing. Verified here: `pgrep -c` prints usage on this host.
+ *
+ *  So a probe that cannot run returns null, and null is never spent as zero. */
+export function runningLike(pattern: string): number | null {
+  const cp = builtin<{ execFileSync: (f: string, a: string[], o: unknown) => string }>('node:child_process')
+  if (!cp) return null
+  try {
+    // GREP'S OWN EXIT CODE CARRIES THE THREE ANSWERS, and nothing else does: 0 matched, 1 NO MATCH (a real
+    // measurement, not a failure), 2 could not run. THREE WRONG VERSIONS PRECEDED THIS ONE, each caught by the
+    // control below and none by reading:
+    //   1. piped into `wc -l` — a malformed pattern makes grep fail, wc still prints 0, the pipeline exits clean,
+    //      and the probe reports a MEASURED ZERO for a question it never asked. That is the exact defect
+    //      millennium-solutions handed over as a warning, reproduced within minutes of being warned.
+    //   2. added `set -o pipefail` — and over-corrected: no-match became unmeasurable, so an idle machine read as
+    //      unknown and every budget halved for nothing.
+    //   3. read the status correctly but let the script exit non-zero — execFileSync THROWS on that, so the catch
+    //      fired before the status could be read and no-match was null again, one layer further down.
+    // The script therefore always exits 0 and carries grep's status in its OUTPUT, where the transport cannot
+    // destroy it.
+    //   4. read `$?` after the SECOND grep — so a malformed pattern, which fails the FIRST, produced empty input
+    //      for the second, which then exited 1 and read as "no match". Four versions, four different ways to turn
+    //      "could not ask" into "nobody is there", and the control caught every one. The status must come from
+    //      the grep that carries the pattern, so that grep runs alone and its status is captured before anything
+    //      else touches the stream.
+    const sh = `out=$(ps -axo command= | grep -E ${JSON.stringify(pattern)}); rc=$?; `
+      + `printf '%s\\n' "$out" | grep -v grep; echo "rc=$rc"; exit 0`
+    const out = String(cp.execFileSync('/bin/sh', ['-c', sh], { encoding: 'utf8', timeout: 5000 }) as unknown as string)
+    const m = /rc=(\d+)\s*$/.exec(out.trim())
+    if (!m) return null
+    const rc = Number(m[1])
+    if (rc >= 2) return null                              // grep could not run — never spent as zero
+    if (rc === 1) return 0                                // no match, and that IS a measurement
+    return out.trim().split('\n').filter((l) => l && !/^rc=/.test(l)).length
+  } catch { return null }
+}
+
+/** laneBudget(perJobBytes, pattern) → the width to actually fan out at: the smallest of what the cores allow,
+ *  what the memory allows for a job of this size, and what is left after the jobs already running.
+ *
+ *  YIELDING IS UNILATERAL, which is why this needs no protocol and no agreement between repos — millennium-
+ *  solutions' point, and it is better than the shared budget I proposed. If every session subtracts what it can
+ *  already see, the sum is bounded whether or not anyone else cooperates.
+ *
+ *  AN UNMEASURABLE NEIGHBOUR COUNT IS NAMED, NOT PRICED. It used to halve the budget — a second arbitrary
+ *  ceiling, and the captain uncapped it: "uncap so all entangle naturally". Halving spent a guess as though it
+ *  were a measurement, and it did so in the one case where the instrument had already said it did not know.
+ *  The three answers stay distinguishable — that property is the whole point of the probe and is untouched —
+ *  but "I could not tell" now returns the measured capacity with UNMEASURED written across it, so a caller
+ *  reads an honest width plus a stated ignorance instead of a confident number that is quietly half wrong. */
+export function laneBudget(perJobBytes: number, pattern: string): { lanes: number; binds: string } {
+  const cap = capacity(0, perJobBytes)
+  const seen = runningLike(pattern)
+  if (seen === null) {
+    return { lanes: cap.lanes, binds: cap.binds + '; neighbours UNMEASURED — full width, and the ignorance is named' }
+  }
+  const left = cap.lanes - seen
+  if (seen > 0) return { lanes: left < 1 ? 1 : left, binds: cap.binds + `; ${seen} already running, yielded` }
+  return { lanes: cap.lanes, binds: cap.binds + '; no neighbour of this kind (measured)' }
 }
 
 /** CPU lanes this host will admit, plus one specified GPU worker when the job count pays postage. Independent

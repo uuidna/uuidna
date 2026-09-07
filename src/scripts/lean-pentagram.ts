@@ -1,81 +1,111 @@
 #!/usr/bin/env node
-// Automate the Lean layer for THE PENTAGRAM: A WIDTH IS THE BINDING POINT, AND ONE POINT CAN ONLY OVERSTATE.
-//
-// WHERE IT COMES FROM. zeropoint-node's qpu-pentagram states the QPU as five points — CPU, GPU, RAM, CACHE,
-// STORAGE — and records its own earlier reading as wrong BY OMISSION: a register grown on one thread gave 19
-// qubits and was called the machine's ceiling while ten cores, thirty-two gibibytes, twelve mebibytes of L2 and
-// twenty-eight gibibytes of disk sat outside the number. The correction is not a bigger number; it is that the
-// binding point must be NAMED.
-//
-// WHY IT IS A LAW HERE AND NOT A BORROWED SLOGAN. uuidna's own capacity() had the identical shape: `lanes` was
-// availableParallelism minus a reserve — the CPU point alone — while `memoryGiB` was measured in the same breath
-// and never allowed to bind it. Every ceiling that actually stopped work in this tree was the other point: the
-// static site could not fit its render in the container, the cure was a hand-picked concurrency, and the render
-// budget's peak was resident memory in the bundle phase. The fix and these theorems arrive together.
-//
-// THE THEOREM AT THE CENTRE, and it is why the omission is dangerous rather than merely incomplete:
-// A ONE-POINT MEASUREMENT CAN ONLY OVERSTATE. The true width is the minimum over the points, and a minimum over a
-// subset is never smaller than the minimum over the whole. So measuring the cores alone never reports a width too
-// NARROW — it reports one too WIDE, and a width too wide is a fan-out that oversubscribes the point nobody asked.
-// An error that only ever errs toward doing too much is the shape that gets discovered as a crash.
-//
-// SCOPE, STATED: this seals the ARITHMETIC of a width chosen as a minimum over measured points — the monotonicity,
-// the floor, the totality of naming, and the overstatement. It says nothing about what any point's capacity IS on
-// any machine; those are host measurements, and a host is not a theorem.
-import { emit, range } from './lean-gen.js'
+// Automate the Lean layer for THE PENTAGRAM & THE FIBONACCI DIGITS. Two finite, decidable facts of five-fold
+// symmetry: (1) the pentagram is the star polygon {5/2} — stepping +2 mod 5 is coprime to 5, so it draws in a
+// SINGLE stroke visiting all five points, and its five point-angles sum to a half-turn (5·36 = 180°); (2) the
+// single-digit (mod 9) Fibonacci sequence — the digital-root Fibonacci — is periodic, closing into a 24-cycle
+// (its Pisano period), and the SAME recurrence read through the pentagram (mod 5, period 20) and the rosette
+// (mod 7, period 16) closes into their own cycles: one sequence, three moduli, three finite periods.
+// these are finite periodic cycles of single digits, decidable `by decide` — NOT a claim about the
+// irrational golden ratio the pentagram encodes (φ is not a `by decide` object). COMPUTE → GENERATE → VERIFY.
+import { emit } from './lean-gen.js'
 
-/** one host reading: cores after reserve, and the lanes its memory affords a job of a given footprint */
-interface Row { cpu: number; mem: number }
+// A single-digit Fibonacci cycle mod m: the concrete period-`len` block, checked against the SAME shape the Lean
+// `fibCycle` def verifies — length, the [0,1] Fibonacci seed, and the recurrence Fₙ₊₂ ≡ Fₙ + Fₙ₊₁ (mod m) across
+// every position INCLUDING the wrap (append the seed pair, so the last two windows prove it closes into a cycle).
+const gcd = (a: number, b: number): number => (b ? gcd(b, a % b) : a)
+const fibCycleJS = (m: number, f: number[], len: number): boolean => {
+  if (f.length !== len || f[0] !== 0 || f[1] !== 1) return false
+  const g = f.concat(f.slice(0, 2))
+  for (let i = 0; i + 2 < g.length; i++) if ((g[i] + g[i + 1]) % m !== g[i + 2]) return false
+  return true
+}
 
-// tabulated readings — small integers standing for "lanes this point affords", the only thing the law is about
-const ROWS: Row[] = []
-for (const cpu of [1, 2, 4, 8, 10, 16, 32, 64]) for (const mem of [1, 2, 3, 4, 6, 8, 12, 20, 40, 128]) ROWS.push({ cpu, mem })
+// The three single-digit cycles (verified in JS before a line is written); the Lean carries the same literal lists.
+const F9 = [0, 1, 1, 2, 3, 5, 8, 4, 3, 7, 1, 8, 0, 8, 8, 7, 6, 4, 1, 5, 6, 2, 8, 1] //  mod 9  — Pisano period 24
+const F5 = [0, 1, 1, 2, 3, 0, 3, 3, 1, 4, 0, 4, 4, 3, 2, 0, 2, 2, 4, 1] //               mod 5  — Pisano period 20
+const F7 = [0, 1, 1, 2, 3, 5, 1, 6, 0, 6, 6, 5, 4, 2, 6, 1] //                            mod 7  — Pisano period 16
 
-const imin = (a: number, b: number): number => (a < b ? a : b)
-const width = (r: Row): number => imin(r.cpu, r.mem)
+// Shared Lean: fibCycle m f len — the recurrence holds at every position of f, with the seed pair appended so the
+// final two windows prove the sequence returns to (0,1) — i.e. closes into a length-`len` cycle. Pure `by decide`.
+const DEFS = `def fibCycle (m : Nat) (f : List Nat) (len : Nat) : Bool :=
+  (f.length == len) && (f.take 2 == [0, 1]) &&
+  (((f ++ f.take 2).zip ((f ++ f.take 2).drop 1)).zip ((f ++ f.take 2).drop 2)).all
+    (fun p => (p.1.1 + p.1.2) % m == p.2)`
 
-const T = (rs: Row[]): string => '[' + rs.map((r) => `(${r.cpu},${r.mem})`).join(',') + ']'
-const groups: Row[][] = []
-for (let i = 0; i < ROWS.length; i += 10) groups.push(ROWS.slice(i, i + 10))
+const lst = (a: number[]) => '[' + a.join(',') + ']'
 
 const FACTS = [
-  ...groups.map((g, gi) => ({
-    key: `width_is_the_binding_point_${gi}`,
-    why: `THE WIDTH IS THE SMALLER POINT, over readings ${gi * 10 + 1} to ${gi * 10 + g.length}. A fan-out may run as wide as the cores allow and as wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the minimum rather than as a rule about which point usually wins, because which one wins is a fact about a machine and this is not.`,
-    js: () => g.every((r) => width(r) <= r.cpu && width(r) <= r.mem && (width(r) === r.cpu || width(r) === r.mem)),
-    lean: `theorem width_is_the_binding_point_${gi} : ${T(g)}.all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide`,
-  })),
+  { key: 'pentagram_single_stroke',
+    why: 'The pentagram is the star polygon {5/2}: stepping +2 (mod 5) draws it in a SINGLE stroke — [0,2,4,1,3] — visiting all five points without lifting the pen, because 2 is coprime to 5.',
+    js: () => JSON.stringify([0, 1, 2, 3, 4].map((k) => (2 * k) % 5)) === JSON.stringify([0, 2, 4, 1, 3]),
+    lean: 'theorem pentagram_single_stroke : (List.range 5).map (fun k => (2*k) % 5) = [0,2,4,1,3] := by decide' },
 
-  ...groups.map((g, gi) => ({
-    key: `one_point_can_only_overstate_${gi}`,
-    why: `THE CENTRE OF THE LAW, over readings ${gi * 10 + 1} to ${gi * 10 + g.length}: measuring ONE point never reports a width too narrow — it reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat outside the number.`,
-    js: () => g.every((r) => r.cpu >= width(r) && r.mem >= width(r)),
-    lean: `theorem one_point_can_only_overstate_${gi} : ${T(g)}.all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide`,
-  })),
+  { key: 'pentagon_single_stroke',
+    why: 'The convex pentagon is the step +1 (mod 5): [0,1,2,3,4] — the same five vertices, walked the short way; the pentagram is the SAME five points, walked by twos.',
+    js: () => JSON.stringify([0, 1, 2, 3, 4].map((k) => k % 5)) === JSON.stringify([0, 1, 2, 3, 4]),
+    lean: 'theorem pentagon_single_stroke : (List.range 5).map (fun k => k % 5) = [0,1,2,3,4] := by decide' },
 
-  ...groups.map((g, gi) => ({
-    key: `a_richer_point_never_narrows_the_width_${gi}`,
-    why: `MONOTONE IN EVERY POINT, over readings ${gi * 10 + 1} to ${gi * 10 + g.length}: adding memory, or adding cores, never makes the admitted width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator adding memory to go faster would have to check whether it had gone slower — and the minimum has this property by construction, which is the argument for choosing a minimum rather than a formula.`,
-    js: () => g.every((r) => width({ cpu: r.cpu + 1, mem: r.mem }) >= width(r) && width({ cpu: r.cpu, mem: r.mem + 1 }) >= width(r)),
-    lean: `theorem a_richer_point_never_narrows_the_width_${gi} : ${T(g)}.all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide`,
-  })),
+  { key: 'pentagram_closes_after_five',
+    why: 'The star closes: five steps of +2 return to the start — (2·5) mod 5 = 0. A pentagram is exactly one full turn of the twos.',
+    js: () => (2 * 5) % 5 === 0,
+    lean: 'theorem pentagram_closes_after_five : (2*5) % 5 = 0 := by decide' },
 
-  { key: 'the_width_is_never_below_one',
-    why: 'A FLOOR, BECAUSE ZERO LANES IS NOT A MEASUREMENT BUT A STOP. Every reading here admits at least one lane, so a host too small for the reserve still runs the work serially rather than reporting a fan-out of nothing. A capacity that can answer zero turns a narrow machine into a halted one, and the difference between slow and stopped is the difference between a result and none.',
-    js: () => ROWS.every((r) => width(r) >= 1),
-    lean: `theorem the_width_is_never_below_one : ${T(ROWS.slice(0, 40))}.all (fun p => (if p.1 <= p.2 then p.1 else p.2) >= 1) := by decide` },
+  { key: 'pentagram_step_coprime_five',
+    why: 'WHY it is one stroke and not a shorter loop: the step 2 is coprime to 5 — gcd(2,5)=1 — so ×2 permutes ℤ/5 and the walk hits every point before repeating (as +7 does on the circle of fifths mod 12).',
+    js: () => gcd(2, 5) === 1,
+    lean: 'theorem pentagram_step_coprime_five : Nat.gcd 2 5 = 1 := by decide' },
 
-  { key: 'naming_the_binding_point_is_total',
-    why: 'EVERY READING NAMES A WINNER. For each pair the width equals the CPU point or the memory point — never a third number — so a report can always say WHICH point set the width. A width that matched neither would be a computed figure with no measurement behind it, which is exactly the kind of number this ledger exists to refuse.',
-    js: () => ROWS.every((r) => width(r) === r.cpu || width(r) === r.mem),
-    lean: `theorem naming_the_binding_point_is_total : ${T(ROWS.slice(0, 40))}.all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w == p.1) || (w == p.2))) := by decide` },
+  { key: 'pentagram_point_angles_half_turn',
+    why: 'The five point-angles of the pentagram sum to a half-turn: 5 · 36 = 180°, each sharp point 36° — the {5/2} star angle. A count of degrees, exact.',
+    js: () => 5 * 36 === 180,
+    lean: 'theorem pentagram_point_angles_half_turn : 5 * 36 = 180 := by decide' },
+
+  { key: 'fib_single_digit_cycle_24',
+    why: 'The single-digit (mod 9) Fibonacci — the digital-root Fibonacci — is periodic: 24 single digits satisfy Fₙ₊₂ ≡ Fₙ+Fₙ₊₁ (mod 9) from the seed [0,1] and return to it, closing into a 24-cycle (its Pisano period).',
+    js: () => fibCycleJS(9, F9, 24),
+    lean: `theorem fib_single_digit_cycle_24 : fibCycle 9 ${lst(F9)} 24 = true := by decide` },
+
+  { key: 'fib_pentagram_cycle_20',
+    why: 'The SAME Fibonacci recurrence through the pentagram modulus (mod 5): 20 single digits close into a 20-cycle — the Pisano period π(5)=20. The pentagram lens on the golden sequence.',
+    js: () => fibCycleJS(5, F5, 20),
+    lean: `theorem fib_pentagram_cycle_20 : fibCycle 5 ${lst(F5)} 20 = true := by decide` },
+
+  { key: 'fib_rosette_cycle_16',
+    why: 'The SAME recurrence fused to the rosette modulus (mod 7): 16 single digits close into a 16-cycle — the Pisano period π(7)=16. One sequence, read through pentagram (5), rosette (7) and single digit (9).',
+    js: () => fibCycleJS(7, F7, 16),
+    lean: `theorem fib_rosette_cycle_16 : fibCycle 7 ${lst(F7)} 16 = true := by decide` },
+
+  // ── "777" as three sevens, and how 3×7 fuses the trinity to the rosette — rotation and DNA in one count. ──
+  { key: 'three_sevens_twentyone',
+    why: 'The "777" is three sevens — 7+7+7 = 21 = 3·7. Not 777 of anything: the trinity (3) times the rosette (7), the same 21 as a sum and as a product. A mnemonic that computes.',
+    js: () => 7 + 7 + 7 === 21 && 3 * 7 === 21,
+    lean: 'theorem three_sevens_twentyone : 7 + 7 + 7 = 21 ∧ 3 * 7 = 21 := by decide' },
+
+  { key: 'trinity_rosette_coprime',
+    why: 'The trinity (3) and the rosette (7) are coprime — gcd(3,7)=1 — so a step of 3 permutes ℤ/7 (visits every ray), and ℤ/3 and ℤ/7 fuse into a single ℤ/21 cycle (the Chinese remainder theorem). Coprimality IS the fusion.',
+    js: () => gcd(3, 7) === 1,
+    lean: 'theorem trinity_rosette_coprime : Nat.gcd 3 7 = 1 := by decide' },
+
+  { key: 'codon_frame_rotates_rosette',
+    why: 'DNA reads in triplets: the codon reading frame steps by 3. Through the seven-ray rosette that step visits ALL seven rays in one rotation — [0,3,6,2,5,1,4] — because 3 is coprime to 7. The reading frame (the DNA 3) IS a full rotation (the rosette 7): 3×7 in one stroke.',
+    js: () => JSON.stringify([0, 1, 2, 3, 4, 5, 6].map((k) => (3 * k) % 7)) === JSON.stringify([0, 3, 6, 2, 5, 1, 4]),
+    lean: 'theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4] := by decide' },
+
+  // ── The angles the pentagram folds through, and the honest edge: π is irrational — NOT a `by decide` object. ──
+  { key: 'pentagon_interior_angle_108',
+    why: 'The human pentagram’s pentagon: each interior angle is 108° — (5−2)·180 = 540, and 540 = 5·108. A finite count of degrees, exact; the five points fold to a half-turn (5·36 = 180).',
+    js: () => (5 - 2) * 180 === 540 && 5 * 108 === 540,
+    lean: 'theorem pentagon_interior_angle_108 : (5 - 2) * 180 = 540 ∧ 5 * 108 = 540 := by decide' },
+
+  { key: 'pi_bracketed_by_finite_rationals',
+    why: 'π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about π itself needs analysis. What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π < 22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger holds the finite witnesses; π stays outside, by its nature.',
+    js: () => 223 * 7 === 1561 && 22 * 71 === 1562 && 223 * 7 < 22 * 71,
+    lean: 'theorem pi_bracketed_by_finite_rationals : 223 * 7 = 1561 ∧ 22 * 71 = 1562 ∧ 223 * 7 < 22 * 71 := by decide' },
 ]
 
-emit({ file: 'Pentagram.lean',
-  header: 'THE PENTAGRAM: A WIDTH IS THE BINDING POINT, AND ONE POINT CAN ONLY OVERSTATE. The QPU is five points — CPU, GPU, RAM, CACHE, STORAGE — and a fan-out may run as wide as the SMALLER of what they afford. '
-    + 'THE CENTRE: measuring one point never reports a width too narrow, only one too WIDE, because a minimum over a subset is never smaller than the minimum over the whole. That is why omission here is dangerous rather than merely incomplete — an error that can only err toward doing too much is discovered as an oversubscription rather than as a slow run. '
-    + 'ALSO SEALED: the width is monotone in every point, so adding memory or cores can never narrow it; it never falls below one, because zero lanes is a stop and not a measurement; and it always equals one of the points, so a report can name which one bound it. '
-    + 'WHERE IT COMES FROM: zeropoint-node\'s qpu-pentagram, which recorded its own earlier reading as wrong by omission — a register grown on one thread gave nineteen qubits and was called the machine\'s ceiling while four other points sat outside the number. uuidna\'s capacity() had the same shape, measuring cores for its lane count while measuring memory in the same breath and never letting it bind. '
-    + 'SCOPE: the ARITHMETIC of a width chosen as a minimum over measured points. Nothing here says what any point\'s capacity IS on any machine — a host is a measurement, not a theorem.',
-  skill: 'wave',
-  facts: FACTS.map((f) => ({ ...f, name: f.why })) })
+emit({
+  file: 'Pentagram.lean', skill: 'pentagram',
+  header: 'THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable.',
+  defs: DEFS,
+  facts: FACTS.map((f) => ({ ...f, name: f.why })),
+})

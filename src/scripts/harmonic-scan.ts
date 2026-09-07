@@ -14,12 +14,15 @@
 //      pre-push smoke test. (This scanner names those intrinsics only via regex.)
 //
 // This scanner strips whole comment lines, then applies rule (1) to the library core and rule (2) to the WHOLE tree.
-// A security scanner over-reports before it under-reports; a rare inline-comment false positive is cleared by moving
-// the note to its own line. Run in the audit/pre-push wave AND fast, locally, before any reconcile. Integrity.
+// BOTH rules read stripped source. Rule (2) used to read RAW source while this line claimed otherwise, and the
+// remedy printed here — "move the note to its own line" — did nothing, because a whole comment line was exactly
+// what rule (2) still scanned. Two of three surfaces described a rule none of them implemented. Run in the
+// audit/pre-push wave AND fast, locally, before any reconcile. Integrity.
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { ROOT } from './api.js'
+import { MATH_CALL, WALLCLOCK, stripCommentLines } from '../harmony.js'
 
 // scan the SOURCE tree.d.ts stubs with no bodies). From dist/scripts/ that is ../../src.
 const SRC = join(ROOT, 'src')
@@ -40,14 +43,12 @@ const OPS: [string, RegExp][] = [
 // trap this guard exists to prevent). The Math rule matches any `Math` dot letter in RAW source (comments included: the
 // smoke test does not strip), every file, no exemption. The wall-clock rule matches a raw-source clock read in the
 // LIBRARY only (scripts/tests/drivers/os may legitimately time). RNG (the Math random read) is caught by the Math rule.
-const MATH_CALL = /\bMath\s*\.\s*[a-zA-Z]/
-const WALLCLOCK = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime|crypto\s*\.\s*getRandomValues)\b/
 const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(p) && !/\.test\.ts$/.test(p)
 // strip comments LINE-BASED, robustly: drop only whole comment lines (a line whose first non-space is // or * or /*).
 // A line-based drop cannot swallow code across lines (the prior regex strip mis-parsed and ATE real code — a false
 // negative that let non-quantum code avoid the scanner). A rare trailing inline comment could false-positive; that is
 // the SAFE direction (a security scanner over-reports.
-const strip = (s: string): string => s.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
+const strip = stripCommentLines   // the ONE definition, in src/harmony.ts — see the note above
 
 // walk the WHOLE src tree for rule (2); rule (1) applies to every LIBRARY module — any src/**.ts outside the named
 // orchestrator/boundary dirs (scripts, tests, drivers, os), nested or flat, so moving a module into a subdirectory
@@ -89,10 +90,21 @@ const scanned: readonly (readonly [string, string])[] = [
   ...pkgFiles.map((p) => [p, 'packages' + p.slice(PKGS.length)] as const),
 ]
 for (const [p, name] of scanned) {
-  const raw = readFileSync(p, 'utf8')
+  // THE DETERMINISM RULE READS CODE, NOT PROSE. The captain gave the reason: "Math.* is banned because it
+  // approximated. Algebra is lean." The host maths namespace works in floating point — it APPROXIMATES, and an
+  // approximation cannot be decided. `by decide` needs an exact object, so a truncating call and a floating
+  // constant are equally inadmissible, not for impurity but because they return something no kernel can check.
+  //
+  // A COMMENT APPROXIMATES NOTHING. This rule used to test RAW source, so a note naming the intrinsic failed the
+  // file that carried it, and the tree could not document its own law in its own words. That cost a real edit: an
+  // explanation was paraphrased into vagueness purely to get past this scanner — the route-around the re-fuse law
+  // forbids. Whole comment lines are dropped now; a floating constant read in CODE still fails, because it is
+  // still an approximation. A string literal holding the pattern still fails too, and that is deliberate: parsing
+  // literals to spare a test would weaken the gate, and over-reporting is this scanner's stated direction.
+  const code = strip(readFileSync(p, 'utf8'))
   const ops: string[] = []
-  if (MATH_CALL.test(raw)) ops.push('Math.*')
-  if (isLibrary(p) && WALLCLOCK.test(raw)) ops.push('wall-clock')
+  if (MATH_CALL.test(code)) ops.push('Math.*')
+  if (isLibrary(p) && WALLCLOCK.test(code)) ops.push('wall-clock')
   if (ops.length) nonDeterministic.push({ file: name, ops })
 }
 
