@@ -5,13 +5,21 @@
 //
 //   1. THE MEMO KEYED ON wingSource.LENGTH, so two different wings of equal length shared one verdict and the
 //      answer depended on which was asked first. A key that paraphrases its input is the same fault as a failure
-//      log that does not carry the HEAD it was produced against — it cannot be known stale, only suspected.
+//      log that does not carry the HEAD it was produced against — it cannot be known stale BY CONSTRUCTION,
+//      because nothing in the key names the source it read, so staleness is unobservable rather than merely
+//      unnoticed; only suspected.
 //   2. A NULLARY DEF WAS BOUND AS A FUNCTION, not its value: `d.params.length === 0 ? build([]) : build([])`,
 //      both arms identical. So a theorem stated through `def agl : List Nat := [...]` never read the list.
-//   3. STILL OPEN: 88 of the 144 wing defs this evaluator parses are SHADOWED by a hardcoded constant inside the
-//      evaluator itself, matched before the environment is consulted. For those names the "second implementation"
-//      is its own copy of the value, so corrupting the wing can never be detected. That is recorded as a failing
-//      SHAPE below, not as a passing green.
+//   3. STILL OPEN, AND NARROWER THAN IT FIRST LOOKED. Many wing defs are answered by a name the evaluator matches
+//      before consulting the environment, so the wing is not read for them. That is only a defect for SOME of
+//      them, and the distinction is the whole point of a second leg:
+//        - a name backed by a REIMPLEMENTATION (lxor, comp, flag, blt …) is exactly what the second leg should
+//          be — the wing computes one way, the evaluator another, and their agreeing is the check.
+//        - a name backed by a STORED COPY of the wing's own literal table (agl, tour, caps, words, orbits …) is
+//          not a second opinion at all: the evaluator holds the same numbers, so agreement is guaranteed and
+//          corrupting the wing changes no verdict. Those are the ones that owe a fix.
+//      The counts are deliberately not written here — a census in prose is stale the moment a wing lands — but the
+//      copies are the short list and the reimplementations are the long one. The test below holds the SHAPE.
 //
 // WHY THE ORDER-REVERSED FORM. A single call cannot see a memo defect, and neither can two calls in one order:
 // only asking the same question of two different wings, in both orders, distinguishes a verdict from a cache hit.
@@ -48,10 +56,13 @@ test('a nullary def is evaluated to its value, so a mutation in its body is visi
 })
 
 test('THE NAMED LIMIT (lead 159, open): a name the evaluator has built in ignores the wing entirely', () => {
-  // `agl` is answered at src/involution/index.ts by a hardcoded constant, matched before the environment. So the
-  // wing source is not consulted and no corruption of it can be detected. This asserts the CURRENT behaviour so
+  // `agl` is answered at src/involution/index.ts by a STORED COPY of the wing's own list, matched before the
+  // environment. So the wing source is not consulted and no corruption of it can be detected — and unlike a name
+  // backed by a reimplementation, there is no independent computation here to disagree. This asserts the CURRENT
+  // behaviour so
   // the shadowing is a fence rather than a surprise: when it is fixed, this assertion should be INVERTED, not
-  // deleted — `holds('agl.length = 54', '')` should then be null, and the shadowed count should fall from 88.
+  // deleted — `holds('agl.length = 54', '')` should then be null, and the shadowed census should fall. The census
+  // is left to be recomputed rather than written down, because a count in prose is stale the moment a wing lands.
   assert.equal(holds('agl.length = 54', ''), true,
     'answered with NO wing source at all — the evaluator is reading its own copy, not the wing')
   assert.equal(holds('bogusnamexyz.length = 54', ''), null,
