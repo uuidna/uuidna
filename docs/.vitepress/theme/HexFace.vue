@@ -8,6 +8,7 @@ import { useData, withBase } from 'vitepress'
 import { vortexOrbit, A432_STEP, BASE, TRINITY } from '../../../dist/address.js'
 import { glagoliticOf, glagoliticUnitOf } from '../../../dist/hexbit/index.js'
 import { DIMENSIONS } from '../../../src/dimensions.js'
+import { data as occupancyTable } from '../occupancy.data'
 import { COINS, HEXBIT_BITS } from '../../../dist/hexbit/index.js'
 
 const HexbitPlayer = defineAsyncComponent(() => import('./HexbitPlayer.vue'))
@@ -19,8 +20,11 @@ const handle = computed(() => String(fm.value.handle || ''))
 const hexbits = computed(() => Array.isArray(fm.value.hexbits) ? fm.value.hexbits : [])
 const occupancy = computed(() => Array.isArray(fm.value.occupancy) ? fm.value.occupancy : [])
 const occupancyCites = computed(() => {
+  // the citations are occupancy × the shared table (occupancy.data.ts) — the same answer occupancyCitesOf(address)
+  // gives, without shipping it on every page; an explicit occupancyCites in params still wins if a caller sets one
   if (Array.isArray(fm.value.occupancyCites) && fm.value.occupancyCites.length) return fm.value.occupancyCites
-  return occupancy.value.map((n) => ({ n, keys: [] }))
+  const table = occupancyTable || {}
+  return occupancy.value.map((n) => ({ n, keys: table[n] || [] }))
 })
 const occupancyDoors = computed(() => Array.isArray(fm.value.occupancyDoors) ? fm.value.occupancyDoors : [])
 const aura = computed(() => fm.value.aura || {})

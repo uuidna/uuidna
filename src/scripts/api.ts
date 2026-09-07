@@ -438,6 +438,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld',
   // final SEO URL freeze map (gen-seo-freeze) — route↔hexbit; post-freeze permanence = hexbit doors only
   'lean/seo-url-map.json',
+  'lean/references.json',        // the resolved external bibliography, cached so surfaces stay offline
+  'src/references-resolved.ts',  // the same, as a module the edge can import (no filesystem there)
   // the ledger as a manuscript (gen-latex) — rewritten on every reconcile, so it is staged rather than left dirty
   'docs/public/uuidna-ledger.tex',
   // the discovery and conveyor boards (gen-expose, gen-waves): the loop's two faces in the UI
@@ -504,6 +506,9 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/referrer-song.md',
   // the school of open doors — the unverified in topics, derived by gen-open-questions
   'docs/open-questions.md',
+  'docs/missions.md',
+  'lean/bound-census.json',
+  'src/school/missions/generated.ts',
   // most-searched → Lean doors + desk leads (gen-search-feed); JSON rides the lean/ directory umbrella
   'docs/search-feed.md',
   'docs/apps.md',
@@ -572,6 +577,9 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md'],
   'gen-quantum-advantage': ['lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld'],
   'gen-seo-freeze': ['lean/seo-url-map.json'],
+  // the external bibliography: the cached artefact and the generated module that serves it to edge code,
+  // which has no filesystem to read the JSON from
+  'gen-references': ['lean/references.json', 'src/references-resolved.ts'],
   'gen-expose': ['docs/expose.md'],
   'gen-waves': ['docs/waves.md'],
   'gen-unlocks': ['lean/unlocks.json', 'docs/unlocks.md', 'docs/index.md'],
@@ -615,6 +623,8 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-store': ['docs/store.md'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
+  'gen-bound-census': ['lean/bound-census.json'],
+  'gen-missions': ['docs/missions.md', 'src/school/missions/generated.ts'],
   'gen-sequence-field': ['docs/sequence-field.md'],
   'gen-search-feed': ['lean/search-feed.json', 'docs/search-feed.md'],
   'gen-apps': ['docs/apps.md'],

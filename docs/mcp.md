@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="257 keys" />
+# MCP tools <Badge type="tip" text="258 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 257 tools below are read from the server's own tool list and
+is **built from the keys**: the 258 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 0c91267c-567a-8eaa-a48e-ecf95abdf6fa
+gate CLEAN f0 d0 v0 · b843c26e-3437-82ba-9b49-1aeaf554658d
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 257-tool registry folds to its
-order-invariant identity `7fdfb8c0-0dba-8ef7-8653-97ffa18e8670` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 258-tool registry folds to its
+order-invariant identity `c0a166b3-08bd-81d9-97e8-c2b92917c5e8` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`257`" />
+## The grid <Badge type="tip" :text="`258`" />
 
-257 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 114 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+258 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 115 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -106,6 +106,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
 <a href="#uuidna-living-field"><code>living_field</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
+<a href="#uuidna-missions"><code>missions</code></a>
 <a href="#uuidna-oeapi"><code>oeapi</code></a>
 <a href="#uuidna-open-leads"><code>open_leads</code></a>
 <a href="#uuidna-os"><code>os</code></a>
@@ -351,7 +352,7 @@ any value — `uuidna_address { "seed": "hello" }` → `5b344fcd-5b13-8a6f-a3f8-
 `uuidna_theorems { "skill": "navigation" }` → **5** sealed theorems.
 Every call is recomputable: same input, same receipt. That is the production contract.
 
-## Hosted absents <Badge type="warning" text="34 named" />
+## Hosted absents <Badge type="warning" text="35 named" />
 
 100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. `uuidna_school_apis` stays listed. The divergence list may only shrink.
 
@@ -383,6 +384,7 @@ Every call is recomputable: same input, same receipt. That is the production con
 - `uuidna_anchor` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_wave` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_editorial` — CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side
+- `uuidna_security_plan` — CAPABILITY: secApi() probes the host for docker (spawnSync through resolveShell) and reads the pinned rootfs from disk (verifyPinnedRootfs) — host-side; served here it answered 'process is not defined' until 2026-09-07
 - `uuidna_publication` — CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side
 - `uuidna_search_trial` — POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable
 - `uuidna_vies` — POLICY: network lookup against the EU VIES register
@@ -567,7 +569,7 @@ The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, Ed
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `state` | object | **yes** | a Lexical EditorState: { root:… |
+| `state` | object | **yes** | a Lexical EditorState |
 
 ### `uuidna_coverage`
 
@@ -585,7 +587,7 @@ WHITE PAPER AND BLUEPRINTS AT ONCE, with its school lab: the sealed statement an
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | **yes** |  |
+| `key` | string | **yes** | a sealed theorem key |
 
 ### `uuidna_fingerprint`
 
@@ -599,7 +601,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'125'" />
+## Other <Badge type="tip" :text="'126'" />
 
 *skill: other*
 
@@ -967,6 +969,20 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `claims` | array | **yes** | claims or external theories to… |
+
+### `uuidna_missions`
+
+The mission board, derived: open work with an exact deliverable — a finding nothing seals, a bound that survived one widening step, a theorem without its symbol leg.
+
+{kind?,wing?,limit?} → {total,byKind,missions[],captain,honest}. One row per open RECORD: findings one each, bounds and symbol legs one per wing carrying the keys. The captain is the paying handle; a mission is claimed by depositing through uuidna_trial / uuidna_agent_contribute, never by a form, and leaves the board by recomputation when its record closes. The bound rows are a lower bound from one widening step (silence never refutes). Same board as docs/missions.md.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `kind` | string | no |  |
+| `wing` | string | no | e.g. Fermat |
+| `limit` | integer | no |  |
 
 ### `uuidna_laws`
 
@@ -1341,7 +1357,7 @@ The PROVENANCE of one theorem by key: exactly HOW it is Lean-proven in uuidna (t
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | **yes** |  |
+| `key` | string | **yes** | a sealed theorem key |
 
 ### `uuidna_credits_summary`
 
@@ -1357,7 +1373,7 @@ Each theorem SCANS its NEIGHBOURS: given a key, return the sealed theorems that 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | **yes** |  |
+| `key` | string | **yes** | a sealed theorem key |
 
 ### `uuidna_axiom_index`
 
@@ -2095,7 +2111,7 @@ Decode text back from a uuid chain produced by uuidna_imprint (round-trips exact
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `uuids` | array | **yes** |  |
+| `uuids` | array | **yes** | uuidna_imprint output |
 
 ### `uuidna_send`
 
@@ -2118,8 +2134,8 @@ RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope a
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `uuids` | array | **yes** |  |
-| `passphrase` | string | **yes** |  |
+| `uuids` | array | **yes** | uuidna_send output |
+| `passphrase` | string | **yes** | the passphrase the sender used |
 | `session` | string | no | the SAME session/channel id use… |
 
 ## Billing & measure <Badge type="tip" :text="'4'" />
@@ -2267,8 +2283,8 @@ Decrypt a sealed envelope from uuidna_encrypt / uuidna_seal_stream with the pass
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `sealed` | object | **yes** |  |
-| `passphrase` | string | **yes** |  |
+| `sealed` | object | **yes** | uuidna_encrypt output |
+| `passphrase` | string | **yes** | the passphrase the envelope was… |
 
 ### `uuidna_verify_envelope`
 
@@ -2278,7 +2294,7 @@ Verify a sealed envelope's 7d-fold content-address (integrity/routing) without t
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `sealed` | object | **yes** |  |
+| `sealed` | object | **yes** | uuidna_encrypt output |
 
 ### `uuidna_seal_onion`
 
@@ -2302,8 +2318,8 @@ Reverse crypto recovers sealed bytes — capacity ×1 (handle_capacity_invariant
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `uuids` | array | **yes** |  |
-| `passphrases` | array | **yes** |  |
+| `uuids` | array | **yes** | uuidna_seal_onion output |
+| `passphrases` | array | **yes** | innermost→outermost, the same p… |
 
 ### `uuidna_seal_chain`
 
@@ -2325,8 +2341,8 @@ Peel multiplies capacity by 1. Calendar 144 and Shor posture unlock on their own
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `links` | array | **yes** |  |
-| `passphrases` | array | **yes** |  |
+| `links` | array | **yes** | uuidna_seal_chain output |
+| `passphrases` | array | **yes** | the same passphrases the chain… |
 | `genesis` | string | no |  |
 
 ## Contract-keyed messaging <Badge type="tip" :text="'5'" />
@@ -2363,8 +2379,8 @@ INVOLUTE of uuidna_contract_seal: check terms→[contract-uuid], then decrypt (s
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `sealed` | object | **yes** | the {contract,uuids,...} from u… |
-| `terms` | string | **yes** |  |
+| `sealed` | object | **yes** | uuidna_contract_seal output |
+| `terms` | string | **yes** | the terms string the contract w… |
 
 ### `uuidna_contract_chain`
 
@@ -2385,8 +2401,8 @@ INVOLUTE of uuidna_contract_chain: verify terms + referer, decrypt each link (se
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `chain` | object | **yes** | the {contract,links} from uuidn… |
-| `terms` | string | **yes** |  |
+| `chain` | object | **yes** | uuidna_contract_chain output |
+| `terms` | string | **yes** | the terms string the chain was… |
 
 ## Provenance audit (public text & metadata) <Badge type="tip" :text="'8'" />
 
@@ -2712,9 +2728,9 @@ Raw ChaCha20-Poly1305 AEAD seal (local theorem, RFC 8439): returns {ct,tag} as h
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | **yes** |  |
-| `nonce` | string | **yes** |  |
-| `plaintext` | string | **yes** |  |
+| `key` | string | **yes** | 32-byte hex |
+| `nonce` | string | **yes** | 12-byte hex |
+| `plaintext` | string | **yes** | utf-8 text to seal |
 | `aad` | string | no | optional hex |
 
 ### `uuidna_aead_decrypt`

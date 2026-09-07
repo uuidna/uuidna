@@ -26,6 +26,12 @@ export function widenBounds(statement: string): string {
     tick ? `List.range' ${a} ${Number(b) + 1}` : `List.range ${Number(a) + 1}`)
 }
 
+/** isWidenable(statement) → whether the instrument has anything to perturb: a `List.range` with a literal count. A
+ *  statement that names `List.range` over a variable matches the word and not the instrument, so the word is not
+ *  the filter — the census, the generator and the test all select by THIS, so they cannot disagree about the
+ *  population. */
+export const isWidenable = (statement: string): boolean => widenBounds(statement) !== statement
+
 export type BoundVerdict = 'not-bounded' | 'base-undecidable' | 'survived-widening' | 'load-bearing' | 'undecidable-widened'
 
 /** boundVerdict(statement) → what the perturbation says. `undecidable-widened` is UNKNOWN and never "fine",

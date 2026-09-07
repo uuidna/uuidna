@@ -5,6 +5,7 @@
 // Zero runtime deps: a minimal JSON-RPC 2.0 server over stdio, calling the same pure functions the build seals.
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
+import { pqcPosture } from './pqc/index.js'
 import {
   toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes, coins, coinSupply,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
@@ -50,8 +51,10 @@ import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school
 import { teamFor } from './team/index.js'
 import { cloudflareTemplates, coverageOf, templateCensus, templatesFor } from './cloudflare-templates.js' // EVERY CLOUDFLARE TEMPLATE, and what this tree adds to each — derived from their own wrangler configs // THE TEAM AXIS — what building with these capabilities actually takes, and how many seats that is
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
-import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
+import { ledgerReport, FINDINGS } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
 import { legCensus, legsFor, mirrorAgreement, mirrorRows, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
+import { missionsOf, MISSION_KINDS, type MissionKind } from './school/missions/index.js' // the mission board — pure over the shipped mirror, the baked bound slice and the baked findings
+import { BOUND_SLICE, MISSION_CAPTAIN } from './school/missions/generated.js'
 import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror — rosetta and scripts/api load their node builtins LAZILY, so this static import carries none of them to the edge
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 // NOTE: node:child_process and node:url are loaded LAZILY, at the two places that need them. They were top-level
@@ -890,6 +893,19 @@ const TOOLS: Tool[] = ([
         items,
         limit: a?.limit != null ? Number(a.limit) : undefined,
       })
+    } },
+  { name: 'uuidna_missions',
+    description: 'The mission board, derived: open work with an exact deliverable — a finding nothing seals, a bound that survived one widening step, a theorem without its symbol leg.',
+    detail: '{kind?,wing?,limit?} → {total,byKind,missions[],captain,honest}. One row per open RECORD: findings one each, bounds and symbol legs one per wing carrying the keys. The captain is the paying handle; a mission is claimed by depositing through uuidna_trial / uuidna_agent_contribute, never by a form, and leaves the board by recomputation when its record closes. The bound rows are a lower bound from one widening step (silence never refutes). Same board as docs/missions.md.',
+    inputSchema: { type: 'object', properties: {
+      kind: { type: 'string', enum: [...MISSION_KINDS] },
+      wing: { type: 'string', description: 'e.g. Fermat' },
+      limit: { type: 'integer' },
+    } },
+    run: (a) => {
+      const kind = a?.kind == null ? null : String(a.kind) as MissionKind
+      if (kind !== null && !MISSION_KINDS.includes(kind)) throw new Error(`uuidna_missions: unknown kind "${kind}" — expected one of ${MISSION_KINDS.join(', ')} (nothing was computed)`)
+      return missionsOf({ rows: mirrorRows(), bounds: BOUND_SLICE, findings: FINDINGS, captain: MISSION_CAPTAIN, kind, wing: a?.wing == null ? null : String(a.wing), limit: a?.limit == null ? null : Number(a.limit) })
     } },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',

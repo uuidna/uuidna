@@ -511,6 +511,17 @@ export function occupancyCitesOf(address: string): readonly OccupancyCite[] {
   return occupancyOf(address).map((n) => ({ n, keys: byN.get(n) ?? [] }))
 }
 
+/** occupancyCiteTable() → the number→keys index itself, as a plain record — the ONE table every page derives its
+ *  occupancy citations from. It is address-independent (see occupancyIndex above), so a page needs only its own
+ *  `occupancy` numbers and this table to render exactly what occupancyCitesOf(address) returns; shipping the
+ *  derived array in every page's params was 58 MB of the 130 MB param payload for a table that is 6 KB once.
+ *  The round-trip is asserted over every address in src/occupancy-table.test.ts. */
+export function occupancyCiteTable(): Record<number, readonly string[]> {
+  const out: Record<number, readonly string[]> = {}
+  for (const [n, keys] of occupancyIndex()) out[n] = [...keys]
+  return out
+}
+
 /** Unpack hexbits MSB-first into 128 bits — the uuid as two 64-bit coins. */
 export function bitsOfHexbits(tiles: readonly number[]): number[] {
   const bits: number[] = []
@@ -607,7 +618,9 @@ export function monographFaceOf(address: string): Record<string, unknown> {
     hexbits: face.hexbits,
     hexagrams: face.hexagrams,
     occupancy: face.occupancy,
-    occupancyCites: face.occupancyCites,
+    // occupancyCites is NOT in the page bag: it is occupancy × occupancyCiteTable(), a 6 KB address-independent
+    // table the theme loads once (docs/.vitepress/occupancy.data.ts) — 58 MB of the 130 MB param payload was this
+    // one derivable field repeated on every page (lead 126). hexFaceOf still carries it for the served tools.
     occupancyDoors: face.occupancyDoors,
     aura: face.aura,
     handleParts: face.handleParts,

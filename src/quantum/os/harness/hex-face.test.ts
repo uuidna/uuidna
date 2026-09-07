@@ -13,7 +13,7 @@ import {
   periodOf, rotationOf, glowInnerOf, glowOuterOf, glowSpreadInnerOf, glowSpreadOuterOf,
 } from '../../../aura.js'
 import {
-  hexagramsOf, occupancyOf, occupancyCitesOf, hexFaceOf, payloadNibblesOfHexagrams, sealedCounts,
+  hexagramsOf, occupancyOf, occupancyCitesOf, occupancyCiteTable, hexFaceOf, payloadNibblesOfHexagrams, sealedCounts,
   twoBoardsOf, coinNeighbours, coinBoardWitness, flipCoin, nextCoinOf, bitsOfHexbits,
   HEXAGRAM_BITS, HEXAGRAM_STATES, FUSED_RING, PAYLOAD_BITS, PAYLOAD_HEXAGRAMS, OCCUPANCY_KEYS, HEX_PI,
   GLYPH_STAR, GLYPH_ROSE, GLYPH_RING, GLYPH_WHEEL, STATION_TEN, STATION_RAYS,
@@ -280,7 +280,11 @@ test('composeTheorem: H1 is the handle; hex face params; Lean body; no principle
   assert.match(page.content, new RegExp(t.statement.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
   assert.doesNotMatch(JSON.stringify(page.params.occupancy), MYTH)
   assert.deepEqual(page.params.occupancyDoors, [...OCCUPANCY_KEYS])
-  assert.ok(Array.isArray(page.params.occupancyCites) && (page.params.occupancyCites as { n: number }[]).length === (page.params.occupancy as number[]).length)
+  // the citations LEFT the page bag (lead 126): occupancyCites is occupancy × occupancyCiteTable(), a 6 KB table the
+  // theme loads once; the bag carries the numbers only, and the derivation must equal the served face exactly
+  assert.equal('occupancyCites' in page.params, false, 'the derivable field must not ride every page')
+  const table = occupancyCiteTable()
+  assert.deepEqual((page.params.occupancy as number[]).map((n) => ({ n, keys: table[n] ?? [] })), occupancyCitesOf(t.address))
   assert.doesNotMatch(JSON.stringify({ handle: page.params.handle, hexagrams: page.params.hexagrams, occupancy: page.params.occupancy }), MYTH)
   const { publications } = await import('../../../publish.js')
   const pub = publications().find((p) => p.publishable)
