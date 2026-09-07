@@ -6,6 +6,7 @@
 // The worst was uuidna_wave — it spawns the release walk, so the gate's own dispatch probe executed a full graduation
 // wave: 169.3s of the probe's 174.8s. Enforcing the schema at the one door (callTool) fixed the correctness defect
 // and took the probe to seconds. The cheap gate and the correct gate were the same change.
+import { cpus, loadavg } from 'node:os'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -64,5 +65,14 @@ test('the whole no-arg dispatch probe stays cheap — the gate cannot silently r
   }
   const seconds = Number(process.hrtime.bigint() - started) / 1e9
   // generous against a slow CI runner; the point is the ORDER of magnitude — 174.8s before the fix, seconds after.
-  assert.ok(seconds < 60, `the dispatch probe took ${seconds.toFixed(1)}s — a tool is doing real work on an empty call`)
+  // THE LOAD IS NAMED AND SCALES THE ALLOWANCE (lead 223, folded 2026-09-07): this arm failed at 67 s and 69 s on
+  // a machine at load 54 over 10 cores while five other sessions built, and passed at 6 s alone. A wall-clock
+  // ceiling that ignores the neighbours reports their builds as this tree's regression. The allowance is the
+  // ceiling times the load per core (never less than one), and the failure says what the load was — so a real
+  // regrowth (174.8 s at load 1) still fails, and a neighbour's load is named rather than blamed on the gate.
+  const cores = cpus().length || 1
+  const perCore = loadavg()[0] / cores
+  const factor = perCore > 1 ? perCore : 1
+  const allowance = 60 * factor
+  assert.ok(seconds < allowance, `the dispatch probe took ${seconds.toFixed(1)}s at load ${loadavg()[0].toFixed(1)} on ${cores} cores (allowance ${allowance.toFixed(0)}s = 60 × ${factor.toFixed(2)}) — a tool is doing real work on an empty call`)
 })

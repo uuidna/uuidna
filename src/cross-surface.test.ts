@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readdirSync, readFileSync } from 'node:fs'
+import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 import { disagreements, crossSurfaceCensus, type Probe } from './cross-surface.js'
@@ -41,7 +41,7 @@ function mirrorKeys(): Set<string> {
 // RECOMPUTED, NEVER READ. docs/captain-claims.json is a cache of exactly this call, and reading it here raced
 // the generator that writes it — intermittently, which is the worst way for a probe to be wrong: three passes,
 // then a failure on an unchanged tree, and no diff capturable because reproducing the race reran the suite.
-test('cross-surface — the probe pairs agree, or each disagreement is a lead', () => {
+test('cross-surface — the probe pairs agree, or each disagreement is a lead', (t) => {
   const lean = leanSourceKeys(), mirror = mirrorKeys()
   const list = claimsFrom(theorems())
   const claims = {
@@ -85,6 +85,20 @@ test('cross-surface — the probe pairs agree, or each disagreement is a lead', 
   // learns nothing except that this test is noisy. The other three are written by one generator from one census
   // and have no such window: if they part, something is stale or a row is counted twice.
   const found = disagreements(probes)
+  // A SOURCE THAT MOVED AFTER THIS RUN'S LEDGER WAS COMPILED IS NOT A DISAGREEMENT (lead 219, folded 2026-09-07).
+  // The source half of the pair is read LIVE from lean/*.lean; the mirror and ledger halves are the compiled
+  // modules this process loaded. On a shared tree another session regenerates wings mid-suite, so the live read
+  // is newer than the compile and the pair parts for a reason that is nobody's defect. The instrument: any wing
+  // written after dist/theorems/generated.js was compiled names the run UNMEASURED, with the wings listed; a pair
+  // that parts with no wing newer than the compile is the real lead and fails as before.
+  if (found.length) {
+    const compiledAt = statSync(join(ROOT, 'dist', 'theorems', 'generated.js')).mtimeMs
+    const moved = readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean') && statSync(join(ROOT, 'lean', f)).mtimeMs > compiledAt)
+    if (moved.length) {
+      t.skip(`${moved.length} wing(s) moved AFTER this run's ledger was compiled (${moved.slice(0, 5).join(', ')}${moved.length > 5 ? ', …' : ''}) — another session is regenerating; unmeasured, not disagreed`)
+      return
+    }
+  }
   const cure = (what: string): string =>
     what === 'ledger size'
       ? 'the derived layer is behind the source — run the reconcile (generate → heartbeats --sync → messaging → rosetta → spin --seal); if it persists AFTER a reconcile, a generator is dropping rows'
