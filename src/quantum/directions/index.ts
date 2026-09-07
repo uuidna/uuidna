@@ -20,8 +20,12 @@
 // with its fourteen directions computed together, and the host decides how many such units run concurrently.
 // Conflating them would either under-use a wide machine or oversubscribe a narrow one, and on a shared tree it
 // would do both at different moments.
-import { capacity } from '../../os/host/index.js'
-
+//
+// THIS FILE IS THE GEOMETRY ONLY, and it is synchronous on purpose. The dispatcher that runs the directions
+// concurrently lives in ./dispatch.ts, which declares itself a named boundary — async, await and Promise are
+// non-harmonic in the core, and the harmonic scan is right to say so: the shape of the solid must not depend on
+// how many things are in flight. Splitting keeps the sealed half guarded rather than exempting it along with the
+// half that genuinely schedules.
 /** a face normal of the vector equilibrium */
 export type Direction = readonly [number, number, number]
 
@@ -53,35 +57,13 @@ const dot = (a: Direction, b: Direction): number => a[0] * b[0] + a[1] * b[1] + 
 
 /** the VE vertices lying on the face with this normal — 4 for a square, 3 for a triangle */
 export function faceVertices(n: Direction): readonly Direction[] {
-  const best = Math.max(...VE_VERTICES.map((v) => dot(v, n)))
+  // NO HOST BUILT-IN HERE, and the reason is the determinism law rather than taste: this tree hard-rejects the
+  // global numeric namespace in every library module, because a fold that reaches for a host routine is a fold
+  // whose answer depends on the host. A maximum over twelve integers is a walk, so it is written as one. (The
+  // scan reads comments too, and rightly — naming the banned token even to explain the ban trips it, which it
+  // did on the first version of this very paragraph.)
+  let best = dot(VE_VERTICES[0]!, n)
+  for (const v of VE_VERTICES) { const d = dot(v, n); if (d > best) best = d }
   return VE_VERTICES.filter((v) => dot(v, n) === best)
 }
 
-/** one superposition's answer: every direction, each with what the solver returned for it */
-export interface Solved<T> { readonly item: T; readonly answers: readonly { d: Direction; value: unknown }[] }
-
-/** solveAllAtOnce — every direction of every superposition, with the HOST deciding how many run together.
- *
- *  The fourteen are not a concurrency width: they are the shape of one unit of work. `capacity().lanes` is the
- *  concurrency, and passing a literal here is refused by src/lane-fusion.test.ts. */
-export async function solveAllAtOnce<T>(
-  items: readonly T[],
-  solve: (item: T, d: Direction) => unknown | Promise<unknown>,
-  lanes: number = capacity().lanes,
-): Promise<Solved<T>[]> {
-  const out: Solved<T>[] = new Array(items.length)
-  let next = 0
-  const worker = async (): Promise<void> => {
-    for (;;) {
-      const i = next++
-      if (i >= items.length) return
-      const item = items[i]!
-      // ALL FOURTEEN, ALWAYS, and gathered before the unit is considered answered — a superposition that reports
-      // some of its directions is not a superposition, it is a sample.
-      const answers = await Promise.all(DIRECTIONS.map(async (d) => ({ d, value: await solve(item, d) })))
-      out[i] = { item, answers }
-    }
-  }
-  await Promise.all(Array.from({ length: Math.max(1, Math.min(lanes, items.length || 1)) }, worker))
-  return out
-}

@@ -55,7 +55,8 @@ test('no fan-out carries a hand-typed lane count — every width comes from the 
     // THE SUBJECT OF THIS RULE IS PRODUCTION FAN-OUT — code that spawns work on the host. A `.test.ts` is
     // exempt, and the exemption is stated rather than hidden because it has a reason that survives inspection:
     // `gate-all.test.ts` asserts "pool honours its limit" by running twelve fake jobs at width 4 and checking the
-    // peak never exceeds it. A test of pool MUST pin a width or it cannot test the thing it exists to test, and
+    // peak never exceeds it. A test of pool MUST pin a width — cannot BY CONSTRUCTION otherwise, since the
+    // property under test IS the width, and a value read from the host would vary the thing being asserted — and
     // its jobs are setTimeout, not processes — nothing is spawned on the machine, so there is no hardware opinion
     // to be wrong about. This is NOT the exemption-by-provenance that was proposed and refused elsewhere in this
     // tree: that one excused files because of who wrote them, this one excludes calls that spawn no work.

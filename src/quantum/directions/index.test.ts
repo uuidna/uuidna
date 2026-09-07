@@ -6,9 +6,8 @@
 // solid rather than fourteen arbitrary triples, and it is decidable by walking the twelve vertices.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import {
-  DIRECTIONS, SQUARE_NORMALS, TRIANGLE_NORMALS, VE_VERTICES, faceVertices, solveAllAtOnce,
-} from './index.js'
+import { DIRECTIONS, SQUARE_NORMALS, TRIANGLE_NORMALS, VE_VERTICES, faceVertices } from './index.js'
+import { solveAllAtOnce } from './dispatch.js'
 import { VE_FACES } from '../../hexbit/index.js'
 
 test('the twelve vertices are the permutations of (±1,±1,0), generated not listed', () => {

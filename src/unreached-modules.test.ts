@@ -12,9 +12,10 @@
 //
 // TWO CORRECTIONS THIS FILE EXISTS TO RECORD, because both were me mistaking my own assumptions for the module's
 // behaviour — the exact hazard of writing the first test a module has ever had.
-//   1. `shorFactor(15)` threw "Cannot mix BigInt and other types", which read like a defect in an unreachable
-//      module — the lead's own thesis, apparently confirmed. It was not: the module declares `bigint` throughout
-//      and `shorFactor(15n)` answers correctly. The broken thing was my call.
+//   1. `shorFactor(15)` threw the runtime's bigint-mixing TypeError, which read like a defect in an unreachable
+//      module — the lead's own thesis, apparently confirmed. It was not, and the reason is a host fact: the
+//      module declares `bigint` throughout and the runtime refuses to mix the two numeric types, so passing a
+//      Number could only ever throw. `shorFactor(15n)` answers correctly. The broken thing was my call.
 //   2. Then I asserted `factors` were `[3n, 5n]` IN ORDER. They are STRINGS, and `shorFactor(21n)` gives
 //      ['7','3'] — not ascending. `factorsFromPeriod` likewise returns `{factors, reason}`, never a bare null.
 //      So the assertions below are written from what the module RETURNS, checked by running it, not from what a
