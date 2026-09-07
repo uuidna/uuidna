@@ -13,6 +13,7 @@
 //   npm run axioms --check   → audit only; do not rewrite the receipt (CI diff guard)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
+import { capacity } from '../os/host/index.js'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
@@ -193,7 +194,10 @@ async function main() {
   }
   const { reuse, probe: toProbe } = reusableWings(priorWings, asks)
   if (reuse.length) console.log(`· axiom audit — ${reuse.length} wing(s) unchanged since their receipt, read back; ${toProbe.length} wing(s) moved and go to the kernel`)
-  const probed = await pool(toProbe, 8, (f) => auditFile(f, byFile[f]))
+  // FUSED TO THE BALANCER: the width is the host's, never a number typed here. Eight was right for one machine
+  // and wrong for every other, and on a shared tree it is wrong for all of them at once — a neighbour's fleet is
+  // already holding lanes this count cannot see.
+  const probed = await pool(toProbe, capacity().lanes, (f) => auditFile(f, byFile[f]))
   const verdictOf: Record<string, Record<string, string[]>> = {}
   toProbe.forEach((f, i) => { verdictOf[f] = probed[i] })
   for (const f of reuse) verdictOf[f] = priorWings![f]!.verdict

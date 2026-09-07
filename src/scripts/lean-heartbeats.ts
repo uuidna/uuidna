@@ -224,7 +224,11 @@ async function main() {
   if (args[0] === '--all') {
     const started = process.hrtime.bigint()
     let done = 0
-    const costs = await pool(T as unknown as (typeof T)[number][], 8, async (t) => {
+    // FUSED TO THE BALANCER. This path spawned eight Lean processes because eight was typed here, while the
+    // --sync path beside it asks capacity().lanes — two widths for one machine, and the hardcoded one wins
+    // whenever --all is used. A lane count that does not come from the host is a second opinion about the
+    // hardware, and the host is the only one entitled to it.
+    const costs = await pool(T as unknown as (typeof T)[number][], capacity().lanes, async (t) => {
       let c: number | null
       try { c = await costOf(t) } catch { c = null }
       done += 1
