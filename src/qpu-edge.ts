@@ -30,7 +30,7 @@ export const qpuDiscoveryOf = (origin: string) => ({
 })
 
 /** handleQpuFetch(request) → the QPU worker response. Pure of Node builtins; Workers-safe. */
-export async function handleQpuFetch(request: Request): Promise<Response> {
+export function handleQpuFetch(request: Request): Response {
   const url = new URL(request.url)
   const host = url.hostname.toLowerCase()
   if (url.protocol === 'http:' || host.startsWith('www.')) {
