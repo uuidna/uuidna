@@ -1652,10 +1652,30 @@ function conjunction(c: Cursor): boolean {
 // the involution, so it correctly returns a held answer for a repeat of the SAME census and does nothing at all
 // for the next one — yet every census asks holds(t.statement) for every sealed theorem before it asks anything
 // about its involution. The statements are the shared work; the involution only decides what happens after.
+/** a content digest for the memo key — pure, integer-only, no clock and no Math.*; two different sources
+ *  collide only by hash accident, where LENGTH collided by construction */
+function digestOf(s: string): string {
+  let h = 5381
+  for (let i = 0; i < s.length; i++) h = (h * 33 + s.charCodeAt(i)) >>> 0
+  return h.toString(16)
+}
+
 const HOLDS = new Map<string, boolean | null>()
 
 export function holds(statement: string, wingSource = ''): boolean | null {
-  const key = wingSource ? statement + '\u0000' + wingSource.length : statement
+  // THE KEY NAMES ITS INPUT (lead 159). This folded the wing source to its LENGTH, so two different wings of
+  // equal length shared a verdict and the answer depended on WHICH WAS ASKED FIRST. Measured, both arms:
+  // holds('k 1 = 2', 'def k (x : Nat) : Nat := x + 1') is true and correct; the same statement with `x + 9` —
+  // identical length — returned TRUE when asked second and FALSE when asked first in a fresh process. A memo
+  // whose key paraphrases its input is the same fault as a failure log that does not carry the HEAD it was
+  // produced against: it cannot be known stale, only suspected, and it will not be suspected.
+  //
+  // IT WAS NOT THE BLINDNESS, IT WAS THE DETERMINISM. Fixing this alone changes no coverage. What it changes is
+  // that the census stops depending on how it is iterated: with the length key, counting with `.filter` (which
+  // evaluates every case) and `.some` (which short-circuits) gave 21 and 18 on identical input, because calling
+  // holds more often left the memo in a different state. With this key both give 18. At the unfixed baseline
+  // both gave 6 — agreement between two instruments that were equally blind, which is no evidence at all.
+  const key = wingSource ? statement + '\u0000' + digestOf(wingSource) : statement
   const memo = HOLDS.get(key)
   if (memo !== undefined || HOLDS.has(key)) return memo as boolean | null
   const verdict = holdsUncached(statement, wingSource)
@@ -1697,7 +1717,14 @@ function wingEnv(wingSource: string, ring: Ring): Env {
       const c: Cursor = { s: stripAscriptions(stripComments(d.body)), i: 0, env: inner, ring }
       return junction(c)
     } })
-    env.set(d.name, d.params.length === 0 ? build([]) : build([]))
+    // A NULLARY DEF IS A VALUE, NOT A FUNCTION (lead 159). Both arms of this ternary were IDENTICAL — the
+    // nullary case was plainly meant to differ and did not, so `def agl : List Nat := [9,10,…]` was bound as a
+    // function and every theorem stated through it read a stale shape. Measured: mutating agl's list to create a
+    // duplicate left `agl.eraseDups.length = 54` TRUE, while the same mutation as a bare literal was caught
+    // (54 → 53). This is the blindness: 6 of 89 used def→theorem pairs caught a body mutation before, 18 after.
+    env.set(d.name, d.params.length === 0
+      ? junction({ s: stripAscriptions(stripComments(d.body)), i: 0, env, ring })
+      : build([]))
   }
   return env
 }
