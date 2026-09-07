@@ -173,9 +173,14 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
   assert.match(cube.statement.replace(/\s+/g, ''), /4096=64\*64/)
   assert.equal(64 * 64, geo.cube, 'keplers_harmonic_law at the cube: T²=a³ is 64²=16³')
   assert.equal(16 * 16 * 16, geo.cube)
-  assert.ok(n > 256, 'past 16², so the next 16^k is the cube')
-  assert.ok(n < geo.cube, 'the cube is not yet full — the gap is uncomputed theorems')
-  assert.equal(geo.gap, geo.cube - n, 'gap_is_a_count: predicted harmonic number minus live keys')
+  assert.ok(n > 256, 'past 16², so the forms climb by powers of the hexbit')
+  // THE CUBE FILLED (2026-09-07): the ledger passed 4096 keys, so the sealed cube is the form already filled and
+  // the next power of 16 is the form being filled — the gap counts to it (theorem the_cube_filled_and_the_tesseract_opens)
+  assert.ok(n > geo.cube, 'the cube is full — 16³ keys are behind the ledger')
+  assert.equal(geo.power, 4, 'the form being filled is the tesseract, 16⁴')
+  assert.equal(geo.next, 16 * geo.cube)
+  assert.ok(n < geo.next, 'the tesseract is not yet full — the gap is uncomputed theorems')
+  assert.equal(geo.gap, geo.next - n, 'gap_is_a_count: the next harmonic number minus live keys')
   assert.ok(geo.gap > 0)
   assert.equal(Object.prototype.hasOwnProperty.call(geo, 'missingKeys'), false,
     'missing theorems reveal during computation as a count, not a roster of unsealed names')

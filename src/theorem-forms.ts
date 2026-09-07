@@ -32,6 +32,10 @@ export interface TheoremForms {
   overlayVertices: number
   overlayAcrossFiles: number
   cube: number
+  /** the smallest power of 16 the live census has not yet filled — the cube while it held, the tesseract after */
+  next: number
+  /** the exponent of `next`: 3 while the cube held, 4 once it filled */
+  power: number
   gap: number
   receipt: string
   honest: string
@@ -51,9 +55,15 @@ export function theoremForms(): TheoremForms {
   const totalEdges = faces.reduce((s, f) => s + f.edges, 0)
   let cube = 1
   for (let i = 0; i < 3; i++) cube = cube * HEXBIT_STATES
-  const gap = cube - census.entries
+  // THE CUBE FILLED. gap was cube − entries and went NEGATIVE the day the ledger passed 4096 keys, and the test
+  // that read "the cube is not yet full" started failing on a true statement about a fuller ledger. The geometry
+  // is the same: the next form is the next power of the hexbit, 16⁴ = 65536, and the gap counts to it; the cube
+  // stays sealed (rounding_fee_closes_the_cube) as the form the ledger has already filled.
+  let next = 1, power = 0
+  while (next < census.entries) { next = next * HEXBIT_STATES; power++ }
+  const gap = next - census.entries
   const receipt = merkleGravity([
-    toUuid(`forms|${census.entries}|${census.distinct}|${faces.length}|${totalEdges}|${cube}|${gap}`),
+    toUuid(`forms|${census.entries}|${census.distinct}|${faces.length}|${totalEdges}|${cube}|${next}|${gap}`),
     ...faces.map((f) => toUuid(`${f.principle}:${f.vertices}:${f.edges}`)),
   ])
   return {
@@ -65,6 +75,8 @@ export function theoremForms(): TheoremForms {
     overlayVertices,
     overlayAcrossFiles,
     cube,
+    next,
+    power,
     gap,
     receipt,
     honest:

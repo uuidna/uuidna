@@ -68,6 +68,10 @@ const OTHER_APIS: PublicApiEntry[] = [
   { id: 'beacon-nist', host: 'beacon.nist.gov', base: 'https://beacon.nist.gov/beacon/2.0/pulse/last',
     kind: 'metadata', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: false,
     honest: 'Temporal anchor — NOT-BEFORE bound on a handle, not corroboration of a claim.' },
+  { id: 'datacite', host: 'api.datacite.org', base: 'https://api.datacite.org/dois/',
+    kind: 'registry', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: false,
+    honest: 'DOI metadata for deposits Crossref does not register (Zenodo, institutional repositories) — resolved by '
+      + 'gen-references for a citation\'s year and container. Provenance of a reference, never a seal.' },
   { id: 'nvd', host: 'services.nvd.nist.gov', base: 'https://services.nvd.nist.gov/rest/json/cves/2.0',
     kind: 'registry', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: false,
     honest: 'CVE metadata — security evidence, not theorem seals.' },

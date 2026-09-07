@@ -24,3 +24,6 @@ theorem the_budget_re_measured_from_the_resident_reading : (5153 * 1000 / 10344 
 /-- four samples during rendering — 542, 2610, 501, 1619 MB — sit 2543 MB under the 5153 MB peak, more than the
     1489 MB swing two readings at one cap once showed -/
 theorem the_render_samples_sit_below_the_peak_by_more_than_the_swing : (542 < 2610) ∧ (501 < 2610) ∧ (1619 < 2610) ∧ (2610 + 2543 = 5153) ∧ (2543 > 1489) ∧ (2610 * 2 > 5153) := by decide
+
+/-- 16³ = 4096 keys are behind the ledger; the form being filled is 16⁴ = 65536, sixteen cubes -/
+theorem the_cube_filled_and_the_tesseract_opens : (16 ^ 3 = 4096) ∧ (16 ^ 4 = 65536) ∧ (65536 / 4096 = 16) ∧ (4096 < 65536) := by decide
