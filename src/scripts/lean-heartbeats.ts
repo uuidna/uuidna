@@ -193,6 +193,13 @@ async function main() {
     //
     // A wing whose batch yields nothing falls back to the per-theorem search: a faster path that silently loses
     // data is not faster, and an unmeasured theorem is exactly the stale figure this file exists to prevent.
+    // ONE WRITER. Both the per-wing landing and the final write go through here, so the file's shape cannot
+    // drift between them — two spellings of the same write is how a partial file and a complete one stop looking
+    // alike.
+    const writeCosts = (): void => {
+      const total = Object.values(costs).reduce((s, c) => s + c, 0)
+      writeFileSync(path, JSON.stringify({ measured: Object.keys(costs).length, total, costs }) + '\n')
+    }
     const byWing = new Map<string, typeof missing>()
     for (const t of missing) { const l = byWing.get(t.file); if (l) l.push(t); else byWing.set(t.file, [t]) }
     const wings = [...byWing.entries()]
@@ -209,12 +216,23 @@ async function main() {
         try { solo = await costOf(t) } catch { solo = null }
         rows.push({ address: t.address, key: t.key, cost: solo })
       }
+      // LEAD 239: DURABLE PER WING, ALWAYS. This used to write once, at the end, over every wing at once — so a
+      // sync stopped at any point lost ALL of it. Measured on 2026-09-07: a sync ran fifty-five minutes on one
+      // expensive wing with heartbeats.json untouched throughout, and the decision "let it finish or cap it"
+      // became expensive purely because stopping would have discarded fifty-five minutes of kernel work. The
+      // cost of a wing is a FACT once the kernel has paid for it; holding it in memory until every other wing
+      // agrees to finish is not caution, it is an all-or-nothing write pretending to be one.
+      //
+      // Each wing now lands as it completes. A stopped sync loses at most the wing in flight, and the remainder
+      // is named by the coverage line rather than silently re-paid from zero. This is what --budget-ms already
+      // did on a re-trigger; there was never a reason for it to be conditional.
+      for (const r of rows) if (r.cost !== null) costs[r.address] = r.cost
+      writeCosts()
       return rows
     })
     const measured = perWing.flat()
     for (const m of measured) if (m.cost !== null) costs[m.address] = m.cost
-    const total = Object.values(costs).reduce((s, c) => s + c, 0)
-    writeFileSync(path, JSON.stringify({ measured: Object.keys(costs).length, total, costs }) + '\n')
+    writeCosts()
     const covered = Object.keys(costs).length
     console.log(`wrote lean/heartbeats.json — ${covered}/${T.length} measured` +
       (covered === T.length ? ' (100% coverage)' : ` (${T.length - covered} unmeasured)`) +
