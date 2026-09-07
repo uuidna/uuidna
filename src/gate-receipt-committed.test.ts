@@ -25,8 +25,12 @@ test('committedTree holds HEAD\'s covered files, deterministically, and an open 
   assert.deepEqual(treeCovers(committed), treeCovers(root), 'a clean directory and its commit cover the same bytes')
   assert.deepEqual(fileManifest(committed), fileManifest(root))
   assert.equal(committedTree('HEAD', root), committed, 'one extraction per ref per process')
-  // CONTROL — the defect this fold exists for: a private edit that the directory reports and the commit does not
+  // CONTROL — the defect this fold exists for: a private edit that the directory reports and the commit does not.
+  // The manifest is captured BEFORE the edit and compared across it; the first draft compared an expression to
+  // itself after the edit (a peer read it dead — it could not fail), which is the vacuous shape this tree hunts.
+  const before = fileManifest(committed)['src/a.ts']
   writeFileSync(join(root, 'src', 'a.ts'), 'export const a = 2\n')
   assert.notDeepEqual(treeCovers(root), treeCovers(committed), 'the directory moved; the committed tree did not')
-  assert.equal(fileManifest(committed)['src/a.ts'], fileManifest(committed)['src/a.ts'], 'and the committed manifest is stable')
+  assert.equal(fileManifest(committed)['src/a.ts'], before, 'the committed manifest is unmoved by a directory edit')
+  assert.notEqual(fileManifest(root)['src/a.ts'], before, 'while the directory\'s manifest did move — the two answers must part')
 })

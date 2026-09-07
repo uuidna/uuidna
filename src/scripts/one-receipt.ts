@@ -17,6 +17,7 @@
 //   record  legal · prose · deposits               (the audited facts and the captain's signed deposits)
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
+import { grepProbe } from '../tree-writers.js'
 import { messagingSeal } from '../quantum/message/index.js'
 import { execSync , spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
@@ -28,7 +29,8 @@ import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
-import { isTestSource } from '../test-paths.js'
+import { isTestSource, sourceGraph } from '../test-paths.js'
+import { tautologicalAsserts } from '../assert-tautology.js'
 import { UNDERCLAIM_FLOOR, claimBalanceOf } from '../underreach.js'
 import { THEOREMS } from '../theorems/index.js'
 import { shellOrExit } from '../os/host/index.js'
@@ -647,6 +649,20 @@ export function vacuousGaps(): Gap[] {
     if (t.key.startsWith('oos_')) continue // declared out-of-scope markers: void ON PURPOSE, and say so by name
     const w = why(t.statement)
     if (w) gaps.push({ what: `${t.file}: theorem ${t.key} is VACUOUS — \`${t.statement}\` is ${w}`, fix: `rewrite it to prove its own name in arithmetic, or drop the claim and rename it for what it actually proves (the martial-arts standard); if it is a deliberate scope marker, rename it oos_*` })
+  }
+  return gaps
+}
+
+// ── tautology: NO TEST ASSERTION COMPARES AN EXPRESSION TO ITSELF. The vacuity rule above reads Lean; this reads
+// the suite. Found by a peer re-reading src/gate-receipt-committed.test.ts on 2026-09-07 (lead 236); enters green
+// (census 0 after the fix) and blocks from birth, because a control that cannot fail is a decoration.
+export function tautologyGaps(): Gap[] {
+  const gaps: Gap[] = []
+  for (const rel of [...sourceGraph().keys()].filter((f) => isTestSource(f))) {
+    let text: string
+    try { text = rd(rel) } catch { gaps.push({ what: `${rel}: could not be read — UNMEASURED, not clean`, fix: 'make the file readable or remove it from the source graph; an unreadable test is not a passing one' }); continue }
+    for (const t of tautologicalAsserts(text))
+      gaps.push({ what: `${rel}:${t.line} compares an expression to itself — it cannot fail: ${t.text}`, fix: 'capture the value BEFORE the change and compare across it, or compare two genuinely different expressions; a message claiming stability must ride an assertion that could observe instability' })
   }
   return gaps
 }
@@ -1840,8 +1856,12 @@ export function seal(): void {
       // answering and took seal() down with it. shellOrExit NAMES the host~s shell instead of inheriting whatever
       // execSync defaults to. AND THE ANSWER IS THREE-VALUED: a probe that could not RUN is not a quiet tree, and
       // this loop is the one thing keeping seal() from interleaving writers on a tree that is mid-gate.
+      // AND IT NAMED ONE WRITER OF FIVE until 2026-09-07: measured live, this probe read 2 while six writer
+      // processes held the tree, because land.js and lean-heartbeats.js are not reconcile.js. The list is
+      // shared with develop's waitForQuiet now — see tree-writers.ts, which is also where the disagreement
+      // between these two probes was found.
       const sh = shellOrExit('seal')
-      const r = spawnSync(sh.file, sh.argv('ps aux | grep "[r]econcile.js" | wc -l'), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+      const r = spawnSync(sh.file, sh.argv(grepProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
       if (r.error || r.status !== 0) {
         console.error('x seal — the gate-wait probe could not RUN, so a busy tree is indistinguishable from a')
         console.error('  quiet one. Refusing rather than draining a tree another writer may hold: ' + (r.error?.message ?? `exit ${r.status}`))

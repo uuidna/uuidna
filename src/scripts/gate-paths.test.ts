@@ -231,12 +231,13 @@ test('land commits the drain, mints over a clean worktree of HEAD, commits the r
   const worktree = land.indexOf("git worktree add --detach")
   const mint = land.indexOf('--verified guard,tests --root')
   const commitReceipt = land.indexOf("' -- gate-receipt.json'")
-  const push = land.indexOf("run('git push origin main')")
+  const push = land.indexOf("push origin main')")   // the mention, not the run — a quoted push is a call site to the landing finder
   for (const [name, i] of Object.entries({ stage, commitDrain, verify, worktree, mint, commitReceipt, push })) assert.ok(i > 0, `land must ${name}`)
   assert.ok(stage < commitDrain, 'the drain is staged, then committed — the receipt must cover the ledger the push carries')
   assert.ok(commitDrain < verify && verify < worktree && worktree < mint, 'the mint runs over a worktree of the NEW head, only when its receipt is stale')
   assert.ok(mint < commitReceipt && commitReceipt < push, 'the minted receipt is committed and rides with the push')
   assert.match(land, /git worktree prune/, 'the worktree is removed whatever the verdict')
+  assert.match(land, /git rev-parse origin\/main/, 'and the remote ref is read back after the push — "Everything up-to-date" is also a success')
   assert.ok(land.includes("run('git add gate-receipt.json')"), 'the minted receipt must itself be staged')
 })
 
