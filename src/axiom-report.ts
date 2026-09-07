@@ -67,3 +67,28 @@ export function disallowedAxioms(out: string, key: string): string[] | null {
   if (found === undefined) return null
   return found.filter((a) => !ALLOWED_AXIOMS.has(a))
 }
+
+// ── PER-WING RECEIPTS (lead 228, folded 2026-09-07). The audit's receipt was keyed on the WHOLE ledger — every
+// wing's bytes plus the generated ledger — so one new theorem sent the kernel back through every wing, the
+// Fermat rings at a gigabyte and ten minutes each. The answer for a wing depends on exactly two things: that
+// wing's Lean text and the keys asked of it. Fold those into the wing's own handle, keep the verdict beside it,
+// and a landing probes only the wing that moved; the whole-ledger receipt is then the fold of the per-wing ones.
+import { handleOf } from './handle.js'
+import { toUuid } from './address.js'
+
+/** one wing's audit, keyed by what the kernel was actually asked: its text and the theorems named */
+export interface WingReceipt { asked: string; verdict: Record<string, string[]> }
+
+/** wingAskedKey(text, keys) → the handle of the exact probe the kernel answers; order of keys is part of the question */
+export const wingAskedKey = (wingText: string, keys: readonly string[]): string =>
+  handleOf(toUuid(wingText + '\n' + keys.map((k) => '#print axioms ' + k).join('\n')))
+
+/** reusableWings(prior, asks) → which wings' prior verdicts still answer the identical question */
+export function reusableWings(
+  prior: Readonly<Record<string, WingReceipt>> | undefined,
+  asks: Readonly<Record<string, string>>,
+): { reuse: string[]; probe: string[] } {
+  const reuse: string[] = [], probe: string[] = []
+  for (const [file, asked] of Object.entries(asks)) (prior?.[file]?.asked === asked ? reuse : probe).push(file)
+  return { reuse, probe }
+}

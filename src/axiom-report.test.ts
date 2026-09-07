@@ -109,3 +109,16 @@ test('the KERNEL agrees: indexed access drags propext, structural access does no
   assert.deepEqual(ax('[1,2,3].getD 1 0 = 2'), ['propext'], 'the measured fact this rule exists for')
   assert.deepEqual(ax('[1,2,2].eraseDups.length = 2'), [], 'and the substitution the rule prescribes is clean')
 })
+
+// ── per-wing receipts (lead 228): the question is the wing's text AND the keys asked, and only a moved wing re-asks
+import { wingAskedKey, reusableWings } from './axiom-report.js'
+test('a wing\'s asked key moves with its text and with its keys, and a prior receipt answers only the identical question', () => {
+  const a = wingAskedKey('theorem x : 1 = 1 := by decide', ['x'])
+  assert.equal(a, wingAskedKey('theorem x : 1 = 1 := by decide', ['x']), 'deterministic')
+  assert.notEqual(a, wingAskedKey('theorem x : 2 = 2 := by decide', ['x']), 'the text is part of the question')
+  assert.notEqual(a, wingAskedKey('theorem x : 1 = 1 := by decide', ['x', 'y']), 'the keys are part of the question')
+  const prior = { 'A.lean': { asked: a, verdict: { x: [] } }, 'B.lean': { asked: 'stale', verdict: { y: [] } } }
+  const r = reusableWings(prior, { 'A.lean': a, 'B.lean': 'fresh', 'C.lean': 'new' })
+  assert.deepEqual(r, { reuse: ['A.lean'], probe: ['B.lean', 'C.lean'] }, 'unchanged reads back; moved and new go to the kernel')
+  assert.deepEqual(reusableWings(undefined, { 'A.lean': a }), { reuse: [], probe: ['A.lean'] }, 'CONTROL — no receipt, everything is asked')
+})

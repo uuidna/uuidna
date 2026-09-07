@@ -45,10 +45,21 @@ if [ $status -ne 0 ]; then
   echo "pre-push: NON-QUANTUM DRIFT — push BLOCKED. Fix: npm run reconcile -- --derive-only"
   exit $status
 fi
-if ! git diff --exit-code --quiet; then
-  echo "pre-push: the working tree is DIRTY after the derived layer settled — push BLOCKED."
+# THE ARM JUDGES THE DERIVED LAYER IT NAMES (lead 223, folded 2026-09-07). Its own sentence says "after the derived
+# layer settled", and it read the WHOLE tree: on a shared tree that is every peer's in-flight source edit, so no
+# session could push while any other was typing — 285 such files held ten commits for a day. It now diffs the
+# declared drain paths (what reconcile regenerates) and reports, by count, what it left to the sessions that own it.
+drain=$(node -e 'import("./dist/scripts/api.js").then(m=>console.log(m.DRAIN_PATHS.join(" ")))' 2>/dev/null)
+if [ -n "$drain" ] && ! eval git diff --exit-code --quiet -- $drain; then
+  echo "pre-push: the DERIVED layer is DIRTY after it settled — push BLOCKED."
   echo "  gate-all's own 'git diff' arm fails on exactly this, ~12 minutes into a publish. Commit or re-derive."
   exit 1
 fi
+if [ -z "$drain" ] && ! git diff --exit-code --quiet; then
+  echo "pre-push: the working tree is DIRTY and the drain paths could not be read — push BLOCKED."
+  exit 1
+fi
+others=$(git status --porcelain | grep -c '^ M ')
+[ "$others" -gt 0 ] && echo "pre-push: $others modified file(s) outside the drain left to the sessions that own them (not judged here — the guard judges tracked+staged)"
 echo "pre-push: ✓ uuidnaOS hex green."
 exit 0

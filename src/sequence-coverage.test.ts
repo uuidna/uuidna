@@ -174,7 +174,7 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
   assert.equal(64 * 64, geo.cube, 'keplers_harmonic_law at the cube: T²=a³ is 64²=16³')
   assert.equal(16 * 16 * 16, geo.cube)
   assert.ok(n > 256, 'past 16², so the forms climb by powers of the hexbit')
-  // THE CUBE FILLED (2026-09-07): the ledger passed 4096 keys, so the sealed cube is the form already filled and
+  // THE CUBE FILLED (2026-09-07): the ledger passed the cube, 16³, so that sealed form is the one already filled and
   // the next power of 16 is the form being filled — the gap counts to it (theorem the_cube_filled_and_the_tesseract_opens)
   assert.ok(n > geo.cube, 'the cube is full — 16³ keys are behind the ledger')
   assert.equal(geo.power, 4, 'the form being filled is the tesseract, 16⁴')

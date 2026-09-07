@@ -13,6 +13,7 @@
 // question). Usage:
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
+import { curesFor } from './develop-cures.js'
 import { teeStep, ROOT, h16, pauseSeconds } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { execSync, spawnSync } from 'node:child_process'
@@ -20,7 +21,7 @@ import { execSync, spawnSync } from 'node:child_process'
 /** An objection this pass can cure: its signature in the gate's own output, and the deterministic command that fixes it. */
 type Cure = { name: string; when: RegExp; cmd: string; because: string }
 
-// ORDER IS LOAD-BEARING — most specific first, because the first match wins. Learned on this pass's very first real
+// ORDER IS LOAD-BEARING — most specific first, because matches run in table order (every match, once each, per round). Learned on this pass's very first real
 // run: a spin objection NAMES the files that moved, so a filename cure (regenerate support-audit.json) matched before
 // the spin cure (reconcile, which re-derives AND re-seals) and "cured" the wrong thing twice; the run converged only
 // because the guard happens to re-seal the fold. A drift of the SEAL is never cured by regenerating one of its files.
@@ -107,7 +108,10 @@ const CURES: Cure[] = [
     cmd: 'node dist/scripts/measure.js --all',
     because: 'an unattended cycle that only repairs leaves no evidence of what it saw; each measurement folds to a receipt that moves when its value moves, so drift between runs is visible in an artifact rather than in nobody memory',
   },
-  { name: 'package surface drift', when: /packages? (?:receipt|surface)|gen:packages/,
+  // ANCHORED TO A DENIAL LINE (2026-09-07): the bare signature matched the guard's own CLEAN line — "gen-packages …
+  // packages receipt c047c416" — so this cure fired on every green guard, and a round whose only other gap was
+  // untaught reported "did not cure" against a cure that had nothing to cure. A signature is a denial, never a word.
+  { name: 'package surface drift', when: /(?:✗|GAP)[^\n]*(?:packages? (?:receipt|surface)|gen:packages)/,
     cmd: 'node dist/scripts/gen-packages.js',
     because: 'the six package surfaces are generated from src/index.ts; the guard hard-rejects drift' },
   { name: 'legacy test dir', when: /src\/tests\/ still holds/,
@@ -248,25 +252,33 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     console.error(`    FIX ${blocked.why}`)
     process.exit(1)
   }
-  const cure = CURES.find((c) => c.when.test(objection.out))
-  if (!cure) {
+  // EVERY TAUGHT CURE THE OUTPUT NAMES, IN ONE ROUND (lead 229, folded 2026-09-07). The first match alone ran,
+  // then a full rebuild, court and guard — about four minutes at load — before the second denial, which had been
+  // printed in the same output, was even read. Three cures visible at once cost three rounds. The guard prints
+  // every finding it has; the loop now answers every one it was taught, in table order (most specific first), each
+  // distinct command once, and rebuilds once. A denial no cure matches still ends the round the honest way.
+  const cures = curesFor(objection.out, CURES)
+  if (!cures.length) {
     console.error(`\n✗ develop — the "${objection.label}" gate objected with no taught cure. Read it, fix it, and TEACH it:`)
     console.error(`    GAP ${namedGap(objection.out, 8)}`)
     console.error('    FIX add the objection\'s signature + its deterministic command to CURES in src/scripts/develop.ts')
     process.exit(1)
   }
-  const attempt = `${cure.name}::${objection.label}`
+  const attempt = `${cures.map((c) => c.name).join(' + ')}::${objection.label}`
   if (attempt === lastAttempt) {
-    console.error(`\n✗ develop — the cure for "${cure.name}" did not cure it: the "${objection.label}" gate objects the same way twice.`)
+    console.error(`\n✗ develop — the cure(s) for "${cures.map((c) => c.name).join(' + ')}" did not cure it: the "${objection.label}" gate objects the same way twice.`)
     console.error(`    GAP ${namedGap(objection.out, 8)}`)
-    console.error(`    FIX either the signature matches the wrong cure (order CURES most-specific-first) or the cure is incomplete`)
+    console.error(`    FIX either a signature matches the wrong cure (order CURES most-specific-first) or a cure is incomplete`)
     process.exit(1)
   }
   lastAttempt = attempt
-  console.log(`\n→ develop — cure for "${cure.name}": ${cure.cmd}\n  (${cure.because})`)
-  const fix = teeStep(`develop · cure · ${cure.name}`, cure.cmd)
-  applied.push(cure.name)
-  if (!fix.ok) {
+  if (cures.length > 1) console.log(`\n→ develop — ${cures.length} denials answered in this round: ${cures.map((c) => c.name).join(' · ')}`)
+  let broke = false
+  for (const cure of cures) {
+    console.log(`\n→ develop — cure for "${cure.name}": ${cure.cmd}\n  (${cure.because})`)
+    const fix = teeStep(`develop · cure · ${cure.name}`, cure.cmd)
+    applied.push(cure.name)
+    if (fix.ok) continue
     // A CONCURRENT WRITER IS NOT A BREAK — the third category, learned when this pass first met one: another session
     // was mid-landing a theorem, so generated.ts moved under the reconcile's own push and the cure "failed" for a
     // reason that was nobody's fault and fixes itself. Distinguish by asking whether the tree moved during the round.
@@ -274,11 +286,13 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
       console.log(`· develop — the tree moved during round ${round} (another session is landing); waiting and walking again`)
       applied.pop()
       lastAttempt = ''
-      continue
+      broke = true
+      break
     }
     console.error(`✗ develop — the cure for "${cure.name}" itself failed on a tree that did not move; that is a real break.`)
     process.exit(1)
   }
+  if (broke) continue
 }
 
 console.error(`✗ develop — ${MAX_ROUNDS} rounds spent, still objecting after cures: ${applied.join(', ')}. Every step is teed above; read the gate.`)

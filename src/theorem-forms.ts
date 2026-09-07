@@ -55,7 +55,7 @@ export function theoremForms(): TheoremForms {
   const totalEdges = faces.reduce((s, f) => s + f.edges, 0)
   let cube = 1
   for (let i = 0; i < 3; i++) cube = cube * HEXBIT_STATES
-  // THE CUBE FILLED. gap was cube − entries and went NEGATIVE the day the ledger passed 4096 keys, and the test
+  // THE CUBE FILLED. gap was cube − entries and went NEGATIVE the day the ledger passed the cube, and the test
   // that read "the cube is not yet full" started failing on a true statement about a fuller ledger. The geometry
   // is the same: the next form is the next power of the hexbit, 16⁴ = 65536, and the gap counts to it; the cube
   // stays sealed (rounding_fee_closes_the_cube) as the form the ledger has already filled.

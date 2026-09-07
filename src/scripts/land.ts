@@ -11,7 +11,9 @@
 // stores the holder's command name and start time, both re-checked). NOTHING here bypasses the gate:
 // --no-verify does not appear in this file, and an untaught denial is the loop's honest end, not an obstacle.
 import { execSync } from 'node:child_process'
-import { ROOT } from './api.js'
+import { ROOT, DRAIN_PATHS, inFlightFiles } from './api.js'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
 import { acquire, awaitAcquire, release, LOCK_PATH, working } from './one-writer.js'
 
 const ROUNDS = 4   // bounded: more than the worst day needed once every cure is taught; never a spin loop
@@ -73,6 +75,20 @@ if (!gate.ok) {
 }
 process.on('exit', () => release(process.pid))
 
+// ── --drain-only: STAGE WHAT THE DRAIN OWNS, NEVER THE TREE (lead 227, folded 2026-09-07). `git add -A` on a
+// SHARED tree sweeps other sessions' in-flight files into this landing's commit — lead 207 done by automation, and
+// it happened: seven files, four of them another session's, in one commit. In drain-only mode the stage is the
+// declared DRAIN_PATHS plus the receipt, and the commit carries a pathspec so nothing else in the shared index rides
+// along. It is CHOSEN AUTOMATICALLY when the tree holds files no one has staged (inFlightFiles — a peer's live
+// context), and named when it is; `--all` keeps the whole-tree stage for a tree one session owns.
+const inFlight = [...inFlightFiles()].filter((f) => !f.startsWith('src/handles/') && !f.startsWith('src/chunks/'))
+const drainOnly = process.argv.includes('--drain-only') || (inFlight.length > 0 && !process.argv.includes('--all'))
+if (drainOnly) console.log(`· land — DRAIN-ONLY: staging the ${DRAIN_PATHS.length} declared drain paths + the receipt, never the tree`
+  + (inFlight.length ? ` (${inFlight.length} in-flight file(s) left to their sessions: ${inFlight.slice(0, 6).join(', ')}${inFlight.length > 6 ? ', …' : ''})` : ''))
+const drainPaths = (): string[] => DRAIN_PATHS.filter((p) => existsSync(join(ROOT, p)))
+const stage = (): void => { if (drainOnly) run('git add -- ' + drainPaths().map((p) => JSON.stringify(p)).join(' ')); else run('git add -A') }
+const pathspec = (): string => (drainOnly ? ' -- gate-receipt.json ' + drainPaths().map((p) => JSON.stringify(p)).join(' ') : '')
+
 for (let round = 1; round <= ROUNDS; round++) {
   console.log(`\nland — round ${round}/${ROUNDS}: heal, commit, push …`)
   const heal = run('node dist/scripts/develop.js')          // taught cures only; prints its own receipts
@@ -115,9 +131,9 @@ for (let round = 1; round <= ROUNDS; round++) {
   // It is the tree's own recurring defect, and the most dangerous variant: a green report over an ABSENT action.
   // Nothing failed. No output was wrong. The only way to see it was to ask git what HEAD actually was, which is
   // why the verification below asks that and does not trust the exit code of anything.
-  const dirty = run('git status --porcelain').out.trim()
+  const dirty = run(drainOnly ? 'git status --porcelain -- gate-receipt.json ' + drainPaths().map((p) => JSON.stringify(p)).join(' ') : 'git status --porcelain').out.trim()
   if (dirty) {
-    run('git add -A')
+    stage()
     const covered = run('node dist/scripts/gate-receipt.js --verify')
     if (!covered.ok) {
       console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
@@ -138,7 +154,7 @@ for (let round = 1; round <= ROUNDS; round++) {
     run('git add gate-receipt.json')
     // cites a sealed theorem so commit-msg can sign it; an unsignable automated commit is a hand-amend waiting
     const msg = 'Land: heal, re-derive and seal what the drain owns — gate-clean, unattended. Backed by theorem two_coins'
-    const committed = run('git commit -m ' + JSON.stringify(msg))
+    const committed = run('git commit -m ' + JSON.stringify(msg) + pathspec())
     if (!committed.ok) {
       console.error('✗ land — the commit was REFUSED (the gate speaks below); a human decides here:\n')
       console.error(committed.out.split('\n').filter((l) => /^(✗|GAP|FIX|BLOCKED)/.test(l.trim())).join('\n') || committed.out.slice(-1200))

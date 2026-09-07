@@ -23,7 +23,7 @@ import { ROOT, MAXBUF } from './lean-gen.js'
 // conscious, documented decision; a `by decide` ledger should never need to.
 import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
-import { ALLOWED_AXIOMS, parseAxiomReport } from '../axiom-report.js'
+import { ALLOWED_AXIOMS, parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
 
 // THE TRUST BASE IS DECLARED ONCE, in src/axiom-report.ts, because the conveyor's deposit door now enforces it
@@ -150,7 +150,55 @@ async function main() {
     } catch { /* an unreadable receipt is no receipt — fall through and re-audit */ }
   }
 
-  const results = await pool(files, 8, (f) => auditFile(f, byFile[f]))
+  // PER-WING (lead 228): a wing whose text and asked keys are unchanged since its last receipt is not re-probed —
+  // its verdict is read back. Only the wings that moved reach the kernel. --check and UUIDNA_PROVE_ALL=1 re-ask all.
+  const asks: Record<string, string> = Object.fromEntries(files.map((f) => [f, wingAskedKey(readFileSync(join(ROOT, 'lean', f), 'utf8'), byFile[f])]))
+  let priorWings: Record<string, WingReceipt> | undefined
+  if (!check && !process.env.UUIDNA_PROVE_ALL && existsSync(cachePath)) {
+    try { priorWings = (JSON.parse(readFileSync(cachePath, 'utf8')) as { wings?: Record<string, WingReceipt> }).wings } catch { priorWings = undefined }
+  }
+  // BOOTSTRAP FROM THE LAST COMMITTED COMPLETE RECEIPT (lead 228's second half). A receipt written before this
+  // fold carries no per-wing map, so the first run after it would re-ask every wing — the crack, once more, on
+  // the very landing that folded it. But git holds the exact wing TEXTS that receipt certified: a wing whose text
+  // is byte-identical to its text at that commit, whose keys were all in that commit's ledger, and whose receipt
+  // said no theorem depended on any axiom, has its verdict already — the kernel answered this identical question
+  // and a commit sealed the answer. Anything else (a moved wing, a new key, an incomplete or offending receipt,
+  // any git failure) goes to the kernel: the bootstrap only ever READS BACK, never assumes.
+  if (!check && !process.env.UUIDNA_PROVE_ALL) {
+    try {
+      const { execSync } = await import('node:child_process')
+      const git = (args: string): string => execSync('git ' + args, { cwd: ROOT, encoding: 'utf8', maxBuffer: MAXBUF, stdio: ['ignore', 'pipe', 'ignore'] })
+      const commit = git('log -1 --format=%H -- lean/axioms.json').trim()
+      if (commit) {
+        const sealed = JSON.parse(git(`show ${commit}:lean/axioms.json`)) as { audited?: number; total?: number; offenders?: Record<string, unknown>; wings?: Record<string, WingReceipt> }
+        const complete = sealed.audited !== undefined && sealed.audited === sealed.total && Object.keys(sealed.offenders ?? {}).length === 0
+        if (complete) {
+          const sealedKeys = new Set([...git(`show ${commit}:src/theorems/generated.ts`).matchAll(/^ {2}\{ key: "([^"]+)"/gm)].map((m) => m[1]!))
+          const derived: Record<string, WingReceipt> = { ...(sealed.wings ?? {}), ...(priorWings ?? {}) }
+          let fromGit = 0
+          for (const f of files) {
+            if (derived[f]?.asked === asks[f]) continue
+            let then: string
+            try { then = git(`show ${commit}:lean/${f}`) } catch { continue }   // a wing born after the receipt
+            if (then !== readFileSync(join(ROOT, 'lean', f), 'utf8')) continue
+            if (!byFile[f].every((k) => sealedKeys.has(k))) continue
+            derived[f] = { asked: asks[f], verdict: Object.fromEntries(byFile[f].map((k) => [k, [] as string[]])) }
+            fromGit++
+          }
+          if (fromGit) console.log(`· axiom audit — ${fromGit} wing(s) byte-identical to the text the committed receipt ${commit.slice(0, 9)} certified, read back from that seal`)
+          priorWings = derived
+        }
+      }
+    } catch { /* no git, no history, no bootstrap — every wing goes to the kernel */ }
+  }
+  const { reuse, probe: toProbe } = reusableWings(priorWings, asks)
+  if (reuse.length) console.log(`· axiom audit — ${reuse.length} wing(s) unchanged since their receipt, read back; ${toProbe.length} wing(s) moved and go to the kernel`)
+  const probed = await pool(toProbe, 8, (f) => auditFile(f, byFile[f]))
+  const verdictOf: Record<string, Record<string, string[]>> = {}
+  toProbe.forEach((f, i) => { verdictOf[f] = probed[i] })
+  for (const f of reuse) verdictOf[f] = priorWings![f]!.verdict
+  const results = files.map((f) => verdictOf[f]!)
+  const wings: Record<string, WingReceipt> = Object.fromEntries(files.map((f) => [f, { asked: asks[f], verdict: verdictOf[f]! }]))
 
   // Fold: which theorems carry a DISALLOWED axiom, and did every theorem actually get a verdict (coverage)?
   const offenders: Record<string, string[]> = {} // address → the axioms it depends on
@@ -195,7 +243,7 @@ async function main() {
   // the drain means a run that has already decided it failed does not get to leave a receipt. A stale witness is
   // then the worst case, and a stale one is at least a statement somebody made about a tree that existed.
   const axiomFree = audited - Object.keys(offenders).length
-  const receipt = { audited, total: T.length, axiomFree, offenders, dependencySets, asked: askedKey }
+  const receipt = { audited, total: T.length, axiomFree, offenders, dependencySets, asked: askedKey, wings }
 
   console.log('\n=== axiom audit — the whole ledger ===')
   console.log('theorems audited :', audited + '/' + T.length + (unseen.length ? ` (${unseen.length} UNSEEN)` : ''))
