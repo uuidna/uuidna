@@ -14,6 +14,7 @@
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
 import { curesFor } from './develop-cures.js'
+import { grepProbe } from '../tree-writers.js'
 import { teeStep, ROOT, h16, pauseSeconds } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { execSync, spawnSync } from 'node:child_process'
@@ -178,7 +179,7 @@ const treeState = (): string => {
 const waitForQuiet = (): void => {
   const sh = shellOrExit('develop')
   for (let i = 0; i < 30; i++) {
-    const r = spawnSync(sh.file, sh.argv('ps aux | grep -E "[r]econcile\\.js|[l]ean-all\\.js" | wc -l'), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+    const r = spawnSync(sh.file, sh.argv(grepProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
     if (r.error || r.status !== 0) {
       console.error('x develop — the quiescence probe could not RUN, so this pass cannot tell a quiet tree from a')
       console.error('  busy one. Refusing rather than editing a tree another gate may be mid-run on.')
