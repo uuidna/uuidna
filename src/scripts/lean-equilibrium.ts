@@ -67,6 +67,24 @@ for (let i = 0; i < CELLS; i += 8) cellGroups.push(range(CELLS).slice(i, i + 8))
 const stateGroups: number[][] = []
 for (let i = 0; i < STATES; i += 8) stateGroups.push(range(STATES).slice(i, i + 8))
 
+
+// ONE TRANSLATION PER THEOREM, AND EIGHT THEOREMS PER FILE (lead 241, the captain: "quantum computations are in
+// chunks and it is not possible one to block all"). Grouped eight translations to a theorem this walked 32,768
+// triples and the kernel refused it at 200,000 heartbeats; split to one translation per theorem it passed — and
+// then the sixty-four sat in ONE file, so lean-all's parallel lanes proved every other wing and idled while a
+// single kernel spent an hour on this one, and the heartbeat sync did the same. The cost was never "calls, not
+// lines" (the tree's own 5,091 heartbeats refute that: recursive-def theorems are ~35× cheaper per case than
+// literal walks); it is total work per decide, and a file is the unit a lane takes. So the family is emitted as
+// EquilibriumXor1..8.lean, eight translations each: same sixty-four claims, eight lanes instead of one.
+const XOR_PRESERVES = range(CELLS).map((a) => ({
+  key: `xor_translation_preserves_adjacency_${a}`,
+  why: `AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by ${a}: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all ${CELLS * CELLS} ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already.`,
+  js: () => range(CELLS).every((c) => range(CELLS).every((d) => xor(xor(c, a), xor(d, a)) === xor(c, d))),
+  lean: `theorem xor_translation_preserves_adjacency_${a} : (List.range ${CELLS}).all (fun c => (List.range ${CELLS}).all (fun d => lxor (lxor c ${a}) (lxor d ${a}) == lxor c d)) := by decide`,
+}))
+const XOR_CHUNK = 8
+const XOR_FILES = (CELLS + XOR_CHUNK - 1 - ((CELLS + XOR_CHUNK - 1) % XOR_CHUNK)) / XOR_CHUNK   // ceil without Math: the tree hard-rejects Math.*
+
 const FACTS = [
   ...cellGroups.map((grp, gi) => ({
     key: `hexcube_degree_is_six_${gi}`,
@@ -96,18 +114,6 @@ const FACTS = [
     lean: `theorem xor_translation_carries_any_cell_to_any_other_${gi} : ${L(grp)}.all (fun c => (List.range ${CELLS}).all (fun d => lxor c (lxor c d) == d)) := by decide`,
   })),
 
-  // ONE TRANSLATION PER THEOREM. Grouped eight at a time this walked 32,768 triples with three lxor calls each
-  // and the kernel refused it at 200,000 heartbeats. lxor is structural recursion over bits, so the cost is the
-  // number of calls and not the number of lines: the same law this tree already seals for walk DEPTH applies to
-  // walk WORK, and the cure is the same — split until each piece fits, without narrowing the claim. All
-  // sixty-four translations are still checked, one theorem apiece.
-  ...range(CELLS).map((a) => ({
-    key: `xor_translation_preserves_adjacency_${a}`,
-    why: `AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by ${a}: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all four thousand and ninety-six ordered pairs. Transitivity needs both halves — a map that reaches every vertex but does not preserve the edges is not a symmetry of the graph, and reaching was shown separately.`,
-    js: () => range(CELLS).every((c) => range(CELLS).every((d) => xor(xor(c, a), xor(d, a)) === xor(c, d))),
-    lean: `theorem xor_translation_preserves_adjacency_${a} : (List.range ${CELLS}).all (fun c => (List.range ${CELLS}).all (fun d => lxor (lxor c ${a}) (lxor d ${a}) == lxor c d)) := by decide`,
-  })),
-
   ...stateGroups.map((grp, gi) => ({
     key: `polarity_flip_is_an_automorphism_${gi}`,
     why: `THE POLARITY FLIP IS ALSO A SYMMETRY, for states ${grp[0]} to ${grp[grp.length - 1]}. Adjacency depends only on the cell, so flipping the polarity of both ends preserves every edge. This is the generator the peer's suite did not test: exclusive-or translation alone gives two orbits of sixty-four — transitive WITHIN a polarity class — and only this flip joins them. A claim of transitivity over all 128 rests on it, and it holds.`,
@@ -130,3 +136,12 @@ emit({ file: 'Equilibrium.lean',
   skill: 'wave',
   defs: LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
+
+for (let i = 0; i < XOR_FILES; i++) {
+  const facts = XOR_PRESERVES.slice(i * XOR_CHUNK, (i + 1) * XOR_CHUNK)
+  emit({ file: `EquilibriumXor${i + 1}.lean`,
+    header: `THE XOR TRANSLATIONS ARE AUTOMORPHISMS, FILE ${i + 1} OF ${XOR_FILES} — translations ${i * XOR_CHUNK} to ${((i + 1) * XOR_CHUNK < CELLS ? (i + 1) * XOR_CHUNK : CELLS) - 1} of the six-cube, one theorem each, eight to a file so that lean-all's lanes prove the family in parallel: a wing is proved per FILE, and one file of sixty-four near-cap theorems held the whole landing behind a single kernel while every other lane idled. Same sixty-four claims as before the split; the claim is not narrowed, the chunk is sized to a lane. Backed by the chunk law this tree already seals for walk depth (Recursion.lean), applied to walk work.`,
+    skill: 'wave',
+    defs: LXOR_DEF,
+    facts: facts.map((f) => ({ ...f, name: f.why })) })
+}
