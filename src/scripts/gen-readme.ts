@@ -149,7 +149,7 @@ Typography graph — heading depth is document depth (school-paths law).
 | Depth | Part | Section |
 | ---: | --- | --- |
 | 1 | **Hero** | [Abstract](#abstract) — tagline, ledger, name theorem |
-| 1 | **Honesty** | [How this is kept honest](#how-this-is-kept-honest) — the four gates and what each cannot see |
+| 1 | **Honesty** | [How this is kept honest](#how-this-is-kept-honest) — the five gates and what each cannot see |
 | 1 | **Thesis** | [Thesis](#thesis) — Captain PhD seal |
 | 2 | ↳ concept | [Proof of concept](#proof-of-concept) — Clay · DNA |
 | 2 | ↳ work | [Proof of work](#proof-of-work) — crypto stack · codon occupancy |
@@ -178,6 +178,19 @@ Every proof \`by decide\`, sorry-free, no Mathlib, axiom-free against the bare l
 
 ---
 
+## In three lines
+
+1. **${T.length.toLocaleString('en-US')} theorems and ${ledgerMass().toLocaleString('en-US')} decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with \`npm run lean\`.
+2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
+3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — \`coprime_sum_blocked_reduced_3_mod_9\`, \`fixed_power_law_mod_45\`. You never have to hunt a footnote to learn the scope.
+
+**Where the caveats live, so you can stop looking for them in the prose.** This ledger states limits in three fixed
+places and nowhere else: the theorem NAME carries the scope, the wing HEADER carries what the wing does and does not
+claim, and the table below carries what each gate cannot see. Everything outside those three places is a claim, meant
+plainly. If a sentence here reads like hedging, it is misplaced and should be moved into one of the three.
+
+---
+
 ## How this is kept honest
 
 A ledger is only worth its refusals. Every claim below survived gates that could have rejected it, and each gate
@@ -187,9 +200,10 @@ ways and corrected each time.
 | gate | what it refuses | what it cannot see |
 | --- | --- | --- |
 | the **kernel** | anything not decidable by \`decide\` | a statement that is TRUE and says nothing |
-| the **vacuity rule** | statements true whatever the world does | a proof that needs an axiom |
+| the **vacuity rule** | statements true whatever the world does, INCLUDING inside a walk | a tautology whose two sides are spelled differently |
 | the **axiom audit** | any row depending on \`propext\` or \`Classical.choice\` — trust base ∅ | a proof only this kernel can check |
 | the **falsifier evaluator** | statements a second, independent implementation cannot decide | whether the claim matters |
+| the **cross-wing statement check** | the same statement sealed twice under different keys | a duplicate whose text differs but whose content does not |
 
 The vacuity gate exists because four sealed rows were found stating things like \`(2604 + 0 = 2604) ∧ (0 = 0)\` —
 arithmetic true however the prose behaves, under keys claiming otherwise. They were repaired to decide their
@@ -202,7 +216,10 @@ depending on a disallowed axiom blocks certification of all of them.
 
 **A zero must discriminate.** Every finder here is held to a positive control — feed it the defect it was built
 for and it must catch it — because a detector reporting zero is indistinguishable from a detector that is blind.
-The vacuity rule read zero over all four vacuous rows before it was made recursive.
+The vacuity rule read zero over all four vacuous rows before it was made recursive — and read zero again over
+a walk asserting w + (100 - w) == 100 over a hundred and one values before it was taught to descend into a walk's BODY. A
+quantifier is not evidence: a hundred and one checks that are true for every input decide exactly as much as
+one. Both blind spots were found the same way, by feeding the finder the defect it was built for.
 
 **Claims carry their own counterexample.** \`merkle_advantage_starts_above_one_bit\` proves the verification
 advantage is exactly (2^p − 1)/p AND that it does not exist at p = 1, where a rebuild is one merge against a
