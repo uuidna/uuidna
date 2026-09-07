@@ -128,6 +128,22 @@ test('staging the source alongside its derived output clears the gap — the fin
   rmSync(dir, { recursive: true, force: true })
 })
 
+test('an UNTRACKED source is a source (lead 238): a derived file staged ahead of a wing git has never seen is caught', () => {
+  // THE CASE THAT SLIPPED: `git diff --name-only` lists only tracked files, so a brand-new wing generator sat
+  // untracked while the drain staged and committed the 129-theorem wing it had written — a derived file at HEAD
+  // no commit could recompute, precisely what this finder refuses. Untracked wings and generators count now.
+  const dir = scratch()
+  execSync(`git -C ${JSON.stringify(dir)} add lean/Core.lean`, { stdio: 'ignore', env: cleanGitEnv() })   // the tracked source is in step
+  writeFileSync(join(dir, 'lean', 'New.lean'), 'theorem fresh : 1 = 1 := by decide\n')                     // a wing git has never seen
+  execSync(`git -C ${JSON.stringify(dir)} add src/theorems/generated.ts`, { stdio: 'ignore', env: cleanGitEnv() })
+  const gaps = precedeGaps(dir)
+  assert.equal(gaps.length, 1, 'the untracked wing is an unstaged source, and the staged derived file is ahead of it')
+  assert.match(gaps[0]!.what, /lean\/New\.lean/, 'the untracked source is named')
+  execSync(`git -C ${JSON.stringify(dir)} add lean/New.lean`, { stdio: 'ignore', env: cleanGitEnv() })
+  assert.deepEqual(precedeGaps(dir), [], 'CONTROL — staging the new wing beside its derived output clears it')
+  rmSync(dir, { recursive: true, force: true })
+})
+
 test('a staged SOURCE with no derived file staged is not an inversion — the order it forbids has a direction', () => {
   const dir = scratch()
   execSync(`git -C ${JSON.stringify(dir)} add lean/Core.lean`, { stdio: 'ignore', env: cleanGitEnv() })

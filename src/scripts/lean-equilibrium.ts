@@ -83,7 +83,7 @@ const XOR_PRESERVES = range(CELLS).map((a) => ({
   lean: `theorem xor_translation_preserves_adjacency_${a} : (List.range ${CELLS}).all (fun c => (List.range ${CELLS}).all (fun d => lxor (lxor c ${a}) (lxor d ${a}) == lxor c d)) := by decide`,
 }))
 const XOR_CHUNK = 8
-const XOR_FILES = (CELLS + XOR_CHUNK - 1 - ((CELLS + XOR_CHUNK - 1) % XOR_CHUNK)) / XOR_CHUNK   // ceil without Math: the tree hard-rejects Math.*
+const XOR_FILES = (CELLS + XOR_CHUNK - 1 - ((CELLS + XOR_CHUNK - 1) % XOR_CHUNK)) / XOR_CHUNK   // ceil in integers: the tree hard-rejects the rounding helpers
 
 const FACTS = [
   ...cellGroups.map((grp, gi) => ({

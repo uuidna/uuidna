@@ -1123,7 +1123,11 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
   if (!stagedDerived.length) return gaps
   // The whole derived layer is a function of two things: the Lean corpus and the generators that read it. Either one
   // dirty-but-unstaged makes the staged output unreproducible from what a commit would actually publish.
-  const unstagedSource = git('git diff --name-only')     // worktree vs INDEX: modified and NOT staged
+  // MODIFIED-AND-UNSTAGED **OR UNTRACKED** (lead 238, folded 2026-09-07): `git diff --name-only` sees only files git
+  // already tracks, so a brand-new wing generator — untracked, never staged — was invisible here, and the drain
+  // landed its 129-theorem wing (lean/Equilibrium.lean) with no generator behind it: a derived file at origin that
+  // no commit can recompute, the exact thing this finder exists to refuse. An untracked source is a source.
+  const unstagedSource = [...git('git diff --name-only'), ...git('git ls-files --others --exclude-standard -- lean src/scripts')]
     .filter((f) => /^lean\/[^/]+\.lean$/.test(f) || /^src\/scripts\/lean-.+\.ts$/.test(f))
   if (unstagedSource.length) {
     const show = (xs: string[]): string => xs.slice(0, 3).join(', ') + (xs.length > 3 ? `, … (${xs.length} total)` : '')
