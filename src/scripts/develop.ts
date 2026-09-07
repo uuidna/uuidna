@@ -59,6 +59,15 @@ const CURES: Cure[] = [
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
+  // TWO DENIALS THE LOOP MET AND COULD NOT ANSWER (2026-09-07, the render-budget landing): a new wing moved the
+  // ledger's distinct count, and the guard's exact FIX lines were re-typed by hand three times before the table
+  // learned them. Both cures are the guard's own words; neither invents anything.
+  { name: 'stamped ledger slots stale', when: /carries stamped ledger slot\(s\)/,
+    cmd: 'node dist/scripts/stamp.js',
+    because: 'the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number' },
+  { name: 'messaging witness short of the ledger', when: /"messaging_total":false/,
+    cmd: 'node dist/scripts/one-receipt.js messaging',
+    because: 'lean/messaging-witness.json must cover the current ledger — every carrier round-trips byte-exact — or the one-receipt seal is refused' },
   { name: 'heartbeats missing', when: /heartbeats cover the ledger|MISSING \d+: [a-z_]/,
     cmd: 'node dist/scripts/lean-heartbeats.js --sync',
     because: 'the delta mode measures only the new keys — NOT --all, which spawns a kernel per theorem and burned ninety minutes once' },
