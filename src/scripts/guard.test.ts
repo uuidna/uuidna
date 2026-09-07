@@ -96,6 +96,7 @@ const CONTROLLED_VIA: Record<string, string> = {
   deadkeyGaps: 'deadKeysInLine — a purged key in a crafted line',
   underreachGaps: 'underreachIn — a hedge applied to the act of proving',
   claimBalanceGaps: 'claimBalanceOf — an under-claiming row',
+  tautologyGaps: 'tautologicalAsserts — the committed dead line named, a determinism check cleared, the known limit held',
 }
 
 /** the finders no test hands a crafted violation to — computed, never listed by hand */
