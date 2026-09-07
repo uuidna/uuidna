@@ -9,6 +9,7 @@
 // "go together" is objective; harmony here means the polygon. Integrity.
 import { emit } from './lean-gen.js'
 import { auraAlphabet } from '../aura.js'
+import { nameMeasure as N } from './name-measure.js'
 
 // ── THE AURA ALPHABET, ENUMERATED. Derived from auraAlphabet() itself, never typed: the wing states a 378-state
 // table and the statement is computed from the same function the surface serves, so a state added upstream moves
@@ -154,6 +155,15 @@ const FACTS = [
     why: 'THE BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit\'s hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.',
     js: () => (180 % 40 === 20) && (4 * 40 === 160) && (160 < 180) && (180 < 200) && (5 * 40 === 200),
     lean: 'theorem no_digit_is_an_exact_complement : (180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200) := by decide' },
+
+  { key: 'uuidna_name_aura_is_the_seed',
+    why: 'THE NAME\'S AURA IS THE SEED ON THE A432 WHEEL. Residue is the seed of toUuid("uuidna") mod 9, ray is that seed mod 7, wave index is the seed mod 6. Hue is residue·40 + ray·51 + wave, wrapping 360°. Period is two coins times (hexbit + coins + ray). Saturation and lightness are the ray and wave channels.',
+    js: () => N.aura.ten.residue === N.seed % N.base && N.aura.ray === N.seed % N.rays
+      && N.aura.wave === N.wave[N.wi] && N.aura.hue === N.hue
+      && N.aura.ten.period === N.period
+      && N.aura.ten.sat === 62 + 2 * N.aura.ray + N.satExtra
+      && N.aura.ten.light === 50 + N.coins * N.wi,
+    lean: `theorem uuidna_name_aura_is_the_seed : (${N.seed} % 9 = ${N.aura.ten.residue}) ∧ (${N.seed} % 7 = ${N.aura.ray}) ∧ (${N.seed} % 6 = ${N.wi}) ∧ ((${N.aura.ten.residue} * 40 + ${N.aura.ray} * 51 + ${N.aura.wave}) % 360 = ${N.hue}) ∧ (${N.coins} * (${N.hexbit} + ${N.coins} + ${N.aura.ray}) = ${N.period}) ∧ (62 + 2 * ${N.aura.ray} + ${N.satExtra} = ${N.aura.ten.sat}) ∧ (50 + ${N.coins} * ${N.wi} = ${N.aura.ten.light}) := by decide` },
 ]
 
 emit({

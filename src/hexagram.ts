@@ -114,6 +114,12 @@ export const OCCUPANCY_KEYS: readonly string[] = [
   'onion_layers_power_of_two',
   'digest_doubles_the_address',
   'sha256_is_four_sixtyfours',
+  'uuidna_letters_fuse_to_the_hexagram',
+  'uuidna_name_handle_is_the_seed',
+  'uuidna_name_payload_tiles_sixteen_codons',
+  'uuidna_name_aura_is_the_seed',
+  'uuidna_name_spans_the_layout',
+  'uuidna_name_referrer_door',
 ]
 
 export interface OccupancyCite {

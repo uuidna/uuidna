@@ -10,6 +10,7 @@
 // ChaCha20-Poly1305 (src/crypt.ts); these theorems are the demarcation, computed.
 import { emit, LXOR_DEF } from './lean-gen.js'
 import { sha256IsFourSixtyfours } from '../hexbit/index.js'
+import { nameMeasure as N, L, UUID_WORD, DNA_WORD, NAME } from './name-measure.js'
 
 const comp = (x: number) => 3 - x // the base-pair complement — the diamond reflection on {A,C,G,T} = {0,1,2,3}
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i) // [a, b)
@@ -65,6 +66,27 @@ const FACTS = [
     why: 'THE NAME IS A THEOREM — why uuid and DNA are one word here. The genetic code and the coin measure are the SAME NUMBER by two different routes: DNA reads 4 bases three at a time (4³ = 64) and the coin is six doublings of bits (2⁶ = 64), so 4³ = 2⁶ — the codon count IS the coin\'s bit measure. The uuid is EXACTLY TWO of them: 128 = 2·64 = 2⁷ — two coins, and (double_strand) two antiparallel rails, one per direction. uuid = DNA × the two coins, and the double helix is the bidirectional messaging the coins price at one per direction. an arithmetic coincidence of counts made structural by construction — the address is BUILT as two 64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses.',
     js: () => 4 ** 3 === 64 && 2 ** 6 === 64 && 4 ** 3 === 2 ** 6 && 128 === 2 * 64 && 128 === 2 ** 7,
     lean: 'theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide' },
+
+  { key: 'uuidna_letters_fuse_to_the_hexagram',
+    why: 'THE NAME IS THE WIDTHS. uuid is four letters and a hexbit is four bits; dna is three letters and a trinity is three; they share one letter, so 4 + 3 − 1 = 6. Hexbit plus the two coins is the hexagram: 4 + 2 = 6. Base minus trinity is credit: 9 − 3 = 6. The six-letter name, the hexagram, and the credit plane are one number.',
+    js: () => UUID_WORD.length === N.hexbit && DNA_WORD.length === N.trinity && N.shared === 1
+      && UUID_WORD.length + DNA_WORD.length - N.shared === NAME.length
+      && N.hexbit + N.coins === NAME.length && N.base - N.trinity === NAME.length
+      && NAME.length === N.codonBits,
+    lean: 'theorem uuidna_letters_fuse_to_the_hexagram : (4 + 3 - 1 = 6) ∧ (4 + 2 = 6) ∧ (9 - 3 = 6) ∧ (4 + 3 - 1 = 4 + 2) ∧ (4 + 2 = 9 - 3) := by decide' },
+
+  { key: 'uuidna_name_handle_is_the_seed',
+    why: 'THE NAME\'S HANDLE IS THE FIRST GROUP OF ITS ADDRESS, READ AS A NUMBER. toUuid("uuidna") is the measured hash; the kernel decides that those eight hex digits, folded as base-16 place value, ARE the seed.',
+    js: () => N.place === N.seed && N.handle === N.hex.slice(0, N.handleHexbits)
+      && N.handleNibbles.length === N.handleHexbits,
+    lean: `theorem uuidna_name_handle_is_the_seed : ${L(N.handleNibbles)}.foldl (fun acc d => acc * 16 + d) 0 = ${N.seed} := by decide` },
+
+  { key: 'uuidna_name_payload_tiles_sixteen_codons',
+    why: 'THE NAME\'S OWN ADDRESS CARRIES SIXTEEN CODONS IN THE PAYLOAD. The measured payload of toUuid("uuidna") is twenty-four hexbits; twenty-four times four bits over the six-bit codon is sixteen.',
+    js: () => N.nibbles.slice(N.handleHexbits).length === N.payloadHexbits
+      && N.payloadHexbits === 24
+      && (N.payloadHexbits * N.hexbit - ((N.payloadHexbits * N.hexbit) % N.codonBits)) / N.codonBits === 16,
+    lean: `theorem uuidna_name_payload_tiles_sixteen_codons : (${L(N.nibbles.slice(N.handleHexbits))}.length = ${N.payloadHexbits}) ∧ ((${N.payloadHexbits} * ${N.hexbit}) / ${N.codonBits} = 16) := by decide` },
 
   { key: 'octave_codon_address',
     why: 'THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction.',

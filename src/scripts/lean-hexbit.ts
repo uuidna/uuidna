@@ -35,6 +35,7 @@ import {
 } from '../hexbit/index.js'
 import { UUID_LAYOUT_GROUPS } from '../hexagram.js'
 import { bellBornWeights, massGapOnBellBornField } from '../quantum/index.js'
+import { nameMeasure as N, L as LN } from './name-measure.js'
 
 const GROUPS = [...UUID_LAYOUT_GROUPS]
 const CHARS = GROUPS.reduce((a, b) => a + b, 0)
@@ -244,6 +245,11 @@ const FACTS = [
         && JSON.stringify(bellBornWeights()) === JSON.stringify(BELL_WEIGHTS)
     },
     lean: `theorem born_field_mass_gap_on_bell : ((${L(BELL_WEIGHTS)} : List Nat).all (fun a => a = 0 ∨ ${BELL_GAP.delta} ≤ a)) ∧ ((${L(BELL_WEIGHTS)} : List Nat).any (fun a => a = 0)) ∧ ((${L(BELL_WEIGHTS)} : List Nat).any (fun a => ${BELL_GAP.delta} ≤ a)) ∧ (${BELL_GAP.delta} > 0) := by decide` },
+
+  { key: 'uuidna_name_spans_the_layout',
+    why: 'THE NAME\'S CONTENT-ADDRESS SPANS THE LAYOUT. toUuid("uuidna") yields thirty-two hex digits; the first eight are the handle. The hash is the measurement; the kernel decides the lengths.',
+    js: () => N.nibbles.length === N.uuidHexbits && N.handleNibbles.length === N.handleHexbits,
+    lean: `theorem uuidna_name_spans_the_layout : (${LN(N.nibbles)}.length = ${N.uuidHexbits}) ∧ (${LN(N.handleNibbles)}.length = ${N.handleHexbits}) := by decide` },
 ]
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 

@@ -75,7 +75,7 @@ test('proof of work — the symmetric stack is the same widths, not a Bitcoin-on
 test('proof of concept — DNA codon cube and complement involution decide', () => {
   const P = phdProofs()
   const T = theorems()
-  assert.equal(P.concept.dna, 8)
+  assert.equal(P.concept.dna, 10)
   assert.equal(P.concept.dnaDecide, true)
   assert.equal(P.concept.dnaName, true)
   assert.ok(T.some((t) => t.key === 'uuidna_is_dna_times_the_two_coins' && t.tactic.includes('decide')))

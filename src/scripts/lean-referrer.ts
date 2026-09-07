@@ -17,6 +17,7 @@
 // door is an address derivation — never a taste, never a profile; a referrer is folded, not tracked.
 // COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
+import { nameMeasure as N, L } from './name-measure.js'
 
 const gcd = (a: number, b: number): number => { let x = a, y = b; while (y !== 0) { const t = x % y; x = y; y = t } return x }
 const cons = (a: number, b: number): number => { const g = gcd(a, b); return a / g + b / g }
@@ -93,6 +94,11 @@ const FACTS = [
     why: 'THE MOVIE AND THE SONG ARE ONE BAR OF ARITHMETIC. One bar of the song is 252 ms at 16000 samples a second — 16·252 = 4032 samples — and 4032 factors as every ring this ledger turns on at once: 9·7·64 (the vortex ring times the rosette times the coin measure — the four tongues’ fusion, sample-exact), 63·64 (the fused ring times the coins), and 24·24·7 (the film’s frame ring, squared, seven times — the ℤ/24 whose every unit is self-inverse). A frame slot of the bar is 168 samples with nothing left over. The pager’s walk, sounded and animated, is not a song WITH pictures: at the sample level the two tilings are the same integer.',
     js: () => 16 * 252 === 4032 && 4032 === 9 * 7 * 64 && 4032 === 63 * 64 && 4032 === 24 * 24 * 7 && 4032 === 24 * 168 && 168 === 24 * 7,
     lean: 'theorem the_movie_and_the_song_are_one : (16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7) := by decide' },
+
+  { key: 'uuidna_name_referrer_door',
+    why: 'THE NAME\'S FIRST HEXBIT IS THE DOOR. The leading nibble of toUuid("uuidna") modulo the hexagram width is the referrer door into the round. The hash is the measurement; the kernel decides the residue.',
+    js: () => N.nibbles[0]! % N.codonBits === N.referrerDoor,
+    lean: `theorem uuidna_name_referrer_door : ${L(N.nibbles)}.headD 0 % ${N.codonBits} = ${N.referrerDoor} := by decide` },
 ]
 
 emit({ file: 'Referrer.lean', skill: 'referrer',

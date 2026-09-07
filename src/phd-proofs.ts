@@ -50,6 +50,8 @@ const DNA_KEYS: readonly string[] = [
   'complement_is_xor_key3',
   'codons_four_cubed',
   'uuidna_is_dna_times_the_two_coins',
+  'uuidna_letters_fuse_to_the_hexagram',
+  'uuidna_name_payload_tiles_sixteen_codons',
   'octave_codon_address',
   'otp_self_inverse',
   'translation_is_lossy',
