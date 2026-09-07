@@ -161,11 +161,10 @@ for (let round = 1; round <= ROUNDS; round++) {
     // cleanup, and process.exit does not run finally — a 2.7 GB worktree with a built dist was left on a 98%
     // volume by the first red mint. The verdict is computed, the worktree goes, and only then does land speak.
     symlinkSync(join(ROOT, 'node_modules'), join(wt, 'node_modules'))
-    // the built SITE is a directory artefact outside the receipt's covers (src/, lean/); the tests that read it
-    // (the census pipeline, the served-bytes checks) see this tree's build through a link, never a rebuild
-    for (const built of ['docs/.vitepress/dist', 'docs/.vitepress/cache']) {
-      if (existsSync(join(ROOT, built)) && !existsSync(join(wt, built))) symlinkSync(join(ROOT, built), join(wt, built))
-    }
+    // NO LINK TO THE DIRECTORY'S BUILT SITE (a peer's objection, 2026-09-07): dist is built from the desk, so a
+    // test reading it through a symlink would read the desk again — the thing this worktree exists to exclude.
+    // A test that needs the site reports UNMEASURED without one (census/index.test.ts); the receipt covers src/ and
+    // lean/, and the site is measured by the ship, not the mint.
     const proof = run('cd ' + JSON.stringify(wt) + ' && npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests --root ' + JSON.stringify(wt))
     if (proof.ok) copyFileSync(join(wt, 'gate-receipt.json'), join(ROOT, 'gate-receipt.json'))
     // the worktree carries a built dist, so it is removed as a directory and then pruned from git's list

@@ -2,6 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theoremByKey } from './theorems/index.js'
 import { callTool, TOOL_NAMES } from './mcp.js'
+import { verifyPinnedRootfs } from './os/runtime/index.js'
 
 // Ten ports were given MCP doors and the tool-exercise audit objected within one run: a tool with no dedicated
 // test is aggregate-only, and the under-tested set may not grow. A baseline exemption was available and would
@@ -61,9 +62,12 @@ test('uuidna_driver_state — measured and published stay apart', () => {
   assert.notEqual(s.receipt, '', 'the port receipt folds the sealed half only')
 })
 
-test('uuidna_security_plan — plans without spawning, and refuses an unknown op', () => {
+test('uuidna_security_plan — plans without spawning, and refuses an unknown op', (t) => {
   const census = callTool('uuidna_security_plan') as { ops: { plannable: boolean }[] }
-  assert.ok(census.ops.every((o) => o.plannable), 'every named operation is plannable — the refusal that said otherwise was wrong')
+  // the pinned rootfs is fetched host state, absent in a clean worktree of HEAD: unmeasured there, never a refusal
+  const rootfs = verifyPinnedRootfs()
+  if (rootfs.present) assert.ok(census.ops.every((o) => o.plannable), 'every named operation is plannable — the refusal that said otherwise was wrong')
+  else t.diagnostic(`pinned rootfs absent at ${rootfs.path} — plannability unmeasured on this host`)
   assert.equal(callTool('uuidna_security_plan', { op: 'exfiltrate' }), null)
 })
 

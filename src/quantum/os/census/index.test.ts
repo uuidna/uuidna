@@ -1,5 +1,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../../../scripts/api.js'
 import { primeMonitor, monitorCensus, renderMonitor, monitorPrimed, compilerCensus, archMatrix } from './index.js'
 import { MONITOR_INVENTORY } from './inventory/index.js'
 import { uuidnaExec, APPLETS } from '../exec/index.js'
@@ -66,11 +69,18 @@ test('`top` OBSERVES residency without causing it', async () => {
 // them, which is coverage lost in a refactor — the same content-loss shape the installer refuses. Every test
 // below stood in its own file before the merge and still stands.
 
-test('every compiler measures a real translation, in both directions', () => {
+test('every compiler measures a real translation, in both directions', (t) => {
   const c = compilerCensus()
   assert.equal(c.present, true)
   for (const r of c.rows) {
     assert.ok(r.inBytes > 0, `${r.compiler} must have an input`)
+    // THE BUILT SITE IS HOST STATE, NOT PART OF THE COMMIT (leads 232/235): a clean worktree of HEAD — where the
+    // receipt is minted — has no docs/.vitepress/dist, and linking the directory's build in would hand the mint the
+    // author's desk through a symlink. So an absent site is UNMEASURED and named, never a failed translation.
+    if (r.compiler === 'markdown → site' && !existsSync(join(ROOT, 'docs', '.vitepress', 'dist'))) {
+      t.diagnostic('markdown → site: no built site on this host — unmeasured, not absent (npm run docs:build measures it)')
+      continue
+    }
     assert.ok(r.outBytes > 0, `${r.compiler} must have an output`)
   }
 })

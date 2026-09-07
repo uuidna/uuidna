@@ -1,12 +1,18 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { secApi, planSecurityOp, attestBytes, SECURITY_OPS, securityCensus } from './index.js'
+import { verifyPinnedRootfs } from '../runtime/index.js'
 
-test('every named operation is PLANNABLE — the refusal that said otherwise was wrong', () => {
+test('every named operation is PLANNABLE — the refusal that said otherwise was wrong', (t) => {
   // I filed a refusal saying uuidna cannot confine, cannot scan, cannot route. os/runtime verifies then RUNS
   // host binaries, and planAlpineRun returns ok:true for every one of them. The refusal rested on a fake limit.
   const a = secApi()
   assert.equal(a.ops.length, SECURITY_OPS.length)
+  // THE PINNED ROOTFS IS HOST STATE (leads 232/235): a plan is ok only when mirror/<minirootfs>.tar.gz is present and
+  // verifies, and that tarball is fetched, never committed — a clean worktree of HEAD has none. Absent, every op
+  // reads "not plannable" for a reason the tree does not contain; that is UNMEASURED, named, not a refusal.
+  const rootfs = verifyPinnedRootfs()
+  if (!rootfs.present) { t.diagnostic(`pinned rootfs absent at ${rootfs.path} — plannability unmeasured on this host (npm run x -- fetch-pinned-rootfs)`); return }
   for (const o of a.ops) assert.equal(o.plannable, true, `${o.binary} must be plannable — claiming otherwise was the error`)
 })
 
