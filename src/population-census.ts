@@ -1,6 +1,7 @@
 // population-census — THE SURFACES THAT COUNT THE SAME THEOREMS MUST AGREE, AND ONE ASKS THEM ALL AT ONCE.
 //
-// WHY THIS EXISTS, from a day's evidence rather than a principle. On 2026-09-07 a wing of 129 theorems landed and
+// WHY THIS EXISTS, from a day's evidence rather than a principle. On 2026-09-07 a wing (Equilibrium.lean, its size in the
+// ledger's own count) landed and
 // SIX separate gate failures followed, spread over hours and found one at a time by three different sessions:
 //
 //   the axiom witness had audited 5124 while the ledger served 5253
@@ -17,7 +18,8 @@
 // This asks all of them in one pass and reports the population each carries. It does not replace those gates —
 // each still knows what to DO about its own surface — it removes the delay between one cause and its six faces.
 //
-// THREE ANSWERS, NOT TWO. A surface that cannot be read is UNMEASURED and is never folded into agreement, which is
+// THREE ANSWERS, NOT TWO. A surface the reader fails to open — absent or unreadable, a host fact — is UNMEASURED and is
+// never folded into agreement, which is
 // the rule this tree keeps re-learning: an unreadable file and a matching one both produce silence, and only a
 // third state separates them. A surface deliberately behind (a measurement still running) is reported as BEHIND
 // with its shortfall named, because "behind" is a fact worth stating and not a fault worth blocking on.

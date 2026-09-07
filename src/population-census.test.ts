@@ -2,8 +2,8 @@
 //
 // The census exists because six gate failures on 2026-09-07 were one fact — a wing grew the population and five
 // derived surfaces were counting the old one. So the tests that matter are not "it returns five numbers": they are
-// that a PLANTED disagreement is reported, and that a surface it cannot read comes back UNMEASURED rather than
-// silently matching. A census whose failure mode is silence would reproduce the defect it was built to end.
+// that a PLANTED disagreement is reported, and that a surface the reader fails to open (a host fact: the file is
+// absent or unreadable) comes back UNMEASURED rather than silently matching. A census whose failure mode is silence would reproduce the defect it was built to end.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs'
