@@ -109,6 +109,12 @@ function clipSchema(schema: unknown, cap = SCHEMA_CAP): unknown {
   if (!schema || typeof schema !== 'object') return schema
   const s = schema as { properties?: Record<string, { description?: string } & Record<string, unknown>> }
   if (!s.properties) return schema
+  // AN EMPTY `properties: {}` SAYS NOTHING AND COSTS 16 BYTES ON EVERY tools/list. JSON Schema and MCP both leave
+  // `properties` optional on an object schema, so a zero-argument tool serves `{"type":"object"}` alone. Measured
+  // 2026-09-07: 58 such tools, 928 bytes — which is what paid, under the shrink-only wire rate, for describing the
+  // eleven required arguments that carried no description and for stating uuidna_document's nested shape (898
+  // bytes together), and still left the wire 30 bytes lighter than before: 82648 → 82618 across 257 tools.
+  if (Object.keys(s.properties).length === 0) { const { properties: _empty, ...rest } = s; return rest }
   const properties: Record<string, unknown> = {}
   for (const k of Object.keys(s.properties)) {
     const p = s.properties[k]!

@@ -189,7 +189,13 @@ export function sealSequence(messages: readonly string[], passphrase: string, st
 }
 
 /** Verify the envelope's 7d-fold content-address (integrity/routing) without the key — public, reproducible. */
+const ENVELOPE_FIELDS = ['alg', 'salt', 'nonce', 'ct', 'tag', 'address'] as const
+/** an envelope that is not the shape uuidna_encrypt returns is REFUSED BY NAME, never folded: a bare `{}` used to
+ *  reach foldEnvelope and die as a TypeError on `.length`, which reads as a crash rather than a verdict */
 export function verifyEnvelope(sealed: Sealed): boolean {
+  if (!sealed || typeof sealed !== 'object') throw new Error('crypt: envelope must be the {v,alg,kdf,iter,salt,nonce,ct,tag,address} object uuidna_encrypt returns')
+  const missing = ENVELOPE_FIELDS.filter((k) => typeof (sealed as unknown as Record<string, unknown>)[k] !== 'string')
+  if (missing.length) throw new Error(`crypt: envelope missing field(s): ${missing.join(', ')}`)
   return foldEnvelope(sealed.alg, sealed.salt, sealed.nonce, sealed.ct, sealed.tag) === sealed.address
 }
 

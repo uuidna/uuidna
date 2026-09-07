@@ -56,7 +56,9 @@ const HEX = (bytes: number): string => 'ab'.repeat(bytes)
 // The consumer's OTHER arguments ride along to the producer by name (a chain opened with a passphrase must have
 // been sealed with that passphrase), so producer and consumer agree the way two real calls would.
 const produced = new Map<string, Record<string, unknown>>()
-const productOf = (producer: string, name: string, siblings: Record<string, unknown>): unknown => {
+// a product with no field of the argument's name IS the argument when the shapes agree (uuidna_encrypt returns
+// the envelope itself; uuidna_seal_chain returns the links array), so the whole product rides
+const productOf = (producer: string, name: string, siblings: Record<string, unknown>, want?: string): unknown => {
   const tool = MCP_CATALOG.find((t) => t.name === producer)
   if (!tool) return undefined
   const schema = tool.inputSchema as Schema
@@ -66,10 +68,15 @@ const productOf = (producer: string, name: string, siblings: Record<string, unkn
   if (!produced.has(key)) {
     const r = handleMcpRpc({ jsonrpc: '2.0', id: 0, method: 'tools/call', params: { name: producer, arguments: args } }) as { result?: { content?: { text: string }[] } }
     let out: Record<string, unknown> = {}
-    try { out = JSON.parse(r.result?.content?.[0]?.text ?? '{}') as Record<string, unknown> } catch { /* not JSON: no product */ }
+    try { const v = JSON.parse(r.result?.content?.[0]?.text ?? '{}') as unknown; if (v && typeof v === 'object') out = v as Record<string, unknown> } catch { /* not JSON: no product */ }
     produced.set(key, out)
   }
-  return produced.get(key)![name]
+  const out = produced.get(key)!
+  if (!out || typeof out !== 'object') return undefined   // a producer that returns a bare value has no field to take
+  if (name in out) return out[name]
+  if (want === 'array' && Array.isArray(out)) return out
+  if (want === 'object' && !Array.isArray(out) && Object.keys(out).length) return out
+  return undefined
 }
 // descriptions are served truncated ("uuid chain from uuidna_seal_cha…"), so the producer token may prefix
 // SEVERAL catalogue names (seal_chain, seal_channel): every candidate is tried and the first whose product carries
@@ -87,7 +94,7 @@ const argsFor = (schema: Schema): Record<string, unknown> => {
     const candidates = producersOf(schema.properties?.[k])
     if (!candidates.length) continue
     let v: unknown
-    for (const c of candidates) { v = productOf(c, k, args); if (v !== undefined) break }
+    for (const c of candidates) { v = productOf(c, k, args, schema.properties?.[k]?.type); if (v !== undefined) break }
     args[k] = v ?? sampleOf(schema.properties?.[k], k)
   }
   return args

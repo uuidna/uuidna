@@ -52,6 +52,10 @@ export interface DocFold { handle: string; address: string; nodes: number }
 // reAddress — the EDIT hook stated as law: editing IS re-addressing. Recompute the address of the (edited) state; a
 // change moves it (editor_fold_change_sensitive), an unchanged document returns the same (deterministic). No mutation.
 export function reAddress(state: EditorState): DocFold {
+  // a state with no root is REFUSED BY NAME: a bare `{}` used to reach serialize and die as a TypeError
+  const root = (state as { root?: unknown } | null | undefined)?.root
+  if (!root || typeof root !== 'object' || !Array.isArray((root as { children?: unknown }).children))
+    throw new Error('editor: state.root missing or has no children[] — expected a Lexical EditorState { root: { type, children } }')
   const leaves = serialize(state.root)
   const address = merkleRoot(leaves.map(toUuid))
   return { handle: handleOf(address), address, nodes: leaves.length }
