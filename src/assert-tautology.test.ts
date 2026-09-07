@@ -22,3 +22,10 @@ test('a comparison of two different expressions is never named, mutation or not'
   assert.deepEqual(tautologicalAsserts(src), [])
   assert.deepEqual(sameExpressionAsserts(src), [])
 })
+
+test('KNOWN LIMIT (lead 237) — a determinism check after an UNRELATED fixture write is named, falsely, and the file says so', () => {
+  // the narrowing that would clear this also clears the real dead line (its write targets the directory, its
+  // assertion reads the committed tree), so the boundary is documented here rather than guessed past
+  const src = "test('z', () => {\n  writeFileSync(f, 'seed')\n  assert.equal(gridRoot(), gridRoot(), 'deterministic')\n})\n"
+  assert.deepEqual(tautologicalAsserts(src).map((t) => t.line), [3], 'the current behaviour, held so a change to it is a decision')
+})

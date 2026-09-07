@@ -1,4 +1,5 @@
-// assert-tautology — AN ASSERTION THAT COMPARES AN EXPRESSION TO ITSELF AFTER A MUTATION CANNOT SEE THE MUTATION.
+// assert-tautology — AN ASSERTION THAT COMPARES AN EXPRESSION TO ITSELF AFTER A MUTATION IS BLIND TO THE MUTATION
+// BY CONSTRUCTION: both sides evaluate after it, so no value from before survives to be compared.
 //
 // `assert.equal(fileManifest(committed)['src/a.ts'], fileManifest(committed)['src/a.ts'], 'the manifest is stable')`
 // shipped on 2026-09-07 inside the test that guards the receipt (lead 235), after a writeFileSync it meant to
@@ -9,8 +10,15 @@
 // text does not carry the difference; the claim does. A determinism check has nothing between its two
 // evaluations by design; a dead line has a mutation between the value it meant to capture and the comparison.
 // So the rule is positional: the two arguments are one expression AND the enclosing test body mutates state
-// (a filesystem write, a process spawn) before the assertion. Measured 2026-09-07: 52 same-text asserts, 0 with a
-// mutation before them; the committed dead line, as the control, is the one the rule names.
+// (a filesystem write, a process spawn) before the assertion. Measured 2026-09-07 after the fix: 51 same-text
+// asserts, 0 with a mutation before them; the committed dead line, fed back in, is the one the rule names.
+//
+// THE BOUNDARY, STATED RATHER THAN GUESSED PAST (lead 237, a peer's measurement): a determinism check that follows an
+// UNRELATED fixture write in the same test body — `writeFileSync(f, 'seed'); assert.equal(gridRoot(), gridRoot())` —
+// is NAMED, falsely. The obvious narrowing, "count only a mutation whose target names something the assertion
+// reads", was checked and refused: it also clears the real dead line, whose write targets `root` while the
+// assertion reads `committed`. So the rule stays wide and says so; the tree has zero such shapes today, and the
+// control test below holds the false positive as a documented limit, not a surprise.
 //
 // The first draft's regex was paren-blind — a lazy `[\s\S]{1,200}?` stopped at the first `)` — and reported 0
 // over 383 files because it could not read a single call argument. That is the instrument

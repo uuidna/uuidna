@@ -658,7 +658,11 @@ export function vacuousGaps(): Gap[] {
 // (census 0 after the fix) and blocks from birth, because a control that cannot fail is a decoration.
 export function tautologyGaps(): Gap[] {
   const gaps: Gap[] = []
-  for (const rel of [...sourceGraph().keys()].filter((f) => isTestSource(f))) {
+  // the finder's own test carries the shapes it hunts as fixture strings — the mention, not the act (the impossibility
+  // finder's SELF rule); it is not named only because each fixture's write shares a line with its assert, and luck is
+  // not an exemption
+  const SELF = new Set(['src/assert-tautology.test.ts'])
+  for (const rel of [...sourceGraph().keys()].filter((f) => isTestSource(f) && !SELF.has(f))) {
     let text: string
     try { text = rd(rel) } catch { gaps.push({ what: `${rel}: could not be read — UNMEASURED, not clean`, fix: 'make the file readable or remove it from the source graph; an unreadable test is not a passing one' }); continue }
     for (const t of tautologicalAsserts(text))
