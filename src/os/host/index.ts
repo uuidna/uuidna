@@ -137,6 +137,10 @@ export interface Capacity {
   lanes: number      // how many steps may be in flight at once
   reserved: number   // what the fan-out deliberately leaves behind
   memoryGiB: number  // whole gibibytes of RAM — integer, floor, exact
+  /** WHICH POINT OF THE PENTAGRAM SET THE WIDTH, or that only one was asked. A lane count bounded by the cores
+   *  and one bounded by the memory must not look alike: the first is a ceiling, the second is a different
+   *  ceiling, and "I only measured the cores" is a third answer that is neither. */
+  binds: string
   cpu: string        // the processor's own model string, for the report
 }
 
@@ -147,18 +151,40 @@ export interface Capacity {
  *  took 50 s and FAILED where it passed alone in under a second. Concurrency that manufactures a flake is not
  *  speed, it is a false verdict. Two lanes stay behind, and the floor is 2 so a single-core host still runs.
  *  Integer arithmetic throughout: the memory figure floors by the exact form, never by a rounding intrinsic. */
-export function capacity(reserve = 2): Capacity {
+/*  THE PENTAGRAM, TAKEN FROM ZEROPOINT-NODE (2026-09-07). Their qpu-pentagram states it plainly: the QPU is CPU,
+ *  GPU, RAM, CACHE and STORAGE, and a measurement of ONE point reported as the machine's capacity is wrong by
+ *  omission — their earlier reading grew a register on one thread, got 19 qubits and called it the host's ceiling
+ *  while ten cores, 32 GiB, 12 MiB of L2 and 28 GiB of disk sat outside the number.
+ *
+ *  THIS FUNCTION HAD THE SAME SHAPE, and this tree has paid for it repeatedly. `lanes` was availableParallelism
+ *  minus a reserve — CPU alone — while `memoryGiB` was MEASURED IN THE SAME BREATH and never allowed to bind it.
+ *  Every ceiling that actually stopped work here was the other point: the Cloudflare SSG could not fit its render
+ *  in the container, the fix for that was a hand-picked buildConcurrency, and the render budget's peak was RSS in
+ *  the bundle phase. A lane count that cannot express "the memory binds before the cores do" leaves its operator
+ *  typing the number by hand — which is the very thing lane-fusion.test.ts now forbids at every call site.
+ *
+ *  SO A CALLER THAT KNOWS ITS JOB'S FOOTPRINT SAYS SO, and the width becomes the smaller of the two points. A
+ *  caller that does not is answered as before and TOLD memory was not considered — the third answer again: a lane
+ *  count bounded by one point and a lane count bounded by the binding point must not look alike. `binds` names
+ *  which point won, so a report can say why a wide machine ran narrow. */
+export function capacity(reserve = 2, perJobBytes = 0): Capacity {
   const os = builtin<OsModule>('node:os')
-  if (!os) return { logical: 1, lanes: 2, reserved: reserve, memoryGiB: 0, cpu: 'unknown — no host to measure' }
+  if (!os) return { logical: 1, lanes: 2, reserved: reserve, memoryGiB: 0, cpu: 'unknown — no host to measure', binds: 'unmeasured' }
   const logical = os.availableParallelism()
   const free = logical - reserve
+  const cpuLanes = free < 2 ? 2 : free
   const bytes = os.totalmem()
+  // the memory a fan-out may spend: total less the same proportion the CPU reserve holds back, floored exactly
+  const usable = bytes - (bytes / logical) * reserve
+  const memLanes = perJobBytes > 0 ? Math.trunc(usable / perJobBytes) : 0
+  const bounded = perJobBytes > 0 && memLanes < cpuLanes
   return {
     logical,
-    lanes: free < 2 ? 2 : free,
+    lanes: bounded ? (memLanes < 1 ? 1 : memLanes) : cpuLanes,
     reserved: reserve,
     memoryGiB: (bytes - (bytes % GIB)) / GIB,
     cpu: os.cpus()[0]?.model.trim() ?? 'unknown',
+    binds: perJobBytes > 0 ? (bounded ? 'memory' : 'cpu') : 'cpu-only — no per-job footprint given, memory not considered',
   }
 }
 

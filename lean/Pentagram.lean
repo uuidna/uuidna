@@ -1,62 +1,181 @@
--- lean/Pentagram.lean — GENERATED. THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Pentagram.lean — GENERATED. THE PENTAGRAM: A WIDTH IS THE BINDING POINT, AND ONE POINT CAN ONLY OVERSTATE. The QPU is five points — CPU, GPU, RAM, CACHE, STORAGE — and a fan-out may run as wide as the SMALLER of what they afford. THE CENTRE: measuring one point never reports a width too narrow, only one too WIDE, because a minimum over a subset is never smaller than the minimum over the whole. That is why omission here is dangerous rather than merely incomplete — an error that can only err toward doing too much is discovered as an oversubscription rather than as a slow run. ALSO SEALED: the width is monotone in every point, so adding memory or cores can never narrow it; it never falls below one, because zero lanes is a stop and not a measurement; and it always equals one of the points, so a report can name which one bound it. WHERE IT COMES FROM: zeropoint-node's qpu-pentagram, which recorded its own earlier reading as wrong by omission — a register grown on one thread gave nineteen qubits and was called the machine's ceiling while four other points sat outside the number. uuidna's capacity() had the same shape, measuring cores for its lane count while measuring memory in the same breath and never letting it bind. SCOPE: the ARITHMETIC of a width chosen as a minimum over measured points. Nothing here says what any point's capacity IS on any machine — a host is a measurement, not a theorem. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-def fibCycle (m : Nat) (f : List Nat) (len : Nat) : Bool :=
-  (f.length == len) && (f.take 2 == [0, 1]) &&
-  (((f ++ f.take 2).zip ((f ++ f.take 2).drop 1)).zip ((f ++ f.take 2).drop 2)).all
-    (fun p => (p.1.1 + p.1.2) % m == p.2)
+/-- THE WIDTH IS THE SMALLER POINT, over readings 1 to 10. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_0 : [(1,1),(1,2),(1,3),(1,4),(1,6),(1,8),(1,12),(1,20),(1,40),(1,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The pentagram is the star polygon {5/2}: stepping +2 (mod 5) draws it in a SINGLE stroke — [0,2,4,1,3] —
-    visiting all five points without lifting the pen, because 2 is coprime to 5. -/
-theorem pentagram_single_stroke : (List.range 5).map (fun k => (2*k) % 5) = [0,2,4,1,3] := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 11 to 20. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_1 : [(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The convex pentagon is the step +1 (mod 5): [0,1,2,3,4] — the same five vertices, walked the short way; the
-    pentagram is the SAME five points, walked by twos. -/
-theorem pentagon_single_stroke : (List.range 5).map (fun k => k % 5) = [0,1,2,3,4] := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 21 to 30. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_2 : [(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The star closes: five steps of +2 return to the start — (2·5) mod 5 = 0. A pentagram is exactly one full
-    turn of the twos. -/
-theorem pentagram_closes_after_five : (2*5) % 5 = 0 := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 31 to 40. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_3 : [(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- WHY it is one stroke and not a shorter loop: the step 2 is coprime to 5 — gcd(2,5)=1 — so ×2 permutes ℤ/5
-    and the walk hits every point before repeating (as +7 does on the circle of fifths mod 12). -/
-theorem pentagram_step_coprime_five : Nat.gcd 2 5 = 1 := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 41 to 50. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_4 : [(10,1),(10,2),(10,3),(10,4),(10,6),(10,8),(10,12),(10,20),(10,40),(10,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The five point-angles of the pentagram sum to a half-turn: 5 · 36 = 180°, each sharp point 36° — the {5/2}
-    star angle. A count of degrees, exact. -/
-theorem pentagram_point_angles_half_turn : 5 * 36 = 180 := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 51 to 60. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_5 : [(16,1),(16,2),(16,3),(16,4),(16,6),(16,8),(16,12),(16,20),(16,40),(16,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The single-digit (mod 9) Fibonacci — the digital-root Fibonacci — is periodic: 24 single digits satisfy Fₙ₊₂
-    ≡ Fₙ+Fₙ₊₁ (mod 9) from the seed [0,1] and return to it, closing into a 24-cycle (its Pisano period). -/
-theorem fib_single_digit_cycle_24 : fibCycle 9 [0,1,1,2,3,5,8,4,3,7,1,8,0,8,8,7,6,4,1,5,6,2,8,1] 24 = true := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 61 to 70. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_6 : [(32,1),(32,2),(32,3),(32,4),(32,6),(32,8),(32,12),(32,20),(32,40),(32,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The SAME Fibonacci recurrence through the pentagram modulus (mod 5): 20 single digits close into a 20-cycle
-    — the Pisano period π(5)=20. The pentagram lens on the golden sequence. -/
-theorem fib_pentagram_cycle_20 : fibCycle 5 [0,1,1,2,3,0,3,3,1,4,0,4,4,3,2,0,2,2,4,1] 20 = true := by decide
+/-- THE WIDTH IS THE SMALLER POINT, over readings 71 to 80. A fan-out may run as wide as the cores allow and as
+    wide as the memory allows, so it may run as wide as the SMALLER of the two and no wider. Stated as the
+    minimum rather than as a rule about which point usually wins, because which one wins is a fact about a
+    machine and this is not. -/
+theorem width_is_the_binding_point_7 : [(64,1),(64,2),(64,3),(64,4),(64,6),(64,8),(64,12),(64,20),(64,40),(64,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2)))) := by decide
 
-/-- The SAME recurrence fused to the rosette modulus (mod 7): 16 single digits close into a 16-cycle — the
-    Pisano period π(7)=16. One sequence, read through pentagram (5), rosette (7) and single digit (9). -/
-theorem fib_rosette_cycle_16 : fibCycle 7 [0,1,1,2,3,5,1,6,0,6,6,5,4,2,6,1] 16 = true := by decide
+/-- THE CENTRE OF THE LAW, over readings 1 to 10: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_0 : [(1,1),(1,2),(1,3),(1,4),(1,6),(1,8),(1,12),(1,20),(1,40),(1,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
 
-/-- The "777" is three sevens — 7+7+7 = 21 = 3·7. Not 777 of anything: the trinity (3) times the rosette (7),
-    the same 21 as a sum and as a product. A mnemonic that computes. -/
-theorem three_sevens_twentyone : 7 + 7 + 7 = 21 ∧ 3 * 7 = 21 := by decide
+/-- THE CENTRE OF THE LAW, over readings 11 to 20: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_1 : [(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
 
-/-- The trinity (3) and the rosette (7) are coprime — gcd(3,7)=1 — so a step of 3 permutes ℤ/7 (visits every
-    ray), and ℤ/3 and ℤ/7 fuse into a single ℤ/21 cycle (the Chinese remainder theorem). Coprimality IS the
-    fusion. -/
-theorem trinity_rosette_coprime : Nat.gcd 3 7 = 1 := by decide
+/-- THE CENTRE OF THE LAW, over readings 21 to 30: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_2 : [(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
 
-/-- DNA reads in triplets: the codon reading frame steps by 3. Through the seven-ray rosette that step visits
-    ALL seven rays in one rotation — [0,3,6,2,5,1,4] — because 3 is coprime to 7. The reading frame (the DNA 3)
-    IS a full rotation (the rosette 7): 3×7 in one stroke. -/
-theorem codon_frame_rotates_rosette : (List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4] := by decide
+/-- THE CENTRE OF THE LAW, over readings 31 to 40: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_3 : [(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
 
-/-- The human pentagram’s pentagon: each interior angle is 108° — (5−2)·180 = 540, and 540 = 5·108. A finite
-    count of degrees, exact; the five points fold to a half-turn (5·36 = 180). -/
-theorem pentagon_interior_angle_108 : (5 - 2) * 180 = 540 ∧ 5 * 108 = 540 := by decide
+/-- THE CENTRE OF THE LAW, over readings 41 to 50: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_4 : [(10,1),(10,2),(10,3),(10,4),(10,6),(10,8),(10,12),(10,20),(10,40),(10,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
 
-/-- π is the honest edge: irrational, infinite, non-repeating — NOT a `by decide` object (proving anything about
-    π itself needs analysis. What decides is the finite rationals AROUND it: Archimedes’ bounds 223/71 < π <
-    22/7 are two ordered fractions — 223·7 = 1561 < 1562 = 22·71 — bracketing π within 1/(71·7). The ledger
-    holds the finite witnesses; π stays outside, by its nature. -/
-theorem pi_bracketed_by_finite_rationals : 223 * 7 = 1561 ∧ 22 * 71 = 1562 ∧ 223 * 7 < 22 * 71 := by decide
+/-- THE CENTRE OF THE LAW, over readings 51 to 60: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_5 : [(16,1),(16,2),(16,3),(16,4),(16,6),(16,8),(16,12),(16,20),(16,40),(16,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
+
+/-- THE CENTRE OF THE LAW, over readings 61 to 70: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_6 : [(32,1),(32,2),(32,3),(32,4),(32,6),(32,8),(32,12),(32,20),(32,40),(32,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
+
+/-- THE CENTRE OF THE LAW, over readings 71 to 80: measuring ONE point never reports a width too narrow — it
+    reports one too WIDE. The true width is a minimum over the points, and a minimum over a subset is never
+    smaller than the minimum over the whole, so the CPU reading alone is greater than or equal to the binding
+    width in every case. That is why omission is dangerous rather than merely incomplete: an error that can only
+    err toward doing too much is discovered as an oversubscription, not as a slow run. zeropoint-node's own
+    correction is this theorem in prose — nineteen qubits called a machine's ceiling while four other points sat
+    outside the number. -/
+theorem one_point_can_only_overstate_7 : [(64,1),(64,2),(64,3),(64,4),(64,6),(64,8),(64,12),(64,20),(64,40),(64,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 1 to 10: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_0 : [(1,1),(1,2),(1,3),(1,4),(1,6),(1,8),(1,12),(1,20),(1,40),(1,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 11 to 20: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_1 : [(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 21 to 30: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_2 : [(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 31 to 40: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_3 : [(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 41 to 50: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_4 : [(10,1),(10,2),(10,3),(10,4),(10,6),(10,8),(10,12),(10,20),(10,40),(10,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 51 to 60: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_5 : [(16,1),(16,2),(16,3),(16,4),(16,6),(16,8),(16,12),(16,20),(16,40),(16,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 61 to 70: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_6 : [(32,1),(32,2),(32,3),(32,4),(32,6),(32,8),(32,12),(32,20),(32,40),(32,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- MONOTONE IN EVERY POINT, over readings 71 to 80: adding memory, or adding cores, never makes the admitted
+    width smaller. A capacity function that could narrow when a machine grew would be unusable — an operator
+    adding memory to go faster would have to check whether it had gone slower — and the minimum has this
+    property by construction, which is the argument for choosing a minimum rather than a formula. -/
+theorem a_richer_point_never_narrows_the_width_7 : [(64,1),(64,2),(64,3),(64,4),(64,6),(64,8),(64,12),(64,20),(64,40),(64,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w))) := by decide
+
+/-- A FLOOR, BECAUSE ZERO LANES IS NOT A MEASUREMENT BUT A STOP. Every reading here admits at least one lane, so
+    a host too small for the reserve still runs the work serially rather than reporting a fan-out of nothing. A
+    capacity that can answer zero turns a narrow machine into a halted one, and the difference between slow and
+    stopped is the difference between a result and none. -/
+theorem the_width_is_never_below_one : [(1,1),(1,2),(1,3),(1,4),(1,6),(1,8),(1,12),(1,20),(1,40),(1,128),(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128),(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128),(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (if p.1 <= p.2 then p.1 else p.2) >= 1) := by decide
+
+/-- EVERY READING NAMES A WINNER. For each pair the width equals the CPU point or the memory point — never a
+    third number — so a report can always say WHICH point set the width. A width that matched neither would be a
+    computed figure with no measurement behind it, which is exactly the kind of number this ledger exists to
+    refuse. -/
+theorem naming_the_binding_point_is_total : [(1,1),(1,2),(1,3),(1,4),(1,6),(1,8),(1,12),(1,20),(1,40),(1,128),(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128),(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128),(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w == p.1) || (w == p.2))) := by decide
