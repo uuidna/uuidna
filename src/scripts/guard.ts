@@ -5,7 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
-import { impossibilityGaps } from './impossibility-gaps.js'
+import { impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
 import { accountingGaps } from './accounting-gaps.js'
 import { proseProvenanceGaps } from '../prose-provenance.js'
@@ -313,7 +313,16 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'impossibility', run: () => {
     const { files, deferred } = judged([...sourceGraph().keys()])
     if (deferred.length) console.log('    · ' + deferred.length + ' in-flight file(s) deferred, untracked and unstaged — judged when staged: ' + deferred.join(', '))
-    return impossibilityGaps(files, impossibilityBaseline())
+    // LEAD 234: an UNREADABLE file is not a clean one. The reading separates the two, and a file the finder
+    // could not open BLOCKS rather than passing quietly — otherwise this gate cannot tell "nothing is open" from
+    // "I could not look", which is the pair no_instrument_narrower_than_its_question forbids collapsing.
+    const { gaps, unreadable } = impossibilityReading(files, impossibilityBaseline())
+    for (const rel of unreadable) gaps.push({
+      what: `${rel} could not be READ, so this finder has no opinion about it — UNMEASURED, not clean`,
+      fix: 'restore the file, or remove it from the source graph. A finder that folds unreadable into clean '
+        + 'reports a green it never earned; the gap stays until the file can be opened.',
+    })
+    return gaps
   } },
   // A MEASURE MAY NOT BE LOOSENED TO FIT A RESULT. Runs the ratchets: each live measurement against the value
   // sealed in the ledger, and the measure's OWN address before the reading — because a number checked against a

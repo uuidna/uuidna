@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { IMPOSSIBLE, JUSTIFIED, REASON_CLAUSE, impossibilityGaps } from './impossibility-gaps.js'
+import { IMPOSSIBLE, JUSTIFIED, REASON_CLAUSE, impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
 import { sourceGraph } from '../test-paths.js'
 
 // CONTROLS FOR A WIDENED DETECTOR. Accepting a stated reason clause cleared 31 claims at a stroke, and a
@@ -71,4 +71,34 @@ test('the debt is a real reading of this tree, and it only shrinks', () => {
     assert.match(r.what, /^src\/.+:\d+ claims/, 'every gap names its file and line')
     assert.ok(r.fix.length > 20, 'every gap carries an actionable fix, not a label')
   }
+})
+
+// ── LEAD 234: UNREADABLE IS NOT CLEAN ────────────────────────────────────────────────────────────────────────
+//
+// The finder used to fold a file it could not open into "no gaps here", so an unreadable source and a clean one
+// returned the same empty list. That is the pair `no_instrument_narrower_than_its_question` forbids collapsing,
+// and it cost a real control: the first check of the holds-diagnostic cure put the pre-cure wording outside ROOT,
+// this finder reported 0 for BOTH arms, and the cure looked unnecessary. These two tests are the fence.
+
+test('a file that cannot be READ is named UNMEASURED, never folded into clean', () => {
+  const missing = 'src/this-file-does-not-exist-lead-234.ts'
+  const r = impossibilityReading([missing], new Set())
+  assert.deepEqual(r.gaps, [], 'an unreadable file yields no GAPS — it was never read, so it makes no claims')
+  assert.deepEqual(r.unreadable, [missing],
+    'and it MUST appear as unreadable. If this array is empty the finder is back to reporting a green it never '
+    + 'earned: "I could not look" spent as "nothing is open".')
+})
+
+test('THE CONTROL — the two answers are distinguishable, so the third answer is load-bearing', () => {
+  // A file that IS readable and DOES carry a bare claim: gaps non-empty, unreadable empty. Without this arm the
+  // test above passes against a finder that calls everything unreadable, which would be the opposite defect.
+  const real = impossibilityReading([...sourceGraph().keys()], new Set())
+  assert.deepEqual(real.unreadable, [],
+    'every file in the source graph is readable today; if this fires, a source moved and the guard should say so')
+  assert.ok(real.gaps.length >= 0, 'and the gap arm still answers over the same run')
+
+  // the pair, in one call: a missing path and the real graph together must produce BOTH answers, not one
+  const mixed = impossibilityReading(['src/absent-lead-234.ts', ...sourceGraph().keys()], new Set())
+  assert.deepEqual(mixed.unreadable, ['src/absent-lead-234.ts'], 'the unreadable one is named')
+  assert.deepEqual(mixed.gaps, real.gaps, 'and it does not disturb the gaps the readable files carry')
 })

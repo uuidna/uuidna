@@ -119,12 +119,31 @@ const SELF = new Set([
   'src/scripts/impossibility-gaps.test.ts',
 ])
 
-export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {
+// THE THIRD ANSWER (lead 234). This finder read a file, and a file it COULD NOT read contributed no gaps —
+// indistinguishable from a file with none. `try { text = rd(rel) } catch { continue }` folds UNREADABLE into
+// CLEAN, which is the two-valued instrument over a three-answer question that
+// `no_instrument_narrower_than_its_question` forbids, and which src/leads.ts already states correctly in its own
+// header: "a source that could not be read reports UNMEASURED and BLOCKS — it is never folded into 'no leads
+// found'". The finder that enforces honesty about limits was silent about its own.
+//
+// FOUND BY ACCIDENT, which is the part worth keeping. The control for a cure to src/holds-diagnostic.test.ts put
+// the pre-cure wording in a path outside ROOT and this finder reported 0 gaps for BOTH arms — the cure looked
+// unnecessary. Re-run through a ROOT-relative path it reported 2 and 0, the real result. A control that cannot
+// be read is not a control that passed.
+//
+// impossibilityGaps keeps its signature so its five callers are untouched; impossibilityReading is the honest
+// one and returns both answers. The guard blocks on `unreadable` — a gate that cannot tell "nothing is open"
+// from "I could not look" is exactly the instrument that theorem forbids.
+export interface ImpossibilityReading { gaps: Gap[]; unreadable: string[] }
+
+/** every gap these files carry, AND every file that could not be read — never folded together */
+export function impossibilityReading(files: readonly string[], baseline: ReadonlySet<string>): ImpossibilityReading {
   const gaps: Gap[] = []
+  const unreadable: string[] = []
   for (const rel of files) {
     if (SELF.has(rel) || baseline.has(rel)) continue
     let text: string
-    try { text = rd(rel) } catch { continue }
+    try { text = rd(rel) } catch { unreadable.push(rel); continue }
     const lines = text.split('\n')
     for (let i = 0; i < lines.length; i++) {
       const l = lines[i]!
@@ -141,5 +160,10 @@ export function impossibilityGaps(files: readonly string[], baseline: ReadonlySe
       })
     }
   }
-  return gaps
+  return { gaps, unreadable }
+}
+
+/** the gaps alone — the shape five callers already ask for; the reading is where the third answer lives */
+export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {
+  return impossibilityReading(files, baseline).gaps
 }
