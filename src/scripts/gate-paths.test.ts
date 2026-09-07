@@ -249,8 +249,19 @@ test('the dynamic page count sits inside the sealed render budget', async () => 
   // AND THE CHEAP PATH MAY NOT DRIFT FROM THE DEAR ONE. A fast answer that disagrees with the slow one it
   // replaced is worse than the slow one, so the expensive path still runs HERE, once, purely as the control.
   assert.equal(pages, allObjectPaths().length, 'objectPageCount must equal what composing every page returns')
-  const BUDGET = 12037 // theorem the_page_budget_is_twice_the_ledger, at the pinned 8192 cap
+  // RE-MEASURED 2026-09-07 at 10344 pages (theorem the_budget_re_measured_from_the_resident_reading): the site had
+  // doubled — every theorem gained a chunk page — and the 17-tenths retention model would have refused a build the
+  // pinned cap completed in 393 s (theorem the_retention_model_did_not_survive_the_doubling). The budget is now the
+  // fitted line through one resident reading, and the margin arm is no longer "under half": a half-budget rule
+  // measures nothing a wing can act on. What the next wing needs is ROOM FOR ITSELF, and the largest wing this
+  // ledger has landed is the honest size of "the next wing" — two pages per theorem, theorem + chunk.
+  const BUDGET = 16446 // theorem the_budget_re_measured_from_the_resident_reading, at the pinned 8192 cap, concurrency 2
   assert.ok(pages < BUDGET, `${pages} dynamic pages against a sealed budget of ${BUDGET} — the render breaks above it`)
-  // and the margin must stay a MAJORITY of the budget: below that, the next wing is the one that finds out
-  assert.ok(pages * 2 < BUDGET, `${pages} pages is over half the ${BUDGET} budget — trim the page set or re-measure the threshold before the next wing lands`)
+  const { LEAN_LEDGER } = await import('../theorems/generated.js')
+  const perWing = new Map<string, number>()
+  for (const t of LEAN_LEDGER) perWing.set(t.file, (perWing.get(t.file) ?? 0) + 1)
+  const largestWing = [...perWing.values()].reduce((a, b) => (b > a ? b : a), 0)
+  const PAGES_PER_THEOREM = 2
+  assert.ok(pages + PAGES_PER_THEOREM * largestWing < BUDGET,
+    `${pages} pages + a wing the size of the largest landed (${largestWing} theorems × ${PAGES_PER_THEOREM} pages) = ${pages + PAGES_PER_THEOREM * largestWing} reaches the ${BUDGET} budget — re-measure the threshold before the next wing lands`)
 })

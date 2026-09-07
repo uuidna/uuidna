@@ -22,6 +22,30 @@ export const HERE = hasNodeRegistry ? pathm().dirname(urlm().fileURLToPath(impor
 /** the repo root */
 export const ROOT = hasNodeRegistry ? pathm().join(HERE, '..', '..') : '/'
 
+// ── THE GUARD JUDGES WHAT GIT WOULD COMMIT (lead 223). An UNTRACKED, UNSTAGED file is somebody's live context:
+// three sessions' pushes were held in one hour by single comment lines in files their authors had not finished,
+// which nobody else could fix because touching a peer's untracked file is the exercise-dormant deletion again.
+// So a finder that walks the source tree walks the tracked and the STAGED — the set a commit would carry — and
+// names what it left unjudged, so an in-flight file is visible rather than silently exempt. The moment a file is
+// staged it is judged; nothing is hidden, only deferred to the act that makes it shared.
+const _inFlight = new Map<string, Set<string>>()   // keyed by root: one spawn per repository per pass, never one answer for two trees
+export const inFlightFiles = (root: string = ROOT): Set<string> => {
+  const hit = _inFlight.get(root)
+  if (hit) return hit
+  let set: Set<string>
+  try {
+    set = new Set(cpm().execSync('git ls-files --others --exclude-standard', { cwd: root, encoding: 'utf8' }).split('\n').filter(Boolean))
+  } catch { set = new Set() }
+  _inFlight.set(root, set)
+  return set
+}
+/** judged(files) → the files a finder may hold to account: everything given, minus the in-flight set. */
+export const judged = (files: readonly string[], root: string = ROOT): { files: string[]; deferred: string[] } => {
+  const skip = inFlightFiles(root)
+  const deferred = files.filter((f) => skip.has(f))
+  return { files: files.filter((f) => !skip.has(f)), deferred }
+}
+
 // ── THE ONE LEAN PARSE. Reading a theorem out of a .lean file was written twice — the ledger builder and the prose
 // census each carried a character-identical regex — and the two agreed only because nobody had yet edited one. The
 // parse is subtle enough that a divergence would be silent: the lookahead must stop a tactic at the NEXT

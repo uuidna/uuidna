@@ -38,6 +38,9 @@ const GENERATORS: Gen[] = [
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
   { file: 'gen-lines.js', args: [], note: 'the line census' },
   { file: 'gen-search-feed.js', args: [], note: 'most-searched queries ring Lean — new /search-feed route, freeze before handles audit' },
+  // TWICE, BY DESIGN: once here so gen-handles (which refuses a new theorem absent from the frozen map) sees the
+  // new subjects, and once more LAST so the routes the later generators produce (an article per wing) are sealed too.
+  // Extending the map is idempotent; only a rename fails the freeze, and neither run renames.
   { file: 'gen-seo-freeze.js', args: [], note: 'FINAL SEO URL freeze — route↔hexbit map; must precede gen-handles (which audits the seal)' },
   { file: 'gen-handles.js', args: [], note: 'the handles the chunks are cut from' },
   { file: 'gen-handle-store.js', args: [], note: 'four-level src/handles from chunks + publication|page' },
@@ -100,6 +103,10 @@ const GENERATORS: Gen[] = [
   // ledger outgrew the key count it was counting.
   { file: 'gen-falsifiers.js', args: [], note: 'the falsifier leg for every sealed statement a second implementation can decide — refuses on any FALSE' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
+  // THE FREEZE RUNS LAST. It seals every navigable route, and gen-articles (below it once) writes a page per wing —
+  // a wing landed above it froze a map without its own article, and the seal test named the article as a new
+  // route. A generator that seals what the others produce runs after all of them.
+  { file: 'gen-seo-freeze.js', args: [], note: 'FINAL SEO URL freeze — route↔hexbit map; must precede gen-handles (which audits the seal)' },
 ]
 
 const results: Array<{ file: string; ok: boolean; leaf: string }> = []

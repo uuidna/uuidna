@@ -33,7 +33,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
-import { HERE, ROOT, type Gap, rd } from './api.js'
+import { HERE, ROOT, type Gap, rd, judged } from './api.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
@@ -306,7 +306,13 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // session, none caught by a test: a negation that dresses a CHOICE as an IMPOSSIBILITY reads as rigour, so
   // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may
   // only shrink; a NEW file claiming impossibility must name a host fact, a theorem, a boundary, or by-construction.
-  { name: 'impossibility', run: () => impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()) },
+  // LEAD 223: the finder judges what git would commit — an untracked, unstaged file is a peer's live context, named
+  // below as deferred rather than silently skipped, and judged the moment it is staged.
+  { name: 'impossibility', run: () => {
+    const { files, deferred } = judged([...sourceGraph().keys()])
+    if (deferred.length) console.log('    · ' + deferred.length + ' in-flight file(s) deferred, untracked and unstaged — judged when staged: ' + deferred.join(', '))
+    return impossibilityGaps(files, impossibilityBaseline())
+  } },
   // A MEASURE MAY NOT BE LOOSENED TO FIT A RESULT. Runs the ratchets: each live measurement against the value
   // sealed in the ledger, and the measure's OWN address before the reading — because a number checked against a
   // ceiling set by a different ruler is worse than an unchecked number, it is a confident verdict about nothing.

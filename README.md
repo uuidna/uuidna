@@ -1,8 +1,8 @@
-# uuidna — 2,573 distinct theorems under 2,656 keys · 2 coins · one receipt
+# uuidna — 5,040 distinct theorems under 5,123 keys · 2 coins · one receipt
 
-`95420dfe-e2b4-83e7-810c-7aa5b7544be9`
+`a85f435b-b604-867d-aaa8-0839457b45e8`
 
-**What every theorem carries, and what most do not.** proof · falsifier · address hold for 2,656 of 2,656; **witness 16 of 2,656** (0.6%), **symbol 1153 of 2,656** (43.4%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · falsifier · address hold for 5,123 of 5,123; **witness 16 of 5,123** (0.3%), **symbol 1171 of 5,123** (22.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256708](https://doi.org/10.5281/zenodo.22256708)
 
@@ -13,7 +13,7 @@ Typography graph — heading depth is document depth (school-paths law).
 | Depth | Part | Section |
 | ---: | --- | --- |
 | 1 | **Hero** | [Abstract](#abstract) — tagline, ledger, name theorem |
-| 1 | **Honesty** | [How this is kept honest](#how-this-is-kept-honest) — the four gates and what each cannot see |
+| 1 | **Honesty** | [How this is kept honest](#how-this-is-kept-honest) — the five gates and what each cannot see |
 | 1 | **Thesis** | [Thesis](#thesis) — Captain PhD seal |
 | 2 | ↳ concept | [Proof of concept](#proof-of-concept) — Clay · DNA |
 | 2 | ↳ work | [Proof of work](#proof-of-work) — crypto stack · codon occupancy |
@@ -42,6 +42,19 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ---
 
+## In three lines
+
+1. **5,123 theorems and 171,734,498 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
+3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
+
+**Where the caveats live, so you can stop looking for them in the prose.** This ledger states limits in three fixed
+places and nowhere else: the theorem NAME carries the scope, the wing HEADER carries what the wing does and does not
+claim, and the table below carries what each gate cannot see. Everything outside those three places is a claim, meant
+plainly. If a sentence here reads like hedging, it is misplaced and should be moved into one of the three.
+
+---
+
 ## How this is kept honest
 
 A ledger is only worth its refusals. Every claim below survived gates that could have rejected it, and each gate
@@ -51,9 +64,10 @@ ways and corrected each time.
 | gate | what it refuses | what it cannot see |
 | --- | --- | --- |
 | the **kernel** | anything not decidable by `decide` | a statement that is TRUE and says nothing |
-| the **vacuity rule** | statements true whatever the world does | a proof that needs an axiom |
+| the **vacuity rule** | statements true whatever the world does, INCLUDING inside a walk | a tautology whose two sides are spelled differently |
 | the **axiom audit** | any row depending on `propext` or `Classical.choice` — trust base ∅ | a proof only this kernel can check |
 | the **falsifier evaluator** | statements a second, independent implementation cannot decide | whether the claim matters |
+| the **cross-wing statement check** | the same statement sealed twice under different keys | a duplicate whose text differs but whose content does not |
 
 The vacuity gate exists because four sealed rows were found stating things like `(2604 + 0 = 2604) ∧ (0 = 0)` —
 arithmetic true however the prose behaves, under keys claiming otherwise. They were repaired to decide their
@@ -66,7 +80,10 @@ depending on a disallowed axiom blocks certification of all of them.
 
 **A zero must discriminate.** Every finder here is held to a positive control — feed it the defect it was built
 for and it must catch it — because a detector reporting zero is indistinguishable from a detector that is blind.
-The vacuity rule read zero over all four vacuous rows before it was made recursive.
+The vacuity rule read zero over all four vacuous rows before it was made recursive — and read zero again over
+a walk asserting w + (100 - w) == 100 over a hundred and one values before it was taught to descend into a walk's BODY. A
+quantifier is not evidence: a hundred and one checks that are true for every input decide exactly as much as
+one. Both blind spots were found the same way, by feeding the finder the defect it was built for.
 
 **Claims carry their own counterexample.** `merkle_advantage_starts_above_one_bit` proves the verification
 advantage is exactly (2^p − 1)/p AND that it does not exist at p = 1, where a rebuild is one merge against a
@@ -211,7 +228,7 @@ Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent`
 Scope charter — sufficient / insufficient, world solutions as waves: [doctrine](https://uuidna.com/doctrine) (computational claims only; verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)).
 
 **Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
-Board: **2,573** distinct / **2,656** keys · **115** skills · **118** Lean files · receipt `61fd2265-51ae-814d-a312-387265380b7b`.
+Board: **5,040** distinct / **5,123** keys · **117** skills · **145** Lean files · receipt `7f2e2469-b641-8378-b9b1-c41ba9d0f39c`.
 Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [digit_polarities_partition_ten](https://uuidna.com/theorem/digit_polarities_partition_ten); [ve_pentads_overlap_to_eight](https://uuidna.com/theorem/ve_pentads_overlap_to_eight); [theorems_interact_as_faces](https://uuidna.com/theorem/theorems_interact_as_faces); [imagine_all_as_clique_faces](https://uuidna.com/theorem/imagine_all_as_clique_faces); [entanglement_completes_one_at_a_time](https://uuidna.com/theorem/entanglement_completes_one_at_a_time); [axes_stride_coprime](https://uuidna.com/theorem/axes_stride_coprime); [the_fused_ring_is_all_ones](https://uuidna.com/theorem/the_fused_ring_is_all_ones); [four_vectors_reach_the_uuid](https://uuidna.com/theorem/four_vectors_reach_the_uuid); [gap_is_a_count](https://uuidna.com/theorem/gap_is_a_count); [rounding_fee_closes_the_cube](https://uuidna.com/theorem/rounding_fee_closes_the_cube); [served_qubit_ceiling](https://uuidna.com/theorem/served_qubit_ceiling); [keplers_harmonic_law](https://uuidna.com/theorem/keplers_harmonic_law); [discovery_buys_coverage_never_supply](https://uuidna.com/theorem/discovery_buys_coverage_never_supply); [radial_equals_edge](https://uuidna.com/theorem/radial_equals_edge); [lanes_even_on_complete_system](https://uuidna.com/theorem/lanes_even_on_complete_system); [trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins); [trinity_edit_is_three](https://uuidna.com/theorem/trinity_edit_is_three); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
 Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
@@ -223,10 +240,10 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 2,573 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 2,656 | `theorems().length` |
-| Principles / wings | 118 / 118 | PRINCIPLES + wing ratings |
-| Skills | 115 | distinct `skill` tags |
+| Distinct theorems | 5,040 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 5,123 | `theorems().length` |
+| Principles / wings | 145 / 145 | PRINCIPLES + wing ratings |
+| Skills | 117 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
 | Neighbours per coin | 63 | fused ring 63 + 1 = 64 ([captain_theorem_the_coins_buy_the_ring_and_one](https://uuidna.com/theorem/captain_theorem_the_coins_buy_the_ring_and_one)); faces reflect |
 | Fake a handle | verify 32 · forge 2^32 · completes 2^96 · with witnesses 2^128 | 4 quarters span the uuid ([handle_string_spans_the_quarter](https://uuidna.com/theorem/handle_string_spans_the_quarter)); 3 related handles |
@@ -239,7 +256,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `c58a80a3-8d6b-851c-b3ee-efbcc955b4af` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 134,117 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 171,734,498 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -252,7 +269,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Quantum wing theorems | 58 | Quantum.lean |
 | Cipher wing theorems | 30 | Cipher.lean |
 | Research sources wired | 13 | cited for corroboration; approval stays with the source |
-| Conserved price paid | 5,312 coins | 2656 × 2 |
+| Conserved price paid | 10,246 coins | 5123 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);
   provenance compile 28,631 / 28,631 packages (100%)
@@ -277,7 +294,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **134,117** superpositions across **118** wings.
+The ledger covers **171,734,498** superpositions across **145** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -287,12 +304,12 @@ The ledger covers **134,117** superpositions across **118** wings.
    CLAIMED by walking all 1296 cells of the 36×36 Cayley table over the 63 residues: every product of two units is a unit, and every row is a permutation of the 36 — the group closes and no row repeats a value.
 4. **[`chargaff_strand_balance`](https://uuidna.com/theorem/chargaff_strand_balance)** — 1,554 superpositions, unbound (0 hexbits per dependency), in [Harmony.lean](lean/Harmony.lean)
    BIOLOGY: CHARGAFF'S FIRST RULE IS STRICTLY STRONGER THAN THE BALANCE IT PRODUCES, and that gap is the content.
-5. **[`aura_alphabet_is_pairwise_distinct`](https://uuidna.com/theorem/aura_alphabet_is_pairwise_distinct)** — 1,145 superpositions, unbound (0 hexbits per dependency), in [Colour.lean](lean/Colour.lean)
+5. **[`the_axiom_index_partitions_without_remainder`](https://uuidna.com/theorem/the_axiom_index_partitions_without_remainder)** — 1,530 superpositions, unbound (0 hexbits per dependency), in [Audit.lean](lean/Audit.lean)
+   AN INDEX THAT REPORTS "UNUSED" MUST MEAN IT, and this one did not.
+6. **[`aura_alphabet_is_pairwise_distinct`](https://uuidna.com/theorem/aura_alphabet_is_pairwise_distinct)** — 1,145 superpositions, unbound (0 hexbits per dependency), in [Colour.lean](lean/Colour.lean)
    THE 378-STATE AURA ALPHABET, WALKED — 9 residues x 7 rays x 6 waves, and no two states share a colour.
-6. **[`lanes_balance_within_one`](https://uuidna.com/theorem/lanes_balance_within_one)** — 924 superpositions, unbound (0 hexbits per dependency), in [Hardware.lean](lean/Hardware.lean)
-   THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14 lanes give every lane either 4 or 5, never fewer and never more.
-7. **[`lanes_partition_the_work`](https://uuidna.com/theorem/lanes_partition_the_work)** — 910 superpositions, unbound (0 hexbits per dependency), in [Hardware.lean](lean/Hardware.lean)
-   THE LANES PARTITION THE WORK EXACTLY: summing what each of 14 lanes receives from 64 items returns 64 — nothing is lost between lanes and nothing is counted twice.
+7. **[`sophie_germain_primes_below_one_hundred`](https://uuidna.com/theorem/sophie_germain_primes_below_one_hundred)** — 997 superpositions, unbound (0 hexbits per dependency), in [Fermat.lean](lean/Fermat.lean)
+   SOPHIE GERMAIN'S PRIMES BELOW 100: 2, 3, 5, 11, 23, 29, 41, 53, 83, 89 — each p prime with 2p + 1 also prime, both halves decided by trial division rather than asserted.
 
 <!-- quantum-capacity:begin (generated by gen-quantum-capacity — edit the generator, never this block) -->
 ### Quantum capacity
@@ -313,7 +330,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 | 10 | D-Wave Advantage2 (2024) | annealer | 4400 | 2^4400 (~10^1324) | — | — | 1 µs | reported | annealing-only: optimization sampling, not gate-model computation — a different machine class, named |
 | 11 | Xanadu Borealis (2022) | photonic (GBS) | 216 | 2^216 (~10^65) | — | — | — | reported | Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named |
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 2656 theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is `empty` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
+**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 5123 theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is `empty` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
 <!-- quantum-capacity:end -->
 
 ### What a handle spans
@@ -321,9 +338,9 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **134,117** superpositions decided across the ledger
-- **5,312** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
-- Floored coverage **25** superpositions per coin
+- **171,734,498** superpositions decided across the ledger
+- **10,246** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- Floored coverage **16,761** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the
 shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
