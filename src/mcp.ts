@@ -6,6 +6,7 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import { pqcPosture } from './pqc/index.js'
+import { invitation } from './invitation.js'
 import { handleStoreCensus } from './handle-store-census.js'
 import {
   toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes, coins, coinSupply,
@@ -184,6 +185,10 @@ const TOOLS: Tool[] = ([
           loadPayload: a.loadPayload === true,
         },
     ) },
+  { name: 'uuidna_invitation',
+    description: 'The offer to another repo, COMPUTED from this tree at the moment of asking — theorem and wing counts, the handle store, the host width and which point bound it. Every figure is read, none is typed, so the answer cannot be stale. Returns what is offered, what is ASKED in return (an invitation that hides obligations is a sales page) and what is REFUSED — there is no quantum hardware here and none is claimed.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => invitation(ROOT) },
   { name: 'uuidna_handle_store',
     description: 'Handle store census — OCCUPANCY (leaves and keys on disk, by kind), CAPACITY (what the addressing admits: 2^32 leaves, and n(n-1)/2 links among the leaves present), and USE (the tree takes n-1 of those pairs). Three numbers a surface must never quote as one. Soundness is reported as a fraction — path spells handle, handle is the address prefix — and a file that cannot be read is UNMEASURED, never counted sound.',
     inputSchema: { type: 'object', properties: {} },
