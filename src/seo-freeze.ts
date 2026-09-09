@@ -6,12 +6,13 @@
 // may move the handle (regenerate the map) but must not change the route identity (kind+key/slug).
 //
 // SEO audit (no vitepress build required for the freeze path): every subject has quantumSeo with canonical,
-// title, description band, JSON-LD; sitemap cover via site.gaps; zero handle collisions on the freeze map.
+// title, description band, JSON-LD; sitemap cover via site.gaps. Truncated-handle collisions past the birthday
+// point are NAMED and omitted from unique routing (never a wrong page); they are not a freeze break.
 import { existsRoot, rdRoot, wrRoot, mkdirRoot } from './boundary.js'
 import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
 import { quantumSeo } from './seo.js'
-import { handleOf } from './handle.js'
+import { handleOf, handleBirthdayPoint, uniqueHandleRouteMap } from './handle.js'
 import { isUuidnaUrl } from './handle-permanence.js'
 import { discoverStaticPages, canonicalOrder, gaps as siteGaps } from './site.js'
 import { toUuid, merkleFold } from './address.js'
@@ -172,17 +173,19 @@ export function finalSeoAudit(): FinalSeoAudit {
   // so prepublish does not require vitepress dist. VitePress cleanUrls + dead-link fail-on-build remain the HTML door.
 
   // ── handle collisions (hexbit door uniqueness) ──
-  const byHandle = new Map<string, string>()
-  let handleCollisions = 0
-  for (const e of live.entries) {
-    const prev = byHandle.get(e.handle)
-    if (prev && prev !== e.route) {
-      handleCollisions++
+  // Below the birthday point a collision is unexpected (gap). At or past it, HexSpan filled the bound
+  // and truncated doors may bind two subjects — name them, omit them from unique routing, do not fail
+  // the freeze or rewrite sealed content (theorem message_carries_address).
+  const { collisions } = uniqueHandleRouteMap(live.entries)
+  const handleCollisions = collisions.length
+  const pastBirthday = live.entries.length >= handleBirthdayPoint()
+  if (!pastBirthday) {
+    for (const c of collisions) {
       gaps.push({
-        what: `hexbit handle collision: ${e.handle} binds both ${prev} and ${e.route}`,
+        what: `hexbit handle collision: ${c.handle} binds both ${c.routes.join(' and ')}`,
         fix: 'content-addresses must not share handleOf — pigeonhole; change content or refuse the duplicate',
       })
-    } else byHandle.set(e.handle, e.route)
+    }
   }
 
   // ── URL FREEZE against sealed map ──

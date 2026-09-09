@@ -40,7 +40,39 @@ export const isHandle = (h: string): boolean => HANDLE.test(h)
  *  those call sites an address written without hyphens, or one folded to a different shape, and they diverge in
  *  silence. Every handle in the repository now comes from here, so there is one identity scheme and not three
  *  that look alike. Refuses rather than coerces, which is the same law isHandle already holds. */
-const HANDLE_HEXBITS = 8   // the handle width, mirrored locally to keep this module free of a cycle
+export const HANDLE_HEXBITS = 8   // the handle width, mirrored locally to keep this module free of a cycle
+
+/** Birthday point of the 8-hex space: √(16^HANDLE_HEXBITS) = 2^(2·width) = 65,536 at width 8.
+ *  Past this count, two different contents sharing a truncated handle is likelier than not
+ *  (theorem message_carries_address). Computed, not copied — change the width and both move. */
+export function handleBirthdayPoint(): number {
+  let n = 1
+  for (let i = 0; i < 2 * HANDLE_HEXBITS; i++) n *= 2
+  return n
+}
+
+/** Unique first-8 doors. A handle that binds two editorial routes is OMITTED — unknown → 404,
+ *  never a wrong page. Past handleBirthdayPoint() this is the capacity speaking
+ *  (theorem message_carries_address), not a duplicate to rewrite. */
+export function uniqueHandleRouteMap(entries: readonly { handle: string; route: string }[]): {
+  routes: Record<string, string>
+  collisions: { handle: string; routes: string[] }[]
+} {
+  const buckets = new Map<string, string[]>()
+  for (const e of entries) {
+    const rs = buckets.get(e.handle)
+    if (!rs) buckets.set(e.handle, [e.route])
+    else if (!rs.includes(e.route)) rs.push(e.route)
+  }
+  const routes: Record<string, string> = {}
+  const collisions: { handle: string; routes: string[] }[] = []
+  for (const [handle, rs] of buckets) {
+    if (rs.length === 1) routes[handle] = rs[0]!
+    else collisions.push({ handle, routes: rs.slice().sort() })
+  }
+  collisions.sort((a, b) => (a.handle < b.handle ? -1 : a.handle > b.handle ? 1 : 0))
+  return { routes, collisions }
+}
 
 export function handleOf(address: string): string {
   // ONE SCAN, NO INTERMEDIATE STRINGS. The previous form built two throwaway strings for every call —

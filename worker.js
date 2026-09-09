@@ -32,6 +32,7 @@ import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-ht
 import { handleAnalytics } from './dist/analytics-handler.js'
 // The handle map — first 8 hex of every freeze-map content-address → editorial route (theorem | publication | page),
 // generated at build (gen-handles). /<handle> 301s to that route ON THE SPOT — homepage/pub handles included.
+// Colliding first-8 doors are omitted from this map (birthday past 2^16): unknown → 404, never a wrong page.
 import HANDLES from './handles.js'
 import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 

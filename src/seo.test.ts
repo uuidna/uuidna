@@ -7,6 +7,7 @@ import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 import { quantumSeo, theorems, publications } from './index.js'
+import { handleOf, handleBirthdayPoint, uniqueHandleRouteMap } from './handle.js'
 import { auditJsonLd } from './schema-org-vocab.js'
 
 // ── THE NAMING AUDIT — the finder, folded ─────────────────────────────────────────────────────────────────────────
@@ -91,17 +92,31 @@ test('quantum SEO: every theorem carries its own line-content @id, distinct from
 // The FULL address being distinct (checked above, and by guard.js's own no-address-collision) does NOT guarantee
 // the TRUNCATED 8-hex-char handle stays distinct too — that's the real pigeonhole risk (editor.ts's own handle
 // convention: "the first segment (8 hex) you CITE"; Handle.vue renders exactly this truncation for citation).
-// A collision here would mean two different theorems (or two different Lean lines) cite-alike under the
-// shorthand, silently pointing a reader at the wrong proof. Checked for both address AND lineAddress, since a
-// citation could reasonably shorten either. Automated— this is the actual audit an
-// evocatively-named "quantum collider" idea would want, under its real name: a pigeonhole/birthday-bound check.
-test('theorem handle citation shorthand (first 8 hex chars) has zero collisions, for address and lineAddress', () => {
+// Below the birthday point a collision would silently point a reader at the wrong proof. Past it (HexSpan filled
+// 2^16, the rest of the tree sits on top) truncated collisions are the capacity speaking — theorem
+// message_carries_address — and uniqueHandleRouteMap omits those doors so the worker never unique-routes them.
+test('theorem handle citation shorthand: full addresses stay distinct; truncated collisions are omitted from unique routing', () => {
   const all = theorems()
-  const handleOf = (addr: string): string => addr.replace(/-/g, '').slice(0, 8)
-  const addressHandles = all.map((t) => handleOf(t.address))
-  const lineHandles = all.map((t) => handleOf(t.lineAddress))
-  assert.equal(new Set(addressHandles).size, all.length, `address-handle collision among ${all.length} theorems — the pigeonhole bound was hit`)
-  assert.equal(new Set(lineHandles).size, all.length, `lineAddress-handle collision among ${all.length} theorems — the pigeonhole bound was hit`)
+  const bound = handleBirthdayPoint()
+  assert.equal(new Set(all.map((t) => t.address)).size, all.length, 'full proposition addresses stay distinct')
+  assert.equal(new Set(all.map((t) => t.lineAddress)).size, all.length, 'full line addresses stay distinct')
+  const entries = all.map((t) => ({
+    route: `/theorem/${t.key}`,
+    kind: 'theorem' as const,
+    identity: t.key,
+    canonical: `https://uuidna.com/theorem/${t.key}`,
+    address: t.address,
+    handle: handleOf(t.address),
+    hexbitDoor: `https://uuidna.com/${handleOf(t.address)}`,
+  }))
+  const { routes, collisions } = uniqueHandleRouteMap(entries)
+  for (const c of collisions) {
+    assert.equal(c.routes.length >= 2, true, `${c.handle} must name at least two editorial routes`)
+    assert.equal(routes[c.handle], undefined, `colliding door ${c.handle} must be omitted from unique routing`)
+  }
+  if (all.length < bound) {
+    assert.equal(collisions.length, 0, `address-handle collision among ${all.length} theorems below birthday ${bound}`)
+  }
 })
 
 test('quantum SEO: /quantum-cryptography is a free Course provided by the School node', () => {

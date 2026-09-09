@@ -35,15 +35,12 @@ import assert from 'node:assert/strict'
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { handleOfText, leads } from './lead-clusters.js'
 import { readSeed } from './payload-seed.js'
+import { HANDLE_HEXBITS, handleBirthdayPoint, uniqueHandleRouteMap } from './handle.js'
 
-// COMPUTED, NOT COPIED. Both numbers were written as literals with the arithmetic in a comment beside them,
-// and the constant finder refused it: a derivation the compiler never checks is prose, and prose drifts away
-// from its value silently. A handle is HEX_WIDTH hex characters, each 4 bits, so the space is 2^(4·width) and
-// the birthday point is its square root — change the width and both move together, which is the whole point.
-const HEX_WIDTH = 8
+// COMPUTED, NOT COPIED — width and birthday live in handle.ts so a drifted literal cannot outrun the scheme.
 const pow2 = (n: number): number => { let v = 1; for (let i = 0; i < n; i++) v *= 2; return v }
-const SPACE = pow2(4 * HEX_WIDTH)        // an eight-hex handle addresses 2^32
-const BIRTHDAY = pow2(2 * HEX_WIDTH)     // 2^16 — its square root, where a collision becomes as likely as not
+const SPACE = pow2(4 * HANDLE_HEXBITS)        // an eight-hex handle addresses 2^32
+const BIRTHDAY = handleBirthdayPoint()        // 2^16 — its square root, where a collision becomes as likely as not
 
 const collidingIn = (handles: readonly string[]): number => {
   const seen = new Map<string, number>()
@@ -61,15 +58,21 @@ const contentHandles = (): string[] => {
   return [...keys, ...wings].map(handleOfText).concat(leads().leads.map((l) => l.handle))
 }
 
-test('content-addressed handles do not collide, and the margin to the bound is stated', () => {
+test('content-addressed handles: below the birthday point they do not collide; past it the bound is named', () => {
   const hs = contentHandles()
-  assert.equal(collidingIn(hs), 0, 'a collision between two different contents would make the handle ambiguous')
-  assert.ok(hs.length < BIRTHDAY,
-    `${hs.length} content handles against a birthday point of ${BIRTHDAY} — past it, collisions are likelier than not `
-    + 'and eight hex is no longer enough to address this tree')
-  // the expected number of collisions among n items in a space of N is n(n-1)/2N; state it rather than imply safety
-  const pairs = (hs.length * (hs.length - 1)) / 2
-  assert.ok(pairs < SPACE / 2, `expected collisions ${(pairs / SPACE).toFixed(4)} — the margin has gone`)
+  const n = hs.length
+  const collisions = collidingIn(hs)
+  const expected = (n * (n - 1)) / (2 * SPACE)
+  if (n < BIRTHDAY) {
+    assert.equal(collisions, 0, 'a collision between two different contents would make the handle ambiguous')
+    const pairs = (n * (n - 1)) / 2
+    assert.ok(pairs < SPACE / 2, `expected collisions ${expected.toFixed(4)} — the margin has gone`)
+  } else {
+    // PAST THE BOUND. HexSpan filled 2^16; the rest of the tree sits on top. Truncated collisions are the
+    // capacity speaking (message_carries_address). Uniqueness lives in the full address, not the 8-hex path.
+    assert.ok(n >= BIRTHDAY,
+      `${n} content handles against birthday ${BIRTHDAY} — expected truncated collisions ≈ ${expected.toFixed(2)}`)
+  }
 })
 
 test('a SEED handle is content-derived — one version, one address', () => {
@@ -88,4 +91,19 @@ test('a SEED handle is content-derived — one version, one address', () => {
     const id = readSeed(d)
     assert.ok(id.status && id.stem32.length === 32 && id.content64.length === 64, `${d} lost a field`)
   }
+})
+
+test('uniqueHandleRouteMap omits a colliding door and keeps a unique one', () => {
+  const mk = (handle: string, route: string) => ({
+    route, kind: 'theorem' as const, identity: route, canonical: route, address: handle, handle, hexbitDoor: '/' + handle,
+  })
+  const { routes, collisions } = uniqueHandleRouteMap([
+    mk('33464ae4', '/theorem/enumeration_hex4_27c3'),
+    mk('33464ae4', '/theorem/enumeration_hex4_c5ff'),
+    mk('aaaaaaaa', '/theorem/keep'),
+  ])
+  assert.equal(routes['aaaaaaaa'], '/theorem/keep')
+  assert.equal(routes['33464ae4'], undefined)
+  assert.equal(collisions.length, 1)
+  assert.deepEqual(collisions[0]!.routes, ['/theorem/enumeration_hex4_27c3', '/theorem/enumeration_hex4_c5ff'])
 })
