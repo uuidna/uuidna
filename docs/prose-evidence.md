@@ -144,7 +144,7 @@
 
 ## vitepress is the monitor
 
-**Prose:** "VitePress is the monitor" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
+**Prose:** "TypeScript computes it and VitePress monitors it" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
 
 **Address:** `022f6208-8f5b-8609-8e28-0f9e057bb016`
 

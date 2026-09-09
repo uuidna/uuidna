@@ -85,7 +85,7 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   },
   {
     claim: 'vitepress is the monitor',
-    prose: 'VitePress is the monitor',
+    prose: 'TypeScript computes it and VitePress monitors it',
     backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
   },
   {
