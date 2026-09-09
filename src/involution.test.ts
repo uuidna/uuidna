@@ -293,6 +293,16 @@ test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, 
   assert.equal(holds('true && false = false'), true)
   assert.equal(holds('[1,1,1,1,1,1,1,1,1,1].foldl (· + ·) 0 = 10'), true)
   assert.equal(holds('[2,1,1,1,1,1,1,1,1,0].foldl (· + ·) 0 = 10'), true)
+  assert.equal(holds('[1,2,3].foldr (fun d a => a * 16 + d) 0 = 801'), true)
+  assert.equal(
+    holds(
+      'reassembles 16 = true ∧ castsFifteens 16 = true',
+      'def nibbles (n : Nat) : List Nat := (List.range 4).map (fun k => (n / (16 ^ k)) % 16)\n'
+      + 'def reassembles (n : Nat) : Bool := (nibbles n).foldr (fun d a => a * 16 + d) 0 == n\n'
+      + 'def castsFifteens (n : Nat) : Bool := ((nibbles n).foldl (fun a d => a + d) 0) % 15 == n % 15\n',
+    ),
+    true,
+  )
   assert.equal(holds('(preOf dbl 0 = 2) ∧ (preOf dbl 9 = 0) ∧ (preOf dz 5 = 1)'), true)
   assert.equal(
     holds(

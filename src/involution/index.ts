@@ -108,10 +108,10 @@ export const stripAscriptions = (s: string): string => {
 /** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]` (Nat and
  *  String), `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
  *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `preOf` (named `dz`/`dbl` only),
- *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
+ *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl`/`.foldr` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|nthR|nthS|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
  *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
@@ -243,7 +243,18 @@ const isPow = (v: Val): v is Pow => typeof v === 'object' && v !== null && (v as
 const isOpt = (v: Val): v is Opt => typeof v === 'object' && v !== null && (v as Opt).t === 'o'
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
-const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
+const eat = (c: Cursor, tok: string): boolean => {
+  ws(c)
+  if (!c.s.startsWith(tok, c.i)) return false
+  // A LETTER TOKEN IS A WORD. `res` used to eat the prefix of `reassembles`, so HexSpan's Bool
+  // defs decided `resFn(assembles)` and 65,536 sealed statements evaluated FALSE.
+  if (/[A-Za-z0-9_]$/.test(tok)) {
+    const after = c.s[c.i + tok.length]
+    if (after !== undefined && /[A-Za-z0-9_]/.test(after)) return false
+  }
+  c.i += tok.length
+  return true
+}
 
 const deepEq = (a: Val, b: Val): boolean => {
   if (isPow(a)) a = forceScalar(a)
@@ -616,6 +627,11 @@ const applyFold = (f: Fun, acc: Val, x: Val): Val => {
   const r = f.run(acc)
   return isFun(r) ? asFun(r).run(x) : r
 }
+/** Lean `foldr f init xs` binds the element first, then the accumulator. */
+const applyFoldr = (f: Fun, x: Val, acc: Val): Val => {
+  const r = f.run(x)
+  return isFun(r) ? asFun(r).run(acc) : r
+}
 const listScanl = (f: Fun, init: Val, xs: Val[]): Lst => {
   let acc: Val = init
   const out: Val[] = [acc]
@@ -865,6 +881,24 @@ const postfix = (c: Cursor, v: Val): Val => {
       const f = parseFunArg(c, 'val')
       let acc: Val = atom(c)
       for (const x of asLst(v)) acc = applyFold(f, acc, x)
+      v = acc
+      continue
+    }
+    // Lean `(xs).foldr (fun d a => …) init` — element first, then accumulator, right-to-left.
+    if (eat(c, '.foldr')) {
+      ws(c)
+      if (eat(c, '(· + ·)')) {
+        v = listFoldlAdd(asLst(v), asNum(atom(c)))
+        continue
+      }
+      if (eat(c, '(· * ·)')) {
+        v = listFoldlMul(asLst(v), asNum(atom(c)))
+        continue
+      }
+      const f = parseFunArg(c, 'val')
+      const xs = asLst(v)
+      let acc: Val = atom(c)
+      for (let i = xs.length - 1; i >= 0; i--) acc = applyFoldr(f, xs[i]!, acc)
       v = acc
       continue
     }
@@ -1158,6 +1192,13 @@ const atom = (c: Cursor): Val => {
     const f = parseFunArg(c, 'val')
     let acc: Val = atom(c)
     for (const x of asLst(atom(c))) acc = applyFold(f, acc, x)
+    return postfix(c, acc)
+  }
+  if (eat(c, 'List.foldr')) {
+    const f = parseFunArg(c, 'val')
+    let acc: Val = atom(c)
+    const xs = asLst(atom(c))
+    for (let i = xs.length - 1; i >= 0; i--) acc = applyFoldr(f, xs[i]!, acc)
     return postfix(c, acc)
   }
   if (eat(c, 'List.scanl')) {
@@ -1709,13 +1750,21 @@ function wingEnv(wingSource: string, ring: Ring): Env {
   }
   for (const d of simpleDefs(wingSource)) {
     if (env.has(d.name)) continue
+    const evalBody = (src: string, inner: Env): Val => {
+      const c: Cursor = { s: src, i: 0, env: inner, ring }
+      const v = junction(c)
+      ws(c)
+      if (c.i === src.length) return v
+      // junction stops before `==`/`=` — Bool defs (`reassembles n := (nibbles n).foldr … == n`) are propositions.
+      c.i = 0
+      return boolProp(c)
+    }
     const build = (got: Val[]): Val => ({ t: 'f', run: (x: Val): Val => {
       const next = [...got, x]
       if (next.length < d.params.length) return build(next)
       const inner: Env = new Map(env)
       d.params.forEach((pname, k) => inner.set(pname, next[k]!))
-      const c: Cursor = { s: stripAscriptions(stripComments(d.body)), i: 0, env: inner, ring }
-      return junction(c)
+      return evalBody(stripAscriptions(stripComments(d.body)), inner)
     } })
     // A NULLARY DEF IS A VALUE, NOT A FUNCTION (lead 159). Both arms of this ternary were IDENTICAL — the
     // nullary case was plainly meant to differ and did not, so `def agl : List Nat := [9,10,…]` was bound as a
@@ -1723,7 +1772,7 @@ function wingEnv(wingSource: string, ring: Ring): Env {
     // duplicate left `agl.eraseDups.length = 54` TRUE, while the same mutation as a bare literal was caught
     // (54 → 53). This is the blindness: 6 of 89 used def→theorem pairs caught a body mutation before, 18 after.
     env.set(d.name, d.params.length === 0
-      ? junction({ s: stripAscriptions(stripComments(d.body)), i: 0, env, ring })
+      ? evalBody(stripAscriptions(stripComments(d.body)), env)
       : build([]))
   }
   return env
