@@ -96,7 +96,7 @@ const FACTS = [
     lean: 'theorem the_movie_and_the_song_are_one : (16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7) := by decide' },
 
   { key: 'uuidna_name_referrer_door',
-    why: 'THE NAME\'S FIRST HEXBIT IS THE DOOR. The leading nibble of toUuid("uuidna") modulo the hexagram width is the referrer door into the round. The hash is the measurement; the kernel decides the residue.',
+    why: 'THE NAME\'S 32 HEXBITS; THE LEADING NIBBLE IS THE DOOR. The leading nibble of toUuid("uuidna") modulo the hexagram width is the referrer door into the round. The hash is the measurement; the kernel decides the residue.',
     js: () => N.nibbles[0]! % N.codonBits === N.referrerDoor,
     lean: `theorem uuidna_name_referrer_door : ${L(N.nibbles)}.headD 0 % ${N.codonBits} = ${N.referrerDoor} := by decide` },
 ]
