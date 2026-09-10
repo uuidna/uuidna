@@ -2266,8 +2266,8 @@ community	commons-daemon	1.4.1-r1	Q1KUMOZMtYRyPAJILFvi/WkJyAqOU=	Tools to allow 
 community	commons-daemon-doc	1.4.1-r1	Q1bG7z+HSXa3VevsZXM/VBIfIJ/DI=	Tools to allow Java programs to run as UNIX daemons (documentation)		
 community	composer	2.10.2-r0	Q1VcFLjC1/Rbk+7U2nLR7xxs3cOWE=	Dependency manager for PHP	php85 php85-phar php85-curl php85-iconv php85-mbstring php85-openssl php85-zip p7zip	cmd:composer.phar=2.10.2-r0 cmd:composer=2.10.2-r0
 community	composer-bash-completion	2.10.2-r0	Q1m5rXeFpdtdGlIa2gd5Fr/aGo75g=	Bash completions for composer		
-community	comrak	0.52.0-r0	Q12AD23diN5eIExlOoKspg6tSKzx4=	CommonMark + GFM compatible Markdown parser and renderer	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libonig.so.5	cmd:comrak=0.52.0-r0
-community	comrak-doc	0.52.0-r0	Q1rjA3P+tJP5o333ZQ5/o0NWh5D+Y=	CommonMark + GFM compatible Markdown parser and renderer (documentation)		
+community	comrak	0.55.0-r0	Q1cSzed15sss4U6aCoPcXSaZ6ts6Y=	CommonMark + GFM compatible Markdown parser and renderer	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libonig.so.5	cmd:comrak=0.55.0-r0
+community	comrak-doc	0.55.0-r0	Q1pd5imDzbH9jWoMhws0iLEHusn6k=	CommonMark + GFM compatible Markdown parser and renderer (documentation)		
 community	conduit	0.10.13-r0	Q1besjmcW9g/SnRoMBN94kPMN3WVU=	Simple, fast and reliable chat server powered by Matrix	/bin/sh so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:librocksdb.so.11.0 so:libsqlite3.so.0	cmd:conduit=0.10.13-r0
 community	conduit-openrc	0.10.13-r0	Q1CuVDV8IXRKFww1O2WDd5pXNN/io=	Simple, fast and reliable chat server powered by Matrix (OpenRC init scripts)		
 community	confclerk	0.7.2-r2	Q1bYc2z7Viqc/1+mnnXlTm7LzzQ/U=	Offline conference schedule application	qt5-qtbase-sqlite so:libQt5Core.so.5 so:libQt5Gui.so.5 so:libQt5Network.so.5 so:libQt5Sql.so.5 so:libQt5Widgets.so.5 so:libQt5Xml.so.5 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:confclerk=0.7.2-r2
@@ -3134,8 +3134,8 @@ community	drawpile-server-openrc	2.3.0-r1	Q1gOHSWZToQcjGQcuuvf88KPwYJf4=	Collabo
 community	drawpile-tools	2.3.0-r1	Q1luphuMiYpVS8a7Q2wSzhh2WsS2Y=	Collaborative drawing program (Drawpile tools)	drawpile-base=2.3.0-r1 so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libswscale.so.9 so:libwebp.so.7 so:libz.so.1 so:libzip.so.5 so:libzstd.so.1	cmd:dprectool=2.3.0-r1 cmd:drawpile-cmd=2.3.0-r1 cmd:drawpile-timelapse=2.3.0-r1
 community	drawterm	0_git20240320-r0	Q1lUGswr6TvGGQHHsVVeI4tv4yPS0=	Connect to Plan 9 CPU servers from other operating systems	so:libX11.so.6 so:libc.musl-x86_64.so.1	cmd:drawterm=0_git20240320-r0
 community	drawterm-dbg	0_git20240320-r0	Q1HRKjgZn4mr8uyr0jn4rZFi2mEps=	Connect to Plan 9 CPU servers from other operating systems (debug symbols)	!drawterm<0_git20240320-r0 !drawterm>0_git20240320-r0	
-community	drbd9-lts	6.18.49-r0	Q14dina318MVwsql26zc0MaQGtgEM=	LINBIT DRBD Kernel module version 9		
-community	drbd9-virt	6.18.49-r0	Q1Mdud7t5MSjLC/eAjxgajwuhXfSc=	virt kernel modules for DRBD9	linux-virt=6.18.49-r0	
+community	drbd9-lts	6.18.50-r0	Q1t37ou7Bh83lte5/MJKctiOZdfSA=	LINBIT DRBD Kernel module version 9		
+community	drbd9-virt	6.18.50-r0	Q1Z1+BT/SnTFHv5OFSAQaw4O/5xew=	virt kernel modules for DRBD9	linux-virt=6.18.50-r0	
 community	drm_info	2.9.0-r0	Q10BJQ91rH42yWYa9eEsOo/MMoYXI=	Small utility to dump info about DRM devices	so:libc.musl-x86_64.so.1 so:libdrm.so.2 so:libjson-c.so.5 so:libpci.so.3	cmd:drm_info=2.9.0-r0
 community	drm_info-doc	2.9.0-r0	Q1bkfM0ROdpmTcNZlMW+fNU+jW5/E=	Small utility to dump info about DRM devices (documentation)		
 community	drone	2.25.0-r17	Q1szAykTETGGySFypi8zle1R0xVvU=	Container-Native, Continuous Delivery Platform	/bin/sh so:libc.musl-x86_64.so.1 so:libsqlite3.so.0	cmd:drone-server=2.25.0-r17
@@ -6613,8 +6613,8 @@ community	john-bash-completion	1.9.0-r8	Q1WQcVWhmj/A5pcTEJmjmHyKSeCsI=	Bash comp
 community	john-doc	1.9.0-r8	Q1WgoqiNSG5E4+nMwwFk5nMuybsxc=	John the Ripper password cracker (documentation)		
 community	john-zsh-completion	1.9.0-r8	Q1xfYAR9r0GgT8Fn6vxsB1gZwtZsU=	Zsh completions for john		
 community	joker	1.5.8-r7	Q1i8H/JX73hHv54wzDFVFYEVT3PSg=	Small Clojure interpreter, linter and formatter written in Go	so:libc.musl-x86_64.so.1	cmd:joker=1.5.8-r7
-community	jool-modules-lts	6.18.49-r0	Q1AeneE1RjTYlY7NVaoVBLhwpQps4=	SIIT and NAT64 for Linux (kernel modules for linux-lts)	linux-lts=6.18.49-r0	
-community	jool-modules-virt	6.18.49-r0	Q1JxdF8zeHqsAW+JxvPSq5+zmmBgI=	SIIT and NAT64 for Linux (kernel modules for linux-virt)	linux-virt=6.18.49-r0	
+community	jool-modules-lts	6.18.50-r0	Q1GuA1NRbVV8QEIzMM1RShTYVLYLQ=	SIIT and NAT64 for Linux (kernel modules for linux-lts)	linux-lts=6.18.50-r0	
+community	jool-modules-virt	6.18.50-r0	Q1Cph2PoBcbpG89y7tB7DZBisdv6E=	SIIT and NAT64 for Linux (kernel modules for linux-virt)	linux-virt=6.18.50-r0	
 community	jool-tools	4.1.14-r0	Q1mAArWyknvmzTMhTDP8efjyVtGTg=	Userspace control tools for SIIT / NAT64 Jool	so:libc.musl-x86_64.so.1 so:libnl-3.so.200 so:libnl-genl-3.so.200	cmd:jool=4.1.14-r0 cmd:jool_siit=4.1.14-r0 cmd:joold=4.1.14-r0
 community	jool-tools-bash-completion	4.1.14-r0	Q1t3qwC7+AdOJRqTifdyZn3E378zQ=	Bash completions for jool-tools		
 community	jool-tools-doc	4.1.14-r0	Q14t5G/OrHwuiTjKj+uu9yfWsnIZ8=	Userspace control tools for SIIT / NAT64 Jool (documentation)		
@@ -8801,8 +8801,8 @@ community	libopendbx	1.4.6-r2	Q14A2JFgXAh6dSNLvXwJu1f87TzJw=	Database abstractio
 community	libopendbxplus	1.4.6-r2	Q11YWROcnWbAlar8cqeBMrogZ8gAc=	Database abstraction layer	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libopendbx.so.1 so:libstdc++.so.6	so:libopendbxplus.so.1=1.0.0
 community	libopendrive	0.6.1-r1	Q17+H2C9dF1ao4CQTki1F9yIAVwtA=	Small, lightweight C++ library for handling OpenDRIVE files	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libpugixml.so.1 so:libstdc++.so.6	so:libOpenDrive.so.0=0.6.1
 community	libopendrive-dev	0.6.1-r1	Q1gQhdHEycd8ZFC5xMaP6edPWLd24=	Small, lightweight C++ library for handling OpenDRIVE files (development files)	pugixml-dev libopendrive=0.6.1-r1	
-community	libopenmpt	0.8.7-r0	Q1x2Yv6+l5cc+CtVNnarMQkb+5u3U=	Cross-platform library to render tracker music to a PCM audio stream	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libmpg123.so.0 so:libstdc++.so.6 so:libvorbis.so.0 so:libvorbisfile.so.3 so:libz.so.1	so:libopenmpt.so.0=0.5.5
-community	libopenmpt-dev	0.8.7-r0	Q1GWFAUzVO8OPvzbyR3U21YslEsx8=	Cross-platform library to render tracker music to a PCM audio stream (development files)	libopenmpt=0.8.7-r0 pc:libmpg123 pc:ogg pc:vorbis pc:vorbisfile pc:zlib pkgconfig	pc:libopenmpt=0.8.7
+community	libopenmpt	0.8.9-r0	Q1YcT6doOomHMMIfNrDteEv9oWz60=	Cross-platform library to render tracker music to a PCM audio stream	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libmpg123.so.0 so:libstdc++.so.6 so:libvorbis.so.0 so:libvorbisfile.so.3 so:libz.so.1	so:libopenmpt.so.0=0.5.5
+community	libopenmpt-dev	0.8.9-r0	Q1mlc+iWTKuUJ2Sb2gAa3VofXN5Yo=	Cross-platform library to render tracker music to a PCM audio stream (development files)	libopenmpt=0.8.9-r0 pc:libmpg123 pc:ogg pc:vorbis pc:vorbisfile pc:zlib pkgconfig	pc:libopenmpt=0.8.9
 community	libopenraw	0.3.7-r3	Q1zEfeWW+G/eMcOtjOVAP/UxDvzcw=	Desktop agnostic effort to support digital camera RAW files	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libgdk_pixbuf-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libjpeg.so.8 so:libstdc++.so.6	so:libopenraw.so.9=9.0.7 so:libopenrawgnome.so.9=9.0.7
 community	libopenraw-dev	0.3.7-r3	Q16hF2YMgPCa5CCbhTLMAPRw54h9U=	Desktop agnostic effort to support digital camera RAW files (development files)	libopenraw=0.3.7-r3 pkgconfig	pc:libopenraw-0.3=0.3.7 pc:libopenraw-gnome-0.3=0.3.7
 community	libopenraw-pixbuf-loader	0.3.7-r3	Q1Nmkd0knx8sjA9S1x8jDRmhA+oJw=	Desktop agnostic effort to support digital camera RAW files (pixbuf loader)	so:libc.musl-x86_64.so.1 so:libgdk_pixbuf-2.0.so.0 so:libglib-2.0.so.0 so:libopenraw.so.9	
@@ -12142,8 +12142,8 @@ community	openmp-dev	18.1.8-r3	Q1wktNu85eVMzD+ap5jaqZ8Ngs6vo=	LLVM OpenMP Runtim
 community	openmpi	4.1.6-r1	Q1hNgQ28dWYEkQbLcBDXeAdKdbH6Y=	Message passing library for high-performance computing	so:libc.musl-x86_64.so.1 so:libevent_core-2.1.so.7 so:libevent_pthreads-2.1.so.7 so:libhwloc.so.15 so:libz.so.1	cmd:aggregate_profile.pl=4.1.6-r1 cmd:mpiexec=4.1.6-r1 cmd:mpirun=4.1.6-r1 cmd:ompi-clean=4.1.6-r1 cmd:ompi-server=4.1.6-r1 cmd:ompi_info=4.1.6-r1 cmd:orte-clean=4.1.6-r1 cmd:orte-info=4.1.6-r1 cmd:orte-server=4.1.6-r1 cmd:orted=4.1.6-r1 cmd:orterun=4.1.6-r1 cmd:profile2mat.pl=4.1.6-r1 so:libmca_common_dstore.so.1=1.0.2 so:libmca_common_monitoring.so.50=50.20.0 so:libmca_common_ompio.so.41=41.29.4 so:libmca_common_sm.so.40=40.30.0 so:libmpi.so.40=40.30.6 so:libmpi_mpifh.so.40=40.30.0 so:libmpi_usempi_ignore_tkr.so.40=40.30.0 so:libmpi_usempif08.so.40=40.30.0 so:libompitrace.so.40=40.30.1 so:libopen-pal.so.40=40.30.3 so:libopen-rte.so.40=40.30.3 so:ompi_monitoring_prof.so=0
 community	openmpi-dev	4.1.6-r1	Q1/1zhZKD+OZahpcVR1StgYJFLkCA=	Message passing library for high-performance computing (development files)	openmpi=4.1.6-r1 pkgconfig so:libc.musl-x86_64.so.1 so:libopen-pal.so.40	cmd:mpiCC=4.1.6-r1 cmd:mpic++=4.1.6-r1 cmd:mpicc=4.1.6-r1 cmd:mpicxx=4.1.6-r1 cmd:mpif77=4.1.6-r1 cmd:mpif90=4.1.6-r1 cmd:mpifort=4.1.6-r1 cmd:opal_wrapper=4.1.6-r1 cmd:ortecc=4.1.6-r1 pc:ompi-c=4.1.6 pc:ompi-cxx=4.1.6 pc:ompi-f77=4.1.6 pc:ompi-f90=4.1.6 pc:ompi-fort=4.1.6 pc:ompi=4.1.6 pc:orte=4.1.6
 community	openmpi-doc	4.1.6-r1	Q1mYWfGnRNICyXDUmIF7pELEYOyIA=	Message passing library for high-performance computing (documentation)		
-community	openmpt123	0.8.7-r0	Q1lVDNDrsdGQepImcddZ4nhskNxGA=	Command-line module file player	so:libFLAC.so.12 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libopenmpt.so.0 so:libportaudio.so.2 so:libpulse-simple.so.0 so:libpulse.so.0 so:libsndfile.so.1 so:libstdc++.so.6	cmd:openmpt123=0.8.7-r0
-community	openmpt123-doc	0.8.7-r0	Q1Uo9R9V31HRev9hDfoOoTUrJxMPA=	Cross-platform library to render tracker music to a PCM audio stream (documentation)		
+community	openmpt123	0.8.9-r0	Q1x35jhw8T6SdW+YrEEZrpAiCwnds=	Command-line module file player	so:libFLAC.so.12 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libopenmpt.so.0 so:libportaudio.so.2 so:libpulse-simple.so.0 so:libpulse.so.0 so:libsndfile.so.1 so:libstdc++.so.6	cmd:openmpt123=0.8.9-r0
+community	openmpt123-doc	0.8.9-r0	Q18Q4W3Zu4G+HciMJqbkXl16plJxs=	Cross-platform library to render tracker music to a PCM audio stream (documentation)		
 community	openmw	0.50.0-r1	Q1LppuoDUxSxxElMaALmcaVURB454=	Open-source engine reimplementation for the role-playing game Morrowind	so:libBulletCollision.so.3.25 so:libDebugUtils.so.1 so:libDetour.so.1 so:libGL.so.1 so:libLinearMath.so.3.25 so:libMyGUIEngine.so.3.4.3 so:libOpenThreads.so.21 so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libQt6Network.so.6 so:libQt6OpenGLWidgets.so.6 so:libQt6Svg.so.6 so:libQt6Widgets.so.6 so:libRecast.so.1 so:libSDL2-2.0.so.0 so:libavcodec.so.62 so:libavformat.so.62 so:libavutil.so.60 so:libboost_program_options.so.1.84.0 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libicui18n.so.78 so:libicuuc.so.78 so:libluajit-5.1.so.2 so:liblz4.so.1 so:libopenal.so.1 so:libosg.so.161 so:libosgAnimation.so.161 so:libosgDB.so.161 so:libosgFX.so.161 so:libosgGA.so.161 so:libosgParticle.so.161 so:libosgShadow.so.161 so:libosgText.so.161 so:libosgUtil.so.161 so:libosgViewer.so.161 so:libsqlite3.so.0 so:libstdc++.so.6 so:libswresample.so.6 so:libswscale.so.9 so:libtinyxml.so.0 so:libunshield.so.1 so:libyaml-cpp.so.0.9 so:libz.so.1	cmd:bsatool=0.50.0-r1 cmd:esmtool=0.50.0-r1 cmd:niftest=0.50.0-r1 cmd:openmw-bulletobjecttool=0.50.0-r1 cmd:openmw-cs=0.50.0-r1 cmd:openmw-essimporter=0.50.0-r1 cmd:openmw-iniimporter=0.50.0-r1 cmd:openmw-launcher=0.50.0-r1 cmd:openmw-navmeshtool=0.50.0-r1 cmd:openmw-wizard=0.50.0-r1 cmd:openmw=0.50.0-r1
 community	opennebula	6.10.2-r0	Q1lvvsJOqHA7RHFhRrl4zih8YEr6s=	OpenNebula (currenty empty, install opennebula-tools instead)		
 community	opennebula-tools	6.10.2-r0	Q1xSMrttYWth1yfQ1OCKktefWCMuI=	Command Line interface for OpenNebula	ruby ruby-activesupport ruby-opennebula=6.10.2-r0	cmd:oneacct=6.10.2-r0 cmd:oneacl=6.10.2-r0 cmd:onebackupjob=6.10.2-r0 cmd:onecluster=6.10.2-r0 cmd:onedatastore=6.10.2-r0 cmd:oneflow-template=6.10.2-r0 cmd:oneflow=6.10.2-r0 cmd:onegroup=6.10.2-r0 cmd:onehook=6.10.2-r0 cmd:onehost=6.10.2-r0 cmd:oneimage=6.10.2-r0 cmd:oneirb=6.10.2-r0 cmd:onelog=6.10.2-r0 cmd:onemarket=6.10.2-r0 cmd:onemarketapp=6.10.2-r0 cmd:onesecgroup=6.10.2-r0 cmd:oneshowback=6.10.2-r0 cmd:onetemplate=6.10.2-r0 cmd:oneuser=6.10.2-r0 cmd:onevcenter=6.10.2-r0 cmd:onevdc=6.10.2-r0 cmd:onevm=6.10.2-r0 cmd:onevmgroup=6.10.2-r0 cmd:onevnet=6.10.2-r0 cmd:onevntemplate=6.10.2-r0 cmd:onevrouter=6.10.2-r0 cmd:onezone=6.10.2-r0
@@ -18973,10 +18973,10 @@ community	rtorrent	0.16.12-r0	Q12mlnmwd1kVcmNmiiW7Xuqzi53wk=	Ncurses BitTorrent 
 community	rtorrent-doc	0.16.12-r0	Q1KslfQXD8scP7n9pgd8vuy5HPOj8=	Ncurses BitTorrent client based on libTorrent (documentation)		
 community	rtpengine	12.2.1.4-r2	Q1J+SmxbHioV43SCX5OtCY+WgIzeA=	Proxy for RTP traffic and other UDP based media traffic	/bin/sh so:libavcodec.so.61 so:libavformat.so.61 so:libavutil.so.59 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libevent_pthreads-2.1.so.7 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libhiredis.so.1.3.0 so:libip4tc.so.2 so:libip6tc.so.2 so:libjson-glib-1.0.so.0 so:libmariadb.so.3 so:libmnl.so.0 so:libnftnl.so.11 so:libopus.so.0 so:libpcap.so.1 so:libpcre2-8.so.0 so:libspandsp.so.2 so:libssl.so.3 so:libswresample.so.5 so:libwebsockets.so.19 so:libxmlrpc.so.3 so:libxmlrpc_client.so.3 so:libxmlrpc_util.so.4 so:libz.so.1	cmd:rtpengine=12.2.1.4-r2
 community	rtpengine-doc	12.2.1.4-r2	Q1NA2zYHgX8waJjQMsgTdQVSHGy30=	Proxy for RTP traffic and other UDP based media traffic (documentation)		
-community	rtpengine-lts	6.18.49-r0	Q1WupDDQC6G7FyWUW1KMoeYGukgis=	Kernel module for rtpengine		
+community	rtpengine-lts	6.18.50-r0	Q1uZ2vGJyu7Otfy4AQ6REKqo5DrQI=	Kernel module for rtpengine		
 community	rtpengine-openrc	12.2.1.4-r2	Q1kftuv+/AycUWjPZgFpitAGgaZXU=	Proxy for RTP traffic and other UDP based media traffic (OpenRC init scripts)		
 community	rtpengine-recording	12.2.1.4-r2	Q1tZpTVng1R2c5FWxqkbkA56llFQg=	Proxy for RTP traffic and other UDP based media traffic	rtpengine so:libavcodec.so.61 so:libavfilter.so.10 so:libavformat.so.61 so:libavutil.so.59 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libcurl.so.4 so:libglib-2.0.so.0 so:libmariadb.so.3 so:libopus.so.0 so:libssl.so.3 so:libswresample.so.5	cmd:rtpengine-recording=12.2.1.4-r2
-community	rtpengine-virt	6.18.49-r0	Q1fmsj8bmCcmHVbTsvkk/+oyBCAdM=	virt kernel modules for rtpengine	linux-virt=6.18.49-r0	
+community	rtpengine-virt	6.18.50-r0	Q1cIWJGsta3e5Q+rzOJSdIJ64/xWY=	virt kernel modules for rtpengine	linux-virt=6.18.50-r0	
 community	rtrlib	0.8.0-r6	Q13p1DHNyIisaESzC/6dckrSgqhz0=	Open-source C implementation of the RPKI/Router Protocol client	so:libc.musl-x86_64.so.1 so:libssh.so.4	cmd:rpki-rov=0.8.0-r6 cmd:rtrclient=0.8.0-r6 so:librtr.so.0=0.8.0
 community	rtrlib-dev	0.8.0-r6	Q1/5vHkhtAjaBaqEakQywzclG8S00=	Open-source C implementation of the RPKI/Router Protocol client (development files)	rtrlib=0.8.0-r6 pkgconfig	pc:rtrlib=0.8.0
 community	rtrlib-doc	0.8.0-r6	Q1YV5yAGKsw9CI6aQpCxoFTbrMoyA=	Open-source C implementation of the RPKI/Router Protocol client (documentation)		
@@ -20817,9 +20817,9 @@ community	topgrade-zsh-completion	17.4.0-r0	Q1pmuJwa4z5cEWFoHlVaDgiy6p4Mo=	Zsh c
 community	toppler	1.3-r1	Q1MTlEti8lOa7ZXOPAlJnam3SuDsc=	Clone of the Nebulus game on old 8 and 16 bit machines	toppler-data so:libSDL2-2.0.so.0 so:libSDL2_mixer-2.0.so.0 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libz.so.1	cmd:toppler=1.3-r1
 community	toppler-data	1.3-r1	Q1jy0u/T6s6ydenOWQDdTQMUSs0RY=	Clone of the Nebulus game on old 8 and 16 bit machines (data files)		
 community	toppler-doc	1.3-r1	Q1Y2K2Chk2PrlBVC+bMyD6mrYCsQ4=	Clone of the Nebulus game on old 8 and 16 bit machines (documentation)		
-community	tor	0.4.9.11-r0	Q1S1errPSon0b084qpsnjN83ZtMyk=	Anonymous network connectivity	/bin/sh so:libc.musl-x86_64.so.1 so:libcap.so.2 so:libcrypto.so.3 so:libevent-2.1.so.7 so:liblzma.so.5 so:libseccomp.so.2 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	cmd:tor-gencert=0.4.9.11-r0 cmd:tor-print-ed-signing-cert=0.4.9.11-r0 cmd:tor-resolve=0.4.9.11-r0 cmd:tor=0.4.9.11-r0 cmd:torify=0.4.9.11-r0
-community	tor-doc	0.4.9.11-r0	Q16KpGUebRt52jGingOrFVp5aJG0A=	Anonymous network connectivity (documentation)		
-community	tor-openrc	0.4.9.11-r0	Q14vFUMTn9sQmqpz8bKzvp9LCEBsc=	Anonymous network connectivity (OpenRC init scripts)		
+community	tor	0.4.9.12-r0	Q1j62OOc9BodaTdVmXOxo3hkjGwiU=	Anonymous network connectivity	/bin/sh so:libc.musl-x86_64.so.1 so:libcap.so.2 so:libcrypto.so.3 so:libevent-2.1.so.7 so:liblzma.so.5 so:libseccomp.so.2 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	cmd:tor-gencert=0.4.9.12-r0 cmd:tor-print-ed-signing-cert=0.4.9.12-r0 cmd:tor-resolve=0.4.9.12-r0 cmd:tor=0.4.9.12-r0 cmd:torify=0.4.9.12-r0
+community	tor-doc	0.4.9.12-r0	Q1phMsp0/36tKjM2XPElstGs0+1Co=	Anonymous network connectivity (documentation)		
+community	tor-openrc	0.4.9.12-r0	Q1hQpGsXjLs4sT0sSuxT9YniS0Zag=	Anonymous network connectivity (OpenRC init scripts)		
 community	torsocks	2.5.0-r0	Q148IzTvZaFYsoQuebguCt4/R8DEY=	Wrapper to safely torify applications	so:libc.musl-x86_64.so.1	cmd:torsocks=2.5.0-r0
 community	torsocks-doc	2.5.0-r0	Q1WWTK6rffWx/eiRRIM1j6AjGqNB4=	Wrapper to safely torify applications (documentation)		
 community	totem	43.2-r4	Q1sScTHoUUoqIJTTttUSOVId8dN7U=	Movie player for the GNOME desktop	grilo-plugins gsettings-desktop-schemas gst-plugins-bad gst-plugins-good gst-plugins-good-gtk so:libatk-1.0.so.0 so:libc.musl-x86_64.so.1 so:libcairo-gobject.so.2 so:libcairo.so.2 so:libepoxy.so.0 so:libgdk-3.so.0 so:libgdk_pixbuf-2.0.so.0 so:libgio-2.0.so.0 so:libgirepository-2.0.so.0 so:libglib-2.0.so.0 so:libgmodule-2.0.so.0 so:libgnome-desktop-3.so.20 so:libgobject-2.0.so.0 so:libgrilo-0.3.so.0 so:libgrlpls-0.3.so.0 so:libgstaudio-1.0.so.0 so:libgstpbutils-1.0.so.0 so:libgstreamer-1.0.so.0 so:libgsttag-1.0.so.0 so:libgstvideo-1.0.so.0 so:libgtk-3.so.0 so:libhandy-1.so.0 so:libintl.so.8 so:libpango-1.0.so.0 so:libpangocairo-1.0.so.0 so:libpeas-1.0.so.1 so:libpeas-gtk-1.0.so.1 so:libtotem-plparser.so.18	cmd:totem=43.2-r4 so:libtotem.so.0=0.0.0
@@ -21454,8 +21454,8 @@ community	virt-viewer-doc	11.0-r3	Q1bLjXY7zg0OKOBjmghF+4yno2iQ0=	A lightweight i
 community	virt-viewer-lang	11.0-r3	Q1ZUir8yDElPKbtkxmYwQ7gPp/S6s=	Languages for package virt-viewer		
 community	virt-what	1.27-r1	Q1muhZ5TZMM1Y+lU4FQ4MnVYhyeqM=	Detect if we are running in a virtual machine	dmidecode so:libc.musl-x86_64.so.1	cmd:virt-what-cvm=1.27-r1 cmd:virt-what=1.27-r1
 community	virt-what-doc	1.27-r1	Q1EuLb6J0r9/Ajh9E3/yZ9Ct/FU4g=	Detect if we are running in a virtual machine (documentation)		
-community	virtio_vmmci-lts	6.18.49-r0	Q1Y8m3B+QTV7CkXPqleH5qPmLpOPs=	VirtIO driver for OpenBSD VMM Control Interface	linux-lts=6.18.49-r0	
-community	virtio_vmmci-virt	6.18.49-r0	Q1NJfzIbMLdJYP2VqW2K4tl5xZNpI=	VirtIO driver for OpenBSD VMM Control Interface for virt kernel	linux-virt=6.18.49-r0	
+community	virtio_vmmci-lts	6.18.50-r0	Q1rUquE07Ermm9oOC9U/ryf7x421s=	VirtIO driver for OpenBSD VMM Control Interface	linux-lts=6.18.50-r0	
+community	virtio_vmmci-virt	6.18.50-r0	Q16uNy5GcvIySNP8VTa1kUbO80EY0=	VirtIO driver for OpenBSD VMM Control Interface for virt kernel	linux-virt=6.18.50-r0	
 community	virtiofsd	1.13.3-r0	Q1mLh4Z50qkanTpsI5XToPMhy4N4M=	virtio-fs vhost-user device daemon	so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libgcc_s.so.1 so:libseccomp.so.2	qemu-virtiofsd=1.13.3-r0
 community	virtualbox-guest-additions	7.0.22-r0	Q1VS5UPfzudgVj+m7nQkrKuhpOKn0=	VirtualBox Addtions userland components	/bin/sh so:libc.musl-x86_64.so.1 so:libutmps.so.0.1 so:libz.so.1	cmd:VBoxControl=7.0.22-r0 cmd:VBoxService=7.0.22-r0 cmd:mount.vboxsf=7.0.22-r0
 community	virtualbox-guest-additions-openrc	7.0.22-r0	Q1JWWo5bbjEwwVMMA6FdbGLU4VQuk=	VirtualBox Addtions userland components (OpenRC init scripts)		
@@ -21475,8 +21475,8 @@ community	vlc-doc	3.0.23-r4	Q1UHkKtd2fhz3jXbJUFfVNk7sXeNI=	Multi-platform MPEG, 
 community	vlc-libs	3.0.23-r4	Q1PO0esuFTks4wHmX5s6UVHHjQ1xY=	Multi-platform MPEG, VCD/DVD, and DivX player (libraries)	/bin/sh so:libc.musl-x86_64.so.1 so:libdbus-1.so.3	so:libvlc.so.5=5.6.1 so:libvlccore.so.9=9.0.1
 community	vlc-nftrules	3.0.23-r4	Q1Kxc1XsnLxFRgZvBvGzoQAi+/boo=	Multi-platform MPEG, VCD/DVD, and DivX player (nftables ruleset)		
 community	vlc-qt	3.0.23-r4	Q1OxpCqLtSQaq/XwJqKHmiNpkxDkE=	Qt frontend for VLC	vlc=3.0.23-r4 so:libQt5Core.so.5 so:libQt5Gui.so.5 so:libQt5Svg.so.5 so:libQt5Widgets.so.5 so:libQt5X11Extras.so.5 so:libX11.so.6 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libvlccore.so.9	cmd:qvlc=3.0.23-r4
-community	vmm_clock-lts	6.18.49-r0	Q1avYG0JTIAxBRckp4eWTj0yGUHMk=	clocksource under OpenBSD VMM	linux-lts=6.18.49-r0	
-community	vmm_clock-virt	6.18.49-r0	Q1pLD+E+VPTMCyqh+Eyz92oHlT2Wg=	clocksource under OpenBSD VMM for virt kernel	linux-virt=6.18.49-r0	
+community	vmm_clock-lts	6.18.50-r0	Q1Eh2gFkL66oJ5yw+8DFaF01uUyic=	clocksource under OpenBSD VMM	linux-lts=6.18.50-r0	
+community	vmm_clock-virt	6.18.50-r0	Q1K+76PiTyrAuu4xwWkQWkToBTsM0=	clocksource under OpenBSD VMM for virt kernel	linux-virt=6.18.50-r0	
 community	vnstat	2.13-r1	Q1vLXu0u66DYiZLNFCn9ypypDGp3g=	Console-based network traffic monitor	/bin/sh so:libc.musl-x86_64.so.1 so:libgd.so.3 so:libsqlite3.so.0	cmd:vnstat=2.13-r1 cmd:vnstatd=2.13-r1 cmd:vnstati=2.13-r1
 community	vnstat-doc	2.13-r1	Q10yMfQoNoAzXOxbCtjbMTzC+o2j8=	Console-based network traffic monitor (documentation)		
 community	vnstat-openrc	2.13-r1	Q12uRAGmONId2+mh/R16rfopEvkmQ=	Console-based network traffic monitor (OpenRC init scripts)		
@@ -25207,9 +25207,9 @@ main	linux-firmware-xe	20260519-r0	Q19ldWxXWXpSyDakY537m4LBnQl/8=	firmware files
 main	linux-firmware-yam	20260519-r0	Q1xmob98FtmzF+w1MmnlhqV5RlfEo=	firmware files for linux (yam folder)		linux-firmware-any
 main	linux-firmware-yamaha	20260519-r0	Q1gnr3WsNSONZzFN/o9Qfuhy+aKx4=	firmware files for linux (yamaha folder)		linux-firmware-any
 main	linux-headers	7.0.0-r1	Q1TvmkpYrpdxlaXC3inH5jhFYWFDA=	Linux system headers		
-main	linux-lts	6.18.49-r0	Q1ugKLjUvNXzJKOXBYJ8w5P2ELDa4=	Linux lts kernel	initramfs-generator linux-firmware-any	
-main	linux-lts-dev	6.18.49-r0	Q1dsdC/NP8VOq5QsEOztlby5hmNoE=	Headers and script for third party modules for lts kernel	perl gmp-dev mpc1-dev mpfr-dev elfutils-dev bash flex bison zstd so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libelf.so.1 so:libstdc++.so.6 so:libz.so.1	
-main	linux-lts-doc	6.18.49-r0	Q1ZkPw1snQGwXrdUmD41wzwAMm364=	Linux lts kernel (documentation)		
+main	linux-lts	6.18.50-r0	Q1CJMBCDZUKXrwa9X9zHbLOOswwLM=	Linux lts kernel	initramfs-generator linux-firmware-any	
+main	linux-lts-dev	6.18.50-r0	Q1RzhHIysbT3o3z3DN8htlnAiOe98=	Headers and script for third party modules for lts kernel	perl gmp-dev mpc1-dev mpfr-dev elfutils-dev bash flex bison zstd so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libelf.so.1 so:libstdc++.so.6 so:libz.so.1	
+main	linux-lts-doc	6.18.50-r0	Q1DoDzz3WFOpu1AnTut2AvANFuqj8=	Linux lts kernel (documentation)		
 main	linux-pam	1.7.1-r2	Q14CamClLTOrqb3liJtyHUfNplfUg=	Linux PAM (Pluggable Authentication Modules for Linux)	so:libc.musl-x86_64.so.1 so:libutmps.so.0.1	cmd:faillock=1.7.1-r2 cmd:mkhomedir_helper=1.7.1-r2 cmd:pam_namespace_helper=1.7.1-r2 cmd:pam_timestamp_check=1.7.1-r2 cmd:pwhistory_helper=1.7.1-r2 cmd:unix_chkpwd=1.7.1-r2 so:libpam.so.0=0.85.1 so:libpam_misc.so.0=0.82.1 so:libpamc.so.0=0.82.1
 main	linux-pam-dev	1.7.1-r2	Q1742/ptkqMposhgYWsSJPY2xqjec=	Linux PAM (Pluggable Authentication Modules for Linux) (development files)	linux-pam=1.7.1-r2 pkgconfig	pc:pam=1.7.1 pc:pam_misc=1.7.1 pc:pamc=1.7.1
 main	linux-pam-doc	1.7.1-r2	Q1TDOFUnO9cKF2EAf+KlUbMP8J89w=	Linux PAM (Pluggable Authentication Modules for Linux) (documentation)		
@@ -25224,8 +25224,8 @@ main	linux-tools-spi	7.1.5-r0	Q1r2kPmhUoI14ZQek4dglr/ZhuHr8=	Linux kernel SPI to
 main	linux-tools-tmon	7.1.5-r0	Q1EdoKAJCmRbXAJp+qKwYT4M6OlBw=	Linux kernel thermal monitor tools	so:libc.musl-x86_64.so.1 so:libncursesw.so.6 so:libpanelw.so.6	cmd:tmon=7.1.5-r0
 main	linux-tools-usbip	7.1.5-r0	Q1sVV/ILmAaCb0y9H9w70jwmLHB/s=	utilities for USB device sharing over IP network	so:libc.musl-x86_64.so.1 so:libudev.so.1	usbip-utils=7.1.5-r0 cmd:usbip=7.1.5-r0 cmd:usbipd=7.1.5-r0 so:libusbip.so.0=0.0.1
 main	linux-tools-usbip-openrc	7.1.5-r0	Q1uVSHyqe/nyvNLPXe/2SZip5+0DI=	utilities for USB device sharing over IP network (OpenRC init scripts)		
-main	linux-virt	6.18.49-r0	Q1ZoN9xND1skdc4IuIn9AyRqCJGRs=	Linux lts kernel	initramfs-generator	
-main	linux-virt-dev	6.18.49-r0	Q1ejVYt9ThLdNO4Srq8gzDRmBxQoQ=	Headers and script for third party modules for virt kernel	perl gmp-dev mpc1-dev mpfr-dev elfutils-dev bash flex bison zstd so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libelf.so.1 so:libstdc++.so.6 so:libz.so.1	
+main	linux-virt	6.18.50-r0	Q1g1igghKc+ZutQN6nP0Tdr2EfrwA=	Linux lts kernel	initramfs-generator	
+main	linux-virt-dev	6.18.50-r0	Q1zq/LPlNIyKjGU5Y1h7U8/1BwLHw=	Headers and script for third party modules for virt kernel	perl gmp-dev mpc1-dev mpfr-dev elfutils-dev bash flex bison zstd so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libelf.so.1 so:libstdc++.so.6 so:libz.so.1	
 main	lksctp-tools	1.0.19-r5	Q1VDRkGFC0mK/py0liasUqzm/m/70=	User-space access to Linux Kernel SCTP	so:libc.musl-x86_64.so.1 so:libsctp.so.1	cmd:checksctp=1.0.19-r5 cmd:sctp_darn=1.0.19-r5 cmd:sctp_status=1.0.19-r5 cmd:sctp_test=1.0.19-r5 cmd:withsctp=1.0.19-r5
 main	lksctp-tools-dev	1.0.19-r5	Q1MhZTLxuejJOzkKsa9DRhPjYuCBc=	User-space access to Linux Kernel SCTP (development files)	linux-headers liblksctp=1.0.19-r5 pkgconfig	pc:libsctp=1.0.19
 main	lksctp-tools-doc	1.0.19-r5	Q1LuM/4qa7BX/M+teUdrKWMxVTry8=	User-space access to Linux Kernel SCTP (documentation)		
@@ -27584,7 +27584,7 @@ main	py3-typing-extensions	4.15.0-r1	Q1A+yPMTLhZBwxJBBQv3ushwu4nqs=	Backported a
 main	py3-typing-extensions-pyc	4.15.0-r1	Q1Ep9zysRv/pnjMH/kgzpHuFVa4Ak=	Precompiled Python bytecode for py3-typing-extensions	python3~3.14	
 main	py3-tz	2026.2-r0	Q16bzThRxXMVX1kcYQKzZ+fqdPSF4=	Python3 definitions of world timezone	python3 python3~3.14	py-tz=2026.2-r0 py3.14:pytz=2026.2-r0
 main	py3-tz-pyc	2026.2-r0	Q1wq6TvOzILeiwnyP++26/txcPJJk=	Precompiled Python bytecode for py3-tz	python3~3.14	
-main	py3-unbound	1.25.2-r0	Q1E7ZRBphDliIqv+yf69+aLme4lBI=	Python bindings to libunbound	python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0 so:libunbound.so.8	py-unbound=1.25.2-r0 py3.14:unbound=1.25.2-r0
+main	py3-unbound	1.25.2-r1	Q1ZjumtRjVsOHpi/sz0sYeT84Ewes=	Python bindings to libunbound	python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0 so:libunbound.so.8	py-unbound=1.25.2-r1 py3.14:unbound=1.25.2-r1
 main	py3-urllib3	2.7.0-r0	Q1vwh0TlLQkfThHI9DyvC7OXJNyTE=	HTTP library with thread-safe connection pooling, file post, and more	python3 python3~3.14	py-urllib3=2.7.0-r0 py3.14:urllib3=2.7.0-r0
 main	py3-urllib3-pyc	2.7.0-r0	Q1g/Fc0631P1uR6CiNurPGPUdZiqs=	Precompiled Python bytecode for py3-urllib3	python3~3.14	
 main	py3-vici	6.0.7-r1	Q1tZup3/j5joc5b2Bm/cCgv7DRSN8=	Native Python interface for strongSwan's VICI protocol	iproute2 python3~3.14	py3.14:vici=6.0.7-r1
@@ -28316,13 +28316,13 @@ main	ulogd-xml	2.0.9-r0	Q1QewR5rSgvVCu44Ul8QhromWa658=	xml output for ulogd	ulog
 main	umix	1.0.2-r10	Q1Pk2qVZDv0Ihlbvu6x5OMwFqf9ek=	Program for adjusting soundcard volumes	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:umix=1.0.2-r10
 main	umix-doc	1.0.2-r10	Q1qrTIpL0ClWGjX3c1e51ZntUqThQ=	Program for adjusting soundcard volumes (documentation)		
 main	umount	2.42.3-r1	Q1yoN2SES/JREwqjCV15EpSVJGsyI=	umount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:umount=2.42.3-r1
-main	unbound	1.25.2-r0	Q1gpzmxngFzvZOYT0S3ZX6VrsZ4Q8=	Unbound is a validating, recursive, and caching DNS resolver	dnssec-root /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libexpat.so.1 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3 so:libunbound.so.8	cmd:unbound-anchor=1.25.2-r0 cmd:unbound-checkconf=1.25.2-r0 cmd:unbound-control-setup=1.25.2-r0 cmd:unbound-control=1.25.2-r0 cmd:unbound-host=1.25.2-r0 cmd:unbound=1.25.2-r0
-main	unbound-dbg	1.25.2-r0	Q1tWOsPd1OO9bzPbW6bTYWOSvaKD4=	Unbound is a validating, recursive, and caching DNS resolver (debug symbols)	!py3-unbound<1.25.2-r0 !py3-unbound>1.25.2-r0 !unbound-libs<1.25.2-r0 !unbound-libs>1.25.2-r0 !unbound<1.25.2-r0 !unbound>1.25.2-r0	
-main	unbound-dev	1.25.2-r0	Q1FJPWXNl95Q5gzHsUZog+fLFieQw=	Unbound is a validating, recursive, and caching DNS resolver (development files)	expat-dev unbound-libs=1.25.2-r0 pc:libevent pc:python3 pkgconfig	pc:libunbound=1.25.2
-main	unbound-doc	1.25.2-r0	Q1qAiEW0HL8WHxHQEwnf0VqpNLKkc=	Unbound is a validating, recursive, and caching DNS resolver (documentation)		
-main	unbound-libs	1.25.2-r0	Q1BNLHG69fh2jKz/ygJMMjVWWssgM=	Unbound is a validating, recursive, and caching DNS resolver (libraries)	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3	so:libunbound.so.8=8.1.38
-main	unbound-migrate	1.25.2-r0	Q19hws0d9ZQ6qsm8MEqszTPSPCncM=	Simple tool to migrate from dnscache to unbound	/bin/sh apk-tools openrc	cmd:migrate-dnscache-to-unbound=1.25.2-r0
-main	unbound-openrc	1.25.2-r0	Q1puvascMCiXuwG46hv75lHurTPOg=	Unbound is a validating, recursive, and caching DNS resolver (OpenRC init scripts)		
+main	unbound	1.25.2-r1	Q1CjzN9i8WShCMeFuC/LHUJZDbVVM=	Unbound is a validating, recursive, and caching DNS resolver	dnssec-root /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libexpat.so.1 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3 so:libunbound.so.8	cmd:unbound-anchor=1.25.2-r1 cmd:unbound-checkconf=1.25.2-r1 cmd:unbound-control-setup=1.25.2-r1 cmd:unbound-control=1.25.2-r1 cmd:unbound-host=1.25.2-r1 cmd:unbound=1.25.2-r1
+main	unbound-dbg	1.25.2-r1	Q1jE3gtJ3EqwufNPfsn0KnNBNFajY=	Unbound is a validating, recursive, and caching DNS resolver (debug symbols)	!py3-unbound<1.25.2-r1 !py3-unbound>1.25.2-r1 !unbound-libs<1.25.2-r1 !unbound-libs>1.25.2-r1 !unbound<1.25.2-r1 !unbound>1.25.2-r1	
+main	unbound-dev	1.25.2-r1	Q1RKiToQDGd+wmjrKuKGBbQFk5MSY=	Unbound is a validating, recursive, and caching DNS resolver (development files)	expat-dev unbound-libs=1.25.2-r1 pc:libevent pc:python3 pkgconfig	pc:libunbound=1.25.2
+main	unbound-doc	1.25.2-r1	Q1IxJZWX1mlSEepkZ3uZ1sNy/C7AY=	Unbound is a validating, recursive, and caching DNS resolver (documentation)		
+main	unbound-libs	1.25.2-r1	Q1V+t801aJxivN2mzacn0US0V/zGc=	Unbound is a validating, recursive, and caching DNS resolver (libraries)	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3	so:libunbound.so.8=8.1.38
+main	unbound-migrate	1.25.2-r1	Q1dSZGAiZRkYPdDVSYDWXf81cLxqw=	Simple tool to migrate from dnscache to unbound	/bin/sh apk-tools openrc	cmd:migrate-dnscache-to-unbound=1.25.2-r1
+main	unbound-openrc	1.25.2-r1	Q1GSYaVfGKX1APYHGUIVvRNMEB9zo=	Unbound is a validating, recursive, and caching DNS resolver (OpenRC init scripts)		
 main	unfs3	0.10.0-r2	Q1xnsHaYItEGgpyN5Hphg9YB7wjio=	user-space implementation of the NFSv3 server specification	rpcbind so:libc.musl-x86_64.so.1 so:libtirpc.so.3	cmd:unfsd=0.10.0-r2
 main	unfs3-doc	0.10.0-r2	Q1DiMl0013wZPdLeQKWns+FL4PkT4=	user-space implementation of the NFSv3 server specification (documentation)		
 main	unfs3-openrc	0.10.0-r2	Q1c7r60BG4wzlP3wY0ebV7eJ/l31E=	user-space implementation of the NFSv3 server specification (OpenRC init scripts)		
@@ -28576,7 +28576,7 @@ main	xorgproto	2025.1-r0	Q1lsUpBH+/6vywI7IBRuKdBVri7cM=	Combined X.Org X11 proto
 main	xorriso	1.5.8-r0	Q1sgEMg6OFyzsB3n0cw7lZQFT25pY=	ISO-9660 and Rock Ridge image manipulation tool	so:libc.musl-x86_64.so.1 so:libisoburn.so.1	cmd:mkisofs=1.5.8-r0 cmd:osirrox=1.5.8-r0 cmd:xorrecord=1.5.8-r0 cmd:xorriso-dd-target=1.5.8-r0 cmd:xorriso=1.5.8-r0 cmd:xorrisofs=1.5.8-r0
 main	xtables-addons	3.30-r0	Q1pMjb+joGcHvCjWsYEv0S8Y6D4Oc=	Netfilter userspace extensions for iptables	so:libc.musl-x86_64.so.1 so:libxtables.so.12	cmd:iptaccount=3.30-r0 cmd:pknlusr=3.30-r0 cmd:xt_geoip_query=3.30-r0 so:libxt_ACCOUNT_cl.so.1=1.0.0
 main	xtables-addons-doc	3.30-r0	Q1zZeizqgNEmU13kbGku8rpUhO7Os=	Netfilter userspace extensions for iptables (documentation)		
-main	xtables-addons-lts	6.18.49-r0	Q1YoiLtAwTK5P3ZdYVikmoXO5e2OE=	Iptables extensions kernel modules	linux-lts=6.18.49-r0	
+main	xtables-addons-lts	6.18.50-r0	Q1L9r/dCQ5J5sGeMKRB3bkpEwgkYk=	Iptables extensions kernel modules	linux-lts=6.18.50-r0	
 main	xtrans	1.6.0-r0	Q1QEcWn0B3kT14NIDGyCGzBF7iioA=	X transport library	pkgconfig	pc:xtrans=1.6.0
 main	xxhash	0.8.3-r1	Q1Ik8TugVksvvRT6uXnOgJfvqlBRU=	Extremely fast non-cryptographic hash algorithm	so:libc.musl-x86_64.so.1	cmd:xxh128sum=0.8.3-r1 cmd:xxh32sum=0.8.3-r1 cmd:xxh3sum=0.8.3-r1 cmd:xxh64sum=0.8.3-r1 cmd:xxhsum=0.8.3-r1
 main	xxhash-dev	0.8.3-r1	Q1pCOAqUpdar5EFduRLyxxdnyE2eE=	Extremely fast non-cryptographic hash algorithm (development files)	libxxhash=0.8.3-r1 pkgconfig	pc:libxxhash=0.8.3
@@ -28609,15 +28609,15 @@ main	zfs-dev	2.4.4-r0	Q1tnNXkIMgQZ6W8wNP7wFRD8URlJ4=	Advanced filesystem and vol
 main	zfs-doc	2.4.4-r0	Q1YynoGfdnTG+FNZoSNV53iVapnqY=	Advanced filesystem and volume manager (documentation)		
 main	zfs-dracut	2.4.4-r0	Q1xlrCionqDITXjoYtgOubJLpfeA0=	Advanced filesystem and volume manager (dracut)		
 main	zfs-libs	2.4.4-r0	Q1+tU/egmHaq1QbNR2f78Gvpn3q7o=	Advanced filesystem and volume manager (libraries)	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libintl.so.8 so:libtirpc.so.3 so:libuuid.so.1 so:libz.so.1	so:libnvpair.so.3=3.1.0 so:libuutil.so.3=3.0.0 so:libzfs.so.7=7.0.0 so:libzfs_core.so.3=3.0.0 so:libzfsbootenv.so.1=1.0.0 so:libzpool.so.7=7.0.0
-main	zfs-lts	6.18.49-r0	Q1VJsG2csJLJx01b+uw13AAwCQcBY=	ZFS Linux kernel modules	linux-lts=6.18.49-r0	spl-vanilla=6.18.49-r0
-main	zfs-lts-dev	6.18.49-r0	Q1NzmBNqvM/LoVyfwiac9riORFRmM=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-lts-dev=6.18.49-r0	
+main	zfs-lts	6.18.50-r0	Q1LpnkST9lS0p+r/nsE9KfQdG3KRE=	ZFS Linux kernel modules	linux-lts=6.18.50-r0	spl-vanilla=6.18.50-r0
+main	zfs-lts-dev	6.18.50-r0	Q11kIlqHse+YlLMjcrJM6kCMQHJEA=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-lts-dev=6.18.50-r0	
 main	zfs-openrc	2.4.4-r0	Q10u0F4OIc8yk10BEevkUsJ7M1wyI=	Advanced filesystem and volume manager (OpenRC init scripts)		
 main	zfs-scripts	2.4.4-r0	Q1hCHayMX+ArFL8/qLQNDFxf+eOfA=	Advanced filesystem and volume manager (scripts)	so:libc.musl-x86_64.so.1 so:libintl.so.8 so:libnvpair.so.3 so:libz.so.1 so:libzfs.so.7 so:libzfs_core.so.3 so:libzpool.so.7	
 main	zfs-systemd	2.4.4-r0	Q1FzEjQL0+OZMKpi4MxWeK61GFh7k=	Advanced filesystem and volume manager (systemd files)	so:libc.musl-x86_64.so.1 so:libzfs.so.7	
 main	zfs-udev	2.4.4-r0	Q1ScDRry1tZLU/i0koXhyxyuIhxLY=	Advanced filesystem and volume manager (udev rules)	so:libc.musl-x86_64.so.1	
 main	zfs-utils-py	2.4.4-r0	Q1HEyO84z7UPfjDJCbvzvK57clp5Y=	Advanced filesystem and volume manager (python utils)	python3	cmd:dbufstat=2.4.4-r0 cmd:zarcstat=2.4.4-r0 cmd:zarcsummary=2.4.4-r0 cmd:zilstat=2.4.4-r0
 main	zfs-virt	6.18.44-r1	Q1J/OMnVzmavSOVw1vnyNVhRgPwjs=	ZFS Linux kernel modules for virt	linux-virt=6.18.44-r0	
-main	zfs-virt	6.18.49-r0	Q1AIGVExF9zt4x550FSEhTTgiriF4=	ZFS Linux kernel modules for virt	linux-virt=6.18.49-r0	
+main	zfs-virt	6.18.50-r0	Q1kFUcjiPIAgGNuqf4fp0SB7MUnRs=	ZFS Linux kernel modules for virt	linux-virt=6.18.50-r0	
 main	zfs-zsh-completion	5.9-r7	Q1hHFw32NNLwJAs1MRO70jKQvAFeM=	Zsh completions for zfs		
 main	zip	3.0-r13	Q1dYTmV6FSmWxNzERfh0HxuRQN9YM=	Creates PKZIP-compatible .zip files	unzip so:libc.musl-x86_64.so.1	cmd:zip=3.0-r13 cmd:zipcloak=3.0-r13 cmd:zipnote=3.0-r13 cmd:zipsplit=3.0-r13
 main	zip-doc	3.0-r13	Q1MHQq0pwfwGHxfWIlyXcyfu6LFEU=	Creates PKZIP-compatible .zip files (documentation)		

@@ -94,3 +94,8 @@ theorem development_is_the_complement : ((List.range' 1 9).all (fun d => 9 - (9 
     self-inverse). A frame slot of the bar is 168 samples with nothing left over. The pager’s walk, sounded and
     animated, is not a song WITH pictures: at the sample level the two tilings are the same integer. -/
 theorem the_movie_and_the_song_are_one : (16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7) := by decide
+
+/-- THE NAME'S 32 HEXBITS; THE LEADING NIBBLE IS THE DOOR. The leading nibble of toUuid("uuidna") modulo the
+    hexagram width is the referrer door into the round. The hash is the measurement; the kernel decides the
+    residue. -/
+theorem uuidna_name_referrer_door : [15,12,5,1,1,5,3,2,6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].headD 0 % 6 = 3 := by decide

@@ -60,6 +60,20 @@ theorem codons_four_cubed : 4^3 = 64 := by decide
     64-bit halves; it is not a claim that DNA stores uuids or that biology computes addresses. -/
 theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide
 
+/-- THE NAME IS THE WIDTHS. uuid is four letters and a hexbit is four bits; dna is three letters and a trinity
+    is three; they share one letter, so 4 + 3 − 1 = 6. Hexbit plus the two coins is the hexagram: 4 + 2 = 6.
+    Base minus trinity is credit: 9 − 3 = 6. The six-letter name, the hexagram, and the credit plane are one
+    number. -/
+theorem uuidna_letters_fuse_to_the_hexagram : (4 + 3 - 1 = 6) ∧ (4 + 2 = 6) ∧ (9 - 3 = 6) ∧ (4 + 3 - 1 = 4 + 2) ∧ (4 + 2 = 9 - 3) := by decide
+
+/-- THE NAME'S HANDLE IS THE FIRST GROUP OF ITS ADDRESS, READ AS A NUMBER. toUuid("uuidna") is the measured
+    hash; the kernel decides that those eight hex digits, folded as base-16 place value, ARE the seed. -/
+theorem uuidna_name_handle_is_the_seed : [15,12,5,1,1,5,3,2].foldl (fun acc d => acc * 16 + d) 0 = 4233172274 := by decide
+
+/-- THE NAME'S OWN ADDRESS CARRIES SIXTEEN CODONS IN THE PAYLOAD. The measured payload of toUuid("uuidna") is
+    twenty-four hexbits; twenty-four times four bits over the six-bit codon is sixteen. -/
+theorem uuidna_name_payload_tiles_sixteen_codons : ([6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].length = 24) ∧ ((24 * 4) / 6 = 16) := by decide
+
 /-- THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full —
     [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it.
     STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 <

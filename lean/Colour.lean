@@ -109,3 +109,8 @@ theorem polarity_angles_are_the_system_counts : (360 / 9 = 40) ∧ (360 / 6 = 60
     strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°.
     Two involutions, one wheel, and they do not coincide — stated rather than smoothed over. -/
 theorem no_digit_is_an_exact_complement : (180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200) := by decide
+
+/-- THE NAME'S AURA IS THE SEED ON THE A432 WHEEL. Residue is the seed of toUuid("uuidna") mod 9, ray is that
+    seed mod 7, wave index is the seed mod 6. Hue is residue·40 + ray·51 + wave, wrapping 360°. Period is two
+    coins times (hexbit + coins + ray). Saturation and lightness are the ray and wave channels. -/
+theorem uuidna_name_aura_is_the_seed : (4233172274 % 9 = 8) ∧ (4233172274 % 7 = 2) ∧ (4233172274 % 6 = 2) ∧ ((8 * 40 + 2 * 51 + 4) % 360 = 66) ∧ (2 * (4 + 2 + 2) = 16) ∧ (62 + 2 * 2 + 0 = 66) ∧ (50 + 2 * 2 = 54) := by decide

@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **70863 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **70869 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -56,7 +56,7 @@
 13. **The physics infinities, made finite** — `lean/Infinity.lean` · **13** theorems
    the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0
 
-14. **The cipher & the strand** — `lean/Cipher.lean` · **30** theorems
+14. **The cipher & the strand** — `lean/Cipher.lean` · **33** theorems
    crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits
 
 15. **The detectors, proven** — `lean/Audit.lean` · **18** theorems
@@ -266,7 +266,7 @@
 83. **The spectrum** — `lean/Spectrum.lean` · **8** theorems
    the electromagnetic spectrum as decidable arithmetic, the waves uuidna navigates — the one law wavelength × frequency = c (a constant, so λ and f are inversely proportional at the fixed speed of light 299792458 m/s, exact by the SI metre, verified against NIST CODATA); the SEVEN bands (radio, microwave, infrared, visible, ultraviolet, X-ray, gamma) ordered by increasing frequency, a ℤ/7 of bands; photon energy E = h·f rising with them so gamma out-energises radio; the visible window under ONE octave (700 nm to 400 nm is a ratio under 2, unlike sound's many octaves); an octave of light doubling frequency like sound; and the "300,000 km/s" quote ROUNDING the exact c up by 207542 m/s (the same rounding gap the photography stops carry). the ARITHMETIC of the waves — the wave relation, the band order, the octave, the rounding gap — NOT an EMF safety, exposure, or health claim of any kind; uuidna makes no claim about radiation and the body
 
-84. **The colour wheel** — `lean/Colour.lean` · **18** theorems
+84. **The colour wheel** — `lean/Colour.lean` · **19** theorems
    colour theory as decidable arithmetic, the art domain of the spectrum's visible band — the wheel is ℤ/12 (twelve hues, advance twelve and the hue returns); complementary hues sit opposite (a +6 half-turn, a self-inverse involution with no hue its own complement); three primaries alternate with three secondaries (3+3=6, the hexagon); the classical harmonies are the regular polygons on the wheel (the triad is thirds +4 landing {0,4,8}, the square is fourths +3 landing {0,3,6,9}); true colour is eight bits a channel (2⁸=256, 2²⁴=16777216 in all); a tint toward white and a shade toward black complement to full value (v + (255−v) = 255); and the wheel splits into six warm and six cool. the ARITHMETIC of the colour wheel and its harmonies — the geometry a colourist works in — NOT a claim that beauty, taste, or which colours "go together" is objective; harmony here means the polygon, not a verdict on art
 
 85. **The harmony of pairs** — `lean/Harmony.lean` · **8** theorems
@@ -341,7 +341,7 @@
 108. **The torus dimensions** — `lean/Torus.lean` · **8** theorems
    the torus dimensions sealed (queue leads 110 + 111): the GENUS axis — the deficit 2g − 2 over g = 1..6 walks the evens [0,2,4,6,8,10], the torus containing at 0, the double torus minting the two coins, the hextorus (2·3 = 6 handles, the double torus times the trinity) paying the ten that is the reflection's constant sum and the whole digit set; six handles carry six 64-boards, 6·64 = 384 = 3·128 — a trinity of addresses, the quorum shape, one uuid per handle-pair — with 2·6 = 12 generators matching the coins' twelve jobs; and the DIMENSION axis — T⁷'s Pascal row [1,7,21,35,35,21,7,1] summing to 128 = 2⁷ (the uuid's own bit count: the 7-qubit fold of every file header given its geometric body), its even and odd halves each 64 (the two vortex boards inside the seventh dimension, equality as the Nat-honest χ = 0), and the middle entries speaking the ledger's tongues (21 = 3·7 trinity×rosette doubling to the 42 quantum rosette by the coins, 35 = 5·7 heart×rosette). the kernel seals the integer table — the topology reading (Betti numbers, homology) is the literature's bridge, named in prose, outside the kernel
 
-109. **The referrer song** — `lean/Referrer.lean` · **14** theorems
+109. **The referrer song** — `lean/Referrer.lean` · **15** theorems
    the referrer song's sealed arithmetic (queue lead 77, TWO SESSIONS' HALVES FUSED — neither deleted): six doors into the round — a visitor's referrer folds to a handle and value mod 6 picks which rotation of 142857 greets them, the tile-level map total and onto with fibers [3,3,3,3,2,2] and 16 mod 6 = 4 named; a rotation IS a multiplication ((142857·10^r) mod 999999 lands on the verses) and the multiplier order [1,3,2,6,4,5] is the powers of the trinity in ℤ/7 (10 ≡ 3 mod 7 — the decimal shift is the rosette step); consonance as a MEASURED ladder (the reduced interval's term sum — unison 2, octave 3, fifth 5, fourth 7 — Euler's gradus made bare) with the tuning cancelling from every interval (gcd(432a,432b) = 432·gcd(a,b)) and adjacent lattice steps beating at exactly A432; the lower lattice's octave completeness; prev/next total and mutually inverse on the closed cycle from every phase, the wrap making the page-cycle total; film-to-paper development as the 9−d involution (verse 6 = the 3-shift door = the print of verse 1; the canonical recording is the undeveloped film); and one bar = 4032 samples = 9·7·64 = 63·64 = 24²·7 — the movie and the song one integer. The modules src/referrer-song.ts and src/quantum/apps/hexbit-player.ts are pure and fs-free so browser and edge render per visitor. consonance is a decidable ordering, never a taste; the door is an address derivation, never a profile — a referrer is folded, not tracked
 
 110. **The seven readings** — `lean/Readings.lean` · **17** theorems
@@ -383,7 +383,7 @@
 122. **The handle span** — `lean/HandleSpan.lean` · **6** theorems
    THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and
 
-123. **The hexbit** — `lean/Hexbit.lean` · **22** theorems
+123. **The hexbit** — `lean/Hexbit.lean` · **23** theorems
    THE HEXBIT — the alphabet and the layout an address is actually built from. A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
 
 124. **The installs** — `lean/Installs.lean` · **12** theorems

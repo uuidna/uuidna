@@ -186,3 +186,7 @@ theorem hexbit_ring_mass_gap : ((1:Nat) > 0) ∧ (List.range 16).all (fun n => �
     weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum
     and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize. -/
 theorem born_field_mass_gap_on_bell : (([1,0,0,1] : List Nat).all (fun a => a = 0 ∨ 1 ≤ a)) ∧ (([1,0,0,1] : List Nat).any (fun a => a = 0)) ∧ (([1,0,0,1] : List Nat).any (fun a => 1 ≤ a)) ∧ (1 > 0) := by decide
+
+/-- THE NAME'S CONTENT-ADDRESS SPANS THE LAYOUT. toUuid("uuidna") yields thirty-two hex digits; the first eight
+    are the handle. The hash is the measurement; the kernel decides the lengths. -/
+theorem uuidna_name_spans_the_layout : ([15,12,5,1,1,5,3,2,6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].length = 32) ∧ ([15,12,5,1,1,5,3,2].length = 8) := by decide
