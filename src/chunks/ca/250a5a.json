@@ -1,0 +1,12 @@
+{
+  "handle": "ca250a5a",
+  "address": "ca250a5a-1e7d-8191-a541-356a7d2c6328",
+  "statement": "reassembles 43393 = true ∧ castsFifteens 43393 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a981"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

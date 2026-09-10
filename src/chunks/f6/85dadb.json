@@ -1,0 +1,12 @@
+{
+  "handle": "f685dadb",
+  "address": "f685dadb-f6d0-8713-bdfb-0e11d38df9c3",
+  "statement": "reassembles 41991 = true ∧ castsFifteens 41991 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a407"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "acb23a21",
+  "address": "acb23a21-1f22-83ed-a979-61ecf38a118d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f47b"
+  ],
+  "statement": "reassembles 62587 = true ∧ castsFifteens 62587 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

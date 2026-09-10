@@ -1,0 +1,12 @@
+{
+  "handle": "feccce15",
+  "address": "feccce15-ad2d-897a-a42d-8dd06b0fab68",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_adad"
+  ],
+  "statement": "reassembles 44461 = true ∧ castsFifteens 44461 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dc3810ab",
+  "address": "dc3810ab-0a41-83c4-870d-392cc2ada190",
+  "statement": "reassembles 15653 = true ∧ castsFifteens 15653 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3d25"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

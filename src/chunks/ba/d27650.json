@@ -1,0 +1,12 @@
+{
+  "handle": "bad27650",
+  "address": "bad27650-c522-8920-a43c-9261a3e2927e",
+  "statement": "reassembles 23937 = true ∧ castsFifteens 23937 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5d81"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "acba3790",
+  "address": "acba3790-7410-878a-96a6-699fe7edf306",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7dbd"
+  ],
+  "statement": "reassembles 32189 = true ∧ castsFifteens 32189 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

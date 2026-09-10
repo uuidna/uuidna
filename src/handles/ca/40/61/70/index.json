@@ -1,0 +1,12 @@
+{
+  "handle": "ca406170",
+  "address": "ca406170-d19d-8ef8-ac5f-3f6be5eac811",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8e2a"
+  ],
+  "statement": "reassembles 36394 = true ∧ castsFifteens 36394 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

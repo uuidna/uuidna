@@ -1,0 +1,12 @@
+{
+  "handle": "df2b324d",
+  "address": "df2b324d-30a0-88d9-bcbf-ade7666e44a6",
+  "statement": "reassembles 27604 = true ∧ castsFifteens 27604 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6bd4"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

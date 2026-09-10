@@ -1,0 +1,12 @@
+{
+  "handle": "fee42fda",
+  "address": "fee42fda-9b50-8e4b-bb99-0e50454f5e20",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4fae"
+  ],
+  "statement": "reassembles 20398 = true ∧ castsFifteens 20398 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

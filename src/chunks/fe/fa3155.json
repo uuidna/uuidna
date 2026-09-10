@@ -1,0 +1,12 @@
+{
+  "handle": "fefa3155",
+  "address": "fefa3155-aa02-836a-b31d-72efae1127b2",
+  "statement": "reassembles 16052 = true ∧ castsFifteens 16052 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3eb4"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

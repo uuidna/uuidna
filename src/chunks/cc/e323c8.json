@@ -1,0 +1,12 @@
+{
+  "handle": "cce323c8",
+  "address": "cce323c8-f459-889d-bacd-8d4987694f65",
+  "statement": "reassembles 4773 = true ∧ castsFifteens 4773 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_12a5"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

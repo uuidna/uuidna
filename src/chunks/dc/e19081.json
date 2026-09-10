@@ -1,0 +1,12 @@
+{
+  "handle": "dce19081",
+  "address": "dce19081-e926-83a4-82b7-5cda10125672",
+  "statement": "reassembles 45488 = true ∧ castsFifteens 45488 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b1b0"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

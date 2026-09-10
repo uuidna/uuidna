@@ -1,0 +1,12 @@
+{
+  "handle": "ca747231",
+  "address": "ca747231-35a4-8610-ae65-8f2b0dbb3062",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ae14"
+  ],
+  "statement": "reassembles 44564 = true ∧ castsFifteens 44564 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,18 +1,18 @@
 {
-  "key": "e5041202-3a8a-8952-a8a0-6dbca92e1341",
-  "publications": 145,
-  "sealedTheorems": 5124,
+  "key": "6d4b615d-ca43-8f77-b80a-613be320c790",
+  "publications": 178,
+  "sealedTheorems": 70905,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 5124,
-    "theorems": 5124,
+    "claims": 70905,
+    "theorems": 70905,
     "bijection": true,
     "digitalRoots": {
       "claims": 3,
       "theorems": 3,
-      "publications": 1
+      "publications": 7
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -123,8 +123,8 @@
     },
     {
       "slug": "cipher",
-      "claims": 30,
-      "cited": 30,
+      "claims": 33,
+      "cited": 33,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -378,9 +378,161 @@
       "fabricated": []
     },
     {
+      "slug": "hex-span1",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span2",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span3",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span4",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span5",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span6",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span7",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span8",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span9",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span10",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span11",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span12",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span13",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span14",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span15",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "hex-span16",
+      "claims": 4096,
+      "cited": 4096,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "refusion",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "pentagram",
       "claims": 13,
       "cited": 13,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "binding-point",
+      "claims": 29,
+      "cited": 29,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "quantum-cube",
+      "claims": 5,
+      "cited": 5,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -531,8 +683,8 @@
     },
     {
       "slug": "colour",
-      "claims": 18,
-      "cited": 18,
+      "claims": 19,
+      "cited": 19,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -699,8 +851,8 @@
     },
     {
       "slug": "wave",
-      "claims": 932,
-      "cited": 932,
+      "claims": 968,
+      "cited": 968,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -731,8 +883,8 @@
     },
     {
       "slug": "referrer",
-      "claims": 14,
-      "cited": 14,
+      "claims": 15,
+      "cited": 15,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -843,8 +995,8 @@
     },
     {
       "slug": "hexbit",
-      "claims": 22,
-      "cited": 22,
+      "claims": 23,
+      "cited": 23,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -957,6 +1109,118 @@
       "slug": "vector-equilibrium",
       "claims": 18,
       "cited": 18,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium",
+      "claims": 65,
+      "cited": 65,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "platonic",
+      "claims": 10,
+      "cited": 10,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "periodic",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "handle-store",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "crosslink",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "open-problems",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor1",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor2",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor3",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor4",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor5",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor6",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor7",
+      "claims": 8,
+      "cited": 8,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor8",
+      "claims": 8,
+      "cited": 8,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

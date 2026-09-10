@@ -134,7 +134,10 @@ for (const g of GENERATORS) {
   // A child's exit ends only itself — that is the operating system's process model, by construction, not a
   // convention of this tree. Whatever a generator does to its own exit code is therefore a RESULT the runner
   // reads, which is what this loop always claimed to be doing.
-  const r = spawnSync(process.execPath, [path, ...g.args], { stdio: 'inherit', cwd: ROOT })
+  // 8 GiB: gen-quantum-advantage mapped the ledger and OOM'd the default ~4 GiB heap
+  // (Ineffective mark-compacts / SIGABRT), which aborted reconcile after the wave had already sealed.
+  // Same ceiling docs:build already takes for VitePress. Inherited NODE_OPTIONS still win if a caller sets them.
+  const r = spawnSync(process.execPath, ['--max-old-space-size=8192', path, ...g.args], { stdio: 'inherit', cwd: ROOT })
   if (r.status !== 0) { ok = false; console.log(`    ✗ ${g.file} — exit ${r.status ?? 'signal ' + String(r.signal)}`) }
   // THE ONE-SECOND LAW NEEDS A METER, so the meter ships: any generator over 250ms names itself and its cost.
   // AND THE METER IS NOW A METRIC (2026-08-24). Printing it named the slow generator and then lost it with the

@@ -1,0 +1,12 @@
+{
+  "handle": "db173ce3",
+  "address": "db173ce3-eac9-8ad4-ba8a-f287318b9e4a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9793"
+  ],
+  "statement": "reassembles 38803 = true ∧ castsFifteens 38803 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

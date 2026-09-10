@@ -1,0 +1,12 @@
+{
+  "handle": "9d0848a2",
+  "address": "9d0848a2-544c-8991-afa7-c016de31c8eb",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_nor_tied_inverts"
+  ],
+  "statement": "[0, 1].all (fun a => (1 - (a + a - a * a)) == (1 - a))",
+  "files": [
+    "Wave.lean"
+  ]
+}

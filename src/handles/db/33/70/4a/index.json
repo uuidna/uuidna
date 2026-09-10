@@ -1,0 +1,12 @@
+{
+  "handle": "db33704a",
+  "address": "db33704a-ca16-88b3-a587-19dd34f972a7",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_abdf"
+  ],
+  "statement": "reassembles 43999 = true ∧ castsFifteens 43999 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

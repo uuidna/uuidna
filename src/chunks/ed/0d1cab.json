@@ -1,0 +1,12 @@
+{
+  "handle": "ed0d1cab",
+  "address": "ed0d1cab-4614-818a-a15d-27fa210d1791",
+  "statement": "reassembles 43533 = true ∧ castsFifteens 43533 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_aa0d"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

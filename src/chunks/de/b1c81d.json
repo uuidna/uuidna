@@ -1,0 +1,12 @@
+{
+  "handle": "deb1c81d",
+  "address": "deb1c81d-3114-81f7-9708-d565a3078345",
+  "statement": "reassembles 51844 = true ∧ castsFifteens 51844 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ca84"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

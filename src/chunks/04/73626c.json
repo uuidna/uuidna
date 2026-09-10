@@ -1,0 +1,12 @@
+{
+  "handle": "0473626c",
+  "address": "0473626c-cfda-87ac-9529-565f0a56bba1",
+  "statement": "reassembles 47920 = true ∧ castsFifteens 47920 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_bb30"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

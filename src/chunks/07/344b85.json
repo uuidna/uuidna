@@ -1,0 +1,12 @@
+{
+  "handle": "07344b85",
+  "address": "07344b85-bf93-8d35-8b02-c7236119419e",
+  "statement": "(3 = 3) ∧ ¬(3 > 3)",
+  "tactic": "decide",
+  "keys": [
+    "no_arithmetic_obstruction_is_not_existence"
+  ],
+  "files": [
+    "OpenProblems.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6a7b09c2",
+  "address": "6a7b09c2-146d-87d3-bd58-0f1f542b58f0",
+  "statement": "((List.range 10).map (fun l => ((List.range 48).filter (fun i => i % 10 == l)).length)).all (fun k => k == 4 || k == 5)",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_lanes_balance_forty_eight"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

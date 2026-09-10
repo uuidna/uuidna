@@ -1,0 +1,12 @@
+{
+  "handle": "bcb3601a",
+  "address": "bcb3601a-a302-8317-a841-52fcb66dc37a",
+  "statement": "reassembles 17970 = true ∧ castsFifteens 17970 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4632"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

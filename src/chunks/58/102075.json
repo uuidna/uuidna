@@ -1,0 +1,12 @@
+{
+  "handle": "58102075",
+  "address": "58102075-4389-8325-a22d-56c590d3f27e",
+  "statement": "(256 ^ 4 = 16 ^ 8) ∧ (16 ^ 8 = 2 ^ 32)",
+  "tactic": "decide",
+  "keys": [
+    "four_levels_index_two_to_the_thirty_two"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

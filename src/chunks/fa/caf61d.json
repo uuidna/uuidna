@@ -1,0 +1,12 @@
+{
+  "handle": "facaf61d",
+  "address": "facaf61d-cbbc-811f-82ef-9738dfbef64e",
+  "statement": "reassembles 39743 = true ∧ castsFifteens 39743 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9b3f"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

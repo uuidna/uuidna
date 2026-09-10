@@ -1,0 +1,12 @@
+{
+  "handle": "e510a40a",
+  "address": "e510a40a-6006-822c-b8e0-41e64474cff1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fcff"
+  ],
+  "statement": "reassembles 64767 = true ∧ castsFifteens 64767 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

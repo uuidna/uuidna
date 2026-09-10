@@ -1,0 +1,12 @@
+{
+  "handle": "cf52beed",
+  "address": "cf52beed-4045-8c31-94b8-a44290bbecaa",
+  "statement": "reassembles 35883 = true ∧ castsFifteens 35883 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8c2b"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

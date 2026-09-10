@@ -1,0 +1,12 @@
+{
+  "handle": "ac2484ad",
+  "address": "ac2484ad-9092-8281-9e16-3ccc35488a90",
+  "statement": "reassembles 63223 = true ∧ castsFifteens 63223 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f6f7"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fdc98066",
+  "address": "fdc98066-60f4-854c-a48e-d1bd99bf8621",
+  "statement": "reassembles 6268 = true ∧ castsFifteens 6268 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_187c"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

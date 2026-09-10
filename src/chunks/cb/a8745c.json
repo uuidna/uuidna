@@ -1,0 +1,12 @@
+{
+  "handle": "cba8745c",
+  "address": "cba8745c-ba47-8e2f-ad02-efd9278f0f4f",
+  "statement": "reassembles 36282 = true ∧ castsFifteens 36282 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8dba"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

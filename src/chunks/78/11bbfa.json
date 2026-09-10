@@ -1,0 +1,12 @@
+{
+  "handle": "7811bbfa",
+  "address": "7811bbfa-d09e-84ef-b671-5c33dac00800",
+  "statement": "reassembles 55555 = true ∧ castsFifteens 55555 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d903"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

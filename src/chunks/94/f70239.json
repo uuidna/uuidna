@@ -1,0 +1,12 @@
+{
+  "handle": "94f70239",
+  "address": "94f70239-c2a2-881f-b1fc-3653410ba241",
+  "statement": "reassembles 4043 = true ∧ castsFifteens 4043 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0fcb"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

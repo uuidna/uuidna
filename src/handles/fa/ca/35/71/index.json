@@ -1,0 +1,12 @@
+{
+  "handle": "faca3571",
+  "address": "faca3571-afd1-8da6-ab70-30120afca481",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7a73"
+  ],
+  "statement": "reassembles 31347 = true ∧ castsFifteens 31347 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

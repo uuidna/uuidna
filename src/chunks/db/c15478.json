@@ -1,0 +1,12 @@
+{
+  "handle": "dbc15478",
+  "address": "dbc15478-75b8-8de3-ae38-6ea50160ab10",
+  "statement": "reassembles 1814 = true ∧ castsFifteens 1814 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0716"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

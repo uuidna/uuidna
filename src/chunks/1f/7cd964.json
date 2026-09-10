@@ -1,0 +1,12 @@
+{
+  "handle": "1f7cd964",
+  "address": "1f7cd964-763e-8070-af8d-cc7deb81d7d6",
+  "statement": "reassembles 40264 = true ∧ castsFifteens 40264 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9d48"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bad3ecee",
+  "address": "bad3ecee-99de-8e60-8a4a-fc2c0a1d0c0d",
+  "statement": "reassembles 64385 = true ∧ castsFifteens 64385 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fb81"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

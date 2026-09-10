@@ -1,0 +1,12 @@
+{
+  "handle": "fa6056ce",
+  "address": "fa6056ce-dbb6-840f-ad2a-ae8095c065e1",
+  "statement": "reassembles 7729 = true ∧ castsFifteens 7729 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1e31"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

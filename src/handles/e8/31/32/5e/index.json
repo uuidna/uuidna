@@ -1,0 +1,12 @@
+{
+  "handle": "e831325e",
+  "address": "e831325e-63d5-87c0-96f9-945c5212b6d9",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_panel_monotone"
+  ],
+  "statement": "(List.range 8).all (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 <= 1 + n / 2 % 2 + n / 4 % 2)",
+  "files": [
+    "Wave.lean"
+  ]
+}

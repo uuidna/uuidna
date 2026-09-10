@@ -1,0 +1,12 @@
+{
+  "handle": "bfa219e2",
+  "address": "bfa219e2-32d9-801c-940a-c0c7390073b5",
+  "statement": "reassembles 26590 = true ∧ castsFifteens 26590 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_67de"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

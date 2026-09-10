@@ -1,0 +1,12 @@
+{
+  "handle": "bcb3601a",
+  "address": "bcb3601a-a302-8317-a841-52fcb66dc37a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4632"
+  ],
+  "statement": "reassembles 17970 = true ∧ castsFifteens 17970 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cac737a5",
+  "address": "cac737a5-0e14-8fb7-b52c-499f1b0cfb9a",
+  "statement": "reassembles 599 = true ∧ castsFifteens 599 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0257"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

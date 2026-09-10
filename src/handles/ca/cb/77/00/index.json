@@ -1,0 +1,12 @@
+{
+  "handle": "cacb7700",
+  "address": "cacb7700-b0d5-8867-bb61-3470e618ef27",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_88cb"
+  ],
+  "statement": "reassembles 35019 = true ∧ castsFifteens 35019 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

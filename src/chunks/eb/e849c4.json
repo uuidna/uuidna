@@ -1,0 +1,12 @@
+{
+  "handle": "ebe849c4",
+  "address": "ebe849c4-f09c-8764-ad6d-e45bec942c4c",
+  "statement": "(2 ^ 96 > 2 ^ 32) ∧ (2 ^ 96 = 2 ^ 32 * 2 ^ 64)",
+  "tactic": "decide",
+  "keys": [
+    "the_smallest_leaf_outruns_the_whole_index"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

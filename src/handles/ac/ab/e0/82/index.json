@@ -1,0 +1,12 @@
+{
+  "handle": "acabe082",
+  "address": "acabe082-eea1-800d-998f-9b4b4aac6ced",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_050b"
+  ],
+  "statement": "reassembles 1291 = true ∧ castsFifteens 1291 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bac0787e",
+  "address": "bac0787e-3bca-8665-8932-ee357a043075",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_69ec"
+  ],
+  "statement": "reassembles 27116 = true ∧ castsFifteens 27116 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

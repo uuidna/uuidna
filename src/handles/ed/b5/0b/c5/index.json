@@ -1,0 +1,12 @@
+{
+  "handle": "edb50bc5",
+  "address": "edb50bc5-8c11-842f-87b5-988e13575da6",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e82b"
+  ],
+  "statement": "reassembles 59435 = true ∧ castsFifteens 59435 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

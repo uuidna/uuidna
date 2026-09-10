@@ -1,0 +1,12 @@
+{
+  "handle": "9076fa23",
+  "address": "9076fa23-4784-8b36-b746-8d4513eacdc0",
+  "statement": "((List.range 8).map (fun i => (i + 3) % 8)).eraseDups.length = 8",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_rotation_is_permutation"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

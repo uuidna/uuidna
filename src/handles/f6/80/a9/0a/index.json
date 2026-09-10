@@ -1,0 +1,12 @@
+{
+  "handle": "f680a90a",
+  "address": "f680a90a-204b-8021-86ba-eb50dfca4c40",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_233a"
+  ],
+  "statement": "reassembles 9018 = true ∧ castsFifteens 9018 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "aac7954f",
+  "address": "aac7954f-6546-81cf-8a7f-f18948905762",
+  "statement": "reassembles 4643 = true ∧ castsFifteens 4643 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1223"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

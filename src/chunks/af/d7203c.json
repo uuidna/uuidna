@@ -1,0 +1,12 @@
+{
+  "handle": "afd7203c",
+  "address": "afd7203c-fdad-843e-a8d2-8604ef65e093",
+  "statement": "reassembles 7679 = true ∧ castsFifteens 7679 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1dff"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dfc4b2db",
+  "address": "dfc4b2db-bacb-83e5-9417-ad93d97f4c54",
+  "statement": "reassembles 23394 = true ∧ castsFifteens 23394 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5b62"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

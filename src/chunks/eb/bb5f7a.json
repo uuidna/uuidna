@@ -1,0 +1,12 @@
+{
+  "handle": "ebbb5f7a",
+  "address": "ebbb5f7a-1bec-8a23-8b9c-a757e52a80c9",
+  "statement": "[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun t => (t.1 <= 20) && (t.2.1 <= 30) && (t.2.2 <= 20))",
+  "tactic": "decide",
+  "keys": [
+    "the_five_clusters_carry_thirty_edges_at_most"
+  ],
+  "files": [
+    "Platonic.lean"
+  ]
+}

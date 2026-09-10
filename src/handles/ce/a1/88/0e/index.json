@@ -1,0 +1,12 @@
+{
+  "handle": "cea1880e",
+  "address": "cea1880e-ddad-81b8-a554-227d394d5a6b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6941"
+  ],
+  "statement": "reassembles 26945 = true ∧ castsFifteens 26945 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

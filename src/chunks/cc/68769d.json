@@ -1,0 +1,12 @@
+{
+  "handle": "cc68769d",
+  "address": "cc68769d-cbc5-86bf-a743-c2ce426c0464",
+  "statement": "reassembles 62460 = true ∧ castsFifteens 62460 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f3fc"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -33,7 +33,7 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 ## Accepted — the cargo, each with its seal
 
-927 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+963 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -966,6 +966,42 @@ theorem page and recompute either.
 | [`alpine_shell_applets_partition_85`](/theorem/alpine_shell_applets_partition_85) | [`439bea18`](/theorem/alpine_shell_applets_partition_85) | `e9891eb7` |
 | [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) | [`b3c05da4`](/theorem/alpine_security_ops_plannable_4) | `ffda0d5a` |
 | [`axiom_families_partition_the_ledger_2657`](/theorem/axiom_families_partition_the_ledger_2657) | [`e6995935`](/theorem/axiom_families_partition_the_ledger_2657) | `c10c8968` |
+| [`mass_coord_lanes_partition_ninetysix`](/theorem/mass_coord_lanes_partition_ninetysix) | [`c5f41d59`](/theorem/mass_coord_lanes_partition_ninetysix) | `60d6b005` |
+| [`mass_coord_lanes_balance_forty_eight`](/theorem/mass_coord_lanes_balance_forty_eight) | [`b33c2e05`](/theorem/mass_coord_lanes_balance_forty_eight) | `0c7ceb16` |
+| [`mass_coord_lanes_even_eighty`](/theorem/mass_coord_lanes_even_eighty) | [`e759ea66`](/theorem/mass_coord_lanes_even_eighty) | `9ea76bea` |
+| [`mass_coord_residue_unique_owner`](/theorem/mass_coord_residue_unique_owner) | [`927e6812`](/theorem/mass_coord_residue_unique_owner) | `53186512` |
+| [`mass_coord_quorum_floor_is_the_fault`](/theorem/mass_coord_quorum_floor_is_the_fault) | [`f06e8374`](/theorem/mass_coord_quorum_floor_is_the_fault) | `d5e8be99` |
+| [`mass_coord_bft_three_of_four`](/theorem/mass_coord_bft_three_of_four) | [`86edbb65`](/theorem/mass_coord_bft_three_of_four) | `49f16646` |
+| [`mass_coord_majority_five_bits`](/theorem/mass_coord_majority_five_bits) | [`a3973897`](/theorem/mass_coord_majority_five_bits) | `f4438dc1` |
+| [`mass_coord_handshake_star_is_even`](/theorem/mass_coord_handshake_star_is_even) | [`1f5768ca`](/theorem/mass_coord_handshake_star_is_even) | `3b9564a7` |
+| [`mass_coord_even_crew_pairs_all`](/theorem/mass_coord_even_crew_pairs_all) | [`45a55215`](/theorem/mass_coord_even_crew_pairs_all) | `ea9e1eb8` |
+| [`mass_coord_round_robin_closes`](/theorem/mass_coord_round_robin_closes) | [`10a29099`](/theorem/mass_coord_round_robin_closes) | `9d17d0fe` |
+| [`mass_coord_barrier_twelve_not_thirteen`](/theorem/mass_coord_barrier_twelve_not_thirteen) | [`1bb6502a`](/theorem/mass_coord_barrier_twelve_not_thirteen) | `12950a32` |
+| [`mass_coord_rotation_is_permutation`](/theorem/mass_coord_rotation_is_permutation) | [`3b323535`](/theorem/mass_coord_rotation_is_permutation) | `255a8f07` |
+| [`mass_coord_two_coins_partition`](/theorem/mass_coord_two_coins_partition) | [`284220f8`](/theorem/mass_coord_two_coins_partition) | `cce9deff` |
+| [`mass_coord_eighteen_problems_nine_pairs`](/theorem/mass_coord_eighteen_problems_nine_pairs) | [`1fa2fc85`](/theorem/mass_coord_eighteen_problems_nine_pairs) | `86375ab6` |
+| [`mass_coord_lattice_birthday_is_span`](/theorem/mass_coord_lattice_birthday_is_span) | [`b8b3f0b0`](/theorem/mass_coord_lattice_birthday_is_span) | `198c068b` |
+| [`mass_coord_complete_four_has_six_edges`](/theorem/mass_coord_complete_four_has_six_edges) | [`a62f242e`](/theorem/mass_coord_complete_four_has_six_edges) | `b2845b87` |
+| [`mass_comply_gate_one_of_eight`](/theorem/mass_comply_gate_one_of_eight) | [`464c1afc`](/theorem/mass_comply_gate_one_of_eight) | `2666d3aa` |
+| [`mass_comply_sixteen_bits_all_set`](/theorem/mass_comply_sixteen_bits_all_set) | [`a06e8b6e`](/theorem/mass_comply_sixteen_bits_all_set) | `4bb5fe69` |
+| [`mass_comply_window_twenty_not_next`](/theorem/mass_comply_window_twenty_not_next) | [`832ffa21`](/theorem/mass_comply_window_twenty_not_next) | `5a473173` |
+| [`mass_comply_four_states_three_open`](/theorem/mass_comply_four_states_three_open) | [`37581805`](/theorem/mass_comply_four_states_three_open) | `61be78f8` |
+| [`mass_comply_panel_monotone`](/theorem/mass_comply_panel_monotone) | [`449334c1`](/theorem/mass_comply_panel_monotone) | `2aef27a0` |
+| [`mass_comply_six_halves_and_not_seventh`](/theorem/mass_comply_six_halves_and_not_seventh) | [`c6fecb78`](/theorem/mass_comply_six_halves_and_not_seventh) | `8600d825` |
+| [`mass_comply_xor_detects_difference`](/theorem/mass_comply_xor_detects_difference) | [`8185293b`](/theorem/mass_comply_xor_detects_difference) | `1a197def` |
+| [`mass_comply_half_adder_without_xor_op`](/theorem/mass_comply_half_adder_without_xor_op) | [`e0b34912`](/theorem/mass_comply_half_adder_without_xor_op) | `37c2960c` |
+| [`mass_comply_and_of_three_is_one`](/theorem/mass_comply_and_of_three_is_one) | [`b5323977`](/theorem/mass_comply_and_of_three_is_one) | `785e2402` |
+| [`mass_comply_involution_self_inverse`](/theorem/mass_comply_involution_self_inverse) | [`e8db742d`](/theorem/mass_comply_involution_self_inverse) | `a6274efa` |
+| [`mass_comply_hex4_even_no_fixed`](/theorem/mass_comply_hex4_even_no_fixed) | [`22b3dac8`](/theorem/mass_comply_hex4_even_no_fixed) | `821262fd` |
+| [`mass_comply_citation_needs_both`](/theorem/mass_comply_citation_needs_both) | [`6c14f981`](/theorem/mass_comply_citation_needs_both) | `fff6bf70` |
+| [`mass_comply_checklist_beats_or`](/theorem/mass_comply_checklist_beats_or) | [`f69019ef`](/theorem/mass_comply_checklist_beats_or) | `e1c322d9` |
+| [`mass_comply_full_adder_eight_rows`](/theorem/mass_comply_full_adder_eight_rows) | [`459695f2`](/theorem/mass_comply_full_adder_eight_rows) | `384c1dd9` |
+| [`mass_comply_ve_faces_are_fourteen`](/theorem/mass_comply_ve_faces_are_fourteen) | [`d9208f4e`](/theorem/mass_comply_ve_faces_are_fourteen) | `0a2a2369` |
+| [`mass_coord_odd_crew_has_centre`](/theorem/mass_coord_odd_crew_has_centre) | [`00458bf0`](/theorem/mass_coord_odd_crew_has_centre) | `cb363af2` |
+| [`mass_coord_clay_seven_has_centre`](/theorem/mass_coord_clay_seven_has_centre) | [`cc333e50`](/theorem/mass_coord_clay_seven_has_centre) | `485fe3f1` |
+| [`mass_comply_nor_tied_inverts`](/theorem/mass_comply_nor_tied_inverts) | [`7b3f0aa0`](/theorem/mass_comply_nor_tied_inverts) | `307723ec` |
+| [`mass_comply_de_morgan_or_to_and`](/theorem/mass_comply_de_morgan_or_to_and) | [`a6d6decb`](/theorem/mass_comply_de_morgan_or_to_and) | `4dc0d973` |
+| [`mass_comply_demux_never_both_hot`](/theorem/mass_comply_demux_never_both_hot) | [`6349a978`](/theorem/mass_comply_demux_never_both_hot) | `1977e68f` |
 
 ## Refused — the law school's enrollment roster
 

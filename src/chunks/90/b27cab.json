@@ -1,0 +1,12 @@
+{
+  "handle": "90b27cab",
+  "address": "90b27cab-7e70-822e-a03d-6046b0893aca",
+  "statement": "reassembles 12827 = true ∧ castsFifteens 12827 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_321b"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

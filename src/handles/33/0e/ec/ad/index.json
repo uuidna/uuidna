@@ -1,0 +1,12 @@
+{
+  "handle": "330eecad",
+  "address": "330eecad-cfa4-8d17-a6e2-c77c2231012d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a1de"
+  ],
+  "statement": "reassembles 41438 = true ∧ castsFifteens 41438 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

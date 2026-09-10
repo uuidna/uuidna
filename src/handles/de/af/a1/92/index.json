@@ -1,0 +1,12 @@
+{
+  "handle": "deafa192",
+  "address": "deafa192-d1d1-86c8-af7e-c54223208ef6",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9921"
+  ],
+  "statement": "reassembles 39201 = true ∧ castsFifteens 39201 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

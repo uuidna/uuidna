@@ -1,0 +1,12 @@
+{
+  "handle": "9848a1ab",
+  "address": "9848a1ab-4759-8e5a-824a-90453b0aee9d",
+  "statement": "(256 / 2 = 128) ∧ [10,20,30,40,50].all (fun k => 2 ^ k / 32 < 2 ^ (k + 1) / 32)",
+  "tactic": "decide",
+  "keys": [
+    "the_certified_ratio_has_no_ceiling_where_every_speedup_does"
+  ],
+  "files": [
+    "Refusion.lean"
+  ]
+}

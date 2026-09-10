@@ -1,0 +1,12 @@
+{
+  "handle": "ef2066ea",
+  "address": "ef2066ea-a8d9-8efd-970b-c03146068132",
+  "statement": "reassembles 52200 = true ∧ castsFifteens 52200 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cbe8"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

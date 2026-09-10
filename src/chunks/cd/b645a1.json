@@ -1,0 +1,12 @@
+{
+  "handle": "cdb645a1",
+  "address": "cdb645a1-04d0-8356-883f-2d91122d985a",
+  "statement": "(8 + 6 = 12 + 2) ∧ (3 * 8 = 2 * 12) ∧ (4 * 6 = 2 * 12)",
+  "tactic": "decide",
+  "keys": [
+    "cube_cluster_closes"
+  ],
+  "files": [
+    "Platonic.lean"
+  ]
+}

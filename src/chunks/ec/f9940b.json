@@ -1,0 +1,12 @@
+{
+  "handle": "ecf9940b",
+  "address": "ecf9940b-127d-86a3-ac61-7f9d24bcc90c",
+  "statement": "reassembles 23963 = true ∧ castsFifteens 23963 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5d9b"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

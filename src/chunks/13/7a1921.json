@@ -1,0 +1,12 @@
+{
+  "handle": "137a1921",
+  "address": "137a1921-ca3a-8d82-ba1b-871cc6ecdcb0",
+  "statement": "reassembles 22000 = true ∧ castsFifteens 22000 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_55f0"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

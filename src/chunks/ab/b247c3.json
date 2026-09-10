@@ -1,0 +1,12 @@
+{
+  "handle": "abb247c3",
+  "address": "abb247c3-2e48-8d0a-a7fc-b8c70bff9cf4",
+  "statement": "reassembles 43838 = true ∧ castsFifteens 43838 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ab3e"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

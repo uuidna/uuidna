@@ -1,0 +1,12 @@
+{
+  "handle": "d319bc37",
+  "address": "d319bc37-eea5-8c53-b080-1d57452491b8",
+  "kind": "chunk",
+  "keys": [
+    "period_lengths_are_the_sums_of_their_subshells"
+  ],
+  "statement": "[[0],[0,1],[0,1],[0,2,1],[0,2,1],[0,3,2,1],[0,3,2,1]].map (fun p => p.foldl (fun a l => a + (4 * l + 2)) 0) = [2,8,8,18,18,32,32]",
+  "files": [
+    "Periodic.lean"
+  ]
+}

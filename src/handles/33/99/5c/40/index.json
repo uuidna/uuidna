@@ -1,0 +1,12 @@
+{
+  "handle": "33995c40",
+  "address": "33995c40-0d90-86d3-8f7a-c1d792999b29",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fa32"
+  ],
+  "statement": "reassembles 64050 = true ∧ castsFifteens 64050 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

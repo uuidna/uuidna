@@ -1,0 +1,12 @@
+{
+  "handle": "db7219ab",
+  "address": "db7219ab-8adb-8830-8fa2-38f650dd8b27",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_5183"
+  ],
+  "statement": "reassembles 20867 = true ∧ castsFifteens 20867 = true",
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

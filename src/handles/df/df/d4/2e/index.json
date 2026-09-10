@@ -1,0 +1,12 @@
+{
+  "handle": "dfdfd42e",
+  "address": "dfdfd42e-a78b-8b13-9528-544390dc395d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_dee8"
+  ],
+  "statement": "reassembles 57064 = true ∧ castsFifteens 57064 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

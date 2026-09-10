@@ -1,0 +1,12 @@
+{
+  "handle": "acce3003",
+  "address": "acce3003-129d-8730-82c0-48f4b9220c72",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_20f6"
+  ],
+  "statement": "reassembles 8438 = true ∧ castsFifteens 8438 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

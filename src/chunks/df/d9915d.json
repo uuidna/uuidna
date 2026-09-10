@@ -1,0 +1,12 @@
+{
+  "handle": "dfd9915d",
+  "address": "dfd9915d-e957-82af-92ec-3d18506884be",
+  "statement": "reassembles 11903 = true ∧ castsFifteens 11903 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2e7f"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

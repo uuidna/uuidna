@@ -1,0 +1,12 @@
+{
+  "handle": "b433a367",
+  "address": "b433a367-6d91-8d0a-b2ee-c692ca094335",
+  "statement": "reassembles 15669 = true ∧ castsFifteens 15669 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3d35"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

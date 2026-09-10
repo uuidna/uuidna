@@ -1,0 +1,12 @@
+{
+  "handle": "cb19124b",
+  "address": "cb19124b-44d1-880f-9a3d-935da255757a",
+  "statement": "reassembles 53214 = true ∧ castsFifteens 53214 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cfde"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

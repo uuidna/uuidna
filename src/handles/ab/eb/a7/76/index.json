@@ -1,0 +1,12 @@
+{
+  "handle": "abeba776",
+  "address": "abeba776-6333-8fb4-8923-1828b028a1b5",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_33be"
+  ],
+  "statement": "reassembles 13246 = true ∧ castsFifteens 13246 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

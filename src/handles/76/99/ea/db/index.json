@@ -1,0 +1,12 @@
+{
+  "handle": "7699eadb",
+  "address": "7699eadb-2057-846b-b6d0-ce89ad840f20",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7732"
+  ],
+  "statement": "reassembles 30514 = true ∧ castsFifteens 30514 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

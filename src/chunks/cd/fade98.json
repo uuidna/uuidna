@@ -1,0 +1,12 @@
+{
+  "handle": "cdfade98",
+  "address": "cdfade98-bf6c-8521-a29d-e47cea82acc0",
+  "statement": "reassembles 3991 = true ∧ castsFifteens 3991 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0f97"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

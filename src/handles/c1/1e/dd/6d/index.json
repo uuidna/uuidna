@@ -1,0 +1,12 @@
+{
+  "handle": "c11edd6d",
+  "address": "c11edd6d-3902-803b-9486-7c8e17e620b5",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_checklist_beats_or"
+  ],
+  "statement": "(((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1) ∧ (((List.range 8).filter (fun n => 1 - (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 7)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fc295022",
+  "address": "fc295022-1689-89bf-a1cc-2acb50309273",
+  "statement": "reassembles 5120 = true ∧ castsFifteens 5120 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1400"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

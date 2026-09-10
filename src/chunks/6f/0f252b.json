@@ -1,0 +1,12 @@
+{
+  "handle": "6f0f252b",
+  "address": "6f0f252b-e37b-86d9-b527-619b5b1b0a64",
+  "statement": "¬(6 = 12) ∧ (12 = 2 * 6) ∧ ¬(0 = 24)",
+  "tactic": "decide",
+  "keys": [
+    "the_doubling_changes_the_degree_and_not_the_transitivity"
+  ],
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fbc135ab",
+  "address": "fbc135ab-dfe2-8ccd-81d0-a845f87fa4aa",
+  "statement": "reassembles 29994 = true ∧ castsFifteens 29994 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_752a"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

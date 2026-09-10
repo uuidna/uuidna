@@ -1,0 +1,12 @@
+{
+  "handle": "c2913908",
+  "address": "c2913908-b6ed-83ba-b8cc-83bc390808c0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e26f"
+  ],
+  "statement": "reassembles 57967 = true ∧ castsFifteens 57967 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bab31153",
+  "address": "bab31153-71ad-866b-8746-044dfe9dc9d6",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_45ec"
+  ],
+  "statement": "reassembles 17900 = true ∧ castsFifteens 17900 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9d0848a2",
+  "address": "9d0848a2-544c-8991-afa7-c016de31c8eb",
+  "statement": "[0, 1].all (fun a => (1 - (a + a - a * a)) == (1 - a))",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_nor_tied_inverts"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3dc88651",
+  "address": "3dc88651-db15-8359-bac1-e40400e416ff",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0293"
+  ],
+  "statement": "reassembles 659 = true ∧ castsFifteens 659 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

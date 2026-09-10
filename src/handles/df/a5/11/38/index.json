@@ -1,0 +1,12 @@
+{
+  "handle": "dfa51138",
+  "address": "dfa51138-e8c0-843d-a9e8-8aa4f3b2f1cb",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8a51"
+  ],
+  "statement": "reassembles 35409 = true ∧ castsFifteens 35409 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

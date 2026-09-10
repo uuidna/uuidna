@@ -1,0 +1,12 @@
+{
+  "handle": "cad2f0ff",
+  "address": "cad2f0ff-afae-842a-bba9-54cf6d72ccbc",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_3312"
+  ],
+  "statement": "reassembles 13074 = true ∧ castsFifteens 13074 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

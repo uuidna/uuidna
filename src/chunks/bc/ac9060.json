@@ -1,0 +1,12 @@
+{
+  "handle": "bcac9060",
+  "address": "bcac9060-5336-87a2-93a3-97a3ed5f7a45",
+  "statement": "reassembles 53046 = true ∧ castsFifteens 53046 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cf36"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

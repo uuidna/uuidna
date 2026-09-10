@@ -1,0 +1,12 @@
+{
+  "handle": "ddb106bc",
+  "address": "ddb106bc-3895-837d-a45c-e43f0718c1b3",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_08d2"
+  ],
+  "statement": "reassembles 2258 = true ∧ castsFifteens 2258 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

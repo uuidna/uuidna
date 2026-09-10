@@ -1,0 +1,12 @@
+{
+  "handle": "5c990225",
+  "address": "5c990225-3f77-837c-8e43-c683e8d44a09",
+  "statement": "(12 + 20 = 30 + 2) ∧ (5 * 12 = 2 * 30) ∧ (3 * 20 = 2 * 30)",
+  "tactic": "decide",
+  "keys": [
+    "icosahedron_cluster_closes"
+  ],
+  "files": [
+    "Platonic.lean"
+  ]
+}

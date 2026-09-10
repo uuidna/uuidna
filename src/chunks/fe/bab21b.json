@@ -1,0 +1,12 @@
+{
+  "handle": "febab21b",
+  "address": "febab21b-259e-876b-9a70-0933b6d180da",
+  "statement": "reassembles 37607 = true ∧ castsFifteens 37607 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_92e7"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

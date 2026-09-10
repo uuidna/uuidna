@@ -1,0 +1,12 @@
+{
+  "handle": "fee381e9",
+  "address": "fee381e9-85cb-85d8-90d8-1cfe32299516",
+  "statement": "reassembles 32281 = true ∧ castsFifteens 32281 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7e19"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

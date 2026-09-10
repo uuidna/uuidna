@@ -1,0 +1,12 @@
+{
+  "handle": "cfe80020",
+  "address": "cfe80020-5579-847c-9aa0-26de999acfd7",
+  "statement": "reassembles 28874 = true ∧ castsFifteens 28874 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_70ca"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

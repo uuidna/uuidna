@@ -1,0 +1,12 @@
+{
+  "handle": "bac4450e",
+  "address": "bac4450e-3e05-88a2-b63c-db4b635b5161",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_d4cb"
+  ],
+  "statement": "reassembles 54475 = true ∧ castsFifteens 54475 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cb132f80",
+  "address": "cb132f80-398b-8f0f-9578-f471c20e0696",
+  "statement": "reassembles 61566 = true ∧ castsFifteens 61566 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f07e"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

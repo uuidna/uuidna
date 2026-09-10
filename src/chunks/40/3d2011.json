@@ -1,0 +1,12 @@
+{
+  "handle": "403d2011",
+  "address": "403d2011-e925-883a-9080-848539fbebab",
+  "statement": "reassembles 4374 = true ∧ castsFifteens 4374 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1116"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

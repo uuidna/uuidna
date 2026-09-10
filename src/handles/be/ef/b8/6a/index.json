@@ -1,0 +1,12 @@
+{
+  "handle": "beefb86a",
+  "address": "beefb86a-45df-815f-a453-ee32891755f8",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_091c"
+  ],
+  "statement": "reassembles 2332 = true ∧ castsFifteens 2332 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

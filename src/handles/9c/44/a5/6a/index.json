@@ -1,0 +1,12 @@
+{
+  "handle": "9c44a56a",
+  "address": "9c44a56a-00ce-868f-bde2-94c7a0b18410",
+  "kind": "chunk",
+  "keys": [
+    "the_index_factorises_the_whole_space"
+  ],
+  "statement": "(2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (32 + 96 = 128)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

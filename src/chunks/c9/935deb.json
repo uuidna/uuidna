@@ -1,0 +1,12 @@
+{
+  "handle": "c9935deb",
+  "address": "c9935deb-66cc-885f-843b-1dd720b9012d",
+  "statement": "reassembles 34410 = true ∧ castsFifteens 34410 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_866a"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ead93326",
+  "address": "ead93326-ce38-8c06-8f42-55a74338442f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_aa44"
+  ],
+  "statement": "reassembles 43588 = true ∧ castsFifteens 43588 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

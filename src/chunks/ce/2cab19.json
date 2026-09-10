@@ -1,0 +1,12 @@
+{
+  "handle": "ce2cab19",
+  "address": "ce2cab19-a35b-8f42-aeeb-8b6d02a2efa8",
+  "statement": "reassembles 44177 = true ∧ castsFifteens 44177 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ac91"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

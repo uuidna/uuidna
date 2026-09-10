@@ -1,0 +1,12 @@
+{
+  "handle": "3dc44cab",
+  "address": "3dc44cab-25c8-8c57-9b48-83a59310e0c2",
+  "statement": "reassembles 37595 = true ∧ castsFifteens 37595 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_92db"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

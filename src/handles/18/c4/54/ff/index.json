@@ -1,0 +1,12 @@
+{
+  "handle": "18c454ff",
+  "address": "18c454ff-ac1a-865e-88af-591e422592dc",
+  "kind": "chunk",
+  "keys": [
+    "polarity_flip_is_an_automorphism_4"
+  ],
+  "statement": "[32,33,34,35,36,37,38,39].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))",
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

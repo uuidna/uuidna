@@ -1,0 +1,12 @@
+{
+  "handle": "ce28080b",
+  "address": "ce28080b-8d35-8bab-b2b8-cd81fd90729d",
+  "statement": "reassembles 39575 = true ∧ castsFifteens 39575 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9a97"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

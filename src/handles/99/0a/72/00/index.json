@@ -1,0 +1,12 @@
+{
+  "handle": "990a7200",
+  "address": "990a7200-d2c2-855f-a752-6550560a1fdf",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2f4a"
+  ],
+  "statement": "reassembles 12106 = true ∧ castsFifteens 12106 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

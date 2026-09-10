@@ -1,15 +1,15 @@
 ---
 title: "The hexbit"
-description: "Computed from lean/Hexbit.lean — 22 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Hexbit.lean — 23 sealed theorems, every claim citing its proof."
 ---
 
 # The hexbit
 
-> THE HEXBIT — the alphabet and the layout an address is actually built from. Mass gap and message cap are COMPUTED in src/hexbit + src/quantum (computeMassGap, hexbitRingMassGap, bellBornWeights / massGapOnBellBornField) and sealed here from those yields — never hardcoded Δ / Bell tables in the generator. Court and gates speak only this wing for those facts; a Quantum/message twin is a traitor filtered by architecture. — held by [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight) and its 21 siblings below.
+> THE HEXBIT — the alphabet and the layout an address is actually built from. Mass gap and message cap are COMPUTED in src/hexbit + src/quantum (computeMassGap, hexbitRingMassGap, bellBornWeights / massGapOnBellBornField) and sealed here from those yields — never hardcoded Δ / Bell tables in the generator. Court and gates speak only this wing for those facts; a Quantum/message twin is a traitor filtered by architecture. — held by [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight) and its 22 siblings below.
 
-**22 theorems** and **514 decided cases**, from [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight) onward, each proven `by decide` in <a href="/lean/Hexbit.lean">lean/Hexbit.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 18 of its 22 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight). A boundary stated here is decided.
+**23 theorems** and **515 decided cases**, from [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight) onward, each proven `by decide` in <a href="/lean/Hexbit.lean">lean/Hexbit.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 18 of its 23 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 22 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 23 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE EXCHANGE LAW — capacity is ONE conserved budget read at two points, not two competing measures. A uuid is 32 hexbits; every hexbit spent carrying payload is a hexbit taken from the address space, and the bits sum to 128 at EVERY split, decided over all 33 of them (p = 0..32). The two figures this repository quotes are the two ends of that one ladder: imprint nothing and 32 hexbits address 2^128 (the whole uuid); imprint the full 24-hexbit payload and the 8 hexbits left ARE the handle, 2^32 coordinates carrying 2^96 payloads each. So `universe_of_handles` (2^32) and `handle_capacity_is_quantum_by_architecture` (2^128) have never been in tension — they are the p = 24 and p = 0 rungs, and this is the law that binds them. THE LAST CLAUSE IS THE ONE THAT EARNS IT: the exchange is MULTIPLICATIVE, 2^32 * 2^96 = 2^128, and adding the two spans instead gives a number 39 digits short of the total. A reader who counts capacity by summing the handle span and the payload span gets a wrong answer, so stating the product without refusing the sum would leave the likeliest misreading unaddressed. SCOPE: the arithmetic of the split. It says what a width can hold, NOT that any particular payload is secure — secrecy is a property of what is imprinted and how, and no exponent here vouches for it.
 The ledger holds this as [address_and_payload_exchange_at_one_twenty_eight](/theorem/address_and_payload_exchange_at_one_twenty_eight) — proven `by decide`, sorry-free:
@@ -163,6 +163,13 @@ The ledger holds this as [born_field_mass_gap_on_bell](/theorem/born_field_mass_
 
 ```lean
 (([1,0,0,1] : List Nat).all (fun a => a = 0 ∨ 1 ≤ a)) ∧ (([1,0,0,1] : List Nat).any (fun a => a = 0)) ∧ (([1,0,0,1] : List Nat).any (fun a => 1 ≤ a)) ∧ (1 > 0)
+```
+
+### THE NAME'S CONTENT-ADDRESS SPANS THE LAYOUT. toUuid("uuidna") yields thirty-two hex digits; the first eight are the handle. The hash is the measurement; the kernel decides the lengths.
+The ledger holds this as [uuidna_name_spans_the_layout](/theorem/uuidna_name_spans_the_layout) — proven `by decide`, sorry-free:
+
+```lean
+([15,12,5,1,1,5,3,2,6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].length = 32) ∧ ([15,12,5,1,1,5,3,2].length = 8)
 ```
 
 

@@ -1,0 +1,12 @@
+{
+  "handle": "acba3790",
+  "address": "acba3790-7410-878a-96a6-699fe7edf306",
+  "statement": "reassembles 32189 = true ∧ castsFifteens 32189 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7dbd"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

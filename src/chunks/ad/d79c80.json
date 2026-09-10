@@ -1,0 +1,12 @@
+{
+  "handle": "add79c80",
+  "address": "add79c80-0150-8075-bffa-fff817abd2f6",
+  "statement": "reassembles 46417 = true ∧ castsFifteens 46417 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b551"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

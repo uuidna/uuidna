@@ -1,0 +1,12 @@
+{
+  "handle": "ead79b2b",
+  "address": "ead79b2b-e70c-8958-a7b9-84039f5d7a7f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_105d"
+  ],
+  "statement": "reassembles 4189 = true ∧ castsFifteens 4189 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

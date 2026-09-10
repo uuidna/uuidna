@@ -1,0 +1,12 @@
+{
+  "handle": "ba2008ab",
+  "address": "ba2008ab-3080-8b2c-bf9b-057d8c17c620",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_baac"
+  ],
+  "statement": "reassembles 47788 = true ∧ castsFifteens 47788 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

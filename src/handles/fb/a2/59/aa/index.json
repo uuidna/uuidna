@@ -1,0 +1,12 @@
+{
+  "handle": "fba259aa",
+  "address": "fba259aa-920b-8cce-b3e5-069530e8381f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_5321"
+  ],
+  "statement": "reassembles 21281 = true ∧ castsFifteens 21281 = true",
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

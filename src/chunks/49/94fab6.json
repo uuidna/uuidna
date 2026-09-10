@@ -1,0 +1,12 @@
+{
+  "handle": "4994fab6",
+  "address": "4994fab6-c3d3-8316-84ad-49895df6510d",
+  "statement": "reassembles 34646 = true ∧ castsFifteens 34646 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8756"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

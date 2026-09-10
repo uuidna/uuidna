@@ -1,0 +1,12 @@
+{
+  "handle": "fda40e0a",
+  "address": "fda40e0a-29aa-8b3a-b153-051f047cfa95",
+  "statement": "reassembles 43303 = true ∧ castsFifteens 43303 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a927"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "32dada21",
+  "address": "32dada21-b582-8875-97df-eb392407e100",
+  "statement": "reassembles 46490 = true ∧ castsFifteens 46490 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b59a"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

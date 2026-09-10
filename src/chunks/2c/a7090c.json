@@ -1,0 +1,12 @@
+{
+  "handle": "2ca7090c",
+  "address": "2ca7090c-05c5-84b0-9827-3cb0cd9c5336",
+  "statement": "reassembles 60556 = true ∧ castsFifteens 60556 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ec8c"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

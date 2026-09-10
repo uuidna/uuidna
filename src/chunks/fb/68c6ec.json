@@ -1,0 +1,12 @@
+{
+  "handle": "fb68c6ec",
+  "address": "fb68c6ec-76ca-85f8-9e75-e218f1dcb7af",
+  "statement": "((List.range 8).filter (fun n => (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_gate_one_of_eight"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

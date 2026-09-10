@@ -1,0 +1,12 @@
+{
+  "handle": "eaa9cffb",
+  "address": "eaa9cffb-9c86-8ba2-b279-f06920a92105",
+  "statement": "(8 = 8) ∧ (18 = 18) ∧ (32 = 32) ∧ ¬(2 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "the_rows_repeat_in_pairs_after_the_first"
+  ],
+  "files": [
+    "Periodic.lean"
+  ]
+}

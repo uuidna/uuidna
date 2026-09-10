@@ -1,0 +1,12 @@
+{
+  "handle": "ad147ddc",
+  "address": "ad147ddc-dcc3-8a72-9413-3252db3d8a42",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_920e"
+  ],
+  "statement": "reassembles 37390 = true ∧ castsFifteens 37390 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

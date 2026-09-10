@@ -1,0 +1,12 @@
+{
+  "handle": "ec16deab",
+  "address": "ec16deab-be8d-8172-ad82-cf62b4758bff",
+  "statement": "reassembles 21959 = true ∧ castsFifteens 21959 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_55c7"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

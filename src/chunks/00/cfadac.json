@@ -1,0 +1,12 @@
+{
+  "handle": "00cfadac",
+  "address": "00cfadac-78a6-8841-9bf5-e40d6d0e9fc6",
+  "statement": "reassembles 26063 = true ∧ castsFifteens 26063 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_65cf"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

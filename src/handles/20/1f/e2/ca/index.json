@@ -1,0 +1,12 @@
+{
+  "handle": "201fe2ca",
+  "address": "201fe2ca-bc97-8636-9045-4408a617d802",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6210"
+  ],
+  "statement": "reassembles 25104 = true ∧ castsFifteens 25104 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

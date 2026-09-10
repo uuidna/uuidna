@@ -1,0 +1,12 @@
+{
+  "handle": "fec6903d",
+  "address": "fec6903d-0218-815b-ba6c-5dac0d61a56e",
+  "statement": "reassembles 65451 = true ∧ castsFifteens 65451 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ffab"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fcda8558",
+  "address": "fcda8558-6892-8501-9ac4-3fa04e708d40",
+  "statement": "reassembles 52350 = true ∧ castsFifteens 52350 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cc7e"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

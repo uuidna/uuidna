@@ -1,0 +1,12 @@
+{
+  "handle": "deb4112c",
+  "address": "deb4112c-b1d0-8702-9c2f-f922dd59399d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2a44"
+  ],
+  "statement": "reassembles 10820 = true ∧ castsFifteens 10820 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ceb9723a",
+  "address": "ceb9723a-26a3-8eca-9be1-65c7c5315bfe",
+  "statement": "reassembles 10336 = true ∧ castsFifteens 10336 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2860"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

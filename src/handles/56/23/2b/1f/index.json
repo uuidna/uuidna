@@ -1,0 +1,12 @@
+{
+  "handle": "56232b1f",
+  "address": "56232b1f-7e07-81ea-a0f4-e85646c3cce2",
+  "kind": "chunk",
+  "keys": [
+    "octahedron_cluster_closes"
+  ],
+  "statement": "(6 + 8 = 12 + 2) ∧ (4 * 6 = 2 * 12) ∧ (3 * 8 = 2 * 12)",
+  "files": [
+    "Platonic.lean"
+  ]
+}

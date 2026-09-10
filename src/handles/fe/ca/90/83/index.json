@@ -1,0 +1,12 @@
+{
+  "handle": "feca9083",
+  "address": "feca9083-d4c1-880c-adc4-5ab74bce7243",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f123"
+  ],
+  "statement": "reassembles 61731 = true ∧ castsFifteens 61731 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

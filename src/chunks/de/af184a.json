@@ -1,0 +1,12 @@
+{
+  "handle": "deaf184a",
+  "address": "deaf184a-0d6f-8565-aed7-f185132cbc63",
+  "statement": "reassembles 4322 = true ∧ castsFifteens 4322 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_10e2"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

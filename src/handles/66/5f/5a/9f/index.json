@@ -1,0 +1,12 @@
+{
+  "handle": "665f5a9f",
+  "address": "665f5a9f-1a4f-8d40-9c44-2795035aaf9e",
+  "kind": "chunk",
+  "keys": [
+    "xor_translation_carries_any_cell_to_any_other_4"
+  ],
+  "statement": "[32,33,34,35,36,37,38,39].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))",
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

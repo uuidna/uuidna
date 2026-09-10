@@ -1,0 +1,12 @@
+{
+  "handle": "deb18423",
+  "address": "deb18423-4865-8174-b93c-33c46b501f3e",
+  "statement": "reassembles 16089 = true ∧ castsFifteens 16089 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3ed9"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

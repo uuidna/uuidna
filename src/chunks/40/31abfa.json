@@ -1,0 +1,12 @@
+{
+  "handle": "4031abfa",
+  "address": "4031abfa-e916-8b42-b1d3-12a010811e8e",
+  "statement": "reassembles 63393 = true ∧ castsFifteens 63393 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f7a1"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

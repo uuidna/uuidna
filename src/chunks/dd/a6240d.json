@@ -1,0 +1,12 @@
+{
+  "handle": "dda6240d",
+  "address": "dda6240d-69c4-80fa-adb6-00375f2fcd47",
+  "statement": "reassembles 38324 = true ∧ castsFifteens 38324 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_95b4"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

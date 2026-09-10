@@ -1,0 +1,12 @@
+{
+  "handle": "cba74727",
+  "address": "cba74727-63c5-8ef3-9916-4719bfc57a02",
+  "statement": "reassembles 41642 = true ∧ castsFifteens 41642 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a2aa"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

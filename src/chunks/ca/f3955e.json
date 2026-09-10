@@ -1,0 +1,12 @@
+{
+  "handle": "caf3955e",
+  "address": "caf3955e-899c-8457-aada-34f1d148e43b",
+  "statement": "reassembles 61502 = true ∧ castsFifteens 61502 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f03e"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

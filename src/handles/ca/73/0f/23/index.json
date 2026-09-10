@@ -1,0 +1,12 @@
+{
+  "handle": "ca730f23",
+  "address": "ca730f23-9c93-88e3-b342-e542c99c6752",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2ae4"
+  ],
+  "statement": "reassembles 10980 = true ∧ castsFifteens 10980 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4ee813fa",
+  "address": "4ee813fa-e4d7-8c19-9809-ac2c80136ec9",
+  "statement": "((List.range 12).all (fun n => n < 12)) ∧ ¬((List.range 13).all (fun n => n < 12))",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_barrier_twelve_not_thirteen"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

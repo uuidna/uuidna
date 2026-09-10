@@ -1,0 +1,12 @@
+{
+  "handle": "2deb807e",
+  "address": "2deb807e-2263-801c-b990-04a20e07c550",
+  "statement": "reassembles 23015 = true ∧ castsFifteens 23015 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_59e7"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

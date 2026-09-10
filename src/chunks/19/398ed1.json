@@ -1,0 +1,12 @@
+{
+  "handle": "19398ed1",
+  "address": "19398ed1-a4fa-8204-ba7d-2e929b3fa641",
+  "statement": "(List.range 16).foldl (fun a l => a + ((List.range 96).filter (fun i => i % 16 == l)).length) 0 = 96",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_lanes_partition_ninetysix"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

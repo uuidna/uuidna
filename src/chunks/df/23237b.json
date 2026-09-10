@@ -1,0 +1,12 @@
+{
+  "handle": "df23237b",
+  "address": "df23237b-ec5f-87af-a263-b6a11f561e8d",
+  "statement": "reassembles 23351 = true ∧ castsFifteens 23351 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5b37"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

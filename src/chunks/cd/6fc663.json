@@ -1,0 +1,12 @@
+{
+  "handle": "cd6fc663",
+  "address": "cd6fc663-ac7f-8234-819a-4b065468630e",
+  "statement": "[(0, 0), (0, 1), (1, 0), (1, 1)].all (fun p => (1 - (p.1 + p.2 - p.1 * p.2)) == (1 - p.1) * (1 - p.2))",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_de_morgan_or_to_and"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

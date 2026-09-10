@@ -1,0 +1,12 @@
+{
+  "handle": "fcd44269",
+  "address": "fcd44269-cfa8-8f8f-a754-75eb0caf331d",
+  "statement": "reassembles 8184 = true ∧ castsFifteens 8184 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1ff8"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

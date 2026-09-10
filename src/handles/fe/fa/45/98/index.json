@@ -1,0 +1,12 @@
+{
+  "handle": "fefa4598",
+  "address": "fefa4598-68b0-81b7-90ed-8725f2205560",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fdbe"
+  ],
+  "statement": "reassembles 64958 = true ∧ castsFifteens 64958 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

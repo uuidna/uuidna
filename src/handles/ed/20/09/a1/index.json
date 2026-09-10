@@ -1,0 +1,12 @@
+{
+  "handle": "ed2009a1",
+  "address": "ed2009a1-1abe-8030-aeac-24209b68767b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1c72"
+  ],
+  "statement": "reassembles 7282 = true ∧ castsFifteens 7282 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

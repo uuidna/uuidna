@@ -1,0 +1,12 @@
+{
+  "handle": "0799cace",
+  "address": "0799cace-1998-8fec-b232-ae18a49df5ed",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_761b"
+  ],
+  "statement": "reassembles 30235 = true ∧ castsFifteens 30235 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b39697af",
+  "address": "b39697af-3c0f-8b0a-8162-51f15dbe2d90",
+  "statement": "reassembles 32752 = true ∧ castsFifteens 32752 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7ff0"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

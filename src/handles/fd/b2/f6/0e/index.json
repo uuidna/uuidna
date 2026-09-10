@@ -1,0 +1,12 @@
+{
+  "handle": "fdb2f60e",
+  "address": "fdb2f60e-baad-87a4-82be-732ea16e99aa",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_dcfa"
+  ],
+  "statement": "reassembles 56570 = true ∧ castsFifteens 56570 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

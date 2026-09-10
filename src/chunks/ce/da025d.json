@@ -1,0 +1,12 @@
+{
+  "handle": "ceda025d",
+  "address": "ceda025d-7de7-87eb-af73-39d0d27b841b",
+  "statement": "reassembles 17064 = true ∧ castsFifteens 17064 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_42a8"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

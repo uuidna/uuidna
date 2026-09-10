@@ -1,0 +1,12 @@
+{
+  "handle": "cabb682b",
+  "address": "cabb682b-271f-85aa-bde5-6e43efacb6f7",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9d36"
+  ],
+  "statement": "reassembles 40246 = true ∧ castsFifteens 40246 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

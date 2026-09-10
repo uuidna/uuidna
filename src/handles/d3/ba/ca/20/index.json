@@ -1,0 +1,12 @@
+{
+  "handle": "d3baca20",
+  "address": "d3baca20-a416-808a-958a-7706960aba25",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4827"
+  ],
+  "statement": "reassembles 18471 = true ∧ castsFifteens 18471 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

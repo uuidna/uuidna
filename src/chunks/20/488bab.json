@@ -1,0 +1,12 @@
+{
+  "handle": "20488bab",
+  "address": "20488bab-f427-8726-a897-aad0b01a5772",
+  "statement": "reassembles 18860 = true ∧ castsFifteens 18860 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_49ac"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

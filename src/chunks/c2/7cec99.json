@@ -1,0 +1,12 @@
+{
+  "handle": "c27cec99",
+  "address": "c27cec99-2c47-8f23-8768-3f9323e9d62e",
+  "statement": "reassembles 8041 = true ∧ castsFifteens 8041 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f69"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

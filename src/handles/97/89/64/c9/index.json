@@ -1,0 +1,12 @@
+{
+  "handle": "978964c9",
+  "address": "978964c9-a50d-8fe8-b46a-503bb43c950b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_861a"
+  ],
+  "statement": "reassembles 34330 = true ∧ castsFifteens 34330 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

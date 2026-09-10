@@ -1,0 +1,12 @@
+{
+  "handle": "dfa2368d",
+  "address": "dfa2368d-8a51-865c-bd2d-e51b1608eb9a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7858"
+  ],
+  "statement": "reassembles 30808 = true ∧ castsFifteens 30808 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

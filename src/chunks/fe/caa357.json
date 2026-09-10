@@ -1,0 +1,12 @@
+{
+  "handle": "fecaa357",
+  "address": "fecaa357-d368-8379-ba61-5b36b12b4b6e",
+  "statement": "reassembles 31210 = true ∧ castsFifteens 31210 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_79ea"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

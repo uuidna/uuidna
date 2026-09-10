@@ -1,0 +1,12 @@
+{
+  "handle": "c720fac1",
+  "address": "c720fac1-3d77-8cf4-b5ee-3a6d0da6a9d3",
+  "statement": "reassembles 20400 = true ∧ castsFifteens 20400 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4fb0"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

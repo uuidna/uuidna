@@ -1,0 +1,12 @@
+{
+  "handle": "cab130ef",
+  "address": "cab130ef-0952-89a9-a5a1-0e72f332b89b",
+  "statement": "reassembles 19112 = true ∧ castsFifteens 19112 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4aa8"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

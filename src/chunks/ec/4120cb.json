@@ -1,0 +1,12 @@
+{
+  "handle": "ec4120cb",
+  "address": "ec4120cb-f9f8-86ad-88f5-f7426d034436",
+  "statement": "reassembles 10169 = true ∧ castsFifteens 10169 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_27b9"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

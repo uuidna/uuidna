@@ -1,0 +1,12 @@
+{
+  "handle": "caac24f2",
+  "address": "caac24f2-da7a-855d-baae-e59abf271374",
+  "statement": "reassembles 44633 = true ∧ castsFifteens 44633 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ae59"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

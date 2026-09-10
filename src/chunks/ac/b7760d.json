@@ -1,0 +1,12 @@
+{
+  "handle": "acb7760d",
+  "address": "acb7760d-a5d0-8268-9a62-74a47bcbe769",
+  "statement": "reassembles 35171 = true ∧ castsFifteens 35171 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8963"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

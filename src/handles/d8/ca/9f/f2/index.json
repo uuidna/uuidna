@@ -1,0 +1,12 @@
+{
+  "handle": "d8ca9ff2",
+  "address": "d8ca9ff2-0f85-83cb-bb22-687a62bffd6b",
+  "kind": "chunk",
+  "keys": [
+    "conway_ninetynine_eigenvalues_are_integers"
+  ],
+  "statement": "(7 * 7 = 49) ∧ (1 + 7 = 2 + 2 * 3)",
+  "files": [
+    "OpenProblems.lean"
+  ]
+}

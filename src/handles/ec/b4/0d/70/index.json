@@ -1,0 +1,12 @@
+{
+  "handle": "ecb40d70",
+  "address": "ecb40d70-2884-8b12-bfcc-bb0086b393e1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_64ce"
+  ],
+  "statement": "reassembles 25806 = true ∧ castsFifteens 25806 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

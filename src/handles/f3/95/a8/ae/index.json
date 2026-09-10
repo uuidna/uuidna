@@ -1,0 +1,12 @@
+{
+  "handle": "f395a8ae",
+  "address": "f395a8ae-b156-8ac6-8f66-7153f43e4f7e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f9bf"
+  ],
+  "statement": "reassembles 63935 = true ∧ castsFifteens 63935 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

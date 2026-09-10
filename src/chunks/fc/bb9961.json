@@ -1,0 +1,12 @@
+{
+  "handle": "fcbb9961",
+  "address": "fcbb9961-4618-8b43-8954-f5b311ceba75",
+  "statement": "reassembles 4912 = true ∧ castsFifteens 4912 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1330"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

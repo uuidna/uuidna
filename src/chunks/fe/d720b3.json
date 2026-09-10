@@ -1,0 +1,12 @@
+{
+  "handle": "fed720b3",
+  "address": "fed720b3-7095-8423-9dc1-180f2824a55f",
+  "statement": "reassembles 22400 = true ∧ castsFifteens 22400 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5780"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

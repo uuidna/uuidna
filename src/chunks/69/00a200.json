@@ -1,0 +1,12 @@
+{
+  "handle": "6900a200",
+  "address": "6900a200-acab-86b1-a3ba-62ee82169c85",
+  "statement": "reassembles 10373 = true ∧ castsFifteens 10373 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2885"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

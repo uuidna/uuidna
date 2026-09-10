@@ -1,0 +1,12 @@
+{
+  "handle": "b18f6b14",
+  "address": "b18f6b14-b33a-8f68-b92a-5485c9251670",
+  "kind": "chunk",
+  "keys": [
+    "uuidna_name_payload_tiles_sixteen_codons"
+  ],
+  "statement": "([6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].length = 24) ∧ ((24 * 4) / 6 = 16)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

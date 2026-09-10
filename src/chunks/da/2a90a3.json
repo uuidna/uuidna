@@ -1,0 +1,12 @@
+{
+  "handle": "da2a90a3",
+  "address": "da2a90a3-ffbc-898e-a15d-d32afec43715",
+  "statement": "reassembles 40157 = true ∧ castsFifteens 40157 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9cdd"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dabaf88f",
+  "address": "dabaf88f-1977-81eb-8779-f3b2a4923d4a",
+  "statement": "reassembles 40107 = true ∧ castsFifteens 40107 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9cab"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

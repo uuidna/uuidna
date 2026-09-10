@@ -1,0 +1,12 @@
+{
+  "handle": "c204a3cc",
+  "address": "c204a3cc-7882-80a0-befc-d180ce50922c",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a135"
+  ],
+  "statement": "reassembles 41269 = true ∧ castsFifteens 41269 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

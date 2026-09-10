@@ -1,0 +1,12 @@
+{
+  "handle": "fac330fb",
+  "address": "fac330fb-cbe3-87d2-9124-f2ad1f7648ac",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b1fa"
+  ],
+  "statement": "reassembles 45562 = true ∧ castsFifteens 45562 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

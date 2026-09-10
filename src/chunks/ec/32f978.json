@@ -1,0 +1,12 @@
+{
+  "handle": "ec32f978",
+  "address": "ec32f978-be17-8383-aa67-910193c61405",
+  "statement": "reassembles 13227 = true ∧ castsFifteens 13227 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_33ab"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

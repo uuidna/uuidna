@@ -1,0 +1,12 @@
+{
+  "handle": "bed5983e",
+  "address": "bed5983e-f6c4-84de-9e24-d5aa17f74e1f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9f21"
+  ],
+  "statement": "reassembles 40737 = true ∧ castsFifteens 40737 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

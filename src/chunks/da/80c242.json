@@ -1,0 +1,12 @@
+{
+  "handle": "da80c242",
+  "address": "da80c242-7154-837d-bdcf-d84a6eea868c",
+  "statement": "reassembles 64474 = true ∧ castsFifteens 64474 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fbda"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

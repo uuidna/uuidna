@@ -1,0 +1,12 @@
+{
+  "handle": "adcfe300",
+  "address": "adcfe300-941b-819e-86d6-4db1005029b0",
+  "statement": "reassembles 38043 = true ∧ castsFifteens 38043 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_949b"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

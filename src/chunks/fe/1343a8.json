@@ -1,0 +1,12 @@
+{
+  "handle": "fe1343a8",
+  "address": "fe1343a8-e084-8d92-a178-e8fc0d05e15b",
+  "statement": "(List.range 8).all (fun i => (List.range 8).foldl (fun x _ => (x + 1) % 8) i == i)",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_round_robin_closes"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

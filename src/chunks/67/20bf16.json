@@ -1,0 +1,12 @@
+{
+  "handle": "6720bf16",
+  "address": "6720bf16-3d50-8d47-88b9-531c5cf2f882",
+  "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 50) (lxor d 50) == lxor c d))",
+  "tactic": "decide",
+  "keys": [
+    "xor_translation_preserves_adjacency_50"
+  ],
+  "files": [
+    "EquilibriumXor7.lean"
+  ]
+}

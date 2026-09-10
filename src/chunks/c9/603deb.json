@@ -1,0 +1,12 @@
+{
+  "handle": "c9603deb",
+  "address": "c9603deb-9b8b-8e3e-8248-1b0ed9cf1f51",
+  "statement": "reassembles 41835 = true ∧ castsFifteens 41835 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a36b"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cdac3293",
+  "address": "cdac3293-06fa-82dd-9416-460fe307d417",
+  "statement": "reassembles 32967 = true ∧ castsFifteens 32967 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_80c7"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

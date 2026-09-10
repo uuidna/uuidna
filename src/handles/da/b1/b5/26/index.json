@@ -1,0 +1,12 @@
+{
+  "handle": "dab1b526",
+  "address": "dab1b526-e27f-8fd5-87c5-2570900aa4de",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0858"
+  ],
+  "statement": "reassembles 2136 = true ∧ castsFifteens 2136 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

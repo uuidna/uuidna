@@ -1,0 +1,12 @@
+{
+  "handle": "dfda756d",
+  "address": "dfda756d-9c75-8c23-8d42-38eacc25c9bc",
+  "statement": "reassembles 2175 = true ∧ castsFifteens 2175 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_087f"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

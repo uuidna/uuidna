@@ -1,0 +1,12 @@
+{
+  "handle": "999edeaf",
+  "address": "999edeaf-44f5-8413-ad44-aa477cd1ea35",
+  "statement": "reassembles 53123 = true ∧ castsFifteens 53123 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cf83"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

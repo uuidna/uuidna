@@ -1,0 +1,12 @@
+{
+  "handle": "faf3a350",
+  "address": "faf3a350-db50-8037-bf1c-8385daa724b2",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_899d"
+  ],
+  "statement": "reassembles 35229 = true ∧ castsFifteens 35229 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

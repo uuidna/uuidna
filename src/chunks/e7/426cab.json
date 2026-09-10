@@ -1,0 +1,12 @@
+{
+  "handle": "e7426cab",
+  "address": "e7426cab-535f-843d-a094-84df56a2233b",
+  "statement": "reassembles 48306 = true ∧ castsFifteens 48306 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_bcb2"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

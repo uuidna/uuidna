@@ -1,0 +1,12 @@
+{
+  "handle": "a1882cab",
+  "address": "a1882cab-43d6-83f6-ad04-88c26796c626",
+  "statement": "reassembles 44303 = true ∧ castsFifteens 44303 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ad0f"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

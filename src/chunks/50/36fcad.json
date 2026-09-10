@@ -1,0 +1,12 @@
+{
+  "handle": "5036fcad",
+  "address": "5036fcad-4c16-8d89-9620-505f568cad05",
+  "statement": "reassembles 33814 = true ∧ castsFifteens 33814 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8416"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

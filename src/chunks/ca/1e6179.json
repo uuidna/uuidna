@@ -1,0 +1,12 @@
+{
+  "handle": "ca1e6179",
+  "address": "ca1e6179-206c-8678-a038-9a30c48ce043",
+  "statement": "reassembles 8548 = true ∧ castsFifteens 8548 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2164"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

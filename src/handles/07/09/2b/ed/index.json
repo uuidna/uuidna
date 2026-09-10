@@ -1,0 +1,12 @@
+{
+  "handle": "07092bed",
+  "address": "07092bed-f993-84cc-8fc8-2a684fe522c9",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8282"
+  ],
+  "statement": "reassembles 33410 = true ∧ castsFifteens 33410 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

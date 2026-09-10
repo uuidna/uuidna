@@ -1,0 +1,12 @@
+{
+  "handle": "ffa8389c",
+  "address": "ffa8389c-43bd-83bb-80ff-590c4e61e2c0",
+  "statement": "reassembles 16298 = true ∧ castsFifteens 16298 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3faa"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

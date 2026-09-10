@@ -1,0 +1,12 @@
+{
+  "handle": "a330a201",
+  "address": "a330a201-a3c0-8f89-856e-35023e079dd0",
+  "statement": "reassembles 14690 = true ∧ castsFifteens 14690 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3962"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

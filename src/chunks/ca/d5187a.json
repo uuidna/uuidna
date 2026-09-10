@@ -1,0 +1,12 @@
+{
+  "handle": "cad5187a",
+  "address": "cad5187a-18ea-8d4c-80fa-2be75ac20e5a",
+  "statement": "reassembles 28574 = true ∧ castsFifteens 28574 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6f9e"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

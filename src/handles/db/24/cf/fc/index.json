@@ -1,0 +1,12 @@
+{
+  "handle": "db24cffc",
+  "address": "db24cffc-abd7-857e-9a9a-d18463e3d8a3",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e43a"
+  ],
+  "statement": "reassembles 58426 = true ∧ castsFifteens 58426 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

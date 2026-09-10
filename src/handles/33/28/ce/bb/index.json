@@ -1,0 +1,12 @@
+{
+  "handle": "3328cebb",
+  "address": "3328cebb-ba26-87af-96d4-c125e5337745",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_10c6"
+  ],
+  "statement": "reassembles 4294 = true ∧ castsFifteens 4294 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

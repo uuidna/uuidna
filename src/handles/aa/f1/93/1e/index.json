@@ -1,0 +1,12 @@
+{
+  "handle": "aaf1931e",
+  "address": "aaf1931e-f7e2-811a-9769-aeea319767da",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1aa5"
+  ],
+  "statement": "reassembles 6821 = true ∧ castsFifteens 6821 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

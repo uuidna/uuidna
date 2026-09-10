@@ -1,0 +1,12 @@
+{
+  "handle": "b70cabed",
+  "address": "b70cabed-0dbb-8dd5-8513-8d865005cd5e",
+  "statement": "reassembles 56567 = true ∧ castsFifteens 56567 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_dcf7"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ac3182da",
+  "address": "ac3182da-af87-87a1-9850-ceb624f260a0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0f79"
+  ],
+  "statement": "reassembles 3961 = true ∧ castsFifteens 3961 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ccacd810",
+  "address": "ccacd810-393f-8d48-b2bd-e1844443b6a7",
+  "statement": "reassembles 11454 = true ∧ castsFifteens 11454 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2cbe"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

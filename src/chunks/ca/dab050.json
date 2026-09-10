@@ -1,0 +1,12 @@
+{
+  "handle": "cadab050",
+  "address": "cadab050-f4b2-8d57-aeb9-d857d8f2a60c",
+  "statement": "reassembles 23545 = true ∧ castsFifteens 23545 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5bf9"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

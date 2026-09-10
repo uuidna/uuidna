@@ -1,0 +1,12 @@
+{
+  "handle": "c32a585c",
+  "address": "c32a585c-96b4-8ecc-bb14-e7ac76520f01",
+  "statement": "reassembles 2763 = true ∧ castsFifteens 2763 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0acb"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

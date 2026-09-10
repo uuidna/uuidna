@@ -1,0 +1,12 @@
+{
+  "handle": "ccd23060",
+  "address": "ccd23060-15a7-8759-93dc-0e697c20879f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_af6e"
+  ],
+  "statement": "reassembles 44910 = true ∧ castsFifteens 44910 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

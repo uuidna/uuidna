@@ -1,0 +1,12 @@
+{
+  "handle": "c00c1856",
+  "address": "c00c1856-4bf6-872d-be39-5a84841b856a",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_lattice_birthday_is_span"
+  ],
+  "statement": "(16 ^ 4 = 65536) ∧ (2 ^ 16 = 65536) ∧ ((List.range 16).foldl (fun a _ => a * 2) 1 = 65536)",
+  "files": [
+    "Wave.lean"
+  ]
+}

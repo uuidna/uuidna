@@ -1,0 +1,12 @@
+{
+  "handle": "cac27816",
+  "address": "cac27816-b062-8ef2-992d-ed624e4808f0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2ad2"
+  ],
+  "statement": "reassembles 10962 = true ∧ castsFifteens 10962 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

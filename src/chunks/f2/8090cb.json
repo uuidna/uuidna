@@ -1,0 +1,12 @@
+{
+  "handle": "f28090cb",
+  "address": "f28090cb-252b-8f9a-8aac-37bd241585d7",
+  "statement": "reassembles 63870 = true ∧ castsFifteens 63870 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f97e"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

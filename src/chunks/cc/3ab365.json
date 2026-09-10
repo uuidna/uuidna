@@ -1,0 +1,12 @@
+{
+  "handle": "cc3ab365",
+  "address": "cc3ab365-3e24-8144-b8ce-42df1d0568fa",
+  "statement": "reassembles 8810 = true ∧ castsFifteens 8810 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_226a"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

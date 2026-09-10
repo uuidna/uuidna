@@ -1,0 +1,12 @@
+{
+  "handle": "3f8ac814",
+  "address": "3f8ac814-31ab-8886-872b-20c93ee60b96",
+  "kind": "chunk",
+  "keys": [
+    "seventeen_leaves_already_pass_the_whole_uuid"
+  ],
+  "statement": "((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

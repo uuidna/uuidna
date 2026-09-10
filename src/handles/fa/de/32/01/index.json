@@ -1,0 +1,12 @@
+{
+  "handle": "fade3201",
+  "address": "fade3201-e19c-80bd-ab50-16dbc3e56e42",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9072"
+  ],
+  "statement": "reassembles 36978 = true ∧ castsFifteens 36978 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

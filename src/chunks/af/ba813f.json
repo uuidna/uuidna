@@ -1,0 +1,12 @@
+{
+  "handle": "afba813f",
+  "address": "afba813f-ffc9-86bc-9fa3-db120c3c99a5",
+  "statement": "reassembles 51882 = true ∧ castsFifteens 51882 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_caaa"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

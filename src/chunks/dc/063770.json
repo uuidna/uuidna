@@ -1,0 +1,12 @@
+{
+  "handle": "dc063770",
+  "address": "dc063770-3381-811e-a232-1fc702410e2a",
+  "statement": "reassembles 14152 = true ∧ castsFifteens 14152 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3748"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

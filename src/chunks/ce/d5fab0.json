@@ -1,0 +1,12 @@
+{
+  "handle": "ced5fab0",
+  "address": "ced5fab0-f214-8fb9-91b9-fe5755980196",
+  "statement": "reassembles 39296 = true ∧ castsFifteens 39296 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9980"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

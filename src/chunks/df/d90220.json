@@ -1,0 +1,12 @@
+{
+  "handle": "dfd90220",
+  "address": "dfd90220-bdb5-8e6e-b8e1-00583fc9814e",
+  "statement": "reassembles 4384 = true ∧ castsFifteens 4384 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1120"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "20e344cb",
+  "address": "20e344cb-ed60-8099-a629-9d5f0805255b",
+  "statement": "[(8,1),(8,2),(8,3),(8,4),(8,6),(8,8),(8,12),(8,20),(8,40),(8,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w)))",
+  "tactic": "decide",
+  "keys": [
+    "a_richer_point_never_narrows_the_width_3"
+  ],
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

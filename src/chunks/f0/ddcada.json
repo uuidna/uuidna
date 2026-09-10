@@ -1,0 +1,12 @@
+{
+  "handle": "f0ddcada",
+  "address": "f0ddcada-42e7-856c-be46-b212ba0f2b29",
+  "statement": "reassembles 12076 = true ∧ castsFifteens 12076 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2f2c"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cab1f7ff",
+  "address": "cab1f7ff-735c-8ee7-9555-8b4f4f4cb26d",
+  "statement": "reassembles 58220 = true ∧ castsFifteens 58220 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e36c"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

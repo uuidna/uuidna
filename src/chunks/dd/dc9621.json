@@ -1,0 +1,12 @@
+{
+  "handle": "dddc9621",
+  "address": "dddc9621-14d8-8c32-ad9e-b61853093e14",
+  "statement": "reassembles 19978 = true ∧ castsFifteens 19978 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4e0a"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

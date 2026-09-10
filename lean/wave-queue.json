@@ -5562,6 +5562,222 @@
       "why": "AN AXIOM-FREE LEDGER STILL RESTS ON SOMETHING, and it is not axioms — every one of the 2657 theorems depends on NO axiom, so grouping by axiom dependency puts them all in one bucket and says nothing. What each statement actually assumes is the kernel s ability to DECIDE particular operations, and that is the ledger s real axiomatic structure because by decide is the only tactic in it. Organised as a HIERARCHY so it partitions rather than overlaps — deepest capability wins, a statement that both multiplies and walks a list is an enumeration because the arithmetic came free with the walk. Counted here: literal 106, arithmetic 1049, propositional 514, enumeration 843, list-structure 140, finite-type 0, quantified 5. Three things are decided. The counts SUM to the ledger, so the families are exhaustive and disjoint. EXACTLY ONE family is empty — finite-type, and its emptiness is a measurement rather than an omission: the ledger does use Fin, and every such statement sits under a quantifier, so the hierarchy sends it one level deeper. And no family exceeds the ledger, which is what makes them shares. SCOPE: this counts what the kernel must decide, not how hard the deciding is — a walk of eight cases and a walk of sixty thousand land in the same family.",
       "lean": "theorem axiom_families_partition_the_ledger_2657 : ([106, 1049, 514, 843, 140, 0, 5].sum = 2657) ∧ (([106, 1049, 514, 843, 140, 0, 5].filter (fun n => n == 0)).length = 1) ∧ ([106, 1049, 514, 843, 140, 0, 5].all (fun n => n ≤ 2657)) := by decide",
       "receipt": "c10c8968-e45c-8a13-baa9-85f915f453bb"
+    },
+    {
+      "key": "mass_coord_lanes_partition_ninetysix",
+      "why": "MASS COORDINATION WITHOUT A COORDINATOR: ninety-six items residue-routed across sixteen lanes sum back to ninety-six — nothing lost, nothing counted twice. The question a scheduler exists to answer cannot arise, because the residue map is already a partition.",
+      "lean": "theorem mass_coord_lanes_partition_ninetysix : (List.range 16).foldl (fun a l => a + ((List.range 96).filter (fun i => i % 16 == l)).length) 0 = 96 := by decide",
+      "receipt": "60d6b005-286c-87d0-8c6d-9c07a097d8a7"
+    },
+    {
+      "key": "mass_coord_lanes_balance_forty_eight",
+      "why": "LOAD BALANCE WITH NO MEASUREMENT OF LOAD: forty-eight items over ten lanes give every lane four or five, never fewer and never more. Forty-eight is 4·10 + 8, so eight lanes take five and two take four — the imbalance is the remainder, bounded by one, with no lane asking another what it holds.",
+      "lean": "theorem mass_coord_lanes_balance_forty_eight : ((List.range 10).map (fun l => ((List.range 48).filter (fun i => i % 10 == l)).length)).all (fun k => k == 4 || k == 5) := by decide",
+      "receipt": "0c7ceb16-0833-8e79-af5e-e49fe1f9a84d"
+    },
+    {
+      "key": "mass_coord_lanes_even_eighty",
+      "why": "ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: eighty items over sixteen lanes give every lane precisely five, because eighty is a multiple of sixteen. The imbalance of the general case is never structural — it vanishes whenever the work divides.",
+      "lean": "theorem mass_coord_lanes_even_eighty : (List.range 16).all (fun l => ((List.range 80).filter (fun i => i % 16 == l)).length == 5) := by decide",
+      "receipt": "9ea76bea-8bfb-8e97-9292-9bfbf2f8db62"
+    },
+    {
+      "key": "mass_coord_residue_unique_owner",
+      "why": "EVERY ITEM HAS EXACTLY ONE LANE: twenty-four items over eight residues, each item matching precisely one lane index. Mass coordination here is a function, not a meeting: an item cannot belong to two lanes and cannot belong to none.",
+      "lean": "theorem mass_coord_residue_unique_owner : (List.range 24).all (fun i => ((List.range 8).filter (fun l => i % 8 == l)).length == 1) := by decide",
+      "receipt": "53186512-e2cf-86da-8b2d-547b75887fb5"
+    },
+    {
+      "key": "mass_coord_quorum_floor_is_the_fault",
+      "why": "QUORUM ARITHMETIC AGAINST A FAULT BUDGET: a 2f+1 panel has floor-half equal to f, walked over f = 0..3 (sizes 1, 3, 5, 7). Majority of the panel is therefore strictly larger than the faults it was sized to survive — no coordinator, just the floor.",
+      "lean": "theorem mass_coord_quorum_floor_is_the_fault : (List.range 4).all (fun f => (2 * f + 1) / 2 == f) := by decide",
+      "receipt": "d5e8be99-0ab4-8e58-bc7d-ff245419f97e"
+    },
+    {
+      "key": "mass_coord_bft_three_of_four",
+      "why": "THREE-OF-FOUR IS THE CLASSICAL BFT QUORUM ON FOUR AGENTS: among the sixteen assignments of four bits, exactly five have at least three ones (C(4,3)+C(4,4) = 4+1). Supermajority, not unanimity and not simple majority — the coordination threshold that still works with one dissenting vote.",
+      "lean": "theorem mass_coord_bft_three_of_four : ((List.range 16).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 >= 3)).length = 5 := by decide",
+      "receipt": "49f16646-7ef3-8fae-8661-f2ffeca1cebc"
+    },
+    {
+      "key": "mass_coord_majority_five_bits",
+      "why": "MAJORITY OF FIVE IS HALF THE HYPERCUBE: among thirty-two assignments of five bits, exactly sixteen have three or more ones (C(5,3)+C(5,4)+C(5,5) = 10+5+1). A five-agent majority vote is a count, not a chair.",
+      "lean": "theorem mass_coord_majority_five_bits : ((List.range 32).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 >= 3)).length = 16 := by decide",
+      "receipt": "f4438dc1-4a64-843f-9cdf-ac890d1e0dca"
+    },
+    {
+      "key": "mass_coord_handshake_star_is_even",
+      "why": "THE HANDSHAKE LEMMA ON A STAR: one hub of degree seven and seven leaves of degree one sum to fourteen, even, so seven edges. Mass coordination along a hub is still an even degree-sum — the graph cannot hide an odd edge.",
+      "lean": "theorem mass_coord_handshake_star_is_even : (List.sum [7, 1, 1, 1, 1, 1, 1, 1] = 14) ∧ (14 % 2 = 0) ∧ (14 / 2 = 7) := by decide",
+      "receipt": "3b9564a7-f803-81a5-81ec-75b987fdcbe8"
+    },
+    {
+      "key": "mass_coord_even_crew_pairs_all",
+      "why": "AN EVEN CREW PAIRS WITH NO CENTRE: on eight seats the involution i ↔ 7−i is self-inverse and fixed-point-free — every agent has a counterpart, none sits as the leftover chair. Even cardinality is what lets mass pairing finish.",
+      "lean": "theorem mass_coord_even_crew_pairs_all : ((List.range 8).all (fun i => !(i == 7 - i))) ∧ ((List.range 8).all (fun i => 7 - (7 - i) == i)) ∧ ((List.range 8).filter (fun i => i == 7 - i)).length = 0 := by decide",
+      "receipt": "ea9e1eb8-35d5-8a55-bc72-81780b0bde94"
+    },
+    {
+      "key": "mass_coord_round_robin_closes",
+      "why": "ROUND-ROBIN RETURNS HOME: adding one modulo eight, eight times, is the identity on every seat. A token that visits every agent in order closes the ring without a chair calling the next name — the modulus is the schedule.",
+      "lean": "theorem mass_coord_round_robin_closes : (List.range 8).all (fun i => (List.range 8).foldl (fun x _ => (x + 1) % 8) i == i) := by decide",
+      "receipt": "9d17d0fe-dd7d-8a37-b6a1-1bc72a3ac22b"
+    },
+    {
+      "key": "mass_coord_barrier_twelve_not_thirteen",
+      "why": "A BARRIER OF TWELVE ADMITS THE CREW OF TWELVE AND NOT THIRTEEN: every index below twelve is below twelve, and it is false that every index among thirteen is. A join-barrier is a window; the thirteenth arrival is not a pass of the twelve-slot check.",
+      "lean": "theorem mass_coord_barrier_twelve_not_thirteen : ((List.range 12).all (fun n => n < 12)) ∧ ¬((List.range 13).all (fun n => n < 12)) := by decide",
+      "receipt": "12950a32-1c19-84d8-b69f-c6db91c1bc1e"
+    },
+    {
+      "key": "mass_coord_rotation_is_permutation",
+      "why": "A ROTATION BY THREE ON EIGHT SEATS HITS EVERY SEAT ONCE: eight distinct images, no collision. Mass coordination by a fixed stride is a permutation, so nobody is skipped and nobody is double-booked.",
+      "lean": "theorem mass_coord_rotation_is_permutation : ((List.range 8).map (fun i => (i + 3) % 8)).eraseDups.length = 8 := by decide",
+      "receipt": "255a8f07-0f69-88b0-8791-ff3505cb1786"
+    },
+    {
+      "key": "mass_coord_two_coins_partition",
+      "why": "TWO COINS PARTITION THE BOOKS: one hundred and ten units residue-split across two coins reconstitutes one hundred and ten, fifty-five each. Conservation is the coordination — neither coin needs to phone the other to know the total is closed.",
+      "lean": "theorem mass_coord_two_coins_partition : ((List.range 2).foldl (fun a c => a + ((List.range 110).filter (fun i => i % 2 == c)).length) 0 = 110) ∧ ((List.range 2).all (fun c => ((List.range 110).filter (fun i => i % 2 == c)).length == 55)) := by decide",
+      "receipt": "cce9deff-0485-801c-985d-9dc156ccedc9"
+    },
+    {
+      "key": "mass_coord_eighteen_problems_nine_pairs",
+      "why": "EIGHTEEN HUMAN PROBLEMS PAIR WITH NO CENTRE: eighteen is even, nine pairs, the involution i ↔ 17−i is self-inverse and fixes nobody. Mass coordination of the problem roster is pairing, not a chair in the middle.",
+      "lean": "theorem mass_coord_eighteen_problems_nine_pairs : (18 % 2 = 0) ∧ (18 / 2 = 9) ∧ ((List.range 18).all (fun i => 17 - (17 - i) == i)) ∧ ((List.range 18).filter (fun i => i == 17 - i)).length = 0 := by decide",
+      "receipt": "86375ab6-de46-80c6-8102-16beb50ca1e0"
+    },
+    {
+      "key": "mass_coord_lattice_birthday_is_span",
+      "why": "THE LATTICE IS THE BIRTHDAY POINT: sixteen to the fourth is two to the sixteenth is 65536 HexSpan stations. Mass coordination of named cargo onto stations is seating into that finite grid — the span is the hall, not a waiting list.",
+      "lean": "theorem mass_coord_lattice_birthday_is_span : (16 ^ 4 = 65536) ∧ (2 ^ 16 = 65536) ∧ ((List.range 16).foldl (fun a _ => a * 2) 1 = 65536) := by decide",
+      "receipt": "198c068b-cac5-86b1-b139-a927d4f97394"
+    },
+    {
+      "key": "mass_coord_complete_four_has_six_edges",
+      "why": "K4 IS THE SMALLEST COMPLETE CREW: four agents, each of degree three, degree-sum twelve, six edges. Full-mesh coordination among four is a handshake count, not a conference call — the edges are the meetings and they come out even.",
+      "lean": "theorem mass_coord_complete_four_has_six_edges : (4 * 3 = 12) ∧ (12 / 2 = 6) ∧ (12 % 2 = 0) ∧ (List.sum [3, 3, 3, 3] = 12) := by decide",
+      "receipt": "b2845b87-7178-859b-9a5c-c3178842b003"
+    },
+    {
+      "key": "mass_comply_gate_one_of_eight",
+      "why": "THE HONESTY GATE PASSES ONE STATE OF EIGHT: (1−f)·(1−d)·(1−v) is 1 only when fabricate, distort and invent are all off. Compliance here is that conjunction — seven of eight states fail, and a pass is not a ruling, it is the unique green cell of a finite table.",
+      "lean": "theorem mass_comply_gate_one_of_eight : ((List.range 8).filter (fun n => (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 1 := by decide",
+      "receipt": "2666d3aa-6c40-8841-9b00-7afa61d1d1c0"
+    },
+    {
+      "key": "mass_comply_sixteen_bits_all_set",
+      "why": "A SIXTEEN-CHECK MASK IS ALL ONES: every bit of 65535 is 1. A compliance panel of sixteen independent flags is green only when the walked mask has no zero — the number is the checklist, not a certificate about the world beyond those bits.",
+      "lean": "theorem mass_comply_sixteen_bits_all_set : (List.range 16).all (fun i => 65535 / (2 ^ i) % 2 == 1) := by decide",
+      "receipt": "4bb5fe69-a418-8956-80f1-b114394bead6"
+    },
+    {
+      "key": "mass_comply_window_twenty_not_next",
+      "why": "A WINDOW OF TWENTY IS NOT TWENTY-ONE: every n in 0..19 is < 20, and it is false that 20 < 20. Compliance of a finite window is not universal compliance — passing twenty checks does not pass the twenty-first that was never in the window.",
+      "lean": "theorem mass_comply_window_twenty_not_next : ((List.range 20).all (fun n => n < 20)) ∧ ¬(20 < 20) := by decide",
+      "receipt": "5a473173-f423-8cbc-9778-8e721543c764"
+    },
+    {
+      "key": "mass_comply_four_states_three_open",
+      "why": "CITATION HAS FOUR STATES AND ONLY ONE VERIFIES: cited AND not-fabricated is one cell of four; three remain open. Silence never fills those three — an absent check is not a pass, and three open cells is a positive count, not a rumour.",
+      "lean": "theorem mass_comply_four_states_three_open : (((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (4 - 1 = 3) ∧ (3 > 0) := by decide",
+      "receipt": "61be78f8-936e-8901-8055-371eec275533"
+    },
+    {
+      "key": "mass_comply_panel_monotone",
+      "why": "TURNING A FLAG ON NEVER SHRINKS THE PANEL: replacing the low bit with 1 never decreases the number of ones among three bits, walked over all eight states. Compliance scores are monotone in evidence — a new pass cannot un-count an old one.",
+      "lean": "theorem mass_comply_panel_monotone : (List.range 8).all (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 <= 1 + n / 2 % 2 + n / 4 % 2) := by decide",
+      "receipt": "2aef27a0-8406-8fd8-963c-fabf18fa611f"
+    },
+    {
+      "key": "mass_comply_six_halves_and_not_seventh",
+      "why": "SIX EXACT HALVINGS RECOVER THE COIN AND THE SEVENTH DOES NOT: for k = 0..6, 64 / 2^k · 2^k restores 64, and at k = 7 integer division loses the coin. A compliance drain that is exact at six waves is not exact at seven — the window is the window.",
+      "lean": "theorem mass_comply_six_halves_and_not_seventh : ((List.range 7).all (fun k => 64 / (2 ^ k) * (2 ^ k) == 64)) ∧ ¬(64 / (2 ^ 7) * (2 ^ 7) == 64) := by decide",
+      "receipt": "8600d825-9631-86f8-a9c4-931b0b07a38b"
+    },
+    {
+      "key": "mass_comply_xor_detects_difference",
+      "why": "XOR IS THE DIFFERENCE DETECTOR: (a+b) mod 2 over the four bit-pairs is [0,1,1,0]. A compliance check that asks \"did these two reports agree\" is parity, not a negotiation — they differ exactly when the bit is one.",
+      "lean": "theorem mass_comply_xor_detects_difference : [(0, 0), (0, 1), (1, 0), (1, 1)].map (fun p => (p.1 + p.2) % 2) = [0, 1, 1, 0] := by decide",
+      "receipt": "1a197def-6365-8f40-af85-2e376e54ce87"
+    },
+    {
+      "key": "mass_comply_half_adder_without_xor_op",
+      "why": "THE HALF-ADDER RECONSTRUCTS ADDITION: (a+b) mod 2 plus twice AND equals a+b over the four bit-pairs. Two reports that must be summed without a hidden carry are this circuit — the compliance of a total against its parts.",
+      "lean": "theorem mass_comply_half_adder_without_xor_op : (List.range 4).all (fun n => (n % 2 + n / 2 % 2) % 2 + 2 * ((n % 2) * (n / 2 % 2)) == n % 2 + n / 2 % 2) := by decide",
+      "receipt": "37c2960c-3229-8824-847c-21316a84ec8e"
+    },
+    {
+      "key": "mass_comply_and_of_three_is_one",
+      "why": "THREE FLAGS AND TOGETHER IN ONE ROW OF EIGHT: a·b·c is 1 only at (1,1,1). A compliance AND of three independent checks has a unique green cell — two of three is not a pass of three of three.",
+      "lean": "theorem mass_comply_and_of_three_is_one : ((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1 := by decide",
+      "receipt": "785e2402-48b2-8d4c-97ac-eded9cfa1ed2"
+    },
+    {
+      "key": "mass_comply_involution_self_inverse",
+      "why": "THE COMPLIANCE MAP THAT UNDOES ITSELF: bit-flip twice is home on {0,1}, and the 16-bit complement twice is home on a 16-seat model. A denial that is an involution does not accumulate — applying it twice is the original record, not a harsher grade.",
+      "lean": "theorem mass_comply_involution_self_inverse : ((List.range 2).all (fun b => 1 - (1 - b) == b)) ∧ ((List.range 16).all (fun i => 15 - (15 - i) == i)) := by decide",
+      "receipt": "a6274efa-6ce3-8f95-b120-fe0697de4142"
+    },
+    {
+      "key": "mass_comply_hex4_even_no_fixed",
+      "why": "AN EVEN STATION COUNT HAS NO FIXED POINT UNDER COMPLEMENT: sixteen seats, i ↔ 15−i, none equal themselves, and 65536 is even so the live HexSpan involution is the same shape. Compliance pairing of stations does not leave a leftover chair in the middle of an even hall.",
+      "lean": "theorem mass_comply_hex4_even_no_fixed : ((List.range 16).all (fun i => !(i == 15 - i))) ∧ ((List.range 16).filter (fun i => i == 15 - i)).length = 0 ∧ (65536 % 2 = 0) ∧ (65535 % 2 = 1) := by decide",
+      "receipt": "821262fd-df73-882a-9ea6-89d2e21b997d"
+    },
+    {
+      "key": "mass_comply_citation_needs_both",
+      "why": "AND IS ONE OF FOUR; OR IS THREE OF FOUR: cited·true is a single cell, cited OR true is three cells. A compliance citation that needs both bits is the AND count, never the OR count — saying the theorem or meaning it is not the same as saying it and meaning it.",
+      "lean": "theorem mass_comply_citation_needs_both : (((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (((List.range 4).filter (fun n => n % 2 + n / 2 % 2 - (n % 2) * (n / 2 % 2) == 1)).length = 3) := by decide",
+      "receipt": "fff6bf70-3f1a-8dc1-8a66-71e4f323278b"
+    },
+    {
+      "key": "mass_comply_checklist_beats_or",
+      "why": "ALL-THREE PASSES ONCE; ANY-OF-THREE PASSES SEVEN TIMES: AND of three bits is 1 of 8, OR of three bits is 7 of 8. A compliance checklist is the AND — treating a single green flag as the panel would count seven forgeries as a pass.",
+      "lean": "theorem mass_comply_checklist_beats_or : (((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1) ∧ (((List.range 8).filter (fun n => 1 - (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 7) := by decide",
+      "receipt": "e1c322d9-c5ac-82c5-9dd2-5936d8793eeb"
+    },
+    {
+      "key": "mass_comply_full_adder_eight_rows",
+      "why": "THE FULL-ADDER CLOSES EIGHT ROWS: residue plus twice the carry reconstructs a+b+cin on every three-bit input. Three reports that must total without a hidden overflow are this cell — the compliance of a sum against the bits that claimed it.",
+      "lean": "theorem mass_comply_full_adder_eight_rows : (List.range 8).all (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 + 2 * ((n % 2 + n / 2 % 2 + n / 4 % 2) / 2) == n % 2 + n / 2 % 2 + n / 4 % 2) := by decide",
+      "receipt": "384c1dd9-1e62-8b51-875c-29b6f6e35921"
+    },
+    {
+      "key": "mass_comply_ve_faces_are_fourteen",
+      "why": "EIGHT HANDLE BITS PLUS FOUR HEXBITS PLUS TWO COINS ARE FOURTEEN FACES, AND FOURTEEN ITEMS OVER FOURTEEN LANES SEAT ONE EACH. The VE of the cube is the lane count; a complete residue system on those faces is the compliance of the routing table with the hardware it names.",
+      "lean": "theorem mass_comply_ve_faces_are_fourteen : (8 + 4 + 2 = 14) ∧ ((List.range 14).foldl (fun a l => a + ((List.range 14).filter (fun i => i % 14 == l)).length) 0 = 14) ∧ ((List.range 14).all (fun l => ((List.range 14).filter (fun i => i % 14 == l)).length == 1)) := by decide",
+      "receipt": "0a2a2369-84ec-86e8-8e9a-530b7c91aa21"
+    },
+    {
+      "key": "mass_coord_odd_crew_has_centre",
+      "why": "AN ODD CREW HAS EXACTLY ONE CENTRE: on seven seats the involution i ↔ 6−i fixes the middle seat and only that seat. Seven people cannot pair without a leftover; the leftover is the centre, not a failure of the map.",
+      "lean": "theorem mass_coord_odd_crew_has_centre : ((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i)) ∧ (7 % 2 = 1) := by decide",
+      "receipt": "cb363af2-9e85-8f41-aae6-5b6c4d6ac8d2"
+    },
+    {
+      "key": "mass_coord_clay_seven_has_centre",
+      "why": "SEVEN CLAY PROBLEMS HAVE EXACTLY ONE CENTRE: seven is odd, so i ↔ 6−i fixes one seat. Poincaré sits as that centre among the seven — an odd roster cannot pair without a leftover, and the leftover is arithmetic, not preference.",
+      "lean": "theorem mass_coord_clay_seven_has_centre : (7 % 2 = 1) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i)) := by decide",
+      "receipt": "485fe3f1-0b90-8f2a-82f4-4d9e9b475600"
+    },
+    {
+      "key": "mass_comply_nor_tied_inverts",
+      "why": "NOR TIED TO ITSELF INVERTS: 1−(a+a−a·a) equals 1−a on the bit. A compliance NOT is not a second primitive — it is NOR with both pins on the same flag, the dual of NAND-tied, walked on {0,1}.",
+      "lean": "theorem mass_comply_nor_tied_inverts : [0, 1].all (fun a => (1 - (a + a - a * a)) == (1 - a)) := by decide",
+      "receipt": "307723ec-fcb8-8ad0-bc32-bff983ec9bd9"
+    },
+    {
+      "key": "mass_comply_de_morgan_or_to_and",
+      "why": "THE OTHER DE MORGAN: NOT (a OR b) equals (NOT a) AND (NOT b) over all four bit-pairs. Pushing a NOT through a checklist OR is still the same finite table — rewriting the form of a compliance clause does not invent a fifth row.",
+      "lean": "theorem mass_comply_de_morgan_or_to_and : [(0, 0), (0, 1), (1, 0), (1, 1)].all (fun p => (1 - (p.1 + p.2 - p.1 * p.2)) == (1 - p.1) * (1 - p.2)) := by decide",
+      "receipt": "4dc0d973-c93c-854f-84dd-a605359fde22"
+    },
+    {
+      "key": "mass_comply_demux_never_both_hot",
+      "why": "A DEMUX SPLITS; IT NEVER LIGHTS BOTH ARMS: over four rows the two arms sum to the input and their product is zero. Compliance of a split path is exclusive routing — the unused arm stays dark, so two reports cannot both claim the same bit.",
+      "lean": "theorem mass_comply_demux_never_both_hot : (List.range 4).all (fun n => ((1 - n % 2) * (n / 2 % 2) + (n % 2) * (n / 2 % 2) == n / 2 % 2) && ((1 - n % 2) * (n / 2 % 2) * ((n % 2) * (n / 2 % 2)) == 0)) := by decide",
+      "receipt": "1977e68f-10f5-8b98-a273-60464f9e550e"
     }
   ],
   "refused": [

@@ -1,0 +1,12 @@
+{
+  "handle": "73ec4bcc",
+  "address": "73ec4bcc-91fc-8dee-b725-a34eb9dfc1be",
+  "kind": "chunk",
+  "keys": [
+    "the_two_axes_are_a_minimum_and_a_maximum"
+  ],
+  "statement": "(([7,3,9].foldl (fun m v => if v < m then v else m) 7) >= ([7,3,9,4,12,5].foldl (fun m v => if v < m then v else m) 7)) ∧ (([7,3,9].foldl (fun m v => if v > m then v else m) 7) <= ([7,3,9,4,12,5].foldl (fun m v => if v > m then v else m) 7))",
+  "files": [
+    "QuantumCube.lean"
+  ]
+}

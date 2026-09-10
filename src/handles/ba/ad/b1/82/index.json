@@ -1,0 +1,12 @@
+{
+  "handle": "baadb182",
+  "address": "baadb182-27fc-812c-b6e4-b806f07516c1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2f5c"
+  ],
+  "statement": "reassembles 12124 = true ∧ castsFifteens 12124 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

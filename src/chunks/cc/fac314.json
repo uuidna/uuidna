@@ -1,0 +1,12 @@
+{
+  "handle": "ccfac314",
+  "address": "ccfac314-8a84-88d0-bee5-8ea1f4d13508",
+  "statement": "reassembles 53210 = true ∧ castsFifteens 53210 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cfda"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dda6240d",
+  "address": "dda6240d-69c4-80fa-adb6-00375f2fcd47",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_95b4"
+  ],
+  "statement": "reassembles 38324 = true ∧ castsFifteens 38324 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "21500bd4",
+  "address": "21500bd4-6753-8c7e-8186-6ed15d166793",
+  "kind": "chunk",
+  "keys": [
+    "verification_delivers_work_it_never_performs"
+  ],
+  "statement": "[10,20,30,40,50].all (fun k => 2 ^ k > 32) ∧ (2 ^ 50 / 32 > 2 ^ 40 / 32) ∧ (2 ^ 40 / 32 > 2 ^ 30 / 32) ∧ (2 ^ 30 / 32 > 2 ^ 20 / 32)",
+  "files": [
+    "Refusion.lean"
+  ]
+}

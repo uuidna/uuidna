@@ -1,0 +1,12 @@
+{
+  "handle": "f1221fba",
+  "address": "f1221fba-b430-8701-ba02-7eb29d824400",
+  "statement": "reassembles 32237 = true ∧ castsFifteens 32237 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7ded"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

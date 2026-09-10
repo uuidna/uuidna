@@ -1,0 +1,12 @@
+{
+  "handle": "dab0620c",
+  "address": "dab0620c-92f4-8f91-8c34-f5a00f15e72f",
+  "statement": "reassembles 16674 = true ∧ castsFifteens 16674 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4122"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

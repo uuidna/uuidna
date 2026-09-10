@@ -1,0 +1,12 @@
+{
+  "handle": "edb1ab15",
+  "address": "edb1ab15-b6bd-881c-9142-d978fcba3d96",
+  "statement": "reassembles 5010 = true ∧ castsFifteens 5010 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1392"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

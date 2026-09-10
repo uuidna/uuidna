@@ -1,0 +1,12 @@
+{
+  "handle": "f98617bb",
+  "address": "f98617bb-2793-84da-a2c3-c93038853017",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7993"
+  ],
+  "statement": "reassembles 31123 = true ∧ castsFifteens 31123 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

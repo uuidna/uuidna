@@ -1,0 +1,12 @@
+{
+  "handle": "fcf780d1",
+  "address": "fcf780d1-24dc-8636-a431-601c3d175e2e",
+  "statement": "reassembles 64866 = true ∧ castsFifteens 64866 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fd62"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fcac3462",
+  "address": "fcac3462-da0b-8321-a25c-7ca1ba8f7f30",
+  "statement": "reassembles 64892 = true ∧ castsFifteens 64892 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fd7c"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ddb9bf1a",
+  "address": "ddb9bf1a-e3ed-8352-aae6-f4c612efaaad",
+  "statement": "reassembles 44471 = true ∧ castsFifteens 44471 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_adb7"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

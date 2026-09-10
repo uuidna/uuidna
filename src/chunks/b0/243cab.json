@@ -1,0 +1,12 @@
+{
+  "handle": "b0243cab",
+  "address": "b0243cab-24dc-83bd-9c4c-4421d03ce8a2",
+  "statement": "reassembles 38981 = true ∧ castsFifteens 38981 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9845"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

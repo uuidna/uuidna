@@ -1,0 +1,12 @@
+{
+  "handle": "d776818a",
+  "address": "d776818a-9a5c-8e0c-9e8f-33d0b9a76380",
+  "statement": "(List.range 4).all (fun n => (n % 2 + n / 2 % 2) % 2 + 2 * ((n % 2) * (n / 2 % 2)) == n % 2 + n / 2 % 2)",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_half_adder_without_xor_op"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

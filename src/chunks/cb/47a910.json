@@ -1,0 +1,12 @@
+{
+  "handle": "cb47a910",
+  "address": "cb47a910-e666-8381-9076-ab3d62e93354",
+  "statement": "reassembles 64844 = true ∧ castsFifteens 64844 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fd4c"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

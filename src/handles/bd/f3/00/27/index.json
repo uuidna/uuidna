@@ -1,0 +1,12 @@
+{
+  "handle": "bdf30027",
+  "address": "bdf30027-33c8-8389-a525-9cba3969db0e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_cedd"
+  ],
+  "statement": "reassembles 52957 = true ∧ castsFifteens 52957 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

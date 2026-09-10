@@ -1,0 +1,12 @@
+{
+  "handle": "cadd878e",
+  "address": "cadd878e-7f73-8acf-9395-c48c1cb6dff1",
+  "statement": "reassembles 54301 = true ∧ castsFifteens 54301 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d41d"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

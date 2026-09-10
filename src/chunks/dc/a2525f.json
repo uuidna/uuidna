@@ -1,0 +1,12 @@
+{
+  "handle": "dca2525f",
+  "address": "dca2525f-9200-8784-ae70-3ce4773ce905",
+  "statement": "reassembles 37213 = true ∧ castsFifteens 37213 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_915d"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "daeb1900",
+  "address": "daeb1900-3b1e-8fad-81f9-26320dc66340",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a4db"
+  ],
+  "statement": "reassembles 42203 = true ∧ castsFifteens 42203 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

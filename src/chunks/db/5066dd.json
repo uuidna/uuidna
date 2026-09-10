@@ -1,0 +1,12 @@
+{
+  "handle": "db5066dd",
+  "address": "db5066dd-0d3e-8ca8-a961-3f3976dd4b77",
+  "statement": "reassembles 44712 = true ∧ castsFifteens 44712 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_aea8"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

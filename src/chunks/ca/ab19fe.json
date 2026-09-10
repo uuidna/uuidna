@@ -1,0 +1,12 @@
+{
+  "handle": "caab19fe",
+  "address": "caab19fe-b284-8ca8-88a1-29f5b3c362bc",
+  "statement": "reassembles 43874 = true ∧ castsFifteens 43874 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ab62"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

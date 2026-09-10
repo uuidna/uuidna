@@ -1,0 +1,12 @@
+{
+  "handle": "fcb3752a",
+  "address": "fcb3752a-7d80-86ed-9660-9b18370c8ac6",
+  "statement": "reassembles 44986 = true ∧ castsFifteens 44986 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_afba"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

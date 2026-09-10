@@ -1,0 +1,12 @@
+{
+  "handle": "9788cfa8",
+  "address": "9788cfa8-166d-837c-b5f5-d0c08eae8736",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_61ea"
+  ],
+  "statement": "reassembles 25066 = true ∧ castsFifteens 25066 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

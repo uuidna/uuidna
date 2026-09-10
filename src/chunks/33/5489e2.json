@@ -1,0 +1,12 @@
+{
+  "handle": "335489e2",
+  "address": "335489e2-f938-8031-a58d-0cf61f33197f",
+  "statement": "(List.range 5).all (fun i => (nth solidV (nth dualIx i) == nth solidF i) && (nth solidF (nth dualIx i) == nth solidV i) && (nth solidE (nth dualIx i) == nth solidE i) && (nth solidP (nth dualIx i) == nth solidQ i) && (nth solidQ (nth dualIx i) == nth solidP i))",
+  "tactic": "decide",
+  "keys": [
+    "duality_swaps_vertices_and_faces"
+  ],
+  "files": [
+    "Platonic.lean"
+  ]
+}

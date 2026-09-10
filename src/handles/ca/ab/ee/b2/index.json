@@ -1,0 +1,12 @@
+{
+  "handle": "caabeeb2",
+  "address": "caabeeb2-80b3-8e02-91d6-e65df5e40127",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_025c"
+  ],
+  "statement": "reassembles 604 = true ∧ castsFifteens 604 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

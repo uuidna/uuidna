@@ -1,0 +1,12 @@
+{
+  "handle": "cadd8970",
+  "address": "cadd8970-a0ac-8a2c-9cb7-28e3aa4f3e6e",
+  "statement": "reassembles 23629 = true ∧ castsFifteens 23629 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5c4d"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

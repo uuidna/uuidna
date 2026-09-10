@@ -1,0 +1,12 @@
+{
+  "handle": "fda4a624",
+  "address": "fda4a624-8f58-829c-95e0-9e0e5431d98a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_81d3"
+  ],
+  "statement": "reassembles 33235 = true ∧ castsFifteens 33235 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

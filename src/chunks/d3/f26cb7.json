@@ -1,0 +1,12 @@
+{
+  "handle": "d3f26cb7",
+  "address": "d3f26cb7-ca7d-8a10-8b82-1fcfe91712b4",
+  "statement": "[(8,9,8),(8,40,8),(8,128,8),(4,4,4),(10,3,3),(10,300,10)].all (fun t => (if t.1 <= t.2.1 then t.1 else t.2.1) == t.2.2)",
+  "tactic": "decide",
+  "keys": [
+    "buying_the_point_that_does_not_bind_buys_nothing"
+  ],
+  "files": [
+    "QuantumCube.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dcc25bed",
+  "address": "dcc25bed-85a6-821e-814f-a6af40d2cdef",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_17bd"
+  ],
+  "statement": "reassembles 6077 = true ∧ castsFifteens 6077 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

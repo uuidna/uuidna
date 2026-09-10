@@ -1,0 +1,12 @@
+{
+  "handle": "bea200aa",
+  "address": "bea200aa-cc1d-8497-abaa-73f565798c04",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_d2ff"
+  ],
+  "statement": "reassembles 54015 = true ∧ castsFifteens 54015 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

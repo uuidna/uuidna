@@ -1,0 +1,12 @@
+{
+  "handle": "bf207caf",
+  "address": "bf207caf-045a-8fdc-8b1e-fb13bf698c34",
+  "statement": "reassembles 31164 = true ∧ castsFifteens 31164 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_79bc"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

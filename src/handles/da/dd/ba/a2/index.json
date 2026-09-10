@@ -1,0 +1,12 @@
+{
+  "handle": "daddbaa2",
+  "address": "daddbaa2-475f-81ed-b9a3-427fabf5cf48",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b555"
+  ],
+  "statement": "reassembles 46421 = true ∧ castsFifteens 46421 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

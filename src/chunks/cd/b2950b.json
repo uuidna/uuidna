@@ -1,0 +1,12 @@
+{
+  "handle": "cdb2950b",
+  "address": "cdb2950b-db21-86dd-af0a-1998d6640013",
+  "statement": "reassembles 5148 = true ∧ castsFifteens 5148 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_141c"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cfdb1920",
+  "address": "cfdb1920-8248-8f46-87de-8f020baca49a",
+  "statement": "reassembles 43288 = true ∧ castsFifteens 43288 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a918"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

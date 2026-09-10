@@ -1,0 +1,12 @@
+{
+  "handle": "3442b8a2",
+  "address": "3442b8a2-cd9b-82f3-8f3f-358d41c479ab",
+  "kind": "chunk",
+  "keys": [
+    "one_point_can_only_overstate_1"
+  ],
+  "statement": "[(2,1),(2,2),(2,3),(2,4),(2,6),(2,8),(2,12),(2,20),(2,40),(2,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w)))",
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

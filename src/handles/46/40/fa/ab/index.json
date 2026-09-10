@@ -1,0 +1,12 @@
+{
+  "handle": "4640faab",
+  "address": "4640faab-4f0f-8b7e-89c2-962a7c1ccaef",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_full_adder_eight_rows"
+  ],
+  "statement": "(List.range 8).all (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 + 2 * ((n % 2 + n / 2 % 2 + n / 4 % 2) / 2) == n % 2 + n / 2 % 2 + n / 4 % 2)",
+  "files": [
+    "Wave.lean"
+  ]
+}

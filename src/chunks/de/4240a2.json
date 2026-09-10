@@ -1,0 +1,12 @@
+{
+  "handle": "de4240a2",
+  "address": "de4240a2-46c3-8726-a01b-b0cc85b190d7",
+  "statement": "reassembles 61990 = true ∧ castsFifteens 61990 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f226"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

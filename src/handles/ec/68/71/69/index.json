@@ -1,0 +1,12 @@
+{
+  "handle": "ec687169",
+  "address": "ec687169-c2b6-8f9c-a006-a1adee38645e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1f73"
+  ],
+  "statement": "reassembles 8051 = true ∧ castsFifteens 8051 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

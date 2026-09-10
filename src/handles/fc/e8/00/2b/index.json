@@ -1,0 +1,12 @@
+{
+  "handle": "fce8002b",
+  "address": "fce8002b-699d-81d8-87ee-0d8e0ffaa323",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_adeb"
+  ],
+  "statement": "reassembles 44523 = true ∧ castsFifteens 44523 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

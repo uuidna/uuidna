@@ -1,0 +1,12 @@
+{
+  "handle": "abeadcfb",
+  "address": "abeadcfb-3738-8d80-888a-820fe286e42e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_3bc6"
+  ],
+  "statement": "reassembles 15302 = true ∧ castsFifteens 15302 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dadab699",
+  "address": "dadab699-4bb5-80cc-a2ec-199e62c99644",
+  "statement": "reassembles 29720 = true ∧ castsFifteens 29720 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7418"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cee2dc64",
+  "address": "cee2dc64-304d-8540-9fa1-94ac14d0e252",
+  "statement": "reassembles 56359 = true ∧ castsFifteens 56359 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_dc27"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

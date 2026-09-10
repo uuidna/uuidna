@@ -1,0 +1,12 @@
+{
+  "handle": "a24153fc",
+  "address": "a24153fc-a55f-845d-a028-200ff12d123f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_19f6"
+  ],
+  "statement": "reassembles 6646 = true ∧ castsFifteens 6646 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

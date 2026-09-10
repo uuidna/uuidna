@@ -1,0 +1,12 @@
+{
+  "handle": "edea5087",
+  "address": "edea5087-ffdf-8196-bea2-120c77179e1e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7d7d"
+  ],
+  "statement": "reassembles 32125 = true ∧ castsFifteens 32125 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

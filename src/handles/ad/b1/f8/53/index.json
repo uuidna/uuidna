@@ -1,0 +1,12 @@
+{
+  "handle": "adb1f853",
+  "address": "adb1f853-e182-8641-9cc6-0ef3c1742981",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0aaa"
+  ],
+  "statement": "reassembles 2730 = true ∧ castsFifteens 2730 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

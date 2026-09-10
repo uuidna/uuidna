@@ -1,0 +1,12 @@
+{
+  "handle": "0cad1630",
+  "address": "0cad1630-4559-8c5d-bfd7-43478d7320c5",
+  "statement": "reassembles 52345 = true ∧ castsFifteens 52345 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cc79"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

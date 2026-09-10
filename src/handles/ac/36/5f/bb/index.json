@@ -1,0 +1,12 @@
+{
+  "handle": "ac365fbb",
+  "address": "ac365fbb-e35b-8e71-8188-c05a7dc76cff",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0e86"
+  ],
+  "statement": "reassembles 3718 = true ∧ castsFifteens 3718 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

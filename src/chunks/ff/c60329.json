@@ -1,0 +1,12 @@
+{
+  "handle": "ffc60329",
+  "address": "ffc60329-29fc-82d7-9e82-ed6e9327e228",
+  "statement": "reassembles 26188 = true ∧ castsFifteens 26188 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_664c"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

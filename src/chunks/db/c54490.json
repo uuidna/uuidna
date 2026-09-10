@@ -1,0 +1,12 @@
+{
+  "handle": "dbc54490",
+  "address": "dbc54490-8f43-892f-ba27-ef5a9e8d1949",
+  "statement": "reassembles 19780 = true ∧ castsFifteens 19780 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4d44"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

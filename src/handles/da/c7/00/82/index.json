@@ -1,0 +1,12 @@
+{
+  "handle": "dac70082",
+  "address": "dac70082-21ad-8c32-8379-ff2ad2e38621",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8020"
+  ],
+  "statement": "reassembles 32800 = true ∧ castsFifteens 32800 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

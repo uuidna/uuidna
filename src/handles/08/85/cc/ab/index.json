@@ -1,0 +1,12 @@
+{
+  "handle": "0885ccab",
+  "address": "0885ccab-4254-876f-90a1-3281a3a553fd",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a9fd"
+  ],
+  "statement": "reassembles 43517 = true ∧ castsFifteens 43517 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

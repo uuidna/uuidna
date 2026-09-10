@@ -1,0 +1,12 @@
+{
+  "handle": "afc103a4",
+  "address": "afc103a4-4435-81ba-85e0-8203d8d4663e",
+  "statement": "reassembles 17380 = true ∧ castsFifteens 17380 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_43e4"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

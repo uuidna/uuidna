@@ -1,0 +1,12 @@
+{
+  "handle": "db4adf8e",
+  "address": "db4adf8e-28d3-842f-8ffd-bdd08fdc1ea1",
+  "statement": "reassembles 57253 = true ∧ castsFifteens 57253 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_dfa5"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

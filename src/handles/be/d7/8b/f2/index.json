@@ -1,0 +1,12 @@
+{
+  "handle": "bed78bf2",
+  "address": "bed78bf2-640d-8d25-bf84-2da6f4f390e5",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_d45b"
+  ],
+  "statement": "reassembles 54363 = true ∧ castsFifteens 54363 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

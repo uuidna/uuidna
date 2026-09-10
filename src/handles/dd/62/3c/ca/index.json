@@ -1,0 +1,12 @@
+{
+  "handle": "dd623cca",
+  "address": "dd623cca-5c6d-81c6-afa3-948192458274",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6d01"
+  ],
+  "statement": "reassembles 27905 = true ∧ castsFifteens 27905 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

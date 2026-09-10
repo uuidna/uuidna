@@ -1,0 +1,12 @@
+{
+  "handle": "fcdb8047",
+  "address": "fcdb8047-515a-80cc-8934-67476620d17a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_73df"
+  ],
+  "statement": "reassembles 29663 = true ∧ castsFifteens 29663 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

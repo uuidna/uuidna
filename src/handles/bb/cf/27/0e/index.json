@@ -1,0 +1,12 @@
+{
+  "handle": "bbcf270e",
+  "address": "bbcf270e-b172-8ebe-95bf-148efd45378b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e078"
+  ],
+  "statement": "reassembles 57464 = true ∧ castsFifteens 57464 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

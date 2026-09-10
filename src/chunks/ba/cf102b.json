@@ -1,0 +1,12 @@
+{
+  "handle": "bacf102b",
+  "address": "bacf102b-d19e-8b97-a53c-5c2c09eea264",
+  "statement": "reassembles 64886 = true ∧ castsFifteens 64886 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fd76"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

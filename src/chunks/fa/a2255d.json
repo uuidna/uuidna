@@ -1,0 +1,12 @@
+{
+  "handle": "faa2255d",
+  "address": "faa2255d-ede1-8a69-9e19-200f1f0c131d",
+  "statement": "reassembles 11279 = true ∧ castsFifteens 11279 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2c0f"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

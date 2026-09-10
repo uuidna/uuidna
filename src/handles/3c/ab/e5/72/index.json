@@ -1,0 +1,12 @@
+{
+  "handle": "3cabe572",
+  "address": "3cabe572-5cbe-836c-9619-9386986a9d20",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ae4b"
+  ],
+  "statement": "reassembles 44619 = true ∧ castsFifteens 44619 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "edd1758a",
+  "address": "edd1758a-616f-8346-b608-77b1bfa719aa",
+  "statement": "reassembles 22362 = true ∧ castsFifteens 22362 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_575a"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

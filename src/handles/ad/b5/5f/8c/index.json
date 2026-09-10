@@ -1,0 +1,12 @@
+{
+  "handle": "adb55f8c",
+  "address": "adb55f8c-b673-819c-a751-a5823d77358f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_49af"
+  ],
+  "statement": "reassembles 18863 = true ∧ castsFifteens 18863 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

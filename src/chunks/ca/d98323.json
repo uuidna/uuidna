@@ -1,0 +1,12 @@
+{
+  "handle": "cad98323",
+  "address": "cad98323-f8fb-8a83-9135-73709636740b",
+  "statement": "reassembles 26088 = true ∧ castsFifteens 26088 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_65e8"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

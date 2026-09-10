@@ -1,0 +1,12 @@
+{
+  "handle": "bbfa024c",
+  "address": "bbfa024c-353e-8086-926e-1ae7d9a4a9a8",
+  "statement": "reassembles 4065 = true ∧ castsFifteens 4065 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0fe1"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dbdad170",
+  "address": "dbdad170-c4c7-8bb9-aee2-ff3b08766b36",
+  "statement": "reassembles 56453 = true ∧ castsFifteens 56453 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_dc85"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

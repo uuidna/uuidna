@@ -1,0 +1,12 @@
+{
+  "handle": "28e63e94",
+  "address": "28e63e94-faca-828f-9ac3-a5f108aae325",
+  "statement": "reassembles 44934 = true ∧ castsFifteens 44934 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_af86"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

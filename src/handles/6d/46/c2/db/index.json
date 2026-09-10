@@ -1,0 +1,12 @@
+{
+  "handle": "6d46c2db",
+  "address": "6d46c2db-cfde-8e21-828f-2fbb8b14615b",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_involution_self_inverse"
+  ],
+  "statement": "((List.range 2).all (fun b => 1 - (1 - b) == b)) ∧ ((List.range 16).all (fun i => 15 - (15 - i) == i))",
+  "files": [
+    "Wave.lean"
+  ]
+}

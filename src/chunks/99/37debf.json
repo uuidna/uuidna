@@ -1,0 +1,12 @@
+{
+  "handle": "9937debf",
+  "address": "9937debf-247f-86cf-a923-7907f7207837",
+  "statement": "reassembles 38650 = true ∧ castsFifteens 38650 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_96fa"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

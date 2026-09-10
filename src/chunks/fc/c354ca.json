@@ -1,0 +1,12 @@
+{
+  "handle": "fcc354ca",
+  "address": "fcc354ca-989a-8dd7-b8d3-3287f63abb3a",
+  "statement": "reassembles 25381 = true ∧ castsFifteens 25381 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6325"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

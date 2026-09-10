@@ -1,0 +1,12 @@
+{
+  "handle": "b2c7b1fa",
+  "address": "b2c7b1fa-258a-88cb-997d-2ea15747e52d",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_citation_needs_both"
+  ],
+  "statement": "(((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (((List.range 4).filter (fun n => n % 2 + n / 2 % 2 - (n % 2) * (n / 2 % 2) == 1)).length = 3)",
+  "files": [
+    "Wave.lean"
+  ]
+}

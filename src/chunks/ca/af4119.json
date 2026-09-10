@@ -1,0 +1,12 @@
+{
+  "handle": "caaf4119",
+  "address": "caaf4119-7bb1-868f-a10b-a7502f19afea",
+  "statement": "reassembles 24536 = true ∧ castsFifteens 24536 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5fd8"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

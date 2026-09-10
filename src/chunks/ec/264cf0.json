@@ -1,0 +1,12 @@
+{
+  "handle": "ec264cf0",
+  "address": "ec264cf0-197f-8041-be70-656b010212db",
+  "statement": "reassembles 46441 = true ∧ castsFifteens 46441 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b569"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

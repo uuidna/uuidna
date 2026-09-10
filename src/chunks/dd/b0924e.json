@@ -1,0 +1,12 @@
+{
+  "handle": "ddb0924e",
+  "address": "ddb0924e-f413-8e2a-82cd-11f676735e45",
+  "statement": "reassembles 48759 = true ∧ castsFifteens 48759 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_be77"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

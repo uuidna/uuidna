@@ -1,0 +1,12 @@
+{
+  "handle": "faca4127",
+  "address": "faca4127-9597-85e6-9604-d67afaf35588",
+  "statement": "reassembles 20101 = true ∧ castsFifteens 20101 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4e85"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

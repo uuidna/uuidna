@@ -1,0 +1,12 @@
+{
+  "handle": "ec264cf0",
+  "address": "ec264cf0-197f-8041-be70-656b010212db",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b569"
+  ],
+  "statement": "reassembles 46441 = true ∧ castsFifteens 46441 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

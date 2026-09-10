@@ -1,0 +1,12 @@
+{
+  "handle": "ded160f3",
+  "address": "ded160f3-d230-800c-b510-ab1ad556b884",
+  "statement": "reassembles 4060 = true ∧ castsFifteens 4060 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0fdc"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

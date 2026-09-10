@@ -1,0 +1,12 @@
+{
+  "handle": "2fc300de",
+  "address": "2fc300de-ee0e-83dc-8f8e-a16863dae40f",
+  "statement": "reassembles 32171 = true ∧ castsFifteens 32171 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7dab"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

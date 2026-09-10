@@ -1,0 +1,12 @@
+{
+  "handle": "dc9796dc",
+  "address": "dc9796dc-f7da-8130-a525-37f5b7f0fe16",
+  "statement": "reassembles 65053 = true ∧ castsFifteens 65053 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fe1d"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

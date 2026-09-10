@@ -1,4 +1,44 @@
 {
-  "leads": [],
-  "receipt": "d540dc92-5f7f-8362-8c8d-632fd3a88ce6"
+  "leads": [
+    {
+      "module": "src/qpu-edge.ts",
+      "capability": [
+        "qpuDiscoveryOf",
+        "handleQpuFetch"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "b9068c9b-dde8-8c30-86dd-4d87a93924a6"
+    },
+    {
+      "module": "src/qpu-hologram.ts",
+      "capability": [
+        "QPU_HOST",
+        "QPU_POINTS",
+        "qpuSeatOf",
+        "qpuWidthOf",
+        "qpuHologramOf",
+        "qpuFacesOf",
+        "qpuMachineOf"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "b2bf65a7-86e2-886d-b3d1-1eb9af80aa8c"
+    }
+  ],
+  "receipt": "7e48b534-1a7f-8ff4-9ead-684732bacfbe"
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "04c0e2be",
+  "address": "04c0e2be-969c-8a26-ab7e-82c1297edc89",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_residue_unique_owner"
+  ],
+  "statement": "(List.range 24).all (fun i => ((List.range 8).filter (fun l => i % 8 == l)).length == 1)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "daf64be3",
+  "address": "daf64be3-378b-8441-854b-0c772df5452b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_c42f"
+  ],
+  "statement": "reassembles 50223 = true ∧ castsFifteens 50223 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

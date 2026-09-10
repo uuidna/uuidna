@@ -1,0 +1,12 @@
+{
+  "handle": "fda55dc5",
+  "address": "fda55dc5-356f-8c11-8df6-04dad50d91ce",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b00f"
+  ],
+  "statement": "reassembles 45071 = true ∧ castsFifteens 45071 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

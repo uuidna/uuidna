@@ -1,0 +1,12 @@
+{
+  "handle": "77556fab",
+  "address": "77556fab-a7cf-8ce1-b235-6e769d70c75b",
+  "statement": "reassembles 12530 = true ∧ castsFifteens 12530 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_30f2"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

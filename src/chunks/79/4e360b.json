@@ -1,0 +1,12 @@
+{
+  "handle": "794e360b",
+  "address": "794e360b-ce65-8696-aa54-971780950150",
+  "statement": "reassembles 43955 = true ∧ castsFifteens 43955 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_abb3"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

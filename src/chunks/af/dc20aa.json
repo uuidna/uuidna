@@ -1,0 +1,12 @@
+{
+  "handle": "afdc20aa",
+  "address": "afdc20aa-8e5b-8096-9250-37ecc8565dce",
+  "statement": "reassembles 33062 = true ∧ castsFifteens 33062 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8126"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

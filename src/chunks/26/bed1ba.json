@@ -1,0 +1,12 @@
+{
+  "handle": "26bed1ba",
+  "address": "26bed1ba-6926-8565-83c2-91a08de7a18f",
+  "statement": "reassembles 443 = true ∧ castsFifteens 443 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_01bb"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

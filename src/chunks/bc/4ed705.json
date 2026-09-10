@@ -1,0 +1,12 @@
+{
+  "handle": "bc4ed705",
+  "address": "bc4ed705-8227-8dcd-8a3e-cab3c2409ccd",
+  "statement": "reassembles 8086 = true ∧ castsFifteens 8086 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f96"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

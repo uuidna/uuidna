@@ -1,0 +1,12 @@
+{
+  "handle": "784bad3d",
+  "address": "784bad3d-e6f5-8d34-addb-3dfa80d0330f",
+  "statement": "reassembles 26007 = true ∧ castsFifteens 26007 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6597"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

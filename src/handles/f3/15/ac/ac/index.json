@@ -1,0 +1,12 @@
+{
+  "handle": "f315acac",
+  "address": "f315acac-b828-8495-88b3-73edefa7c748",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e01d"
+  ],
+  "statement": "reassembles 57373 = true ∧ castsFifteens 57373 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

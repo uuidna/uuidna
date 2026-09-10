@@ -1,0 +1,12 @@
+{
+  "handle": "ec7928f0",
+  "address": "ec7928f0-cec1-8e04-8553-f653dd0cc3bc",
+  "statement": "reassembles 61900 = true ∧ castsFifteens 61900 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f1cc"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

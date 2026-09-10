@@ -1,0 +1,12 @@
+{
+  "handle": "cfe20af4",
+  "address": "cfe20af4-fc47-8b8e-94c7-7e6e71263141",
+  "statement": "reassembles 108 = true ∧ castsFifteens 108 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_006c"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

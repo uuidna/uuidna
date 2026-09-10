@@ -1,0 +1,12 @@
+{
+  "handle": "beed1ddb",
+  "address": "beed1ddb-a137-82ff-b067-49856528cf25",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9707"
+  ],
+  "statement": "reassembles 38663 = true ∧ castsFifteens 38663 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

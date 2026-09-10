@@ -1,0 +1,12 @@
+{
+  "handle": "1662eaec",
+  "address": "1662eaec-8904-8ad2-a16a-94f6fc7006d5",
+  "statement": "[15,12,5,1,1,5,3,2,6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].headD 0 % 6 = 3",
+  "tactic": "decide",
+  "keys": [
+    "uuidna_name_referrer_door"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

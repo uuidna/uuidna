@@ -1,0 +1,12 @@
+{
+  "handle": "fda50dab",
+  "address": "fda50dab-90a6-8af0-97cb-238583d54858",
+  "statement": "reassembles 60692 = true ∧ castsFifteens 60692 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ed14"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

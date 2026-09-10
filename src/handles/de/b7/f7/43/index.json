@@ -1,0 +1,12 @@
+{
+  "handle": "deb7f743",
+  "address": "deb7f743-80cf-8320-966e-600841dcdd9f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6f91"
+  ],
+  "statement": "reassembles 28561 = true ∧ castsFifteens 28561 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

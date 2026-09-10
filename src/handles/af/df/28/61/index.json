@@ -1,0 +1,12 @@
+{
+  "handle": "afdf2861",
+  "address": "afdf2861-ea17-8351-bcf0-111fa6bce237",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a230"
+  ],
+  "statement": "reassembles 41520 = true ∧ castsFifteens 41520 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

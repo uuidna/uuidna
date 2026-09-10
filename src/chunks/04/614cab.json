@@ -1,0 +1,12 @@
+{
+  "handle": "04614cab",
+  "address": "04614cab-758a-8a8e-bbdb-6669ec47e7ca",
+  "statement": "reassembles 9507 = true ∧ castsFifteens 9507 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2523"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

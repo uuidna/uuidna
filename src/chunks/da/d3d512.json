@@ -1,0 +1,12 @@
+{
+  "handle": "dad3d512",
+  "address": "dad3d512-253f-82ed-9b15-90a7a6ee50fa",
+  "statement": "reassembles 33077 = true ∧ castsFifteens 33077 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8135"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

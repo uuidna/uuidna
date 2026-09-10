@@ -1,0 +1,12 @@
+{
+  "handle": "feed7cec",
+  "address": "feed7cec-8553-88d9-8d1d-fc868098c5f8",
+  "statement": "reassembles 38132 = true ∧ castsFifteens 38132 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_94f4"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

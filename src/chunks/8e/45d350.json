@@ -1,0 +1,12 @@
+{
+  "handle": "8e45d350",
+  "address": "8e45d350-d537-882c-be91-ca589df09b06",
+  "statement": "reassembles 29091 = true ∧ castsFifteens 29091 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_71a3"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9787327d",
+  "address": "9787327d-3531-83c1-9b40-1624bfc3de2b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4695"
+  ],
+  "statement": "reassembles 18069 = true ∧ castsFifteens 18069 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

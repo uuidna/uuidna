@@ -1,0 +1,12 @@
+{
+  "handle": "a4450cfd",
+  "address": "a4450cfd-c65d-885e-a518-593678c65ff1",
+  "statement": "reassembles 32801 = true ∧ castsFifteens 32801 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8021"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

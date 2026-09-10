@@ -1,0 +1,12 @@
+{
+  "handle": "fecf7544",
+  "address": "fecf7544-0f57-8034-ab79-a051188b156e",
+  "statement": "reassembles 23050 = true ∧ castsFifteens 23050 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5a0a"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "db2f77cb",
+  "address": "db2f77cb-7700-8064-a330-2d50bb080fa1",
+  "statement": "reassembles 60934 = true ∧ castsFifteens 60934 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ee06"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

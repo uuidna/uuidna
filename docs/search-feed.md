@@ -13,7 +13,7 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `447ec75a-cd46-8a58-a9bf-5b6b28339a91` · hexbit door [`447ec75a`](https://uuidna.com/447ec75a) ·
+Fold receipt `754bf312-6fa8-84cf-92aa-83a297006e9f` · hexbit door [`754bf312`](https://uuidna.com/754bf312) ·
 49 door(s) · 10 lead(s) · 9 silent
 .
 
@@ -21,55 +21,55 @@ Fold receipt `447ec75a-cd46-8a58-a9bf-5b6b28339a91` · hexbit door [`447ec75a`](
 
 | query | theorem | wing | resonance |
 |-------|---------|------|-----------|
-| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 18821 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 18730 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 18730 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 18730 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 18730 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 18730 |
-| CMS Higgs | [`cms_events_close_over_their_files`](/theorem/cms_events_close_over_their_files) | cern-open-data | 9422 |
-| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 9422 |
-| open access | [`safe_index_is_total`](/theorem/safe_index_is_total) | software | 9422 |
-| mathematics | [`absence_defeats_the_algorithm_and_not_the_machine`](/theorem/absence_defeats_the_algorithm_and_not_the_machine) | wave | 9421 |
-| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 9421 |
-| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 9413 |
-| fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 9413 |
-| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 9413 |
-| fifa world cup | [`literature_sonnet_volume`](/theorem/literature_sonnet_volume) | wave | 9413 |
-| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 9391 |
-| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 9391 |
-| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 9391 |
-| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 9391 |
-| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 9391 |
-| chemistry | [`alpine_chemistry_tiers_partition_54`](/theorem/alpine_chemistry_tiers_partition_54) | wave | 9380 |
-| chemistry | [`alpine_dom_ar_ch_ie_56`](/theorem/alpine_dom_ar_ch_ie_56) | wave | 9380 |
-| chemistry | [`alpine_dom_bi_ch_ie_5`](/theorem/alpine_dom_bi_ch_ie_5) | wave | 9380 |
-| chemistry | [`alpine_dom_bl_ch_ie_32`](/theorem/alpine_dom_bl_ch_ie_32) | wave | 9380 |
-| chemistry | [`alpine_dom_ch_as_ie_20`](/theorem/alpine_dom_ch_as_ie_20) | wave | 9380 |
-| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 9365 |
-| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 9365 |
-| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 9365 |
-| science | [`alpine_dom_bl_sc_ie_103`](/theorem/alpine_dom_bl_sc_ie_103) | wave | 9365 |
-| science | [`alpine_dom_da_sc_ie_512`](/theorem/alpine_dom_da_sc_ie_512) | wave | 9365 |
-| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 9342 |
-| uuid | [`a_sha256_digest_is_two_uuids_and_four_boards_at_once`](/theorem/a_sha256_digest_is_two_uuids_and_four_boards_at_once) | crypto | 9342 |
-| uuid | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) | hexbit | 9342 |
-| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 9342 |
-| uuid | [`alpine_shell_applets_partition_17`](/theorem/alpine_shell_applets_partition_17) | wave | 9342 |
-| quantum | [`a_defence_already_standing_precedes_any_pending_attack`](/theorem/a_defence_already_standing_precedes_any_pending_attack) | wave | 9324 |
-| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 9324 |
-| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 9324 |
-| quantum | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) | hexbit | 9324 |
-| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 9324 |
-| open access | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 9228 |
-| open access | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 9228 |
-| open access | [`catalan_counts_the_dyck_words`](/theorem/catalan_counts_the_dyck_words) | wave | 9228 |
-| open access | [`central_four_squares`](/theorem/central_four_squares) | chess | 9228 |
-| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 7372 |
-| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 7372 |
-| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 7372 |
-| prime | [`carmichael_exponent_is_attained_mod_10`](/theorem/carmichael_exponent_is_attained_mod_10) | wave | 7372 |
-| prime | [`carmichael_exponent_is_attained_mod_11`](/theorem/carmichael_exponent_is_attained_mod_11) | wave | 7372 |
+| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 141784 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 141694 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 141694 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 141694 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 141694 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 141694 |
+| CMS Higgs | [`cms_events_close_over_their_files`](/theorem/cms_events_close_over_their_files) | cern-open-data | 70904 |
+| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 70904 |
+| open access | [`safe_index_is_total`](/theorem/safe_index_is_total) | software | 70904 |
+| mathematics | [`absence_defeats_the_algorithm_and_not_the_machine`](/theorem/absence_defeats_the_algorithm_and_not_the_machine) | wave | 70903 |
+| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 70903 |
+| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 70895 |
+| fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 70895 |
+| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 70895 |
+| fifa world cup | [`literature_sonnet_volume`](/theorem/literature_sonnet_volume) | wave | 70895 |
+| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 70873 |
+| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 70873 |
+| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 70873 |
+| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 70873 |
+| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 70873 |
+| chemistry | [`alpine_chemistry_tiers_partition_54`](/theorem/alpine_chemistry_tiers_partition_54) | wave | 70862 |
+| chemistry | [`alpine_dom_ar_ch_ie_56`](/theorem/alpine_dom_ar_ch_ie_56) | wave | 70862 |
+| chemistry | [`alpine_dom_bi_ch_ie_5`](/theorem/alpine_dom_bi_ch_ie_5) | wave | 70862 |
+| chemistry | [`alpine_dom_bl_ch_ie_32`](/theorem/alpine_dom_bl_ch_ie_32) | wave | 70862 |
+| chemistry | [`alpine_dom_ch_as_ie_20`](/theorem/alpine_dom_ch_as_ie_20) | wave | 70862 |
+| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 70847 |
+| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 70847 |
+| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 70847 |
+| science | [`alpine_dom_bl_sc_ie_103`](/theorem/alpine_dom_bl_sc_ie_103) | wave | 70847 |
+| science | [`alpine_dom_da_sc_ie_512`](/theorem/alpine_dom_da_sc_ie_512) | wave | 70847 |
+| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 70818 |
+| uuid | [`a_sha256_digest_is_two_uuids_and_four_boards_at_once`](/theorem/a_sha256_digest_is_two_uuids_and_four_boards_at_once) | crypto | 70818 |
+| uuid | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) | hexbit | 70818 |
+| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 70818 |
+| uuid | [`alpine_shell_applets_partition_17`](/theorem/alpine_shell_applets_partition_17) | wave | 70818 |
+| quantum | [`a_defence_already_standing_precedes_any_pending_attack`](/theorem/a_defence_already_standing_precedes_any_pending_attack) | wave | 70806 |
+| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 70806 |
+| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 70806 |
+| quantum | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) | hexbit | 70806 |
+| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 70806 |
+| open access | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 70709 |
+| open access | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 70709 |
+| open access | [`catalan_counts_the_dyck_words`](/theorem/catalan_counts_the_dyck_words) | wave | 70709 |
+| open access | [`central_four_squares`](/theorem/central_four_squares) | chess | 70709 |
+| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 68854 |
+| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 68854 |
+| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 68854 |
+| prime | [`carmichael_exponent_is_attained_mod_10`](/theorem/carmichael_exponent_is_attained_mod_10) | wave | 68854 |
+| prime | [`carmichael_exponent_is_attained_mod_11`](/theorem/carmichael_exponent_is_attained_mod_11) | wave | 68854 |
 
 ## Leads — silence and unsealed harvest (desk proposes)
 

@@ -1,0 +1,12 @@
+{
+  "handle": "c264e5ca",
+  "address": "c264e5ca-0f55-8fef-ba1c-c5ea27d6098d",
+  "statement": "reassembles 19770 = true ∧ castsFifteens 19770 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4d3a"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

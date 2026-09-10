@@ -1,0 +1,12 @@
+{
+  "handle": "cddaf893",
+  "address": "cddaf893-a987-8ddf-aa1f-293d1b400b05",
+  "statement": "reassembles 8224 = true ∧ castsFifteens 8224 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2020"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

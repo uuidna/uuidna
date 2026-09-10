@@ -1,0 +1,12 @@
+{
+  "handle": "bedf126f",
+  "address": "bedf126f-ea9c-8fdf-b009-d258d4239212",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_068f"
+  ],
+  "statement": "reassembles 1679 = true ∧ castsFifteens 1679 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

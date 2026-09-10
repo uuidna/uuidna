@@ -1,0 +1,12 @@
+{
+  "handle": "71ca7114",
+  "address": "71ca7114-935f-8315-8299-ac7dcb89625e",
+  "statement": "reassembles 9082 = true ∧ castsFifteens 9082 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_237a"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

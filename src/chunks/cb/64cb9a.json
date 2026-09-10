@@ -1,0 +1,12 @@
+{
+  "handle": "cb64cb9a",
+  "address": "cb64cb9a-9ffc-863a-b173-2df2d89a515a",
+  "statement": "reassembles 14650 = true ∧ castsFifteens 14650 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_393a"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ca8106da",
+  "address": "ca8106da-c59d-88c1-8000-b97a357870c0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_acb0"
+  ],
+  "statement": "reassembles 44208 = true ∧ castsFifteens 44208 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "eaceaeb6",
+  "address": "eaceaeb6-491c-8aa8-8e7f-549cec7c56b9",
+  "statement": "reassembles 38363 = true ∧ castsFifteens 38363 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_95db"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

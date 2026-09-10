@@ -1,15 +1,15 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 30 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 33 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 29 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 32 siblings below.
 
-**30 theorems** and **1,244 decided cases**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in <a href="/lean/Cipher.lean">lean/Cipher.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 30 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
+**33 theorems** and **1,247 decided cases**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in <a href="/lean/Cipher.lean">lean/Cipher.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 33 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 30 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 33 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it.
 The ledger holds this as [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — proven `by decide`, sorry-free:
@@ -79,6 +79,27 @@ The ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_
 
 ```lean
 (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
+```
+
+### THE NAME IS THE WIDTHS. uuid is four letters and a hexbit is four bits; dna is three letters and a trinity is three; they share one letter, so 4 + 3 − 1 = 6. Hexbit plus the two coins is the hexagram: 4 + 2 = 6. Base minus trinity is credit: 9 − 3 = 6. The six-letter name, the hexagram, and the credit plane are one number.
+The ledger holds this as [uuidna_letters_fuse_to_the_hexagram](/theorem/uuidna_letters_fuse_to_the_hexagram) — proven `by decide`, sorry-free:
+
+```lean
+(4 + 3 - 1 = 6) ∧ (4 + 2 = 6) ∧ (9 - 3 = 6) ∧ (4 + 3 - 1 = 4 + 2) ∧ (4 + 2 = 9 - 3)
+```
+
+### THE NAME'S HANDLE IS THE FIRST GROUP OF ITS ADDRESS, READ AS A NUMBER. toUuid("uuidna") is the measured hash; the kernel decides that those eight hex digits, folded as base-16 place value, ARE the seed.
+The ledger holds this as [uuidna_name_handle_is_the_seed](/theorem/uuidna_name_handle_is_the_seed) — proven `by decide`, sorry-free:
+
+```lean
+[15,12,5,1,1,5,3,2].foldl (fun acc d => acc * 16 + d) 0 = 4233172274
+```
+
+### THE NAME'S OWN ADDRESS CARRIES SIXTEEN CODONS IN THE PAYLOAD. The measured payload of toUuid("uuidna") is twenty-four hexbits; twenty-four times four bits over the six-bit codon is sixteen.
+The ledger holds this as [uuidna_name_payload_tiles_sixteen_codons](/theorem/uuidna_name_payload_tiles_sixteen_codons) — proven `by decide`, sorry-free:
+
+```lean
+([6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].length = 24) ∧ ((24 * 4) / 6 = 16)
 ```
 
 ### THE DOUBLING IS ONE OPERATOR, READ AT THREE STEPS. The ladder 2^k for k = 0..7 is computed here in full — [1,2,4,8,16,32,64,128] — and the three scales that look like different subjects are just three rungs of it. STEP 1 is the octave: a doubling of frequency, and the whole visible band fits inside ONE of them (700 < 2·400, visible_under_one_octave), which is why colour behaves like a single octave of sound (octave_of_light_doubles). STEP 6 is the genetic code: 4^3 = 64 = 2^6 (codons_sixty_four), so reading 4 bases three at a time is six doublings. STEP 7 is the address: 128 = 2^7, one doubling further, which is exactly the two coins over the codon count (uuidna_is_dna_times_the_two_coins). Six doublings also close the vortex ring, 2^6 ≡ 1 (mod 9) (two_order_six), so the ladder returns where it began. this is arithmetic about EXPONENTS OF TWO and nothing else. It does NOT claim that genes respond to electromagnetic fields, that DNA is quantum, that light and the genetic code share a mechanism, or that any of these scales causes another — three quantities happen to be powers of the same number, and the address is BUILT that way by construction.

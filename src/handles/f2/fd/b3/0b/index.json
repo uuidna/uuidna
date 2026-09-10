@@ -1,0 +1,12 @@
+{
+  "handle": "f2fdb30b",
+  "address": "f2fdb30b-d77c-889e-93aa-d78c1af501b2",
+  "kind": "chunk",
+  "keys": [
+    "the_seven_periods_close_at_one_hundred_eighteen"
+  ],
+  "statement": "([2,8,8,18,18,32,32].foldl (· + ·) 0 = 118) ∧ (118 = 118)",
+  "files": [
+    "Periodic.lean"
+  ]
+}

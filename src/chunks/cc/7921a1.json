@@ -1,0 +1,12 @@
+{
+  "handle": "cc7921a1",
+  "address": "cc7921a1-0f63-820f-98e8-3ce37a900d62",
+  "statement": "reassembles 52839 = true ∧ castsFifteens 52839 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ce67"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "afb179b3",
+  "address": "afb179b3-379d-8301-a2dd-a9d2cc6fd76d",
+  "statement": "reassembles 56082 = true ∧ castsFifteens 56082 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_db12"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

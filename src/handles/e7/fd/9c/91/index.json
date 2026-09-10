@@ -1,0 +1,12 @@
+{
+  "handle": "e7fd9c91",
+  "address": "e7fd9c91-38d1-80c4-940c-56b866326a7d",
+  "kind": "chunk",
+  "keys": [
+    "width_is_the_binding_point_6"
+  ],
+  "statement": "[(32,1),(32,2),(32,3),(32,4),(32,6),(32,8),(32,12),(32,20),(32,40),(32,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2))))",
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

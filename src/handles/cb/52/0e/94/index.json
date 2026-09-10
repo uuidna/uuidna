@@ -1,0 +1,12 @@
+{
+  "handle": "cb520e94",
+  "address": "cb520e94-f966-8096-b902-214a1432600a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6708"
+  ],
+  "statement": "reassembles 26376 = true ∧ castsFifteens 26376 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

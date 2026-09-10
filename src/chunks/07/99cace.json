@@ -1,0 +1,12 @@
+{
+  "handle": "0799cace",
+  "address": "0799cace-1998-8fec-b232-ae18a49df5ed",
+  "statement": "reassembles 30235 = true ∧ castsFifteens 30235 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_761b"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

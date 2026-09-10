@@ -1,0 +1,12 @@
+{
+  "handle": "da843cbb",
+  "address": "da843cbb-55de-8908-a036-264027c8ea2e",
+  "statement": "reassembles 3260 = true ∧ castsFifteens 3260 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0cbc"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

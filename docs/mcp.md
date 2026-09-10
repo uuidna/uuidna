@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="261 keys" />
+# MCP tools <Badge type="tip" text="262 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 261 tools below are read from the server's own tool list and
+is **built from the keys**: the 262 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 60b0cb64-007b-82e4-8765-8db0b37c180d
+gate CLEAN f0 d0 v0 · 99f76b9c-3b4c-878e-872d-545ad4c9a0bb
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 261-tool registry folds to its
-order-invariant identity `6b5d4799-1bc1-8d68-8968-14fc0aadabb2` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 262-tool registry folds to its
+order-invariant identity `9f42500c-d896-8493-a67c-8ec9236286c8` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`261`" />
+## The grid <Badge type="tip" :text="`262`" />
 
-261 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 118 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+262 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 119 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -103,6 +103,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-invitation"><code>invitation</code></a>
 <a href="#uuidna-journals"><code>journals</code></a>
 <a href="#uuidna-latex"><code>latex</code></a>
+<a href="#uuidna-lattice"><code>lattice</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-lead-clusters"><code>lead_clusters</code></a>
 <a href="#uuidna-lean-index"><code>lean_index</code></a>
@@ -486,7 +487,7 @@ The STRICT content-address: normalise the input (so equivalent values converge) 
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 
-## Other <Badge type="tip" :text="'129'" />
+## Other <Badge type="tip" :text="'130'" />
 
 *skill: other*
 
@@ -834,6 +835,16 @@ TYPESET a sealed statement: MathML and TeX. Both are derived from the Lean by sr
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | no | theorem key; omit for the whole… |
+
+### `uuidna_lattice`
+
+THE LATTICE CALLS. The 2^16 HexSpan stations exist first. Pass {station} (four hex, or enumeration_hex4_&amp;lt;hex&amp;gt;) for that station's identity, the named theorems and axioms seated there, the human problems it calls, and the solution involution of those problems. Pass nothing for the fill: occupancy, all 18 problems seated, involution pairs. HexSpan surfaces ARE the stations, not cargo. Calling is not solving — negation_involution_solves is the method (a solution is the denial's failure); Clay σ-involution reflects seven and solves none. Returns a LatticeCall or LatticeFill.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `station` | string | no | four hex (0000–ffff) or enumera… |
 
 ### `uuidna_team`
 

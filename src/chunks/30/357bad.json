@@ -1,0 +1,12 @@
+{
+  "handle": "30357bad",
+  "address": "30357bad-2a57-8757-90fe-d7442c54363d",
+  "statement": "[(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (p.1 >= w) && (p.2 >= w)))",
+  "tactic": "decide",
+  "keys": [
+    "one_point_can_only_overstate_2"
+  ],
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

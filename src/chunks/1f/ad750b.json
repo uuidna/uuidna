@@ -1,0 +1,12 @@
+{
+  "handle": "1fad750b",
+  "address": "1fad750b-c695-849a-9830-b38975c2a050",
+  "statement": "reassembles 5074 = true ∧ castsFifteens 5074 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_13d2"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

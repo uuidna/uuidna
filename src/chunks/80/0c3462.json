@@ -1,0 +1,12 @@
+{
+  "handle": "800c3462",
+  "address": "800c3462-2c9f-88d0-ac17-21f161060ad8",
+  "statement": "reassembles 53864 = true ∧ castsFifteens 53864 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d268"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cf52beed",
+  "address": "cf52beed-4045-8c31-94b8-a44290bbecaa",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8c2b"
+  ],
+  "statement": "reassembles 35883 = true ∧ castsFifteens 35883 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

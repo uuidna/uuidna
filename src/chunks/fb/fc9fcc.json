@@ -1,0 +1,12 @@
+{
+  "handle": "fbfc9fcc",
+  "address": "fbfc9fcc-c28c-8aeb-a5e1-4cde937d4f01",
+  "statement": "[15,12,5,1,1,5,3,2].foldl (fun acc d => acc * 16 + d) 0 = 4233172274",
+  "tactic": "decide",
+  "keys": [
+    "uuidna_name_handle_is_the_seed"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "df644e3d",
+  "address": "df644e3d-bcdf-8629-b106-c8ab8549bbd0",
+  "statement": "reassembles 58716 = true ∧ castsFifteens 58716 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e55c"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

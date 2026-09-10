@@ -1,0 +1,12 @@
+{
+  "handle": "fd500d32",
+  "address": "fd500d32-3d9a-8fd2-90dc-1c71f4edcd61",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_84ad"
+  ],
+  "statement": "reassembles 33965 = true ∧ castsFifteens 33965 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

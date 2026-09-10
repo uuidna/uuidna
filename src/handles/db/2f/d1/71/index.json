@@ -1,0 +1,12 @@
+{
+  "handle": "db2fd171",
+  "address": "db2fd171-db20-874d-ac82-b6fc44827d6f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_d2db"
+  ],
+  "statement": "reassembles 53979 = true ∧ castsFifteens 53979 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

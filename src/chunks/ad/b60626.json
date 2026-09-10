@@ -1,0 +1,12 @@
+{
+  "handle": "adb60626",
+  "address": "adb60626-2ec0-8a8d-8be2-371d74bc2190",
+  "statement": "reassembles 50660 = true ∧ castsFifteens 50660 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c5e4"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

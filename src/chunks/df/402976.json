@@ -1,0 +1,12 @@
+{
+  "handle": "df402976",
+  "address": "df402976-d943-8e99-914d-74f3c272d5d1",
+  "statement": "reassembles 17868 = true ∧ castsFifteens 17868 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_45cc"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

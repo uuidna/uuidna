@@ -1,0 +1,12 @@
+{
+  "handle": "cb880a40",
+  "address": "cb880a40-d13e-8bf6-9430-606742d5ccfc",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4db6"
+  ],
+  "statement": "reassembles 19894 = true ∧ castsFifteens 19894 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

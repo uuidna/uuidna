@@ -1,0 +1,12 @@
+{
+  "handle": "ceb3054c",
+  "address": "ceb3054c-f6e2-8198-8442-86dfe5513fbe",
+  "statement": "reassembles 55400 = true ∧ castsFifteens 55400 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d868"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

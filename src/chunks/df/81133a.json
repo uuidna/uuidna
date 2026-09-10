@@ -1,0 +1,12 @@
+{
+  "handle": "df81133a",
+  "address": "df81133a-a764-8c60-814c-6957cef5772c",
+  "statement": "reassembles 37442 = true ∧ castsFifteens 37442 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9242"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

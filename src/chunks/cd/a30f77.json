@@ -1,0 +1,12 @@
+{
+  "handle": "cda30f77",
+  "address": "cda30f77-c6b5-801f-b45e-aefd89e58782",
+  "statement": "reassembles 20253 = true ∧ castsFifteens 20253 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4f1d"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

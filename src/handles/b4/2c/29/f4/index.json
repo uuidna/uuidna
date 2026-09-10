@@ -1,0 +1,12 @@
+{
+  "handle": "b42c29f4",
+  "address": "b42c29f4-b6cf-8503-9fa1-4c0b3c9f449d",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_hex4_even_no_fixed"
+  ],
+  "statement": "((List.range 16).all (fun i => !(i == 15 - i))) ∧ ((List.range 16).filter (fun i => i == 15 - i)).length = 0 ∧ (65536 % 2 = 0) ∧ (65535 % 2 = 1)",
+  "files": [
+    "Wave.lean"
+  ]
+}

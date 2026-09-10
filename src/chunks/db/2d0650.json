@@ -1,0 +1,12 @@
+{
+  "handle": "db2d0650",
+  "address": "db2d0650-88ec-8e0f-a1f8-f1c02c5bb64d",
+  "statement": "reassembles 8750 = true ∧ castsFifteens 8750 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_222e"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

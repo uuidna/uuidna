@@ -1,0 +1,12 @@
+{
+  "handle": "edfa4221",
+  "address": "edfa4221-dfef-833b-a28a-76c53097203a",
+  "statement": "reassembles 35159 = true ∧ castsFifteens 35159 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8957"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

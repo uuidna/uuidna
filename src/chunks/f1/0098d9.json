@@ -1,0 +1,12 @@
+{
+  "handle": "f10098d9",
+  "address": "f10098d9-920e-8f62-9308-64d451079867",
+  "statement": "reassembles 42001 = true ∧ castsFifteens 42001 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a411"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

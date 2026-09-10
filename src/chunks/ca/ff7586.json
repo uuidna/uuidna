@@ -1,0 +1,12 @@
+{
+  "handle": "caff7586",
+  "address": "caff7586-1114-8dd3-bd30-b54c1a9bc5dc",
+  "statement": "reassembles 14531 = true ∧ castsFifteens 14531 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_38c3"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

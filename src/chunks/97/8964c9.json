@@ -1,0 +1,12 @@
+{
+  "handle": "978964c9",
+  "address": "978964c9-a50d-8fe8-b46a-503bb43c950b",
+  "statement": "reassembles 34330 = true ∧ castsFifteens 34330 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_861a"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

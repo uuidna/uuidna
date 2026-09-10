@@ -1,0 +1,12 @@
+{
+  "handle": "ecb47019",
+  "address": "ecb47019-b33d-8c1e-ac42-0d81e60ae109",
+  "statement": "reassembles 27977 = true ∧ castsFifteens 27977 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6d49"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

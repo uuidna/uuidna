@@ -1,0 +1,12 @@
+{
+  "handle": "07646f93",
+  "address": "07646f93-9d0c-8823-af06-1fd5c7c27839",
+  "statement": "reassembles 8032 = true ∧ castsFifteens 8032 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f60"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

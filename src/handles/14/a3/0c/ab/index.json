@@ -1,0 +1,12 @@
+{
+  "handle": "14a30cab",
+  "address": "14a30cab-06d2-838e-84e1-ef232072e816",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2816"
+  ],
+  "statement": "reassembles 10262 = true ∧ castsFifteens 10262 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

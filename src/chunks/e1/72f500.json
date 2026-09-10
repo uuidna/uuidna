@@ -1,0 +1,12 @@
+{
+  "handle": "e172f500",
+  "address": "e172f500-c9d6-8128-a409-9f367cdf0159",
+  "statement": "reassembles 59168 = true ∧ castsFifteens 59168 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e720"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cc3880ab",
+  "address": "cc3880ab-0447-80f1-a30e-b04e13cd9c32",
+  "statement": "reassembles 65400 = true ∧ castsFifteens 65400 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ff78"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

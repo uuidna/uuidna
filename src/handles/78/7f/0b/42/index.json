@@ -1,0 +1,12 @@
+{
+  "handle": "787f0b42",
+  "address": "787f0b42-b804-8edb-b630-d1ad8db52bbb",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_complete_four_has_six_edges"
+  ],
+  "statement": "(4 * 3 = 12) ∧ (12 / 2 = 6) ∧ (12 % 2 = 0) ∧ (List.sum [3, 3, 3, 3] = 12)",
+  "files": [
+    "Wave.lean"
+  ]
+}

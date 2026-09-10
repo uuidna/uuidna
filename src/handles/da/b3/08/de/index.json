@@ -1,0 +1,12 @@
+{
+  "handle": "dab308de",
+  "address": "dab308de-3d81-8446-bbf3-8c81803a5287",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4a98"
+  ],
+  "statement": "reassembles 19096 = true ∧ castsFifteens 19096 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bed956e3",
+  "address": "bed956e3-e222-86f5-80c1-ef8108891259",
+  "statement": "reassembles 16354 = true ∧ castsFifteens 16354 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3fe2"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

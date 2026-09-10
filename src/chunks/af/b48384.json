@@ -1,0 +1,12 @@
+{
+  "handle": "afb48384",
+  "address": "afb48384-f97e-8272-b553-7567fb58a40f",
+  "statement": "reassembles 49666 = true ∧ castsFifteens 49666 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c202"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

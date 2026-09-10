@@ -1,0 +1,12 @@
+{
+  "handle": "fc285bad",
+  "address": "fc285bad-c308-8d77-87c6-c207ce798918",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_af5b"
+  ],
+  "statement": "reassembles 44891 = true ∧ castsFifteens 44891 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

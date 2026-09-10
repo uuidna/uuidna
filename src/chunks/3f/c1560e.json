@@ -1,0 +1,12 @@
+{
+  "handle": "3fc1560e",
+  "address": "3fc1560e-c03a-82c5-a484-e2517aff3f15",
+  "statement": "reassembles 38493 = true ∧ castsFifteens 38493 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_965d"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

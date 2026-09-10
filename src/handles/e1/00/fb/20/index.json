@@ -1,0 +1,12 @@
+{
+  "handle": "e100fb20",
+  "address": "e100fb20-ba38-8ef8-b07d-cc750c7333fd",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_cfd4"
+  ],
+  "statement": "reassembles 53204 = true ∧ castsFifteens 53204 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

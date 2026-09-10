@@ -1,0 +1,12 @@
+{
+  "handle": "ead404f1",
+  "address": "ead404f1-b750-8e9f-8553-3c89215657af",
+  "statement": "reassembles 23524 = true ∧ castsFifteens 23524 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5be4"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "edbc4ddd",
+  "address": "edbc4ddd-ff2b-8434-b358-e34f3ebbafcd",
+  "statement": "reassembles 21155 = true ∧ castsFifteens 21155 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_52a3"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

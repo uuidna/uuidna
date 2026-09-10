@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 932 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 968 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 931 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 967 siblings below.
 
-**932 theorems** and **964 decided cases**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 751 of its 932 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**968 theorems** and **1,000 decided cases**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 779 of its 968 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 932 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 968 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -6533,6 +6533,258 @@ The ledger holds this as [axiom_families_partition_the_ledger_2657](/theorem/axi
 
 ```lean
 ([106, 1049, 514, 843, 140, 0, 5].sum = 2657) ∧ (([106, 1049, 514, 843, 140, 0, 5].filter (fun n => n == 0)).length = 1) ∧ ([106, 1049, 514, 843, 140, 0, 5].all (fun n => n ≤ 2657))
+```
+
+### MASS COORDINATION WITHOUT A COORDINATOR: ninety-six items residue-routed across sixteen lanes sum back to ninety-six — nothing lost, nothing counted twice. The question a scheduler exists to answer cannot arise, because the residue map is already a partition.
+The ledger holds this as [mass_coord_lanes_partition_ninetysix](/theorem/mass_coord_lanes_partition_ninetysix) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 16).foldl (fun a l => a + ((List.range 96).filter (fun i => i % 16 == l)).length) 0 = 96
+```
+
+### LOAD BALANCE WITH NO MEASUREMENT OF LOAD: forty-eight items over ten lanes give every lane four or five, never fewer and never more. Forty-eight is 4·10 + 8, so eight lanes take five and two take four — the imbalance is the remainder, bounded by one, with no lane asking another what it holds.
+The ledger holds this as [mass_coord_lanes_balance_forty_eight](/theorem/mass_coord_lanes_balance_forty_eight) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).map (fun l => ((List.range 48).filter (fun i => i % 10 == l)).length)).all (fun k => k == 4 || k == 5)
+```
+
+### ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: eighty items over sixteen lanes give every lane precisely five, because eighty is a multiple of sixteen. The imbalance of the general case is never structural — it vanishes whenever the work divides.
+The ledger holds this as [mass_coord_lanes_even_eighty](/theorem/mass_coord_lanes_even_eighty) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 16).all (fun l => ((List.range 80).filter (fun i => i % 16 == l)).length == 5)
+```
+
+### EVERY ITEM HAS EXACTLY ONE LANE: twenty-four items over eight residues, each item matching precisely one lane index. Mass coordination here is a function, not a meeting: an item cannot belong to two lanes and cannot belong to none.
+The ledger holds this as [mass_coord_residue_unique_owner](/theorem/mass_coord_residue_unique_owner) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 24).all (fun i => ((List.range 8).filter (fun l => i % 8 == l)).length == 1)
+```
+
+### QUORUM ARITHMETIC AGAINST A FAULT BUDGET: a 2f+1 panel has floor-half equal to f, walked over f = 0..3 (sizes 1, 3, 5, 7). Majority of the panel is therefore strictly larger than the faults it was sized to survive — no coordinator, just the floor.
+The ledger holds this as [mass_coord_quorum_floor_is_the_fault](/theorem/mass_coord_quorum_floor_is_the_fault) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 4).all (fun f => (2 * f + 1) / 2 == f)
+```
+
+### THREE-OF-FOUR IS THE CLASSICAL BFT QUORUM ON FOUR AGENTS: among the sixteen assignments of four bits, exactly five have at least three ones (C(4,3)+C(4,4) = 4+1). Supermajority, not unanimity and not simple majority — the coordination threshold that still works with one dissenting vote.
+The ledger holds this as [mass_coord_bft_three_of_four](/theorem/mass_coord_bft_three_of_four) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 >= 3)).length = 5
+```
+
+### MAJORITY OF FIVE IS HALF THE HYPERCUBE: among thirty-two assignments of five bits, exactly sixteen have three or more ones (C(5,3)+C(5,4)+C(5,5) = 10+5+1). A five-agent majority vote is a count, not a chair.
+The ledger holds this as [mass_coord_majority_five_bits](/theorem/mass_coord_majority_five_bits) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 >= 3)).length = 16
+```
+
+### THE HANDSHAKE LEMMA ON A STAR: one hub of degree seven and seven leaves of degree one sum to fourteen, even, so seven edges. Mass coordination along a hub is still an even degree-sum — the graph cannot hide an odd edge.
+The ledger holds this as [mass_coord_handshake_star_is_even](/theorem/mass_coord_handshake_star_is_even) — proven `by decide`, sorry-free:
+
+```lean
+(List.sum [7, 1, 1, 1, 1, 1, 1, 1] = 14) ∧ (14 % 2 = 0) ∧ (14 / 2 = 7)
+```
+
+### AN EVEN CREW PAIRS WITH NO CENTRE: on eight seats the involution i ↔ 7−i is self-inverse and fixed-point-free — every agent has a counterpart, none sits as the leftover chair. Even cardinality is what lets mass pairing finish.
+The ledger holds this as [mass_coord_even_crew_pairs_all](/theorem/mass_coord_even_crew_pairs_all) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).all (fun i => !(i == 7 - i))) ∧ ((List.range 8).all (fun i => 7 - (7 - i) == i)) ∧ ((List.range 8).filter (fun i => i == 7 - i)).length = 0
+```
+
+### ROUND-ROBIN RETURNS HOME: adding one modulo eight, eight times, is the identity on every seat. A token that visits every agent in order closes the ring without a chair calling the next name — the modulus is the schedule.
+The ledger holds this as [mass_coord_round_robin_closes](/theorem/mass_coord_round_robin_closes) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 8).all (fun i => (List.range 8).foldl (fun x _ => (x + 1) % 8) i == i)
+```
+
+### A BARRIER OF TWELVE ADMITS THE CREW OF TWELVE AND NOT THIRTEEN: every index below twelve is below twelve, and it is false that every index among thirteen is. A join-barrier is a window; the thirteenth arrival is not a pass of the twelve-slot check.
+The ledger holds this as [mass_coord_barrier_twelve_not_thirteen](/theorem/mass_coord_barrier_twelve_not_thirteen) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).all (fun n => n < 12)) ∧ ¬((List.range 13).all (fun n => n < 12))
+```
+
+### A ROTATION BY THREE ON EIGHT SEATS HITS EVERY SEAT ONCE: eight distinct images, no collision. Mass coordination by a fixed stride is a permutation, so nobody is skipped and nobody is double-booked.
+The ledger holds this as [mass_coord_rotation_is_permutation](/theorem/mass_coord_rotation_is_permutation) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).map (fun i => (i + 3) % 8)).eraseDups.length = 8
+```
+
+### TWO COINS PARTITION THE BOOKS: one hundred and ten units residue-split across two coins reconstitutes one hundred and ten, fifty-five each. Conservation is the coordination — neither coin needs to phone the other to know the total is closed.
+The ledger holds this as [mass_coord_two_coins_partition](/theorem/mass_coord_two_coins_partition) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 2).foldl (fun a c => a + ((List.range 110).filter (fun i => i % 2 == c)).length) 0 = 110) ∧ ((List.range 2).all (fun c => ((List.range 110).filter (fun i => i % 2 == c)).length == 55))
+```
+
+### EIGHTEEN HUMAN PROBLEMS PAIR WITH NO CENTRE: eighteen is even, nine pairs, the involution i ↔ 17−i is self-inverse and fixes nobody. Mass coordination of the problem roster is pairing, not a chair in the middle.
+The ledger holds this as [mass_coord_eighteen_problems_nine_pairs](/theorem/mass_coord_eighteen_problems_nine_pairs) — proven `by decide`, sorry-free:
+
+```lean
+(18 % 2 = 0) ∧ (18 / 2 = 9) ∧ ((List.range 18).all (fun i => 17 - (17 - i) == i)) ∧ ((List.range 18).filter (fun i => i == 17 - i)).length = 0
+```
+
+### THE LATTICE IS THE BIRTHDAY POINT: sixteen to the fourth is two to the sixteenth is 65536 HexSpan stations. Mass coordination of named cargo onto stations is seating into that finite grid — the span is the hall, not a waiting list.
+The ledger holds this as [mass_coord_lattice_birthday_is_span](/theorem/mass_coord_lattice_birthday_is_span) — proven `by decide`, sorry-free:
+
+```lean
+(16 ^ 4 = 65536) ∧ (2 ^ 16 = 65536) ∧ ((List.range 16).foldl (fun a _ => a * 2) 1 = 65536)
+```
+
+### K4 IS THE SMALLEST COMPLETE CREW: four agents, each of degree three, degree-sum twelve, six edges. Full-mesh coordination among four is a handshake count, not a conference call — the edges are the meetings and they come out even.
+The ledger holds this as [mass_coord_complete_four_has_six_edges](/theorem/mass_coord_complete_four_has_six_edges) — proven `by decide`, sorry-free:
+
+```lean
+(4 * 3 = 12) ∧ (12 / 2 = 6) ∧ (12 % 2 = 0) ∧ (List.sum [3, 3, 3, 3] = 12)
+```
+
+### THE HONESTY GATE PASSES ONE STATE OF EIGHT: (1−f)·(1−d)·(1−v) is 1 only when fabricate, distort and invent are all off. Compliance here is that conjunction — seven of eight states fail, and a pass is not a ruling, it is the unique green cell of a finite table.
+The ledger holds this as [mass_comply_gate_one_of_eight](/theorem/mass_comply_gate_one_of_eight) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun n => (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 1
+```
+
+### A SIXTEEN-CHECK MASK IS ALL ONES: every bit of 65535 is 1. A compliance panel of sixteen independent flags is green only when the walked mask has no zero — the number is the checklist, not a certificate about the world beyond those bits.
+The ledger holds this as [mass_comply_sixteen_bits_all_set](/theorem/mass_comply_sixteen_bits_all_set) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 16).all (fun i => 65535 / (2 ^ i) % 2 == 1)
+```
+
+### A WINDOW OF TWENTY IS NOT TWENTY-ONE: every n in 0..19 is < 20, and it is false that 20 < 20. Compliance of a finite window is not universal compliance — passing twenty checks does not pass the twenty-first that was never in the window.
+The ledger holds this as [mass_comply_window_twenty_not_next](/theorem/mass_comply_window_twenty_not_next) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).all (fun n => n < 20)) ∧ ¬(20 < 20)
+```
+
+### CITATION HAS FOUR STATES AND ONLY ONE VERIFIES: cited AND not-fabricated is one cell of four; three remain open. Silence never fills those three — an absent check is not a pass, and three open cells is a positive count, not a rumour.
+The ledger holds this as [mass_comply_four_states_three_open](/theorem/mass_comply_four_states_three_open) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (4 - 1 = 3) ∧ (3 > 0)
+```
+
+### TURNING A FLAG ON NEVER SHRINKS THE PANEL: replacing the low bit with 1 never decreases the number of ones among three bits, walked over all eight states. Compliance scores are monotone in evidence — a new pass cannot un-count an old one.
+The ledger holds this as [mass_comply_panel_monotone](/theorem/mass_comply_panel_monotone) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 8).all (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 <= 1 + n / 2 % 2 + n / 4 % 2)
+```
+
+### SIX EXACT HALVINGS RECOVER THE COIN AND THE SEVENTH DOES NOT: for k = 0..6, 64 / 2^k · 2^k restores 64, and at k = 7 integer division loses the coin. A compliance drain that is exact at six waves is not exact at seven — the window is the window.
+The ledger holds this as [mass_comply_six_halves_and_not_seventh](/theorem/mass_comply_six_halves_and_not_seventh) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).all (fun k => 64 / (2 ^ k) * (2 ^ k) == 64)) ∧ ¬(64 / (2 ^ 7) * (2 ^ 7) == 64)
+```
+
+### XOR IS THE DIFFERENCE DETECTOR: (a+b) mod 2 over the four bit-pairs is [0,1,1,0]. A compliance check that asks "did these two reports agree" is parity, not a negotiation — they differ exactly when the bit is one.
+The ledger holds this as [mass_comply_xor_detects_difference](/theorem/mass_comply_xor_detects_difference) — proven `by decide`, sorry-free:
+
+```lean
+[(0, 0), (0, 1), (1, 0), (1, 1)].map (fun p => (p.1 + p.2) % 2) = [0, 1, 1, 0]
+```
+
+### THE HALF-ADDER RECONSTRUCTS ADDITION: (a+b) mod 2 plus twice AND equals a+b over the four bit-pairs. Two reports that must be summed without a hidden carry are this circuit — the compliance of a total against its parts.
+The ledger holds this as [mass_comply_half_adder_without_xor_op](/theorem/mass_comply_half_adder_without_xor_op) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 4).all (fun n => (n % 2 + n / 2 % 2) % 2 + 2 * ((n % 2) * (n / 2 % 2)) == n % 2 + n / 2 % 2)
+```
+
+### THREE FLAGS AND TOGETHER IN ONE ROW OF EIGHT: a·b·c is 1 only at (1,1,1). A compliance AND of three independent checks has a unique green cell — two of three is not a pass of three of three.
+The ledger holds this as [mass_comply_and_of_three_is_one](/theorem/mass_comply_and_of_three_is_one) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1
+```
+
+### THE COMPLIANCE MAP THAT UNDOES ITSELF: bit-flip twice is home on {0,1}, and the 16-bit complement twice is home on a 16-seat model. A denial that is an involution does not accumulate — applying it twice is the original record, not a harsher grade.
+The ledger holds this as [mass_comply_involution_self_inverse](/theorem/mass_comply_involution_self_inverse) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 2).all (fun b => 1 - (1 - b) == b)) ∧ ((List.range 16).all (fun i => 15 - (15 - i) == i))
+```
+
+### AN EVEN STATION COUNT HAS NO FIXED POINT UNDER COMPLEMENT: sixteen seats, i ↔ 15−i, none equal themselves, and 65536 is even so the live HexSpan involution is the same shape. Compliance pairing of stations does not leave a leftover chair in the middle of an even hall.
+The ledger holds this as [mass_comply_hex4_even_no_fixed](/theorem/mass_comply_hex4_even_no_fixed) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun i => !(i == 15 - i))) ∧ ((List.range 16).filter (fun i => i == 15 - i)).length = 0 ∧ (65536 % 2 = 0) ∧ (65535 % 2 = 1)
+```
+
+### AND IS ONE OF FOUR; OR IS THREE OF FOUR: cited·true is a single cell, cited OR true is three cells. A compliance citation that needs both bits is the AND count, never the OR count — saying the theorem or meaning it is not the same as saying it and meaning it.
+The ledger holds this as [mass_comply_citation_needs_both](/theorem/mass_comply_citation_needs_both) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (((List.range 4).filter (fun n => n % 2 + n / 2 % 2 - (n % 2) * (n / 2 % 2) == 1)).length = 3)
+```
+
+### ALL-THREE PASSES ONCE; ANY-OF-THREE PASSES SEVEN TIMES: AND of three bits is 1 of 8, OR of three bits is 7 of 8. A compliance checklist is the AND — treating a single green flag as the panel would count seven forgeries as a pass.
+The ledger holds this as [mass_comply_checklist_beats_or](/theorem/mass_comply_checklist_beats_or) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1) ∧ (((List.range 8).filter (fun n => 1 - (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 7)
+```
+
+### THE FULL-ADDER CLOSES EIGHT ROWS: residue plus twice the carry reconstructs a+b+cin on every three-bit input. Three reports that must total without a hidden overflow are this cell — the compliance of a sum against the bits that claimed it.
+The ledger holds this as [mass_comply_full_adder_eight_rows](/theorem/mass_comply_full_adder_eight_rows) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 8).all (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 + 2 * ((n % 2 + n / 2 % 2 + n / 4 % 2) / 2) == n % 2 + n / 2 % 2 + n / 4 % 2)
+```
+
+### EIGHT HANDLE BITS PLUS FOUR HEXBITS PLUS TWO COINS ARE FOURTEEN FACES, AND FOURTEEN ITEMS OVER FOURTEEN LANES SEAT ONE EACH. The VE of the cube is the lane count; a complete residue system on those faces is the compliance of the routing table with the hardware it names.
+The ledger holds this as [mass_comply_ve_faces_are_fourteen](/theorem/mass_comply_ve_faces_are_fourteen) — proven `by decide`, sorry-free:
+
+```lean
+(8 + 4 + 2 = 14) ∧ ((List.range 14).foldl (fun a l => a + ((List.range 14).filter (fun i => i % 14 == l)).length) 0 = 14) ∧ ((List.range 14).all (fun l => ((List.range 14).filter (fun i => i % 14 == l)).length == 1))
+```
+
+### AN ODD CREW HAS EXACTLY ONE CENTRE: on seven seats the involution i ↔ 6−i fixes the middle seat and only that seat. Seven people cannot pair without a leftover; the leftover is the centre, not a failure of the map.
+The ledger holds this as [mass_coord_odd_crew_has_centre](/theorem/mass_coord_odd_crew_has_centre) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i)) ∧ (7 % 2 = 1)
+```
+
+### SEVEN CLAY PROBLEMS HAVE EXACTLY ONE CENTRE: seven is odd, so i ↔ 6−i fixes one seat. Poincaré sits as that centre among the seven — an odd roster cannot pair without a leftover, and the leftover is arithmetic, not preference.
+The ledger holds this as [mass_coord_clay_seven_has_centre](/theorem/mass_coord_clay_seven_has_centre) — proven `by decide`, sorry-free:
+
+```lean
+(7 % 2 = 1) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i))
+```
+
+### NOR TIED TO ITSELF INVERTS: 1−(a+a−a·a) equals 1−a on the bit. A compliance NOT is not a second primitive — it is NOR with both pins on the same flag, the dual of NAND-tied, walked on {0,1}.
+The ledger holds this as [mass_comply_nor_tied_inverts](/theorem/mass_comply_nor_tied_inverts) — proven `by decide`, sorry-free:
+
+```lean
+[0, 1].all (fun a => (1 - (a + a - a * a)) == (1 - a))
+```
+
+### THE OTHER DE MORGAN: NOT (a OR b) equals (NOT a) AND (NOT b) over all four bit-pairs. Pushing a NOT through a checklist OR is still the same finite table — rewriting the form of a compliance clause does not invent a fifth row.
+The ledger holds this as [mass_comply_de_morgan_or_to_and](/theorem/mass_comply_de_morgan_or_to_and) — proven `by decide`, sorry-free:
+
+```lean
+[(0, 0), (0, 1), (1, 0), (1, 1)].all (fun p => (1 - (p.1 + p.2 - p.1 * p.2)) == (1 - p.1) * (1 - p.2))
+```
+
+### A DEMUX SPLITS; IT NEVER LIGHTS BOTH ARMS: over four rows the two arms sum to the input and their product is zero. Compliance of a split path is exclusive routing — the unused arm stays dark, so two reports cannot both claim the same bit.
+The ledger holds this as [mass_comply_demux_never_both_hot](/theorem/mass_comply_demux_never_both_hot) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 4).all (fun n => ((1 - n % 2) * (n / 2 % 2) + (n % 2) * (n / 2 % 2) == n / 2 % 2) && ((1 - n % 2) * (n / 2 % 2) * ((n % 2) * (n / 2 % 2)) == 0))
 ```
 
 

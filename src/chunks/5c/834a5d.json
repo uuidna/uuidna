@@ -1,0 +1,12 @@
+{
+  "handle": "5c834a5d",
+  "address": "5c834a5d-aee2-8579-b160-71a01a67fafe",
+  "statement": "reassembles 8072 = true ∧ castsFifteens 8072 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f88"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

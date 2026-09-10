@@ -1,0 +1,12 @@
+{
+  "handle": "62057361",
+  "address": "62057361-aeb4-8fe1-b4b2-538e7faa5ceb",
+  "statement": "(4 * 2 = 8) ∧ (8 * 4 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "the_path_spells_the_handle"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

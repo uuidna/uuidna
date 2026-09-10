@@ -1,17 +1,17 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 5124,
- "distinct": 5041,
+ "keys": 70905,
+ "distinct": 70822,
  "skills": 117,
- "files": 145,
+ "files": 178,
  "bySkill": [
+  {
+   "name": "wave",
+   "n": 67071
+  },
   {
    "name": "fermat",
    "n": 2096
-  },
-  {
-   "name": "wave",
-   "n": 1296
   },
   {
    "name": "z9-ring",
@@ -35,7 +35,7 @@
   },
   {
    "name": "cipher",
-   "n": 30
+   "n": 33
   },
   {
    "name": "audit",
@@ -63,19 +63,19 @@
   },
   {
    "name": "hexbit",
-   "n": 22
+   "n": 23
   },
   {
    "name": "reflection",
    "n": 21
   },
   {
-   "name": "neuro",
+   "name": "colour",
    "n": 19
   },
   {
-   "name": "colour",
-   "n": 18
+   "name": "neuro",
+   "n": 19
   },
   {
    "name": "hardware",
@@ -106,15 +106,15 @@
    "n": 15
   },
   {
+   "name": "referrer",
+   "n": 15
+  },
+  {
    "name": "typesetting",
    "n": 15
   },
   {
    "name": "editing",
-   "n": 14
-  },
-  {
-   "name": "referrer",
    "n": 14
   },
   {
@@ -476,8 +476,72 @@
  ],
  "byFile": [
   {
+   "name": "HexSpan1.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan10.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan11.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan12.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan13.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan14.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan15.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan16.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan2.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan3.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan4.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan5.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan6.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan7.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan8.lean",
+   "n": 4096
+  },
+  {
+   "name": "HexSpan9.lean",
+   "n": 4096
+  },
+  {
    "name": "Wave.lean",
-   "n": 932
+   "n": 968
   },
   {
    "name": "FixedPower.lean",
@@ -556,6 +620,10 @@
    "n": 66
   },
   {
+   "name": "Equilibrium.lean",
+   "n": 65
+  },
+  {
    "name": "Core.lean",
    "n": 64
   },
@@ -566,74 +634,6 @@
   {
    "name": "FermatRing7.lean",
    "n": 63
-  },
-  {
-   "name": "FermatRing2.lean",
-   "n": 58
-  },
-  {
-   "name": "FermatRing20.lean",
-   "n": 58
-  },
-  {
-   "name": "Quantum.lean",
-   "n": 58
-  },
-  {
-   "name": "FermatRing1.lean",
-   "n": 57
-  },
-  {
-   "name": "FermatRing19.lean",
-   "n": 55
-  },
-  {
-   "name": "FermatRing21.lean",
-   "n": 46
-  },
-  {
-   "name": "FermatReduction.lean",
-   "n": 35
-  },
-  {
-   "name": "Sequence.lean",
-   "n": 33
-  },
-  {
-   "name": "Cipher.lean",
-   "n": 30
-  },
-  {
-   "name": "Coins.lean",
-   "n": 25
-  },
-  {
-   "name": "Reasoning.lean",
-   "n": 25
-  },
-  {
-   "name": "Chessgames.lean",
-   "n": 24
-  },
-  {
-   "name": "Hexbit.lean",
-   "n": 22
-  },
-  {
-   "name": "Audit.lean",
-   "n": 18
-  },
-  {
-   "name": "Colour.lean",
-   "n": 18
-  },
-  {
-   "name": "Hardware.lean",
-   "n": 18
-  },
-  {
-   "name": "Neuro.lean",
-   "n": 18
   }
  ],
  "illustrations": [
@@ -848,6 +848,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "88c36a32-acae-8a98-925c-b2cf79a48e6e",
+ "receipt": "6cc96f80-9a1d-81a4-9a66-541d091c5227",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

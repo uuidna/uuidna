@@ -1,0 +1,12 @@
+{
+  "handle": "6492b893",
+  "address": "6492b893-adb8-8073-b97b-e0754f19b21c",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_quorum_floor_is_the_fault"
+  ],
+  "statement": "(List.range 4).all (fun f => (2 * f + 1) / 2 == f)",
+  "files": [
+    "Wave.lean"
+  ]
+}

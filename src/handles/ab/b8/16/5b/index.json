@@ -1,0 +1,12 @@
+{
+  "handle": "abb8165b",
+  "address": "abb8165b-c405-8b1b-ad79-0774aabb0946",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1158"
+  ],
+  "statement": "reassembles 4440 = true ∧ castsFifteens 4440 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

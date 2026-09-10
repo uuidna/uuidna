@@ -1,0 +1,12 @@
+{
+  "handle": "dab0005f",
+  "address": "dab0005f-024c-8761-b8b9-0a3b8701f6e9",
+  "statement": "reassembles 16471 = true ∧ castsFifteens 16471 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4057"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

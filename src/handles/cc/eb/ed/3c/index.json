@@ -1,0 +1,12 @@
+{
+  "handle": "ccebed3c",
+  "address": "ccebed3c-c8fc-8396-b154-77dc368319fe",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f469"
+  ],
+  "statement": "reassembles 62569 = true ∧ castsFifteens 62569 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "aaf71363",
+  "address": "aaf71363-a203-89f8-bdff-a61882e75cfe",
+  "statement": "reassembles 49305 = true ∧ castsFifteens 49305 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c099"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

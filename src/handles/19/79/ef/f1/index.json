@@ -1,0 +1,12 @@
+{
+  "handle": "1979eff1",
+  "address": "1979eff1-e727-867b-bbda-a0c63b27ed9c",
+  "kind": "chunk",
+  "keys": [
+    "a_defence_already_standing_precedes_any_pending_attack"
+  ],
+  "statement": "(List.range 64).all (fun n => 0 < n + 1)",
+  "files": [
+    "Refusion.lean"
+  ]
+}

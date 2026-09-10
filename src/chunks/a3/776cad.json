@@ -1,0 +1,12 @@
+{
+  "handle": "a3776cad",
+  "address": "a3776cad-2c1e-8591-8f40-7f5afb95f577",
+  "statement": "reassembles 21221 = true ∧ castsFifteens 21221 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_52e5"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

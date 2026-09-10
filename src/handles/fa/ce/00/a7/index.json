@@ -1,0 +1,12 @@
+{
+  "handle": "face00a7",
+  "address": "face00a7-cecf-89d4-b5f1-965d3975e5af",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1c16"
+  ],
+  "statement": "reassembles 7190 = true ∧ castsFifteens 7190 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

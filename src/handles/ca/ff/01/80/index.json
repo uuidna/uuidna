@@ -1,0 +1,12 @@
+{
+  "handle": "caff0180",
+  "address": "caff0180-4492-820e-9861-33ea20f1742a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e3b7"
+  ],
+  "statement": "reassembles 58295 = true ∧ castsFifteens 58295 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

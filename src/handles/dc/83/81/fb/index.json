@@ -1,0 +1,12 @@
+{
+  "handle": "dc8381fb",
+  "address": "dc8381fb-5e97-8a28-8080-2ccf1e0f43c1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ccec"
+  ],
+  "statement": "reassembles 52460 = true ∧ castsFifteens 52460 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

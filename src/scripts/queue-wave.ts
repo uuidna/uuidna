@@ -74,7 +74,11 @@ export function probe(c: Candidate): string | null {
     // falsy diagnostic: a refusal that cannot be printed is still a refusal.
     const err = e as { stdout?: Buffer; stderr?: Buffer; message?: string }
     const said = (String(err.stdout ?? '') + String(err.stderr ?? '')).trim()
-    return (said || String(err.message ?? '') || 'the kernel refused the proof and said nothing').slice(0, 300)
+    // A REFUSAL IS A COMMITTED RECORD. Lean prints the probe's absolute path; leaving `/Users/…` in
+    // wave-queue.json is a leak-scan charge (the queue is source, not a log). Strip this tree's root so the
+    // diagnostic stays the kernel's words and names no host.
+    const hostless = (s: string): string => s.split(ROOT).join('.').replace(/\/(?:Users|home)\/[A-Za-z0-9_.-]+/g, '.')
+    return hostless(said || String(err.message ?? '') || 'the kernel refused the proof and said nothing').slice(0, 300)
   }
   finally { try { unlinkSync(PROBE) } catch { /* the probe is disposable */ } }
   // NULL AND [] ARE DIFFERENT ANSWERS. [] is the kernel vouching for the term; null is NO verdict, and an absent

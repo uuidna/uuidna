@@ -1,0 +1,12 @@
+{
+  "handle": "dddb6724",
+  "address": "dddb6724-0635-83ca-a9f1-f189b2280820",
+  "statement": "reassembles 60708 = true ∧ castsFifteens 60708 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ed24"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

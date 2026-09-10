@@ -1,0 +1,12 @@
+{
+  "handle": "caf3395c",
+  "address": "caf3395c-b2ae-82a7-98fa-0a84020e31c0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_c0d3"
+  ],
+  "statement": "reassembles 49363 = true ∧ castsFifteens 49363 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

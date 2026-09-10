@@ -1,0 +1,12 @@
+{
+  "handle": "cfdaa722",
+  "address": "cfdaa722-990e-891e-99c6-7187220d21a7",
+  "statement": "reassembles 25317 = true ∧ castsFifteens 25317 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_62e5"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

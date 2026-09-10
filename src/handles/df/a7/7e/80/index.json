@@ -1,0 +1,12 @@
+{
+  "handle": "dfa77e80",
+  "address": "dfa77e80-e76c-8078-8bd4-f7536bac8055",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7e96"
+  ],
+  "statement": "reassembles 32406 = true ∧ castsFifteens 32406 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

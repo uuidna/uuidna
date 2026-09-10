@@ -1,0 +1,12 @@
+{
+  "handle": "ffa8575e",
+  "address": "ffa8575e-e5e8-8f0b-abb7-192513bdbb00",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_129f"
+  ],
+  "statement": "reassembles 4767 = true ∧ castsFifteens 4767 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

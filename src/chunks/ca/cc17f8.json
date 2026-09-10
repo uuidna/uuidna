@@ -1,0 +1,12 @@
+{
+  "handle": "cacc17f8",
+  "address": "cacc17f8-56f5-8588-aa64-db2874cd2b81",
+  "statement": "reassembles 30450 = true ∧ castsFifteens 30450 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_76f2"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

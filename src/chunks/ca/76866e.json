@@ -1,0 +1,12 @@
+{
+  "handle": "ca76866e",
+  "address": "ca76866e-a646-8b0c-9f7d-3397873932a0",
+  "statement": "reassembles 45150 = true ∧ castsFifteens 45150 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b05e"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "adfac695",
+  "address": "adfac695-ea0c-8d78-91c2-28e5c02f81ca",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7ff9"
+  ],
+  "statement": "reassembles 32761 = true ∧ castsFifteens 32761 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

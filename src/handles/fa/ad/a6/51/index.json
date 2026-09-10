@@ -1,0 +1,12 @@
+{
+  "handle": "faada651",
+  "address": "faada651-f34d-87a8-a641-be90fd05de50",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ac25"
+  ],
+  "statement": "reassembles 44069 = true ∧ castsFifteens 44069 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

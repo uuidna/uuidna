@@ -1,0 +1,12 @@
+{
+  "handle": "ea680d18",
+  "address": "ea680d18-a4c3-8ca0-b2ac-a861674e654b",
+  "statement": "reassembles 1660 = true ∧ castsFifteens 1660 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_067c"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

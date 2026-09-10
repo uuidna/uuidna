@@ -1,0 +1,12 @@
+{
+  "handle": "451feedd",
+  "address": "451feedd-3124-8b55-94cd-5473caf9a471",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8897"
+  ],
+  "statement": "reassembles 34967 = true ∧ castsFifteens 34967 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

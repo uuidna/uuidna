@@ -1,0 +1,12 @@
+{
+  "handle": "cfa24102",
+  "address": "cfa24102-a2a5-8b6e-ab33-6fdc7141bc9f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_c94b"
+  ],
+  "statement": "reassembles 51531 = true ∧ castsFifteens 51531 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

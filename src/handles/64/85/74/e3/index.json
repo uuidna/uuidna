@@ -1,0 +1,12 @@
+{
+  "handle": "648574e3",
+  "address": "648574e3-6ec8-84f6-a036-5dc229bd6489",
+  "kind": "chunk",
+  "keys": [
+    "neither_light_nor_execution_is_outrun"
+  ],
+  "statement": "(2 ^ 16 < 2 ^ 24) ∧ (2 ^ 24 = 256 * 2 ^ 16) ∧ [32,40,48].all (fun b => 2 ^ (b / 2) > 0)",
+  "files": [
+    "Refusion.lean"
+  ]
+}

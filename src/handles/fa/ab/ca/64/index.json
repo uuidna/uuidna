@@ -1,0 +1,12 @@
+{
+  "handle": "faabca64",
+  "address": "faabca64-58a1-8f4f-9f6a-af5770020272",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_47f0"
+  ],
+  "statement": "reassembles 18416 = true ∧ castsFifteens 18416 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

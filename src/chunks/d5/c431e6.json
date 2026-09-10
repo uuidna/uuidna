@@ -1,0 +1,12 @@
+{
+  "handle": "d5c431e6",
+  "address": "d5c431e6-a403-8901-baeb-41ad1b4a5416",
+  "statement": "reassembles 65452 = true ∧ castsFifteens 65452 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ffac"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

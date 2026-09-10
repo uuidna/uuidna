@@ -1,0 +1,12 @@
+{
+  "handle": "30a20548",
+  "address": "30a20548-1fe8-89b9-b71b-5a18450279c3",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_ve_faces_are_fourteen"
+  ],
+  "statement": "(8 + 4 + 2 = 14) ∧ ((List.range 14).foldl (fun a l => a + ((List.range 14).filter (fun i => i % 14 == l)).length) 0 = 14) ∧ ((List.range 14).all (fun l => ((List.range 14).filter (fun i => i % 14 == l)).length == 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

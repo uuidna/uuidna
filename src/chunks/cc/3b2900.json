@@ -1,0 +1,12 @@
+{
+  "handle": "cc3b2900",
+  "address": "cc3b2900-cdda-8173-86fc-2f89f3b995fd",
+  "statement": "reassembles 48917 = true ∧ castsFifteens 48917 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_bf15"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

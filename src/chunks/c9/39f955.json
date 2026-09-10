@@ -1,0 +1,12 @@
+{
+  "handle": "c939f955",
+  "address": "c939f955-9f96-86d1-9e2b-902ef9942dcc",
+  "statement": "(List.range 16).all (fun l => ((List.range 80).filter (fun i => i % 16 == l)).length == 5)",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_lanes_even_eighty"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

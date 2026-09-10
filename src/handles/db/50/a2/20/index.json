@@ -1,0 +1,12 @@
+{
+  "handle": "db50a220",
+  "address": "db50a220-2eff-8d57-9bd5-802453d7708d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_64c2"
+  ],
+  "statement": "reassembles 25794 = true ∧ castsFifteens 25794 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

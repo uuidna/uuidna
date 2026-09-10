@@ -1,0 +1,12 @@
+{
+  "handle": "cb419faf",
+  "address": "cb419faf-8322-8598-bf15-02f9e5929f25",
+  "statement": "reassembles 10131 = true ∧ castsFifteens 10131 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2793"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cfa1972a",
+  "address": "cfa1972a-c279-8ec9-a1a6-723a68c675a3",
+  "statement": "reassembles 3103 = true ∧ castsFifteens 3103 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0c1f"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

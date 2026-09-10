@@ -1,0 +1,12 @@
+{
+  "handle": "debddc10",
+  "address": "debddc10-e653-8922-b8a6-06cbffa494cb",
+  "statement": "reassembles 27408 = true ∧ castsFifteens 27408 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6b10"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

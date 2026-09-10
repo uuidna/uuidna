@@ -1,0 +1,12 @@
+{
+  "handle": "93385dac",
+  "address": "93385dac-0555-8dcd-9719-099a08257700",
+  "statement": "reassembles 16877 = true ∧ castsFifteens 16877 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_41ed"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

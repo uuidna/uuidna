@@ -1,0 +1,12 @@
+{
+  "handle": "face00a7",
+  "address": "face00a7-cecf-89d4-b5f1-965d3975e5af",
+  "statement": "reassembles 7190 = true ∧ castsFifteens 7190 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1c16"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

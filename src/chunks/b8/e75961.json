@@ -1,0 +1,12 @@
+{
+  "handle": "b8e75961",
+  "address": "b8e75961-54aa-8e3f-af55-39c26ab2b920",
+  "statement": "((List.range 7).all (fun k => 64 / (2 ^ k) * (2 ^ k) == 64)) ∧ ¬(64 / (2 ^ 7) * (2 ^ 7) == 64)",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_six_halves_and_not_seventh"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

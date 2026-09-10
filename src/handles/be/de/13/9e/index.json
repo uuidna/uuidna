@@ -1,0 +1,12 @@
+{
+  "handle": "bede139e",
+  "address": "bede139e-59f7-8f39-aeee-96de855400e0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_cbbb"
+  ],
+  "statement": "reassembles 52155 = true ∧ castsFifteens 52155 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

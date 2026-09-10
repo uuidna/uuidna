@@ -1,0 +1,12 @@
+{
+  "handle": "beeff105",
+  "address": "beeff105-16ff-8ee9-bc1f-d1ee0205ab14",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fcc4"
+  ],
+  "statement": "reassembles 64708 = true ∧ castsFifteens 64708 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

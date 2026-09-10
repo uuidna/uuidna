@@ -1,0 +1,12 @@
+{
+  "handle": "aac8649e",
+  "address": "aac8649e-b92c-85fc-90a8-444250c9cc89",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_39ab"
+  ],
+  "statement": "reassembles 14763 = true ∧ castsFifteens 14763 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

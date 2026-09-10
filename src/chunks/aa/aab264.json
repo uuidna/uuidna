@@ -1,0 +1,12 @@
+{
+  "handle": "aaaab264",
+  "address": "aaaab264-4a16-8234-a58d-22ffa0122bc4",
+  "statement": "reassembles 22094 = true ∧ castsFifteens 22094 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_564e"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

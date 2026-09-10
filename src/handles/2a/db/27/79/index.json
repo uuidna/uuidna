@@ -1,0 +1,12 @@
+{
+  "handle": "2adb2779",
+  "address": "2adb2779-8209-803f-8c5f-93011a3d6135",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b77d"
+  ],
+  "statement": "reassembles 46973 = true ∧ castsFifteens 46973 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

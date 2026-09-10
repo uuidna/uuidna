@@ -1,0 +1,12 @@
+{
+  "handle": "f310bed3",
+  "address": "f310bed3-40cb-8ae4-a963-f5c716d4761d",
+  "statement": "reassembles 5886 = true ∧ castsFifteens 5886 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_16fe"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fcdd3247",
+  "address": "fcdd3247-e3ec-82c0-bead-27cd340cedd8",
+  "statement": "reassembles 29584 = true ∧ castsFifteens 29584 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7390"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

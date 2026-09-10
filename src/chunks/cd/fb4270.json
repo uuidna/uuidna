@@ -1,0 +1,12 @@
+{
+  "handle": "cdfb4270",
+  "address": "cdfb4270-0efb-8789-ba74-ebe66a41e266",
+  "statement": "reassembles 51161 = true ∧ castsFifteens 51161 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c7d9"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

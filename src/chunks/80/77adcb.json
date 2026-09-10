@@ -1,0 +1,12 @@
+{
+  "handle": "8077adcb",
+  "address": "8077adcb-394a-82f5-8890-43035089ec96",
+  "statement": "reassembles 1771 = true ∧ castsFifteens 1771 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_06eb"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "daf41757",
+  "address": "daf41757-432a-8f53-b153-dacaf36897f5",
+  "statement": "reassembles 21799 = true ∧ castsFifteens 21799 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5527"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dda14125",
+  "address": "dda14125-1f07-8137-81d3-59cdcffd6304",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_db9c"
+  ],
+  "statement": "reassembles 56220 = true ∧ castsFifteens 56220 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

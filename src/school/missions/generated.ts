@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "1c1349489664a8bb",
+ "digest": "f9021f61c6ec2ea7",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -1076,6 +1076,11 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "load-bearing"
   },
   {
+   "key": "a_defence_already_standing_precedes_any_pending_attack",
+   "wing": "Refusion.lean",
+   "verdict": "survived-widening"
+  },
+  {
    "key": "pentagram_single_stroke",
    "wing": "Pentagram.lean",
    "verdict": "load-bearing"
@@ -1088,6 +1093,11 @@ export const BOUND_SLICE: BoundSlice = {
   {
    "key": "codon_frame_rotates_rosette",
    "wing": "Pentagram.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "the_cube_carries_the_tetrahedron_and_its_own_dual",
+   "wing": "QuantumCube.lean",
    "verdict": "load-bearing"
   },
   {
@@ -3616,6 +3626,161 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "undecidable-widened"
   },
   {
+   "key": "mass_coord_lanes_partition_ninetysix",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_lanes_balance_forty_eight",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_lanes_even_eighty",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_residue_unique_owner",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_coord_quorum_floor_is_the_fault",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_coord_bft_three_of_four",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_coord_majority_five_bits",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_coord_even_crew_pairs_all",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_round_robin_closes",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_barrier_twelve_not_thirteen",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_rotation_is_permutation",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_coord_two_coins_partition",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_eighteen_problems_nine_pairs",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_lattice_birthday_is_span",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_gate_one_of_eight",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_sixteen_bits_all_set",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_window_twenty_not_next",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_four_states_three_open",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_panel_monotone",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_six_halves_and_not_seventh",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_half_adder_without_xor_op",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_and_of_three_is_one",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_involution_self_inverse",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_hex4_even_no_fixed",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_citation_needs_both",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_checklist_beats_or",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_full_adder_eight_rows",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "mass_comply_ve_faces_are_fourteen",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_odd_crew_has_centre",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_coord_clay_seven_has_centre",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "mass_comply_demux_never_both_hot",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening"
+  },
+  {
    "key": "saros_metonic_bridge",
    "wing": "Universe.lean",
    "verdict": "load-bearing"
@@ -3969,6 +4134,491 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "imagine_all_as_clique_faces",
    "wing": "VectorEquilibrium.lean",
    "verdict": "load-bearing"
+  },
+  {
+   "key": "hexcube_degree_is_six_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "hexcube_degree_is_six_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_8",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_9",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_10",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_11",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_12",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_13",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_14",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_15",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "duality_swaps_vertices_and_faces",
+   "wing": "Platonic.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_0",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_1",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_2",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_3",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_4",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_5",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_6",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_7",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_8",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_9",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_10",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_11",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_12",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_13",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_14",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_15",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_16",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_17",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_18",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_19",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_20",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_21",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_22",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_23",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_24",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_25",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_26",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_27",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_28",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_29",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_30",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_31",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_32",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_33",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_34",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_35",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_36",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_37",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_38",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_39",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_40",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_41",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_42",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_43",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_44",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_45",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_46",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_47",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_48",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_49",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_50",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_51",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_52",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_53",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_54",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_55",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_56",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_57",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_58",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_59",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_60",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_61",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_62",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_63",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening"
   },
   {
    "key": "nine_complement_half_turns_the_orbit",

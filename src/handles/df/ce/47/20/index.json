@@ -1,0 +1,12 @@
+{
+  "handle": "dfce4720",
+  "address": "dfce4720-bd28-8be9-bb08-b1744482965f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2756"
+  ],
+  "statement": "reassembles 10070 = true ∧ castsFifteens 10070 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

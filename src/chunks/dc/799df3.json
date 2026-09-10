@@ -1,0 +1,12 @@
+{
+  "handle": "dc799df3",
+  "address": "dc799df3-be67-8594-a361-0ea1dfa762e7",
+  "statement": "reassembles 460 = true ∧ castsFifteens 460 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_01cc"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

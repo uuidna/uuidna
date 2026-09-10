@@ -1,0 +1,12 @@
+{
+  "handle": "077767d8",
+  "address": "077767d8-b48d-8683-9874-ba6151f010c9",
+  "statement": "(5 = 5) ∧ ¬(5 > 5) ∧ (5 * 0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "hardware_coverage_is_not_correctness_coverage"
+  ],
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

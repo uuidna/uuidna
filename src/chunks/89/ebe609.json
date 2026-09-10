@@ -1,0 +1,12 @@
+{
+  "handle": "89ebe609",
+  "address": "89ebe609-fb54-8973-8ecd-fc9d38b248e6",
+  "statement": "reassembles 11355 = true ∧ castsFifteens 11355 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2c5b"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

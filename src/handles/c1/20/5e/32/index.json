@@ -1,0 +1,12 @@
+{
+  "handle": "c1205e32",
+  "address": "c1205e32-6e05-8203-afe7-6da555402853",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_bcad"
+  ],
+  "statement": "reassembles 48301 = true ∧ castsFifteens 48301 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

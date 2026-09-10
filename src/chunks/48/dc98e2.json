@@ -1,0 +1,12 @@
+{
+  "handle": "48dc98e2",
+  "address": "48dc98e2-5a50-8eef-bfc5-79bef99fd59c",
+  "statement": "(4 + 3 - 1 = 6) ∧ (4 + 2 = 6) ∧ (9 - 3 = 6) ∧ (4 + 3 - 1 = 4 + 2) ∧ (4 + 2 = 9 - 3)",
+  "tactic": "decide",
+  "keys": [
+    "uuidna_letters_fuse_to_the_hexagram"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

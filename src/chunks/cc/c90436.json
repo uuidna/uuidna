@@ -1,0 +1,12 @@
+{
+  "handle": "ccc90436",
+  "address": "ccc90436-504d-8223-92dc-ee3c57b5e068",
+  "statement": "reassembles 65223 = true ∧ castsFifteens 65223 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fec7"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

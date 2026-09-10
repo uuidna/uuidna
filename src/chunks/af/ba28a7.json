@@ -1,0 +1,12 @@
+{
+  "handle": "afba28a7",
+  "address": "afba28a7-9495-8340-8239-7fc74634dcb4",
+  "statement": "reassembles 4647 = true ∧ castsFifteens 4647 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1227"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

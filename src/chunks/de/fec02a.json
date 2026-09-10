@@ -1,0 +1,12 @@
+{
+  "handle": "defec02a",
+  "address": "defec02a-f471-8983-8626-18ee0475a070",
+  "statement": "reassembles 21820 = true ∧ castsFifteens 21820 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_553c"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

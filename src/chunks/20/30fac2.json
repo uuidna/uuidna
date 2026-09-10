@@ -1,0 +1,12 @@
+{
+  "handle": "2030fac2",
+  "address": "2030fac2-782c-8007-bbdb-f9b4e8874897",
+  "statement": "reassembles 11085 = true ∧ castsFifteens 11085 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2b4d"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "df7407bc",
+  "address": "df7407bc-743f-8ee6-8999-df049192387c",
+  "statement": "reassembles 44016 = true ∧ castsFifteens 44016 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_abf0"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ddb716a9",
+  "address": "ddb716a9-8566-8d26-8838-cb5050092625",
+  "statement": "reassembles 36103 = true ∧ castsFifteens 36103 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8d07"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

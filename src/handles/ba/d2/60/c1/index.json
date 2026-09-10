@@ -1,0 +1,12 @@
+{
+  "handle": "bad260c1",
+  "address": "bad260c1-040b-8065-a281-253508d7f553",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7218"
+  ],
+  "statement": "reassembles 29208 = true ∧ castsFifteens 29208 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

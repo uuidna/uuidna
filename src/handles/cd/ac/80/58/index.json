@@ -1,0 +1,12 @@
+{
+  "handle": "cdac8058",
+  "address": "cdac8058-71bb-814e-863f-84e989461172",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_428f"
+  ],
+  "statement": "reassembles 17039 = true ∧ castsFifteens 17039 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

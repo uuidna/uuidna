@@ -1,0 +1,12 @@
+{
+  "handle": "ecfad18e",
+  "address": "ecfad18e-bfc8-8524-beaf-07d6b90f4ab4",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_e01f"
+  ],
+  "statement": "reassembles 57375 = true ∧ castsFifteens 57375 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

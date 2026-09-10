@@ -1,0 +1,12 @@
+{
+  "handle": "abee5964",
+  "address": "abee5964-3b51-8df0-84cd-bbbd7363d7c6",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_3961"
+  ],
+  "statement": "reassembles 14689 = true ∧ castsFifteens 14689 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

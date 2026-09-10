@@ -1,0 +1,12 @@
+{
+  "handle": "c789cab2",
+  "address": "c789cab2-0a27-81a1-a9cd-62e86a7a0aea",
+  "statement": "reassembles 42815 = true ∧ castsFifteens 42815 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a73f"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

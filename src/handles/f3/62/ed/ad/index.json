@@ -1,0 +1,12 @@
+{
+  "handle": "f362edad",
+  "address": "f362edad-2177-8746-a209-5c399c1238ef",
+  "kind": "chunk",
+  "keys": [
+    "mass_comply_window_twenty_not_next"
+  ],
+  "statement": "((List.range 20).all (fun n => n < 20)) ∧ ¬(20 < 20)",
+  "files": [
+    "Wave.lean"
+  ]
+}

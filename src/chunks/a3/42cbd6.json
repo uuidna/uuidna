@@ -1,0 +1,12 @@
+{
+  "handle": "a342cbd6",
+  "address": "a342cbd6-d73f-879e-9d84-716a395fcb0d",
+  "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 6) (lxor d 6) == lxor c d))",
+  "tactic": "decide",
+  "keys": [
+    "xor_translation_preserves_adjacency_6"
+  ],
+  "files": [
+    "EquilibriumXor1.lean"
+  ]
+}

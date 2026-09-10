@@ -1,0 +1,12 @@
+{
+  "handle": "9788b443",
+  "address": "9788b443-86e5-8413-81d5-7e48ba16979d",
+  "statement": "reassembles 49322 = true ∧ castsFifteens 49322 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c0aa"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

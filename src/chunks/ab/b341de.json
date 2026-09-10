@@ -1,0 +1,12 @@
+{
+  "handle": "abb341de",
+  "address": "abb341de-6179-8645-a806-64fee00c1fc4",
+  "statement": "reassembles 57026 = true ∧ castsFifteens 57026 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_dec2"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

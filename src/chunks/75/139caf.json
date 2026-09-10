@@ -1,0 +1,12 @@
+{
+  "handle": "75139caf",
+  "address": "75139caf-c714-81e4-8987-b1ee3fd7dafd",
+  "statement": "reassembles 3034 = true ∧ castsFifteens 3034 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0bda"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

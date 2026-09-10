@@ -1,0 +1,12 @@
+{
+  "handle": "bedf126f",
+  "address": "bedf126f-ea9c-8fdf-b009-d258d4239212",
+  "statement": "reassembles 1679 = true ∧ castsFifteens 1679 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_068f"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

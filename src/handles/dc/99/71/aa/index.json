@@ -1,0 +1,12 @@
+{
+  "handle": "dc9971aa",
+  "address": "dc9971aa-2876-8c89-ba40-25da33d2511a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_bbf4"
+  ],
+  "statement": "reassembles 48116 = true ∧ castsFifteens 48116 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

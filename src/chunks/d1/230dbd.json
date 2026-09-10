@@ -1,0 +1,12 @@
+{
+  "handle": "d1230dbd",
+  "address": "d1230dbd-d9ab-81e9-bf52-b84d0ecb7016",
+  "statement": "reassembles 60589 = true ∧ castsFifteens 60589 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ecad"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

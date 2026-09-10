@@ -1,0 +1,12 @@
+{
+  "handle": "cad6892a",
+  "address": "cad6892a-8d48-81f9-8d2b-3a2c594a3d92",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0a4c"
+  ],
+  "statement": "reassembles 2636 = true ∧ castsFifteens 2636 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bed6071b",
+  "address": "bed6071b-7741-8819-bd3c-b78c7b83c7a1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_d725"
+  ],
+  "statement": "reassembles 55077 = true ∧ castsFifteens 55077 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

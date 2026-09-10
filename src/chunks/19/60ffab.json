@@ -1,0 +1,12 @@
+{
+  "handle": "1960ffab",
+  "address": "1960ffab-83c1-80c3-bde8-cd3ffe247ddc",
+  "statement": "reassembles 62273 = true ∧ castsFifteens 62273 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f341"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

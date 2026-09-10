@@ -1,0 +1,12 @@
+{
+  "handle": "bee6300a",
+  "address": "bee6300a-bd10-8227-8787-5d209b9dbf21",
+  "statement": "reassembles 31891 = true ∧ castsFifteens 31891 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7c93"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

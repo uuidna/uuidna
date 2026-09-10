@@ -1,0 +1,12 @@
+{
+  "handle": "1a26742d",
+  "address": "1a26742d-74be-838b-ab28-ad92986f8af9",
+  "kind": "chunk",
+  "keys": [
+    "hexcube_degree_is_six_0"
+  ],
+  "statement": "[0,1,2,3,4,5,6,7].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)",
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

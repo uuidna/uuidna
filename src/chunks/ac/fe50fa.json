@@ -1,0 +1,12 @@
+{
+  "handle": "acfe50fa",
+  "address": "acfe50fa-d129-8ac4-8fb2-69290c1a5585",
+  "statement": "reassembles 11255 = true ∧ castsFifteens 11255 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2bf7"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

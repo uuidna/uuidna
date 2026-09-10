@@ -1,0 +1,12 @@
+{
+  "handle": "df1aea98",
+  "address": "df1aea98-f85b-8042-b344-98ec007211ea",
+  "statement": "reassembles 58350 = true ∧ castsFifteens 58350 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e3ee"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

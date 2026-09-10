@@ -1,0 +1,12 @@
+{
+  "handle": "433de305",
+  "address": "433de305-ca55-8bed-ad84-820d74eefbd5",
+  "statement": "reassembles 18019 = true ∧ castsFifteens 18019 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4663"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

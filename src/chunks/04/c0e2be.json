@@ -1,0 +1,12 @@
+{
+  "handle": "04c0e2be",
+  "address": "04c0e2be-969c-8a26-ab7e-82c1297edc89",
+  "statement": "(List.range 24).all (fun i => ((List.range 8).filter (fun l => i % 8 == l)).length == 1)",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_residue_unique_owner"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

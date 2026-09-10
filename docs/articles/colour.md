@@ -1,15 +1,15 @@
 ---
 title: "The colour wheel"
-description: "Computed from lean/Colour.lean — 18 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Colour.lean — 19 sealed theorems, every claim citing its proof."
 ---
 
 # The colour wheel
 
-> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. — held by [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) and its 17 siblings below.
+> THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. — held by [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) and its 18 siblings below.
 
-**18 theorems** and **1,185 decided cases**, from [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct). A boundary stated here is decided.
+**19 theorems** and **1,186 decided cases**, from [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 19 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FColour.lean)** — nothing to install. The editor fetches `lean/Colour.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FColour.lean)** — nothing to install. The editor fetches `lean/Colour.lean` from the repository and re-decides all 19 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE 378-STATE AURA ALPHABET, WALKED — 9 residues x 7 rays x 6 waves, and no two states share a colour. Sorted and split into 6 chunks of 63: each chunk carries no duplicate, and every chunk's last value is strictly below the next chunk's first, so the whole run rises strictly and all 378 colours are distinct. CHUNKED BECAUSE NO WING BUYS ITS OWN CEILING — a flat eraseDups over 378 exceeds Lean's default maxRecDepth (measured: 96 decides, 128 does not), and across all 118 wings the census of recursion-depth raises is zero. The split is arithmetic, not a weakening: within-chunk distinctness plus strictly rising boundaries is exactly global distinctness on a sorted run. AND THE DISTINCTNESS IS EARNED, NOT GIVEN: hue alone does NOT separate these states — colours #41dcab and #30cf9c both sit at hue 161 — so the alphabet is distinct because of the combination of hue, saturation and lightness rather than because any one component already told them apart. A distinctness claim whose components already separate is decoration; this one is checked against a witness that they do not. Measured across the alphabet: hue alone collides 90 times, saturation with lightness collides 294 times. SCOPE: these are the 378 states the aura surface serves and their pairwise distinctness as integers — not a claim that they are perceptually distinguishable, which is a fact about eyes and not about arithmetic.
 The ledger holds this as [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) — proven `by decide`, sorry-free:
@@ -135,6 +135,13 @@ The ledger holds this as [no_digit_is_an_exact_complement](/theorem/no_digit_is_
 
 ```lean
 (180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200)
+```
+
+### THE NAME'S AURA IS THE SEED ON THE A432 WHEEL. Residue is the seed of toUuid("uuidna") mod 9, ray is that seed mod 7, wave index is the seed mod 6. Hue is residue·40 + ray·51 + wave, wrapping 360°. Period is two coins times (hexbit + coins + ray). Saturation and lightness are the ray and wave channels.
+The ledger holds this as [uuidna_name_aura_is_the_seed](/theorem/uuidna_name_aura_is_the_seed) — proven `by decide`, sorry-free:
+
+```lean
+(4233172274 % 9 = 8) ∧ (4233172274 % 7 = 2) ∧ (4233172274 % 6 = 2) ∧ ((8 * 40 + 2 * 51 + 4) % 360 = 66) ∧ (2 * (4 + 2 + 2) = 16) ∧ (62 + 2 * 2 + 0 = 66) ∧ (50 + 2 * 2 = 54)
 ```
 
 

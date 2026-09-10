@@ -1,0 +1,12 @@
+{
+  "handle": "fabade55",
+  "address": "fabade55-d863-811b-af53-609c6c04ef8d",
+  "statement": "reassembles 21567 = true ∧ castsFifteens 21567 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_543f"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "34541afb",
+  "address": "34541afb-b077-872b-9231-e333085e89dc",
+  "statement": "reassembles 36553 = true ∧ castsFifteens 36553 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8ec9"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

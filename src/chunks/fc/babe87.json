@@ -1,0 +1,12 @@
+{
+  "handle": "fcbabe87",
+  "address": "fcbabe87-b629-880e-b868-2cc47805f655",
+  "statement": "reassembles 27224 = true ∧ castsFifteens 27224 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6a58"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

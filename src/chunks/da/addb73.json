@@ -1,0 +1,12 @@
+{
+  "handle": "daaddb73",
+  "address": "daaddb73-4670-87b6-bff9-0dbd528a4fc4",
+  "statement": "reassembles 37975 = true ∧ castsFifteens 37975 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9457"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

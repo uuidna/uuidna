@@ -1,0 +1,12 @@
+{
+  "handle": "662afedc",
+  "address": "662afedc-fab1-878e-9776-1825e6bfeef6",
+  "statement": "[64,65,66,67,68,69,70,71].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))",
+  "tactic": "decide",
+  "keys": [
+    "polarity_flip_is_an_automorphism_8"
+  ],
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

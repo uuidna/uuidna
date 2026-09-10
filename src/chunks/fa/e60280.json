@@ -1,0 +1,12 @@
+{
+  "handle": "fae60280",
+  "address": "fae60280-d815-8969-a52f-c8a7a95d5a1f",
+  "statement": "reassembles 52248 = true ∧ castsFifteens 52248 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cc18"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

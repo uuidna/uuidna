@@ -1,0 +1,12 @@
+{
+  "handle": "caed8590",
+  "address": "caed8590-6e1b-8338-ad8e-948bbaed4a52",
+  "statement": "reassembles 44095 = true ∧ castsFifteens 44095 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ac3f"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

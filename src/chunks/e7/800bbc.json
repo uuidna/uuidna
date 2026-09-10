@@ -1,0 +1,12 @@
+{
+  "handle": "e7800bbc",
+  "address": "e7800bbc-9834-8646-873e-f35bb38b2544",
+  "statement": "reassembles 8160 = true ∧ castsFifteens 8160 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1fe0"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

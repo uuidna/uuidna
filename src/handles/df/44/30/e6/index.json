@@ -1,0 +1,12 @@
+{
+  "handle": "df4430e6",
+  "address": "df4430e6-a2dc-8270-a8bf-7e30dde6cc1d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ddbb"
+  ],
+  "statement": "reassembles 56763 = true ∧ castsFifteens 56763 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

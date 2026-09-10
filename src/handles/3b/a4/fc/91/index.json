@@ -1,0 +1,12 @@
+{
+  "handle": "3ba4fc91",
+  "address": "3ba4fc91-07c1-8ff4-b3b1-9ef66488f776",
+  "kind": "chunk",
+  "keys": [
+    "this_ledger_offers_nothing_decidable_on_three_of_the_five"
+  ],
+  "statement": "(2 + 3 = 5) ∧ (2 < 5)",
+  "files": [
+    "OpenProblems.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ba250acc",
+  "address": "ba250acc-21ff-8e84-8df3-53167f5fb608",
+  "statement": "reassembles 39668 = true ∧ castsFifteens 39668 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9af4"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "957122b3",
+  "address": "957122b3-20d1-8896-b70e-96fbedca702c",
+  "statement": "(5 = 5) ∧ (5 * 0 = 0) ∧ (1 < 2) ∧ (1 + 1 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "absence_defeats_the_algorithm_and_not_the_machine"
+  ],
+  "files": [
+    "Refusion.lean"
+  ]
+}

@@ -93,12 +93,13 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 144 prerequisites over 173 edges at this
+that cites another sealed key IS a citation edge, 148 prerequisites over 192 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
 | Walk this first | Cited by | Among its citers |
 | --- | ---: | --- |
+| [`ve_twentyfour_edges`](/theorem/ve_twentyfour_edges) | 16 | [`the_twelve_neighbours_are_an_independent_set_0`](/theorem/the_twelve_neighbours_are_an_independent_set_0), [`the_twelve_neighbours_are_an_independent_set_1`](/theorem/the_twelve_neighbours_are_an_independent_set_1), [`the_twelve_neighbours_are_an_independent_set_10`](/theorem/the_twelve_neighbours_are_an_independent_set_10) |
 | [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`team_pairs_triples_cover`](/theorem/team_pairs_triples_cover) |
 | [`codons_sixty_four`](/theorem/codons_sixty_four) | 3 | [`octave_codon_address`](/theorem/octave_codon_address), [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not), [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`points_of_sail`](/theorem/points_of_sail) | 3 | [`eight_points_is_90`](/theorem/eight_points_is_90), [`sixteen_points_is_180`](/theorem/sixteen_points_is_180), [`twelve_points_is_135`](/theorem/twelve_points_is_135) |
@@ -128,6 +129,7 @@ three citers alphabetically, and the count carries the rest.
 | [`bell_stabilized_by_xx`](/theorem/bell_stabilized_by_xx) | 1 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
 | [`binary_kilo_drift_compounds`](/theorem/binary_kilo_drift_compounds) | 1 | [`the_buyer_sees_thirty_five_missing`](/theorem/the_buyer_sees_thirty_five_missing) |
 | [`blood_types_eight`](/theorem/blood_types_eight) | 1 | [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) |
+| [`buying_the_point_that_does_not_bind_buys_nothing`](/theorem/buying_the_point_that_does_not_bind_buys_nothing) | 1 | [`the_diagnosis_and_the_prescription_are_the_same_point`](/theorem/the_diagnosis_and_the_prescription_are_the_same_point) |
 | [`byte_holds_two_hexbits`](/theorem/byte_holds_two_hexbits) | 1 | [`byte_weight_splits_across_its_two_tiles`](/theorem/byte_weight_splits_across_its_two_tiles) |
 | [`byte_order_is_significant`](/theorem/byte_order_is_significant) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) | 1 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) |
@@ -192,6 +194,7 @@ three citers alphabetically, and the count carries the rest.
 | [`no_perpetual_motion`](/theorem/no_perpetual_motion) | 1 | [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) |
 | [`nyquist_half_samplerate`](/theorem/nyquist_half_samplerate) | 1 | [`nyquist_clears_the_lattice`](/theorem/nyquist_clears_the_lattice) |
 | [`octave_of_light_doubles`](/theorem/octave_of_light_doubles) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
+| [`oos_physical_sidechannel`](/theorem/oos_physical_sidechannel) | 1 | [`absence_defeats_the_algorithm_and_not_the_machine`](/theorem/absence_defeats_the_algorithm_and_not_the_machine) |
 | [`optimisation_space_is_qubit_dimension`](/theorem/optimisation_space_is_qubit_dimension) | 1 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) |
 | [`otp_self_inverse`](/theorem/otp_self_inverse) | 1 | [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
 | [`oxidation_states_sum`](/theorem/oxidation_states_sum) | 1 | [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
@@ -211,6 +214,7 @@ three citers alphabetically, and the count carries the rest.
 | [`seal_ten`](/theorem/seal_ten) | 1 | [`hextorus_deficit_is_the_ten`](/theorem/hextorus_deficit_is_the_ten) |
 | [`sealing_inverts_unverified`](/theorem/sealing_inverts_unverified) | 1 | [`silence_never_refutes`](/theorem/silence_never_refutes) |
 | [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) | 1 | [`hextorus_is_coins_times_trinity`](/theorem/hextorus_is_coins_times_trinity) |
+| [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) | 1 | [`the_certified_ratio_has_no_ceiling_where_every_speedup_does`](/theorem/the_certified_ratio_has_no_ceiling_where_every_speedup_does) |
 | [`single_byte_tamper_is_detected`](/theorem/single_byte_tamper_is_detected) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`song_six_verses_one_melody`](/theorem/song_six_verses_one_melody) | 1 | [`referrer_six_doors`](/theorem/referrer_six_doors) |
 | [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) | 1 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) |
@@ -267,11 +271,11 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    find a fold of your own.
 7. **Seal the input, never its pure function — and know where that stops** — a digest of f(x) moves exactly when
    a digest of x moves, so sealing both seals one fact twice and the second seal is pure cost
-   ([`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes)). One fold composed **145** monographs to
+   ([`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes)). One fold composed **178** monographs to
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 5124-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 70905-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -766,15 +770,31 @@ The message was the session's equation, receipted before the work existed, reali
 or judgment — those stay with the student; the court decides meaning. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
-## The wings — all 145, computed from the ledger
+## The wings — all 178, computed from the ledger
 
-Every wing the ledger seals, largest first: 5124 theorems across 145 wings and 112 skills.
+Every wing the ledger seals, largest first: 70905 theorems across 178 wings and 112 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
 | Wing | File | Skill | Theorems | Open |
 | --- | --- | --- | ---: | --- |
-| The conveyor's first wave | `Wave.lean` | wave | 932 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
+| The four-hex span, part 1 | `HexSpan1.lean` | wave | 4096 | [`enumeration_hex4_0000`](/theorem/enumeration_hex4_0000) |
+| The four-hex span, part 10 | `HexSpan10.lean` | wave | 4096 | [`enumeration_hex4_9000`](/theorem/enumeration_hex4_9000) |
+| The four-hex span, part 11 | `HexSpan11.lean` | wave | 4096 | [`enumeration_hex4_a000`](/theorem/enumeration_hex4_a000) |
+| The four-hex span, part 12 | `HexSpan12.lean` | wave | 4096 | [`enumeration_hex4_b000`](/theorem/enumeration_hex4_b000) |
+| The four-hex span, part 13 | `HexSpan13.lean` | wave | 4096 | [`enumeration_hex4_c000`](/theorem/enumeration_hex4_c000) |
+| The four-hex span, part 14 | `HexSpan14.lean` | wave | 4096 | [`enumeration_hex4_d000`](/theorem/enumeration_hex4_d000) |
+| The four-hex span, part 15 | `HexSpan15.lean` | wave | 4096 | [`enumeration_hex4_e000`](/theorem/enumeration_hex4_e000) |
+| The four-hex span, part 16 | `HexSpan16.lean` | wave | 4096 | [`enumeration_hex4_f000`](/theorem/enumeration_hex4_f000) |
+| The four-hex span, part 2 | `HexSpan2.lean` | wave | 4096 | [`enumeration_hex4_1000`](/theorem/enumeration_hex4_1000) |
+| The four-hex span, part 3 | `HexSpan3.lean` | wave | 4096 | [`enumeration_hex4_2000`](/theorem/enumeration_hex4_2000) |
+| The four-hex span, part 4 | `HexSpan4.lean` | wave | 4096 | [`enumeration_hex4_3000`](/theorem/enumeration_hex4_3000) |
+| The four-hex span, part 5 | `HexSpan5.lean` | wave | 4096 | [`enumeration_hex4_4000`](/theorem/enumeration_hex4_4000) |
+| The four-hex span, part 6 | `HexSpan6.lean` | wave | 4096 | [`enumeration_hex4_5000`](/theorem/enumeration_hex4_5000) |
+| The four-hex span, part 7 | `HexSpan7.lean` | wave | 4096 | [`enumeration_hex4_6000`](/theorem/enumeration_hex4_6000) |
+| The four-hex span, part 8 | `HexSpan8.lean` | wave | 4096 | [`enumeration_hex4_7000`](/theorem/enumeration_hex4_7000) |
+| The four-hex span, part 9 | `HexSpan9.lean` | wave | 4096 | [`enumeration_hex4_8000`](/theorem/enumeration_hex4_8000) |
+| The conveyor's first wave | `Wave.lean` | wave | 968 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
 | The fixed points of x to the m, as a law | `FixedPower.lean` | fermat | 567 | [`fixed_power_law_is_not_vacuous`](/theorem/fixed_power_law_is_not_vacuous) |
 | The laws behind the counts | `Laws.lean` | wave | 353 | [`carmichael_exponent_is_attained_mod_10`](/theorem/carmichael_exponent_is_attained_mod_10) |
 | The ring ℤ/9 | `Ring.lean` | z9-ring | 234 | [`z9add_0_0`](/theorem/z9add_0_0) |
@@ -794,6 +814,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The congruence survey, ring 11 | `FermatRing11.lean` | fermat | 71 | [`coprime_sum_blocked_reduced_10_mod_55`](/theorem/coprime_sum_blocked_reduced_10_mod_55) |
 | The congruence survey, ring 10 | `FermatRing10.lean` | fermat | 69 | [`coprime_sum_blocked_reduced_10_mod_33`](/theorem/coprime_sum_blocked_reduced_10_mod_33) |
 | The congruence survey, ring 13 | `FermatRing13.lean` | fermat | 66 | [`coprime_sum_blocked_reduced_10_mod_99_part1`](/theorem/coprime_sum_blocked_reduced_10_mod_99_part1) |
+| The six-cube and its polarity double | `Equilibrium.lean` | wave | 65 | [`hexcube_degree_is_six_0`](/theorem/hexcube_degree_is_six_0) |
 | The 8×8 core | `Core.lean` | z9-ring | 64 | [`mul9_1_1`](/theorem/mul9_1_1) |
 | The congruence survey, ring 3 | `FermatRing3.lean` | fermat | 63 | [`coprime_sum_blocked_reduced_10_mod_110`](/theorem/coprime_sum_blocked_reduced_10_mod_110) |
 | The congruence survey, ring 7 | `FermatRing7.lean` | fermat | 63 | [`coprime_sum_blocked_reduced_10_mod_93_part1`](/theorem/coprime_sum_blocked_reduced_10_mod_93_part1) |
@@ -804,14 +825,15 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The congruence survey, ring 19 | `FermatRing19.lean` | fermat | 55 | [`coprime_sum_blocked_reduced_12_mod_105`](/theorem/coprime_sum_blocked_reduced_12_mod_105) |
 | The congruence survey, ring 21 | `FermatRing21.lean` | fermat | 46 | [`coprime_sum_blocked_reduced_10_mod_44`](/theorem/coprime_sum_blocked_reduced_10_mod_44) |
 | The exponent reduction, one table per lambda | `FermatReduction.lean` | fermat | 35 | [`exponent_reduces_at_lambda_10`](/theorem/exponent_reduces_at_lambda_10) |
+| The cipher & the strand | `Cipher.lean` | cipher | 33 | [`adversarial_privacy_is_unanimous`](/theorem/adversarial_privacy_is_unanimous) |
 | The sequence & reflection group | `Sequence.lean` | sequence | 33 | [`agl_order_54`](/theorem/agl_order_54) |
-| The cipher & the strand | `Cipher.lean` | cipher | 30 | [`adversarial_privacy_is_unanimous`](/theorem/adversarial_privacy_is_unanimous) |
+| The binding point: a width is its smallest term | `BindingPoint.lean` | wave | 29 | [`a_richer_point_never_narrows_the_width_0`](/theorem/a_richer_point_never_narrows_the_width_0) |
 | The two coins & the 64 | `Coins.lean` | coins | 25 | [`bill_never_negative`](/theorem/bill_never_negative) |
 | The rules of inference | `Reasoning.lean` | reasoning | 25 | [`absorbed_evidence_idles`](/theorem/absorbed_evidence_idles) |
 | The chess horizon | `Chessgames.lean` | chess | 24 | [`after_one_move_four_hundred`](/theorem/after_one_move_four_hundred) |
-| The hexbit | `Hexbit.lean` | hexbit | 22 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) |
+| The hexbit | `Hexbit.lean` | hexbit | 23 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) |
+| The colour wheel | `Colour.lean` | colour | 19 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
 | The detectors, proven | `Audit.lean` | audit | 18 | [`backing_clears`](/theorem/backing_clears) |
-| The colour wheel | `Colour.lean` | colour | 18 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
 | The hardware-verifiable binary algebra | `Hardware.lean` | hardware | 18 | [`and_gate_truth_table`](/theorem/and_gate_truth_table) |
 | The algebra of the neuron | `Neuro.lean` | neuro | 18 | [`action_potential_swing`](/theorem/action_potential_swing) |
 | The lay of the land | `Topography.lean` | topography | 18 | [`back_bearing_is_involutive_on_every_bearing`](/theorem/back_bearing_is_involutive_on_every_bearing) |
@@ -823,10 +845,10 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The software-verifiable algebra | `Software.lean` | software | 16 | [`append_length_adds`](/theorem/append_length_adds) |
 | Ported from millennium-solutions | `Vortex.lean` | z9-ring | 16 | [`doubling_circuit`](/theorem/doubling_circuit) |
 | The calendar | `Calendar.lean` | calendar | 15 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
+| The referrer song | `Referrer.lean` | referrer | 15 | [`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning) |
 | The site build as arithmetic | `SiteBuild.lean` | site-build | 15 | [`a_floor_may_fall_to_what_is_anchored`](/theorem/a_floor_may_fall_to_what_is_anchored) |
 | The vortex algebra | `Uuidna.lean` | vortex | 15 | [`billing_arith`](/theorem/billing_arith) |
 | The cut | `Editing.lean` | editing | 14 | [`angle_of_the_cut`](/theorem/angle_of_the_cut) |
-| The referrer song | `Referrer.lean` | referrer | 14 | [`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning) |
 | Anti-fraud detection | `AntiFraud.lean` | anti-fraud | 13 | [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) |
 | The chessboard | `Chess.lean` | chess | 13 | [`bishop_stays_on_colour`](/theorem/bishop_stays_on_colour) |
 | Division by zero | `DivByZero.lean` | reflection | 13 | [`a_chain_shares_its_gateway_ends`](/theorem/a_chain_shares_its_gateway_ends) |
@@ -848,6 +870,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | Fermat's equation at a bounded window | `Fermat.lean` | fermat | 10 | [`cube_near_misses_are_the_taxicab_and_its_neighbour`](/theorem/cube_near_misses_are_the_taxicab_and_its_neighbour) |
 | The Glagolitic numerals & Pliska rosette | `Glagolitic.lean` | glagolitic | 10 | [`alphabetic_three_ranks`](/theorem/alphabetic_three_ranks) |
 | The legal vocabulary | `Legal.lean` | legal | 10 | [`court_loser_develops_the_proven`](/theorem/court_loser_develops_the_proven) |
+| The five Platonic solids | `Platonic.lean` | wave | 10 | [`cube_cluster_closes`](/theorem/cube_cluster_closes) |
 | The mix | `Production.lean` | music-production | 10 | [`chromatic_is_z12`](/theorem/chromatic_is_z12) |
 | The spacetime domain | `Relativity.lean` | relativity | 10 | [`causality_forbids_ftl`](/theorem/causality_forbids_ftl) |
 | The points-of-sail domain | `Sailing.lean` | sailing | 10 | [`balanced_helm_holds_course`](/theorem/balanced_helm_holds_course) |
@@ -863,6 +886,14 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The seven reflected | `Clay.lean` | clay | 8 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | Diving — trimix gas laws | `Diving.lean` | diving | 8 | [`absolute_pressure_at_depth`](/theorem/absolute_pressure_at_depth) |
 | The time coordinate | `Ephemeris.lean` | ephemeris | 8 | [`gregorian_cycle_is_ninety_seven_leaps`](/theorem/gregorian_cycle_is_ninety_seven_leaps) |
+| The six-cube translations, file 1 of 8 | `EquilibriumXor1.lean` | wave | 8 | [`xor_translation_preserves_adjacency_0`](/theorem/xor_translation_preserves_adjacency_0) |
+| The six-cube translations, file 2 of 8 | `EquilibriumXor2.lean` | wave | 8 | [`xor_translation_preserves_adjacency_10`](/theorem/xor_translation_preserves_adjacency_10) |
+| The six-cube translations, file 3 of 8 | `EquilibriumXor3.lean` | wave | 8 | [`xor_translation_preserves_adjacency_16`](/theorem/xor_translation_preserves_adjacency_16) |
+| The six-cube translations, file 4 of 8 | `EquilibriumXor4.lean` | wave | 8 | [`xor_translation_preserves_adjacency_24`](/theorem/xor_translation_preserves_adjacency_24) |
+| The six-cube translations, file 5 of 8 | `EquilibriumXor5.lean` | wave | 8 | [`xor_translation_preserves_adjacency_32`](/theorem/xor_translation_preserves_adjacency_32) |
+| The six-cube translations, file 6 of 8 | `EquilibriumXor6.lean` | wave | 8 | [`xor_translation_preserves_adjacency_40`](/theorem/xor_translation_preserves_adjacency_40) |
+| The six-cube translations, file 7 of 8 | `EquilibriumXor7.lean` | wave | 8 | [`xor_translation_preserves_adjacency_48`](/theorem/xor_translation_preserves_adjacency_48) |
+| The six-cube translations, file 8 of 8 | `EquilibriumXor8.lean` | wave | 8 | [`xor_translation_preserves_adjacency_56`](/theorem/xor_translation_preserves_adjacency_56) |
 | The harmony of pairs | `Harmony.lean` | science-pairs | 8 | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) |
 | The matching | `Matching.lean` | matching | 8 | [`edges_are_half_the_degree_sum`](/theorem/edges_are_half_the_degree_sum) |
 | The denial drained | `Negation.lean` | negation | 8 | [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) |
@@ -885,19 +916,24 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The boolean | `Boolean.lean` | boolean | 6 | [`gates_name_their_tables`](/theorem/gates_name_their_tables) |
 | The channel | `Channel.lean` | channel | 6 | [`channel_multiplies_three`](/theorem/channel_multiplies_three) |
 | The clock | `Clock.lean` | clock | 6 | [`advance_only_moves_forward`](/theorem/advance_only_moves_forward) |
+| Crosslinks: the addressing is the floor | `Crosslink.lean` | wave | 6 | [`a_tree_uses_one_link_per_leaf_and_no_more`](/theorem/a_tree_uses_one_link_per_leaf_and_no_more) |
 | The double torus | `DoubleTorus.lean` | double-torus | 6 | [`chi_measures_genus`](/theorem/chi_measures_genus) |
 | The grid | `Grid.lean` | grid | 6 | [`decimal_asks_three`](/theorem/decimal_asks_three) |
 | The hamming | `Hamming.lean` | hamming | 6 | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) |
 | The handle span | `HandleSpan.lean` | handle-span | 6 | [`exponents_add`](/theorem/exponents_add) |
+| The handle store, and why its smallest leaf is complete | `HandleStore.lean` | wave | 6 | [`every_level_branches_the_same_way`](/theorem/every_level_branches_the_same_way) |
 | The identifiers | `Identifiers.lean` | identifiers | 6 | [`isbn10_catches_single_error`](/theorem/isbn10_catches_single_error) |
 | The isometry | `Isometry.lean` | isometry | 6 | [`codon_flips_six`](/theorem/codon_flips_six) |
 | The looms and the engines | `Looms.lean` | looms | 6 | [`differences_flatten_the_square`](/theorem/differences_flatten_the_square) |
 | The notation | `Notation.lean` | notation | 6 | [`base_fixes_modulus`](/theorem/base_fixes_modulus) |
+| Five open problems, and what this ledger can honestly say | `OpenProblems.lean` | wave | 6 | [`conway_ninetynine_counting_identity_holds`](/theorem/conway_ninetynine_counting_identity_holds) |
 | The light domain | `Optics.lean` | optics | 6 | [`law_of_reflection`](/theorem/law_of_reflection) |
+| The periodic table's shape | `Periodic.lean` | wave | 6 | [`a_shell_holds_two_n_squared`](/theorem/a_shell_holds_two_n_squared) |
 | The phase | `Phase.lean` | phase | 6 | [`doubling_collapses_nine`](/theorem/doubling_collapses_nine) |
 | The Cyrillic ROM | `Pravets.lean` | pravets | 6 | [`a_glyph_costs_one_coin_measure`](/theorem/a_glyph_costs_one_coin_measure) |
 | The prose trial | `ProseTrial.lean` | prose-trial | 6 | [`every_orbit_holds_zero`](/theorem/every_orbit_holds_zero) |
 | The reflection | `Reflection.lean` | reflection | 6 | [`classes_cap_at_two`](/theorem/classes_cap_at_two) |
+| What the refusal was refusing to fuse | `Refusion.lean` | wave | 6 | [`a_defence_already_standing_precedes_any_pending_attack`](/theorem/a_defence_already_standing_precedes_any_pending_attack) |
 | The reversal | `Reversal.lean` | reversal | 6 | [`censuses_differ`](/theorem/censuses_differ) |
 | The seats | `Seats.lean` | seats | 6 | [`digits_split_five_five`](/theorem/digits_split_five_five) |
 | The spectrum hex | `SpectrumHex.lean` | spectrum-hex | 6 | [`channel_is_two_hexbits`](/theorem/channel_is_two_hexbits) |
@@ -913,6 +949,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The stance and the angle | `MartialArts.lean` | martial-arts | 5 | [`chain_joints_are_links_minus_one`](/theorem/chain_joints_are_links_minus_one) |
 | Navigation — bounded geometry | `Navigation.lean` | navigation | 5 | [`compass_rose_eight`](/theorem/compass_rose_eight) |
 | Propulsion — Newtonian & bounded | `Propulsion.lean` | propulsion | 5 | [`acceleration_finite`](/theorem/acceleration_finite) |
+| The cube that holds the solids, and the axis that costs nothing | `QuantumCube.lean` | wave | 5 | [`a_cheaper_representation_multiplies_the_width_at_the_same_hardware`](/theorem/a_cheaper_representation_multiplies_the_width_at_the_same_hardware) |
 | One source, many surfaces | `Singularity.lean` | singularity | 5 | [`agreement_is_decided_by_address`](/theorem/agreement_is_decided_by_address) |
 | The comparisons | `Comparisons.lean` | compare | 4 | [`kernel_channels_order_completely`](/theorem/kernel_channels_order_completely) |
 | The document fold | `Editor.lean` | editor | 4 | [`editor_empty_doc_folds_zero`](/theorem/editor_empty_doc_folds_zero) |
@@ -1206,12 +1243,12 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 1,035,987 | 6 | 172,664× | `theorems().length` |
-| what does the tree hold right now? | 1,056,545 | 225 | 4,695× | `npm run state` |
+| how many theorems are sealed? | 5,811,076 | 6 | 968,512× | `theorems().length` |
+| what does the tree hold right now? | 5,831,634 | 225 | 25,918× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
 | is the tree green to release? | 84,672 | 65 | 1,302× | `leads-gate + gate-receipt --verify` |
 
-Median ratio **5,206×**. Tokens are estimated at four bytes each — an approximation, and
+Median ratio **25,918×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
 A high number is not a good score. It is the cost of not knowing the door, and every one of those tokens is spent
 re-deriving something the tree already sealed.
@@ -1225,7 +1262,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,670 | 16 | 455,604× |
-| the sealed ledger | 4,143,949 | 16 | 258,996× |
+| the sealed ledger | 23,244,305 | 16 | 1,452,769× |
 | the leads record | 71,592 | 16 | 4,474× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

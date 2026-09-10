@@ -1,0 +1,12 @@
+{
+  "handle": "fca733db",
+  "address": "fca733db-ff66-8743-936e-b9a567303c0a",
+  "statement": "reassembles 11723 = true ∧ castsFifteens 11723 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2dcb"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

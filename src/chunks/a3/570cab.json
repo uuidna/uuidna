@@ -1,0 +1,12 @@
+{
+  "handle": "a3570cab",
+  "address": "a3570cab-4f80-8f2f-bff1-08b57af820bc",
+  "statement": "reassembles 64668 = true ∧ castsFifteens 64668 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fc9c"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8efabcba",
+  "address": "8efabcba-dace-8f92-ba7a-edc1e36c5cf7",
+  "statement": "[1,2,3,4,5,6,7].all (fun n => ((List.range n).foldl (fun a l => a + (4 * l + 2)) 0) == 2 * n * n)",
+  "tactic": "decide",
+  "keys": [
+    "a_shell_holds_two_n_squared"
+  ],
+  "files": [
+    "Periodic.lean"
+  ]
+}

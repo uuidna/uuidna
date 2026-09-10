@@ -1,0 +1,12 @@
+{
+  "handle": "df508fee",
+  "address": "df508fee-d0d0-8265-b4af-24513312675f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_bed1"
+  ],
+  "statement": "reassembles 48849 = true ∧ castsFifteens 48849 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

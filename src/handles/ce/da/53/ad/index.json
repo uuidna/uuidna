@@ -1,0 +1,12 @@
+{
+  "handle": "ceda53ad",
+  "address": "ceda53ad-3665-84b8-b566-19808ee3cf96",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7149"
+  ],
+  "statement": "reassembles 29001 = true ∧ castsFifteens 29001 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

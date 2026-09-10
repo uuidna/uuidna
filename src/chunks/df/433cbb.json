@@ -1,0 +1,12 @@
+{
+  "handle": "df433cbb",
+  "address": "df433cbb-5e9d-8495-8bd6-64b8974b41d8",
+  "statement": "reassembles 7265 = true ∧ castsFifteens 7265 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1c61"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

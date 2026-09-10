@@ -1,0 +1,12 @@
+{
+  "handle": "db70258e",
+  "address": "db70258e-b021-8f23-a0e8-a0374a861c04",
+  "statement": "reassembles 1109 = true ∧ castsFifteens 1109 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0455"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

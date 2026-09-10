@@ -1,0 +1,12 @@
+{
+  "handle": "ccfac314",
+  "address": "ccfac314-8a84-88d0-bee5-8ea1f4d13508",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_cfda"
+  ],
+  "statement": "reassembles 53210 = true ∧ castsFifteens 53210 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

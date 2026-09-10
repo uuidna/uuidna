@@ -1,0 +1,12 @@
+{
+  "handle": "dafa7518",
+  "address": "dafa7518-049e-85ab-b9b0-58d6a3711329",
+  "statement": "reassembles 50177 = true ∧ castsFifteens 50177 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c401"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

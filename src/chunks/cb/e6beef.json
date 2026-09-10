@@ -1,0 +1,12 @@
+{
+  "handle": "cbe6beef",
+  "address": "cbe6beef-80ed-8b60-ac33-c663e9bd94d8",
+  "statement": "reassembles 39495 = true ∧ castsFifteens 39495 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9a47"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

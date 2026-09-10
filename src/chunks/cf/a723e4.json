@@ -1,0 +1,12 @@
+{
+  "handle": "cfa723e4",
+  "address": "cfa723e4-4435-8cc3-9466-85d74a96b19e",
+  "statement": "reassembles 44728 = true ∧ castsFifteens 44728 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_aeb8"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

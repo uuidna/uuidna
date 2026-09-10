@@ -1,0 +1,12 @@
+{
+  "handle": "ffc95250",
+  "address": "ffc95250-b182-8a89-99cd-77197266df75",
+  "statement": "reassembles 51666 = true ∧ castsFifteens 51666 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c9d2"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

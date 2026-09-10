@@ -1,0 +1,12 @@
+{
+  "handle": "dfd90220",
+  "address": "dfd90220-bdb5-8e6e-b8e1-00583fc9814e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1120"
+  ],
+  "statement": "reassembles 4384 = true ∧ castsFifteens 4384 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

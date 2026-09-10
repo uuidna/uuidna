@@ -1,0 +1,12 @@
+{
+  "handle": "cb7214d3",
+  "address": "cb7214d3-b47a-851e-88a9-e9e80d7bedb4",
+  "statement": "reassembles 51203 = true ∧ castsFifteens 51203 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c803"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

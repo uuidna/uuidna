@@ -1,0 +1,12 @@
+{
+  "handle": "a3570cab",
+  "address": "a3570cab-4f80-8f2f-bff1-08b57af820bc",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fc9c"
+  ],
+  "statement": "reassembles 64668 = true ∧ castsFifteens 64668 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

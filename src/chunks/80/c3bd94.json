@@ -1,0 +1,12 @@
+{
+  "handle": "80c3bd94",
+  "address": "80c3bd94-a316-8104-bb06-7713f1330199",
+  "statement": "reassembles 50970 = true ∧ castsFifteens 50970 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c71a"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6d1c93d3",
+  "address": "6d1c93d3-b523-81a8-817f-c58541ce37c7",
+  "statement": "(List.range 4).all (fun n => ((1 - n % 2) * (n / 2 % 2) + (n % 2) * (n / 2 % 2) == n / 2 % 2) && ((1 - n % 2) * (n / 2 % 2) * ((n % 2) * (n / 2 % 2)) == 0))",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_demux_never_both_hot"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

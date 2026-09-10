@@ -1,0 +1,12 @@
+{
+  "handle": "df7329dc",
+  "address": "df7329dc-6aa6-8e12-b47e-55efed700120",
+  "statement": "reassembles 10589 = true ∧ castsFifteens 10589 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_295d"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

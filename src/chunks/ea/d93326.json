@@ -1,0 +1,12 @@
+{
+  "handle": "ead93326",
+  "address": "ead93326-ce38-8c06-8f42-55a74338442f",
+  "statement": "reassembles 43588 = true ∧ castsFifteens 43588 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_aa44"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

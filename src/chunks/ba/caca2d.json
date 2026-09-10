@@ -1,0 +1,12 @@
+{
+  "handle": "bacaca2d",
+  "address": "bacaca2d-7303-8047-b483-a31ba8e47661",
+  "statement": "reassembles 30124 = true ∧ castsFifteens 30124 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_75ac"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

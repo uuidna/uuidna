@@ -1,0 +1,12 @@
+{
+  "handle": "cc2502dc",
+  "address": "cc2502dc-45fc-80da-b23b-e210820e1a44",
+  "statement": "reassembles 49014 = true ∧ castsFifteens 49014 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_bf76"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

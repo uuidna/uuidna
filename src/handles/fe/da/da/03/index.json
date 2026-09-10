@@ -1,0 +1,12 @@
+{
+  "handle": "fedada03",
+  "address": "fedada03-c223-8a91-b693-e5c935e90cf8",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_60d3"
+  ],
+  "statement": "reassembles 24787 = true ∧ castsFifteens 24787 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

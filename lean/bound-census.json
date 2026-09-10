@@ -1,13 +1,13 @@
 {
  "why": "Every bounded statement (List.range) widened by one element and re-decided: load-bearing = the bound carries the theorem; survived-widening = ONE step survived, a lower bound and never a verdict that the bound is decorative. Written by scripts/gen-bound-census, incrementally: a row keeps its verdict while its statement and the instrument are unchanged.",
- "digest": "1c1349489664a8bb",
+ "digest": "f9021f61c6ec2ea7",
  "instrument": "25a72de7a87d2fce",
  "census": {
-  "bounded": 807,
-  "load-bearing": 295,
-  "survived-widening": 503,
+  "bounded": 937,
+  "load-bearing": 313,
+  "survived-widening": 614,
   "undecidable-widened": 7,
-  "base-undecidable": 2
+  "base-undecidable": 3
  },
  "rows": [
   {
@@ -1028,7 +1028,7 @@
    "key": "cube_seals_at_completeness_only",
    "wing": "Software.lean",
    "verdict": "load-bearing",
-   "statement": "(((List.range 145).filter (fun k => k == 144)).length = 1) ∧ (((List.range 144).filter (fun k => k == 144)).length = 0) ∧ ([[6,6,6,9,13,8,11,18,11,6,17,6],[5,15,5,6,9,13,24,30,8,6,9,25],[18,7,4,5,64,11,9,16,13,8,10,6],[14,4,13,8,12,10,35,57,69,71,96,66],[76,82,82,79,78,55,58,58,46,63,72,73],[82,63,75,83,567,10,6,6,6,18,8,22],[6,13,12,6,353,10,6,5,8,11,7,7],[5,8,18,93,6,2,6,9,9,8,13,6],[8,6,10,5,6,8,58,17,25,11,14,6],[10,8,7,6,234,148,10,7,6,9,33,5],[15,11,11,8,6,9,6,4,6,6,6,11],[6,18,8,6,13,7,2,15,18,16,932,18]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,18,11,6,17,6],[5,15,5,6,9,13,24,30,8,6,9,25],[18,7,4,5,64,11,9,16,13,8,10,6],[14,4,13,8,12,10,35,57,69,71,96,66],[76,82,82,79,78,55,58,58,46,63,72,73],[82,63,75,83,567,10,6,6,6,18,8,22],[6,13,12,6,353,10,6,5,8,11,7,7],[5,8,18,93,6,2,6,9,9,8,13,6],[8,6,10,5,6,8,58,17,25,11,14,6],[10,8,7,6,234,148,10,7,6,9,33,5],[15,11,11,8,6,9,6,4,6,6,6,11],[6,18,8,6,13,7,2,15,18,16,932,18]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 5108)"
+   "statement": "(((List.range 178).filter (fun k => k == 177)).length = 1) ∧ (((List.range 177).filter (fun k => k == 177)).length = 0) ∧ ([[6,6,6,9,13,8,11,18,11,6,29,17,6,5],[15,5,6,9,13,24,33,8,6,9,25,19,7,4],[5,64,6,11,9,16,13,8,10,6,14,4,13,8],[65,8,8,8,8,8,8,8,8,12,10,35,57,69],[71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,10,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[4096,23,6,13,12,6,353,10,6,5,8,11,7,7],[5,8,18,93,6,2,6,6,9,9,8,13,6,6],[8,10,6,10,5,6,8,58,5,17,25,11,15,6],[6,10,8,7,6,234,148,10,7,6,9,33,5,15],[11,11,8,6,9,6,4,6,6,6,11,6,18,8],[6,13,7,2,15,18,16,968,18]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5],[15,5,6,9,13,24,33,8,6,9,25,19,7,4],[5,64,6,11,9,16,13,8,10,6,14,4,13,8],[65,8,8,8,8,8,8,8,8,12,10,35,57,69],[71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,10,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[4096,23,6,13,12,6,353,10,6,5,8,11,7,7],[5,8,18,93,6,2,6,6,9,9,8,13,6,6],[8,10,6,10,5,6,8,58,5,17,25,11,15,6],[6,10,8,7,6,234,148,10,7,6,9,33,5,15],[11,11,8,6,9,6,4,6,6,6,11,6,18,8],[6,13,7,2,15,18,16,968,18]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 70889)"
   },
   {
    "key": "receipt_costs_nothing",
@@ -1295,6 +1295,12 @@
    "statement": "((List.range 4).all (fun c => ((List.range 100).filter (fun k => let y := c * 100 + k; (y % 4 == 0 && y % 100 != 0) || y % 400 == 0)).length == (if c == 0 then 25 else 24))) ∧ (25 + 24 + 24 + 24 = 97) ∧ (400 - 97 = 303) ∧ (97 + 303 = 400)"
   },
   {
+   "key": "a_defence_already_standing_precedes_any_pending_attack",
+   "wing": "Refusion.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun n => 0 < n + 1)"
+  },
+  {
    "key": "pentagram_single_stroke",
    "wing": "Pentagram.lean",
    "verdict": "load-bearing",
@@ -1311,6 +1317,12 @@
    "wing": "Pentagram.lean",
    "verdict": "load-bearing",
    "statement": "(List.range 7).map (fun k => (3*k) % 7) = [0,3,6,2,5,1,4]"
+  },
+  {
+   "key": "the_cube_carries_the_tetrahedron_and_its_own_dual",
+   "wing": "QuantumCube.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8)"
   },
   {
    "key": "chessboard_two_colours",
@@ -4343,6 +4355,192 @@
    "statement": "((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1))))"
   },
   {
+   "key": "mass_coord_lanes_partition_ninetysix",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(List.range 16).foldl (fun a l => a + ((List.range 96).filter (fun i => i % 16 == l)).length) 0 = 96"
+  },
+  {
+   "key": "mass_coord_lanes_balance_forty_eight",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 10).map (fun l => ((List.range 48).filter (fun i => i % 10 == l)).length)).all (fun k => k == 4 || k == 5)"
+  },
+  {
+   "key": "mass_coord_lanes_even_eighty",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(List.range 16).all (fun l => ((List.range 80).filter (fun i => i % 16 == l)).length == 5)"
+  },
+  {
+   "key": "mass_coord_residue_unique_owner",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 24).all (fun i => ((List.range 8).filter (fun l => i % 8 == l)).length == 1)"
+  },
+  {
+   "key": "mass_coord_quorum_floor_is_the_fault",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 4).all (fun f => (2 * f + 1) / 2 == f)"
+  },
+  {
+   "key": "mass_coord_bft_three_of_four",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "((List.range 16).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 >= 3)).length = 5"
+  },
+  {
+   "key": "mass_coord_majority_five_bits",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "((List.range 32).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 >= 3)).length = 16"
+  },
+  {
+   "key": "mass_coord_even_crew_pairs_all",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 8).all (fun i => !(i == 7 - i))) ∧ ((List.range 8).all (fun i => 7 - (7 - i) == i)) ∧ ((List.range 8).filter (fun i => i == 7 - i)).length = 0"
+  },
+  {
+   "key": "mass_coord_round_robin_closes",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(List.range 8).all (fun i => (List.range 8).foldl (fun x _ => (x + 1) % 8) i == i)"
+  },
+  {
+   "key": "mass_coord_barrier_twelve_not_thirteen",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 12).all (fun n => n < 12)) ∧ ¬((List.range 13).all (fun n => n < 12))"
+  },
+  {
+   "key": "mass_coord_rotation_is_permutation",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "((List.range 8).map (fun i => (i + 3) % 8)).eraseDups.length = 8"
+  },
+  {
+   "key": "mass_coord_two_coins_partition",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 2).foldl (fun a c => a + ((List.range 110).filter (fun i => i % 2 == c)).length) 0 = 110) ∧ ((List.range 2).all (fun c => ((List.range 110).filter (fun i => i % 2 == c)).length == 55))"
+  },
+  {
+   "key": "mass_coord_eighteen_problems_nine_pairs",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(18 % 2 = 0) ∧ (18 / 2 = 9) ∧ ((List.range 18).all (fun i => 17 - (17 - i) == i)) ∧ ((List.range 18).filter (fun i => i == 17 - i)).length = 0"
+  },
+  {
+   "key": "mass_coord_lattice_birthday_is_span",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(16 ^ 4 = 65536) ∧ (2 ^ 16 = 65536) ∧ ((List.range 16).foldl (fun a _ => a * 2) 1 = 65536)"
+  },
+  {
+   "key": "mass_comply_gate_one_of_eight",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 8).filter (fun n => (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 1"
+  },
+  {
+   "key": "mass_comply_sixteen_bits_all_set",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(List.range 16).all (fun i => 65535 / (2 ^ i) % 2 == 1)"
+  },
+  {
+   "key": "mass_comply_window_twenty_not_next",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 20).all (fun n => n < 20)) ∧ ¬(20 < 20)"
+  },
+  {
+   "key": "mass_comply_four_states_three_open",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (4 - 1 = 3) ∧ (3 > 0)"
+  },
+  {
+   "key": "mass_comply_panel_monotone",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 8).all (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 <= 1 + n / 2 % 2 + n / 4 % 2)"
+  },
+  {
+   "key": "mass_comply_six_halves_and_not_seventh",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 7).all (fun k => 64 / (2 ^ k) * (2 ^ k) == 64)) ∧ ¬(64 / (2 ^ 7) * (2 ^ 7) == 64)"
+  },
+  {
+   "key": "mass_comply_half_adder_without_xor_op",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 4).all (fun n => (n % 2 + n / 2 % 2) % 2 + 2 * ((n % 2) * (n / 2 % 2)) == n % 2 + n / 2 % 2)"
+  },
+  {
+   "key": "mass_comply_and_of_three_is_one",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1"
+  },
+  {
+   "key": "mass_comply_involution_self_inverse",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 2).all (fun b => 1 - (1 - b) == b)) ∧ ((List.range 16).all (fun i => 15 - (15 - i) == i))"
+  },
+  {
+   "key": "mass_comply_hex4_even_no_fixed",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "((List.range 16).all (fun i => !(i == 15 - i))) ∧ ((List.range 16).filter (fun i => i == 15 - i)).length = 0 ∧ (65536 % 2 = 0) ∧ (65535 % 2 = 1)"
+  },
+  {
+   "key": "mass_comply_citation_needs_both",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(((List.range 4).filter (fun n => (n % 2) * (n / 2 % 2) == 1)).length = 1) ∧ (((List.range 4).filter (fun n => n % 2 + n / 2 % 2 - (n % 2) * (n / 2 % 2) == 1)).length = 3)"
+  },
+  {
+   "key": "mass_comply_checklist_beats_or",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1) ∧ (((List.range 8).filter (fun n => 1 - (1 - n % 2) * (1 - n / 2 % 2) * (1 - n / 4 % 2) == 1)).length = 7)"
+  },
+  {
+   "key": "mass_comply_full_adder_eight_rows",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 8).all (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 + 2 * ((n % 2 + n / 2 % 2 + n / 4 % 2) / 2) == n % 2 + n / 2 % 2 + n / 4 % 2)"
+  },
+  {
+   "key": "mass_comply_ve_faces_are_fourteen",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(8 + 4 + 2 = 14) ∧ ((List.range 14).foldl (fun a l => a + ((List.range 14).filter (fun i => i % 14 == l)).length) 0 = 14) ∧ ((List.range 14).all (fun l => ((List.range 14).filter (fun i => i % 14 == l)).length == 1))"
+  },
+  {
+   "key": "mass_coord_odd_crew_has_centre",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i)) ∧ (7 % 2 = 1)"
+  },
+  {
+   "key": "mass_coord_clay_seven_has_centre",
+   "wing": "Wave.lean",
+   "verdict": "load-bearing",
+   "statement": "(7 % 2 = 1) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i))"
+  },
+  {
+   "key": "mass_comply_demux_never_both_hot",
+   "wing": "Wave.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 4).all (fun n => ((1 - n % 2) * (n / 2 % 2) + (n % 2) * (n / 2 % 2) == n / 2 % 2) && ((1 - n % 2) * (n / 2 % 2) * ((n % 2) * (n / 2 % 2)) == 0))"
+  },
+  {
    "key": "saros_metonic_bridge",
    "wing": "Universe.lean",
    "verdict": "load-bearing",
@@ -4767,6 +4965,588 @@
    "wing": "VectorEquilibrium.lean",
    "verdict": "load-bearing",
    "statement": "((List.range 13).map (fun n => n * (n - 1) / 2) = [0, 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66]) ∧ (12 * 11 / 2 = 66) ∧ (8 + 6 = 14)"
+  },
+  {
+   "key": "hexcube_degree_is_six_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[0,1,2,3,4,5,6,7].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[8,9,10,11,12,13,14,15].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[16,17,18,19,20,21,22,23].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[24,25,26,27,28,29,30,31].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[32,33,34,35,36,37,38,39].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[40,41,42,43,44,45,46,47].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[48,49,50,51,52,53,54,55].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "hexcube_degree_is_six_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[56,57,58,59,60,61,62,63].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[0,1,2,3,4,5,6,7].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[8,9,10,11,12,13,14,15].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[16,17,18,19,20,21,22,23].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[24,25,26,27,28,29,30,31].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[32,33,34,35,36,37,38,39].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[40,41,42,43,44,45,46,47].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[48,49,50,51,52,53,54,55].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "xor_translation_carries_any_cell_to_any_other_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[56,57,58,59,60,61,62,63].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_0",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[0,1,2,3,4,5,6,7].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_1",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[8,9,10,11,12,13,14,15].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_2",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[16,17,18,19,20,21,22,23].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_3",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[24,25,26,27,28,29,30,31].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_4",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[32,33,34,35,36,37,38,39].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_5",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[40,41,42,43,44,45,46,47].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_6",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[48,49,50,51,52,53,54,55].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_7",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[56,57,58,59,60,61,62,63].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_8",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[64,65,66,67,68,69,70,71].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_9",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[72,73,74,75,76,77,78,79].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_10",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[80,81,82,83,84,85,86,87].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_11",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[88,89,90,91,92,93,94,95].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_12",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[96,97,98,99,100,101,102,103].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_13",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[104,105,106,107,108,109,110,111].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_14",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[112,113,114,115,116,117,118,119].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "polarity_flip_is_an_automorphism_15",
+   "wing": "Equilibrium.lean",
+   "verdict": "survived-widening",
+   "statement": "[120,121,122,123,124,125,126,127].all (fun s => (List.range 128).all (fun t => ([1,2,4,8,16,32].contains (lxor (s % 64) (t % 64))) == ([1,2,4,8,16,32].contains (lxor (((s + 64) % 128) % 64) (((t + 64) % 128) % 64)))))"
+  },
+  {
+   "key": "duality_swaps_vertices_and_faces",
+   "wing": "Platonic.lean",
+   "verdict": "base-undecidable",
+   "statement": "(List.range 5).all (fun i => (nth solidV (nth dualIx i) == nth solidF i) && (nth solidF (nth dualIx i) == nth solidV i) && (nth solidE (nth dualIx i) == nth solidE i) && (nth solidP (nth dualIx i) == nth solidQ i) && (nth solidQ (nth dualIx i) == nth solidP i))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_0",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 0) (lxor d 0) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_1",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 1) (lxor d 1) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_2",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 2) (lxor d 2) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_3",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 3) (lxor d 3) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_4",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 4) (lxor d 4) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_5",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 5) (lxor d 5) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_6",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 6) (lxor d 6) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_7",
+   "wing": "EquilibriumXor1.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 7) (lxor d 7) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_8",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 8) (lxor d 8) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_9",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 9) (lxor d 9) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_10",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 10) (lxor d 10) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_11",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 11) (lxor d 11) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_12",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 12) (lxor d 12) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_13",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 13) (lxor d 13) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_14",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 14) (lxor d 14) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_15",
+   "wing": "EquilibriumXor2.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 15) (lxor d 15) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_16",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 16) (lxor d 16) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_17",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 17) (lxor d 17) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_18",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 18) (lxor d 18) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_19",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 19) (lxor d 19) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_20",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 20) (lxor d 20) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_21",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 21) (lxor d 21) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_22",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 22) (lxor d 22) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_23",
+   "wing": "EquilibriumXor3.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 23) (lxor d 23) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_24",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 24) (lxor d 24) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_25",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 25) (lxor d 25) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_26",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 26) (lxor d 26) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_27",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 27) (lxor d 27) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_28",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 28) (lxor d 28) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_29",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 29) (lxor d 29) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_30",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 30) (lxor d 30) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_31",
+   "wing": "EquilibriumXor4.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 31) (lxor d 31) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_32",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 32) (lxor d 32) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_33",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 33) (lxor d 33) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_34",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 34) (lxor d 34) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_35",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 35) (lxor d 35) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_36",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 36) (lxor d 36) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_37",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 37) (lxor d 37) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_38",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 38) (lxor d 38) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_39",
+   "wing": "EquilibriumXor5.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 39) (lxor d 39) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_40",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 40) (lxor d 40) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_41",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 41) (lxor d 41) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_42",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 42) (lxor d 42) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_43",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 43) (lxor d 43) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_44",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 44) (lxor d 44) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_45",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 45) (lxor d 45) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_46",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 46) (lxor d 46) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_47",
+   "wing": "EquilibriumXor6.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 47) (lxor d 47) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_48",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 48) (lxor d 48) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_49",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 49) (lxor d 49) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_50",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 50) (lxor d 50) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_51",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 51) (lxor d 51) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_52",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 52) (lxor d 52) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_53",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 53) (lxor d 53) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_54",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 54) (lxor d 54) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_55",
+   "wing": "EquilibriumXor7.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 55) (lxor d 55) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_56",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 56) (lxor d 56) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_57",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 57) (lxor d 57) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_58",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 58) (lxor d 58) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_59",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 59) (lxor d 59) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_60",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 60) (lxor d 60) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_61",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 61) (lxor d 61) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_62",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 62) (lxor d 62) == lxor c d))"
+  },
+  {
+   "key": "xor_translation_preserves_adjacency_63",
+   "wing": "EquilibriumXor8.lean",
+   "verdict": "survived-widening",
+   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 63) (lxor d 63) == lxor c d))"
   },
   {
    "key": "nine_complement_half_turns_the_orbit",

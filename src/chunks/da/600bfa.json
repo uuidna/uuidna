@@ -1,0 +1,12 @@
+{
+  "handle": "da600bfa",
+  "address": "da600bfa-91da-8a26-8db2-7b751d2d69c3",
+  "statement": "reassembles 51609 = true ∧ castsFifteens 51609 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c999"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

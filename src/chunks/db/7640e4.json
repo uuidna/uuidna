@@ -1,0 +1,12 @@
+{
+  "handle": "db7640e4",
+  "address": "db7640e4-767d-8783-aff0-8e59643e8e73",
+  "statement": "reassembles 35486 = true ∧ castsFifteens 35486 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8a9e"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

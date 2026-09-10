@@ -1,0 +1,12 @@
+{
+  "handle": "f86c2aef",
+  "address": "f86c2aef-ac98-8dc7-a28c-ae681909b185",
+  "statement": "reassembles 47240 = true ∧ castsFifteens 47240 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_b888"
+  ],
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

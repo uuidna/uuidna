@@ -1,0 +1,12 @@
+{
+  "handle": "da100a71",
+  "address": "da100a71-9eb5-86e4-bca2-2f079a712d20",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_725f"
+  ],
+  "statement": "reassembles 29279 = true ∧ castsFifteens 29279 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

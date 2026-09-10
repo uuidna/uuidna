@@ -1,0 +1,12 @@
+{
+  "handle": "ddc33580",
+  "address": "ddc33580-6502-8002-bc3c-d1813c6f40c8",
+  "statement": "reassembles 27722 = true ∧ castsFifteens 27722 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6c4a"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

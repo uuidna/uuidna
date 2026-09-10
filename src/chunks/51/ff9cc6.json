@@ -1,0 +1,12 @@
+{
+  "handle": "51ff9cc6",
+  "address": "51ff9cc6-db2c-8272-a39c-69b0551ab628",
+  "statement": "(List.sum [7, 1, 1, 1, 1, 1, 1, 1] = 14) ∧ (14 % 2 = 0) ∧ (14 / 2 = 7)",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_handshake_star_is_even"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

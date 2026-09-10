@@ -1,0 +1,12 @@
+{
+  "handle": "dc486c4d",
+  "address": "dc486c4d-e24d-827b-a1b1-3972652dd78a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8014"
+  ],
+  "statement": "reassembles 32788 = true ∧ castsFifteens 32788 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

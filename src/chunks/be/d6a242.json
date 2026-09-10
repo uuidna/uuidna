@@ -1,0 +1,12 @@
+{
+  "handle": "bed6a242",
+  "address": "bed6a242-d384-8106-9ba6-473200f5fcf9",
+  "statement": "reassembles 54165 = true ∧ castsFifteens 54165 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d395"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

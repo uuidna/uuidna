@@ -1,0 +1,12 @@
+{
+  "handle": "cdb2950b",
+  "address": "cdb2950b-db21-86dd-af0a-1998d6640013",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_141c"
+  ],
+  "statement": "reassembles 5148 = true ∧ castsFifteens 5148 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

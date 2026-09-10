@@ -1,0 +1,12 @@
+{
+  "handle": "25c4d030",
+  "address": "25c4d030-68fb-8e0e-a2ae-8bc0cf8d739b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_48da"
+  ],
+  "statement": "reassembles 18650 = true ∧ castsFifteens 18650 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

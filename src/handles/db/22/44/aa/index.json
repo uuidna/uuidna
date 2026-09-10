@@ -1,0 +1,12 @@
+{
+  "handle": "db2244aa",
+  "address": "db2244aa-a09a-87d0-9d8c-3223c191a2d1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2aac"
+  ],
+  "statement": "reassembles 10924 = true ∧ castsFifteens 10924 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "beef31f7",
+  "address": "beef31f7-649e-899b-8a99-adc174b8df33",
+  "statement": "reassembles 13769 = true ∧ castsFifteens 13769 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_35c9"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

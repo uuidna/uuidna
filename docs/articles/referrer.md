@@ -1,15 +1,15 @@
 ---
 title: "The referrer song"
-description: "Computed from lean/Referrer.lean — 14 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Referrer.lean — 15 sealed theorems, every claim citing its proof."
 ---
 
 # The referrer song
 
-> REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice's octave completeness, and the wrap that makes the page-cycle total. — held by [referrer_six_doors](/theorem/referrer_six_doors) and its 13 siblings below.
+> REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice's octave completeness, and the wrap that makes the page-cycle total. — held by [referrer_six_doors](/theorem/referrer_six_doors) and its 14 siblings below.
 
-**14 theorems** and **5,302 decided cases**, from [referrer_six_doors](/theorem/referrer_six_doors) onward, each proven `by decide` in <a href="/lean/Referrer.lean">lean/Referrer.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [referrer_six_doors](/theorem/referrer_six_doors). A boundary stated here is decided.
+**15 theorems** and **5,303 decided cases**, from [referrer_six_doors](/theorem/referrer_six_doors) onward, each proven `by decide` in <a href="/lean/Referrer.lean">lean/Referrer.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [referrer_six_doors](/theorem/referrer_six_doors). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReferrer.lean)** — nothing to install. The editor fetches `lean/Referrer.lean` from the repository and re-decides all 14 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReferrer.lean)** — nothing to install. The editor fetches `lean/Referrer.lean` from the repository and re-decides all 15 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### SIX DOORS INTO THE ROUND. The round 142857 has exactly six rotations (song_six_verses_one_melody seals them one by one), so a visitor's handle picks its door by value mod 6 — and the pick is total at the edges the kernel can hold: the zero handle enters door 0, the last handle 2³²−1 = 4294967295 enters door 3, and six never divides to nothing (6 ≠ 0). Every visitor gets a door; no referrer is turned away.
 The ledger holds this as [referrer_six_doors](/theorem/referrer_six_doors) — proven `by decide`, sorry-free:
@@ -107,6 +107,13 @@ The ledger holds this as [the_movie_and_the_song_are_one](/theorem/the_movie_and
 
 ```lean
 (16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7)
+```
+
+### THE NAME'S 32 HEXBITS; THE LEADING NIBBLE IS THE DOOR. The leading nibble of toUuid("uuidna") modulo the hexagram width is the referrer door into the round. The hash is the measurement; the kernel decides the residue.
+The ledger holds this as [uuidna_name_referrer_door](/theorem/uuidna_name_referrer_door) — proven `by decide`, sorry-free:
+
+```lean
+[15,12,5,1,1,5,3,2,6,14,8,10,8,4,1,8,10,5,2,2,10,5,1,11,1,13,4,6,10,7,0,12].headD 0 % 6 = 3
 ```
 
 

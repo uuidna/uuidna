@@ -1,0 +1,12 @@
+{
+  "handle": "faddb001",
+  "address": "faddb001-1757-8c6a-abd9-5367d31d35b1",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1b84"
+  ],
+  "statement": "reassembles 7044 = true ∧ castsFifteens 7044 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

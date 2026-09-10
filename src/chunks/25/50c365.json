@@ -1,0 +1,12 @@
+{
+  "handle": "2550c365",
+  "address": "2550c365-f665-8264-bd88-bdad9da21413",
+  "statement": "reassembles 40130 = true ∧ castsFifteens 40130 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9cc2"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

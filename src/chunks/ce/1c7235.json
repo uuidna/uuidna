@@ -1,0 +1,12 @@
+{
+  "handle": "ce1c7235",
+  "address": "ce1c7235-866e-818f-9dd5-03426fca6aac",
+  "statement": "reassembles 40310 = true ∧ castsFifteens 40310 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9d76"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

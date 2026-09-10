@@ -1,0 +1,12 @@
+{
+  "handle": "ca70fc04",
+  "address": "ca70fc04-268e-88bc-bfc1-51377480d962",
+  "statement": "reassembles 8097 = true ∧ castsFifteens 8097 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1fa1"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

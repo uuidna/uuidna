@@ -1,0 +1,12 @@
+{
+  "handle": "62359e13",
+  "address": "62359e13-0af1-8466-8869-e4699f46df04",
+  "statement": "reassembles 52416 = true ∧ castsFifteens 52416 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_ccc0"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

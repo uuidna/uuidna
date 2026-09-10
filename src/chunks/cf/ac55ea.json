@@ -1,0 +1,12 @@
+{
+  "handle": "cfac55ea",
+  "address": "cfac55ea-6791-883d-a94b-16aec15aa4ac",
+  "statement": "reassembles 63587 = true ∧ castsFifteens 63587 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f863"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

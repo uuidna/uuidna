@@ -1,0 +1,12 @@
+{
+  "handle": "c30050ad",
+  "address": "c30050ad-8f55-87e4-96f9-3181e2b37faa",
+  "statement": "reassembles 24604 = true ∧ castsFifteens 24604 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_601c"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

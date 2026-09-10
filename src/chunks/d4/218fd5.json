@@ -1,0 +1,12 @@
+{
+  "handle": "d4218fd5",
+  "address": "d4218fd5-9b14-847c-a659-a4ca154f24c9",
+  "statement": "(18 % 2 = 0) ∧ (18 / 2 = 9) ∧ ((List.range 18).all (fun i => 17 - (17 - i) == i)) ∧ ((List.range 18).filter (fun i => i == 17 - i)).length = 0",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_eighteen_problems_nine_pairs"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

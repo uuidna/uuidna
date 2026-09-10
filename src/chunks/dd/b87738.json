@@ -1,0 +1,12 @@
+{
+  "handle": "ddb87738",
+  "address": "ddb87738-cb31-8803-9d26-120d5daa96ed",
+  "statement": "reassembles 58619 = true ∧ castsFifteens 58619 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e4fb"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

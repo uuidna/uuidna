@@ -1,0 +1,12 @@
+{
+  "handle": "bdb1007e",
+  "address": "bdb1007e-fada-8a28-afe5-5a77f1acb4e5",
+  "statement": "reassembles 461 = true ∧ castsFifteens 461 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_01cd"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

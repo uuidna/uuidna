@@ -1,0 +1,12 @@
+{
+  "handle": "becf321d",
+  "address": "becf321d-cc90-8ea1-a9b0-3a6242cf7821",
+  "statement": "reassembles 16777 = true ∧ castsFifteens 16777 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4189"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fb50a950",
+  "address": "fb50a950-a8f4-8f10-995c-61a7c4089fa8",
+  "statement": "reassembles 9518 = true ∧ castsFifteens 9518 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_252e"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "badbd012",
+  "address": "badbd012-0d63-8735-82e5-08630cfd7033",
+  "statement": "reassembles 21589 = true ∧ castsFifteens 21589 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5455"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

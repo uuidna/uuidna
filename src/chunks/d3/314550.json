@@ -1,0 +1,12 @@
+{
+  "handle": "d3314550",
+  "address": "d3314550-e7cc-8ee1-99ef-ae4e5b9d6619",
+  "statement": "[(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; (w <= p.1) && (w <= p.2) && ((w == p.1) || (w == p.2))))",
+  "tactic": "decide",
+  "keys": [
+    "width_is_the_binding_point_2"
+  ],
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

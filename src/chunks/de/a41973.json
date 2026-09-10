@@ -1,0 +1,12 @@
+{
+  "handle": "dea41973",
+  "address": "dea41973-96c2-8c09-94c6-3ffd69ff82ef",
+  "statement": "reassembles 50513 = true ∧ castsFifteens 50513 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c551"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

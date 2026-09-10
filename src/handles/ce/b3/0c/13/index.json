@@ -1,0 +1,12 @@
+{
+  "handle": "ceb30c13",
+  "address": "ceb30c13-030d-8ee3-8311-ef7ea120f4c2",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7818"
+  ],
+  "statement": "reassembles 30744 = true ∧ castsFifteens 30744 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

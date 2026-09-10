@@ -1,0 +1,12 @@
+{
+  "handle": "cfea628c",
+  "address": "cfea628c-4cb1-8039-8190-451dcc178ef5",
+  "statement": "reassembles 57200 = true ∧ castsFifteens 57200 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_df70"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

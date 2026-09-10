@@ -1,0 +1,12 @@
+{
+  "handle": "fda14c3b",
+  "address": "fda14c3b-5b59-877b-a3cd-0c62bc4f6a28",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f1d1"
+  ],
+  "statement": "reassembles 61905 = true ∧ castsFifteens 61905 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

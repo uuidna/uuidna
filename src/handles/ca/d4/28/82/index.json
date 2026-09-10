@@ -1,0 +1,12 @@
+{
+  "handle": "cad42882",
+  "address": "cad42882-f4ab-8242-8ac8-57ff86477d64",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a954"
+  ],
+  "statement": "reassembles 43348 = true ∧ castsFifteens 43348 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

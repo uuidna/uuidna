@@ -1,0 +1,12 @@
+{
+  "handle": "dbc02071",
+  "address": "dbc02071-f3bc-807b-9821-de8ff250e50f",
+  "statement": "reassembles 63872 = true ∧ castsFifteens 63872 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f980"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

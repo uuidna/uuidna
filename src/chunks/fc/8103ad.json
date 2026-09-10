@@ -1,0 +1,12 @@
+{
+  "handle": "fc8103ad",
+  "address": "fc8103ad-4456-89af-9f60-ee5c98d236e0",
+  "statement": "reassembles 9038 = true ∧ castsFifteens 9038 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_234e"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

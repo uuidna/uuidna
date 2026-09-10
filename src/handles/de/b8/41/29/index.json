@@ -1,0 +1,12 @@
+{
+  "handle": "deb84129",
+  "address": "deb84129-2c56-8680-af32-70c2311f5a8b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_268d"
+  ],
+  "statement": "reassembles 9869 = true ∧ castsFifteens 9869 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

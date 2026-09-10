@@ -1,0 +1,12 @@
+{
+  "handle": "ceddbfac",
+  "address": "ceddbfac-617e-8c68-8dda-22e6828738ba",
+  "statement": "reassembles 13126 = true ∧ castsFifteens 13126 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_3346"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

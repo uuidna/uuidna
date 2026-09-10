@@ -1,0 +1,12 @@
+{
+  "handle": "514babec",
+  "address": "514babec-4338-8657-a7cc-1d68314e72f5",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_813a"
+  ],
+  "statement": "reassembles 33082 = true ∧ castsFifteens 33082 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

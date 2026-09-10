@@ -1,0 +1,12 @@
+{
+  "handle": "ef76b13c",
+  "address": "ef76b13c-c228-8e9f-b632-ec392ec68c80",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_two_coins_partition"
+  ],
+  "statement": "((List.range 2).foldl (fun a c => a + ((List.range 110).filter (fun i => i % 2 == c)).length) 0 = 110) ∧ ((List.range 2).all (fun c => ((List.range 110).filter (fun i => i % 2 == c)).length == 55))",
+  "files": [
+    "Wave.lean"
+  ]
+}

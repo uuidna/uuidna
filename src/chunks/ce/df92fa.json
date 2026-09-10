@@ -1,0 +1,12 @@
+{
+  "handle": "cedf92fa",
+  "address": "cedf92fa-f2bf-8dbe-9559-a062da4b2aea",
+  "statement": "reassembles 25887 = true ∧ castsFifteens 25887 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_651f"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

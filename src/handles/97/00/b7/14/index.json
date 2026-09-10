@@ -1,0 +1,12 @@
+{
+  "handle": "9700b714",
+  "address": "9700b714-fa19-8b5a-9f5e-59065f33fe6d",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_7152"
+  ],
+  "statement": "reassembles 29010 = true ∧ castsFifteens 29010 = true",
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

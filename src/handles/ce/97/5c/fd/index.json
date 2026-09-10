@@ -1,0 +1,12 @@
+{
+  "handle": "ce975cfd",
+  "address": "ce975cfd-beaf-830c-bc77-f3103ca6ecb9",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_5936"
+  ],
+  "statement": "reassembles 22838 = true ∧ castsFifteens 22838 = true",
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

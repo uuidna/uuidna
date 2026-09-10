@@ -1,0 +1,12 @@
+{
+  "handle": "cb2144ef",
+  "address": "cb2144ef-43e2-8069-be53-a67a68ef37db",
+  "statement": "reassembles 63597 = true ∧ castsFifteens 63597 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f86d"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

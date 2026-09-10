@@ -1,0 +1,12 @@
+{
+  "handle": "dc462db3",
+  "address": "dc462db3-2b96-8c51-93eb-2ce968edcbc5",
+  "statement": "reassembles 31171 = true ∧ castsFifteens 31171 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_79c3"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

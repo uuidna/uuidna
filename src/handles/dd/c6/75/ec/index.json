@@ -1,0 +1,12 @@
+{
+  "handle": "ddc675ec",
+  "address": "ddc675ec-7079-8721-af17-ce998a5a1be5",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8125"
+  ],
+  "statement": "reassembles 33061 = true ∧ castsFifteens 33061 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

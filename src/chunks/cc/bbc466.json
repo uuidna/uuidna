@@ -1,0 +1,12 @@
+{
+  "handle": "ccbbc466",
+  "address": "ccbbc466-f2a6-8209-a4a6-499d583de3aa",
+  "statement": "reassembles 50042 = true ∧ castsFifteens 50042 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c37a"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

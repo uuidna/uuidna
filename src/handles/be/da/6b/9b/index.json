@@ -1,0 +1,12 @@
+{
+  "handle": "beda6b9b",
+  "address": "beda6b9b-6895-8c9c-a7a0-d26cc5d6967b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_06ba"
+  ],
+  "statement": "reassembles 1722 = true ∧ castsFifteens 1722 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "57a1a286",
+  "address": "57a1a286-4311-8370-92f5-594967614eba",
+  "kind": "chunk",
+  "keys": [
+    "tetrahedron_cluster_closes"
+  ],
+  "statement": "(4 + 4 = 6 + 2) ∧ (3 * 4 = 2 * 6) ∧ (3 * 4 = 2 * 6)",
+  "files": [
+    "Platonic.lean"
+  ]
+}

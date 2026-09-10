@@ -1,0 +1,12 @@
+{
+  "handle": "6a95facc",
+  "address": "6a95facc-3f86-88ac-b506-cb9ee66f8ac8",
+  "statement": "reassembles 24040 = true ∧ castsFifteens 24040 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_5de8"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

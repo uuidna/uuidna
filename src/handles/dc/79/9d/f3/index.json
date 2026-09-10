@@ -1,0 +1,12 @@
+{
+  "handle": "dc799df3",
+  "address": "dc799df3-be67-8594-a361-0ea1dfa762e7",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_01cc"
+  ],
+  "statement": "reassembles 460 = true ∧ castsFifteens 460 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

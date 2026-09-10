@@ -1,0 +1,12 @@
+{
+  "handle": "cfd4c60a",
+  "address": "cfd4c60a-71d3-881b-9f58-48a38b2b84ba",
+  "statement": "reassembles 30684 = true ∧ castsFifteens 30684 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_77dc"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

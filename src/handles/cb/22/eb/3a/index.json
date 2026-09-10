@@ -1,0 +1,12 @@
+{
+  "handle": "cb22eb3a",
+  "address": "cb22eb3a-da70-808c-887f-43bfd9d87d17",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f0dd"
+  ],
+  "statement": "reassembles 61661 = true ∧ castsFifteens 61661 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

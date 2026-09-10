@@ -1,0 +1,12 @@
+{
+  "handle": "deed794f",
+  "address": "deed794f-1ee6-8d9b-9bdb-7c18f1b04c6c",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_b826"
+  ],
+  "statement": "reassembles 47142 = true ∧ castsFifteens 47142 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ac21a944",
+  "address": "ac21a944-a2ef-858d-bdc7-776e2bd32f15",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fba5"
+  ],
+  "statement": "reassembles 64421 = true ∧ castsFifteens 64421 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "070ec288",
+  "address": "070ec288-10a0-8f35-a371-6506d7831815",
+  "statement": "(20 + 12 = 30 + 2) ∧ (3 * 20 = 2 * 30) ∧ (5 * 12 = 2 * 30)",
+  "tactic": "decide",
+  "keys": [
+    "dodecahedron_cluster_closes"
+  ],
+  "files": [
+    "Platonic.lean"
+  ]
+}

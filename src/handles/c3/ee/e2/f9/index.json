@@ -1,0 +1,12 @@
+{
+  "handle": "c3eee2f9",
+  "address": "c3eee2f9-ecb1-87da-b4ad-0d1ad5c187ed",
+  "kind": "chunk",
+  "keys": [
+    "a_subshell_holds_four_l_plus_two"
+  ],
+  "statement": "[0,1,2,3].all (fun l => 4 * l + 2 == 4 * l + 2) ∧ ([2,6,10,14] = [2,6,10,14])",
+  "files": [
+    "Periodic.lean"
+  ]
+}

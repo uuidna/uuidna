@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 431,
+ "count": 435,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -380,8 +380,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-chat",
    "name": "DeepSeek: DeepSeek V3",
    "contextTokens": 163840,
-   "promptPrice": "0.00000032",
-   "completionPrice": "0.00000089"
+   "promptPrice": "0.0000002574",
+   "completionPrice": "0.0000010287"
   },
   {
    "id": "deepseek/deepseek-chat-v3-0324",
@@ -1059,8 +1059,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m2.5",
    "name": "MiniMax: MiniMax M2.5",
    "contextTokens": 204800,
-   "promptPrice": "0.00000027",
-   "completionPrice": "0.00000108"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "minimax/minimax-m2.7",
@@ -1091,6 +1091,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000009"
   },
   {
+   "id": "mistralai/codestral-2508:batch",
+   "name": "Mistral: Codestral 2508 (batch)",
+   "contextTokens": 256000,
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.00000045"
+  },
+  {
    "id": "mistralai/devstral-2512",
    "name": "Mistral: Devstral 2 2512",
    "contextTokens": 262144,
@@ -1119,6 +1126,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000015"
   },
   {
+   "id": "mistralai/ministral-8b-2512:batch",
+   "name": "Mistral: Ministral 3 8B 2512 (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.000000075"
+  },
+  {
    "id": "mistralai/mistral-large",
    "name": "Mistral Large",
    "contextTokens": 128000,
@@ -1138,6 +1152,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.0000005",
    "completionPrice": "0.0000015"
+  },
+  {
+   "id": "mistralai/mistral-large-2512:batch",
+   "name": "Mistral: Mistral Large 3 2512 (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.00000075"
   },
   {
    "id": "mistralai/mistral-medium-3",
@@ -1168,6 +1189,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
+   "id": "mistralai/mistral-medium-3.1:batch",
+   "name": "Mistral: Mistral Medium 3.1 (batch)",
+   "contextTokens": 131072,
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.000001"
+  },
+  {
    "id": "mistralai/mistral-nemo",
    "name": "Mistral: Mistral Nemo",
    "contextTokens": 131072,
@@ -1194,6 +1222,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.00000015",
    "completionPrice": "0.0000006"
+  },
+  {
+   "id": "mistralai/mistral-small-2603:batch",
+   "name": "Mistral: Mistral Small 4 (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "mistralai/mistral-small-3.1-24b-instruct",
@@ -1327,13 +1362,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 131072,
    "promptPrice": "0.000001",
    "completionPrice": "0.000003"
-  },
-  {
-   "id": "nousresearch/hermes-4-70b",
-   "name": "Nous: Hermes 4 70B",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000013",
-   "completionPrice": "0.0000004"
   },
   {
    "id": "nvidia/nemotron-3-nano-30b-a3b",
@@ -2249,8 +2277,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-30b-a3b-instruct-2507",
    "name": "Qwen: Qwen3 30B A3B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.00000004815",
-   "completionPrice": "0.00000019305"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -2389,8 +2417,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-122b-a10b",
    "name": "Qwen: Qwen3.5-122B-A10B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000029",
-   "completionPrice": "0.0000024"
+   "promptPrice": "0.00000026",
+   "completionPrice": "0.00000208"
   },
   {
    "id": "qwen/qwen3.5-27b",
@@ -2914,8 +2942,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3-flash",
    "name": "Z.ai: GLM 5.3 Flash",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.00000025"
+   "promptPrice": "0.00000007",
+   "completionPrice": "0.0000002333"
   },
   {
    "id": "z-ai/glm-5.3-flash:batch",
@@ -3019,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-flash-latest",
    "name": "Z.ai: GLM Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.00000025"
+   "promptPrice": "0.00000007",
+   "completionPrice": "0.0000002333"
   },
   {
    "id": "~z-ai/glm-latest",

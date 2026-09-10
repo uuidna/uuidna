@@ -1,0 +1,12 @@
+{
+  "handle": "ed6540ab",
+  "address": "ed6540ab-bc71-8890-af56-34a592029800",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9763"
+  ],
+  "statement": "reassembles 38755 = true ∧ castsFifteens 38755 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

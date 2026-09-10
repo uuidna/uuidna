@@ -1,0 +1,12 @@
+{
+  "handle": "df945deb",
+  "address": "df945deb-9d59-85ef-84d7-f2e7c5905001",
+  "statement": "reassembles 31883 = true ∧ castsFifteens 31883 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_7c8b"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

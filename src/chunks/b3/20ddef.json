@@ -1,0 +1,12 @@
+{
+  "handle": "b320ddef",
+  "address": "b320ddef-ff33-8bde-993d-40e0de38ae92",
+  "statement": "reassembles 8517 = true ∧ castsFifteens 8517 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2145"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

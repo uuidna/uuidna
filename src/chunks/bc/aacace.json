@@ -1,0 +1,12 @@
+{
+  "handle": "bcaacace",
+  "address": "bcaacace-5bdd-84a9-a891-59910adda959",
+  "statement": "reassembles 17863 = true ∧ castsFifteens 17863 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_45c7"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9e23659b",
+  "address": "9e23659b-cfa2-8c08-9d71-1ecee489578e",
+  "kind": "chunk",
+  "keys": [
+    "crosslinking_outgrows_the_address_space"
+  ],
+  "statement": "([17,20,32,64,128,256,1024].all (fun n => (n * (n - 1)) / 2 > 128)) ∧ ((16 * 15) / 2 <= 128)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

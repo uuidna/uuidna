@@ -1,0 +1,12 @@
+{
+  "handle": "ddfc5019",
+  "address": "ddfc5019-6421-89c8-a9a2-e96416a8a80a",
+  "statement": "reassembles 8670 = true ∧ castsFifteens 8670 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_21de"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

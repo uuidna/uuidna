@@ -1,0 +1,12 @@
+{
+  "handle": "dac20105",
+  "address": "dac20105-b38f-8fec-aaaa-258c9bd5dffd",
+  "statement": "reassembles 19238 = true ∧ castsFifteens 19238 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4b26"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

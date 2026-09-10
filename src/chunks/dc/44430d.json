@@ -1,0 +1,12 @@
+{
+  "handle": "dc44430d",
+  "address": "dc44430d-7821-8b47-8052-37753156339c",
+  "statement": "reassembles 40006 = true ∧ castsFifteens 40006 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9c46"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

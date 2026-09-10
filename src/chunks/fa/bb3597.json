@@ -1,0 +1,12 @@
+{
+  "handle": "fabb3597",
+  "address": "fabb3597-d053-8158-9dbe-3dd60c9e6c84",
+  "statement": "reassembles 28665 = true ∧ castsFifteens 28665 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6ff9"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

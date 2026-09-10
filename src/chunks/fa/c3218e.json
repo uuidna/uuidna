@@ -1,0 +1,12 @@
+{
+  "handle": "fac3218e",
+  "address": "fac3218e-fd63-8bde-a865-9c2310e0f307",
+  "statement": "reassembles 8342 = true ∧ castsFifteens 8342 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2096"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dc87aee4",
+  "address": "dc87aee4-05b5-8c74-8f9c-b16f38af9ea0",
+  "statement": "reassembles 3090 = true ∧ castsFifteens 3090 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0c12"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "03cad2ad",
+  "address": "03cad2ad-9770-8fd0-802d-617af9647463",
+  "statement": "reassembles 4731 = true ∧ castsFifteens 4731 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_127b"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

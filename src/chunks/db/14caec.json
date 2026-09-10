@@ -1,0 +1,12 @@
+{
+  "handle": "db14caec",
+  "address": "db14caec-0716-83c5-97b6-a96467bdbb32",
+  "statement": "reassembles 8763 = true ∧ castsFifteens 8763 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_223b"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

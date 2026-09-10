@@ -1,0 +1,12 @@
+{
+  "handle": "f85a770c",
+  "address": "f85a770c-fe85-84da-8fa8-56d03950ef3e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0ee0"
+  ],
+  "statement": "reassembles 3808 = true ∧ castsFifteens 3808 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

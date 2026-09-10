@@ -1,0 +1,12 @@
+{
+  "handle": "f48d21ba",
+  "address": "f48d21ba-bebb-854e-9097-c69a782993e2",
+  "statement": "[40,41,42,43,44,45,46,47].all (fun c => ((List.range 64).filter (fun d => [1,2,4,8,16,32].contains (lxor c d))).length == 6)",
+  "tactic": "decide",
+  "keys": [
+    "hexcube_degree_is_six_5"
+  ],
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

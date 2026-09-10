@@ -1,0 +1,12 @@
+{
+  "handle": "ca8250be",
+  "address": "ca8250be-32b6-8e3d-9d39-25927800701e",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0e16"
+  ],
+  "statement": "reassembles 3606 = true ∧ castsFifteens 3606 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

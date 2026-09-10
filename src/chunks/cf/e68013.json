@@ -1,0 +1,12 @@
+{
+  "handle": "cfe68013",
+  "address": "cfe68013-da2f-81ca-8b01-ac5d2f61c1e3",
+  "statement": "reassembles 25603 = true ∧ castsFifteens 25603 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6403"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dadb38a2",
+  "address": "dadb38a2-63c6-8854-a590-548cfa8a7b5f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1619"
+  ],
+  "statement": "reassembles 5657 = true ∧ castsFifteens 5657 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "978ac958",
+  "address": "978ac958-523a-8b53-85ff-2770c46f2ebc",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_beda"
+  ],
+  "statement": "reassembles 48858 = true ∧ castsFifteens 48858 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

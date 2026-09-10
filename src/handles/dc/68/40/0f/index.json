@@ -1,0 +1,12 @@
+{
+  "handle": "dc68400f",
+  "address": "dc68400f-c77f-8d5e-9359-c2f76a819164",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1556"
+  ],
+  "statement": "reassembles 5462 = true ∧ castsFifteens 5462 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

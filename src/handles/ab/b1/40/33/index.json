@@ -1,0 +1,12 @@
+{
+  "handle": "abb14033",
+  "address": "abb14033-fe68-8894-9c34-1607f7214ac8",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_0551"
+  ],
+  "statement": "reassembles 1361 = true ∧ castsFifteens 1361 = true",
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

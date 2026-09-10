@@ -1,0 +1,12 @@
+{
+  "handle": "cab44ef8",
+  "address": "cab44ef8-a266-8392-973b-4dbc208dde66",
+  "statement": "reassembles 8596 = true ∧ castsFifteens 8596 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2194"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

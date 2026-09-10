@@ -1,0 +1,12 @@
+{
+  "handle": "bacfda58",
+  "address": "bacfda58-8161-8331-a719-f68f31f60efe",
+  "statement": "reassembles 59317 = true ∧ castsFifteens 59317 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e7b5"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

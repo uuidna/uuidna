@@ -1,0 +1,12 @@
+{
+  "handle": "5c185792",
+  "address": "5c185792-4923-876f-a523-21c7037bd5dc",
+  "statement": "[(0, 0), (0, 1), (1, 0), (1, 1)].map (fun p => (p.1 + p.2) % 2) = [0, 1, 1, 0]",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_xor_detects_difference"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

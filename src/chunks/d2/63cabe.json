@@ -1,0 +1,12 @@
+{
+  "handle": "d263cabe",
+  "address": "d263cabe-6467-8014-ba0a-c8fdd0cd43c3",
+  "statement": "reassembles 64910 = true ∧ castsFifteens 64910 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_fd8e"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

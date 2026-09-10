@@ -1,0 +1,12 @@
+{
+  "handle": "cea90f2f",
+  "address": "cea90f2f-bc02-882d-97f3-852b5febc410",
+  "statement": "reassembles 19655 = true ∧ castsFifteens 19655 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4cc7"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

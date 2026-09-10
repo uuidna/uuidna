@@ -1,0 +1,12 @@
+{
+  "handle": "9d56efc1",
+  "address": "9d56efc1-5e6b-8574-bdc9-1732251ed996",
+  "kind": "chunk",
+  "keys": [
+    "xor_translation_preserves_adjacency_31"
+  ],
+  "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 31) (lxor d 31) == lxor c d))",
+  "files": [
+    "EquilibriumXor4.lean"
+  ]
+}

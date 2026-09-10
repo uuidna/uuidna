@@ -1,0 +1,12 @@
+{
+  "handle": "cfa98731",
+  "address": "cfa98731-43e6-8742-a831-b510bab04162",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_86bb"
+  ],
+  "statement": "reassembles 34491 = true ∧ castsFifteens 34491 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

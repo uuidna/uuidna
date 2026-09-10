@@ -1,0 +1,12 @@
+{
+  "handle": "bae7669f",
+  "address": "bae7669f-e5b8-80b0-9936-05eef54bc9ff",
+  "statement": "((List.range 8).all (fun i => !(i == 7 - i))) ∧ ((List.range 8).all (fun i => 7 - (7 - i) == i)) ∧ ((List.range 8).filter (fun i => i == 7 - i)).length = 0",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_even_crew_pairs_all"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

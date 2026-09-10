@@ -1,0 +1,12 @@
+{
+  "handle": "9118abc3",
+  "address": "9118abc3-ed32-836d-a6ef-21b2159dac91",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_odd_crew_has_centre"
+  ],
+  "statement": "((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i)) ∧ (7 % 2 = 1)",
+  "files": [
+    "Wave.lean"
+  ]
+}

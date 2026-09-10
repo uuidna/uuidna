@@ -1,0 +1,12 @@
+{
+  "handle": "aa245fed",
+  "address": "aa245fed-7ac7-871c-afcd-ddef99e117e7",
+  "statement": "reassembles 60204 = true ∧ castsFifteens 60204 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_eb2c"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "deb4e071",
+  "address": "deb4e071-3aa0-8073-8d6c-463aaccd91a2",
+  "statement": "reassembles 4455 = true ∧ castsFifteens 4455 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1167"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

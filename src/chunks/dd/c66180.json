@@ -1,0 +1,12 @@
+{
+  "handle": "ddc66180",
+  "address": "ddc66180-83a5-8466-8b44-93aee78f7913",
+  "statement": "reassembles 40463 = true ∧ castsFifteens 40463 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9e0f"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

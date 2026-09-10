@@ -1,0 +1,12 @@
+{
+  "handle": "cae5970e",
+  "address": "cae5970e-40b5-8050-9feb-fbc3f106eba0",
+  "statement": "reassembles 30437 = true ∧ castsFifteens 30437 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_76e5"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

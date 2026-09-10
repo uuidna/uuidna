@@ -1,0 +1,12 @@
+{
+  "handle": "cb4370cc",
+  "address": "cb4370cc-d5ac-85be-bcfc-85e85683f858",
+  "statement": "reassembles 4410 = true ∧ castsFifteens 4410 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_113a"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

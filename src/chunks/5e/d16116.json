@@ -1,0 +1,12 @@
+{
+  "handle": "5ed16116",
+  "address": "5ed16116-2c35-8e51-9b41-4c7c408b2083",
+  "statement": "5041 + 326 + 145 = 5512",
+  "tactic": "decide",
+  "keys": [
+    "three_kinds_partition_the_store"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

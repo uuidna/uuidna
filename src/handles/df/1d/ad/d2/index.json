@@ -1,0 +1,12 @@
+{
+  "handle": "df1dadd2",
+  "address": "df1dadd2-14c1-8243-a2a5-814ec4efb30f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_2c95"
+  ],
+  "statement": "reassembles 11413 = true ∧ castsFifteens 11413 = true",
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

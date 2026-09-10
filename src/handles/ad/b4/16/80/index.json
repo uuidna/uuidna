@@ -1,0 +1,12 @@
+{
+  "handle": "adb41680",
+  "address": "adb41680-3336-8dc3-a037-9ed9560ccfd2",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_bbc7"
+  ],
+  "statement": "reassembles 48071 = true ∧ castsFifteens 48071 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

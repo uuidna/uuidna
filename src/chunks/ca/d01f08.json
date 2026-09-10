@@ -1,0 +1,12 @@
+{
+  "handle": "cad01f08",
+  "address": "cad01f08-da71-82bc-b16a-f719ef10800d",
+  "statement": "reassembles 42540 = true ∧ castsFifteens 42540 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a62c"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

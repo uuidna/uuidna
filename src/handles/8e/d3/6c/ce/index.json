@@ -1,0 +1,12 @@
+{
+  "handle": "8ed36cce",
+  "address": "8ed36cce-699b-817c-8444-ee23b26b19cf",
+  "kind": "chunk",
+  "keys": [
+    "shor_is_defeated_by_absence_not_by_speed"
+  ],
+  "statement": "[1,1024,1048576,1073741824].all (fun c => c * 0 == 0) ∧ (0 * 2 ^ 64 = 0)",
+  "files": [
+    "Refusion.lean"
+  ]
+}

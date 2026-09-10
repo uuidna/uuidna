@@ -1,0 +1,12 @@
+{
+  "handle": "fba576a1",
+  "address": "fba576a1-b289-8e89-97f3-e1af30c91c27",
+  "statement": "reassembles 43694 = true ∧ castsFifteens 43694 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_aaae"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

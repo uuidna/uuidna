@@ -1,0 +1,12 @@
+{
+  "handle": "e7095cdd",
+  "address": "e7095cdd-ef38-8883-a358-85a9659be1a6",
+  "statement": "reassembles 13791 = true ∧ castsFifteens 13791 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_35df"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

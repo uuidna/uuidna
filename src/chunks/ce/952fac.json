@@ -1,0 +1,12 @@
+{
+  "handle": "ce952fac",
+  "address": "ce952fac-f1e1-8678-b873-deeb1cc07fdd",
+  "statement": "reassembles 19403 = true ∧ castsFifteens 19403 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4bcb"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

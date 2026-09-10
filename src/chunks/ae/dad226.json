@@ -1,0 +1,12 @@
+{
+  "handle": "aedad226",
+  "address": "aedad226-f204-8d2d-895a-7a2dfd859b28",
+  "statement": "reassembles 41136 = true ∧ castsFifteens 41136 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_a0b0"
+  ],
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

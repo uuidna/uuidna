@@ -1,0 +1,12 @@
+{
+  "handle": "fcc354ca",
+  "address": "fcc354ca-989a-8dd7-b8d3-3287f63abb3a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6325"
+  ],
+  "statement": "reassembles 25381 = true ∧ castsFifteens 25381 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

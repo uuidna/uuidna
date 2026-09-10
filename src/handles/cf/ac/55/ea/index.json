@@ -1,0 +1,12 @@
+{
+  "handle": "cfac55ea",
+  "address": "cfac55ea-6791-883d-a94b-16aec15aa4ac",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f863"
+  ],
+  "statement": "reassembles 63587 = true ∧ castsFifteens 63587 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

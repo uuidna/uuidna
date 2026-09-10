@@ -1,0 +1,12 @@
+{
+  "handle": "a4d050f3",
+  "address": "a4d050f3-42d1-8edd-842f-db48adae7c57",
+  "kind": "chunk",
+  "keys": [
+    "a_richer_point_never_narrows_the_width_2"
+  ],
+  "statement": "[(4,1),(4,2),(4,3),(4,4),(4,6),(4,8),(4,12),(4,20),(4,40),(4,128)].all (fun p => (let w := if p.1 <= p.2 then p.1 else p.2; let wc := if p.1 + 1 <= p.2 then p.1 + 1 else p.2; let wm := if p.1 <= p.2 + 1 then p.1 else p.2 + 1; (wc >= w) && (wm >= w)))",
+  "files": [
+    "BindingPoint.lean"
+  ]
+}

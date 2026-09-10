@@ -1,0 +1,12 @@
+{
+  "handle": "eacca017",
+  "address": "eacca017-281a-8f11-8a01-55305a353481",
+  "statement": "reassembles 20295 = true ∧ castsFifteens 20295 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4f47"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

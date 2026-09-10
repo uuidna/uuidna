@@ -1,0 +1,12 @@
+{
+  "handle": "3403fc44",
+  "address": "3403fc44-a138-8756-81a9-81436a538af8",
+  "statement": "(List.range 16).all (fun i => 65535 / (2 ^ i) % 2 == 1)",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_sixteen_bits_all_set"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

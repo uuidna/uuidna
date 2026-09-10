@@ -1,0 +1,12 @@
+{
+  "handle": "443ffcaf",
+  "address": "443ffcaf-962d-8274-99a3-4d9bb5cd319e",
+  "statement": "reassembles 55761 = true ∧ castsFifteens 55761 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_d9d1"
+  ],
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "deb32a99",
+  "address": "deb32a99-9ec6-8254-8a5b-3a74665d72a6",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6394"
+  ],
+  "statement": "reassembles 25492 = true ∧ castsFifteens 25492 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

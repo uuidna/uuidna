@@ -1,0 +1,12 @@
+{
+  "handle": "ccaf6a69",
+  "address": "ccaf6a69-cf46-8c0c-8fed-9c63ed58ca34",
+  "statement": "reassembles 31118 = true ∧ castsFifteens 31118 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_798e"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

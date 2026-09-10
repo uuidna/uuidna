@@ -1,0 +1,12 @@
+{
+  "handle": "b4784d5b",
+  "address": "b4784d5b-b270-8f2c-b7ff-d54cd48e7f3f",
+  "statement": "[10,20,30].all (fun n => (2 * n * (2 * n + 1) + 2 * n) < 2 ^ n) ∧ [10,20,30].all (fun t => 2 ^ t > (2 * t * (2 * t + 1) + 2 * t))",
+  "tactic": "decide",
+  "keys": [
+    "the_exponential_moves_it_does_not_vanish"
+  ],
+  "files": [
+    "QuantumCube.lean"
+  ]
+}

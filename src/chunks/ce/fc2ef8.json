@@ -1,0 +1,12 @@
+{
+  "handle": "cefc2ef8",
+  "address": "cefc2ef8-5398-8acc-94db-cac72e7cd094",
+  "statement": "reassembles 16775 = true ∧ castsFifteens 16775 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_4187"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

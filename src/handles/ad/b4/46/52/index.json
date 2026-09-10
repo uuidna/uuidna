@@ -1,0 +1,12 @@
+{
+  "handle": "adb44652",
+  "address": "adb44652-ecad-89ef-82a2-679270817fad",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_4c30"
+  ],
+  "statement": "reassembles 19504 = true ∧ castsFifteens 19504 = true",
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

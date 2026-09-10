@@ -1,0 +1,12 @@
+{
+  "handle": "fedada03",
+  "address": "fedada03-c223-8a91-b693-e5c935e90cf8",
+  "statement": "reassembles 24787 = true ∧ castsFifteens 24787 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_60d3"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

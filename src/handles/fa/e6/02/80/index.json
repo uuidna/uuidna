@@ -1,0 +1,12 @@
+{
+  "handle": "fae60280",
+  "address": "fae60280-d815-8969-a52f-c8a7a95d5a1f",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_cc18"
+  ],
+  "statement": "reassembles 52248 = true ∧ castsFifteens 52248 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

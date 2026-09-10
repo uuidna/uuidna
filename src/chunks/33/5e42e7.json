@@ -1,0 +1,12 @@
+{
+  "handle": "335e42e7",
+  "address": "335e42e7-7356-849c-8d02-0d009371dc1a",
+  "statement": "reassembles 49941 = true ∧ castsFifteens 49941 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_c315"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

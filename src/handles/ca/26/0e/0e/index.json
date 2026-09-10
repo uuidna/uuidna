@@ -1,0 +1,12 @@
+{
+  "handle": "ca260e0e",
+  "address": "ca260e0e-5d1a-8a8c-9763-4ffd0053a089",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_5155"
+  ],
+  "statement": "reassembles 20821 = true ∧ castsFifteens 20821 = true",
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

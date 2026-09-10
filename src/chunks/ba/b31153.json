@@ -1,0 +1,12 @@
+{
+  "handle": "bab31153",
+  "address": "bab31153-71ad-866b-8746-044dfe9dc9d6",
+  "statement": "reassembles 17900 = true ∧ castsFifteens 17900 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_45ec"
+  ],
+  "files": [
+    "HexSpan5.lean"
+  ]
+}

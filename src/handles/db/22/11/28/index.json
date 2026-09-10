@@ -1,0 +1,12 @@
+{
+  "handle": "db221128",
+  "address": "db221128-6d31-8fe9-9044-81448dc10edd",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_945e"
+  ],
+  "statement": "reassembles 37982 = true ∧ castsFifteens 37982 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

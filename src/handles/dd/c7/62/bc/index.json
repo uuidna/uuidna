@@ -1,0 +1,12 @@
+{
+  "handle": "ddc762bc",
+  "address": "ddc762bc-138d-80f2-a111-f98b8515e461",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_93f3"
+  ],
+  "statement": "reassembles 37875 = true ∧ castsFifteens 37875 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

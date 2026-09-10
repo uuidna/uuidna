@@ -1,0 +1,12 @@
+{
+  "handle": "4649a1b0",
+  "address": "4649a1b0-fabb-8454-a345-66f42be80407",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_1f19"
+  ],
+  "statement": "reassembles 7961 = true ∧ castsFifteens 7961 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

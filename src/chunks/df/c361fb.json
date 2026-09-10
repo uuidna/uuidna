@@ -1,0 +1,12 @@
+{
+  "handle": "dfc361fb",
+  "address": "dfc361fb-dc0a-8062-8cd0-8f22100ca66c",
+  "statement": "reassembles 28662 = true ∧ castsFifteens 28662 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_6ff6"
+  ],
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

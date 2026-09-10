@@ -1,0 +1,12 @@
+{
+  "handle": "cdda20ea",
+  "address": "cdda20ea-cbfc-8431-888b-29c486cf34fd",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_fa73"
+  ],
+  "statement": "reassembles 64115 = true ∧ castsFifteens 64115 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

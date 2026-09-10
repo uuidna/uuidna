@@ -1,0 +1,12 @@
+{
+  "handle": "9f17be98",
+  "address": "9f17be98-bc50-8e26-8870-5df6ed9f6e4e",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_clay_seven_has_centre"
+  ],
+  "statement": "(7 % 2 = 1) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1 ∧ ((List.range 7).all (fun i => 6 - (6 - i) == i))",
+  "files": [
+    "Wave.lean"
+  ]
+}

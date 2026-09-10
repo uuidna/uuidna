@@ -1,0 +1,12 @@
+{
+  "handle": "ec356bf3",
+  "address": "ec356bf3-b598-8e80-9d81-ffa053fc812f",
+  "statement": "reassembles 4096 = true ∧ castsFifteens 4096 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1000"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

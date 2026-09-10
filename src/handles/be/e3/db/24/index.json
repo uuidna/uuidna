@@ -1,0 +1,12 @@
+{
+  "handle": "bee3db24",
+  "address": "bee3db24-8c64-8619-869a-c08e19c82a14",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9cc3"
+  ],
+  "statement": "reassembles 40131 = true ∧ castsFifteens 40131 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

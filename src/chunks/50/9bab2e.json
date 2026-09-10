@@ -1,0 +1,12 @@
+{
+  "handle": "509bab2e",
+  "address": "509bab2e-ff3a-84ec-acd2-2cfd1fbf8835",
+  "statement": "reassembles 37950 = true ∧ castsFifteens 37950 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_943e"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

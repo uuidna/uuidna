@@ -1,0 +1,12 @@
+{
+  "handle": "24508b6d",
+  "address": "24508b6d-ac66-84cf-ba35-2e1ed51fbbf3",
+  "kind": "chunk",
+  "keys": [
+    "a_tree_uses_one_link_per_leaf_and_no_more"
+  ],
+  "statement": "[4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2)))",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2040deb2",
+  "address": "2040deb2-b548-8dd2-ad47-d33aee61caef",
+  "statement": "reassembles 58223 = true ∧ castsFifteens 58223 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_e36f"
+  ],
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ffaca605",
+  "address": "ffaca605-31ca-8b41-95ee-fb624f91ae7b",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_9f0f"
+  ],
+  "statement": "reassembles 40719 = true ∧ castsFifteens 40719 = true",
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

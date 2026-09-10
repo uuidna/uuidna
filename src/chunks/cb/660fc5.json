@@ -1,0 +1,12 @@
+{
+  "handle": "cb660fc5",
+  "address": "cb660fc5-03b4-8cd0-aeb9-d71b8e9aa4ef",
+  "statement": "reassembles 35023 = true ∧ castsFifteens 35023 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_88cf"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

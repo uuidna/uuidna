@@ -1,0 +1,12 @@
+{
+  "handle": "abad4fc2",
+  "address": "abad4fc2-eab4-84c7-a4cf-6249945f1287",
+  "statement": "reassembles 7560 = true ∧ castsFifteens 7560 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1d88"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

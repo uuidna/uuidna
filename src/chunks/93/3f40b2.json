@@ -1,0 +1,12 @@
+{
+  "handle": "933f40b2",
+  "address": "933f40b2-ade3-8350-83ec-9dc3396afe1a",
+  "statement": "((List.range 8).length = 8) ∧ (((List.range 8).filter (fun n => (n % 2 + n / 2 % 2 + n / 4 % 2) % 2 == 0)).length = 4) ∧ ((3 * 2) = 6) ∧ ((2 * 2) + (2 * 2) = 8)",
+  "tactic": "decide",
+  "keys": [
+    "the_cube_carries_the_tetrahedron_and_its_own_dual"
+  ],
+  "files": [
+    "QuantumCube.lean"
+  ]
+}

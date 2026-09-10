@@ -1,0 +1,12 @@
+{
+  "handle": "aaaab264",
+  "address": "aaaab264-4a16-8234-a58d-22ffa0122bc4",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_564e"
+  ],
+  "statement": "reassembles 22094 = true ∧ castsFifteens 22094 = true",
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

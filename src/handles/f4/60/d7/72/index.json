@@ -1,0 +1,12 @@
+{
+  "handle": "f460d772",
+  "address": "f460d772-098a-8ed8-925f-59f3baa7cad3",
+  "kind": "chunk",
+  "keys": [
+    "every_level_branches_the_same_way"
+  ],
+  "statement": "[1,2,3,4].all (fun _ => 16 ^ 2 == 256)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "caf126c1",
+  "address": "caf126c1-7808-8cad-9c46-6c25ffa03a08",
+  "statement": "reassembles 11708 = true ∧ castsFifteens 11708 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2dbc"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

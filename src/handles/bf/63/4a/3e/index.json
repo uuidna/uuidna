@@ -1,0 +1,12 @@
+{
+  "handle": "bf634a3e",
+  "address": "bf634a3e-a3f6-8ae7-a055-ab1cbe677dd8",
+  "kind": "chunk",
+  "keys": [
+    "conway_ninetynine_multiplicities_are_integers_and_close"
+  ],
+  "statement": "(54 + 44 + 1 = 99) ∧ (54 > 0) ∧ (44 > 0)",
+  "files": [
+    "OpenProblems.lean"
+  ]
+}

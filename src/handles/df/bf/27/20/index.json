@@ -1,0 +1,12 @@
+{
+  "handle": "dfbf2720",
+  "address": "dfbf2720-e21e-8e2d-875f-4eeb381a181a",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_be3d"
+  ],
+  "statement": "reassembles 48701 = true ∧ castsFifteens 48701 = true",
+  "files": [
+    "HexSpan12.lean"
+  ]
+}

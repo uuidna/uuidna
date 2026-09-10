@@ -1,0 +1,12 @@
+{
+  "handle": "f770eb2e",
+  "address": "f770eb2e-8b2c-89df-a220-fe946d413eab",
+  "statement": "reassembles 13003 = true ∧ castsFifteens 13003 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_32cb"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

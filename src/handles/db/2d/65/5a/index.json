@@ -1,0 +1,12 @@
+{
+  "handle": "db2d655a",
+  "address": "db2d655a-8e65-8563-8f96-310f34aefcc0",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_37eb"
+  ],
+  "statement": "reassembles 14315 = true ∧ castsFifteens 14315 = true",
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

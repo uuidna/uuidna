@@ -1,0 +1,12 @@
+{
+  "handle": "adb1f853",
+  "address": "adb1f853-e182-8641-9cc6-0ef3c1742981",
+  "statement": "reassembles 2730 = true ∧ castsFifteens 2730 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0aaa"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

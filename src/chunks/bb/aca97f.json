@@ -1,0 +1,12 @@
+{
+  "handle": "bbaca97f",
+  "address": "bbaca97f-1b3b-8119-b865-345cd268c57a",
+  "statement": "reassembles 8020 = true ∧ castsFifteens 8020 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f54"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

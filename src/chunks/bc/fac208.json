@@ -1,0 +1,12 @@
+{
+  "handle": "bcfac208",
+  "address": "bcfac208-db1e-8f20-b060-ea87c2c80ea0",
+  "statement": "reassembles 8757 = true ∧ castsFifteens 8757 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2235"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

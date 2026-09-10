@@ -1,0 +1,12 @@
+{
+  "handle": "3d2034bc",
+  "address": "3d2034bc-ea27-8dd1-aa2a-1367ef480028",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_c9e8"
+  ],
+  "statement": "reassembles 51688 = true ∧ castsFifteens 51688 = true",
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

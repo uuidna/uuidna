@@ -1,0 +1,12 @@
+{
+  "handle": "df1dadd2",
+  "address": "df1dadd2-14c1-8243-a2a5-814ec4efb30f",
+  "statement": "reassembles 11413 = true ∧ castsFifteens 11413 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_2c95"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

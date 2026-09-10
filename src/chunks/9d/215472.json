@@ -1,0 +1,12 @@
+{
+  "handle": "9d215472",
+  "address": "9d215472-757e-8c0a-b7e1-994c33ded91e",
+  "statement": "[56,57,58,59,60,61,62,63].all (fun c => (List.range 64).all (fun d => lxor c (lxor c d) == d))",
+  "tactic": "decide",
+  "keys": [
+    "xor_translation_carries_any_cell_to_any_other_7"
+  ],
+  "files": [
+    "Equilibrium.lean"
+  ]
+}

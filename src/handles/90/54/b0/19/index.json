@@ -1,0 +1,12 @@
+{
+  "handle": "9054b019",
+  "address": "9054b019-b197-8d21-8756-ba5dc41b09e9",
+  "kind": "chunk",
+  "keys": [
+    "mass_coord_bft_three_of_four"
+  ],
+  "statement": "((List.range 16).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 >= 3)).length = 5",
+  "files": [
+    "Wave.lean"
+  ]
+}

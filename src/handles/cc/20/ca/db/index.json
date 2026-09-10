@@ -1,0 +1,12 @@
+{
+  "handle": "cc20cadb",
+  "address": "cc20cadb-80bc-8915-b41c-188066574ea2",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_6f03"
+  ],
+  "statement": "reassembles 28419 = true ∧ castsFifteens 28419 = true",
+  "files": [
+    "HexSpan7.lean"
+  ]
+}

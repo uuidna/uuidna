@@ -1,0 +1,12 @@
+{
+  "handle": "fc28724c",
+  "address": "fc28724c-1d40-89af-a056-aca1301690d1",
+  "statement": "reassembles 13610 = true ∧ castsFifteens 13610 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_352a"
+  ],
+  "files": [
+    "HexSpan4.lean"
+  ]
+}

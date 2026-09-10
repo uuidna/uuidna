@@ -1,0 +1,12 @@
+{
+  "handle": "dacb1232",
+  "address": "dacb1232-e294-8296-af37-1cfc378d9669",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_a8d2"
+  ],
+  "statement": "reassembles 43218 = true ∧ castsFifteens 43218 = true",
+  "files": [
+    "HexSpan11.lean"
+  ]
+}

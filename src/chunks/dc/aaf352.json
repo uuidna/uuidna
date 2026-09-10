@@ -1,0 +1,12 @@
+{
+  "handle": "dcaaf352",
+  "address": "dcaaf352-3f01-89d2-aa68-237192422a74",
+  "statement": "reassembles 36113 = true ∧ castsFifteens 36113 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8d11"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "faed4bee",
+  "address": "faed4bee-b2b1-8b61-8432-91613db2a5ce",
+  "statement": "reassembles 33308 = true ∧ castsFifteens 33308 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_821c"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

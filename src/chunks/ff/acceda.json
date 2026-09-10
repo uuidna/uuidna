@@ -1,0 +1,12 @@
+{
+  "handle": "ffacceda",
+  "address": "ffacceda-bd9b-8c64-a6fb-c9bb29fc8bd9",
+  "statement": "reassembles 34749 = true ∧ castsFifteens 34749 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_87bd"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "faf3a350",
+  "address": "faf3a350-db50-8037-bf1c-8385daa724b2",
+  "statement": "reassembles 35229 = true ∧ castsFifteens 35229 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_899d"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

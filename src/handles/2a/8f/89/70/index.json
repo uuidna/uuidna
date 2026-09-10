@@ -1,0 +1,12 @@
+{
+  "handle": "2a8f8970",
+  "address": "2a8f8970-7772-8c34-a27f-8c37a46f2237",
+  "kind": "chunk",
+  "keys": [
+    "conway_ninetynine_counting_identity_holds"
+  ],
+  "statement": "14 * (14 - 1 - 1) = (99 - 14 - 1) * 2",
+  "files": [
+    "OpenProblems.lean"
+  ]
+}

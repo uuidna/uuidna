@@ -1,0 +1,12 @@
+{
+  "handle": "e5e26a34",
+  "address": "e5e26a34-616c-8577-9026-aa794369bb24",
+  "statement": "reassembles 20572 = true ∧ castsFifteens 20572 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_505c"
+  ],
+  "files": [
+    "HexSpan6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "592020e5",
+  "address": "592020e5-e825-8349-894a-de1962105f20",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_166f"
+  ],
+  "statement": "reassembles 5743 = true ∧ castsFifteens 5743 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

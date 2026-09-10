@@ -1,0 +1,12 @@
+{
+  "handle": "c272cad2",
+  "address": "c272cad2-59ad-8663-b731-a6e6f15d09e2",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_8326"
+  ],
+  "statement": "reassembles 33574 = true ∧ castsFifteens 33574 = true",
+  "files": [
+    "HexSpan9.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "afb4fa80",
+  "address": "afb4fa80-fa83-86b2-ae71-8d20e426b378",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_12e1"
+  ],
+  "statement": "reassembles 4833 = true ∧ castsFifteens 4833 = true",
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

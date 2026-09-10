@@ -1,0 +1,12 @@
+{
+  "handle": "fede9420",
+  "address": "fede9420-69a3-8b6d-87ea-3a19665e0d89",
+  "statement": "reassembles 29275 = true ∧ castsFifteens 29275 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_725b"
+  ],
+  "files": [
+    "HexSpan8.lean"
+  ]
+}

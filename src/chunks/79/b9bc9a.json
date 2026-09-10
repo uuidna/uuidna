@@ -1,0 +1,12 @@
+{
+  "handle": "79b9bc9a",
+  "address": "79b9bc9a-5e8e-8861-99b0-e76d36a308e1",
+  "statement": "reassembles 8070 = true ∧ castsFifteens 8070 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1f86"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

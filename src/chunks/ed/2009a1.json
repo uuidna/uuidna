@@ -1,0 +1,12 @@
+{
+  "handle": "ed2009a1",
+  "address": "ed2009a1-1abe-8030-aeac-24209b68767b",
+  "statement": "reassembles 7282 = true ∧ castsFifteens 7282 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_1c72"
+  ],
+  "files": [
+    "HexSpan2.lean"
+  ]
+}

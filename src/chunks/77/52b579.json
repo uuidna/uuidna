@@ -1,0 +1,12 @@
+{
+  "handle": "7752b579",
+  "address": "7752b579-7742-8df3-a2ef-45329ed619d9",
+  "statement": "reassembles 4076 = true ∧ castsFifteens 4076 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_0fec"
+  ],
+  "files": [
+    "HexSpan1.lean"
+  ]
+}

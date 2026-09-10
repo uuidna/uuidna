@@ -1,0 +1,12 @@
+{
+  "handle": "adb899dc",
+  "address": "adb899dc-765b-88a2-9ac9-cb4f6addcfe4",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_ebee"
+  ],
+  "statement": "reassembles 60398 = true ∧ castsFifteens 60398 = true",
+  "files": [
+    "HexSpan15.lean"
+  ]
+}

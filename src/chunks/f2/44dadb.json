@@ -1,0 +1,12 @@
+{
+  "handle": "f244dadb",
+  "address": "f244dadb-a873-858e-baba-4a2fabad3b00",
+  "statement": "reassembles 39607 = true ∧ castsFifteens 39607 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_9ab7"
+  ],
+  "files": [
+    "HexSpan10.lean"
+  ]
+}

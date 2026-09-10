@@ -1,0 +1,12 @@
+{
+  "handle": "dc150179",
+  "address": "dc150179-4d8f-8f13-aeb9-5584e4b3daf7",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_da2e"
+  ],
+  "statement": "reassembles 55854 = true ∧ castsFifteens 55854 = true",
+  "files": [
+    "HexSpan14.lean"
+  ]
+}

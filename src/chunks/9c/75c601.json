@@ -1,0 +1,12 @@
+{
+  "handle": "9c75c601",
+  "address": "9c75c601-120d-8556-8e4f-bc7a54359f9e",
+  "statement": "((List.range 32).filter (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 >= 3)).length = 16",
+  "tactic": "decide",
+  "keys": [
+    "mass_coord_majority_five_bits"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

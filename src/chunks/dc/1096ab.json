@@ -1,0 +1,12 @@
+{
+  "handle": "dc1096ab",
+  "address": "dc1096ab-e3be-872b-8e17-be13fe829efe",
+  "statement": "reassembles 53038 = true ∧ castsFifteens 53038 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_cf2e"
+  ],
+  "files": [
+    "HexSpan13.lean"
+  ]
+}

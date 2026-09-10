@@ -1,0 +1,12 @@
+{
+  "handle": "cac88514",
+  "address": "cac88514-eae7-85d1-8e98-69a085856367",
+  "statement": "reassembles 63239 = true ∧ castsFifteens 63239 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_f707"
+  ],
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8f9bdb84",
+  "address": "8f9bdb84-7094-8c59-855d-49c8d6aac06e",
+  "statement": "((List.range 8).filter (fun n => (n % 2) * (n / 2 % 2) * (n / 4 % 2) == 1)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "mass_comply_and_of_three_is_one"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

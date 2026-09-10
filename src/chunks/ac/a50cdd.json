@@ -1,0 +1,12 @@
+{
+  "handle": "aca50cdd",
+  "address": "aca50cdd-660d-83b5-81f3-8d3cf55c3e3e",
+  "statement": "reassembles 9325 = true ∧ castsFifteens 9325 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_246d"
+  ],
+  "files": [
+    "HexSpan3.lean"
+  ]
+}

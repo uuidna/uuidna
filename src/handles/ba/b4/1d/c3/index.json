@@ -1,0 +1,12 @@
+{
+  "handle": "bab41dc3",
+  "address": "bab41dc3-e392-81ac-bfed-8981968ee0cc",
+  "kind": "chunk",
+  "keys": [
+    "enumeration_hex4_f809"
+  ],
+  "statement": "reassembles 63497 = true ∧ castsFifteens 63497 = true",
+  "files": [
+    "HexSpan16.lean"
+  ]
+}

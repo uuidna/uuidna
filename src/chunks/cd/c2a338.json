@@ -1,0 +1,12 @@
+{
+  "handle": "cdc2a338",
+  "address": "cdc2a338-7525-8e0d-83bb-c38a4cf03228",
+  "statement": "reassembles 34688 = true ∧ castsFifteens 34688 = true",
+  "tactic": "decide",
+  "keys": [
+    "enumeration_hex4_8780"
+  ],
+  "files": [
+    "HexSpan9.lean"
+  ]
+}
