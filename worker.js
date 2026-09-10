@@ -23,6 +23,7 @@ import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
 import { primeCatalogue, cataloguePrimed } from './dist/quantum/os/catalogue/index.js'
 import { packagePage, renderPackagePage } from './dist/quantum/os/pkgpage/index.js'
+import { theoremPage, renderTheoremPage } from './dist/theorem-page.js'
 import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
 // The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
@@ -283,6 +284,21 @@ export default {
       }
       // a name the catalogue does not publish falls through to the asset handler, which answers the site's own
       // 404 — never a page that looks real for a package that does not exist.
+    }
+
+    // A PAGE PER PAGELESS THEOREM, COMPUTED HERE. HexSpan seals 65,536 surfaces; SSG of one file each hits
+    // VitePress's resolvePages ceiling and serves nobody (compose-object isPageless). The freeze still names
+    // every /theorem/enumeration_hex4_<hex> door; this looks the key up and renders, the same lookup the
+    // catalogue already pays for packages. Named theorems stay VitePress assets — theoremPage returns null
+    // for them, so a rebuilt SSG page is never shadowed.
+    const thMatch = url.pathname.match(/^\/theorem\/([A-Za-z0-9_]+)$/)
+    if (thMatch && request.method === 'GET') {
+      const page = theoremPage(thMatch[1])
+      if (page) {
+        return new Response(renderTheoremPage(page), {
+          headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' },
+        })
+      }
     }
 
     // /favicon.ico — browsers probe it by default (~47/day on uuidna.com). The brand mark is /icon.svg; rewrite

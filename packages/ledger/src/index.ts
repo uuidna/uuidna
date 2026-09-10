@@ -33,7 +33,14 @@ export { axiomWitness, type AxiomWitnessReport } from '@uuidna/uuidna'
 export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit, type CoinAudit, type VoteFraud, type VoteAudit, type LedgerIntrusionReport, type ForgeryDetection, type DoubleSpendsAudit } from '@uuidna/uuidna'
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from '@uuidna/uuidna'
 export { theoremForms, cliqueEdges, type TheoremForms, type TheoremFace } from '@uuidna/uuidna'
-export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from '@uuidna/uuidna'
+export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, isPagelessFile, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from '@uuidna/uuidna'
+export {
+  LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,
+  parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,
+  latticeCall, fillLattice, callSolutionInvolution,
+  type HumanProblem, type ProblemKind, type NamedCall, type AxiomCall, type ProblemCall,
+  type SolutionCall, type LatticeCall, type LatticeInvolution, type LatticeFill,
+} from '@uuidna/uuidna'
 export {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,
   qubitsToHexbits, spareOf, sha256IsFourSixtyfours, hexbitDoorOf,

@@ -31,6 +31,7 @@ import {
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
+import { latticeCall, fillLattice } from './lattice.js'
 import { PKG_VERSION } from './package-version.js'
 import { typeset, formulaCensus } from './formula.js'
 import {
@@ -828,6 +829,10 @@ const TOOLS: Tool[] = ([
     description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,skill,lean,address}. Filter by `principle` (derivation axis), `skill` (capability axis — see uuidna_skills), or `contains`.',
     inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'the capability axis — any skill name from uuidna_skills (the live, recomputable list), never a fixed enum here so it cannot go stale as domains are added Boundary declared — theorem drift_is_named_or_caught.' }, contains: { type: 'string' } } },
     run: (a = {}) => { let ts = theorems(a.skill ? { skill: String(a.skill) } : {}); if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase())); if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) } return ts } },
+  { name: 'uuidna_lattice',
+    description: 'THE LATTICE CALLS. The 2^16 HexSpan stations exist first. Pass {station} (four hex, or enumeration_hex4_<hex>) for that station\'s identity, the named theorems and axioms seated there, the human problems it calls, and the solution involution of those problems. Pass nothing for the fill: occupancy, all 18 problems seated, involution pairs. HexSpan surfaces ARE the stations, not cargo. Calling is not solving — negation_involution_solves is the method (a solution is the denial\'s failure); Clay σ-involution reflects seven and solves none. Returns a LatticeCall or LatticeFill.',
+    inputSchema: { type: 'object', properties: { station: { type: 'string', description: 'four hex (0000–ffff) or enumeration_hex4_<hex>; omit for the fill of all 2^16 stations' } } },
+    run: (a = {}) => a.station !== undefined ? latticeCall(String(a.station)) : fillLattice() },
   // ── THE CAPABILITY AXIS, SERVED AS A DIMENSION. Most of the skills the sealed ledger carries matched no tool name
   //    and no category: those theorems were sealed, axiom-free, witnessed by their wings, and reachable through
   //    nothing. The fix is these TWO computed tools, not one tool per skill — the skill set is carried by the wings,

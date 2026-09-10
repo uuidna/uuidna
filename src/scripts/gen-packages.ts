@@ -30,6 +30,7 @@ const PARTITION: Record<string, string> = {
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
   './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial/deposit/index.js': 'ledger', './security-audit.js': 'ledger',
   './captain/billing/index.js': 'ledger', './coin-supply.js': 'ledger', './tamper-cost.js': 'ledger', './phd-proofs.js': 'ledger', './theorems/index.js': 'ledger',
+  './lattice.js': 'ledger',
   './theorem-forms.js': 'ledger',
   './hexbit/index.js': 'ledger',
   './hexagram.js': 'ledger',

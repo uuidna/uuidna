@@ -10,3 +10,8 @@ test('compose-object — SSG composer reachable and emits theorem monographs', (
   assert.ok(page.content?.length)
   assert.ok(allObjectPaths().length > 1000)
 })
+
+test('compose-object — HexSpan is sealed, not a page each', () => {
+  const paths = allObjectPaths()
+  assert.ok(!paths.some((p) => 'key' in p.params && String(p.params.key).startsWith('enumeration_hex4_')))
+})

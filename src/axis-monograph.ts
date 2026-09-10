@@ -7,7 +7,8 @@
 // Naming: publication = audited domain prose. principle = derivation wing. skill = capability axis.
 // monograph = any URL's relations + body. Layout never reads this module; transformPageData attaches
 // only the slice that URL is.
-import { theorems, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, axiomIndex, type Theorem } from './theorems/index.js'
+import { theorems, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, isPagelessFile, axiomIndex, type Theorem } from './theorems/index.js'
+import { fillLattice } from './lattice.js'
 import { typeset } from './formula.js'
 import { runTrial } from './trial-run.js'
 import { axiomWitness } from './axiom-witness.js'
@@ -49,6 +50,20 @@ export type TheoremsAxis = {
   trialReceipt: string
   axiomHolds: boolean
   unboundCount: number
+  /** Four-hex span: stations that CALL named cargo, then the solution involution. */
+  span: {
+    count: number
+    wings: number
+    door: string
+    fill: {
+      occupied: number
+      vacant: number
+      theoremsSeated: number
+      axiomsSeated: number
+      problemsSeated: number
+      involutionPairs: number
+    }
+  }
 }
 
 export type TopicsAxis = {
@@ -242,7 +257,14 @@ function thinMember(t: Theorem): AxisMember {
 export function axisMonographs(): AxisBundle {
   if (CACHED) return CACHED
   const LEDGER = theorems()
-  const members = LEDGER.map(thinMember)
+  const named: Theorem[] = []
+  let spanCount = 0
+  const spanFiles = new Set<string>()
+  for (const t of LEDGER) {
+    if (isPagelessFile(t.file)) { spanCount++; spanFiles.add(t.file); continue }
+    named.push(t)
+  }
+  const members = named.map(thinMember)
   const trial = runTrial()
   const order = PRINCIPLES.map((p) => p[1]).filter((name) => LEDGER.some((t) => t.principle === name))
   const publicationByFile = Object.fromEntries(publications().map((p) => [p.file, p.slug]))
@@ -260,11 +282,12 @@ export function axisMonographs(): AxisBundle {
     skills: skillNames
       .map((skill) => {
         const list = LEDGER.filter((t) => t.skill === skill)
+        const browsable = list.filter((t) => !isPagelessFile(t.file))
         return {
           skill,
           count: list.length,
           fold: merkleGravity(list.map((t) => t.address)),
-          members: list.map((t) => ({ key: t.key, name: t.name, statement: t.statement })),
+          members: browsable.map((t) => ({ key: t.key, name: t.name, statement: t.statement })),
         }
       })
       .sort((a, b) => b.count - a.count),
@@ -274,10 +297,11 @@ export function axisMonographs(): AxisBundle {
   try { axiomHolds = !!axiomWitness().holds } catch { axiomHolds = false }
   const unboundCount = LEDGER.filter(isUnbound).length
   const axiomsIdx = axiomIndex()
+  const fill = fillLattice()
   CACHED = {
     theorems: {
       objectKind: 'theorems',
-      total: members.length,
+      total: LEDGER.length,
       members,
       order,
       publicationByPrinciple,
@@ -285,21 +309,34 @@ export function axisMonographs(): AxisBundle {
       trialReceipt: trial.receipt,
       axiomHolds,
       unboundCount,
+      span: {
+        count: spanCount,
+        wings: spanFiles.size,
+        door: '/theorem/enumeration_hex4_0000',
+        fill: {
+          occupied: fill.occupied,
+          vacant: fill.vacant,
+          theoremsSeated: fill.theoremsSeated,
+          axiomsSeated: fill.axiomsSeated,
+          problemsSeated: fill.problemsSeated,
+          involutionPairs: fill.involution.pairs.length,
+        },
+      },
     },
     topics,
     rosetta: {
       objectKind: 'rosetta',
-      total: members.length,
+      total: LEDGER.length,
       rays: rosettaIndex().map((r) => ({
         ray: r.ray,
         count: r.count,
         fold: r.fold,
-        theorems: r.theorems.map((t) => ({ key: t.key, name: t.name })),
+        theorems: r.theorems.filter((t) => !isPagelessFile(t.file)).map((t) => ({ key: t.key, name: t.name })),
       })),
     },
     trials: {
       objectKind: 'trials',
-      total: members.length,
+      total: LEDGER.length,
       trial: {
         receipt: trial.receipt,
         count: trial.count,
@@ -327,7 +364,7 @@ export function axisMonographs(): AxisBundle {
     },
     census: {
       objectKind: 'page',
-      theorems: members.length,
+      theorems: LEDGER.length,
       principles: order.length,
       skills: skillNames.length,
       shor: {

@@ -136,6 +136,11 @@ const withDerived = (t: LeanTheorem): Theorem => {
 /** Every Lean-proven theorem, in computing-principle order. */
 export const THEOREMS: readonly Theorem[] = LEAN_LEDGER.map(withDerived)
 
+/** SEALED BUT NOT A PAGE EACH. The four-hex span is one property over 2^16 addresses — counted in the ledger,
+ *  served on demand at `/theorem/enumeration_hex4_<hex>`, never listed or SSG'd as 65,536 near-identical rows.
+ *  compose-object, the axis listing, and the edge share this predicate so a surface cannot quietly disagree. */
+export const isPagelessFile = (file: string): boolean => /^HexSpan\d+\.lean$/.test(file)
+
 /** The distinct skills present, in the order they first appear in the ledger. */
 export const SKILLS: readonly string[] = [...new Set(THEOREMS.map((t) => t.skill))]
 

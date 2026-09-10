@@ -44,6 +44,13 @@ test('every static page carries the endpoint in a Link header — "paste any uui
   assert.ok(!/env\.ASSETS\.fetch\(request\) \/\/ serve the static site/.test(src), 'the un-headered direct return must not come back')
 })
 
+test('pageless theorem doors are computed, not SSG\'d — the catalogue lesson, applied to HexSpan', () => {
+  const src = worker()
+  assert.match(src, /theorem-page/, 'the edge looks a sealed key up instead of baking 65,536 HTML files')
+  assert.match(src, /\/theorem\/\(\[A-Za-z0-9_\]\+\)/, 'the freeze route /theorem/<key> is the lookup')
+  assert.match(src, /theoremPage\(thMatch\[1\]\)/, 'named theorems fall through to assets; HexSpan renders here')
+})
+
 test('the additions are ADDITIVE — the protocol path is untouched', () => {
   const src = worker()
   // the JSON-RPC contract, the CORS grant and the 405 guidance all still stand: this change adds doors, it does
@@ -67,6 +74,7 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
     'src/os/runtime/sandbox/index.ts',
     'src/os/runtime/hostnode/index.ts',
     'src/quantum/os/cache/index.ts',
+    'src/theorem-page.ts',
   ]
   for (const rel of files) {
     const src = readFileSync(join(ROOT, rel), 'utf8')

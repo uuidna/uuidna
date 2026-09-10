@@ -6,7 +6,7 @@ import assert from 'node:assert/strict'
 import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
-import { quantumSeo, theorems, publications } from './index.js'
+import { quantumSeo, theorems, publications, isPagelessFile } from './index.js'
 import { handleOf, handleBirthdayPoint, uniqueHandleRouteMap } from './handle.js'
 import { auditJsonLd } from './schema-org-vocab.js'
 
@@ -22,7 +22,10 @@ test('schema.org naming audit — every emitted @type and property across the WH
     .filter((e) => e.isFile() && e.name.endsWith('.md'))
     .map((e) => (e.name === 'index.md' ? '/' : '/' + e.name.replace(/\.md$/, '')))
   for (const route of routes) auditJsonLd(quantumSeo({ route }).jsonLd, `page ${route}`, failures)
-  for (const t of theorems()) auditJsonLd(quantumSeo({ key: t.key }).jsonLd, `theorem ${t.key}`, failures)
+  for (const t of theorems()) {
+    if (isPagelessFile(t.file)) continue
+    auditJsonLd(quantumSeo({ key: t.key }).jsonLd, `theorem ${t.key}`, failures)
+  }
   for (const p of publications()) auditJsonLd(quantumSeo({ slug: p.slug }).jsonLd, `publication ${p.slug}`, failures)
   assert.deepEqual(failures, [], 'unvetted schema.org naming — vet the name (with its schema.org URL) or fix the emission')
 })

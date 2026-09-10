@@ -10,7 +10,7 @@
 // Body law (dry-clean): statement · proof · field table · cite line.
 // Navigation chrome = stock VPDocFooter (prev/next) + ObjectBreadcrumbs (doc-before) + ObjectCrosslinks.
 // Crosslinks live in params; the client does not recompute them from the census. No hero YAML bag leak.
-import { theorems, PRINCIPLES, theoremAxioms } from './theorems/index.js'
+import { theorems, PRINCIPLES, theoremAxioms, isPagelessFile } from './theorems/index.js'
 import { typeset, formulaCensus } from './formula.js'
 import { axiomWitness } from './axiom-witness.js'
 import { publications } from './publish.js'
@@ -494,7 +494,7 @@ export function composeVe(t) {
  *
  *  So the filter is named here rather than applied quietly, and both the counter and the enumerator use it —
  *  they are asserted equal in the test, so by construction a page that stops being counted is not built. */
-export const isPageless = (file: string): boolean => /^HexSpan\d+\.lean$/.test(file)
+export const isPageless = isPagelessFile
 
 export function objectPageCount() {
   const pubs = publications()

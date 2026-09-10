@@ -13,7 +13,7 @@ const { frontmatter } = useData()
 const route = useRoute()
 const axis = computed(() => frontmatter.value.axis || {
   total: 0, members: [], order: [], publicationByPrinciple: {}, skills: [], trialReceipt: '',
-  axiomHolds: false, unboundCount: 0,
+  axiomHolds: false, unboundCount: 0, span: { count: 0, wings: 0, door: '', fill: { occupied: 0, vacant: 0, theoremsSeated: 0, axiomsSeated: 0, problemsSeated: 0, involutionPairs: 0 } },
 })
 const q = ref('')
 const principle = ref('')
@@ -67,6 +67,14 @@ const axiomSummary = computed(() =>
 # Theorems <Badge type="tip" :text="`${axis.total} Lean-proven`" />
 
 <p>{{ axiomSummary }}</p>
+
+<p v-if="axis.span && axis.span.count" class="span-note">
+  <strong>{{ axis.span.count }}</strong> four-hex span theorems across {{ axis.span.wings }} wings share one property over 2<sup>16</sup> addresses.
+  They are sealed in the ledger and open at <a :href="axis.span.door"><code>/theorem/enumeration_hex4_&lt;hex&gt;</code></a>.
+  The lattice calls named theorems, axioms and human problems onto those stations, then the solution involution
+  — computed on request, not listed as {{ axis.span.count }} near-identical rows.
+  <template v-if="axis.span.fill"> Occupied {{ axis.span.fill.occupied }}, vacant {{ axis.span.fill.vacant }}; {{ axis.span.fill.problemsSeated }} problems called, {{ axis.span.fill.involutionPairs }} involution pairs. Called ≠ solved.</template>
+</p>
 
 **Every proven Lean theorem — filter it, read its proof, see which wing defs it cites.** Each is authored in `lean/*.lean`, proven `by decide`
 (Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **principle** (derivation clique), **skill** (capability), or **binding** (unbound vs wing-tied).
@@ -167,4 +175,5 @@ The same theorems grouped by skill are on [/topics](/topics); each principle's p
 .tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }
 .filt-empty { color: var(--vp-c-text-2); }
 .filt-empty a { cursor: pointer; }
+.span-note { color: var(--vp-c-text-2); font-size: .92rem; }
 </style>

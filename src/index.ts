@@ -670,7 +670,14 @@ export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
-export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
+export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, isPagelessFile, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
+export {
+  LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,
+  parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,
+  latticeCall, fillLattice, callSolutionInvolution,
+  type HumanProblem, type ProblemKind, type NamedCall, type AxiomCall, type ProblemCall,
+  type SolutionCall, type LatticeCall, type LatticeInvolution, type LatticeFill,
+} from './lattice.js'
 export { runTrial, trialSealContent } from './trial-run.js'
 export {
   trialAdmit,
