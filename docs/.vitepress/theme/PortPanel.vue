@@ -42,6 +42,7 @@ onMounted(async () => {
     <div data-slot="card-header">
       <h3 data-slot="card-title">Alpine port</h3>
       <p data-slot="card-description">pinned release · production observability</p>
+      <span data-slot="card-action"></span>
     </div>
     <div data-slot="card-content">
       <p v-if="err">{{ err }}</p>

@@ -225,7 +225,7 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   assert.match(card, /itemscope itemtype="https:\/\/schema\.org\/(CreativeWork|ScholarlyArticle)"/)
   assert.match(card, /itemprop="identifier"/)
   assert.match(card, /href="\/theorem\/two_coins"/) // statement → its proof (root-relative default)
-  for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer']) {
+  for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-action', 'card-content', 'card-footer']) {
     assert.match(card, new RegExp('data-slot="' + slot + '"')) // strict shadcn anatomy for widget-API compatibility
   }
   assert.match(renderTheorem({ name: 'x', key: 'k' }, { base: '/site' }), /href="\/site\/theorem\/k"/) // base configurable

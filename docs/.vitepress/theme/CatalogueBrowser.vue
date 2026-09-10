@@ -111,6 +111,7 @@ onMounted(async () => {
     <div data-slot="card-header">
       <h3 data-slot="card-title">Alpine community apps</h3>
       <p data-slot="card-description">{{ bootLine }}</p>
+      <span data-slot="card-action"></span>
     </div>
     <div data-slot="card-content">
       <form data-slot="form" class="cat-form" @submit.prevent="search">

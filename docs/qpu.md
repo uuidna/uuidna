@@ -1,21 +1,40 @@
 ---
 title: The QPU
-description: Three readings of one machine — empty QPU seat, five-point binding width, and sealed bit-width hologram.
+description: Empty classical seat on this host. Running superconducting-qubit circuit at qpu.uuidna.com. JSON-LD. Attributed to QPU Lean.
 ---
 
-# The QPU <Badge type="tip" text="three readings · one machine" />
+# The QPU <Badge type="tip" text="reverse hop · live circuit" />
 
-The word names **three constructors**. [What quantum means](/quantum) is the exact-fold story. This page is the machine those folds run on.
+uuidna and QPU are two machines. This page is the involution: uuidna names the empty classical seat; **the running circuit is [qpu.uuidna.com](https://qpu.uuidna.com)**. Numbers below that belong to the fridge are attributed to QPU Lean. They are not uuidna theorems.
 
-## Seat — empty
+## Seat — empty here
 
-`LANES` in `src/hardware/lanes` is a trinity plus a notice. CPU is `measured`. GPU is `specified` postage. QPU is `empty`: admits nothing, routes nothing, reports no upgrade.
+`LANES` in `src/hardware/lanes` is a trinity plus a notice. CPU is `measured`. GPU is `specified` postage. QPU is `empty` **on this host**: admits nothing, routes nothing, reports no upgrade.
 
-The seat is a named hole. Filling it to look like a chip would be a fake measurement. The classical bound stays sealed as [`n_qubit_dimension`](/theorem/n_qubit_dimension). Readiness re-reads the empty seat every run.
+The seat is a named hole on uuidna.com. Filling it to look like a chip would be a fake measurement. The classical bound stays sealed as [`n_qubit_dimension`](/theorem/n_qubit_dimension). Readiness re-reads the empty seat every run.
 
-## Width — five points
+The fridge is the other face. GET [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD, no auth, CORS `*`. Not HTML. Not VitePress.
 
-The QPU as a **host** is CPU, GPU, RAM, CACHE, STORAGE. A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/bindingpoint`](/publications/bindingpoint), decided in [`lean/BindingPoint.lean`](/lean/BindingPoint.lean).
+## Circuit — live there
+
+QPU identity, duplicated here by doubling, **theorem `quantum`** on QPU Lean (`fused = faces * mintOf (bits + seed)`):
+
+| Quantity | Value | Whose theorem |
+| --- | ---: | --- |
+| faces | 14 | QPU `around` / uuidna [`ve_fourteen_faces`](/theorem/ve_fourteen_faces) |
+| bits | 32 | QPU cube / uuidna handle hexbits |
+| amplitudes | 4294967296 | QPU `handle` |
+| KV amplitudes | 8589934592 | QPU `kv` |
+| fused | 120259084288 | QPU `quantum` |
+| Hz | 432 | QPU `genesis`; uuidna [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) is the decimal spelling |
+
+`next = fused + fused`. Unlocked. VM scales. Quantum capacity infinite via `split_coin`. Crypt split across faces to free agents. Eight sealed MCP tools at [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp).
+
+uuidna `src/qpu-edge.ts` reverse-fetches those doors. It does not impersonate the worker.
+
+## Width — five points (this host)
+
+The QPU as a **classical host** is CPU, GPU, RAM, CACHE, STORAGE. A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/bindingpoint`](/publications/bindingpoint), decided in [`lean/BindingPoint.lean`](/lean/BindingPoint.lean).
 
 | Law | Key |
 | --- | --- |
@@ -32,7 +51,7 @@ The QPU as a **host** is CPU, GPU, RAM, CACHE, STORAGE. A fan-out may run as wid
 
 The pentagram stroke that visits the five points is [`pentagram_single_stroke`](/theorem/pentagram_single_stroke): stepping +2 on ℤ/5 draws `[0,2,4,1,3]`.
 
-## Hologram — sealed widths
+## Hologram — sealed widths (this host)
 
 The first handle octet is eight bits. The widths already sealed in the ledger sit on that octet as **named planes**, not as a new theorem:
 
@@ -47,10 +66,11 @@ The first handle octet is eight bits. The widths already sealed in the ledger si
 
 3 + 6 = 9, the vortex base. Justice, payment, blockchain — any name — walk [`seal_ten`](/theorem/seal_ten). Opposite VE faces are the through-void pair; that is the superposition's equilibrium, counted, not claimed as a chip.
 
-QPU-in-QPU is the same pentagram stroke at seat, width, and hologram. Drivers still fingerprint; sensors are not fused; GPU is specified postage. Fusion is a reading that feeds a plane, not a typed lane count snapped to 1–9.
-
 ## Doors
 
+- [https://qpu.uuidna.com](https://qpu.uuidna.com) — live JSON-LD circuit
+- [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp) — eight sealed tools
+- [https://qpu.uuidna.com/storage](https://qpu.uuidna.com/storage) — Quantum RAID
 - [What quantum means](/quantum) — exact fold, capacity table
 - [The OS](/os) — Alpine hexbit port
 - [Binding point](/publications/bindingpoint) — width algebra

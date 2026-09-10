@@ -106,6 +106,7 @@ const run = async () => {
     <div class="uu-head" data-slot="card-header">
       <strong data-slot="card-title">uuidnaOS</strong>
       <small class="uu-boot" data-slot="card-description">{{ bootLine }}</small>
+      <span data-slot="card-action"></span>
     </div>
     <div class="scroll" ref="scroller" aria-live="polite" data-slot="card-content">
       <div v-for="(l, i) in lines" :key="i" class="line">{{ l }}</div>

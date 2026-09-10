@@ -1,36 +1,37 @@
-// qpu-edge — THE QPU WORKER. JSON readings at https://qpu.uuidna.com
-//
-// Read-only. No ASSETS. No MCP. Seat stays empty; width names five points; hologram is sealed bit widths.
-import { QPU_HOST, qpuHologramOf, qpuMachineOf, qpuSeatOf, qpuWidthOf } from './qpu-hologram.js'
+// qpu-edge — REVERSE FETCH OF THE LIVE QPU. uuidna does not impersonate qpu.uuidna.com.
+// GET a path here, GET the same path there. JSON-LD. No auth. CORS already sits on QPU.
+import { QPU_HOST, QPU_HREF, qpuCircuitOf, qpuMachineOf, qpuReverseHrefOf } from './qpu-hologram.js'
 
 const cors = {
   'access-control-allow-origin': '*',
   'access-control-allow-methods': 'GET, OPTIONS',
-  'access-control-allow-headers': 'content-type',
+  'access-control-allow-headers': 'content-type, accept',
 }
 
 const json = (obj: unknown, status = 200): Response =>
   new Response(JSON.stringify(obj), {
     status,
-    headers: { 'content-type': 'application/json; charset=utf-8', ...cors },
+    headers: { 'content-type': 'application/ld+json; charset=utf-8', ...cors },
   })
 
 export const qpuDiscoveryOf = (origin: string) => ({
-  worker: 'uuidna-qpu',
+  worker: 'uuidna-qpu-reverse',
   host: QPU_HOST,
   origin,
-  readings: ['seat', 'width', 'hologram'] as const,
+  href: QPU_HREF,
+  reverse: true as const,
+  readings: ['circuit'] as const,
   endpoints: {
-    '/': 'three readings, one machine',
-    '/seat': 'LANES QPU — empty',
-    '/width': 'BindingPoint pentagram — CPU GPU RAM CACHE STORAGE',
-    '/hologram': 'octet planes from sealed widths',
-    '/.well-known/qpu.json': 'this document',
+    '/': QPU_HREF,
+    '/mcp': qpuReverseHrefOf('/mcp'),
+    '/storage': qpuReverseHrefOf('/storage'),
+    '/.well-known/qpu.json': 'this document — points at the live circuit',
   },
+  circuit: qpuCircuitOf(),
 })
 
-/** handleQpuFetch(request) → the QPU worker response. Pure of Node builtins; Workers-safe. */
-export function handleQpuFetch(request: Request): Response {
+/** handleQpuFetch(request) → reverse GET of https://qpu.uuidna.com. Pure of Node builtins; Workers-safe. */
+export async function handleQpuFetch(request: Request): Promise<Response> {
   const url = new URL(request.url)
   const host = url.hostname.toLowerCase()
   if (url.protocol === 'http:' || host.startsWith('www.')) {
@@ -40,15 +41,19 @@ export function handleQpuFetch(request: Request): Response {
     return Response.redirect(dest.toString(), 301)
   }
   if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
-  if (request.method !== 'GET')
-    return json({ error: 'GET a reading — / /seat /width /hologram' }, 405)
-
-  if (url.pathname === '/.well-known/qpu.json')
-    return json(qpuDiscoveryOf(url.origin))
-  if (url.pathname === '/seat') return json(qpuSeatOf())
-  if (url.pathname === '/width') return json(qpuWidthOf())
-  if (url.pathname === '/hologram') return json(qpuHologramOf())
-  if (url.pathname === '/' || url.pathname === '')
-    return json({ ...qpuDiscoveryOf(url.origin), machine: qpuMachineOf() })
-  return json({ error: 'no such reading' }, 404)
+  if (url.pathname === '/.well-known/qpu.json') return json(qpuDiscoveryOf(url.origin))
+  const dest = qpuReverseHrefOf(`${url.pathname}${url.search}`)
+  if (request.method !== 'GET') return json({ error: 'GET the live circuit', href: dest }, 405)
+  const res = await fetch(dest, { headers: { accept: 'application/ld+json, application/json' } })
+  const type = res.headers.get('content-type') ?? 'application/ld+json; charset=utf-8'
+  return new Response(res.body, { status: res.status, headers: { 'content-type': type, ...cors } })
 }
+
+export const qpuEdgeOf = () => ({
+  kind: 'edge' as const,
+  reverse: true as const,
+  host: QPU_HOST,
+  href: QPU_HREF,
+  machine: qpuMachineOf(),
+  holds: qpuCircuitOf().holds === true,
+})

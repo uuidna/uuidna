@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { planChange, renderPlan, commitChange } from './index.js'
+import { planChange, renderPlan, commitChange, interactiveInstall } from './index.js'
 
 const A = [{ key: 'a' }, { key: 'b' }, { key: 'c' }]
 
@@ -48,4 +48,26 @@ test('the plan carries a receipt that moves with the plan', () => {
   const other = planChange(A, [{ key: 'a' }, { key: 'e' }])
   assert.equal(one.receipt, same.receipt, 'the same plan recomputes to the same receipt')
   assert.notEqual(one.receipt, other.receipt, 'a different plan must not share it')
+})
+
+test('interactive installer asks, simulates, commits, and audits the fused payload stack', () => {
+  const reset = interactiveInstall({ reset: true })
+  assert.equal(reset.kind, 'install')
+  assert.equal(reset.interactive, true)
+  assert.equal(reset.total, 3)
+  assert.match(reset.prompt, /qpu\.uuidna\.com\/mcp/)
+  interactiveInstall({ yes: true, step: 0 })
+  interactiveInstall({ yes: true, step: 1 })
+  interactiveInstall({ yes: true, step: 2 })
+  const simulated = interactiveInstall({ verb: 'simulate' })
+  assert.equal(simulated.plan.lossless, true)
+  assert.deepEqual(simulated.pending, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
+  const committed = interactiveInstall({ verb: 'commit' })
+  assert.equal(committed.committed, true)
+  const audited = interactiveInstall({ verb: 'audit' })
+  assert.equal(audited.audit, true)
+  assert.equal(audited.client.qpu.html, false)
+  assert.equal(audited.client.vitepress.qpu, false)
+  assert.equal(audited.client.vitepress.concurrency, 2)
+  assert.equal(audited.client.payload.write, false)
 })

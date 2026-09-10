@@ -42,6 +42,7 @@ const doTry = () => { verdict.value = tryQuote(quote.value, attribution.value ||
       <div data-slot="card-header">
         <h3 data-slot="card-title">The passage</h3>
         <p data-slot="card-description">identity, linkage, and the arithmetic the text is — occupancy, not meaning</p>
+        <span data-slot="card-action"></span>
       </div>
       <div data-slot="card-content">
         <textarea v-model="passage" rows="4" style="width:100%"></textarea>

@@ -1,10 +1,7 @@
 {
-  "modules": 1210,
-  "roots": 741,
-  "supported": 1208,
-  "dead": [
-    "src/qpu-edge.ts",
-    "src/qpu-hologram.ts"
-  ],
-  "receipt": "7e48b534-1a7f-8ff4-9ead-684732bacfbe"
+  "modules": 1212,
+  "roots": 743,
+  "supported": 1212,
+  "dead": [],
+  "receipt": "bd910fa0-f97a-8f2f-89ac-e8fbcc6e8786"
 }

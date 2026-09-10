@@ -363,7 +363,7 @@ test('shadcn slots: hex-face cells and render.ts card anatomy; no Tailwind/React
   ]
   for (const f of alpine) {
     const src = readFileSync(join(ROOT, f), 'utf8')
-    for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer']) {
+    for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-action', 'card-content', 'card-footer']) {
       assert.match(src, new RegExp('data-slot="' + slot + '"'), `${f} missing ${slot}`)
     }
   }

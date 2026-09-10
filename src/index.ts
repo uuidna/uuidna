@@ -748,6 +748,11 @@ export {
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'
 export { DATAPATH, UNITS, spec as hardwareSpec, LANES, trinity, gpuEligiblePpm, gpuCapacity, gpuBreakEvenAddresses, kernelPercent, CPU_NS_PER_ADDRESS, GPU_POSTAGE_ADDRESSES, cpuFoldNs, type Unit, type Lane, type DeviceCost, type GpuCapacity } from './hardware/index.js'
+export {
+  QPU_HOST, QPU_HREF, QPU_LEAN, QPU_POINTS,
+  qpuSeatOf, qpuWidthOf, qpuHologramOf, qpuFacesOf, qpuCircuitOf, qpuReverseHrefOf, qpuMachineOf,
+} from './qpu-hologram.js'
+export { qpuDiscoveryOf, handleQpuFetch, qpuEdgeOf } from './qpu-edge.js'
 // ONE SHAPE FOR EVERY PUBLISHED FIGURE, so a surface can filter by HOW a number was determined rather than by
 // where it was written. `Unit` is already taken here by the hardware datapath's own units, so the measurement
 // unit exports under its full name: two different vocabularies, and collapsing them would be the conflation this
@@ -783,7 +788,10 @@ export { primeMonitor, monitorPrimed, monitorCensus, renderMonitor, compilerCens
 export { secApi, planSecurityOp, attestBytes, securityClaims, securityCensus, SECURITY_OPS, type AttestedPlan, type SecApiCensus } from './os/secapi/index.js'
 export { authnPresence, addressCredential, enrol, type AuthnPresence, type AddressedCredential, type EnrolResult } from './os/webauthn/index.js'
 // the installer discipline — simulate, then commit, and never destroy without naming what is destroyed
-export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResult } from './quantum/os/installer/index.js'
+export {
+  planChange, renderPlan, commitChange, interactiveInstall, INSTALL_PACKAGES,
+  type InstallPlan, type CommitResult, type InstallVerb, type InteractiveInstall,
+} from './quantum/os/installer/index.js'
 // the interface surface — censused on BOTH sides, because uuidna already has a terminal, a GUI and served pages
 export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'
 // every package ported — identity for all, classification for those a pattern can honestly place
