@@ -13,7 +13,7 @@
 // proof and that the note itself passes the overreach gate. It does NOT claim the domain is complete, nor that the
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.
-import { THEOREMS, type Theorem, PRINCIPLES } from './theorems/index.js'
+import { THEOREMS, type Theorem, PRINCIPLES, isPagelessFile } from './theorems/index.js'
 import { typeset } from './formula.js'
 import { graphNode, modulusOf, KIN } from './publication-graph.js'
 import { computes } from './gate.js'
@@ -85,11 +85,28 @@ const slugOf = (file: string): string => file.replace(/\.lean$/i, '').replace(/(
 const blurbOf = Object.fromEntries(PRINCIPLES.map((p) => [p[0], p[2]]))
 const titleOf = Object.fromEntries(PRINCIPLES.map((p) => [p[0], p[1]]))
 
+let _byFile: Map<string, Theorem[]> | null = null
+const theoremsOf = (file: string): Theorem[] => {
+  if (!_byFile) {
+    _byFile = new Map()
+    for (const t of THEOREMS) {
+      const list = _byFile.get(t.file)
+      if (list) list.push(t)
+      else _byFile.set(t.file, [t])
+    }
+  }
+  return _byFile.get(file) ?? []
+}
+
+const _composed = new Map<string, Publication>()
+
 /** composePublication(file) → a domain note in lean human prose, read from the SEALED theorems of one lean/*.lean
  *  file and audited before it is returned. Every claim links its proof; the note is content-addressed and its member
  *  proofs fold to one receipt. `publishable` reports the gate verdict — the generator refuses to ship a false one. */
 export function composePublication(file: string): Publication {
-  const ts: Theorem[] = THEOREMS.filter((t) => t.file === file)
+  const hit = _composed.get(file)
+  if (hit) return hit
+  const ts: Theorem[] = theoremsOf(file)
   if (ts.length === 0) throw new Error(`publish: no sealed theorems for ${file}`)
   const title = titleOf[file] || file
   const slug = slugOf(file)
@@ -102,6 +119,9 @@ export function composePublication(file: string): Publication {
   // signature of a constant. A deposit of 116 near-duplicate abstracts is not a corpus, and a DOI minted over
   // one is a permanent record of a template. Every quantity below is read from this wing's own theorems, so the
   // abstract distinguishes the monograph exactly as far as the ledger distinguishes it.
+  const pageless = isPagelessFile(file)
+  // Typeset and details do not scale past a short wing: Wave and the span hang the suite if inlined.
+  const inlineProofs = !pageless && ts.length <= 80
   const cases = ts.reduce((a, t) => a + (typeof t.cases === 'number' ? t.cases : 0), 0)
   // WHAT "CASES" IS, EXACTLY, because the lead claim rests on it. lean-gen instruments the JS mirror's actual
   // iteration and records what it visited — a real measurement, not a numeral scraped off the statement. But a
@@ -115,7 +135,9 @@ export function composePublication(file: string): Publication {
   const walkers = ts.filter((t) => (typeof t.cases === 'number' ? t.cases : 1) > 1)
   const walked = walkers.reduce((a, t) => a + (t.cases ?? 0), 0)
   const identities = ts.length - walkers.length
-  const moduli = [...new Set(ts.map((t) => modulusOf(String(t.statement))).filter((m): m is string => m !== null))].sort()
+  const moduli = inlineProofs
+    ? [...new Set(ts.map((t) => modulusOf(String(t.statement))).filter((m): m is string => m !== null))].sort()
+    : []
   // THE SENTINEL IS null, NOT THE EMPTY STRING — and comparing against '' made this test ALWAYS TRUE, so every
   // one of the 117 monographs printed "All N have a standard formula form" whether or not that was so. A live
   // falsehood on the most-cited surface in the corpus, introduced the same day, and found by a wave agent
@@ -127,7 +149,8 @@ export function composePublication(file: string): Publication {
   // construction, so it returns the same answer as a healthy check on a healthy corpus — and it sat inside the
   // very sentence it was meant to qualify. Checked against the null sentinel now, and the honest distribution
   // reaches the abstracts: 1373 of 2617 statements have a standard formula form, 52 percent, not all of them.
-  const formed = ts.filter((t) => typeset(t.statement, 'block').mathml !== null).length
+  const formedSets = inlineProofs ? ts.map((t) => typeset(t.statement, 'block')) : []
+  const formed = inlineProofs ? formedSets.filter((s) => s.mathml !== null).length : 0
   const tactics = [...new Set(ts.map((t) => t.tactic))].sort()
   const node = graphNode(slug)
   // A congruence wing says which ring it computes in; a wing of mixed statements says what it enumerates instead.
@@ -157,6 +180,9 @@ export function composePublication(file: string): Publication {
     + `${form} ${kinLine} This note claims nothing beyond what its theorems settle: not that the domain is `
     + `complete, only that the prose says nothing the proofs do not. It was written by reading the sealed ledger; `
     + `read the proofs.`
+    + (inlineProofs
+      ? ''
+      : ` This wing is ${file}: the door is ${ts[0]!.key} and the last theorem is ${ts[ts.length - 1]!.key}.`)
   // The body — each sealed theorem's own human sentence, BACKED by a link to its proof. The theorem name IS the
   // honest claim (it is authored beside the proof and audited on every theorem page), so the note reads as prose
   // while every load-bearing sentence points at the proof that earns it.
@@ -173,9 +199,13 @@ export function composePublication(file: string): Publication {
   // COLLAPSED, and the reason is measured: inlining every proof adds 9 KB to the mean monograph and 349 KB to
   // `wave`, which seals 906 theorems. Flat, that page is 906 proofs deep. Collapsed, the proof is in the HTML —
   // a crawler and a citation resolver both see it — and the page still reads as prose. No page-count exception.
-  const body = ts.map((t) => `- ${t.name} — [proof](/theorem/${t.key}).`).join('\n')
-  const proofs = ts.map((t) => {
-    const set = typeset(t.statement, 'block')
+  const door = ts[0]!
+  const body = inlineProofs
+    ? ts.map((t) => `- ${t.name} — [proof](/theorem/${t.key}).`).join('\n')
+    : `This wing holds ${ts.length} sealed theorems. They are listed by door, not inlined: the door is [${door.name}](/theorem/${door.key}), and the rest are reached from there rather than as a ${ts.length}-proof monograph.`
+  const proofs = inlineProofs
+    ? ts.map((t, i) => {
+    const set = formedSets[i]!
     const shown = set.mathml
       ? `${set.mathml}\n\nFor a manuscript: \`${set.tex}\``
       : 'A computation rather than a formula — no standard formula form, so the Lean the kernel read stands alone.'
@@ -184,6 +214,7 @@ export function composePublication(file: string): Publication {
       + '```lean\n' + t.lean + '\n```\n\n'
       + `Sealed by \`${t.tactic}\`, axiom-free. Content-address \`${t.address}\`.\n\n</details>`
   }).join('\n\n')
+    : `Each theorem is a sealed \`${door.tactic}\` identity. The proofs live on their theorem doors, not inlined here.`
   const receipt = merkleFold(ts.map((t) => t.address))
   // WHAT IT RESTS ON — the principle is the wing's own axiom-shaped commitment, and naming it in the monograph is
   // what lets a reader see the foundation rather than infer it from 234 congruences.
@@ -275,9 +306,9 @@ export function composePublication(file: string): Publication {
   // and each theorem's own name (each backed by its proof and audited on its own page, exactly as the site audit
   // clears a theorem's words by its key). Only the note's OWN framing prose (abstract, provenance) is then held to
   // the strict gate — writing that overreaches a proof is refused, but reading a sealed claim aloud is not.
-  const sealed = new Set<string>([...units(title), ...units(blurb), ...ts.flatMap((t) => units(t.name))])
+  const sealed = new Set<string>([...units(title), ...units(blurb), ...(inlineProofs ? ts.flatMap((t) => units(t.name)) : units(door.name))])
   const findings = auditPublication(markdown, sealed)
-  return {
+  const pub: Publication = {
     slug, title, blurb, file, theorems: ts.map((t) => t.key), count: ts.length,
     abstract, markdown, address: toUuid(markdown), receipt,
     publishable: findings.length === 0, findings,
@@ -286,6 +317,8 @@ export function composePublication(file: string): Publication {
       'overreach gate — audited BEFORE publishing, refused if it overreaches. It does NOT claim the domain is ' +
       'complete or the prose elegant, only that the note says nothing its theorems do not. Integrity.',
   }
+  _composed.set(file, pub)
+  return pub
 }
 
 /** A revision — the editor primitive. Editing is RE-ADDRESSING: a draft edited to a new draft re-fingerprints, so
@@ -374,7 +407,8 @@ export function comparePublications(a: string, b: string): Comparison {
 let _pubs: Publication[] | null = null
 export function publications(): Publication[] {
   if (_pubs) return _pubs
-  const files = PRINCIPLES.map((p) => p[0]).filter((f) => THEOREMS.some((t) => t.file === f))
+  const present = new Set(THEOREMS.map((t) => t.file))
+  const files = PRINCIPLES.map((p) => p[0]).filter((f) => present.has(f))
   return (_pubs = files.map(composePublication))
 }
 

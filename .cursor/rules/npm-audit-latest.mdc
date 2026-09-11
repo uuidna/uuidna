@@ -1,0 +1,28 @@
+---
+description: Always npm-audit and bump to the newest secure release — including next/alpha when that is the fix.
+alwaysApply: true
+---
+
+# npm audit — newest secure, even beyond stable
+
+On dependency or install work, and whenever the tree may have drifted: **audit, then bump**. Do not wait to be asked. Do not stay on a “stable” pin that still has an advisory.
+
+```
+npm audit
+npm outdated
+```
+
+For pnpm packages (`payload/`): `pnpm audit` and `pnpm outdated`. Keep `audit=true` and `audit-level=low` in `.npmrc` where the package already uses exact pins.
+
+## What to install
+
+1. Install the **lowest version that clears every advisory** — if that version is `next`, `alpha`, `rc`, or a dist-tag other than `latest`, take it. Wrangler’s miniflare/sharp fixes have already shipped that way.
+2. Do **not** downgrade to npm’s `latest` tag when that tag is older than the line this repo already runs (example: `@types/node` `latest` is 22.x; this tree is Node 26 — bump `26.5.1` from the `ts5.9`/`ts6.0` tag, never 22.20.2).
+3. Direct deps: bump `wrangler`, `@types/node`, and anything `npm audit` names. Keep Payload `@payloadcms/*` and `payload` on **one** version. Do not add plugins that are not already in the lockfile.
+4. After the bump, audit again. Zero high/critical. Info/low only with a named reason.
+
+## Do not
+
+- Leave a known-vulnerable `wrangler` / `miniflare` / `sharp` because a workspace `minimumReleaseAgeExclude` still names the old pair — update the exclude to the fixed versions.
+- Run `uuidna` `develop.js` or full `npm run develop` as part of the bump.
+- Commit or publish unless the user asked.

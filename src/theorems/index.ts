@@ -303,9 +303,16 @@ export const UUID_HEXBITS = HEXBIT_UUID
  *  it settles one case; by cost it tied with 1335 others, because it spends nothing. Neither was measuring what
  *  makes it the captain theorem. Independence is intrinsic — read off the theorem's own statement against the
  *  defs its wing declares — and it is not how often the ledger mentions a theorem, which is age wearing a mask. */
+const _depRe = new Map<string, readonly (readonly [string, RegExp])[]>()
+
 export const dependsOn = (t: Theorem): readonly string[] => {
   const declared = WING_DEFS.get(t.file) ?? []
-  return declared.filter((d) => new RegExp('\\b' + d + '\\b').test(t.statement))
+  let compiled = _depRe.get(t.file)
+  if (!compiled) {
+    compiled = declared.map((d) => [d, new RegExp('\\b' + d + '\\b')] as const)
+    _depRe.set(t.file, compiled)
+  }
+  return compiled.filter(([, re]) => re.test(t.statement)).map(([d]) => d)
 }
 
 /** gravity: infinite when the theorem stands on the kernel alone, else the uuid divided by what binds it. */

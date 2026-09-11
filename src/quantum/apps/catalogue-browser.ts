@@ -13,7 +13,7 @@ import { handleOf } from '../../handle.js'
 
 /** shadcn card anatomy — the same slots renderTheorem ships, so Alpine apps are widget-API compatible. */
 export const SHADCN_CARD_SLOTS = [
-  'card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer',
+  'card', 'card-header', 'card-title', 'card-description', 'card-action', 'card-content', 'card-footer',
 ] as const
 
 /** Alpine apps UI adds input / button / badge on the same card. No Tailwind, no React. */
@@ -123,6 +123,7 @@ export function renderAlpineApp(hit: CatalogueHit): string {
     + `<div data-slot="card-header">`
     + `<h3 data-slot="card-title">${title} <span data-slot="badge">${repo}</span></h3>`
     + `<p data-slot="card-description">${desc}</p>`
+    + `<span data-slot="card-action">${escapeHtml(hit.state)}</span>`
     + `</div>`
     + `<div data-slot="card-content">`
     + `<code data-slot="handle">${escapeHtml(handle)}</code>`

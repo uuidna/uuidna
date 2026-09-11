@@ -21,8 +21,14 @@ const worker = (): string => readFileSync(join(ROOT, 'worker.js'), 'utf8')
 test('the well-known door is declared, so pasting the BARE HOST can mount the wire', () => {
   const src = worker()
   assert.match(src, /'\/\.well-known\/mcp\.json'/, 'a client that probes well-known paths must find the endpoint without being told the path')
-  // and it must answer with the discovery document, not a stub
   assert.match(src, /well-known\/mcp\.json'\)\s*\{[\s\S]{0,400}discovery\(\)/, 'the well-known route must serve the real discovery document')
+})
+
+test('the well-known QPU hop is declared, so pasting the BARE HOST finds qpu.uuidna.com', () => {
+  const src = worker()
+  assert.match(src, /'\/\.well-known\/qpu\.json'/, 'a client that probes well-known paths must find the live circuit')
+  assert.match(src, /host: 'qpu\.uuidna\.com'/)
+  assert.match(src, /href: 'https:\/\/qpu\.uuidna\.com'/)
 })
 
 test('THE DISCOVERY DOCUMENT IS ONE DECLARATION — two copies would drift, which is the whole reason for the dry law', () => {
@@ -47,7 +53,7 @@ test('every static page carries the endpoint in a Link header — "paste any uui
 test('pageless theorem doors are computed, not SSG\'d — the catalogue lesson, applied to HexSpan', () => {
   const src = worker()
   assert.match(src, /theorem-page/, 'the edge looks a sealed key up instead of baking 65,536 HTML files')
-  assert.match(src, /\/theorem\/\(\[A-Za-z0-9_\]\+\)/, 'the freeze route /theorem/<key> is the lookup')
+  assert.match(src, /\\\/theorem\\\/\(\[A-Za-z0-9_\]\+\)/, 'the freeze route /theorem/<key> is the lookup')
   assert.match(src, /theoremPage\(thMatch\[1\]\)/, 'named theorems fall through to assets; HexSpan renders here')
 })
 

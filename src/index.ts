@@ -334,6 +334,7 @@ export { verifyStatement, type StatementVerdict } from './verify-statement.js'
 // honesty; each material is driven to its sealed core (VERIFIED, admitted) or recycled with a develop plan
 // (UNVERIFIED, never admitted, never called honest). uuidna computes the verdict; it does not assert it.
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from './transform.js'
+export { involuteToVerified, involuteHolds, type InvoluteRun, type VerifiedSolution } from './solution-involution.js'
 // holofractal — MAKE every input/output pentagram (single {5/2} stroke) · hologram (whole verifiable from a part) ·
 // fractal (self-similar fold at descending scales) · accounted (two conserved coins + the bits taught), by
 // construction and each property verifiable. holofractalHook stamps any I/O boundary.
@@ -789,8 +790,9 @@ export { secApi, planSecurityOp, attestBytes, securityClaims, securityCensus, SE
 export { authnPresence, addressCredential, enrol, type AuthnPresence, type AddressedCredential, type EnrolResult } from './os/webauthn/index.js'
 // the installer discipline — simulate, then commit, and never destroy without naming what is destroyed
 export {
-  planChange, renderPlan, commitChange, interactiveInstall, INSTALL_PACKAGES,
-  type InstallPlan, type CommitResult, type InstallVerb, type InteractiveInstall,
+  planChange, renderPlan, commitChange, interactiveInstall, simpleInstall,
+  parseInstallLine, installCombinationsOf, INSTALL_PACKAGES, INSTALL_OCCUPANCIES, INSTALL_CLOUDFLARE,
+  type InstallPlan, type CommitResult, type InstallVerb, type InteractiveInstall, type InstallOccupancy,
 } from './quantum/os/installer/index.js'
 // the interface surface — censused on BOTH sides, because uuidna already has a terminal, a GUI and served pages
 export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'

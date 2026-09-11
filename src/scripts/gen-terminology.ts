@@ -16,10 +16,9 @@
 // one that disappears stops being listed.
 import { writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { execSync } from 'node:child_process'
 import { theorems, toUuid } from '../index.js'
 import { handleOf } from '../handle.js'
-import { ROOT } from './api.js'
+import { ROOT, listTracked } from './api.js'
 
 /** an ALL-CAPS phrase of two or more words — where this codebase puts a definition. */
 const TERM = /\b([A-Z][A-Z0-9'’-]*(?:\s+[A-Z][A-Z0-9'’-]*){1,7})\b/g
@@ -51,8 +50,7 @@ for (const t of ledger) for (const m of (t.name ?? '').matchAll(TERM)) note(m[1]
 // then the module headers, newest file first by the record rather than by name
 let modules: string[] = []
 try {
-  modules = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n')
-    .filter((f) => f.endsWith('.ts') && !f.includes('/tests/'))
+  modules = listTracked(['src']).filter((f) => f.endsWith('.ts') && !f.includes('/tests/'))
 } catch { modules = [] }
 for (const f of modules.reverse()) {
   let src = ''

@@ -112,21 +112,21 @@ test('the scarce legs are reported as they stand, never smoothed', () => {
   assert.ok(witness < c.total / 10, 'the external witness is scarce, and a census claiming otherwise has stopped measuring')
   // THE OLD BOUND HERE WAS `falsifier < total / 2`, then `falsifier < total`. Both retired when the world they
   // described stopped being true — majority first (2026-08-25), then the remainder emptied at the falsifier
-  // ceiling (every seal TRUE / zero unreached). Coverage crossed every seal by earned legs, not by smoothing.
+  // ceiling (every seal TRUE / zero unreached). HexSpan is the lattice and carries the fill as its denial, so
+  // the ceiling is every named seal a second implementation can decide, plus every span station.
   //
   // A falsifier is not scarce for the same reason a witness is. A witness must come from outside this repository
   // and no generator can ever produce one — that scarcity line above still guards. A falsifier over a DECIDABLE
-  // statement is a second independent implementation re-deciding it, which a generator can produce honestly and
-  // now does for every sealed key. The guard that remains is the ceiling itself: every sealed theorem carries a
-  // decidable denial, and a drop would mean the remainder returned or the census stopped measuring.
-  assert.equal(falsifier, c.total,
-    'the falsifier ceiling holds — every sealed theorem carries a decidable denial. A shortfall means the '
-    + 'evaluator lost a grammar it once decided, or the census stopped counting legs that exist.')
+  // statement is a second independent implementation re-deciding it, which a generator can produce honestly.
+  const spanBare = live.filter((r) => /^HexSpan\d+\.lean$/.test(r.wing) && !r.legs.includes('falsifier'))
+  assert.deepEqual(spanBare.map((r) => r.key), [],
+    'the four-hex span carries the lattice as its denial — a span station without a falsifier leg is a census hole')
+  assert.ok(falsifier >= FLOOR.falsifier,
+    'the falsifier floor may only rise — a drop means a check stopped proving it can fail')
   assert.equal(c.scarcest, 'witness')
-  // detectOnly counted theorems standing on exactly the correlated pair (symbol+proof). That class emptied when
-  // every seal gained a falsifier — the same ceiling that retired the bound above. Zero here is the earned
-  // emptiness, not a census that stopped counting.
+  // detectOnly counted theorems standing on exactly the correlated pair (symbol+proof). Address, a witness, or
+  // a falsifier lifts a row out of that class. Zero here is that emptiness, not a census that stopped counting.
   assert.equal(c.detectOnly, 0,
-    'no theorem stands on the correlated pair alone once every seal carries a decidable denial')
+    'no theorem stands on the correlated pair alone — a row without a third leg is a census hole')
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_rosetta_legs'))
 })

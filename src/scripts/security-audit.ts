@@ -3,12 +3,12 @@
 // repo-tree scans that need the source (no committed secret across every tracked file; the crypto KAT suite wired),
 // folded to ONE order-invariant receipt and printed as a table. Exits non-zero if any check fails — a dimension of
 // `npm run audit`, recomputable by anyone from the same tree. Integrity.
-import { execSync } from 'node:child_process'
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { securityAudit, type SecurityCheck } from '../security-audit.js'
 import { toUuid, merkleGravity } from '../index.js'
 import { ROOT } from './lean-gen.js'
+import { listTracked } from './api.js'
 
 // HIGH-CONFIDENCE credential patterns only — real leaked secrets
 // passphrases and crypto prose, so a loose scan would cry wolf). Each pattern is the literal shape of a live token.
@@ -26,7 +26,7 @@ const SKIP = new Set(['src/security-audit.ts', 'src/scripts/security-audit.ts'])
 // scan every tracked text file for a credential pattern — recomputable from `git ls-files`.
 let tracked: string[] = []
 let gitOk = true
-try { tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\n').filter(Boolean) }
+try { tracked = listTracked() }
 catch { gitOk = false }
 const hits: { file: string; pattern: string }[] = []
 for (const rel of tracked) {

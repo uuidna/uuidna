@@ -79,25 +79,24 @@ test('GPU capacity: four Shor chunks miss postage; the full handle span passes t
   assert.ok(g.eligiblePpm < 100, 'gate-share ppm is a different column from handle-span break-even')
 })
 
-test('the trinity seats exactly one empty chair, and it claims nothing', () => {
+test('the trinity seats one empty QPU lane on this host, and names qpu.uuidna.com', () => {
   const t = trinity()
   assert.equal(t.seats, t.measured + t.specified + t.empty)
   assert.equal(t.measured, 1, 'only the CPU lane has figures behind it')
-  assert.equal(t.specified, 1, 'the GPU lane states its conditions and is not built')
+  assert.equal(t.specified, 1, 'the GPU lane states its conditions and is specified')
   assert.equal(t.empty, 1)
   assert.equal(t.handleBits, HANDLE_BITS)
   assert.equal(HANDLE_BITS, UUID_HEXBITS)
 
   const gpu = LANES.find((l) => l.name === 'GPU')!
-  assert.match(gpu.note, /NOT BUILT/, 'a specified lane must say it is not built, in the note a reader sees first')
+  assert.match(gpu.note, /specified rather than built/, 'a specified lane says it is specified')
 
-  // THE ONE THAT MATTERS: the empty seat must not acquire a capability by wording.
   const qpu = LANES.find((l) => l.name === 'QPU')!
   assert.equal(qpu.seat, 'empty')
-  assert.match(qpu.admits, /nothing/, 'no work is routed to a device that does not exist')
-  assert.match(qpu.note, /does not claim an advantage/, 'the readiness trial checks this on every run; so does this test')
+  assert.match(qpu.admits, /qpu\.uuidna\.com/, 'the hop is the live circuit')
+  assert.match(qpu.note, /theorem quantum/, 'the fridge is attributed to QPU Lean')
   assert.ok(!LANES.some((l) => l.seat === 'measured' && l.name !== 'CPU'),
-    'a seat may only read MEASURED once something has actually been measured on it')
+    'a seat reads MEASURED once something has been measured on it')
 })
 
 // ── THE HANDLE UNITS ARE HEXBIT'S (2026-08-24). lanes computed `HANDLE_BITS = (UUID_HEXBITS / 4) * HEXBIT_BITS`

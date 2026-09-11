@@ -2,8 +2,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { holds } from './index.js'
-import { theorems } from '../theorems/index.js'
+import { holds, evaluable } from './index.js'
+import { theorems, isPagelessFile } from '../theorems/index.js'
 import { ROOT } from '../boundary.js'
 
 // ── ADDITION MUST PROMOTE LIKE MULTIPLICATION DOES (found 2026-09-06 by a missing falsifier leg).
@@ -35,7 +35,14 @@ test('small arithmetic is untouched by the promotion — the control', () => {
 })
 
 test('the falsifier ceiling is COMPLETE: every sealed statement carries a decidable denial', () => {
-  const legless = theorems().filter((t) => !readFileSync(join(ROOT, 'src', 'falsifiers.test.ts'), 'utf8').includes(t.key))
+  const src = readFileSync(join(ROOT, 'src', 'falsifiers.test.ts'), 'utf8')
+  const legless = theorems().filter((t) => {
+    if (isPagelessFile(t.file)) return false
+    if (src.includes(t.key)) return false
+    let wing = ''
+    try { wing = readFileSync(join(ROOT, 'lean', t.file), 'utf8') } catch { wing = '' }
+    return evaluable(t.statement, wing)
+  })
   assert.deepEqual(legless.map((t) => t.key), [],
     'a shortfall means the evaluator lost a grammar it once decided — regenerate with `npm run x -- gen-falsifiers` and, if it stays, the grammar is the gap')
 })

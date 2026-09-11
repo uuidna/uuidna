@@ -46,6 +46,17 @@ export const judged = (files: readonly string[], root: string = ROOT): { files: 
   return { files: files.filter((f) => !skip.has(f)), deferred }
 }
 
+// HANDLE CHUNKS ARE TRACKED PAYLOAD, NOT A LISTING THE COURTS NEED. `git ls-files` through /bin/sh fills the
+// pipe with every chunk path and dies ENOBUFS before a JS filter can drop them. Exclude at git, and spawn git
+// directly so the shell is not the buffer.
+const TRACKED_EXCLUDE = [':!:src/chunks', ':!:src/seeds'] as const
+export const listTracked = (pathspec: readonly string[] = ['.'], root: string = ROOT): string[] => {
+  const out = cpm().execFileSync('git', ['ls-files', '-z', '--', ...pathspec, ...TRACKED_EXCLUDE], {
+    cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024,
+  })
+  return out.split('\0').filter(Boolean)
+}
+
 // ── THE ONE LEAN PARSE. Reading a theorem out of a .lean file was written twice — the ledger builder and the prose
 // census each carried a character-identical regex — and the two agreed only because nobody had yet edited one. The
 // parse is subtle enough that a divergence would be silent: the lookahead must stop a tactic at the NEXT

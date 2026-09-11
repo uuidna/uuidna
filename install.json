@@ -1,0 +1,13 @@
+{
+  "command": "npx uuidna-install",
+  "yes": "npx uuidna-install --yes",
+  "prompt": "Enter seats all. Type 1 3 saas — or all.",
+  "packages": ["qpu-mcp", "payload-mcp", "vitepress-payload"],
+  "occupancies": ["personal", "business", "corporate", "saas", "paas"],
+  "cloudflare": {
+    "button": "https://deploy.workers.cloudflare.com/button",
+    "qpu": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/qpu",
+    "uuidna": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna",
+    "payload": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna-payload"
+  }
+}

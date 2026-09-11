@@ -28,7 +28,7 @@ import { A432_HZ } from '../tts/synth.js'
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
-import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listTracked, type Gap } from './api.js'
 import { isTestSource, sourceGraph } from '../test-paths.js'
 import { tautologicalAsserts } from '../assert-tautology.js'
 import { UNDERCLAIM_FLOOR, claimBalanceOf } from '../underreach.js'
@@ -79,7 +79,7 @@ const fileLines = (abs: string): string[] => {
 let _tracked: string[] | null = null
 const trackedFiles = (): string[] => {
   if (_tracked === null) {
-    try { _tracked = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n') } catch { _tracked = [] }
+    try { _tracked = listTracked() } catch { _tracked = [] }
   }
   return _tracked
 }
@@ -2459,7 +2459,7 @@ export function orphanGaps(): Gap[] {
 export function unitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = listTracked(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/') || isTestSource(f)) continue
     let src = ''
@@ -2843,7 +2843,7 @@ export function markupGaps(): Gap[] {
   const CARRY = ['div', 'article', 'section', 'span', 'small', 'p', 'a', 'ul', 'li', 'table', 'tr', 'td', 'h1', 'h2', 'h3']
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = listTracked(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.includes('/tests/') || isTestSource(f)) continue
     let src = ''

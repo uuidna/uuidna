@@ -94,6 +94,19 @@ export function commitChange<T extends Keyed>(
   return { ok: true, plan, why: plan.lossless ? 'lossless' : `removals allowed: ${opts.reason ?? 'no reason given'}` }
 }
 
+/** Occupancy pentagram. Rank climbs personal → paas. Console picks one. */
+export const INSTALL_OCCUPANCIES = ['personal', 'business', 'corporate', 'saas', 'paas'] as const
+export type InstallOccupancy = (typeof INSTALL_OCCUPANCIES)[number]
+
+/** One-click Cloudflare Workers deploy. Same URLs as README badges and install.json. */
+export const INSTALL_CLOUDFLARE = {
+  key: 'cloudflare',
+  button: 'https://deploy.workers.cloudflare.com/button',
+  qpu: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/qpu',
+  uuidna: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna',
+  payload: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna-payload',
+} as const
+
 /** The three packages the interactive installer seats: QPU MCP, Payload MCP (find-only), VitePress payload. */
 export const INSTALL_PACKAGES = [
   {
@@ -102,7 +115,7 @@ export const INSTALL_PACKAGES = [
     auth: false,
     html: false,
     sealed: 8,
-    prompt: 'Install QPU MCP at https://qpu.uuidna.com/mcp? JSON-LD. No auth. Eight sealed tools. Not HTML. Not VitePress.',
+    prompt: 'Install QPU MCP at https://qpu.uuidna.com/mcp? JSON-LD. Eight sealed tools. theorem shor. theorem crypto.',
   },
   {
     key: 'payload-mcp',
@@ -112,7 +125,7 @@ export const INSTALL_PACKAGES = [
     html: false,
     sealed: false,
     tools: ['findPages', 'findUsers', 'findMedia', 'findTenants'] as const,
-    prompt: 'Fuse Payload MCP find-only (findPages findUsers findMedia findTenants) into QPU tools/call without a ninth sealed tool? Writes stay off.',
+    prompt: 'Fuse Payload MCP find-only (findPages findUsers findMedia findTenants) into QPU tools/call. Sealed doors stay eight. Writes stay off.',
   },
   {
     key: 'vitepress-payload',
@@ -121,9 +134,64 @@ export const INSTALL_PACKAGES = [
     qpuHtml: false,
     plugin: 'infuseQuantumPayload',
     concurrency: 2,
-    prompt: 'Keep VitePress quantum payload on uuidna.com (infuseQuantumPayload, buildConcurrency = 2). QPU stays API-only JSON-LD?',
+    prompt: 'Keep VitePress quantum payload on uuidna.com (infuseQuantumPayload, buildConcurrency = 2). QPU is JSON-LD at qpu.uuidna.com.',
   },
 ] as const
+
+export type InstallPackageKey = (typeof INSTALL_PACKAGES)[number]['key']
+
+const PACKAGE_ALIASES: Record<string, InstallPackageKey> = {
+  '1': 'qpu-mcp',
+  qpu: 'qpu-mcp',
+  'qpu-mcp': 'qpu-mcp',
+  '2': 'payload-mcp',
+  payload: 'payload-mcp',
+  'payload-mcp': 'payload-mcp',
+  '3': 'vitepress-payload',
+  vitepress: 'vitepress-payload',
+  'vitepress-payload': 'vitepress-payload',
+}
+
+/** parseInstallLine('1 3 saas') → packages + occupancy + whether to print the Cloudflare button. Empty / all = everything. */
+export function parseInstallLine(line = ''): {
+  keys: InstallPackageKey[]
+  occupancy: InstallOccupancy
+  cloudflare: boolean
+} {
+  const tokens = line.trim().toLowerCase().split(/\s+/).filter(Boolean)
+  const allKeys = INSTALL_PACKAGES.map((row) => row.key)
+  if (tokens.length === 0 || tokens.includes('all')) {
+    return { keys: allKeys, occupancy: 'personal', cloudflare: true }
+  }
+  const keys: InstallPackageKey[] = []
+  let occupancy: InstallOccupancy = 'personal'
+  let cloudflare = false
+  for (const token of tokens) {
+    const pack = PACKAGE_ALIASES[token]
+    if (pack && !keys.includes(pack)) keys.push(pack)
+    else if ((INSTALL_OCCUPANCIES as readonly string[]).includes(token)) occupancy = token as InstallOccupancy
+    else if (token === 'cf' || token === 'cloudflare') cloudflare = true
+  }
+  return {
+    keys: keys.length > 0 ? keys : allKeys,
+    occupancy,
+    cloudflare: cloudflare || tokens.includes('all'),
+  }
+}
+
+export const installCombinationsOf = () =>
+  INSTALL_PACKAGES.map((row, i) => ({
+    n: i + 1,
+    key: row.key,
+    href: row.href,
+    label: row.key,
+  }))
+
+const seatKeys = (keys: readonly string[]) => {
+  for (const key of keys) {
+    if (!interactivePending.includes(key)) interactivePending.push(key)
+  }
+}
 
 export type InstallVerb = 'ask' | 'simulate' | 'commit' | 'audit'
 
@@ -135,6 +203,10 @@ export interface InteractiveInstall {
   total: number
   prompt: string
   package?: (typeof INSTALL_PACKAGES)[number]
+  combinations: ReturnType<typeof installCombinationsOf>
+  occupancy: InstallOccupancy
+  occupancies: typeof INSTALL_OCCUPANCIES
+  cloudflare: typeof INSTALL_CLOUDFLARE
   pending: string[]
   seated: string[]
   plan: InstallPlan<{ key: string }>
@@ -153,7 +225,9 @@ export interface InteractiveInstall {
 const interactivePending: string[] = []
 const interactiveSeated: string[] = []
 
-/** interactiveInstall — apk ask → simulate → commit → audit, one package at a time. Memory only until commit. */
+let interactiveOccupancy: InstallOccupancy = 'personal'
+
+/** interactiveInstall — apk ask → simulate → commit → audit. Select combinations in one line, or one package at a time. */
 export function interactiveInstall(args: {
   verb?: InstallVerb
   step?: number
@@ -161,18 +235,34 @@ export function interactiveInstall(args: {
   reset?: boolean
   allowRemovals?: boolean
   reason?: string
+  all?: boolean
+  select?: readonly string[]
+  line?: string
+  occupancy?: string
 } = {}): InteractiveInstall {
   if (args.reset) {
     interactivePending.length = 0
     interactiveSeated.length = 0
+    interactiveOccupancy = 'personal'
+  }
+  const picked =
+    typeof args.line === 'string' ? parseInstallLine(args.line)
+    : args.all === true ? parseInstallLine('all')
+    : args.select ? parseInstallLine(args.select.join(' '))
+    : undefined
+  if (picked) seatKeys(picked.keys)
+  if (picked?.occupancy) interactiveOccupancy = picked.occupancy
+  if (typeof args.occupancy === 'string' && (INSTALL_OCCUPANCIES as readonly string[]).includes(args.occupancy)) {
+    interactiveOccupancy = args.occupancy as InstallOccupancy
   }
   const verb: InstallVerb = args.verb === 'simulate' || args.verb === 'commit' || args.verb === 'audit' ? args.verb : 'ask'
   let step = typeof args.step === 'number' && args.step >= 0 && args.step < INSTALL_PACKAGES.length ? args.step : interactivePending.length
-  if (verb === 'ask' && args.yes && step < INSTALL_PACKAGES.length) {
+  if (verb === 'ask' && args.yes && !picked && step < INSTALL_PACKAGES.length) {
     const key = INSTALL_PACKAGES[step]!.key
     if (!interactivePending.includes(key)) interactivePending.push(key)
     step += 1
   }
+  if (picked) step = INSTALL_PACKAGES.length
   const before = interactiveSeated.map((key) => ({ key }))
   const after = interactivePending.map((key) => ({ key }))
   const plan = planChange(before, after)
@@ -194,14 +284,19 @@ export function interactiveInstall(args: {
     INSTALL_PACKAGES[2]!.qpuHtml === false &&
     INSTALL_PACKAGES[2]!.concurrency === 2
   const current = step < INSTALL_PACKAGES.length ? INSTALL_PACKAGES[step] : undefined
+  const combinations = installCombinationsOf()
   return {
     kind: 'install',
     interactive: true,
     verb,
     step,
     total: INSTALL_PACKAGES.length,
-    prompt: current?.prompt ?? 'Simulate, then commit. Audit names every seated package.',
+    prompt: current?.prompt ?? 'Enter seats all. Type 1 3 saas — or all. Cloudflare is one click in README and install.json.',
     package: current,
+    combinations,
+    occupancy: interactiveOccupancy,
+    occupancies: INSTALL_OCCUPANCIES,
+    cloudflare: INSTALL_CLOUDFLARE,
     pending: [...interactivePending],
     seated: [...interactiveSeated],
     plan,
@@ -223,6 +318,25 @@ export function interactiveInstall(args: {
             ? '{ verb: "audit" } names what is seated.'
             : audit
               ? 'installed. Payload MCP is fused at QPU tools/call. VitePress payload stays on uuidna.com. QPU is JSON-LD.'
-              : 'seat every package with { yes: true }, then simulate, then commit.',
+              : 'Enter seats all. Or { all: true, yes: true } then { verb: "commit" }. Cloudflare: install.json / README button.',
   }
+}
+
+/** simpleInstall — one shot: pick combinations, simulate, commit. Enter / --yes seats all. */
+export function simpleInstall(args: {
+  line?: string
+  select?: readonly string[]
+  occupancy?: string
+  yes?: boolean
+} = {}): InteractiveInstall {
+  interactiveInstall({ reset: true })
+  const picked = parseInstallLine(args.line ?? (args.select ? args.select.join(' ') : 'all'))
+  interactiveInstall({
+    all: args.select === undefined && args.line === undefined,
+    select: args.select,
+    line: args.line,
+    occupancy: args.occupancy ?? picked.occupancy,
+  })
+  interactiveInstall({ verb: 'simulate' })
+  return interactiveInstall({ verb: args.yes === false ? 'simulate' : 'commit' })
 }

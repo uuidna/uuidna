@@ -11,11 +11,12 @@ import {
 } from './handle.js'
 import { chunkHandleOf, buildChunks } from './handle-chunks.js'
 import { theorems } from './index.js'
+import { isPagelessFile } from './theorems/index.js'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 
-const live = (): string[] => [...new Set(theorems().map((t) => chunkHandleOf(t.key)).filter((h): h is string => !!h))]
+const live = (): string[] => [...new Set(theorems().filter((t) => !isPagelessFile(t.file)).map((t) => chunkHandleOf(t.key)).filter((h): h is string => !!h))]
 
 // ── SHAPE. Eight lowercase hex, splitting four ways — not a chosen convention but the shape chunkHandleOf emits.
 test('every live handle is eight lowercase hex characters', () => {
@@ -186,10 +187,15 @@ test('buildChunks is computed ONCE — the same object, not an equal one', () =>
 test('the key index resolves EXACTLY what a linear scan resolves, over every live key', () => {
   const T = theorems()
   const chunks = buildChunks()
-  // the OLD implementation, verbatim: first chunk in handle order whose keys hold the key
-  const linear = (key: string): string | undefined => chunks.find((c) => c.keys.includes(key))?.handle
-  const disagree = T.filter((t) => linear(t.key) !== chunkHandleOf(t.key))
+  // One pass in handle order is the linear scan: first chunk whose keys hold the key. Walking that scan once
+  // per live key is the same search against a growing ledger, and the suite is not that search.
+  const expected = new Map<string, string>()
+  for (const c of chunks) for (const k of c.keys) if (!expected.has(k)) expected.set(k, c.handle)
+  const disagree = T.filter((t) => expected.get(t.key) !== chunkHandleOf(t.key))
   assert.deepEqual(disagree.map((t) => t.key), [], 'the index must return what the scan returned — faster, never different')
+  const linear = (key: string): string | undefined => chunks.find((c) => c.keys.includes(key))?.handle
+  const sample = T.find((t) => !t.file.startsWith('HexSpan')) ?? T[0]!
+  assert.equal(linear(sample.key), chunkHandleOf(sample.key), 'a named key still matches the verbatim scan')
   // the controls: the comparator must distinguish, and a key nothing cites must resolve to nothing on both sides
   assert.equal(chunkHandleOf('not_a_theorem_key_zzz'), undefined)
   assert.equal(linear('not_a_theorem_key_zzz'), undefined)

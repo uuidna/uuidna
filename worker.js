@@ -201,6 +201,21 @@ export default {
       } })
     }
 
+    // THE QPU HOP — this host's QPU lane is empty; the running circuit is qpu.uuidna.com, theorem quantum.
+    if (url.pathname === '/.well-known/qpu.json') {
+      return json({
+        worker: 'uuidna',
+        host: 'qpu.uuidna.com',
+        href: 'https://qpu.uuidna.com',
+        reverse: true,
+        endpoints: {
+          '/': 'https://qpu.uuidna.com',
+          '/mcp': 'https://qpu.uuidna.com/mcp',
+          '/storage': 'https://qpu.uuidna.com/storage',
+        },
+      })
+    }
+
     if (url.pathname === '/mcp') {
       // CORS, on THIS route only: the wire is READ-ONLY and every call passes the sealed gate, so a browser
       // anywhere is a first-class client — the site's own terminal (quantum/apps/terminal) computes on this

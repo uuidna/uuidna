@@ -324,7 +324,7 @@
       "name": "executor seat — QPU",
       "value": "empty",
       "measurementTechnique": "declared",
-      "citation": "nothing — no work is routed here, because there is nothing to route it to — THE SEAT IS A NOTICE. This repository does not have quantum hardware, does not simulate it, and does not claim an advantage from it; the readiness trial checks that last point on every run. The word appears here so a reader knows the seat was considered and left empty ON PURPOSE, which is a different statement from silence. If a device ever attaches, it earns this seat the way everything else in this tree earns anything: measured, with a receipt, against work that was independent to begin with."
+      "citation": "This host's QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp."
     }
   ]
 }

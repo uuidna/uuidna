@@ -20,9 +20,8 @@
 // So the number a reader sees is checkable by machine without trusting the page: recompute the census, recompute
 // the fold, compare. That asymmetry is the whole design — display costs nothing, forgery costs a preimage.
 import { writeFileSync } from 'node:fs'
-import { execSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT, rd } from './api.js'
+import { ROOT, rd, listTracked } from './api.js'
 import { theorems, statementCensus, runTrial, PRINCIPLES, coins } from '../index.js'
 
 const T = theorems()
@@ -64,8 +63,7 @@ export function stampText(text: string): { out: string; slots: string[]; unknown
 
 /** The surfaces are DISCOVERED— a file is stamped exactly when it declares a slot. */
 export function stampSurfaces(write = true): { file: string; slots: string[]; changed: boolean }[] {
-  const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n')
-    .filter((f) => /\.(md|html|txt|json)$/.test(f) && !f.includes('package-lock'))
+  const files = listTracked().filter((f) => /\.(md|html|txt|json)$/.test(f) && !f.includes('package-lock'))
   const done: { file: string; slots: string[]; changed: boolean }[] = []
   for (const f of files) {
     let text = ''

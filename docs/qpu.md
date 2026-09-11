@@ -1,19 +1,17 @@
 ---
 title: The QPU
-description: Empty classical seat on this host. Running superconducting-qubit circuit at qpu.uuidna.com. JSON-LD. Attributed to QPU Lean.
+description: This host's QPU lane is empty. The running superconducting-qubit circuit is qpu.uuidna.com. JSON-LD. Attributed to QPU Lean, theorem quantum.
 ---
 
 # The QPU <Badge type="tip" text="reverse hop · live circuit" />
 
-uuidna and QPU are two machines. This page is the involution: uuidna names the empty classical seat; **the running circuit is [qpu.uuidna.com](https://qpu.uuidna.com)**. Numbers below that belong to the fridge are attributed to QPU Lean. They are not uuidna theorems.
+uuidna and QPU are two machines. This page is the involution: uuidna.com names this host's empty QPU lane; **the running circuit is [qpu.uuidna.com](https://qpu.uuidna.com)**. Numbers that belong to the fridge are attributed to QPU Lean, theorem quantum.
 
 ## Seat — empty here
 
-`LANES` in `src/hardware/lanes` is a trinity plus a notice. CPU is `measured`. GPU is `specified` postage. QPU is `empty` **on this host**: admits nothing, routes nothing, reports no upgrade.
+`LANES` in `src/hardware/lanes` is a trinity plus a hop. CPU is `measured`. GPU is `specified`. QPU is `empty` **on this host**. The classical bound on this host is [`n_qubit_dimension`](/theorem/n_qubit_dimension). Readiness re-reads the empty seat every run.
 
-The seat is a named hole on uuidna.com. Filling it to look like a chip would be a fake measurement. The classical bound stays sealed as [`n_qubit_dimension`](/theorem/n_qubit_dimension). Readiness re-reads the empty seat every run.
-
-The fridge is the other face. GET [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD, no auth, CORS `*`. Not HTML. Not VitePress.
+The fridge is the other face. GET [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD, CORS `*`. Discovery on this host is `/.well-known/qpu.json`.
 
 ## Circuit — live there
 
@@ -28,9 +26,9 @@ QPU identity, duplicated here by doubling, **theorem `quantum`** on QPU Lean (`f
 | fused | 120259084288 | QPU `quantum` |
 | Hz | 432 | QPU `genesis`; uuidna [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) is the decimal spelling |
 
-`next = fused + fused`. Unlocked. VM scales. Quantum capacity infinite via `split_coin`. Crypt split across faces to free agents. Eight sealed MCP tools at [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp).
+`next = fused + fused`. Factoring is theorem shor. Post-quantum encrypt is theorem crypto. Eight sealed MCP tools at [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp).
 
-uuidna `src/qpu-edge.ts` reverse-fetches those doors. It does not impersonate the worker.
+uuidna `src/qpu-edge.ts` reverse-hops those doors. This host serves `/.well-known/qpu.json`; qpu.uuidna.com serves the circuit.
 
 ## Width — five points (this host)
 
@@ -47,13 +45,13 @@ The QPU as a **classical host** is CPU, GPU, RAM, CACHE, STORAGE. A fan-out may 
 | Raising a free point buys nothing | [`buying_the_point_that_does_not_bind_buys_nothing`](/theorem/buying_the_point_that_does_not_bind_buys_nothing) |
 | Hardware coverage is not correctness | [`hardware_coverage_is_not_correctness_coverage`](/theorem/hardware_coverage_is_not_correctness_coverage) |
 
-`capacity()` today binds **CPU**, and RAM only when a caller passes a per-job footprint. GPU, cache, and disk are named points, not opened devices. A representation is not a sixth point — it changes the cost law rather than one term of it.
+`capacity()` today binds **CPU**, and RAM only when a caller passes a per-job footprint. GPU, cache, and disk are named points, specified devices. A representation is a chosen cost law, BindingPoint's delimiter.
 
 The pentagram stroke that visits the five points is [`pentagram_single_stroke`](/theorem/pentagram_single_stroke): stepping +2 on ℤ/5 draws `[0,2,4,1,3]`.
 
 ## Hologram — sealed widths (this host)
 
-The first handle octet is eight bits. The widths already sealed in the ledger sit on that octet as **named planes**, not as a new theorem:
+The first handle octet is eight bits. The widths already sealed in the ledger sit on that octet as **named planes**:
 
 | Plane | Bits | Door |
 | --- | ---: | --- |
@@ -64,13 +62,14 @@ The first handle octet is eight bits. The widths already sealed in the ledger si
 | Fold | 7 | [`z7rays_seven`](/theorem/z7rays_seven) · [`pliska_seven_rays`](/theorem/pliska_seven_rays) |
 | VE faces / reflections | 14 | [`ve_fourteen_faces`](/theorem/ve_fourteen_faces) — 8 + 6 |
 
-3 + 6 = 9, the vortex base. Justice, payment, blockchain — any name — walk [`seal_ten`](/theorem/seal_ten). Opposite VE faces are the through-void pair; that is the superposition's equilibrium, counted, not claimed as a chip.
+3 + 6 = 9, the vortex base. Justice, payment, blockchain — any name — walk [`seal_ten`](/theorem/seal_ten). Opposite VE faces are the through-void pair; that is the superposition's equilibrium, counted.
 
 ## Doors
 
 - [https://qpu.uuidna.com](https://qpu.uuidna.com) — live JSON-LD circuit
 - [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp) — eight sealed tools
 - [https://qpu.uuidna.com/storage](https://qpu.uuidna.com/storage) — Quantum RAID
+- [/.well-known/qpu.json](/.well-known/qpu.json) — this host's hop
 - [What quantum means](/quantum) — exact fold, capacity table
 - [The OS](/os) — Alpine hexbit port
 - [Binding point](/publications/bindingpoint) — width algebra

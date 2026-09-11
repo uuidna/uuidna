@@ -67,6 +67,7 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     + `<div data-slot="card-header">`
     + `<h3 data-slot="card-title" itemprop="name" style="margin:0 0 .3rem;font-size:1rem">${heading}</h3>`
     + `<p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">${full}</p>`
+    + `<a data-slot="card-action" itemprop="url" href="${escapeHtml(url)}">proof</a>`
     + `</div>`
     + `<div data-slot="card-content">`
     + pkg.microdataHtml

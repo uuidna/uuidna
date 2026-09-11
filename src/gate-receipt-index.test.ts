@@ -21,6 +21,13 @@ test('changedFiles reports digest moves only', () => {
   assert.deepEqual(changedFiles(a, b), ['src/address.test.ts'])
 })
 
+test('listCoveredFiles never includes generated payloads', async () => {
+  const { listCoveredFiles } = await import('./gate-receipt-index.js')
+  const files = listCoveredFiles()
+  assert.ok(files.length > 0)
+  assert.ok(files.every((f) => !f.startsWith('src/chunks/') && !f.startsWith('src/seeds/')))
+})
+
 test('planTestRun — absent receipt plans full suite', () => {
   const plan = planTestRun()
   assert.ok(plan.mode === 'full' || plan.mode === 'skip' || plan.mode === 'delta')

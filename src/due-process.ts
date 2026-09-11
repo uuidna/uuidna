@@ -17,6 +17,7 @@ import { computes } from './gate.js'
 import { decide } from './decide.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity/index.js'
+import { involuteToVerified } from './solution-involution.js'
 import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
 import { verifyEnvelope } from './crypt.js'
 import { hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from './hexbit/index.js'
@@ -218,6 +219,7 @@ export interface OneTrial {
   admitted: boolean                                    // PROVEN and admitted, or remanded
   governing: string                                    // WHICH guarantee governs this outcome
   remand: readonly string[]                            // the exact steps that would admit it — never a dismissal
+  solutions: readonly { key: string; route: string; file: string }[]
   docket: string                                       // the filing's fold — the claim is on the record either way
   receipt: string
   honest: string
@@ -235,10 +237,13 @@ export function tryClaim(claim: string, test?: () => boolean): OneTrial {
     : test ? 'legal_refuted_iff_test_fails_uncited'
     : 'legal_non_justiciable_is_never_refuted'
   const docket = toUuid(`one-trial:${claim}`)
+  const involute = admitted ? undefined : involuteToVerified(claim)
   return {
     claim, gate: { binary: g.binary, hit: g.hit ?? null },
     verdict: v.verdict, kind: decision.kind, cites: decision.cites ?? [],
-    admitted, governing, remand: admitted ? [] : (v.develop ?? []),
+    admitted, governing,
+    remand: involute?.solutions.map((s) => s.route) ?? [],
+    solutions: involute?.solutions ?? [],
     docket, receipt: merkleFold([docket, toUuid(v.verdict), toUuid(governing)]),
     honest: 'One trial, every stage: the honesty gate, the calculator, the docket, the governing guarantee and the ' +
       'remand. The court decides ADMISSIBILITY— UNVERIFIED is not false, and nothing is discarded.',

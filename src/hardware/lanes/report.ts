@@ -26,11 +26,8 @@
 //     work-conserving. A lane can hold the slow items while others idle, measured at about a tenth more
 //     wall-clock on an even workload (see poolByHandle). Reproducibility is bought with that tenth.
 //
-// ── AND THE QPU SEAT IS EMPTY. It is named so a reader knows where a real device would attach, and it is claimed
-// for NOTHING: nothing dispatches to it, nothing is measured on it, and no message is routed through it. If the
-// question is whether the quantum seat carries the messaging, the answer this tree will give is no — the seat is
-// a notice. Saying otherwise would be an instrument reporting what it never measured, which is the one defect
-// class this repository spends the most effort refusing.
+// ── THIS HOST'S QPU LANE IS EMPTY. The running circuit is qpu.uuidna.com, theorem quantum. Messaging on this
+// host is residue routing: laneOf of the handle. The hop is /.well-known/qpu.json → https://qpu.uuidna.com.
 //
 // HOST FIGURES BELONG IN THE SERVED REPORT, NEVER IN THE SEALED ONE. Lane count and processor width are read from
 // the machine and differ between machines, so they are `measured` and they would drift a sealed artifact on every

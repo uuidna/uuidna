@@ -9,7 +9,7 @@
 // title, description band, JSON-LD; sitemap cover via site.gaps. Truncated-handle collisions past the birthday
 // point are NAMED and omitted from unique routing (never a wrong page); they are not a freeze break.
 import { existsRoot, rdRoot, wrRoot, mkdirRoot } from './boundary.js'
-import { theorems } from './theorems/index.js'
+import { theorems, isPagelessFile } from './theorems/index.js'
 import { publications } from './publish.js'
 import { quantumSeo } from './seo.js'
 import { handleOf, handleBirthdayPoint, uniqueHandleRouteMap } from './handle.js'
@@ -63,6 +63,7 @@ export function buildSeoUrlMap(): SeoUrlMap {
     return { route, kind, identity, canonical, address, handle, hexbitDoor: `${HOST}/${handle}` }
   }
   for (const t of theorems()) {
+    if (isPagelessFile(t.file)) continue
     const seo = quantumSeo({ key: t.key })
     entries.push(doorOf(seo.address, seo.route, 'theorem', t.key, seo.canonical))
   }

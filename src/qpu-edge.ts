@@ -1,5 +1,5 @@
-// qpu-edge — REVERSE FETCH OF THE LIVE QPU. uuidna does not impersonate qpu.uuidna.com.
-// GET a path here, GET the same path there. JSON-LD. No auth. CORS already sits on QPU.
+// qpu-edge — REVERSE FETCH OF THE LIVE QPU. uuidna.com names the hop; qpu.uuidna.com is the circuit.
+// GET /.well-known/qpu.json here, GET https://qpu.uuidna.com there. JSON-LD. CORS sits on QPU.
 import { QPU_HOST, QPU_HREF, qpuCircuitOf, qpuMachineOf, qpuReverseHrefOf } from './qpu-hologram.js'
 
 const cors = {
@@ -25,7 +25,7 @@ export const qpuDiscoveryOf = (origin: string) => ({
     '/': QPU_HREF,
     '/mcp': qpuReverseHrefOf('/mcp'),
     '/storage': qpuReverseHrefOf('/storage'),
-    '/.well-known/qpu.json': 'this document — points at the live circuit',
+    '/.well-known/qpu.json': 'this document — the hop to the live circuit',
   },
   circuit: qpuCircuitOf(),
 })

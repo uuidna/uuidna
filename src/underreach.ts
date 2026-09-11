@@ -17,7 +17,7 @@
 // theorem names, all three of the legitimate forms above and none of them matched by the rule below.
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, isPagelessFile } from './theorems/index.js'
 import { publications } from './publish.js'
 import { toUuid, merkleFold } from './address.js'
 import { ROOT } from './boundary.js'
@@ -90,7 +90,7 @@ function docSources(): { label: string; text: string }[] {
 /** leanProse() → the `--` comment prose of every wing. Lean's comment marker is NOT `//`; that is the whole
  *  reason this function exists as its own reader rather than a file-extension added to a markdown sweep. */
 function leanProse(): { label: string; text: string }[] {
-  return readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean')).map((f) => ({
+  return readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean') && !isPagelessFile(f)).map((f) => ({
     label: 'lean/' + f,
     text: readFileSync(join(ROOT, 'lean', f), 'utf8')
       .split('\n').filter((l) => l.trim().startsWith('--')).join(' '),
@@ -108,7 +108,10 @@ export function underreachCensus(): UnderreachCensus {
   // The FULL monograph, not only its abstract: the proofs section, the provenance and the related rows are
   // published prose too, and an under-claim in any of them understates the ledger just as much.
   for (const p of publications()) take('publication', 'publication/' + p.slug, p.markdown)
-  for (const t of THEOREMS) if (t.name) take('theorem', 'theorem/' + t.key, String(t.name))
+  for (const t of THEOREMS) {
+    if (isPagelessFile(t.file)) continue
+    if (t.name) take('theorem', 'theorem/' + t.key, String(t.name))
+  }
   for (const d of docSources()) take('doc', d.label, d.text)
   for (const l of leanProse()) take('lean', l.label, l.text)
   const scanned = Object.values(bySurface).reduce((a, n) => a + n, 0)

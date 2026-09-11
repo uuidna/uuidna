@@ -372,8 +372,8 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { content: { type: 'string', description: 'the bytes to spin into a content-address coin' } }, required: ['content'] },
     run: ({ content }) => spin(String(content)) },
   { name: 'uuidna_transform',
-    description: 'The automation of "no unverified material stays: transform until verified". Only VERIFICATION is honesty — a "honest/bounded" label with no proof is itself an unverified claim, so this ADMITS only what verifies. Each material is driven to a terminal: VERIFIED (it IS, or transforms to, a SEALED fact — content-address recomputed to confirm; admitted) or UNVERIFIED (no sealed core reached — recycled with a develop plan, NEVER admitted, never called honest, never called false). The transform cannot manufacture truth: an overclaim to SOLVE a problem transforms to its sealed REFLECTION (dz(dz k)=k), which verifies, while the solve-claim is never admitted (uuidna solves none). Folds to one receipt. Returns {cells,verified,unverified,receipt}. Boundary declared — theorem drift_is_named_or_caught.',
-    inputSchema: { type: 'object', properties: { materials: { type: 'array', items: { type: 'string' }, description: 'raw claims/theories/overclaims to transform until verified' } }, required: ['materials'] },
+    description: 'Transform materials. VERIFIED stays. UNVERIFIED involutes to sealed solutions (negation_involution_solves) in the same call. Combinable. Returns {cells,verified,unverified,receipt}.',
+    inputSchema: { type: 'object', properties: { materials: { type: 'array', items: { type: 'string' }, description: 'materials to transform' } }, required: ['materials'] },
     run: (a) => transformUntilVerified(Array.isArray(a?.materials) ? a.materials.map(String) : []) },
   { name: 'uuidna_holofractal',
     description: 'MAKE any input pentagram · hologram · fractal · accounted, by CONSTRUCTION. Each property is verifiable, so the structure holds by computation and not by assertion. PENTAGRAM: the address seeds 5 points visited in the star {5/2} stroke [0,2,4,1,3] — one closed stroke (sealed pentagram_single_stroke). HOLOGRAM: the merkle root over the parts, with a proof that verifies ANY part against the whole in O(log N). FRACTAL: the self-similar fold tower — 128-bit uuid → 64-bit coin (its top half) → ℤ/9 digital root, the same fold at descending scales. ACCOUNTED: the two conserved coins (= −χ of the double torus) and the bits taught (verify O(1) vs produce O(N); reference bits saved). All fold to one order-invariant receipt; `verified` is the recomputable conjunction. Returns {input,address,pentagram,hologram,fractal,accounting,receipt,verified}.',
@@ -898,8 +898,8 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { keys: { type: 'array', items: { type: 'string' }, description: 'theorem keys from uuidna_theorems, from any domains' } }, required: ['keys'] },
     run: (a) => snapshot(Array.isArray(a?.keys) ? a.keys.map(String) : []) },
   { name: 'uuidna_reactor',
-    description: 'The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.',
-    inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims or external theories to adjudicate and recycle' } }, required: ['claims'] },
+    description: 'Refusion. VERIFIED cells stay. UNVERIFIED cells involute to sealed solutions in the same call. Combinable with uuidna_transform and uuidna_try. Returns {cells,verified,unverified,handle,superposition,receipt}.',
+    inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims to adjudicate and involute' } }, required: ['claims'] },
     run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
   { name: 'uuidna_open_leads',
     description: 'Adjudicate {items:[{claim,source?}]} against the sealed ledger; UNVERIFIED = open leads. Returns {open,items,receipt,honest}.',
@@ -1994,7 +1994,7 @@ function handle(msg: RpcMessage) {
   if (method === 'ping') return ok(id, {})
   // every listed tool carries the handle of its own contract, and the listing carries the fold of them all —
   // the API sealed in hexbit handles, so a drifted description is a changed address, visible from either side
-  if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema, handle: toolHandleOf({ name, description }) })), _meta: { api: apiHandleOf(TOOLS) } })
+  if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema, handle: toolHandleOf({ name, description }) })), _meta: { api: apiHandleOf(TOOLS), useCases: 'dist/**/*.test.js' } })
   if (method === 'tools/call') {
     // THE SERVER RUNS FROM uuidnaOS: the first call boots the verified world (~4 ms, cached) and a DRIFTED
     // world refuses to serve at all, fault named with the receipt — the same floor the tests stand on.

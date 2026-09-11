@@ -128,6 +128,14 @@ Install the package, fuse the MCP, or call constructors. Worked paths: [guides](
 
 ### Install
 
+One command. Enter seats all. Cloudflare is one click — this README and [`install.json`](install.json).
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna)
+
+```bash
+npx uuidna-install
+```
+
 ```bash
 npm install @uuidna/uuidna
 ```

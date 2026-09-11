@@ -18,10 +18,11 @@ test('handle-chunks: every theorem key resolves to exactly one chunk, and that c
   const chunks = buildChunks()
   const byKey = new Map<string, string>()
   for (const c of chunks) for (const k of c.keys) byKey.set(k, c.handle)
+  const byHandle = new Map(chunks.map((c) => [c.handle, c]))
   for (const t of theorems()) {
     const handle = byKey.get(t.key)
     assert.ok(handle, `${t.key} is not claimed by any chunk`)
-    const chunk = chunks.find((c) => c.handle === handle)!
+    const chunk = byHandle.get(handle)!
     assert.ok(chunk.keys.includes(t.key), 'the join must hold from both sides')
   }
   // no key claimed twice by different chunks

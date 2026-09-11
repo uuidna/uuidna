@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS } from './hexbit/index.js'
 import { handleOf } from './handle.js'
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, isPagelessFile } from './theorems/index.js'
 import { benchHexbit, benchLattice, timed } from './scripts/bench-hexbit.js'
 import { occupancyCitesOf, occupancyOf, hexagramsOf, hexFaceOf, OCCUPANCY_KEYS } from './hexagram.js'
 
@@ -25,6 +25,7 @@ const oldHandle = (address: string): string => {
   return handle
 }
 
+const NAMED = THEOREMS.filter((t) => !isPagelessFile(t.file))
 const EDGE = [
   'AABBCCDD-1122-3344-5566-778899AABBCC',   // uppercase, dashed
   'aabbccdd11223344556677889900aabb',       // lowercase, undashed
@@ -35,7 +36,7 @@ const EDGE = [
 ]
 
 test('compileToHexbits is byte-identical to the form it replaced, across the whole ledger', () => {
-  for (const t of THEOREMS)
+  for (const t of NAMED)
     assert.deepEqual(compileToHexbits(t.address), oldCompile(t.address), `${t.key}: nibbles differ`)
 })
 
@@ -45,9 +46,9 @@ test('compileToHexbits matches on uppercase, undashed and degenerate input', () 
 })
 
 test('every compiled nibble is a hexbit state, and a uuid yields exactly UUID_HEXBITS of them', () => {
-  const n = compileToHexbits(THEOREMS[0]!.address)
+  const n = compileToHexbits(NAMED[0]!.address)
   assert.equal(n.length, UUID_HEXBITS, 'a uuid is 32 nibbles once the dashes are gone')
-  for (const t of THEOREMS.slice(0, 300))
+  for (const t of NAMED.slice(0, 300))
     for (const v of compileToHexbits(t.address))
       assert.ok(Number.isInteger(v) && v >= 0 && v <= 15, `state ${v} is not a nibble`)
 })
@@ -59,7 +60,7 @@ test('handleOf is identical to the form it replaced — including WHICH inputs i
     try { n = 'ok:' + handleOf(a) } catch (e) { n = 'throw:' + (e as Error).message }
     return o === n ? 'same' : `OLD ${o} / NEW ${n}`
   }
-  for (const t of THEOREMS) assert.equal(both(t.address), 'same', `${t.key}`)
+  for (const t of NAMED) assert.equal(both(t.address), 'same', `${t.key}`)
   for (const a of EDGE) assert.equal(both(a), 'same', JSON.stringify(a))
 })
 
@@ -77,7 +78,7 @@ test('handleOf still REFUSES what it always refused, and never returns a short h
 })
 
 test('the door composes from the parts, so a faster part cannot change the answer', () => {
-  for (const t of THEOREMS.slice(0, 200)) {
+  for (const t of NAMED.slice(0, 200)) {
     const d = hexbitDoorOf(t.address)
     assert.equal(d.handle, handleOf(t.address))
     assert.deepEqual(d.hexbits, compileToHexbits(t.address))
@@ -131,7 +132,7 @@ test('the lattice benchmark measures every operation and reports the ratio', () 
 })
 
 test('the occupancy index is cached, so repeated cites cost no more than the first', () => {
-  const a = THEOREMS[0]!.address
+  const a = NAMED[0]!.address
   const first = occupancyCitesOf(a)
   const second = occupancyCitesOf(a)
   assert.deepEqual(second, first, 'a cached index must not change the answer')
@@ -144,7 +145,7 @@ test('the occupancy index is cached, so repeated cites cost no more than the fir
 })
 
 test('the face composes from the lattice parts, so a cached index cannot change it', () => {
-  for (const t of THEOREMS.slice(0, 120)) {
+  for (const t of NAMED.slice(0, 120)) {
     const f = hexFaceOf(t.address)
     assert.deepEqual(f.occupancy, occupancyOf(t.address))
     assert.deepEqual(f.hexagrams, hexagramsOf(t.address))

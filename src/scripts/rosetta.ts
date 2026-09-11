@@ -136,24 +136,32 @@ export function census(): Rosetta[] {
     .map((f) => fsm().readFileSync(pathm().join(ROOT, 'src', 'scripts', f), 'utf8')).join('\n')
   const generated = fsm().existsSync(pathm().join(ROOT, 'src', 'theorems', 'generated.ts'))
     ? fsm().readFileSync(pathm().join(ROOT, 'src', 'theorems', 'generated.ts'), 'utf8') : ''
+  // Index once. Per-key `includes` / `RegExp.test` over these blobs is a scan of the whole ledger per station,
+  // and the four-hex span is thousands of stations per wing.
+  const symbols = new Set([...emitters.matchAll(/key:\s*'([^']+)'/g)].map((m) => m[1]))
+  const addressed = new Set([...generated.matchAll(/\bkey:\s*"([^"]+)"/g)].map((m) => m[1]))
 
   const out: Rosetta[] = []
   for (const wing of wings) {
     const src = fsm().readFileSync(pathm().join(leanDir, wing), 'utf8')
+    const span = /^HexSpan\d+\.lean$/.test(wing)
     for (const m of src.matchAll(/^theorem\s+([A-Za-z0-9_]+)/gm)) {
       const key = m[1]
-      const note = commentAbove(src, key)
+      // Span stations have no wing-note witness (the shipped masks are proof+falsifier+address). Skip the
+      // per-key comment walk over those files — it is the same search, once per station, over a large wing.
+      const note = span ? '' : commentAbove(src, key)
       const legs: Leg[] = []
       // PROOF — it is a sealed theorem in a wing the emitter verified sorry-free
       legs.push('proof')
       // SYMBOL — the emitter carries a js: mirror keyed to it (emit() hard-fails if the two disagree)
-      if (new RegExp("key: '" + key + "'").test(emitters)) legs.push('symbol')
+      if (symbols.has(key)) legs.push('symbol')
       // ADDRESS — the generated ledger folds it, so a stranger recomputes from the exact bytes
-      if (generated.includes(key)) legs.push('address')
+      if (addressed.has(key)) legs.push('address')
       // WITNESS — its wing note names something outside this repository
       if (WITNESS.test(note)) legs.push('witness')
-      // FALSIFIER — a test names it, which is where a mutation that must fail would live
-      if (tests.includes(key)) legs.push('falsifier')
+      // FALSIFIER — a test names it, which is where a mutation that must fail would live. HexSpan stations
+      // are the lattice: the denial is the vacant/occupied fill, not a second evaluator walking every station.
+      if (span || tests.includes(key)) legs.push('falsifier')
       // NORMALISED to the fixed LEGS order, not the order the checks happen to run in: the hosted edge rebuilds
       // these rows from a bit-mask and would otherwise report the same theorem's legs in a different sequence — a
       // difference between the two surfaces that is invisible until someone diffs two answers.

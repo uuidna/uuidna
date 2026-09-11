@@ -1,6 +1,6 @@
-// qpu-hologram — THE OTHER SIDE OF THE QPU HOP. uuidna names an empty classical seat; the running circuit is
-// https://qpu.uuidna.com. Numbers here duplicate QPU identities by doubling. They are attributed to QPU Lean,
-// never claimed as uuidna theorems. Never Math.
+// qpu-hologram — THE OTHER SIDE OF THE QPU HOP. This host's QPU lane is empty. The running circuit is
+// https://qpu.uuidna.com. Numbers here duplicate QPU identities by doubling and are attributed to QPU Lean,
+// theorem quantum. JSON Nat.
 import { TRINITY, BASE } from './address.js'
 import { COINS, HEXBIT_BITS, HANDLE_BITS, HANDLE_HEXBITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
 import { LANES } from './hardware/lanes/index.js'
@@ -35,7 +35,7 @@ export const qpuSeatOf = () => {
     seat: lane.seat,
     admits: lane.admits,
     host: 'uuidna' as const,
-    honest: 'empty on this host. The running circuit is qpu.uuidna.com.',
+    honest: 'This host\'s QPU lane is empty. The running circuit is qpu.uuidna.com.',
   }
 }
 

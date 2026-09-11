@@ -9,8 +9,18 @@ import { foldPracticeTrial, type PracticeTrial } from '../../../../school/practi
 export interface TheoremLike { key: string; name: string; statement: string; cases?: number; skill?: string }
 export interface Drill { key: string; name: string; statement: string; cases: number; skill: string }
 
+const DRILL_INDEX = new WeakMap<readonly TheoremLike[], Map<string, TheoremLike>>()
+const drillRow = (key: string, ledger: readonly TheoremLike[]): TheoremLike | undefined => {
+  let ix = DRILL_INDEX.get(ledger)
+  if (ix === undefined) {
+    ix = new Map(ledger.map((t) => [t.key, t]))
+    DRILL_INDEX.set(ledger, ix)
+  }
+  return ix.get(key)
+}
+
 export function drillOf(key: string, ledger: readonly TheoremLike[]): Drill {
-  const t = ledger.find((x) => x.key === key)
+  const t = drillRow(key, ledger)
   if (!t) throw new Error(`drill: ${key} is not sealed — only the sealed can be drilled; the open belongs to /open-questions`)
   return { key: t.key, name: t.name, statement: t.statement, cases: t.cases ?? 1, skill: t.skill ?? 'unskilled' }
 }

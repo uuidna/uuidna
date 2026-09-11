@@ -3,7 +3,7 @@
 // (config.ts), and the release gate checks the order covers every real page (scripts/next.ts) — one source, so the
 // button the reader clicks and the gap the gate hunts are the same edge. A page is a node; the order is a Hamiltonian
 // walk over all nodes that returns to the start. Integrity, not truth.
-import { theorems, SKILLS } from './theorems/index.js'
+import { theorems, SKILLS, isPagelessFile } from './theorems/index.js'
 import { publications } from './publish.js'
 import { lsRoot } from './boundary.js'
 import { toUuid } from './address.js'
@@ -170,7 +170,7 @@ export function computeSidebar(): SidebarGroup[] {
 // prefix varies per call. Build the tail ONCE (DRY) — the indices are the sitemap.
 let _tail: PageNode[] | null = null
 const sitemapTail = (): PageNode[] => (_tail ??= [
-  ...theorems().map((x) => ({ route: `/theorem/${x.key}`, text: x.key })),
+  ...theorems().filter((x) => !isPagelessFile(x.file)).map((x) => ({ route: `/theorem/${x.key}`, text: x.key })),
   ...publications().map((x) => ({ route: `/publications/${x.slug}`, text: x.title })),
 ])
 export function canonicalOrder(staticPages: PageNode[]): PageNode[] {

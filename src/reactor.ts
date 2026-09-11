@@ -17,6 +17,7 @@ import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { adjudicate } from './adjudicate.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
+import { involuteToVerified, type InvoluteRun } from './solution-involution.js'
 
 const BY_KEY = new Map(THEOREMS.map((t) => [t.key, t]))
 
@@ -74,6 +75,7 @@ export interface ReactorCell {
   verdict: 'VERIFIED' | 'UNVERIFIED'
   address: string
   develop: string[]        // for an unverified cell, the new aspects that would verify its honest kernel
+  involute?: InvoluteRun
 }
 export interface ReactorRun {
   cells: ReactorCell[]
@@ -93,7 +95,14 @@ export interface ReactorRun {
 export function reactor(claims: string[], tests: (undefined | (() => boolean))[] = []): ReactorRun {
   const cells: ReactorCell[] = claims.map((claim, i) => {
     const v = adjudicate(claim, tests[i])
-    return { claim, verdict: v.verdict, address: toUuid(claim), develop: v.develop }
+    const involute = v.verdict === 'VERIFIED' ? undefined : involuteToVerified(claim)
+    return {
+      claim,
+      verdict: v.verdict,
+      address: toUuid(claim),
+      develop: involute ? involute.solutions.map((s) => s.route) : v.develop,
+      involute,
+    }
   })
   const superposition = merkleGravity(cells.map((c) => c.address))
   const verified = cells.filter((c) => c.verdict === 'VERIFIED')

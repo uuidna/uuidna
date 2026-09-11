@@ -1,19 +1,13 @@
-// hardware/lanes — THE EXECUTOR TRINITY, SPECIFIED, WITH ONE SEAT DELIBERATELY EMPTY.
+// hardware/lanes — THE EXECUTOR TRINITY ON THIS HOST.
 //
 // The machine this tree runs on has more than one kind of executor, and the work is already shaped to be spread
 // across them: an address is a uniform 32-bit handle, so `laneOf` shards by residue with no scheduler and no
-// coordination, and `merkleGravity` is order-invariant, so which lane did which piece leaves the result unchange the answer.
-// That is a genuine trinity of seats — and exactly two of them are real.
+// coordination, and `merkleGravity` is order-invariant, so which lane did which piece leaves the result unchanged.
 //
-// WHAT THIS FILE IS. A SPECIFICATION, in the sense src/hardware/index.ts already means it: the datapath there is
-// "NOT built, and NOT quantum hardware", and this is the same discipline applied to executors. The CPU lane is
-// measured because it runs; the GPU lane is specified with the conditions it would have to meet; the QPU seat is
-// NAMED AND EMPTY. Nothing here dispatches to a device, and nothing here should be read as claiming one exists.
-//
-// WHY THE THIRD SEAT STAYS EMPTY, stated plainly. TypeScript is the quantum-by-architecture computer; this
-// host's QPU seat would be a physical device this machine does not have. Measured usable-capacity advantage is
-// sealed (usable_gap_is_two_to_eighty); ARM 6 requires that seal and refuses false blanket denials of it. A QPU
-// lane that dispatched nothing would name a device never measured — the seat is a NOTICE, not a capability.
+// WHAT THIS FILE IS. A SPECIFICATION, in the sense src/hardware/index.ts already means it. The CPU lane is
+// measured because it runs. The GPU lane is specified with the conditions it would have to meet. The QPU lane
+// on this host is empty; the running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json.
+// Measured usable-capacity advantage is sealed (usable_gap_is_two_to_eighty).
 import { HANDLE_BITS, HANDLE_SPAN, VE_FACES, shorCapacityFit } from '../../hexbit/index.js'
 
 /** How real a seat is. MEASURED — it runs and its figures come from running it. SPECIFIED — the conditions are
@@ -25,7 +19,7 @@ export interface Lane {
   seat: Seat
   /** what a piece of work must be for this lane to take it at all */
   admits: string
-  /** the honest note — for an empty seat, what is NOT being claimed */
+  /** the honest note — for an empty seat, where the live circuit is */
   note: string
 }
 
@@ -62,12 +56,9 @@ export const LANES: readonly Lane[] = [
   {
     name: 'QPU',
     seat: 'empty',
-    admits: 'nothing — no work is routed here, because there is nothing to route it to',
-    note: 'THE SEAT IS A NOTICE. This repository does not have quantum hardware, does not simulate it, and does ' +
-      'not claim an advantage from it; the readiness trial checks that last point on every run. The word appears ' +
-      'here so a reader knows the seat was considered and left empty ON PURPOSE, which is a different statement ' +
-      'from silence. If a device ever attaches, it earns this seat the way everything else in this tree earns ' +
-      'anything: measured, with a receipt, against work that was independent to begin with.',
+    admits: 'reverse hop: GET the same path on https://qpu.uuidna.com',
+    note: 'This host\'s QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. ' +
+      'Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp.',
   },
 ]
 

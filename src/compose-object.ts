@@ -69,7 +69,7 @@ let _corpus: {
 
 function corpusView(): NonNullable<typeof _corpus> {
   if (_corpus) return _corpus
-  const all = theorems() as { key: string; file: string; principle: string; statement: string }[]
+  const all = theorems().filter((t) => !isPagelessFile(t.file)) as { key: string; file: string; principle: string; statement: string }[]
   const byFile = new Map<string, number>()
   const byPrinciple = new Map<string, number>()
   const byProposition = new Map<string, string[]>()
@@ -128,6 +128,7 @@ const HB = (() => {
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
 const ALL = theorems()
+const NAMED = ALL.filter((t) => !isPagelessFile(t.file))
 const ALPINE_WITNESS = (() => {
   try {
     const raw = JSON.parse(rdRoot('lean/alpine-apps.json'))
@@ -140,7 +141,7 @@ const AXIOM_HOLDS = (() => { try { return !!axiomWitness().holds } catch { retur
 const bySkill = new Map()
 const byPrin = new Map()
 const byKey = new Map()
-for (const t of ALL) {
+for (const t of NAMED) {
   byKey.set(t.key, t)
   if (!bySkill.has(t.skill)) bySkill.set(t.skill, [])
   bySkill.get(t.skill).push(t)
@@ -148,8 +149,10 @@ for (const t of ALL) {
   byPrin.get(t.principle).push(t)
 }
 
-const ALL_PUBS = publications().filter((p) => p.publishable)
-const RELATED_MAPS = buildRelatedMaps(ALL_PUBS)
+let _relatedMaps
+function relatedMaps() {
+  return (_relatedMaps ??= buildRelatedMaps(publications().filter((p) => p.publishable)))
+}
 
 /** Zenodo rich metadata + seal surfaces bound to a domain note's Lean file. */
 function zenodoBundleForFile(file) {
@@ -223,7 +226,7 @@ export function composeTheorem(t) {
   const heartbeats = HB[t.address]
   const use = theoremDemoOf(t.key, t.skill, ALPINE_WITNESS.get(t.key) ?? 0)
   const axioms = theoremAxioms(t.key)
-  const graph = { ...theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, RELATED_MAPS, axioms, face), use }
+  const graph = { ...theoremGraph(t, NAMED, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, relatedMaps(), axioms, face), use }
   const ten = face.aura?.ten
   const channel = channelAudit(t.address)
   return {
@@ -418,7 +421,7 @@ function composeWingHandle(t, kind, kindLabel) {
   const face = monographFaceOf(t.address)
   const handle = face.handle
   const use = theoremDemoOf(t.key, t.skill, ALPINE_WITNESS.get(t.key) ?? 0)
-  const graph = { ...theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, RELATED_MAPS), use, objectKind: kind }
+  const graph = { ...theoremGraph(t, NAMED, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, relatedMaps()), use, objectKind: kind }
   return {
     params: {
       kind,
@@ -499,7 +502,7 @@ export const isPageless = isPagelessFile
 export function objectPageCount() {
   const pubs = publications()
   return {
-    theorem: ALL.filter((t) => !isPageless(t.file)).length,
+    theorem: NAMED.length,
     publications: pubs.length,
     chunk: buildChunks().filter((c) => !c.files.every(isPageless)).length,
     sequence: ALL.filter((t) => t.file === 'Sequence.lean').length,
@@ -508,7 +511,9 @@ export function objectPageCount() {
   }
 }
 
+let _objectPaths = null
 export function allObjectPaths() {
+  if (_objectPaths) return _objectPaths
   const pubs = publications()
   const refused = pubs.filter((p) => !p.publishable)
   if (refused.length) {
@@ -520,13 +525,13 @@ export function allObjectPaths() {
   const chunks = buildChunks().filter((c) => !c.files.every(isPageless))
   const sequence = ALL.filter((t) => t.file === 'Sequence.lean')
   const ve = ALL.filter((t) => t.file === 'VectorEquilibrium.lean')
-  return [
-    ...ALL.filter((t) => !isPageless(t.file)).map(composeTheorem),
+  return (_objectPaths = [
+    ...NAMED.map(composeTheorem),
     ...pubs.map(composePublication),
     ...chunks.map(composeChunk),
     ...sequence.map(composeSequence),
     ...ve.map(composeVe),
-  ]
+  ])
 }
 
 export { shortTitle, theoremGraph, publicationGraph, objectBreadcrumbs }

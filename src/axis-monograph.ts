@@ -14,7 +14,6 @@ import { runTrial } from './trial-run.js'
 import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
-import { publications } from './publish.js'
 import { SITE } from './site/index.js'
 import { SIDEBAR_CATEGORIES } from './site.js'
 import { quantumAura } from './aura.js'
@@ -266,30 +265,36 @@ export function axisMonographs(): AxisBundle {
   }
   const members = named.map(thinMember)
   const trial = runTrial()
-  const order = PRINCIPLES.map((p) => p[1]).filter((name) => LEDGER.some((t) => t.principle === name))
-  const publicationByFile = Object.fromEntries(publications().map((p) => [p.file, p.slug]))
+  const presentPrinciples = new Set(LEDGER.map((t) => t.principle))
+  const order = PRINCIPLES.map((p) => p[1]).filter((name) => presentPrinciples.has(name))
+  // Slug only — composePublication walks every HexSpan theorem into a note and hangs the suite.
+  const publicationPath = (file: string): string =>
+    '/publications/' + file.replace(/\.lean$/i, '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+  const fileByPrinciple = new Map<string, string>()
+  for (const t of LEDGER) if (!fileByPrinciple.has(t.principle)) fileByPrinciple.set(t.principle, t.file)
   const publicationByPrinciple: Record<string, string | null> = {}
   for (const name of order) {
-    const file = LEDGER.find((t) => t.principle === name)?.file
-    const slug = file ? publicationByFile[file] : undefined
-    publicationByPrinciple[name] = slug ? `/publications/${slug}` : null
+    const file = fileByPrinciple.get(name)
+    publicationByPrinciple[name] = file ? publicationPath(file) : null
   }
-  const skillNames = [...new Set(LEDGER.map((t) => t.skill))]
   const shor = timeShorFullUse()
   const ms = (ns: number): number => (ns - (ns % 1000000)) / 1000000
+  const bySkill = new Map<string, Theorem[]>()
+  for (const t of LEDGER) {
+    const list = bySkill.get(t.skill)
+    if (list) list.push(t)
+    else bySkill.set(t.skill, [t])
+  }
+  const skillNames = [...bySkill.keys()]
   const topics: TopicsAxis = {
     objectKind: 'topics',
-    skills: skillNames
-      .map((skill) => {
-        const list = LEDGER.filter((t) => t.skill === skill)
-        const browsable = list.filter((t) => !isPagelessFile(t.file))
-        return {
-          skill,
-          count: list.length,
-          fold: merkleGravity(list.map((t) => t.address)),
-          members: browsable.map((t) => ({ key: t.key, name: t.name, statement: t.statement })),
-        }
-      })
+    skills: [...bySkill]
+      .map(([skill, list]) => ({
+        skill,
+        count: list.length,
+        fold: merkleGravity(list.map((t) => t.address)),
+        members: list.filter((t) => !isPagelessFile(t.file)).map((t) => ({ key: t.key, name: t.name, statement: t.statement })),
+      }))
       .sort((a, b) => b.count - a.count),
   }
   const roots = LEDGER.map((t) => t.address)

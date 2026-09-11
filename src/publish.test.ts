@@ -7,6 +7,16 @@ import assert from 'node:assert/strict'
 import { publications, composePublication, auditPublication, revisePublication, comparePublications } from './index.js'
 import { UUID } from './test-api.js'
 
+test('HexSpan notes are pageless — the lattice is the list, not the monograph', () => {
+  const p = composePublication('HexSpan1.lean')
+  assert.ok(p.publishable, 'the span note publishes')
+  assert.ok(p.count > 1000 && p.theorems.length === p.count, 'coverage still names every station')
+  assert.ok(p.markdown.length < 20000, 'must not inline every station')
+  assert.ok(p.markdown.includes('/theorem/' + p.theorems[0]), 'the door still links a proof')
+  const wave = composePublication('Wave.lean')
+  assert.ok(wave.publishable && wave.markdown.length < 30000, 'Wave is a door, not a proof-per-row page')
+})
+
 test('the whole stream is publishable — every note passes its own audit before publishing', () => {
   const P = publications()
   assert.ok(P.length > 0, 'there are publications')

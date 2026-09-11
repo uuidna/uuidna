@@ -21,10 +21,9 @@
 // a finding, or the finder makes its own documentation unwritable. So the credential rules apply everywhere,
 // while the host-identity rule applies ONLY to DATA files — committed .json — where a CPU string can only have
 // arrived by being measured, never by being discussed.
-import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, listTracked } from './api.js'
 
 export interface Leak { file: string; line: number; kind: string; why: string }
 
@@ -51,9 +50,7 @@ const HOST_IN_DATA: readonly { kind: string; re: RegExp }[] = [
 /** THIS FILE DECLARES THE PATTERNS, so it matches itself — the use/mention trap the tree has hit five times. */
 const SELF = new Set(['src/scripts/leak-scan.ts', 'dist/scripts/leak-scan.js'])
 
-const tracked = (): string[] =>
-  execSync('git ls-files', { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    .split('\n').map((f) => f.trim()).filter(Boolean)
+const tracked = (): string[] => listTracked()
 
 /** leakGaps() → every credential shape anywhere, and host identity in committed DATA. Pure over the index. */
 export function leakGaps(): Leak[] {

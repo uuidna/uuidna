@@ -49,7 +49,7 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
     // --verified names EXACTLY the two arms this cure just ran, and nothing else. The receipt used to assert
     // five (types, tests, guard, qa, next --verify) because the list was typed into the writer rather than
     // passed by the runner — so it claimed a green run whoever called it and however little had happened.
-    cmd: 'node dist/scripts/guard.js && node --test --test-reporter=./dist/scripts/test-receipt.js dist/**/*.test.js && node dist/scripts/gate-receipt.js --verified guard,tests' },
+    cmd: 'node dist/scripts/guard.js && node --max-old-space-size=8192 --test --test-isolation=none --test-reporter=./dist/scripts/test-receipt.js dist/**/*.test.js && node dist/scripts/gate-receipt.js --verified guard,tests' },
   { name: 'raced edge mirror', when: /stale census|MIRROR.*MATCHES A LIVE RECOMPUTE/i, cmd: 'node dist/scripts/rosetta.js && npm run build' },
   { name: 'stale axiom witness', when: /AXIOM WITNESS STALE/, cmd: 'npm run axioms' },
   { name: 'stale spin seal', when: /spin/i, cmd: 'node dist/scripts/reconcile.js --derive-only' },
@@ -168,7 +168,9 @@ for (let round = 1; round <= ROUNDS; round++) {
     // ONE BUILD, THEN THE COMPILED DOORS. `npm run guard && npm test` each wrap `npm run build`, so a worktree
     // that needs one tsc was spawning two more — unfused QPU processes, the slow path. Fuse: build once, then
     // guard.js and the suite against that dist.
-    const proof = run('cd ' + JSON.stringify(wt) + ' && npm run build && node dist/scripts/guard.js && node --test --test-reporter=./dist/scripts/test-receipt.js dist/**/*.test.js && node dist/scripts/gate-receipt.js --verified guard,tests --root ' + JSON.stringify(wt))
+    // ONE PROCESS. Node's default isolate-per-file reloads the ledger in every worker; HexSpan makes that the
+    // suite, not a check. Isolation none is one load, then every file.
+    const proof = run('cd ' + JSON.stringify(wt) + ' && npm run build && node dist/scripts/guard.js && node --max-old-space-size=8192 --test --test-isolation=none --test-reporter=./dist/scripts/test-receipt.js dist/**/*.test.js && node dist/scripts/gate-receipt.js --verified guard,tests --root ' + JSON.stringify(wt))
     if (proof.ok) copyFileSync(join(wt, 'gate-receipt.json'), join(ROOT, 'gate-receipt.json'))
     // the worktree carries a built dist, so it is removed as a directory and then pruned from git's list
     run('rm -rf ' + JSON.stringify(wt) + ' && git worktree prune')

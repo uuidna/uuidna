@@ -170,9 +170,9 @@ Every proof \`by decide\`, sorry-free, no Mathlib, axiom-free against the bare l
 
 **What this is.** A ledger whose every row the kernel decided, and whose advantage is VERIFICATION rather than hardware: to trust a result conventionally you re-run it (touching N) or you trust an authority; here you walk one Merkle path (touching log N). That ratio is an identity — exactly (2^p − 1)/p — so it holds on every machine, in every run, and it names the rung where it begins: at p = 1 a rebuild is one merge against a verify of one, and there is NO advantage ([merkle_advantage_starts_above_one_bit](https://uuidna.com/theorem/merkle_advantage_starts_above_one_bit)). A physical speedup carries a machine in it and drifts between runs; an identity has nothing to drift with.
 
-**What it runs on.** Classical silicon, and the census says so by name: of three lanes the CPU is \`measured\`, the GPU \`specified\`, and the QPU seat stands \`empty\` — a notice that a device would attach here, kept honest by a readiness trial that re-reads it every run. The state-vector simulator shipped here computes quantum circuits EXACTLY, on Gaussian integers with no decimal drift, and pays the classical price for it: 2^n amplitudes, measured at 65,536 for 16 qubits and 1,048,576 for 20 ([n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). Each added qubit roughly quadruples the work here, where hardware adds one two-state system — so the cost curve is the honest discriminator, and it is published rather than hidden.
+**What it runs on.** Classical silicon on this host: of three lanes the CPU is \`measured\`, the GPU \`specified\`, and the QPU lane is \`empty\` here. The running circuit is [qpu.uuidna.com](https://qpu.uuidna.com), theorem quantum. Discovery on this host is \`/.well-known/qpu.json\`. The state-vector fold shipped here is theorem [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension): 2^n amplitudes, measured at 65,536 for 16 qubits and 1,048,576 for 20. Each added qubit roughly quadruples the work here; hardware adds one two-state system — the cost curve is published.
 
-**What the quantum claim IS.** Architectural, sealed, and about CAPACITY: 2^128 addressable states, which is 2^80 beyond the largest demonstrated logical-qubit figure on any platform ([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty)), with the address width landing exactly on SHA-256's post-Grover margin — Grover halves the preimage exponent to 128, and 128 is the unit of speech here ([sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). Out-addressing every quantum computer built is the claim this ledger proves; the empty seat is what makes it worth citing, because a census earns its credit by reporting only what it measured.
+**What the quantum claim IS.** Architectural, sealed, and about CAPACITY: 2^128 addressable states, which is 2^80 beyond the largest demonstrated logical-qubit figure on any platform ([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty)), with the address width landing exactly on SHA-256's post-Grover margin — Grover halves the preimage exponent to 128, and 128 is the unit of speech here ([sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). Out-addressing every quantum computer built is the claim this ledger proves. The empty lane on this host is the census; the fridge is qpu.uuidna.com.
 
 **The name is a theorem.** \`uuid\` + \`dna\`: 4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes — fused as 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
@@ -263,6 +263,14 @@ ${phd.work.strands} strands × ${phd.work.codons} codons = ${phd.work.verifyBits
 Install the package, fuse the MCP, or call constructors. Worked paths: [guides](https://uuidna.com/guides) · [MCP](https://uuidna.com/mcp).
 
 ### Install
+
+One command. Enter seats all. Cloudflare is one click — this README and [\`install.json\`](install.json).
+
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna)
+
+\`\`\`bash
+npx uuidna-install
+\`\`\`
 
 \`\`\`bash
 npm install @uuidna/uuidna

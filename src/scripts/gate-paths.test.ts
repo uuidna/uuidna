@@ -267,8 +267,12 @@ test('the dynamic page count sits inside the sealed render budget', async () => 
   const BUDGET = 16446 // theorem the_budget_re_measured_from_the_resident_reading, at the pinned 8192 cap, concurrency 2
   assert.ok(pages < BUDGET, `${pages} dynamic pages against a sealed budget of ${BUDGET} — the render breaks above it`)
   const { LEAN_LEDGER } = await import('../theorems/generated.js')
+  const { isPagelessFile } = await import('../theorems/index.js')
   const perWing = new Map<string, number>()
-  for (const t of LEAN_LEDGER) perWing.set(t.file, (perWing.get(t.file) ?? 0) + 1)
+  for (const t of LEAN_LEDGER) {
+    if (isPagelessFile(t.file)) continue
+    perWing.set(t.file, (perWing.get(t.file) ?? 0) + 1)
+  }
   const largestWing = [...perWing.values()].reduce((a, b) => (b > a ? b : a), 0)
   const PAGES_PER_THEOREM = 2
   assert.ok(pages + PAGES_PER_THEOREM * largestWing < BUDGET,

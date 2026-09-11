@@ -22,13 +22,13 @@ const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as {
   exports?: Record<string, unknown>
 }
 
-test('the published tarball is a function of the commit — no machine state rides along', () => {
-  for (const negation of ['!**/.uuidna-books', '!dist/**/*.test.js', '!dist/.tsbuildinfo']) {
-    assert.ok(pkg.files.includes(negation), `package.json files must exclude ${negation}`)
-  }
-  // and the book directory must still BE a cache; if it ever becomes tracked content the negation is wrong
+test('the published tarball ships tests as MCP use cases, and keeps machine caches out', () => {
+  assert.ok(pkg.files.includes('dist'), 'compiled constructors and tests ship from dist')
+  assert.equal(pkg.files.includes('!dist/**/*.test.js'), false, 'tests are use cases — a missing test is broken functionality')
+  assert.ok(pkg.files.includes('!**/.uuidna-books'), 'Gutenberg cache stays off the tarball')
+  assert.ok(pkg.files.includes('!dist/.tsbuildinfo'))
   const ignore = readFileSync(join(ROOT, '.gitignore'), 'utf8')
-  assert.match(ignore, /\.uuidna-books\//, '.uuidna-books is a runtime cache and .gitignore must say so')
+  assert.match(ignore, /\.uuidna-books\//, '.uuidna-books is a runtime cache')
 })
 
 test('the install path a reader is told to use actually exists', () => {

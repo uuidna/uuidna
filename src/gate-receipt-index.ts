@@ -3,7 +3,7 @@
 import { createHash } from 'node:crypto'
 import { readFileSync, existsSync, readdirSync, mkdtempSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { execSync } from 'node:child_process'
+import { execFileSync, execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './scripts/api.js'
 import { deltaTestFiles, isTestSource } from './test-paths.js'
@@ -31,31 +31,40 @@ export const FULL_SUITE_PREFIXES = [
 // directory committedTree() extracts — exactly HEAD's src/ and lean/, no .git — the same set is simply every file
 // present, so the walk below answers there. Both give one answer for one tree; the test holds them equal.
 const walk = (root: string, dir: string): string[] => {
+  if (EXCLUDED.test(dir + '/')) return []
   const abs = join(root, dir)
   if (!existsSync(abs)) return []
-  return readdirSync(abs, { withFileTypes: true }).flatMap((e) =>
-    e.isDirectory() ? walk(root, dir + '/' + e.name) : [dir + '/' + e.name])
+  return readdirSync(abs, { withFileTypes: true }).flatMap((e) => {
+    const rel = dir + '/' + e.name
+    if (e.isDirectory()) return EXCLUDED.test(rel + '/') ? [] : walk(root, rel)
+    return [rel]
+  })
+}
+/** git ls-files of one covered dir, payloads already excluded so the buffer cannot grow with handle chunks. */
+const gitTracked = (root: string, dir: string): string[] => {
+  const args = ['ls-files', '-z', '--', dir]
+  if (dir === 'src') args.push(':!:src/chunks', ':!:src/seeds')
+  const out = execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+  return out.split('\0').filter(Boolean)
 }
 export const listCoveredFiles = (root: string = ROOT): string[] =>
   COVERED.flatMap((dir) =>
-    (existsSync(join(root, '.git'))
-      ? execSync(`git ls-files ${dir}`, { cwd: root, encoding: 'utf8' }).split('\n')
-      : walk(root, dir))
-      .filter(Boolean)
+    (existsSync(join(root, '.git')) ? gitTracked(root, dir) : walk(root, dir))
       .filter((f) => !EXCLUDED.test(f)),
   ).sort()
 
 // ── THE COMMITTED TREE (lead 235). A working directory is a private tree that answers like a public one: twice in
 // one day a green was true of a directory (an open peer edit made it compile) and false of committed HEAD. The
-// receipt must attest what a push SENDS, so its covers are computed over `git archive <ref> src lean` extracted
-// once per ref per process — the exact committed bytes, nothing open in this directory.
+// receipt must attest what a push SENDS, so its covers are computed over `git archive <ref> src lean`
+// excluding generated payloads — the exact committed bytes the tests and the guard read, nothing open
+// in this directory and nothing the suite never opens.
 const _committed = new Map<string, string>()
 export function committedTree(ref: string = 'HEAD', root: string = ROOT): string {
   const key = `${root}@${ref}`
   const hit = _committed.get(key)
   if (hit) return hit
   const dir = mkdtempSync(join(tmpdir(), 'uuidna-committed-'))
-  execSync(`git archive ${ref} -- ${COVERED.join(' ')} | tar -x -C ${JSON.stringify(dir)}`, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 64 * 1024 * 1024 })
+  execSync(`git archive ${ref} -- src lean ':!:src/chunks' ':!:src/seeds' | tar -x -C ${JSON.stringify(dir)}`, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 64 * 1024 * 1024 })
   _committed.set(key, dir)
   return dir
 }

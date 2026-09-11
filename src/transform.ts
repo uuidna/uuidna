@@ -16,6 +16,7 @@ import { verifyStatement } from './verify-statement.js'
 import { adjudicate } from './adjudicate.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
+import { involuteToVerified, type InvoluteRun } from './solution-involution.js'
 
 export interface TransformCell {
   input: string
@@ -25,6 +26,7 @@ export interface TransformCell {
   address?: string
   transform?: string           // the HONEST transform applied ('normalized' | 'cited'), if any
   develop?: string             // UNVERIFIED only: the plan naming what would verify it
+  involute?: InvoluteRun       // UNVERIFIED involutes to sealed solutions in the same call
   note: string
 }
 export interface TransformRun { cells: TransformCell[]; verified: number; unverified: number; receipt: string }
@@ -61,11 +63,12 @@ export function transformOne(material: string): TransformCell {
     input, status: 'VERIFIED', transform: 'cited', address: toUuid('cited:' + input),
     note: 'VERIFIED by citation — it names a sealed theorem in the ledger',
   }
-  // 4) no proof reached — NOT admitted
+  const involute = involuteToVerified(input)
   return {
     input, status: 'UNVERIFIED',
-    develop: 'cite a sealed theorem (/theorem/<key>) or supply a decidable proof — then, and only then, it verifies',
-    note: 'no sealed proof — NOT admitted and NOT called honest (honesty without verification is a lie); recycled',
+    involute,
+    develop: involute.solutions.map((s) => s.route).join(' · '),
+    note: `involute ${involute.involute} — ${involute.solutions.length} sealed solution(s) via ${involute.method}`,
   }
 }
 

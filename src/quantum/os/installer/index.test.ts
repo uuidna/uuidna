@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { planChange, renderPlan, commitChange, interactiveInstall } from './index.js'
+import { planChange, renderPlan, commitChange, interactiveInstall, simpleInstall, parseInstallLine, installCombinationsOf } from './index.js'
 
 const A = [{ key: 'a' }, { key: 'b' }, { key: 'c' }]
 
@@ -70,4 +70,28 @@ test('interactive installer asks, simulates, commits, and audits the fused paylo
   assert.equal(audited.client.vitepress.qpu, false)
   assert.equal(audited.client.vitepress.concurrency, 2)
   assert.equal(audited.client.payload.write, false)
+})
+
+test('console combinations parse in one line; empty seats all', () => {
+  assert.deepEqual(parseInstallLine('').keys, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
+  assert.equal(parseInstallLine('').occupancy, 'personal')
+  assert.equal(parseInstallLine('').cloudflare, true)
+  const mix = parseInstallLine('1 3 saas cf')
+  assert.deepEqual(mix.keys, ['qpu-mcp', 'vitepress-payload'])
+  assert.equal(mix.occupancy, 'saas')
+  assert.equal(mix.cloudflare, true)
+  assert.equal(parseInstallLine('payload paas').keys[0], 'payload-mcp')
+  assert.equal(installCombinationsOf().length, 3)
+})
+
+test('simpleInstall is one shot: Enter / --yes seats all and commits', () => {
+  const seated = simpleInstall({ yes: true })
+  assert.equal(seated.committed, true)
+  assert.deepEqual(seated.seated, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
+  assert.equal(seated.occupancy, 'personal')
+  assert.equal(seated.cloudflare.payload.includes('uuidna-payload'), true)
+  interactiveInstall({ reset: true })
+  const saas = simpleInstall({ line: '2 saas', yes: true })
+  assert.deepEqual(saas.seated, ['payload-mcp'])
+  assert.equal(saas.occupancy, 'saas')
 })

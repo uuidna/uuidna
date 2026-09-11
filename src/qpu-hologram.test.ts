@@ -32,7 +32,7 @@ test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () =>
   assert.equal(qpuDiscoveryOf('https://uuidna.com').href, QPU_HREF)
 })
 
-test('reverse discovery is JSON-LD and does not impersonate the fridge', async () => {
+test('reverse discovery names qpu.uuidna.com', async () => {
   const res = await handleQpuFetch(new Request('https://uuidna.com/.well-known/qpu.json'))
   assert.equal(res.status, 200)
   const body = (await res.json()) as { reverse: boolean; href: string; host: string }

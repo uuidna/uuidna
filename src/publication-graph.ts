@@ -19,7 +19,7 @@
 //
 // A CONSTANT SHARED BY EVERYTHING MEANS NOTHING. `1` appears in nearly every wing, so it carries no kinship;
 // rarity is the whole signal, which is why the frequency census runs first and the common constants drop out.
-import { THEOREMS, type Theorem } from './theorems/index.js'
+import { THEOREMS, type Theorem, isPagelessFile } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { parseFormula, congruenceOf } from './formula.js'
 
@@ -85,12 +85,19 @@ export function termsByPublication(theorems: readonly Theorem[] = THEOREMS): Pub
     const constants = new Set<string>()
     const words = new Set<string>()
     const moduli = new Set<string>()
-    for (const t of ts) {
+    const sample = isPagelessFile(file) ? ts.slice(0, 1) : ts
+    for (const t of sample) {
       for (const m of String(t.statement).matchAll(/\d+/g)) constants.add(m[0])
       for (const w of String(t.name).toLowerCase().split(/[^a-z]+/))
         if (w.length > 3 && !STOP.has(w)) words.add(w)
       const mod = modulusOf(String(t.statement))
       if (mod !== null) moduli.add(mod)
+    }
+    // HexSpan stations share a wing size, not one rare constant per station. Name the lattice so the
+    // pageless wings kin each other without walking every station into the census.
+    if (isPagelessFile(file)) {
+      words.add('hexspan')
+      constants.add(String(ts.length))
     }
     return {
       file, slug: slugOfFile(file), count: ts.length,

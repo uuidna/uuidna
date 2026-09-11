@@ -11,6 +11,7 @@
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { PKG_VERSION } from './package-version.js'
 import { adjudicate } from './adjudicate.js'
+import { involuteToVerified } from './solution-involution.js'
 import { bootOS } from './quantum/os/index.js'
 import { ensureEdgeCatalogue } from './quantum/os/boot/index.js'
 import { reveal } from './gate.js'
@@ -74,9 +75,14 @@ const TOOLS: HttpTool[] = ([
   { name: 'uuidna_search', description: 'THE FUSED SEARCH — the ONE search function every surface runs (the site\'s search page in your browser, the stdio server, and this edge): filter the sealed ledger by {q}, fold the matched keys to ONE receipt. Your browser and this edge running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
     inputSchema: { type: 'object', properties: { q: { type: 'string' } }, required: ['q'] },
     run: (a) => searchLedger(String(a.q)) },
-  { name: 'uuidna_trial', description: 'Run the RECOMPUTABLE TRIAL on a {statement}: the three-way verdict (VERIFIED / REFUTED / UNVERIFIED, where UNVERIFIED is never "false", only not-yet) plus its content-address and order-invariant receipt. The same statement always addresses to the same trial. Integrity— it adjudicates the CITATION.',
+  { name: 'uuidna_trial', description: 'Run the RECOMPUTABLE TRIAL on a {statement}: VERIFIED / REFUTED / UNVERIFIED. UNVERIFIED involutes to sealed solutions in the same call. The same statement always addresses to the same trial.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string' } }, required: ['statement'] },
-    run: (a) => adjudicate(String(a.statement)) },
+    run: (a) => {
+      const statement = String(a.statement)
+      const v = adjudicate(statement)
+      if (v.verdict !== 'UNVERIFIED') return v
+      return { ...v, involute: involuteToVerified(statement) }
+    } },
   { name: 'uuidna_gate', description: 'The HONESTY GATE over a {claim}: reveals the verdict and the binary (1 = honest floor holds, 0 = drained), the sealed theorems it cites, and any FABRICATED citation. A claim citing a proof that is not sealed drains to 0. Integrity.',
     inputSchema: { type: 'object', properties: { claim: { type: 'string' } }, required: ['claim'] },
     run: (a) => reveal(String(a.claim)) },
@@ -227,7 +233,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. After your first deposit: uuidna_quantum_advantage (compute path + magnitudes over classical re-run — verify_beats_recompute_by_magnitudes, not hardware supremacy). Alpine apps: uuidna_exec. Multi-agent: declare clientInfo.name at initialize; poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Integrity.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
-  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(served()) } })
+  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(served()), useCases: 'dist/**/*.test.js' } })
   if (method === 'tools/call') {
     const name = String(params.name ?? '')
     const tool = served().find((t) => t.name === name)
