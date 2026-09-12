@@ -326,7 +326,9 @@ export function runCourtCli(argv: readonly string[]): number {
     const v = receiptCovers(want)
     if (v.state !== 'covered') {
       console.error(`\n✗ court — BLOCKED: ${v.state === 'moved' ? `the tree MOVED since it was proven green (${v.moved.join(', ')})` : 'no digests were handed over'}`)
-      console.error('  FIX npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
+      // THE CURE IS THE PLANNER, NOT THE FULL SUITE (2026-09-12: this line prescribed `npm test`, an operator ran it,
+      // and 40 minutes re-proved a tree the planner would have verified in a fraction — verify_beats_recompute).
+      console.error('  FIX npm run guard && node dist/scripts/test-plan.js && node dist/scripts/gate-receipt.js --verified guard,tests')
       return 1
     }
   }

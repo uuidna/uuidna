@@ -33,27 +33,50 @@ export function receiptOf(names: readonly string[]): string {
   return handleOf(toUuid([...names].sort().join('\u0000')))
 }
 
-/** The reporter: node hands it the event stream and prints whatever this yields. */
+// RECEIPT PER SUPERPOSITION (the captain, 2026-09-12). Each test file is one circuit and its tests one superposition:
+// one receipt per file (402 lines, not the 2518-line roll-call this reporter removed) and the TOTAL is the fold of
+// those file receipts — a two-level merkle, so the whole verifies from the parts without re-reading a name. The
+// definition of the total moved once, here, and receiptFlatOf keeps the old flat fold re-derivable. What this
+// proves is exact: which tests passed, per file and in total. The tests prove computation; this folds their names.
+export function receiptFlatOf(names: readonly string[]): string { return receiptOf(names) }
+
+export function fileReceiptsOf(byFile: ReadonlyMap<string, readonly string[]>): [string, string, number][] {
+  return [...byFile.entries()]
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([file, names]) => [file, receiptOf(names), names.length])
+}
+
+/** totalOf(fileReceipts) -> the root: a fold over the per-file receipts, so it verifies from the parts. */
+export function totalOf(fileReceipts: readonly [string, string, number][]): string {
+  return receiptOf(fileReceipts.map(([file, r]) => `${file}${r}`))
+}
+
 export default async function* testReceipt(source: AsyncIterable<TestEvent>): AsyncGenerator<string> {
-  const passed: string[] = []
+  const byFile = new Map<string, string[]>()
   const failed: { name: string; file: string; message: string }[] = []
+  let passedCount = 0
   for await (const event of source) {
     const name = event.data?.name ?? ''
-    if (event.type === 'test:pass') passed.push(name)
-    else if (event.type === 'test:fail') {
+    const file = (event.data?.file ?? '').replace(/^.*\/dist\//, '')
+    if (event.type === 'test:pass') {
+      passedCount += 1
+      const bucket = byFile.get(file)
+      if (bucket) bucket.push(name); else byFile.set(file, [name])
+    } else if (event.type === 'test:fail') {
       const err = event.data?.details?.error
-      failed.push({ name, file: event.data?.file ?? '', message: err?.message ?? String(err ?? 'no error reported') })
+      failed.push({ name, file, message: err?.message ?? String(err ?? 'no error reported') })
     }
   }
-  // FAILURES FIRST AND IN FULL — the caller acts on these, and a report that buries them under a summary has
-  // optimised the wrong reader.
   for (const f of failed) {
     yield `✗ ${f.name}\n`
     if (f.file) yield `    ${f.file}\n`
     yield `    ${f.message.split('\n')[0]}\n`
   }
-  const total = passed.length + failed.length
+  const leaves = fileReceiptsOf(byFile)
+  for (const [file, r, n] of leaves) yield `· ${r}  ${String(n).padStart(4)}  ${file}\n`
+  const total = passedCount + failed.length
+  const root = totalOf(leaves)
   yield failed.length === 0
-    ? `✓ tests — ${passed.length}/${total} pass, receipt ${receiptOf(passed)} (re-run without --test-reporter for the roll-call)\n`
-    : `✗ tests — ${failed.length} of ${total} FAILED, ${passed.length} pass, receipt ${receiptOf(passed)}\n`
+    ? `✓ tests — ${passedCount}/${total} pass in ${leaves.length} superpositions, receipt ${root} (root = fold of the ${leaves.length} file receipts above)\n`
+    : `✗ tests — ${failed.length} of ${total} FAILED, ${passedCount} pass, receipt ${root}\n`
 }

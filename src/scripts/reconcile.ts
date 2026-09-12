@@ -145,7 +145,7 @@ if (unstagedNow !== '' && !deriveOnly) {
   console.log('  for exactly this, after paying for the whole publish court. Finish it deliberately:')
   console.log('')
   console.log('    git add <your files>')
-  console.log('    npm run guard && npm test')
+  console.log('    npm run guard && node dist/scripts/test-plan.js')
   console.log('    node dist/scripts/gate-receipt.js --verified guard,tests   # AFTER staging: staging moves files')
   console.log('    git add gate-receipt.json && git commit -m "… Backed by theorem <key>" && git push origin HEAD')
   console.log('')

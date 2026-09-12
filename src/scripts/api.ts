@@ -328,15 +328,8 @@ export const laneCensus = (addresses: readonly string[], lanes: number): number[
   return counts
 }
 
-/** import a COMPILED module by ABSOLUTE path — always as a file URL.
- *
- *  A POSIX absolute path happens to be a usable module specifier, so `import(join(dist, 'x.js'))` reads as correct
- *  and is correct — there. On Windows the same expression hands the loader `C:\…`, which it reads as a URL with the
- *  scheme `c:` and refuses outright. The specifier form is a host fact, so it is settled once, here, rather than at
- *  each of the six call sites that had quietly assumed one host. */
-export const importAbs = <T = Record<string, unknown>>(abs: string): Promise<T> =>
-  import(urlm().pathToFileURL(abs).href) as Promise<T>
-
+// importAbs moved to ./import-abs.ts (2026-09-12): the ONE computed import() in this module made every importer
+// of api.js — 257 tests — an invisible dependency of every move, though only one-receipt.ts ever calls it.
 // ── ONE READ PER FILE PER PROCESS (2026-09-01, "dry clean the laws to serve quantum") ────────────────────────
 //
 // The guard is 45 finders and they all read the same tree. Measured over one run: 3,159 readFileSync calls for
@@ -625,6 +618,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-leads': ['docs/leads.md'],
   'gen-refusals': ['src/school/refusals/generated.ts'],
   'gen-zenodo': ['.zenodo.json'],
+  'test-plan': [],   // runs the delta the receipt names; reports, writes nothing (the receipt is gate-receipt's to mint)
   'gen-zenodo-seals': ['zenodo'],
   'gen-school': ['docs/school.md'],
   // THE EIGHT THE CHAIN NEVER RAN. reconcile listed nine generators by hand while generate.ts's manifest held
