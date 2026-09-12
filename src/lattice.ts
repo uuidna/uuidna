@@ -14,6 +14,8 @@ import { toUuid } from './address.js'
 import { involute, involutionFixed } from './diamond.js'
 import { familyOf, type AxiomFamily } from './axiom-families.js'
 import { CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL } from './clay-involution.js'
+import { trialRayOf } from './theorems/index.js'
+import { merkleGravity } from './gravity/index.js'
 
 const HEX = '0123456789abcdef'
 
@@ -377,4 +379,45 @@ export function fillLattice(): LatticeFill {
     honest: FILL_HONEST,
   }
   return _fill
+}
+
+// ── WINGS CALLED ONTO THE GRID, FOLDED ONCE ────────────────────────────────────────────────────────────────────
+// A comparison across wings is worth what its receipt is worth. Naming wings in prose pays the claim; calling their
+// sealed theorems onto their own stations and folding the result pays the receipt, and anyone recomputes it. The
+// placement is DERIVED — a theorem's station is the first half of its own handle — so nothing here is chosen.
+// A collision is REPORTED, never smoothed: two cargo on one station is a reading about the grid, not a defect to hide.
+export interface WingCall {
+  wings: readonly string[]
+  cargo: number
+  stations: number
+  collisions: { station: string; keys: string[] }[]
+  rays: { ray: number; cargo: number }[]
+  fold: string
+  stationFold: string
+}
+
+/** stationCollisionsOf(rows) → the stations carrying more than one piece of cargo, named. Pure; its own control. */
+export function stationCollisionsOf(rows: readonly { key: string; station: string }[]): { station: string; keys: string[] }[] {
+  const by = new Map<string, string[]>()
+  for (const r of rows) by.set(r.station, [...(by.get(r.station) ?? []), r.key])
+  return [...by].filter(([, keys]) => keys.length > 1).map(([station, keys]) => ({ station, keys: [...keys].sort() }))
+    .sort((a, b) => (a.station < b.station ? -1 : 1))
+}
+
+/** callWingsOntoStations(files) → those wings' sealed theorems on their own stations, with one recomputable fold. */
+export function callWingsOntoStations(files: readonly string[]): WingCall {
+  const wings = [...files].sort()
+  const cargo = theorems().filter((t) => wings.includes(t.file))
+  const rows = cargo.map((t) => ({ key: t.key, station: stationOfAddress(t.address), ray: trialRayOf(t.address) }))
+  const rays = [...new Map(rows.map((r) => [r.ray, rows.filter((x) => x.ray === r.ray).length])).entries()]
+    .map(([ray, n]) => ({ ray, cargo: n })).sort((a, b) => a.ray - b.ray)
+  return {
+    wings,
+    cargo: cargo.length,
+    stations: new Set(rows.map((r) => r.station)).size,
+    collisions: stationCollisionsOf(rows),
+    rays,
+    fold: merkleGravity(cargo.map((t) => t.address)),
+    stationFold: merkleGravity(rows.map((r) => r.station)),
+  }
 }

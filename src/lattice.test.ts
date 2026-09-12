@@ -6,7 +6,7 @@ import { involute, involutionFixed } from './diamond.js'
 import {
   LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,
   parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,
-  latticeCall, fillLattice, callSolutionInvolution,
+  latticeCall, fillLattice, callSolutionInvolution, callWingsOntoStations, stationCollisionsOf,
 } from './lattice.js'
 
 test('the lattice is the handle birthday point — 2^16 stations, four hex each', () => {
@@ -95,4 +95,29 @@ test('then the solution involution: self-inverse, Clay reflects seven and solves
 test('latticeCall refuses a non-station rather than coercing', () => {
   assert.throws(() => latticeCall('gggg'), /not a four-hex station/)
   assert.throws(() => latticeCall('00000'), /not a four-hex station/)
+})
+
+// A CROSS-WING COMPARISON IS A FOLD, NOT A LIST. The wings are named; every other figure is derived from the
+// ledger, the fold is order-invariant, and a station carrying two pieces of cargo is reported rather than smoothed.
+test('named wings are called onto their own stations and fold to one recomputable receipt', () => {
+  const wings = ['BioPhysics.lean', 'Hardware.lean', 'Os.lean', 'Thermodynamics.lean']
+  const call = callWingsOntoStations(wings)
+  assert.deepEqual(call.wings, [...wings].sort())
+  assert.equal(call.cargo, theorems().filter((t) => wings.includes(t.file)).length)
+  assert.ok(call.cargo > 0, 'the wings must carry cargo or the fold proves nothing')
+  // the placement is DERIVED, never chosen: a station is the first half of the cargo's own handle
+  for (const t of theorems().filter((x) => wings.includes(x.file)))
+    assert.equal(stationOfAddress(t.address), handleOf(t.address).slice(0, STATION_HEXBITS))
+  assert.equal(call.stations + call.collisions.reduce((n, c) => n + c.keys.length - 1, 0), call.cargo)
+  assert.equal(call.rays.reduce((n, r) => n + r.cargo, 0), call.cargo, 'every piece of cargo sits on exactly one ray')
+  // ORDER-INVARIANT: the same wings named in any order fold to the same receipt
+  assert.equal(callWingsOntoStations([...wings].reverse()).fold, call.fold)
+  assert.equal(callWingsOntoStations([...wings].reverse()).stationFold, call.stationFold)
+})
+
+// THE COLLISION DETECTOR MUST BE ABLE TO FIRE, or "no collisions" means nothing.
+test('a station carrying two pieces of cargo is named, and a clean grid reports none', () => {
+  assert.deepEqual(stationCollisionsOf([{ key: 'a', station: '0001' }, { key: 'b', station: '0002' }]), [])
+  assert.deepEqual(stationCollisionsOf([{ key: 'b', station: '00ff' }, { key: 'a', station: '00ff' }]),
+    [{ station: '00ff', keys: ['a', 'b'] }])
 })
