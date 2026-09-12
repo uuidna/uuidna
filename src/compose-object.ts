@@ -18,7 +18,6 @@ import { monographFaceOf, channelAudit } from './hexagram.js'
 import { handleOf } from './handle.js'
 import { STANDING_DOI } from './handle-permanence.js'   // the ONE place the archive DOI is written
 import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from './publication-metadata.js'
-import { readFileSync as readToolchain } from 'node:fs'
 
 /** THE TOOLCHAIN A READER NEEDS TO REPRODUCE THE PROOF, read from the pin rather than written down.
  *
@@ -28,7 +27,10 @@ import { readFileSync as readToolchain } from 'node:fs'
  *  the proof carried neither. Both are derived here: the version from the pin, and the dependency line from the
  *  wing itself, so a page cannot claim a toolchain the repository has stopped using. */
 const LEAN_PIN = (() => {
-  try { return readToolchain(new URL('../lean-toolchain', import.meta.url), 'utf8').trim() } catch { return '' }
+  // THE BOUNDARY OWNS THE READ (2026-09-13). This file is on the browser-safe barrel path and its own test reads
+  // it as text, refusing any static `node:fs`; rdRoot is the declared repo-relative reader, already imported below,
+  // and it refuses by name outside Node. The catch below already turns both absence and refusal into '' as before.
+  try { return rdRoot('lean-toolchain').trim() } catch { return '' }
 })()
 const LEAN_VERSION = LEAN_PIN.split(':')[1] ?? ''
 

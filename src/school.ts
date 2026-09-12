@@ -343,7 +343,12 @@ export function renderPath(p: Path, maxDepth = 2): string[] {
   const hashes = '#'.repeat(p.depth + 1)
   out.push(`${hashes} ${p.title} {#${p.id}}`)
   if (p.links.length) out.push(p.links.map((l) => `[${l.replace(/^#|^\/theorem\//, '')}](${l})`).join(' · '))
-  if (p.depth < maxDepth) for (const c of p.children) out.push(...renderPath(c, maxDepth))
+  // A SPREAD IS AN ARGUMENT LIST, AND AN ARGUMENT LIST HAS A CEILING (2026-09-13). `out.push(...renderPath(c))`
+  // hands every line of a rendered subtree to push as separate arguments; one level of this school returns more
+  // lines than this runtime accepts, and the RangeError V8 raises is worded "Maximum call stack size exceeded",
+  // which reads as runaway recursion and is not — the tree is three deep. A loop carries the same lines with no
+  // ceiling, and the output is identical.
+  if (p.depth < maxDepth) for (const c of p.children) for (const line of renderPath(c, maxDepth)) out.push(line)
   else if (p.children.length) out.push(`_${p.children.length} below this node, addressable at its own anchors._`)
   return out
 }
