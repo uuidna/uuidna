@@ -7,6 +7,8 @@ import { uuidnaDecode } from '../quantum-audit-ratios.js'
 import { ledgerDigest, mintReceipt } from '../receipt-memo.js'
 
 const key = ledgerDigest()
-const coverage = mintReceipt('coverage', publications().map((p) => ({ file: p.file, theorems: p.theorems })))
+const pubs = publications()
+const rich = mintReceipt('publications', pubs)
+const coverage = mintReceipt('coverage', pubs.map((p) => ({ file: p.file, theorems: p.theorems })))
 const decode = mintReceipt('decode', uuidnaDecode())
-console.log(`✓ gen-receipts — minted under ledger ${key.slice(0, 8)}: ${coverage} · ${decode}`)
+console.log(`✓ gen-receipts — minted under ledger ${key.slice(0, 8)}: ${rich} · ${coverage} · ${decode}`)

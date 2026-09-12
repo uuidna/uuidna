@@ -408,6 +408,10 @@ export function comparePublications(a: string, b: string): Comparison {
 let _pubs: Publication[] | null = null
 export function publications(): Publication[] {
   if (_pubs) return _pubs
+  // the rich monographs as a receipt minted at reconcile (gen-receipts): every gateway that needs them — oeapi,
+  // the site, the deposits — reads them in O(1) for this ledger instead of composing 215 s (measured 2026-09-12)
+  const minted = readReceipt<Publication[]>('publications')
+  if (minted) return (_pubs = minted)
   const present = new Set(THEOREMS.map((t) => t.file))
   const files = PRINCIPLES.map((p) => p[0]).filter((f) => present.has(f))
   return (_pubs = files.map(composePublication))

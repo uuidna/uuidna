@@ -408,6 +408,10 @@ let _cache: QuantumAuditRatios | null = null
 /** quantumAuditRatios() — ratios, angles, polarities decoded from Sequence + Rosetta, fused to one receipt. */
 export function quantumAuditRatios(): QuantumAuditRatios {
   if (_cache) return _cache
+  // the decode receipt carries this whole audit as its `audit` field — the same computation, minted once per ledger
+  // state; a gateway that asks for the ratios alone (captainRights, 206 s measured) reads it in O(1)
+  const minted = readReceipt<{ audit?: QuantumAuditRatios }>('decode')?.audit
+  if (minted) return (_cache = minted)
   const polarities = decodePolarities()
   const angles = decodeAngles()
   const seq = decodeSequenceLedger()
