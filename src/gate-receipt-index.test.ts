@@ -67,3 +67,42 @@ test('the arm parse claims passing arms only — a red arm and silence both yiel
   assert.deepEqual(parse('· green — tests   UNMEASURED  nothing ran'), [], 'unmeasured is not passing')
   assert.deepEqual(parse(''), [], 'silence attributes nothing, so nothing is minted')
 })
+
+// ── THE GRAPH NAMES THE TESTS THAT CAN OBSERVE A MOVE (2026-09-11). Fixture tree: a.test imports a imports b;
+// c.test reads lean/; d.test reads nothing covered; e.test imports by a non-literal specifier. A move of b reaches
+// a.test only; a lean move reaches c.test only; either move also reaches e.test, whose dependency is invisible.
+test('graphPlanOf — imports and reads select tests; invisible dependencies are conservative', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs')
+  const { tmpdir } = await import('node:os')
+  const { graphPlanOf, testGraphOf } = await import('./test-graph.js')
+  const root = mkdtempSync(join(tmpdir(), 'uuidna-graph-'))
+  mkdirSync(join(root, 'dist'), { recursive: true })
+  writeFileSync(join(root, 'dist/b.js'), 'export const b = 1\n')
+  writeFileSync(join(root, 'dist/a.js'), "import { b } from './b.js'\nexport const a = b + 1\n")
+  writeFileSync(join(root, 'dist/a.test.js'), "import { a } from './a.js'\nconsole.log(a)\n")
+  writeFileSync(join(root, 'dist/c.test.js'), "import { readdirSync } from 'node:fs'\nconsole.log(readdirSync('lean/'))\n")
+  writeFileSync(join(root, 'dist/d.test.js'), 'console.log(1)\n')
+  writeFileSync(join(root, 'dist/e.test.js'), "const name = 'x'\nconst m = await import(`./${name}.js`)\nconsole.log(m)\n")
+  const graph = testGraphOf(root)
+  const onB = graphPlanOf(['src/b.ts'], graph)
+  assert.equal(onB.mode, 'delta')
+  if (onB.mode === 'delta') assert.deepEqual(onB.files, ['dist/a.test.js', 'dist/e.test.js'])
+  const onLean = graphPlanOf(['lean/Wave.lean'], graph)
+  assert.equal(onLean.mode, 'delta')
+  if (onLean.mode === 'delta') assert.deepEqual(onLean.files, ['dist/c.test.js', 'dist/e.test.js'])
+  const onNothing = graphPlanOf(['src/never-compiled.ts'], graph)
+  assert.equal(onNothing.mode, 'delta')
+  if (onNothing.mode === 'delta') {
+    assert.deepEqual(onNothing.unreached, ['src/never-compiled.ts'])
+    assert.deepEqual(onNothing.files, ['dist/e.test.js'])
+  }
+})
+
+test('testGraphOf over this tree sees the suite and its readers', async () => {
+  const { testGraphOf } = await import('./test-graph.js')
+  const graph = testGraphOf()
+  const tests = [...graph.modules.values()].filter((m) => m.test)
+  assert.ok(tests.length > 300, `${tests.length} test modules`)
+  assert.ok(tests.some((m) => m.reads.includes('lean/')), 'some test reads lean/')
+  assert.ok(graph.importers.get('dist/address.js')?.size ?? 0 > 0, 'address.js has importers')
+})

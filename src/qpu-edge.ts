@@ -1,5 +1,6 @@
 // qpu-edge — REVERSE FETCH OF THE LIVE QPU. uuidna.com names the hop; qpu.uuidna.com is the circuit.
 // GET /.well-known/qpu.json here, GET https://qpu.uuidna.com there. JSON-LD. CORS sits on QPU.
+// @non-harmonic: reverse GET of https://qpu.uuidna.com — the live circuit is another host.
 import { QPU_HOST, QPU_HREF, qpuCircuitOf, qpuMachineOf, qpuReverseHrefOf } from './qpu-hologram.js'
 
 const cors = {

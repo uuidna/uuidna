@@ -7,6 +7,7 @@ import { execFileSync, execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './scripts/api.js'
 import { deltaTestFiles, isTestSource } from './test-paths.js'
+import { graphPlanOf, testGraphOf } from './test-graph.js'
 
 export { deltaTestFiles } from './test-paths.js'
 
@@ -137,20 +138,23 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   if (!moved.length) {
     return { mode: 'skip', why: 'per-file manifest matches — coarse digest drift without file drift' }
   }
-  if (needsFullSuite(moved)) {
-    return { mode: 'full', why: `ledger or served surface moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
+  // THE GRAPH, NOT THE PREFIX LIST (2026-09-11). needsFullSuite stays as the answer when there is no built tree to
+  // read; with dist present, the import-and-reads graph names the tests that can observe the move, and a dependency
+  // it cannot see is a full suite by construction (test-graph.ts). This is what makes a landing a delta.
+  if (!existsSync(join(root, 'dist'))) {
+    if (needsFullSuite(moved)) {
+      return { mode: 'full', why: `no built tree to read and ledger or served surface moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
+    }
+    const onlyTests = moved.every((f) => isTestSource(f))
+    if (!onlyTests) return { mode: 'full', why: `no built tree to read and non-test src moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
+    const files = deltaTestFiles(moved)
+    return files.length ? { mode: 'delta', files, why: `${files.length} test file(s) for ${moved.length} changed path(s)` } : { mode: 'full', why: 'test sources moved but no dist test files resolved' }
   }
-  const onlyTests = moved.every((f) => isTestSource(f))
-  if (!onlyTests) {
-    return { mode: 'full', why: `non-test src moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
-  }
-  const files = deltaTestFiles(moved)
+  const graph = graphPlanOf(moved, testGraphOf(root))
+  if (graph.mode === 'full') return graph
+  const files = [...new Set([...graph.files, ...deltaTestFiles(moved.filter((f) => isTestSource(f)))])].sort()
   if (!files.length) {
-    return { mode: 'full', why: 'test sources moved but no dist test files resolved' }
+    return { mode: 'skip', why: `no test imports or reads what moved (${moved.length} path(s), ${graph.unreached.length} unreached) — verified by graph, suite not recomputed` }
   }
-  return {
-    mode: 'delta',
-    files,
-    why: `${files.length} test file(s) for ${moved.length} changed path(s)`,
-  }
+  return { mode: 'delta', files, why: `${graph.why}; ${moved.length} moved path(s)` }
 }

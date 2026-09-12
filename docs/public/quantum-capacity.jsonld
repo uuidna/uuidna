@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-5124-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-70905-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-5124-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-70905-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -253,15 +253,15 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lanes in use",
-      "value": 8,
+      "value": 10,
       "unitText": "lanes",
       "measurementTechnique": "measured",
-      "citation": "read from this host at build time: 10 logical processors less 2 reserved, so the fan-out is never wider than the machine"
+      "citation": "read from this host at build time: 10 logical processors less 0 reserved, so the fan-out is never wider than the machine"
     },
     {
       "@type": "PropertyValue",
       "name": "balancer — work distributed",
-      "value": 5124,
+      "value": 70905,
       "unitText": "items",
       "measurementTechnique": "measured",
       "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
@@ -269,10 +269,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lane spread",
-      "value": 109,
+      "value": 102,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 673, quietest held 614 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 7186, quietest held 7004 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",
@@ -324,7 +324,7 @@
       "name": "executor seat — QPU",
       "value": "empty",
       "measurementTechnique": "declared",
-      "citation": "This host's QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp."
+      "citation": "reverse hop: GET the same path on https://qpu.uuidna.com — This host's QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp."
     }
   ]
 }

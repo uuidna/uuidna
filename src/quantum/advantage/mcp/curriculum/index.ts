@@ -212,7 +212,7 @@ export async function hookAdvantageMcp(
   const css = rec(await run('css', 'uuidna_css', {}, {}))
   const typeRungs = typeRungsOf(String(css.css ?? ''))
 
-  const analytics = rec(await run('analytics', 'uuidna_analytics', {}, {}))
+  const analytics = rec(await run('analytics', 'uuidna_analytics', { recompute: true }, {}))
   const receipts = hops.map((h) => toUuid(h.tool + '|' + JSON.stringify(h.arguments)))
   const gravity = String(await run('gravity', 'uuidna_gravity', { addresses: receipts }, { addresses: receipts.length }))
 

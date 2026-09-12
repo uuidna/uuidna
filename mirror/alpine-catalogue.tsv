@@ -451,9 +451,9 @@ community	arpack-doc	3.9.1-r0	Q1FsOZMCSCWUmIkyQ/M30T/ZYH6mk=	Collection of Fortr
 community	arpack-ilp64	3.9.1-r0	Q1B+870Wi9Jn+zcpv+h0tp5z+9hgU=	Collection of Fortran77 subroutines designed to solve large scale eigenvalue problems (ILP64)	openblas-ilp64 so:libc.musl-x86_64.so.1 so:libgfortran.so.5	so:libarpack64_.so.2=2.1.0
 community	arping	2.28-r0	Q1ip0hE2UZfR0/2nscC+oPcP/YFzk=	An ARP ping utility	!iputils so:libc.musl-x86_64.so.1 so:libnet.so.9 so:libpcap.so.1	cmd:arping=2.28-r0
 community	arping-doc	2.28-r0	Q1Y91VwSx+iQ9aru+glyXSKlnfmnY=	An ARP ping utility (documentation)		
-community	arti	2.4.0-r0	Q1ONy3CknUpvhxw4u+cyz8a35FCMQ=	An implementation of Tor, in Rust	/bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblzma.so.5 so:libsqlite3.so.0 so:libssl.so.3 so:libzstd.so.1	cmd:arti=2.4.0-r0
-community	arti-doc	2.4.0-r0	Q1B8fmj1cEugQPX/lG0BTw0/pxKtk=	An implementation of Tor, in Rust (documentation)		
-community	arti-openrc	2.4.0-r0	Q1XkAIkpAQEAKFaXNlZeKOAZafiMY=	An implementation of Tor, in Rust (OpenRC init scripts)		
+community	arti	2.5.1-r0	Q1knTbpPExy3gdOWCeiy+pTiDZcuY=	An implementation of Tor, in Rust	/bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblzma.so.5 so:libsqlite3.so.0 so:libssl.so.3 so:libzstd.so.1	cmd:arti=2.5.1-r0
+community	arti-doc	2.5.1-r0	Q14sZDVJzNryKtuAu1cVbJP+bj/wE=	An implementation of Tor, in Rust (documentation)		
+community	arti-openrc	2.5.1-r0	Q1vlPe9ycKp8QUB6SmqzNhMF5YSqQ=	An implementation of Tor, in Rust (OpenRC init scripts)		
 community	artikulate	26.04.2-r0	Q1eG+Ydm73iFducRK+jgflqbQ/KL0=	Improve your pronunciation by listening to native speakers	kirigami so:libKF6Archive.so.6 so:libKF6ConfigCore.so.6 so:libKF6ConfigGui.so.6 so:libKF6CoreAddons.so.6 so:libKF6Crash.so.6 so:libKF6I18n.so.6 so:libKF6ItemModels.so.6 so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libQt6Qml.so.6 so:libQt6Quick.so.6 so:libQt6Sql.so.6 so:libQt6Widgets.so.6 so:libQt6Xml.so.6 so:libc.musl-x86_64.so.1 so:libstdc++.so.6 so:libxml2.so.2	cmd:artikulate=26.04.2-r0 cmd:artikulate_editor=26.04.2-r0 so:libartikulatecore.so.0=0 so:libartikulatelearnerprofile.so.0=0
 community	artikulate-doc	26.04.2-r0	Q1xXGY63L66PMK7F4TIC2cxINu5I8=	Improve your pronunciation by listening to native speakers (documentation)		
 community	artikulate-lang	26.04.2-r0	Q1/054468J4Gqs/tCQMPE8JHhJYio=	Languages for package artikulate		
@@ -472,15 +472,15 @@ community	asio-dev	1.36.0-r0	Q1W/17pvrg9EyXZKJiIZcnXXqevAQ=	Cross-platform C++ l
 community	asn	0.81.0-r0	Q1q20+/8WNGTcum13G/t+IBIevxHU=	ASN Lookup Tool and Traceroute Server	bash ncurses nmap nmap-ncat mtr aha curl whois grepcidr3 coreutils ipcalc bind-tools jq	cmd:asn=0.81.0-r0
 community	aspcud	1.9.6-r10	Q1/A+cVjVYvsV9DFHsvCt8S9yolmE=	Package dependency solver	clingo so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:aspcud=1.9.6-r10 cmd:cudf2lp=1.9.6-r10
 community	aspcud-doc	1.9.6-r10	Q1isQcRIzS5UmxMQEYeYoSGSo3AXk=	Package dependency solver (documentation)		
-community	aspnetcore10-runtime	10.0.10-r0	Q1d8ovLQmWGsC0KQvJT6OPTV4cug0=	The ASP.NET 10.0 Core runtime	dotnet10-runtime	aspnetcore-runtime-10.0=10.0.10-r0
-community	aspnetcore10-runtime-dbg	10.0.10-r0	Q1LgYLGukazzy3bFR5GyirF7iKiEM=	The ASP.NET 10.0 Core runtime - pdb debug files	aspnetcore10-runtime	aspnetcore-runtime-dbg-10.0=10.0.10-r0
-community	aspnetcore10-targeting-pack	10.0.10-r0	Q1NCMlPkb6iqinx/1qlajrUP+AjIs=	The ASP.NET 10.0 Core targeting pack	dotnet10-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-10.0=10.0.10-r0
-community	aspnetcore8-runtime	8.0.29-r0	Q175+ZTQToJPr7cn6m1GkEyNkZogg=	The ASP.NET 8.0 Core runtime	dotnet8-runtime	aspnetcore-runtime-8.0=8.0.29-r0
-community	aspnetcore8-runtime-dbg	8.0.29-r0	Q1MqJxIyBzoaVciaUjF5prIaueVMs=	The ASP.NET 8.0 Core runtime - pdb debug files	aspnetcore8-runtime	aspnetcore-runtime-dbg-8.0=8.0.29-r0
-community	aspnetcore8-targeting-pack	8.0.29-r0	Q18T9mJtLoFQ68hMgKFf/JbkF8YLw=	The ASP.NET 8.0 Core targeting pack	dotnet8-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-8.0=8.0.29-r0
-community	aspnetcore9-runtime	9.0.18-r0	Q1+s3I3r1CxiP+yrBCgmbrIqmmQjw=	The ASP.NET 9.0 Core runtime	dotnet9-runtime	aspnetcore-runtime-9.0=9.0.18-r0
-community	aspnetcore9-runtime-dbg	9.0.18-r0	Q13kwI4XgyEpPRaAnR3xwvD48bkzk=	The ASP.NET 9.0 Core runtime - pdb debug files	aspnetcore9-runtime	aspnetcore-runtime-dbg-9.0=9.0.18-r0
-community	aspnetcore9-targeting-pack	9.0.18-r0	Q1y4Bxy0eQeU+XZBg63GhgJx/hbos=	The ASP.NET 9.0 Core targeting pack	dotnet9-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-9.0=9.0.18-r0
+community	aspnetcore10-runtime	10.0.12-r0	Q1kwuh+K7bQTJkeWm4byazQSPLa1k=	The ASP.NET 10.0 Core runtime	dotnet10-runtime	aspnetcore-runtime-10.0=10.0.12-r0
+community	aspnetcore10-runtime-dbg	10.0.12-r0	Q16Y12Z88eov75py6bxpl6scBQQq0=	The ASP.NET 10.0 Core runtime - pdb debug files	aspnetcore10-runtime	aspnetcore-runtime-dbg-10.0=10.0.12-r0
+community	aspnetcore10-targeting-pack	10.0.12-r0	Q1ULZikcnzF+SVRvqri2ho7YiHIB0=	The ASP.NET 10.0 Core targeting pack	dotnet10-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-10.0=10.0.12-r0
+community	aspnetcore8-runtime	8.0.31-r0	Q1GaJQLV1zqKpxCvzK1RhszYVUaEU=	The ASP.NET 8.0 Core runtime	dotnet8-runtime	aspnetcore-runtime-8.0=8.0.31-r0
+community	aspnetcore8-runtime-dbg	8.0.31-r0	Q1fK4LrpIwyL/8NUmlhcZ/rhIO0k8=	The ASP.NET 8.0 Core runtime - pdb debug files	aspnetcore8-runtime	aspnetcore-runtime-dbg-8.0=8.0.31-r0
+community	aspnetcore8-targeting-pack	8.0.31-r0	Q11m58mLgjh/BdFfEVY39pcdB94qI=	The ASP.NET 8.0 Core targeting pack	dotnet8-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-8.0=8.0.31-r0
+community	aspnetcore9-runtime	9.0.20-r0	Q1/RJq6L2mfHe+DA0XldGwp2Caa78=	The ASP.NET 9.0 Core runtime	dotnet9-runtime	aspnetcore-runtime-9.0=9.0.20-r0
+community	aspnetcore9-runtime-dbg	9.0.20-r0	Q1pQ7nQIIk2kZ+rL0Q6qcNuX18VFs=	The ASP.NET 9.0 Core runtime - pdb debug files	aspnetcore9-runtime	aspnetcore-runtime-dbg-9.0=9.0.20-r0
+community	aspnetcore9-targeting-pack	9.0.20-r0	Q1mhltOi+qZnzNIqoiUHfgUZPH+50=	The ASP.NET 9.0 Core targeting pack	dotnet9-hostfxr icu-data-full icu-libs	aspnetcore-targeting-pack-9.0=9.0.20-r0
 community	assimp	6.0.4-r0	Q1L4tojPlBb2+nFrT3Ko7ZfdiUYa0=	Open Asset Import Library imports and exports 3D model formats	so:libassimp.so.6 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:assimp=6.0.4-r0
 community	assimp-dev	6.0.4-r0	Q1to/kfDHrv4Wu2Laxd+0RkVQ1TMM=	Open Asset Import Library imports and exports 3D model formats (development files)	assimp-libs=6.0.4-r0 pkgconfig	pc:assimp=6.0.4
 community	assimp-libs	6.0.4-r0	Q1tE2HP5L2VpPdfiRmK1YTcIOvLw8=	Open Asset Import Library imports and exports 3D model formats (libraries)	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libz.so.1	so:libassimp.so.6=6.0.4
@@ -2847,59 +2847,59 @@ community	dos2unix	7.5.5-r0	Q1I9kuQpRlwyEMMM5u//MHrQB7v3k=	Text file format conv
 community	dos2unix-doc	7.5.5-r0	Q18Aeg5CRIiYWUWrUvBh1LgXULl/M=	Text file format converters (documentation)		
 community	dosbox-staging	0.82.2-r1	Q1YGvPsmqjLihq9s9AiTFhVHc5HA8=	revitalized dosbox DOS-emulator	so:libGL.so.1 so:libSDL2-2.0.so.0 so:libSDL2_net-2.0.so.0 so:libasound.so.2 so:libc.musl-x86_64.so.1 so:libfluidsynth.so.3 so:libgcc_s.so.1 so:libiir.so.1 so:libopusfile.so.0 so:libpng16.so.16 so:libslirp.so.0 so:libspeexdsp.so.1 so:libstdc++.so.6 so:libz.so.1	dosbox cmd:dosbox=0.82.2-r1
 community	dosbox-staging-doc	0.82.2-r1	Q1RtAKAjEafvr9nsMe1npfJoMzbfU=	revitalized dosbox DOS-emulator (documentation)		
-community	dotnet-bash-completion	8.0.129-r0	Q10wnh2u4woH8Y1qghDsz84XwWoC8=	bash completion for .NET	dotnet-host	
-community	dotnet-bash-completion	9.0.119-r0	Q1wDQd6ooN/IAkm/rEYSwO+WIkIzo=	bash completion for .NET	dotnet-host	
-community	dotnet-bash-completion	10.0.302-r1	Q1t3rdWBx289nLkFj+FgEzFzu+GCs=	bash completion for .NET	dotnet-host	
-community	dotnet-doc	8.0.129-r0	Q1SZWlwQm5nwvA+E1MlhxerPv2kdY=	Docs for .NET		
-community	dotnet-doc	9.0.119-r0	Q1HhVgvJnDaWlE3jhiyG0T0QZJMyE=	Docs for .NET		
-community	dotnet-doc	10.0.302-r1	Q1MFnIfNuaHRC6jc2VZFW176E5hj4=	Docs for .NET		
-community	dotnet-host	8.0.29-r0	Q1+LI1EI1UkGeskESJmjeiWmwaI5c=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dotnet=8.0.29-r0
-community	dotnet-host	9.0.18-r0	Q1n7/x7TtGSRJ2Ce/HYKEBSgl/+nU=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dotnet=9.0.18-r0
-community	dotnet-host	10.0.10-r0	Q1vpIsegoVFYbggTkptlcx9ZtjJwY=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dnx=10.0.10-r0 cmd:dotnet=10.0.10-r0
-community	dotnet-zsh-completion	8.0.129-r0	Q1HL7bXtLA8UvmqgEIlTR1hp2v6/s=	zsh completion for .NET	dotnet-host	
-community	dotnet-zsh-completion	9.0.119-r0	Q1n3Nqo0PfKyp99mMfeVcGqzjllCw=	zsh completion for .NET	dotnet-host	
-community	dotnet-zsh-completion	10.0.302-r1	Q1t+yzbR4yolqUmiZ1l0UwTPVqPqc=	zsh completion for .NET	dotnet-host	
-community	dotnet10-apphost-pack	10.0.10-r0	Q1v3fOHij3aLAAZOfG3dEH9UCedL0=	The .NET 10.0 Core apphost pack	dotnet10-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-apphost-pack-10.0=10.0.10-r0 so:dotnet10:libnethost.so=0
-community	dotnet10-hostfxr	10.0.10-r0	Q1gdxEwnyfHV4aD1whqV4iw/6ihoM=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-10.0=10.0.10-r0 so:dotnet10:libhostfxr.so=0
-community	dotnet10-runtime	10.0.10-r0	Q1iDl/nfy0xUJ+hy5m/SP3oqYyWVg=	The .NET 10.0 Core runtime	dotnet10-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet10=10.0.10-r0 so:dotnet10:libSystem.Globalization.Native.so=0 so:dotnet10:libSystem.IO.Compression.Native.so=0 so:dotnet10:libSystem.Native.so=0 so:dotnet10:libSystem.Net.Security.Native.so=0 so:dotnet10:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet10:libclrgc.so=0 so:dotnet10:libclrgcexp.so=0 so:dotnet10:libclrjit.so=0 so:dotnet10:libcoreclr.so=0 so:dotnet10:libcoreclrtraceptprovider.so=0 so:dotnet10:libhostpolicy.so=0 so:dotnet10:libmscordaccore.so=0 so:dotnet10:libmscordbi.so=0
-community	dotnet10-runtime-artifacts	10.0.10-r0	Q11CKp5A/1qWlr1bxbBQl2ODRpQdg=	Internal package for building .NET 10.0 Software Development Kit		dotnet10-bootstrap-artifacts
-community	dotnet10-runtime-bootstrap	10.0.10-r0	Q1/nu7yWAE+nqSe+ugRCDTc8DPoxQ=	The .NET 10.0 Core bootstrap	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet10-bootstrap so:dotnet10:libSystem.Globalization.Native.so=0 so:dotnet10:libSystem.IO.Compression.Native.so=0 so:dotnet10:libSystem.Native.so=0 so:dotnet10:libSystem.Net.Security.Native.so=0 so:dotnet10:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet10:libclrgc.so=0 so:dotnet10:libclrgcexp.so=0 so:dotnet10:libclrjit.so=0 so:dotnet10:libclrjit_universal_arm64_x64.so=0 so:dotnet10:libclrjit_universal_arm_x64.so=0 so:dotnet10:libclrjit_unix_x64_x64.so=0 so:dotnet10:libclrjit_win_x64_x64.so=0 so:dotnet10:libclrjit_win_x86_x64.so=0 so:dotnet10:libcoreclr.so=0 so:dotnet10:libcoreclrtraceptprovider.so=0 so:dotnet10:libhostfxr.so=0 so:dotnet10:libhostpolicy.so=0 so:dotnet10:libjitinterface_x64.so=0 so:dotnet10:libmscordaccore.so=0 so:dotnet10:libmscordbi.so=0 so:dotnet10:libnethost.so=0
-community	dotnet10-runtime-dbg	10.0.10-r0	Q12DOCuxuVGyNghujU3UIV3vz+wKY=	The .NET 10.0 Core runtime - pdb debug files	dotnet10-runtime	dotnet-runtime-dbg-10.0=10.0.10-r0
-community	dotnet10-sdk	10.0.302-r1	Q1XAiR81v5AIxCi5HOMiGExFUP+/0=	The .NET 10.0 SDK	aspnetcore10-runtime aspnetcore10-targeting-pack dotnet10-apphost-pack dotnet10-targeting-pack dotnet10-templates libucontext so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-sdk-10.0=10.0.302-r1 dotnet10-dev=10.0.302-r1
-community	dotnet10-sdk-aot	10.0.302-r1	Q1BI1YQIcA6thFjM4Y8sa3O5TsniE=	Ahead-of-Time (AOT) support for the .NET 10.0 Software Development Kit	dotnet10-sdk clang openssl-dev zlib-dev brotli-dev so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-sdk-aot-10.0=10.0.302-r1
-community	dotnet10-sdk-dbg	10.0.302-r1	Q1NtsC35wwRF2LFZ/8Yy68llKxPhI=	The .NET 10.0 SDK - debug pdb files	dotnet10-sdk	dotnet-sdk-dbg-10.0=10.0.302-r1
+community	dotnet-bash-completion	8.0.131-r0	Q11A8+sw8wD9vY6l46Y3R5XACBCaw=	bash completion for .NET	dotnet-host	
+community	dotnet-bash-completion	9.0.121-r0	Q1kARaSSTpoyO++nFGOdltqMK55ls=	bash completion for .NET	dotnet-host	
+community	dotnet-bash-completion	10.0.303-r0	Q1amToIJUXvUUoOP7QIhthlaI4/JI=	bash completion for .NET	dotnet-host	
+community	dotnet-doc	8.0.131-r0	Q15+PpmE/YMMfVqwqypaE7MUAtMjc=	Docs for .NET		
+community	dotnet-doc	9.0.121-r0	Q1U+eEOmBTSm0Sr/7/EQUWeFsIw4Q=	Docs for .NET		
+community	dotnet-doc	10.0.303-r0	Q1BjaPwezY8tkSU99/0jepdiMDq3U=	Docs for .NET		
+community	dotnet-host	8.0.31-r0	Q1ykI6K68JiZkFZAabpp0Fa6ME+gc=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dotnet=8.0.31-r0
+community	dotnet-host	9.0.20-r0	Q1PAHwtGxBeQssWayKs0NLpAEvFdQ=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dotnet=9.0.20-r0
+community	dotnet-host	10.0.12-r0	Q1U6fr61KWbZ6IUnDOh1mJ0+cbTq4=	A generic driver for the .NET Core Command Line Interface	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:dnx=10.0.12-r0 cmd:dotnet=10.0.12-r0
+community	dotnet-zsh-completion	8.0.131-r0	Q1/e8AVetbwQiEqtTDVKsTSI+SwpY=	zsh completion for .NET	dotnet-host	
+community	dotnet-zsh-completion	9.0.121-r0	Q1oygomG4o7r/KlVmCBuqqIiUkMIY=	zsh completion for .NET	dotnet-host	
+community	dotnet-zsh-completion	10.0.303-r0	Q1DuaZ77amXPnCM3MCMVEbi4Xynf0=	zsh completion for .NET	dotnet-host	
+community	dotnet10-apphost-pack	10.0.12-r0	Q1ic+r7JJkVZqoaGrEShJj/r6Gc00=	The .NET 10.0 Core apphost pack	dotnet10-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-apphost-pack-10.0=10.0.12-r0 so:dotnet10:libnethost.so=0
+community	dotnet10-hostfxr	10.0.12-r0	Q1NWPFi0Ng14prIEQ6kgTWsHtpEJ8=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-10.0=10.0.12-r0 so:dotnet10:libhostfxr.so=0
+community	dotnet10-runtime	10.0.12-r0	Q12qn0RKoeHUWtvRBMmpHj1Xhvs30=	The .NET 10.0 Core runtime	dotnet10-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet10=10.0.12-r0 so:dotnet10:libSystem.Globalization.Native.so=0 so:dotnet10:libSystem.IO.Compression.Native.so=0 so:dotnet10:libSystem.Native.so=0 so:dotnet10:libSystem.Net.Security.Native.so=0 so:dotnet10:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet10:libclrgc.so=0 so:dotnet10:libclrgcexp.so=0 so:dotnet10:libclrjit.so=0 so:dotnet10:libcoreclr.so=0 so:dotnet10:libcoreclrtraceptprovider.so=0 so:dotnet10:libhostpolicy.so=0 so:dotnet10:libmscordaccore.so=0 so:dotnet10:libmscordbi.so=0
+community	dotnet10-runtime-artifacts	10.0.12-r0	Q1ehogmSaVD4B8fo6HwhKjKvlqSwU=	Internal package for building .NET 10.0 Software Development Kit		dotnet10-bootstrap-artifacts
+community	dotnet10-runtime-bootstrap	10.0.12-r0	Q1NLiYLbO0ngYq1hSK+C+Sj8UWLEQ=	The .NET 10.0 Core bootstrap	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet10-bootstrap so:dotnet10:libSystem.Globalization.Native.so=0 so:dotnet10:libSystem.IO.Compression.Native.so=0 so:dotnet10:libSystem.Native.so=0 so:dotnet10:libSystem.Net.Security.Native.so=0 so:dotnet10:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet10:libclrgc.so=0 so:dotnet10:libclrgcexp.so=0 so:dotnet10:libclrjit.so=0 so:dotnet10:libclrjit_universal_arm64_x64.so=0 so:dotnet10:libclrjit_universal_arm_x64.so=0 so:dotnet10:libclrjit_unix_x64_x64.so=0 so:dotnet10:libclrjit_win_x64_x64.so=0 so:dotnet10:libclrjit_win_x86_x64.so=0 so:dotnet10:libcoreclr.so=0 so:dotnet10:libcoreclrtraceptprovider.so=0 so:dotnet10:libhostfxr.so=0 so:dotnet10:libhostpolicy.so=0 so:dotnet10:libjitinterface_x64.so=0 so:dotnet10:libmscordaccore.so=0 so:dotnet10:libmscordbi.so=0 so:dotnet10:libnethost.so=0
+community	dotnet10-runtime-dbg	10.0.12-r0	Q1CG/IZFxc7M8dlfEaxJaV1nQMixw=	The .NET 10.0 Core runtime - pdb debug files	dotnet10-runtime	dotnet-runtime-dbg-10.0=10.0.12-r0
+community	dotnet10-sdk	10.0.303-r0	Q10iuyaRCM7aLfOuzAQoQP8aSdQ4E=	The .NET 10.0 SDK	aspnetcore10-runtime aspnetcore10-targeting-pack dotnet10-apphost-pack dotnet10-targeting-pack dotnet10-templates libucontext so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-sdk-10.0=10.0.303-r0 dotnet10-dev=10.0.303-r0
+community	dotnet10-sdk-aot	10.0.303-r0	Q1E9rCtnC07QwWP+H6ERhpkgoW9ww=	Ahead-of-Time (AOT) support for the .NET 10.0 Software Development Kit	dotnet10-sdk clang openssl-dev zlib-dev brotli-dev so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	dotnet-sdk-aot-10.0=10.0.303-r0
+community	dotnet10-sdk-dbg	10.0.303-r0	Q1QoJe/KuCQysV2tCrwDC0r6zZmtI=	The .NET 10.0 SDK - debug pdb files	dotnet10-sdk	dotnet-sdk-dbg-10.0=10.0.303-r0
 community	dotnet10-stage0	10.0.106-r0	Q1KENZuoBTGwm6jE0oW7FcyQCm0TQ=	The .NET Core stage0 bits for dotnet build		
 community	dotnet10-stage0-artifacts	10.0.106-r0	Q10zhj+hTCLbHnsn6DlQaPzdxg9NE=	Internal package for building .NET 10.0 Software Development Kit		dotnet10-bootstrap-artifacts
 community	dotnet10-stage0-bootstrap	10.0.106-r0	Q1dFj2qwKqelkU5qhEeeXeKlyCnpM=	The .NET Core stage0 bits for dotnet build	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libz.so.1	dotnet10-bootstrap so:dotnet10:libSystem.Globalization.Native.so=0 so:dotnet10:libSystem.IO.Compression.Native.so=0 so:dotnet10:libSystem.Native.so=0 so:dotnet10:libSystem.Net.Security.Native.so=0 so:dotnet10:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet10:libclrgc.so=0 so:dotnet10:libclrgcexp.so=0 so:dotnet10:libclrjit.so=0 so:dotnet10:libcoreclr.so=0 so:dotnet10:libhostpolicy.so=0 so:dotnet10:libmscordaccore.so=0 so:dotnet10:libmscordbi.so=0
-community	dotnet10-targeting-pack	10.0.10-r0	Q1hIJzQgad1gAXe7ZE2bHPXD8zKBE=	The .NET 10.0 Core targeting pack	dotnet10-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-10.0=10.0.10-r0
-community	dotnet10-templates	10.0.302-r1	Q17p4xslC+LoSncH096D9cRoC+b0E=	The .NET 10.0 templates	dotnet-host	dotnet-templates-10.0=10.0.302-r1
-community	dotnet8-apphost-pack	8.0.29-r0	Q1ZtWUZcixzyS5J0WqwHxJXcDGyKg=	The .NET 8.0 Core apphost pack	dotnet8-hostfxr icu-data-full icu-libs so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet-apphost-pack-8.0=8.0.29-r0 so:dotnet8:libnethost.so=0
-community	dotnet8-hostfxr	8.0.29-r0	Q1lSGqiPcUtsyIbdlVaoy1xuiHN5w=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-8.0=8.0.29-r0 so:dotnet8:libhostfxr.so=0
-community	dotnet8-runtime	8.0.29-r0	Q1G3BbNOHh9Y3Ss/cDsG4lYjqWC14=	The .NET 8.0 Core runtime	dotnet8-hostfxr icu-data-full icu-libs so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet8=8.0.29-r0 so:dotnet8:libSystem.Globalization.Native.so=0 so:dotnet8:libSystem.IO.Compression.Native.so=0 so:dotnet8:libSystem.Native.so=0 so:dotnet8:libSystem.Net.Security.Native.so=0 so:dotnet8:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet8:libclrgc.so=0 so:dotnet8:libclrjit.so=0 so:dotnet8:libcoreclr.so=0 so:dotnet8:libcoreclrtraceptprovider.so=0 so:dotnet8:libhostpolicy.so=0 so:dotnet8:libmscordaccore.so=0 so:dotnet8:libmscordbi.so=0
-community	dotnet8-runtime-artifacts	8.0.29-r0	Q1/pGJQhf+N+B0wBRKZ+CkxqySLNA=	Internal package for building .NET 8.0 Software Development Kit		dotnet8-bootstrap-artifacts
-community	dotnet8-runtime-bootstrap	8.0.29-r0	Q1OY+MT+TPbcX/6poWog2iEG3/FlY=	The .NET 8.0 Core bootstrap	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet8-bootstrap so:dotnet8:libSystem.Globalization.Native.so=0 so:dotnet8:libSystem.IO.Compression.Native.so=0 so:dotnet8:libSystem.Native.so=0 so:dotnet8:libSystem.Net.Security.Native.so=0 so:dotnet8:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet8:libclrgc.so=0 so:dotnet8:libclrjit.so=0 so:dotnet8:libcoreclr.so=0 so:dotnet8:libcoreclrtraceptprovider.so=0 so:dotnet8:libhostfxr.so=0 so:dotnet8:libhostpolicy.so=0 so:dotnet8:libmscordaccore.so=0 so:dotnet8:libmscordbi.so=0 so:dotnet8:libnethost.so=0
-community	dotnet8-runtime-dbg	8.0.29-r0	Q1mi2bFtM1DC+ClNEgrHlUJ5+eMT8=	The .NET 8.0 Core runtime - pdb debug files	dotnet8-runtime	dotnet-runtime-dbg-8.0=8.0.29-r0
-community	dotnet8-sdk	8.0.129-r0	Q1VJ6E6PdtqtF7PH2vVyRo08OZeT0=	The .NET 8.0 SDK	aspnetcore8-runtime aspnetcore8-targeting-pack dotnet8-apphost-pack dotnet8-targeting-pack dotnet8-templates netstandard21-targeting-pack libucontext so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-sdk-8.0=8.0.129-r0 dotnet8-dev=8.0.129-r0
-community	dotnet8-sdk-dbg	8.0.129-r0	Q1LUd+1x0PPa37WEL5X83lId+7qCg=	The .NET 8.0 SDK - debug pdb files	dotnet8-sdk	dotnet-sdk-dbg-8.0=8.0.129-r0
+community	dotnet10-targeting-pack	10.0.12-r0	Q1MB43JwCczvIYSIQfkgVBdVgCle0=	The .NET 10.0 Core targeting pack	dotnet10-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-10.0=10.0.12-r0
+community	dotnet10-templates	10.0.303-r0	Q17y5zPOBMWmT8VD1Ww9k+Fn0umig=	The .NET 10.0 templates	dotnet-host	dotnet-templates-10.0=10.0.303-r0
+community	dotnet8-apphost-pack	8.0.31-r0	Q1Lmm7c+DMLneksy15Df9ZTIzU8es=	The .NET 8.0 Core apphost pack	dotnet8-hostfxr icu-data-full icu-libs so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet-apphost-pack-8.0=8.0.31-r0 so:dotnet8:libnethost.so=0
+community	dotnet8-hostfxr	8.0.31-r0	Q16czgc2s65DiQmbwm5y1EZF4ChDY=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-8.0=8.0.31-r0 so:dotnet8:libhostfxr.so=0
+community	dotnet8-runtime	8.0.31-r0	Q1TRJAabIYAeUVk9elPT/suJ7tyVo=	The .NET 8.0 Core runtime	dotnet8-hostfxr icu-data-full icu-libs so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet8=8.0.31-r0 so:dotnet8:libSystem.Globalization.Native.so=0 so:dotnet8:libSystem.IO.Compression.Native.so=0 so:dotnet8:libSystem.Native.so=0 so:dotnet8:libSystem.Net.Security.Native.so=0 so:dotnet8:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet8:libclrgc.so=0 so:dotnet8:libclrjit.so=0 so:dotnet8:libcoreclr.so=0 so:dotnet8:libcoreclrtraceptprovider.so=0 so:dotnet8:libhostpolicy.so=0 so:dotnet8:libmscordaccore.so=0 so:dotnet8:libmscordbi.so=0
+community	dotnet8-runtime-artifacts	8.0.31-r0	Q1BFc4gtA+yBryveeP1h/05VW9Jm4=	Internal package for building .NET 8.0 Software Development Kit		dotnet8-bootstrap-artifacts
+community	dotnet8-runtime-bootstrap	8.0.31-r0	Q11WKDgnfovDFewT019XTL5UFKUKg=	The .NET 8.0 Core bootstrap	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet8-bootstrap so:dotnet8:libSystem.Globalization.Native.so=0 so:dotnet8:libSystem.IO.Compression.Native.so=0 so:dotnet8:libSystem.Native.so=0 so:dotnet8:libSystem.Net.Security.Native.so=0 so:dotnet8:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet8:libclrgc.so=0 so:dotnet8:libclrjit.so=0 so:dotnet8:libcoreclr.so=0 so:dotnet8:libcoreclrtraceptprovider.so=0 so:dotnet8:libhostfxr.so=0 so:dotnet8:libhostpolicy.so=0 so:dotnet8:libmscordaccore.so=0 so:dotnet8:libmscordbi.so=0 so:dotnet8:libnethost.so=0
+community	dotnet8-runtime-dbg	8.0.31-r0	Q1TbnqXOogWxAl4nf7TmS4zzivEsM=	The .NET 8.0 Core runtime - pdb debug files	dotnet8-runtime	dotnet-runtime-dbg-8.0=8.0.31-r0
+community	dotnet8-sdk	8.0.131-r0	Q1zpbKA1OH78Z68F/vV3tjhrPSchc=	The .NET 8.0 SDK	aspnetcore8-runtime aspnetcore8-targeting-pack dotnet8-apphost-pack dotnet8-targeting-pack dotnet8-templates netstandard21-targeting-pack libucontext so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-sdk-8.0=8.0.131-r0 dotnet8-dev=8.0.131-r0
+community	dotnet8-sdk-dbg	8.0.131-r0	Q1XnVtatDpcAcWXEqxjLqxPwkcHtQ=	The .NET 8.0 SDK - debug pdb files	dotnet8-sdk	dotnet-sdk-dbg-8.0=8.0.131-r0
 community	dotnet8-stage0	8.0.126-r0	Q1jI4i6ktEcfJ/SOs46fGiI+GNyUA=	The .NET Core stage0 bits for dotnet build		
 community	dotnet8-stage0-artifacts	8.0.126-r0	Q1YvbBIVtdWy+lc5TS+ZIdC//h2tM=	Internal package for building .NET 8.0 Software Development Kit		dotnet8-bootstrap-artifacts
 community	dotnet8-stage0-bootstrap	8.0.126-r0	Q1x5IZFdTxlh2D8GbR9PPxuONp8E0=	The .NET Core stage0 bits for dotnet build	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libstdc++.so.6 so:libz.so.1	dotnet8-bootstrap so:libSystem.Globalization.Native.so=0 so:libSystem.IO.Compression.Native.so=0 so:libSystem.Native.so=0 so:libSystem.Net.Security.Native.so=0 so:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:libclrgc.so=0 so:libclrjit.so=0 so:libcoreclr.so=0 so:libcoreclrtraceptprovider.so=0 so:libhostpolicy.so=0 so:libmscordaccore.so=0 so:libmscordbi.so=0
-community	dotnet8-targeting-pack	8.0.29-r0	Q18bG/LTSc4DrPBG/M0vSZ4tm1MHA=	The .NET 8.0 Core targeting pack	dotnet8-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-8.0=8.0.29-r0
-community	dotnet8-templates	8.0.129-r0	Q1WPf4n6KH5j8GvO46TX76P+8ecrU=	The .NET 8.0 templates	dotnet-host	dotnet-templates-8.0=8.0.129-r0
-community	dotnet9-apphost-pack	9.0.18-r0	Q1lwjq+Py8nxO8jOqOQLPy7IWFGQE=	The .NET 9.0 Core apphost pack	dotnet9-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet-apphost-pack-9.0=9.0.18-r0 so:dotnet9:libnethost.so=0
-community	dotnet9-hostfxr	9.0.18-r0	Q1MPg5n1pi/xd4+C7oVoTahIiehd4=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-9.0=9.0.18-r0 so:dotnet9:libhostfxr.so=0
-community	dotnet9-runtime	9.0.18-r0	Q1NmyjeOtqXeaAaVy3f5vY1uStVKQ=	The .NET 9.0 Core runtime	dotnet9-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet9=9.0.18-r0 so:dotnet9:libSystem.Globalization.Native.so=0 so:dotnet9:libSystem.IO.Compression.Native.so=0 so:dotnet9:libSystem.Native.so=0 so:dotnet9:libSystem.Net.Security.Native.so=0 so:dotnet9:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet9:libclrgc.so=0 so:dotnet9:libclrgcexp.so=0 so:dotnet9:libclrjit.so=0 so:dotnet9:libcoreclr.so=0 so:dotnet9:libcoreclrtraceptprovider.so=0 so:dotnet9:libhostpolicy.so=0 so:dotnet9:libmscordaccore.so=0 so:dotnet9:libmscordbi.so=0
-community	dotnet9-runtime-artifacts	9.0.18-r0	Q1u//se4bm/y2jZ2A7br2TCSgY1MY=	Internal package for building .NET 9.0 Software Development Kit		dotnet9-bootstrap-artifacts
-community	dotnet9-runtime-bootstrap	9.0.18-r0	Q1+j73UTx6zPHAfapl66t1zrXBzMY=	The .NET 9.0 Core bootstrap	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet9-bootstrap so:dotnet9:libSystem.Globalization.Native.so=0 so:dotnet9:libSystem.IO.Compression.Native.so=0 so:dotnet9:libSystem.Native.so=0 so:dotnet9:libSystem.Net.Security.Native.so=0 so:dotnet9:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet9:libclrgc.so=0 so:dotnet9:libclrgcexp.so=0 so:dotnet9:libclrjit.so=0 so:dotnet9:libclrjit_universal_arm64_x64.so=0 so:dotnet9:libclrjit_universal_arm_x64.so=0 so:dotnet9:libclrjit_unix_x64_x64.so=0 so:dotnet9:libclrjit_win_x64_x64.so=0 so:dotnet9:libclrjit_win_x86_x64.so=0 so:dotnet9:libcoreclr.so=0 so:dotnet9:libcoreclrtraceptprovider.so=0 so:dotnet9:libhostfxr.so=0 so:dotnet9:libhostpolicy.so=0 so:dotnet9:libjitinterface_x64.so=0 so:dotnet9:libmscordaccore.so=0 so:dotnet9:libmscordbi.so=0 so:dotnet9:libnethost.so=0
-community	dotnet9-runtime-dbg	9.0.18-r0	Q1ATb9BbkAZTZl6PhFR/B4FIC62CY=	The .NET 9.0 Core runtime - pdb debug files	dotnet9-runtime	dotnet-runtime-dbg-9.0=9.0.18-r0
-community	dotnet9-sdk	9.0.119-r0	Q1jsCHwxvRK6UIyYTP+n75HWcx5BE=	The .NET 9.0 SDK	aspnetcore9-runtime aspnetcore9-targeting-pack dotnet9-apphost-pack dotnet9-targeting-pack dotnet9-templates netstandard21-targeting-pack libucontext so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-sdk-9.0=9.0.119-r0 dotnet9-dev=9.0.119-r0
-community	dotnet9-sdk-aot	9.0.119-r0	Q1ka/0lFNhCKRwbW8ZdQUfFnaVSJ8=	Ahead-of-Time (AOT) support for the .NET 9.0 Software Development Kit	dotnet9-sdk clang openssl-dev zlib-dev brotli-dev so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind.so.8 so:libz.so.1	dotnet-sdk-aot-9.0=9.0.119-r0 so:libclrjit_universal_arm64_x64.so=0 so:libclrjit_universal_arm_x64.so=0 so:libclrjit_unix_x64_x64.so=0 so:libclrjit_win_x64_x64.so=0 so:libclrjit_win_x86_x64.so=0 so:libjitinterface_x64.so=0
-community	dotnet9-sdk-dbg	9.0.119-r0	Q1eXOR01+rMrZRB7cT7k3A1zTHLvo=	The .NET 9.0 SDK - debug pdb files	dotnet9-sdk	dotnet-sdk-dbg-9.0=9.0.119-r0
+community	dotnet8-targeting-pack	8.0.31-r0	Q1237RltNPjamfKVwdmLnmPzyA78Q=	The .NET 8.0 Core targeting pack	dotnet8-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-8.0=8.0.31-r0
+community	dotnet8-templates	8.0.131-r0	Q1g31Tfok/8V5iumML/0i5x81OwxE=	The .NET 8.0 templates	dotnet-host	dotnet-templates-8.0=8.0.131-r0
+community	dotnet9-apphost-pack	9.0.20-r0	Q13vgOiu/SPBB7oVYBd1fmCqAXrQE=	The .NET 9.0 Core apphost pack	dotnet9-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet-apphost-pack-9.0=9.0.20-r0 so:dotnet9:libnethost.so=0
+community	dotnet9-hostfxr	9.0.20-r0	Q1GPCrJtiJbqzPMH06JXpRTYY9YkM=	The .NET host resolver contains the logic to resolve and select the right version of the .NET SDK or runtime to use.	dotnet-host so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-hostfxr-9.0=9.0.20-r0 so:dotnet9:libhostfxr.so=0
+community	dotnet9-runtime	9.0.20-r0	Q11txiYbngrYGDQJti2trmayb5pq8=	The .NET 9.0 Core runtime	dotnet9-hostfxr icu-data-full icu-libs so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet9=9.0.20-r0 so:dotnet9:libSystem.Globalization.Native.so=0 so:dotnet9:libSystem.IO.Compression.Native.so=0 so:dotnet9:libSystem.Native.so=0 so:dotnet9:libSystem.Net.Security.Native.so=0 so:dotnet9:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet9:libclrgc.so=0 so:dotnet9:libclrgcexp.so=0 so:dotnet9:libclrjit.so=0 so:dotnet9:libcoreclr.so=0 so:dotnet9:libcoreclrtraceptprovider.so=0 so:dotnet9:libhostpolicy.so=0 so:dotnet9:libmscordaccore.so=0 so:dotnet9:libmscordbi.so=0
+community	dotnet9-runtime-artifacts	9.0.20-r0	Q14MtD2mLKV4ENU8e8ZUq4Z4+aGqQ=	Internal package for building .NET 9.0 Software Development Kit		dotnet9-bootstrap-artifacts
+community	dotnet9-runtime-bootstrap	9.0.20-r0	Q17n5yifhaUiXdGJaK5Z8TTmE7q7M=	The .NET 9.0 Core bootstrap	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:liblttng-ust.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet9-bootstrap so:dotnet9:libSystem.Globalization.Native.so=0 so:dotnet9:libSystem.IO.Compression.Native.so=0 so:dotnet9:libSystem.Native.so=0 so:dotnet9:libSystem.Net.Security.Native.so=0 so:dotnet9:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet9:libclrgc.so=0 so:dotnet9:libclrgcexp.so=0 so:dotnet9:libclrjit.so=0 so:dotnet9:libclrjit_universal_arm64_x64.so=0 so:dotnet9:libclrjit_universal_arm_x64.so=0 so:dotnet9:libclrjit_unix_x64_x64.so=0 so:dotnet9:libclrjit_win_x64_x64.so=0 so:dotnet9:libclrjit_win_x86_x64.so=0 so:dotnet9:libcoreclr.so=0 so:dotnet9:libcoreclrtraceptprovider.so=0 so:dotnet9:libhostfxr.so=0 so:dotnet9:libhostpolicy.so=0 so:dotnet9:libjitinterface_x64.so=0 so:dotnet9:libmscordaccore.so=0 so:dotnet9:libmscordbi.so=0 so:dotnet9:libnethost.so=0
+community	dotnet9-runtime-dbg	9.0.20-r0	Q1B0HUEWPzh1Z1kNhkaFWaNci2fDc=	The .NET 9.0 Core runtime - pdb debug files	dotnet9-runtime	dotnet-runtime-dbg-9.0=9.0.20-r0
+community	dotnet9-sdk	9.0.121-r0	Q1hQ6BY0BbZbZdWwvwZwqFjYJ/wbY=	The .NET 9.0 SDK	aspnetcore9-runtime aspnetcore9-targeting-pack dotnet9-apphost-pack dotnet9-targeting-pack dotnet9-templates netstandard21-targeting-pack libucontext so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	dotnet-sdk-9.0=9.0.121-r0 dotnet9-dev=9.0.121-r0
+community	dotnet9-sdk-aot	9.0.121-r0	Q13In1DyK3Mlnvs9YPI+etnBAPc7g=	Ahead-of-Time (AOT) support for the .NET 9.0 Software Development Kit	dotnet9-sdk clang openssl-dev zlib-dev brotli-dev so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libssl.so.3 so:libstdc++.so.6 so:libunwind.so.8 so:libz.so.1	dotnet-sdk-aot-9.0=9.0.121-r0 so:libclrjit_universal_arm64_x64.so=0 so:libclrjit_universal_arm_x64.so=0 so:libclrjit_unix_x64_x64.so=0 so:libclrjit_win_x64_x64.so=0 so:libclrjit_win_x86_x64.so=0 so:libjitinterface_x64.so=0
+community	dotnet9-sdk-dbg	9.0.121-r0	Q1iDkfp+IX1rwhKqm05RUFU56giJM=	The .NET 9.0 SDK - debug pdb files	dotnet9-sdk	dotnet-sdk-dbg-9.0=9.0.121-r0
 community	dotnet9-stage0	9.0.116-r0	Q1ET8pPrzUoVxmicQXdtrsg+9NKjs=	The .NET Core stage0 bits for dotnet build		
 community	dotnet9-stage0-artifacts	9.0.116-r0	Q1LODAmbzF6t4UXHVRon9qSoi+rRQ=	Internal package for building .NET 9.0 Software Development Kit		dotnet9-bootstrap-artifacts
 community	dotnet9-stage0-bootstrap	9.0.116-r0	Q17QMvhg0EfOrt7gTamRPvSI28MrM=	The .NET Core stage0 bits for dotnet build	so:libbrotlidec.so.1 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libunwind-x86_64.so.8 so:libunwind.so.8 so:libz.so.1	dotnet9-bootstrap so:dotnet9:libSystem.Globalization.Native.so=0 so:dotnet9:libSystem.IO.Compression.Native.so=0 so:dotnet9:libSystem.Native.so=0 so:dotnet9:libSystem.Net.Security.Native.so=0 so:dotnet9:libSystem.Security.Cryptography.Native.OpenSsl.so=0 so:dotnet9:libclrgc.so=0 so:dotnet9:libclrgcexp.so=0 so:dotnet9:libclrjit.so=0 so:dotnet9:libcoreclr.so=0 so:dotnet9:libhostpolicy.so=0 so:dotnet9:libmscordaccore.so=0 so:dotnet9:libmscordbi.so=0
-community	dotnet9-targeting-pack	9.0.18-r0	Q1G4yQyFClOoBOKgh6Bcn9NY3xTK0=	The .NET 9.0 Core targeting pack	dotnet9-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-9.0=9.0.18-r0
-community	dotnet9-templates	9.0.119-r0	Q1NdkfUTmkbogoEeGIYKqe6qs2OVc=	The .NET 9.0 templates	dotnet-host	dotnet-templates-9.0=9.0.119-r0
+community	dotnet9-targeting-pack	9.0.20-r0	Q14uNIYkxVYKTFdBNJET81t8Pt2Tg=	The .NET 9.0 Core targeting pack	dotnet9-hostfxr icu-data-full icu-libs	dotnet-targeting-pack-9.0=9.0.20-r0
+community	dotnet9-templates	9.0.121-r0	Q18jQg8pre5nqbtXEIH1BbboicpO8=	The .NET 9.0 templates	dotnet-host	dotnet-templates-9.0=9.0.121-r0
 community	dotool	1.5-r19	Q1Tf000aOmI89NyXtxxcvZ9tIO/cA=	Command to simulate input anywhere (X11, Wayland, TTYs)	/bin/sh so:libc.musl-x86_64.so.1 so:libxkbcommon.so.0	cmd:dotool=1.5-r19 cmd:dotoolc=1.5-r19 cmd:dotoold=1.5-r19
 community	dotool-doc	1.5-r19	Q1yS+BjiOyKNaih87bnFf+0EmgS84=	Command to simulate input anywhere (X11, Wayland, TTYs) (documentation)		
 community	dotool-openrc	1.5-r19	Q1idmP661HNJDlHxo8LjfR6IjlrVI=	Command to simulate input anywhere (X11, Wayland, TTYs) (OpenRC init scripts)		
@@ -4200,15 +4200,15 @@ community	foot-fish-completion	1.27.0-r0	Q1ZRc8ZGXz3YseAhL0fYGq0ZjDFMg=	Fish com
 community	foot-openrc	1.27.0-r0	Q13uN14GiDoaiBiuCuH7NtRQZ6tnk=	Fast, lightweight and minimalistic Wayland terminal emulator (OpenRC init scripts)		
 community	foot-themes	1.27.0-r0	Q1VASw/2FZKF4+l1KCpGrT5/+8S2E=	Fast, lightweight and minimalistic Wayland terminal emulator (color schemes)	ncurses-terminfo	
 community	foot-zsh-completion	1.27.0-r0	Q11N8AYnDV5Fm/F0IHTPESdHp8sws=	Zsh completions for foot		
-community	forgejo	15.0.7-r1	Q1nlqk6ws7o3Kvdi8TkOa/ueZmbT4=	Self-hosted Git service written in Go	git git-lfs gnupg /bin/sh so:libc.musl-x86_64.so.1	cmd:forgejo=15.0.7-r1
+community	forgejo	15.0.8-r0	Q1AFy8a0CJqi5sgbq+oyn3f+nEZD8=	Self-hosted Git service written in Go	git git-lfs gnupg /bin/sh so:libc.musl-x86_64.so.1	cmd:forgejo=15.0.8-r0
 community	forgejo-lts	11.0.15-r1	Q1kxbeATbaEOrUlu70n0ocNDAib64=	Self-hosted Git service written in Go (Long-term stable)	git git-lfs gnupg /bin/sh so:libc.musl-x86_64.so.1	cmd:forgejo=11.0.15-r1
 community	forgejo-lts-openrc	11.0.15-r1	Q1hATmqWmaw2sLpk1P+WamFDCqaE0=	Self-hosted Git service written in Go (Long-term stable) (OpenRC init scripts)		
 community	forgejo-lts-systemd	11.0.15-r1	Q1HsiUFYkWbzI5ZL/U2TljrGJuLU0=	Self-hosted Git service written in Go (Long-term stable) (systemd files)		
-community	forgejo-openrc	15.0.7-r1	Q1j4h/ksoXmmZXEngroXHpl3Q+4Fs=	Self-hosted Git service written in Go (OpenRC init scripts)		
+community	forgejo-openrc	15.0.8-r0	Q1tkIkXd2DPyIza6SPT3fcNmkxscI=	Self-hosted Git service written in Go (OpenRC init scripts)		
 community	forgejo-runner	12.10.2-r1	Q1SzF+IXAcOjOzX1mgo1l+XkkgI3A=	CI/CD job runner for Forgejo	git /bin/sh so:libc.musl-x86_64.so.1	cmd:forgejo-runner=12.10.2-r1
 community	forgejo-runner-openrc	12.10.2-r1	Q1HPlUW2uroHAlq5Oq3ZAqu/4mbc8=	CI/CD job runner for Forgejo (OpenRC init scripts)		
 community	forgejo-runner-systemd	12.10.2-r1	Q1XIZAwH4zQXGXxmcVsXnv6F7ZXbQ=	CI/CD job runner for Forgejo (systemd files)		
-community	forgejo-systemd	15.0.7-r1	Q11S4dupFmCy3tWhGm33S3juRzCQM=	Self-hosted Git service written in Go (systemd files)		
+community	forgejo-systemd	15.0.8-r0	Q1kzraR56uvfSxaecN3z+A7HS3S1k=	Self-hosted Git service written in Go (systemd files)		
 community	fortune	0.1-r5	Q12O/sZpFfmS9fafWDFdrR68d67Wg=	Fortune cookie program ported from OpenBSD	so:libbsd.so.0 so:libc.musl-x86_64.so.1	cmd:fortune=0.1-r5 cmd:strfile=0.1-r5
 community	fortune-alpine-tips	20240826-r0	Q190HXWi/A0TKLbMxNLX6GGDgGQcY=	Tips for using the Alpine Linux system		
 community	fortune-alpine-tips-profile	20240826-r0	Q19n8Y+zBpFCkLfiZJYf8b+84eEhc=	Tips for using the Alpine Linux system	fortune	
@@ -6403,8 +6403,8 @@ community	inspircd-openrc	4.11.0-r1	Q1D1/IbGa+lzbbC2Do53+bt16PGWI=	internet rela
 community	install-makedepends	1.0.0-r2	Q1/RJuHZuWo3s+hfcJ4gg6Us1It6g=	Simple script to install makedepends for Alpine and postmarketOS packages	git	cmd:install-makedepends=1.0.0-r2
 community	intel-compute-runtime	25.22.33944.8-r0	Q1V5siZM6hnRx1vMCf0AZv31FVF7k=	Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libigdgmm.so.12 so:libstdc++.so.6	cmd:ocloc-25.22.1=25.22.33944.8-r0 so:libocloc.so=0 so:libze_intel_gpu.so.1=1.6.33944
 community	intel-compute-runtime-doc	25.22.33944.8-r0	Q1ysw+StY6F904a/kuTa7r0Xmyk4M=	Intel® Graphics Compute Runtime for oneAPI Level Zero and OpenCL™ Driver (documentation)		
-community	intel-gmmlib	22.10.0-r0	Q1/PVYr2hgGIWOCDPObGIE3dvtgYI=	Intel Graphics Memory Management Library	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libigdgmm.so.12=12.10.0
-community	intel-gmmlib-dev	22.10.0-r0	Q1FtTAZ9nVZtjyIKQBdzhJ+68u0hw=	Intel Graphics Memory Management Library (development files)	intel-gmmlib=22.10.0-r0 pkgconfig	pc:igdgmm=12.10.0
+community	intel-gmmlib	22.10.1-r0	Q1UzPIP2+tAegZVs0W+pxFzhQE+Bc=	Intel Graphics Memory Management Library	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libigdgmm.so.12=12.10.0
+community	intel-gmmlib-dev	22.10.1-r0	Q1u7BWRDMCBAupwSnIxPq7Ccib0rU=	Intel Graphics Memory Management Library (development files)	intel-gmmlib=22.10.1-r0 pkgconfig	pc:igdgmm=12.10.0
 community	intel-graphics-compiler	2.14.1-r1	Q1R3nVYi0iH11lfvNT7G3A0NxaNr8=	Intel® Graphics Compiler for OpenCL™	so:libSPIRV-Tools.so so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:iga64=2.14.1-r1 so:libiga64.so.2=2.14.0 so:libigc.so.2=2.14.0 so:libigdfcl.so.2=2.14.0 so:libopencl-clang.so.15=15
 community	intel-graphics-compiler-dev	2.14.1-r1	Q1sLxbwS05fsWx0RFPU3bmtjFUveg=	Intel® Graphics Compiler for OpenCL™ (development files)	pkgconfig	pc:igc-opencl=2.14.0
 community	intel-graphics-compiler-doc	2.14.1-r1	Q1TvZeAusyEXEEt6JnSOW8tfinyl4=	Intel® Graphics Compiler for OpenCL™ (documentation)		
@@ -6545,7 +6545,7 @@ community	java-jffi-native	1.3.15-r0	Q1gV2Js9iY/J7gQNHvjW5kEQlXDEE=	Java Foreign
 community	java-jna	5.15.0-r1	Q16xt8Hl5ZdO2PB5fBZtcr5NARnxE=	JNA provides Java programs easy access to native shared libraries.	java-jre-headless java-jna-native=5.15.0-r1	
 community	java-jna-native	5.15.0-r1	Q1V91o7Kd6dimIPxAGISs+HMsUQCU=	JNA provides Java programs easy access to native shared libraries.	java-jre-headless so:libc.musl-x86_64.so.1 so:libffi.so.8	so:/home/buildozer/aports/community/java-jna/src/jna-5.15.0/build/native-linux-x86-64/libjnidispatch.so=5.1.0
 community	java-libkml	1.3.0-r13	Q12hqkyCUND/2AKkB3cW8w4c2pAtg=	Java bindings for libkml	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libkmlbase.so.1 so:libkmldom.so.1 so:libkmlengine.so.1 so:libstdc++.so.6	
-community	java-libsignal-client	0.99.1-r0	Q1tEvQUXUf2jUYB2nS4rAZq4toKwk=	libsignal-client contains platform-agnostic APIs useful for Signal client apps	java-jre-headless /bin/sh so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libsignal_jni.so=0
+community	java-libsignal-client	0.102.1-r0	Q1WXB19Tjr78BxCCnS7nT80e5mgeM=	libsignal-client contains platform-agnostic APIs useful for Signal client apps	java-jre-headless /bin/sh so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libsignal_jni.so=0
 community	java-lz4	1.8.0-r2	Q1tY+MepdwRPrTBbW6DZP4IhZtm5I=	LZ4 compression for Java	java-jre-headless java-lz4-native lz4-dev xxhash-dev	
 community	java-lz4-native	1.8.0-r2	Q1AVEqjC3koZj9y0ufveOrnko3tCU=	LZ4 compression for Java		so:liblz4-java.so.1.8.0=1.8.0
 community	java-netty-transport-native	4.2.12-r0	Q1MbajZgUzTWv3c45I4aufIfN7gJs=	Native Netty transport for Linux	java-jre-headless so:libc.musl-x86_64.so.1	so:libnetty_transport_native_epoll_x86_64-4.2.12.Final.so=0
@@ -11128,8 +11128,8 @@ community	netpbm-dev	11.14.0-r0	Q1mMpEvQzCNssdaT660u/JZFycOrI=	Toolkit for manip
 community	netpbm-doc	11.14.0-r0	Q1T86OMR9Tjf4SWNJ8iX8S5boupfg=	Toolkit for manipulation of graphic images (documentation)	lynx perl	cmd:manweb=11.14.0-r0
 community	netpbm-extras	11.14.0-r0	Q1qXAUhQeTIW8KRQbydA0ZVtCfsPA=	Toolkit for manipulation of graphic images (perl scripts)	perl	cmd:pamfixtrunc=11.14.0-r0 cmd:pbmtox10bm=11.14.0-r0 cmd:pgmcrater=11.14.0-r0 cmd:pnmflip=11.14.0-r0 cmd:pnmquant=11.14.0-r0 cmd:pnmquantall=11.14.0-r0 cmd:ppmfade=11.14.0-r0 cmd:ppmquant=11.14.0-r0 cmd:ppmquantall=11.14.0-r0 cmd:ppmrainbow=11.14.0-r0 cmd:ppmshadow=11.14.0-r0
 community	netpbm-static	11.14.0-r0	Q1vzqqmacKwCB8N06lsH46you/1PY=	Toolkit for manipulation of graphic images (static library)	netpbm-dev	
-community	netstandard21-targeting-pack	8.0.129-r0	Q1vm76uT48cnvyEharXH+4w4PlQNA=	The .NET 2.1 Standard targeting pack	dotnet-host	netstandard-targeting-pack-2.1=8.0.129-r0
-community	netstandard21-targeting-pack	9.0.119-r0	Q1wn+AVa3bv2Zjzxcfs7G1f+ffb94=	The .NET 2.1 Standard targeting pack	dotnet-host	netstandard-targeting-pack-2.1=9.0.119-r0
+community	netstandard21-targeting-pack	8.0.131-r0	Q19UukSeU0PEDe1sERR1jriLOPVNQ=	The .NET 2.1 Standard targeting pack	dotnet-host	netstandard-targeting-pack-2.1=8.0.131-r0
+community	netstandard21-targeting-pack	9.0.121-r0	Q12g1nXzIuT69Jrndr5/xWX63BeuA=	The .NET 2.1 Standard targeting pack	dotnet-host	netstandard-targeting-pack-2.1=9.0.121-r0
 community	netsurf	3.11-r1	Q1oYn7wLnL0dwMnvtVZpHJl8LdCTc=	free, open source web browser	so:libc.musl-x86_64.so.1 so:libcairo.so.2 so:libcrypto.so.3 so:libcurl.so.4 so:libexpat.so.1 so:libgdk-3.so.0 so:libgdk_pixbuf-2.0.so.0 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgtk-3.so.0 so:libjpeg.so.8 so:libpango-1.0.so.0 so:libpangocairo-1.0.so.0 so:libpng16.so.16 so:librsvg-2.so.2 so:libssl.so.3 so:libwebp.so.7 so:libz.so.1	cmd:netsurf-gtk3=3.11-r1 cmd:netsurf=3.11-r1
 community	netsurf-doc	3.11-r1	Q17x14X1QDOG+JMvlMab415i1xGZs=	free, open source web browser (documentation)		
 community	netsurf-framebuffer	3.11-r1	Q1hs1gJ7NlnGvklgNuW0F8yuzbdfc=	free, open source web browser (framebuffer)	so:libSDL-1.2.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libcurl.so.4 so:libexpat.so.1 so:libjpeg.so.8 so:libpng16.so.16 so:libssl.so.3 so:libwayland-client.so.0 so:libwebp.so.7 so:libz.so.1	cmd:netsurf-fb=3.11-r1 cmd:netsurf-framebuffer=3.11-r1
@@ -15646,8 +15646,8 @@ community	py3-django-picklefield	3.4.0-r2	Q1HWbSmZnmMCfui01iLb7GFbyYxO8=	A pickl
 community	py3-django-picklefield-pyc	3.4.0-r2	Q1bcUCn9RksW3+SEeJ7Vpo1olWdNg=	Precompiled Python bytecode for py3-django-picklefield	python3~3.14	
 community	py3-django-pipeline	4.1.0-r2	Q1vpgWXmBsIiwTL8orS6s1H7LpaW0=	an asset packaging library for Django	python3 python3~3.14	py3.14:pipeline=4.1.0-r2
 community	py3-django-pipeline-pyc	4.1.0-r2	Q1YHdXcdFj5NQczHX8i19cZpvQ4cU=	Precompiled Python bytecode for py3-django-pipeline	python3~3.14	
-community	py3-django-prometheus	2.4.1-r2	Q1yDLU+bPawHnqnrruMxsxhMi+oxM=	Django middlewares to monitor your application with Prometheus.io.	py3-django py3-prometheus-client py3-psycopg2 py3-mysqlclient py3-python-memcached py3-django-redis python3~3.14	py3.14:django_prometheus=2.4.1-r2
-community	py3-django-prometheus-pyc	2.4.1-r2	Q13KgQnnJD8h68SzdXHxu01+P8uV4=	Precompiled Python bytecode for py3-django-prometheus	python3~3.14	
+community	py3-django-prometheus	2.5.0-r0	Q1taPfoJgmjxXns0VwG3nxTOh2cCs=	Django middlewares to monitor your application with Prometheus.io.	py3-django py3-prometheus-client py3-psycopg2 py3-mysqlclient py3-python-memcached py3-django-redis python3~3.14	py3.14:django_prometheus=2.5.0-r0
+community	py3-django-prometheus-pyc	2.5.0-r0	Q15xONxZjX4kb1WR7qmbYDjloXE44=	Precompiled Python bytecode for py3-django-prometheus	python3~3.14	
 community	py3-django-pyc	5.2.17-r0	Q12vllJFqTH7q093eVeVKvx2ylC/8=	Precompiled Python bytecode for py3-django	python3~3.14	
 community	py3-django-q2	1.10.0-r0	Q1M5qM2fhHThsNsMM1DesaX22ajlQ=	A multiprocessing distributed task queue for Django	py3-asgiref py3-blessed py3-dateutil py3-django py3-django-picklefield py3-django-redis py3-tz py3-redis py3-six py3-sqlparse py3-wcwidth python3~3.14	py3.14:django_q=1.10.0-r0
 community	py3-django-q2-pyc	1.10.0-r0	Q1qJIwset1PPeSo2F82nEoFxkLTiU=	Precompiled Python bytecode for py3-django-q2	python3~3.14	
@@ -16711,8 +16711,8 @@ community	py3-patatt-doc	0.7.0-r1	Q1RQkPAFcBI266SBbYz32J2n37Z8Q=	A simple librar
 community	py3-patatt-pyc	0.7.0-r1	Q1OSqHw8YFgWSZItjhd4BZCExGWzE=	Precompiled Python bytecode for py3-patatt	python3~3.14	
 community	py3-path	16.10.0-r2	Q1sX3Ml5nWtZShmMwERFu+dGapzGc=	Module wrapper for os.path	python3~3.14	py3.14:path=16.10.0-r2
 community	py3-path-pyc	16.10.0-r2	Q1fdnygqDFDlCkcYv0FuDqmwlvFio=	Precompiled Python bytecode for py3-path	python3~3.14	
-community	py3-pathable	0.5.0-r1	Q1Zt8afXqRwVcVmd5mEAxyYUypBNA=	Object-oriented JSONSchema	python3~3.14	py3.14:pathable=0.5.0-r1
-community	py3-pathable-pyc	0.5.0-r1	Q1ZP0QkN2arq0rikziLknjvFXp0dE=	Precompiled Python bytecode for py3-pathable	python3~3.14	
+community	py3-pathable	0.6.0-r0	Q1rmuT1Fm/vd2yzXOpoo7Rg6pnJEw=	Object-oriented JSONSchema	python3~3.14	py3.14:pathable=0.6.0-r0
+community	py3-pathable-pyc	0.6.0-r0	Q1c7Rn/Ichna5XYqugwA816VF5EVQ=	Precompiled Python bytecode for py3-pathable	python3~3.14	
 community	py3-pathtools	0.1.2-r13	Q13PvYQilWQjHHYw9QE7AAJrS+9DM=	Path utilities	python3 python3~3.14	py-pathtools=0.1.2-r13 py3.14:pathtools=0.1.2-r13
 community	py3-pathtools-pyc	0.1.2-r13	Q1vO4ZUHzNVdOV7yR3f+IYQExv1Wc=	Precompiled Python bytecode for py3-pathtools	python3~3.14	
 community	py3-patiencediff	0.2.18-r2	Q18I7El00O+h1YX01vOEDrNdlyz4g=	Patiencediff Python and Rust implementations	python3~3.14 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	cmd:patiencediff=0.2.18-r2 py3.14:patiencediff=0.2.18-r2
@@ -19594,7 +19594,7 @@ community	sieve-connect-doc	0.90-r1	Q15qMhMcez4gWJUkPUNl9YOc6YwhA=	command line 
 community	sigar	1.6.4-r3	Q1XOY+EJBwLYT6yoWqkiSujyhH8r8=	System Information Gatherer And Reporter	so:libc.musl-x86_64.so.1 so:libtirpc.so.3	so:libsigar-amd64-linux.so=0
 community	siglo	0.9.9-r2	Q1PVkrdxOooVJs9Ex6Usoa2rWiAIc=	GTK app to sync InfiniTime watch with PinePhone	bluez bluez-btmgmt gtk+3.0 py3-dbus py3-gatt py3-gobject3 py3-requests py3-setuptools py3-xdg python3	cmd:siglo=0.9.9-r2
 community	siglo-systemd	0.9.9-r2	Q1fQPeQIlntLcylgz3Okpp3dek54w=	GTK app to sync InfiniTime watch with PinePhone (systemd files)		
-community	signal-cli	0.14.7-r0	Q1JJyZ542/m5HCSv0Tw6ocPTcdpHc=	commandline interface for libsignal-service-java	java-libsignal-client	cmd:signal-cli=0.14.7-r0
+community	signal-cli	0.14.8-r0	Q1AXBh+KJoHr1JVNs2mF5BGXUWVhw=	commandline interface for libsignal-service-java	java-libsignal-client	cmd:signal-cli=0.14.8-r0
 community	signal-estimator	0.1.0-r1	Q1cnfLRV4Q+USko1O4xx3qbKD4xZw=	Measure characteristics of a looped back signal	so:libasound.so.2 so:libc.musl-x86_64.so.1 so:libfmt.so.11 so:libgcc_s.so.1 so:libkissfft-float.so.131 so:libstdc++.so.6	cmd:signal-estimator=0.1.0-r1
 community	signal-estimator-doc	0.1.0-r1	Q1UhNy9NJbJB25Tld6tCrIx9pB9ec=	Measure characteristics of a looped back signal (documentation)		
 community	signal-estimator-gui	0.1.0-r1	Q1ERvtN8iNHZMKx/a7qiNFjYoopWM=	Measure characteristics of a looped back signal (GUI)	so:libQt5Core.so.5 so:libQt5Gui.so.5 so:libQt5Widgets.so.5 so:libasound.so.2 so:libc.musl-x86_64.so.1 so:libfmt.so.11 so:libgcc_s.so.1 so:libkissfft-float.so.131 so:libqwt-qt5.so.6.3 so:libstdc++.so.6	cmd:signal-estimator-gui=0.1.0-r1
@@ -23518,9 +23518,9 @@ main	device-mapper-udev	2.03.35-r3	Q1cEZUx2j27QObqHMgNdnF8IfdMqA=	Device mapper 
 main	devicemaster-linux	7.34-r4	Q16HepK9+PtPH4CFaDpgWz27U+Sh8=	Userspace tools for NS-Link Device Drivers	so:libc.musl-x86_64.so.1	cmd:nslinkadmin=7.34-r4 cmd:nslinkd=7.34-r4 cmd:nslinkrelease=7.34-r4 cmd:nslinktool=7.34-r4
 main	devicemaster-linux-doc	7.34-r4	Q15kTkNItHkcl8AavwlRpMsWaCoU8=	Userspace tools for NS-Link Device Drivers (documentation)		
 main	devicemaster-linux-openrc	7.34-r4	Q1Q6pVm8mtbrsMvyVz0tIfRWkiMuk=	Userspace tools for NS-Link Device Drivers (OpenRC init scripts)		
-main	dhcpcd	10.3.2-r0	Q1MhvyA68RBWVHXNtUrzVDau2mL28=	RFC2131 compliant DHCP client	/bin/sh so:libc.musl-x86_64.so.1	cmd:dhcpcd=10.3.2-r0
-main	dhcpcd-doc	10.3.2-r0	Q11dbOjIHlQ3YIYw51O/efqYYxyMg=	RFC2131 compliant DHCP client (documentation)		
-main	dhcpcd-openrc	10.3.2-r0	Q1KAXxECswfKyXxvEs0P5/jOMGpVs=	RFC2131 compliant DHCP client (OpenRC init scripts)		
+main	dhcpcd	10.5.2-r0	Q1rgPBDuqDG9gva9aYGYsdA7mg2aE=	RFC2131 compliant DHCP client	/bin/sh so:libc.musl-x86_64.so.1	cmd:dhcpcd=10.5.2-r0
+main	dhcpcd-doc	10.5.2-r0	Q1HNMzsRehwDIF/XReSYxTguBa4GM=	RFC2131 compliant DHCP client (documentation)		
+main	dhcpcd-openrc	10.5.2-r0	Q1HyRqddzEfEAkSqxfRRZQvkAyVrQ=	RFC2131 compliant DHCP client (OpenRC init scripts)		
 main	dialog	1.3.20260107-r1	Q15/EszFF/uoWuFckdxhCVwdWdlHA=	Script interpreter providing curses widgets	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:dialog=1.3.20260107-r1
 main	dialog-doc	1.3.20260107-r1	Q1avHeu0fi+4k3UeOabJFKCmOePNQ=	Script interpreter providing curses widgets (documentation)		
 main	dialog-static	1.3.20260107-r1	Q1oWpIGMAwLJjYzmymUof90ieO9j8=	Script interpreter providing curses widgets (static library)		
@@ -23912,16 +23912,16 @@ main	fstrm-dev	0.6.1-r4	Q11tQbO1HONibvVryaJpT18WOSqSI=	Frame Streams implementat
 main	fstrm-doc	0.6.1-r4	Q1C01JFPGw0fxa6j4rfOpKs6HYF3Y=	Frame Streams implementation in C (documentation)		
 main	fstrm-static	0.6.1-r4	Q1yRJa2kl+ZeEWb3BCUnMuTSpkvgE=	Frame Streams implementation in C (static library)	fstrm-dev	
 main	fstrm-utils	0.6.1-r4	Q109PS3JaVqMbw8/l2ATao5M6tFtw=	fstrm utilities	so:libc.musl-x86_64.so.1 so:libevent-2.1.so.7 so:libfstrm.so.0	cmd:fstrm_capture=0.6.1-r4 cmd:fstrm_dump=0.6.1-r4 cmd:fstrm_replay=0.6.1-r4
-main	fuse-common	3.18.2-r0	Q1KjXsS3n15D0Hnegd6azWVXui8VA=	Common files for fuse2 and fuse3		
-main	fuse-openrc	3.18.2-r0	Q1Zynte74KShNAB+va3oBQ2LyRdFE=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (OpenRC init scripts)		
+main	fuse-common	3.18.3-r0	Q142Rtd/xlBHaQ5V27EPwMaMt5KvI=	Common files for fuse2 and fuse3		
+main	fuse-openrc	3.18.3-r0	Q1p+VaGLct+ZsE3aHLsPfVTwqYJJs=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (OpenRC init scripts)		
 main	fuse2fs	1.47.4-r0	Q1Sc+NvrL9IAlP7tdapGOPyntz21M=	Ext2/3/4 filesystem driver for FUSE	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcom_err.so.2 so:libe2p.so.2 so:libext2fs.so.2 so:libfuse3.so.4 so:libuuid.so.1	cmd:fuse2fs=1.47.4-r0
 main	fuse2fs-doc	1.47.4-r0	Q1PVyhi1BbRE4jhl0OOX+HeZ0aE8M=	Ext2/3/4 filesystem driver for FUSE (documentation)		
-main	fuse3	3.18.2-r0	Q1ezKSiLu+wdhIhTRsRVj5A6oFyDE=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface	fuse-common so:libc.musl-x86_64.so.1 so:libfuse3.so.4	cmd:fusermount3=3.18.2-r0 cmd:mount.fuse3=3.18.2-r0
-main	fuse3-dev	3.18.2-r0	Q1mhm28wgsv7FR4ibSSe/v3GJxZFA=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (development files)	fuse3-libs=3.18.2-r0 pkgconfig	pc:fuse3=3.18.2
-main	fuse3-doc	3.18.2-r0	Q1CC5Yjps5D7rZaR+lgBDN0f/0q/0=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (documentation)		
-main	fuse3-libs	3.18.2-r0	Q1hZCiW0bR9dM0T0HF/tOOrKjmovY=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (libraries)	so:libc.musl-x86_64.so.1	so:libfuse3.so.4=3.18.2
-main	fuse3-static	3.18.2-r0	Q16btnrw1PAm9ZqCeDeDwhlFSH60w=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (static library)	fuse3-dev	
-main	fuse3-udev	3.18.2-r0	Q14IJN1IMH+3Ibhmw+jTBfZ+10MPk=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (udev rules)		
+main	fuse3	3.18.3-r0	Q1F/4epN5MtyvXPMw63EIqq0fR9vU=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface	fuse-common so:libc.musl-x86_64.so.1 so:libfuse3.so.4	cmd:fusermount3=3.18.3-r0 cmd:mount.fuse3=3.18.3-r0
+main	fuse3-dev	3.18.3-r0	Q1NdzEiuVPmhCkVFuNHl+2fDP9u4o=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (development files)	fuse3-libs=3.18.3-r0 pkgconfig	pc:fuse3=3.18.3
+main	fuse3-doc	3.18.3-r0	Q1qN8FBOM+S/7sM1LndpSNvSNbu6c=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (documentation)		
+main	fuse3-libs	3.18.3-r0	Q1D7ULJCEwVNO7WddZJ3+sUtjDU8U=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (libraries)	so:libc.musl-x86_64.so.1	so:libfuse3.so.4=3.18.3
+main	fuse3-static	3.18.3-r0	Q1+EhJ9BdljjHIRXBPeTVU8sRrLwM=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (static library)	fuse3-dev	
+main	fuse3-udev	3.18.3-r0	Q1eoN1MNvKlreHykH2AmqVndM1Lgw=	Reference implementation of the Linux FUSE (Filesystem in Userspace) interface (udev rules)		
 main	g++	15.2.0-r5	Q1gKUtEcA4aYyx0evjHoLk3vRbn8Y=	GNU C++ standard library and compiler	libstdc++-dev=15.2.0-r5 gcc=15.2.0-r5 musl-dev libstdc++=15.2.0-r5 so:libc.musl-x86_64.so.1 so:libgmp.so.10 so:libisl.so.23 so:libmpc.so.3 so:libmpfr.so.6 so:libz.so.1	cmd:c++=15.2.0-r5 cmd:g++=15.2.0-r5 cmd:x86_64-alpine-linux-musl-c++=15.2.0-r5 cmd:x86_64-alpine-linux-musl-g++=15.2.0-r5
 main	gawk	5.3.2-r2	Q157VsDlKntgKphc7lvd02JX4DM0g=	GNU awk pattern-matching language	so:libc.musl-x86_64.so.1	cmd:awk=5.3.2-r2 cmd:gawk-5.3.2=5.3.2-r2 cmd:gawk=5.3.2-r2 cmd:gawkbug=5.3.2-r2
 main	gawk-doc	5.3.2-r2	Q1voeSXzmjgelA14cqjhTlUcSpGpA=	GNU awk pattern-matching language (documentation)		
@@ -25075,20 +25075,20 @@ main	lighttpd-doc	1.4.85-r0	Q1y0tWVVBY8eXwq50SWl6dkk2vY2w=	Secure, fast, complia
 main	lighttpd-mod_auth	1.4.85-r0	Q1AQVoE6mA4GbtyheqILXt8b1Z/54=	Authentication module for lighttpd	so:libc.musl-x86_64.so.1 so:libcrypto.so.3	
 main	lighttpd-mod_webdav	1.4.85-r0	Q1vvnpHdG8rcI7yuBHcR3V9K1xQls=	WebDAV module for lighttpd	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0 so:libxml2.so.2	
 main	lighttpd-openrc	1.4.85-r0	Q1RKDpdPBmXUeoxvNNOypZWEJ+vj8=	Secure, fast, compliant and very flexible web-server (OpenRC init scripts)		
-main	limine	12.8.0-r0	Q1rT/M8EtmOuGulHfkX+G+brNdOAI=	Modern, secure, portable, multiprotocol bootloader and boot manager	limine-tool limine-efi-aarch64 limine-efi-loongarch64 limine-efi-riscv64 limine-efi-x86 limine-efi-x86_64 limine-efi-cd limine-bios limine-bios-pxe limine-bios-cd	
-main	limine-bios	12.8.0-r0	Q1msgHQUQBce2XO/dT93Vcm38dCKE=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)		limine-sys=12.8.0-r0
-main	limine-bios-cd	12.8.0-r0	Q1a5B4WPXstb+B16c+bJZKlpAUMog=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)	limine-bios=12.8.0-r0	
-main	limine-bios-pxe	12.8.0-r0	Q1vgfO6PypHdvLQvLhXH9aZgvDPc0=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)	limine-bios=12.8.0-r0	limine-pxe=12.8.0-r0
-main	limine-bios-updater	12.8.0-r0	Q16F/9dFnIk8zptatl8HwogSlBQXg=	Limine auto-updater for BIOS	limine-tool=12.8.0-r0 limine-bios=12.8.0-r0 /bin/sh	cmd:limine-bios-updater.sh=12.8.0-r0
-main	limine-doc	12.8.0-r0	Q1T2AyNfETJQ9UVtZqALkdNVS9Tus=	Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)		
-main	limine-efi-aarch64	12.8.0-r0	Q1XiHTFcj51ap0XWOQSrVoHophDh0=	Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)		limine-aarch64=12.8.0-r0
-main	limine-efi-cd	12.8.0-r0	Q1Njjg5kIZODaezFBEf0cn7pnubGQ=	Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)		
-main	limine-efi-loongarch64	12.8.0-r0	Q1uxEc2dsQx7rGm3vfh/DEEwvOiDs=	Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)		limine-loongarch64=12.8.0-r0
-main	limine-efi-riscv64	12.8.0-r0	Q1AuHDHAx0akaQiTH+KFeNlUZtuVA=	Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)		limine-riscv64=12.8.0-r0
-main	limine-efi-updater	12.8.0-r0	Q1UfHTWiT01ZrZLBh0NubGPMs/Hj4=	Limine auto-updater for EFI payload	/bin/sh	cmd:limine-efi-updater.sh=12.8.0-r0
-main	limine-efi-x86	12.8.0-r0	Q1R4wn+KFGkOFcgG/xhPT46PyRraY=	Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)		limine-x86=12.8.0-r0
-main	limine-efi-x86_64	12.8.0-r0	Q1eL+lcv9z1aOvwDaabyN7ZH317SI=	Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)		limine-x86_64=12.8.0-r0
-main	limine-tool	12.8.0-r0	Q1VxGvsw6cYhnY8z8Fmcjkn7cdYlc=	Limine host tool	so:libc.musl-x86_64.so.1	cmd:limine=12.8.0-r0
+main	limine	12.9.0-r0	Q1q3tk7/46Idmqhh2xR8hfVy3xa+0=	Modern, secure, portable, multiprotocol bootloader and boot manager	limine-tool limine-efi-aarch64 limine-efi-loongarch64 limine-efi-riscv64 limine-efi-x86 limine-efi-x86_64 limine-efi-cd limine-bios limine-bios-pxe limine-bios-cd	
+main	limine-bios	12.9.0-r0	Q1vfI/JMOn98a0Yc8i/gZDvwNZ4gI=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)		limine-sys=12.9.0-r0
+main	limine-bios-cd	12.9.0-r0	Q1B6NLRgSwkPMIpIKAv+o3f/CQoWk=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)	limine-bios=12.9.0-r0	
+main	limine-bios-pxe	12.9.0-r0	Q1aaqd0v37BLL9XsryIazubzVZ2B0=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)	limine-bios=12.9.0-r0	limine-pxe=12.9.0-r0
+main	limine-bios-updater	12.9.0-r0	Q1XXlDgkYM0/Qqg22mQU8LxpMqulc=	Limine auto-updater for BIOS	limine-tool=12.9.0-r0 limine-bios=12.9.0-r0 /bin/sh	cmd:limine-bios-updater.sh=12.9.0-r0
+main	limine-doc	12.9.0-r0	Q1VUhRrQZ+jXNqg7xJyioph8d0yqY=	Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)		
+main	limine-efi-aarch64	12.9.0-r0	Q1GJJ0b3z//vvPaJ9FGlc67jmUpRU=	Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)		limine-aarch64=12.9.0-r0
+main	limine-efi-cd	12.9.0-r0	Q1RhuZJwVQ+Q5BzTT/DsFMmKR7/no=	Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)		
+main	limine-efi-loongarch64	12.9.0-r0	Q1k/afqIudSt3IQscpVJqtm78Mjf4=	Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)		limine-loongarch64=12.9.0-r0
+main	limine-efi-riscv64	12.9.0-r0	Q16fu5/krjp+OsDwTVodVXOzzfEfc=	Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)		limine-riscv64=12.9.0-r0
+main	limine-efi-updater	12.9.0-r0	Q1+Poe0cTTMgU30p360nx33jpVisM=	Limine auto-updater for EFI payload	/bin/sh	cmd:limine-efi-updater.sh=12.9.0-r0
+main	limine-efi-x86	12.9.0-r0	Q1UQMtzZVO72HnFZ8cVhw3vZ429Qk=	Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)		limine-x86=12.9.0-r0
+main	limine-efi-x86_64	12.9.0-r0	Q1bBCSqEwO/JQeOdpy7xtK4HTlpaY=	Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)		limine-x86_64=12.9.0-r0
+main	limine-tool	12.9.0-r0	Q1K5uIJ6LBHzwmMU80o5QmyRZR36o=	Limine host tool	so:libc.musl-x86_64.so.1	cmd:limine=12.9.0-r0
 main	linenoise	1.0-r5	Q15o9tOwtVMUD3MVcmzRq4G+Jorzk=	Minimal replacement for readline	so:libc.musl-x86_64.so.1	so:liblinenoise.so.0=0.0.0
 main	linenoise-dev	1.0-r5	Q1WnYxSOvscDjtQEgQ+ATuimvbN3U=	Minimal replacement for readline (development files)	linenoise=1.0-r5	
 main	links	2.30-r1	Q178dbqq4uT/yhRYHlaBXErHGjAKQ=	Web browser running in both graphics and text mode	so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	cmd:links=2.30-r1
@@ -26352,13 +26352,13 @@ main	openssl-doc	3.5.8-r0	Q17utwtLJVOItR3zumuKtZXZ8k8mo=	Toolkit for Transport L
 main	openssl-fips	3.5.8-r0	Q1pf7C9t7ftb61eYX7zjI8iu6Pm9w=	FIPS module from openssl	libssl3=3.5.8-r0 libcrypto3=3.5.8-r0 /bin/sh so:libc.musl-x86_64.so.1	
 main	openssl-libs-static	3.5.8-r0	Q1Hwx6Tbz2ESv3ZIVDpjFTlLCmo5M=	Toolkit for Transport Layer Security (TLS) (static library)	openssl-dev	
 main	openssl-misc	3.5.8-r0	Q1+i1W1tJ4RjrOnCqixH+4vFBHKYM=	Various perl scripts from openssl	openssl=3.5.8-r0 perl	
-main	openvpn	2.7.5-r0	Q1gvBWJg8Vc94CvQdLWhpSfa4LYQg=	Robust, and highly configurable VPN (Virtual Private Network)	iproute2-minimal /bin/sh so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libcrypto.so.3 so:liblz4.so.1 so:liblzo2.so.2 so:libnl-3.so.200 so:libnl-genl-3.so.200 so:libpkcs11-helper.so.1 so:libssl.so.3	cmd:openvpn=2.7.5-r0
+main	openvpn	2.7.7-r0	Q18l901ahbr4uzvw/tTJJ8HBqMYv8=	Robust, and highly configurable VPN (Virtual Private Network)	iproute2-minimal /bin/sh so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libcrypto.so.3 so:liblz4.so.1 so:liblzo2.so.2 so:libnl-3.so.200 so:libnl-genl-3.so.200 so:libpkcs11-helper.so.1 so:libssl.so.3	cmd:openvpn=2.7.7-r0
 main	openvpn-ad-check	1.1-r4	Q1pvdR8+iFcYktM/264orK23VT5IY=	Authenticate OpenVPN users against AD server and verify if they are member of a specific group.	openvpn lua-ldap	
 main	openvpn-auth-ldap	2.0.4-r8	Q1V5/YHpkl3+JQslqkEU1621TfYng=	LDAP authentication and authorization plugin for OpenVPN 2.x	openvpn /bin/sh so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libobjc.so.4	
-main	openvpn-auth-pam	2.7.5-r0	Q11gzKEZ9EQSDxqxhOXrAO7tc6k+w=	OpenVPN plugin for PAM authentication	iproute2-minimal so:libc.musl-x86_64.so.1 so:libpam.so.0	
-main	openvpn-dev	2.7.5-r0	Q1eWkv1oyS6TekdXJ7AMTn0qxz1V4=	Robust, and highly configurable VPN (Virtual Private Network) (development files)	openssl-dev	
-main	openvpn-doc	2.7.5-r0	Q1atRds2PnXASnSHQzlecHSATFxhY=	Robust, and highly configurable VPN (Virtual Private Network) (documentation)		
-main	openvpn-openrc	2.7.5-r0	Q1SZAbPWNtzTz6QPZJO1Zb0QLaxXo=	Robust, and highly configurable VPN (Virtual Private Network) (OpenRC init scripts)		
+main	openvpn-auth-pam	2.7.7-r0	Q1L4oxAnKM8qtL1itsFykWi+68S9E=	OpenVPN plugin for PAM authentication	iproute2-minimal so:libc.musl-x86_64.so.1 so:libpam.so.0	
+main	openvpn-dev	2.7.7-r0	Q1+zu/t7cIqFJIhn+GnBxwgTHv2ss=	Robust, and highly configurable VPN (Virtual Private Network) (development files)	openssl-dev	
+main	openvpn-doc	2.7.7-r0	Q1t9+mn7wSWuaSesWVMTP5mgNSfQ0=	Robust, and highly configurable VPN (Virtual Private Network) (documentation)		
+main	openvpn-openrc	2.7.7-r0	Q1g+6l0xpi4vtgnvIWw4/oAZeJSnY=	Robust, and highly configurable VPN (Virtual Private Network) (OpenRC init scripts)		
 main	opus	1.6.1-r0	Q1DHHBO1zyeGJTXduPomH5Yjx6iPI=	Codec designed for interactive speech and audio transmission over the Internet	so:libc.musl-x86_64.so.1	so:libopus.so.0=0.11.1
 main	opus-dev	1.6.1-r0	Q1inDe17OL6CO966LYFuWKqw0htlM=	Codec designed for interactive speech and audio transmission over the Internet (development files)	opus=1.6.1-r0 pkgconfig	pc:opus=1.6.1
 main	opus-doc	1.6.1-r0	Q1D3Z3LgCG8yPCj2sA8UdYDHPEx8Q=	Codec designed for interactive speech and audio transmission over the Internet (documentation)		
@@ -27204,16 +27204,16 @@ main	popt-static	1.19-r4	Q1AGd29FMHx6OM1smABKrpqg0i5UQ=	commandline option parse
 main	portaudio	19.7.0-r3	Q1elHTVh0iRfmeUGsDKyW/wvp9Zyo=	A cross-platform, open-source C language library for real-time audio input and output	so:libasound.so.2 so:libc.musl-x86_64.so.1 so:libjack.so.0	so:libportaudio.so.2=2.0.0
 main	portaudio-dbg	19.7.0-r3	Q1j3BoMdt7QHJ1hALNSmd4vr2gc2o=	A cross-platform, open-source C language library for real-time audio input and output (debug symbols)	!libportaudiocxx<19.7.0-r3 !libportaudiocxx>19.7.0-r3 !portaudio<19.7.0-r3 !portaudio>19.7.0-r3	
 main	portaudio-dev	19.7.0-r3	Q1TcfnR8Vd8Dey31MKaQN+05SjjQc=	A cross-platform, open-source C language library for real-time audio input and output (development files)	libportaudiocxx=19.7.0-r3 portaudio=19.7.0-r3 pc:alsa pkgconfig	pc:portaudio-2.0=19 pc:portaudiocpp=12
-main	postfix	3.11.6-r0	Q1BgnJSNFNCHfN40HRyH1BJAXkZQk=	Secure and fast drop-in replacement for Sendmail (MTA)	/bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libicuuc.so.78 so:liblmdb.so.0 so:libsasl2.so.3 so:libssl.so.3	cmd:mailq=3.11.6-r0 cmd:newaliases=3.11.6-r0 cmd:postalias=3.11.6-r0 cmd:postcat=3.11.6-r0 cmd:postconf=3.11.6-r0 cmd:postdrop=3.11.6-r0 cmd:postfix=3.11.6-r0 cmd:postkick=3.11.6-r0 cmd:postlock=3.11.6-r0 cmd:postlog=3.11.6-r0 cmd:postmap=3.11.6-r0 cmd:postmulti=3.11.6-r0 cmd:postqueue=3.11.6-r0 cmd:postsuper=3.11.6-r0 cmd:qshape.pl=3.11.6-r0 cmd:sendmail=3.11.6-r0 so:libpostfix-dns.so=0 so:libpostfix-global.so=0 so:libpostfix-master.so=0 so:libpostfix-tls.so=0 so:libpostfix-util.so=0 so:postfix-lmdb.so=0
-main	postfix-doc	3.11.6-r0	Q1u/It4yKkZUubhqoqz4ZVsTSty4s=	Secure and fast drop-in replacement for Sendmail (MTA) (documentation)		
-main	postfix-ldap	3.11.6-r0	Q1s3UDZXE/Ar9JGHz9uXwPiZaNM64=	ldap map support for postfix	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	so:postfix-ldap.so=0
-main	postfix-mysql	3.11.6-r0	Q1O5chy1u7QcbqphrIw/qqT26YZB4=	mysql map support for postfix	so:libc.musl-x86_64.so.1 so:libmariadb.so.3	so:postfix-mysql.so=0
-main	postfix-openrc	3.11.6-r0	Q1Ff0MRvE5DGFkjMqUOz4+5KaDciQ=	Secure and fast drop-in replacement for Sendmail (MTA) (OpenRC init scripts)		
-main	postfix-pcre	3.11.6-r0	Q1orDkEzTK0Tb8v5OZfLDUI6RBGmM=	pcre map support for postfix	so:libc.musl-x86_64.so.1 so:libpcre2-8.so.0	so:postfix-pcre.so=0
-main	postfix-pgsql	3.11.6-r0	Q1pGDPVgfClWFPDZGxL554hyiwXGY=	pgsql map support for postfix	so:libc.musl-x86_64.so.1 so:libpq.so.5	so:postfix-pgsql.so=0
+main	postfix	3.11.7-r0	Q1b8DnJwitGNM6onH9Wc6nNdmPqmw=	Secure and fast drop-in replacement for Sendmail (MTA)	/bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libicuuc.so.78 so:liblmdb.so.0 so:libsasl2.so.3 so:libssl.so.3	cmd:mailq=3.11.7-r0 cmd:newaliases=3.11.7-r0 cmd:postalias=3.11.7-r0 cmd:postcat=3.11.7-r0 cmd:postconf=3.11.7-r0 cmd:postdrop=3.11.7-r0 cmd:postfix=3.11.7-r0 cmd:postkick=3.11.7-r0 cmd:postlock=3.11.7-r0 cmd:postlog=3.11.7-r0 cmd:postmap=3.11.7-r0 cmd:postmulti=3.11.7-r0 cmd:postqueue=3.11.7-r0 cmd:postsuper=3.11.7-r0 cmd:qshape.pl=3.11.7-r0 cmd:sendmail=3.11.7-r0 so:libpostfix-dns.so=0 so:libpostfix-global.so=0 so:libpostfix-master.so=0 so:libpostfix-tls.so=0 so:libpostfix-util.so=0 so:postfix-lmdb.so=0
+main	postfix-doc	3.11.7-r0	Q1bMcw+aCoV+WCJ9+g5DawkWal4zo=	Secure and fast drop-in replacement for Sendmail (MTA) (documentation)		
+main	postfix-ldap	3.11.7-r0	Q1pKpiNUl5fxFWQdqPCC/K5peXoZY=	ldap map support for postfix	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	so:postfix-ldap.so=0
+main	postfix-mysql	3.11.7-r0	Q12uZ2sniRFlSsny0CbLXL9oEPs7A=	mysql map support for postfix	so:libc.musl-x86_64.so.1 so:libmariadb.so.3	so:postfix-mysql.so=0
+main	postfix-openrc	3.11.7-r0	Q1vNA4vMFHysx1PlqvoLqSPDY1Utc=	Secure and fast drop-in replacement for Sendmail (MTA) (OpenRC init scripts)		
+main	postfix-pcre	3.11.7-r0	Q110Zd4L5zN4Y+YwmAmpJTFeNO59c=	pcre map support for postfix	so:libc.musl-x86_64.so.1 so:libpcre2-8.so.0	so:postfix-pcre.so=0
+main	postfix-pgsql	3.11.7-r0	Q1M+EPrAw+ODQuBmmhEtdswg6jF/I=	pgsql map support for postfix	so:libc.musl-x86_64.so.1 so:libpq.so.5	so:postfix-pgsql.so=0
 main	postfix-policyd-spf-perl	2.011-r2	Q1rSUTIEo7jlZN3bhBRjVe7PdKvRU=	A Sender Policy Framework implementation	perl perl-mail-spf perl-netaddr-ip perl-sys-hostname-long	cmd:postfix-policyd-spf-perl=2.011-r2
-main	postfix-sqlite	3.11.6-r0	Q1+32dKXr6NHGGI7YvU0tl2KSxlSI=	sqlite map support for postfix	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0	so:postfix-sqlite.so=0
-main	postfix-stone	3.11.6-r0	Q1vxn3Qou+EqDBrE1iD23RlAeZAH8=	Postfix simulation and testing tools	so:libc.musl-x86_64.so.1 so:libpostfix-global.so so:libpostfix-util.so	cmd:fsstone=3.11.6-r0 cmd:qmqp-sink=3.11.6-r0 cmd:qmqp-source=3.11.6-r0 cmd:smtp-sink=3.11.6-r0 cmd:smtp-source=3.11.6-r0
+main	postfix-sqlite	3.11.7-r0	Q19A62eUjx+BGQfbNXXghpRozqM00=	sqlite map support for postfix	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0	so:postfix-sqlite.so=0
+main	postfix-stone	3.11.7-r0	Q13I/kpcaEeWU99bH/TJHs96J6NL4=	Postfix simulation and testing tools	so:libc.musl-x86_64.so.1 so:libpostfix-global.so so:libpostfix-util.so	cmd:fsstone=3.11.7-r0 cmd:qmqp-sink=3.11.7-r0 cmd:qmqp-source=3.11.7-r0 cmd:smtp-sink=3.11.7-r0 cmd:smtp-source=3.11.7-r0
 main	postgresql-common	1.3-r0	Q1gMsdwDJLGRqKeTqFxU9pxi6aT28=	Common files for PostgreSQL	/bin/sh	cmd:pg_versions=1.3-r0
 main	postgresql-common-openrc	1.3-r0	Q1mrfMrQMo8zyomK23q9bbN84+HH8=	OpenRC init scripts for PostgreSQL		
 main	postgresql-zsh-completion	5.9-r7	Q1td3Y4Bqt+vRNYokq69C9qd4nU0A=	Zsh completions for postgresql		
@@ -28367,79 +28367,79 @@ main	utmps-static	0.1.3.3-r0	Q13ukk2cVO4o/s8DgeMa1voMpdHcc=	A secure utmp/wtmp i
 main	uuidgen	2.42.3-r1	Q1yIQeMCal1+X24VZu7nQLST9FfN0=	UUID generator from util-linux	so:libc.musl-x86_64.so.1 so:libuuid.so.1	cmd:uuidgen=2.42.3-r1
 main	uvncrepeater	014-r11	Q1Ni3ChMtbPJcDrozXHeJNfdiOFWk=	VNC repeater based on ultravnc repeater	/bin/sh so:libc.musl-x86_64.so.1	cmd:repeater=014-r11
 main	uvncrepeater-openrc	014-r11	Q1jEEGS4OHAzhtZpGtqu5hYHahnkU=	VNC repeater based on ultravnc repeater (OpenRC init scripts)		
-main	uwsgi	2.0.31-r1	Q1TeE3l2J6Vgr8qKnOPOOovwotCJ8=	uWSGI application container server	mailcap /bin/sh so:libc.musl-x86_64.so.1 so:libcap.so.2 so:libcrypto.so.3 so:libjansson.so.4 so:libpcre2-8.so.0 so:libssl.so.3 so:libxml2.so.2 so:libz.so.1	cmd:uwsgi=2.0.31-r1
-main	uwsgi-alarm_curl	2.0.31-r1	Q16qrOYxuR/iENvHLOS/ilwt8L6rM=	uWSGI plugin alarm_curl	uwsgi so:libc.musl-x86_64.so.1 so:libcurl.so.4	
-main	uwsgi-cache	2.0.31-r1	Q1oLa29dWXRQK/yHSFLONkCTmD8NI=	uWSGI plugin cache	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-carbon	2.0.31-r1	Q1bDj/Tjk41BvtOooy/s+5QjFR1W0=	uWSGI plugin carbon	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-cgi	2.0.31-r1	Q1qMsu12R0Xd6dPDpudJbtGi7YiiA=	uWSGI plugin cgi	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-cheaper_backlog2	2.0.31-r1	Q1UzJKc0Xw4Ox9u+WpO+9zbl8Y1kY=	uWSGI plugin cheaper_backlog2	uwsgi	
-main	uwsgi-cheaper_busyness	2.0.31-r1	Q1SZhmgLs5FyfT3ZlRFx/J6iJjaBg=	uWSGI plugin cheaper_busyness	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-corerouter	2.0.31-r1	Q1LTiZLdS2zuq13K1g8TZxnONovZU=	uWSGI plugin corerouter	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-curl_cron	2.0.31-r1	Q1K4Ixbe1jouHNI4xreNP57ivCouM=	uWSGI plugin curl_cron	uwsgi so:libc.musl-x86_64.so.1 so:libcurl.so.4	
-main	uwsgi-dumbloop	2.0.31-r1	Q1WyUVInKC1e9ErlocRKQUXRPoagU=	uWSGI plugin dumbloop	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-dummy	2.0.31-r1	Q1JF/kY9+DDh4XIxoLzArqsnK0qiE=	uWSGI plugin dummy	uwsgi	
-main	uwsgi-echo	2.0.31-r1	Q1Me6l9m9eUqvDyUIA5VAF8rDDp1E=	uWSGI plugin echo	uwsgi	
-main	uwsgi-emperor_amqp	2.0.31-r1	Q12JzijMToQt+TTb0gHypZIuahawM=	uWSGI plugin emperor_amqp	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-emperor_pg	2.0.31-r1	Q1IJ91XClIQE4zI/+1QyUURypQrMI=	uWSGI plugin emperor_pg	uwsgi so:libc.musl-x86_64.so.1 so:libpq.so.5	
-main	uwsgi-emperor_zeromq	2.0.31-r1	Q1lx5YamW0fQ0Jr5I5jPDcJw22TZ0=	uWSGI plugin emperor_zeromq	uwsgi so:libc.musl-x86_64.so.1 so:libzmq.so.5	
-main	uwsgi-fastrouter	2.0.31-r1	Q1N3w2/Vuq5s5XhEKBBqNBhJ3rUK0=	uWSGI plugin fastrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
-main	uwsgi-forkptyrouter	2.0.31-r1	Q1MUbbjXwlmjpOUWMqeqD02GYryNU=	uWSGI plugin forkptyrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
-main	uwsgi-geoip	2.0.31-r1	Q1reHpObzjbBA9ttN8Y9Ohg3CfamE=	uWSGI plugin geoip	uwsgi so:libGeoIP.so.1 so:libc.musl-x86_64.so.1	
-main	uwsgi-gevent3	2.0.31-r1	Q1RghsaZ/jtWqZiYV8OxSuPQkvUxY=	uWSGI plugin for gevent (Python 3)	uwsgi python3~3.14 so:libc.musl-x86_64.so.1	uwsgi-gevent=2.0.31-r1 py3.14:uwsgidecorators=2.0.31-r1
-main	uwsgi-graylog2	2.0.31-r1	Q1t/J8MdfLGi8RHm9NQ4FqfN6QJyE=	uWSGI plugin graylog2	uwsgi so:libc.musl-x86_64.so.1 so:libz.so.1	
-main	uwsgi-http	2.0.31-r1	Q1oDTFA5As80xq06agf5MPolHNpg0=	uWSGI plugin http	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
-main	uwsgi-legion_cache_fetch	2.0.31-r1	Q1Pk2GFRPjCIWDOnz21lgcQJzLsRI=	uWSGI plugin legion_cache_fetch	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-logcrypto	2.0.31-r1	Q1YellcSW2sI6FQmnR7VP22MK1XJw=	uWSGI plugin logcrypto	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-logfile	2.0.31-r1	Q1ICyVIH6z8S9hTh3sLlHBeDmPSJA=	uWSGI plugin logfile	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-logpipe	2.0.31-r1	Q1tIJwURpGSe+8nWKv3XRI8GtynJs=	uWSGI plugin logpipe	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-logsocket	2.0.31-r1	Q1BJCywteKtYXASpCAzF/b3O5Cmh0=	uWSGI plugin logsocket	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-logzmq	2.0.31-r1	Q10mxrhtIl4FkroEbPMwU6aeLX8/I=	uWSGI plugin logzmq	uwsgi so:libc.musl-x86_64.so.1 so:libzmq.so.5	
-main	uwsgi-lua	2.0.31-r1	Q1+YUIRKa8hgVscbDuxQlHUBdzNSA=	uWSGI plugin lua	uwsgi so:libc.musl-x86_64.so.1 so:liblua-5.3.so.0	
-main	uwsgi-msgpack	2.0.31-r1	Q1/G6x/bCW2a1We1Bl2xDy+WobyCY=	uWSGI plugin msgpack	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-nagios	2.0.31-r1	Q1cgIPpGHORUhWoA9YiqITLdgRZQw=	uWSGI plugin nagios	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-notfound	2.0.31-r1	Q18z32vBq89RTpZ77D5foIJLRAlk8=	uWSGI plugin notfound	uwsgi	
-main	uwsgi-openrc	2.0.31-r1	Q1inSwNsowjTtSPXybRWeUOejqpEI=	uWSGI application container server (OpenRC init scripts)		
-main	uwsgi-pam	2.0.31-r1	Q1aC0h6kT8by1cnwylLITUWizJQn0=	uWSGI plugin pam	uwsgi so:libc.musl-x86_64.so.1 so:libpam.so.0	
-main	uwsgi-ping	2.0.31-r1	Q1Y4lgVoQiTsYpH9U8XssUXC6vuFU=	uWSGI plugin ping	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-pty	2.0.31-r1	Q1RojvX6tkscJoMV2RnPl8HUVPAD0=	uWSGI plugin pty	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-python3	2.0.31-r1	Q1+OyoXY0nUkZfkXYkPzouV0zK1HM=	uWSGI plugin for Python 3	uwsgi python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0	uwsgi-python=2.0.31-r1 py3.14:uwsgidecorators=2.0.31-r1
-main	uwsgi-rawrouter	2.0.31-r1	Q1o9OcPx2A+pNrOjuQSd0pxC+YrC0=	uWSGI plugin rawrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
-main	uwsgi-redislog	2.0.31-r1	Q1CVXByGXsybJhc5KYrTzgzSst+Js=	uWSGI plugin redislog	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_basicauth	2.0.31-r1	Q1BjccbjJSVEZWycp+i3aHQCM/b/8=	uWSGI plugin router_basicauth	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_cache	2.0.31-r1	Q1ZzRr/N9dbo2zWOQPZdNKq61j5oQ=	uWSGI plugin router_cache	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_expires	2.0.31-r1	Q15KmOku8Q40uHeo5HVNwVc7CSkPc=	uWSGI plugin router_expires	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_hash	2.0.31-r1	Q1z/fs0/kDOl8NVLzCSEFGmI85yTI=	uWSGI plugin router_hash	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_http	2.0.31-r1	Q1WI2iuzjFJHx8Qfg1VprnyzGSSBQ=	uWSGI plugin router_http	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_memcached	2.0.31-r1	Q1QKRkyVjsB0gmWU0fRgjyjWoISKc=	uWSGI plugin router_memcached	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_metrics	2.0.31-r1	Q1iBPJfq2WjOvVw2M7Rk9eGj0pnzk=	uWSGI plugin router_metrics	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_radius	2.0.31-r1	Q1GsLUXiHr1BNscUvgsqeWiylvynA=	uWSGI plugin router_radius	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_redirect	2.0.31-r1	Q1sA6roop3vE4Ac33OW0/V1ij7uYU=	uWSGI plugin router_redirect	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_redis	2.0.31-r1	Q1ISAoHqFAjRw6ZYaEcdOZ1+x2iw0=	uWSGI plugin router_redis	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_rewrite	2.0.31-r1	Q1tK6DllOZJ+z5fmZuUNU3cF2ovY8=	uWSGI plugin router_rewrite	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_static	2.0.31-r1	Q1LsiLT4YvuTuxDPvrvUR9iE/n4Ro=	uWSGI plugin router_static	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-router_uwsgi	2.0.31-r1	Q1eNqzl3dt1Koxq4Kr9trt070ZNXc=	uWSGI plugin router_uwsgi	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-rpc	2.0.31-r1	Q1nkmms8sT5xQutpi/zaDuY7jXuDg=	uWSGI plugin rpc	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-rrdtool	2.0.31-r1	Q1i0PK1LleQ5skd0puP2scrucnnI8=	uWSGI plugin rrdtool	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-rsyslog	2.0.31-r1	Q1uhNy+jkhATeXDIX/3by+WWMpESE=	uWSGI plugin rsyslog	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-signal	2.0.31-r1	Q1PlP0ma39v7FLC0dL+q/D6x3xfqs=	uWSGI plugin signal	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-spooler	2.0.31-r1	Q1ougWwHyex6bwxUVd/bQ0NtI2Edw=	uWSGI plugin spooler	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-sslrouter	2.0.31-r1	Q14sqPtk9+Xel00wpOCGRA7/APiMI=	uWSGI plugin sslrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
-main	uwsgi-stats_pusher_file	2.0.31-r1	Q1V4eLeuI3TVRaLWjMPYzsXmGVykY=	uWSGI plugin stats_pusher_file	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-stats_pusher_socket	2.0.31-r1	Q1RRKUC5YK1uN3H4vw8Cr5gjxUeAU=	uWSGI plugin stats_pusher_socket	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-stats_pusher_statsd	2.0.31-r1	Q1wKIujzxrRt++Tjo9K1rE9VjISLQ=	uWSGI plugin stats_pusher_statsd	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-symcall	2.0.31-r1	Q1dAW3O1B+ZR9TYSaoZ8PC7/Fv2Xs=	uWSGI plugin symcall	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-syslog	2.0.31-r1	Q1OnEcZlRjd3YfrFkt8n8pvBq2vAo=	uWSGI plugin syslog	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-transformation_chunked	2.0.31-r1	Q1T46CsDZTvLtQGXImiqPPy81hVPg=	uWSGI plugin transformation_chunked	uwsgi	
-main	uwsgi-transformation_gzip	2.0.31-r1	Q14u+/CDtQRbrZN9cvc9gM1a5bBjE=	uWSGI plugin transformation_gzip	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-transformation_offload	2.0.31-r1	Q1dgxU5F1pQ1LurZev30Ju4TcLNbA=	uWSGI plugin transformation_offload	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-transformation_template	2.0.31-r1	Q1e+WTehWou8hsYS6mm1HWvDkvsmA=	uWSGI plugin transformation_template	uwsgi	
-main	uwsgi-transformation_tofile	2.0.31-r1	Q1q7HBqqEdXISIcrBNSt0S4YcFTco=	uWSGI plugin transformation_tofile	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-tuntap	2.0.31-r1	Q12DuAR/cnkxFNj4Ep1uA5ezAs1JM=	uWSGI plugin tuntap	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-ugreen	2.0.31-r1	Q10qSGS466KJQYrMenZmvMp1Ici0U=	uWSGI plugin ugreen	uwsgi so:libc.musl-x86_64.so.1 so:libucontext.so.1	
-main	uwsgi-webdav	2.0.31-r1	Q1eyvJQx6W811hYsIF15BrlcBlTHY=	uWSGI plugin webdav	uwsgi so:libc.musl-x86_64.so.1 so:libxml2.so.2	
-main	uwsgi-xslt	2.0.31-r1	Q1mMujtEYPKGay8A6v4lAMM6vhNY8=	uWSGI plugin xslt	uwsgi so:libc.musl-x86_64.so.1 so:libxml2.so.2 so:libxslt.so.1	
-main	uwsgi-zabbix	2.0.31-r1	Q1lVuLIne//4qQ0mBC9eU+QbD/dWY=	uWSGI plugin zabbix	uwsgi so:libc.musl-x86_64.so.1	
-main	uwsgi-zergpool	2.0.31-r1	Q10sqxcrdYJm0Grx0AEomobMHedMg=	uWSGI plugin zergpool	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi	2.0.31-r2	Q1FcetQHhuf9h/YHaBhvEzB3yKacs=	uWSGI application container server	mailcap /bin/sh so:libc.musl-x86_64.so.1 so:libcap.so.2 so:libcrypto.so.3 so:libjansson.so.4 so:libpcre2-8.so.0 so:libssl.so.3 so:libxml2.so.2 so:libz.so.1	cmd:uwsgi=2.0.31-r2
+main	uwsgi-alarm_curl	2.0.31-r2	Q11i5y5XPg7/fpxr1ScZMGHUwT+IM=	uWSGI plugin alarm_curl	uwsgi so:libc.musl-x86_64.so.1 so:libcurl.so.4	
+main	uwsgi-cache	2.0.31-r2	Q1cNHwETcWAMhQ1jvM9VJuwPPRn88=	uWSGI plugin cache	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-carbon	2.0.31-r2	Q1VhOeHaz0WXcg30TuW1NJ4N2wetc=	uWSGI plugin carbon	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-cgi	2.0.31-r2	Q1XSi57Tqs7x2W3OBqFqbK5iXsALE=	uWSGI plugin cgi	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-cheaper_backlog2	2.0.31-r2	Q1PowSSJCM3TTGvlXV0lYiQW+zRG8=	uWSGI plugin cheaper_backlog2	uwsgi	
+main	uwsgi-cheaper_busyness	2.0.31-r2	Q1kFPxVa95qs7Kdyu0E4wxjKObUDw=	uWSGI plugin cheaper_busyness	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-corerouter	2.0.31-r2	Q108t/gPYBq6j+JPMT1Dthvcz0uKk=	uWSGI plugin corerouter	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-curl_cron	2.0.31-r2	Q16lLkS/4uUr8tBAOD66NF6eVzob4=	uWSGI plugin curl_cron	uwsgi so:libc.musl-x86_64.so.1 so:libcurl.so.4	
+main	uwsgi-dumbloop	2.0.31-r2	Q1GAbfFxl1dFEohVQRCQvK3i4TJhc=	uWSGI plugin dumbloop	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-dummy	2.0.31-r2	Q1xx85DlT50rhZCWua+N0eCJBKOYo=	uWSGI plugin dummy	uwsgi	
+main	uwsgi-echo	2.0.31-r2	Q1O2P87ax9q9oCsFTY8iCztPWH89A=	uWSGI plugin echo	uwsgi	
+main	uwsgi-emperor_amqp	2.0.31-r2	Q1n0xK98c/HcfXGqYSvuXSc97mSYc=	uWSGI plugin emperor_amqp	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-emperor_pg	2.0.31-r2	Q1XkD/ZYG+qTimY/O6AKlSxe8VYcc=	uWSGI plugin emperor_pg	uwsgi so:libc.musl-x86_64.so.1 so:libpq.so.5	
+main	uwsgi-emperor_zeromq	2.0.31-r2	Q12HZmpjXRWACZvhbGowENXBwrdNg=	uWSGI plugin emperor_zeromq	uwsgi so:libc.musl-x86_64.so.1 so:libzmq.so.5	
+main	uwsgi-fastrouter	2.0.31-r2	Q1wUKg529ylsyv/6ZXxaYhaqT7x5A=	uWSGI plugin fastrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
+main	uwsgi-forkptyrouter	2.0.31-r2	Q1VFdRpVcVop5pRMCh3D9kddZRHTE=	uWSGI plugin forkptyrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
+main	uwsgi-geoip	2.0.31-r2	Q1bpdcmr0p7/GAabdsM7mURYjxhwE=	uWSGI plugin geoip	uwsgi so:libGeoIP.so.1 so:libc.musl-x86_64.so.1	
+main	uwsgi-gevent3	2.0.31-r2	Q1S5hSCFsvu+o1cjX/Rlo0Y5MrfTE=	uWSGI plugin for gevent (Python 3)	uwsgi python3~3.14 so:libc.musl-x86_64.so.1	uwsgi-gevent=2.0.31-r2 py3.14:uwsgidecorators=2.0.31-r2
+main	uwsgi-graylog2	2.0.31-r2	Q1YprU3seTSgd4x+e8dbOmQEWz7vk=	uWSGI plugin graylog2	uwsgi so:libc.musl-x86_64.so.1 so:libz.so.1	
+main	uwsgi-http	2.0.31-r2	Q1X7c+qZf4JNKiTh53Kvb+WDRMgLE=	uWSGI plugin http	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
+main	uwsgi-legion_cache_fetch	2.0.31-r2	Q1MKjvhnrbbOQq5JRD2AxgogP8cdg=	uWSGI plugin legion_cache_fetch	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-logcrypto	2.0.31-r2	Q1kJ7acgUyeDgcq7gJPuxDBRaPSrQ=	uWSGI plugin logcrypto	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-logfile	2.0.31-r2	Q17EnSmM5HbfaGMUXr+z677ZfyU0c=	uWSGI plugin logfile	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-logpipe	2.0.31-r2	Q166xG0YOTsTCcMYSQLBsn+eqy0uA=	uWSGI plugin logpipe	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-logsocket	2.0.31-r2	Q1wGSBb4f+LaOOGBoDHT5krd96yRA=	uWSGI plugin logsocket	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-logzmq	2.0.31-r2	Q1qqlYPwaZuoPy1RByc9ju0iY+wOM=	uWSGI plugin logzmq	uwsgi so:libc.musl-x86_64.so.1 so:libzmq.so.5	
+main	uwsgi-lua	2.0.31-r2	Q1UPS5LFvRLRKKI5tYe070DlGnY2Q=	uWSGI plugin lua	uwsgi so:libc.musl-x86_64.so.1 so:liblua-5.3.so.0	
+main	uwsgi-msgpack	2.0.31-r2	Q1tizwwW7Hv983wrdUfIOddhqxadg=	uWSGI plugin msgpack	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-nagios	2.0.31-r2	Q1vp0DsUA6J9KrOrh6jeBmiaXDFi8=	uWSGI plugin nagios	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-notfound	2.0.31-r2	Q1/SCstehBBpVCd54YwU9AKDV4X3Q=	uWSGI plugin notfound	uwsgi	
+main	uwsgi-openrc	2.0.31-r2	Q1TB2IFyCgxSF2++kcfCL8kYuIdg8=	uWSGI application container server (OpenRC init scripts)		
+main	uwsgi-pam	2.0.31-r2	Q1ZSDv2eFr1Dd2NWcNrOJcFGPwEyo=	uWSGI plugin pam	uwsgi so:libc.musl-x86_64.so.1 so:libpam.so.0	
+main	uwsgi-ping	2.0.31-r2	Q14CTeFhP8TeOwkLvzTmrsjOaGn9A=	uWSGI plugin ping	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-pty	2.0.31-r2	Q1GjvUNIqoBkATiOfdaAU4MjeJkV8=	uWSGI plugin pty	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-python3	2.0.31-r2	Q1rbLNQtNA/2p5ChLXKd4vDjdgp8w=	uWSGI plugin for Python 3	uwsgi python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0	uwsgi-python=2.0.31-r2 py3.14:uwsgidecorators=2.0.31-r2
+main	uwsgi-rawrouter	2.0.31-r2	Q1g6l/DiolGvxO7Am3W9+v++QTY6o=	uWSGI plugin rawrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
+main	uwsgi-redislog	2.0.31-r2	Q14jle8K1a5UUYR0bHpyVdyBoA8ak=	uWSGI plugin redislog	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_basicauth	2.0.31-r2	Q1k05cLAVfiXFjTedH8wWaBh36WxQ=	uWSGI plugin router_basicauth	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_cache	2.0.31-r2	Q1uwsg2Vd0OE+tgaVhN3q9AdAisfk=	uWSGI plugin router_cache	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_expires	2.0.31-r2	Q1CN37zvVFUADaXhBrcweHhx7rfp8=	uWSGI plugin router_expires	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_hash	2.0.31-r2	Q1WkkNymlel0GW+o7SFCzdsFUmWA0=	uWSGI plugin router_hash	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_http	2.0.31-r2	Q1QEhRUUbAjxMBw4cQfQ4fzi5/53E=	uWSGI plugin router_http	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_memcached	2.0.31-r2	Q1gKvQPQ4MVr5x0gv/W0iDMJusmhY=	uWSGI plugin router_memcached	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_metrics	2.0.31-r2	Q1F63i1ROlIGUEsJKu0mL2jlJ2Qec=	uWSGI plugin router_metrics	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_radius	2.0.31-r2	Q1SAnG142SkWQcogkURRSmh4xw6fI=	uWSGI plugin router_radius	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_redirect	2.0.31-r2	Q18UmvCwMndhMfHRpBrXzjjG2s89w=	uWSGI plugin router_redirect	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_redis	2.0.31-r2	Q11p9cT0dkPDRMpBWl1I7Wm1ik3Sk=	uWSGI plugin router_redis	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_rewrite	2.0.31-r2	Q1Ed6o8zo2PqHLWeCSCxxuwvlaars=	uWSGI plugin router_rewrite	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_static	2.0.31-r2	Q1oWyjWc5sAsV/uu/OoDS0g80T124=	uWSGI plugin router_static	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-router_uwsgi	2.0.31-r2	Q14lty26nu310DaUJnMuGstwOyNmg=	uWSGI plugin router_uwsgi	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-rpc	2.0.31-r2	Q1i4APNk6uEb+X/Bhct6KT1oM3h3w=	uWSGI plugin rpc	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-rrdtool	2.0.31-r2	Q12vyo3RGoHAGdIAgGLvNZL+wFg20=	uWSGI plugin rrdtool	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-rsyslog	2.0.31-r2	Q1ldisp8xh99t+KzOkoGttEd+/SUU=	uWSGI plugin rsyslog	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-signal	2.0.31-r2	Q18nLJAFSyttOi87cnUxRdA8EOwbE=	uWSGI plugin signal	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-spooler	2.0.31-r2	Q1dNsDG8yy+w/5kB+GiObJdzMrNec=	uWSGI plugin spooler	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-sslrouter	2.0.31-r2	Q1qHQ9h5b7QyjW7nyQ+G1ls5HnLzE=	uWSGI plugin sslrouter	uwsgi uwsgi-corerouter so:libc.musl-x86_64.so.1	
+main	uwsgi-stats_pusher_file	2.0.31-r2	Q1K1C554rwfWsH9dvJw/i3Os0P5xU=	uWSGI plugin stats_pusher_file	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-stats_pusher_socket	2.0.31-r2	Q1bT8Y8xX18b1DepXGRGlrjD2iga4=	uWSGI plugin stats_pusher_socket	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-stats_pusher_statsd	2.0.31-r2	Q1jtz6juTe3U2n08NZoWOA6WtDW14=	uWSGI plugin stats_pusher_statsd	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-symcall	2.0.31-r2	Q1UNBVpNwh9VsRnx6aZxX92gNApTs=	uWSGI plugin symcall	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-syslog	2.0.31-r2	Q1x8v0H/N8OE5y1qlZgPS76uNvu2I=	uWSGI plugin syslog	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-transformation_chunked	2.0.31-r2	Q1w9XiPa0sDFlPnTRG8BpvlmsldaU=	uWSGI plugin transformation_chunked	uwsgi	
+main	uwsgi-transformation_gzip	2.0.31-r2	Q1/S0L/9bOyOno65ys+h20l027Zy4=	uWSGI plugin transformation_gzip	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-transformation_offload	2.0.31-r2	Q1d848NYMl9MtdKyBC60Qy9Fxw2ZM=	uWSGI plugin transformation_offload	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-transformation_template	2.0.31-r2	Q1QNkSfJ1Jp1dRUfFWoMCAl6l07R4=	uWSGI plugin transformation_template	uwsgi	
+main	uwsgi-transformation_tofile	2.0.31-r2	Q1+MbH6en1OTCRD47Zw/Lwq54iFeM=	uWSGI plugin transformation_tofile	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-tuntap	2.0.31-r2	Q1IZzLXTBw3ODYnMTLaNwfJPmCb+8=	uWSGI plugin tuntap	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-ugreen	2.0.31-r2	Q1Qn7gnQL1bSo2CoBmXv7f/lRFWT0=	uWSGI plugin ugreen	uwsgi so:libc.musl-x86_64.so.1 so:libucontext.so.1	
+main	uwsgi-webdav	2.0.31-r2	Q1IJYa0yyxMQXnZfpsZNWUXXAcR7A=	uWSGI plugin webdav	uwsgi so:libc.musl-x86_64.so.1 so:libxml2.so.2	
+main	uwsgi-xslt	2.0.31-r2	Q1f5hGEA3pDRsEjQNLCPYty3eDuKA=	uWSGI plugin xslt	uwsgi so:libc.musl-x86_64.so.1 so:libxml2.so.2 so:libxslt.so.1	
+main	uwsgi-zabbix	2.0.31-r2	Q1vYVZDw6IeE1gPSbPuUDAt6N4j/k=	uWSGI plugin zabbix	uwsgi so:libc.musl-x86_64.so.1	
+main	uwsgi-zergpool	2.0.31-r2	Q1H7UWzWcK0aOxD0ykgjtgflJRjtY=	uWSGI plugin zergpool	uwsgi so:libc.musl-x86_64.so.1	
 main	v86d	0.1.10-r5	Q1WNUyzsZ5WP4T/roqOT5GfezEAsA=	Userspace helper for uvesafb that runs x86 code in an emulated environment	so:libc.musl-x86_64.so.1	cmd:v86d=0.1.10-r5
 main	vala	0.56.19-r0	Q10ABHJnsrEtgMtYjthfgmhgKDhRk=	Compiler for the GObject type system	glib-dev pc:glib-2.0 pc:gmodule-2.0 pc:gobject-2.0 pc:libgvc pkgconfig so:libc.musl-x86_64.so.1 so:libcgraph.so.6 so:libglib-2.0.so.0 so:libgmodule-2.0.so.0 so:libgobject-2.0.so.0 so:libgvc.so.6	cmd:vala-0.56=0.56.19-r0 cmd:vala-gen-introspect-0.56=0.56.19-r0 cmd:vala-gen-introspect=0.56.19-r0 cmd:vala=0.56.19-r0 cmd:valac-0.56=0.56.19-r0 cmd:valac=0.56.19-r0 cmd:valadoc-0.56=0.56.19-r0 cmd:valadoc=0.56.19-r0 cmd:vapigen-0.56=0.56.19-r0 cmd:vapigen=0.56.19-r0 pc:libvala-0.56=0.56.19 pc:valadoc-0.56=0.56.19 pc:vapigen-0.56=0.56.19 pc:vapigen=0.56.19 so:libvala-0.56.so.0=0.0.0 so:libvalaccodegen.so=0 so:libvaladoc-0.56.so.0=0.0.0
 main	vala-dbg	0.56.19-r0	Q1WEx8xZ50tNo/uQdSsJi2OHrBVJs=	Compiler for the GObject type system (debug symbols)	!vala<0.56.19-r0 !vala>0.56.19-r0	
@@ -28582,11 +28582,11 @@ main	xxhash	0.8.3-r1	Q1Ik8TugVksvvRT6uXnOgJfvqlBRU=	Extremely fast non-cryptogra
 main	xxhash-dev	0.8.3-r1	Q1pCOAqUpdar5EFduRLyxxdnyE2eE=	Extremely fast non-cryptographic hash algorithm (development files)	libxxhash=0.8.3-r1 pkgconfig	pc:libxxhash=0.8.3
 main	xxhash-doc	0.8.3-r1	Q1LYH9zP3XPtRIJhMtDaQOEeFOAfI=	Extremely fast non-cryptographic hash algorithm (documentation)		
 main	xxhash-static	0.8.3-r1	Q1EEHNXYBfyokPJN7avSq2JAhci/o=	Extremely fast non-cryptographic hash algorithm (static library)	xxhash-dev	
-main	xz	5.8.3-r0	Q1tq9xR6bqCkmq8xV/sTbbWypz8TI=	Library and CLI tools for XZ and LZMA compressed files	so:libc.musl-x86_64.so.1 so:liblzma.so.5	cmd:lzcat=5.8.3-r0 cmd:lzcmp=5.8.3-r0 cmd:lzdiff=5.8.3-r0 cmd:lzegrep=5.8.3-r0 cmd:lzfgrep=5.8.3-r0 cmd:lzgrep=5.8.3-r0 cmd:lzless=5.8.3-r0 cmd:lzma=5.8.3-r0 cmd:lzmadec=5.8.3-r0 cmd:lzmainfo=5.8.3-r0 cmd:lzmore=5.8.3-r0 cmd:unlzma=5.8.3-r0 cmd:unxz=5.8.3-r0 cmd:xz=5.8.3-r0 cmd:xzcat=5.8.3-r0 cmd:xzcmp=5.8.3-r0 cmd:xzdec=5.8.3-r0 cmd:xzdiff=5.8.3-r0 cmd:xzegrep=5.8.3-r0 cmd:xzfgrep=5.8.3-r0 cmd:xzgrep=5.8.3-r0 cmd:xzless=5.8.3-r0 cmd:xzmore=5.8.3-r0
-main	xz-dev	5.8.3-r0	Q17XQ6KNiNx5Rb0C66b0+2oEVwhfY=	Library and CLI tools for XZ and LZMA compressed files (development files)	xz=5.8.3-r0 xz-libs=5.8.3-r0 pkgconfig	pc:liblzma=5.8.3
-main	xz-doc	5.8.3-r0	Q13auljkro72uv/+NczjZYezXnc8s=	Library and CLI tools for XZ and LZMA compressed files (documentation)		
-main	xz-libs	5.8.3-r0	Q1TJLFvgxb70BOk8iA66kDepsUc0c=	Library and CLI tools for XZ and LZMA compressed files (libraries)	so:libc.musl-x86_64.so.1	so:liblzma.so.5=5.8.3
-main	xz-static	5.8.3-r0	Q1YTrxpd2naKYK+7PV+rqgTfSX5xc=	Library and CLI tools for XZ and LZMA compressed files (static library)	xz-dev	
+main	xz	5.8.4-r0	Q1b6Vyrwi0ZRH0+1IQ52luL1O+D8s=	Library and CLI tools for XZ and LZMA compressed files	so:libc.musl-x86_64.so.1 so:liblzma.so.5	cmd:lzcat=5.8.4-r0 cmd:lzcmp=5.8.4-r0 cmd:lzdiff=5.8.4-r0 cmd:lzegrep=5.8.4-r0 cmd:lzfgrep=5.8.4-r0 cmd:lzgrep=5.8.4-r0 cmd:lzless=5.8.4-r0 cmd:lzma=5.8.4-r0 cmd:lzmadec=5.8.4-r0 cmd:lzmainfo=5.8.4-r0 cmd:lzmore=5.8.4-r0 cmd:unlzma=5.8.4-r0 cmd:unxz=5.8.4-r0 cmd:xz=5.8.4-r0 cmd:xzcat=5.8.4-r0 cmd:xzcmp=5.8.4-r0 cmd:xzdec=5.8.4-r0 cmd:xzdiff=5.8.4-r0 cmd:xzegrep=5.8.4-r0 cmd:xzfgrep=5.8.4-r0 cmd:xzgrep=5.8.4-r0 cmd:xzless=5.8.4-r0 cmd:xzmore=5.8.4-r0
+main	xz-dev	5.8.4-r0	Q1Rpl+tHAygviFExYaKl+HarM5TGY=	Library and CLI tools for XZ and LZMA compressed files (development files)	xz=5.8.4-r0 xz-libs=5.8.4-r0 pkgconfig	pc:liblzma=5.8.4
+main	xz-doc	5.8.4-r0	Q1bbGDBA8fG6GyFF30E6hevSfay+I=	Library and CLI tools for XZ and LZMA compressed files (documentation)		
+main	xz-libs	5.8.4-r0	Q1hQEGWxhighYwF0xmO0WXRGLCluE=	Library and CLI tools for XZ and LZMA compressed files (libraries)	so:libc.musl-x86_64.so.1	so:liblzma.so.5=5.8.4
+main	xz-static	5.8.4-r0	Q1de7w1C4Q/smU0fR0v5zCwEEgnfo=	Library and CLI tools for XZ and LZMA compressed files (static library)	xz-dev	
 main	yajl	2.1.0-r9	Q1bignZaFmYU1mEncQpaKj4lQXuEM=	Yet Another JSON Library (YAJL)	so:libc.musl-x86_64.so.1	so:libyajl.so.2=2.1.0
 main	yajl-dev	2.1.0-r9	Q1HF3/yQHtyaQxjtUOhoewtzCK7BI=	Yet Another JSON Library (YAJL) (development files)	yajl=2.1.0-r9 pkgconfig	pc:yajl=2.1.0
 main	yajl-static	2.1.0-r9	Q152jSl0tYzAsMtfhpq6kwSC8kPf0=	Yet Another JSON Library (YAJL) (static library)	yajl-dev	

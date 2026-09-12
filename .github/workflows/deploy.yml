@@ -100,14 +100,21 @@ jobs:
       # — the exact inputs those checks read. If the tag's tree matches, re-running them is the same computation
       # over byte-identical inputs; if it does NOT match, the receipt does not apply and the next step runs them in
       # full. The fast path is taken only when the proof provably covers this tree.
+      # VERIFY BEATS RECOMPUTE, BY ONE FETCH: the landing deposited its receipt on qpu.uuidna.com under this commit;
+      # equal covers prove these bytes green without running anything here.
+      - name: VERIFY — the landing's receipt on qpu.uuidna.com covers this commit
+        id: qpu
+        continue-on-error: true
+        run: node dist/scripts/receipt-verify-qpu.js "$GITHUB_SHA"
       - name: PROVE — the push-time proof covers this exact tree
         id: receipt
+        if: steps.qpu.outcome == 'failure'
         continue-on-error: true
         run: node dist/scripts/gate-receipt.js --verify
 
-      - name: PROVE — tests + guard (only when the receipt does not cover this tree)
-        if: steps.receipt.outcome == 'failure'
-        run: npm test && npm run guard
+      - name: PROVE — guard, then only the tests that import or read what moved (only when no receipt covers this tree)
+        if: steps.qpu.outcome == 'failure' && steps.receipt.outcome == 'failure'
+        run: node dist/scripts/guard.js && node dist/scripts/test-plan.js
 
       # NO DEPLOY STEP AND NO SECRETS HERE (the captain's call, 2026-08-31): Cloudflare Workers Builds is the
       # deploy path, running `npm run build && npx wrangler deploy` on push from Cloudflare's own side. This job

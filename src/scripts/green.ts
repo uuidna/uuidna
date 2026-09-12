@@ -108,10 +108,10 @@ const ARMS: Arm[] = [
       }
       if (plan.mode === 'delta') {
         console.log(`  · tests — delta: ${plan.why}`)
-        return sh(`node --test ${plan.files.join(' ')}`)
+        return sh(`node --max-old-space-size=8192 --test --test-isolation=none ${plan.files.join(' ')}`)
       }
       console.log(`  · tests — full suite: ${plan.why}`)
-      return sh(`node --test ${testRunGlobs().join(' ')}`)
+      return sh(`node --max-old-space-size=8192 --test --test-isolation=none ${testRunGlobs().join(' ')}`)
     } },
 
   ...(full ? [{ name: 'kernel', why: 'every wing re-proven sorry-free and every theorem kernel-only (UUIDNA_PROVE_ALL=1)',

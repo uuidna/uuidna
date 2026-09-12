@@ -38,6 +38,11 @@ jobs:
         with: { node-version: 22, cache: npm }
       - name: install exact (lockfile law)
         run: npm ci
+      - name: Cache the Lean toolchain (2.7 GB unpacked, downloaded once per pin, not once per run)
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
       - name: install lean toolchain (full next re-proves; verify still needs the seal tools)
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none

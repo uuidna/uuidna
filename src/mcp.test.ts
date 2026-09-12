@@ -82,7 +82,7 @@ test('uuidna_handle and uuidna_send_trial — store witness and enriched detail 
 })
 
 test('mcp tests itself: catalog↔handlers hold, zero-arg tools recompute (only live resources may vary)', () => {
-  const s = callTool('uuidna_selftest', {}) as { checks: number; passed: number; deterministic: number; failed: { name: string }[] }
+  const s = callTool('uuidna_selftest', { run: true }) as { checks: number; passed: number; deterministic: number; failed: { name: string }[] }
   assert.ok(s.checks > 80 && s.deterministic > 0)
   for (const f of s.failed) assert.equal(f.name, 'uuidna_resources', `unexpected self-test failure: ${JSON.stringify(f)}`)
 })

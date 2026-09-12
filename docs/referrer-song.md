@@ -42,7 +42,7 @@ twice and the film returns.
 
 ## The site's walk, measured
 
-The site's 71442 pages form one closed cycle — previous and next are total and mutually inverse from
+The site's 5906 pages form one closed cycle — previous and next are total and mutually inverse from
 every position ([`prev_undoes_next`](/theorem/prev_undoes_next),
 [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page)). Each page sounds its
 handle's first tile on the A432 lattice, and **every step's harmony is a measured, reduced ratio** — the tuning
@@ -50,19 +50,19 @@ cancels from every interval ([`tuning_cancels_from_every_interval`](/theorem/tun
 so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exactly 432 Hz
 ([`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning)).
 
-**The census of this walk's 71442 steps**: 4436 unisons, 4452 pure octaves,
-44180 coprime (irreducible) tensions. The most common reduced intervals:
+**The census of this walk's 5906 steps**: 366 unisons, 378 pure octaves,
+3654 coprime (irreducible) tensions. The most common reduced intervals:
 
 | interval | steps |
 |---|---|
-| 1:1 | 4436 |
-| 2:1 | 2240 |
-| 1:2 | 2212 |
-| 3:2 | 1407 |
-| 3:1 | 1403 |
-| 1:3 | 1359 |
-| 2:3 | 1346 |
-| 4:3 | 1133 |
+| 1:1 | 366 |
+| 2:1 | 190 |
+| 1:2 | 188 |
+| 3:2 | 135 |
+| 3:1 | 131 |
+| 2:3 | 116 |
+| 1:3 | 113 |
+| 4:1 | 100 |
 
 ## The walk, sounded — in your browser, from nothing served
 
@@ -70,7 +70,7 @@ so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exact
 
 No audio file exists for this recording and none was fetched: the states above are the sidebar walk's own
 handles, and your browser just rendered them on the exact-integer lattice — one bar per **chapter**
-(66 bars), while the census above measures the full 71442-page cycle. Every bar
+(66 bars), while the census above measures the full 5906-page cycle. Every bar
 is 4032 samples = 9·7·64 = 63·64 = **24²·7** — twenty-four frame-slots of 168 samples inside every note, so
 what plays is also a frame-track: **the movie and the song are one**
 ([`the_movie_and_the_song_are_one`](/theorem/the_movie_and_the_song_are_one)).

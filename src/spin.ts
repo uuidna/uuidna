@@ -54,8 +54,14 @@ export function sealSpin(files: Record<string, string>): SpinManifest {
   const isDir = (p: string): boolean => !/\.[a-z0-9]+$/i.test(p)
   for (const p of DERIVED_FILES) {
     if (isDir(p)) {
-      for (const f of Object.keys(files)) if (f.startsWith(p + '/')) coins[f] = spin(files[f]).coin
-    } else if (p in files) coins[p] = spin(files[p]).coin
+      // ONE COIN PER DIRECTORY (2026-09-12). A coin per file made src/chunks (70,823 tracked files) a 3.8 MB
+      // manifest that moved on every chunk and that git could not even list in the default buffer. The directory's
+      // coin is the spin of its sorted `file=coin` lines: every file still counts, in order, and one byte moved
+      // anywhere beneath it moves the coin — while the manifest stays a page. Drift names the directory; which file
+      // moved is one `git status` away.
+      const under = Object.keys(files).filter((f) => f.startsWith(p + '/')).sort()
+      if (under.length) coins[p] = spin(under.map((f) => f + '=' + spin(files[f]!).coin).join('\n')).coin
+    } else if (p in files) coins[p] = spin(files[p]!).coin
   }
   // fold the (path, coin) pairs in a FIXED order into one receipt — order-invariant content is the sorted join
   const receipt = toUuid(Object.keys(coins).sort().map((p) => p + '=' + coins[p]).join('\n'))
@@ -81,7 +87,7 @@ export function verifySpin(manifest: SpinManifest, files: Record<string, string>
   const drift: SpinDrift[] = []
   const current = sealSpin(files)
   for (const p of Object.keys(manifest.coins)) {
-    const spun = p in files ? spin(files[p]).coin : '(absent)'
+    const spun = p in current.coins ? current.coins[p]! : '(absent)'
     if (spun !== manifest.coins[p]) drift.push({ path: p, sealed: manifest.coins[p], spun })
   }
   // the third way: sealed by nobody. A file the derived set now carries that the manifest never covered — it

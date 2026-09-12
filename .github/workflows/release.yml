@@ -35,6 +35,11 @@ jobs:
         with: { node-version: 22, cache: npm }
       - name: install exact (lockfile law)
         run: npm ci
+      - name: Cache the Lean toolchain (2.7 GB unpacked, downloaded once per pin, not once per run)
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
       - name: install lean toolchain
         run: |
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
@@ -43,6 +48,9 @@ jobs:
         # gate-all: SAME chain as scripts.audit, concurrent checks + receipt O(1) where sealed
         # (verify_beats_recompute_by_magnitudes). prove-all inside the chain forces UUIDNA_PROVE_ALL=1.
         run: npm run gate-all
+        env:
+          # the docs build inside gate-all died at the default heap (2026-09-02, 'Ineffective mark-compacts'); 10 minutes billed for nothing
+          NODE_OPTIONS: --max-old-space-size=6144
       # NO RELEASE OVER AN OPEN LEAD (the captain's order, 2026-08-25: "next release only possible if all leads
       # verified. lead is anything not verified"). The audit above decides what a COMMIT must satisfy; this asks
       # the question only a release has to answer — is anything still unverified? A lead is settled by evidence

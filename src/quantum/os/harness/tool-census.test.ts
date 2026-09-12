@@ -14,7 +14,7 @@ test('coprime, crt, compare — the number-theory tools compute their exact answ
   assert.deepEqual(call('uuidna_coprime', { a: 6, b: 9 }).coprime, false)
   assert.equal(call('uuidna_crt', { a: 2, m: 3, b: 3, n: 5 }).x, 8)   // x≡2(3), x≡3(5) ⇒ 8
   assert.equal(call('uuidna_crt', { a: 2, m: 3, b: 3, n: 5 }).mod, 15)
-  assert.ok(call('uuidna_compare', { a: 5, b: 3 }).inclusionExclusion === true)
+  assert.ok(call('uuidna_compare', { a: '5', b: '3' }).inclusionExclusion === true)
 })
 
 test('digital_root, fibonacci — the ℤ/9 tools land on the sealed cycle', () => {

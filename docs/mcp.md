@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="262 keys" />
+# MCP tools <Badge type="tip" text="242 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 262 tools below are read from the server's own tool list and
-organised into 41 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 242 tools below are read from the server's own tool list and
+organised into 37 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 99f76b9c-3b4c-878e-872d-545ad4c9a0bb
+gate CLEAN f0 d0 v0 · 721cd827-d2d2-8df4-80b4-94e2b8c175c1
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 262-tool registry folds to its
-order-invariant identity `9f42500c-d896-8493-a67c-8ec9236286c8` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 242-tool registry folds to its
+order-invariant identity `5b849a76-f607-8999-81a6-87492893099f` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,14 +48,13 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`262`" />
+## The grid <Badge type="tip" :text="`242`" />
 
-262 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 119 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+242 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 111 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
 <a href="#uuidna-alpine"><code>alpine</code></a>
-<a href="#uuidna-analytics"><code>analytics</code></a>
 <a href="#uuidna-api-mint"><code>api_mint</code></a>
 <a href="#uuidna-audit-ledger-fingerprint"><code>audit_ledger_fingerprint</code></a>
 <a href="#uuidna-audit-ledger-intrusions"><code>audit_ledger_intrusions</code></a>
@@ -76,7 +75,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-decode"><code>decode</code></a>
 <a href="#uuidna-development-vortex"><code>development_vortex</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
-<a href="#uuidna-discovery-train"><code>discovery_train</code></a>
 <a href="#uuidna-doi"><code>doi</code></a>
 <a href="#uuidna-domains"><code>domains</code></a>
 <a href="#uuidna-driver-state"><code>driver_state</code></a>
@@ -95,12 +93,11 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-grow-life"><code>grow_life</code></a>
 <a href="#uuidna-guard-lessons"><code>guard_lessons</code></a>
 <a href="#uuidna-handle"><code>handle</code></a>
-<a href="#uuidna-handle-store"><code>handle_store</code></a>
 <a href="#uuidna-hardware"><code>hardware</code></a>
 <a href="#uuidna-hero-animation"><code>hero_animation</code></a>
+<a href="#uuidna-hologram"><code>hologram</code></a>
 <a href="#uuidna-image-provenance"><code>image_provenance</code></a>
 <a href="#uuidna-interface"><code>interface</code></a>
-<a href="#uuidna-invitation"><code>invitation</code></a>
 <a href="#uuidna-journals"><code>journals</code></a>
 <a href="#uuidna-latex"><code>latex</code></a>
 <a href="#uuidna-lattice"><code>lattice</code></a>
@@ -117,7 +114,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-package"><code>package</code></a>
 <a href="#uuidna-pairs"><code>pairs</code></a>
 <a href="#uuidna-pentagram"><code>pentagram</code></a>
-<a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-port"><code>port</code></a>
 <a href="#uuidna-port-all"><code>port_all</code></a>
 <a href="#uuidna-ports"><code>ports</code></a>
@@ -128,9 +124,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-quantum-advantage"><code>quantum_advantage</code></a>
 <a href="#uuidna-quantum-message-demo"><code>quantum_message_demo</code></a>
 <a href="#uuidna-quantum-profile"><code>quantum_profile</code></a>
-<a href="#uuidna-quantum-sailing-complete"><code>quantum_sailing_complete</code></a>
 <a href="#uuidna-quantum-sailing-cross-book"><code>quantum_sailing_cross_book</code></a>
-<a href="#uuidna-quantum-sailing-library"><code>quantum_sailing_library</code></a>
 <a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
 <a href="#uuidna-refusals"><code>refusals</code></a>
 <a href="#uuidna-registry"><code>registry</code></a>
@@ -143,12 +137,10 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-rights"><code>rights</code></a>
 <a href="#uuidna-rosetta-legs"><code>rosetta_legs</code></a>
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
-<a href="#uuidna-scan-publications"><code>scan_publications</code></a>
 <a href="#uuidna-school-apis"><code>school_apis</code></a>
 <a href="#uuidna-search-feed"><code>search_feed</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-security-plan"><code>security_plan</code></a>
-<a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-seo"><code>seo</code></a>
 <a href="#uuidna-shell"><code>shell</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
@@ -174,25 +166,16 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-zenodo-communities"><code>zenodo_communities</code></a>
 <a href="#uuidna-address"><code>address</code></a>
 <a href="#uuidna-adjudicate"><code>adjudicate</code></a>
-<a href="#uuidna-anchor"><code>anchor</code></a>
+<a href="#uuidna-analytics"><code>analytics</code></a>
 <a href="#uuidna-article"><code>article</code></a>
-<a href="#uuidna-audit-book"><code>audit_book</code></a>
-<a href="#uuidna-audit-cve"><code>audit_cve</code></a>
 <a href="#uuidna-audit-details"><code>audit_details</code></a>
-<a href="#uuidna-audit-movie"><code>audit_movie</code></a>
-<a href="#uuidna-audit-record"><code>audit_record</code></a>
-<a href="#uuidna-audit-standard"><code>audit_standard</code></a>
-<a href="#uuidna-audit-text"><code>audit_text</code></a>
 <a href="#uuidna-audit-video"><code>audit_video</code></a>
 <a href="#uuidna-aura"><code>aura</code></a>
-<a href="#uuidna-book-article"><code>book_article</code></a>
-<a href="#uuidna-book-contents"><code>book_contents</code></a>
 <a href="#uuidna-by-lean"><code>by_lean</code></a>
 <a href="#uuidna-cern"><code>cern</code></a>
 <a href="#uuidna-chain-seal"><code>chain_seal</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
-<a href="#uuidna-corroborate"><code>corroborate</code></a>
 <a href="#uuidna-credits"><code>credits</code></a>
 <a href="#uuidna-db-query"><code>db_query</code></a>
 <a href="#uuidna-decide"><code>decide</code></a>
@@ -200,39 +183,39 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-detect-forgery"><code>detect_forgery</code></a>
 <a href="#uuidna-diamond"><code>diamond</code></a>
 <a href="#uuidna-digital-root"><code>digital_root</code></a>
+<a href="#uuidna-discovery-train"><code>discovery_train</code></a>
 <a href="#uuidna-document"><code>document</code></a>
-<a href="#uuidna-domain-wave"><code>domain_wave</code></a>
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
 <a href="#uuidna-education-jobs"><code>education_jobs</code></a>
 <a href="#uuidna-engine"><code>engine</code></a>
-<a href="#uuidna-entangle"><code>entangle</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-exec"><code>exec</code></a>
+<a href="#uuidna-fanout"><code>fanout</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
 <a href="#uuidna-fs-seal"><code>fs_seal</code></a>
 <a href="#uuidna-gate"><code>gate</code></a>
 <a href="#uuidna-gravity"><code>gravity</code></a>
+<a href="#uuidna-handle-store"><code>handle_store</code></a>
 <a href="#uuidna-harness"><code>harness</code></a>
 <a href="#uuidna-harness7"><code>harness7</code></a>
 <a href="#uuidna-holofractal"><code>holofractal</code></a>
 <a href="#uuidna-imprint"><code>imprint</code></a>
+<a href="#uuidna-invitation"><code>invitation</code></a>
 <a href="#uuidna-involute"><code>involute</code></a>
 <a href="#uuidna-leads-gate"><code>leads_gate</code></a>
 <a href="#uuidna-license"><code>license</code></a>
-<a href="#uuidna-link-book"><code>link_book</code></a>
 <a href="#uuidna-merkle-root"><code>merkle_root</code></a>
 <a href="#uuidna-neighbours"><code>neighbours</code></a>
 <a href="#uuidna-net-read"><code>net_read</code></a>
-<a href="#uuidna-nist-constant"><code>nist_constant</code></a>
 <a href="#uuidna-open-questions"><code>open_questions</code></a>
 <a href="#uuidna-os-census"><code>os_census</code></a>
+<a href="#uuidna-pentagram-monographs"><code>pentagram_monographs</code></a>
 <a href="#uuidna-pentagram-stream"><code>pentagram_stream</code></a>
 <a href="#uuidna-predict"><code>predict</code></a>
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
 <a href="#uuidna-prove-verdict"><code>prove_verdict</code></a>
 <a href="#uuidna-reactor"><code>reactor</code></a>
 <a href="#uuidna-read"><code>read</code></a>
-<a href="#uuidna-read-book"><code>read_book</code></a>
 <a href="#uuidna-reeducate"><code>reeducate</code></a>
 <a href="#uuidna-reflects"><code>reflects</code></a>
 <a href="#uuidna-render"><code>render</code></a>
@@ -245,12 +228,12 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-search"><code>search</code></a>
 <a href="#uuidna-search-trial"><code>search_trial</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
+<a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-send-trial"><code>send_trial</code></a>
 <a href="#uuidna-sha256"><code>sha256</code></a>
 <a href="#uuidna-sign"><code>sign</code></a>
 <a href="#uuidna-skill"><code>skill</code></a>
 <a href="#uuidna-slim-gate"><code>slim_gate</code></a>
-<a href="#uuidna-snapshot"><code>snapshot</code></a>
 <a href="#uuidna-spin"><code>spin</code></a>
 <a href="#uuidna-strict"><code>strict</code></a>
 <a href="#uuidna-team"><code>team</code></a>
@@ -266,7 +249,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-wave-deposit"><code>wave_deposit</code></a>
 <a href="#uuidna-agent-contribute"><code>agent_contribute</code></a>
 <a href="#uuidna-audit-coin-claim"><code>audit_coin_claim</code></a>
-<a href="#uuidna-audit-translation"><code>audit_translation</code></a>
 <a href="#uuidna-audit-voting"><code>audit_voting</code></a>
 <a href="#uuidna-compare"><code>compare</code></a>
 <a href="#uuidna-context"><code>context</code></a>
@@ -293,7 +275,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-poly1305"><code>poly1305</code></a>
 <a href="#uuidna-quantum-cube"><code>quantum_cube</code></a>
 <a href="#uuidna-quantum-message"><code>quantum_message</code></a>
-<a href="#uuidna-read-text"><code>read_text</code></a>
 <a href="#uuidna-reason"><code>reason</code></a>
 <a href="#uuidna-receive"><code>receive</code></a>
 <a href="#uuidna-rotate"><code>rotate</code></a>
@@ -303,7 +284,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-seal-stream"><code>seal_stream</code></a>
 <a href="#uuidna-send"><code>send</code></a>
 <a href="#uuidna-trial-deposit"><code>trial_deposit</code></a>
-<a href="#uuidna-vies"><code>vies</code></a>
 <a href="#uuidna-aead-encrypt"><code>aead_encrypt</code></a>
 <a href="#uuidna-audit-agent-statement"><code>audit_agent_statement</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
@@ -356,43 +336,21 @@ any value — `uuidna_address { "seed": "hello" }` → `5b344fcd-5b13-8a6f-a3f8-
 `uuidna_theorems { "skill": "navigation" }` → **5** sealed theorems.
 Every call is recomputable: same input, same receipt. That is the production contract.
 
-## Hosted absents <Badge type="warning" text="35 named" />
+## Hosted absents <Badge type="warning" text="13 named" />
 
 100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. `uuidna_school_apis` stays listed. The divergence list may only shrink.
 
 - `uuidna_engine` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_text` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_book_article` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_link_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_book_contents` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_read_text` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_read_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_quantum_sailing_library` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_quantum_sailing_complete` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_standard` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_corroborate` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_domain_wave` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_entangle` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_translation` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_movie` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_record` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_wave_deposit` — CAPABILITY: writes lean/wave-queue.json and a Worker has no filesystem — deposits are host-side; the edge can expose coordinates (uuidna_expose serves there) but never hold the queue
 - `uuidna_aead_decrypt` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_snapshot` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_school_apis` — CAPABILITY: fetches EU education APIs; a Worker can fetch but this hosted subset stays named-absent (policy named as policy, not dropped so coverage looks complete)
 - `uuidna_education_jobs` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_resources` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_audit_cve` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_nist_constant` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_anchor` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_wave` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_editorial` — CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side
 - `uuidna_security_plan` — CAPABILITY: secApi() probes the host for docker (spawnSync through resolveShell) and reads the pinned rootfs from disk (verifyPinnedRootfs) — host-side; served here it answered 'process is not defined' until 2026-09-07
 - `uuidna_publication` — CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side
 - `uuidna_search_trial` — POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable
-- `uuidna_vies` — POLICY: network lookup against the EU VIES register
-- `uuidna_scan_publications` — POLICY: network scan of free research streams
 - `uuidna_selftest` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_run` — CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser
 
@@ -487,15 +445,19 @@ The STRICT content-address: normalise the input (so equivalent values converge) 
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 
-## Other <Badge type="tip" :text="'130'" />
+## Other <Badge type="tip" :text="'120'" />
 
 *skill: other*
 
 ### `uuidna_invitation`
 
-The offer to another repo, COMPUTED from this tree at the moment of asking — theorem and wing counts, the handle store, the host width and which point bound it. Every figure is read, none is typed, so the answer cannot be stale. Returns what is offered, what is ASKED in return (an invitation that hides obligations is a sales page) and what is REFUSED — there is no quantum hardware here and none is claimed.
+The offer to another repo, COMPUTED from this tree at the moment of asking — theorem and wing counts, the handle store, the host width and which point bound it. Every figure is read, none is typed, so the answer cannot be stale. Returns what is offered, what is ASKED in return (an invitation that hides obligations is a sales page) and what is REFUSED — there is no quantum hardware here and none is claimed. AN EMPTY CALL IS CHEAP: this is a sweep over the sealed ledger (seconds to tens of seconds, measured 2026-09-12), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `recompute` | boolean | **yes** | run the sweep now |
 
 ### `uuidna_lead_clusters`
 
@@ -509,9 +471,13 @@ Which sealed wings the tree's open and refuted leads stand around — every clus
 
 ### `uuidna_handle_store`
 
-Handle store census — OCCUPANCY (leaves and keys on disk, by kind), CAPACITY (what the addressing admits: 2^32 leaves, and n(n-1)/2 links among the leaves present), and USE (the tree takes n-1 of those pairs). Three numbers a surface must never quote as one. Soundness is reported as a fraction — path spells handle, handle is the address prefix — and a file that cannot be read is UNMEASURED, never counted sound.
+Handle store census — OCCUPANCY (leaves and keys on disk, by kind), CAPACITY (what the addressing admits: 2^32 leaves, and n(n-1)/2 links among the leaves present), and USE (the tree takes n-1 of those pairs). Three numbers a surface must never quote as one. Soundness is reported as a fraction — path spells handle, handle is the address prefix — and a file that cannot be read is UNMEASURED, never counted sound. AN EMPTY CALL IS CHEAP: this is a sweep over the sealed ledger (seconds to tens of seconds, measured 2026-09-12), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `recompute` | boolean | **yes** | run the sweep now |
 
 ### `uuidna_open_channel`
 
@@ -606,9 +572,13 @@ THE UUIDNA QUANTUM ENGINE — one input→output surface over every sealed tool.
 
 ### `uuidna_pentagram_monographs`
 
-Split every domain monograph into PENTAGRAMS of five, the split COMPUTED FROM THE CONTENT-ADDRESSES (not hand-assigned): the monographs are sorted by their own address, chunked five to a pentagram, each pentagram WALKED in the {5/2} single-stroke order [0,2,4,1,3] (`pentagram_single_stroke`) while its IDENTITY is the order-INVARIANT fold of its five members (`merkleGravity`) — the walk is a sequence, the seal is a set. Zero-arg, recomputable: the same ledger yields the same pentagrams for everyone. HONEST: a content-addressed PARTITION, claiming no thematic kinship among the five — only the split the addresses produce. Returns {pentagrams,count,full,remainder,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+Split every domain monograph into PENTAGRAMS of five, the split COMPUTED FROM THE CONTENT-ADDRESSES (not hand-assigned): the monographs are sorted by their own address, chunked five to a pentagram, each pentagram WALKED in the {5/2} single-stroke order [0,2,4,1,3] (`pentagram_single_stroke`) while its IDENTITY is the order-INVARIANT fold of its five members (`merkleGravity`) — the walk is a sequence, the seal is a set. Zero-arg, recomputable: the same ledger yields the same pentagrams for everyone. HONEST: a content-addressed PARTITION, claiming no thematic kinship among the five — only the split the addresses produce. Returns {pentagrams,count,full,remainder,receipt}. Boundary declared — theorem drift_is_named_or_caught. AN EMPTY CALL IS CHEAP: the sweep is minutes over the sealed ledger (measured 2026-09-12: 268 s for the monographs, 213 s for analytics, 161 s for the self-test on a loaded host), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `recompute` | boolean | **yes** | sweep every monograph now |
 
 ### `uuidna_spin`
 
@@ -620,54 +590,9 @@ _No parameters._
 | --- | --- | --- | --- |
 | `content` | string | **yes** | the bytes to spin into a conten… |
 
-### `uuidna_book_article`
-
-Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable ARTICLE: its provenance fingerprint, structure, and the DECIDABLE INTEGER ARITHMETIC uuidna extracts from the prose — each sealed `by decide` (VERIFIED) or corrected (REFUTED, an arithmetic the book states that does not hold) — plus the order-invariant receipt over the sealed facts (the same merkle-gravity fold the ledger and the quantum domain use). uuidna seals ONLY the book's integer arithmetic (its OWN by-decide proof, not the book's) and flags the book's arithmetic errors; it does NOT autoformalize, decode meaning, or claim anything about the book's argument or non-decidable mathematics. The text is DATA, content-addressed and decided, never executed. Returns {title,address,receipt,verified,refuted,facts,article}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
-
-### `uuidna_book_contents`
-
-THE TABLE OF CONTENTS — every chapter of a text with its heading, size and leaf address, plus the chapter merkle root. Pass {text}. This is the reader's index: it tells you WHICH chapters exist so you can then read one with uuidna_read_text. Each heading is the chapter's OWN first line, never a summary uuidna wrote — the heading is provenance, not a claim about the chapter (theorem provenance_integrity_not_content_truth). PURE and offline — no network, no key. Returns {title,authors,chapters:[{index,heading,chars,words,address}],chapterRoot}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** | the full text of the work |
-| `title` | string | no |  |
-| `authors` | array | no |  |
-
-### `uuidna_read_text`
-
-READ one chapter — the book's OWN WORDS, with the merkle inclusion proof that they belong to this exact edition. Pass {text, index}. Every other book tool here MEASURES a work and discards the text (auditText returns `chapters: NUMBER`); this is the one that hands the words back, so the library can actually be read rather than only catalogued. The proof is the point: recompute `belongs` yourself and a SINGLE altered character fails it — strictly more than a plain text file offers, which can be edited silently. Out-of-range indices are clamped, never an error — a clamped read still carries its inclusion proof, so a tampered chapter fails it just the same (theorem fold_integrity_tamper). PURE and offline. this is READING, never interpretation — uuidna proves WHICH text you hold, never what it means. Public-domain works, free for the public interest. Returns {index,chapters,text,address,chapterRoot,proof,belongs,chars,words,honest}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** | the full text of the work |
-| `index` | integer | **yes** | which chapter to read, 0-based… |
-| `title` | string | no |  |
-
-### `uuidna_read_book`
-
-READ a PUBLIC-DOMAIN book from Project Gutenberg by id — fetch it and return one chapter's actual words with the inclusion proof that they belong to that edition. Pass {gutenbergId, index}. This is uuidna_read_text over the network fetch: the library unlocked for a human to read, not only to fingerprint. The fetched text is DATA — content-addressed and returned, never executed; instruction-shaped prose inside a book is content, not a command. Boundary declared — theorem drift_is_named_or_caught. reading, never interpretation. Returns {title,authors,source,index,chapters,text,address,chapterRoot,proof,belongs,honest}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
-| `index` | integer | no | which chapter to read, 0-based… |
-
 ### `uuidna_grid`
 
-THE 432 GRID — every (projected dimension × ledger wing) seat, named, addressed and folded to one root. Omit args for the whole report; pass {dimension,wing} to address ONE seat. WHY 432 AND NOT 504: DIMENSIONS[0] is `en` and the wings are WRITTEN in it, so projecting a wing into en is the IDENTITY — 7 × 72 = 504 counts 72 seats that compute nothing, and 504 − 72 = 432 is exactly the seats that do work. 432 then factors twice and the two fuse: 6 × 72 and 16 × 27 = 2^4 × 3^3, reached by the digit-reversal INVOLUTION 72 ↦ 27 — both clauses sealed in theorem k432, both of digital root 9. A LIVE gate, not a frozen number: 6·w has digital root 9 only when w ≡ 0 (mod 3), so wings must be added THREE at a time or the grid breaks, and gridGaps reports it. Returns {rays,wings,seats,sealed,factorisations,involution,root,harmonic,gaps} or one {dimension,wing,name,address}. a seat is the content-address of one wing read along one locale ray — a RECEIPT, never a translation; it proves every wing is reachable from every ray, never that it has been rendered into that language. Integrity, not truth (theorem provenance_integrity_not_content_truth).
+THE 432 GRID — every (projected dimension × ledger wing) seat, named, addressed and folded to one root. Omit args for the whole report; pass {dimension,wing} to address ONE seat. WHY 432 AND NOT 504: DIMENSIONS[0] is `en` and the wings are WRITTEN in it, so projecting a wing into en is the IDENTITY — 7 × 72 = 504 counts 72 seats that compute nothing, and 504 − 72 = 432 is exactly the seats that do work. 432 then factors twice and the two fuse: 6 × 72 and 16 × 27 = 2^4 × 3^3, reached by the digit-reversal INVOLUTION 72 ↦ 27 — both clauses sealed in theorem k432, both of digital root 9. A LIVE gate, not a frozen number: 6·w has digital root 9 only when w ≡ 0 (mod 3), so wings must be added THREE at a time or the grid breaks, and gridGaps reports it. Returns {rays,wings,seats,sealed,factorisations,involution,root,harmonic,gaps} or one {dimension,wing,name,address}. a seat is the content-address of one wing read along one locale ray — a RECEIPT, never a translation; it proves every wing is reachable from every ray, never that it has been rendered into that language. Integrity, not truth (theorem provenance_integrity_not_content_truth). AN EMPTY CALL IS CHEAP: this is a sweep over the sealed ledger (seconds to tens of seconds, measured 2026-09-12), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
 THE 432 GRID — every (projected dimension × ledger wing) seat, named, addressed and folded to one root. Omit args for the whole grid report; pass {dimension, wing} to address ONE seat. WHY 432 AND NOT 504: DIMENSIONS[0] is `en` and the wings are WRITTEN in it, so projecting a wing into en is the IDENTITY — 7 × 72 = 504 counts 72 seats that compute nothing, and 504 − 72 = 432 is exactly the seats that do work. 432 then factors TWICE and the two fuse: 6 × 72 (rays × wings) and 16 × 27 = 2^4 × 3^3, reached by the digit-reversal INVOLUTION 72 ↦ 27 — both clauses already sealed in theorem k432, both counts of digital root 9. The grid is a LIVE gate, not a frozen number: 6·w has digital root 9 only when w ≡ 0 (mod 3), so wings must be added THREE at a time or the grid breaks (73 wings → 438, digital root 6), and gridGaps reports it. a seat is the content-address of one wing read along one locale ray — a RECEIPT, never a translation (theorem provenance_integrity_not_content_truth); the grid proves every wing is reachable from every ray, never that it has been rendered into that language. Returns {rays,wings,seats,sealed,factorisations,involution,root,harmonic,gaps} or one {dimension,wing,name,address}.
 
@@ -675,8 +600,9 @@ THE 432 GRID — every (projected dimension × ledger wing) seat, named, address
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `dimension` | string | no | one of the six projected rays (… |
-| `wing` | string | no | a ledger wing, e.g. |
+| `recompute` | boolean | no | run the sweep now |
+| `dimension` | string | no | a projected ray |
+| `wing` | string | no | a ledger wing |
 
 ### `uuidna_pairs`
 
@@ -690,16 +616,6 @@ THE 42 PAIR GRID — every ordered DIRECTION between dimensions. Omit args for t
 | --- | --- | --- | --- |
 | `from` | string | no | the source dimension (one of th… |
 | `to` | string | no | the target dimension, never equ… |
-
-### `uuidna_quantum_sailing_library`
-
-THE QUANTUM SAILING LIBRARY — an OFFLINE, public-domain book collection (Project Gutenberg), each audited for provenance (content-addressed), linked to the sealed ledger (decidable facts extracted), and served locally without network dependency. The captain sails through literature, discovering novel facts (research leads) and sealing them. Pass {bookIds} (array of Project Gutenberg ebook ids, e.g. [2701] for Moby Dick) to BUILD the library (fetches once, caches), or omit to GET the cached library. Returns {count,sealed,novel,receipt,books:[{id,title,address,chapters,words,linked}],honest}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `bookIds` | array | no | Project Gutenberg ebook ids to… |
 
 ### `uuidna_quantum_sailing_weather`
 
@@ -722,56 +638,6 @@ CROSS-BOOK CORRELATION: theorems that RESONATE only when two or more books are r
 | --- | --- | --- | --- |
 | `action` | string | no | correlate across books or clust… |
 | `books` | array | no | books to correlate (required fo… |
-
-### `uuidna_quantum_sailing_complete`
-
-AUTOMATE the whole fleet at once — CAPTAIN'S COMPLETE MISSION: fetch Project Gutenberg books, audit each for provenance, extract and link decidable facts to sealed theorems, simulate and correlate weather, cross-correlate all books to find shared theorems and resonances, cluster theorems by book citation. One unified computation folded to one unified receipt proving all layers computed together. Pass {bookIds} (array of Project Gutenberg ebook ids, e.g. [2701, 26, 4300] for Moby Dick, Robinson Crusoe, Treasure Island). Network (fetching books) is application-layer; all correlation logic is PURE, recomputable, deterministic. Returns {summary, books, weather, crossBook, theoremClusters, unifiedReceipt}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `bookIds` | array | no | Project Gutenberg ebook ids to… |
-
-### `uuidna_audit_standard`
-
-The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wikipedia description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks it states — each sealed or refuted `by decide` LOCALLY (the "free" is a free public API + local decidable checks). this is the FLOOR a human auditor STARTS from — a provenance fingerprint + decidable checks — NOT a compliance / legal RULING, which requires a licensed auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes and leaves the ruling to humans. The text is DATA, never executed. Returns {standard,address,checks,factBase,ruling}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `name` | string | **yes** | a standard or law, e.g. |
-
-### `uuidna_corroborate`
-
-Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH from 11 free public hosts. Returns {statement,local,evidence,verdict,receipt,handle,door}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by two independent sources), UNVERIFIED, or UNMEASURED. external evidence CORROBORATES, it does NOT prove; only a by-decide theorem seals. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `statement` | string | **yes** | the claim to corroborate, e.g. |
-
-### `uuidna_domain_wave`
-
-Run BOTH waves for a domain (a principle title or a skill): the LOCAL development wave — its theorems fold ORDER-INVARIANTLY to a receipt and are sealed by decide (the approval) — and the EXTERNAL free-research wave (corroborate the domain's topic against a free public API, evidence not proof — only a Lean seal approves, theorem legal_only_the_proven_is_admitted). only the LOCAL by-decide seal APPROVES; external research only CORROBORATES, and for a pure-arithmetic domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence — correct, not a failure. Returns {domain,local:{theorems,fold,orderInvariant},external:{verdict,evidence,receipt}}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `domain` | string | **yes** | a principle title or skill, e.g. |
-
-### `uuidna_entangle`
-
-ENTANGLE a set of audit claims into ONE receipt: the order-invariant fold of each claim AND its verdict, so verifying the whole verifies every part and altering ANY member moves the receipt (the binding collapses, visibly). The receipt is the SAME for any ordering (bell_no_signaling). the merkle / no-signaling binding — the structural analogue of entanglement — NOT quantum hardware; nothing signals, no correlation is causal, and only members SEALED by decide truly bind (external evidence never entangles). Returns {members,verified,receipt,entangled}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `claims` | array | **yes** | the claims to entangle |
 
 ### `uuidna_report`
 
@@ -836,6 +702,25 @@ TYPESET a sealed statement: MathML and TeX. Both are derived from the Lean by sr
 | --- | --- | --- | --- |
 | `key` | string | no | theorem key; omit for the whole… |
 
+### `uuidna_hologram`
+
+THE FRACTAL HOLOGRAM LATTICE — the four MCP hosts (uuidna.com, qpu.uuidna.com, lean.uuidna.com, unreal.uuidna.com), each with its endpoint, what it serves, the eight harness recipes (Claude Code, Cursor, VS Code, Codex CLI, Gemini CLI, the Anthropic and OpenAI APIs, bare JSON-RPC) computed from its name, and the other three it names — so any door reached is the whole hologram. Pure, recomputable, no network; use uuidna_fanout to call a host.
+
+_No parameters._
+
+### `uuidna_fanout`
+
+FAN ONE MCP CALL OUT TO A NAMED HOLOGRAM HOST — {host} one of uuidna.com, qpu.uuidna.com, lean.uuidna.com, unreal.uuidna.com; {method} initialize, tools/list, or tools/call (then {name} and {arguments}). The reply is returned as received with the HTTP status. An unlisted host is refused by name and nothing is fetched. Network by design, the only door here that reaches out.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `host` | string | **yes** | a hologram host |
+| `method` | string | no | MCP method |
+| `name` | string | no | tool name for tools/call |
+| `arguments` | object | no | tools/call arguments |
+
 ### `uuidna_lattice`
 
 THE LATTICE CALLS. The 2^16 HexSpan stations exist first. Pass {station} (four hex, or enumeration_hex4_&amp;lt;hex&amp;gt;) for that station's identity, the named theorems and axioms seated there, the human problems it calls, and the solution involution of those problems. Pass nothing for the fill: occupancy, all 18 problems seated, involution pairs. HexSpan surfaces ARE the stations, not cargo. Calling is not solving — negation_involution_solves is the method (a solution is the denial's failure); Clay σ-involution reflects seven and solves none. Returns a LatticeCall or LatticeFill.
@@ -868,25 +753,15 @@ EVERY CLOUDFLARE TEMPLATE AND WHAT uuidna ADDS TO IT — the bridge from an idea
 | --- | --- | --- | --- |
 | `q` | string | no | a template name from the census… |
 
-### `uuidna_snapshot`
-
-The FUSION half of the reactor: fold a chosen set of sealed theorems — across ANY domains — into ONE superposition uuid. The first segment is the identity HANDLE you cite; the whole uuid superposes every member address, order-invariant, so the same set recomputes the same uuid and a changed member moves it (drift refused). Each principle and skill the set spans is returned as a point-of-view fold. Unknown keys are NAMED, never silently dropped. Returns {keys,members,unknown,handle,superposition,viewpoints,receipt}. A snapshot proves a recomputable fold of sealed theorems, not any new truth.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `keys` | array | **yes** | theorem keys from uuidna_theore… |
-
 ### `uuidna_reactor`
 
-The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.
+Refusion. VERIFIED cells stay. UNVERIFIED cells involute to sealed solutions in the same call. Combinable with uuidna_transform and uuidna_try. Returns {cells,verified,unverified,handle,superposition,receipt}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `claims` | array | **yes** | claims or external theories to… |
+| `claims` | array | **yes** | claims to adjudicate and involu… |
 
 ### `uuidna_missions`
 
@@ -918,11 +793,15 @@ _No parameters._
 
 ### `uuidna_analytics`
 
-QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (no privileged view). Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}: the theorem and principle counts, the per-principle distribution with shares, the named layers (hardware → software → os) with receipts, the credit tally, coverage, the two coins, the recomputed collision census (0/0 or an intrusion), and the ledger integrity fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the public ledger alone, so the numbers are the same next year and on every machine. DESCRIPTIVE analytics of what is sealed — NOT predictive statistics, NOT inference, NOT observation of any person. It measures the ledger, not a user. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
+QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (no privileged view). Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}: the theorem and principle counts, the per-principle distribution with shares, the named layers (hardware → software → os) with receipts, the credit tally, coverage, the two coins, the recomputed collision census (0/0 or an intrusion), and the ledger integrity fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the public ledger alone, so the numbers are the same next year and on every machine. DESCRIPTIVE analytics of what is sealed — NOT predictive statistics, NOT inference, NOT observation of any person. It measures the ledger, not a user. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught. AN EMPTY CALL IS CHEAP: the sweep is minutes over the sealed ledger (measured 2026-09-12: 268 s for the monographs, 213 s for analytics, 161 s for the self-test on a loaded host), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
 QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain's count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. integrity, not truth (theorem provenance_integrity_not_content_truth) — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `recompute` | boolean | **yes** | fold the analytics now |
 
 ### `uuidna_treason`
 
@@ -1053,7 +932,7 @@ QUANTUM SEO — the recomputable, honest discoverability surface for any subject
 
 ### `uuidna_hero_animation`
 
-THE HERO ANIMATION — the sequence and the dimensions as one deterministic SVG, every moving number SEALED. The path is the doubling orbit 1→2→4→8→7→5→1 (the unit group of Z/9 generated by 2 — vortex_is_the_units, order_of_two_is_six), so the walk closes because the orbit does; each rung takes its hue from the Z/9 sequence; the TEMPI are the units of Z/9 written three times (111, 222, 444, 555, 777, 888 ms), so the motion keeps the same arithmetic as the path; and the seven rays are the rosetta dimensions, with the diamond involution fixed point 5 at the centre. FIVE parameters, all optional: {key} the theorem it announces, {dimension} which of the seven leads, {rung} where the sequence colour starts, {tempo} the sealed beat, {base} the URL base for the proof link. it VISUALISES arithmetic already proven and proves nothing further; nothing is tuned by eye, so changing a sealed fact changes the motion. Returns {svg,sequence,dimensions,durations,address,honest}.
+THE HERO ANIMATION — one deterministic SVG, every moving number sealed. The path is the doubling orbit 1→2→4→8→7→5→1 (the unit group of Z/9 generated by 2 — vortex_is_the_units, order_of_two_is_six), so the walk closes because the orbit does; each rung takes its hue from the Z/9 sequence; the TEMPI are the units of Z/9 written three times (111, 222, 444, 555, 777, 888 ms), so the motion keeps the same arithmetic as the path; and the seven rays are the rosetta dimensions, with the diamond involution fixed point 5 at the centre. FIVE parameters, all optional: {key} the theorem it announces, {dimension} which of the seven leads, {rung} where the sequence colour starts, {tempo} the sealed beat, {base} the URL base for the proof link. it VISUALISES arithmetic already proven and proves nothing further; nothing is tuned by eye, so changing a sealed fact changes the motion. Returns {svg,sequence,dimensions,durations,address,honest}.
 
 **Parameters**
 
@@ -1061,8 +940,6 @@ THE HERO ANIMATION — the sequence and the dimensions as one deterministic SVG,
 | --- | --- | --- | --- |
 | `key` | string | no | theorem key (legacy — address o… |
 | `referrer` | string | no | referrer handle, door URL, or c… |
-| `handle` | string | no | eight-hex handle (alias of refe… |
-| `address` | string | no | content-address (alias of refer… |
 | `dimension` | string | no | which of the seven rosetta dime… |
 | `rung` | number | no | the sequence rung the colour st… |
 | `tempo` | number | no | the sealed tempo in ms |
@@ -1306,13 +1183,14 @@ WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and 
 
 ### `uuidna_discovery_train`
 
-Train theorem/axiom discovery from refuted and refused leads in lean/leads.json. Refutations name what sealed (killed_by cites theorem keys and src paths); refusals name boundaries. Pass {query} for ranked hints (witness theorems, wing defs, exposed axiom-hunt leads, prior refutations on similar topics). Pass nothing for the full training report: settlement count, topic→theorem patterns, exposed axioms, unused wing defs. Pairs with uuidna_axiom_index and uuidna_theorem axioms. Recomputable. Returns {trained,refuted,refused,patterns,hints,exposedAxioms,unusedWingDefs,receipt}.
+Train theorem/axiom discovery from refuted and refused leads in lean/leads.json. Refutations name what sealed (killed_by cites theorem keys and src paths); refusals name boundaries. Pass {query} for ranked hints (witness theorems, wing defs, exposed axiom-hunt leads, prior refutations on similar topics). Pass nothing for the full training report: settlement count, topic→theorem patterns, exposed axioms, unused wing defs. Pairs with uuidna_axiom_index and uuidna_theorem axioms. Recomputable. Returns {trained,refuted,refused,patterns,hints,exposedAxioms,unusedWingDefs,receipt}. AN EMPTY CALL IS CHEAP: this is a sweep over the sealed ledger (seconds to tens of seconds, measured 2026-09-12), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | no | optional topic — e.g. |
+| `recompute` | boolean | **yes** | run the sweep now |
+| `query` | string | no | a topic |
 
 ### `uuidna_due_process`
 
@@ -1492,17 +1370,6 @@ ONLINE — THE SEARCH ON TRIAL for one wing: every wired public API (research sw
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `file` | string | **yes** | the wing, e.g. "Quantum.lean" |
-
-### `uuidna_vies`
-
-ONLINE — verify an EU VAT number against VIES, the EU's own register (ask the register, don't assert): returns {countryCode,vatNumber,valid,name,address,requestDate}. A register lookup for entity verification — the same ask-the-ledger law applied to legal identity; NOT tax advice.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `countryCode` | string | **yes** | 2-letter member state code, e.g. |
-| `vatNumber` | string | **yes** | the VAT number without the coun… |
 
 ### `uuidna_detect_forgery`
 
@@ -1923,8 +1790,11 @@ The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean t
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `principle` | string | no |  |
-| `skill` | string | no | the capability axis — any skill… |
+| `skill` | string | no | a skill name |
 | `contains` | string | no |  |
+| `keys` | boolean | no | only the keys |
+| `limit` | integer | no | page size |
+| `offset` | integer | no | skip this many |
 
 ### `uuidna_skills`
 
@@ -2246,13 +2116,13 @@ FAST verification against the sealed ledger: is this exact STATEMENT a sealed th
 
 ### `uuidna_transform`
 
-The automation of "no unverified material stays: transform until verified". Only VERIFICATION is honesty — a "honest/bounded" label with no proof is itself an unverified claim, so this ADMITS only what verifies. Each material is driven to a terminal: VERIFIED (it IS, or transforms to, a SEALED fact — content-address recomputed to confirm; admitted) or UNVERIFIED (no sealed core reached — recycled with a develop plan, NEVER admitted, never called honest, never called false). The transform cannot manufacture truth: an overclaim to SOLVE a problem transforms to its sealed REFLECTION (dz(dz k)=k), which verifies, while the solve-claim is never admitted (uuidna solves none). Folds to one receipt. Returns {cells,verified,unverified,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+Transform materials. VERIFIED stays. UNVERIFIED involutes to sealed solutions (negation_involution_solves) in the same call. Combinable. Returns {cells,verified,unverified,receipt}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `materials` | array | **yes** | raw claims/theories/overclaims… |
+| `materials` | array | **yes** | materials to transform |
 
 ## Pentagram · hologram · fractal · accounted (every I/O) <Badge type="tip" :text="'1'" />
 
@@ -2440,21 +2310,9 @@ INVOLUTE of uuidna_contract_chain: verify terms + referer, decrypt each link (se
 | `chain` | object | **yes** | uuidna_contract_chain output |
 | `terms` | string | **yes** | the terms string the chain was… |
 
-## Provenance audit (public text & metadata) <Badge type="tip" :text="'8'" />
+## Provenance audit (public text & metadata) <Badge type="tip" :text="'2'" />
 
 *skill: books*
-
-### `uuidna_audit_text`
-
-Audit and structurally decode PROVIDED text (offline, pure). Returns a provenance fingerprint (the content-address — proof of exact-copy — and a chapterRoot proving any chapter belongs), a structural decode (chars/words/lines, the ℤ/9 digital-root gravity — a checksum digit, NOT a meaning, and a reversible-imprint round-trip check), and the honesty-gate verdict. HONEST: "decode" is provenance + structure, never decryption (text is not encrypted) nor hidden meaning; the gate is tuned to uuidna's own overclaim words, so on ordinary prose it passes and says nothing about the work. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** |  |
-| `title` | string | no |  |
-| `author` | string | no |  |
 
 ### `uuidna_audit_details`
 
@@ -2470,40 +2328,6 @@ THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passe
 | `title` | string | no |  |
 | `delimiter` | string | no | explicit detail boundary (for A… |
 
-### `uuidna_audit_book`
-
-Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id (via the public Gutendex API, no key) and audit it — the same provenance fingerprint + structural decode + honesty-gate verdict as uuidna_audit_text. This is ONE of several tools that reach the network (Node built-in fetch, still zero npm deps) — others include uuidna_read_book, uuidna_corroborate, uuidna_domain_wave, uuidna_alpine, uuidna_audit_cve, uuidna_nist_constant, uuidna_anchor, and uuidna_wave, each backed by its own @non-harmonic-marked module. HONEST: the fetched text is DATA — content-addressed and counted, never executed; instruction-shaped prose in a book is content, not a command. Public-domain works, free for the public interest. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
-
-### `uuidna_audit_translation`
-
-Audit a translation as a source↔translation PAIR: content-address both texts and bind them with a directional provenance receipt (source→translation, order-sensitive), plus each text's own structural audit. HONEST: this proves the PAIRING and each text's exact-copy integrity — NOT that the translation is accurate or faithful. Semantic fidelity is human judgement; provenance is what recomputes. Re-address after each revision and the change is visible. Returns {source,translation,pair}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `source` | string | **yes** |  |
-| `translation` | string | **yes** |  |
-| `title` | string | no |  |
-| `sourceLang` | string | no |  |
-| `targetLang` | string | no |  |
-
-### `uuidna_audit_movie`
-
-Content-address the PUBLIC Wikipedia summary of a film by title (free, no key) — a recomputable provenance fingerprint of the public facts + structure + honesty gate. HONEST AND BOUNDED: this fingerprints the public DESCRIPTION only; it does NOT fetch, decode, or reproduce the copyrighted film — its footage, dialogue or screenplay. A movie is video; uuidna audits text provenance, not a hidden meaning. Returns the audit of the public summary. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `title` | string | **yes** | a film title, e.g. "The Matrix" |
-
 ### `uuidna_audit_video`
 
 Audit a PUBLIC video listing by URL or id: fingerprint its posted oEmbed metadata (title, channel — keyless), and when {captions} text is supplied, adjudicate EVERY caption detail with the controls-first detail audit, folded to one receipt. HONEST: the fingerprint proves WHICH listing, never that it is true; captions are caller-supplied DATA, never executed; the video itself is never fetched. Boundary declared — theorem drift_is_named_or_caught.
@@ -2517,42 +2341,6 @@ THE FOLD THIS IS: the Black Whole session (queue 79/transcript-audit) ran by han
 | `url` | string | **yes** | a YouTube watch URL or bare 11-… |
 | `captions` | string | no | caption/transcript text to adju… |
 | `delimiter` | string | no | detail boundary for the caption… |
-
-### `uuidna_audit_record`
-
-Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST API, developers.zenodo.org, no key) and content-address its PUBLIC metadata — title, DOI, creators, date — to a recomputable provenance fingerprint + structure + honesty gate. HONEST AND BOUNDED: it fingerprints the public metadata only, NOT the deposited files or their content, which uuidna does not fetch or reproduce. A check digit and a uuid are the same idea at different scales. Returns the audit + the DOI. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `recordId` | integer | **yes** | a Zenodo record id, e.g. 1234567 |
-
-### `uuidna_audit_cve`
-
-Fingerprint a CVE's PUBLIC advisory metadata from NIST's NVD (National Vulnerability Database, no key) — id, description, CVSS severity, dates — content-addressed, for the security reflection. Pass {cveId} like "CVE-2021-44228". HONEST: it fingerprints the PUBLIC metadata only, NOT an exploit or the affected code, and it is NOT a claim uuidna assesses, reproduces or fixes the vulnerability. NVD publishes; uuidna fingerprints the public record so it can be cited and rechecked by anyone. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `cveId` | string | **yes** | a CVE id, e.g. CVE-2021-44228 |
-
-## Book → sealed-ledger linkage <Badge type="tip" :text="'1'" />
-
-*skill: measure*
-
-### `uuidna_link_book`
-
-BOOK → SEALED-LEDGER LINKAGE — the captain's independent, closed-door process for discovering NOVELTY. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (including subtraction, total Nat: a−b=0 when b&amp;gt;a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but not yet in the ledger — a candidate research lead), or `refuted` (false arithmetic). INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}, the novel facts carrying ready-to-seal `by decide` statements. it links DECIDABLE ARITHMETIC only — a sliver of a book — NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, never auto-admitted. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
-
-BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal process for independent research and discovering NOVELTY for humanity. Pass {text}: uuidna extracts every DECIDABLE integer-arithmetic fact the text asserts (now including SUBTRACTION, total Nat: a−b=0 when b&amp;gt;a) and LINKS each to the sealed ledger — `sealed-match` (already a theorem, cites its key), `novel` (VERIFIED `by decide` but NOT yet in the ledger — a DISCOVERY, a candidate research lead), or `refuted` (false arithmetic, a forger's number). Returns the docket with the novel facts' ready-to-seal `by decide` statements, folded to one order-invariant, recomputable receipt. INDEPENDENT: no authority decides it, anyone recomputes from the public ledger; CLOSED-DOOR: purely recomputable, no network, no external trust. integrity, not truth (theorem provenance_integrity_not_content_truth) — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT its meaning; a NOVEL fact is a CANDIDATE a human seals, discovered here, never auto-admitted. Returns {facts:[{claim,lean,verdict,linkedTheorem,status,address}],sealed,novel,refuted,novelLeans,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** | the text to mine and link (a pa… |
 
 ## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'7'" />
 
@@ -2624,7 +2412,7 @@ THE RESEARCH LEDGER — findings carrying their VERIFICATION STATUS as a field i
 
 ### `uuidna_rosetta_legs`
 
-THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem carries: SYMBOL (the TypeScript mirror), PROOF (the kernel's `by decide`), WITNESS (a source outside this repo), FALSIFIER (a mutation that must FAIL), ADDRESS (the content fold). Symbol and proof share one hand's errors, so two legs DETECT a disagreement and three LOCATE the fault. Pass {key} for one theorem, nothing for the whole-ledger census. Returns {key,wing,legs,missing,claimedBy,canLocateFault,verdict} or {total,perLeg,scarcest,byLegCount,detectOnly,fullyAnchored,floor,floorGaps,receipt,honest}, each with {hostedMirror}. it MEASURES anchoring and certifies nothing — a missing leg is never a claim the theorem is false (witnesses_locate_faults). Boundary declared — theorem drift_is_named_or_caught.
+THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem carries: SYMBOL (the TypeScript mirror), PROOF (the kernel's `by decide`), WITNESS (a source outside this repo), FALSIFIER (a mutation that must FAIL), ADDRESS (the content fold). Symbol and proof share one hand's errors, so two legs DETECT a disagreement and three LOCATE the fault. Pass {key} for one theorem, nothing for the whole-ledger census. Returns {key,wing,legs,missing,claimedBy,canLocateFault,verdict} or {total,perLeg,scarcest,byLegCount,detectOnly,fullyAnchored,floor,floorGaps,receipt,honest}, each with {hostedMirror}. it MEASURES anchoring and certifies nothing — a missing leg is never a claim the theorem is false (witnesses_locate_faults). Boundary declared — theorem drift_is_named_or_caught. AN EMPTY CALL IS CHEAP: this is a sweep over the sealed ledger (seconds to tens of seconds, measured 2026-09-12), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
 THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem actually carries. SYMBOL is the TypeScript mirror the emitter cross-checks, PROOF is the kernel's `by decide` verdict, WITNESS is a source outside this repository a stranger could consult, FALSIFIER is a deliberate mutation that must FAIL (it tests the test), ADDRESS is the content fold that lets anyone recompute from the exact bytes. Symbol and proof are written by one hand and share that hand's errors, so a theorem carrying only those two can DETECT a disagreement and never LOCATE the fault — three is the count that locates one. Pass {key} for one theorem's legs and the verdict on them; pass nothing for the distribution across the whole ledger, the per-leg totals, the scarcest leg, the fully-anchored keys, the computed attribution, and the FLOOR the anchoring may never fall below. The scarce legs are the honest headline and are reported as they stand, never smoothed. An unknown key is refused by name. this MEASURES anchoring, it certifies nothing — proof and address are near-universal by construction and are not evidence about the world, and a missing leg is never a claim (witnesses_locate_faults: to LOCATE t faults needs 2t+1 witnesses, so two legs detect and three locate) that the theorem is false. Returns the per-key answer {key,wing,legs,missing,claimedBy,canLocateFault,verdict} or the census {total,perLeg,scarcest,byLegCount,detectOnly,fullyAnchored,claimedBy,floor,floorGaps,receipt,honest}, each with {hostedMirror} — the live comparison against the census the hosted edge answers from. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
@@ -2632,7 +2420,8 @@ THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | a sealed theorem key; omit for… |
+| `recompute` | boolean | no | run the sweep now |
+| `key` | string | no | a sealed theorem key |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
@@ -2985,34 +2774,6 @@ PATTERN RECOGNITION — recognise the pattern two texts share by examining how t
 | `a` | string | **yes** |  |
 | `b` | string | **yes** |  |
 
-## External verification (NIST CODATA) <Badge type="tip" :text="'1'" />
-
-*skill: nist*
-
-### `uuidna_nist_constant`
-
-Verify uuidna's physics against NIST's AUTHORITATIVE CODATA values. Fetches the official NIST fundamental-constants table (physics.nist.gov) and returns constants matching {query} — value, uncertainty, unit, and a content-address — so a constant uuidna uses (the speed of light, Boltzmann's k for Landauer's kT·ln2) is RECHECKED against the external authority, not self-asserted. HONEST: verification against NIST's published values, NOT a claim NIST endorses uuidna; values carry uncertainties except the defined-exact ones. One network call; the address recomputes against NIST's table. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `query` | string | **yes** | a constant name, e.g. |
-
-## Timestamp anchor (external, verified in-house) <Badge type="tip" :text="'1'" />
-
-*skill: anchor*
-
-### `uuidna_anchor`
-
-Anchor a record's content-address to an EXTERNAL, independent, signed timestamp — the rigorous "Schumann resonance at the time". Fetches the current NIST Randomness Beacon pulse (a 512-bit value published, SIGNED, and archived every 60s at beacon.nist.gov) and folds it into {address}, giving a re-verifiable NOT-BEFORE bound: the record existed at or after that pulse, because its unpredictable value could not be known before. Anyone re-fetches NIST's archived pulse and re-verifies the fold IN-HOUSE. HONEST: NOT-BEFORE only; for NOT-AFTER, publish (a git push GitHub timestamps); for a formal legal timestamp, use an RFC 3161 authority or OpenTimestamps. One network call; the fold is pure. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `address` | string | **yes** |  |
-
 ## Legal fact base & prior art (not an opinion) <Badge type="tip" :text="'2'" />
 
 *skill: legal*
@@ -3153,20 +2914,6 @@ THE MISSION, recomputable — the captain's uuidna uses all its tools to LEGALLY
 
 _No parameters._
 
-## Publication scanner (research boundary) <Badge type="tip" :text="'1'" />
-
-*skill: measure*
-
-### `uuidna_scan_publications`
-
-THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams for uuidna-related mentions and INVESTIGATE each against the sole-representation reservation. Pass {query} (default "uuidna"). Each match is a provenance fingerprint (content-addressed, never executed), tagged legitimacy: `canonical` (names uuidna.com — the one legitimate presence) or `external-unlicensed` (an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed). Reads free public APIs (the network — a research boundary; the response is DATA, never run). integrity, not truth (theorem provenance_integrity_not_content_truth) — it scans the streams it can REACH, NOT the open web, so an empty result is NOT proof no publication exists; it CORROBORATES a mention, never proves authorship, endorsement, or infringement; a human court decides legitimacy. Best-effort: a down/empty stream yields no finding, never a fabricated one. Returns {query,canonical,findings:[{source,address,note,legitimacy,investigation}],count,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `query` | string | no | the mention to scan for (defaul… |
-
 ## Quantum-cube challenge (symmetric) <Badge type="tip" :text="'1'" />
 
 *skill: gate*
@@ -3207,9 +2954,13 @@ BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes s
 
 ### `uuidna_selftest`
 
-The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+The MCP tests ITSELF — pure self-consistency, no external oracle: every catalog tool must resolve to a handler, and every zero-arg tool must RUN and be DETERMINISTIC (two calls recompute identically). A tool that reads live device state surfaces as non-deterministic, honestly. Folds to one self-test receipt. Returns {checks,passed,deterministic,failed,receipt}. Boundary declared — theorem drift_is_named_or_caught. AN EMPTY CALL IS CHEAP: the sweep is minutes over the sealed ledger (measured 2026-09-12: 268 s for the monographs, 213 s for analytics, 161 s for the self-test on a loaded host), so it runs only when asked for by name — pass {recompute: true}; without it the reply is this contract and nothing is computed.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `run` | boolean | **yes** | run every check now |
 
 ## Quantum simulation <Badge type="tip" :text="'2'" />
 
@@ -3284,7 +3035,7 @@ Biogas into a four-stroke engine. The chemical energy is bracketed from the MEAS
 
 ### `uuidna_energy_mfc`
 
-The microbial fuel cell, priced from a pilot-scale survey where NOTHING is exact by definition — so every figure is a bracket. Volumetric power 600 +/- 452 mW/m3 (reported range 12–1435), areal 49 +/- 27 mW/m2, energy recovery 11 +/- 6 Wh/m3, all MEASURED (Rossi & Logan 2022, Water Research 225:119179); the standard deviation is larger than three quarters of the mean, so the band IS the finding and a single-number expectation would be dishonest. The top of the reported range is the ceiling and an asserted power above it is REFUSED. The tool also checks the two independent measured bands AGAINST EACH OTHER over the stated retention time, and that check is allowed to come out FALSE — a pass too short for the reported energy recovery is named as such. The lab record of 11,220 W/m3 (Ren et al. 2016, Nanoscale 8:3539) is reachable only under scale=lab and always carries its label: a MINIATURISED cell on a DEFINED MEDIUM, not wastewater and not a yield to plan around.
+THE MICROBIAL FUEL CELL, priced from a pilot-scale survey — every figure is a bracket. Volumetric power 600 +/- 452 mW/m3 (reported range 12–1435), areal 49 +/- 27 mW/m2, energy recovery 11 +/- 6 Wh/m3, all MEASURED (Rossi & Logan 2022, Water Research 225:119179); the standard deviation is larger than three quarters of the mean, so the band IS the finding and a single-number expectation would be dishonest. The top of the reported range is the ceiling and an asserted power above it is REFUSED. The tool also checks the two independent measured bands AGAINST EACH OTHER over the stated retention time, and that check is allowed to come out FALSE — a pass too short for the reported energy recovery is named as such. The lab record of 11,220 W/m3 (Ren et al. 2016, Nanoscale 8:3539) is reachable only under scale=lab and always carries its label: a MINIATURISED cell on a DEFINED MEDIUM, not wastewater and not a yield to plan around.
 
 **Parameters**
 

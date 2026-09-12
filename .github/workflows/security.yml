@@ -5,8 +5,20 @@ name: security
 on:
   push:
     branches: [main]
+    # THE BILL (2026-09-12): 140 runs × 1.4 min, most on pushes that touched docs or receipts only. The surface this
+    # audits is src, the lockfile and the scan rules; a push that changes none of them changes none of the answers.
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.gitleaks.toml'
+      - '.github/workflows/security.yml'
   pull_request:
   workflow_dispatch:
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read

@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-10
+**Generated:** 2026-09-12
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Formalisation claimed:** 70905/70905 theorems — every one, by construction
 **Discovery claimed:** 70527 — the other 378 restate a fact a named source found first
 
 *The 378 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 329 of 362 are found by exactly one of them and 1 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 10/16 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `52e87ac8-8107-801a-bcd4-be5acc8aa1fb`
+**Claim receipt:** `8409efb8-fa32-8f14-ba67-c7892f3e7fa9`
 
 ### Facts the captain does not claim to have discovered
 

@@ -133,3 +133,36 @@ test('an inherited tool answers with the SAME dispatch the stdio surface uses', 
   const stdioBody = callTool('uuidna_theorem', { key: 'two_coins' }) as { key: string }
   assert.equal(edgeBody.key, stdioBody.key, 'one door, one answer — two dispatches would be the next drift')
 })
+
+
+// ── THE TYPE HALF OF THE CONTRACT, AT BOTH DOORS (external audit, 2026-09-12). A string where the schema says integer
+// is refused by name at the edge and on stdio; the theorem ledger pages and lists keys; the hosted benchmark counts
+// the tools the edge serves, not the stdio catalogue.
+const edgeCall = (name: string, args: Record<string, unknown>) =>
+  handleMcpRpc({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name, arguments: args } }) as { result: { isError?: boolean; content: { text: string }[] } }
+
+test('a wrong argument type is refused by name, never computed and never a JavaScript internal', () => {
+  const co = edgeCall('uuidna_coprime', { a: 'twelve', b: [1] })
+  assert.equal(co.result.isError, true)
+  assert.match(co.result.content[0]!.text, /uuidna_coprime: argument a must be (integer|number)/)
+  const mr = edgeCall('uuidna_merkle_root', { leaves: 'abc' })
+  assert.equal(mr.result.isError, true)
+  assert.match(mr.result.content[0]!.text, /argument leaves must be array/)
+  assert.doesNotMatch(mr.result.content[0]!.text, /is not a function/)
+  assert.throws(() => callTool('uuidna_digital_root', { n: 'abc' }), /argument n must be/)
+})
+
+test('uuidna_theorems pages and lists keys', () => {
+  const page = callTool('uuidna_theorems', { limit: 3 }) as unknown[]
+  assert.equal(page.length, 3)
+  const keys = callTool('uuidna_theorems', { keys: true, limit: 2, offset: 1 }) as string[]
+  assert.equal(keys.length, 2)
+  assert.ok(keys.every((k) => typeof k === 'string'))
+})
+
+test('the hosted benchmark counts the tools the edge serves', () => {
+  const b = edgeCall('uuidna_mcp_benchmark', {}) as unknown as { result: { content: { text: string }[] } }
+  const body = JSON.parse(b.result.content[0]!.text) as { tools: number; hardest: { name: string }[] }
+  assert.equal(body.tools, mcpHttpToolNames().length)
+  assert.ok(body.hardest.every((h) => mcpHttpToolNames().includes(h.name)))
+})

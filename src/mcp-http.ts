@@ -22,7 +22,7 @@ import { toUuid } from './address.js'
 import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
 import { sealToolWire } from './mcp-wire.js'
 import { conformance } from './conformance.js'
-import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment, messagingSession } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
+import { MCP_CATALOG, callTool, argsGateOf, mcpBenchmark, toolHandleOf, apiHandleOf, recordPayment, messagingSession } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { billUuidna } from './captain/billing/index.js'
 import { coinSupply } from './coin-supply.js'
@@ -66,10 +66,13 @@ const unb64 = (s: string): Uint8Array => { const bin = atob(s); const u = new Ui
 
 // The Workers-safe tool set — the recomputable core, each a pure function of its input and the sealed ledger.
 const TOOLS: HttpTool[] = ([
+  { name: 'uuidna_mcp_benchmark', description: MCP_CATALOG.find((t) => t.name === 'uuidna_mcp_benchmark')?.description ?? 'usability benchmark over the served catalogue',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => mcpBenchmark(served()) },
   { name: 'uuidna_css', description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD, at the edge — every colour and type size computed from the ℤ/9 sequence and the vortex orbit (six rungs: 2 has order 6 in ℤ/9*), none authored. Returns {css,vars,receipt,honest}: render the same receipt or you are rendering a different matrix.',
     inputSchema: { type: 'object', properties: {} },
     run: () => matrixCss() },
-  { name: 'uuidna_decide', description: 'THE QUANTUM CALCULATOR at the edge, founded on division by zero — ANY {input} folds to one lean-green shape {verdict,cites,receipt}: a sealed statement is recognized and cited (the kernel decided it already); fresh arithmetic is decided TOTALLY under Lean\'s Nat semantics (x/0 = 0, well-defined — DivByZero.lean; exact BigInt; bounded grammar— TRUE is VERIFIED_BY_DECIDE, FALSE is REFUTED; a bare expression computes its exact value; prose goes to the gate, language-blind. The twelfth tool: the compact core.',
+  { name: 'uuidna_decide', description: 'THE QUANTUM CALCULATOR at the edge, founded on division by zero — it DISCRIMINATES: a proposition the kernel can evaluate is VERIFIED or REFUTED (2 + 2 = 4 verifies, 2 + 2 = 5 refutes), anything it cannot decide is UNVERIFIED, never false; every {input} folds to one lean-green shape {verdict,cites,receipt}: a sealed statement is recognized and cited (the kernel decided it already); fresh arithmetic is decided TOTALLY under Lean\'s Nat semantics (x/0 = 0, well-defined — DivByZero.lean; exact BigInt; bounded grammar— TRUE is VERIFIED_BY_DECIDE, FALSE is REFUTED; a bare expression computes its exact value; prose goes to the gate, language-blind. The twelfth tool: the compact core.',
     inputSchema: { type: 'object', properties: { input: { type: 'string' } }, required: ['input'] },
     run: (a) => decide(String(a.input)) },
   { name: 'uuidna_search', description: 'THE FUSED SEARCH — the ONE search function every surface runs (the site\'s search page in your browser, the stdio server, and this edge): filter the sealed ledger by {q}, fold the matched keys to ONE receipt. Your browser and this edge running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
@@ -157,33 +160,13 @@ const TOOLS: HttpTool[] = ([
  *      of sync tools are untouched. The class emptied the day the reason died.
  *  Conservative on purpose: a tool is absent if it TOUCHES such a module at all, even where the
  *  specific function it calls is pure. Shrinking that is the next honest pass. */
-const EDGE_ABSENT: Record<string, string> = {
+export const EDGE_ABSENT: Record<string, string> = {
   "uuidna_engine": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_text": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_book": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_book_article": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_link_book": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_book_contents": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_read_text": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_read_book": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_quantum_sailing_library": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_quantum_sailing_complete": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_standard": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_corroborate": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_domain_wave": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_entangle": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_translation": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_movie": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_record": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_wave_deposit": 'CAPABILITY: writes lean/wave-queue.json and a Worker has no filesystem — deposits are host-side; the edge can expose coordinates (uuidna_expose serves there) but never hold the queue',
   "uuidna_aead_decrypt": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_snapshot": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_school_apis": 'CAPABILITY: fetches EU education APIs; a Worker can fetch but this hosted subset stays named-absent (policy named as policy, not dropped so coverage looks complete)',
   "uuidna_education_jobs": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_resources": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_audit_cve": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_nist_constant": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_anchor": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_wave": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_editorial": 'CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side',
   // FOUND BY AN INSTRUMENT, not by reading: the process-hidden probe in src/quantum/os/harness/mcp-edge-coverage.test.ts
@@ -191,8 +174,6 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_security_plan": 'CAPABILITY: secApi() probes the host for docker (spawnSync through resolveShell) and reads the pinned rootfs from disk (verifyPinnedRootfs) — host-side; served here it answered `process is not defined` until 2026-09-07',
   "uuidna_publication": 'CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side',
   "uuidna_search_trial": 'POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable',
-  "uuidna_vies": 'POLICY: network lookup against the EU VIES register',
-  "uuidna_scan_publications": 'POLICY: network scan of free research streams',
   "uuidna_selftest": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_run": 'CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser',
 }
@@ -282,6 +263,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
         })
       }
       const fail = (e: unknown): object => rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
+      argsGateOf(name, tool.inputSchema, args)
       const out = tool.run(args)
       if (out !== null && (typeof out === 'object' || typeof out === 'function') && typeof (out as { then?: unknown }).then === 'function')
         return (out as Promise<unknown>).then(finish, fail)

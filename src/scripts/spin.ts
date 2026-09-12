@@ -31,12 +31,15 @@ const MANIFEST = join(ROOT, 'spin-manifest.json')
  *
  *  A missing git is NAMED, not silently tolerated: without it this cannot tell tracked from untracked, and a
  *  sealer that cannot make that distinction is the thing being fixed. It refuses rather than seals blind. */
+// The listing is the WHOLE lean/ tree (71,236 paths, 1.85 MB on 2026-09-12): execFileSync's default 1 MiB buffer
+// threw ENOBUFS and the catch blamed a missing git. The buffer is sized like land's, and the cause is NAMED.
+let indexedFailure = ''
 const indexed = (): Set<string> | null => {
   try {
-    const out = execFileSync('git', ['ls-files', '-z', '--', ...DERIVED_FILES], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' })
+    const out = execFileSync('git', ['ls-files', '-z', '--', ...DERIVED_FILES], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', maxBuffer: 64 * 1024 * 1024 })
     const paths = out.split('\0').filter(Boolean)
     return paths.length ? new Set(paths) : null
-  } catch { return null }
+  } catch (e) { indexedFailure = (e as { code?: string }).code ?? String(e); return null }
 }
 
 const read = (): Record<string, string> => {
@@ -45,7 +48,7 @@ const read = (): Record<string, string> => {
   if (!tracked) {
     console.error('✗ spin — cannot ask git which derived files are TRACKED, so a seal here could absorb untracked')
     console.error('  files that exist in no commit (it has: see 363cc8ff). Refusing rather than sealing blind.')
-    console.error('  Fix: run inside the git working tree, with git on PATH.')
+    console.error(`  Fix: run inside the git working tree, with git on PATH.${indexedFailure ? ` git said: ${indexedFailure}` : ''}`)
     process.exit(1)
   }
   // A DERIVED_FILES entry may be a DIRECTORY — lean/ and src/chunks are gated wholesale by the audit chain, and
@@ -77,7 +80,11 @@ if (process.argv.includes('--seal')) {
     console.log(`✓ spin --verify — the derived layer is a fixed point of its seal (${Object.keys(manifest.coins).length} coins match), receipt ${receipt}`)
   } else {
     console.error(`✗ spin --verify — NON-QUANTUM DRIFT: ${drift.length} derived file(s) moved since the last seal (receipt ${receipt} ≠ sealed ${sealedReceipt}):`)
+    let fieldDiffs = 0
+    const unsealed = drift.filter((d) => d.sealed === '(unsealed)').length
+    if (unsealed) console.error(`    ${unsealed} derived file(s) were never sealed (the walk now covers what git tracks); re-seal with --seal`)
     for (const d of drift) {
+      if (d.sealed === '(unsealed)' && unsealed > 8) continue
       console.error(`    ${d.path}: coin ${d.sealed} → ${d.spun}`)
       // AND, FOR A JSON DOCUMENT, WHICH FIELD (2026-09-02). A coin over a whole file says THAT it moved and
       // never WHERE, so six v0.3.0 publishes each spent ~12 minutes of CI to learn one bit. The committed
@@ -85,6 +92,11 @@ if (process.argv.includes('--seal')) {
       // subtree — which is the captain's law about statements applied to a failure message: an aggregate that
       // cannot be checked in parts should be split into ones that can.
       if (!d.path.endsWith('.json')) continue
+      // NEVER SEALED means there is nothing to compare field by field, and a `git show` per unsealed path is a process
+      // spawn per file: with the lean/ tree at 71,236 tracked paths (2026-09-12) that loop ran half an hour and
+      // never finished. The field diff is for a coin that MOVED; the first ones name the pattern, the rest repeat it.
+      if (d.sealed === '(unsealed)') continue
+      if (++fieldDiffs > 8) continue
       try {
         const head = execFileSync('git', ['show', `HEAD:${d.path}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
         const was = JSON.parse(head) as Record<string, unknown>

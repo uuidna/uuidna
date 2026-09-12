@@ -71,7 +71,7 @@ test('uuidna_coins_jobs — verified never exceeds total', () => {
 })
 
 test('uuidna_analytics — the distribution covers the theorems it reports', () => {
-  const r = callTool('uuidna_analytics') as { theorems: number; principles: number; distribution: unknown[] }
+  const r = callTool('uuidna_analytics', { recompute: true }) as { theorems: number; principles: number; distribution: unknown[] }
   assert.ok(r.theorems > 0 && r.principles > 0)
   assert.ok(r.distribution.length > 0)
 })
@@ -88,7 +88,7 @@ test('uuidna_publication — the licence law holds and the version is named', ()
 })
 
 test('uuidna_pentagram_monographs — full pentagrams plus remainder account for the count', () => {
-  const r = callTool('uuidna_pentagram_monographs') as { count: number; full: number; remainder: number }
+  const r = callTool('uuidna_pentagram_monographs', { recompute: true }) as { count: number; full: number; remainder: number }
   assert.equal(r.full * 5 + r.remainder, r.count, 'five to a pentagram; the remainder is what does not fill one')
 })
 

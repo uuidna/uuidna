@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-10",
+  "generated": "2026-09-12",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 70905,
@@ -9311,15 +9311,15 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "8be3518e-6c00-801e-8af7-ac0a8248d6b0",
-      "address": "b42bace5-7deb-845e-94e0-f671d1201b0c",
+      "lineAddress": "4add3db9-f37d-8e4a-aab8-c94e57344ef1",
+      "address": "0aa350c8-6c71-8cb6-a028-4dc9435ba789",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_kin_shortlist_accounts_for_every_edge",
-      "lineAddress": "81fac24d-aed1-8abb-bd94-3b00541e6ded",
-      "address": "a88da665-772f-86aa-b996-e652683cd943",
+      "lineAddress": "61b24c26-2121-87e6-8132-ee851193e7b5",
+      "address": "2aea5b45-0c95-83ce-8387-d1b95bd5846d",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -479920,8 +479920,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "0763d670-17ae-8394-9f10-54ed335ae659",
-      "address": "e3f1aea0-5c2c-823d-b7b2-6294959ad363",
+      "lineAddress": "84887c03-fe08-893a-8591-acd1fa534e80",
+      "address": "04ed0e75-c136-8778-b27c-d6e27c112771",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -499015,7 +499015,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "52e87ac8-8107-801a-bcd4-be5acc8aa1fb",
+  "claim_receipt": "8409efb8-fa32-8f14-ba67-c7892f3e7fa9",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

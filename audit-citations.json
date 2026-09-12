@@ -1,16 +1,16 @@
 {
-  "key": "6d4b615d-ca43-8f77-b80a-613be320c790",
+  "key": "1c7c4428-f405-86f3-9bef-f500dc432be9",
   "publications": 178,
   "sealedTheorems": 70905,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 70905,
+    "claims": 2581,
     "theorems": 70905,
-    "bijection": true,
+    "bijection": false,
     "digitalRoots": {
-      "claims": 3,
+      "claims": 7,
       "theorems": 3,
       "publications": 7
     },
@@ -27,16 +27,16 @@
     },
     {
       "slug": "ring",
-      "claims": 234,
-      "cited": 234,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "rosette",
-      "claims": 148,
-      "cited": 148,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -379,128 +379,128 @@
     },
     {
       "slug": "hex-span1",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span2",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span3",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span4",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span5",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span6",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span7",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span8",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span9",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span10",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span11",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span12",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span13",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span14",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span15",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "hex-span16",
-      "claims": 4096,
-      "cited": 4096,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -555,8 +555,8 @@
     },
     {
       "slug": "nim",
-      "claims": 93,
-      "cited": 93,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -851,8 +851,8 @@
     },
     {
       "slug": "wave",
-      "claims": 968,
-      "cited": 968,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1235,8 +1235,8 @@
     },
     {
       "slug": "fixed-power",
-      "claims": 567,
-      "cited": 567,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1259,8 +1259,8 @@
     },
     {
       "slug": "laws",
-      "claims": 353,
-      "cited": 353,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1315,8 +1315,8 @@
     },
     {
       "slug": "fermat-ring6",
-      "claims": 82,
-      "cited": 82,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1339,8 +1339,8 @@
     },
     {
       "slug": "fermat-ring9",
-      "claims": 83,
-      "cited": 83,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1363,8 +1363,8 @@
     },
     {
       "slug": "fermat-ring12",
-      "claims": 96,
-      "cited": 96,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1387,16 +1387,16 @@
     },
     {
       "slug": "fermat-ring15",
-      "claims": 82,
-      "cited": 82,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "fermat-ring16",
-      "claims": 82,
-      "cited": 82,
+      "claims": 0,
+      "cited": 0,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

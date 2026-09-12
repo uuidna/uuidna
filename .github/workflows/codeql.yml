@@ -11,13 +11,18 @@
 #
 name: "CodeQL Advanced"
 
+# THE BILL (2026-09-12): 142 runs × 3.3 min in the last window, 0 findings, one per push. A push to main is already
+# gated by deploy.yml; SAST that finds nothing twice a day is a bill, not a check. Weekly, on PRs, and on demand.
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   schedule:
     - cron: '38 23 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   analyze:

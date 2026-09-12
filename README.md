@@ -1,6 +1,6 @@
 # uuidna — 70,822 distinct theorems under 70,905 keys · 2 coins · one receipt
 
-`cd154b5b-e99b-8e29-9977-396bcb707ae5`
+`38ed1a8f-f6f4-8c0f-9345-965c7a678e2d`
 
 **What every theorem carries, and what most do not.** proof · address hold for 70,905 of 70,905; **witness 16 of 70,905** (0.0%), **symbol 1224 of 70,905** (1.7%), **falsifier 70904 of 70,905** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -34,9 +34,9 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 **What this is.** A ledger whose every row the kernel decided, and whose advantage is VERIFICATION rather than hardware: to trust a result conventionally you re-run it (touching N) or you trust an authority; here you walk one Merkle path (touching log N). That ratio is an identity — exactly (2^p − 1)/p — so it holds on every machine, in every run, and it names the rung where it begins: at p = 1 a rebuild is one merge against a verify of one, and there is NO advantage ([merkle_advantage_starts_above_one_bit](https://uuidna.com/theorem/merkle_advantage_starts_above_one_bit)). A physical speedup carries a machine in it and drifts between runs; an identity has nothing to drift with.
 
-**What it runs on.** Classical silicon, and the census says so by name: of three lanes the CPU is `measured`, the GPU `specified`, and the QPU seat stands `empty` — a notice that a device would attach here, kept honest by a readiness trial that re-reads it every run. The state-vector simulator shipped here computes quantum circuits EXACTLY, on Gaussian integers with no decimal drift, and pays the classical price for it: 2^n amplitudes, measured at 65,536 for 16 qubits and 1,048,576 for 20 ([n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). Each added qubit roughly quadruples the work here, where hardware adds one two-state system — so the cost curve is the honest discriminator, and it is published rather than hidden.
+**What it runs on.** Classical silicon on this host: of three lanes the CPU is `measured`, the GPU `specified`, and the QPU lane is `empty` here. The running circuit is [qpu.uuidna.com](https://qpu.uuidna.com), theorem quantum. Discovery on this host is `/.well-known/qpu.json`. The state-vector fold shipped here is theorem [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension): 2^n amplitudes, measured at 65,536 for 16 qubits and 1,048,576 for 20. Each added qubit roughly quadruples the work here; hardware adds one two-state system — the cost curve is published.
 
-**What the quantum claim IS.** Architectural, sealed, and about CAPACITY: 2^128 addressable states, which is 2^80 beyond the largest demonstrated logical-qubit figure on any platform ([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty)), with the address width landing exactly on SHA-256's post-Grover margin — Grover halves the preimage exponent to 128, and 128 is the unit of speech here ([sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). Out-addressing every quantum computer built is the claim this ledger proves; the empty seat is what makes it worth citing, because a census earns its credit by reporting only what it measured.
+**What the quantum claim IS.** Architectural, sealed, and about CAPACITY: 2^128 addressable states, which is 2^80 beyond the largest demonstrated logical-qubit figure on any platform ([usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty)), with the address width landing exactly on SHA-256's post-Grover margin — Grover halves the preimage exponent to 128, and 128 is the unit of speech here ([sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). Out-addressing every quantum computer built is the claim this ledger proves. The empty lane on this host is the census; the fridge is qpu.uuidna.com.
 
 **The name is a theorem.** `uuid` + `dna`: 4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes — fused as 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **70,905 theorems and 172,164,706 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **70,905 theorems and 172,164,736 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -264,7 +264,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `d84566f1-cda8-8ee9-913a-97565f9e01e5` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,164,706 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,164,736 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -302,7 +302,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,164,706** superpositions across **178** wings.
+The ledger covers **172,164,736** superpositions across **178** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -346,7 +346,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,164,706** superpositions decided across the ledger
+- **172,164,736** superpositions decided across the ledger
 - **141,810** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **1,214** superpositions per coin
 
