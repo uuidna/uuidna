@@ -122,21 +122,29 @@ export const skillNames = (): string[] => skillGroups().map((g) => g.skill)
 /** skillSurface(skill) → the capability, served: its sealed theorems with their handles, the files and principles
  *  they were derived in, the group's order-invariant fold, and the ESCO mapping. Refuses an unknown skill BY NAME
  *  with the live list, rather than answering an empty set that reads like "this capability is unproven". */
+const _views = new Map<string, { theorems: SkillTheorem[]; files: string[]; principles: string[] }>()
 export function skillSurface(skill: string, escoTitles: readonly string[] = []): SkillSurface {
   const want = String(skill).trim().toLowerCase()
   const group = skillGroups().find((g) => g.skill.toLowerCase() === want)
   if (!group)
     throw new Error(
       `unknown skill "${skill}" — the ledger carries: ${skillNames().join(', ')} (list them with counts via uuidna_skills)`)
-  const theorems = group.theorems.map(served)
+  // the served view of a group is deterministic from the ledger: hashed once per skill per process, not once per
+  // call — the wave skill carries 67071 theorems and every call re-derived 67071 handles (232 ms; 117 skills × 6 surfaces)
+  let view = _views.get(group.skill)
+  if (!view) {
+    view = { theorems: group.theorems.map(served), files: [...new Set(group.theorems.map((t) => t.file))], principles: [...new Set(group.theorems.map((t) => t.principle))] }
+    _views.set(group.skill, view)
+  }
+  const { theorems, files, principles } = view
   const esco = skillEsco(group.skill, escoTitles)
   return {
     skill: group.skill,
     count: group.count,
     fold: group.fold,
     handle: handleOf(group.fold),
-    files: [...new Set(group.theorems.map((t) => t.file))],
-    principles: [...new Set(group.theorems.map((t) => t.principle))],
+    files,
+    principles,
     theorems,
     esco,
     lab: domainLab(group.skill),
@@ -189,7 +197,9 @@ export function orphanedSkills(answer: (skill: string) => unknown): SkillOrphan[
     if (s.skill !== g.skill) { orphan(`the surface answered for "${String(s.skill)}" instead`); continue }
     if (!Array.isArray(s.theorems)) { orphan('the surface carried no theorems array'); continue }
     if (s.theorems.length !== g.count) { orphan(`the surface returned ${s.theorems.length} theorem(s); the ledger group carries ${g.count}`); continue }
-    const wrong = s.theorems.filter((t) => !g.theorems.some((x) => x.key === t.key && x.address === t.address))
+    // membership by set, not by a scan per returned theorem: the wave skill carries 67071 theorems, and the scan was |g|² per surface
+    const sealed = new Set(g.theorems.map((x) => x.key + '\u0000' + x.address))
+    const wrong = s.theorems.filter((t) => !sealed.has(t.key + '\u0000' + t.address))
     if (wrong.length) { orphan(`${wrong.length} returned theorem(s) are not in this skill's sealed group (first: ${String(wrong[0]?.key)})`); continue }
     if (merkleGravity(s.theorems.map((t) => t.address)) !== g.fold) { orphan('the returned set does not fold to the sealed group fold'); continue }
     if (!s.esco || typeof s.esco.lookup !== 'string' || !s.esco.lookup) { orphan('the surface served no ESCO mapping — the skill is reachable but unmapped'); continue }

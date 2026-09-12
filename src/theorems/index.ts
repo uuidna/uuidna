@@ -147,11 +147,14 @@ export const SKILLS: readonly string[] = [...new Set(THEOREMS.map((t) => t.skill
 export interface SkillGroup { skill: string; count: number; fold: string; theorems: Theorem[] }
 /** The ledger organised by SKILL (the capability axis) — each group's content-addresses fold, order-invariantly,
  *  to one recomputable receipt. Same theorems as the principle view, grouped on the orthogonal axis. */
+let _skillGroups: SkillGroup[] | null = null
 export function skillGroups(): SkillGroup[] {
-  return SKILLS.map((skill) => {
+  // built once from the immutable ledger: every call re-filtered the ledger per skill and re-folded every group
+  // (108 ms a call), and a skill-surface pass calls this once per skill
+  return (_skillGroups ??= SKILLS.map((skill) => {
     const ts = THEOREMS.filter((t) => t.skill === skill)
     return { skill, count: ts.length, fold: merkleGravity(ts.map((t) => t.address)), theorems: ts }
-  })
+  }))
 }
 
 // ── The 7-ray ROSETTE index — a computing structure, not a folder move. Index-only. ──

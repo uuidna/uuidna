@@ -91,14 +91,55 @@ export function theoremCoins(key: string, statement: string, uses = 0, dimension
  *  use), and the total coins are the superpositions times two — one coin for each direction (forward and contra).
  *  USE is recomputed from the ledger itself: a theorem is USED each time its key appears in another entry's name
  *  or statement — the more used, the more valuable, deterministically for every observer. */
+/** keyCitations(keys, texts)[i] → the indexes j ≠ i whose text contains keys[i] as a substring, ascending. Keys are
+ *  ledger identifiers ([0-9a-z_O]); the trie is walked from every position of every text once. Exported for its control. */
+export function keyCitations(keys: readonly string[], texts: readonly string[]): number[][] {
+  // the trie: children keyed by node*128 + charCode in one map; terminal[node] = the key indexes ending here
+  const child = new Map<number, number>()
+  const terminal = new Map<number, number[]>()
+  let nodes = 1
+  keys.forEach((k, i) => {
+    let n = 0
+    for (let c = 0; c < k.length; c++) {
+      const code = n * 128 + k.charCodeAt(c)
+      let next = child.get(code)
+      if (next === undefined) { next = nodes++; child.set(code, next) }
+      n = next
+    }
+    const t = terminal.get(n); if (t) t.push(i); else terminal.set(n, [i])
+  })
+  const out: number[][] = keys.map(() => [])
+  texts.forEach((text, j) => {
+    const hit = new Set<number>()
+    for (let p = 0; p < text.length; p++) {
+      let n = 0
+      for (let c = p; c < text.length; c++) {
+        const code = text.charCodeAt(c)
+        if (code >= 128) break   // keys are ASCII; a wider code would alias another node's slot (the control caught it)
+        const next = child.get(n * 128 + code)
+        if (next === undefined) break
+        n = next
+        const t = terminal.get(n); if (t) for (const i of t) hit.add(i)
+      }
+    }
+    for (const i of hit) if (i !== j) out[i]!.push(j)
+  })
+  return out
+}
+
 export function ledgerCoins(entries: readonly { key: string; statement: string; name?: string; skill?: string; file?: string }[]): LedgerCoins {
   const texts = entries.map((t) => (t.name ?? '') + '|' + t.statement)
   const domain = (e: { skill?: string; file?: string }): string => e.skill ?? e.file ?? 'core'
+  // THE CITATION WALK IS ONE PASS OVER THE TEXTS, NOT ONE PASS PER KEY (2026-09-12). `texts[j].includes(t.key)` for
+  // every (i, j) pair was Σ|text| × keys ≈ 5×10⁹ substring searches; the coins test held that walk at 729 s. The same
+  // relation — "key i occurs as a substring of text j, j ≠ i" — is read from a trie of every key walked once from
+  // every position of every text: Σ|text| × (longest key prefix present) steps. Identical counts; the control test
+  // re-derives a slice the old way.
+  const cited = keyCitations(entries.map((t) => t.key), texts)
   const valued = entries.map((t, i) => {
-    let uses = 0
     const dims = new Set([domain(t)])
-    for (let j = 0; j < texts.length; j++) if (j !== i && texts[j].includes(t.key)) { uses++; dims.add(domain(entries[j])) }
-    return theoremCoins(t.key, t.statement, uses, dims.size)
+    for (const j of cited[i]!) dims.add(domain(entries[j]!))
+    return theoremCoins(t.key, t.statement, cited[i]!.length, dims.size)
   })
   const superpositions = valued.reduce((s, v) => s + v.boundaries * (1 + v.uses) * v.dimensions, 0)
   const C = coins()
