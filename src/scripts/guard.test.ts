@@ -97,6 +97,7 @@ const CONTROLLED_VIA: Record<string, string> = {
   underreachGaps: 'underreachIn — a hedge applied to the act of proving',
   claimBalanceGaps: 'claimBalanceOf — an under-claiming row',
   tautologyGaps: 'tautologicalAsserts — the committed dead line named, a determinism check cleared, the known limit held',
+  linearGaps: 'linearScansIn — two crafted key scans over the ledger, asserted non-empty; a comment and the keyed lookup stay silent',
 }
 
 /** the finders no test hands a crafted violation to — computed, never listed by hand */

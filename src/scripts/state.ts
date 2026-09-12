@@ -8,6 +8,7 @@
 // So this folds the whole question into one receipted answer: the ledger, the sync, the working tree, the fast
 // finders, and THE NEXT EXACT COMMAND. Deterministic (no clock, no randomness) and read-only — it changes nothing,
 // so it is safe to ask before anything. `npm run state`.
+import { linearGaps } from './dry-gaps.js'
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
@@ -52,7 +53,7 @@ const census = statementCensus()
 // the fast finders — the same ones the guard blocks on, run here to REPORT rather than to gate
 const finders: [string, number][] = [
   ['legal', legalGaps().gaps.length], ['prose', proseGaps().gaps.length],
-  ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
+  ['dry', dryGaps().gaps.length], ['linear', linearGaps().length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length], ['tautology', tautologyGaps().length], ['citations', citationsGaps().length], ['literal', literalGaps().length], ['binary', binaryGaps().length], ['orphan', orphanGaps().length], ['unit', unitGaps().length], ['hexbit', hexbitGaps().length], ['incomplete', incompleteGaps().length], ['markup', markupGaps().length], ['name', nameGaps().length], ['deadkey', deadkeyGaps().length], ['constant', constantGaps().length],
   ['negation', negationGaps().length], ['lean-negation', leanNegationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length], ['stale', staleGaps().length],
   ['leak', leakGaps().length], ['underreach', underreachGaps().length], ['claim-balance', claimBalanceGaps().length], ['ledger-drain', ledgerDrainGaps().length], ['axiom-reach', axiomReachGaps().length], ['deposit-grade', depositGaps().length], ['geometry-exact', geometryGaps().length],

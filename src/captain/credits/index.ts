@@ -4,7 +4,7 @@
 // and the captain comes NEXT in place (never erased, never first when prior art is named, never unclaimed).
 // uuidna reflects history; it claims only the unclaimed. A Clay theorem credits the mathematician who proved the
 // PROBLEM (Perelman for Poincaré); uuidna seals only the REFLECTION.
-import { THEOREMS, theoremByKey, theoremNeighbours, PRINCIPLES } from '../../theorems/index.js'
+import { THEOREMS, theoremByKey, PRINCIPLES } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { doisIn } from '../../crossref.js'
 import { doiPriorArtForLeanFile } from '../../zenodo-seals.js'
@@ -86,6 +86,18 @@ export interface Credits {
  *  result or DOI in sealed metadata) is credited FIRST; the captain comes NEXT. With no prior art, the captain
  *  claims by law alone. Recomputable; uuidna reflects history. */
 const _cache = new Map<string, Credits>()
+const _principleCredits = new Map<string, readonly Credit[]>()
+/** the registry names matched anywhere in a principle's bucket, in first-match order — computed once per principle */
+function principleCredits(principle: string): readonly Credit[] {
+  const hit = _principleCredits.get(principle); if (hit) return hit
+  const seen = new Set<string>(); const out: Credit[] = []
+  for (const n of THEOREMS) {
+    if (n.principle !== principle) continue
+    const nhay = n.name + ' ' + n.principle
+    for (const r of REGISTRY) if (nhay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); out.push({ who: r.who, link: r.wiki }) }
+  }
+  _principleCredits.set(principle, out); return out
+}
 export function credits(key: string): Credits {
   const cached = _cache.get(String(key)); if (cached) return cached
   const t = theoremByKey().get(String(key))
@@ -105,11 +117,11 @@ export function credits(key: string): Credits {
     const who = `DOI ${doi}`
     if (!seen.has(who)) { seen.add(who); historical.push({ who, link: `https://doi.org/${doi}` }) }
   }
+  // THE NEIGHBOURHOOD IS READ ONCE PER PRINCIPLE, NOT ONCE PER THEOREM (2026-09-12). Materialising every theorem's
+  // neighbours here cost Σ|bucket|² over the ledger (uuidna_rights: 197 s). A name self alone matches is already in
+  // `seen`, so the contextual list is the bucket's registry hits in first-match order minus `seen` — identical output.
   const contextual: Credit[] = []
-  for (const n of theoremNeighbours(t.key).neighbours) {
-    const nhay = n.name + ' ' + n.principle
-    for (const r of REGISTRY) if (nhay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); contextual.push({ who: r.who, link: r.wiki }) }
-  }
+  for (const r of principleCredits(t.principle)) if (!seen.has(r.who)) { seen.add(r.who); contextual.push({ who: r.who, link: r.link }) }
   const provenance = `Proven in uuidna by \`${t.tactic}\` (Lean 4, no Mathlib), verified sorry-free and axiom-free; content-addressed to ${t.address} — recompute toUuid("${t.key}:" + statement) and it returns.`
   const claimedBy: 'historical' | 'contextual' | 'captain' = historical.length ? 'historical' : contextual.length ? 'contextual' : 'captain'
   // CREDIT ORDER: prior first → captain next; or captain alone; contextual names may stand next to the captain

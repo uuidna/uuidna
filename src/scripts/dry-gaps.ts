@@ -136,3 +136,31 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
     gaps.push({ what: 'court split across os shims — consolidate in court.ts', fix: 'delete gate-checks.ts wave-needs.ts court-needs.ts' })
   return { gaps, scripts: files.length }
 }
+
+// A LINEAR SCAN WHERE A KEYED MAP EXISTS IS DUPLICATION OF THE INDEX (2026-09-12). `THEOREMS.find((x) => x.key === k)`
+// walks the ledger per lookup; under any loop over the ledger that is quadratic — uuidna_theorem cost 40 s for one
+// pass of the coverage test and 3 s through theoremByKey(). Measured, cured in three call sites, and the finder folded.
+export const LINEAR_KEY_SCAN = /\bTHEOREMS\.find\(\((\w+)\) => \1\.key === /g
+/** the 1-based lines of `src` that scan the ledger for a key — the pure core the control test drives */
+export function linearScansIn(src: string): number[] {
+  const out: number[] = []
+  // code, not prose: a comment that names the scan (this finder's own) is not a scan
+  src.split('\n').forEach((line, i) => { if (new RegExp(LINEAR_KEY_SCAN.source).test(line.replace(/\/\/.*$/, ''))) out.push(i + 1) })
+  return out
+}
+/** every compiled source (tests excluded) that scans the ledger linearly for a key, with the keyed fix */
+const DATA_DIRS = new Set(['src/seeds', 'src/chunks', 'src/handles'])   // generated data, not code: excluded as the test graph excludes them
+export function linearGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const walk = (dir: string): void => {
+    for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`
+      if (e.isDirectory()) { if (!DATA_DIRS.has(rel)) walk(rel); continue }
+      if (!e.name.endsWith('.ts') || e.name.endsWith('.test.ts') || e.name.endsWith('.d.ts')) continue
+      for (const line of linearScansIn(rd(rel)))
+        gaps.push({ what: `${rel}:${line}: THEOREMS.find by key is a linear scan of the ledger — quadratic under any loop over it`, fix: `edit ${rel}:${line}: theoremByKey().get(key) (import theoremByKey from the theorems index)` })
+    }
+  }
+  walk('src')
+  return gaps
+}

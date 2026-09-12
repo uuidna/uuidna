@@ -11,7 +11,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'
 import {
-  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, forensics, evidence, ledgerFingerprint, reason, reflects,
+  toUuid, adjudicate, overreachOf, theorems, runTrial, vocabulary, THEOREMS, theoremByKey, forensics, evidence, ledgerFingerprint, reason, reflects,
   catchTraitors, reveal, signCommit, reeducate,
 } from './index.js'
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here
@@ -106,7 +106,7 @@ export function route(method: string, path: string, query: URLSearchParams, body
 
   if (method === 'GET' && path.startsWith('/theorem/')) {
     const key = decodeURIComponent(path.slice('/theorem/'.length))
-    const t = THEOREMS.find((x) => x.key === key)
+    const t = theoremByKey().get(key)
     if (!t) return { status: 404, json: { error: 'unknown theorem: ' + key } }
     return ok({ key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file, skill: t.skill, address: t.address, verdict: 'SEALED' })
   }

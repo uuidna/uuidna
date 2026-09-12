@@ -28,7 +28,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   parityWitness,
-  THEOREMS, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
+  THEOREMS, theoremByKey, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit, uuidnaDecode, decodeTheorem,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -901,7 +901,7 @@ const TOOLS: Tool[] = ([
     detail: 'WHITE PAPER AND BLUEPRINTS AT ONCE, with its school lab: the sealed statement and Lean line are the paper; the handle, /theorem/<key> route, and 32 hexbit states are the drawing — same address (theorem a_spec_compiles_to_hexbits). The lab is computationally entangled to the theorem and related resources (cited sealed keys, PORTED benches this theorem names, the skill instrument). Verdict SEALED. Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'a sealed theorem key' } }, required: ['key'] },
     run: ({ key }) => {
-      const t = THEOREMS.find((x) => x.key === String(key))
+      const t = theoremByKey().get(String(key))
       if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)')
       const dual = paperBlueprintTheorem(t)
       const axioms = theoremAxioms(t.key)
@@ -931,7 +931,7 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'optional theorem key — decode one row through Sequence and Rosetta' } } },
     run: (a = {}) => {
       if (a.key) {
-        const t = THEOREMS.find((x) => x.key === String(a.key))
+        const t = theoremByKey().get(String(a.key))
         if (!t) throw new Error('unknown theorem: ' + String(a.key))
         return decodeTheorem(t, mirrorRows())
       }
