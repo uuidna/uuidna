@@ -164,3 +164,52 @@ export function linearGaps(): Gap[] {
   walk('src')
   return gaps
 }
+
+// A MEMO THAT IS WRITTEN AND NEVER READ IS A WALK THAT STILL HAPPENS (2026-09-12). The trial memo was declared and
+// assigned on every call, and nothing ever read it: the ledger was re-walked each time and the cost looked cured
+// because a memo one layer up was hiding it. Its own identity control caught it, and this finder is that control
+// generalised — a module-level memo whose name never appears in a reading position is named here, with its fix.
+/** the 1-based lines declaring a module-level memo that this file never reads back */
+export function writeOnlyMemosIn(src: string): number[] {
+  const lines = src.split('\n').map((l) => l.replace(/\/\/.*$/, ''))
+  const out: number[] = []
+  lines.forEach((line, i) => {
+    // A MEMO IS A `let` THAT CAN BE REASSIGNED, OR A const HOLDING A Map/Set — never a constant binding. The first
+    // cut matched every `const _0n = BigInt(0)` in vendored crypto and called an unused constant a write-only memo;
+    // a dead constant is a real but DIFFERENT finding, and naming it with the wrong cure is how a finder loses trust.
+    const decl = /^let (_\w+)\b/.exec(line) ?? /^const (_\w+)\s*=\s*new (?:Map|Set|WeakMap|WeakSet)\b/.exec(line)
+    if (!decl) return
+    const name = decl[1]!
+    const word = new RegExp('\\b' + name + '\\b')
+    let read = false
+    lines.forEach((l, j) => {
+      if (j === i || !word.test(l)) return
+      // a write: `_x = …` or `_x.set(…)`. `??=` and `.get(` both READ before they write, so they count as reads.
+      // THE BOUNDARY IS \\b, NOT \\B (2026-09-12): the seam between a space and a leading underscore IS a word
+      // boundary, so \\B matched nothing and the first cut of this finder called 94 healthy memos write-only.
+      // PER OCCURRENCE, NOT PER LINE (2026-09-12): `if (_x) return _x; _x = compute()` both reads and writes on one
+      // line, and judging the whole line as a write made a read memo look unread. Strike the writes out, then look.
+      const stripped = l
+        .replace(new RegExp('\\b' + name + '\\s*=(?!=)', 'g'), '')
+        .replace(new RegExp('\\b' + name + '\\.set\\(', 'g'), '')
+      if (new RegExp('\\b' + name + '\\b').test(stripped)) read = true
+    })
+    if (!read) out.push(i + 1)
+  })
+  return out
+}
+/** every compiled source (tests excluded) holding a memo nothing reads back — the walk is still paid */
+export function memoGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const walk = (dir: string): void => {
+    for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+      const rel = `${dir}/${e.name}`
+      if (e.isDirectory()) { if (!DATA_DIRS.has(rel)) walk(rel); continue }
+      if (!e.name.endsWith('.ts') || e.name.endsWith('.test.ts') || e.name.endsWith('.d.ts')) continue
+      for (const line of writeOnlyMemosIn(rd(rel)))
+        gaps.push({ what: `${rel}:${line}: a memo is assigned here and never read back — the work it was meant to save is still done on every call`, fix: `edit ${rel}: read the memo before computing (\`if (_x) return _x\`, or \`??=\`, or a Map .get() hit) — or delete it` })
+    }
+  }
+  walk('src')
+  return gaps
+}

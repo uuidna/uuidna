@@ -5,7 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
-import { linearGaps } from './dry-gaps.js'
+import { linearGaps, memoGaps } from './dry-gaps.js'
 import { impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
 import { accountingGaps } from './accounting-gaps.js'
@@ -191,6 +191,8 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'dry', run: () => dryGaps().gaps },
   // THE INDEX EXISTS; A LINEAR SCAN FOR A KEY RE-DERIVES IT PER CALL. Caught after uuidna_theorem cost 40 s per ledger pass.
   { name: 'linear', run: () => linearGaps() },
+  // A MEMO WRITTEN AND NEVER READ: the walk it was meant to save still happens, and a memo one layer up can hide it.
+  { name: 'memo', run: () => memoGaps() },
   { name: 'coherent', run: () => coherentGaps() },
   // an index-mirror pairs whatever it is handed, so it cannot witness itself. This runs the axis-discovery
   // beside it and refuses a divergence — css.ts picks its rules and grid.ts calls an involution broken from the

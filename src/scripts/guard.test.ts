@@ -98,6 +98,7 @@ const CONTROLLED_VIA: Record<string, string> = {
   claimBalanceGaps: 'claimBalanceOf — an under-claiming row',
   tautologyGaps: 'tautologicalAsserts — the committed dead line named, a determinism check cleared, the known limit held',
   linearGaps: 'linearScansIn — two crafted key scans over the ledger, asserted non-empty; a comment and the keyed lookup stay silent',
+  memoGaps: 'writeOnlyMemosIn — a crafted write-only memo, asserted non-empty; an early return, a ??= and a Map .get() stay silent',
 }
 
 /** the finders no test hands a crafted violation to — computed, never listed by hand */
