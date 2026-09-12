@@ -11,7 +11,7 @@ import { RESOLVED_REFERENCES, REFERENCES_BY_WING } from './references-resolved.j
 // stuffs, or claims a position; the description is the theorem's real statement, the JSON-LD cites the real proof and
 // address, and rel=canonical folds every serving host (.net/.org/CNAME) to the one recomputable home. Recomputable by
 // anyone from the same ledger. It optimises for HONEST discovery.
-import { theorems } from './theorems/index.js'
+import { theorems, theoremByKey } from './theorems/index.js'
 import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
 import { toUuid, merkleFold } from './address.js'
@@ -81,10 +81,13 @@ const MAIN_ENTITY: Record<string, Record<string, unknown>> = {
  *  page (by route). Derived from the ledger; the content-address is the quantum-message pointer. Reusable by the front
  *  (its `head` is a VitePress frontmatter head array) and queryable through the MCP. A static page may pass its own
  *  frontmatter `description` — one source, the page's — otherwise the terse recomputable default is used. */
+const _seoByKey = new Map<string, Seo>()
 export function quantumSeo(subject: { key?: string; slug?: string; route?: string; title?: string; description?: string }): Seo {
   // ── a THEOREM ──────────────────────────────────────────────────────────────────────────────────────────────
   if (subject.key) {
-    const t = theorems().find((x) => x.key === subject.key)
+    // one SEO surface per theorem per process: deterministic from the ledger, so the fifth build of the feed costs a map read
+    const hit = _seoByKey.get(subject.key); if (hit) return hit
+    const t = theoremByKey().get(subject.key)
     if (!t) throw new Error('unknown theorem: ' + subject.key + ' (see uuidna_theorems)')
     const route = `/theorem/${t.key}`, canonical = `${HOST}${route}`
     const description = `${t.statement} — proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free (no Mathlib); part of ${t.principle}.`
@@ -103,7 +106,9 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
       creativeWorkStatus: `Proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free, axiom-free`,
       isPartOf: { '@type': 'Dataset', name: 'uuidna theorem ledger', url: `${HOST}/theorems` },
     }
-    return seal('theorem', route, canonical, t.address, t.name, description, keywords, jsonLd, t.address)
+    const seo = seal('theorem', route, canonical, t.address, t.name, description, keywords, jsonLd, t.address)
+    _seoByKey.set(t.key, seo)
+    return seo
   }
   // ── a PUBLICATION (monograph) ──────────────────────────────────────────────────────────────────────────────
   if (subject.slug) {
@@ -118,7 +123,7 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
     // the whole it is part of, and the skills its theorems carry become its keywords. Nothing is authored, so a
     // monograph sealed tomorrow arrives with its references already attached.
     const cited: string[] = [...(p.theorems ?? [])]                       // publication.theorems is a key list
-    const byKey = new Map(theorems().map((t) => [t.key, t]))
+    const byKey = theoremByKey()
     const skills = [...new Set(cited.map((k) => byKey.get(k)?.skill).filter((x): x is string => !!x))]
     // deduped: a slug and a skill often coincide (acoustics/acoustics), and a repeated keyword is noise
     const keywords = [...new Set(['monograph', p.slug, ...skills])]

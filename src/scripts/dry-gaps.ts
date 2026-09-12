@@ -140,7 +140,7 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
 // A LINEAR SCAN WHERE A KEYED MAP EXISTS IS DUPLICATION OF THE INDEX (2026-09-12). `THEOREMS.find((x) => x.key === k)`
 // walks the ledger per lookup; under any loop over the ledger that is quadratic — uuidna_theorem cost 40 s for one
 // pass of the coverage test and 3 s through theoremByKey(). Measured, cured in three call sites, and the finder folded.
-export const LINEAR_KEY_SCAN = /\bTHEOREMS\.find\(\((\w+)\) => \1\.key === /g
+export const LINEAR_KEY_SCAN = /\b(?:THEOREMS|theorems\(\))\.find\(\((\w+)\) => \1\.key === |new Map\(theorems\(\)\.map\(\(t\) => \[t\.key, t\]\)\)/g
 /** the 1-based lines of `src` that scan the ledger for a key — the pure core the control test drives */
 export function linearScansIn(src: string): number[] {
   const out: number[] = []
@@ -158,7 +158,7 @@ export function linearGaps(): Gap[] {
       if (e.isDirectory()) { if (!DATA_DIRS.has(rel)) walk(rel); continue }
       if (!e.name.endsWith('.ts') || e.name.endsWith('.test.ts') || e.name.endsWith('.d.ts')) continue
       for (const line of linearScansIn(rd(rel)))
-        gaps.push({ what: `${rel}:${line}: THEOREMS.find by key is a linear scan of the ledger — quadratic under any loop over it`, fix: `edit ${rel}:${line}: theoremByKey().get(key) (import theoremByKey from the theorems index)` })
+        gaps.push({ what: `${rel}:${line}: a ledger scan for a key (or a per-call key map) — linear per call, quadratic under any loop over the ledger`, fix: `edit ${rel}:${line}: theoremByKey().get(key) (import theoremByKey from the theorems index)` })
     }
   }
   walk('src')

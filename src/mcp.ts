@@ -694,7 +694,7 @@ const TOOLS: Tool[] = ([
         const c = formulaCensus(theorems().map((t) => t.statement))
         return { total: c.total, formula: c.formula, program: c.program, refused: c.refused.length, manuscript: 'https://uuidna.com/uuidna-ledger.tex' }
       }
-      const t = theorems().find((x) => x.key === String(key))
+      const t = theoremByKey().get(String(key))
       if (!t) return { error: `no sealed theorem under key ${String(key)}` }
       const set = typeset(t.statement, 'block')
       return { key: t.key, statement: t.statement, classification: set.classification, mathml: set.mathml, tex: set.tex, refused: set.refused }

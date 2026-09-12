@@ -9,11 +9,13 @@ test('linearScansIn names the scan and not the keyed lookup', () => {
     "const t = THEOREMS.find((x) => x.key === String(key))",
     "const u = THEOREMS.find((t) => t.key === key)",
     "const v = THEOREMS.find((t) => t.file === f)",
+    "const w = theorems().find((x) => x.key === subject.key)",
+    "const byKey = new Map(theorems().map((t) => [t.key, t]))",
     "// THEOREMS.find((x) => x.key === k) named in a comment is prose, not a scan",
   ].join('\n')
   const lines = linearScansIn(src)
   assert.ok(lines.length >= 1, 'the positive control: linearGaps fires through linearScansIn on a crafted violation')
-  assert.deepEqual(lines, [2, 3], 'the two key scans, by line; the file scan is a different question')
+  assert.deepEqual(lines, [2, 3, 5, 6], 'the key scans through either door name and the per-call map, by line; the file scan is a different question')
 })
 
 test('the tree holds no linear key scan (the three cured sites stay cured)', () => {

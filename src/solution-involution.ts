@@ -4,7 +4,7 @@
 // The claim's station involutes (i ↔ n−1−i). Theorems seated on the mirror are verified
 // solutions that already exist. MCP returns them immediately — no wait, no assumption
 // that the original claim became true. Combinable with transform, reactor, and tryClaim.
-import { theorems } from './theorems/index.js'
+import { theorems, theoremByKey } from './theorems/index.js'
 import { verifyStatement } from './verify-statement.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
@@ -30,7 +30,7 @@ export interface InvoluteRun {
 }
 
 const methodSolution = (): VerifiedSolution => {
-  const t = theorems().find((x) => x.key === METHOD)
+  const t = theoremByKey().get(METHOD)
   return { key: METHOD, route: METHOD_ROUTE, file: t?.file ?? 'Negation.lean' }
 }
 
