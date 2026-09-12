@@ -535,7 +535,7 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: {} },
     run: () => {
       const lonely = theorems()
-        .filter((t) => theoremNeighbours(t.key).neighbours.length === 0)
+        .filter((t) => theoremNeighbours(t.key).count === 0)
         .map((t) => ({ key: t.key, file: t.file, principle: t.principle }))
       const g = gridGaps(), p = pairsGaps()
       const counts = { lonely: lonely.length, gridGaps: g.length, pairsGaps: p.length }

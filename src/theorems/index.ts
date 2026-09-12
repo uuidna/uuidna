@@ -231,14 +231,19 @@ let _byPrinciple: Map<string, Theorem[]> | null = null
 /** theoremNeighbours(key) → the theorems that SHARE this one's computing principle (its domain), excluding itself —
  *  each theorem scans its neighbours. Built once from the immutable ledger; the neighbourhoods partition the whole
  *  ledger, so every theorem sits in exactly one. Empty for an unknown key. */
-export const theoremNeighbours = (key: string): { key: string; principle: string | null; neighbours: readonly Theorem[] } => {
+export const theoremNeighbours = (key: string): { key: string; principle: string | null; count: number; readonly neighbours: readonly Theorem[] } => {
   if (!_byPrinciple) { _byPrinciple = new Map(); for (const t of THEOREMS) { const a = _byPrinciple.get(t.principle) ?? []; a.push(t); _byPrinciple.set(t.principle, a) } }
   const self = theoremByKey().get(key)
   // A NULL PRINCIPLE IS THE UNKNOWN-KEY ANSWER. Returning a bare array made "unknown" and "no neighbours"
   // indistinguishable, so the caller re-derived the reason it had just been denied. The relation now carries it.
+  // THE COUNT IS FREE; THE ARRAY IS LAZY (2026-09-12). This filtered a fresh array on EVERY call — over a 4096-theorem
+  // principle that is 4095 allocations per theorem, 16.7 million per principle, 270 million per full pass — and the
+  // callers that made full passes read only `.length`. The neighbourhoods partition the ledger and self is always in
+  // its bucket, so the count is bucket.length − 1 with no allocation; the array is built only for a caller that reads it.
+  const bucket = self ? (_byPrinciple.get(self.principle) ?? []) : []
   return self
-    ? { key, principle: self.principle, neighbours: (_byPrinciple.get(self.principle) ?? []).filter((t) => t.key !== key) }
-    : { key, principle: null, neighbours: [] }
+    ? { key, principle: self.principle, count: bucket.length - 1, get neighbours(): readonly Theorem[] { return bucket.filter((t) => t.key !== key) } }
+    : { key, principle: null, count: 0, neighbours: [] }
 }
 
 /** DECIDED-CASE MASS — the walk the generator actually made, sealed at generation and read back here.

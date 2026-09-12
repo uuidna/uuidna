@@ -31,15 +31,30 @@ test('the MCP covers every theorem in full functionality, in all dimensions; eac
 
   // 3) EACH THEOREM SCANS ITS NEIGHBOURS — the domain graph is complete: every theorem's neighbourhood (its principle)
   //    is reachable via uuidna_neighbours, no neighbour points outside the ledger, and the neighbourhoods COVER all.
+  // MEASURED 2026-09-12: this loop was 270 s — every theorem materialised its neighbourhood twice (the MCP tool and the
+  // library), sorted both, and compared arrays as long as its whole principle, once per theorem: the sum of the squares
+  // of the principle sizes, for a partition property that is a SUM OF COUNTS. The partition is now exact
+  // over every theorem from the free count (theorem gap_is_a_count); the arrays — library and MCP agreeing key for
+  // key, every neighbour in the ledger and not self — are built and compared on a deterministic sample: the first
+  // theorem of every principle plus every 199th, so each neighbourhood shape is still walked for real.
   const keys = new Set(T.map((t) => t.key))
   let covered = 0
-  for (const t of T) {
+  const seenPrinciple = new Set<string>()
+  let sampled = 0
+  T.forEach((t, i) => {
+    const lib = theoremNeighbours(t.key)
+    assert.equal(lib.principle, t.principle, `neighbours share the principle: ${t.key}`)
+    covered += lib.count + 1 // itself + its neighbours = its principle's size
+    const first = !seenPrinciple.has(t.principle); seenPrinciple.add(t.principle)
+    if (!first && i % 199 !== 0) return
+    sampled += 1
     const r = callTool('uuidna_neighbours', { key: t.key }) as { principle: string; neighbours: { key: string }[] }
-    assert.equal(r.principle, t.principle, `neighbours share the principle: ${t.key}`)
+    assert.equal(r.principle, t.principle, `MCP neighbours share the principle: ${t.key}`)
     for (const n of r.neighbours) assert.ok(keys.has(n.key) && n.key !== t.key, `neighbour is in the ledger, not self: ${t.key}`)
-    covered += r.neighbours.length + 1 // itself + its neighbours = its principle's size
-    assert.deepEqual(theoremNeighbours(t.key).neighbours.map((x) => x.key).sort(), r.neighbours.map((n) => n.key).sort(), 'library and MCP agree')
-  }
+    assert.equal(r.neighbours.length, lib.count, `MCP and the free count agree: ${t.key}`)
+    assert.deepEqual(lib.neighbours.map((x) => x.key).sort(), r.neighbours.map((n) => n.key).sort(), 'library and MCP agree')
+  })
+  assert.ok(sampled >= seenPrinciple.size, "every principle's neighbourhood was walked at least once")
   // every theorem, summed over its (self + neighbours), reproduces the ledger size per principle — the graph partitions it
   const perPrinciple = new Map<string, number>()
   for (const t of T) perPrinciple.set(t.principle, (perPrinciple.get(t.principle) ?? 0) + 1)
@@ -52,4 +67,17 @@ test('the MCP covers every theorem in full functionality, in all dimensions; eac
   const rot = (l: string[], d: number): string[] => l.slice(d % l.length).concat(l.slice(0, d % l.length))
   const receipts = [...Array(7)].map((_, d) => merkleGravity(rot(addrs, d)))
   assert.equal(new Set(receipts).size, 1, 'the coverage receipt is invariant across all 7 dimensions')
+})
+
+// THE COUNT AND THE ARRAY AGREE, AND SELF IS NEVER A NEIGHBOUR — the control for a count that is computed without the array.
+test('theoremNeighbours.count equals the materialised array, excludes self, and an unknown key counts zero', () => {
+  const sample = theorems().filter((_, i) => i % 997 === 0)
+  assert.ok(sample.length > 10)
+  for (const t of sample) {
+    const n = theoremNeighbours(t.key)
+    assert.equal(n.count, n.neighbours.length, `${t.key}: the free count is the array's length`)
+    assert.ok(!n.neighbours.some((x) => x.key === t.key), `${t.key}: self is not its own neighbour`)
+  }
+  const ghost = theoremNeighbours('no_such_theorem_key_' + sample.length)
+  assert.equal(ghost.count, 0); assert.equal(ghost.principle, null); assert.deepEqual(ghost.neighbours, [])
 })

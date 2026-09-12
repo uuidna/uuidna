@@ -80,7 +80,7 @@ test('theorems interact as geometric forms — cliques, C(n,2) edges, overlay ve
   const n = theoremNeighbours(any.key)
   const face = geo.faces.find((f) => f.principle === any.principle)
   assert.ok(face)
-  assert.equal(n.neighbours.length, face!.vertices - 1, 'neighbours = clique minus self')
+  assert.equal(n.count, face!.vertices - 1, 'neighbours = clique minus self')
   assert.ok(geo.overlayVertices > 0, 're-namings are extra labels on a vertex')
   assert.match(geo.receipt, /^[0-9a-f-]{36}$/)
 })
@@ -103,7 +103,7 @@ test('imagine ALL theorems as forms — C(n,2) from the void through twelve, eve
     const face = geo.faces.find((f) => f.principle === t.principle)
     assert.ok(face, `${t.key} must belong to a face`)
     assert.equal(n.principle, t.principle)
-    assert.equal(n.neighbours.length, face!.vertices - 1, `${t.key}: neighbours are the rest of its clique`)
+    assert.equal(n.count, face!.vertices - 1, `${t.key}: neighbours are the rest of its clique`)
   }
 })
 
@@ -200,7 +200,7 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
     const face = geo.faces.find((f) => f.principle === t.principle)
     assert.ok(face)
     const nb = theoremNeighbours(t.key)
-    assert.equal(nb.neighbours.length, face!.vertices - 1)
+    assert.equal(nb.count, face!.vertices - 1)
     for (const stride of crtStrides) assert.ok(T[(i + stride) % n], `${t.key}: stride ${stride} lands on a theorem`)
   }
 
@@ -304,14 +304,17 @@ test('the recursive walk FIRES when a step is missing — the control for the cl
 // Both said []. That is an absence and a refusal rendered identically, live for two of the ledger's principles.
 test('a lone theorem and an unknown key are DIFFERENT answers', () => {
   // connect-lonely may close every singleton principle — then the lone case is VACANT by finding, not untested.
-  const lone = theorems().find((t) => theorems().filter((x) => x.principle === t.principle).length === 1)
+  // MEASURED 2026-09-12: this line was 529 of the file's 530 seconds — for every theorem, filter the whole ledger by
+  // principle (quadratic, an allocation each), and since connect-lonely closed every singleton, find never stopped.
+  // The neighbourhood count is computed without an array (theorem gap_is_a_count), so the same question is O(n).
+  const lone = theorems().find((t) => theoremNeighbours(t.key).count === 0)
   const ghost = theoremNeighbours('no_such_theorem_key')
   assert.equal(ghost.principle, null, 'an unknown key has NO principle — that is precisely what unknown means')
-  assert.equal(ghost.neighbours.length, 0)
+  assert.equal(ghost.count, 0)
   if (lone) {
     const alone = theoremNeighbours(lone.key)
     assert.equal(alone.principle, lone.principle, 'a lone theorem KEEPS its principle — it is in a domain of one')
-    assert.equal(alone.neighbours.length, 0, 'and it has no neighbours')
+    assert.equal(alone.count, 0, 'and it has no neighbours')
     assert.notEqual(alone.principle, ghost.principle, 'the two must not be the same sentence — they were, as []')
   } else {
     // every principle has neighbours — still prove unknown ≠ any sealed principle name

@@ -54,7 +54,7 @@ function exposeLeads(): SourceReading {
   try {
     // the SAME three walks uuidna_expose serves, from the same primitives — one derivation, so the gate and the
     // served surface can never disagree about what is exposed
-    const lonely = theorems().filter((t) => theoremNeighbours(t.key).neighbours.length === 0)
+    const lonely = theorems().filter((t) => theoremNeighbours(t.key).count === 0)
     const open: Lead[] = [
       ...lonely.map((t) => ({ source: 'expose', what: `${t.key} is alone in its principle "${t.principle}" (${t.file})`, owes: 'a second theorem in that principle, or a sealed statement that one is genuinely enough' })),
       ...gridGaps().map((g) => ({ source: 'expose', what: g.what, owes: g.fix })),

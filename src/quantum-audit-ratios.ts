@@ -3,6 +3,7 @@
 // Nothing here is authored. runSequence reads polarities off each address; decodeVortexDashAngles reads the ±60°
 // walk; rosettaRayOf reads the seven rays at 360/7° steps. Genesis, axiom balance, and wing parity fold in last.
 import { toUuid } from './address.js'
+import { readReceipt } from './receipt-memo.js'
 import { merkleGravity } from './gravity/index.js'
 import { sha256 } from './sha256.js'
 import { existsRoot, lsRoot, rdRoot } from './boundary.js'
@@ -384,6 +385,9 @@ let _decode: UuidnaDecode | null = null
 
 export function uuidnaDecode(): UuidnaDecode {
   if (_decode) return _decode
+  // the receipt minted at reconcile (gen-receipts) answers in O(1) for this ledger; a moved ledger misses and recomputes
+  const minted = readReceipt<UuidnaDecode>('decode')
+  if (minted) return (_decode = minted)
   const audit = quantumAuditRatios()
   const fused = merkleGravity([audit.fused, audit.life.receipt])
   _decode = {

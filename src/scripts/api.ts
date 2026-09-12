@@ -638,6 +638,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   // declared BEFORE rosetta because it is generated before rosetta: the census grants the falsifier leg by finding
   // a theorem's literal key in a test file, so this output is one of rosetta's inputs rather than a sibling of it
   'gen-falsifiers': ['src/falsifiers.test.ts', 'lean/falsifier-cache.json'],
+  'gen-receipts': ['lean/coverage-receipt.json', 'lean/decode-receipt.json'],
   'rosetta': ['src/rosetta-mirror.ts'],
   'gate-receipt': ['gate-receipt.json'],
   // the gate now runs as reconcile's precondition, so its one written artifact is declared like any other

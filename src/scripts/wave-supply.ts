@@ -75,7 +75,7 @@ const countIn = (rel: string, key: string): number => {
  *  the served surface cannot report different numbers. Lonely principles first, then the two grid finders. */
 const exposedCount = (): number => {
   try {
-    const lonely = theorems().filter((t) => theoremNeighbours(t.key).neighbours.length === 0).length
+    const lonely = theorems().filter((t) => theoremNeighbours(t.key).count === 0).length
     return lonely + gridGaps().length + pairsGaps().length
   } catch { return 0 }
 }

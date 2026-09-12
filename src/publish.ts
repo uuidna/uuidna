@@ -14,6 +14,7 @@
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.
 import { THEOREMS, type Theorem, PRINCIPLES, isPagelessFile } from './theorems/index.js'
+import { readReceipt } from './receipt-memo.js'
 import { typeset } from './formula.js'
 import { graphNode, modulusOf, KIN } from './publication-graph.js'
 import { computes } from './gate.js'
@@ -428,9 +429,16 @@ export interface Coverage {
  *  the gate by hand. A theorem is COVERED iff its key appears in some publication; a FILE is uncovered iff it carries
  *  theorems but has no publication (the root cause — it needs a PRINCIPLE [file,title,blurb] entry in lean-ledger). The
  *  member facts fold, order-invariantly, to one receipt anyone recomputes from the same ledger. Integrity. */
+/** the part of publications() coverage needs — file and theorem keys — as a receipt minted at reconcile (gen-receipts),
+ *  so a fresh process asks 9 ms instead of composing 178 monographs (215 s, measured 2026-09-12). Misses recompute. */
+export type PublicationProjection = { file: string; theorems: readonly string[] }[]
+export function coverageProjection(): PublicationProjection {
+  return readReceipt<PublicationProjection>('coverage') ?? publications().map((p) => ({ file: p.file, theorems: p.theorems }))
+}
 export function coverage(): Coverage {
-  const inMonograph = new Set(publications().flatMap((p) => p.theorems))
-  const pubFiles = new Set(publications().map((p) => p.file))
+  const projection = coverageProjection()
+  const inMonograph = new Set(projection.flatMap((p) => p.theorems))
+  const pubFiles = new Set(projection.map((p) => p.file))
   const uncovered = THEOREMS.filter((t) => !inMonograph.has(t.key)).map((t) => t.key)
   const uncoveredFiles = [...new Set(THEOREMS.map((t) => t.file))].filter((f) => !pubFiles.has(f)).sort()
   return {
