@@ -24,5 +24,13 @@ test('the census is honest — directly-exercised and aggregate-only partition t
   // the baseline is a subset of what IS aggregate-only (a declared debt cannot name a tool that is now tested)
   const sealed = JSON.parse(readFileSync(join(ROOT, 'lean', 'tool-exercise-baseline.json'), 'utf8')) as { aggregateOnly: string[] }
   const now = new Set(c.aggregateOnly)
-  for (const t of sealed.aggregateOnly) assert.ok(now.has(t), `baseline names ${t} as under-tested but it now has a dedicated test — the list must shrink`)
+  // A VERDICT MUST MEAN WHAT ITS WORDS SAY (2026-09-13). This blamed "it now has a dedicated test" for every entry
+  // missing from the aggregate-only set, but the census partitions DECLARED tools, so an entry also goes missing
+  // when the tool is REMOVED. Measured that day: of 22 stale entries, 22 had vanished and none had gained a test,
+  // so the message was wrong every time it fired and sent a reader hunting tests that never existed.
+  const tested = new Set(c.directlyExercised)
+  for (const t of sealed.aggregateOnly)
+    assert.ok(now.has(t), tested.has(t)
+      ? `baseline names ${t} as under-tested but it now has a dedicated test — the list must shrink`
+      : `baseline names ${t}, which the catalogue no longer declares — a declared debt cannot name a tool that is gone`)
 })
