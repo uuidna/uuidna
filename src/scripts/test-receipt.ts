@@ -53,11 +53,17 @@ export function totalOf(fileReceipts: readonly [string, string, number][]): stri
 
 export default async function* testReceipt(source: AsyncIterable<TestEvent>): AsyncGenerator<string> {
   const byFile = new Map<string, string[]>()
+  // THE READING BESIDE THE RECEIPT (2026-09-12). A certification ran 2h30m and the slow superposition was guessed from a
+  // file's size — wrongly: the guessed file re-decides in two minutes. The runner reports duration_ms on every event;
+  // summed per file it names the slow superposition by measurement. It is a reading, so it never enters the fold.
+  const msByFile = new Map<string, number>()
   const failed: { name: string; file: string; message: string }[] = []
   let passedCount = 0
   for await (const event of source) {
     const name = event.data?.name ?? ''
     const file = (event.data?.file ?? '').replace(/^.*\/dist\//, '')
+    const ms = Number((event.data as { details?: { duration_ms?: unknown } })?.details?.duration_ms ?? 0)
+    if (event.type === 'test:pass' || event.type === 'test:fail') msByFile.set(file, (msByFile.get(file) ?? 0) + (ms === ms ? ms : 0))
     if (event.type === 'test:pass') {
       passedCount += 1
       const bucket = byFile.get(file)
@@ -73,7 +79,11 @@ export default async function* testReceipt(source: AsyncIterable<TestEvent>): As
     yield `    ${f.message.split('\n')[0]}\n`
   }
   const leaves = fileReceiptsOf(byFile)
-  for (const [file, r, n] of leaves) yield `· ${r}  ${String(n).padStart(4)}  ${file}\n`
+  const secs = (file: string): string => `${((msByFile.get(file) ?? 0) / 1000).toFixed(1)}s`
+  for (const [file, r, n] of leaves) yield `· ${r}  ${String(n).padStart(4)}  ${secs(file).padStart(8)}  ${file}\n`
+  // THE SLOWEST FIVE, NAMED — the reading that turns "the suite is slow" into a file to open.
+  const slowest = [...msByFile.entries()].sort(([fa, a], [fb, b]) => b - a || (fa < fb ? -1 : fa > fb ? 1 : 0)).slice(0, 5)   // ties by name: order-invariant
+  if (slowest.length) yield `⏱ slowest superpositions: ${slowest.map(([f, ms]) => `${f} ${(ms / 1000).toFixed(1)}s`).join(' · ')}\n`
   const total = passedCount + failed.length
   const root = totalOf(leaves)
   yield failed.length === 0

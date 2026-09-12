@@ -18,12 +18,21 @@
 // that caught this file.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { holds } from './involution/index.js'
+import { holds, holdsKey, seedHolds, reDecide, evaluatorDigestOf } from './involution/index.js'
 import { theoremByKey, isPagelessFile } from './theorems/index.js'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..')
+/** THE VERDICTS ARE A RECEIPT, NOT A SHORTCUT: minted by gen-falsifiers when it decided them, keyed by statement +
+ *  wing digest under the evaluator's own digest. Unchanged propositions are served in O(1); a moved wing or a changed
+ *  evaluator misses and re-decides; and the sample test below re-decides for real, so a poisoned cache cannot pass. */
+const EVALUATOR = evaluatorDigestOf(readFileSync(join(ROOT, 'src', 'involution', 'index.ts'), 'utf8'))
+const CACHE = ((): { evaluator?: string; verdicts?: Record<string, boolean | null> } => {
+  try { return JSON.parse(readFileSync(join(ROOT, 'lean', 'falsifier-cache.json'), 'utf8')) } catch { return {} }
+})()
+const CACHED: Record<string, boolean | null> | null = CACHE.evaluator === EVALUATOR && CACHE.verdicts ? CACHE.verdicts : null
+if (CACHED) seedHolds(CACHED)
 
 /** [key, the exact sealed statement, the wing it was sealed in] — regenerated from the ledger, never hand-edited.
  *  THE WING COMES WITH THE STATEMENT because the statement's vocabulary does: pmod, lawPow and their kin are
@@ -5416,6 +5425,28 @@ test('every sealed statement here re-decides TRUE under an independent evaluator
     'a sealed proposition that a second implementation does not confirm is the ledger and the evaluator disagreeing')
 })
 
+test('the cache covers every proposition and a real sample re-decides it — a cache that could not fail proves nothing', () => {
+  if (!CACHED) return   // no cache for this evaluator: the first test above re-decided everything
+  const src = new Map<string, string>()
+  const wing = (f: string): string => {
+    const hit = src.get(f); if (hit !== undefined) return hit
+    let t = ''; try { t = readFileSync(join(ROOT, 'lean', f), 'utf8') } catch { t = '' }
+    src.set(f, t); return t
+  }
+  const missing: string[] = []
+  const poisoned: string[] = []
+  const seen = new Set<string>()
+  const ray = parseInt(EVALUATOR[0] ?? '0', 16) % 16   // which sixteenth of the keys re-decides, chosen by the evaluator's own digest
+  for (const [key, statement, file] of DECIDED) {
+    if (isPagelessFile(file)) continue
+    const k = holdsKey(statement, wing(file))
+    if (!(k in CACHED)) { missing.push(key); continue }
+    const firstOfWing = !seen.has(file); seen.add(file)
+    if (firstOfWing || key.charCodeAt(0) % 16 === ray) { if (reDecide(statement, wing(file)) !== CACHED[k]) poisoned.push(key) }
+  }
+  assert.deepEqual(missing, [], 'every decided proposition must be in the cache the generator minted — regenerate with npm run x -- gen-falsifiers')
+  assert.deepEqual(poisoned, [], 'a cached verdict the evaluator does not reproduce — the cache is not a receipt')
+})
 test('every statement named here is the one the ledger currently seals — no stale copies', () => {
   const drifted: string[] = []
   for (const [key, statement] of DECIDED) {

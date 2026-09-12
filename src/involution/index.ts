@@ -1703,6 +1703,29 @@ function digestOf(s: string): string {
 
 const HOLDS = new Map<string, boolean | null>()
 
+// A PERSISTED CACHE IS A RECEIPT ONLY IF ITS KEY IS THE INPUT (2026-09-12). The memo above already keys on
+// statement + the wing's digest — the right content address — but it dies with the process, so every
+// certification re-decided all 5,367 sealed propositions (a 2 s stack sample sat 100% inside that loop; the
+// ledger grew 27x this week and the loop with it). These four exports let gen-falsifiers persist the verdicts it
+// computes anyway, keyed identically plus the evaluator's own digest, and let the test seed them back and still
+// re-decide a sample for real. Prove once at reconcile; verify at certification; the sample keeps it falsifiable.
+/** the memo key, exported so a persisted cache is keyed exactly as the memo is: statement + the WING'S digest */
+export const holdsKey = (statement: string, wingSource = ''): string =>
+  wingSource ? statement + '\u0000' + digestOf(wingSource) : statement
+/** the evaluator's own identity: a cache keyed on this invalidates when these rules change */
+export const evaluatorDigestOf = (source: string): string => digestOf(source)
+let uncached = 0
+/** verdicts COMPUTED rather than served from the memo since process start — the control a cache test needs */
+export const holdsUncachedCount = (): number => uncached
+/** seed the memo from a persisted cache; a verdict already held is never overwritten. Returns entries taken. */
+export function seedHolds(verdicts: Readonly<Record<string, boolean | null>>): number {
+  let n = 0
+  for (const [k, v] of Object.entries(verdicts)) if (!HOLDS.has(k)) { HOLDS.set(k, v); n += 1 }
+  return n
+}
+/** decide WITHOUT the memo — the sample that keeps a cache honest re-decides for real */
+export const reDecide = (statement: string, wingSource = ''): boolean | null => holdsUncached(statement, wingSource)
+
 export function holds(statement: string, wingSource = ''): boolean | null {
   // THE KEY NAMES ITS INPUT (lead 159). This folded the wing source to its LENGTH, so two different wings of
   // equal length shared a verdict and the answer depended on WHICH WAS ASKED FIRST. Measured, both arms:
@@ -1719,6 +1742,7 @@ export function holds(statement: string, wingSource = ''): boolean | null {
   const key = wingSource ? statement + '\u0000' + digestOf(wingSource) : statement
   const memo = HOLDS.get(key)
   if (memo !== undefined || HOLDS.has(key)) return memo as boolean | null
+  uncached += 1
   const verdict = holdsUncached(statement, wingSource)
   HOLDS.set(key, verdict)
   return verdict

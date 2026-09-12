@@ -3,8 +3,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import testReceipt, { receiptOf, fileReceiptsOf, totalOf } from './test-receipt.js'
 
-type Ev = { type: string; data: { name?: string; file?: string; details?: { error?: { message?: string } } } }
-const pass = (file: string, name: string): Ev => ({ type: 'test:pass', data: { name, file: `/x/dist/${file}` } })
+type Ev = { type: string; data: { name?: string; file?: string; details?: { error?: { message?: string }; duration_ms?: number } } }
+const pass = (file: string, name: string, ms = 0): Ev => ({ type: 'test:pass', data: { name, file: `/x/dist/${file}`, details: { duration_ms: ms } } })
 async function* stream(evs: Ev[]) { for (const e of evs) yield e }
 const collect = async (evs: Ev[]): Promise<string[]> => {
   const out: string[] = []
@@ -51,4 +51,15 @@ test('a failure prints first and in full, never folded', async () => {
   const out = await collect([...A, fail])
   assert.ok(out[0]!.startsWith('✗ c1'))
   assert.match(out[out.length - 1]!, /1 of 4 FAILED/)
+})
+
+// THE READING NEVER MOVES THE RECEIPT — durations print beside the fold and are not in it.
+test('a duration is a reading beside the receipt, never inside it, and the slowest superposition is named', async () => {
+  const slow = [pass('a.test.js', 'a1', 100), pass('a.test.js', 'a2', 50000), pass('b.test.js', 'b1', 5)]
+  const fast = [pass('a.test.js', 'a1', 1), pass('a.test.js', 'a2', 1), pass('b.test.js', 'b1', 1)]
+  const rs = await collect(slow)
+  const rf = await collect(fast)
+  assert.equal(rs[rs.length - 1], rf[rf.length - 1], 'the root fold is identical whatever the clock said')
+  assert.match(rs.find((l) => l.includes('a.test.js')) ?? '', /50\.1s/)
+  assert.match(rs.find((l) => l.startsWith('⏱')) ?? '', /^⏱ slowest superpositions: a\.test\.js 50\.1s · b\.test\.js 0\.0s/)
 })

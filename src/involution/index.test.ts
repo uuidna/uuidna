@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { holds, evaluable } from './index.js'
+import { holds, evaluable, holdsKey, seedHolds, reDecide, holdsUncachedCount, evaluatorDigestOf } from './index.js'
 import { theorems, isPagelessFile } from '../theorems/index.js'
 import { ROOT } from '../boundary.js'
 
@@ -45,4 +45,37 @@ test('the falsifier ceiling is COMPLETE: every sealed statement carries a decida
   })
   assert.deepEqual(legless.map((t) => t.key), [],
     'a shortfall means the evaluator lost a grammar it once decided — regenerate with `npm run x -- gen-falsifiers` and, if it stays, the grammar is the gap')
+})
+
+// ── THE PERSISTED FALSIFIER VERDICTS: a receipt only if these hold, each with its control (folders law: one model, one test file) ──
+// wing sources here are unique strings so no key collides with a real proposition in the shared memo
+test('a seeded verdict is served without computing', () => {
+  seedHolds({ [holdsKey('7 * 6 = 42', 'def cacheA := 1')]: true })
+  const before = holdsUncachedCount()
+  assert.equal(holds('7 * 6 = 42', 'def cacheA := 1'), true)
+  assert.equal(holdsUncachedCount(), before, 'a cache hit must not compute')
+})
+
+test('a different wing digest MISSES and computes', () => {
+  const before = holdsUncachedCount()
+  assert.equal(holds('7 * 6 = 42', 'def cacheB := 2'), true)
+  assert.equal(holdsUncachedCount(), before + 1, 'a moved wing is a different key')
+})
+
+// THE CONTROL — a poisoned entry is served by the memo and refused by the real decision.
+test('reDecide bypasses the memo and refuses a poisoned seed', () => {
+  seedHolds({ [holdsKey('2 + 2 = 5', 'def cacheC := 0')]: true })
+  assert.equal(holds('2 + 2 = 5', 'def cacheC := 0'), true, 'the poison is served — which is why the sample exists')
+  assert.notEqual(reDecide('2 + 2 = 5', 'def cacheC := 0'), true, 'and the real decision refuses it')
+})
+
+test('the evaluator digest moves when its source moves', () => {
+  assert.notEqual(evaluatorDigestOf('rule a'), evaluatorDigestOf('rule b'))
+  assert.equal(evaluatorDigestOf('same'), evaluatorDigestOf('same'))
+})
+
+test('seedHolds never overwrites a verdict already held', () => {
+  assert.equal(holds('3 + 3 = 6', 'def cacheD := 0'), true)
+  assert.equal(seedHolds({ [holdsKey('3 + 3 = 6', 'def cacheD := 0')]: false }), 0)
+  assert.equal(holds('3 + 3 = 6', 'def cacheD := 0'), true, 'the computed verdict stands')
 })
