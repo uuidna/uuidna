@@ -1,0 +1,64 @@
+name: zenodo-orcid
+
+# BACKFILL THE AUTHOR'S ORCID ON EVERY RECORD OF BOTH uuidna CHAINS. Measured 2026-09-12 by reading the live
+# records through DataCite: 16 of 17 versions on each chain carry no ORCID, because the iD was added to gen-zenodo
+# only at 0.3.0. A record without the iD is not attributable by ORCID or by DataCite aggregations; a name string
+# is ambiguous across archives. Zenodo lets a published record's METADATA be edited without a new version
+# (edit → PUT → publish), so no DOI moves and nothing is minted: this is not a publication and does not touch the
+# chain law in publish.yml. Dispatch-only. `apply` defaults to false, which only reads and prints the plan.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'true writes the iD to every record that lacks it; false prints the plan only'
+        default: 'false'
+        type: choice
+        options: ['false', 'true']
+
+permissions:
+  contents: read
+
+jobs:
+  orcid:
+    runs-on: ubuntu-latest
+    env:
+      ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
+      ORCID: "0009-0000-7312-9778"
+      CHAINS: "21787143 21970356"
+      APPLY: ${{ inputs.apply }}
+    steps:
+      - name: Read every version of both chains and add the iD where it is missing
+        run: |
+          set -euo pipefail
+          test -n "$ZENODO_TOKEN" || { echo "::error::ZENODO_ACCESS_TOKEN secret is empty"; exit 1; }
+          AUTH="Authorization: Bearer $ZENODO_TOKEN"
+          API=https://zenodo.org/api
+          missing=0; fixed=0; failed=0; seen=0
+          for C in $CHAINS; do
+            IDS=$(curl -sf -H "$AUTH" "$API/records?q=conceptrecid:$C&all_versions=true&size=100&sort=version" | jq -r '.hits.hits[].id')
+            echo "chain $C: $(echo "$IDS" | wc -w | tr -d ' ') versions"
+            for ID in $IDS; do
+              seen=$((seen+1)); sleep 1
+              DEP=$(curl -sf -H "$AUTH" "$API/deposit/depositions/$ID")
+              HAS=$(echo "$DEP" | jq -r --arg o "$ORCID" '[.metadata.creators[]? | select(.orcid == $o)] | length')
+              TITLE=$(echo "$DEP" | jq -r '"v\(.metadata.version // "?")  \(.metadata.title)"' | cut -c1-90)
+              if [ "$HAS" != "0" ]; then echo "  ✓ $ID has the iD   $TITLE"; continue; fi
+              missing=$((missing+1))
+              if [ "$APPLY" != "true" ]; then echo "  · $ID lacks the iD (plan: add)   $TITLE"; continue; fi
+              # edit → PUT the record's own metadata with the iD on the author → publish. Nothing else changes.
+              curl -sf -X POST -H "$AUTH" "$API/deposit/depositions/$ID/actions/edit" > /dev/null || true
+              META=$(echo "$DEP" | jq --arg o "$ORCID" '.metadata | del(.prereserve_doi)
+                | .creators |= map(if (.name | startswith("Rouschev")) and ((.orcid // "") == "") then . + {orcid: $o} else . end)
+                | {metadata: .}')
+              if curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" -d "$META" "$API/deposit/depositions/$ID" > /dev/null \
+                 && curl -sf -X POST -H "$AUTH" "$API/deposit/depositions/$ID/actions/publish" > /dev/null; then
+                fixed=$((fixed+1)); echo "  + $ID iD written, republished   $TITLE"
+              else
+                failed=$((failed+1)); echo "::warning::$ID could not be edited; discarding its draft"
+                curl -s -X POST -H "$AUTH" "$API/deposit/depositions/$ID/actions/discard" > /dev/null || true
+              fi
+            done
+          done
+          echo "versions read: $seen · lacking the iD: $missing · written: $fixed · failed: $failed · apply=$APPLY"
+          test "$failed" = 0
