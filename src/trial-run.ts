@@ -11,7 +11,13 @@ import {
 } from './trial-gate.js'
 
 /** runTrial() → gate, walk, fold — unverified rows cannot enter. */
+let _trial: TrialResult | null = null
+/** THE TRIAL IS WALKED ONCE PER PROCESS (2026-09-12). It gates, walks and folds the whole ledger — measured at
+ *  492 ms a call with no memo — takes no argument, and reads only the immutable ledger, so every call in one
+ *  process returns the same verdicts and the same receipt. Thirty-odd surfaces call it, the legal fact base among
+ *  them, and a deposit record paid it three times over. Recomputed fresh in the next process, as before. */
 export function runTrial(): TrialResult {
+  if (_trial) return _trial
   assertTrialGate()
   const gateReceipt = merkleGravity(THEOREMS.map((t) => toUuid(`trial-gate|${t.key}|verified`)))
   const verdicts: TheoremVerdict[] = THEOREMS.map((t) => ({
@@ -34,7 +40,7 @@ export function runTrial(): TrialResult {
     polarities: sequence.polarities,
     gateReceipt,
   })
-  return {
+  return (_trial = {
     count: verdicts.length,
     verified: verdicts.length,
     unverified: 0,
@@ -43,7 +49,7 @@ export function runTrial(): TrialResult {
     verdicts,
     sequence,
     merkaba,
-  }
+  })
 }
 
 /** trialSealContent — verified trial outputs + swarm refusals, each on imprint carrier, one fused receipt. */

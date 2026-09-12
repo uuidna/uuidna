@@ -29,14 +29,20 @@ export interface LegalFacts {
 
 /** legalFacts() → the recomputable legal fact base. Deterministic: same repo state → same facts → same receipt.
  *  NOT a legal opinion — the inputs an audit starts from. */
+let _facts: LegalFacts | null = null
 export function legalFacts(): LegalFacts {
+  // THE FACT BASE IS BUILT ONCE PER PROCESS (2026-09-12). It runs the whole trial, the vocabulary and a forensics
+  // pass — measured at 490 ms — and it takes no argument, so every call over one immutable ledger returns the same
+  // object. Three of the callers are one-line licence readers that a deposit record calls per record: 178 records
+  // paid 1.5 s each, and the deposit test held that at 322 s.
+  if (_facts) return _facts
   const trial = runTrial()
   const standardsCited = vocabulary().standards
   // demonstrate, in the fact base itself, that the project's own gate REFUSES a blanket compliance claim
   const overclaim = 'uuidna is fully legally compliant with all international laws and standards'
   const overclaimRefused = forensics(overclaim).violations.some((v) => v.kind === 'unbacked-law')
   const licenseAddress = toUuid(LICENSE_LINE)
-  return {
+  return (_facts = {
     disclaimer:
       'THIS IS NOT A LEGAL AUDIT, LEGAL ADVICE, OR A COMPLIANCE OPINION, and must not be presented as one. It is a ' +
       'recomputable inventory of legally-relevant FACTS — the inputs a qualified attorney or auditor starts from, ' +
@@ -111,5 +117,5 @@ export function legalFacts(): LegalFacts {
       toUuid('stance:no-compliance-claim:' + overclaimRefused),
       toUuid('standards:' + Object.keys(standardsCited).length),
     ]),
-  }
+  })
 }
