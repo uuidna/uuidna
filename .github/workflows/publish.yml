@@ -304,7 +304,12 @@ jobs:
           BUCKET=$(echo "$DEP" | jq -r '.links.bucket')
 
           # metadata: the committed .zenodo.json, wrapped, stamped with this tag as the version
-          jq --arg v "${GITHUB_REF_NAME#v}" '{metadata: (. + {version: $v})}' .zenodo.json > meta.json
+          # THE TWIN IS THE OTHER CHAIN. The committed file names the standing chain (it is what the GitHub↔Zenodo
+          # sync deposits on $TWIN_CHAIN); this API deposit lands on $CONCEPT_CHAIN, so its "identical to" is the
+          # sync chain. Measured 2026-09-12: both chains had declared $TWIN_CHAIN, so the twin pointed at itself.
+          jq --arg v "${GITHUB_REF_NAME#v}" --arg c "10.5281/zenodo.$CONCEPT_CHAIN" --arg t "10.5281/zenodo.$TWIN_CHAIN" \
+            '{metadata: (. + {version: $v} | .related_identifiers |= map(if .relation == "isIdenticalTo" and .identifier == $c then .identifier = $t else . end))}' \
+            .zenodo.json > meta.json
           curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" -d @meta.json "$SELF" > /dev/null
 
           curl -sf -H "$AUTH" --upload-file "$TARBALL" "$BUCKET/$TARBALL" > /dev/null

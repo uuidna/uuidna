@@ -41,6 +41,8 @@ export interface HarvestRow {
   agrees?: boolean
   /** reported, never the verdict — see the note on titleOverlaps below */
   titleOverlaps?: boolean
+  /** twin rows only: the twin's latest record declares isIdenticalTo its OWN concept — a pointer to itself */
+  twinSelfDeclared?: boolean
 }
 
 // THE VERDICT IS THE IDENTIFIER, NOT THE TITLE, and I learned that by shipping the false positive a peer had
@@ -131,6 +133,48 @@ export const defaultFetchJson = async (url: string): Promise<{ status: number; b
   return { status: res.status, body }
 }
 
+/** THE TWIN READS BACK TOO. A seal that declares isIdenticalTo another Zenodo chain says the two are one work,
+ *  and that claim is symmetric or it is a dangling pointer. Measured 2026-09-12 on the live records: every version
+ *  on BOTH uuidna chains declared isIdenticalTo 21970356 — the sync chain pointed at itself and nothing on Zenodo
+ *  led back to the standing chain. This gate read only the standing record, whose declaration was correct, so
+ *  nothing here could fire. Now the twin's latest record is fetched (Zenodo resolves a concept id to it) and
+ *  asked whether ITS isIdenticalTo names OUR concept. A record naming its own concept is reported by name. */
+export async function harvestTwin(
+  seal: typeof ZENODO_SEALS[number],
+  fetchJson: (url: string) => Promise<{ status: number; body: unknown }> = defaultFetchJson,
+): Promise<HarvestRow | null> {
+  const twin = (seal.related ?? []).find((r) => r.relation === 'isIdenticalTo' && /^10\.5281\/zenodo\.\d+$/.test(String(r.identifier)))
+  if (!twin || !seal.conceptDoi) return null
+  const twinDoi = String(twin.identifier)
+  const twinId = twinDoi.split('.').pop()!
+  const row: HarvestRow = { id: `${seal.id}:twin`, role: seal.owned ? 'own' : 'cited', declaredDoi: twinDoi, declaredTitle: seal.title, read: false }
+  try {
+    const { status, body } = await fetchJson(`https://zenodo.org/api/records/${twinId}`)
+    if (status !== 200 || !body || typeof body !== 'object')
+      return { ...row, reason: `zenodo answered ${status} — the twin chain is UNREAD here, not disagreeing` }
+    const j = body as {
+      id?: number; conceptdoi?: string
+      metadata?: { title?: string; related_identifiers?: { identifier?: string; relation?: string }[] }
+    }
+    const back = (j.metadata?.related_identifiers ?? [])
+      .filter((r) => r.relation === 'isIdenticalTo')
+      .map((r) => norm(String(r.identifier ?? '')))
+    const ours = norm(seal.conceptDoi)
+    const self = norm(j.conceptdoi ?? twinDoi)
+    const liveTitle = String(j.metadata?.title ?? '')
+    const a = norm(liveTitle), b = norm(seal.title)
+    return {
+      ...row, read: true, liveTitle: liveTitle.slice(0, 200),
+      liveRecordId: j.id === undefined ? undefined : String(j.id), liveConceptDoi: j.conceptdoi ?? undefined,
+      agrees: back.includes(ours),
+      twinSelfDeclared: back.includes(self),
+      titleOverlaps: a.length > 0 && b.length > 0 && (a.startsWith(b) || b.startsWith(a)),
+    }
+  } catch (e) {
+    return { ...row, reason: e instanceof Error ? e.message : String(e) }
+  }
+}
+
 export interface Harvest {
   rows: HarvestRow[]
   owned: number
@@ -147,15 +191,20 @@ export async function harvestOwnedDois(
 ): Promise<Harvest> {
   const owned = ZENODO_SEALS.filter((s) => s.standingDoi || s.standingRecordId)
   const rows: HarvestRow[] = []
-  for (const s of owned) rows.push(await harvestSeal(s, fetchJson))
+  for (const s of owned) {
+    rows.push(await harvestSeal(s, fetchJson))
+    const twin = await harvestTwin(s, fetchJson)
+    if (twin) rows.push(twin)
+  }
   const read = rows.filter((r) => r.read)
   return {
     rows,
-    owned: owned.length,
+    // every identifier in scope — each seal's own record and, where one is declared, its twin chain
+    owned: rows.length,
     readCount: read.length,
     agreeing: read.filter((r) => r.agrees).length,
     disagreeing: read.filter((r) => !r.agrees),
-    receipt: merkleFold([toUuid('doi-harvest|' + owned.length), ...rows.map((r) => toUuid(r.id + '|' + (r.agrees ? '1' : r.read ? '0' : 'unread')))]),
+    receipt: merkleFold([toUuid('doi-harvest|' + rows.length), ...rows.map((r) => toUuid(r.id + '|' + (r.agrees ? '1' : r.read ? '0' : 'unread')))]),
   }
 }
 
@@ -170,14 +219,19 @@ if (isMain) {
       console.log(`      live    : ${String(r.liveTitle).slice(0, 80)}`)
       if (r.liveConceptDoi) console.log(`      concept : ${r.liveConceptDoi}`)
       if (!r.titleOverlaps) console.log(`      NOTE    : the titles do not overlap — reported, not a verdict; the identifier is what decides`)
+      if (r.twinSelfDeclared) console.log(`      NOTE    : the twin's record declares isIdenticalTo its own concept — a pointer to itself`)
     } else console.log(`      UNREAD  : ${r.reason}`)
   }
   writeFileSync(join(ROOT, 'lean', 'doi-harvest.json'), JSON.stringify(h, null, 1) + '\n')
   console.log(`\n  ${h.readCount}/${h.owned} read · ${h.agreeing} agree · ${h.disagreeing.length} disagree · receipt ${h.receipt}`)
   if (h.disagreeing.length) {
     console.log('\n✗ audit-doi-harvest — this repository claims a record the public record does not support:')
-    for (const r of h.disagreeing)
-      console.log(`    GAP ${r.id} [${r.role}]: cites ${r.declaredDoi}, and the identifier it resolves to is not that one (landed on record ${r.liveRecordId ?? '?'}, titled "${String(r.liveTitle).slice(0, 50)}")\n    FIX correct src/zenodo-seals.ts to the identifier that IS this work, verified by resolution — every publication builds its DOI from that field`)
+    for (const r of h.disagreeing) {
+      if (r.id.endsWith(':twin'))
+        console.log(`    GAP ${r.id} [${r.role}]: the twin chain ${r.declaredDoi} (latest record ${r.liveRecordId ?? '?'}) does not declare isIdenticalTo our concept${r.twinSelfDeclared ? ' — it names its own concept instead' : ''}\n    FIX .zenodo.json must name the standing chain (gen-zenodo.ts) and publish.yml's API deposit must swap it for the sync chain; the next release then cross-declares`)
+      else
+        console.log(`    GAP ${r.id} [${r.role}]: cites ${r.declaredDoi}, and the identifier it resolves to is not that one (landed on record ${r.liveRecordId ?? '?'}, titled "${String(r.liveTitle).slice(0, 50)}")\n    FIX correct src/zenodo-seals.ts to the identifier that IS this work, verified by resolution — every publication builds its DOI from that field`)
+    }
     process.exit(1)
   }
   if (h.readCount < h.owned) {

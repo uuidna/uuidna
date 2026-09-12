@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { harvestSeal, harvestOwnedDois } from './audit-doi-harvest.js'
+import { harvestSeal, harvestTwin, harvestOwnedDois } from './audit-doi-harvest.js'
 import { ZENODO_SEALS } from '../zenodo-seals.js'
 
 // OFFLINE BY CONSTRUCTION — every fetch is injected, so this suite never touches the network. The live harvest
@@ -91,4 +91,47 @@ test('a seal with neither DOI nor record id has nothing to read back, and says s
   const r = await harvestSeal({ ...seal, standingRecordId: undefined, standingDoi: '' }, ok(seal.title, 'x'))
   assert.equal(r.read, false)
   assert.match(String(r.reason), /nothing to read back/)
+})
+
+// THE TWIN DEFECT, MEASURED 2026-09-12 ON THE LIVE RECORDS: every version on both uuidna chains declared
+// isIdenticalTo 21970356, so the sync chain's own records pointed at themselves and nothing on Zenodo led back
+// to the standing chain. The harvest read only the standing record, whose declaration was right, so nothing
+// fired. The twin is now read back, offline here, with the exact shape the live record had.
+const twinBody = (identical: string[], conceptdoi = '10.5281/zenodo.21970356') => async () => ({
+  status: 200,
+  body: { id: 22256731, conceptdoi, metadata: { title: seal.title + ': 2499 theorems', related_identifiers: identical.map((identifier) => ({ identifier, relation: 'isIdenticalTo' })) } },
+})
+
+test('the twin FIRES when its latest record names its own concept instead of ours', async () => {
+  const r = await harvestTwin(seal, twinBody(['10.5281/zenodo.21970356']))
+  assert.ok(r, 'the software seal declares a twin chain, so there is a twin row')
+  assert.equal(r.id, 'uuidna-software:twin')
+  assert.equal(r.read, true)
+  assert.equal(r.agrees, false, 'a pointer to itself is not a pointer to us')
+  assert.equal(r.twinSelfDeclared, true, 'and the self-declaration is named, not folded into a generic mismatch')
+})
+
+test('the twin AGREES when its latest record declares isIdenticalTo our concept', async () => {
+  const r = await harvestTwin(seal, twinBody([seal.conceptDoi!]))
+  assert.equal(r?.agrees, true)
+  assert.equal(r?.twinSelfDeclared, false)
+})
+
+test('a seal without a twin declaration has no twin row', async () => {
+  const r = await harvestTwin({ ...seal, related: (seal.related ?? []).filter((x) => x.relation !== 'isIdenticalTo') }, twinBody([]))
+  assert.equal(r, null)
+})
+
+test('an unreachable twin is UNREAD, not disagreeing', async () => {
+  const r = await harvestTwin(seal, async () => ({ status: 403, body: null }))
+  assert.equal(r?.read, false)
+  assert.equal(r?.agrees, undefined)
+})
+
+test('the census reads the twin beside the standing record', async () => {
+  const h = await harvestOwnedDois(async (url) => url.includes('/records/21970356')
+    ? twinBody([seal.conceptDoi!])()
+    : ok(seal.title, seal.standingDoi!)())
+  assert.ok(h.rows.some((r) => r.id === 'uuidna-software:twin' && r.agrees === true))
+  assert.equal(h.owned, h.rows.length, 'every identifier in scope is counted, twins included')
 })

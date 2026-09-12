@@ -1,6 +1,6 @@
 {
-  "title": "uuidna — content-addressed identity, honest by construction: 70822 distinct kernel-verified theorems under 70905 keys across 178 principles",
-  "description": "A content-addressed identity system, honest by construction: a Lean 4 theorem ledger — 70822 distinct theorems under 70905 keys (a statement sealed in two wings is one theorem with two names), every one proven by decide, sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel, folded to one order-invariant receipt (cd154b5b-e99b-8e29-9977-396bcb707ae5) — across 178 principles. Verified this era: the three-singularities theorem (only the digit 5 carries the mirror's fixed heart, the reflection's fixed digit, and the closure of both vortex rails); the forfeit law of the trial court (only a Lean-based proof is admissible and it wins the case — court_theorem_beats_assertion, court_loser_pays_the_two_coins, court_loser_develops_the_proven); the paper-on-trial wing (the published numbers of Nature DOI 10.1038/s41586-026-10846-4 as decidable arithmetic, including the receipted refutation of the press's 'super-Eddington confirmed' by the paper's own 0.18, and the Balmer break derived from Rydberg arithmetic); the anti-fraud detector algebra; the involution census; and the legal due-process vocabulary. Also: holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the one decidably-false case), pure-TypeScript ChaCha20-Poly1305 (KAT-pinned) under a 7-dimensional fold envelope, and an MCP server exposing the ledger. a content-address proves integrity, not truth; a verified theorem proves its exact statement, never a grander claim — verified is not solved, n=1 stays n=1, and every non-proven claim is remanded, not admitted. The proofs recompute from source with `npm run lean`; the deposited metadata is GENERATED from the ledger it describes, so the archive states the ledger that exists rather than one that has moved on.",
+  "title": "uuidna — content-addressed identity, honest by construction",
+  "description": "A content-addressed identity system, honest by construction: a Lean 4 theorem ledger of 70822 distinct theorems under 70905 keys (a statement sealed in two wings is one theorem with two names), every one proven by decide, sorry-free, without Mathlib, axiom-free against the bare leanprover/lean4 kernel, folded to one order-invariant receipt (cd154b5b-e99b-8e29-9977-396bcb707ae5), across 178 principles. The package ships holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the one decidably-false case), pure-TypeScript ChaCha20-Poly1305 pinned to known-answer tests, and an MCP server exposing the ledger. A content-address proves integrity, not truth; a verified theorem proves its exact statement and never a grander claim. The proofs recompute from source with `npm run lean`; this metadata is generated from the ledger it describes, so the archive states the ledger that exists rather than one that has moved on.",
   "upload_type": "software",
   "access_right": "open",
   "license": "cc-by-nc-nd-4.0",
@@ -22,13 +22,7 @@
     "decidable arithmetic",
     "model-context-protocol",
     "honest by construction",
-    "paper on trial",
-    "verification infrastructure",
-    "related:clay",
-    "related:mo-mbhstar1",
-    "related:clay-involution",
-    "related:nature-mom-bh",
-    "prior-art-credited"
+    "verification infrastructure"
   ],
   "communities": [
     {
@@ -52,7 +46,7 @@
       "resource_type": "software"
     },
     {
-      "identifier": "10.5281/zenodo.21970356",
+      "identifier": "10.5281/zenodo.21787143",
       "relation": "isIdenticalTo",
       "resource_type": "software"
     },
@@ -97,5 +91,5 @@
       "resource_type": "publication"
     }
   ],
-  "notes": "Prior-art research is mandatory for every uuidna seal: found DOI/proving links are credited first; the captain comes next. Missing prior art → explicit captain claim. Related publications are crosslinked in related_identifiers and related:* keywords. License CC BY-NC-ND 4.0 — https://uuidna.com/license"
+  "notes": "License CC BY-NC-ND 4.0 — https://uuidna.com/license. Metadata generated from the ledger by src/scripts/gen-zenodo.ts at release time; the proofs recompute with `npm run lean`."
 }
