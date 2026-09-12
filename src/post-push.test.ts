@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { repoSlugOf, pushVerdict, parseRunRows, type RunRow, type CheckRow } from './post-push.js'
+import { isUnknownCommit, repoSlugOf, pushVerdict, parseRunRows, type RunRow, type CheckRow } from './post-push.js'
 
 const SHA = '7fdb5c226aa11223344556677889900aabbccdde'
 const OTHER = '0000000011112222333344445555666677778888'
@@ -236,4 +236,17 @@ test('repoSlugOf reads owner/repo from either remote form, and refuses what it c
   assert.equal(repoSlugOf('  https://github.com/uuidna/qpu.git\n'), 'uuidna/qpu')
   assert.throws(() => repoSlugOf('https://gitlab.com/uuidna/qpu.git'), /cannot read an owner\/repo/)
   assert.throws(() => repoSlugOf(''), /cannot read an owner\/repo/)
+})
+
+// THE RACE EVERY PUBLISHER MEETS. Seconds after a push the forge has not indexed the commit, the api answers 422,
+// and `gh` exits non-zero — this arm used to DIE there, where the honest answer is UNMEASURED. It must tell that
+// apart from a forge it cannot ask at all, because reading a missing credential as "no runs" is the conflation
+// this whole arm exists to refuse.
+test('an unindexed commit is recognised, and a forge that cannot be asked is NOT', () => {
+  assert.equal(isUnknownCommit('gh: No commit found for SHA: 389ff689 (HTTP 422)'), true)
+  assert.equal(isUnknownCommit('gh: Not Found (HTTP 404)'), true)
+  assert.equal(isUnknownCommit('gh: authentication required (HTTP 401)'), false)
+  assert.equal(isUnknownCommit('gh: command not found'), false)
+  assert.equal(isUnknownCommit('getaddrinfo ENOTFOUND api.github.com'), false)
+  assert.equal(isUnknownCommit(''), false)
 })

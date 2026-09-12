@@ -212,3 +212,14 @@ export const repoSlugOf = (remote: string): string => {
   if (!m) throw new Error(`post-push: cannot read an owner/repo out of the remote ${JSON.stringify(remote)}`)
   return m[1]!
 }
+
+/** THE FORGE CANNOT ANSWER, versus THE FORGE ANSWERED "NOTHING" (measured 2026-09-13). Asking for the runs of a
+ *  commit the forge has not indexed returns 422 and `gh` exits non-zero, so this arm DIED with a stack trace where
+ *  the honest answer is UNMEASURED — and the seconds after a push are exactly when that happens, which is the race
+ *  a publisher meets every time. A refusal that names the commit is that case and becomes an empty row set, which
+ *  the verdict above already reports as "no run at all — this is not a pass". Every other failure stays loud: a
+ *  missing credential or an absent `gh` read as "no runs" would be the same conflation this whole arm refuses. */
+export const isUnknownCommit = (message: string): boolean =>
+  // "Not Found" bare is REFUSED as a pattern: `gh: command not found` contains it, so an ABSENT TOOL would have
+  // read as an unindexed commit — the exact conflation this test exists to prevent, caught by its own control.
+  /No commit found for SHA|\(HTTP (?:404|422)\)/i.test(String(message))
