@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { pushVerdict, parseRunRows, type RunRow, type CheckRow } from './post-push.js'
+import { repoSlugOf, pushVerdict, parseRunRows, type RunRow, type CheckRow } from './post-push.js'
 
 const SHA = '7fdb5c226aa11223344556677889900aabbccdde'
 const OTHER = '0000000011112222333344445555666677778888'
@@ -223,4 +223,17 @@ test('a check belonging to a scheduled run is not this push', () => {
   const v = pushVerdict(SHA, [wfRun, nightly], [...green, chk('next', 'failure', 'github-actions', 901)])
   assert.equal(v.ok, true, 'the nightly answers a different question about the same commit')
   assert.ok(v.notThisPush.some((n) => n.startsWith('next')))
+})
+
+// THE ARM MUST NOT NAME ONE REPOSITORY. Both api calls had `uuidna/uuidna` written into them, so this law could
+// judge only this tree — and the sibling repository, publishing itself, reinvented the arm by hand with a run-list
+// window and reported a deploy that had not happened. The slug is read from the remote; unreadable is refused.
+test('repoSlugOf reads owner/repo from either remote form, and refuses what it cannot read', () => {
+  assert.equal(repoSlugOf('https://github.com/uuidna/uuidna.git'), 'uuidna/uuidna')
+  assert.equal(repoSlugOf('https://github.com/uuidna/qpu.git'), 'uuidna/qpu')
+  assert.equal(repoSlugOf('https://github.com/uuidna/qpu'), 'uuidna/qpu')
+  assert.equal(repoSlugOf('git@github.com:uuidna/qpu.git'), 'uuidna/qpu')
+  assert.equal(repoSlugOf('  https://github.com/uuidna/qpu.git\n'), 'uuidna/qpu')
+  assert.throws(() => repoSlugOf('https://gitlab.com/uuidna/qpu.git'), /cannot read an owner\/repo/)
+  assert.throws(() => repoSlugOf(''), /cannot read an owner\/repo/)
 })

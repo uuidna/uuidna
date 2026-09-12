@@ -12,11 +12,14 @@
 //         --wait   poll until every run for the sha has settled, then report
 import { execSync } from 'node:child_process'
 import { ROOT } from './api.js'
-import { pushVerdict, parseRunRows, type RunRow, type CheckRow } from '../post-push.js'
+import { repoSlugOf, pushVerdict, parseRunRows, type RunRow, type CheckRow } from '../post-push.js'
 
 const sh = (cmd: string): string => execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
 
 /** the forge, asked once. A `gh` that cannot answer is UNMEASURED — it is never read as an empty run list. */
+/** this tree's own owner/repo, read from its remote — never written inline (see repoSlugOf) */
+const SLUG = repoSlugOf(sh('git remote get-url origin'))
+
 export function runsFor(limit = 30): RunRow[] {
   return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion,event,databaseId`))
 }
@@ -27,7 +30,7 @@ export function runsFor(limit = 30): RunRow[] {
  *  costume of an absent run — the same conflation this arm has now met four times. `?head_sha=` is exact and
  *  needs no window at all. */
 export function runsForSha(sha: string): RunRow[] {
-  const raw: unknown = JSON.parse(sh(`gh api repos/uuidna/uuidna/actions/runs?head_sha=${encodeURIComponent(sha)} --paginate`))
+  const raw: unknown = JSON.parse(sh(`gh api repos/${SLUG}/actions/runs?head_sha=${encodeURIComponent(sha)} --paginate`))
   const list = (raw as { workflow_runs?: unknown[] }).workflow_runs
   if (!Array.isArray(list)) throw new Error('post-push: the actions/runs api did not return a list — refusing to read a malformed answer as "no runs"')
   return list.map((r) => {
@@ -48,7 +51,7 @@ export function runsForSha(sha: string): RunRow[] {
  *  The run id is recovered from details_url so an Actions check inherits its workflow's event; a foreign app's
  *  url carries none, which is why the roster exists. */
 export function checksFor(sha: string): CheckRow[] {
-  const raw: unknown = JSON.parse(sh(`gh api repos/uuidna/uuidna/commits/${sha}/check-runs --paginate`))
+  const raw: unknown = JSON.parse(sh(`gh api repos/${SLUG}/commits/${sha}/check-runs --paginate`))
   const list = (raw as { check_runs?: unknown[] }).check_runs
   if (!Array.isArray(list)) throw new Error('post-push: the check-runs api did not return a list — refusing to read a malformed answer as "no failures"')
   return list.map((r) => {

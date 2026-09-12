@@ -202,3 +202,13 @@ export function parseRunRows(json: string): RunRow[] {
     }
   })
 }
+
+/** THE ARM MUST NOT NAME ONE REPOSITORY. `repos/uuidna/uuidna` was written inline into both api calls, so the law
+ *  could only ever judge this tree, and a sibling repository publishing itself had to reinvent the whole arm (it
+ *  did, by hand, and verified a deploy that had not happened). The slug is read from the tree's own remote; both
+ *  the https and the ssh forms are accepted, and anything else is refused rather than guessed at. */
+export const repoSlugOf = (remote: string): string => {
+  const m = /(?:github\.com[/:])([^/]+\/[^/]+?)(?:\.git)?$/.exec(String(remote).trim())
+  if (!m) throw new Error(`post-push: cannot read an owner/repo out of the remote ${JSON.stringify(remote)}`)
+  return m[1]!
+}
