@@ -8,6 +8,7 @@ import {
   parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,
   latticeCall, fillLattice, callSolutionInvolution, callWingsOntoStations, stationCollisionsOf,
 } from './lattice.js'
+import { callTool } from './mcp.js'
 
 test('the lattice is the handle birthday point — 2^16 stations, four hex each', () => {
   assert.equal(LATTICE_STATIONS, handleBirthdayPoint())
@@ -38,6 +39,7 @@ test('named theorems seat inside 0000–ffff; HexSpan keys are stations, not car
   }
   const door = latticeCall('0000')
   assert.equal(door.key, 'enumeration_hex4_0000')
+  assert.deepEqual(callTool('uuidna_lattice', { station: '0000' }), door)
   assert.ok(!door.theorems.some((t) => t.key.startsWith('enumeration_hex4_')))
 })
 

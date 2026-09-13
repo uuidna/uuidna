@@ -34,6 +34,7 @@ test('fanout builds a request only for a hologram host and refuses any other by 
   assert.equal(out.status, 200)
   assert.equal(out.reply.result.echo, 'https://qpu.uuidna.com/mcp')
   await assert.rejects(hologramFanout({ host: 'evil.example' }, fake), /nothing was fetched/)
+  await assert.rejects(Promise.resolve().then(() => callTool('uuidna_fanout', { host: 'evil.example' })), /nothing was fetched/)
   assert.equal(fetched, 1)
   assert.equal(HOLOGRAM_HOSTS.length, 4)
 })

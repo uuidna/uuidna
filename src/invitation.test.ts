@@ -10,6 +10,7 @@ import assert from 'node:assert/strict'
 import { invitation, invitationText } from './invitation.js'
 import { theorems } from './theorems/index.js'
 import { handleStoreCensus } from './handle-store-census.js'
+import { callTool } from './mcp.js'
 
 const ROOT = new URL('..', import.meta.url).pathname
 
@@ -22,6 +23,14 @@ test('every figure is read from the live tree, not carried in the module', () =>
   assert.equal(i.leaves, store.leaves, 'the leaf count IS the store census')
   assert.equal(i.pairsAdmitted, store.pairs)
   assert.equal(i.treeLinks, store.treeLinks)
+})
+
+test('the doors return their contract on an empty call and the sweep only when recompute is named', () => {
+  for (const tool of ['uuidna_invitation', 'uuidna_handle_store'])
+    assert.equal((callTool(tool, { recompute: false }) as { kind: string }).kind, 'contract', `${tool} computes nothing unless asked`)
+  assert.equal((callTool('uuidna_invitation', { recompute: true }) as { theorems: number }).theorems, theorems().length)
+  assert.equal((callTool('uuidna_handle_store', { recompute: true }) as { occupancy: { leaves: number } }).occupancy.leaves,
+    handleStoreCensus(ROOT).leaves)
 })
 
 test('THE CONTROL — the figures move when the tree does, so none is a frozen constant', () => {

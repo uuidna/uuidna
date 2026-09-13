@@ -12,6 +12,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { fold, around, leads, wingTerms, handleOfText, tokens } from './lead-clusters.js'
+import { callTool } from './mcp.js'
 
 test('a lead is parsed at its own boundary, not on punctuation', () => {
   const { leads: all, unreadable } = leads()
@@ -34,6 +35,8 @@ test('a term matches a WORD, never a fragment — the apple-in-a-quotation defec
   // the concrete correction: darwin is not a sealed wing and no lead names it
   assert.equal(around('darwin').hits.length, 0,
     'the hand-run grep reported 27 by substring-matching prose; the word darwin appears in no lead')
+  assert.equal((callTool('uuidna_lead_clusters', { term: 'darwin' }) as { leads: number }).leads, 0,
+    'and the door answers what the instrument answers')
 })
 
 test('ONE PASS, cross-checked against the \\b scan it replaced — and every gap explained', () => {
