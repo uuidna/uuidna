@@ -1,5 +1,33 @@
 # uuidna.com — content-addressed identity, honest by construction.
+#
+# AI AGENTS ARE WELCOME TO USE UUIDNA. Search it, read it to answer a person, and call its tools: the MCP endpoint is
+# https://uuidna.com/mcp, discovered at https://uuidna.com/.well-known/mcp.json, and the plain-text guide for models is
+# https://uuidna.com/llms.txt. Every answer carries its own content address, so a reader can recompute it.
+#
+# Content signals: search and ai-input (reading a page to ground a live answer) are granted. ai-train is not: the
+# content is licensed CC BY-NC-ND 4.0 (https://uuidna.com/license), and training a model makes a derivative.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Named, so no crawler has to infer its welcome from the wildcard.
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: CloudflareBrowserRenderingCrawler
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 Sitemap: https://uuidna.com/sitemap.xml
