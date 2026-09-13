@@ -82,6 +82,7 @@ const principleCategories: Record<string, string> = {
   'Identifiers': 'Language',
   'The substitution invariants': 'Language',
   'The forensic odds': 'Security',
+  'The build-host surface': 'Security',
 
   // Clay Problems (36)
   'Clay': 'Clay Problems',
