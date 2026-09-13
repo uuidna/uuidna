@@ -24,6 +24,20 @@ export const depositRequestOf = (receipt: GateReceipt, commit: string, token: st
   return { url: `${QPU_RECEIPTS}/${commit}`, init: { method: 'PUT', headers: { 'content-type': 'application/json', accept: 'application/ld+json', authorization: `Bearer ${token}` }, body } }
 }
 
+/** depositEvidence(path, body, token) → any run's evidence into qpu storage through the same bearer-gated PUT, so the
+ *  captain and the agent read one document by GET. Never throws: no token is UNSENT, said with its reason, and a
+ *  registry that answers badly is reported rather than allowed to undo the work it records. */
+export const depositEvidence = async (path: string, body: Record<string, unknown>, token: string | undefined, fetchImpl: typeof fetch = fetch):
+  Promise<{ sent: boolean; href: string; status?: number; why?: string }> => {
+  const href = `https://qpu.uuidna.com/storage/${path}`
+  if (!token) return { sent: false, href, why: 'no QPU_WRITE_TOKEN in the environment; qpu refuses unauthenticated writes' }
+  try {
+    const res = await fetchImpl(href, { method: 'PUT', headers: { 'content-type': 'application/json', accept: 'application/ld+json', authorization: `Bearer ${token}` }, body: JSON.stringify(body) })
+    const reply = (await res.json().catch(() => ({}))) as { holds?: boolean }
+    return res.status === 200 && reply.holds === true ? { sent: true, href, status: res.status } : { sent: false, href, status: res.status, why: `qpu answered ${res.status} without holds` }
+  } catch (e) { return { sent: false, href, why: String((e as Error)?.message ?? e) } }
+}
+
 export const deposit = async (commit: string, fetchImpl: typeof fetch = fetch): Promise<{ ok: boolean; href: string; status: number }> => {
   const receipt = JSON.parse(readFileSync(join(ROOT, 'gate-receipt.json'), 'utf8')) as GateReceipt
   const { url, init } = depositRequestOf(receipt, commit, process.env.QPU_WRITE_TOKEN)

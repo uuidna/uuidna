@@ -134,3 +134,30 @@ test("a module naming 'lean/heartbeats.json' depends on that file, not on all of
   if (other.mode === 'delta') assert.deepEqual(other.files, ['dist/all.test.js'], 'a different lean file reaches only the dir walker — the control')
   else assert.fail('expected delta')
 })
+
+// A LITERAL CHAIN NAMES ONE PATH (2026-09-13): 45 of 75 whole-tree readers named 'src' only as the first segment of
+// join(ROOT, 'src', ...), so one moved wing re-proved 322 of 325 test files. The chain is the dependency; a lone 'src' is a walk.
+test('a literal chain to a source file is a dependency on THAT file', () => {
+  const root = world({ 'dist/a.js': `${fs}export const e = readFileSync(join(ROOT, 'src', 'involution', 'index.ts'), 'utf8')` })
+  const m = moduleOf(root, 'dist/a.js')
+  assert.deepEqual(m.readsFiles, ['src/involution/index.ts'])
+  assert.equal(m.readsSourceTree, false)
+})
+
+test('a literal chain to a source directory depends on that directory, and a lone src is still a walk', () => {
+  const m = moduleOf(world({ 'dist/a.js': `${fs}export const g = readdirSync(join(ROOT, 'src', 'scripts'))` }), 'dist/a.js')
+  assert.deepEqual(m.readsSourceDirs, ['src/scripts/'])
+  assert.equal(m.readsSourceTree, false)
+  const walk = moduleOf(world({ 'dist/a.js': `${fs}export const t = readdirSync(join(ROOT, 'src'))` }), 'dist/a.js')
+  assert.equal(walk.readsSourceTree, true, 'the control: a lone src must still read as the whole tree')
+})
+
+test('a moved file under a chained directory seeds its reader, and a move elsewhere does not', () => {
+  const graph = testGraphOf(world({
+    'dist/a.js': `${fs}export const g = () => readdirSync(join(ROOT, 'src', 'scripts'))`,
+    'dist/a.test.js': `import { g } from './a.js'`,
+  }))
+  const hit = graphPlanOf(['src/scripts/gen-x.ts'], graph), miss = graphPlanOf(['src/other/y.ts'], graph)
+  assert.ok(hit.mode === 'delta' && hit.files.includes('dist/a.test.js'), 'a move under the chained directory seeds its reader')
+  assert.ok(miss.mode === 'delta' && !miss.files.includes('dist/a.test.js'), 'a move elsewhere does not')
+})

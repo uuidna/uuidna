@@ -7,9 +7,9 @@
 //
 // WHAT THE STORE ACTUALLY IS, measured before anything was sealed. `src/handles/aa/bb/cc/dd/index.json` — four
 // levels of two hexadecimal digits, which spell the eight-digit handle, and the leaf carries the full uuid whose
-// first eight digits those are. Over the 5,512 leaves present: the path spells the handle in 5,512 of 5,512, and
-// the handle is the address's prefix in 5,512 of 5,512. The theorems below are the arithmetic that shape forces;
-// the measurement is what says this tree is that shape.
+// first eight digits those are. Both facts are counted over every leaf at generation (SPELLS and PREFIX below) and
+// stated as counts, never typed: they were literals from 2026-09-07 (5,512) while the store grew thirteen-fold. The
+// theorems below are the arithmetic that shape forces; the measurement is what says this tree is that shape.
 //
 // THE HOLOGRAM, STATED AS AN IDENTITY RATHER THAN AN IMAGE. The tree is FINITE and exactly sized: two hex digits
 // branch 256 ways, four levels give 256⁴ = 16⁸ = 2³² leaves. A uuid is 2¹²⁸. The handle spends 32 of those bits
@@ -23,9 +23,11 @@
 // of finite levels is what makes the bottom unbounded in practice.
 //
 // SCOPE: the ARITHMETIC of the addressing, and a measurement of the store as it stands. Nothing here claims the
-// store is full — it holds 5,512 leaves of a possible 2³² — and nothing claims a leaf's payload space is
+// store is full — it holds a counted fraction of the 2³² it admits — and nothing claims a leaf's payload space is
 // realisable on any disk. A capacity is what the addressing admits, not what has been written.
 import { emit } from './lean-gen.js'
+import { buildHandleRecords } from './gen-handle-store.js'
+import { handlePath } from '../handle.js'
 
 const LEVELS = 4          // aa/bb/cc/dd
 const HEX_PER_LEVEL = 2
@@ -36,9 +38,18 @@ const UUID_BITS = 128
 const PAYLOAD_BITS = UUID_BITS - HANDLE_BITS           // 96
 const BRANCH = 16 ** HEX_PER_LEVEL                     // 256
 
+// the store as it stands, counted from the records gen-handle-store writes
+const RECORDS = buildHandleRecords()
+const LEAVES = RECORDS.length
+const SPELLS = RECORDS.filter((r) => handlePath(r.handle).split('/').slice(2, 2 + LEVELS).join('') === r.handle).length
+const PREFIX = RECORDS.filter((r) => r.address.startsWith(r.handle)).length
+const CAPACITY = 2 ** HANDLE_BITS
+const OVER = (CAPACITY - (CAPACITY % LEAVES)) / LEAVES
+const nf = (n: number): string => n.toLocaleString('en-US')
+
 const FACTS = [
   { key: 'the_path_spells_the_handle',
-    why: `THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: ${LEVELS} × ${HEX_PER_LEVEL} = ${HANDLE_HEXBITS}. Measured over the store as it stands, the path spells the handle in 5,512 of 5,512 leaves.`,
+    why: `THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: ${LEVELS} × ${HEX_PER_LEVEL} = ${HANDLE_HEXBITS}. Measured over the store as it stands, the path spells the handle in ${nf(SPELLS)} of ${nf(LEAVES)} leaves.`,
     js: () => LEVELS * HEX_PER_LEVEL === HANDLE_HEXBITS && HANDLE_HEXBITS * BITS_PER_HEX === HANDLE_BITS,
     lean: `theorem the_path_spells_the_handle : (${LEVELS} * ${HEX_PER_LEVEL} = ${HANDLE_HEXBITS}) ∧ (${HANDLE_HEXBITS} * ${BITS_PER_HEX} = ${HANDLE_BITS}) := by decide` },
 
@@ -63,15 +74,15 @@ const FACTS = [
     lean: `theorem the_smallest_leaf_outruns_the_whole_index : (2 ^ ${PAYLOAD_BITS} > 2 ^ ${HANDLE_BITS}) ∧ (2 ^ ${PAYLOAD_BITS} = 2 ^ ${HANDLE_BITS} * 2 ^ ${PAYLOAD_BITS - HANDLE_BITS}) := by decide` },
 
   { key: 'the_store_holds_far_less_than_it_admits',
-    why: `AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 5,512 leaves against ${(2 ** HANDLE_BITS).toLocaleString('en-US')} the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of nearly eight hundred thousand.`,
-    js: () => 5512 < 2 ** HANDLE_BITS,
-    lean: `theorem the_store_holds_far_less_than_it_admits : 5512 < 2 ^ ${HANDLE_BITS} := by decide` },
+    why: `AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries ${nf(LEAVES)} leaves against ${nf(CAPACITY)} the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of about ${nf(OVER)}.`,
+    js: () => SPELLS === LEAVES && PREFIX === LEAVES && LEAVES < CAPACITY,
+    lean: `theorem the_store_holds_far_less_than_it_admits : ${LEAVES} < 2 ^ ${HANDLE_BITS} := by decide` },
 ]
 
 emit({ file: 'HandleStore.lean',
-  header: 'THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 5,512 leaves present, the path spells the handle in 5,512 of 5,512 and the handle is the address prefix in 5,512 of 5,512. '
+  header: 'THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. ' + `Measured over the ${nf(LEAVES)} leaves present, the path spells the handle in ${nf(SPELLS)} of ${nf(LEAVES)} and the handle is the address prefix in ${nf(PREFIX)} of ${nf(LEAVES)}. `
     + 'THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. '
     + 'AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. '
-    + 'SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 5,512 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf\'s payload space is realisable on any disk.',
+    + `SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — ${nf(LEAVES)} leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk.`,
   skill: 'wave',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

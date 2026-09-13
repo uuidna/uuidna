@@ -29,13 +29,25 @@
 // crosslink graph is built here and none is claimed to exist — the store's leaves carry a handle, an address, a
 // kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture.
 import { emit } from './lean-gen.js'
+import { buildHandleRecords } from './gen-handle-store.js'
 
-// the store as measured on 2026-09-07 — walked, not quoted
-const LEAVES = 5512
+// THE STORE AS IT STANDS, counted from the same records gen-handle-store writes — never typed. These were literals
+// "as measured on 2026-09-07" (5,512 leaves) while the store grew to 71,366, so the sealed statements described a
+// store that no longer existed.
+const RECORDS = buildHandleRecords()
+const LEAVES = RECORDS.length
 const PARENT_LINKS = LEAVES - 1
 const PAIRS = (LEAVES * (LEAVES - 1)) / 2
-const KINDS: [string, number][] = [['chunk', 5041], ['page', 326], ['publication', 145]]
-const KEYS_PER_LEAF: [number, number][] = [[0, 471], [1, 4963], [2, 73], [3, 5]]
+const tally = <K,>(key: (r: (typeof RECORDS)[number]) => K): [K, number][] => {
+  const m = new Map<K, number>()
+  for (const r of RECORDS) m.set(key(r), (m.get(key(r)) ?? 0) + 1)
+  return [...m.entries()]
+}
+const KINDS: [string, number][] = tally((r) => r.kind as string).sort((a, b) => b[1] - a[1])
+const KEYS_PER_LEAF: [number, number][] = tally((r) => r.keys?.length ?? 0).sort((a, b) => a[0] - b[0])
+const MULTI_KEY = KEYS_PER_LEAF.filter(([k]) => k > 1).reduce((a, [, n]) => a + n, 0)
+const PAIRS_PER_LINK = (PAIRS - (PAIRS % PARENT_LINKS)) / PARENT_LINKS
+const nf = (n: number): string => n.toLocaleString('en-US')
 
 const HANDLE_BITS = 32
 const UUID_BITS = 128
@@ -52,7 +64,7 @@ const FACTS = [
     lean: `theorem a_tree_uses_one_link_per_leaf_and_no_more : ${L(NS)}.all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2))) := by decide` },
 
   { key: 'the_measured_store_uses_a_vanishing_share',
-    why: `THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. ${LEAVES.toLocaleString('en-US')} leaves, ${PARENT_LINKS.toLocaleString('en-US')} parent links, ${PAIRS.toLocaleString('en-US')} pairs available — the tree occupies about thirty-six ten-thousandths of one per cent of the links its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.`,
+    why: `THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. ${LEAVES.toLocaleString('en-US')} leaves, ${PARENT_LINKS.toLocaleString('en-US')} parent links, ${PAIRS.toLocaleString('en-US')} pairs available — the tree uses one link for every ${nf(PAIRS_PER_LINK)} pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.`,
     js: () => PAIRS === (LEAVES * (LEAVES - 1)) / 2 && PAIRS > 2000 * PARENT_LINKS,
     lean: `theorem the_measured_store_uses_a_vanishing_share : (${PAIRS} = (${LEAVES} * (${LEAVES} - 1)) / 2) ∧ (${PAIRS} > 2000 * ${PARENT_LINKS}) := by decide` },
 
@@ -67,9 +79,9 @@ const FACTS = [
     lean: `theorem seventeen_leaves_already_pass_the_whole_uuid : ((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= ${UUID_BITS}) ∧ (136 > ${UUID_BITS}) := by decide` },
 
   { key: 'the_leaf_is_not_one_uuid_but_a_folder',
-    why: `AND THE FILES INSIDE ARE PLURAL, MEASURED. Of ${LEAVES.toLocaleString('en-US')} leaves, ${KEYS_PER_LEAF[0]![1]} carry no theorem key, ${KEYS_PER_LEAF[1]![1]} carry one, ${KEYS_PER_LEAF[2]![1]} carry two and ${KEYS_PER_LEAF[3]![1]} carry three — so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.`,
-    js: () => KEYS_PER_LEAF.reduce((a, [, n]) => a + n, 0) === LEAVES && KEYS_PER_LEAF.some(([k, n]) => k > 1 && n > 0),
-    lean: `theorem the_leaf_is_not_one_uuid_but_a_folder : (${KEYS_PER_LEAF.map(([, n]) => n).join(' + ')} = ${LEAVES}) ∧ (${KEYS_PER_LEAF[2]![1]} > 0) ∧ (${KEYS_PER_LEAF[3]![1]} > 0) := by decide` },
+    why: `AND THE FILES INSIDE ARE PLURAL, MEASURED. Of ${nf(LEAVES)} leaves, ${KEYS_PER_LEAF.map(([k, n]) => `${nf(n)} carry ${k === 0 ? 'no theorem key' : `${k} key${k === 1 ? '' : 's'}`}`).join(', ')} — ${nf(MULTI_KEY)} carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.`,
+    js: () => KEYS_PER_LEAF.reduce((a, [, n]) => a + n, 0) === LEAVES && MULTI_KEY > 0,
+    lean: `theorem the_leaf_is_not_one_uuid_but_a_folder : (${KEYS_PER_LEAF.map(([, n]) => n).join(' + ')} = ${LEAVES}) ∧ (${MULTI_KEY} > 0) := by decide` },
 
   { key: 'three_kinds_partition_the_store',
     why: `THE FOLDERS ARE NOT ALL THE SAME THING EITHER: ${KINDS.map(([k, n]) => `${n} ${k}`).join(', ')}, summing to ${LEAVES.toLocaleString('en-US')} exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative.`,
@@ -79,7 +91,7 @@ const FACTS = [
 
 emit({ file: 'Crosslink.lean',
   header: 'CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. '
-    + 'MEASURED, NOT QUOTED: the store holds 5,512 leaves with 5,511 parent links against 15,188,316 pairs available — the tree occupies about thirty-six ten-thousandths of one per cent of the links its own leaves permit. Its leaves are folders and not single uuids (471 carry no key, 4,963 one, 73 two, 5 three) across three kinds (5,041 chunks, 326 pages, 145 publications), each partition summing exactly. '
+    + `MEASURED, NOT QUOTED: the store holds ${nf(LEAVES)} leaves with ${nf(PARENT_LINKS)} parent links against ${nf(PAIRS)} pairs available — the tree uses one link for every ${nf(PAIRS_PER_LINK)} pairs its own leaves permit. Its leaves are folders and not single uuids (${KEYS_PER_LEAF.map(([k, n]) => `${nf(n)} with ${k} key${k === 1 ? '' : 's'}`).join(', ')}) across ${KINDS.length} kinds (${KINDS.map(([k, n]) => `${nf(n)} ${k}s`).join(', ')}), each partition summing exactly. `
     + 'THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. '
     + 'SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture.',
   skill: 'wave',
