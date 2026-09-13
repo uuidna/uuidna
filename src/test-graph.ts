@@ -30,6 +30,8 @@ export type GraphModule = {
   reads: string[]
   /** single source files this module reads by literal path ('src/x.ts'): a dependency on THAT file only */
   readsFiles: string[]
+  /** source directories this module reads by a literal chain (join(ROOT, 'src', 'scripts')): depends on files under them only */
+  readsSourceDirs?: string[]
   /** walks the source tree by a bare directory literal ('src', 'src/tests'): depends on every compiled source */
   readsSourceTree: boolean
   /** imports by a computed specifier: can load any COMPILED module, and so depends on those - never on data */
@@ -48,6 +50,8 @@ const DYNAMIC_OPEN_RE = /import\(\s*(?!['"])/
 const FS_READ_RE = /\b(?:readFileSync|readdirSync|readFile|readdir|statSync|existsSync|createReadStream|opendirSync)\b/
 /** a quoted literal that IS a source path: 'src' or 'src/...' at the start of the string, nothing before it */
 const SRC_LITERAL_RE = /['"](src(?:\/[^'"\s]*)?)['"]/g
+/** 'src' followed by more quoted segments — join(root, 'src', 'a', 'b.ts') — one path named a segment at a time */
+const SRC_CHAIN_RE = /['"]src['"]((?:\s*,\s*['"][^'"\s]+['"])+)/g
 /** a quoted literal that IS a data path: 'lean', 'lean/', 'lean/x.json', 'src/handles', 'src/handles/ab/index.json' */
 const DATA_LITERAL_RE = /['"]((?:lean|src\/handles)(?:\/[^'"\s]*)?)['"]/g
 const d0 = (dir: string): string => dir.slice(0, -1)
@@ -111,11 +115,28 @@ export const moduleOf = (root: string, file: string): GraphModule => {
   const joinsHandles = readsFs && JOIN_SRC_HANDLES_RE.test(text)
   if (joinsHandles) reads.add('src/handles/')
   const readsFiles = new Set<string>()
+  const readsSourceDirs = new Set<string>()
   let readsSourceTree = false
+  // A LITERAL CHAIN NAMES ONE PATH: join(ROOT, 'src', 'involution', 'index.ts') reads that file and join(ROOT, 'src',
+  // 'scripts') reads that directory. Read one segment at a time, the leading 'src' looked like a walk of the whole
+  // tree: measured 2026-09-13, 45 of the 75 modules flagged as whole-tree readers named 'src' only as the first segment
+  // of such a chain, so one moved wing re-proved 322 of 325 test files. The chain is the dependency; a lone 'src' is
+  // still a walk. Handles chains stay with the data rule above; seeds and chunks are excluded data no source walk sees.
+  let scan = text
   if (readsFs) {
-    for (const m of text.matchAll(SRC_LITERAL_RE)) {
+    scan = text.replace(SRC_CHAIN_RE, (whole: string, rest: string) => {
+      const segs = ['src', ...[...rest.matchAll(/['"]([^'"\s]+)['"]/g)].map((s) => s[1]!)]
+      if (segs[1] === 'handles') return whole
+      if (segs[1] === 'seeds' || segs[1] === 'chunks') return ''
+      const path = segs.join('/')
+      if (/\.[a-z]+$/i.test(segs[segs.length - 1]!)) readsFiles.add(path); else readsSourceDirs.add(`${path}/`)
+      return ''
+    })
+  }
+  if (readsFs) {
+    for (const m of scan.matchAll(SRC_LITERAL_RE)) {
       const lit = m[1]!
-      if (/\.[a-z]+$/i.test(lit) && !readsOnLine(text, m.index ?? 0)) continue   // a path in a table, not a read
+      if (/\.[a-z]+$/i.test(lit) && !readsOnLine(scan, m.index ?? 0)) continue   // a path in a table, not a read
       if (lit === 'src' && joinsHandles) continue   // the 'src' segment of join(root,'src','handles') is the handles dir
       if (lit.startsWith('src/handles')) continue    // owned by DATA_LITERAL_RE above
       if (/^src\/(seeds|chunks)(\/|$)/.test(lit)) continue   // EXCLUDED data (gate-receipt-index EXCLUDED): tsc never compiles it, no walk of sources observes it
@@ -125,7 +146,7 @@ export const moduleOf = (root: string, file: string): GraphModule => {
   }
   const importsUnknown = DYNAMIC_OPEN_RE.test(text)
   const readsEverything = importsUnknown || readsSourceTree
-  return { file, imports: [...imports], reads: [...reads], readsFiles: [...readsFiles, ...dataFiles], readsSourceTree, importsUnknown, readsEverything, test: file.endsWith('.test.js') }
+  return { file, imports: [...imports], reads: [...reads], readsFiles: [...readsFiles, ...dataFiles], readsSourceDirs: [...readsSourceDirs], readsSourceTree, importsUnknown, readsEverything, test: file.endsWith('.test.js') }
 }
 
 /** Build the graph over dist/. Pure over disk. */
@@ -187,6 +208,7 @@ export const graphPlanOf = (moved: readonly string[], graph: TestGraph = testGra
   for (const m of graph.modules.values()) {
     if (m.reads.some((d) => dataMoved.has(d))) seeds.add(m.file)
     if (m.readsFiles.some((f) => movedSet.has(f))) seeds.add(m.file)
+    if ((m.readsSourceDirs ?? []).some((d) => moved.some((f) => f.startsWith(d)))) seeds.add(m.file)
     if (m.readsSourceTree && sourceMoved) seeds.add(m.file)
   }
   // A COMPUTED IMPORT IS AN INVISIBLE DEPENDENCY: it may load any module, including one just seeded, so it runs
