@@ -776,6 +776,7 @@ The mission board, derived: open work with an exact deliverable — a finding no
 | `kind` | string | no |  |
 | `wing` | string | no | e.g. Fermat |
 | `limit` | integer | no |  |
+| `skill` | string | no | a skill from uuidna_skills: onl… |
 
 ### `uuidna_laws`
 
@@ -2670,7 +2671,7 @@ Walk ANY input through the ℤ/9 executor — dz and doubling alternated, period
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `input` | string | **yes** | number or text to fold |
+| `input` | number,string | **yes** | number or text to fold |
 | `steps` | number | no | max alternation steps (default… |
 
 ### `uuidna_living_field`

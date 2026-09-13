@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000004928",
-   "completionPrice": "0.00000009856"
+   "promptPrice": "0.00000004844",
+   "completionPrice": "0.00000009688"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000057816",
-   "completionPrice": "0.00000173448"
+   "promptPrice": "0.00000057948",
+   "completionPrice": "0.00000173844"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -2991,8 +2991,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3-flash",
    "name": "Z.ai: GLM 5.3 Flash",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000005"
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.00000025"
   },
   {
    "id": "z-ai/glm-5.3-flash:batch",

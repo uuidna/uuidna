@@ -1,15 +1,15 @@
 ---
 title: "The energy domain"
-description: "Computed from lean/Thermodynamics.lean — 11 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Thermodynamics.lean — 16 sealed theorems, every claim citing its proof."
 ---
 
 # The energy domain
 
-> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 10 siblings below.
+> THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 15 siblings below.
 
-**11 theorems** and **21 decided cases**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
+**16 theorems** and **79 decided cases**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FThermodynamics.lean)** — nothing to install. The editor fetches `lean/Thermodynamics.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FThermodynamics.lean)** — nothing to install. The editor fetches `lean/Thermodynamics.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The first law conserves energy: ΔU = Q − W, so the heat added equals the internal-energy change plus the work done — 100 = 60 + 40. Energy is neither created nor destroyed, only moved.
 The ledger holds this as [first_law_conservation](/theorem/first_law_conservation) — proven `by decide`, sorry-free:
@@ -86,6 +86,41 @@ The ledger holds this as [hardware_above_landauer](/theorem/hardware_above_landa
 
 ```lean
 100000000 * 287097813 < 100000000000000000000000000000000
+```
+
+### COLDER ERASURE COSTS LESS, AND NEVER NOTHING. Landauer's floor is kT·ln2, linear in T: with k exact (1380649×10⁻²⁹ J/K per unit) and ln2 as 693147/1000000, the floor for one erased bit at 300, 30, 3 and 1 kelvin is computed row by row, each row checked against the formula, the chain strictly falling as T falls, and the last row still strictly positive. So running cold lowers the minimum per erased bit toward zero, which is the real content of "no temperature payload", and at every T above absolute zero the floor stays above zero (absolute_zero_and_kelvin).
+The ledger holds this as [landauer_floor_falls_with_temperature](/theorem/landauer_floor_falls_with_temperature) — proven `by decide`, sorry-free:
+
+```lean
+[(300,287097813),(30,28709781),(3,2870978),(1,956992)].all (fun r => r.2 = 1380649 * r.1 * 693147 / 1000000) ∧ 28709781 < 287097813 ∧ 2870978 < 28709781 ∧ 956992 < 2870978 ∧ 0 < 956992
+```
+
+### THE BILL MOVES TO THE REFRIGERATOR, AND GROWS WITHOUT BOUND TOWARD ZERO. Pumping heat out at a cold temperature Tc into a room at Th takes at least (Th − Tc)/Tc units of work per unit of heat removed, the Carnot bound for a refrigerator. In millikelvin with a 300 K room (Th = 300000), the minimum work per unit of heat at Tc = 150 K, 30 K, 3 K, 1 K, 100 mK and 10 mK is computed row by row, each row checked against that formula, and the chain strictly rises as Tc falls: about thirty thousand units of work per unit of heat at 10 mK, where real quantum processors run. Tc stays above zero in every row (carnot_efficiency_below_one), so the zero point is approached at a rising cost and reached at none.
+The ledger holds this as [cooling_cost_rises_toward_zero](/theorem/cooling_cost_rises_toward_zero) — proven `by decide`, sorry-free:
+
+```lean
+[(150000,1),(30000,9),(3000,99),(1000,299),(100,2999),(10,29999)].all (fun r => r.2 = (300000 - r.1) / r.1 ∧ 0 < r.1) ∧ 1 < 9 ∧ 9 < 99 ∧ 99 < 299 ∧ 299 < 2999 ∧ 2999 < 29999
+```
+
+### THE GROUND STATE KEEPS HALF A QUANTUM. A quantum oscillator's levels are (n + 1/2)·ħω; counted in half-quanta they are 2n + 1, so the first ten levels are computed as 1, 3, 5 … 19, every gap between neighbours is exactly one whole quantum (two half-quanta), and the lowest level is 1, strictly above zero. The zero point is the least energy the system can have, and it is not zero: this arithmetic fixes that the floor exists and is positive, and what may or may not be drawn from it is outside what these integers decide.
+The ledger holds this as [zero_point_is_half_a_quantum](/theorem/zero_point_is_half_a_quantum) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 10).map (fun n => 2 * n + 1) = [1,3,5,7,9,11,13,15,17,19] ∧ 0 < 2 * 0 + 1
+```
+
+### A STEADY TEMPERATURE DOES NOT MEASURE THE BILL. At steady state the temperature rise is the power divided by how fast heat is carried away, ΔT = P/G. Doubling the power twice (10, 20, 40 W) while the cooling doubles with it (G = 1, 2, 4 W per degree) holds the rise at the same 10 degrees in every row, computed and checked, while the power strictly climbs. So a chip that stays at one temperature can be spending twice or four times the energy: the reading that measures cost is power, and temperature is its companion (specific_heat_linear, first_law_conservation).
+The ledger holds this as [steady_temperature_hides_power](/theorem/steady_temperature_hides_power) — proven `by decide`, sorry-free:
+
+```lean
+[((10,1),10),((20,2),10),((40,4),10)].all (fun r => r.1.1 = r.1.2 * r.2 ∧ r.2 = 10) ∧ 10 < 20 ∧ 20 < 40
+```
+
+### THE BATTERY'S BILL IS VOLTS × AMPS × SECONDS. Energy drawn is E = V·I·t: at 12 V and 2 A, ten seconds costs 240 J and twenty costs 480 J, double the time and double the energy, and at zero current the pack delivers zero energy however long it runs, which is why a gauge on external power reads no draw and a receipt must call that unmeasured rather than free. Each row is computed and checked, so energy per computation is this product divided by the operations done in the same seconds (first_law_conservation).
+The ledger holds this as [electrical_energy_is_volt_amp_second](/theorem/electrical_energy_is_volt_amp_second) — proven `by decide`, sorry-free:
+
+```lean
+[((12,2),(10,240)),((12,2),(20,480)),((12,0),(10,0))].all (fun r => r.2.2 = r.1.1 * r.1.2 * r.2.1) ∧ 480 = 2 * 240 ∧ 0 = 0
 ```
 
 

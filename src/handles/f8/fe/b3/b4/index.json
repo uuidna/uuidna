@@ -1,0 +1,12 @@
+{
+  "handle": "f8feb3b4",
+  "address": "f8feb3b4-6ef9-88e2-8cd5-ae452d46c6ec",
+  "kind": "chunk",
+  "keys": [
+    "steady_temperature_hides_power"
+  ],
+  "statement": "[((10,1),10),((20,2),10),((40,4),10)].all (fun r => r.1.1 = r.1.2 * r.2 ∧ r.2 = 10) ∧ 10 < 20 ∧ 20 < 40",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

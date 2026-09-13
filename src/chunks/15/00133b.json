@@ -1,0 +1,12 @@
+{
+  "handle": "1500133b",
+  "address": "1500133b-f4ca-8b2a-af80-44d96607393b",
+  "statement": "[(300,287097813),(30,28709781),(3,2870978),(1,956992)].all (fun r => r.2 = 1380649 * r.1 * 693147 / 1000000) ∧ 28709781 < 287097813 ∧ 2870978 < 28709781 ∧ 956992 < 2870978 ∧ 0 < 956992",
+  "tactic": "decide",
+  "keys": [
+    "landauer_floor_falls_with_temperature"
+  ],
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

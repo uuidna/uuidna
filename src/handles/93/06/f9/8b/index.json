@@ -1,0 +1,12 @@
+{
+  "handle": "9306f98b",
+  "address": "9306f98b-18a0-8bdd-a72e-7797a4e6a5a3",
+  "kind": "chunk",
+  "keys": [
+    "cooling_cost_rises_toward_zero"
+  ],
+  "statement": "[(150000,1),(30000,9),(3000,99),(1000,299),(100,2999),(10,29999)].all (fun r => r.2 = (300000 - r.1) / r.1 ∧ 0 < r.1) ∧ 1 < 9 ∧ 9 < 99 ∧ 99 < 299 ∧ 299 < 2999 ∧ 2999 < 29999",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

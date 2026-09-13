@@ -1,0 +1,12 @@
+{
+  "handle": "2c37925b",
+  "address": "2c37925b-415e-809b-95e5-5a4484469580",
+  "kind": "chunk",
+  "keys": [
+    "the_nobles_are_the_running_totals"
+  ],
+  "statement": "(List.range 7).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = [2,10,18,36,54,86,118]",
+  "files": [
+    "Periodic.lean"
+  ]
+}

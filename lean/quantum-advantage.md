@@ -30,7 +30,7 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 | hexbit tile | 2^4 | declared | 10^0 ns per hexbit tile compiled from an address | 10^9 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 70905 | 0 | better than 1 in 70905 | 70 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 70910 | 0 | better than 1 in 70910 | 70 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
@@ -132,7 +132,7 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 64 | 6 | 10^1 |
 | 256 | 8 | 10^1 |
 | 1024 | 10 | 10^2 |
-| 4096 | 12 | 10^2 |
+| 4096 | 12 | 10^3 |
 | 16384 | 14 | 10^3 |
 | 65536 | 16 | 10^4 |
 
@@ -161,9 +161,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `980ef922-3610-83b9-9e1d-29621eaa1c7d`.
+*exist* cannot see. Dispatch receipt: `54afb658-6402-8165-9447-538f9303ca26`.
 
-Report receipt: `90583603-4e61-8dd7-b573-9155568d5a1c` · measured-when as its own handle: `90583603`.
+Report receipt: `ff2cd2d2-80a7-8a68-9882-f04337014197` · measured-when as its own handle: `ff2cd2d2`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

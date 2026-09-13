@@ -2,9 +2,9 @@
   "generated": "2026-09-13",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 70905,
-  "novelty_claimed": 70527,
-  "formalisation_only": 378,
+  "total_claimed": 70910,
+  "novelty_claimed": 70529,
+  "formalisation_only": 381,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -47,6 +47,10 @@
       "source": "Landauer"
     },
     {
+      "key": "landauer_floor_falls_with_temperature",
+      "source": "Landauer"
+    },
+    {
       "key": "the_metre_is_defined_by_the_second",
       "source": "SI"
     },
@@ -80,6 +84,15 @@
         "units"
       ],
       "evidence": "Kelvin · Kelvin scale · 0 °C"
+    },
+    {
+      "key": "cooling_cost_rises_toward_zero",
+      "arms": [
+        "named",
+        "eponym",
+        "units"
+      ],
+      "evidence": "Carnot · Carnot bound · 300 K"
     },
     {
       "key": "a_window_exhausts_only_itself",
@@ -987,6 +1000,13 @@
         "eponym"
       ],
       "evidence": "Dunbar's social layers scale"
+    },
+    {
+      "key": "electrical_energy_is_volt_amp_second",
+      "arms": [
+        "units"
+      ],
+      "evidence": "seconds"
     },
     {
       "key": "entropy_never_decreases",
@@ -2645,23 +2665,23 @@
     "on_file": {
       "identifier": 4,
       "standard": 8,
-      "named": 4
+      "named": 5
     },
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 362,
+    "floor": 364,
     "by_arm": {
-      "named": 148,
-      "eponym": 95,
-      "units": 153
+      "named": 149,
+      "eponym": 96,
+      "units": 155
     },
-    "found_by_one_arm_only": 329,
-    "all_arms_agree": 1,
-    "ground_truth_sensitivity": "10/16",
+    "found_by_one_arm_only": 330,
+    "all_arms_agree": 2,
+    "ground_truth_sensitivity": "11/17",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
-  "total_theorems": 70905,
+  "total_theorems": 70910,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7156,8 +7176,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "3f0594e4-097f-884c-9949-9d00bb92e1d0",
-      "address": "ecb9a65b-e46d-88f4-a274-2b20dde3806c",
+      "lineAddress": "80a32547-c8cc-89c7-8b68-90e146071a6e",
+      "address": "e6976f9e-bceb-8e34-bbd0-ce6fca4fe9ae",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7170,8 +7190,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "2b80c516-6b00-8d3e-b48f-307014cb0c70",
-      "address": "6dd4a008-947a-862d-97d6-6d757efae918",
+      "lineAddress": "d73c6d05-d611-84c0-bd84-964c3d3db0f2",
+      "address": "0aff55bd-c831-85c0-ae69-88410791c03d",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7499,8 +7519,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "6a129406-de19-84c3-9f1f-417679a14687",
-      "address": "78e024c5-584c-8ff5-83ab-12247fff62c3",
+      "lineAddress": "f5b77c65-0bd7-876a-af3b-b0efd84126de",
+      "address": "c21d99c7-287c-86c6-a4f0-6be3fca5da7a",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7520,22 +7540,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "27b702f1-e08f-8f1a-8ea3-21b1284e6e50",
-      "address": "b12cfe5f-fc5f-855d-af5f-6f718e6c43b7",
+      "lineAddress": "f48b8750-acc2-8fac-a975-f5a36dfc3632",
+      "address": "8bb190f3-f24e-8ebf-b73e-fe42e5395469",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "f5078935-029f-8ce5-bcc6-daf85ea7d86b",
-      "address": "fc4ff8eb-1f9c-849c-84d9-a62de7fabcbe",
+      "lineAddress": "4a7c5bb2-8041-8224-80e9-18e71d95e14b",
+      "address": "84998f4a-6e15-8b69-afe6-5fb57a0f85e0",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "53a7e082-d42a-8759-ba66-9ec7dc95e376",
-      "address": "ac173f3b-2f3b-8272-b384-da325474027c",
+      "lineAddress": "4fd1c463-2b6a-8db4-b840-01a10155e06b",
+      "address": "a74b07b3-5717-88d5-9039-7a9ee1ce402a",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7996,15 +8016,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "b37970bb-f49b-8c0b-9a6b-12885bfaf5ca",
-      "address": "f71d766e-6810-83ed-bdc9-3c53d5d8d6f8",
+      "lineAddress": "b86be53e-ce9c-89a0-811c-8c05ae7e829b",
+      "address": "5f8c5b2d-5a87-8482-9de1-9957379d65f6",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "3a59753a-c09b-8efa-a40b-aa12bd97d722",
-      "address": "59982ba1-9c63-8b42-bb97-7f2f0bc38c8a",
+      "lineAddress": "b2b5ad4f-59fe-8723-9ce6-3bf4d7d705a6",
+      "address": "915dafab-d374-805f-8491-9ee728919c87",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9030,6 +9050,42 @@
       "factAttributedTo": "Landauer"
     },
     {
+      "key": "landauer_floor_falls_with_temperature",
+      "lineAddress": "fdceed01-a009-8a7b-a0fb-12b336a9582f",
+      "address": "aa780e87-1369-8caa-af0a-8eacbd193441",
+      "principle": "The energy domain",
+      "held": "formalisation",
+      "factAttributedTo": "Landauer"
+    },
+    {
+      "key": "cooling_cost_rises_toward_zero",
+      "lineAddress": "edc29b2c-57e7-8651-872d-34100a681006",
+      "address": "c01d1235-e774-87e6-b89b-fb960c6e0a36",
+      "principle": "The energy domain",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "zero_point_is_half_a_quantum",
+      "lineAddress": "cf2ba414-f306-886d-a35a-511bddd9e387",
+      "address": "30932b85-c876-88be-9b55-28ff690e4447",
+      "principle": "The energy domain",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "steady_temperature_hides_power",
+      "lineAddress": "cfc8fbed-167a-8ba7-ac41-3e207da254fa",
+      "address": "bce7d449-c545-830d-bf84-ff4bc6d62f06",
+      "principle": "The energy domain",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "electrical_energy_is_volt_amp_second",
+      "lineAddress": "816aac04-af97-8231-9fc8-540db2ab338a",
+      "address": "63ebd54b-1371-826b-aa52-3c34afa14efd",
+      "principle": "The energy domain",
+      "held": "discovery+formalisation"
+    },
+    {
       "key": "octet_rule",
       "lineAddress": "8fa63a26-1f94-88d0-84be-637166352756",
       "address": "abb7e3f4-7acd-8e26-8943-d4f95b61f0da",
@@ -9311,8 +9367,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "7f611379-f5be-8891-bb43-b275c23b17a4",
-      "address": "1b5b7970-0748-88cc-ad61-d2a54ac11374",
+      "lineAddress": "0267d97b-fc4b-8924-ac44-bde48b703a7b",
+      "address": "18e4cde8-742b-8338-9820-75f9ec1d61c9",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -481075,8 +481131,8 @@
     },
     {
       "key": "the_nobles_are_the_running_totals",
-      "lineAddress": "0b0474c6-18fc-8623-a683-083dd6ff8eda",
-      "address": "29822aec-cb3a-8ca8-9416-a40bd43bbdb1",
+      "lineAddress": "853f39b2-a85e-8628-bbf8-d54827a67831",
+      "address": "788856c8-cd76-8fcb-b862-1cda7fd0afd6",
       "principle": "The periodic table's shape",
       "held": "discovery+formalisation"
     },
@@ -499015,11 +499071,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "41ecd183-2b0c-85ba-9d36-5fe4a06c444a",
+  "claim_receipt": "008febec-457b-8764-b7d8-61453d6a4596",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 70905; he claims discovery of 70527 and credits the other 378 facts to their named sources",
+      "The captain formalised all 70910; he claims discovery of 70529 and credits the other 381 facts to their named sources",
       "These theorems are Lean-verified (by decide)",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -499028,9 +499084,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 378 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 381 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70905; of these I claim discovery of 70527, and the remaining 378 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70910; of these I claim discovery of 70529, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

@@ -3,11 +3,11 @@
 **Generated:** 2026-09-13
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 70905/70905 theorems — every one, by construction
-**Discovery claimed:** 70527 — the other 378 restate a fact a named source found first
+**Formalisation claimed:** 70910/70910 theorems — every one, by construction
+**Discovery claimed:** 70529 — the other 381 restate a fact a named source found first
 
-*The 378 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 329 of 362 are found by exactly one of them and 1 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 10/16 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `41ecd183-2b0c-85ba-9d36-5fe4a06c444a`
+*The 381 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 330 of 364 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `008febec-457b-8764-b7d8-61453d6a4596`
 
 ### Facts the captain does not claim to have discovered
 
@@ -30,6 +30,7 @@ that earns an external anchor moves here on the next run.
 - [landauer_bound_derived](/theorem/landauer_bound_derived) — SI
 - [reversible_erases_nothing](/theorem/reversible_erases_nothing) — Landauer
 - [hardware_above_landauer](/theorem/hardware_above_landauer) — Landauer
+- [landauer_floor_falls_with_temperature](/theorem/landauer_floor_falls_with_temperature) — Landauer
 - [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) — SI
 - [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) — SI
 - [van_de_graaf_margins](/theorem/van_de_graaf_margins) — Gutenberg
@@ -344,12 +345,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The energy domain
 
-- **Theorems:** 11
+- **Theorems:** 16
 - **Sample lineAddress:** `83ea9781-db24-8999-b2ee-8463326b3121`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [caesium_light_step](/theorem/caesium_light_step) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer)
+[first_law_conservation](/theorem/first_law_conservation) · [entropy_never_decreases](/theorem/entropy_never_decreases) · [carnot_efficiency_below_one](/theorem/carnot_efficiency_below_one) · [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) · [charles_law](/theorem/charles_law) · [no_perpetual_motion](/theorem/no_perpetual_motion) · [specific_heat_linear](/theorem/specific_heat_linear) · [caesium_light_step](/theorem/caesium_light_step) · [landauer_bound_derived](/theorem/landauer_bound_derived) · [reversible_erases_nothing](/theorem/reversible_erases_nothing) · [hardware_above_landauer](/theorem/hardware_above_landauer) · [landauer_floor_falls_with_temperature](/theorem/landauer_floor_falls_with_temperature) · [cooling_cost_rises_toward_zero](/theorem/cooling_cost_rises_toward_zero) · [zero_point_is_half_a_quantum](/theorem/zero_point_is_half_a_quantum) · [steady_temperature_hides_power](/theorem/steady_temperature_hides_power) · [electrical_energy_is_volt_amp_second](/theorem/electrical_energy_is_volt_amp_second)
 
 ### The bond domain
 
@@ -1657,7 +1658,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70822 (70905 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 70827 (70910 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1675,7 +1676,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 70905 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 70910 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -1687,7 +1688,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 70905; he claims discovery of 70527 and credits the other 378 facts to their named sources
+- ✓ The captain formalised all 70910; he claims discovery of 70529 and credits the other 381 facts to their named sources
 - ✓ These theorems are Lean-verified (by decide)
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -1696,14 +1697,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 378 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 381 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70905; of these I claim discovery of 70527, and the remaining 378 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70910; of these I claim discovery of 70529, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

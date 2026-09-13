@@ -93,7 +93,7 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 148 prerequisites over 192 edges at this
+that cites another sealed key IS a citation edge, 152 prerequisites over 197 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
@@ -111,6 +111,7 @@ three citers alphabetically, and the count carries the rest.
 | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | 2 | [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap), [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
 | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | 2 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything), [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
 | [`distance_is_symmetric`](/theorem/distance_is_symmetric) | 2 | [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality), [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial) |
+| [`first_law_conservation`](/theorem/first_law_conservation) | 2 | [`electrical_energy_is_volt_amp_second`](/theorem/electrical_energy_is_volt_amp_second), [`steady_temperature_hides_power`](/theorem/steady_temperature_hides_power) |
 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) | 2 | [`slit_on_the_hexbit_ring`](/theorem/slit_on_the_hexbit_ring), [`which_path_conserves_the_total`](/theorem/which_path_conserves_the_total) |
 | [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) | 2 | [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence), [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) |
 | [`moduli_waste_states`](/theorem/moduli_waste_states) | 2 | [`door_of_the_referrer`](/theorem/door_of_the_referrer), [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) |
@@ -124,6 +125,7 @@ three citers alphabetically, and the count carries the rest.
 | [`xor_preserves_distance`](/theorem/xor_preserves_distance) | 2 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial), [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
 | [`a440_not_on_the_vortex`](/theorem/a440_not_on_the_vortex) | 1 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) |
 | [`abo_klein_four`](/theorem/abo_klein_four) | 1 | [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) |
+| [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) | 1 | [`landauer_floor_falls_with_temperature`](/theorem/landauer_floor_falls_with_temperature) |
 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) | 1 | [`anthem_superposition_mix_closes`](/theorem/anthem_superposition_mix_closes) |
 | [`bell_no_signaling`](/theorem/bell_no_signaling) | 1 | [`all_signaling_duality`](/theorem/all_signaling_duality) |
 | [`bell_stabilized_by_xx`](/theorem/bell_stabilized_by_xx) | 1 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
@@ -134,6 +136,7 @@ three citers alphabetically, and the count carries the rest.
 | [`byte_order_is_significant`](/theorem/byte_order_is_significant) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) | 1 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) |
 | [`captain_theorem_the_coins_buy_the_ring_and_one`](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) | 1 | [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic) |
+| [`carnot_efficiency_below_one`](/theorem/carnot_efficiency_below_one) | 1 | [`cooling_cost_rises_toward_zero`](/theorem/cooling_cost_rises_toward_zero) |
 | [`cassini_golden_page`](/theorem/cassini_golden_page) | 1 | [`fibonacci_identity_sums_close_and_neighbours_are_coprime`](/theorem/fibonacci_identity_sums_close_and_neighbours_are_coprime) |
 | [`closure_is_coprime`](/theorem/closure_is_coprime) | 1 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two) |
 | [`codon_frame_rotates_rosette`](/theorem/codon_frame_rotates_rosette) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
@@ -217,6 +220,7 @@ three citers alphabetically, and the count carries the rest.
 | [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) | 1 | [`the_certified_ratio_has_no_ceiling_where_every_speedup_does`](/theorem/the_certified_ratio_has_no_ceiling_where_every_speedup_does) |
 | [`single_byte_tamper_is_detected`](/theorem/single_byte_tamper_is_detected) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`song_six_verses_one_melody`](/theorem/song_six_verses_one_melody) | 1 | [`referrer_six_doors`](/theorem/referrer_six_doors) |
+| [`specific_heat_linear`](/theorem/specific_heat_linear) | 1 | [`steady_temperature_hides_power`](/theorem/steady_temperature_hides_power) |
 | [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) | 1 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) |
 | [`t7_betti_row_is_the_uuid`](/theorem/t7_betti_row_is_the_uuid) | 1 | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
 | [`tamper_changes_tag`](/theorem/tamper_changes_tag) | 1 | [`fold_integrity_tamper`](/theorem/fold_integrity_tamper) |
@@ -275,7 +279,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 70905-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 70910-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -772,7 +776,7 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 178, computed from the ledger
 
-Every wing the ledger seals, largest first: 70905 theorems across 178 wings and 112 skills.
+Every wing the ledger seals, largest first: 70910 theorems across 178 wings and 112 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
@@ -843,6 +847,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The seven readings | `Readings.lean` | readings | 17 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) |
 | Self-discovered | `Discover.lean` | vortex | 16 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) |
 | The software-verifiable algebra | `Software.lean` | software | 16 | [`append_length_adds`](/theorem/append_length_adds) |
+| The energy domain | `Thermodynamics.lean` | thermodynamics | 16 | [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) |
 | Ported from millennium-solutions | `Vortex.lean` | z9-ring | 16 | [`doubling_circuit`](/theorem/doubling_circuit) |
 | The calendar | `Calendar.lean` | calendar | 15 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
 | The referrer song | `Referrer.lean` | referrer | 15 | [`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning) |
@@ -865,7 +870,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The depth of a walk, and the involution that shortens it | `Recursion.lean` | wave | 11 | [`blocked_walk_depth_is_bounded_by_twice_the_root_1_to_20`](/theorem/blocked_walk_depth_is_bounded_by_twice_the_root_1_to_20) |
 | The Platonic solids in every dimension | `Solids.lean` | solids | 11 | [`cube_octahedron_dual`](/theorem/cube_octahedron_dual) |
 | The song from the ledger | `Song.lean` | song | 11 | [`song_az_is_the_tuning`](/theorem/song_az_is_the_tuning) |
-| The energy domain | `Thermodynamics.lean` | thermodynamics | 11 | [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) |
 | The doctrines | `Doctrine.lean` | doctrine | 10 | [`compass_opposites_involute`](/theorem/compass_opposites_involute) |
 | Fermat's equation at a bounded window | `Fermat.lean` | fermat | 10 | [`cube_near_misses_are_the_taxicab_and_its_neighbour`](/theorem/cube_near_misses_are_the_taxicab_and_its_neighbour) |
 | The Glagolitic numerals & Pliska rosette | `Glagolitic.lean` | glagolitic | 10 | [`alphabetic_three_ranks`](/theorem/alphabetic_three_ranks) |
@@ -1243,12 +1247,12 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 5,811,076 | 6 | 968,512× | `theorems().length` |
-| what does the tree hold right now? | 5,831,663 | 225 | 25,918× | `npm run state` |
+| how many theorems are sealed? | 5,812,260 | 6 | 968,710× | `theorems().length` |
+| what does the tree hold right now? | 5,832,846 | 225 | 25,923× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 125,272 | 65 | 1,927× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 1,146,292 | 65 | 17,635× | `leads-gate + gate-receipt --verify` |
 
-Median ratio **25,918×**. Tokens are estimated at four bytes each — an approximation, and
+Median ratio **25,923×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
 A high number is not a good score. It is the cost of not knowing the door, and every one of those tokens is spent
 re-deriving something the tree already sealed.
@@ -1262,7 +1266,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,671 | 16 | 455,604× |
-| the sealed ledger | 23,244,307 | 16 | 1,452,769× |
+| the sealed ledger | 23,249,040 | 16 | 1,453,065× |
 | the leads record | 71,592 | 16 | 4,474× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

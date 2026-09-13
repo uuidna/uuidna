@@ -1,8 +1,8 @@
-# uuidna — 70,822 distinct theorems under 70,905 keys · 2 coins · one receipt
+# uuidna — 70,827 distinct theorems under 70,910 keys · 2 coins · one receipt
 
-`496a466a-1950-88f3-a883-f0e41921a61d`
+`5100ebe9-26f2-82b3-82da-2f29c306c3ae`
 
-**What every theorem carries, and what most do not.** proof · address hold for 70,905 of 70,905; **witness 16 of 70,905** (0.0%), **symbol 1224 of 70,905** (1.7%), **falsifier 70904 of 70,905** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · falsifier · address hold for 70,910 of 70,910; **witness 17 of 70,910** (0.0%), **symbol 1229 of 70,910** (1.7%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256708](https://doi.org/10.5281/zenodo.22256708)
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **70,905 theorems and 172,164,736 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **70,910 theorems and 172,164,795 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -236,7 +236,7 @@ Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent`
 Scope charter — sufficient / insufficient, world solutions as waves: [doctrine](https://uuidna.com/doctrine) (computational claims only; verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)).
 
 **Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
-Board: **70,822** distinct / **70,905** keys · **117** skills · **178** Lean files · receipt `6cc96f80-9a1d-81a4-9a66-541d091c5227`.
+Board: **70,827** distinct / **70,910** keys · **117** skills · **178** Lean files · receipt `44fdd42e-69d9-80af-a9fe-b4fe1d1f4a31`.
 Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [digit_polarities_partition_ten](https://uuidna.com/theorem/digit_polarities_partition_ten); [ve_pentads_overlap_to_eight](https://uuidna.com/theorem/ve_pentads_overlap_to_eight); [theorems_interact_as_faces](https://uuidna.com/theorem/theorems_interact_as_faces); [imagine_all_as_clique_faces](https://uuidna.com/theorem/imagine_all_as_clique_faces); [entanglement_completes_one_at_a_time](https://uuidna.com/theorem/entanglement_completes_one_at_a_time); [axes_stride_coprime](https://uuidna.com/theorem/axes_stride_coprime); [the_fused_ring_is_all_ones](https://uuidna.com/theorem/the_fused_ring_is_all_ones); [four_vectors_reach_the_uuid](https://uuidna.com/theorem/four_vectors_reach_the_uuid); [gap_is_a_count](https://uuidna.com/theorem/gap_is_a_count); [rounding_fee_closes_the_cube](https://uuidna.com/theorem/rounding_fee_closes_the_cube); [served_qubit_ceiling](https://uuidna.com/theorem/served_qubit_ceiling); [keplers_harmonic_law](https://uuidna.com/theorem/keplers_harmonic_law); [discovery_buys_coverage_never_supply](https://uuidna.com/theorem/discovery_buys_coverage_never_supply); [radial_equals_edge](https://uuidna.com/theorem/radial_equals_edge); [lanes_even_on_complete_system](https://uuidna.com/theorem/lanes_even_on_complete_system); [trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins); [trinity_edit_is_three](https://uuidna.com/theorem/trinity_edit_is_three); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
 Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
@@ -248,8 +248,8 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 70,822 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 70,905 | `theorems().length` |
+| Distinct theorems | 70,827 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 70,910 | `theorems().length` |
 | Principles / wings | 178 / 178 | PRINCIPLES + wing ratings |
 | Skills | 117 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
@@ -264,7 +264,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `d84566f1-cda8-8ee9-913a-97565f9e01e5` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,164,736 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,164,795 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -277,7 +277,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Quantum wing theorems | 58 | Quantum.lean |
 | Cipher wing theorems | 33 | Cipher.lean |
 | Research sources wired | 13 | cited for corroboration; approval stays with the source |
-| Conserved price paid | 141,810 coins | 70905 × 2 |
+| Conserved price paid | 141,820 coins | 70910 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);
   provenance compile 28,631 / 28,631 packages (100%)
@@ -302,7 +302,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,164,736** superpositions across **178** wings.
+The ledger covers **172,164,795** superpositions across **178** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -338,7 +338,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 | 10 | D-Wave Advantage2 (2024) | annealer | 4400 | 2^4400 (~10^1324) | — | — | 1 µs | reported | annealing-only: optimization sampling, not gate-model computation — a different machine class, named |
 | 11 | Xanadu Borealis (2022) | photonic (GBS) | 216 | 2^216 (~10^65) | — | — | — | reported | Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named |
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 70905 theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is `empty` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
+**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 70910 theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is `empty` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
 <!-- quantum-capacity:end -->
 
 ### What a handle spans
@@ -346,9 +346,9 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,164,736** superpositions decided across the ledger
-- **141,810** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
-- Floored coverage **1,214** superpositions per coin
+- **172,164,795** superpositions decided across the ledger
+- **141,820** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- Floored coverage **1,213** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the
 shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
