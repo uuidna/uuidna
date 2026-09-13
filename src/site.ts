@@ -53,7 +53,7 @@ export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
   ['Fuse it in', ['/school', '/missions', '/store', '/tools', '/terminal', '/sequence-field', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
   ['The captain', ['/captain', '/doctrine', '/succession', '/captain-claims']],
   ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/os', '/models', '/unlocks', '/changelog', '/prose-evidence', '/by-proof']],
-  ['The terms', ['/license', '/privacy', '/justice']],
+  ['The terms', ['/license', '/terms', '/privacy', '/justice']],
 ]
 
 /** Human labels for known routes — the readable text a slug alone doesn't carry. A route with no entry here still
@@ -70,7 +70,7 @@ const LABELS: Readonly<Record<string, string>> = {
   '/captain-claims': 'Captain claims', '/tests': 'The tests', '/analytics': 'Analytics', '/deploy': 'Deploy',
   '/os': 'The OS (default install)', '/models': 'Models (the token vs the unit)',
   '/unlocks': 'Unlocks (each theorem unlocks)',
-  '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/by-proof': 'By proof (second axis)', '/license': 'License', '/privacy': 'Privacy',
+  '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/by-proof': 'By proof (second axis)', '/license': 'License', '/terms': 'Terms', '/privacy': 'Privacy',
   '/justice': 'Justice',
 }
 const labelOf = (route: string): string => LABELS[route] ??

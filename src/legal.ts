@@ -9,9 +9,7 @@ import { runTrial } from './trial-run.js'
 import { toUuid, merkleFold } from './address.js'
 import { vocabulary } from './vocab.js'
 import { forensics } from './forensics.js'
-
-const LICENSE_LINE =
-  'CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at uuidna.com/license.'
+import { LICENSE_LINE } from './acceptance.js'
 
 export interface LegalFacts {
   disclaimer: string

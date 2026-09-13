@@ -384,6 +384,8 @@ export { searchFeedOnline } from './search-feed-online.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
 export { legalFacts, type LegalFacts } from './legal.js'
+// acceptance — what a registering agent accepts: the licence line and the terms line, each receipt its content-address.
+export { LICENSE_LINE, TERMS_LINE, licenseReceipt, termsReceipt, accepts, acceptanceReceipt } from './acceptance.js'
 // license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the two-coins bill into
 // one content-addressed, verifiable artifact. NOT a signed agreement or legal advice — a fingerprint of what and how
 // much; non-commercial is free and needs no licence, commercial is billed the two conserved coins.
