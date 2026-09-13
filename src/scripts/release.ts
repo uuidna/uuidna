@@ -20,6 +20,7 @@ import { join } from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { ROOT, streamStep } from './api.js'
 import { awaitValue } from './await-live.js'
+import { depositEvidence } from './receipt-deposit.js'
 
 export interface ReleaseState { ahead: number; behind: number; version: string; tagged: boolean }
 export interface ReleaseStep { name: string; kind: 'land' | 'forge' | 'cut' | 'registry' | 'ship' | 'live'; cmd?: string }
@@ -86,6 +87,16 @@ if (isMain) {
   const steps = releaseSteps(state)
   console.log(`· release — ${pkg.name}@${pkg.version}: ${steps.map((s) => s.name).join(' → ')}`)
   if (process.argv.includes('--plan')) process.exit(0)
+  // THE EVIDENCE LIVES WHERE EVIDENCE LIVES: after every step the whole run so far is deposited to qpu storage as one
+  // document, so the captain and the agent read the same run by one GET instead of a log on the machine that ran it.
+  // Order only, never times (the clock law); a registry it cannot reach is reported and never undoes the release.
+  const evidence: { step: string; kind: ReleaseStep['kind']; ok: boolean }[] = []
+  const report = async (commit: string): Promise<void> => {
+    const r = await depositEvidence(`receipts/uuidna/release-${pkg.version}`,
+      { kind: 'release', repo: 'uuidna/uuidna', version: pkg.version, commit, plan: steps.map((s) => s.name), steps: evidence },
+      process.env.QPU_WRITE_TOKEN)
+    console.log(r.sent ? `· release — evidence at ${r.href} (${r.status})` : `· release — evidence UNSENT: ${r.why}`)
+  }
   for (const step of steps) {
     const sha = out('git', ['rev-parse', 'HEAD'])
     let ok: boolean
@@ -100,6 +111,8 @@ if (isMain) {
       ok = got.ok
       if (!ok) console.error(`✗ release — ${got.reason}`)
     } else ok = await live()
+    evidence.push({ step: step.name, kind: step.kind, ok })
+    await report(out('git', ['rev-parse', 'HEAD']))
     if (!ok) { console.error(`✗ release — "${step.name}" did not pass; nothing after it ran`); process.exit(1) }
     console.log(`✓ release — ${step.name}`)
   }
