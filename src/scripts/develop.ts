@@ -58,6 +58,10 @@ const CURES: Cure[] = [
   { name: 'rosetta mirror stale', when: /hosted edge would answer from a stale census/,
     cmd: 'node dist/scripts/rosetta.js && npm run build',
     because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face— see NO_CURE' },
+  // BEFORE the axiom witness: a new theorem can be witnessed only once the served ledger names it.
+  { name: 'proved wings not yet served', when: /PROVED in lean\/ and absent from the served ledger|NOT witnessed by any wing/,
+    cmd: 'node dist/scripts/lean-ledger.js && npm run build',
+    because: 'the served ledger is generated from lean/, so a merge that brings proved wings, or changes a wing\'s statements, leaves src/theorems/generated.ts naming the previous set — the kernel-proved work is invisible to the site, the MCP tools and the publications, and entries the wings no longer state linger unwitnessed. The guard\'s own FIX is this regeneration and the rebuild that compiles it. Taught 2026-09-14, after a merge of seven waves stopped land here on exactly these two objections' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },

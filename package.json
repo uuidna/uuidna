@@ -166,7 +166,6 @@
     "prepublish-seal": "npm run build && node dist/scripts/prepublish-seal.js",
     "ship": "npm run build && node dist/scripts/deploy-run.js",
     "release-cut": "npm run build && node dist/scripts/release-cut.js",
-    "release": "npm run build && node dist/scripts/release.js",
     "cf:zone": "npm run build && node dist/scripts/cloudflare-zone.js",
     "all": "npm run build && node dist/scripts/all-run.js",
     "books": "npm run build && node dist/scripts/books-run.js",

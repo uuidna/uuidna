@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// Automate the Lean layer for FORENSICS — why a forged claim cannot pass by luck. src/forensics.ts catches a false trial
+// Automate the Lean layer for FORENSICS — the odds a forged claim faces: it passes only by landing on one of the ledger's
+// own addresses, and that chance is the sealed ratio below. src/forensics.ts catches a false trial
 // by recomputation: a cited key must be sealed, a framed address must be one of the ledger's addresses, a {text →
 // address} claim must recompute. AntiFraud.lean decides those detectors on small samples; this wing seals the ODDS a
 // forger faces against the ledger and the store AS THEY STAND, counted at generation and never typed: a guessed
@@ -12,6 +13,7 @@ import { THEOREMS } from '../theorems/index.js'
 import { forensics } from '../forensics.js'
 import { toUuid } from '../address.js'
 import { buildHandleRecords } from './gen-handle-store.js'
+import { bitsOf } from '../hexbit/index.js'
 
 // a v8 uuid spends 4 bits on the version and 2 on the variant; the rest are the address's own
 const UUID_BITS = 128, VERSION_BITS = 4, VARIANT_BITS = 2
@@ -26,10 +28,9 @@ if (notV8.length) throw new Error(`lean-forensics: ${notV8.length} sealed addres
 const ADDRS = ADDRESSES.size
 const LEAVES = buildHandleRecords().length
 
-/** bits needed to write n — the smallest b with n < 2^b, counted by doubling so no float is involved */
-const bitLength = (n: number): number => { let b = 0, p = 1; while (p <= n) { p *= 2; b++ } return b }
-const ADDR_ODDS = FREE_BITS - bitLength(ADDRS)          // a guess hits a sealed address with odds below 2^-ADDR_ODDS
-const HANDLE_ODDS = HANDLE_BITS - bitLength(LEAVES)     // a guess hits an occupied leaf with odds below 2^-HANDLE_ODDS
+// the smallest b with n < 2^b is the width of n + 1 states — the ledger's one bit-width, exact integers
+const ADDR_ODDS = FREE_BITS - bitsOf(ADDRS + 1)          // a guess hits a sealed address with odds below 2^-ADDR_ODDS
+const HANDLE_ODDS = HANDLE_BITS - bitsOf(LEAVES + 1)     // a guess hits an occupied leaf with odds below 2^-HANDLE_ODDS
 
 // the detector the odds protect, run for real: a framed address that is not sealed is flagged, a sealed one passes
 const FORGED = toUuid('lean-forensics: an address no theorem carries')

@@ -13,8 +13,8 @@
 // the registry serves the version. Waiting is bounded and never becomes a verdict: a forge still running after its
 // windows, or a registry still serving the old version, stops the release as UNMEASURED, by name.
 //
-//   npm run release            → every step, stopping at the first that fails
-//   npm run release -- --plan  → print the steps for this tree and run nothing
+//   npm run x -- release         → every step, stopping at the first that fails
+//   npm run x -- release --plan  → print the steps for this tree and run nothing
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { spawnSync } from 'node:child_process'
