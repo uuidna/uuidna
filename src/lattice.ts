@@ -95,6 +95,9 @@ export interface NamedCall {
   family: AxiomFamily
   file: string
   route: string
+  /** the capability axis and the derivation axis, carried from the ledger row so a station can say what it means */
+  skill: string
+  principle: string
 }
 
 export interface AxiomCall {
@@ -132,7 +135,31 @@ export interface LatticeCall {
   axioms: AxiomCall[]
   problems: ProblemCall[]
   solutions: SolutionCall[]
+  /** what this station means and what it is for, derived from the cargo, never authored */
+  meaning: StationMeaning
   honest: string
+}
+
+/** One door that acts on a station: the exact MCP call, its arguments, and what it does there. */
+export interface StationUse { door: string; args: Record<string, string>; why: string }
+
+/** SELF-DISCOVERY OF A STATION (the captain, 2026-09-13: "improve self discovery of any lattice position meaning and use
+ *  cases"; "a lot will get faster if executed from the lattice"). A station's meaning is the skills, principles and
+ *  wings of the theorems seated on it, counted; its use cases are the doors that act on that cargo. A vacant station
+ *  reads its meaning from the NEAREST station that seats theorems, named with its distance, so every one of the 2^16
+ *  answers and none is guessed. Everything is read from the index built once, so a call costs a map lookup and a short
+ *  outward walk, and the receipt folds all of it so anyone recomputes the same meaning. */
+export interface StationMeaning {
+  station: string
+  /** where the meaning was read: this station when it seats theorems, else the nearest one that does */
+  readFrom: string | null
+  distance: number | null
+  skills: { skill: string; theorems: number }[]
+  principles: string[]
+  wings: string[]
+  problems: string[]
+  uses: StationUse[]
+  receipt: string
 }
 
 export interface LatticeInvolution {
@@ -236,6 +263,7 @@ function index(): Index {
     if (isPagelessFile(t.file)) continue
     pushMap(theoremsByStation, stationOfAddress(t.address), {
       key: t.key, name: t.name, family: familyOf(t.statement), file: t.file, route: `/theorem/${t.key}`,
+      skill: t.skill, principle: t.principle,
     })
   }
   for (const [, list] of theoremsByStation) list.sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0))
@@ -295,7 +323,50 @@ function problemsAt(st: string, named: NamedCall[]): HumanProblem[] {
   return out
 }
 
-/** latticeCall(station) → identity, named cargo, axioms, human problems, then the solution involution. */
+/** nearestOccupied(station) → the station itself when it seats theorems, else the nearest that does, walking outward one
+ *  step each way (the lower index first on a tie), or null when the lattice seats nothing at all. */
+export function nearestOccupied(station: string): { station: string; distance: number } | null {
+  const ix = index()
+  const st = parseStation(station)
+  if (ix.theoremsByStation.has(st)) return { station: st, distance: 0 }
+  const i = stationIndex(st)
+  for (let d = 1; d < LATTICE_STATIONS; d++) {
+    for (const j of [i - d, i + d]) {
+      if (j < 0 || j >= LATTICE_STATIONS) continue
+      const h = hex4Of(j)
+      if (ix.theoremsByStation.has(h)) return { station: h, distance: d }
+    }
+  }
+  return null
+}
+
+function meaningOf(st: string, problems: HumanProblem[]): StationMeaning {
+  const ix = index()
+  const near = nearestOccupied(st)
+  const cargo = near ? ix.theoremsByStation.get(near.station)! : []
+  const count = new Map<string, number>()
+  for (const t of cargo) count.set(t.skill, (count.get(t.skill) ?? 0) + 1)
+  const skills = [...count.entries()]
+    .sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
+    .map(([skill, theorems]) => ({ skill, theorems }))
+  const principles = [...new Set(cargo.map((t) => t.principle))].sort()
+  const wings = [...new Set(cargo.map((t) => t.file))].sort()
+  const ids = problems.map((p) => p.id)
+  const uses: StationUse[] = [
+    ...cargo.map((t) => ({ door: 'uuidna_theorem', args: { key: t.key }, why: 'read the sealed proof seated here' })),
+    ...skills.flatMap(({ skill }) => [
+      { door: 'uuidna_skill', args: { skill }, why: 'open the capability this station carries' },
+      { door: 'uuidna_missions', args: { skill }, why: 'take the open work this skill prepares for' },
+    ]),
+    ...problems.map((p) => ({ door: 'uuidna_lattice', args: { station: stationOfProblem(p.id) }, why: `the station that calls ${p.name}` })),
+    { door: 'uuidna_lattice', args: { station: involuteStation(st) }, why: 'visit the mirror station' },
+  ]
+  const receipt = toUuid(['station-meaning', st, near?.station ?? '', String(near?.distance ?? ''),
+    ...skills.map((s) => `${s.skill}:${s.theorems}`), ...principles, ...wings, ...ids].join('|'))
+  return { station: st, readFrom: near?.station ?? null, distance: near?.distance ?? null, skills, principles, wings, problems: ids, uses, receipt }
+}
+
+/** latticeCall(station) → identity, named cargo, axioms, human problems, the solution involution, and its meaning. */
 export function latticeCall(station: string): LatticeCall {
   const st = parseStation(station)
   const ix = index()
@@ -310,6 +381,7 @@ export function latticeCall(station: string): LatticeCall {
     axioms,
     problems: problems.map(problemCall),
     solutions: problems.map(callSolutionInvolution),
+    meaning: meaningOf(st, problems),
     honest: CALL_HONEST,
   }
 }
