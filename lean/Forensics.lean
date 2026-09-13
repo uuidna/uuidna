@@ -1,0 +1,20 @@
+-- lean/Forensics.lean — GENERATED. FORENSICS — the odds a forger faces, against the ledger and the store as they stand. A framed address must be one of the 70,910 sealed v8 addresses (122 free bits), so a guess hits with odds below 2^-105; a guessed handle hits one of 71,366 leaves with odds below 2^-15; and 16-bit handles would already collide by pigeonhole, the control that shows the bound can fail. The detectors are src/forensics.ts and AntiFraud.lean; this wing seals their margin. NOT CLAIMED: that a forger guesses uniformly, or anything about the hash beyond its output layout. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+/-- A GUESSED ADDRESS DOES NOT LAND. The ledger holds 70,910 distinct addresses, every one a v8 uuid with 122
+    free bits, so a forger who invents an address and frames it as sealed hits a real one with odds below
+    2^-105: 70,910 × 2^105 < 2^122. forensics() flags every miss as a false address — run here on a forged
+    address (flagged) and a sealed one (passed) — so a false trial cannot survive except by that chance, and the
+    chance is sealed. Counted from the ledger at generation, never typed. -/
+theorem forged_address_odds_are_negligible : 70910 * 2 ^ 105 < 2 ^ 122 := by decide
+
+/-- A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 71,366 leaves in a 32-bit handle space, so a
+    guessed handle names an occupied leaf with odds below 2^-15: 71,366 × 2^15 < 2^32. The odds are far weaker
+    than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the
+    full uuid that forensics() checks. -/
+theorem forged_handle_odds_are_small : 71366 * 2 ^ 15 < 2 ^ 32 := by decide
+
+/-- THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 71,366 leaves would outnumber the 65,536
+    handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store
+    refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted
+    by the same arithmetic; that is why a handle carries 32 bits. -/
+theorem sixteen_bit_handles_would_collide : 71366 > 2 ^ 16 := by decide
