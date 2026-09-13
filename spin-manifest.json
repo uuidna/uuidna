@@ -9,12 +9,12 @@
     "support-audit.json": "898c13ede04084bf",
     "research-leads.json": "36adb7a0842e85b2",
     ".zenodo.json": "52b9e9b1515381fb",
-    "reports.json": "fd4035322acd8ecc",
+    "reports.json": "60ac21f9a61e838a",
     "lean/statement-index.json": "6fc798021f168ec9",
     "README.md": "3009f12552bf8adc",
     "llm.txt": "219165d7ba2185ca",
-    "src/chunks": "9c8eecd4a44e8e19",
-    "lean": "bfe8b3abdeb789f7"
+    "src/chunks": "1bf832cba2f788fc",
+    "lean": "e947a8c7c5958e13"
   },
-  "receipt": "00ee3928-bc27-8ef1-9c25-df11f59d33ee"
+  "receipt": "52a4153b-fd74-8d97-a8aa-78541a688ad0"
 }
