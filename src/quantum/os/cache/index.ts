@@ -23,7 +23,10 @@ const cat = (...parts: Uint8Array[]): Uint8Array => {
 const digestPaths = (): string => {
   const enc = new TextEncoder()
   const parts: Uint8Array[] = []
-  for (const rel of [CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE]) {
+  // THE KEY IS THE INPUT, AND THE CODE IS AN INPUT (2026-09-13). The same three mirrors once served a stale remainder
+  // while a fresh fold of them differed: the classification had changed and this key had not, so an old fold passed
+  // as current. The sources that decide the fold are digested beside the data, as lead 144 settled for audit-citations.
+  for (const rel of [CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, 'src/quantum/os/patime/index.ts', 'src/quantum/os/catalogue/index.ts']) {
     parts.push(enc.encode(rel))
     parts.push(onHost() && existsRoot(rel) ? enc.encode(rdRoot(rel)) : new Uint8Array(0))
   }

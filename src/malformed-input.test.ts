@@ -8,7 +8,7 @@ import { callTool } from './mcp.js'
 
 test('uuidna_verify_envelope refuses an empty envelope and names every missing field', () => {
   assert.throws(() => callTool('uuidna_verify_envelope', { sealed: {} }), /crypt: envelope missing field\(s\): alg, salt, nonce, ct, tag, address/)
-  assert.throws(() => callTool('uuidna_verify_envelope', { sealed: 'not an object' }), /envelope must be the/)
+  assert.throws(() => callTool('uuidna_verify_envelope', { sealed: 'not an object' }), /argument sealed must be object/)   // the tool's own schema refuses, in its own words
 })
 
 test('uuidna_document refuses a state with no root and says what shape it wanted', () => {

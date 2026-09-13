@@ -39,7 +39,10 @@ test('an EMPTY manifest refuses, rather than agreeing with everything', () => {
 
 test('a DIRECTORY entry seals every file beneath it', () => {
   const m = sealSpin({ 'src/chunks/7a/97c585.json': '{}', 'src/chunks/01/263a62.json': '{}', 'unrelated.txt': 'x' })
-  assert.deepEqual(Object.keys(m.coins).sort(), ['src/chunks/01/263a62.json', 'src/chunks/7a/97c585.json'])
+  // ONE COIN FOR THE DIRECTORY (2026-09-13): the entry is sealed as one fold over every file beneath it. The law this
+  // test exists for is tamper detection, so a change to EITHER file beneath the entry must fail verification.
+  assert.deepEqual(Object.keys(m.coins), ['src/chunks'])
+  assert.equal(verifySpin(m, { 'src/chunks/7a/97c585.json': '{}', 'src/chunks/01/263a62.json': 'TAMPERED' }).ok, false)
   assert.equal(verifySpin(m, { 'src/chunks/7a/97c585.json': 'TAMPERED', 'src/chunks/01/263a62.json': '{}' }).ok, false)
 })
 

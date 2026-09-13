@@ -1532,8 +1532,9 @@ export function dormantGaps(): Gap[] {
   const gaps: Gap[] = []
   const dir = join(ROOT, 'src/scripts')
   // the corpus a script can be NAMED in: npm scripts, workflows, git hooks, and any source that spawns it
-  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
-  let corpus = Object.values(pkg.scripts).join(' ')
+  // a published command (package.json bin, run through npx) is an entry point as surely as an npm script is
+  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string>; bin?: Record<string, string> }
+  let corpus = [...Object.values(pkg.scripts), ...Object.values(pkg.bin ?? {})].join(' ')
   for (const d of ['.github/workflows', 'hooks']) {
     const p = join(ROOT, d)
     if (!existsSync(p)) continue

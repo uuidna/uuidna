@@ -705,7 +705,7 @@ const TOOLS: Tool[] = ([
     run: ({ d }) => throughVoid(Number(d)) },
   { name: 'uuidna_run_sequence',
     description: 'Walk ANY input through the ℤ/9 executor — dz and doubling alternated, period and polarity measured (ten-digit domain: 9 is plus, not void). Returns {input,seed,reflection,polarity,orbit,visited,period,covers,...}.',
-    inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'number or text to fold' }, steps: { type: 'number', description: 'max alternation steps (default 18)' } }, required: ['input'] },
+    inputSchema: { type: 'object', properties: { input: { type: ['number', 'string'], description: 'number or text to fold' }, steps: { type: 'number', description: 'max alternation steps (default 18)' } }, required: ['input'] },
     run: (a) => {
       const raw = a.input ?? ''
       const input = typeof raw === 'number' ? raw : String(raw)
@@ -2134,17 +2134,20 @@ export function argsGateOf(name: string, schema: unknown, args: Record<string, u
   }
   const props = s.properties ?? {}
   for (const [key, value] of Object.entries(args)) {
-    const want = props[key]?.type
-    if (typeof want !== 'string' || value === undefined || value === null) continue
+    // A TYPE MAY BE A LIST, as JSON Schema allows (2026-09-13). A list used to skip validation entirely, so a tool
+    // whose input is honestly "number or text" had to declare one of them and refuse the other.
+    const declared: unknown = props[key]?.type
+    const wants = typeof declared === 'string' ? [declared] : Array.isArray(declared) ? declared.filter((w): w is string => typeof w === 'string') : []
+    if (!wants.length || value === undefined || value === null) continue
     const got = Array.isArray(value) ? 'array' : typeof value
-    const ok =
+    const fits = (want: string): boolean =>
       (want === 'integer' && typeof value === 'number' && Number.isInteger(value)) ||
       (want === 'number' && typeof value === 'number') ||
       (want === 'string' && got === 'string') ||
       (want === 'boolean' && got === 'boolean') ||
       (want === 'array' && got === 'array') ||
       (want === 'object' && got === 'object')
-    if (!ok) throw new Error(`${name}: argument ${key} must be ${want} (the tool's own schema declares it) — got ${got}; nothing was computed`)
+    if (!wants.some(fits)) throw new Error(`${name}: argument ${key} must be ${wants.join(' or ')} (the tool's own schema declares it) — got ${got}; nothing was computed`)
   }
 }
 export function callTool(name: string, args: Record<string, unknown> = {}): unknown {
