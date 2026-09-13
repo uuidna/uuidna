@@ -29,7 +29,7 @@ import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { importAbs } from './import-abs.js'
-import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listTracked, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, LFS_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listTracked, type Gap } from './api.js'
 import { isTestSource, sourceGraph } from '../test-paths.js'
 import { tautologicalAsserts } from '../assert-tautology.js'
 import { UNDERCLAIM_FLOOR, claimBalanceOf } from '../underreach.js'
@@ -731,8 +731,13 @@ export function blocksGaps(): Gap[] {
   const richPath = join(ROOT, 'src', 'seeds', 'payload-sync.json')
   const blocksPath = join(ROOT, 'src', 'seeds', 'payload-sync-blocks.json')
   if (!existsSync(richPath) || !existsSync(blocksPath)) return gaps
-  const rich = JSON.parse(fileText(richPath)) as { docs: { slug: string; parent: string | null; uuidnaAddress: string }[] }
-  const blocksFile = JSON.parse(fileText(blocksPath)) as { docs: { layout: { slug: string; uuidnaAddress: string }[] }[] }
+  // Both files are Git LFS objects (each over GitHub's 100 MB file limit). A checkout that did not fetch LFS content
+  // (every CI job, by choice: the pair is 230 MB per checkout) holds the spec's pointer instead, so there is no seed
+  // to check here, exactly as when the export was never generated; a checkout with the content still checks it.
+  const richText = fileText(richPath), blocksText = fileText(blocksPath)
+  if ([richText, blocksText].some((t) => t.startsWith('version https://git-lfs.github.com/spec/v1'))) return gaps
+  const rich = JSON.parse(richText) as { docs: { slug: string; parent: string | null; uuidnaAddress: string }[] }
+  const blocksFile = JSON.parse(blocksText) as { docs: { layout: { slug: string; uuidnaAddress: string }[] }[] }
   const blocks = blocksFile.docs.flatMap((d) => d.layout)
 
   const seen = new Map<string, string>()
@@ -750,6 +755,40 @@ export function blocksGaps(): Gap[] {
   }
   return gaps
 }
+
+// ── lfs: NO TRACKED FILE MAY REACH GITHUB'S 100 MiB LIMIT OUTSIDE GIT LFS. GitHub refuses a push holding such a blob
+// in ANY of its commits, so a file that crosses the line on one day is found only at the next push — six days and 86
+// commits later, the first time — and every commit since must then be rewritten. This reads the INDEX, so a staged
+// file is refused before it is ever committed. An LFS path's index entry is the spec's pointer (about 130 bytes); one
+// stored at full size means a clone without git-lfs committed the content raw, and the next push would be refused.
+export const GITHUB_FILE_LIMIT = 100 * 1024 * 1024
+export const LFS_POINTER_MAX = 1024
+export function lfsGapsOf(rows: readonly { size: number; path: string }[], lfs: readonly string[], limit = GITHUB_FILE_LIMIT, pointerMax = LFS_POINTER_MAX): Gap[] {
+  const gaps: Gap[] = []
+  const carried = new Set(lfs)
+  for (const r of rows) {
+    if (carried.has(r.path)) {
+      if (r.size > pointerMax) gaps.push({ what: `${r.path} is declared in LFS_PATHS but staged raw at ${r.size} bytes — the LFS filter did not run, and GitHub refuses the push once it passes ${limit} bytes`, fix: `git lfs install --local --skip-repo && git add --renormalize ${r.path}` })
+    } else if (r.size >= limit) {
+      gaps.push({ what: `${r.path} is ${r.size} bytes, at or over GitHub's ${limit}-byte file limit, and not in Git LFS — every push holding it is refused`, fix: `shrink or shard what writes it, or add it to LFS_PATHS in src/scripts/api.ts (metered storage), then npm run x -- gen-gitattributes && git add --renormalize ${r.path}` })
+    }
+  }
+  return gaps
+}
+// the index listing, read once per process: the finder and its threshold sweep ask the same question of it
+let _lfsRows: { size: number; path: string }[] | string | null = null
+const lfsRows = (): { size: number; path: string }[] | string => {
+  if (_lfsRows !== null) return _lfsRows
+  const r = spawnSync('git', ['ls-files', '-z', '--format=%(objectsize) %(path)'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28 })
+  return (_lfsRows = r.status !== 0 ? `git ls-files could not list the index: ${(r.stderr || '').trim().slice(0, 120)}`
+    : r.stdout.split('\0').filter(Boolean).map((l) => { const i = l.indexOf(' '); return { size: Number(l.slice(0, i)), path: l.slice(i + 1) } }))
+}
+export function lfsGaps(): Gap[] {
+  const rows = lfsRows()
+  if (typeof rows === 'string') return [{ what: rows, fix: 'run inside the git working tree, with git on PATH' }]
+  return lfsGapsOf(rows, LFS_PATHS)
+}
+const lfsReportsAt = (limit: number, pointerMax: number): number => { const rows = lfsRows(); return typeof rows === 'string' ? 1 : lfsGapsOf(rows, LFS_PATHS, limit, pointerMax).length }
 
 // ── frozen: A FACT MUST COMPUTE IN AT LEAST ONE DIMENSION. Its first draft read only the ledger and convicted two
 // innocents: two purged Clay keys looked like closed arithmetic (`15 - 15 = 0`) but their
@@ -1409,6 +1448,18 @@ export const SWEPT_THRESHOLDS = (): SweptThreshold[] => [
     name: 'LANE_FLOOR', where: 'src/scripts/one-receipt.ts', kind: 'ratchet', live: LANE_FLOOR,
     reportsAt: (v) => (lanesReferenced() < v ? 1 : 0),
     span: around(LANE_FLOOR, 3, 12),
+  },
+  {
+    name: 'GITHUB_FILE_LIMIT', where: 'src/scripts/one-receipt.ts', kind: 'exemption', live: GITHUB_FILE_LIMIT,
+    // what the lfs finder would report at each limit: a lower one names files GitHub accepts (feed.json is 87.7 MB)
+    reportsAt: (v) => lfsReportsAt(v, LFS_POINTER_MAX),
+    span: around(GITHUB_FILE_LIMIT, 24, 24),
+  },
+  {
+    name: 'LFS_POINTER_MAX', where: 'src/scripts/one-receipt.ts', kind: 'exemption', live: LFS_POINTER_MAX,
+    // what it would report at each pointer bound: the spec's pointers are about 130 bytes, raw seeds over 100 MB
+    reportsAt: (v) => lfsReportsAt(GITHUB_FILE_LIMIT, v),
+    span: around(LFS_POINTER_MAX, 24, 24),
   },
 ]
 

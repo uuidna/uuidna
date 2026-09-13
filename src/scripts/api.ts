@@ -441,6 +441,15 @@ export function streamStep(label: string, cmd: string, cwd: string = ROOT): Prom
   })
 }
 
+/** THE FILES GIT LFS CARRIES. GitHub refuses any push holding a blob over 100 MiB, whatever commit it sits in, and
+ *  src/seeds/payload-sync.json reached 108 MB: main went unpushable for six days before a push said so. Each path
+ *  here is a declared decision (LFS storage and bandwidth are metered); gen-gitattributes emits its filter line, and
+ *  the guard's lfs finder refuses any other tracked file at or over the limit, so the list cannot lag the tree. */
+export const LFS_PATHS: readonly string[] = [
+  'src/seeds/payload-sync.json',
+  'src/seeds/payload-sync-blocks.json',
+]
+
 /** THE DRAIN'S OWN PATHS — every artifact the unattended drain REGENERATES, and nothing else. The seal and reconcile
  *  used `git add -A`, which on a shared tree sweeps a sibling session's in-flight SOURCE edits into a commit whose
  *  message describes something else: four times in one day work landed under a title about unrelated work, and in this

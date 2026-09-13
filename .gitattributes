@@ -96,6 +96,7 @@ src/quantum/models/mirror.ts merge=derived
 docs/doctrine.md merge=derived
 src/chunks/** merge=derived
 src/handles/** merge=derived
+
 # ── THE RECORDS UNDER A DIRECTORY ENTRY THAT ARE NOT DERIVED (2026-08-25) ────────────────────────────────────
 # A DRAIN_PATHS entry with no dot becomes a DIRECTORY glob above — 'lean' becomes lean/**. That is right for the
 # WINGS: every .lean file there is written by its generator, so both sides of a conflict are correct outputs and
@@ -108,6 +109,7 @@ src/handles/** merge=derived
 # manifest. One checkout held 462 accepted deposits where origin held 53, and the wings regenerate from a queue
 # that no longer names them, so src/firewall, src/knowledge and src/resonance are zero files on origin and
 # thirteen sealed theorems went with them. Partial, which is why it went unnoticed: whichever side won lived.
+#
 # UNSET, NOT RE-CLASSIFIED, and NOT removed from DRAIN_PATHS — the staging behaviour reconcile depends on is a
 # separate question from whether a merge may discard a side. `!merge` restores the ordinary three-way merge, so
 # a real conflict here produces CONFLICT MARKERS an author resolves. A visible conflict is recoverable; a silent
@@ -119,5 +121,8 @@ lean/dormant-scripts.json !merge
 lean/mcp-context-budget.json !merge
 lean/tool-exercise-baseline.json !merge
 .gitattributes !merge
+
+# ── THE FILES GIT LFS CARRIES (LFS_PATHS) — last, so their merge=lfs overrides merge=derived above ─────────────
+# GitHub refuses any push holding a blob over 100 MiB. Enable once per clone: git lfs install --local --skip-repo
 src/seeds/payload-sync.json filter=lfs diff=lfs merge=lfs -text
 src/seeds/payload-sync-blocks.json filter=lfs diff=lfs merge=lfs -text

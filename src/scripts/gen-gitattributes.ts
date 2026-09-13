@@ -12,7 +12,7 @@
 // The driver is one-time local config (git does not commit it): `npm run setup:git`.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { DRAIN_PATHS, ROOT } from './api.js'
+import { DRAIN_PATHS, LFS_PATHS, ROOT } from './api.js'
 
 /** Paths a DIRECTORY entry in DRAIN_PATHS sweeps up that NOTHING regenerates — each one authored or deposited,
  *  so a merge that silently keeps one side loses work no recomputation can restore. Declared here rather than
@@ -70,6 +70,10 @@ ${DRAIN_PATHS.map((p) => `${p.endsWith('/') || !p.includes('.') ? p + '/**' : p}
 # a real conflict here produces CONFLICT MARKERS an author resolves. A visible conflict is recoverable; a silent
 # discard is not.
 ${NOT_DERIVED.map((p) => `${p} !merge`).join('\n')}
+
+# ── THE FILES GIT LFS CARRIES (LFS_PATHS) — last, so their merge=lfs overrides merge=derived above ─────────────
+# GitHub refuses any push holding a blob over 100 MiB. Enable once per clone: git lfs install --local --skip-repo
+${LFS_PATHS.map((p) => `${p} filter=lfs diff=lfs merge=lfs -text`).join('\n')}
 `
 writeFileSync(join(ROOT, '.gitattributes'), body)
 console.log(`✓ gen-gitattributes — ${DRAIN_PATHS.length} derived paths marked unmergeable (merge=derived); enable with \`npm run setup:git\``)

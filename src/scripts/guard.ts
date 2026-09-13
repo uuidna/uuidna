@@ -40,7 +40,7 @@ import { capacity } from '../os/host/index.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
 
 // ── --quiet: PRINT WHAT THE CALLER ACTS ON, NOTHING ELSE. A clean run prints 6607 bytes and every caller in
 // practice pipes it through a grep for failures and the verdict — this session did exactly that on eight
@@ -213,6 +213,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'vacuous', run: () => vacuousGaps() },
   // AND THE SAME RULE OVER THE SUITE: an assertion comparing an expression to itself is a decoration (lead 236)
   { name: 'tautology', run: () => tautologyGaps() },
+  { name: 'lfs', run: () => lfsGaps() },
   // A CITED KEY IS A PUBLISHED CONTRACT: a rename that leaves the ledger green still turns every citation into a
   // fabricated one. Compares the committed ledger to the live one and names any departed key still cited.
   { name: 'citations', run: () => citationsGaps() },

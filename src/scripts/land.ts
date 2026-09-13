@@ -52,7 +52,8 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
     cmd: 'node dist/scripts/guard.js && node dist/scripts/test-plan.js && node dist/scripts/gate-receipt.js --verified guard,tests' },
   { name: 'raced edge mirror', when: /stale census|MIRROR.*MATCHES A LIVE RECOMPUTE/i, cmd: 'node dist/scripts/rosetta.js && npm run build' },
   { name: 'stale axiom witness', when: /AXIOM WITNESS STALE/, cmd: 'npm run axioms' },
-  { name: 'stale spin seal', when: /spin/i, cmd: 'node dist/scripts/reconcile.js --derive-only' },
+  // spin's own verdict, not the word: /spin/i matched GitHub's large-file refusal and ran a cure that cannot help
+  { name: 'stale spin seal', when: /spin --verify|NON-QUANTUM DRIFT/, cmd: 'node dist/scripts/reconcile.js --derive-only' },
   { name: 'stale derived layer', when: /STALE DERIVED LAYER|git-diff of generated/, cmd: 'node dist/scripts/reconcile.js --derive-only' },
 ]
 
@@ -247,10 +248,13 @@ for (let round = 1; round <= ROUNDS; round++) {
   // the loop knew which files had moved, said the cure's name, and threw the answer away. That is the same shape
   // this tree already names elsewhere — a gate that knows the finding and prints something else makes the next
   // hand re-run it to learn the accusation. A cure is not a reason to stop reporting.
+  // ERRORS FIRST: GitHub's refusal of a 108 MB blob arrived after eleven size warnings, and a cap of twelve lines
+  // kept the warnings and cut the one line that said why the push failed.
   const denial = push.out.split('\n').filter((l) => /^(✗|GAP|FIX|CHANGED|APPEARED|VANISHED|MOVED|!|remote:|error:|hint:)/.test(l.trim()))
+  const isError = (l: string): boolean => /^(✗|GAP|FIX|!|error:|remote: error:)/.test(l.trim())
   if (denial.length) {
     console.error('  land — the gate said, verbatim:')
-    for (const l of denial.slice(0, 12)) console.error(`    ${l.trim()}`)
+    for (const l of [...denial.filter(isError), ...denial.filter((l) => !isError(l))].slice(0, 12)) console.error(`    ${l.trim()}`)
   }
   const cure = CURES.find((c) => c.when.test(push.out))
   if (!cure) {

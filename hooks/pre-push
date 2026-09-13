@@ -10,6 +10,11 @@
 # and the daily court does NOT carry the receipt arm, so a push fused by a daily run is greener than it proves.
 # It is narrow (the variable must be exported into git's own environment) and it predates this change — but it is
 # the one hole left in "no push unless all green", and it belongs in the open.
+# GIT LFS carries src/seeds/payload-sync.json and payload-sync-blocks.json, each over GitHub's 100 MB file limit.
+# Their objects must upload on EVERY push this hook lets through, the fused one below included, or GitHub refuses
+# pointers to objects it never received — so the documented LFS step runs first, before any exit.
+command -v git-lfs >/dev/null 2>&1 || { printf >&2 "\n%s\n\n" "This repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting the 'pre-push' file in the hooks directory (set by 'core.hookspath'; usually '.git/hooks')."; exit 2; }
+git lfs pre-push "$@" || exit $?
 if [ -n "$UUIDNA_OS_MCP" ]; then
   echo "pre-push: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
   exit 0
