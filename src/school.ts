@@ -29,6 +29,7 @@
 const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
 import { theorems } from './theorems/index.js'
 import { toUuid, merge } from './address.js'
+import { rdRoot } from './boundary.js'
 import { merkleGravity } from './gravity/index.js'
 import { schoolLabs, type SchoolLabs } from './school/laboratory/index.js'
 import { schoolAdvantageMcpExamples } from './school/advantage/index.js'
@@ -84,7 +85,10 @@ export type KernelCosts = { ok: true; costs: Record<string, number> } | { ok: fa
 export function kernelCosts(): KernelCosts {
   let raw: string
   try {
-    raw = fsm().readFileSync(new URL('../lean/heartbeats.json', import.meta.url), 'utf8') as unknown as string
+    // THE BOUNDARY OWNS THE READ (2026-09-13). `new URL(literal, import.meta.url)` is the pattern bundlers resolve as a
+    // static asset at build time, so a consumer bundling this package (Payload's Next build) failed on a file the package
+    // does not ship. rdRoot reads the same repo-relative path, and the catch below still turns absence into a reason.
+    raw = rdRoot('lean/heartbeats.json')
   } catch {
     return { ok: false, reason: 'lean/heartbeats.json could not be read in this runtime — an edge worker has no filesystem, so the kernel measure is unavailable here rather than absent from the ledger' }
   }
@@ -488,7 +492,7 @@ const runtimeDeps = (): number => Object.keys((manifest().dependencies as Record
 /** Releases ARE the calendar. Each is a dated event with a receipt; I wrote "no dates" rather than read them. */
 const releases = (): string[] => {
   try {
-    const md = fsm().readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8')
+    const md = rdRoot('CHANGELOG.md')
     return [...md.matchAll(/^##\s*\[?(\d+\.\d+\.\d+)\]?\s*[-–—]?\s*(\d{4}-\d{2}-\d{2})?/gm)]
       .map((m) => m[2] ? `${m[1]} — ${m[2]}` : m[1])
   } catch { return [] }
