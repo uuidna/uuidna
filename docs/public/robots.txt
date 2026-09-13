@@ -8,7 +8,7 @@
 # content is licensed CC BY-NC-ND 4.0 (https://uuidna.com/license), and training a model makes a derivative.
 
 User-agent: *
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
 # Named, so no crawler has to infer its welcome from the wildcard.
@@ -27,7 +27,7 @@ User-agent: meta-externalagent
 User-agent: CCBot
 User-agent: Bytespider
 User-agent: CloudflareBrowserRenderingCrawler
-Content-Signal: search=yes, ai-input=yes, ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
 Sitemap: https://uuidna.com/sitemap.xml

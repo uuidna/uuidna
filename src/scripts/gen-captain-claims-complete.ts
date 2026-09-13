@@ -31,6 +31,7 @@ const principleCategories: Record<string, string> = {
   'The 8×8 core': 'Algebra',
   'The ring ℤ/9': 'Algebra',
   'The Glagolitic numerals & Pliska rosette': 'Algebra',
+  'The arithmetic of scripture': 'Algebra',
   'The vortex algebra': 'Algebra',
   'The sequence & reflection group': 'Algebra',
   'The hardware-verifiable binary algebra': 'Algebra',
