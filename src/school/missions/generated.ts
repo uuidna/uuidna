@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "140b037b9bd5d343",
+ "digest": "ee4a80b5f08b50d3",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -1039,6 +1039,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "entropy_never_decreases",
    "wing": "Thermodynamics.lean",
    "verdict": "survived-widening"
+  },
+  {
+   "key": "zero_point_is_half_a_quantum",
+   "wing": "Thermodynamics.lean",
+   "verdict": "load-bearing"
   },
   {
    "key": "the_congruence_form_is_the_modulus_form",

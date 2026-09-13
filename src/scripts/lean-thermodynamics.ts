@@ -94,6 +94,64 @@ const FACTS = [
     // would compare rounded values and agree with Lean by luck rather than by value.
     js: () => 100000000n * 287097813n < 100000000000000000000000000000000n,
     lean: 'theorem hardware_above_landauer : 100000000 * 287097813 < 100000000000000000000000000000000 := by decide' },
+
+  // ── WHAT COMPUTING NEAR THE ZERO POINT COSTS (the captain, 2026-09-13: "computing at zero point ... no temperature
+  // payload to pay"). The ledger held the floor at one temperature and nothing about cooling, the ground state or the
+  // battery. Each row below is DERIVED from chosen inputs by the formula the statement then checks, so a table typed
+  // to pass would fail it; every chain of inequalities is emitted from the computed values, never written.
+  { key: 'landauer_floor_falls_with_temperature',
+    why: 'COLDER ERASURE COSTS LESS, AND NEVER NOTHING. Landauer\'s floor is kT·ln2, linear in T: with k exact (1380649×10⁻²⁹ J/K per unit) and ln2 as 693147/1000000, the floor for one erased bit at 300, 30, 3 and 1 kelvin is computed row by row, each row checked against the formula, the chain strictly falling as T falls, and the last row still strictly positive. So running cold lowers the minimum per erased bit toward zero, which is the real content of "no temperature payload", and at every T above absolute zero the floor stays above zero (absolute_zero_and_kelvin).',
+    ...(() => {
+      const rows = [300, 30, 3, 1].map((t) => [t, (1380649n * BigInt(t) * 693147n) / 1000000n] as const)
+      const chain = rows.slice(1).map((r, i) => `${r[1]} < ${rows[i]![1]}`).join(' ∧ ')
+      return {
+        js: () => rows.every(([t, f]) => f === (1380649n * BigInt(t) * 693147n) / 1000000n) && rows.every(([, f], i) => i === 0 || f < rows[i - 1]![1]) && 0n < rows[rows.length - 1]![1],
+        lean: `theorem landauer_floor_falls_with_temperature : [${rows.map(([t, f]) => `(${t},${f})`).join(',')}].all (fun r => r.2 = 1380649 * r.1 * 693147 / 1000000) ∧ ${chain} ∧ 0 < ${rows[rows.length - 1]![1]} := by decide`,
+      }
+    })() },
+
+  { key: 'cooling_cost_rises_toward_zero',
+    why: 'THE BILL MOVES TO THE REFRIGERATOR, AND GROWS WITHOUT BOUND TOWARD ZERO. Pumping heat out at a cold temperature Tc into a room at Th takes at least (Th − Tc)/Tc units of work per unit of heat removed, the Carnot bound for a refrigerator. In millikelvin with a 300 K room (Th = 300000), the minimum work per unit of heat at Tc = 150 K, 30 K, 3 K, 1 K, 100 mK and 10 mK is computed row by row, each row checked against that formula, and the chain strictly rises as Tc falls: about thirty thousand units of work per unit of heat at 10 mK, where real quantum processors run. Tc stays above zero in every row (carnot_efficiency_below_one), so the zero point is approached at a rising cost and reached at none.',
+    ...(() => {
+      const th = 300000
+      const rows = [150000, 30000, 3000, 1000, 100, 10].map((tc) => [tc, (th - tc - ((th - tc) % tc)) / tc] as const)
+      const chain = rows.slice(1).map((r, i) => `${rows[i]![1]} < ${r[1]}`).join(' ∧ ')
+      return {
+        js: () => rows.every(([tc, w]) => w === (th - tc - ((th - tc) % tc)) / tc) && rows.every(([, w], i) => i === 0 || rows[i - 1]![1] < w) && rows.every(([tc]) => 0 < tc),
+        lean: `theorem cooling_cost_rises_toward_zero : [${rows.map(([tc, w]) => `(${tc},${w})`).join(',')}].all (fun r => r.2 = (${th} - r.1) / r.1 ∧ 0 < r.1) ∧ ${chain} := by decide`,
+      }
+    })() },
+
+  { key: 'zero_point_is_half_a_quantum',
+    why: 'THE GROUND STATE KEEPS HALF A QUANTUM. A quantum oscillator\'s levels are (n + 1/2)·ħω; counted in half-quanta they are 2n + 1, so the first ten levels are computed as 1, 3, 5 … 19, every gap between neighbours is exactly one whole quantum (two half-quanta), and the lowest level is 1, strictly above zero. The zero point is the least energy the system can have, and it is not zero: this arithmetic fixes that the floor exists and is positive, and what may or may not be drawn from it is outside what these integers decide.',
+    ...(() => {
+      const levels = Array.from({ length: 10 }, (_, n) => 2 * n + 1)
+      return {
+        js: () => levels.every((e, n) => e === 2 * n + 1) && levels.every((e, n) => n === 0 || e - levels[n - 1]! === 2) && 0 < levels[0]!,
+        lean: `theorem zero_point_is_half_a_quantum : (List.range 10).map (fun n => 2 * n + 1) = [${levels.join(',')}] ∧ 0 < 2 * 0 + 1 := by decide`,
+      }
+    })() },
+
+  { key: 'steady_temperature_hides_power',
+    why: 'A STEADY TEMPERATURE DOES NOT MEASURE THE BILL. At steady state the temperature rise is the power divided by how fast heat is carried away, ΔT = P/G. Doubling the power twice (10, 20, 40 W) while the cooling doubles with it (G = 1, 2, 4 W per degree) holds the rise at the same 10 degrees in every row, computed and checked, while the power strictly climbs. So a chip that stays at one temperature can be spending twice or four times the energy: the reading that measures cost is power, and temperature is its companion (specific_heat_linear, first_law_conservation).',
+    ...(() => {
+      const rows = [[10, 1], [20, 2], [40, 4]].map(([p, g]) => [p!, g!, p! / g!] as const)
+      const chain = rows.slice(1).map((r, i) => `${rows[i]![0]} < ${r[0]}`).join(' ∧ ')
+      return {
+        js: () => rows.every(([p, g, dt]) => p === g * dt) && rows.every(([, , dt]) => dt === rows[0]![2]) && rows.every(([p], i) => i === 0 || rows[i - 1]![0] < p),
+        lean: `theorem steady_temperature_hides_power : [${rows.map(([p, g, dt]) => `((${p},${g}),${dt})`).join(',')}].all (fun r => r.1.1 = r.1.2 * r.2 ∧ r.2 = ${rows[0]![2]}) ∧ ${chain} := by decide`,
+      }
+    })() },
+
+  { key: 'electrical_energy_is_volt_amp_second',
+    why: 'THE BATTERY\'S BILL IS VOLTS × AMPS × SECONDS. Energy drawn is E = V·I·t: at 12 V and 2 A, ten seconds costs 240 J and twenty costs 480 J, double the time and double the energy, and at zero current the pack delivers zero energy however long it runs, which is why a gauge on external power reads no draw and a receipt must call that unmeasured rather than free. Each row is computed and checked, so energy per computation is this product divided by the operations done in the same seconds (first_law_conservation).',
+    ...(() => {
+      const rows = [[12, 2, 10], [12, 2, 20], [12, 0, 10]].map(([v, i, t]) => [v!, i!, t!, v! * i! * t!] as const)
+      return {
+        js: () => rows.every(([v, i, t, e]) => e === v * i * t) && rows[1]![3] === 2 * rows[0]![3] && rows[2]![3] === 0,
+        lean: `theorem electrical_energy_is_volt_amp_second : [${rows.map(([v, i, t, e]) => `((${v},${i}),(${t},${e}))`).join(',')}].all (fun r => r.2.2 = r.1.1 * r.1.2 * r.2.1) ∧ ${rows[1]![3]} = 2 * ${rows[0]![3]} ∧ ${rows[2]![3]} = 0 := by decide`,
+      }
+    })() },
 ]
 
 // compute → generate → verify. The energy domain — conservation, entropy, heat direction, Carnot, Kelvin, Charles,

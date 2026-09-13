@@ -1,10 +1,10 @@
 {
  "why": "Every bounded statement (List.range) widened by one element and re-decided: load-bearing = the bound carries the theorem; survived-widening = ONE step survived, a lower bound and never a verdict that the bound is decorative. Written by scripts/gen-bound-census, incrementally: a row keeps its verdict while its statement and the instrument are unchanged.",
- "digest": "140b037b9bd5d343",
+ "digest": "ee4a80b5f08b50d3",
  "instrument": "25a72de7a87d2fce",
  "census": {
-  "bounded": 938,
-  "load-bearing": 313,
+  "bounded": 939,
+  "load-bearing": 314,
   "survived-widening": 614,
   "undecidable-widened": 8,
   "base-undecidable": 3
@@ -1251,6 +1251,12 @@
    "wing": "Thermodynamics.lean",
    "verdict": "survived-widening",
    "statement": "(List.range 9).all (fun t => t <= t + 1)"
+  },
+  {
+   "key": "zero_point_is_half_a_quantum",
+   "wing": "Thermodynamics.lean",
+   "verdict": "load-bearing",
+   "statement": "(List.range 10).map (fun n => 2 * n + 1) = [1,3,5,7,9,11,13,15,17,19] ∧ 0 < 2 * 0 + 1"
   },
   {
    "key": "the_congruence_form_is_the_modulus_form",

@@ -69981,6 +69981,11 @@ caesium_light_step 27
 landauer_bound_derived 31
 reversible_erases_nothing 31
 hardware_above_landauer 31
+landauer_floor_falls_with_temperature 31
+cooling_cost_rises_toward_zero 27
+zero_point_is_half_a_quantum 27
+steady_temperature_hides_power 27
+electrical_energy_is_volt_amp_second 27
 #Tides.lean
 rule_of_twelfths 27
 twelfths_symmetric 27
@@ -71098,6 +71103,7 @@ eratosthenes_fiftieth_circle Eratosthenes
 hardware_above_landauer Landauer
 kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
+landauer_floor_falls_with_temperature Landauer
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
 the_defining_constants_are_exact_integers SI
@@ -71106,7 +71112,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 16, falsifier: 63 }
+export const FLOOR = { witness: 17, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
