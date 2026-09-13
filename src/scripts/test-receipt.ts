@@ -69,14 +69,15 @@ export default async function* testReceipt(source: AsyncIterable<TestEvent>): As
       const bucket = byFile.get(file)
       if (bucket) bucket.push(name); else byFile.set(file, [name])
     } else if (event.type === 'test:fail') {
+      // A FAILURE IS EVIDENCE THE MOMENT IT HAPPENS. Held to the end of a two-hour run, it was invisible to every
+      // terminal watching; yielded here, it reaches the reader, and the deposit beside it, while the run continues.
       const err = event.data?.details?.error
-      failed.push({ name, file, message: err?.message ?? String(err ?? 'no error reported') })
+      const f = { name, file, message: err?.message ?? String(err ?? 'no error reported') }
+      failed.push(f)
+      yield `✗ ${f.name}\n`
+      if (f.file) yield `    ${f.file}\n`
+      yield `    ${f.message.split('\n')[0]}\n`
     }
-  }
-  for (const f of failed) {
-    yield `✗ ${f.name}\n`
-    if (f.file) yield `    ${f.file}\n`
-    yield `    ${f.message.split('\n')[0]}\n`
   }
   const leaves = fileReceiptsOf(byFile)
   const secs = (file: string): string => `${((msByFile.get(file) ?? 0) / 1000).toFixed(1)}s`

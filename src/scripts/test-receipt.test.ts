@@ -14,6 +14,25 @@ const collect = async (evs: Ev[]): Promise<string[]> => {
 
 const A = [pass('a.test.js', 'a1'), pass('a.test.js', 'a2'), pass('b.test.js', 'b1')]
 
+// THE CONTROL FOR LIVENESS: the source stays open after its failure. A reporter that held failures to the end would
+// answer 'held' here instead of the failure line, so this fails rather than hangs.
+test('a failure reaches the reader while the run is still going, not after it ends', async () => {
+  let release = (): void => {}
+  const gate = new Promise<void>((r) => { release = r })
+  async function* open(): AsyncGenerator<Ev> {
+    yield { type: 'test:fail', data: { name: 'c1', file: '/x/dist/c.test.js', details: { error: { message: 'boom' } } } }
+    await gate
+    yield pass('a.test.js', 'a1')
+  }
+  const it = testReceipt(open())
+  const first = await Promise.race([it.next().then((r) => r.value), new Promise((r) => setImmediate(() => r('held')))])
+  release()
+  assert.equal(first, '✗ c1\n', 'the failure line arrives before the source closes')
+  const rest: string[] = []
+  for (let r = await it.next(); !r.done; r = await it.next()) rest.push(r.value)
+  assert.match(rest[rest.length - 1]!, /1 of 2 FAILED/)
+})
+
 test('deterministic across two runs of the same outcomes', async () => {
   assert.deepEqual(await collect(A), await collect(A))
 })
