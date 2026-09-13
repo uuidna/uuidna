@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-12",
+  "generated": "2026-09-13",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 70905,
@@ -9311,8 +9311,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "4add3db9-f37d-8e4a-aab8-c94e57344ef1",
-      "address": "0aa350c8-6c71-8cb6-a028-4dc9435ba789",
+      "lineAddress": "7f611379-f5be-8891-bb43-b275c23b17a4",
+      "address": "1b5b7970-0748-88cc-ad61-d2a54ac11374",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -499015,7 +499015,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "8409efb8-fa32-8f14-ba67-c7892f3e7fa9",
+  "claim_receipt": "41ecd183-2b0c-85ba-9d36-5fe4a06c444a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

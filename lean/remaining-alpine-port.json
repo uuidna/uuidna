@@ -1,6 +1,6 @@
 {
   "why": "Remaining Alpine port census — keyed by catalogue digest + boot closure + bit width. verify_beats_recompute_by_magnitudes: recompute when the mirror moves, verify O(1) when it has not.",
-  "catalogue": "f71040b9ecfd7e64",
+  "catalogue": "1286998eedfa0b14",
   "entries": {
     "e21c57c23604041d": {
       "definition": "remaining-alpine-port",
@@ -3015,6 +3015,130 @@
       }
     },
     "c7edce860ec206ef": {
+      "definition": "remaining-alpine-port",
+      "remaining": 28616,
+      "passed": 28614,
+      "failedCount": 2,
+      "failed": [
+        "pcsc-tools-gscriptor",
+        "sxmo-utils-river"
+      ],
+      "withMan": 9496,
+      "withBinary": 5872,
+      "commands": 19079,
+      "reversed": 28616,
+      "execs": 0,
+      "bitWidth": 1,
+      "complete": false,
+      "started": "2bwm",
+      "receipt": "1d02c624-3abd-8fbb-879d-b9a9c90d0e56",
+      "hexbits": [
+        1,
+        13,
+        0,
+        2,
+        12,
+        6,
+        2,
+        4,
+        3,
+        10,
+        11,
+        13,
+        8,
+        15,
+        11,
+        11,
+        8,
+        7,
+        9,
+        13,
+        11,
+        9,
+        10,
+        9,
+        12,
+        9,
+        0,
+        13,
+        0,
+        14,
+        5,
+        6
+      ],
+      "next": {
+        "cites": "/theorem/research_always_has_a_next",
+        "remaining": 2,
+        "package": "pcsc-tools-gscriptor",
+        "repo": null,
+        "steps": [
+          "retest pcsc-tools-gscriptor until it passes — the closure is not 100% while a member fails"
+        ]
+      }
+    },
+    "90f31df0711eb6a6": {
+      "definition": "remaining-alpine-port",
+      "remaining": 28616,
+      "passed": 28614,
+      "failedCount": 2,
+      "failed": [
+        "pcsc-tools-gscriptor",
+        "sxmo-utils-river"
+      ],
+      "withMan": 9496,
+      "withBinary": 5872,
+      "commands": 19079,
+      "reversed": 28616,
+      "execs": 0,
+      "bitWidth": 128,
+      "complete": false,
+      "started": "2bwm",
+      "receipt": "1d02c624-3abd-8fbb-879d-b9a9c90d0e56",
+      "hexbits": [
+        1,
+        13,
+        0,
+        2,
+        12,
+        6,
+        2,
+        4,
+        3,
+        10,
+        11,
+        13,
+        8,
+        15,
+        11,
+        11,
+        8,
+        7,
+        9,
+        13,
+        11,
+        9,
+        10,
+        9,
+        12,
+        9,
+        0,
+        13,
+        0,
+        14,
+        5,
+        6
+      ],
+      "next": {
+        "cites": "/theorem/research_always_has_a_next",
+        "remaining": 2,
+        "package": "pcsc-tools-gscriptor",
+        "repo": null,
+        "steps": [
+          "retest pcsc-tools-gscriptor until it passes — the closure is not 100% while a member fails"
+        ]
+      }
+    },
+    "fc830a2d0df11fd1": {
       "definition": "remaining-alpine-port",
       "remaining": 28616,
       "passed": 28614,

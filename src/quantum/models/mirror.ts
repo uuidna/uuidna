@@ -443,15 +443,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000006706",
-   "completionPrice": "0.00000013412"
+   "promptPrice": "0.00000004928",
+   "completionPrice": "0.00000009856"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000065",
-   "completionPrice": "0.00000018"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.00000008"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731:batch",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000839724",
-   "completionPrice": "0.000001679448"
+   "promptPrice": "0.0000016",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -765,8 +765,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-26b-a4b-it",
    "name": "Google: Gemma 4 26B A4B ",
    "contextTokens": 262144,
-   "promptPrice": "0.000000042",
-   "completionPrice": "0.00000022"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "google/gemma-4-26b-a4b-it:free",
@@ -940,8 +940,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.1-70b-instruct",
    "name": "Meta: Llama 3.1 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.00000072",
-   "completionPrice": "0.00000072"
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.0000004"
   },
   {
    "id": "meta-llama/llama-3.1-8b-instruct",
@@ -996,8 +996,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta/muse-glimmer-30b",
    "name": "Meta: Muse Glimmer 30B",
    "contextTokens": 131072,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000011"
+   "promptPrice": "0.00000035",
+   "completionPrice": "0.0000015"
   },
   {
    "id": "meta/muse-glimmer-30b:batch",
@@ -1094,8 +1094,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m2.5",
    "name": "MiniMax: MiniMax M2.5",
    "contextTokens": 204800,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
+   "promptPrice": "0.00000027",
+   "completionPrice": "0.00000108"
   },
   {
    "id": "minimax/minimax-m2.7",
@@ -1339,8 +1339,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3",
    "name": "MoonshotAI: Kimi K3",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000230272875",
-   "completionPrice": "0.000011550195"
+   "promptPrice": "0.000002648138063",
+   "completionPrice": "0.00001328272425"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
@@ -2312,8 +2312,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-30b-a3b-instruct-2507",
    "name": "Qwen: Qwen3 30B A3B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.0000003"
+   "promptPrice": "0.00000004815",
+   "completionPrice": "0.00000019305"
   },
   {
    "id": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -2984,8 +2984,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3",
    "name": "Z.ai: GLM 5.3",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
+   "promptPrice": "0.000001092",
+   "completionPrice": "0.000003432"
   },
   {
    "id": "z-ai/glm-5.3-flash",
@@ -3024,7 +3024,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   },
   {
    "id": "~anthropic/claude-haiku-latest",
-   "name": "Anthropic Claude Haiku Latest",
+   "name": "Anthropic: Claude Haiku Latest",
    "contextTokens": 200000,
    "promptPrice": "0.000001",
    "completionPrice": "0.000005"
@@ -3038,70 +3038,70 @@ export const MODELS_MIRROR: ModelsMirror = {
   },
   {
    "id": "~anthropic/claude-sonnet-latest",
-   "name": "Anthropic Claude Sonnet Latest",
+   "name": "Anthropic: Claude Sonnet Latest",
    "contextTokens": 1000000,
    "promptPrice": "0.000002",
    "completionPrice": "0.00001"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
-   "name": "DeepSeek V4 Flash Latest",
+   "name": "DeepSeek: DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.00000016"
+   "promptPrice": "0.0000000352",
+   "completionPrice": "0.0000001056"
   },
   {
    "id": "~google/gemini-flash-latest",
-   "name": "Google Gemini Flash Latest",
+   "name": "Google: Gemini Flash Latest",
    "contextTokens": 1048576,
    "promptPrice": "0.00000075",
    "completionPrice": "0.00000375"
   },
   {
    "id": "~google/gemini-pro-latest",
-   "name": "Google Gemini Pro Latest",
+   "name": "Google: Gemini Pro Latest",
    "contextTokens": 1048576,
    "promptPrice": "0.000002",
    "completionPrice": "0.000012"
   },
   {
    "id": "~moonshotai/kimi-latest",
-   "name": "MoonshotAI Kimi Latest",
+   "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000230272875",
-   "completionPrice": "0.000011550195"
+   "promptPrice": "0.0000021",
+   "completionPrice": "0.00001095"
   },
   {
    "id": "~openai/gpt-astra-latest",
-   "name": "OpenAI GPT Astra Latest",
+   "name": "OpenAI: GPT Astra Latest",
    "contextTokens": 1050000,
    "promptPrice": "0.00001",
    "completionPrice": "0.00005"
   },
   {
    "id": "~openai/gpt-luna-latest",
-   "name": "OpenAI GPT Luna Latest",
+   "name": "OpenAI: GPT Luna Latest",
    "contextTokens": 1050000,
    "promptPrice": "0.0000002",
    "completionPrice": "0.0000012"
   },
   {
    "id": "~openai/gpt-mini-latest",
-   "name": "OpenAI GPT Mini Latest",
+   "name": "OpenAI: GPT Mini Latest",
    "contextTokens": 400000,
    "promptPrice": "0.00000075",
    "completionPrice": "0.0000045"
   },
   {
    "id": "~openai/gpt-sol-latest",
-   "name": "OpenAI GPT Sol Latest",
+   "name": "OpenAI: GPT Sol Latest",
    "contextTokens": 1050000,
    "promptPrice": "0.000002",
    "completionPrice": "0.00001"
   },
   {
    "id": "~openai/gpt-terra-latest",
-   "name": "OpenAI GPT Terra Latest",
+   "name": "OpenAI: GPT Terra Latest",
    "contextTokens": 1050000,
    "promptPrice": "0.000002",
    "completionPrice": "0.000012"
@@ -3124,8 +3124,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000008727",
-   "completionPrice": "0.00000336"
+   "promptPrice": "0.000000936",
+   "completionPrice": "0.000003168"
   }
  ]
 }
