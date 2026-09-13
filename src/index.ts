@@ -384,6 +384,9 @@ export { searchFeedOnline } from './search-feed-online.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
 export { legalFacts, type LegalFacts } from './legal.js'
+// theology — the letters are numerals: gematria, isopsephy and abjad values derived from numeral order by the rank rule,
+// each reading beside its control (the sorted letters keep the value and move the lattice station: identity, not meaning).
+export { NUMERAL_ORDER, rankValueOf, lettersOf, numeralValueOf, readingOf, THEOLOGY_HONEST, type Script, type ScriptureReading } from './theology/index.js'
 // acceptance — what a registering agent accepts: the licence line and the terms line, each receipt its content-address.
 export { LICENSE_LINE, TERMS_LINE, licenseReceipt, termsReceipt, accepts, acceptanceReceipt } from './acceptance.js'
 // license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the two-coins bill into

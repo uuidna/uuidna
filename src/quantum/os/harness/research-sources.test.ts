@@ -31,3 +31,22 @@ test('opendata.cern.ch evidence rows are shaped when it answers, and absent when
   assert.ok(cern.evidence.length >= 1, 'CMS Higgs probe should return at least one open-data record')
   assert.match(cern.evidence[0]!.note, /^CERN OD /)
 })
+
+// THE SCRIPTURE DOORS, UNDER THE SAME LAW: when a door answers, its rows carry our shape and the value our instrument
+// computes (Genesis 1:1 is 2701, the count the tradition publishes); when it does not, it says why and carries no rows.
+test('sefaria.org and api.quran.com rows carry the reference and its numeral value, or say why they are absent', async () => {
+  for (const [id, shape] of [['sefaria.org', /^Sefaria [^:]+ \d+:\d+: gematria \d+$/], ['api.quran.com', /^Quran \d+:\d+: abjad \d+$/]] as const) {
+    assert.ok(EXTENDED_RESEARCH_SOURCE_NAMES.includes(id), `${id} is wired`)
+    const probe = EXTENDED_RESEARCH_PROBES.find((p) => p.id === id)!
+    const reading = (await researchSweep(probe.query)).find((r) => r.source === id)
+    assert.ok(reading, `the sweep includes ${id}`)
+    if (!reading.reached) {
+      assert.ok((reading.why ?? '').length > 0, `${id}: an unreached source must name why`)
+      assert.equal(reading.evidence.length, 0, `${id}: and carry no evidence`)
+      continue
+    }
+    assert.ok(reading.evidence.length >= 1, `${id}: the known-good probe returns a verse`)
+    assert.match(reading.evidence[0]!.note, shape)
+    if (id === 'sefaria.org') assert.equal(reading.evidence[0]!.note, 'Sefaria Genesis 1:1: gematria 2701')
+  }
+})
