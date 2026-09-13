@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "f9021f61c6ec2ea7",
+ "digest": "140b037b9bd5d343",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -4299,6 +4299,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "duality_swaps_vertices_and_faces",
    "wing": "Platonic.lean",
    "verdict": "base-undecidable"
+  },
+  {
+   "key": "the_nobles_are_the_running_totals",
+   "wing": "Periodic.lean",
+   "verdict": "undecidable-widened"
   },
   {
    "key": "xor_translation_preserves_adjacency_0",

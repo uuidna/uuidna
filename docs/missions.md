@@ -11,11 +11,93 @@ description: The mission board, derived — open work with an exact deliverable,
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
 **169 missions** — 28 seal-finding · 77 decide-bound · 64 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`f9021f61c6ec2ea7`) and the research ledger. The captain of every mission
+rosetta mirror, the sealed bound census (`140b037b9bd5d343`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [`uuidna_missions`](/mcp#uuidna-missions).
+
+## From skill to open work — 72 skills lead to a mission
+
+_Practise a skill at [the school](/school), then take a mission in a wing that skill lives in: that is how a learner
+becomes a contributor. Each row is derived from the ledger by skill and from this board, meeting at the wing. The
+28 unrouted missions are research findings, named above: their theorem is the deliverable itself.
+Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and `{skill}`._
+
+| Skill | Theorems | Wings | Open missions | Start with |
+| --- | ---: | ---: | ---: | --- |
+| wave | 67071 | 36 | 41 | `b97801e1` |
+| fermat | 2096 | 24 | 24 | `257643cd` |
+| science-pairs | 27 | 4 | 6 | `d6f59cc8` |
+| vortex | 24 | 4 | 6 | `fa48a04a` |
+| z9-ring | 305 | 4 | 6 | `fdb12218` |
+| coins | 27 | 3 | 5 | `1b48b046` |
+| foundational | 3 | 2 | 4 | `fdb12218` |
+| involution | 4 | 2 | 4 | `fdb12218` |
+| reflection | 21 | 3 | 4 | `c5c25997` |
+| z7-rosette | 150 | 2 | 4 | `3560147c` |
+| neuro | 19 | 2 | 3 | `c912e182` |
+| quantum | 57 | 2 | 3 | `2efc2c84` |
+| audit | 29 | 2 | 2 | `15f4bed8` |
+| chess | 37 | 2 | 2 | `ec90748c` |
+| clay-reflection | 1 | 1 | 2 | `fdb12218` |
+| nim | 93 | 1 | 2 | `9bfe08ef` |
+| affine | 6 | 1 | 1 | `116f528b` |
+| anthem | 9 | 1 | 1 | `e8f9c065` |
+| anti-fraud | 13 | 1 | 1 | `dfe6c3ad` |
+| boolean | 6 | 1 | 1 | `202bf46d` |
+| calendar | 15 | 1 | 1 | `dd85bce4` |
+| cipher | 33 | 1 | 1 | `7cc74f21` |
+| clock | 6 | 1 | 1 | `1a614db7` |
+| codes | 9 | 1 | 1 | `68c9498b` |
+| command | 7 | 1 | 1 | `e28643c9` |
+| compare | 4 | 1 | 1 | `9b67900d` |
+| contribution | 5 | 1 | 1 | `7a2e3769` |
+| crt | 11 | 1 | 1 | `433a066a` |
+| crypt-salt | 4 | 1 | 1 | `6e2a318c` |
+| doctrine | 10 | 1 | 1 | `10ad7c9b` |
+| double-torus | 6 | 1 | 1 | `573c8a10` |
+| editing | 14 | 1 | 1 | `6efd270e` |
+| editor | 4 | 1 | 1 | `cbbd944e` |
+| exploits | 12 | 1 | 1 | `fff2c1cc` |
+| grid | 6 | 1 | 1 | `fa9ec7f3` |
+| hardware | 18 | 1 | 1 | `a762709f` |
+| hexbit | 23 | 1 | 1 | `045ab792` |
+| infinity | 13 | 1 | 1 | `09650336` |
+| installs | 12 | 1 | 1 | `e781411a` |
+| isometry | 6 | 1 | 1 | `60f75693` |
+| legal | 10 | 1 | 1 | `a2b039ba` |
+| looms | 6 | 1 | 1 | `ed4a64c7` |
+| matching | 8 | 1 | 1 | `52c4f890` |
+| memory | 2 | 1 | 1 | `2efc2c84` |
+| negation | 8 | 1 | 1 | `47cf947d` |
+| notation | 6 | 1 | 1 | `a1842bb4` |
+| orbits | 9 | 1 | 1 | `84b8c6be` |
+| phase | 6 | 1 | 1 | `3a3635cd` |
+| pravets | 6 | 1 | 1 | `70669205` |
+| propulsion | 5 | 1 | 1 | `e15944e8` |
+| psychology | 8 | 1 | 1 | `1fcaca7c` |
+| readings | 17 | 1 | 1 | `533cb60d` |
+| reasoning | 25 | 1 | 1 | `ac1cc66e` |
+| referrer | 15 | 1 | 1 | `4d1f67c8` |
+| reversal | 6 | 1 | 1 | `b09cba1c` |
+| seats | 6 | 1 | 1 | `fb6ca9e8` |
+| sequence | 29 | 1 | 1 | `6e2a318c` |
+| singularity | 5 | 1 | 1 | `d082f68b` |
+| site-build | 13 | 1 | 1 | `8ab4210a` |
+| software | 16 | 1 | 1 | `c80a1164` |
+| solids | 11 | 1 | 1 | `a562ee53` |
+| song | 11 | 1 | 1 | `3e578baa` |
+| spectrum-hex | 6 | 1 | 1 | `8d9b2d55` |
+| statics | 9 | 1 | 1 | `f148d047` |
+| strings | 6 | 1 | 1 | `cd3eaaa7` |
+| structures | 4 | 1 | 1 | `6edd07f9` |
+| subgroups | 6 | 1 | 1 | `64cc319a` |
+| thermodynamics | 11 | 1 | 1 | `4ea69427` |
+| trinities | 6 | 1 | 1 | `0026ddec` |
+| typesetting | 15 | 2 | 1 | `8ab4210a` |
+| vector-equilibrium | 18 | 1 | 1 | `761c08a1` |
+| waves | 18 | 1 | 1 | `bd04570b` |
 
 ## Seal a finding — 28 open
 

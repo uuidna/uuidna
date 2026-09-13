@@ -129,3 +129,43 @@ export function missionsOf(input: {
 
   return { total: missions.length, byKind, missions: out, captain: input.captain, honest: MISSION_HONEST }
 }
+
+/** A SCHOOL THAT TRAINS INNOVATORS ROUTES PRACTICE INTO OPEN WORK (the captain, 2026-09-13). The curriculum is the ledger
+ *  by skill and the open work is this board; they meet at the wing a theorem lives in and a mission lands in. Derived both
+ *  ways from the records, never typed: each skill's open missions, and each mission's preparing skills. A mission whose
+ *  wing no skill covers (a research finding, whose theorem is the deliverable itself) is UNROUTED and named. */
+export interface SkillRoute { skill: string; theorems: number; wings: number; missions: number; first: string | null }
+/** receipt: one address folded from every skill→mission route, order-invariant, so the path is recomputable by anyone */
+export interface InnovationPath { skills: SkillRoute[]; prepares: Record<string, string[]>; unrouted: string[]; receipt: string }
+
+const addTo = (m: Map<string, Set<string>>, k: string, v: string): void => {
+  const s = m.get(k) ?? new Set<string>()
+  s.add(v)
+  m.set(k, s)
+}
+
+export function innovationPathOf(missions: readonly Mission[], rows: readonly { file: string; skill: string }[]): InnovationPath {
+  const skillsOfWing = new Map<string, Set<string>>()
+  const wingsOfSkill = new Map<string, Set<string>>()
+  const theoremsOfSkill = new Map<string, number>()
+  for (const r of rows) {
+    addTo(skillsOfWing, r.file, r.skill)
+    addTo(wingsOfSkill, r.skill, r.file)
+    theoremsOfSkill.set(r.skill, (theoremsOfSkill.get(r.skill) ?? 0) + 1)
+  }
+  const prepares: Record<string, string[]> = {}
+  const unrouted: string[] = []
+  const openOfSkill = new Map<string, Mission[]>()
+  for (const m of missions) {
+    const skills = [...(skillsOfWing.get(m.wing) ?? [])].sort()
+    if (skills.length === 0) { unrouted.push(m.handle); continue }
+    prepares[m.handle] = skills
+    for (const s of skills) openOfSkill.set(s, [...(openOfSkill.get(s) ?? []), m])
+  }
+  const skills = [...wingsOfSkill.keys()].map((skill) => {
+    const open = openOfSkill.get(skill) ?? []
+    return { skill, theorems: theoremsOfSkill.get(skill) ?? 0, wings: wingsOfSkill.get(skill)!.size, missions: open.length, first: open[0]?.handle ?? null }
+  }).sort((a, b) => b.missions - a.missions || (a.skill < b.skill ? -1 : 1))
+  const routes = Object.entries(prepares).flatMap(([handle, ss]) => ss.map((s) => `${s}|${handle}`)).sort()
+  return { skills, prepares, unrouted, receipt: toUuid(`innovation-path\n${routes.join('\n')}\nunrouted|${[...unrouted].sort().join(',')}`) }
+}

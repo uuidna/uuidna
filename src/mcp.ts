@@ -59,7 +59,7 @@ import { cloudflareTemplates, coverageOf, templateCensus, templatesFor } from '.
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
 import { ledgerReport, FINDINGS } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
 import { legCensus, legsFor, mirrorAgreement, mirrorRows, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
-import { missionsOf, MISSION_KINDS, type MissionKind } from './school/missions/index.js' // the mission board — pure over the shipped mirror, the baked bound slice and the baked findings
+import { missionsOf, innovationPathOf, MISSION_KINDS, type MissionKind } from './school/missions/index.js' // the mission board — pure over the shipped mirror, the baked bound slice and the baked findings
 import { BOUND_SLICE, MISSION_CAPTAIN } from './school/missions/generated.js'
 import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror — rosetta and scripts/api load their node builtins LAZILY, so this static import carries none of them to the edge
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
@@ -890,11 +890,20 @@ const TOOLS: Tool[] = ([
       kind: { type: 'string', enum: [...MISSION_KINDS] },
       wing: { type: 'string', description: 'e.g. Fermat' },
       limit: { type: 'integer' },
+      skill: { type: 'string', description: 'a skill from uuidna_skills: only the missions it prepares for, each with its preparing skills' },
     } },
     run: (a) => {
       const kind = a?.kind == null ? null : String(a.kind) as MissionKind
       if (kind !== null && !MISSION_KINDS.includes(kind)) throw new Error(`uuidna_missions: unknown kind "${kind}" — expected one of ${MISSION_KINDS.join(', ')} (nothing was computed)`)
-      return missionsOf({ rows: mirrorRows(), bounds: BOUND_SLICE, findings: FINDINGS, captain: MISSION_CAPTAIN, kind, wing: a?.wing == null ? null : String(a.wing), limit: a?.limit == null ? null : Number(a.limit) })
+      const limit = a?.limit == null ? null : Number(a.limit)
+      const board = missionsOf({ rows: mirrorRows(), bounds: BOUND_SLICE, findings: FINDINGS, captain: MISSION_CAPTAIN, kind, wing: a?.wing == null ? null : String(a.wing), limit: a?.skill == null ? limit : null })
+      if (a?.skill == null) return board
+      const skill = String(a.skill)
+      const path = innovationPathOf(board.missions, theorems())
+      if (!path.skills.some((s) => s.skill === skill)) throw new Error(`uuidna_missions: unknown skill "${skill}" — see uuidna_skills (nothing was computed)`)
+      const routed = board.missions.filter((m) => path.prepares[m.handle]?.includes(skill))
+      const missions = limit != null && Number.isInteger(limit) && limit >= 0 ? routed.slice(0, limit) : routed
+      return { ...board, skill, missions, prepares: Object.fromEntries(missions.map((m) => [m.handle, path.prepares[m.handle]!])) }
     } },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',

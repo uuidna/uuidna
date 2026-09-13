@@ -5,7 +5,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { join } from 'node:path'
-import { missionsOf, MISSION_KINDS, type BoundSlice } from './index.js'
+import { missionsOf, innovationPathOf, MISSION_KINDS, type BoundSlice } from './index.js'
 import { BOUND_SLICE, MISSION_CAPTAIN } from './generated.js'
 import { mirrorRows } from '../../rosetta-legs.js'
 import { FINDINGS, type Finding } from '../../research-ledger.js'
@@ -67,6 +67,22 @@ test('the live board is non-empty in every kind, and its keys are sealed theorem
   const keys = new Set(LEAN_LEDGER.map((t) => t.key))
   for (const k of MISSION_KINDS) assert.ok(board.byKind[k] > 0, `${k}: an empty kind on this tree means a spring is unread, not that the work is done`)
   for (const m of board.missions) for (const k of m.keys) assert.ok(keys.has(k), `${m.handle} covers ${k}, which the ledger does not seal`)
+})
+
+test('the innovation path routes each skill to open work and each mission back to its skills, both ways', () => {
+  const board = missionsOf({ rows, bounds, findings, captain: 'c' })
+  const ledger = [{ file: 'Alpha.lean', skill: 'algebra' }, { file: 'Alpha.lean', skill: 'counting' }, { file: 'Beta.lean', skill: 'algebra' }]
+  const path = innovationPathOf(board.missions, ledger)
+  for (const [handle, skills] of Object.entries(path.prepares)) {
+    const m = board.missions.find((x) => x.handle === handle)!
+    for (const s of skills) assert.ok(ledger.some((r) => r.skill === s && r.file === m.wing), `${s} must live in ${m.wing}`)
+  }
+  const algebra = path.skills.find((s) => s.skill === 'algebra')!
+  assert.equal(algebra.missions, Object.values(path.prepares).filter((ss) => ss.includes('algebra')).length, 'a skill counts exactly the missions that name it back')
+  assert.deepEqual(path.unrouted, board.missions.filter((m) => m.wing === 'research ledger').map((m) => m.handle), 'findings are unrouted and named')
+  assert.equal(innovationPathOf([...board.missions].reverse(), [...ledger].reverse()).receipt, path.receipt, 'the receipt ignores order')
+  const moved = innovationPathOf(board.missions, [{ file: 'Alpha.lean', skill: 'geometry' }, ...ledger.slice(1)])
+  assert.notEqual(moved.receipt, path.receipt, 'CONTROL: moving one skill moves the receipt')
 })
 
 test('CONTROL — a finding that loses its theorem field reappears as a mission', () => {

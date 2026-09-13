@@ -1,12 +1,12 @@
 {
  "why": "Every bounded statement (List.range) widened by one element and re-decided: load-bearing = the bound carries the theorem; survived-widening = ONE step survived, a lower bound and never a verdict that the bound is decorative. Written by scripts/gen-bound-census, incrementally: a row keeps its verdict while its statement and the instrument are unchanged.",
- "digest": "f9021f61c6ec2ea7",
+ "digest": "140b037b9bd5d343",
  "instrument": "25a72de7a87d2fce",
  "census": {
-  "bounded": 937,
+  "bounded": 938,
   "load-bearing": 313,
   "survived-widening": 614,
-  "undecidable-widened": 7,
+  "undecidable-widened": 8,
   "base-undecidable": 3
  },
  "rows": [
@@ -5163,6 +5163,12 @@
    "wing": "Platonic.lean",
    "verdict": "base-undecidable",
    "statement": "(List.range 5).all (fun i => (nth solidV (nth dualIx i) == nth solidF i) && (nth solidF (nth dualIx i) == nth solidV i) && (nth solidE (nth dualIx i) == nth solidE i) && (nth solidP (nth dualIx i) == nth solidQ i) && (nth solidQ (nth dualIx i) == nth solidP i))"
+  },
+  {
+   "key": "the_nobles_are_the_running_totals",
+   "wing": "Periodic.lean",
+   "verdict": "undecidable-widened",
+   "statement": "(List.range 7).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = [2,10,18,36,54,86,118]"
   },
   {
    "key": "xor_translation_preserves_adjacency_0",

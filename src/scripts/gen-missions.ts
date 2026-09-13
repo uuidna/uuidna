@@ -10,7 +10,8 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { mirrorRows } from '../rosetta-legs.js'
 import { FINDINGS } from '../research-ledger.js'
-import { missionsOf, MISSION_KINDS, type BoundSlice, type BoundRow, type MissionKind } from '../school/missions/index.js'
+import { missionsOf, innovationPathOf, MISSION_KINDS, type BoundSlice, type BoundRow, type MissionKind } from '../school/missions/index.js'
+import { theorems } from '../theorems/index.js'
 import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
 const census = JSON.parse(readFileSync(join(ROOT, 'lean', 'bound-census.json'), 'utf8')) as { digest: string; rows: (BoundRow & { statement?: string })[] }
@@ -46,6 +47,20 @@ const sections = MISSION_KINDS.map((kind) => {
   return `## ${h} — ${rows.length} open\n\n_${why}._\n\n${body || '_none open — every record of this kind is closed_'}`
 }).join('\n\n')
 
+// FROM SKILL TO OPEN WORK: the school's curriculum (the ledger by skill) meets this board at the wing, both derived
+const path = innovationPathOf(board.missions, theorems())
+const routes = path.skills.filter((s) => s.missions > 0)
+const pathSection = `## From skill to open work — ${routes.length} skills lead to a mission
+
+_Practise a skill at [the school](/school), then take a mission in a wing that skill lives in: that is how a learner
+becomes a contributor. Each row is derived from the ledger by skill and from this board, meeting at the wing. The
+${path.unrouted.length} unrouted missions are research findings, named above: their theorem is the deliverable itself.
+Ask for one skill's missions with [\`uuidna_missions\`](/mcp#uuidna-missions) and \`{skill}\`._
+
+| Skill | Theorems | Wings | Open missions | Start with |
+| --- | ---: | ---: | ---: | --- |
+${routes.map((s) => `| ${clean(s.skill)} | ${s.theorems} | ${s.wings} | ${s.missions} | \`${s.first}\` |`).join('\n')}`
+
 const page = `---
 title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
@@ -64,6 +79,8 @@ is the paying handle \`${board.captain}\`: a mission is claimed by DEPOSITING, n
 [\`uuidna_trial\`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [\`uuidna_agent_contribute\`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [\`uuidna_missions\`](/mcp#uuidna-missions).
+
+${pathSection}
 
 ${sections}
 
