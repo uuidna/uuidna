@@ -6,7 +6,7 @@ import { involute, involutionFixed } from './diamond.js'
 import {
   LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,
   parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,
-  latticeCall, fillLattice, callSolutionInvolution, callWingsOntoStations, stationCollisionsOf,
+  latticeCall, fillLattice, callSolutionInvolution, callWingsOntoStations, stationCollisionsOf, nearestOccupied,
 } from './lattice.js'
 import { callTool } from './mcp.js'
 
@@ -122,4 +122,28 @@ test('a station carrying two pieces of cargo is named, and a clean grid reports 
   assert.deepEqual(stationCollisionsOf([{ key: 'a', station: '0001' }, { key: 'b', station: '0002' }]), [])
   assert.deepEqual(stationCollisionsOf([{ key: 'b', station: '00ff' }, { key: 'a', station: '00ff' }]),
     [{ station: '00ff', keys: ['a', 'b'] }])
+})
+
+// SELF-DISCOVERY: a station's meaning is read from its own cargo, or from the nearest station that seats cargo, named
+// with its distance. Checked both ways, with a control that another station answers with another receipt.
+test('every station says what it means: its own cargo, or the nearest cargo named with its distance', () => {
+  const occupied = stationOfAddress(theorems().find((t) => !isPagelessFile(t.file))!.address)
+  const call = latticeCall(occupied)
+  const m = call.meaning
+  assert.equal(m.readFrom, occupied)
+  assert.equal(m.distance, 0)
+  assert.deepEqual(m.skills.map((s) => s.skill).sort(), [...new Set(call.theorems.map((t) => t.skill))].sort(), 'the skills are exactly the seated cargo\'s')
+  assert.equal(m.skills.reduce((n, s) => n + s.theorems, 0), call.theorems.length, 'every seated theorem is counted once')
+  for (const t of call.theorems) assert.ok(m.uses.some((u) => u.door === 'uuidna_theorem' && u.args.key === t.key), `${t.key} has a use`)
+  for (const s of m.skills) assert.ok(m.uses.some((u) => u.door === 'uuidna_skill' && u.args.skill === s.skill), `${s.skill} has a door`)
+  let v = 0
+  while (latticeCall(hex4Of(v)).theorems.length > 0) v++
+  const vacant = latticeCall(hex4Of(v)).meaning
+  assert.ok(vacant.readFrom !== null && vacant.distance !== null && vacant.distance > 0, 'a vacant station reads from elsewhere and says how far')
+  for (let d = 1; d < vacant.distance!; d++)
+    for (const j of [v - d, v + d])
+      if (j >= 0 && j < LATTICE_STATIONS) assert.equal(latticeCall(hex4Of(j)).theorems.length, 0, 'no occupied station is closer')
+  assert.equal(nearestOccupied(hex4Of(v))?.station, vacant.readFrom)
+  assert.equal(latticeCall(occupied).meaning.receipt, m.receipt, 'the same station gives the same receipt')
+  assert.notEqual(vacant.receipt, m.receipt, 'CONTROL: another station, another receipt')
 })

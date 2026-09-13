@@ -6,6 +6,7 @@ import { GUTENDEX_HEADERS } from '../../../books.js'
 import { fetchCernOpenData } from '../cern/index.js'
 import { fetchAasJournals } from '../aas/index.js'
 import { fetchData } from '../fetch/index.js'
+import { numeralValueOf } from '../../../theology/numerals/index.js'
 import type { ResearchEvidence, SourceReading } from '../../../corroborate.js'
 
 type Io = {
@@ -211,14 +212,52 @@ const wikinewsSource = (io: Io): ExtendedResearchSource => async (query) => {
   } catch (e) { return io.unreached('en.wikinews.org', e) }
 }
 
+// ── THE SCRIPTURES, READ AS PRIMARY SOURCES (the captain, 2026-09-13: "fuse all theology apis in meaningful research").
+// Each verse a door returns carries its numeral value from theology/numerals (derived by the rank rule, no table typed).
+// The value is arithmetic over the letters and nothing more: gematria_forces_collisions makes shared values the expected
+// case, so a door reports the value beside the reference and never a meaning drawn from it.
+
+/** sefaria.org — Jewish texts (keyless). A query naming a reference is resolved and its Hebrew text read, valued in
+ *  gematria; any other query returns the references Sefaria completes it to, unvalued. */
+const sefariaSource = (io: Io): ExtendedResearchSource => async (query) => {
+  try {
+    const name = await fetchData<{ is_ref?: boolean; ref?: string; completions?: string[] }>(
+      'https://www.sefaria.org/api/name/' + encodeURIComponent(query) + '?limit=8', 'json')
+    if (name.data === null) return io.refused('sefaria.org', 503)
+    if (name.data.is_ref && name.data.ref) {
+      const ref = name.data.ref
+      const got = await fetchData<{ versions?: { text?: unknown }[] }>(
+        'https://www.sefaria.org/api/v3/texts/' + encodeURIComponent(ref) + '?version=hebrew&return_format=text_only', 'json')
+      const raw = got.data?.versions?.[0]?.text
+      const text = typeof raw === 'string' ? raw : Array.isArray(raw) ? (raw as unknown[]).flat(4).filter((x): x is string => typeof x === 'string').join(' ') : ''
+      if (text === '') return io.refused('sefaria.org', 404)
+      return io.answered('sefaria.org', [evidenceRow('sefaria.org', toUuid('sefaria:' + ref + ':' + text), `Sefaria ${ref}: gematria ${numeralValueOf(text, 'hebrew')}`)])
+    }
+    const evidence = (name.data.completions ?? []).slice(0, 8).map((c) => evidenceRow('sefaria.org', toUuid('sefaria:' + c), `Sefaria: ${c.slice(0, 80)}`))
+    return io.answered('sefaria.org', evidence)
+  } catch (e) { return io.unreached('sefaria.org', e) }
+}
+
+/** api.quran.com — the Quran (keyless). Each matching verse carries its key and its abjad value. */
+const quranSource = (io: Io): ExtendedResearchSource => async (query) => {
+  try {
+    const got = await fetchData<{ search?: { results?: { verse_key?: string; text?: string }[] } }>(
+      'https://api.quran.com/api/v4/search?size=8&q=' + encodeURIComponent(query), 'json')
+    if (got.data === null) return io.refused('api.quran.com', 503)
+    const evidence = (got.data.search?.results ?? []).map((r) => evidenceRow('api.quran.com', toUuid('quran:' + r.verse_key + ':' + (r.text ?? '')),
+      `Quran ${r.verse_key}: abjad ${numeralValueOf(r.text ?? '', 'arabic')}`))
+    return io.answered('api.quran.com', evidence)
+  } catch (e) { return io.unreached('api.quran.com', e) }
+}
+
 export const EXTENDED_RESEARCH_SOURCE_NAMES: readonly string[] = [
   'arxiv.org', 'mathoverflow.net', 'en.wikipedia.org', 'gutendex.com', 'open-meteo.com', 'en.wikinews.org', 'opendata.cern.ch',
-  'journals.aas.org',
+  'journals.aas.org', 'sefaria.org', 'api.quran.com',
 ]
 
-/** extendedResearchSources(io) → the eight streams beyond the original five academic archives. */
+/** extendedResearchSources(io) → the streams beyond the original five academic archives, in the order named above. */
 export function extendedResearchSources(io: Io): ExtendedResearchSource[] {
-  return [arxivSource(io), mathOverflowSource(io), wikipediaSource(io), gutendexSource(io), openMeteoSource(io), wikinewsSource(io), cernOpenDataSource(io), aasJournalsSource(io)]
+  return [arxivSource(io), mathOverflowSource(io), wikipediaSource(io), gutendexSource(io), openMeteoSource(io), wikinewsSource(io), cernOpenDataSource(io), aasJournalsSource(io), sefariaSource(io), quranSource(io)]
 }
 
 /** probe query each extended source accepts — the heartbeat's known-good ask. */
@@ -231,6 +270,8 @@ export const EXTENDED_RESEARCH_PROBES: readonly { id: string; query: string }[] 
   { id: 'en.wikinews.org', query: 'science' },
   { id: 'opendata.cern.ch', query: 'CMS Higgs' },
   { id: 'journals.aas.org', query: 'open access' },
+  { id: 'sefaria.org', query: 'Genesis 1:1' },
+  { id: 'api.quran.com', query: 'mercy' },
 ]
 
 /** every wired research stream by name — core five plus extended seven. */

@@ -52,6 +52,7 @@ src/falsifiers.test.ts merge=derived
 src/rosetta-mirror.ts merge=derived
 src/cloudflare-templates-data.ts merge=derived
 src/school/refusals/generated.ts merge=derived
+src/edge-slices/generated.ts merge=derived
 docs/articles/** merge=derived
 docs/public/feed.json merge=derived
 docs/public/terminology.json merge=derived

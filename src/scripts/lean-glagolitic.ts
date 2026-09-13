@@ -7,6 +7,7 @@
 // symmetry. The rosette's MEANING (the seven planets, the days, the Dulo dynasty, a sun-sign) is historically
 // DEBATED, not decoded here — poetry in the telling, documented fact in the theorem. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
+import { lettersOf, rankValueOf, NUMERAL_ORDER } from '../theology/numerals/index.js'
 
 const FACTS = [
   { key: 'glagolitic_units',
@@ -67,6 +68,32 @@ const FACTS = [
     why: 'DIFFERENT WORDS MUST SHARE A VALUE — BY PIGEONHOLE. Over the 22 Hebrew letters there are 22³ = 10648 three-letter strings, while their values (each letter 1…400) can only land between 3 and 1200 — 1198 possible sums. More words than sums, so collisions are FORCED: on average nearly nine strings per value. A shared gematria is therefore the expected case and carries no information on its own; it is the same seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting.',
     js: () => 22 * 22 * 22 === 10648 && 1200 - 3 + 1 === 1198 && 10648 > 1198,
     lean: 'theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide' },
+
+  // ── THE COUNTS THE TEXTS STATE THEMSELVES (2026-09-13, read from the primary sources through the scripture doors).
+  // Each is the arithmetic a sentence of the text makes; what the text means by it stays the reader's, not the ledger's.
+  { key: 'sefer_yetzirah_231_gates',
+    why: 'THE 231 GATES ARE EVERY PAIR OF 22 LETTERS. Sefer Yetzirah 2:4 fixes the twenty-two letters "in a wheel with 231 gates", and 231 is exactly the number of unordered pairs of 22 letters: 0 + 1 + … + 21 = 22 · 21 / 2. The same verse says the wheel "turns back and forth", and the pairs read in both directions are 2 · 231 = 462 = 22 · 21. The division the text gives in 2:1, three mothers, seven doubles, twelve simples, is 3 + 7 + 12 = 22. These are the counts the sentences make; the text\'s claim about what the gates do is not decided here.',
+    js: () => Array.from({ length: 22 }, (_, i) => i).reduce((a, i) => a + i, 0) === 231 && (22 * 21) / 2 === 231 && 2 * 231 === 22 * 21 && 3 + 7 + 12 === 22,
+    lean: 'theorem sefer_yetzirah_231_gates : (List.range 22).foldl (fun a i => a + i) 0 = 231 ∧ 22 * 21 / 2 = 231 ∧ 2 * 231 = 22 * 21 ∧ 3 + 7 + 12 = 22 := by decide' },
+
+  { key: 'abjad_four_ranks',
+    why: 'THE ABJAD IS THE THREE RANKS WITH A THOUSAND ADDED. The Arabic letters in abjad order count units, tens and hundreds like Hebrew, Greek and Glagolitic (alphabetic_three_ranks), then one more letter opens the thousands: 9 + 9 + 9 + 1 = 28 letters. By the same rank rule, the letter at position 27 counts (27 mod 9 + 1) · 10^(27 div 9) = 1000, which is ghayn. The design, not a meaning, is what is decided.',
+    js: () => 9 + 9 + 9 + 1 === 28 && ((27 % 9) + 1) * 10 ** ((27 - (27 % 9)) / 9) === 1000,
+    lean: 'theorem abjad_four_ranks : 9 + 9 + 9 + 1 = 28 ∧ (27 % 9 + 1) * 10 ^ (27 / 9) = 1000 := by decide' },
+
+  (() => {
+    // the letter values are DERIVED from the unpointed verse by the rank rule (theology/numerals), never typed
+    const verse = 'בראשית ברא אלהים את השמים ואת הארץ'
+    const values = lettersOf(verse, 'hebrew').map((c) => rankValueOf(NUMERAL_ORDER.hebrew.indexOf(c)))
+    const sum = values.reduce((a, v) => a + v, 0)
+    return {
+      key: 'genesis_1_1_is_2701',
+      why: `THE FIRST VERSE SUMS TO ITS PUBLISHED COUNT. Genesis 1:1, read unpointed from the Hebrew, has ${values.length} letters; valued by the rank rule (alphabetic_three_ranks: units, tens, hundreds in alphabet order) they sum to ${sum}, the value the gematria tradition reports for the verse. The letter values here are computed from the text, not typed, and the sum is decided. By gematria_forces_collisions a sum carries no meaning on its own, and none is claimed.`,
+      js: () => values.length === 28 && sum === 2701,
+      // the count is stated OF THE LIST, so Lean counts the letters: `${values.length} = 28` rendered as 28 = 28, a check that cannot fail
+      lean: `theorem genesis_1_1_is_2701 : [${values.join(',')}].foldl (fun a v => a + v) 0 = 2701 ∧ [${values.join(',')}].length = 28 := by decide`,
+    }
+  })(),
 ]
 
 // compute → generate → verify. The Glagolitic numerals and the Pliska rosette's seven-fold — documented arithmetic

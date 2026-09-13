@@ -11,7 +11,7 @@
 // that the committed config leaks no secret and the crypto is post-quantum-appropriate. A real deployment audit needs
 // the edge account. It is not a penetration test.
 import { toUuid, merkleFold } from './address.js'
-import { rdRoot } from './boundary.js'
+import { EDGE_SLICES } from './edge-slices/generated.js'
 
 export interface BindingAudit {
   binding: string
@@ -31,32 +31,14 @@ export interface CloudflareAudit {
   honest: string
 }
 
-// Strip TOML comments (everything from an unescaped '#' to end of line) and blank lines — enough to tell an
-// ACTIVE line (real config) from a commented-out one (documentation/instructions), which is exactly the
-// distinction that matters here: `# id = "REPLACE..."` is a placeholder; `id = "abc123"` is a committed secret.
-const activeLines = (toml: string): string[] => toml.split('\n').map((l) => l.replace(/#.*/, '').trim()).filter(Boolean)
-
-/** Parse the REAL wrangler.toml (not a hand-typed guess) for the three things that actually matter: does the
- *  ASSETS binding exist as claimed, is the KV namespace still opt-in/uncommitted, and is TRIAL_KEY ever assigned
- *  a real value in the file (it must never be — only `wrangler secret put` sets it, at the edge. */
-function parseWranglerToml(toml: string): { assetsBindingPresent: boolean; kvIdCommitted: boolean; trialKeyValueCommitted: boolean } {
-  const active = activeLines(toml)
-  const assetsBindingPresent = active.some((l) => /^binding\s*=\s*"ASSETS"$/.test(l))
-  const kvBlockActive = active.some((l) => l === '[[kv_namespaces]]')
-  const idLine = kvBlockActive ? active.find((l) => /^id\s*=\s*"/.test(l)) : undefined
-  const idValue = idLine?.match(/^id\s*=\s*"([^"]*)"/)?.[1]
-  const kvIdCommitted = !!idValue && idValue !== 'REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create'
-  const trialKeyValueCommitted = active.some((l) => /^TRIAL_KEY\s*=/.test(l))
-  return { assetsBindingPresent, kvIdCommitted, trialKeyValueCommitted }
-}
-
 /** auditCloudflareBindings() → the recomputable audit of the Cloudflare Workers bindings: no secret is committed, and
  *  every binding is post-quantum-appropriate (symmetric or no crypto target). Deterministic; folds to one content-
  *  address. Reflects the committed config posture. Integrity.
- *  Actually reads wrangler.toml (via boundary.ts's rdRoot) rather than asserting a hand-typed snapshot of it —
- *  a real KV id or secret pasted into the file moves secretInRepo/clean, it doesn't silently keep reporting clean. */
+ *  Reads the posture wranglerPostureOf derived from the real wrangler.toml, baked for the edge, which has no file to
+ *  read — the drift test re-derives it from the live file, so a KV id or secret pasted there fails that test until
+ *  the bake is regenerated, and regenerating moves secretInRepo/clean; it never keeps reporting clean. */
 export function auditCloudflareBindings(): CloudflareAudit {
-  const parsed = parseWranglerToml(rdRoot('wrangler.toml'))
+  const parsed = EDGE_SLICES.wrangler
   const BINDINGS: BindingAudit[] = [
     { binding: 'ASSETS', kind: 'assets', secretInRepo: false, quantumSecure: true,
       note: parsed.assetsBindingPresent
