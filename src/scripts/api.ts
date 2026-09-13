@@ -580,7 +580,7 @@ export const DRAIN_PATHS: readonly string[] = [
   // and a count in a comment is stale the next time a wing lands. Generated
   // 2026-08-19. The whole directory is one drain path, same convention as src/seeds.
   'src/chunks',
-  // four-level handle store (gen-handle-store) — chunks + freeze publication|page; wipe+rewrite
+  // four-level handle store (gen-handle-store) — chunks + freeze publication|page; writes only differing leaves, prunes orphans
   'src/handles',
 ]
 
