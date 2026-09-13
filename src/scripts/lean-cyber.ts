@@ -22,14 +22,11 @@ const nf = (n: number): string => n.toLocaleString('en-US')
 
 const FACTS = [
   { key: 'the_store_footprint_is_its_folders',
-    why: `A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. ${nf(LEAVES)} leaves sit under ${PER_LEVEL.map(nf).join(' + ')} folders across the ${LEVELS} levels, so with the root the store occupies ${nf(INODES)} inodes — more than three for every record it holds. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.`,
-    js: () => LEAVES + FOLDERS + 1 === INODES && INODES > 3 * LEAVES,
+    why: `A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. ${nf(LEAVES)} leaves sit under ${PER_LEVEL.map(nf).join(' + ')} folders across the ${LEVELS} levels, so with the root the store occupies ${nf(INODES)} inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (${nf(DEEPEST)} for ${nf(LEAVES)}), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.`,
+    // the one-folder-per-leaf floor is checked here and refuses generation if it ever fails; as a Lean statement it
+    // would only read n = n, a seal the kernel decides nothing about
+    js: () => LEAVES + FOLDERS + 1 === INODES && INODES > 3 * LEAVES && DEEPEST === LEAVES && new Set(HANDLES).size === LEAVES,
     lean: `theorem the_store_footprint_is_its_folders : (${LEAVES} + ${PER_LEVEL.join(' + ')} + 1 = ${INODES}) ∧ (${INODES} > 3 * ${LEAVES}) := by decide` },
-
-  { key: 'every_leaf_owns_its_deepest_folder',
-    why: `WHY THE COST IS AT LEAST TWO PER RECORD. The deepest folder is named by the whole eight-digit handle, and no two records share a handle, so the deepest level holds exactly one folder per leaf: ${nf(DEEPEST)} folders for ${nf(LEAVES)} leaves. Every record therefore costs its file and its own folder before any level above is counted — a floor set by the layout, not by how full the store is.`,
-    js: () => DEEPEST === LEAVES && new Set(HANDLES).size === LEAVES,
-    lean: `theorem every_leaf_owns_its_deepest_folder : ${DEEPEST} = ${LEAVES} := by decide` },
 
   { key: 'the_third_level_already_shares',
     why: `THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. At the third level ${nf(THIRD)} folders hold ${nf(LEAVES)} leaves — fewer folders than leaves, so some six-digit prefixes are shared — which shows the footprint is a measurement of this store and not a constant two-per-record identity that would pass whatever the store held.`,

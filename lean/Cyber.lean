@@ -2,16 +2,12 @@
 
 /-- A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. 71,366 leaves sit under 256 + 43,450 + 71,211
     + 71,366 folders across the 4 levels, so with the root the store occupies 257,650 inodes — more than three
-    for every record it holds. On 2026-09-13 that footprint filled the build host's vnode table and panicked the
-    machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next
-    growth is measured before it is felt. -/
+    for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle
+    and no two records share one, so that level holds exactly one folder per leaf (71,366 for 71,366), and every
+    record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint
+    filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode
+    is the surface, and it is sealed here so the next growth is measured before it is felt. -/
 theorem the_store_footprint_is_its_folders : (71366 + 256 + 43450 + 71211 + 71366 + 1 = 257650) ∧ (257650 > 3 * 71366) := by decide
-
-/-- WHY THE COST IS AT LEAST TWO PER RECORD. The deepest folder is named by the whole eight-digit handle, and no
-    two records share a handle, so the deepest level holds exactly one folder per leaf: 71,366 folders for
-    71,366 leaves. Every record therefore costs its file and its own folder before any level above is counted —
-    a floor set by the layout, not by how full the store is. -/
-theorem every_leaf_owns_its_deepest_folder : 71366 = 71366 := by decide
 
 /-- THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. At the third level 71,211 folders hold 71,366 leaves — fewer
     folders than leaves, so some six-digit prefixes are shared — which shows the footprint is a measurement of
