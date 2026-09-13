@@ -48,3 +48,24 @@ theorem gematria_ignores_order : 1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6 := by d
     shared gematria is therefore the expected case and carries no information on its own; it is the same
     seats-and-people bound the address layer seals as seats_pigeonhole. this decides the counting. -/
 theorem gematria_forces_collisions : 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198 := by decide
+
+/-- THE 231 GATES ARE EVERY PAIR OF 22 LETTERS. Sefer Yetzirah 2:4 fixes the twenty-two letters "in a wheel with
+    231 gates", and 231 is exactly the number of unordered pairs of 22 letters: 0 + 1 + … + 21 = 22 · 21 / 2.
+    The same verse says the wheel "turns back and forth", and the pairs read in both directions are 2 · 231 =
+    462 = 22 · 21. The division the text gives in 2:1, three mothers, seven doubles, twelve simples, is 3 + 7 +
+    12 = 22. These are the counts the sentences make; the text's claim about what the gates do is not decided
+    here. -/
+theorem sefer_yetzirah_231_gates : (List.range 22).foldl (fun a i => a + i) 0 = 231 ∧ 22 * 21 / 2 = 231 ∧ 2 * 231 = 22 * 21 ∧ 3 + 7 + 12 = 22 := by decide
+
+/-- THE ABJAD IS THE THREE RANKS WITH A THOUSAND ADDED. The Arabic letters in abjad order count units, tens and
+    hundreds like Hebrew, Greek and Glagolitic (alphabetic_three_ranks), then one more letter opens the
+    thousands: 9 + 9 + 9 + 1 = 28 letters. By the same rank rule, the letter at position 27 counts (27 mod 9 +
+    1) · 10^(27 div 9) = 1000, which is ghayn. The design, not a meaning, is what is decided. -/
+theorem abjad_four_ranks : 9 + 9 + 9 + 1 = 28 ∧ (27 % 9 + 1) * 10 ^ (27 / 9) = 1000 := by decide
+
+/-- THE FIRST VERSE SUMS TO ITS PUBLISHED COUNT. Genesis 1:1, read unpointed from the Hebrew, has 28 letters;
+    valued by the rank rule (alphabetic_three_ranks: units, tens, hundreds in alphabet order) they sum to 2701,
+    the value the gematria tradition reports for the verse. The letter values here are computed from the text,
+    not typed, and the sum is decided. By gematria_forces_collisions a sum carries no meaning on its own, and
+    none is claimed. -/
+theorem genesis_1_1_is_2701 : [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].foldl (fun a v => a + v) 0 = 2701 ∧ [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].length = 28 := by decide

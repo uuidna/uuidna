@@ -2,9 +2,9 @@
   "generated": "2026-09-13",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 70910,
-  "novelty_claimed": 70529,
-  "formalisation_only": 381,
+  "total_claimed": 70919,
+  "novelty_claimed": 70537,
+  "formalisation_only": 382,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -1203,6 +1203,13 @@
         "units"
       ],
       "evidence": "299792458 m/s"
+    },
+    {
+      "key": "llull_pairs_and_triples",
+      "arms": [
+        "units"
+      ],
+      "evidence": "K"
     },
     {
       "key": "magnification",
@@ -2670,18 +2677,18 @@
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 364,
+    "floor": 365,
     "by_arm": {
       "named": 149,
       "eponym": 96,
-      "units": 155
+      "units": 156
     },
-    "found_by_one_arm_only": 330,
+    "found_by_one_arm_only": 331,
     "all_arms_agree": 2,
     "ground_truth_sensitivity": "11/17",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
-  "total_theorems": 70910,
+  "total_theorems": 70919,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7176,22 +7183,22 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "80a32547-c8cc-89c7-8b68-90e146071a6e",
-      "address": "e6976f9e-bceb-8e34-bbd0-ce6fca4fe9ae",
+      "lineAddress": "46aa6d4b-8338-8c73-a0ce-74754c6272a2",
+      "address": "8c969f38-af4e-87bc-ba1b-33c6d5122c20",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "0c97d2a6-8a30-8097-9df5-4a0d6b13d66b",
-      "address": "38252f3b-2799-8ace-9a73-5daa94e39909",
+      "lineAddress": "1166bd3e-1877-8bd7-bb8a-d275d227b440",
+      "address": "bfec9c67-3cfd-88eb-9979-a8b3fa723d0f",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "d73c6d05-d611-84c0-bd84-964c3d3db0f2",
-      "address": "0aff55bd-c831-85c0-ae69-88410791c03d",
+      "lineAddress": "aa3b9a96-95c5-8313-86ce-fe078acad1a2",
+      "address": "76d2e274-b952-8815-a735-6121564c8d64",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7519,8 +7526,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "f5b77c65-0bd7-876a-af3b-b0efd84126de",
-      "address": "c21d99c7-287c-86c6-a4f0-6be3fca5da7a",
+      "lineAddress": "2806641c-e390-8d5f-abf5-4dcb4afeb6f3",
+      "address": "67478a4e-9f45-8114-9329-c7873e54948a",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7540,22 +7547,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "f48b8750-acc2-8fac-a975-f5a36dfc3632",
-      "address": "8bb190f3-f24e-8ebf-b73e-fe42e5395469",
+      "lineAddress": "a5dd4919-f8b5-848b-bcbc-789392b9d3d1",
+      "address": "f11ecde8-4389-81f3-b65e-1e8e1b56fcd3",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "4a7c5bb2-8041-8224-80e9-18e71d95e14b",
-      "address": "84998f4a-6e15-8b69-afe6-5fb57a0f85e0",
+      "lineAddress": "e6508bf7-93fe-8616-8763-f3d68f93c885",
+      "address": "ced74e36-a0c2-8a04-82b9-ee3b2d9d3e4b",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "4fd1c463-2b6a-8db4-b840-01a10155e06b",
-      "address": "a74b07b3-5717-88d5-9039-7a9ee1ce402a",
+      "lineAddress": "d5c54d16-a67f-8b7c-8d42-7fcd5984e8a5",
+      "address": "6de818e1-9b84-8372-ae84-b5c887fdc7dc",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -8016,15 +8023,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "b86be53e-ce9c-89a0-811c-8c05ae7e829b",
-      "address": "5f8c5b2d-5a87-8482-9de1-9957379d65f6",
+      "lineAddress": "bca6edae-171a-8d1a-b39f-7e3e0a516318",
+      "address": "ac1b00b8-8706-86fc-8e78-f3d4820430ca",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "b2b5ad4f-59fe-8723-9ce6-3bf4d7d705a6",
-      "address": "915dafab-d374-805f-8491-9ee728919c87",
+      "lineAddress": "b1dcd189-15f8-87f0-8efa-c0bba1d6e8d5",
+      "address": "126611b9-72d8-8670-bd90-a0a38bb152d4",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -8044,8 +8051,8 @@
     },
     {
       "key": "no_wing_buys_its_own_ceiling",
-      "lineAddress": "d496d7a7-d8a6-8f01-848e-ebc635cca2ec",
-      "address": "93a214f5-8698-84d5-b9e0-2eb265002407",
+      "lineAddress": "c5a8c487-b0a9-8f08-b582-3e15efaa92f1",
+      "address": "aa88635e-f623-82ff-afff-7d5d11d42f91",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9367,15 +9374,15 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "0267d97b-fc4b-8924-ac44-bde48b703a7b",
-      "address": "18e4cde8-742b-8338-9820-75f9ec1d61c9",
+      "lineAddress": "0705d2b1-bb40-83f3-91df-29d82abee86d",
+      "address": "adbc7794-b818-8bba-ba6b-98db36681ef9",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_kin_shortlist_accounts_for_every_edge",
-      "lineAddress": "61b24c26-2121-87e6-8132-ee851193e7b5",
-      "address": "2aea5b45-0c95-83ce-8387-d1b95bd5846d",
+      "lineAddress": "0fa8ea45-1d22-8d1f-a1b0-d1b84d039a48",
+      "address": "a4f0adf3-dc11-8ca7-a070-6065c93ea970",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9757,6 +9764,69 @@
       "lineAddress": "9e9af4af-4d10-8b0c-820c-4656d5922675",
       "address": "c6d26f16-6834-86d4-b614-2155cafc73d8",
       "principle": "The Glagolitic numerals & Pliska rosette",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "sefer_yetzirah_231_gates",
+      "lineAddress": "f9bb803d-eade-88fb-a706-459cff24d460",
+      "address": "fcda1a58-88e9-8d25-8173-2188111d506a",
+      "principle": "The Glagolitic numerals & Pliska rosette",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "abjad_four_ranks",
+      "lineAddress": "b05669c5-cfcd-8714-8710-f002cf10fcf4",
+      "address": "e85214d4-10f2-84e6-a8a8-a6ad373a4e3c",
+      "principle": "The Glagolitic numerals & Pliska rosette",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "genesis_1_1_is_2701",
+      "lineAddress": "dce0c6c5-fb40-8c18-93f2-dd90131527ab",
+      "address": "74872174-ab3b-8cbd-a125-b4d3644abaa9",
+      "principle": "The Glagolitic numerals & Pliska rosette",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "beast_number_fits_two_readings",
+      "lineAddress": "eb22e219-17eb-8935-9cbe-738e17c231c3",
+      "address": "44149ac5-6af4-8b6e-9e82-469c75f3e2fa",
+      "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "nicomachus_digit_rule_fails",
+      "lineAddress": "f1582bfd-ab6f-8d10-b676-ffa1b2b7e40b",
+      "address": "778b841c-2a4b-8470-a838-dc0b23d42d06",
+      "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "augustine_six_is_perfect",
+      "lineAddress": "c7fb5d87-d25f-8986-8e04-3dab54cfcd4a",
+      "address": "13649f44-022a-8127-89dc-a09b34088337",
+      "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "sefer_yetzirah_stones_build_houses",
+      "lineAddress": "b3ddd007-d449-8c2d-bfee-e4d25317b579",
+      "address": "6b82870a-75b6-815a-a14e-fc00849b8dbd",
+      "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "llull_pairs_and_triples",
+      "lineAddress": "dfb5f3f2-ff14-8ec2-8dee-f711701ea53c",
+      "address": "3d2de3f4-d753-86db-9885-a3d870124020",
+      "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "baudhayana_sqrt2_is_pell",
+      "lineAddress": "8652d0ce-393a-88a5-ab75-c66880d9605d",
+      "address": "53a8cc36-2055-8a2c-aa37-ee42eb525ac4",
+      "principle": "The arithmetic of scripture",
       "held": "discovery+formalisation"
     },
     {
@@ -499071,11 +499141,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "008febec-457b-8764-b7d8-61453d6a4596",
+  "claim_receipt": "8059235a-df88-88ed-becc-6254e0776d72",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 70910; he claims discovery of 70529 and credits the other 381 facts to their named sources",
+      "The captain formalised all 70919; he claims discovery of 70537 and credits the other 382 facts to their named sources",
       "These theorems are Lean-verified (by decide)",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -499084,9 +499154,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 381 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 382 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70910; of these I claim discovery of 70529, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70919; of these I claim discovery of 70537, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

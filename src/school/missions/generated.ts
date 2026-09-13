@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "6ab9b63091100b17",
+ "digest": "aeac3477715ce2a8",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -1074,6 +1074,26 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "pliska_seven_is_prime",
    "wing": "Glagolitic.lean",
    "verdict": "load-bearing"
+  },
+  {
+   "key": "sefer_yetzirah_231_gates",
+   "wing": "Glagolitic.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "nicomachus_digit_rule_fails",
+   "wing": "Scripture.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "augustine_six_is_perfect",
+   "wing": "Scripture.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "llull_pairs_and_triples",
+   "wing": "Scripture.lean",
+   "verdict": "survived-widening"
   },
   {
    "key": "gregorian_cycle_is_ninety_seven_leaps",

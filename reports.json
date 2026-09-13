@@ -5,54 +5,54 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 70827,
-        "keys": 70910,
+        "distinct": 70836,
+        "keys": 70919,
         "renamings": 83,
-        "principles": 178,
-        "skills": 117,
+        "principles": 179,
+        "skills": 118,
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The uuid mix space (2)",
-        "ledgerReceipt": "5100ebe9-26f2-82b3-82da-2f29c306c3ae"
+        "ledgerReceipt": "59fc0ba6-0a1b-8efe-94b1-867ee4a1a776"
       },
-      "address": "8d117a4b-0671-8d89-88bf-95dac0a53cac"
+      "address": "efc28dfa-77b2-8132-a196-67a1a5138a9b"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 70910,
-        "ledgerKeys": 70910,
+        "theoremsMeasured": 70919,
+        "ledgerKeys": 70919,
         "unmeasured": 0,
         "decideStepsHexbits": 6,
         "decideStepsBits": 25
       },
-      "address": "79a95538-5ef6-893a-8998-fc0f397bd2aa"
+      "address": "4778383a-9f5c-8044-8f46-24c66d86aec5"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 178,
-        "sealedTheorems": 70910,
+        "publications": 179,
+        "sealedTheorems": 70919,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "cee1e65d-1009-83b7-9c5f-39e258231b37"
+      "address": "5aab68d6-11a0-8d98-b975-1228aba41dfe"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1236,
-        "roots": 761,
-        "supported": 1236,
+        "modules": 1245,
+        "roots": 766,
+        "supported": 1245,
         "dead": 0,
-        "receipt": "10fb8a26-3c47-8061-9211-544a54564975"
+        "receipt": "b91c1cd1-22aa-8e46-968d-964487a6a374"
       },
-      "address": "5fd9ca6e-bd15-8f13-9db2-88576856aee6"
+      "address": "9fc473cf-d0b0-813b-9c2c-50c724cf30db"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "52288ab5c4764038",
-        "unifiedFold": "7e427af8c7d653d9",
+        "foldReceipt": "c18fec41ed0fc910",
+        "unifiedFold": "82f21cdf2d49ea9e",
         "zeroEntropy": "true"
       },
-      "address": "befd4f87-2f77-8852-8454-6109e6ff9103"
+      "address": "e91befa5-fac8-89b2-96d6-cb31bebf7c48"
     },
     {
       "title": "Gate receipt",
@@ -94,74 +94,74 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 70910,
+        "captainClaimsTheorems": 70919,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 0,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "b21831fa-40e1-80d1-99f5-3ae30b651068"
+      "address": "4acffc14-fc0a-8c7b-b025-873f3d115846"
     }
   ],
-  "receipt": "4ecb8d7d-658b-86a8-8ee2-b187cd2c7d01",
-  "handle": "4ecb8d7d",
+  "receipt": "5b4c5f37-f54a-8b3b-b7ee-198b3e8488d1",
+  "handle": "5b4c5f37",
   "hexbits": [
-    4,
-    14,
-    12,
-    11,
-    8,
-    13,
-    7,
-    13,
-    6,
     5,
-    8,
     11,
-    8,
-    6,
+    4,
+    12,
+    5,
+    15,
+    3,
+    7,
+    15,
+    5,
+    4,
     10,
     8,
-    8,
-    14,
-    14,
-    2,
     11,
+    3,
+    11,
+    11,
+    7,
+    14,
+    14,
     1,
+    9,
     8,
-    7,
-    12,
+    11,
+    3,
+    14,
+    8,
+    4,
+    8,
+    8,
     13,
-    2,
-    12,
-    7,
-    13,
-    0,
     1
   ],
-  "door": "https://uuidna.com/4ecb8d7d",
+  "door": "https://uuidna.com/5b4c5f37",
   "coin": [
-    4,
-    14,
-    12,
-    11,
-    8,
-    13,
-    7,
-    13,
-    6,
     5,
+    11,
+    4,
+    12,
+    5,
+    15,
+    3,
+    7,
+    15,
+    5,
+    4,
+    10,
     8,
     11,
-    8,
-    6,
-    10,
-    8
+    3,
+    11
   ],
   "place": {
-    "handle": "4ecb8d7d",
-    "value": 1321962877,
+    "handle": "5b4c5f37",
+    "value": 1531731767,
     "span": 4294967296,
-    "residue": 1,
+    "residue": 5,
     "nilpotent": false,
     "hexbits": 8
   },

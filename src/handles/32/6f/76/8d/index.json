@@ -1,0 +1,12 @@
+{
+  "handle": "326f768d",
+  "address": "326f768d-a25b-85c5-96ff-b14f33a21003",
+  "kind": "chunk",
+  "keys": [
+    "llull_pairs_and_triples"
+  ],
+  "statement": "((List.range 9).map (fun a => 8 - a)).foldl (fun s x => s + x) 0 = 36 ∧ 9 * 8 * 7 / 6 = 84",
+  "files": [
+    "Scripture.lean"
+  ]
+}

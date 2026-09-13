@@ -3,11 +3,11 @@
 **Generated:** 2026-09-13
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 70910/70910 theorems — every one, by construction
-**Discovery claimed:** 70529 — the other 381 restate a fact a named source found first
+**Formalisation claimed:** 70919/70919 theorems — every one, by construction
+**Discovery claimed:** 70537 — the other 382 restate a fact a named source found first
 
-*The 381 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 330 of 364 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `008febec-457b-8764-b7d8-61453d6a4596`
+*The 382 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 331 of 365 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `8059235a-df88-88ed-becc-6254e0776d72`
 
 ### Facts the captain does not claim to have discovered
 
@@ -435,12 +435,21 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The Glagolitic numerals & Pliska rosette
 
-- **Theorems:** 10
+- **Theorems:** 13
 - **Sample lineAddress:** `cff015b0-3b61-851c-8422-33e6c484a1f2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions)
+[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions) · [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) · [abjad_four_ranks](/theorem/abjad_four_ranks) · [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701)
+
+### The arithmetic of scripture
+
+- **Theorems:** 6
+- **Sample lineAddress:** `eb22e219-17eb-8935-9cbe-738e17c231c3`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[beast_number_fits_two_readings](/theorem/beast_number_fits_two_readings) · [nicomachus_digit_rule_fails](/theorem/nicomachus_digit_rule_fails) · [augustine_six_is_perfect](/theorem/augustine_six_is_perfect) · [sefer_yetzirah_stones_build_houses](/theorem/sefer_yetzirah_stones_build_houses) · [llull_pairs_and_triples](/theorem/llull_pairs_and_triples) · [baudhayana_sqrt2_is_pell](/theorem/baudhayana_sqrt2_is_pell)
 
 ### The time coordinate
 
@@ -1658,7 +1667,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70827 (70910 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 70836 (70919 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1676,7 +1685,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 70910 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 70919 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -1688,7 +1697,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 70910; he claims discovery of 70529 and credits the other 381 facts to their named sources
+- ✓ The captain formalised all 70919; he claims discovery of 70537 and credits the other 382 facts to their named sources
 - ✓ These theorems are Lean-verified (by decide)
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -1697,14 +1706,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 381 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 382 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70910; of these I claim discovery of 70529, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70919; of these I claim discovery of 70537, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

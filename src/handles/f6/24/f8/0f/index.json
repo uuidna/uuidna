@@ -1,0 +1,12 @@
+{
+  "handle": "f624f80f",
+  "address": "f624f80f-c9a2-80df-a50d-1080b421c0f2",
+  "kind": "chunk",
+  "keys": [
+    "baudhayana_sqrt2_is_pell"
+  ],
+  "statement": "408 + 136 + 34 - 1 = 577 ∧ 577 * 577 = 2 * 408 * 408 + 1",
+  "files": [
+    "Scripture.lean"
+  ]
+}

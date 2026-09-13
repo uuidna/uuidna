@@ -1,0 +1,12 @@
+{
+  "handle": "4cb5fa08",
+  "address": "4cb5fa08-65e8-86d5-bf22-53c2692e72c4",
+  "statement": "(List.range 22).foldl (fun a i => a + i) 0 = 231 ∧ 22 * 21 / 2 = 231 ∧ 2 * 231 = 22 * 21 ∧ 3 + 7 + 12 = 22",
+  "tactic": "decide",
+  "keys": [
+    "sefer_yetzirah_231_gates"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

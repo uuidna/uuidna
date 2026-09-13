@@ -2850,6 +2850,9 @@ alphabetic_three_ranks 27
 roman_reads_subtractively 27
 gematria_ignores_order 27
 gematria_forces_collisions 27
+sefer_yetzirah_231_gates 27
+abjad_four_ranks 27
+genesis_1_1_is_2701 27
 #Grid.lean
 decimal_asks_three 27
 hexadecimal_asks_five 27
@@ -69796,6 +69799,13 @@ sanitize_poison_keys_are_three 27
 sanitize_bidi_overrides_are_five 27
 sanitize_bidi_isolates_are_four 27
 sanitize_bidi_points_are_nine 27
+#Scripture.lean
+beast_number_fits_two_readings 27
+nicomachus_digit_rule_fails 27
+augustine_six_is_perfect 27
+sefer_yetzirah_stones_build_houses 27
+llull_pairs_and_triples 27
+baudhayana_sqrt2_is_pell 27
 #Seats.lean
 fullest_seat_ceiling 27
 excess_forces_sharing 27

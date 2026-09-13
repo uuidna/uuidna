@@ -1,0 +1,12 @@
+{
+  "handle": "3e01cfc2",
+  "address": "3e01cfc2-b823-8387-8713-2850c0e746a9",
+  "kind": "chunk",
+  "keys": [
+    "nicomachus_digit_rule_fails"
+  ],
+  "statement": "2 ^ 11 - 1 = 23 * 89 ∧ 2 ^ 12 * (2 ^ 13 - 1) = 33550336 ∧ (List.range' 2 89).all (fun k => 8191 % k != 0) ∧ 10 ^ 7 ≤ 33550336 ∧ 33550336 < 10 ^ 8",
+  "files": [
+    "Scripture.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2c0c9163",
+  "address": "2c0c9163-689e-8ebd-a214-a16459924b76",
+  "kind": "chunk",
+  "keys": [
+    "augustine_six_is_perfect"
+  ],
+  "statement": "((List.range 6).filter (fun d => d > 0 ∧ 6 % d = 0)).foldl (fun a d => a + d) 0 = 6 ∧ ((List.range 28).filter (fun d => d > 0 ∧ 28 % d = 0)).foldl (fun a d => a + d) 0 = 28",
+  "files": [
+    "Scripture.lean"
+  ]
+}

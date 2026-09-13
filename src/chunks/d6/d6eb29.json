@@ -1,0 +1,12 @@
+{
+  "handle": "d6d6eb29",
+  "address": "d6d6eb29-7c10-8390-95c4-265a8874c119",
+  "statement": "[2,3,4,5,6,7].map (fun n => (List.range n).foldl (fun a k => a * (k + 1)) 1) = [2,6,24,120,720,5040]",
+  "tactic": "decide",
+  "keys": [
+    "sefer_yetzirah_stones_build_houses"
+  ],
+  "files": [
+    "Scripture.lean"
+  ]
+}

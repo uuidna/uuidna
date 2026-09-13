@@ -1,0 +1,12 @@
+{
+  "handle": "28db45af",
+  "address": "28db45af-3113-861a-8510-2b48f6ecd7e2",
+  "statement": "[50,200,6,50,100,60,200].foldl (fun a v => a + v) 0 = 666 ∧ [50,200,6,100,60,200].foldl (fun a v => a + v) 0 = 616 ∧ [400,200,10,6,50].foldl (fun a v => a + v) 0 = 666 ∧ [400,200,10,6].foldl (fun a v => a + v) 0 = 616",
+  "tactic": "decide",
+  "keys": [
+    "beast_number_fits_two_readings"
+  ],
+  "files": [
+    "Scripture.lean"
+  ]
+}

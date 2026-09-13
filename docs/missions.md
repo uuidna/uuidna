@@ -3,21 +3,21 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'169 open'" />
+# Missions <Badge type="tip" :text="'170 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**169 missions** — 28 seal-finding · 77 decide-bound · 64 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`6ab9b63091100b17`) and the research ledger. The captain of every mission
+**170 missions** — 28 seal-finding · 78 decide-bound · 64 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`aeac3477715ce2a8`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [`uuidna_missions`](/mcp#uuidna-missions).
 
-## From skill to open work — 72 skills lead to a mission
+## From skill to open work — 73 skills lead to a mission
 
 _Practise a skill at [the school](/school), then take a mission in a wing that skill lives in: that is how a learner
 becomes a contributor. Each row is derived from the ledger by skill and from this board, meeting at the wing. The
@@ -81,6 +81,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | reasoning | 25 | 1 | 1 | `ac1cc66e` |
 | referrer | 15 | 1 | 1 | `4d1f67c8` |
 | reversal | 6 | 1 | 1 | `b09cba1c` |
+| scripture | 6 | 1 | 1 | `800c5368` |
 | seats | 6 | 1 | 1 | `fb6ca9e8` |
 | sequence | 29 | 1 | 1 | `6e2a318c` |
 | singularity | 5 | 1 | 1 | `d082f68b` |
@@ -188,7 +189,7 @@ _a read primary source whose value no theorem seals yet — the theorem is the d
   <br><small>deliverable: seal 47.3% vs 36.7% correct (10.6 percentage points) percentage points (measured, read source: Cepeda, Pashler, Vul, Wixted & Rohrer 2006, Psychological Bulletin 132(3):354, Discussion/Limitations) as a theorem, and point the finding at it</small>
   <br><small>door: uuidna_trial the claim, then a Lean line in the wing that owns the value; set the finding's theorem field to close it</small>
 
-## Decide a bound — 77 open
+## Decide a bound — 78 open
 
 _a finite domain that survived one widening step — a person decides whether it is the real domain (name it) or decorative (drop it); the instrument cannot._
 
@@ -427,6 +428,10 @@ _a finite domain that survived one widening step — a person decides whether it
 - **`3560147c`** decide 2 surviving bounds in Rosette.lean
   <br><small>deliverable: 2 statements in Rosette.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`z7fermat`](/theorem/z7fermat) · [`z7reflection_center`](/theorem/z7reflection_center)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`800c5368`** decide 2 surviving bounds in Scripture.lean
+  <br><small>deliverable: 2 statements in Scripture.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`nicomachus_digit_rule_fails`](/theorem/nicomachus_digit_rule_fails) · [`llull_pairs_and_triples`](/theorem/llull_pairs_and_triples)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`fb6ca9e8`** decide 1 surviving bound in Seats.lean
   <br><small>deliverable: 1 statement in Seats.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>

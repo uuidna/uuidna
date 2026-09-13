@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="42 doors" />
+# Public APIs <Badge type="tip" text="44 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**42 APIs** · sweep 13 · door [`bd2d3e27`](https://uuidna.com/bd2d3e27) · receipt `bd2d3e27-858c-8de5-8bb6-5db86b9ccc3f`
+**44 APIs** · sweep 15 · door [`fca8a115`](https://uuidna.com/fca8a115) · receipt `fca8a115-0d52-83a3-af9c-127eceb468df`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -34,6 +34,8 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `en-wikinews-org` | en.wikinews.org | research | keyless | fetched | yes | yes |
 | `opendata-cern-ch` | opendata.cern.ch | research | keyless | fetched | yes | yes |
 | `journals-aas-org` | journals.aas.org | research | keyless | fetched | yes | yes |
+| `sefaria-org` | sefaria.org | research | keyless | fetched | yes | yes |
+| `api-quran-com` | api.quran.com | research | keyless | fetched | yes | yes |
 
 ## EU education
 
@@ -92,4 +94,4 @@ never summed.
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/bd2d3e27`.
+Cite handle `https://uuidna.com/fca8a115`.

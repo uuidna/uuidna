@@ -1,18 +1,18 @@
 {
-  "key": "babb457e-137d-87cb-96f6-cf59aae9aa95",
-  "publications": 178,
-  "sealedTheorems": 70910,
+  "key": "2d89046e-714c-8cd6-b0cb-7a3f78def35b",
+  "publications": 179,
+  "sealedTheorems": 70919,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2586,
-    "theorems": 70910,
+    "claims": 2595,
+    "theorems": 70919,
     "bijection": false,
     "digitalRoots": {
       "claims": 3,
       "theorems": 8,
-      "publications": 7
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -363,8 +363,16 @@
     },
     {
       "slug": "glagolitic",
-      "claims": 10,
-      "cited": 10,
+      "claims": 13,
+      "cited": 13,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "scripture",
+      "claims": 6,
+      "cited": 6,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

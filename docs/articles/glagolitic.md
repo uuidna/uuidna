@@ -1,15 +1,15 @@
 ---
 title: "The Glagolitic numerals & Pliska rosette"
-description: "Computed from lean/Glagolitic.lean — 10 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Glagolitic.lean — 13 sealed theorems, every claim citing its proof."
 ---
 
 # The Glagolitic numerals & Pliska rosette
 
-> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. — held by [glagolitic_units](/theorem/glagolitic_units) and its 9 siblings below.
+> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. — held by [glagolitic_units](/theorem/glagolitic_units) and its 12 siblings below.
 
-**10 theorems** and **22 decided cases**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in <a href="/lean/Glagolitic.lean">lean/Glagolitic.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [roman_reads_subtractively](/theorem/roman_reads_subtractively). A boundary stated here is decided.
+**13 theorems** and **46 decided cases**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in <a href="/lean/Glagolitic.lean">lean/Glagolitic.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [roman_reads_subtractively](/theorem/roman_reads_subtractively). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FGlagolitic.lean)** — nothing to install. The editor fetches `lean/Glagolitic.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FGlagolitic.lean)** — nothing to install. The editor fetches `lean/Glagolitic.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### Cyril gave the letters number: the first nine Glagolitic glyphs, Az through Zemlja, carry the units 1 through 9 in their own alphabetic order — [1,2,3,4,5,6,7,8,9]. An alphabet that counts as it speaks.
 The ledger holds this as [glagolitic_units](/theorem/glagolitic_units) — proven `by decide`, sorry-free:
@@ -79,6 +79,27 @@ The ledger holds this as [gematria_forces_collisions](/theorem/gematria_forces_c
 
 ```lean
 22 * 22 * 22 = 10648 ∧ 1200 - 3 + 1 = 1198 ∧ 10648 > 1198
+```
+
+### THE 231 GATES ARE EVERY PAIR OF 22 LETTERS. Sefer Yetzirah 2:4 fixes the twenty-two letters "in a wheel with 231 gates", and 231 is exactly the number of unordered pairs of 22 letters: 0 + 1 + … + 21 = 22 · 21 / 2. The same verse says the wheel "turns back and forth", and the pairs read in both directions are 2 · 231 = 462 = 22 · 21. The division the text gives in 2:1, three mothers, seven doubles, twelve simples, is 3 + 7 + 12 = 22. These are the counts the sentences make; the text's claim about what the gates do is not decided here.
+The ledger holds this as [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 22).foldl (fun a i => a + i) 0 = 231 ∧ 22 * 21 / 2 = 231 ∧ 2 * 231 = 22 * 21 ∧ 3 + 7 + 12 = 22
+```
+
+### THE ABJAD IS THE THREE RANKS WITH A THOUSAND ADDED. The Arabic letters in abjad order count units, tens and hundreds like Hebrew, Greek and Glagolitic (alphabetic_three_ranks), then one more letter opens the thousands: 9 + 9 + 9 + 1 = 28 letters. By the same rank rule, the letter at position 27 counts (27 mod 9 + 1) · 10^(27 div 9) = 1000, which is ghayn. The design, not a meaning, is what is decided.
+The ledger holds this as [abjad_four_ranks](/theorem/abjad_four_ranks) — proven `by decide`, sorry-free:
+
+```lean
+9 + 9 + 9 + 1 = 28 ∧ (27 % 9 + 1) * 10 ^ (27 / 9) = 1000
+```
+
+### THE FIRST VERSE SUMS TO ITS PUBLISHED COUNT. Genesis 1:1, read unpointed from the Hebrew, has 28 letters; valued by the rank rule (alphabetic_three_ranks: units, tens, hundreds in alphabet order) they sum to 2701, the value the gematria tradition reports for the verse. The letter values here are computed from the text, not typed, and the sum is decided. By gematria_forces_collisions a sum carries no meaning on its own, and none is claimed.
+The ledger holds this as [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701) — proven `by decide`, sorry-free:
+
+```lean
+[2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].foldl (fun a v => a + v) 0 = 2701 ∧ [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].length = 28
 ```
 
 
