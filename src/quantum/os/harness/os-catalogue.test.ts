@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fresh, exec } from './index.js'
+import { resetCatalogue } from '../catalogue/index.js'
 import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../catalogue/index.js'
 import { ROOT } from '../../../boundary.js'
 
@@ -220,7 +221,7 @@ test('a runtime with NO filesystem is primed, not crippled', async () => {
   const drift = primeCatalogue('# header only\n')
   assert.equal(drift.present, false)
   assert.match(drift.why!, /zero packages/)
-  primeCatalogue(text)                                    // restore for any test that follows
+  resetCatalogue()   // forget the primed world: the next reader loads every committed layer, not the one primed here
 })
 
 test('primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an empty Alpine', async () => {
@@ -229,7 +230,7 @@ test('primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an
   assert.equal(st.present, false)
   assert.equal(st.count, 0)
   assert.match(st.why!, /failed|HTTP/, 'it names what went wrong, so a host fault is not read as a fact about Alpine')
-  primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+  resetCatalogue()
 })
 
 // ── THE CHUNKED WALK IS THE SAME WALK. uuidnaOS runs this suite in a browser once per page load, where what costs

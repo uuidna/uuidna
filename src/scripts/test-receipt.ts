@@ -76,7 +76,9 @@ export default async function* testReceipt(source: AsyncIterable<TestEvent>): As
       failed.push(f)
       yield `✗ ${f.name}\n`
       if (f.file) yield `    ${f.file}\n`
-      yield `    ${f.message.split('\n')[0]}\n`
+      // THE VALUES RIDE WITH THE VERDICT (2026-09-13): the first line of an assertion is often only "Expected values to
+      // be strictly equal:", and the numbers that say why ("28616 !== 28610") are on the lines after it.
+      for (const line of f.message.split('\n').filter((l) => l.trim()).slice(0, 6)) yield `    ${line}\n`
     }
   }
   const leaves = fileReceiptsOf(byFile)

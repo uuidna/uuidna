@@ -23,6 +23,7 @@ import {
   remainingAlpineCacheKey,
   writeRemainingAlpineCache,
 } from '../cache/index.js'
+import { catalogueFromCommittedLayers } from '../catalogue/index.js'
 
 export interface PackageCheck { check: string; ok: boolean; detail: string }
 export interface PackageAtATime {
@@ -374,6 +375,9 @@ export function foldRemainingAlpine(
 export function portRemainingAlpine(bitWidth: number = UUID_BITS): RemainingAlpinePort {
   const boot = defaultInstalls()
   const done = new Set(boot.specs.map((s) => s.name))
+  // THE CACHE IS KEYED ON THE COMMITTED FILES, SO ONLY A WORLD LOADED FROM THEM MAY READ OR WRITE IT. A primed catalogue
+  // (a browser boot, a test) is folded fresh: its answer is about the text it was given, not about the key.
+  if (!catalogueFromCommittedLayers()) return foldRemainingAlpine(remainingAvailableQueue(done), done, bitWidth)
   const key = remainingAlpineCacheKey([...done], bitWidth)
   const cached = readRemainingAlpineCache(key)
   if (cached) return cached

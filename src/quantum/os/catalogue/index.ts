@@ -80,6 +80,8 @@ const fsm = (): typeof import('node:fs') | null => {
 }
 
 let LOADED: CataloguePackage[] | null = null
+/** true while the world in hand came from primeCatalogue(text) rather than from loading the committed layers */
+let PRIMED = false
 let STATE: CatalogueState | null = null
 let CMD_INDEX: Map<string, CataloguePackage> | null = null
 
@@ -127,6 +129,7 @@ export function primeCatalogue(text: string): CatalogueState {
   UNIVERSE = null                                        // the dependency universe is derived — it must re-derive
   SO_STEMS = null
   CMD_INDEX = null
+  PRIMED = true
   STATE = count
     ? { present: true, count, why: null }
     : { present: false, count: 0, why: 'primed with text that parsed to zero packages — a shape drift, not an empty Alpine' }
@@ -299,6 +302,7 @@ function load(): { packages: CataloguePackage[]; state: CatalogueState } {
     const testing = readCatalogueLayer(fs, CATALOGUE_TESTING_FILE)
     const overlay = readCatalogueLayer(fs, CATALOGUE_OVERLAY_FILE)
     LOADED = mergeCatalogueLayers(base, testing, overlay)
+    PRIMED = false
     STATE = { present: LOADED.length > 0, count: LOADED.length, why: LOADED.length ? null : 'the catalogue file parsed to zero packages' }
   } catch (e) {
     LOADED = []
@@ -309,6 +313,31 @@ function load(): { packages: CataloguePackage[]; state: CatalogueState } {
 
 /** the catalogue's own state — asked BEFORE any answer, so "absent" never renders as "not found" */
 export const catalogueState = (): CatalogueState => load().state
+
+/** resetCatalogue() → forget any primed or loaded world, so the next read loads the committed layers again. Priming
+ *  indexes exactly the text it is given, while a Node load merges latest-stable, the testing leads and the overlay
+ *  (2026-09-13: tests that "restored" by priming the base file alone left every later reader in the same process
+ *  without oh-my-pi or the testing pulls, and twelve catalogue tests failed only in the full run). A test that primes
+ *  calls this after itself. */
+export function resetCatalogue(): void {
+  LOADED = null
+  STATE = null
+  CMD_INDEX = null
+  LINES = null
+  LINE_OF = null
+  SCAN = null
+  SCAN_FOR = null
+  BY_NAME = null
+  BY_NAME_FOR = null
+  UNIVERSE = null
+  SO_STEMS = null
+  PRIMED = false
+}
+
+/** catalogueFromCommittedLayers() → true when the world in hand is the committed files merged (latest-stable, testing,
+ *  overlay), false while a primed text stands in for them. A cache keyed on the files may only hold answers computed
+ *  from the files: a primed world once wrote a base-only fold under the committed key, and every later run trusted it. */
+export const catalogueFromCommittedLayers = (): boolean => !PRIMED
 /** every catalogued package (empty when absent — always pair with catalogueState) */
 export const catalogue = (): readonly CataloguePackage[] => load().packages
 
