@@ -12,7 +12,7 @@
 // --no-verify does not appear in this file, and an untaught denial is the loop's honest end, not an obstacle.
 import { execSync } from 'node:child_process'
 import { ROOT, DRAIN_PATHS, inFlightFiles } from './api.js'
-import { existsSync, mkdtempSync, symlinkSync, copyFileSync } from 'node:fs'
+import { existsSync, mkdtempSync, symlinkSync, copyFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { acquire, awaitAcquire, release, LOCK_PATH, working } from './one-writer.js'
@@ -172,6 +172,11 @@ for (let round = 1; round <= ROUNDS; round++) {
     // suite, not a check. Isolation none is one load, then every file.
     const proof = run('cd ' + JSON.stringify(wt) + ' && npm run build && node dist/scripts/guard.js && node dist/scripts/test-plan.js && node dist/scripts/gate-receipt.js --verified guard,tests --root ' + JSON.stringify(wt))
     if (proof.ok) copyFileSync(join(wt, 'gate-receipt.json'), join(ROOT, 'gate-receipt.json'))
+    // THE EVIDENCE OUTLIVES THE WORKTREE (2026-09-13). The worktree is removed below, and a red mint once named twelve
+    // failing tests while every reason went with it: the whole proof is kept in the gitignored session folder first.
+    const proofLog = join(ROOT, '.uuidna-sessions', 'land-proof.log')
+    mkdirSync(join(ROOT, '.uuidna-sessions'), { recursive: true })
+    writeFileSync(proofLog, proof.out)
     // the worktree carries a built dist, so it is removed as a directory and then pruned from git's list
     run('rm -rf ' + JSON.stringify(wt) + ' && git worktree prune')
     if (!proof.ok) {
@@ -179,10 +184,21 @@ for (let round = 1; round <= ROUNDS; round++) {
       // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
       // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
       // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
+      // A MARKER KEEPS ITS REASON: the test reporter prints each failure's file and message on the indented lines under
+      // its name, and keeping only the marker line kept every name and dropped every why.
+      const proofLines = proof.out.split('\n')
+      const isMarker = (l: string): boolean => /^(✖|not ok|✗ |# fail)/.test(l.trim())
+      const withReasons: string[] = []
+      proofLines.forEach((l, i) => {
+        if (!isMarker(l)) return
+        withReasons.push(l)
+        for (let j = i + 1; j < proofLines.length && /^\s{2,}\S/.test(proofLines[j]!) && !isMarker(proofLines[j]!); j++) withReasons.push(proofLines[j]!)
+      })
+      console.error(`  … the whole proof: ${proofLog}\n`)
       console.error('✗ land — the COMMITTED tree does not prove green, so no receipt was minted. What it said:\n')
       const lines = proof.out.split('\n')
       const marked = lines.filter((l) => /^(✖|not ok|✗ |# fail)/.test(l.trim()))
-      if (marked.length) console.error(marked.slice(0, 24).join('\n'))
+      if (marked.length) console.error(withReasons.slice(0, 72).join('\n'))
       console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
       process.exit(1)
     }
