@@ -142,7 +142,7 @@ export function securityClaims(): SecClaim[] {
   const binCodes = a.ops.map((o) => sum(o.binary))
   // ERASEDUPS, NOT getD. The pairwise form `(i == j) == (l.getD i 0 == l.getD j 0)` decides the same thing and
   // the kernel accepts it — but the axiom audit refused it: it depends on PROPEXT, and this ledger's trust base
-  // is the bare Lean kernel with allowed axioms ∅, 2655 of 2656 rows kernel-only. A row that needs an axiom the
+  // is the bare Lean kernel's axiom-free receipt, 2655 of 2656 rows kernel-only. A row that needs an axiom the
   // ledger does not admit is not a row this ledger can carry, however true it is. `.eraseDups.length` says the
   // same thing — n fingerprints reduce to n distinct ones, false the moment two collide — in the idiom
   // a_template_distinguishes_only_by_its_variable already uses for exactly this shape.

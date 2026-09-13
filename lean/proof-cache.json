@@ -32,6 +32,7 @@
  "Crosslink.lean": "9d122280-b257-89ae-8838-1d963ac6b110",
  "Crt.lean": "a2052d5c-e421-8119-8fef-06b570a735e4",
  "Crypto.lean": "c48ba948-3463-88b1-a833-13013aa66033",
+ "Decipher.lean": "3cbaa663-963a-8ff2-b509-98fd2aeb4be6",
  "Discover.lean": "bec77219-4f27-87cb-bd9e-3f5650f81392",
  "DisputedTopics.lean": "e3a805a5-3e2a-82ee-b38e-fc775edc51d3",
  "DivByZero.lean": "d9886135-a1ce-8d66-8226-1474c65c852a",

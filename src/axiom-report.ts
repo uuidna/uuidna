@@ -1,6 +1,6 @@
 // axiom-report — THE TRUST BASE AND THE KERNEL'S OWN WORDS FOR IT, as one declaration with two consumers.
 //
-// WHY IT MOVED HERE. The allowed-axiom set and the `#print axioms` parser lived inside scripts/lean-axioms.ts,
+// WHY IT MOVED HERE. The axiom rule and the `#print axioms` parser lived inside scripts/lean-axioms.ts,
 // which runs over the SEALED ledger. So the only moment this tree could learn that a theorem drags an axiom was
 // after that theorem had been deposited, kernel-probed, accepted, sealed and written into a wing — and the audit's
 // honest refusal to certify partially ("lean/axioms.json was NOT written: this run could not cover the ledger, so
@@ -14,10 +14,6 @@
 // AND THE INSTRUMENT MUST BE THE KERNEL, NEVER A REGEX. propext is not dragged by one idiom — `^^^` on Nat drags
 // it too, and so does any Prop-valued equality of decidable comparisons. A lexical gate would refuse the spellings
 // somebody already met and pass the next one; `#print axioms` is the kernel reporting on the term it just checked.
-
-/** The trust base is the kernel alone — NO axiom is tolerated, not even propext/Quot.sound. A `by decide` ledger
- *  should never need one. Widen this set only by a conscious, documented decision. */
-export const ALLOWED_AXIOMS: ReadonlySet<string> = new Set<string>()
 
 /** parseAxiomReport(out) → name → axiom list ([] = clean), read from Lean's own `#print axioms` stanzas:
  *      'name' does not depend on any axioms
@@ -59,13 +55,12 @@ export function inadmissibleIn(statement: string): readonly { form: string; why:
   return AXIOM_INADMISSIBLE.filter((r) => statement.includes(r.form))
 }
 
-/** disallowedAxioms(out, key) → the axioms this key carries that the trust base does not allow, or null when the
- *  report says nothing about the key at all. NULL AND [] ARE DIFFERENT ANSWERS: [] is the kernel vouching for the
- *  term, null is no verdict — an absent instrument, which may never be read as a pass. */
-export function disallowedAxioms(out: string, key: string): string[] | null {
-  const found = parseAxiomReport(out)[key]
-  if (found === undefined) return null
-  return found.filter((a) => !ALLOWED_AXIOMS.has(a))
+/** axiomsOf(out, key) → the axioms Lean's own `#print axioms` names for this key, or null when the report says
+ *  nothing about the key at all. The kernel is the only authority: what it names is the verdict, with no list in
+ *  between. NULL AND [] ARE DIFFERENT ANSWERS: [] is the kernel vouching for the term, null is no verdict — an
+ *  absent instrument, which may never be read as a pass. */
+export function axiomsOf(out: string, key: string): string[] | null {
+  return parseAxiomReport(out)[key] ?? null
 }
 
 // ── PER-WING RECEIPTS (lead 228, folded 2026-09-07). The audit's receipt was keyed on the WHOLE ledger — every

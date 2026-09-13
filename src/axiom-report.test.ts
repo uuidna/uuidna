@@ -4,7 +4,7 @@ import { execSync } from 'node:child_process'
 import { writeFileSync, unlinkSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { ALLOWED_AXIOMS, parseAxiomReport, disallowedAxioms, inadmissibleIn, AXIOM_INADMISSIBLE } from './axiom-report.js'
+import { parseAxiomReport, axiomsOf, inadmissibleIn, AXIOM_INADMISSIBLE } from './axiom-report.js'
 import { probe } from './scripts/queue-wave.js'
 
 // A CANDIDATE CAN PASS `by decide` AND STILL DRAG AN AXIOM, and until now nothing could refuse it: the axiom
@@ -12,10 +12,6 @@ import { probe } from './scripts/queue-wave.js'
 // for every theorem. These hold the door's new arm, and the kernel is the instrument.
 
 const kernel = (() => { try { execSync('lean --version', { stdio: 'pipe' }); return true } catch { return false } })()
-
-test('the trust base is the bare kernel — allowed axioms ∅', () => {
-  assert.equal(ALLOWED_AXIOMS.size, 0, 'not even propext; widening this is a documented decision, never a drift')
-})
 
 test('parseAxiomReport reads both of the kernel’s verdict phrases', () => {
   assert.deepEqual(parseAxiomReport("'k' does not depend on any axioms"), { k: [] })
@@ -29,8 +25,9 @@ test('a primed Lean name survives the parse — the inner quote must not truncat
 })
 
 test('no verdict is NOT a pass — null and [] are different answers', () => {
-  assert.equal(disallowedAxioms('the kernel said nothing about it', 'k'), null, 'an absent instrument may never read as clean')
-  assert.deepEqual(disallowedAxioms("'k' does not depend on any axioms", 'k'), [], 'this one the kernel vouched for')
+  assert.equal(axiomsOf('the kernel said nothing about it', 'k'), null, 'an absent instrument may never read as clean')
+  assert.deepEqual(axiomsOf("'k' does not depend on any axioms", 'k'), [], 'this one the kernel vouched for')
+  assert.deepEqual(axiomsOf("'k' depends on axioms: [propext]", 'k'), ['propext'], 'what the kernel names is the verdict, nothing filters it')
 })
 
 // THE KERNEL ITSELF, on the two forms that decided this fold. Skipped where no toolchain is installed — the
@@ -43,7 +40,7 @@ test('the door refuses a propext-dragging candidate the kernel accepts', { skip:
   })
   assert.ok(bad, 'the kernel accepts this proof; the trust base does not accept its cost')
   assert.match(bad, /propext/)
-  assert.match(bad, /allowed axioms ∅/)
+  assert.match(bad, /axiom-free receipt/)
 })
 
 test('the door admits the axiom-free restatement of the same claim', { skip: !kernel && 'no lean toolchain' }, () => {
@@ -103,7 +100,7 @@ test('the KERNEL agrees: indexed access drags propext, structural access does no
   const ax = (stmt: string): string[] | null => {
     const f = join(tmpdir(), 'uuidna-adm-probe.lean')
     writeFileSync(f, `theorem adm_probe : ${stmt} := by decide\n#print axioms adm_probe\n`)
-    try { return disallowedAxioms(execSync(`lean ${JSON.stringify(f)}`, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] }), 'adm_probe') }
+    try { return axiomsOf(execSync(`lean ${JSON.stringify(f)}`, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] }), 'adm_probe') }
     finally { try { unlinkSync(f) } catch { /* disposable */ } }
   }
   assert.deepEqual(ax('[1,2,3].getD 1 0 = 2'), ['propext'], 'the measured fact this rule exists for')

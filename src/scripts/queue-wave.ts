@@ -13,7 +13,7 @@ import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { theoremByKey } from '../theorems/index.js'
 import { validateCandidate } from '../wave-deposit.js'   // THE ONE DECLARATION of the door laws — shared with the wire's deposit tool
-import { disallowedAxioms, inadmissibleIn } from '../axiom-report.js'
+import { axiomsOf, inadmissibleIn } from '../axiom-report.js'
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 // ONE PROBE FILE PER PROCESS. The path was fixed, so two conveyors on this shared tree — or a test calling probe
@@ -55,7 +55,7 @@ function liveWingHolds(key: string): string | null {
 // AND THE PROBE ASKS THE KERNEL WHAT THE TERM COST, in the SAME invocation. A candidate can pass `by decide` and
 // still drag an axiom: `(i == j) == (l.getD i 0 == l.getD j 0)` needs propext, because an equality of two
 // Bool-valued comparisons at Prop level is propositional extensionality. This ledger's trust base is the bare
-// kernel with allowed axioms ∅, so that candidate is refusable — but until now nothing could refuse it, because
+// kernel's axiom-free receipt, so that candidate is refusable — but until now nothing could refuse it, because
 // the axiom audit runs over the SEALED ledger. And that audit will not certify partially ("this run could not
 // cover the ledger, so it has nothing to certify"), so ONE propext row blocks the witness for all 2656.
 // `#print axioms` costs nothing here: the probe already spawns `lean` on a file, and the query goes in that file.
@@ -83,7 +83,7 @@ export function probe(c: Candidate): string | null {
   finally { try { unlinkSync(PROBE) } catch { /* the probe is disposable */ } }
   // NULL AND [] ARE DIFFERENT ANSWERS. [] is the kernel vouching for the term; null is NO verdict, and an absent
   // instrument may never be read as a pass — the same law the wave already obeys for an absent kernel (it VOIDS).
-  const bad = disallowedAxioms(out, c.key)
+  const bad = axiomsOf(out, c.key)
   if (bad === null) return 'the kernel accepted the proof but printed no axiom verdict for ' + c.key + ' — an absent instrument is not a pass'
   if (bad.length) {
     // NAME THE CONSTRUCT, not just the axiom. Two sessions hit propext through `.getD` tonight and both cured it
@@ -93,7 +93,7 @@ export function probe(c: Candidate): string | null {
     const named = known.length
       ? ` The cause is in your statement: ${known.map((k) => `\`${k.form}\` — ${k.why}; instead ${k.instead}`).join('; ')}.`
       : ' No known-inadmissible form is present, so the cause is elsewhere in the term — bisect it with `#print axioms` on each conjunct.'
-    return `the proof depends on ${bad.length === 1 ? 'a disallowed axiom' : 'disallowed axioms'}: [${bad.join(', ')}] — this ledger's trust base is the bare kernel (allowed axioms ∅).${named}`
+    return `the proof depends on ${bad.length === 1 ? 'an axiom' : 'axioms'}: [${bad.join(', ')}] — all of it Lean, but outside this ledger's axiom-free receipt; restate it so the kernel needs none.${named}`
   }
   return null
 }

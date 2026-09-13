@@ -212,7 +212,7 @@ reaches the ledger cannot be corrected by fixing the generator that produced it.
 
 The axiom audit REFUSES TO WRITE rather than certify partially: *"this run could not cover the ledger, so it has
 nothing to certify. Whatever witness is on disk is the previous one — stale, and honestly stale."* One row
-depending on a disallowed axiom blocks certification of all of them.
+depending on an axiom blocks certification of all of them.
 
 **A zero must discriminate.** Every finder here is held to a positive control — feed it the defect it was built
 for and it must catch it — because a detector reporting zero is indistinguishable from a detector that is blind.

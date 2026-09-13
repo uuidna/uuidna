@@ -22,13 +22,16 @@ const count = (t: readonly number[], v: number): number => t.filter((c) => c ===
 const L = (xs: readonly number[]): string => `[${xs.join(',')}]`
 const SQ = (w: string): string => `((${w}.zip ${w}.tail).map (fun b => (${w}.zip ${w}.tail).count b)).foldl (· + ·) 0`
 const T = `(${L(TEXT)} : List Nat)`, S = `(${L(SORTED)} : List Nat)`
-const RELABELED = `(${L(TEXT)}.map (fun c => p.getD c c))`
+// each permutation is a triple and the relabel a match on the letter: indexing a list with `.getD` drags propext
+// (axiom-report's AXIOM_INADMISSIBLE), a structural match drags nothing
+const TRIPLE = (p: readonly number[]): string => `(${p.join(',')})`
+const RELABELED = `(${L(TEXT)}.map (fun c => match c with | 0 => p.1 | 1 => p.2.1 | _ => p.2.2))`
 
 const FACTS = [
   { key: 'relabel3_preserves_bigram_collisions',
     why: `A SUBSTITUTION CANNOT MOVE THE STATISTICS. Every relabeling of a three-letter alphabet, all six, leaves the sum over adjacent letter pairs of how often each recurs (Σ c² = ${sumSq(TEXT)} here) exactly where it was on this twelve-letter text, because a bijection sends equal pairs to equal pairs and unequal to unequal. That is why a letter-for-letter "decipherment" of the Voynich manuscript cannot rescue its low letter entropy: the claimed plaintext inherits it, and must be compared to real text in the claimed language. Decided for this text and alphabet; the general reason is the bijection.`,
     js: () => PERMS.every((p) => sumSq(relabel(TEXT, p)) === sumSq(TEXT)),
-    lean: `theorem relabel3_preserves_bigram_collisions : ∀ p ∈ ([${PERMS.map(L).join(',')}] : List (List Nat)), ${SQ(RELABELED)} = ${SQ(T)} := by decide` },
+    lean: `theorem relabel3_preserves_bigram_collisions : ∀ p ∈ ([${PERMS.map(TRIPLE).join(',')}] : List (Nat × Nat × Nat)), ${SQ(RELABELED)} = ${SQ(T)} := by decide` },
 
   { key: 'letter_order_moves_bigram_collisions',
     why: `THE CONTROL FIRES. The same twelve letters, the same four of each, sorted instead of mixed, give Σ c² = ${sumSq(SORTED)} where the mixed text gives ${sumSq(TEXT)}: letter order does move the count, so the invariance beside this is a fact about substitution, not a count nothing can change. It is the letter-shuffle control of the decipherment bench, decided.`,

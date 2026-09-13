@@ -20,16 +20,11 @@ import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
 import { ROOT, MAXBUF } from './lean-gen.js'
 
-// The trust base is the kernel alone — NO axiom is tolerated, not even propext/Quot.sound. Widen this set only by a
-// conscious, documented decision; a `by decide` ledger should never need to.
+// The receipt is the kernel's own `#print axioms`: every axiom it names is reported, with no list in between.
 import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
-import { ALLOWED_AXIOMS, parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
+import { parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
-
-// THE TRUST BASE IS DECLARED ONCE, in src/axiom-report.ts, because the conveyor's deposit door now enforces it
-// too (queue-wave's probe carries `#print axioms`). Two copies of an allowed-axiom set is two trust bases.
-const ALLOWED = ALLOWED_AXIOMS
 
 const T = theorems()
 const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t.address]))
@@ -209,7 +204,7 @@ async function main() {
   const results = files.map((f) => verdictOf[f]!)
   const wings: Record<string, WingReceipt> = Object.fromEntries(files.map((f) => [f, { asked: asks[f], verdict: verdictOf[f]! }]))
 
-  // Fold: which theorems carry a DISALLOWED axiom, and did every theorem actually get a verdict (coverage)?
+  // Fold: which theorems depend on an axiom, outside the axiom-free receipt, and did every theorem get a verdict (coverage)?
   const offenders: Record<string, string[]> = {} // address → the axioms it depends on
   // THE DEPENDENCY SETS THEMSELVES, censused — because a record of counts and offenders cannot tell
   // pass-by-absence from pass-by-evidence (a peer's finding, zeropoint-node-8a 2026-09-04: "verdict right, reason
@@ -227,8 +222,7 @@ async function main() {
       audited++
       const set = verdict[key].length ? [...verdict[key]].sort().join(',') : '(none)'
       dependencySets[set] = (dependencySets[set] ?? 0) + 1
-      const bad = verdict[key].filter((a) => !ALLOWED.has(a))
-      if (bad.length) offenders[addrOf[key]] = bad
+      if (verdict[key].length) offenders[addrOf[key]] = verdict[key]
     }
   }
 
@@ -257,7 +251,7 @@ async function main() {
   console.log('\n=== axiom audit — the whole ledger ===')
   console.log('theorems audited :', audited + '/' + T.length + (unseen.length ? ` (${unseen.length} UNSEEN)` : ''))
   console.log('axiom-free       :', axiomFree)
-  console.log('trust base       : leanprover/lean4 kernel — allowed axioms: ∅')
+  console.log('trust base       : leanprover/lean4 kernel — its own #print axioms, no list in between')
   // the EVIDENCE, not just the absence of a finding: what every audited theorem actually depends on
   for (const [set, n] of Object.entries(dependencySets).sort((a, b) => b[1] - a[1]))
     console.log('depends on       :', set, '×', n)
@@ -266,7 +260,7 @@ async function main() {
   const bad = Object.keys(offenders).length
   if (bad || unseen.length) {
     if (bad) {
-      console.error('\n✗ ' + bad + ' theorem(s) depend on a DISALLOWED axiom:')
+      console.error('\n✗ ' + bad + ' theorem(s) depend on an axiom — all of it Lean, but outside the axiom-free receipt this ledger keeps; restate the proof so the kernel needs none:')
       const keyOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.address, t.key]))
       for (const [addr, ax] of Object.entries(offenders)) console.error('   ' + keyOf[addr] + ' — [' + ax.join(', ') + ']')
     }
