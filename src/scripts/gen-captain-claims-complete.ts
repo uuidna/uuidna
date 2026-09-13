@@ -80,6 +80,7 @@ const principleCategories: Record<string, string> = {
   'Typesetting': 'Language',
   'Report': 'Language',
   'Identifiers': 'Language',
+  'The substitution invariants': 'Language',
 
   // Clay Problems (36)
   'Clay': 'Clay Problems',

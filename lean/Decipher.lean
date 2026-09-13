@@ -1,0 +1,15 @@
+-- lean/Decipher.lean — GENERATED. DECIPHER — the substitution invariants every letter-for-letter reading meets, with the control that can fail. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+/-- A SUBSTITUTION CANNOT MOVE THE STATISTICS. Every relabeling of a three-letter alphabet, all six, leaves the
+    sum over adjacent letter pairs of how often each recurs (Σ c² = 15 here) exactly where it was on this
+    twelve-letter text, because a bijection sends equal pairs to equal pairs and unequal to unequal. That is why
+    a letter-for-letter "decipherment" of the Voynich manuscript cannot rescue its low letter entropy: the
+    claimed plaintext inherits it, and must be compared to real text in the claimed language. Decided for this
+    text and alphabet; the general reason is the bijection. -/
+theorem relabel3_preserves_bigram_collisions : ∀ p ∈ ([[0,1,2],[0,2,1],[1,0,2],[1,2,0],[2,0,1],[2,1,0]] : List (List Nat)), ((([0,1,2,2,1,0,1,1,2,0,0,2].map (fun c => p.getD c c)).zip ([0,1,2,2,1,0,1,1,2,0,0,2].map (fun c => p.getD c c)).tail).map (fun b => (([0,1,2,2,1,0,1,1,2,0,0,2].map (fun c => p.getD c c)).zip ([0,1,2,2,1,0,1,1,2,0,0,2].map (fun c => p.getD c c)).tail).count b)).foldl (· + ·) 0 = ((([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).map (fun b => (([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).count b)).foldl (· + ·) 0 := by decide
+
+/-- THE CONTROL FIRES. The same twelve letters, the same four of each, sorted instead of mixed, give Σ c² = 29
+    where the mixed text gives 15: letter order does move the count, so the invariance beside this is a fact
+    about substitution, not a count nothing can change. It is the letter-shuffle control of the decipherment
+    bench, decided. -/
+theorem letter_order_moves_bigram_collisions : ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 0 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 0 ∧ ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 1 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 1 ∧ ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 2 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 2 ∧ ((([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).zip ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).tail).map (fun b => (([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).zip ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).tail).count b)).foldl (· + ·) 0 = 29 ∧ ((([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).map (fun b => (([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).count b)).foldl (· + ·) 0 = 15 := by decide
