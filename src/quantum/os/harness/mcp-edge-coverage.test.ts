@@ -8,8 +8,10 @@ import { coverage } from '../../../publish.js'
 import { theorems } from '../../../index.js'
 import { toUuid } from '../../../address.js'
 import { ROOT } from '../../../scripts/api.js'
-import { readFileSync } from 'node:fs'
+import { readFileSync, mkdtempSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
+import { tmpdir } from 'node:os'
+import { spawnSync } from 'node:child_process'
 
 test('every edge-served tool dispatches through handleMcpRpc', () => {
   const absent = new Set(edgeAbsentNames())
@@ -212,4 +214,45 @@ test('uuidna_school_apis stays named EDGE_ABSENT; in-memory search now serves at
   assert.ok(mcpHttpToolNames().includes('uuidna_search'))
   assert.ok(mcpHttpToolNames().includes('uuidna_search_feed'))
   assert.ok(mcpHttpToolNames().includes('uuidna_unify'))
+})
+
+// THE WORKER HAS NO FILESYSTEM EITHER, and the process-hidden probe above cannot see it: the boundary resolves its
+// builtins when it loads, with process present, and the repo's minted receipts answer before any fallback reads. Twelve
+// edge tools passed that probe and refused on uuidna.com/mcp (2026-09-13). This arm loads the surface in a child with
+// process.getBuiltinModule removed before any module evaluates, from an empty working directory — the boundary has no
+// filesystem and nothing relative resolves, as on the Worker — and calls every zero-argument edge tool.
+test('every zero-argument edge tool answers with no filesystem, as the Worker has none', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'uuidna-edge-nofs-'))
+  const at = (rel: string): string => JSON.stringify(new URL(rel, import.meta.url).href)
+  const script = `
+delete process.getBuiltinModule
+const { rdRoot } = await import(${at('../../../boundary.js')})
+const { handleMcpRpc, mcpHttpToolNames } = await import(${at('../../../mcp-http.js')})
+const { MCP_CATALOG } = await import(${at('../../../mcp.js')})
+let control = ''
+try { rdRoot('package.json') } catch (e) { control = String(e.message) }
+const served = new Set(mcpHttpToolNames()), refused = []
+let called = 0
+for (const t of MCP_CATALOG) {
+  if (!served.has(t.name) || (t.inputSchema?.required ?? []).length) continue
+  called++
+  let text = ''
+  try {
+    let r = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: t.name, arguments: {} } })
+    if (r && typeof r.then === 'function') r = await r
+    text = r?.result?.content?.[0]?.text ?? r?.error?.message ?? ''
+  } catch (e) { text = String(e?.message ?? e) }
+  if (/Node-only/.test(text)) refused.push(t.name)
+}
+console.log(JSON.stringify({ control, called, refused }))
+process.exit(0)`
+  const r = spawnSync(process.execPath, ['--input-type=module', '-e', script], { cwd: dir, encoding: 'utf8', timeout: 600_000 })
+  rmSync(dir, { recursive: true, force: true })
+  const line = r.stdout.trim().split('\n').pop() ?? ''
+  assert.ok(line.startsWith('{'), `the child produced no verdict (exit ${r.status}):\n${r.stderr.slice(-600)}`)
+  const v = JSON.parse(line) as { control: string; called: number; refused: string[] }
+  // NEGATIVE CONTROL FIRST: the boundary must refuse in the child, or it still has a filesystem and every pass is vacuous
+  assert.match(v.control, /Node-only/, 'the child still reads the filesystem — this arm is not modelling the Worker')
+  assert.ok(v.called > 0, 'no zero-argument edge tool was called')
+  assert.deepEqual(v.refused, [], 'these edge tools reach the filesystem boundary and refuse on the Worker — bake what they read (gen-edge-slices) or answer from a shipped mirror:\n  ' + v.refused.join('\n  '))
 })

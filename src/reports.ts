@@ -16,7 +16,7 @@
 import { theorems, PRINCIPLES } from './theorems/index.js'
 import { runTrial } from './trial-run.js'
 import { rdRoot, existsRoot, lsRoot } from './boundary.js'
-import { workspacePackages } from './npm-pack.js'
+import { EDGE_SLICES } from './edge-slices/generated.js'
 import { statementCensus } from './editorial.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, merkleFold } from './address.js'
@@ -109,10 +109,11 @@ function support(): ReportSection {
   })
 }
 
-/** packageInventory — the workspaces, read from their own manifests rather than remembered. */
+/** packageInventory — the workspaces, read from their own manifests rather than remembered (on the host by
+ *  gen-edge-slices, since the edge has no packages/ to list). */
 function packages(): ReportSection {
   const root = readJson<{ workspaces?: string[]; version: string }>('package.json')
-  const names = workspacePackages().map((p) => p.name)
+  const names = EDGE_SLICES.workspaces.map((p) => p.name)
   return section('Package inventory', 'packages/*/package.json', names.length > 0, {
     workspaces: names.length, version: root?.version ?? 'unknown', names: names.join(', '),
   })
@@ -167,7 +168,11 @@ function firstHandleIndex(dir: string): string | null {
 }
 
 function handleStoreRoundTrip(): string {
-  if (!existsRoot(HANDLE_ROOT)) return HANDLE_ROOT + ' absent'
+  // the store is tens of thousands of files, so it is not baked: where the boundary has no filesystem (the edge) it
+  // refuses by name, and the section states that absence instead of throwing the whole report away
+  let present: boolean
+  try { present = existsRoot(HANDLE_ROOT) } catch { return HANDLE_ROOT + ' unreachable (no filesystem here)' }
+  if (!present) return HANDLE_ROOT + ' absent'
   const found = firstHandleIndex(HANDLE_ROOT)
   if (!found) return HANDLE_ROOT + ' empty'
   const h = handleOfPath(found)

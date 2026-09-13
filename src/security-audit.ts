@@ -10,14 +10,11 @@ import { merkleGravity } from './gravity/index.js'
 import { computes } from './gate.js'
 import { adjudicate } from './adjudicate.js'
 import { axiomWitness } from './axiom-witness.js'
-import { rdRoot } from './boundary.js'
+import { EDGE_SLICES } from './edge-slices/generated.js'
 
 export interface SecurityCheck { id: string; ok: boolean; detail: string; address: string }
 export interface SecurityAuditReport { checks: SecurityCheck[]; passed: boolean; failed: string[]; receipt: string }
 
-// dist/security-audit.js → ROOT is one up; package.json ships beside dist in the installed package and in the repo.
-const readPkg = (): { dependencies?: Record<string, string>; devDependencies?: Record<string, string> } =>
-  JSON.parse(rdRoot('package.json'))
 
 // the ONLY dev dependencies uuidna is allowed to carry — a new one is a supply-chain change the audit must surface.
 export const KNOWN_DEV_DEPS = ['@types/node', 'typescript', 'vitepress', 'wrangler',
@@ -45,11 +42,13 @@ const mk = (id: string, ok: boolean, detail: string): SecurityCheck =>
 /** The recomputable security posture from the shipped package. Every check folds to `receipt` (order-invariant), so
  *  the same package recomputes the same receipt and any drift moves it. Throws nothing; `passed` is the verdict. */
 export function securityAudit(): SecurityAuditReport {
-  const pkg = readPkg()
+  // package.json's dependency names as gen-edge-slices derived them: the edge has no package.json to read, and one
+  // reading on every surface is what makes this receipt the same wherever it is recomputed
+  const pkg = EDGE_SLICES.package
   const T = theorems()
   const sealed = (k: string): boolean => T.some((t) => t.key === k)
-  const runtimeDeps = Object.keys(pkg.dependencies ?? {})
-  const unknownDev = Object.keys(pkg.devDependencies ?? {}).filter((d) => !(KNOWN_DEV_DEPS as readonly string[]).includes(d))
+  const runtimeDeps = pkg.dependencies
+  const unknownDev = pkg.devDependencies.filter((d) => !(KNOWN_DEV_DEPS as readonly string[]).includes(d))
   const sealedDefence = DEFENCE_THEOREMS.filter(sealed)
   // the honesty gate is a SECURITY control on claims: it must drain a fabricated theorem citation (binary 0) and
   // sign the honest floor (binary 1) — recomputed live.

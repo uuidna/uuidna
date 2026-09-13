@@ -13,6 +13,7 @@ import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 import { toUuid } from './address.js'
 import { THEOREMS } from './theorems/index.js'
+import { EDGE_SLICES } from './edge-slices/generated.js'
 
 let _digest: string | null = null
 /** the ledger's identity for receipts: every key, statement and wing, folded once per process (119 ms) */
@@ -20,14 +21,19 @@ export const ledgerDigest = (): string => (_digest ??= toUuid(THEOREMS.map((t) =
 
 export const receiptPath = (name: string, root: string = ROOT): string => join(root, 'lean', `${name}-receipt.json`)
 
-/** readReceipt(name) → the minted value iff its key is THIS ledger's digest; null when absent or moved (never stale) */
+/** readReceipt(name) → the minted value iff its key is THIS ledger's digest; null when absent or moved (never stale).
+ *  The file answers where there is one; where there is none (the edge, an installed package) the receipt
+ *  gen-edge-slices baked answers under the same key rule. */
 export function readReceipt<T>(name: string, root: string = ROOT, digest: string = ledgerDigest()): T | null {
   const p = receiptPath(name, root)
-  if (!existsSync(p)) return null
-  try {
-    const r = JSON.parse(readFileSync(p, 'utf8')) as { key?: string; value?: T }
-    return r.key === digest && r.value !== undefined ? r.value : null
-  } catch { return null }
+  if (existsSync(p)) {
+    try {
+      const r = JSON.parse(readFileSync(p, 'utf8')) as { key?: string; value?: T }
+      return r.key === digest && r.value !== undefined ? r.value : null
+    } catch { return null }
+  }
+  const baked = EDGE_SLICES.receipts[name]
+  return baked && baked.key === digest ? baked.value as T : null
 }
 
 /** mintReceipt(name, value) — the drain's act: sealed under the ledger digest it was computed against */
