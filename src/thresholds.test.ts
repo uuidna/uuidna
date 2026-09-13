@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { sweepThreshold, thresholdGaps, SWEPT_THRESHOLDS, lanesReferenced, LANE_FLOOR, type SweptThreshold } from './scripts/one-receipt.js'
+import { sweepThreshold, thresholdGaps, SWEPT_THRESHOLDS, lanesReferenced, LANE_FLOOR, GITHUB_FILE_LIMIT, LFS_POINTER_MAX, type SweptThreshold } from './scripts/one-receipt.js'
 import { UNDERCLAIM_FLOOR } from './underreach.js'
 
 const span = (lo: number, hi: number) => Array.from({ length: hi - lo + 1 }, (_, i) => lo + i)
@@ -61,9 +61,11 @@ test('ONE profile read under the two kinds gives OPPOSITE prescriptions — the 
 // ── the live tree
 test('every registered threshold is on a reporting path and currently clean', () => {
   const reg = SWEPT_THRESHOLDS()
-  assert.deepEqual(reg.map((t) => t.name).sort(), ['LANE_FLOOR', 'UNDERCLAIM_FLOOR'])
+  assert.deepEqual(reg.map((t) => t.name).sort(), ['GITHUB_FILE_LIMIT', 'LANE_FLOOR', 'LFS_POINTER_MAX', 'UNDERCLAIM_FLOOR'])
   assert.equal(reg.find((t) => t.name === 'UNDERCLAIM_FLOOR')?.live, UNDERCLAIM_FLOOR)
   assert.equal(reg.find((t) => t.name === 'LANE_FLOOR')?.live, LANE_FLOOR)
+  assert.equal(reg.find((t) => t.name === 'GITHUB_FILE_LIMIT')?.live, GITHUB_FILE_LIMIT)
+  assert.equal(reg.find((t) => t.name === 'LFS_POINTER_MAX')?.live, LFS_POINTER_MAX)
   assert.deepEqual(thresholdGaps(), [])
 })
 
