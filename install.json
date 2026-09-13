@@ -8,6 +8,6 @@
     "button": "https://deploy.workers.cloudflare.com/button",
     "qpu": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/qpu",
     "uuidna": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna",
-    "payload": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna-payload"
+    "payload": "https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/payload"
   }
 }

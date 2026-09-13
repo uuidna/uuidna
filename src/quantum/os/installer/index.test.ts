@@ -89,7 +89,7 @@ test('simpleInstall is one shot: Enter / --yes seats all and commits', () => {
   assert.equal(seated.committed, true)
   assert.deepEqual(seated.seated, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
   assert.equal(seated.occupancy, 'personal')
-  assert.equal(seated.cloudflare.payload.includes('uuidna-payload'), true)
+  assert.equal(seated.cloudflare.payload.endsWith('github.com/uuidna/payload'), true)
   interactiveInstall({ reset: true })
   const saas = simpleInstall({ line: '2 saas', yes: true })
   assert.deepEqual(saas.seated, ['payload-mcp'])

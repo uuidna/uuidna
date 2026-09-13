@@ -104,7 +104,7 @@ export const INSTALL_CLOUDFLARE = {
   button: 'https://deploy.workers.cloudflare.com/button',
   qpu: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/qpu',
   uuidna: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna',
-  payload: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna-payload',
+  payload: 'https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/payload',
 } as const
 
 /** The three packages the interactive installer seats: QPU MCP, Payload MCP (find-only), VitePress payload. */
