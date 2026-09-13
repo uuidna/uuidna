@@ -59,9 +59,9 @@ const FACTS = [
     lean: `theorem period_lengths_are_the_sums_of_their_subshells : ${'[' + PERIODS.map((p) => L(p)).join(',') + ']'}.map (fun p => p.foldl (fun a l => a + (4 * l + 2)) 0) = ${L(lengths)} := by decide` },
 
   { key: 'the_nobles_are_the_running_totals',
-    why: `WHERE THE NOBLE GASES FALL, AND WHY THERE. A noble gas closes a period, so its atomic number is the running total of every period length up to and including its own: ${nobles.join(', ')} — helium, neon, argon, krypton, xenon, radon and oganesson. The positions are not looked up; they are the partial sums, and this decides that they are.`,
+    why: `WHERE THE NOBLE GASES FALL, AND WHY THERE. A noble gas closes a period, so its atomic number is the running total of every period length up to and including its own, where period p holds 2 * ((p + 2) / 2)^2 elements, twice a square, the electron-shell law read in periodic order. Lean computes the lengths itself and indexes nothing: ${nobles.join(', ')} — helium, neon, argon, krypton, xenon, radon and oganesson. The positions are not looked up; they are the partial sums, and this decides that they are.`,
     js: () => nobles.join() === '2,10,18,36,54,86,118',
-    lean: `theorem the_nobles_are_the_running_totals : ${L(lengths)}.foldl (fun acc n => acc ++ [(acc.getLast? |>.getD 0) + n]) [] = ${L(nobles)} := by decide` },
+    lean: `theorem the_nobles_are_the_running_totals : (List.range ${nobles.length}).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = ${L(nobles)} := by decide` },
 
   { key: 'the_rows_repeat_in_pairs_after_the_first',
     why: 'EVERY LENGTH BUT THE FIRST APPEARS TWICE. 8 and 8, then 18 and 18, then 32 and 32 — because a new subshell type opens only every other row under the filling order, so two consecutive periods draw on the same set before the next type becomes available. Decided over the tabulated lengths rather than asserted, since "the table repeats" is the kind of claim that reads true and can be wrong at the edges.',

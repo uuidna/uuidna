@@ -41,7 +41,9 @@ export type ToolScope =
  *  guessed into `generic`. These are caller content by inspection (a room to seal into, records to fold, a URL's
  *  expected address), so they join the roster. The bucket stays honest; the next unknown name still lands in it.
  *  Energy magnitudes use ENERGY_UNIT_STEM (suffix), not this open roster. */
-const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb|cylinders|encoded|wave|command|spawn|fetch|messaging|run|verify|enrich|loadPayload|all|entries|records|expect|of|by|room|args|prove|tokens|purpose|theorems|tests|landed|posts|handle|checklist|slug|record|size|need|template|idea)$/i
+// 2026-09-13 by inspection: arguments and method are the caller's own MCP call, which the fanout forwards; offset is a
+// caller-chosen position, as index already is.
+const CALLER_SUPPLIED = /^(draft|arguments|method|offset|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb|cylinders|encoded|wave|command|spawn|fetch|messaging|run|verify|enrich|loadPayload|all|entries|records|expect|of|by|room|args|prove|tokens|purpose|theorems|tests|landed|posts|handle|checklist|slug|record|size|need|template|idea)$/i
 
 // `template` and `idea` joined with uuidna_cloudflare, `need` with uuidna_team (2026-09-05): the words describing an application are the
 // caller's own material, exactly like `query` or `subject`. The census refused to classify it and named the
@@ -57,7 +59,9 @@ const ENERGY_UNIT_STEM =
  *  and nothing else, however many parameters it has. `keys` involutes to `key`; bare `uuid` stays an id,
  *  while transport chains use `uuids` on the caller roster (not folded into ledger via the involution).
  *  CamelCase ledger keys (`theoremKey`, …) are listed verbatim — involution leaves them alone. */
-const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|handle|skill|principle|wing|resource|course|track|lane|seat|id|uuid|q|theoremKey|theoremCited|theoremProof|citedTheorem|citedTheorems|recordId|gutenbergId|cveId|workAddress|citedAddress|expectedFingerprint|education|licenseBinding|reeducation|infuse|referrer|def)$/i
+// 2026-09-13 by inspection: host names one of the four uuidna hosts, as domain does; station names a place on the
+// uuidna lattice, as seat does.
+const LEDGER_IDENTIFIER = /^(key|host|station|slug|route|address|theorem|publication|domain|handle|skill|principle|wing|resource|course|track|lane|seat|id|uuid|q|theoremKey|theoremCited|theoremProof|citedTheorem|citedTheorems|recordId|gutenbergId|cveId|workAddress|citedAddress|expectedFingerprint|education|licenseBinding|reeducation|infuse|referrer|def)$/i
 
 /**
  * Singular ↔ plural involution on a parameter token — self-inverse on the pairs the catalogue uses
@@ -109,13 +113,19 @@ export const isLedgerParam = (p: string): boolean => {
  *  A name matching BOTH lists resolves to the ledger reading. `key` is the clearest case: `uuidna_seo` takes a
  *  theorem key, and treating that as caller-supplied content would classify the whole self-describing half of
  *  the catalogue as generic — which is precisely the error this module exists to correct. */
+/** A SWITCH IS NOT A TARGET (2026-09-13). A boolean parameter turns behaviour on or off and never names what the tool
+ *  is pointed at, so it is left out of the scope question. This is read from the declared type, not added to a roster:
+ *  seven tools sat in `unclassified` for one `recompute` flag, and naming the flag caller content would absorb it. */
+const pointable = (schema?: { properties?: Record<string, unknown> }): string[] =>
+  Object.entries(schema?.properties ?? {}).filter(([, v]) => (v as { type?: unknown } | undefined)?.type !== 'boolean').map(([k]) => k)
+
 /** Parameter names on NEITHER list. The scope question cannot be decided over these, and naming them is the
  *  remedy: add the name to whichever list it belongs to, or rename the parameter. */
 export const unrecognisedParams = (schema?: { properties?: Record<string, unknown> }): string[] =>
-  Object.keys(schema?.properties ?? {}).filter((p) => !isCallerParam(p) && !isLedgerParam(p))
+  pointable(schema).filter((p) => !isCallerParam(p) && !isLedgerParam(p))
 
 export function scopeOf(schema?: { properties?: Record<string, unknown> }): ToolScope {
-  const params = Object.keys(schema?.properties ?? {})
+  const params = pointable(schema)
   if (params.length === 0) return 'fixed'
   // THE UNMEASURED CASE IS ITS OWN ANSWER (2026-08-25). This read `takesCaller ? generic : self`, so a parameter
   // matching NEITHER list fell through to 'self' — the STRONGER claim, that the tool can only be pointed at

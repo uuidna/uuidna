@@ -19,10 +19,11 @@ theorem a_shell_holds_two_n_squared : [1,2,3,4,5,6,7].all (fun n => ((List.range
 theorem period_lengths_are_the_sums_of_their_subshells : [[0],[0,1],[0,1],[0,2,1],[0,2,1],[0,3,2,1],[0,3,2,1]].map (fun p => p.foldl (fun a l => a + (4 * l + 2)) 0) = [2,8,8,18,18,32,32] := by decide
 
 /-- WHERE THE NOBLE GASES FALL, AND WHY THERE. A noble gas closes a period, so its atomic number is the running
-    total of every period length up to and including its own: 2, 10, 18, 36, 54, 86, 118 — helium, neon, argon,
-    krypton, xenon, radon and oganesson. The positions are not looked up; they are the partial sums, and this
-    decides that they are. -/
-theorem the_nobles_are_the_running_totals : [2,8,8,18,18,32,32].foldl (fun acc n => acc ++ [(acc.getLast? |>.getD 0) + n]) [] = [2,10,18,36,54,86,118] := by decide
+    total of every period length up to and including its own, where period p holds 2 * ((p + 2) / 2)^2 elements,
+    twice a square, the electron-shell law read in periodic order. Lean computes the lengths itself and indexes
+    nothing: 2, 10, 18, 36, 54, 86, 118 — helium, neon, argon, krypton, xenon, radon and oganesson. The
+    positions are not looked up; they are the partial sums, and this decides that they are. -/
+theorem the_nobles_are_the_running_totals : (List.range 7).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = [2,10,18,36,54,86,118] := by decide
 
 /-- EVERY LENGTH BUT THE FIRST APPEARS TWICE. 8 and 8, then 18 and 18, then 32 and 32 — because a new subshell
     type opens only every other row under the filling order, so two consecutive periods draw on the same set
