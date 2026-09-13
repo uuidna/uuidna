@@ -140,8 +140,11 @@ test('skillSurface serves ONLY that skill\'s theorems, and REFUSES an unknown on
     // constant would satisfy the pattern while addressing every theorem to the same place
     for (const t of s.theorems) assert.equal(t.handle, handleOf(t.address), `${t.key}: the handle must be handleOf(address)`)
     assert.equal(s.handle, handleOf(s.fold), `${g.skill}: the cluster handle must be handleOf(fold)`)
-    assert.equal(new Set(s.theorems.map((t) => t.handle)).size, new Set(s.theorems.map((t) => t.address)).size,
-      `${g.skill}: distinct theorems collapsed onto one handle`)
+    // PAST THE BIRTHDAY POINT A HANDLE IS A PLACE, NOT AN IDENTITY (message_carries_address: 65536 * 65536 = 16^8).
+    // Eight hex keep distinct addresses apart only below 2^16 of them, and the line above already refuses a constant
+    // handle. Demanding distinct handles here asked for the impossible, so identity is asserted on the full address.
+    assert.equal(new Set(s.theorems.map((t) => t.address)).size, s.theorems.length,
+      `${g.skill}: every served theorem keeps its own full address`)
   }
   // every theorem in the ledger is reachable through exactly one skill — the axis PARTITIONS, it does not sample
   const servedKeys = skillGroups().flatMap((g) => skillSurface(g.skill).theorems.map((t) => t.key))

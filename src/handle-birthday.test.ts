@@ -83,8 +83,16 @@ test('a SEED handle is content-derived — one version, one address', () => {
   const counts = [...new Map(prefixes.map((p) => [p, prefixes.filter((q) => q === p).length]))].map(([, c]) => c)
   const worst = counts.reduce((m, c) => (c > m ? c : m), 0)
   // the ratio, stated rather than promised: before the reordering it was 913 seeds in 185 handles, worst bucket 145
-  assert.ok(distinct >= seeds.length - 10,
-    `${seeds.length} seeds occupy only ${distinct} handles — the content fingerprint is not reaching the address`)
+  // A SHARED HANDLE IS A DRAFT/USABLE PAIR OR IT IS A DEFECT (2026-09-13). The allowance was a pinned ten and the
+  // corpus grew past it with every shared handle still a legitimate pair, so the law replaces the count: two seeds
+  // share a handle only when their full names differ in exactly one character, by exactly one bit.
+  const byPrefix = new Map<string, string[]>()
+  for (const d of seeds) byPrefix.set(d.slice(0, 8), [...(byPrefix.get(d.slice(0, 8)) ?? []), d])
+  const notPairs = [...byPrefix.values()].filter((g) => g.length === 2).filter(([a, b]) => {
+    const at = [...a!].map((c, i) => (c === b![i] ? -1 : i)).filter((i) => i >= 0)
+    return at.length !== 1 || (parseInt(a![at[0]!]!, 16) ^ parseInt(b![at[0]!]!, 16)) !== 1
+  }).map((g) => g.join(' | '))
+  assert.deepEqual(notPairs, [], `${distinct} handles for ${seeds.length} seeds: a shared handle that is not a draft/usable pair`)
   assert.ok(worst <= 2, `worst bucket ${worst}: a handle addressing more than a draft/usable pair is a stem bucket again`)
   // and every seed still decodes to a full identity, which is what makes the reordering free
   for (const d of seeds.slice(0, 50)) {

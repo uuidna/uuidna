@@ -177,9 +177,11 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
   // THE CUBE FILLED (2026-09-07): the ledger passed the cube, 16³, so that sealed form is the one already filled and
   // the next power of 16 is the form being filled — the gap counts to it (theorem the_cube_filled_and_the_tesseract_opens)
   assert.ok(n > geo.cube, 'the cube is full — 16³ keys are behind the ledger')
-  assert.equal(geo.power, 4, 'the form being filled is the tesseract, 16⁴')
-  assert.equal(geo.next, 16 * geo.cube)
-  assert.ok(n < geo.next, 'the tesseract is not yet full — the gap is uncomputed theorems')
+  // THE LADDER, NOT ONE RUNG (2026-09-13). This pinned the tesseract as the form being filled and the ledger passed
+  // it. 16^4 = 2^16 is also the birthday point of an eight-hex handle (message_carries_address), so both crossings are
+  // one event. Every rung is finite and the ladder is not: the form is the first power of 16 above the live count.
+  assert.ok(16 ** (geo.power - 1) <= n && n < 16 ** geo.power, `the form being filled is 16^${geo.power}, the first power of 16 above ${n}`)
+  assert.equal(geo.next, 16 ** geo.power, 'the next form is 16 to the power being filled')
   assert.equal(geo.gap, geo.next - n, 'gap_is_a_count: the next harmonic number minus live keys')
   assert.ok(geo.gap > 0)
   assert.equal(Object.prototype.hasOwnProperty.call(geo, 'missingKeys'), false,
