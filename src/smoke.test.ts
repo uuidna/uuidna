@@ -458,9 +458,12 @@ test('spin — the bits spin by themselves: a sealed layer verifies O(1), any dr
   // check that fewer coins were sealed than paths declared is the control: were directory expansion removed,
   // every entry would seal itself, the counts would agree again, and a count-only assertion would go quiet.
   // (A directory entry WITH children is covered by spin-parity.test.ts — not duplicated here.)
+  // A directory seals one coin only when the layer holds a file beneath it: lean does (three declared plain files
+  // live under it), src/chunks does not, so the expected set is derived from the list rather than assumed empty.
   const plainFiles = DERIVED_FILES.filter((p) => /\.[a-z0-9]+$/i.test(p))
-  assert.deepEqual(Object.keys(sealed.coins).sort(), [...plainFiles].sort(),
-    'sealSpin seals exactly the plain-file entries; directory entries seal their children, and here they have none')
+  const filledDirs = DERIVED_FILES.filter((p) => !plainFiles.includes(p) && plainFiles.some((f) => f.startsWith(p + '/')))
+  assert.deepEqual(Object.keys(sealed.coins).sort(), [...plainFiles, ...filledDirs].sort(),
+    'sealSpin seals the plain-file entries plus one coin per directory that holds any of them')
   assert.ok(plainFiles.length < DERIVED_FILES.length,
     'this layer must actually contain directory entries, or the case above proves nothing')
   const clean = verifySpin(sealed, layer)

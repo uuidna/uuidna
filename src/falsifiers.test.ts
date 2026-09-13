@@ -2845,6 +2845,7 @@ const DECIDED: readonly (readonly [string, string, string])[] = [
   ["a_subshell_holds_four_l_plus_two", "[0,1,2,3].all (fun l => 4 * l + 2 == 4 * l + 2) ∧ ([2,6,10,14] = [2,6,10,14])", "Periodic.lean"],
   ["a_shell_holds_two_n_squared", "[1,2,3,4,5,6,7].all (fun n => ((List.range n).foldl (fun a l => a + (4 * l + 2)) 0) == 2 * n * n)", "Periodic.lean"],
   ["period_lengths_are_the_sums_of_their_subshells", "[[0],[0,1],[0,1],[0,2,1],[0,2,1],[0,3,2,1],[0,3,2,1]].map (fun p => p.foldl (fun a l => a + (4 * l + 2)) 0) = [2,8,8,18,18,32,32]", "Periodic.lean"],
+  ["the_nobles_are_the_running_totals", "(List.range 7).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = [2,10,18,36,54,86,118]", "Periodic.lean"],
   ["the_rows_repeat_in_pairs_after_the_first", "(8 = 8) ∧ (18 = 18) ∧ (32 = 32) ∧ ¬(2 = 8)", "Periodic.lean"],
   ["the_seven_periods_close_at_one_hundred_eighteen", "([2,8,8,18,18,32,32].foldl (· + ·) 0 = 118) ∧ (118 = 118)", "Periodic.lean"],
   ["the_path_spells_the_handle", "(4 * 2 = 8) ∧ (8 * 4 = 32)", "HandleStore.lean"],

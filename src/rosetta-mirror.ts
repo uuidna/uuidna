@@ -69137,7 +69137,7 @@ pi_bracketed_by_finite_rationals 27
 a_subshell_holds_four_l_plus_two 27
 a_shell_holds_two_n_squared 27
 period_lengths_are_the_sums_of_their_subshells 27
-the_nobles_are_the_running_totals 19
+the_nobles_are_the_running_totals 27
 the_rows_repeat_in_pairs_after_the_first 27
 the_seven_periods_close_at_one_hundred_eighteen 27
 #Phase.lean
