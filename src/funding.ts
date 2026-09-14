@@ -26,6 +26,8 @@ import { ZENODO_SEALS } from './zenodo-seals.js'
 import { STANDING_DOI } from './handle-permanence.js'
 import { propositionAddress } from './proposition-address.js'
 import { toUuid, merkleFold } from './address.js'
+import { kernelVerdicts } from './axiom-witness.js'
+import { kernelHolds } from './claim-attribution.js'
 
 export type Requirement =
   | 'open-licence'        // every funded output under a recognised free/open licence
@@ -112,8 +114,9 @@ export interface EvidencePack {
   receipt: string
 }
 
-/** evidencePack() → the case for funding, derived. */
-export function evidencePack(): EvidencePack {
+/** evidencePack(verdict) → the case for funding, derived. `axiomFree` is the kernel's verdict on every theorem
+ *  (claim-attribution kernelHolds), never the tactic that closed it; the verdict defaults to the shipped receipt. */
+export function evidencePack(verdict: ReadonlyMap<string, readonly string[]> = kernelVerdicts()): EvidencePack {
   const props = new Set(THEOREMS.map((t) => propositionAddress(t.statement)))
   const pubs = publications()
   let priorArtDois = 0
@@ -126,7 +129,7 @@ export function evidencePack(): EvidencePack {
     theorems: THEOREMS.length,
     propositions: props.size,
     renamings: THEOREMS.length - props.size,
-    axiomFree: THEOREMS.every((t) => t.tactic.includes('decide')),
+    axiomFree: THEOREMS.every((t) => kernelHolds(t.key, verdict)),
     publications: pubs.length,
     archiveDoi: STANDING_DOI,
     priorArtDois,
@@ -207,13 +210,17 @@ export function requirementVerdict(r: Requirement, pack: EvidencePack): Requirem
       }
     case 'european-dimension':
       return { requirement: r, met: true, measured: 'author and work are EU-based (Bulgaria)', toMeet: '' }
-    case 'formal-verification-track-record':
+    case 'formal-verification-track-record': {
+      const met = pack.theorems > 1000 && pack.axiomFree
       return {
-        requirement: r,
-        met: pack.theorems > 1000 && pack.axiomFree,
-        measured: `${pack.propositions} distinct propositions, every one closed by decide and axiom-free`,
-        toMeet: '',
+        requirement: r, met,
+        measured: pack.axiomFree
+          ? `${pack.propositions} distinct propositions, every one kernel-checked with an empty #print axioms verdict`
+          : `${pack.propositions} distinct propositions, but the axiom audit does not hold every theorem axiom-free`,
+        toMeet: met ? '' : 'every theorem must stand in lean/axioms.json with an empty axiom list — rerun the axiom '
+          + 'audit (npm run axioms) over the whole ledger and restate any proof whose verdict names an axiom',
       }
+    }
     case 'legal-entity':
       return {
         requirement: r, met: true,

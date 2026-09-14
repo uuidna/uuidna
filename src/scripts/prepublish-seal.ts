@@ -6,7 +6,7 @@ import { prepublishSeal } from '../prepublish-seal.js'
 const s = prepublishSeal()
 console.log('prepublish-seal — thesis audit · Lean format · VE involutions · finite infinities')
 console.log(`  thesis     drained=${s.thesis.drained} usable=${s.thesis.usable} unverified=${s.thesis.unverified} archive=${s.thesis.archiveConforms ? 'ok' : 'NO'} pubs ${s.thesis.publishable}/${s.thesis.publications}`)
-console.log(`  lean       wings=${s.leanFormat.wings} theorems=${s.leanFormat.theorems} allDecide=${s.leanFormat.allDecide}`)
+console.log(`  lean       wings=${s.leanFormat.wings} theorems=${s.leanFormat.theorems} axiomFree=${s.leanFormat.axiomFree}`)
 console.log(`  equilibrium ${s.equilibrium.present}/${s.equilibrium.required}${s.equilibrium.missing.length ? ' missing: ' + s.equilibrium.missing.join(', ') : ''}`)
 console.log(`  finite∞    ${s.finiteInfinities.present.length}/${s.finiteInfinities.grants.length} grants [${s.finiteInfinities.grants.join(', ')}]`)
 console.log(`  receipt    ${s.receipt}`)

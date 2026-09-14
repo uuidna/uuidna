@@ -11,14 +11,15 @@ import {
 } from './index.js'
 import { drillOf } from './quantum/apps/categories/practice/drill.js'
 import { theoremDemoCoverage } from './index.js'
-import { prepublishSeal } from './prepublish-seal.js'
+import { prepublishSeal, kernelVerdictOf, leanFormatFault } from './prepublish-seal.js'
 import { axisMonographs } from './axis-monograph.js'
 
-test('proof of concept — Clay is seven finite decides plus gravity, and every theorem drills', () => {
+test('proof of concept — Clay is seven finite instances plus gravity, kernel-vouched, and every theorem drills', () => {
   const T = theorems()
+  const verdict = kernelVerdictOf()
   const clay = T.filter((t) => t.file === 'Clay.lean')
   assert.equal(clay.length, RAYS + 1, 'seven Clay instances plus clay_gravity_equals_rosette')
-  assert.ok(clay.every((t) => t.tactic.includes('decide')))
+  for (const t of clay) assert.equal(leanFormatFault(t, verdict), null, t.key)
   assert.ok(clay.some((t) => t.key === 'clay_gravity_equals_rosette'))
   const demos = theoremDemoCoverage(T)
   assert.equal(demos.ok, true, demos.gaps.slice(0, 5).join(', '))
@@ -72,13 +73,15 @@ test('proof of work — the symmetric stack is the same widths, not a Bitcoin-on
   assert.notEqual(P.work.tagBits, P.work.keyBits, 'CONTROL: a 256-bit tag is not the Poly1305 floor')
 })
 
-test('proof of concept — DNA codon cube and complement involution decide', () => {
+test('proof of concept — DNA codon cube and complement involution, kernel-vouched', () => {
   const P = phdProofs()
   const T = theorems()
   assert.equal(P.concept.dna, 10)
-  assert.equal(P.concept.dnaDecide, true)
+  assert.equal(P.concept.dnaKernel, true)
   assert.equal(P.concept.dnaName, true)
-  assert.ok(T.some((t) => t.key === 'uuidna_is_dna_times_the_two_coins' && t.tactic.includes('decide')))
+  const name = T.find((t) => t.key === 'uuidna_is_dna_times_the_two_coins')
+  assert.ok(name)
+  assert.equal(leanFormatFault(name, kernelVerdictOf()), null)
   assert.equal(drillOf('uuidna_is_dna_times_the_two_coins', T).key, 'uuidna_is_dna_times_the_two_coins')
   assert.equal(drillOf('dna_complement_involution', T).key, 'dna_complement_involution')
 })
@@ -101,10 +104,10 @@ test('proof of work — codon occupancy is the coin face; two strands fuse the u
 test('complete PhD — concept and work both hold, and the thesis seal is clean', () => {
   const P = phdProofs()
   const thesis = prepublishSeal()
-  assert.equal(P.concept.clayDecide, true)
+  assert.equal(P.concept.clayKernel, true)
   assert.equal(P.concept.gravity, true)
   assert.equal(P.concept.demos, true)
-  assert.equal(P.concept.dnaDecide, true)
+  assert.equal(P.concept.dnaKernel, true)
   assert.equal(P.concept.dnaName, true)
   assert.equal(P.work.search, 0)
   assert.equal(P.work.digestBits / P.work.verifyBits, coins())
@@ -112,7 +115,7 @@ test('complete PhD — concept and work both hold, and the thesis seal is clean'
   assert.ok(P.work.drills >= P.work.thesisDrills)
   assert.equal(P.thesis.ok, true, thesis.gaps.map((g) => g.what).join('\n'))
   assert.equal(P.thesis.drained, 0)
-  assert.equal(P.thesis.allDecide, true)
+  assert.equal(P.thesis.axiomFree, true)
   assert.equal(P.complete, true)
   assert.equal(phdProofs().receipt, P.receipt)
 })

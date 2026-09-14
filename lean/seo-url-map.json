@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "a16868d3-3",
+  "generated": "6abc4c2c-4",
   "entries": [
     {
       "route": "/",
@@ -3877,9 +3877,9 @@
       "kind": "publication",
       "identity": "cyber",
       "canonical": "https://uuidna.com/publications/cyber",
-      "address": "43666b0c-3f80-8a61-8bbc-0fc210ebfa58",
-      "handle": "43666b0c",
-      "hexbitDoor": "https://uuidna.com/43666b0c"
+      "address": "d394300e-b5ad-8c57-983e-2419e0bf74fe",
+      "handle": "d394300e",
+      "hexbitDoor": "https://uuidna.com/d394300e"
     },
     {
       "route": "/publications/decipher",
@@ -5128,9 +5128,9 @@
       "kind": "publication",
       "identity": "models",
       "canonical": "https://uuidna.com/publications/models",
-      "address": "9ded9cc5-068d-8147-ba25-11d8c7745b3e",
-      "handle": "9ded9cc5",
-      "hexbitDoor": "https://uuidna.com/9ded9cc5"
+      "address": "cd03b3ef-9eca-8ff9-93ba-fec9dbaa93c6",
+      "handle": "cd03b3ef",
+      "hexbitDoor": "https://uuidna.com/cd03b3ef"
     },
     {
       "route": "/publications/molecular",
@@ -5533,9 +5533,9 @@
       "kind": "publication",
       "identity": "site-build",
       "canonical": "https://uuidna.com/publications/site-build",
-      "address": "8ecb45c7-ebb6-827d-b63b-41bbe60bfba7",
-      "handle": "8ecb45c7",
-      "hexbitDoor": "https://uuidna.com/8ecb45c7"
+      "address": "74654242-18bb-8fa6-a80b-948445a40ec8",
+      "handle": "74654242",
+      "hexbitDoor": "https://uuidna.com/74654242"
     },
     {
       "route": "/publications/software",
@@ -6181,9 +6181,9 @@
       "kind": "theorem",
       "identity": "a_template_distinguishes_only_by_its_variable",
       "canonical": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
-      "address": "a97e5e67-b98d-8172-857f-0a0f97bc1c0a",
-      "handle": "a97e5e67",
-      "hexbitDoor": "https://uuidna.com/a97e5e67"
+      "address": "e654c010-b981-886b-ae50-fb36a6f6497a",
+      "handle": "e654c010",
+      "hexbitDoor": "https://uuidna.com/e654c010"
     },
     {
       "route": "/theorem/a_token_approximates_eight_hexbits",
@@ -12769,9 +12769,9 @@
       "kind": "theorem",
       "identity": "context_windows_are_transient_hexbits",
       "canonical": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
-      "address": "42017e41-ee42-82c5-817a-77ad62048af5",
-      "handle": "42017e41",
-      "hexbitDoor": "https://uuidna.com/42017e41"
+      "address": "04ed0e75-c136-8778-b27c-d6e27c112771",
+      "handle": "04ed0e75",
+      "hexbitDoor": "https://uuidna.com/04ed0e75"
     },
     {
       "route": "/theorem/contour_index_every_fifth",
@@ -46411,9 +46411,9 @@
       "kind": "theorem",
       "identity": "the_store_footprint_is_its_folders",
       "canonical": "https://uuidna.com/theorem/the_store_footprint_is_its_folders",
-      "address": "4e19fc5a-109a-8f0a-9882-8c6ec1a65c10",
-      "handle": "4e19fc5a",
-      "hexbitDoor": "https://uuidna.com/4e19fc5a"
+      "address": "ee244656-f973-800d-ab9c-603ae9fd8cba",
+      "handle": "ee244656",
+      "hexbitDoor": "https://uuidna.com/ee244656"
     },
     {
       "route": "/theorem/the_store_holds_far_less_than_it_admits",
@@ -54624,6 +54624,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "a16868d3-3bdb-8976-82ef-4d26af439d86",
+  "receipt": "6abc4c2c-4316-80dc-ad63-ffff271d016f",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

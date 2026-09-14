@@ -2,8 +2,8 @@
   "generated": "2026-09-14",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 70932,
-  "novelty_claimed": 70551,
+  "total_claimed": 70938,
+  "novelty_claimed": 70557,
   "formalisation_only": 381,
   "attributed_facts": [
     {
@@ -9367,8 +9367,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "bab8b534-eb55-806f-8794-4a9d18c8471e",
-      "address": "a97e5e67-b98d-8172-857f-0a0f97bc1c0a",
+      "lineAddress": "b22f393e-7e6e-8b87-bcfa-ced088a69ac7",
+      "address": "e654c010-b981-886b-ae50-fb36a6f6497a",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9824,8 +9824,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "8d6aa76e-cc0a-8e12-8646-dd0814e2e247",
-      "address": "4e19fc5a-109a-8f0a-9882-8c6ec1a65c10",
+      "lineAddress": "7750244a-9c8e-8822-9e3c-398cb283eb53",
+      "address": "ee244656-f973-800d-ab9c-603ae9fd8cba",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -480088,8 +480088,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "8f13561d-f5b2-8738-9443-ffec4f13b365",
-      "address": "42017e41-ee42-82c5-817a-77ad62048af5",
+      "lineAddress": "84887c03-fe08-893a-8591-acd1fa534e80",
+      "address": "04ed0e75-c136-8778-b27c-d6e27c112771",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -481837,10 +481837,52 @@
       "held": "discovery+formalisation"
     },
     {
+      "key": "involution_2d552f1f",
+      "lineAddress": "93a80d42-c867-84c2-9a23-d5cde6f63c75",
+      "address": "27595b80-6456-8038-9383-10802dbbc8d1",
+      "principle": "The involution of lead 2d552f1f",
+      "held": "discovery+formalisation"
+    },
+    {
       "key": "budget_census_2d552f1f",
       "lineAddress": "e916a28f-2812-8a97-8012-91fae986c9ef",
       "address": "30819cd7-3d14-8160-bd6f-3961e9c0d932",
       "principle": "The involution of lead 2d552f1f",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "reconciled_b13fd37a",
+      "lineAddress": "98213828-a3dc-863d-9db6-651b82da5e87",
+      "address": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
+      "principle": "The involution of lead b13fd37a",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "involution_b13fd37a",
+      "lineAddress": "709fbfbf-dcc4-8d65-9875-438091e658f2",
+      "address": "2f4c0a89-afca-8146-b25b-1fa9127c0f89",
+      "principle": "The involution of lead b13fd37a",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "not_dvd_of_bound_e92de628",
+      "lineAddress": "f616e219-66e5-8ff0-b400-d01aa07a1e56",
+      "address": "2f176bd9-265f-8db8-b151-ec21450c0581",
+      "principle": "The involution of lead e92de628",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "involution_e92de628",
+      "lineAddress": "247c80c0-8b7c-8338-9b3a-2cc540376d85",
+      "address": "4bbe45b2-5676-8177-8004-49f62937dca3",
+      "principle": "The involution of lead e92de628",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "anatomy_e92de628",
+      "lineAddress": "9a0a7cd2-0dda-8dd5-870b-761403b70b8a",
+      "address": "857a6347-689c-860d-9422-612c98f48b88",
+      "principle": "The involution of lead e92de628",
       "held": "discovery+formalisation"
     },
     {
@@ -499225,12 +499267,12 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "33ec8808-ec4b-8112-9f01-923e1180f558",
+  "claim_receipt": "d2a85083-6689-8c67-aca5-20437f7ead2e",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 70932; he claims discovery of 70551 and credits the other 381 facts to their named sources",
-      "These theorems are Lean-verified (by decide)",
+      "The captain formalised all 70938; he claims discovery of 70557 and credits the other 381 facts to their named sources",
+      "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
     ],
@@ -499242,5 +499284,5 @@
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70932; of these I claim discovery of 70551, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70938; of these I claim discovery of 70557, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

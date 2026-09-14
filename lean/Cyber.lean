@@ -1,14 +1,14 @@
--- lean/Cyber.lean — GENERATED. CYBER — the resource surface the repository presents to the machine that builds it, measured. Counted without this wing's own 3 records, so serving it cannot move what it states, the handle store's 71,518 leaves occupy 258,162 inodes (256 / 43,508 / 71,361 / 71,518 folders per level plus the root), more than three per record; the deepest level is one folder per leaf by construction; the third level already shares, the control. Derived from the handle records, never from the host, so the ledger is identical on every machine. NOT CLAIMED: any host's limit, which is the host's own fact (on 2026-09-13 the build host's table held 263,168 entries and filled). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Cyber.lean — GENERATED. CYBER — the resource surface the repository presents to the machine that builds it, measured. Counted without this wing's own 3 records, so serving it cannot move what it states, the handle store's 71,518 leaves occupy 258,163 inodes (256 / 43,509 / 71,361 / 71,518 folders per level plus the root), more than three per record; the deepest level is one folder per leaf by construction; the third level already shares, the control. Derived from the handle records, never from the host, so the ledger is identical on every machine. NOT CLAIMED: any host's limit, which is the host's own fact (on 2026-09-13 the build host's table held 263,168 entries and filled). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,518
-    leaves sit under 256 + 43,508 + 71,361 + 71,518 folders across the 4 levels, so with the root the store
-    occupies 258,162 inodes — more than three for every record it holds. The floor is two by construction: the
+    leaves sit under 256 + 43,509 + 71,361 + 71,518 folders across the 4 levels, so with the root the store
+    occupies 258,163 inodes — more than three for every record it holds. The floor is two by construction: the
     deepest folder is named by the whole handle and no two records share one, so that level holds exactly one
     folder per leaf (71,518 for 71,518), and every record costs its file and its own folder before any level
     above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine
     twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is
     measured before it is felt. -/
-theorem the_store_footprint_is_its_folders : (71518 + 256 + 43508 + 71361 + 71518 + 1 = 258162) ∧ (258162 > 3 * 71518) := by decide
+theorem the_store_footprint_is_its_folders : (71518 + 256 + 43509 + 71361 + 71518 + 1 = 258163) ∧ (258163 > 3 * 71518) := by decide
 
 /-- THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. Handles 00bc4bbe and 00bc4bc1 are two records of this store
     with one third-level folder, 00bc4b, and at that level 71,361 folders hold 71,518 leaves — which shows the

@@ -11,13 +11,13 @@
       "category": "Uncategorized",
       "theorems": 70506,
       "address": "6fb18a5e-8b55-888b-ae7c-dc3e1e495bf8",
-      "verified": false
+      "verified": true
     },
     {
       "category": "Algebra",
       "theorems": 425,
       "address": "f5cf69b7-3d58-8fe8-9f21-f7e8657e1f39",
-      "verified": false
+      "verified": true
     },
     {
       "category": "Security",
@@ -35,7 +35,7 @@
   "claim_receipt": "1c3b14d2-1923-8439-90a0-8df385aceee9",
   "honest_scope": {
     "proves": [
-      "All 70854 distinct theorems (under 70938 keys) are Lean-verified (by decide)",
+      "All 70854 distinct theorems (under 70938 keys) are checked by the Lean kernel with an empty #print axioms verdict",
       "Every theorem is categorized and accounted for",
       "The captain takes responsibility for all claims",
       "No theorem escapes the audit (100% coverage)"

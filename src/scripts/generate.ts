@@ -108,6 +108,7 @@ const GENERATORS: Gen[] = [
   // the edge reads the ledger's rows from qpu storage and carries only its root: re-baked from the ledger this run built,
   // so a Worker can never ship a root that lags its ledger (a null or stale root refuses every edge tool call)
   { file: 'ledger-deposit.js', args: ['--bake'], note: 'src/theorems/edge-root.ts — the manifest root, the sealed keys and their addresses, the only part of the ledger the Worker bundles' },
+  { file: 'gen-witness-seals.js', args: [], note: 'lean/witness-seals.json — each involution a wave sealed on all VE_FACES faces, signed only once the ledger holds its subject; with no wave receipt the committed seals stand' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
   // THE FREEZE RUNS LAST. It seals every navigable route, and gen-articles (below it once) writes a page per wing —
   // a wing landed above it froze a map without its own article, and the seal test named the article as a new

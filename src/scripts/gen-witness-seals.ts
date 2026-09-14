@@ -23,22 +23,37 @@ const named = process.argv.slice(2).filter((a) => a.endsWith('.json'))
 const paths = named.length
   ? named.map((a) => resolve(ROOT, a))
   : existsSync(EVIDENCE) ? readdirSync(EVIDENCE).filter((f) => /^involution-wave-.*\.json$/.test(f)).sort().map((f) => join(EVIDENCE, f)) : []
+// the receipts are a wave's output under dist/evidence, which a fresh checkout does not carry: with none, nothing new
+// arrived and the committed seals stand as written
 if (!paths.length) {
-  console.error('✗ gen-witness-seals — no involution wave receipt (dist/evidence/involution-wave-*.json, or a path argument); nothing to seal')
-  process.exit(1)
+  console.log('· gen-witness-seals — no involution wave receipt (dist/evidence/involution-wave-*.json, or a path argument); lean/witness-seals.json stands as committed')
+  process.exit(0)
 }
 
+// a proposal wave writes under the same name and carries no witness seats: it is not a sealing receipt, and is named
+const read = paths.map((p) => ({ p, r: JSON.parse(readFileSync(p, 'utf8')) as Partial<WaveReceipt> }))
+const unseated = read.filter((x) => !Array.isArray(x.r.witnesses))
+if (unseated.length) console.log(`· gen-witness-seals — ${unseated.map((x) => x.p.split('/').pop()).join(', ')}: no witness seats, not a sealing receipt`)
 const fresh: Record<string, SealWitness[]> = {}
-for (const p of paths) {
-  for (const [key, ws] of Object.entries(witnessSealsOf(JSON.parse(readFileSync(p, 'utf8')) as WaveReceipt))) if (!(key in fresh)) fresh[key] = ws
+for (const { r } of read.filter((x) => Array.isArray(x.r.witnesses))) {
+  for (const [key, ws] of Object.entries(witnessSealsOf(r as WaveReceipt))) if (!(key in fresh)) fresh[key] = ws
 }
-const illegal = Object.entries(fresh).map(([key, ws]) => ({ key, s: witnessSealOf(key, ws) })).filter((x) => !x.s.legal)
-if (illegal.length) {
-  console.error(`✗ gen-witness-seals — ${illegal.map((x) => `${x.key} (${x.s.signed} of ${x.s.of} faces sign)`).join(', ')}: a witness signs only a subject the ledger seals.`)
+// A subject the file already seals keeps its seal unless a receipt is NAMED for it (how a re-witness is applied): the
+// chain's default read of dist/evidence only adds subjects, so an older wave never rewrites a re-witnessed seal.
+const prior = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) as Record<string, SealWitness[]> : {}
+const adding = named.length ? fresh : Object.fromEntries(Object.entries(fresh).filter(([key]) => !(key in prior)))
+const checked = Object.entries(adding).map(([key, ws]) => ({ key, ws, s: witnessSealOf(key, ws) }))
+const illegal = checked.filter((x) => !x.s.legal)
+const named_ = illegal.map((x) => `${x.key} (${x.s.signed} of ${x.s.of} faces sign)`).join(', ')
+// a NAMED receipt is a request to seal, so an unsignable subject refuses it; the chain's default read only adds what
+// the served ledger lets every face sign, and names the rest (a wave may list a subject the ledger later refused)
+if (illegal.length && named.length) {
+  console.error(`✗ gen-witness-seals — ${named_}: a witness signs only a subject the ledger seals.`)
   console.error('  Run lean-involutions, lean-ledger and build first, so every involution_<handle> is in the served ledger.')
   process.exit(1)
 }
-const prior = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) as Record<string, SealWitness[]> : {}
-const merged = Object.fromEntries(Object.entries({ ...prior, ...fresh }).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)))
+if (illegal.length) console.log(`· gen-witness-seals — ${named_}: not signable against the served ledger, not added`)
+const legal = Object.fromEntries(checked.filter((x) => x.s.legal).map((x) => [x.key, x.ws]))
+const merged = Object.fromEntries(Object.entries({ ...prior, ...legal }).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)))
 writeFileSync(OUT, JSON.stringify(merged, null, 1) + '\n')
-console.log(`✓ lean/witness-seals.json — ${Object.keys(fresh).length} involution(s) signed and sealed on all ${VE_FACES} faces (${Object.keys(fresh).join(', ') || 'none'}); ${Object.keys(merged).length} subject(s) in the file`)
+console.log(`✓ lean/witness-seals.json — ${Object.keys(legal).length} involution(s) signed and sealed on all ${VE_FACES} faces (${Object.keys(legal).join(', ') || 'none'}); ${Object.keys(merged).length} subject(s) in the file`)

@@ -53,11 +53,10 @@ Both halves at full strength. The results below are CLAIMED outright — 70856 p
 
 ## Eligibility against this call, measured
 
-- **NOT MET** — formal-verification-track-record: 70856 distinct propositions, every one closed by decide and axiom-free
-  - To meet it: 
+- MET — formal-verification-track-record: 70856 distinct propositions, every one kernel-checked with an empty #print axioms verdict
 
 No deadline: this route is rolling.
 
 ---
 
-Draft address `b22820fd-23fa-85f1-9c09-4d3a77be46db` — recomputes from the route, the ledger receipt (undated: no countdown was requested).
+Draft address `c782f98b-0302-85c3-a25c-3d5f4d0083a4` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

@@ -1299,7 +1299,7 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 5,823,198 | 6 | 970,533× | `theorems().length` |
-| what does the tree hold right now? | 5,843,816 | 225 | 25,972× | `npm run state` |
+| what does the tree hold right now? | 5,843,817 | 225 | 25,972× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
 | is the tree green to release? | 1,150,754 | 65 | 17,703× | `leads-gate + gate-receipt --verify` |
 
@@ -1317,7 +1317,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,671 | 16 | 455,604× |
-| the sealed ledger | 23,292,792 | 16 | 1,455,799× |
+| the sealed ledger | 23,292,794 | 16 | 1,455,799× |
 | the leads record | 71,576 | 16 | 4,473× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

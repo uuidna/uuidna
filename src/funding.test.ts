@@ -41,6 +41,24 @@ test('the evidence pack IS the live ledger, not a remembered figure', () => {
   assert.equal(p.claimsAllBacked, true)
 })
 
+// axiomFree IS THE KERNEL'S VERDICT, in both directions: the live ledger (non-decide proofs included) holds, while
+// one theorem whose verdict names an axiom, or an unread verdict, drops the pack and blocks the track record
+// with a stated fix.
+test('the pack is axiom-free exactly when the kernel verdict holds every theorem', () => {
+  assert.ok(THEOREMS.some((t) => !t.tactic.startsWith('decide')), 'no non-decide theorem — the pass is vacuous')
+  assert.equal(evidencePack().axiomFree, true)
+  const borrowed = new Map<string, readonly string[]>(THEOREMS.map((t) => [t.key, []]))
+  borrowed.set(THEOREMS[0]!.key, ['propext'])
+  const bad = evidencePack(borrowed)
+  assert.equal(bad.axiomFree, false, 'a non-empty axiom list must drop the pack')
+  assert.equal(evidencePack(new Map()).axiomFree, false, 'an unread verdict holds nothing')
+  const h = FUNDING_ROUTES.find((r) => r.id === 'harmonic-research')!
+  const el = eligibilityFor(h, bad, '2026-09-04')
+  const fv = el.blockers.find((b) => b.requirement === 'formal-verification-track-record')
+  assert.ok(fv, 'the track record must block when the kernel does not hold every theorem')
+  assert.ok(fv.toMeet.length > 40, 'the blocker must carry its fix')
+})
+
 // THE MEASUREMENT MUST BE ABLE TO SAY NO, and today it does.
 test('NLnet is BLOCKED on the licence, and the blocker is the licence rather than a vague concern', () => {
   const nl = FUNDING_ROUTES.find((r) => r.id === 'nlnet-ngi-zero')!

@@ -3,11 +3,11 @@
 **Generated:** 2026-09-14
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 70932/70938 theorems — every one, by construction
-**Discovery claimed:** 70551 — the other 381 restate a fact a named source found first
+**Formalisation claimed:** 70938/70938 theorems — every one, by construction
+**Discovery claimed:** 70557 — the other 381 restate a fact a named source found first
 
 *The 381 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 330 of 364 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `33ec8808-ec4b-8112-9f01-923e1180f558`
+**Claim receipt:** `d2a85083-6689-8c67-aca5-20437f7ead2e`
 
 ### Facts the captain does not claim to have discovered
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `8d6aa76e-cc0a-8e12-8646-dd0814e2e247`
+- **Sample lineAddress:** `7750244a-9c8e-8822-9e3c-398cb283eb53`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1947,12 +1947,30 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The involution of lead 2d552f1f
 
-- **Theorems:** 1
-- **Sample lineAddress:** `e916a28f-2812-8a97-8012-91fae986c9ef`
+- **Theorems:** 2
+- **Sample lineAddress:** `93a80d42-c867-84c2-9a23-d5cde6f63c75`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[budget_census_2d552f1f](/theorem/budget_census_2d552f1f)
+[involution_2d552f1f](/theorem/involution_2d552f1f) · [budget_census_2d552f1f](/theorem/budget_census_2d552f1f)
+
+### The involution of lead b13fd37a
+
+- **Theorems:** 2
+- **Sample lineAddress:** `98213828-a3dc-863d-9db6-651b82da5e87`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[reconciled_b13fd37a](/theorem/reconciled_b13fd37a) · [involution_b13fd37a](/theorem/involution_b13fd37a)
+
+### The involution of lead e92de628
+
+- **Theorems:** 3
+- **Sample lineAddress:** `f616e219-66e5-8ff0-b400-d01aa07a1e56`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[not_dvd_of_bound_e92de628](/theorem/not_dvd_of_bound_e92de628) · [involution_e92de628](/theorem/involution_e92de628) · [anatomy_e92de628](/theorem/anatomy_e92de628)
 
 ### A hundred thousand billion poems
 
@@ -2246,8 +2264,8 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 70932; he claims discovery of 70551 and credits the other 381 facts to their named sources
-- ✓ These theorems are Lean-verified (by decide)
+- ✓ The captain formalised all 70938; he claims discovery of 70557 and credits the other 381 facts to their named sources
+- ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
 
@@ -2262,7 +2280,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70932; of these I claim discovery of 70551, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70938; of these I claim discovery of 70557, and the remaining 381 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

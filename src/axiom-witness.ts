@@ -12,6 +12,19 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { rdRoot, hasFilesystem } from './boundary.js'
 
+/** kernelVerdicts() → every audited key mapped to the axioms Lean's own `#print axioms` named for it, read from
+ *  the wings of the shipped lean/axioms.json. An empty map where the receipt cannot be read: an unread verdict
+ *  holds nothing, so every caller that asks "does the kernel hold this key" answers no. */
+export function kernelVerdicts(): ReadonlyMap<string, readonly string[]> {
+  const out = new Map<string, readonly string[]>()
+  try {
+    const raw = JSON.parse(rdRoot('lean/axioms.json')) as { wings?: Record<string, { verdict?: Record<string, string[]> }> }
+    for (const wing of Object.values(raw.wings ?? {}))
+      for (const [key, axioms] of Object.entries(wing.verdict ?? {})) out.set(key, axioms)
+  } catch { return out }
+  return out
+}
+
 export interface AxiomWitnessReport {
   shipped: boolean                       // lean/axioms.json found beside dist (in the package or the repo)
   measured: boolean                      // false where this surface has no filesystem: the receipt was not looked at, not found missing

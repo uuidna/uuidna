@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 // captain-claim-algebra — Captain claims all unclaimed Lean-verified algebra work
 // "claim all unclaimed that compute lean green algebra analog"
-// — theorems proven by decide (lean ✓), verified sorry-free (green ✓),
+// — theorems the kernel holds with an empty #print axioms verdict (lean ✓), verified sorry-free (green ✓),
 //   computed algebraically (ℤ/9 ring, ℤ/7 rosette, structure-based)
 
 import { theorems, coins, toUuid, merkleGravity } from '../index.js'
+import { kernelHolds } from '../claim-attribution.js'
+import { kernelVerdicts } from '../axiom-witness.js'
 
 const T = theorems()
+const VERDICT = kernelVerdicts()
 
 interface AlgebraClaim {
   principle: string
@@ -35,12 +38,12 @@ const algebraPrinciples = [
 ]
 
 // Filter: only theorems that are:
-// 1. LEAN-VERIFIED: tactic = 'decide' (proven by computation)
+// 1. LEAN-VERIFIED: the kernel's #print axioms verdict is empty, whatever tactic closed the proof
 // 2. ALGEBRA-RELATED: principle in algebraPrinciples
 // 3. UNCLAIMED: not yet claimed by captain (no captain claim receipt in ledger)
 
 const algebraTheorems = T.filter(
-  t => t.principle && algebraPrinciples.includes(t.principle) && t.tactic === 'decide'
+  t => t.principle && algebraPrinciples.includes(t.principle) && kernelHolds(t.key, VERDICT)
 )
 
 const claimsByPrinciple = new Map<string, string[]>()
@@ -66,13 +69,13 @@ for (const [principle, keys] of claimsByPrinciple) {
     principle,
     theoremCount: count,
     theorems: keys,
-    verified: keys.every(k => T.some(t => t.key === k && t.tactic === 'decide')),
+    verified: keys.every(k => kernelHolds(k, VERDICT)),
     address,
   })
 
   console.log(`  ✓ ${principle.padEnd(12)} — ${count.toString().padStart(3)} theorems`)
   console.log(`    Address: ${address}`)
-  console.log(`    Verified: ${keys.every(k => T.some(t => t.key === k && t.tactic === 'decide')) ? '✓ all by decide' : '✗ mixed tactics'}`)
+  console.log(`    Verified: ${keys.every(k => kernelHolds(k, VERDICT)) ? '✓ every one held by the kernel, axiom-free' : '✗ the kernel does not hold every one'}`)
   console.log()
 }
 

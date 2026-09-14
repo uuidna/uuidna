@@ -7,6 +7,7 @@ import { disagreements, crossSurfaceCensus, type Probe } from './cross-surface.j
 import { MIRROR } from './rosetta-mirror.js'
 import { theorems } from './index.js'
 import { claimsFrom } from './claim-attribution.js'
+import { kernelVerdicts } from './axiom-witness.js'
 
 // THE PROBES ARE THE POINT. cross-surface.ts is arithmetic over pairs; this file is where the pairs are named,
 // and naming them is the whole instrument. Each pair below is two censuses of the SAME quantity reached by
@@ -43,7 +44,7 @@ function mirrorKeys(): Set<string> {
 // then a failure on an unchanged tree, and no diff capturable because reproducing the race reran the suite.
 test('cross-surface — the probe pairs agree, or each disagreement is a lead', (t) => {
   const lean = leanSourceKeys(), mirror = mirrorKeys()
-  const list = claimsFrom(theorems())
+  const list = claimsFrom(theorems(), kernelVerdicts())
   const claims = {
     claims_list: list,
     total_claimed: list.length,
@@ -133,7 +134,7 @@ test('cross-surface — the shipped claims artefact agrees with the live ledger'
   } catch {
     return  // UNASKED: mid-write or absent. Not evidence of agreement, and never reported as such.
   }
-  const live = new Set(claimsFrom(theorems()).map((c) => c.key))
+  const live = new Set(claimsFrom(theorems(), kernelVerdicts()).map((c) => c.key))
   assert.equal(shipped!.total_theorems, theorems().length, 'the artefact reports a ledger size the source does not have — regenerate the derived layer')
   const orphans = (shipped!.claims_list ?? []).map((c) => c.key).filter((k) => !live.has(k))
   assert.deepEqual(orphans.slice(0, 8), [], 'the artefact claims keys the ledger no longer contains — a renamed or removed theorem left a claim behind')

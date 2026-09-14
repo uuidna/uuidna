@@ -207,7 +207,7 @@ const wingNames = (wingSource: string): RegExp | null => {
 }
 
 export const evaluable = (statement: string, wingSource = ''): boolean =>
-  /^[\s0-9()+*%/^=∧∨<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
+  /^[\s0-9()+*%/^=∧∨<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈∉∣-]+$/.test(
     ((): string => {
       const base = stripFunBinders(stripStrings(stripAscriptions(stripComments(desugarFinForall(statement))))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, '')
       const wn = wingNames(wingSource)
@@ -810,8 +810,18 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
     const body = finishBareFun(c, names, binderSlice, c.i, bodyKind)
     return mkFun(names, body, c.env, c.ring, bodyKind)
   }
+  // a function named in argument position is passed, not applied: `List.zipWith f xs ys` gives f both lists
+  const named = c.i
+  if (/[A-Za-z_]/.test(c.s[c.i] ?? '')) {
+    const v = c.env.get(readIdent(c))
+    if (v !== undefined && isFun(v)) return v
+    c.i = named
+  }
   return asFun(atom(c))
 }
+
+/** the value of a nullary wing def the evaluator could not read; atom throws wherever it is read */
+const UNREADABLE: Val = Object.freeze({ t: 'o', v: null }) as Opt
 
 /** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` / fun methods take an argument. */
 const postfix = (c: Cursor, v: Val): Val => {
@@ -1348,6 +1358,7 @@ const atom = (c: Cursor): Val => {
     const id = readIdent(c)
     if (c.env.has(id)) {
       let v: Val = c.env.get(id)!
+      if (v === UNREADABLE) throw new Error('unreadable def ' + id)
       while (isFun(v)) {
         ws(c)
         const argSave = c.i
@@ -1499,6 +1510,13 @@ function junction(c: Cursor): Val {
   }
 }
 
+/** Lean `a ∣ b` on Nat and Int: some k with b = a * k, so `0 ∣ b` holds exactly when b = 0 */
+const divides = (a: number | bigint, b: number | bigint): boolean => {
+  const aa = typeof a === 'bigint' ? a : BigInt(trunc(a))
+  const bb = typeof b === 'bigint' ? b : BigInt(trunc(b))
+  return aa === 0n ? bb === 0n : bb % aa === 0n
+}
+
 const compare = (c: Cursor): boolean => {
   const l = junction(c); ws(c)
   const cmpNum = (op: (a: number | bigint, b: number | bigint) => boolean): boolean => {
@@ -1523,6 +1541,10 @@ const compare = (c: Cursor): boolean => {
     if (typeof l === 'boolean') return l === boolExpr(c)
     return deepEq(l, junction(c))
   }
+  // membership on a List is by equality, as Lean decides `∈` on a list of a type with decidable equality
+  if (eat(c, '∈')) return asLst(junction(c)).some((x) => deepEq(l, x))
+  if (eat(c, '∉')) return !asLst(junction(c)).some((x) => deepEq(l, x))
+  if (eat(c, '∣')) return divides(forceScalar(l), forceScalar(junction(c)))
   if (eat(c, '<')) return cmpNum((a, b) => a < b)
   if (eat(c, '>')) return cmpNum((a, b) => a > b)
   if (eat(c, '=')) return deepEq(l, junction(c))
@@ -1553,6 +1575,7 @@ const cmpContinues = (c: Cursor): boolean => {
 function boolAtom(c: Cursor): boolean {
   ws(c)
   if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) return !boolAtom(c)
+  if (eat(c, '∀')) return forallProp(c)
   const save = c.i
   if (eat(c, '(')) {
     try {
@@ -1607,40 +1630,49 @@ function boolProp(c: Cursor): boolean {
  *
  *  `¬` is propositional negation (Lean ¬), tighter than ∧: `¬(1 < 1)` and `(¬ (18 >= 100))` are sealed forms
  *  that stayed unreached for one character until this reader ate them. */
-const conjunct = (c: Cursor): boolean => {
+/** A `∀` over a finite list, read after its `∀`: Lean's bounded binder `∀ x ∈ xs, P` or the spelled-out
+ *  `∀ x [: T], x ∈ xs → P`. Both walk the same elements. Any other `∀` (over all of Nat, say) throws, so the
+ *  statement stays undecided rather than being checked on a sample. */
+function forallProp(c: Cursor): boolean {
+  const name = readIdent(c)
   ws(c)
-  if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) return !conjunct(c)
-  if (eat(c, '∀')) {
-    const name = readIdent(c)
-    ws(c)
+  let xs: Val[]
+  if (eat(c, '∈')) {
+    xs = asLst(atom(c))
+    if (!eat(c, ',')) throw new Error('∀ ∈ ,')
+  } else {
     if (eat(c, ':')) { readIdent(c); ws(c) }
     if (!eat(c, ',')) throw new Error('∀ ,')
     ws(c)
     if (c.s.startsWith(name, c.i)) c.i += name.length
     ws(c)
     if (!eat(c, '∈')) throw new Error('∀ ∈')
-    const xs = asLst(atom(c))
+    xs = asLst(atom(c))
     if (!eat(c, '→')) throw new Error('∀ →')
-    const bodyStart = c.i
-    // Parse body once to find its end, then evaluate per element from a saved slice.
-    {
-      const env: Env = new Map(c.env)
-      env.set(name, xs[0] ?? 0)
-      const probe: Cursor = { s: c.s, i: bodyStart, env, ring: c.ring }
-      boolProp(probe)
-      const body = c.s.slice(bodyStart, probe.i)
-      c.i = probe.i
-      return xs.every((x) => {
-        const env2: Env = new Map(c.env)
-        env2.set(name, x)
-        const inner: Cursor = { s: body, i: 0, env: env2, ring: c.ring }
-        const v = boolProp(inner)
-        ws(inner)
-        if (inner.i !== body.length) throw new Error('∀ trailing')
-        return v
-      })
-    }
   }
+  const bodyStart = c.i
+  // Parse body once to find its end, then evaluate per element from a saved slice.
+  const env: Env = new Map(c.env)
+  env.set(name, xs[0] ?? 0)
+  const probe: Cursor = { s: c.s, i: bodyStart, env, ring: c.ring }
+  boolProp(probe)
+  const body = c.s.slice(bodyStart, probe.i)
+  c.i = probe.i
+  return xs.every((x) => {
+    const env2: Env = new Map(c.env)
+    env2.set(name, x)
+    const inner: Cursor = { s: body, i: 0, env: env2, ring: c.ring }
+    const v = boolProp(inner)
+    ws(inner)
+    if (inner.i !== body.length) throw new Error('∀ trailing')
+    return v
+  })
+}
+
+const conjunct = (c: Cursor): boolean => {
+  ws(c)
+  if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) return !conjunct(c)
+  if (eat(c, '∀')) return forallProp(c)
   const save = c.i
   if (eat(c, '(')) {
     ws(c)
@@ -1775,13 +1807,15 @@ function wingEnv(wingSource: string, ring: Ring): Env {
   for (const d of simpleDefs(wingSource)) {
     if (env.has(d.name)) continue
     const evalBody = (src: string, inner: Env): Val => {
-      const c: Cursor = { s: src, i: 0, env: inner, ring }
-      const v = junction(c)
-      ws(c)
-      if (c.i === src.length) return v
+      // a Prop body (`∀ g ∈ xs, …`, `a ∣ b`, Bool `||` over `==`) throws as a value and is read as a proposition
+      try {
+        const c: Cursor = { s: src, i: 0, env: inner, ring }
+        const v = junction(c)
+        ws(c)
+        if (c.i === src.length) return v
+      } catch { /* read as a proposition below */ }
       // junction stops before `==`/`=` — Bool defs (`reassembles n := (nibbles n).foldr … == n`) are propositions.
-      c.i = 0
-      return boolProp(c)
+      return boolProp({ s: src, i: 0, env: inner, ring })
     }
     const build = (got: Val[]): Val => ({ t: 'f', run: (x: Val): Val => {
       const next = [...got, x]
@@ -1795,9 +1829,12 @@ function wingEnv(wingSource: string, ring: Ring): Env {
     // function and every theorem stated through it read a stale shape. Measured: mutating agl's list to create a
     // duplicate left `agl.eraseDups.length = 54` TRUE, while the same mutation as a bare literal was caught
     // (54 → 53). This is the blindness: 6 of 89 used def→theorem pairs caught a body mutation before, 18 after.
-    env.set(d.name, d.params.length === 0
-      ? evalBody(stripAscriptions(stripComments(d.body)), env)
-      : build([]))
+    if (d.params.length > 0) { env.set(d.name, build([])); continue }
+    // a nullary def is evaluated here, so one that cannot be read binds UNREADABLE, which throws where it is
+    // read: only the statements that name it stay undecided, never the whole wing
+    let value: Val
+    try { value = evalBody(stripAscriptions(stripComments(d.body)), env) } catch { value = UNREADABLE }
+    env.set(d.name, value)
   }
   return env
 }

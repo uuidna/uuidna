@@ -4,6 +4,23 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theorems, credits, creditsSummary, CAPTAIN_CREDIT } from './index.js'
+import { kernelVerdicts } from './axiom-witness.js'
+import { kernelHolds } from './claim-attribution.js'
+
+const VERDICT = kernelVerdicts()
+
+// THE PROOF CHECK IS THE KERNEL'S. A credit's leanProof must be the sealed row's own line (its key, then the
+// tactic the row records), and the axiom audit must hold that key with an empty axiom list. Both directions:
+// a proof closed by exact with an empty verdict passes; a non-empty verdict, or a key the audit lacks, fails.
+test('credits — the proof criterion is the kernel verdict, never the tactic', () => {
+  const v = new Map<string, readonly string[]>([['closed_by_exact', []], ['borrows_choice', ['Classical.choice']]])
+  assert.equal(kernelHolds('closed_by_exact', v), true)
+  assert.equal(kernelHolds('borrows_choice', v), false)
+  assert.equal(kernelHolds('never_audited', v), false)
+  const nonDecide = theorems().filter((t) => !t.tactic.startsWith('decide'))
+  assert.ok(nonDecide.length > 0, 'no non-decide theorem on the ledger — this half of the check is vacuous')
+  for (const t of nonDecide) assert.ok(kernelHolds(t.key, VERDICT), `${t.key} is not held axiom-free by the kernel`)
+})
 
 // THE LAW IS "THE CAPTAIN IS LAST AMONG CLAIMANTS", and with one credit system carrying roles that is a filter
 // rather than a position. Cited sources now sit in the same ordered list with role 'cited-source', so the last
@@ -20,7 +37,8 @@ test('every theorem is credited — prior art first then captain next, or the ca
   for (const t of T) {
     const c = credits(t.key)
     assert.equal(c.verdict, 'SEALED')
-    assert.ok(c.leanProof.includes('by decide') || c.tactic.includes('decide'), `proven by decide: ${t.key}`)
+    assert.ok(c.leanProof.includes(':= by ' + c.tactic), `leanProof is the sealed row's own proof: ${t.key}`)
+    assert.ok(kernelHolds(t.key, VERDICT), `the kernel holds it axiom-free: ${t.key}`)
     assert.ok(c.provenance.includes(t.address), `provenance carries the content-address: ${t.key}`)
     assert.ok(c.creditOrder.length >= 1, `never unclaimed: ${t.key}`)
 

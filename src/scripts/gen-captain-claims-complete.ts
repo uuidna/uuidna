@@ -7,6 +7,11 @@
 import { theorems, coins, toUuid, merkleGravity, statementCensus } from '../index.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { kernelHolds } from '../claim-attribution.js'
+import { kernelVerdicts } from '../axiom-witness.js'
+
+// verified is the kernel's verdict — an empty `#print axioms` list in the audit — never the tactic's name
+const VERDICT = kernelVerdicts()
 
 const T = theorems()
 // The count is READ. This generator hardcoded 1195 in its own honest_scope and signature, so the
@@ -148,12 +153,12 @@ const completeLedger = {
     category: c.category,
     theorems: c.count,
     address: c.address,
-    verified: c.theorems.every(k => T.some(t => t.key === k && t.tactic === 'decide')),
+    verified: c.theorems.every(k => kernelHolds(k, VERDICT)),
   })),
   claim_receipt: merkleGravity(claims.map(c => toUuid(c.address))),
   honest_scope: {
     proves: [
-      `All ${CENSUS.distinct} distinct theorems (under ${T.length} keys) are Lean-verified (by decide)`,
+      `All ${CENSUS.distinct} distinct theorems (under ${T.length} keys) are checked by the Lean kernel with an empty #print axioms verdict`,
       'Every theorem is categorized and accounted for',
       'The captain takes responsibility for all claims',
       'No theorem escapes the audit (100% coverage)',

@@ -6,8 +6,11 @@ import { theorems, publications, securityAudit, vocabulary } from '../index.js'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { MCP_CATALOG } from '../mcp.js'
+import { kernelHolds } from '../claim-attribution.js'
+import { kernelVerdicts } from '../axiom-witness.js'
 
 const T = theorems()
+const VERDICT = kernelVerdicts()
 // the consolidated censuses — every measured statistic any page quotes, computed here in the one generator
 import { defaultInstalls } from '../quantum/os/index.js'
 import { modelComparison } from '../quantum/models/index.js'
@@ -60,15 +63,14 @@ function supportModules(): number {
 // Build analytics from the ledger
 const analytics: Analytics = {
   theorems_total: T.length,
-  // startsWith, not ===: a tactic may carry an annotation suffix ("decide -- a τ-pair off the line") and still be
-  // by decide — the exact-match undercounted 1205/1208 while printing 100%, an arithmetic dishonesty the school bans.
-  theorems_axiom_free: T.filter(t => t.tactic.startsWith('decide')).length,
+  // axiom-free is the kernel's verdict — an empty `#print axioms` list in the audit — whatever tactic closed the proof
+  theorems_axiom_free: T.filter(t => kernelHolds(t.key, VERDICT)).length,
   principles: new Set(T.map(t => t.principle)).size,
   publications: publications().length,
   skills: new Set(T.map(t => t.skill).filter(Boolean)).size,
   mcp_tools: MCP_CATALOG.length,
   mcp_categories: new Set(MCP_CATALOG.map((t) => t.category)).size,
-  confidence: (T.filter(t => t.tactic.startsWith('decide')).length / T.length) * 100,
+  confidence: (T.filter(t => kernelHolds(t.key, VERDICT)).length / T.length) * 100,
   security_checks: securityAudit().checks.length,
   supported_modules: supportModules(),
   determinism_clean: 100, // no Math.*/Date/RNG in core 86 modules

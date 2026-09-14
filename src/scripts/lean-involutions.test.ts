@@ -6,6 +6,7 @@ import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { PROJECTED } from '../grid.js'
+import { theoremByKey } from '../theorems/index.js'
 import {
   INVOLUTION_HANDLES, buildWing, involutionWings, leadOf, wingFileOf,
   defBlocks, closureOf, generatorFilesOf, reconcileRunsOf, memProof,
@@ -65,6 +66,27 @@ test('a def enters a wing only if code reaches it — a name in a comment reache
 test('a membership proof is as deep as its index', () => {
   assert.equal(memProof(0), 'List.Mem.head _')
   assert.equal(memProof(2), 'List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _))')
+})
+
+// A universal lemma is decided by no finite evaluator; its falsifier is a counterexample search over the sealed
+// statement, and the mutated lemma below is the proof that the search can find one.
+test('not_dvd_of_bound_e92de628 meets no counterexample in its window, and its mutation does', () => {
+  const sealed = theoremByKey().get('not_dvd_of_bound_e92de628')
+  assert.equal(sealed?.statement, '∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n',
+    'the search below reads this statement; a moved statement must move the search')
+  const W = 64
+  const div = (n: number, d: number): number => (d === 0 ? 0 : (n - (n % d)) / d)   // Lean Nat `/`: n / 0 = 0
+  const dvd = (d: number, n: number): boolean => (d === 0 ? n === 0 : n % d === 0)
+  const noSmall = (d: number, n: number): boolean => { for (let j = 0; j < div(n, d) + 1; j++) if (d * j === n) return false; return true }
+  const overshoots = (d: number, n: number): boolean => !(d * (div(n, d) + 1) <= n)
+  const counterexamples = (lemma: (d: number, n: number) => boolean): number => {
+    let k = 0
+    for (let d = 0; d < W; d++) for (let n = 0; n < W; n++) if (!lemma(d, n)) k++
+    return k
+  }
+  assert.equal(counterexamples((d, n) => !(noSmall(d, n) && overshoots(d, n)) || !dvd(d, n)), 0)
+  // CONTROL: without the bounded search the overshoot holds for every d > 0, divisors included
+  assert.ok(counterexamples((d, n) => !overshoots(d, n) || !dvd(d, n)) > 0, 'a search that misses this mutation falsifies nothing')
 })
 
 test('e92de628 keeps the lead\'s wing count, the one src/grid.ts records', async () => {

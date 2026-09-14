@@ -1,11 +1,36 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { attributions, factSource, heldAs, captainOverClaimGaps, claimsFrom } from './claim-attribution.js'
+import { attributions, factSource, heldAs, captainOverClaimGaps, claimsFrom, kernelHolds } from './claim-attribution.js'
+import { kernelVerdicts } from './axiom-witness.js'
 import { theorems } from './index.js'
 
 // RECOMPUTED, NEVER READ — docs/captain-claims.json is a cache of claimsFrom(), and reading it raced the
 // generator that writes it. See claimsFrom's own note.
-const list = claimsFrom(theorems())
+const list = claimsFrom(theorems(), kernelVerdicts())
+
+// BOTH DIRECTIONS OF THE CRITERION. The claim unit is the kernel's verdict: a proof closed by exact/intro/cases
+// with an empty axiom list is claimed exactly as a by-decide one is, while a key whose verdict names an axiom,
+// or which the audit does not hold at all, is refused whatever its tactic.
+test('claim-attribution — the claim criterion is the kernel verdict, never the tactic', () => {
+  const verdict = new Map<string, readonly string[]>([
+    ['free_by_exact', []], ['free_by_decide', []], ['borrows_propext', ['propext']],
+  ])
+  const rows = [
+    { key: 'free_by_exact', tactic: 'exact List.Mem.head _' },
+    { key: 'free_by_decide', tactic: 'decide' },
+    { key: 'borrows_propext', tactic: 'decide' },
+    { key: 'never_audited', tactic: 'decide' },
+  ]
+  assert.deepEqual(claimsFrom(rows, verdict).map((c) => c.key), ['free_by_exact', 'free_by_decide'])
+  assert.equal(kernelHolds('borrows_propext', verdict), false, 'a non-empty axiom list must be refused')
+  assert.equal(kernelHolds('never_audited', verdict), false, 'a key the audit does not hold must be refused')
+  assert.deepEqual(claimsFrom(rows, new Map()), [], 'an unread verdict holds nothing')
+  // the live non-decide rows are claimed because the kernel holds them, not because of how they were closed
+  const live = new Set(list.map((c) => c.key))
+  const nonDecide = theorems().filter((t) => !t.tactic.startsWith('decide'))
+  assert.ok(nonDecide.length > 0, 'no non-decide theorem on the ledger — this half of the check is vacuous')
+  for (const t of nonDecide) assert.ok(live.has(t.key), `${t.key} is kernel-held axiom-free but unclaimed`)
+})
 const claims = {
   claims_list: list,
   total_claimed: list.length,

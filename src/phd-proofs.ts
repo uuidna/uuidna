@@ -1,7 +1,8 @@
 // phd-proofs — CONCEPT AND WORK, BOTH TRIED, AGAINST THE THESIS SEAL.
 //
 // Proof of concept is Clay (seven finite instances plus clay_gravity_equals_rosette) AND DNA (codon cube,
-// complement involution, the name uuidna_is_dna_times_the_two_coins) — every one `by decide`, and every sealed
+// complement involution, the name uuidna_is_dna_times_the_two_coins) — every one kernel-checked sorry-free and
+// axiom-free by the audit's verdict, whatever its tactic, and every sealed
 // theorem drills. Proof of work is the SHA-256 digest at KEY_BITS against the address floor, the mint that
 // searches nothing, the live symmetric stack, AND the codon occupancy: 4³ = 2⁶ = 64 = one coin face, two strands
 // fuse the uuid. Complete is both pairs plus prepublishSeal. Arithmetic of counts, not a claim that DNA stores
@@ -15,7 +16,7 @@ import { HEXBIT_BITS, KEY_BITS, LEVERAGE, UUID_BITS, GROVER_FLOOR_BITS } from '.
 import {
   VECTOR_EQUILIBRIUM_INVOLUTIONS, WAVE_INVOLUTION_SEALS, FINITE_INFINITY_GRANTS,
 } from './involution-seals.js'
-import { prepublishSeal } from './prepublish-seal.js'
+import { prepublishSeal, kernelVerdictOf, leanFormatFault } from './prepublish-seal.js'
 import { drillOf } from './quantum/apps/categories/practice/drill.js'
 import { theoremDemoCoverage } from './quantum/apps/theorem-demos.js'
 import { minerFirmware } from './quantum/os/firmware/index.js'
@@ -59,11 +60,11 @@ const DNA_KEYS: readonly string[] = [
 
 export interface PhdConcept {
   clay: number
-  clayDecide: boolean
+  clayKernel: boolean
   gravity: boolean
   demos: boolean
   dna: number
-  dnaDecide: boolean
+  dnaKernel: boolean
   dnaName: boolean
 }
 
@@ -101,7 +102,7 @@ export interface PhdWork {
 export interface PhdThesis {
   ok: boolean
   drained: number
-  allDecide: boolean
+  axiomFree: boolean
   gaps: number
 }
 
@@ -136,11 +137,12 @@ export function phdProofs(): PhdProofs {
   const T = theorems()
   const unit = coins()
   const octet = HEXBIT_BITS * unit
+  const verdict = kernelVerdictOf()
   const clay = T.filter((t) => t.file === 'Clay.lean')
-  const clayDecide = clay.length > 0 && clay.every((t) => t.tactic.includes('decide'))
+  const clayKernel = clay.length > 0 && clay.every((t) => leanFormatFault(t, verdict) === null)
   const gravity = clay.some((t) => t.key === 'clay_gravity_equals_rosette')
   const dnaTheorems = T.filter((t) => DNA_KEYS.includes(t.key))
-  const dnaDecide = dnaTheorems.length === DNA_KEYS.length && dnaTheorems.every((t) => t.tactic.includes('decide'))
+  const dnaKernel = dnaTheorems.length === DNA_KEYS.length && dnaTheorems.every((t) => leanFormatFault(t, verdict) === null)
   const dnaName = dnaTheorems.some((t) => t.key === 'uuidna_is_dna_times_the_two_coins')
   const demos = theoremDemoCoverage(T)
   const supply = coinSupply()
@@ -162,11 +164,11 @@ export function phdProofs(): PhdProofs {
   const walk = complementWalk(bases)
   const concept: PhdConcept = {
     clay: clay.length,
-    clayDecide,
+    clayKernel,
     gravity,
     demos: demos.ok,
     dna: dnaTheorems.length,
-    dnaDecide,
+    dnaKernel,
     dnaName,
   }
   const none = unit - unit
@@ -201,8 +203,8 @@ export function phdProofs(): PhdProofs {
     thesisRequired: THESIS_DRILLS.length,
   }
   const complete =
-    concept.clayDecide && concept.gravity && concept.demos &&
-    concept.dnaDecide && concept.dnaName &&
+    concept.clayKernel && concept.gravity && concept.demos &&
+    concept.dnaKernel && concept.dnaName &&
     work.search === none &&
     work.digestBytes * octet === work.digestBits &&
     work.digestBits === KEY_BITS &&
@@ -232,7 +234,7 @@ export function phdProofs(): PhdProofs {
     thesis: {
       ok: thesis.ok,
       drained: thesis.thesis.drained,
-      allDecide: thesis.leanFormat.allDecide,
+      axiomFree: thesis.leanFormat.axiomFree,
       gaps: thesis.gaps.length,
     },
     complete,

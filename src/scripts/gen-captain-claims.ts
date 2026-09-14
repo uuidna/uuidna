@@ -15,6 +15,7 @@
 import { readFileSync as __rd } from 'node:fs'
 import { statementCensus, theorems, coins, toUuid, merkleGravity } from '../index.js'
 import { factSource, heldAs, captainOverClaimGaps, claimsFrom } from '../claim-attribution.js'
+import { kernelVerdicts } from '../axiom-witness.js'
 import { externalFactGaps, armDisagreement, gradeOf, gradeCensus } from '../external-fact.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -26,23 +27,19 @@ console.log('║ GEN-CAPTAIN-CLAIMS — Automated Discovery & Claiming       ║
 console.log('╚════════════════════════════════════════════════════════════╝\n')
 console.log(`Indexing ${T.length} theorems by lineAddress (one claim per Lean line, no grouping to miss one from)\n`)
 
-// ONE CLAIM PER THEOREM — the flat, complete set. startsWith
-// comment (e.g. "decide -- a τ-pair off the line") that doesn't change the actual proof method — an exact-match
-// check silently dropped exactly 3 real, genuinely-by-decide theorems for this reason (involution_group,
-// light_faster_than_uuidna, division_by_zero) the first time this ran. Kept as an explicit check`true`, so
-// the claim states what it verifies.
+// ONE CLAIM PER THEOREM the kernel holds axiom-free — the verdict of lean/axioms.json, never the tactic.
 // THE RULE LIVES IN claimsFrom(), not here — one implementation, so the tests can recompute this list instead
 // of reading the artefact it writes. A test that read the JSON raced this generator and failed intermittently.
-const held = new Map(claimsFrom(T).map(c => [c.key, c]))
+const held = new Map(claimsFrom(T, kernelVerdicts()).map(c => [c.key, c]))
 const claimed = T.filter(t => held.has(t.key))
 const claimsList = claimed.map(t => ({
   key: t.key,
   lineAddress: t.lineAddress,   // the claim's own identity — toUuid of the exact reconstructed Lean line
   address: t.address,            // the proposition's identity (key+statement) — a different question, see theorems/index.ts
   principle: t.principle,        // carried for readability/grouping in the markdown below's unit
-  // WHO FOUND THE FACT IS A SEPARATE QUESTION FROM WHO PROVED THE LINE. The filter above selects on
-  // `tactic.startsWith('decide')` — a property of the PROOF. Decidability cannot tell Chargaff's rule from a
-  // fact first stated here, and claiming by it alone had the captain claiming 10.1038/171737a0 as his own.
+  // WHO FOUND THE FACT IS A SEPARATE QUESTION FROM WHO PROVED THE LINE. The filter above selects on the
+  // kernel's verdict — a property of the PROOF. A proof cannot tell Chargaff's rule from a fact first stated
+  // here, and claiming by it alone had the captain claiming 10.1038/171737a0 as his own.
   // The mirror already knew better; it just was not read. See src/claim-attribution.ts.
   held: heldAs(t.key),
   ...(factSource(t.key) ? { factAttributedTo: factSource(t.key) } : {}),
@@ -119,7 +116,7 @@ const claimLedger = {
     proves: [
       'Every theorem is claimed — the claim unit is the theorem itself (lineAddress)',
       `The captain formalised all ${totalClaimed}; he claims discovery of ${noveltyClaimed} and credits the other ${formalisationOnly.size} facts to their named sources`,
-      'These theorems are Lean-verified (by decide)',
+      'These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom',
       'All are proven sorry-free',
       'The captain takes responsibility for all claims',
     ],

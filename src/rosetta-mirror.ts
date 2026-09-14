@@ -68586,15 +68586,15 @@ a_spec_compiles_to_hexbits 27
 the_os_is_bootable_quantum 27
 the_install_set_names_the_bytes_it_rests_on 27
 #Involution2d552f1f.lean
-involution_2d552f1f 18
-budget_census_2d552f1f 18
+involution_2d552f1f 26
+budget_census_2d552f1f 26
 #Involutionb13fd37a.lean
-reconciled_b13fd37a 18
-involution_b13fd37a 18
+reconciled_b13fd37a 26
+involution_b13fd37a 26
 #Involutione92de628.lean
-not_dvd_of_bound_e92de628 18
-involution_e92de628 18
-anatomy_e92de628 18
+not_dvd_of_bound_e92de628 26
+involution_e92de628 26
+anatomy_e92de628 26
 #Isometry.lean
 xor_preserves_distance 27
 reuse_leaks_by_isometry 27

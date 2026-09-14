@@ -10,6 +10,8 @@
 // the LINK — a theorem renamed, a wing emptied, a fact quietly dropped while the code that depends on it stays.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { kernelHolds } from './claim-attribution.js'
+import { kernelVerdicts } from './axiom-witness.js'
 import {
   theorems, axiomWitness, theoremNeighbours, theoremForms, cliqueEdges, statementCensus,
   leanUuid,   hexbitDoorOf, coprime, starPolygon, fuseHalves, reactorOutput, gcd,
@@ -225,10 +227,11 @@ test('the wing exists, is non-trivial, and every one of its theorems is kernel-o
   assert.equal(w.holds, true, 'the ledger must be axiom-free for a sealed sequence fact to mean anything')
 })
 
-test('the CRT wing exists, is decide, and the shipped witness covers it', () => {
+test('the CRT wing exists, the kernel holds every theorem axiom-free, and the shipped witness covers it', () => {
   const wing = theorems().filter((t) => t.file === 'Crt.lean')
   assert.ok(wing.length > 0, `the CRT generator emitted a wing — saw ${wing.length}`)
-  assert.ok(wing.every((t) => t.tactic.includes('decide')))
+  const verdict = kernelVerdicts()
+  assert.ok(wing.every((t) => kernelHolds(t.key, verdict)), 'every CRT theorem carries an empty #print axioms verdict')
   const w = axiomWitness()
   assert.equal(w.holds, true, 'CRT axiom-free: the shipped receipt covers the live ledger')
 })

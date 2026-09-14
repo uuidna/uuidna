@@ -510,6 +510,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'src/school/refusals/generated.ts',
   'src/edge-slices/generated.ts',
   'src/theorems/edge-root.ts',
+  'lean/witness-seals.json',
   'docs/articles', 'docs/public/feed.json', 'docs/public/terminology.json', 'docs/public/statement-addresses.json', 'docs/prose-evidence.md',
   '.gitattributes',
   'packages', 'lean',
@@ -630,6 +631,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-refusals': ['src/school/refusals/generated.ts'],
   'gen-edge-slices': ['src/edge-slices/generated.ts'],
   'ledger-deposit': ['src/theorems/edge-root.ts'],
+  'gen-witness-seals': ['lean/witness-seals.json'],
   'gen-zenodo': ['.zenodo.json'],
   'test-plan': [],   // runs the delta the receipt names; reports, writes nothing (the receipt is gate-receipt's to mint)
   'gen-zenodo-seals': ['zenodo'],

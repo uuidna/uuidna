@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 447,
+ "count": 445,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000007938",
-   "completionPrice": "0.00000015876"
+   "promptPrice": "0.00000007476",
+   "completionPrice": "0.00000014952"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -554,13 +554,6 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "google/gemini-2.5-pro-preview",
    "name": "Google: Gemini 2.5 Pro Preview 06-05",
-   "contextTokens": 1048576,
-   "promptPrice": "0.00000125",
-   "completionPrice": "0.00001"
-  },
-  {
-   "id": "google/gemini-2.5-pro-preview-05-06",
-   "name": "Google: Gemini 2.5 Pro Preview 05-06",
    "contextTokens": 1048576,
    "promptPrice": "0.00000125",
    "completionPrice": "0.00001"
@@ -1513,13 +1506,6 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "openai/gpt-4-turbo",
    "name": "OpenAI: GPT-4 Turbo",
-   "contextTokens": 128000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00003"
-  },
-  {
-   "id": "openai/gpt-4-turbo-preview",
-   "name": "OpenAI: GPT-4 Turbo Preview",
    "contextTokens": 128000,
    "promptPrice": "0.00001",
    "completionPrice": "0.00003"

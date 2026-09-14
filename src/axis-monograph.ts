@@ -154,7 +154,7 @@ export type HomeCensus = {
   phd: {
     complete: boolean
     clay: number
-    clayDecide: boolean
+    clayKernel: boolean
     gravity: boolean
     demos: boolean
     digestBits: number
@@ -171,7 +171,7 @@ export type HomeCensus = {
     thesisOk: boolean
     receipt: string
     dna: number
-    dnaDecide: boolean
+    dnaKernel: boolean
     dnaName: boolean
     bases: number
     frame: number
@@ -420,7 +420,7 @@ export function axisMonographs(): AxisBundle {
         return {
           complete: p.complete,
           clay: p.concept.clay,
-          clayDecide: p.concept.clayDecide,
+          clayKernel: p.concept.clayKernel,
           gravity: p.concept.gravity,
           demos: p.concept.demos,
           digestBits: p.work.digestBits,
@@ -437,7 +437,7 @@ export function axisMonographs(): AxisBundle {
           thesisOk: p.thesis.ok,
           receipt: p.receipt,
           dna: p.concept.dna,
-          dnaDecide: p.concept.dnaDecide,
+          dnaKernel: p.concept.dnaKernel,
           dnaName: p.concept.dnaName,
           bases: p.work.bases,
           frame: p.work.frame,

@@ -5,13 +5,15 @@
 //
 // Mapped onto this tree's vocabulary (no parallel metaphysics):
 //   · thesis audit     → editorial desk clean (drained=0) + publicationStatus.conforms + every note publishable
-//   · Lean format      → every publication is composed from a sealed .lean wing; every theorem `by decide`
+//   · Lean format      → every publication is composed from a sealed .lean wing; every theorem carries the proof its
+//                        row records (`:= by <tactic>`), sorry-free, and the kernel's own `#print axioms` verdict in
+//                        lean/axioms.json names no axiom — the tactic is the prover's choice, the verdict is the kernel's
 //   · VE of involutions → VectorEquilibrium.lean's full involution/equilibrium set + Wave involution seals, no gap
-//   · finite infinities → named theorems that license 2^k / general shapes from finite `by decide` walks
+//   · finite infinities → named theorems that license 2^k / general shapes from finite kernel-checked walks
 //
 // Zenodo DOI minting stays WORKFLOW-ONLY (zenodo-publish.ts). This seal is what publish.yml / editorial /
 // prepublishOnly must pass before any surface ships.
-import { existsRoot } from './boundary.js'
+import { existsRoot, rdRoot } from './boundary.js'
 import { theorems, theoremByKey } from './theorems/index.js'
 import { publications } from './publish.js'
 import { editorialState, publicationStatus } from './editorial.js'
@@ -32,12 +34,41 @@ import {
   FINITE_INFINITY_GRANTS,
 } from './involution-seals.js'
 
+/** the kernel's `#print axioms` verdict for one theorem of one wing: [] vouches for the term, a list names what the
+ *  proof borrows, null is no verdict — an absent instrument, never read as a pass */
+export type KernelVerdict = (key: string, file: string) => string[] | null
+
+/** kernelVerdictOf() → the per-wing verdicts the axiom audit sealed in lean/axioms.json, read as the kernel wrote
+ *  them; an unreadable receipt answers null for every key */
+export function kernelVerdictOf(): KernelVerdict {
+  let wings: Record<string, { verdict?: Record<string, string[]> }> = {}
+  try { wings = (JSON.parse(rdRoot('lean/axioms.json')) as { wings?: typeof wings }).wings ?? {} }
+  catch { wings = {} }
+  return (key, file) => {
+    const v = wings[file]?.verdict
+    return v && Object.prototype.hasOwnProperty.call(v, key) ? v[key]! : null
+  }
+}
+
+export interface LeanFormatRow { key: string; tactic: string; lean: string; file: string }
+
+/** leanFormatFault(row, verdict) → why the row cannot stand in a publication, or null when its lean carries the
+ *  proof the row records, holds no sorry, and the kernel named no axiom for it. The tactic itself is never judged. */
+export function leanFormatFault(t: LeanFormatRow, verdict: KernelVerdict): string | null {
+  if (!t.lean.includes(':= by ' + t.tactic)) return 'its lean does not carry the proof its row records (`:= by <tactic>`)'
+  if (/\bsorry\b/.test(t.lean)) return 'its proof contains sorry'
+  const axioms = verdict(t.key, t.file)
+  if (axioms === null) return `the axiom audit (lean/axioms.json) holds no kernel verdict for it in ${t.file}`
+  if (axioms.length) return `the kernel names axioms [${axioms.join(', ')}]`
+  return null
+}
+
 export interface PrepublishGap { what: string; fix: string }
 export interface PrepublishSeal {
   ok: boolean
   gaps: PrepublishGap[]
   thesis: { drained: number; unverified: number; usable: number; archiveConforms: boolean; publications: number; publishable: number }
-  leanFormat: { wings: number; theorems: number; allDecide: boolean }
+  leanFormat: { wings: number; theorems: number; axiomFree: boolean }
   equilibrium: { required: number; present: number; missing: string[] }
   finiteInfinities: { grants: string[]; present: string[]; missing: string[] }
   seoFreeze: { ok: boolean; pages: number; frozenRoutes: number; drift: number }
@@ -86,7 +117,8 @@ export function prepublishSeal(): PrepublishSeal {
   }
 
   // ── 2 · PUBLICATION LEAN FORMAT ──
-  let allDecide = true
+  const verdict = kernelVerdictOf()
+  let axiomFree = true
   for (const p of P) {
     if (!existsRoot(`lean/${p.file}`)) {
       gaps.push({
@@ -104,22 +136,25 @@ export function prepublishSeal(): PrepublishSeal {
       const t = byKey.get(k)
       if (!t) {
         gaps.push({ what: `publication ${p.slug} cites missing theorem ${k}`, fix: 'seal the key or drop the cite' })
-        allDecide = false
-      } else if (!t.tactic.includes('decide')) {
-        gaps.push({
-          what: `publication ${p.slug} theorem ${k} is not \`by decide\` (tactic: ${t.tactic})`,
-          fix: 'publication Lean format requires sorry-free by-decide seals only',
-        })
-        allDecide = false
+        axiomFree = false
+      } else {
+        const fault = leanFormatFault(t, verdict)
+        if (fault) {
+          gaps.push({
+            what: `publication ${p.slug} theorem ${k}: ${fault}`,
+            fix: 'publication Lean format admits a theorem the kernel proved sorry-free and axiom-free — run `npm run axioms` or restate the proof',
+          })
+          axiomFree = false
+        }
       }
     }
   }
-  const nonDecide = T.filter((t) => !t.tactic.includes('decide'))
-  if (nonDecide.length) {
-    allDecide = false
+  const unvouched = T.map((t) => ({ key: t.key, fault: leanFormatFault(t, verdict) })).filter((r) => r.fault !== null)
+  if (unvouched.length) {
+    axiomFree = false
     gaps.push({
-      what: `ledger has ${nonDecide.length} non-decide theorem(s) — publication Lean format requires full by-decide`,
-      fix: `first offenders: ${nonDecide.slice(0, 5).map((t) => t.key).join(', ')}`,
+      what: `ledger has ${unvouched.length} theorem(s) the kernel has not vouched sorry-free and axiom-free — publication Lean format requires every proof so vouched`,
+      fix: `first offenders: ${unvouched.slice(0, 5).map((r) => `${r.key} (${r.fault})`).join(', ')}`,
     })
   }
 
@@ -147,7 +182,7 @@ export function prepublishSeal(): PrepublishSeal {
   if (missingFi.length) {
     gaps.push({
       what: `finite-infinity grant theorems missing: ${missingFi.join(', ')}`,
-      fix: 'these by-decide seals license exponential/general prose WITHOUT infinite proofs — restore them before publish',
+      fix: 'these finite seals license exponential/general prose WITHOUT infinite proofs — restore them before publish',
     })
   }
 
@@ -180,7 +215,7 @@ export function prepublishSeal(): PrepublishSeal {
   const receipt = toUuid([
     `drained:${editorial.drained}`,
     `pubs:${P.length}`,
-    `decide:${allDecide}`,
+    `kernel:${axiomFree}`,
     `eq:${required.length - missingEq.length}/${required.length}`,
     `fi:${presentFi.join(',')}`,
     `seo:${seo.receipt}`,
@@ -201,7 +236,7 @@ export function prepublishSeal(): PrepublishSeal {
       publications: P.length,
       publishable: P.length - unpub.length,
     },
-    leanFormat: { wings: P.length, theorems: T.length, allDecide: allDecide && nonDecide.length === 0 },
+    leanFormat: { wings: P.length, theorems: T.length, axiomFree: axiomFree && unvouched.length === 0 },
     equilibrium: { required: required.length, present: required.length - missingEq.length, missing: missingEq },
     finiteInfinities: { grants: [...FINITE_INFINITY_GRANTS], present: presentFi, missing: missingFi },
     seoFreeze: { ok: seo.ok, pages: seo.pages, frozenRoutes: seo.frozenRoutes, drift: seo.routeDrift.length },
@@ -210,8 +245,9 @@ export function prepublishSeal(): PrepublishSeal {
     receipt,
     honest:
       'Thesis audit = editorial drained=0 + archive conformance + publishable notes. Lean format = every ' +
-      'publication from a sealed by-decide wing. Vector equilibrium of involutions = VE + Wave involution keys ' +
-      'all present (missing_pair_involution names the gap shape). Finite infinities = named finite by-decide ' +
+      'publication from a sealed wing whose every theorem the kernel checked sorry-free and axiom-free (lean/axioms.json), ' +
+      'whatever tactic proved it. Vector equilibrium of involutions = VE + Wave involution keys ' +
+      'all present (missing_pair_involution names the gap shape). Finite infinities = named finite kernel-checked ' +
       'grants (involution_replaces_the_raised_ceiling, n_qubit_dimension, …) — never an infinite proof claim. ' +
       'SEO freeze = lean/seo-url-map.json route↔hexbit doors. Handle permanence = uuidna.com/<handle> is ' +
       'DOI-class (bidirectional DOI↔handle seals; no churn after freeze). Publication metadata = one rich schema ' +

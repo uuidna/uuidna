@@ -3,8 +3,8 @@
 // FOUND BY DISAGREEMENT, not by reading either surface (src/cross-surface.ts). Two independent censuses of the
 // same 2658 rows returned different owners: `docs/captain-claims.json` claimed every theorem for the captain,
 // while `rosetta-mirror.CLAIMS` recorded 16 of them against a named external source with its DOI. Neither
-// surface is wrong about what it measures — gen-captain-claims claims on `tactic.startsWith('decide')`, which is
-// a property of the PROOF, and decidability says nothing about who found the fact. The captain's ledger was
+// surface is wrong about what it measures — gen-captain-claims claims on the kernel's verdict, which is a
+// property of the PROOF, and a proof says nothing about who found the fact. The captain's ledger was
 // therefore claiming Watson & Crick's base pairing (10.1038/171737a0) and Landauer's bound as discoveries.
 //
 // THE FIX IS THE INVOLUTION, NOT A DELETION. Over-claim and under-claim are the same error at opposite signs, so
@@ -68,6 +68,14 @@ export function captainOverClaimGaps(
     .sort()
 }
 
+/** kernelHolds(key, verdict) → true exactly when the axiom audit holds this key AND Lean's `#print axioms` named
+ *  no axiom for it. The criterion is the kernel's verdict and nothing else: the tactic that closed the proof is
+ *  not consulted, an absent key holds nothing, and a non-empty axiom list is refused. The verdict is an argument
+ *  (axiom-witness kernelVerdicts() reads the shipped receipt), so this stays free of any filesystem. */
+export function kernelHolds(key: string, verdict: ReadonlyMap<string, readonly string[]>): boolean {
+  return verdict.get(key)?.length === 0
+}
+
 /** One theorem, as a claim. */
 export interface Claim { key: string; held: Held; factAttributedTo?: string }
 
@@ -85,13 +93,12 @@ export interface Claim { key: string; held: Held; factAttributedTo?: string }
  *
  *  PURE: the rows come in as an argument, so nothing here reaches for a filesystem the edge does not have. */
 export function claimsFrom(
-  rows: readonly { key: string; tactic: string }[],
+  rows: readonly { key: string }[],
+  verdict: ReadonlyMap<string, readonly string[]>,
   census: string = CLAIMS,
 ): Claim[] {
-  // The claim unit is a theorem the KERNEL decides. `startsWith` and not an exact match: a trailing comment on
-  // the tactic does not change the proof method, and an exact check silently dropped three real by-decide rows.
   return rows
-    .filter((t) => t.tactic.startsWith('decide'))
+    .filter((t) => kernelHolds(t.key, verdict))
     .map((t) => {
       const source = factSource(t.key, census)
       return source ? { key: t.key, held: 'formalisation' as const, factAttributedTo: source } : { key: t.key, held: 'discovery+formalisation' as const }

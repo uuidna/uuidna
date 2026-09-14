@@ -12,7 +12,7 @@ import {
   theorems, theoremByKey, HEXBIT_BITS, HANDLE_HEXBITS, COIN_HEXBITS, UUID_HEXBITS, coins,
   adjudicateAll, depositTrial, runTrial, axiomWitness,
 } from './index.js'
-import { prepublishSeal, VECTOR_EQUILIBRIUM_INVOLUTIONS, WAVE_INVOLUTION_SEALS } from './prepublish-seal.js'
+import { prepublishSeal, kernelVerdictOf, leanFormatFault, VECTOR_EQUILIBRIUM_INVOLUTIONS, WAVE_INVOLUTION_SEALS } from './prepublish-seal.js'
 import { trialWithControls } from './trial-protocol.js'
 import { callTool } from './mcp.js'
 import { ROOT } from './boundary.js'
@@ -44,7 +44,7 @@ function balancedNow(): boolean {
     minus.length + plus.length + neut.length === 10 &&
     !neut.includes(9) && plus.includes(9) &&
     lanes &&
-    T.every((t) => t.tactic.includes('decide')) &&
+    ((verdict) => T.every((t) => leanFormatFault(t, verdict) === null))(kernelVerdictOf()) &&
     1 + 1 + 1 === 3 &&
     64 * 64 === 16 * 16 * 16
   )
@@ -178,13 +178,13 @@ test('MCP trial, conformance, and verify walk the same equilibrium', () => {
   assert.equal(deposit.verdict?.verdict, 'VERIFIED')
 })
 
-test('prepublish seal is the strict VE gap check — every involution present, all by decide', () => {
+test('prepublish seal is the strict VE gap check — every involution present, all kernel-vouched axiom-free', () => {
   const s = prepublishSeal()
   assert.equal(s.equilibrium.missing.length, 0, s.equilibrium.missing.join(', '))
   assert.equal(s.equilibrium.present, s.equilibrium.required)
   assert.ok(VECTOR_EQUILIBRIUM_INVOLUTIONS.includes('radial_equals_edge'))
   assert.ok(VECTOR_EQUILIBRIUM_INVOLUTIONS.includes('imagine_all_as_clique_faces'))
-  assert.equal(s.leanFormat.allDecide, true)
+  assert.equal(s.leanFormat.axiomFree, true)
   assert.equal(s.ok, true, s.gaps.map((g) => g.what).join('\n'))
 })
 
@@ -202,10 +202,11 @@ test('the /trials UI fold equilibrium is complete — six conditions, zero entro
   assert.equal(fold.zero_entropy, true)
 })
 
-test('CRT wing is decide and sits on the shipped kernel-only receipt', () => {
+test('CRT wing is kernel-vouched and sits on the shipped kernel-only receipt', () => {
   const wing = theorems().filter((t) => t.file === 'Crt.lean')
   assert.ok(wing.length > 0, 'lean-crt emitted Crt.lean')
-  assert.ok(wing.every((t) => t.tactic.includes('decide')), 'every CRT fact is by decide')
+  const verdict = kernelVerdictOf()
+  for (const t of wing) assert.equal(leanFormatFault(t, verdict), null, `CRT fact ${t.key}`)
   sealed('captain_theorem_the_coins_buy_the_ring_and_one')
   sealed('rosette_and_vortex_are_coprime')
   const w = axiomWitness()
