@@ -1,5 +1,6 @@
-// slimgate — a primed Lean name (two_coins') is its own key, never its stem. Held both ways: the prime cannot borrow
-// the stem's seal, and an English possessive ("two_coins's proof") still cites the stem it names.
+// slimgate — a primed Lean name (two_coins') is its own key, never its stem, by construction: the key pattern takes the
+// primes into the name. Held both ways: a primed name is not verified by its stem's seal, and an English possessive
+// ("two_coins's proof") still cites the stem it names.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { slimGate } from './slimgate.js'
