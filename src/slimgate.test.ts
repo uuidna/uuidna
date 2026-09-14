@@ -37,3 +37,12 @@ test('CONTROL: a sealed citation still verifies, and a declaration beside it doe
   assert.equal(slimGate(`theorem brand_new_x : 1 = 1 := rfl\n-- backed by theorem ${sealedKey}`).verdict, 'VERIFIED')
   assert.equal(slimGate(`theorem brand_new_x : 1 = 1 := rfl\n-- backed by theorem nonexistent_xyz_123`).verdict, 'UNVERIFIED')
 })
+
+test('a one-line answer carrying thousands of theorem lines is read in one pass', () => {
+  // an MCP answer is ONE line of JSON; the declaration test once read the whole line for every match and never finished
+  const row = (i: number): string => `{"key":"k${i}","lean":"theorem ${sealedKey} : 1 = 1 := by decide"}`
+  const line = '[' + Array.from({ length: 20000 }, (_, i) => row(i)).join(',') + ']'
+  const v = slimGate(line)
+  assert.deepEqual(v.real, [sealedKey])
+  assert.deepEqual(v.fabricated, [])
+})

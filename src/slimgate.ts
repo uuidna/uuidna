@@ -21,11 +21,29 @@ const placeholder = (text: string, m: RegExpMatchArray): boolean => /[<${]/.test
 /** a Lean DECLARATION: `theorem NAME` opening its line (after a closing doc comment, an attribute, or a modifier) and
  *  followed by binders or its type's colon — it defines NAME and cites nothing. Prose that merely starts a line with
  *  "theorem two_coins backs this" is not followed by a binder or colon, so it still counts as a citation. */
+const MODIFIERS = ['private', 'protected', 'noncomputable'] as const
 const declared = (text: string, m: RegExpMatchArray): boolean => {
   const at = m.index ?? 0
-  const before = text.slice(text.lastIndexOf('\n', at - 1) + 1, at)
-  const after = text.slice(at + m[0].length)
-  return /^(?:.*-\/)?\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable)\s+)*$/.test(before) && /^\s*[:({[⦃]/.test(after)
+  if (!/^\s*[:({[⦃]/.test(text.slice(at + m[0].length))) return false
+  // Walk BACK over what Lean lets stand before `theorem` on its line — modifiers, one attribute, blanks — and stop
+  // there. The prefix is a few tokens, so this never reads the rest of the line: an MCP answer is ONE line of JSON,
+  // megabytes long, and a regex over the whole line for every match made the gate quadratic and hung the tests.
+  let i = at
+  const blank = (): void => { while (i > 0 && (text[i - 1] === ' ' || text[i - 1] === '\t')) i-- }
+  blank()
+  for (let w = MODIFIERS.find((x) => text.endsWith(x, i)); w !== undefined; w = MODIFIERS.find((x) => text.endsWith(x, i))) {
+    const start = i - w.length
+    if (start > 0 && !/\s/.test(text[start - 1]!)) break
+    i = start
+    blank()
+  }
+  if (text[i - 1] === ']') {
+    const open = text.lastIndexOf('@[', i - 1)
+    if (open < 0 || text.indexOf(']', open) !== i - 1) return false
+    i = open
+    blank()
+  }
+  return i === 0 || text[i - 1] === '\n' || text[i - 1] === '\r' || text.endsWith('-/', i)
 }
 
 export interface SlimVerdict {
@@ -51,8 +69,10 @@ export function slimGate(claim: string): SlimVerdict {
   // (`theorem brand_new_x : 1 = 1 := rfl` in a written wing or snippet) defines its name — a new name is not yet sealed
   // by construction — and a PLACEHOLDER (`involution_<handle>`, `involution_${h}`) is a name cut where it continues.
   // 22 court orders from one wave were raised this way (court-hooks → law-audit → this gate).
-  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
-  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) {
+  // A Lean name may end in primes (two_coins'), and a primed name is its own theorem, never its stem; a prime that a
+  // letter follows is English (theorem two_coins's proof), so it stays outside the key.
+  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+(?:'+(?![A-Za-z0-9_]))?)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
+  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,}(?:'+(?![A-Za-z0-9_]))?)/gi)) {
     if (/[_0-9]/.test(m[1]) && !placeholder(claim, m) && !declared(claim, m)) keys.add(m[1])
   }
   const cited = [...keys]
