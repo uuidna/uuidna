@@ -1,0 +1,12 @@
+{
+  "handle": "329a7b66",
+  "address": "329a7b66-8750-8007-a9ef-7f5604b96fb9",
+  "statement": "100000000000000 - 1 = 99999999999999 ∧ 100000000000000 = 10 ^ 14",
+  "tactic": "decide",
+  "keys": [
+    "queneau_poems_are_the_fourteen_digit_numerals"
+  ],
+  "files": [
+    "Queneau.lean"
+  ]
+}

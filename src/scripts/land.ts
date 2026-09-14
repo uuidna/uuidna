@@ -238,6 +238,16 @@ for (let round = 1; round <= ROUNDS; round++) {
       process.exit(1)
     }
     console.log('✓ land — the forge agrees. Landing complete.')
+    // AND THE RELEASE FOLLOWS THE PUSH (the captain, 2026-09-14: "immediately when pushed release must be made so doi is
+    // minted"). release.js skips its own land (HEAD is no longer ahead), asks the forge, and cuts the release only when
+    // its gates pass: release-cut runs the leads gate first, so an open lead refuses here and nothing is tagged or
+    // minted. Its verdict is printed on its own line and does not change this exit, for the reason the forge arm above
+    // gives: the landing is public, so a refused release must never read as a failed landing, nor a landing as a release.
+    const released = run('node dist/scripts/release.js')
+    console.log(released.out.trim())
+    console.log(released.ok
+      ? '✓ land → release — released; the tag mints the DOI'
+      : '· land → release — REFUSED by its own gates (named above). The landing stands; nothing was tagged or minted.')
     process.exit(0)
   }
   // ── THE DENIAL IS READ ALOUD EVEN WHEN A CURE APPLIES (found 2026-09-02, by needing it and not having it).

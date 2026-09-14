@@ -20,8 +20,9 @@ export interface NistConstant {
 
 /** nistConstant(query) → the matching NIST CODATA constants, content-addressed, for verifying uuidna's physics
  *  against the authoritative source. Deterministic given the (versioned) NIST table. One network call. */
+export const NIST_CONSTANTS_URL = 'https://physics.nist.gov/cuu/Constants/Table/allascii.txt'
 export async function nistConstant(query: string): Promise<{ query: string; matches: NistConstant[]; source: string; honest: string }> {
-  const url = 'https://physics.nist.gov/cuu/Constants/Table/allascii.txt'
+  const url = NIST_CONSTANTS_URL
   const r = await fetch(url)
   if (!r.ok) throw new Error(`constants: NIST responded ${r.status} for the CODATA table`)
   const text = await r.text()

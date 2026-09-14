@@ -17,7 +17,7 @@ test('generated.ts IS the current derivation of lean/leads.json — a baked modu
 test('withdrawn refusals are kept BESIDE the ones that held', () => {
   // A registry showing only successful refusals teaches nothing. The one that failed is the informative row.
   const c = refusalCensus()
-  assert.ok(c.refused > 0)
+  assert.equal(c.refused, 0, 'there is no refused register: Lean decides, and every lead once refused is on trial')
   assert.ok(c.withdrawn > 0, 'at least one refusal in this tree did not survive scrutiny, and it must be visible')
   assert.equal(c.rows.length, c.refused + c.withdrawn, 'held and withdrawn must partition the registry')
 })
@@ -40,8 +40,7 @@ test('the INCAPACITY class is the one that failed — stated as a count, not a l
     assert.equal(w.kind, 'incapacity', 'a withdrawn refusal that named a LAW would break the observed pattern — and would be worth knowing')
     assert.ok(w.overturnedBy.length > 0, 'a withdrawal must record what overturned it')
   }
-  const survivors = c.rows.filter((r) => r.survived)
-  assert.ok(survivors.some((r) => r.kind === 'law'), 'law-shaped boundaries are the ones that hold')
+  assert.equal(c.rows.filter((r) => r.survived).length, 0, 'no refusal stands as a verdict: every lead is tried by the kernel')
 })
 
 test('the census says which act it is about — refusing work, never refusing the court', () => {

@@ -14,7 +14,6 @@ import { mintLeadsFromText, type MintLead } from './harvest.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 import { merkleFold, toUuid } from './address.js'
 import { handleOf } from './handle.js'
-import { EXTENDED_RESEARCH_PROBES } from './research-sources.js'
 import { SCHOOL_APIS } from './school-apis.js'
 
 export const SEARCH_FEED_PATH = 'lean/search-feed.json'
@@ -45,13 +44,11 @@ export const MOST_SEARCHED: readonly SearchQuery[] = [
     ore: '128 - 70 = 58. 70 < 128.' },
 ]
 
-/** portalQueries() → the wired APIs' own known-good asks: research streams + EU education portals that carry a
- *  phrase probe (ESCO chemistry, data.europa education, CORDIS quantum, MathOverflow prime, …). Coordinates and
- *  dataset codes stay out — those are not search strings. Pure. */
+/** portalQueries() → the EU education portals' phrase probes (ESCO chemistry, data.europa education, CORDIS quantum, …).
+ *  The research doors carry no per-source query: every door is asked the wave's topic (research/index.ts). Coordinates
+ *  and dataset codes stay out — those are not search strings. Pure. */
 export function portalQueries(): SearchQuery[] {
   const out: SearchQuery[] = []
-  for (const p of EXTENDED_RESEARCH_PROBES)
-    out.push({ id: `api-${p.id}`, query: p.query, source: p.id })
   for (const s of SCHOOL_APIS) {
     const text = s.probe?.text?.trim() ?? ''
     if (text.length < 3) continue

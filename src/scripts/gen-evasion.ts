@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // gen-evasion — THE TICKER, derived (lead 95): the evasion catalogue rendered beside live market-surveillance
-// metrics folded from the tree's own records — the unverified rate, the open doors, the held/refuted/refused
+// metrics folded from the tree's own records — the unverified rate, the open doors, the in-trial/refuted
 // census, the drift-cures in the log — every figure recomputed here from files, never typed, the whole board
 // folding to one address whose states the page can SING through the standard player (a catch is a note). The
 // catalogue's integrity is held by its test: an entry citing an unsealed key fails the build — the catalogue
@@ -17,12 +17,12 @@ const readJson = (p: string): unknown => (existsSync(join(ROOT, p)) ? JSON.parse
 
 // ── THE MEASUREMENTS — each metric a count over a record, sourced in its unit string.
 const prose = readJson('prose-trials.json') as { paragraphs_tried?: number; unverified?: number; drained?: number } | null
-const leads = readJson('lean/leads.json') as { held?: unknown[]; refuted?: unknown[]; refused?: unknown[] } | null
+const leads = readJson('lean/leads.json') as { trial?: unknown[]; refuted?: unknown[]; refused?: unknown[] } | null
 const metrics: TickerMetric[] = [
   { name: 'sealed theorems', value: LEAN_LEDGER.length, of: null, unit: 'by decide, axiom-free' },
   { name: 'prose unverified', value: prose?.unverified ?? 0, of: prose?.paragraphs_tried ?? null, unit: 'paragraphs — doors, not defeats' },
   { name: 'prose drained', value: prose?.drained ?? 0, of: prose?.paragraphs_tried ?? null, unit: 'fabricated citations caught' },
-  { name: 'doors held open', value: leads?.held?.length ?? 0, of: null, unit: 'leads awaiting their two coins' },
+  { name: 'leads in trial', value: leads?.trial?.length ?? 0, of: null, unit: 'leads awaiting their two coins' },
   { name: 'refuted honestly', value: leads?.refuted?.length ?? 0, of: null, unit: 'killed by a measurement, recorded' },
   { name: 'refused at boundary', value: leads?.refused?.length ?? 0, of: null, unit: 'sources that answered 418, named' },
   { name: 'tricks catalogued', value: TRICKS.length, of: null, unit: 'each with its finder and its convicting seal' },

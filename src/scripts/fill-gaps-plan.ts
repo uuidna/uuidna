@@ -66,9 +66,10 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
   },
   {
     name: 'trial-refusals',
-    cmd: 'node dist/scripts/trial-refusals.js --books',
-    note: 'collide each refused boundary against peers and cited theorems — verified, purged, or open',
-    when: (s) => s.refusalOpen > 0,
+    cmd: 'node dist/scripts/trial-refusals.js',
+    note: 'try every lead by the sealed theorems its own text names, against fresh kernel receipts — verified or open; nothing is purged',
+    // no trial record is unmeasured, not zero: it schedules the trial too
+    when: (s) => s.refusalOpen === null || s.refusalOpen > 0,
   },
   {
     name: 'trial-book-leads',

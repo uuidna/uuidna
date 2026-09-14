@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="44 doors" />
+# Public APIs <Badge type="tip" text="48 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**44 APIs** · sweep 15 · door [`fca8a115`](https://uuidna.com/fca8a115) · receipt `fca8a115-0d52-83a3-af9c-127eceb468df`
+**48 APIs** · sweep 19 · door [`458ee8cf`](https://uuidna.com/458ee8cf) · receipt `458ee8cf-c14c-823b-9310-8428f82e5bef`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -36,6 +36,10 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `journals-aas-org` | journals.aas.org | research | keyless | fetched | yes | yes |
 | `sefaria-org` | sefaria.org | research | keyless | fetched | yes | yes |
 | `api-quran-com` | api.quran.com | research | keyless | fetched | yes | yes |
+| `federalregister-gov` | federalregister.gov | research | keyless | fetched | yes | yes |
+| `courtlistener-com` | courtlistener.com | research | keyless | fetched | yes | yes |
+| `legislation-gov-uk` | legislation.gov.uk | research | keyless | fetched | yes | yes |
+| `publications-europa-eu` | publications.europa.eu | research | keyless | fetched | yes | yes |
 
 ## EU education
 
@@ -94,4 +98,4 @@ never summed.
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/fca8a115`.
+Cite handle `https://uuidna.com/458ee8cf`.

@@ -3,15 +3,15 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'170 open'" />
+# Missions <Badge type="tip" :text="'282 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**170 missions** — 28 seal-finding · 78 decide-bound · 64 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`aeac3477715ce2a8`) and the research ledger. The captain of every mission
+**282 missions** — 28 seal-finding · 134 decide-bound · 120 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`bfa86a3dc6a80476`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -26,7 +26,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 
 | Skill | Theorems | Wings | Open missions | Start with |
 | --- | ---: | ---: | ---: | --- |
-| wave | 67071 | 36 | 41 | `b97801e1` |
+| wave | 67076 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | vortex | 24 | 4 | 6 | `fa48a04a` |
@@ -189,7 +189,7 @@ _a read primary source whose value no theorem seals yet — the theorem is the d
   <br><small>deliverable: seal 47.3% vs 36.7% correct (10.6 percentage points) percentage points (measured, read source: Cepeda, Pashler, Vul, Wixted & Rohrer 2006, Psychological Bulletin 132(3):354, Discussion/Limitations) as a theorem, and point the finding at it</small>
   <br><small>door: uuidna_trial the claim, then a Lean line in the wing that owns the value; set the finding's theorem field to close it</small>
 
-## Decide a bound — 78 open
+## Decide a bound — 134 open
 
 _a finite domain that survived one widening step — a person decides whether it is the real domain (name it) or decorative (drop it); the instrument cannot._
 
@@ -289,37 +289,261 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 32 statements in Equilibrium.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`hexcube_degree_is_six_0`](/theorem/hexcube_degree_is_six_0) · [`hexcube_degree_is_six_1`](/theorem/hexcube_degree_is_six_1) · [`hexcube_degree_is_six_2`](/theorem/hexcube_degree_is_six_2) · [`hexcube_degree_is_six_3`](/theorem/hexcube_degree_is_six_3) · [`hexcube_degree_is_six_4`](/theorem/hexcube_degree_is_six_4) · [`hexcube_degree_is_six_5`](/theorem/hexcube_degree_is_six_5) · [`hexcube_degree_is_six_6`](/theorem/hexcube_degree_is_six_6) · [`hexcube_degree_is_six_7`](/theorem/hexcube_degree_is_six_7) · [`xor_translation_carries_any_cell_to_any_other_0`](/theorem/xor_translation_carries_any_cell_to_any_other_0) · [`xor_translation_carries_any_cell_to_any_other_1`](/theorem/xor_translation_carries_any_cell_to_any_other_1) · [`xor_translation_carries_any_cell_to_any_other_2`](/theorem/xor_translation_carries_any_cell_to_any_other_2) · [`xor_translation_carries_any_cell_to_any_other_3`](/theorem/xor_translation_carries_any_cell_to_any_other_3) · +20 more in the wing</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`b8e8bbb5`** decide 8 surviving bounds in EquilibriumXor1.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor1.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_0`](/theorem/xor_translation_preserves_adjacency_0) · [`xor_translation_preserves_adjacency_1`](/theorem/xor_translation_preserves_adjacency_1) · [`xor_translation_preserves_adjacency_2`](/theorem/xor_translation_preserves_adjacency_2) · [`xor_translation_preserves_adjacency_3`](/theorem/xor_translation_preserves_adjacency_3) · [`xor_translation_preserves_adjacency_4`](/theorem/xor_translation_preserves_adjacency_4) · [`xor_translation_preserves_adjacency_5`](/theorem/xor_translation_preserves_adjacency_5) · [`xor_translation_preserves_adjacency_6`](/theorem/xor_translation_preserves_adjacency_6) · [`xor_translation_preserves_adjacency_7`](/theorem/xor_translation_preserves_adjacency_7)</small>
+- **`4c933932`** decide 1 surviving bound in EquilibriumXor1.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor1.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_0`](/theorem/xor_translation_preserves_adjacency_0)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`aeb02de2`** decide 8 surviving bounds in EquilibriumXor2.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor2.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_8`](/theorem/xor_translation_preserves_adjacency_8) · [`xor_translation_preserves_adjacency_9`](/theorem/xor_translation_preserves_adjacency_9) · [`xor_translation_preserves_adjacency_10`](/theorem/xor_translation_preserves_adjacency_10) · [`xor_translation_preserves_adjacency_11`](/theorem/xor_translation_preserves_adjacency_11) · [`xor_translation_preserves_adjacency_12`](/theorem/xor_translation_preserves_adjacency_12) · [`xor_translation_preserves_adjacency_13`](/theorem/xor_translation_preserves_adjacency_13) · [`xor_translation_preserves_adjacency_14`](/theorem/xor_translation_preserves_adjacency_14) · [`xor_translation_preserves_adjacency_15`](/theorem/xor_translation_preserves_adjacency_15)</small>
+- **`7b748723`** decide 1 surviving bound in EquilibriumXor10.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor10.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_9`](/theorem/xor_translation_preserves_adjacency_9)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`39218791`** decide 8 surviving bounds in EquilibriumXor3.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor3.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_16`](/theorem/xor_translation_preserves_adjacency_16) · [`xor_translation_preserves_adjacency_17`](/theorem/xor_translation_preserves_adjacency_17) · [`xor_translation_preserves_adjacency_18`](/theorem/xor_translation_preserves_adjacency_18) · [`xor_translation_preserves_adjacency_19`](/theorem/xor_translation_preserves_adjacency_19) · [`xor_translation_preserves_adjacency_20`](/theorem/xor_translation_preserves_adjacency_20) · [`xor_translation_preserves_adjacency_21`](/theorem/xor_translation_preserves_adjacency_21) · [`xor_translation_preserves_adjacency_22`](/theorem/xor_translation_preserves_adjacency_22) · [`xor_translation_preserves_adjacency_23`](/theorem/xor_translation_preserves_adjacency_23)</small>
+- **`5e8366f9`** decide 1 surviving bound in EquilibriumXor11.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor11.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_10`](/theorem/xor_translation_preserves_adjacency_10)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`0f945c2b`** decide 8 surviving bounds in EquilibriumXor4.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor4.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_24`](/theorem/xor_translation_preserves_adjacency_24) · [`xor_translation_preserves_adjacency_25`](/theorem/xor_translation_preserves_adjacency_25) · [`xor_translation_preserves_adjacency_26`](/theorem/xor_translation_preserves_adjacency_26) · [`xor_translation_preserves_adjacency_27`](/theorem/xor_translation_preserves_adjacency_27) · [`xor_translation_preserves_adjacency_28`](/theorem/xor_translation_preserves_adjacency_28) · [`xor_translation_preserves_adjacency_29`](/theorem/xor_translation_preserves_adjacency_29) · [`xor_translation_preserves_adjacency_30`](/theorem/xor_translation_preserves_adjacency_30) · [`xor_translation_preserves_adjacency_31`](/theorem/xor_translation_preserves_adjacency_31)</small>
+- **`8d6c1c6c`** decide 1 surviving bound in EquilibriumXor12.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor12.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_11`](/theorem/xor_translation_preserves_adjacency_11)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`fb6e9a43`** decide 8 surviving bounds in EquilibriumXor5.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor5.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_32`](/theorem/xor_translation_preserves_adjacency_32) · [`xor_translation_preserves_adjacency_33`](/theorem/xor_translation_preserves_adjacency_33) · [`xor_translation_preserves_adjacency_34`](/theorem/xor_translation_preserves_adjacency_34) · [`xor_translation_preserves_adjacency_35`](/theorem/xor_translation_preserves_adjacency_35) · [`xor_translation_preserves_adjacency_36`](/theorem/xor_translation_preserves_adjacency_36) · [`xor_translation_preserves_adjacency_37`](/theorem/xor_translation_preserves_adjacency_37) · [`xor_translation_preserves_adjacency_38`](/theorem/xor_translation_preserves_adjacency_38) · [`xor_translation_preserves_adjacency_39`](/theorem/xor_translation_preserves_adjacency_39)</small>
+- **`e8c2d997`** decide 1 surviving bound in EquilibriumXor13.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor13.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_12`](/theorem/xor_translation_preserves_adjacency_12)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`ad8728e9`** decide 8 surviving bounds in EquilibriumXor6.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor6.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_40`](/theorem/xor_translation_preserves_adjacency_40) · [`xor_translation_preserves_adjacency_41`](/theorem/xor_translation_preserves_adjacency_41) · [`xor_translation_preserves_adjacency_42`](/theorem/xor_translation_preserves_adjacency_42) · [`xor_translation_preserves_adjacency_43`](/theorem/xor_translation_preserves_adjacency_43) · [`xor_translation_preserves_adjacency_44`](/theorem/xor_translation_preserves_adjacency_44) · [`xor_translation_preserves_adjacency_45`](/theorem/xor_translation_preserves_adjacency_45) · [`xor_translation_preserves_adjacency_46`](/theorem/xor_translation_preserves_adjacency_46) · [`xor_translation_preserves_adjacency_47`](/theorem/xor_translation_preserves_adjacency_47)</small>
+- **`0df54411`** decide 1 surviving bound in EquilibriumXor14.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor14.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_13`](/theorem/xor_translation_preserves_adjacency_13)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`aa8ddf0c`** decide 8 surviving bounds in EquilibriumXor7.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor7.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_48`](/theorem/xor_translation_preserves_adjacency_48) · [`xor_translation_preserves_adjacency_49`](/theorem/xor_translation_preserves_adjacency_49) · [`xor_translation_preserves_adjacency_50`](/theorem/xor_translation_preserves_adjacency_50) · [`xor_translation_preserves_adjacency_51`](/theorem/xor_translation_preserves_adjacency_51) · [`xor_translation_preserves_adjacency_52`](/theorem/xor_translation_preserves_adjacency_52) · [`xor_translation_preserves_adjacency_53`](/theorem/xor_translation_preserves_adjacency_53) · [`xor_translation_preserves_adjacency_54`](/theorem/xor_translation_preserves_adjacency_54) · [`xor_translation_preserves_adjacency_55`](/theorem/xor_translation_preserves_adjacency_55)</small>
+- **`c7a05474`** decide 1 surviving bound in EquilibriumXor15.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor15.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_14`](/theorem/xor_translation_preserves_adjacency_14)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`0bf073d6`** decide 8 surviving bounds in EquilibriumXor8.lean
-  <br><small>deliverable: 8 statements in EquilibriumXor8.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_56`](/theorem/xor_translation_preserves_adjacency_56) · [`xor_translation_preserves_adjacency_57`](/theorem/xor_translation_preserves_adjacency_57) · [`xor_translation_preserves_adjacency_58`](/theorem/xor_translation_preserves_adjacency_58) · [`xor_translation_preserves_adjacency_59`](/theorem/xor_translation_preserves_adjacency_59) · [`xor_translation_preserves_adjacency_60`](/theorem/xor_translation_preserves_adjacency_60) · [`xor_translation_preserves_adjacency_61`](/theorem/xor_translation_preserves_adjacency_61) · [`xor_translation_preserves_adjacency_62`](/theorem/xor_translation_preserves_adjacency_62) · [`xor_translation_preserves_adjacency_63`](/theorem/xor_translation_preserves_adjacency_63)</small>
+- **`6aa58c51`** decide 1 surviving bound in EquilibriumXor16.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor16.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_15`](/theorem/xor_translation_preserves_adjacency_15)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`e9edf7ac`** decide 1 surviving bound in EquilibriumXor17.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor17.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_16`](/theorem/xor_translation_preserves_adjacency_16)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`9a2da973`** decide 1 surviving bound in EquilibriumXor18.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor18.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_17`](/theorem/xor_translation_preserves_adjacency_17)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`c1f2fb3e`** decide 1 surviving bound in EquilibriumXor19.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor19.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_18`](/theorem/xor_translation_preserves_adjacency_18)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`f39bf1b7`** decide 1 surviving bound in EquilibriumXor2.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor2.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_1`](/theorem/xor_translation_preserves_adjacency_1)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`d6a3d1e3`** decide 1 surviving bound in EquilibriumXor20.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor20.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_19`](/theorem/xor_translation_preserves_adjacency_19)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`fdfe2fbe`** decide 1 surviving bound in EquilibriumXor21.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor21.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_20`](/theorem/xor_translation_preserves_adjacency_20)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`6d309dbd`** decide 1 surviving bound in EquilibriumXor22.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor22.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_21`](/theorem/xor_translation_preserves_adjacency_21)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`6f277a16`** decide 1 surviving bound in EquilibriumXor23.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor23.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_22`](/theorem/xor_translation_preserves_adjacency_22)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`b92ddbcb`** decide 1 surviving bound in EquilibriumXor24.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor24.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_23`](/theorem/xor_translation_preserves_adjacency_23)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`3920d2ff`** decide 1 surviving bound in EquilibriumXor25.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor25.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_24`](/theorem/xor_translation_preserves_adjacency_24)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`5710806f`** decide 1 surviving bound in EquilibriumXor26.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor26.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_25`](/theorem/xor_translation_preserves_adjacency_25)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`9db6dcd5`** decide 1 surviving bound in EquilibriumXor27.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor27.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_26`](/theorem/xor_translation_preserves_adjacency_26)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`fa3c80df`** decide 1 surviving bound in EquilibriumXor28.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor28.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_27`](/theorem/xor_translation_preserves_adjacency_27)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`05f23143`** decide 1 surviving bound in EquilibriumXor29.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor29.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_28`](/theorem/xor_translation_preserves_adjacency_28)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`ebbf85f5`** decide 1 surviving bound in EquilibriumXor3.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor3.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_2`](/theorem/xor_translation_preserves_adjacency_2)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`df64deb6`** decide 1 surviving bound in EquilibriumXor30.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor30.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_29`](/theorem/xor_translation_preserves_adjacency_29)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`28fa3c44`** decide 1 surviving bound in EquilibriumXor31.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor31.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_30`](/theorem/xor_translation_preserves_adjacency_30)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`b247686d`** decide 1 surviving bound in EquilibriumXor32.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor32.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_31`](/theorem/xor_translation_preserves_adjacency_31)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`8bac3679`** decide 1 surviving bound in EquilibriumXor33.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor33.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_32`](/theorem/xor_translation_preserves_adjacency_32)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`ab94831b`** decide 1 surviving bound in EquilibriumXor34.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor34.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_33`](/theorem/xor_translation_preserves_adjacency_33)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`53ee53dc`** decide 1 surviving bound in EquilibriumXor35.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor35.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_34`](/theorem/xor_translation_preserves_adjacency_34)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`e185ece1`** decide 1 surviving bound in EquilibriumXor36.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor36.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_35`](/theorem/xor_translation_preserves_adjacency_35)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`aceabcb7`** decide 1 surviving bound in EquilibriumXor37.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor37.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_36`](/theorem/xor_translation_preserves_adjacency_36)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`eca49707`** decide 1 surviving bound in EquilibriumXor38.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor38.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_37`](/theorem/xor_translation_preserves_adjacency_37)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`6c27c739`** decide 1 surviving bound in EquilibriumXor39.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor39.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_38`](/theorem/xor_translation_preserves_adjacency_38)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`ff9447e9`** decide 1 surviving bound in EquilibriumXor4.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor4.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_3`](/theorem/xor_translation_preserves_adjacency_3)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`b638b97b`** decide 1 surviving bound in EquilibriumXor40.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor40.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_39`](/theorem/xor_translation_preserves_adjacency_39)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`0d2d24ae`** decide 1 surviving bound in EquilibriumXor41.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor41.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_40`](/theorem/xor_translation_preserves_adjacency_40)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`3048af5c`** decide 1 surviving bound in EquilibriumXor42.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor42.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_41`](/theorem/xor_translation_preserves_adjacency_41)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`feb6ddb0`** decide 1 surviving bound in EquilibriumXor43.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor43.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_42`](/theorem/xor_translation_preserves_adjacency_42)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`efa3a97f`** decide 1 surviving bound in EquilibriumXor44.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor44.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_43`](/theorem/xor_translation_preserves_adjacency_43)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`89d8a6be`** decide 1 surviving bound in EquilibriumXor45.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor45.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_44`](/theorem/xor_translation_preserves_adjacency_44)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`1a298529`** decide 1 surviving bound in EquilibriumXor46.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor46.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_45`](/theorem/xor_translation_preserves_adjacency_45)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`399a05c4`** decide 1 surviving bound in EquilibriumXor47.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor47.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_46`](/theorem/xor_translation_preserves_adjacency_46)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`928cece8`** decide 1 surviving bound in EquilibriumXor48.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor48.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_47`](/theorem/xor_translation_preserves_adjacency_47)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`2224b975`** decide 1 surviving bound in EquilibriumXor49.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor49.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_48`](/theorem/xor_translation_preserves_adjacency_48)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`01fa43c4`** decide 1 surviving bound in EquilibriumXor5.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor5.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_4`](/theorem/xor_translation_preserves_adjacency_4)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`cb6b5b5d`** decide 1 surviving bound in EquilibriumXor50.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor50.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_49`](/theorem/xor_translation_preserves_adjacency_49)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`bffddf7b`** decide 1 surviving bound in EquilibriumXor51.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor51.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_50`](/theorem/xor_translation_preserves_adjacency_50)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`a3fe6522`** decide 1 surviving bound in EquilibriumXor52.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor52.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_51`](/theorem/xor_translation_preserves_adjacency_51)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`a20d881a`** decide 1 surviving bound in EquilibriumXor53.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor53.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_52`](/theorem/xor_translation_preserves_adjacency_52)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`a2609df0`** decide 1 surviving bound in EquilibriumXor54.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor54.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_53`](/theorem/xor_translation_preserves_adjacency_53)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`6fc3f779`** decide 1 surviving bound in EquilibriumXor55.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor55.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_54`](/theorem/xor_translation_preserves_adjacency_54)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`9c5a008d`** decide 1 surviving bound in EquilibriumXor56.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor56.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_55`](/theorem/xor_translation_preserves_adjacency_55)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`dd9158ce`** decide 1 surviving bound in EquilibriumXor57.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor57.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_56`](/theorem/xor_translation_preserves_adjacency_56)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`9d6985ab`** decide 1 surviving bound in EquilibriumXor58.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor58.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_57`](/theorem/xor_translation_preserves_adjacency_57)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`d3ed1208`** decide 1 surviving bound in EquilibriumXor59.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor59.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_58`](/theorem/xor_translation_preserves_adjacency_58)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`8a881cd5`** decide 1 surviving bound in EquilibriumXor6.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor6.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_5`](/theorem/xor_translation_preserves_adjacency_5)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`a0611fde`** decide 1 surviving bound in EquilibriumXor60.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor60.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_59`](/theorem/xor_translation_preserves_adjacency_59)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`0dbdbfa5`** decide 1 surviving bound in EquilibriumXor61.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor61.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_60`](/theorem/xor_translation_preserves_adjacency_60)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`535738a3`** decide 1 surviving bound in EquilibriumXor62.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor62.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_61`](/theorem/xor_translation_preserves_adjacency_61)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`f5e27550`** decide 1 surviving bound in EquilibriumXor63.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor63.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_62`](/theorem/xor_translation_preserves_adjacency_62)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`ea096b6b`** decide 1 surviving bound in EquilibriumXor64.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor64.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_63`](/theorem/xor_translation_preserves_adjacency_63)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`c7729746`** decide 1 surviving bound in EquilibriumXor7.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor7.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_6`](/theorem/xor_translation_preserves_adjacency_6)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`994d4887`** decide 1 surviving bound in EquilibriumXor8.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor8.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_7`](/theorem/xor_translation_preserves_adjacency_7)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`bdd8f56a`** decide 1 surviving bound in EquilibriumXor9.lean
+  <br><small>deliverable: 1 statement in EquilibriumXor9.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_8`](/theorem/xor_translation_preserves_adjacency_8)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`fff2c1cc`** decide 6 surviving bounds in Exploits.lean
   <br><small>deliverable: 6 statements in Exploits.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -506,7 +730,7 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 64 open
+## Give a theorem its symbol leg — 120 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
@@ -526,37 +750,261 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
   <br><small>deliverable: 64 theorems in Equilibrium.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`hexcube_degree_is_six_0`](/theorem/hexcube_degree_is_six_0) · [`hexcube_degree_is_six_1`](/theorem/hexcube_degree_is_six_1) · [`hexcube_degree_is_six_2`](/theorem/hexcube_degree_is_six_2) · [`hexcube_degree_is_six_3`](/theorem/hexcube_degree_is_six_3) · [`hexcube_degree_is_six_4`](/theorem/hexcube_degree_is_six_4) · [`hexcube_degree_is_six_5`](/theorem/hexcube_degree_is_six_5) · [`hexcube_degree_is_six_6`](/theorem/hexcube_degree_is_six_6) · [`hexcube_degree_is_six_7`](/theorem/hexcube_degree_is_six_7) · [`polarity_double_degree_is_twelve_0`](/theorem/polarity_double_degree_is_twelve_0) · [`polarity_double_degree_is_twelve_1`](/theorem/polarity_double_degree_is_twelve_1) · [`polarity_double_degree_is_twelve_2`](/theorem/polarity_double_degree_is_twelve_2) · [`polarity_double_degree_is_twelve_3`](/theorem/polarity_double_degree_is_twelve_3) · +52 more in the wing</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`6d0a0326`** give 8 theorems in EquilibriumXor1.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor1.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_0`](/theorem/xor_translation_preserves_adjacency_0) · [`xor_translation_preserves_adjacency_1`](/theorem/xor_translation_preserves_adjacency_1) · [`xor_translation_preserves_adjacency_2`](/theorem/xor_translation_preserves_adjacency_2) · [`xor_translation_preserves_adjacency_3`](/theorem/xor_translation_preserves_adjacency_3) · [`xor_translation_preserves_adjacency_4`](/theorem/xor_translation_preserves_adjacency_4) · [`xor_translation_preserves_adjacency_5`](/theorem/xor_translation_preserves_adjacency_5) · [`xor_translation_preserves_adjacency_6`](/theorem/xor_translation_preserves_adjacency_6) · [`xor_translation_preserves_adjacency_7`](/theorem/xor_translation_preserves_adjacency_7)</small>
+- **`7b01f750`** give 1 theorem in EquilibriumXor1.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor1.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_0`](/theorem/xor_translation_preserves_adjacency_0)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`8e2c7c95`** give 8 theorems in EquilibriumXor2.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor2.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_8`](/theorem/xor_translation_preserves_adjacency_8) · [`xor_translation_preserves_adjacency_9`](/theorem/xor_translation_preserves_adjacency_9) · [`xor_translation_preserves_adjacency_10`](/theorem/xor_translation_preserves_adjacency_10) · [`xor_translation_preserves_adjacency_11`](/theorem/xor_translation_preserves_adjacency_11) · [`xor_translation_preserves_adjacency_12`](/theorem/xor_translation_preserves_adjacency_12) · [`xor_translation_preserves_adjacency_13`](/theorem/xor_translation_preserves_adjacency_13) · [`xor_translation_preserves_adjacency_14`](/theorem/xor_translation_preserves_adjacency_14) · [`xor_translation_preserves_adjacency_15`](/theorem/xor_translation_preserves_adjacency_15)</small>
+- **`6dfa97af`** give 1 theorem in EquilibriumXor10.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor10.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_9`](/theorem/xor_translation_preserves_adjacency_9)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`7833128e`** give 8 theorems in EquilibriumXor3.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor3.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_16`](/theorem/xor_translation_preserves_adjacency_16) · [`xor_translation_preserves_adjacency_17`](/theorem/xor_translation_preserves_adjacency_17) · [`xor_translation_preserves_adjacency_18`](/theorem/xor_translation_preserves_adjacency_18) · [`xor_translation_preserves_adjacency_19`](/theorem/xor_translation_preserves_adjacency_19) · [`xor_translation_preserves_adjacency_20`](/theorem/xor_translation_preserves_adjacency_20) · [`xor_translation_preserves_adjacency_21`](/theorem/xor_translation_preserves_adjacency_21) · [`xor_translation_preserves_adjacency_22`](/theorem/xor_translation_preserves_adjacency_22) · [`xor_translation_preserves_adjacency_23`](/theorem/xor_translation_preserves_adjacency_23)</small>
+- **`d919c4b3`** give 1 theorem in EquilibriumXor11.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor11.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_10`](/theorem/xor_translation_preserves_adjacency_10)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`8bdd41d2`** give 8 theorems in EquilibriumXor4.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor4.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_24`](/theorem/xor_translation_preserves_adjacency_24) · [`xor_translation_preserves_adjacency_25`](/theorem/xor_translation_preserves_adjacency_25) · [`xor_translation_preserves_adjacency_26`](/theorem/xor_translation_preserves_adjacency_26) · [`xor_translation_preserves_adjacency_27`](/theorem/xor_translation_preserves_adjacency_27) · [`xor_translation_preserves_adjacency_28`](/theorem/xor_translation_preserves_adjacency_28) · [`xor_translation_preserves_adjacency_29`](/theorem/xor_translation_preserves_adjacency_29) · [`xor_translation_preserves_adjacency_30`](/theorem/xor_translation_preserves_adjacency_30) · [`xor_translation_preserves_adjacency_31`](/theorem/xor_translation_preserves_adjacency_31)</small>
+- **`9f129d18`** give 1 theorem in EquilibriumXor12.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor12.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_11`](/theorem/xor_translation_preserves_adjacency_11)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`9fd29d4a`** give 8 theorems in EquilibriumXor5.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor5.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_32`](/theorem/xor_translation_preserves_adjacency_32) · [`xor_translation_preserves_adjacency_33`](/theorem/xor_translation_preserves_adjacency_33) · [`xor_translation_preserves_adjacency_34`](/theorem/xor_translation_preserves_adjacency_34) · [`xor_translation_preserves_adjacency_35`](/theorem/xor_translation_preserves_adjacency_35) · [`xor_translation_preserves_adjacency_36`](/theorem/xor_translation_preserves_adjacency_36) · [`xor_translation_preserves_adjacency_37`](/theorem/xor_translation_preserves_adjacency_37) · [`xor_translation_preserves_adjacency_38`](/theorem/xor_translation_preserves_adjacency_38) · [`xor_translation_preserves_adjacency_39`](/theorem/xor_translation_preserves_adjacency_39)</small>
+- **`934aa5e6`** give 1 theorem in EquilibriumXor13.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor13.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_12`](/theorem/xor_translation_preserves_adjacency_12)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`bc6ff544`** give 8 theorems in EquilibriumXor6.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor6.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_40`](/theorem/xor_translation_preserves_adjacency_40) · [`xor_translation_preserves_adjacency_41`](/theorem/xor_translation_preserves_adjacency_41) · [`xor_translation_preserves_adjacency_42`](/theorem/xor_translation_preserves_adjacency_42) · [`xor_translation_preserves_adjacency_43`](/theorem/xor_translation_preserves_adjacency_43) · [`xor_translation_preserves_adjacency_44`](/theorem/xor_translation_preserves_adjacency_44) · [`xor_translation_preserves_adjacency_45`](/theorem/xor_translation_preserves_adjacency_45) · [`xor_translation_preserves_adjacency_46`](/theorem/xor_translation_preserves_adjacency_46) · [`xor_translation_preserves_adjacency_47`](/theorem/xor_translation_preserves_adjacency_47)</small>
+- **`d24e3e6c`** give 1 theorem in EquilibriumXor14.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor14.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_13`](/theorem/xor_translation_preserves_adjacency_13)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`a1eac049`** give 8 theorems in EquilibriumXor7.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor7.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_48`](/theorem/xor_translation_preserves_adjacency_48) · [`xor_translation_preserves_adjacency_49`](/theorem/xor_translation_preserves_adjacency_49) · [`xor_translation_preserves_adjacency_50`](/theorem/xor_translation_preserves_adjacency_50) · [`xor_translation_preserves_adjacency_51`](/theorem/xor_translation_preserves_adjacency_51) · [`xor_translation_preserves_adjacency_52`](/theorem/xor_translation_preserves_adjacency_52) · [`xor_translation_preserves_adjacency_53`](/theorem/xor_translation_preserves_adjacency_53) · [`xor_translation_preserves_adjacency_54`](/theorem/xor_translation_preserves_adjacency_54) · [`xor_translation_preserves_adjacency_55`](/theorem/xor_translation_preserves_adjacency_55)</small>
+- **`d07d4b0b`** give 1 theorem in EquilibriumXor15.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor15.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_14`](/theorem/xor_translation_preserves_adjacency_14)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
-- **`33ce8f5d`** give 8 theorems in EquilibriumXor8.lean the symbol leg
-  <br><small>deliverable: 8 theorems in EquilibriumXor8.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
-  <br><small>covers: [`xor_translation_preserves_adjacency_56`](/theorem/xor_translation_preserves_adjacency_56) · [`xor_translation_preserves_adjacency_57`](/theorem/xor_translation_preserves_adjacency_57) · [`xor_translation_preserves_adjacency_58`](/theorem/xor_translation_preserves_adjacency_58) · [`xor_translation_preserves_adjacency_59`](/theorem/xor_translation_preserves_adjacency_59) · [`xor_translation_preserves_adjacency_60`](/theorem/xor_translation_preserves_adjacency_60) · [`xor_translation_preserves_adjacency_61`](/theorem/xor_translation_preserves_adjacency_61) · [`xor_translation_preserves_adjacency_62`](/theorem/xor_translation_preserves_adjacency_62) · [`xor_translation_preserves_adjacency_63`](/theorem/xor_translation_preserves_adjacency_63)</small>
+- **`8c265c5a`** give 1 theorem in EquilibriumXor16.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor16.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_15`](/theorem/xor_translation_preserves_adjacency_15)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`ded22f04`** give 1 theorem in EquilibriumXor17.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor17.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_16`](/theorem/xor_translation_preserves_adjacency_16)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`a0195763`** give 1 theorem in EquilibriumXor18.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor18.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_17`](/theorem/xor_translation_preserves_adjacency_17)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`be926608`** give 1 theorem in EquilibriumXor19.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor19.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_18`](/theorem/xor_translation_preserves_adjacency_18)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`b075c6ec`** give 1 theorem in EquilibriumXor2.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor2.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_1`](/theorem/xor_translation_preserves_adjacency_1)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`43d6322e`** give 1 theorem in EquilibriumXor20.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor20.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_19`](/theorem/xor_translation_preserves_adjacency_19)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`b5c11062`** give 1 theorem in EquilibriumXor21.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor21.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_20`](/theorem/xor_translation_preserves_adjacency_20)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`154df701`** give 1 theorem in EquilibriumXor22.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor22.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_21`](/theorem/xor_translation_preserves_adjacency_21)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`0bafc799`** give 1 theorem in EquilibriumXor23.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor23.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_22`](/theorem/xor_translation_preserves_adjacency_22)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`8ffbc2bf`** give 1 theorem in EquilibriumXor24.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor24.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_23`](/theorem/xor_translation_preserves_adjacency_23)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`fca67b0f`** give 1 theorem in EquilibriumXor25.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor25.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_24`](/theorem/xor_translation_preserves_adjacency_24)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`b7cca64e`** give 1 theorem in EquilibriumXor26.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor26.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_25`](/theorem/xor_translation_preserves_adjacency_25)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`a7d50070`** give 1 theorem in EquilibriumXor27.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor27.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_26`](/theorem/xor_translation_preserves_adjacency_26)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`0e565ad3`** give 1 theorem in EquilibriumXor28.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor28.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_27`](/theorem/xor_translation_preserves_adjacency_27)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`86b4a56d`** give 1 theorem in EquilibriumXor29.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor29.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_28`](/theorem/xor_translation_preserves_adjacency_28)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`769a7470`** give 1 theorem in EquilibriumXor3.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor3.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_2`](/theorem/xor_translation_preserves_adjacency_2)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`3ccef3d0`** give 1 theorem in EquilibriumXor30.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor30.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_29`](/theorem/xor_translation_preserves_adjacency_29)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`ad3e8f89`** give 1 theorem in EquilibriumXor31.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor31.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_30`](/theorem/xor_translation_preserves_adjacency_30)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`18addbea`** give 1 theorem in EquilibriumXor32.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor32.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_31`](/theorem/xor_translation_preserves_adjacency_31)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`587c6540`** give 1 theorem in EquilibriumXor33.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor33.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_32`](/theorem/xor_translation_preserves_adjacency_32)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`9312eecb`** give 1 theorem in EquilibriumXor34.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor34.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_33`](/theorem/xor_translation_preserves_adjacency_33)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`0e2ff477`** give 1 theorem in EquilibriumXor35.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor35.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_34`](/theorem/xor_translation_preserves_adjacency_34)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`a8b04ccb`** give 1 theorem in EquilibriumXor36.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor36.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_35`](/theorem/xor_translation_preserves_adjacency_35)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`b1958a71`** give 1 theorem in EquilibriumXor37.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor37.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_36`](/theorem/xor_translation_preserves_adjacency_36)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`4134c484`** give 1 theorem in EquilibriumXor38.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor38.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_37`](/theorem/xor_translation_preserves_adjacency_37)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`7b89c44d`** give 1 theorem in EquilibriumXor39.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor39.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_38`](/theorem/xor_translation_preserves_adjacency_38)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`1155cf58`** give 1 theorem in EquilibriumXor4.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor4.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_3`](/theorem/xor_translation_preserves_adjacency_3)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`93a7b9b0`** give 1 theorem in EquilibriumXor40.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor40.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_39`](/theorem/xor_translation_preserves_adjacency_39)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`002fd990`** give 1 theorem in EquilibriumXor41.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor41.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_40`](/theorem/xor_translation_preserves_adjacency_40)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`7d1d7664`** give 1 theorem in EquilibriumXor42.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor42.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_41`](/theorem/xor_translation_preserves_adjacency_41)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`94b68d47`** give 1 theorem in EquilibriumXor43.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor43.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_42`](/theorem/xor_translation_preserves_adjacency_42)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`259d8be0`** give 1 theorem in EquilibriumXor44.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor44.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_43`](/theorem/xor_translation_preserves_adjacency_43)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`01d2592d`** give 1 theorem in EquilibriumXor45.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor45.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_44`](/theorem/xor_translation_preserves_adjacency_44)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`dc0aa116`** give 1 theorem in EquilibriumXor46.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor46.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_45`](/theorem/xor_translation_preserves_adjacency_45)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`8cfd9cdc`** give 1 theorem in EquilibriumXor47.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor47.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_46`](/theorem/xor_translation_preserves_adjacency_46)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`720052db`** give 1 theorem in EquilibriumXor48.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor48.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_47`](/theorem/xor_translation_preserves_adjacency_47)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`1e436469`** give 1 theorem in EquilibriumXor49.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor49.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_48`](/theorem/xor_translation_preserves_adjacency_48)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`087a8adb`** give 1 theorem in EquilibriumXor5.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor5.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_4`](/theorem/xor_translation_preserves_adjacency_4)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`9a610fd9`** give 1 theorem in EquilibriumXor50.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor50.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_49`](/theorem/xor_translation_preserves_adjacency_49)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`aa736d30`** give 1 theorem in EquilibriumXor51.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor51.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_50`](/theorem/xor_translation_preserves_adjacency_50)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`095eee21`** give 1 theorem in EquilibriumXor52.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor52.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_51`](/theorem/xor_translation_preserves_adjacency_51)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`1e1ff9da`** give 1 theorem in EquilibriumXor53.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor53.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_52`](/theorem/xor_translation_preserves_adjacency_52)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`104cc304`** give 1 theorem in EquilibriumXor54.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor54.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_53`](/theorem/xor_translation_preserves_adjacency_53)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`02218b69`** give 1 theorem in EquilibriumXor55.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor55.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_54`](/theorem/xor_translation_preserves_adjacency_54)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`af6b01ee`** give 1 theorem in EquilibriumXor56.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor56.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_55`](/theorem/xor_translation_preserves_adjacency_55)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`be2d5c7a`** give 1 theorem in EquilibriumXor57.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor57.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_56`](/theorem/xor_translation_preserves_adjacency_56)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`d69c4662`** give 1 theorem in EquilibriumXor58.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor58.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_57`](/theorem/xor_translation_preserves_adjacency_57)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`8551ebe4`** give 1 theorem in EquilibriumXor59.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor59.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_58`](/theorem/xor_translation_preserves_adjacency_58)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`6649bc08`** give 1 theorem in EquilibriumXor6.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor6.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_5`](/theorem/xor_translation_preserves_adjacency_5)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`fb7adfe0`** give 1 theorem in EquilibriumXor60.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor60.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_59`](/theorem/xor_translation_preserves_adjacency_59)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`85c49143`** give 1 theorem in EquilibriumXor61.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor61.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_60`](/theorem/xor_translation_preserves_adjacency_60)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`a978781b`** give 1 theorem in EquilibriumXor62.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor62.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_61`](/theorem/xor_translation_preserves_adjacency_61)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`b753dc7e`** give 1 theorem in EquilibriumXor63.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor63.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_62`](/theorem/xor_translation_preserves_adjacency_62)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`113807e6`** give 1 theorem in EquilibriumXor64.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor64.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_63`](/theorem/xor_translation_preserves_adjacency_63)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`3e92f1cc`** give 1 theorem in EquilibriumXor7.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor7.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_6`](/theorem/xor_translation_preserves_adjacency_6)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`01a71c26`** give 1 theorem in EquilibriumXor8.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor8.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_7`](/theorem/xor_translation_preserves_adjacency_7)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`d241b911`** give 1 theorem in EquilibriumXor9.lean the symbol leg
+  <br><small>deliverable: 1 theorem in EquilibriumXor9.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`xor_translation_preserves_adjacency_8`](/theorem/xor_translation_preserves_adjacency_8)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`a2e2fa2a`** give 35 theorems in FermatReduction.lean the symbol leg
   <br><small>deliverable: 35 theorems in FermatReduction.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

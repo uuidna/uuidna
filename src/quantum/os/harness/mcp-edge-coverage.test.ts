@@ -175,6 +175,33 @@ test('every edge tool runs with the host process hidden, as the Worker has it hi
   if (crashed.length) t.diagnostic('crashes on malformed input: ' + crashed.join('; '))
 })
 
+// EVERY ANSWER MUST BE ABLE TO TRAVEL, AND ASYNC TOOLS ARE AWAITED. The probe above skips a thenable run, so no
+// test ever awaited an async tool, and none asked whether an answer can become JSON at all. uuidna_quantum_message
+// returned its raw quantum state — BigInt amplitudes — and the gate's content address threw "Do not know how to
+// serialize a BigInt" on every call; uuidna.com/mcp answered 1101 while every test stayed green (2026-09-14). This
+// calls every served tool with the same synthesized arguments, awaits the async ones, and fails by name on any
+// answer that cannot be serialized. A refusal or a described error is still an answer; a serialization crash is not.
+const UNSERIALIZABLE = /serialize a BigInt|Converting circular structure|cyclic object value/
+test('every edge-served answer serializes, async tools awaited', async () => {
+  const served = new Set(mcpHttpToolNames())
+  const broken: string[] = []
+  let awaited = 0
+  // CONTROL FIRST: the finder must be able to fire on exactly the fault it exists for
+  assert.throws(() => JSON.stringify({ amplitude: 1n }), UNSERIALIZABLE, 'the control did not fire — the pattern would pass a BigInt answer')
+  for (const tool of MCP_CATALOG) {
+    if (!served.has(tool.name)) continue
+    let text = ''
+    try {
+      let r = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: tool.name, arguments: argsFor(tool.inputSchema as Schema) } }) as unknown
+      if (r && typeof (r as { then?: unknown }).then === 'function') { awaited++; r = await (r as Promise<unknown>) }
+      JSON.stringify(r)
+    } catch (e) { text = String((e as Error)?.message ?? e) }
+    if (UNSERIALIZABLE.test(text)) broken.push(`${tool.name}: ${text.slice(0, 80)}`)
+  }
+  assert.ok(awaited > 0, 'no async tool was awaited — the blind spot this test exists for is still open')
+  assert.deepEqual(broken, [], 'these tools answer something JSON cannot carry — return the broadcast-safe form (e.g. serializeMessage), never raw BigInt state:\n  ' + broken.join('\n  '))
+})
+
 test('a judged edge call fuses hexbitDoorOf into _meta.messaging', () => {
   const r = handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_coins', arguments: {} } }) as {
     result: { _meta: { messaging: { gate: { receipt: string }; door: string; hexbits: number[]; witness: { theoremKey: string } } } }

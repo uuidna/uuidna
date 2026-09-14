@@ -42,7 +42,7 @@ test('the hand-maintained records do NOT auto-resolve — a conflict in them is 
   // means the ordinary three-way merge, which produces conflict markers a human must settle. That is the point.
   for (const p of [
     'lean/wave-queue.json',        // deposits: mcp.ts writes, gen-waves reads, no generator regenerates
-    'lean/leads.json',             // the research record — held/refuted/refused, authored
+    'lean/leads.json',             // the research record — in trial/refuted, authored
     'lean/research-ledger.json',   // hand-maintained; its own comment says the two copies are held together BY HAND
     'lean/dormant-scripts.json',   // a list whose header says it MAY ONLY SHRINK
     'lean/mcp-context-budget.json',// a ceiling re-sealed deliberately, each raise carrying its reason

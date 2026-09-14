@@ -146,6 +146,14 @@ export function quantumAddress(seed: string): string {
 
 /** Strict, canonical mint: coerce to string, normalize (NFC), trim — so the SAME logical value always
  *  mints the SAME address. Closes minting flaws (toUuid(3) vs toUuid('3'), stray whitespace, unicode form). */
+/** canonicalJson(v) → JSON with every object's keys sorted, so equal content always has equal bytes and so one content
+ *  address. THE ONE CANONICAL FORM: a deposit's storage key, the hardware binding and the commit verifier all hash
+ *  through it, so the door that writes and the verifier that reads can never disagree about an address. */
+export const canonicalJson = (v: unknown): string =>
+  Array.isArray(v) ? `[${v.map(canonicalJson).join(',')}]`
+    : v && typeof v === 'object' ? `{${Object.keys(v as object).sort().map((k) => `${JSON.stringify(k)}:${canonicalJson((v as Record<string, unknown>)[k])}`).join(',')}}`
+      : JSON.stringify(v) ?? 'null'
+
 export function strictUuidna(value: unknown): string {
   return toUuid('uuidna:' + String(value).normalize('NFC').trim())
 }

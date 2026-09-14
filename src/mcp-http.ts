@@ -19,6 +19,7 @@ import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'
 import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
+import { auditCall } from './legal-audit.js'
 import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
 import { sealToolWire } from './mcp-wire.js'
 import { conformance } from './conformance.js'
@@ -58,7 +59,7 @@ const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_relat
 // stdio door's said '6.9.0'; two literals agreeing by luck is not one source.
 const SERVER = { name: 'uuidna', version: PKG_VERSION }
 
-interface HttpTool { name: string; description: string; detail?: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
+interface HttpTool { name: string; description: string; detail?: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>, ctx?: { fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown> }) => unknown }
 
 // hex / base64 → bytes, pure (atob is available in the Workers runtime); for the image-provenance tool.
 const unhex = (s: string): Uint8Array => { const h = s.replace(/\s+/g, ''); const u = new Uint8Array(h.length / 2); for (let i = 0; i < u.length; i++) u[i] = parseInt(h.slice(i * 2, i * 2 + 2), 16); return u }
@@ -189,7 +190,7 @@ const served = (): HttpTool[] => {
     // code the stdio surface answers with, schema enforcement included. Two lists were the drift; two dispatches
     // would be the next one.
     .map((t): HttpTool => ({ name: t.name, description: t.description, inputSchema: t.inputSchema as Record<string, unknown>,
-                   run: (a: Record<string, unknown>) => callTool(t.name, a) as unknown }))
+                   run: (a: Record<string, unknown>, ctx?: Parameters<HttpTool['run']>[1]) => callTool(t.name, a, ctx) as unknown }))
   _served = [...TOOLS, ...inherited] as HttpTool[]
   return _served
 }
@@ -206,7 +207,7 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
  *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
  *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
  *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string> }): object | null | Promise<object | null> {
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string>; fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown> }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
@@ -239,6 +240,9 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
       // deposit and envelope as a sync one; the gate never sees a Promise, only what the tool actually computed.
       const finish = (settled: unknown): object => {
         const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, settled)
+        // THE LEGAL AUDIT OF THIS ACTION, AS IT HAPPENS — the same record stdio saves; the edge has no disk, so it
+        // travels back in the envelope (legal-audit.ts)
+        const audit = auditCall('edge', String(name), (params.arguments as Record<string, unknown>) ?? {}, g.output, g.gate)
         // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
         const dep = depositCoins(String(name), g.gate.receipt)
         // AND RECORDED, not only minted: the edge deposited without appending a row until 2026-08-25, so every
@@ -254,6 +258,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
           // different fold than stdio. See the long note at the stdio envelope for why this rides here rather
           // than in every tool's description.
           _meta: {
+            audit,
             gate: g.gate,
             deposit: dep,
             hexbits: compileToHexbits(g.gate.receipt),
@@ -262,9 +267,13 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
           ...(g.gate.clean ? {} : { isError: true }),
         })
       }
-      const fail = (e: unknown): object => rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
+      const fail = (e: unknown): object => {
+        // a failed call is still an action, audited like any other
+        const audit = auditCall('edge', String(name), args, { error: String((e as Error)?.message ?? e) }, { clean: false, receipt: 'error' })
+        return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true, _meta: { audit } })
+      }
       argsGateOf(name, tool.inputSchema, args)
-      const out = tool.run(args)
+      const out = tool.run(args, { fetch: ctx?.fetch, hardware: ctx?.hardware, deposit: ctx?.deposit })
       if (out !== null && (typeof out === 'object' || typeof out === 'function') && typeof (out as { then?: unknown }).then === 'function')
         return (out as Promise<unknown>).then(finish, fail)
       return finish(out)

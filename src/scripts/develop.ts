@@ -71,6 +71,11 @@ const CURES: Cure[] = [
   { name: 'stamped ledger slots stale', when: /carries stamped ledger slot\(s\)/,
     cmd: 'node dist/scripts/stamp.js',
     because: 'the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number' },
+  // Taught 2026-09-14: the witness seal moved from one subject to a theorem per face (receipts signed by 2×7 theorems),
+  // and land stopped four rounds on the court record the guard's own FIX recomputes.
+  { name: 'court record stale', when: /lean\/refusal-trials\.json is not what the court computes now/,
+    cmd: 'node dist/scripts/trial-refusals.js',
+    because: 'the record is recomputed from the leads, the ledger and the kernel\'s receipts, never edited — any change to those inputs, or to the court\'s own seal, leaves it naming the previous verdicts' },
   { name: 'messaging witness short of the ledger', when: /"messaging_total":false/,
     cmd: 'node dist/scripts/one-receipt.js messaging',
     because: 'lean/messaging-witness.json must cover the current ledger — every carrier round-trips byte-exact — or the one-receipt seal is refused' },

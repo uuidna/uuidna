@@ -7,6 +7,6 @@
     "xor_translation_preserves_adjacency_30"
   ],
   "files": [
-    "EquilibriumXor4.lean"
+    "EquilibriumXor31.lean"
   ]
 }

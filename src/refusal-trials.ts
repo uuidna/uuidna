@@ -1,7 +1,7 @@
 // refusal-trials — TRIAL EACH REFUSAL: the boundary is read against the sealed ledger and the book corpus.
 // A refused lead is already settled (boundary recorded); this pass asks what the refusal CITES, what books STATE
 // nearby, and whether the instrument can discriminate — desk proposes reasoning; captain seals.
-import { toUuid } from './address.js'
+import { toUuid, canonicalJson } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { adjudicate, contentWords, type VerdictKind } from './adjudicate.js'
@@ -11,8 +11,61 @@ import { theoremByKey, axiomIndex, THEOREMS, type WingDefEntry } from './theorem
 import { axiomHunt } from './scripts/axiom-hunt.js'
 import { type LeadsRecord, type LeadRow } from './school/leads/index.js'
 import { readRepoJson } from './desk/repo/json/index.js'
+import { signCommit } from './sign.js'
+import { VE_FACES } from './hexbit/index.js'
 
-export type RefusalStatus = 'lean' | 'policy' | 'open'
+/** THE 2×7 WITNESS ROSETTAS — nothing is legal unless signed and sealed by them (the captain, 2026-09-14: "unless signed
+ *  and sealed by the 2x7 withness rosettas nothing is legal"; "fuse all and reuse"). The witnesses are VE_FACES — the
+ *  vector equilibrium's 8 + 6 faces (theorem ve_fourteen_faces), derived from the handle's hexbits, the hexbit's bits and
+ *  the two coins, never a typed fourteen. Each witness writes one statement: its face, and the theorem it recomputed by
+ *  the kernel, cited as "theorem <key>". signCommit (the uuidna_sign door) re-signs it here: SIGNED-TRUE only when it
+ *  cites a real sealed theorem and fabricates none. Legal only when every face 0 … VE_FACES − 1 signs exactly once, every
+ *  signature cites the subject, and the seal is the merkleGravity of their folds in face order.
+ *  THE LIMIT, stated: a signature here is a content address, not a private key — the seal proves the statements exist,
+ *  agree and cite the sealed proof; it does not prove that separate hands wrote them. Pure. */
+export interface Witness { face: number; statement: string; by?: string }
+export function witnessSealOf(subject: string, witnesses: readonly Witness[]): { legal: boolean; signed: number; of: number; seal: string | null } {
+  const of = VE_FACES
+  const valid = witnesses.flatMap((w) => {
+    if (!Number.isInteger(w.face) || w.face < 0 || w.face >= of) return []
+    const s = signCommit(w.statement)
+    // a witness signing by its own theorem ({by}) cites that theorem and names the subject it signs
+    const cites = w.by === undefined ? s.cited.includes(subject) : s.cited.includes(w.by) && w.statement.includes(subject)
+    return s.signed && cites ? [{ face: w.face, fold: s.fold }] : []
+  })
+  const faces = new Set(valid.map((v) => v.face))
+  const legal = witnesses.length === of && valid.length === of && faces.size === of
+  return { legal, signed: faces.size, of, seal: legal ? merkleGravity([...valid].sort((a, b) => a.face - b.face).map((v) => v.fold)) : null }
+}
+
+/** RECEIPTS ARE SIGNED BY 2×7 THEOREMS (the captain, 2026-09-14: "receipts need signatures from 2x7 theorems"). The
+ *  receipt's content address picks its witnesses from the sealed ledger: face f takes the theorem the address folded
+ *  with f lands on, stepping past one another face already took, so no list names them and anyone recomputes the same
+ *  VE_FACES theorems from the bytes. Each face's statement names the receipt and cites its own theorem; witnessSealOf
+ *  signs and seals them. The seal rides in the stored receipt under SEALED_BY, which only this fold writes. Pure. */
+export const SEALED_BY = 'sealedBy'
+export function receiptSealOf(body: Readonly<Record<string, unknown>>): { address: string; witnesses: Required<Witness>[]; legal: boolean; signed: number; of: number; seal: string | null } {
+  const address = toUuid(canonicalJson(body))
+  const size = BigInt(THEOREMS.length)
+  const taken = new Set<number>()
+  const faces = THEOREMS.length < VE_FACES ? THEOREMS.length : VE_FACES
+  const witnesses = Array.from({ length: faces }, (_, face) => {
+    let i = Number(BigInt('0x' + toUuid(`${address}:${face}`).replace(/-/g, '')) % size)
+    while (taken.has(i)) i = (i + 1) % THEOREMS.length
+    taken.add(i)
+    const by = THEOREMS[i]!.key
+    return { face, by, statement: `face ${face} signs receipt ${address}: recomputed theorem ${by}` }
+  })
+  return { address, witnesses, ...witnessSealOf(address, witnesses) }
+}
+/** receiptSealed(stored) → true only when the stored receipt's own bytes, without its seal, recompute the same legal seal */
+export function receiptSealed(stored: Readonly<Record<string, unknown>>): boolean {
+  const { [SEALED_BY]: carried, ...body } = stored
+  const s = receiptSealOf(body)
+  return s.legal && (carried as { seal?: unknown } | undefined)?.seal === s.seal
+}
+
+export type RefusalStatus = 'lean' | 'open'
 export type RefusalDisposition = 'verified' | 'purged' | 'open'
 
 export interface RefusalPairCollision {
@@ -63,7 +116,6 @@ export interface RefusalTrialsRecord {
   recorded: string
   refused: number
   lean: number
-  policy: number
   open: number
   verified: number
   purged: number
@@ -85,49 +137,25 @@ export interface BookLeadInput {
   book: { id: number; title: string; address: string }
 }
 
-const POLICY =
-  /\b(desk|captain|robots\.txt|auto-?seal||gen-quantum|versionSeat|stackoverflow|chitanka|ceccec\.psg|scrape|import.*origin|two-handle|RFC 8439 stays|meaning is always null|Wall-clock|Standing architecture)\b/i
-
-/** Topic → sealed keys the ledger already holds; boundaries often refuse without naming them. */
-const WITNESS_RULES: readonly { pattern: RegExp; keys: readonly string[] }[] = [
-  {
-    pattern: /girdler|dual-temperature|separation-by-involution|isotope|deuterium/i,
-    keys: ['dz_loses_nothing', 'doubling_collapses_nine', 'maps_differ_in_reach', 'reversible_erases_nothing'],
-  },
-  {
-    pattern: /over-unity|free energy|first law|net-positive loop|perpetual motion|carnot/i,
-    keys: ['no_perpetual_motion', 'first_law_conservation', 'carnot_efficiency_below_one'],
-  },
-  {
-    pattern: /water.*fuel|combustion'?s ash|fully oxid|contaminant.*fuel|splitting water/i,
-    keys: ['oxidation_states_sum', 'combustion_methane_balances', 'molar_mass_water'],
-  },
-  {
-    pattern: /\bMFC\b|CH4 combustion|pilot effluent|drinkable water/i,
-    keys: ['combustion_methane_balances', 'molar_mass_water', 'oxidation_states_sum'],
-  },
-  {
-    pattern: /10\s*[dD]|quantumAura|quantumaura|hexFace|hexface|compactified|aura\.ts|10D record|one-receipt.*10D/i,
-    keys: ['ten_square_computes_ten_dimensions', 'station_ten_is_hexagram_plus_hexbit', 'z7rays_seven'],
-  },
-]
-
 const sealedKeySet = (): Set<string> => new Set(LEAN_LEDGER.map((t) => t.key))
 
-/** sealedKeysIn(text) → every ledger key mentioned verbatim in prose. */
+/** sealedKeysIn(text) → every ledger key the text names as a WHOLE identifier. A substring is not a citation: a key
+ *  that only occurs inside a longer word or a longer key is not named, so no lead gains a theorem by accident of
+ *  spelling. A token quoted in apostrophes is read without them, and a primed Lean name keeps its prime. */
 export function sealedKeysIn(text: string, keys: Set<string> = sealedKeySet()): string[] {
-  return [...keys].filter((k) => text.includes(k))
+  const named = new Set<string>()
+  for (const w of text.match(/[A-Za-z0-9_']+/g) ?? []) {
+    for (const c of [w, w.replace(/^'+/, ''), w.replace(/^'+|'+$/g, '')]) if (keys.has(c)) named.add(c)
+  }
+  return [...named].sort()
 }
 
-/** witnessKeysFor(prose) → sealed keys the topic already has in the ledger but prose did not cite. */
-export function witnessKeysFor(prose: string, keys: Set<string> = sealedKeySet()): string[] {
-  const cited = new Set(sealedKeysIn(prose, keys))
-  const out = new Set<string>()
-  for (const rule of WITNESS_RULES) {
-    if (!rule.pattern.test(prose)) continue
-    for (const k of rule.keys) if (keys.has(k) && !cited.has(k)) out.add(k)
-  }
-  return [...out].sort()
+/** witnessKeysFor(prose) → the sealed keys granted to a lead BEYOND those its own text names: none. A hand-typed
+ *  topic→theorem map used to grant them by matching wording, so whoever edited the map chose a lead's evidence —
+ *  measured 2026-09-14, 9 of 110 leads were witnessed only that way. A lead is witnessed by the sealed theorems its
+ *  own text names (sealedKeysIn), and by nothing else. */
+export function witnessKeysFor(_prose: string, _keys: Set<string> = sealedKeySet()): string[] {
+  return []
 }
 
 /** relatedWords(a, b) → shared content words (adjudicate's floor), strong overlap only. */
@@ -136,12 +164,10 @@ export function relatedWords(a: string, b: string): string[] {
   return contentWords(b).filter((w) => wa.has(w) && (w.length >= 4 || /\d/.test(w)))
 }
 
-/** refusalStatus(row) → lean when boundary cites sealed keys; policy when boundary is process-only; else open. */
-export function refusalStatus(sealedKeys: string[], lead: string, boundary: string): RefusalStatus {
-  if (sealedKeys.length > 0) return 'lean'
-  const prose = `${lead} ${boundary}`
-  if (POLICY.test(prose)) return 'policy'
-  return 'open'
+/** refusalStatus(row) → lean when sealed theorems witness it, else open. No lead is judged by its wording: Lean
+ *  decides (the captain, 2026-09-14), so there is no policy status that a regex over the prose could grant. */
+export function refusalStatus(sealedKeys: string[], _lead: string, _boundary: string): RefusalStatus {
+  return sealedKeys.length > 0 ? 'lean' : 'open'
 }
 
 /** bookHitsFor(lead, boundary, corpus) → book claims sharing vocabulary with the refusal (top 5). */
@@ -210,118 +236,75 @@ export function pairCollisions(trials: readonly RefusalTrialRow[]): RefusalPairC
   return out
 }
 
-/** dispositionFor(trial, theoremTrials, purgeReason?) → verified, purged, or still open. */
+/** a kernel check for one theorem key: true only when its wing's receipt is fresh against the current text and the
+ *  kernel named no axiom. Supplied by the caller that can read lean/ — the pure court cannot, and does not guess. */
+export type KernelOk = (key: string) => boolean
+
+/** dispositionFor(trial, theoremTrials, kernelOk?) → verified only when the lead's OWN witnessing theorems are each
+ *  VERIFIED against the ledger AND the kernel check passes for every one; with no kernel check supplied nothing is
+ *  verified — an unmeasured instrument is never read as clean. Nothing is ever purged: a lead that repeats another is
+ *  a collision, recorded, never a settlement (the captain, 2026-09-14: "lean decides"). */
 export function dispositionFor(
   trial: Pick<RefusalTrialRow, 'status'>,
   theoremTrials: readonly TheoremTrial[],
-  purgeReason?: string,
+  kernelOk?: KernelOk,
 ): RefusalDisposition {
-  if (purgeReason) return 'purged'
-  if (trial.status === 'policy') return 'verified'
-  if (trial.status === 'lean') {
-    return theoremTrials.length > 0 && theoremTrials.every((t) => t.verdict === 'VERIFIED') ? 'verified' : 'open'
-  }
-  return 'open'
+  if (trial.status !== 'lean' || !kernelOk || theoremTrials.length === 0) return 'open'
+  return theoremTrials.every((t) => t.verdict === 'VERIFIED' && kernelOk(t.key)) ? 'verified' : 'open'
 }
 
-const normLead = (lead: string): string => lead.trim().toLowerCase()
-
-/** duplicateLeadPurges(refused) → handle → reason for exact duplicate leads. */
-export function duplicateLeadPurges(refused: readonly RefusalInput[]): Map<string, string> {
-  const seen = new Map<string, string>()
-  const purges = new Map<string, string>()
-  for (const row of refused) {
-    const lead = String(row.lead ?? '').trim()
-    if (!lead) continue
-    const handle = handleOf(toUuid(lead))
-    const n = normLead(lead)
-    const first = seen.get(n)
-    if (first) purges.set(handle, `duplicate lead of ${first}`)
-    else seen.set(n, handle)
-  }
-  return purges
+/** involutionOf(handle, sealed) → the sealed theorem that closes this lead INSIDE LEAN, or null. The lead's own claim is
+ *  stated as `def lead_<handle> : Prop`; the kernel then proves one side — `involution_<handle> : ¬ lead_<handle>` refutes
+ *  it, `involution_<handle> : lead_<handle>` verifies it. The court matches only that key with exactly that statement:
+ *  no reader, agent or verifier decides whether a theorem "settles" a lead (the captain, 2026-09-14: "involute all
+ *  refuted leads immediately"; the binding of refuted#33 to directions_number_fortytwo — a true theorem a reader judged
+ *  decisive — ruled "illegal"). Pure. */
+export function involutionOf(handle: string, sealed: readonly { key: string; statement: string }[]): { key: string; refutes: boolean } | null {
+  if (!/^[0-9a-f]{8}$/.test(handle)) return null
+  const t = sealed.find((s) => s.key === `involution_${handle}`)
+  if (!t) return null
+  const st = t.statement.replace(/\s+/g, ' ').trim()
+  if (st === `¬ lead_${handle}` || st === `¬lead_${handle}`) return { key: t.key, refutes: true }
+  if (st === `lead_${handle}`) return { key: t.key, refutes: false }
+  return null
 }
 
-/** pushCollidingWitness(rows, trials) → append sealed keys from colliding lean rows onto open neighbours. */
-export function pushCollidingWitness(
-  rows: readonly RefusalInput[],
-  trials: readonly RefusalTrialRow[],
-): { rows: RefusalInput[]; changed: boolean } {
-  const collisions = pairCollisions(trials)
-  const next = rows.map((r) => ({ ...r }))
-  const byHandle = new Map(trials.map((t, i) => [t.handle, i]))
-  let changed = false
-  for (let i = 0; i < trials.length; i++) {
-    const t = trials[i]!
-    if (t.status !== 'open') continue
-    const keys = new Set<string>()
-    for (const c of collisions[i] ?? []) {
-      const other = trials[byHandle.get(c.handle) ?? -1]
-      if (!other || other.status !== 'lean') continue
-      for (const k of other.sealedKeys) keys.add(k)
-    }
-    if (!keys.size) continue
-    const rowIdx = next.findIndex((r) => handleOf(toUuid(String(r.lead ?? ''))) === t.handle)
-    if (rowIdx < 0) continue
-    const row = next[rowIdx]!
-    const prose = `${t.lead} ${t.boundary} ${row.note ?? ''}`
-    const add = [...keys].filter((k) => !prose.includes(k))
-    if (!add.length) continue
-    next[rowIdx] = {
-      ...row,
-      note: `${row.note ?? ''} collision-witness: ${add.join(' ')}`.trim(),
-    }
-    changed = true
-  }
-  return { rows: next, changed }
-}
-
-/** enrichTrials(base, purges) → attach collisions, theorem trials, and disposition. */
-export function enrichTrials(
-  base: readonly RefusalTrialRow[],
-  purges: ReadonlyMap<string, string>,
-): RefusalTrialRow[] {
+/** enrichTrials(base, kernelOk?) → attach collisions, theorem trials, the kernel's answer, and the disposition. */
+export function enrichTrials(base: readonly RefusalTrialRow[], kernelOk?: KernelOk): RefusalTrialRow[] {
   const collisions = pairCollisions(base)
   return base.map((t, i) => {
     const theoremTrials = theoremTrialsFor(t.sealedKeys)
-    const purgeReason = purges.get(t.handle)
-    const disposition = dispositionFor(t, theoremTrials, purgeReason)
+    const disposition = dispositionFor(t, theoremTrials, kernelOk)
     return {
       ...t,
       collisions: collisions[i] ?? [],
       theoremTrials,
       disposition,
-      purgeReason,
       receipt: merkleGravity([
         t.receipt,
         toUuid(`collide|${(collisions[i] ?? []).map((c) => c.handle).join(',')}`),
         toUuid(`theorems|${theoremTrials.map((x) => `${x.key}:${x.verdict}`).join(',')}`),
+        toUuid(`kernel|${t.sealedKeys.map((k) => `${k}:${kernelOk ? kernelOk(k) : 'unmeasured'}`).join(',')}`),
         toUuid(`disposition|${disposition}`),
       ]),
     }
   })
 }
 
-/** collideRefusals(refused, corpus?, maxRounds?) → push colliding refusals and theorems until stable. */
+/** collideRefusals(refused, corpus?, opts?) → every lead trialed by its OWN theorems; collisions recorded, never lent. */
 export function collideRefusals(
   refused: readonly RefusalInput[],
   corpus: readonly BookLeadInput[] = [],
-  maxRounds = 12,
+  opts: { kernelOk?: KernelOk } = {},
 ): RefusalTrialsRecord {
-  const purges = duplicateLeadPurges(refused)
-  let rows = refused.map((r) => ({ ...r }))
-  let rounds = 0
-  let base = trialAllRefusals(rows, corpus, { enrich: false })
-  while (rounds < maxRounds) {
-    const pushed = pushCollidingWitness(rows, base.trials)
-    if (!pushed.changed) break
-    rows = pushed.rows
-    rounds++
-    base = trialAllRefusals(rows, corpus, { enrich: false })
-  }
-  const trials = enrichTrials(base.trials, purges)
+  // EACH LEAD IS JUDGED BY ITS OWN THEOREMS ONLY. The court used to push witness keys across colliding leads until
+  // nothing changed, so a lead could be witnessed — and verified — by a neighbour's theorems: measured 2026-09-14, 76
+  // of 110 leads carried keys their own text never witnessed, and 22 of 53 verdicts rested on them. It also purged a
+  // lead that repeated another — by its wording, the original along with the copy. Both are gone.
+  const rounds = 0
+  const base = trialAllRefusals(refused, corpus, { enrich: false })
+  const trials = enrichTrials(base.trials, opts.kernelOk)
   const lean = trials.filter((t) => t.status === 'lean').length
-  const policy = trials.filter((t) => t.status === 'policy').length
   const open = trials.filter((t) => t.status === 'open').length
   const verified = trials.filter((t) => t.disposition === 'verified').length
   const purged = trials.filter((t) => t.disposition === 'purged').length
@@ -329,14 +312,12 @@ export function collideRefusals(
   const receipt = merkleGravity(trials.map((t) => t.receipt))
   return {
     why:
-      'Each refused lead trialed against the sealed ledger, book corpus, pairwise refusal collisions, and per-key ' +
-      'theorem adjudication. Witness keys push across colliding lean→open neighbours until stable. verified = policy ' +
-      'boundary OR lean with every sealed key adjudicated VERIFIED; purged = duplicate lead; open = still unsettled. ' +
-      'Desk proposes; captain seals.',
+      'Each lead trialed by the sealed theorems its own text names, each adjudicated against the ledger and checked ' +
+      'against a fresh, axiom-free kernel receipt. verified = every such theorem passes both; open = still in trial. ' +
+      'Lean decides: no lead is judged by its wording, no evidence passes between leads, and no lead is purged.',
     recorded: receipt.slice(0, 10),
     refused: trials.length,
     lean,
-    policy,
     open,
     verified,
     purged,
@@ -348,10 +329,10 @@ export function collideRefusals(
 }
 
 /** trialRefusal(row, corpus?) → one refusal trialed against ledger + optional book leads. Pure. */
-export function trialRefusal(row: RefusalInput, corpus: readonly BookLeadInput[] = []): RefusalTrialRow | null {
+export function trialRefusal(row: RefusalInput, corpus: readonly BookLeadInput[] = [], kernelOk?: KernelOk): RefusalTrialRow | null {
   const lead = String(row.lead ?? '').trim()
   const boundary = String(row.boundary ?? '').trim()
-  if (!lead || !boundary) return null
+  if (!lead) return null
   const prose = `${lead} ${boundary} ${row.note ?? ''}`
   const citedKeys = sealedKeysIn(prose)
   const witnessKeys = witnessKeysFor(prose)
@@ -361,6 +342,7 @@ export function trialRefusal(row: RefusalInput, corpus: readonly BookLeadInput[]
   const bookHits = bookHitsFor(lead, boundary, corpus)
   const status = refusalStatus(sealedKeys, lead, boundary)
   const receipt = merkleGravity([
+    toUuid(`text|${lead}|${boundary}|${row.note ?? ''}`),
     toUuid(`refusal|${handle}|${status}`),
     toUuid(`keys|${sealedKeys.join(',')}`),
     toUuid(`witness|${witnessKeys.join(',')}`),
@@ -383,7 +365,7 @@ export function trialRefusal(row: RefusalInput, corpus: readonly BookLeadInput[]
     disposition: 'open',
     receipt,
   }
-  const enriched = enrichTrials([base], new Map())
+  const enriched = enrichTrials([base], kernelOk)
   return enriched[0] ?? null
 }
 
@@ -391,13 +373,13 @@ export function trialRefusal(row: RefusalInput, corpus: readonly BookLeadInput[]
 export function trialAllRefusals(
   refused: readonly RefusalInput[],
   corpus: readonly BookLeadInput[] = [],
-  opts: { enrich?: boolean } = {},
+  opts: { enrich?: boolean; kernelOk?: KernelOk } = {},
 ): RefusalTrialsRecord {
   const raw = refused
     .map((r) => {
       const lead = String(r.lead ?? '').trim()
       const boundary = String(r.boundary ?? '').trim()
-      if (!lead || !boundary) return null
+      if (!lead) return null
       const prose = `${lead} ${boundary} ${r.note ?? ''}`
       const citedKeys = sealedKeysIn(prose)
       const witnessKeys = witnessKeysFor(prose)
@@ -407,6 +389,7 @@ export function trialAllRefusals(
       const bookHits = bookHitsFor(lead, boundary, corpus)
       const status = refusalStatus(sealedKeys, lead, boundary)
       const receipt = merkleGravity([
+        toUuid(`text|${lead}|${boundary}|${r.note ?? ''}`),
         toUuid(`refusal|${handle}|${status}`),
         toUuid(`keys|${sealedKeys.join(',')}`),
         toUuid(`witness|${witnessKeys.join(',')}`),
@@ -431,10 +414,8 @@ export function trialAllRefusals(
       }
     })
     .filter((t): t is RefusalTrialRow => t !== null)
-  const purges = duplicateLeadPurges(refused)
-  const trials = opts.enrich === false ? raw : enrichTrials(raw, purges)
+  const trials = opts.enrich === false ? raw : enrichTrials(raw, opts.kernelOk)
   const lean = trials.filter((t) => t.status === 'lean').length
-  const policy = trials.filter((t) => t.status === 'policy').length
   const open = trials.filter((t) => t.status === 'open').length
   const verified = trials.filter((t) => t.disposition === 'verified').length
   const purged = trials.filter((t) => t.disposition === 'purged').length
@@ -442,14 +423,12 @@ export function trialAllRefusals(
   const receipt = merkleGravity(trials.map((t) => t.receipt))
   return {
     why:
-      'Each refused lead from lean/leads.json trialed against the sealed ledger (cited + witness keys) and the book corpus ' +
-      '(vocabulary overlap with book-leads.json). lean = boundary cites sealed theorem keys OR the ledger already seals the ' +
-      'topic (witnessKeys — evidence the boundary omitted); policy = process/architecture boundary with no world predicate; ' +
-      'open = no sealed witness yet. Desk proposes; captain seals.',
+      'Each lead from lean/leads.json trialed against the sealed ledger (cited + witness keys) and the book corpus ' +
+      '(vocabulary overlap with book-leads.json). lean = the text cites sealed theorem keys OR the ledger already seals the ' +
+      'topic (witnessKeys); open = no sealed witness yet, still in trial. Lean decides: no lead is judged by its wording.',
     recorded: receipt.slice(0, 10),
     refused: trials.length,
     lean,
-    policy,
     open,
     verified,
     purged,
@@ -460,18 +439,16 @@ export function trialAllRefusals(
   }
 }
 
-/** refusalTrialsOpen(record) → refusals still unsettled (not verified and not purged). */
-export function refusalTrialsOpen(record: RefusalTrialsRecord | null | undefined): number {
-  if (!record) return 0
-  if (record.trials.length && 'disposition' in record.trials[0]!) {
-    return record.trials.filter((t) => t.disposition === 'open').length
-  }
-  return record.open ?? record.trials.filter((t) => t.status === 'open').length
+/** refusalTrialsOpen(record) → leads still in trial, counted from each row's disposition — or NULL when there is no
+ *  record: no trial taken is unmeasured, never "zero open". No aggregate field is trusted in place of the rows. */
+export function refusalTrialsOpen(record: RefusalTrialsRecord | null | undefined): number | null {
+  if (!record || !Array.isArray(record.trials)) return null
+  return record.trials.filter((t) => t.disposition !== 'verified').length
 }
 
 // ── discovery train — mine refuted/refused leads for axiom discovery hints. ──
 
-export type TrainingKind = 'refuted' | 'refused'
+export type TrainingKind = 'refuted'
 
 export interface TrainingRow {
   kind: TrainingKind
@@ -510,7 +487,6 @@ export interface TopicPattern {
 export interface DiscoveryTrainReport {
   trained: number
   refuted: number
-  refused: number
   patterns: TopicPattern[]
   hints: DiscoveryHint[]
   exposedAxioms: readonly { lead: string; owes: string }[]
@@ -529,9 +505,7 @@ const wingFilesIn = (text: string): string[] =>
 export function trainRow(kind: TrainingKind, row: LeadRow): TrainingRow | null {
   const lead = rowText(row.lead)
   if (!lead) return null
-  const settlement = kind === 'refuted'
-    ? rowText(row.killed_by) || rowText(row.replaced_by) || rowText(row.note)
-    : rowText(row.boundary) || rowText(row.note)
+  const settlement = rowText(row.killed_by) || rowText(row.replaced_by) || rowText(row.note)
   const prose = `${lead} ${settlement}`
   const citedKeys = sealedKeysIn(prose)
   const witnessKeys = witnessKeysFor(prose)
@@ -554,10 +528,6 @@ export function trainFromLeads(record: LeadsRecord | null | undefined): Training
   const out: TrainingRow[] = []
   for (const row of record.refuted ?? []) {
     const t = trainRow('refuted', row)
-    if (t) out.push(t)
-  }
-  for (const row of record.refused ?? []) {
-    const t = trainRow('refused', row)
     if (t) out.push(t)
   }
   return out
@@ -691,7 +661,6 @@ export function discoveryTrain(query = ''): DiscoveryTrainReport {
   const record = readRepoJson('lean/leads.json') as LeadsRecord | null
   const rows = trainFromLeads(record)
   const refuted = rows.filter((r) => r.kind === 'refuted').length
-  const refused = rows.filter((r) => r.kind === 'refused').length
   const patterns = topicPatterns(rows)
   const hints = query.trim() ? discoveryHints(query, rows) : []
   let exposedAxioms: { lead: string; owes: string }[] = []
@@ -700,9 +669,9 @@ export function discoveryTrain(query = ''): DiscoveryTrainReport {
   } catch { exposedAxioms = [] }
   const unusedWingDefs = axiomIndex().unusedDefs
   const receipt = merkleGravity([
-    toUuid(`discovery-train:${rows.length}:${refuted}:${refused}`),
+    toUuid(`discovery-train:${rows.length}:${refuted}`),
     toUuid(patterns.slice(0, 24).map((p) => p.topic).join('|') || 'none'),
     toUuid(hints.map((h) => h.theoremKey ?? h.wing?.def ?? h.kind).join('|') || 'none'),
   ])
-  return { trained: rows.length, refuted, refused, patterns, hints, exposedAxioms, unusedWingDefs, receipt }
+  return { trained: rows.length, refuted, patterns, hints, exposedAxioms, unusedWingDefs, receipt }
 }

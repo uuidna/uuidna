@@ -1,0 +1,12 @@
+{
+  "handle": "2e80a8c6",
+  "address": "2e80a8c6-9de2-8f9c-a7fa-9bc14aa172c9",
+  "kind": "chunk",
+  "keys": [
+    "queneau_ten_sonnets_are_a_vanishing_sample"
+  ],
+  "statement": "100000000000000 / 10 = 10000000000000 ∧ 10 < 100000000000000",
+  "files": [
+    "Queneau.lean"
+  ]
+}

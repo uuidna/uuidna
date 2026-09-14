@@ -1,0 +1,12 @@
+{
+  "handle": "d351e579",
+  "address": "d351e579-4f18-8222-a126-ac632a61b248",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "statement": "71508 > 2 ^ 16",
+  "files": [
+    "Forensics.lean"
+  ]
+}

@@ -455,7 +455,8 @@ test('the MCP surface serves the same computation, and refuses an empty call by 
       return /missing required argument/.test(e.message)
     }, `${name} must refuse an empty call`)
     assert.equal(entry!.category, 'DIY energy yield (ceiling first, integer brackets, refuses over-unity)')
-    // the description must declare what is measured, and must not use the banned advantage language
+    // the description must declare what is measured, and must not use the advantage language the sealed bound
+    // n_qubit_dimension answers
     assert.doesNotMatch(entry!.description, /quantum advantage|quantum speedup|faster than classical/i)
     // an AFFIRMATIVE free-energy claim is banned; naming the thing in order to refuse it is the point of the tool,
     // so the negated forms ("is not free energy", "never free energy") are what a description is allowed to say

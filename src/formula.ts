@@ -68,8 +68,11 @@ export function tokenise(src: string): { ok: true; toks: Tok[] } | { ok: false; 
 // precedence, low to high. Relations do not CHAIN — `a = b = c` is not a sealed shape, and folding it
 // left-associatively would compare a truth value with a number — so that level takes at most one operator and a
 // second one falls out as trailing. The arithmetic levels chain left-associatively, as they do in Lean.
-const LEVELS: BinOp[][] = [['∧'], ['=', '≠', '≤', '≥', '<', '>'], ['%'], ['+', '-'], ['*', '/']]
-const CHAINS: readonly boolean[] = [true, false, true, true, true]
+// `%` BINDS WITH `*` AND `/`, as it does in Lean (all three infixl 70, above `+` at 65). It sat on its own level BELOW
+// `+`, so `27 % 9 + 1` was read `27 % (9 + 1)` = 7 where the kernel reads `(27 % 9) + 1` = 1, and a sealed-TRUE
+// Glagolitic statement parsed FALSE (2026-09-14).
+const LEVELS: BinOp[][] = [['∧'], ['=', '≠', '≤', '≥', '<', '>'], ['+', '-'], ['*', '/', '%']]
+const CHAINS: readonly boolean[] = [true, false, true, true]
 
 export type Parsed = { ok: true; node: Node } | { ok: false; why: string }
 
@@ -179,7 +182,7 @@ function exactDivision(left: Node, right: Node): boolean {
 }
 
 // ---- precedence, for bracketing only where print demands it ----
-const PREC: Record<BinOp, number> = { '∧': 1, '=': 2, '≠': 2, '≤': 2, '≥': 2, '<': 2, '>': 2, '%': 3, '+': 4, '-': 4, '*': 5, '/': 5, '^': 6 }
+const PREC: Record<BinOp, number> = { '∧': 1, '=': 2, '≠': 2, '≤': 2, '≥': 2, '<': 2, '>': 2, '+': 4, '-': 4, '*': 5, '/': 5, '%': 5, '^': 6 }
 
 function precOf(n: Node): number {
   return n.kind === 'bin' ? PREC[n.op] : n.kind === 'num' ? 9 : 5

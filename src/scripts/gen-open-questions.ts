@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // gen-open-questions — THE SCHOOL OF OPEN DOORS, derived (lead 88b). Reads every unverified record the tree
-// keeps — the held leads, the research findings, the prose develop fragments, the search-feed, the support
+// keeps — the leads in trial, the research findings, the prose develop fragments, the search-feed, the support
 // wave, the axiom-hunt exposed set — and derives docs/open-questions.md:
 // the open organised in topics beside the sealed, each claim with its develop plan (adjudicate's own, recomputed
 // here, never authored), its involution magnets (where the deep research points — the census law), its sealed
@@ -49,7 +49,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**${total} open leads** across ${topics.length} topics — only **held** leads from lean/leads.json, prose develop
+**${total} open leads** across ${topics.length} topics — only leads **in trial** from lean/leads.json, prose develop
 fragments \`decide()\` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -66,7 +66,7 @@ ${section}
 ## Honest scope
 
 Organisation, not adjudication: nothing on this page verdicts a claim, and topic placement is shared-words, not
-understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed, search-feed
+understanding. The records are the tree's own (leads in trial, findings unsealed, prose fragments owed, search-feed
 leads, support-wave research-leads, axiom-hunt exposed); when a record closes, its door leaves this page by
 recomputation, never by edit.
 `

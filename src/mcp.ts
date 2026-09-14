@@ -7,6 +7,8 @@
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import { hologramLattice } from './hologram-lattice.js'
 import { hologramFanout } from './hologram-fanout.js'
+import { runEvidence } from './run-evidence.js'
+import { auditCall, saveAudit, auditState } from './legal-audit.js'
 import { pqcPosture } from './pqc/index.js'
 import { invitation } from './invitation.js'
 import { handleStoreCensus } from './handle-store-census.js'
@@ -47,6 +49,18 @@ import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElect
 import { handleOf, handleWitness } from './handle.js'   // THE one derivation of a handle from an address
 import { sendTrial } from './trial-send.js'
 import { compileToHexbits, sha256IsFourSixtyfours } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { auditAction } from './law-audit.js'
+import { canonicalJson } from './address.js'
+import { receiptSealOf, SEALED_BY } from './refusal-trials.js'
+
+/** what a surface hands every tool: the hosted door's fetch (riding the QPU service binding when the deploy has one),
+ *  and a hardware reader that measures the machine this surface runs on — called only by a tool that needs it */
+export type ToolCtx = {
+  fetch?: typeof fetch
+  hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>
+  /** the hosted door's write to qpu storage over the QpuDeposit service binding — absent on a surface with no binding */
+  deposit?: (key: string, value: unknown) => Promise<unknown>
+}
 import { sealToolWire } from './mcp-wire.js'
 
 import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
@@ -68,7 +82,7 @@ import { resources } from './resources.js' // Node-only (reads process/os) — i
 // SECOND, hand-maintained list of tools, and the two drifted: 173 pure tools existed on stdio and nowhere else,
 // none of them declared in lean/mcp-surface-divergence.json. Two imports, for one orchestration tool and one
 // bootstrap, were the reason the deployed UI served a tenth of the surface.
-import { ROOT as LIB_ROOT } from './boundary.js'
+import { ROOT as LIB_ROOT, rdRoot } from './boundary.js'
 import { openLeadsPublic, leadsGatePublic, openQuestionsPublic, fillGapsAdvantageSnapshot, hookFillGapsAtScale } from './desk/index.js'
 import { quantumAdvantagePlaybook } from './quantum/advantage/mcp/index.js'
 import type { SourceReading } from './leads.js'
@@ -136,7 +150,9 @@ interface Tool {
   // the context window on every request. Splitting them keeps the page whole and stops charging for it per call.
   detail?: string
   inputSchema: unknown
-  run: (a: Record<string, unknown>) => unknown
+  // every surface hands its context as the second argument (ToolCtx): the hosted door a fetch that rides the QPU
+  // service binding when the deploy has one, and each surface a reader of its own machine's hardware state
+  run: (a: Record<string, unknown>, ctx?: ToolCtx) => unknown
 }
 
 // A merkle inclusion proof step (mirrors verifyProof's proof parameter in ./index.js).
@@ -768,7 +784,7 @@ const TOOLS: Tool[] = ([
   { name: 'uuidna_fanout',
     description: 'FAN ONE MCP CALL OUT TO A NAMED HOLOGRAM HOST — {host} one of uuidna.com, qpu.uuidna.com, lean.uuidna.com, unreal.uuidna.com; {method} initialize, tools/list, or tools/call (then {name} and {arguments}). The reply is returned as received with the HTTP status. An unlisted host is refused by name and nothing is fetched. Network by design, the only door here that reaches out.',
     inputSchema: { type: 'object', properties: { host: { type: 'string', description: 'a hologram host' }, method: { type: 'string', description: 'MCP method' }, name: { type: 'string', description: 'tool name for tools/call' }, arguments: { type: 'object', description: 'tools/call arguments' } }, required: ['host'] },
-    run: (a = {}) => hologramFanout(a) },
+    run: (a = {}, ctx) => hologramFanout(a, ctx?.fetch) },
   { name: 'uuidna_theorems',
     description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,skill,lean,address}. Filter by `principle` (derivation axis), `skill` (capability axis — see uuidna_skills), or `contains`.',
     inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'a skill name' }, contains: { type: 'string' }, keys: { type: 'boolean', description: 'only the keys' }, limit: { type: 'integer', description: 'page size' }, offset: { type: 'integer', description: 'skip this many' } } },
@@ -922,9 +938,17 @@ const TOOLS: Tool[] = ([
       }
     } },
   { name: 'uuidna_laws',
-    description: 'uuidna\'s standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. Returns {laws:[{law,enforcedBy,holds,detail}],allHold,receipt}. Boundary declared — theorem drift_is_named_or_caught.',
-    inputSchema: { type: 'object', properties: {} },
-    run: () => laws() },
+    description: 'The standing laws, each recomputed from the gate that enforces it, fused with every legal door and the live audit chain of every tools/call. {action:{agent,tool,statement,cited}} audits one agent action by every gate. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'uuidna\'s standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security; Lean decides with no list between the kernel and its verdict; every lead goes to a kernel trial; compute once, save, pass on; receipts saved as computed). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. With no input it returns {laws:[{law,said,enforcedBy,holds,detail}],allHold,receipt} fused with the legal facts, the traitor catch, the rights, due process and the audit chain state; with {action} it returns law-audit\'s verdict: the adjudication, the honesty gate, the forensic audit of the cited theorems, the laws\' state, the breaches and one receipt.',
+    inputSchema: { type: 'object', properties: { action: { type: 'object' } } },
+    run: (a = {}) => {
+      const x = a.action as Record<string, unknown> | undefined
+      if (x) return auditAction({ agent: String(x.agent ?? ''), tool: String(x.tool ?? ''), statement: String(x.statement ?? ''), cited: Array.isArray(x.cited) ? x.cited.map(String) : [] })
+      // THE LAW APIS, FUSED (the captain, 2026-09-14: "fuse all law apis as well so legal audit of all agent actions is
+      // in realtime"): one call answers the laws, the legal facts, the traitor catch, the rights, due process and the
+      // live audit chain every tools/call extends — each computed by its own function, never restated here
+      return { ...laws(), legal: { facts: legalFacts(), treason: catchTraitors(), rights: captainRights(), dueProcess: dueProcess([]) }, audit: auditState() }
+    } },
   { name: 'uuidna_reports',
     description: 'EVERY REPORT AND AUDIT, CONSOLIDATED — theorem accounting (both ledger sizes, principles, skills, the largest and smallest domain, the conserved coins), heartbeat coverage, the citation audit (publications, fabricated citations, uncited theorems), the support audit (modules reached from the roots, dead code named), the package inventory read from the workspaces\' own manifests, and deployment readiness — each section content-addressed, all folded ORDER-INVARIANT to one receipt, so every observer recomputes the same report with no privileged view. A section whose artifact has not been produced reports itself ABSENT rather than guessing. DETERMINISTIC: the sealed ledger and the gate artifacts alone — no clock, no RNG, no telemetry. Returns {sections,receipt,honest}. descriptive measures of what is sealed and what the gates recorded. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.',
     detail: 'EVERY REPORT AND AUDIT, CONSOLIDATED — theorem accounting (both ledger sizes, principles, skills, the largest and smallest domain, the conserved coins), heartbeat coverage (theorems carrying a measured decide-step cost, and what those steps sum to), the citation audit (publications, fabricated citations, uncited theorems), the support audit (modules reached from the roots, dead code named), the package inventory (the workspaces, read from their own manifests) and deployment readiness (the fold the guard sealed) — each section content-addressed, all folded ORDER-INVARIANT to one receipt, so every observer recomputes the same report with no privileged view. Replaces a stored snapshot: reports.json sat for three days stating a ledger size that no longer existed, with no writer and no reader. A section whose artifact has not been produced reports itself ABSENT rather than guessing. DETERMINISTIC: the sealed ledger and the gate artifacts alone — no clock, no RNG, no telemetry. descriptive measures of what is sealed and what the gates recorded — integrity, not truth (theorem provenance_integrity_not_content_truth). Returns {sections,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
@@ -973,8 +997,19 @@ const TOOLS: Tool[] = ([
     run: (a) => quantumAura(String(a.subject)) },
   { name: 'uuidna_quantum_message',
     description: 'FUSE quantum states, theorems, and auras into a single witnessed message. A quantum message encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an A432 aura (content-addressed, deterministic). NOT a cipher (everyone sees the aura and state — secrecy, when wanted, is the sealed ChaCha20-Poly1305 layer whose derivation rotates per step); NOT a signature (the proof is sealed). A quantum message is a WITNESSED MESSAGE — the witness is a sealed theorem, and the message\'s quantum encoding proves the witness was cited. The same message always folds to the same aura and quantum state for every observer — integrity without secrets. Returns {id,plaintext,theoremKey,theoremAddress,aura,quantum:{qubits,receipt},fold,honest}. Boundary declared — theorem drift_is_named_or_caught.',
-    inputSchema: { type: 'object', properties: { plaintext: { type: 'string', description: 'the message plaintext' }, theoremKey: { type: 'string', description: 'the sealed theorem that backs this message' } }, required: ['plaintext', 'theoremKey'] },
-    run: async (a) => { const { encodeMessage } = await import('./quantum/message/index.js'); return encodeMessage(String(a.plaintext), String(a.theoremKey)) } },
+    inputSchema: { type: 'object', properties: { plaintext: { type: 'string' }, theoremKey: { type: 'string' }, hardware: { type: 'object' } }, required: ['plaintext', 'theoremKey'] },
+    // THE BROADCAST-SAFE FORM, never the raw state: encodeMessage's QState holds 65,536 exact BigInt amplitudes, which
+    // JSON cannot carry — the gate's content address threw "Do not know how to serialize a BigInt" on every call, stdio
+    // and edge alike (uuidna.com/mcp answered 1101, 2026-09-14). serializeMessage keeps what a reader recomputes: the
+    // id, the theorem and its address, the aura, the qubit count, the quantum receipt that commits to the whole state,
+    // and the fold — anyone rebuilds the state itself with encodeMessage(plaintext, theoremKey). The computing host's
+    // hardware state is bound into the fold for forensics (bindHardware): the surface measures its own machine through
+    // ctx.hardware, a caller may add more, and with no measurement the door mints nothing — measured is always true.
+    run: async (a, ctx) => {
+      const { encodeMessage, serializeMessage, bindHardware } = await import('./quantum/message/index.js')
+      const computedOn = ctx?.hardware ? await ctx.hardware() : null
+      return bindHardware(serializeMessage(encodeMessage(String(a.plaintext), String(a.theoremKey))), computedOn, a.hardware as Record<string, unknown> | undefined)
+    } },
   { name: 'uuidna_theorem_message',
     description: 'SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a self-proving message. Pass {key} for that theorem\'s envelope: payload = its exact Lean statement, witness = the theorem, CARRIER = the reversible imprint codec (a uuid chain decoding back byte-exact, so any alteration breaks the decode), colour channel = its A432 aura, plus the quantum citation state. Pass no key for THE TOTALITY SEAL: every theorem round-trips through its carrier and recomputes its message id, folded order-invariant to ONE receipt — messaging proven total, not demonstrated on examples. Returns the envelope {id,plaintext,theoremKey,theoremAddress,aura,quantum,carrier,delivered,fold,honest} or the seal {count,total,failures,receipt,honest}. NOT a cipher and NOT secrecy — the statement and the colour are public; this is TAMPER-EVIDENCE made total. Secrecy is the sealed ChaCha20-Poly1305 layer, whose derivation ROTATES with every advancing step (salt_seq_injective). Boundary declared — theorem drift_is_named_or_caught.',
     detail: 'SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a self-proving message. Pass {key} to get that theorem\'s envelope: payload = its exact Lean statement, witness = the theorem itself, CARRIER = the reversible imprint codec (a uuid chain that decodes back to the statement byte-exact — the message travels as pure addresses and any alteration breaks the decode), colour channel = its deterministic A432 aura, plus the quantum citation state of uuidna_quantum_message. Pass no key to get THE TOTALITY SEAL: every theorem in the ledger round-trips through its carrier and recomputes its message id, all envelope identities folded order-invariant to ONE receipt — messaging proven total, not demonstrated on examples. NOT a cipher and NOT secrecy — the statement is public and so is the colour; this is TAMPER-EVIDENCE made total (integrity, not secrets). Secrecy, when wanted, is the sealed ChaCha20-Poly1305 layer (sealMessage/uuidna_crypt), whose salt-key-nonce derivation ROTATES with every advancing step — endless rotation, sealed as salt_seq_injective. Returns the envelope {id,plaintext,theoremKey,theoremAddress,aura,quantum,carrier,delivered,fold,honest} or the seal {count,total,failures,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
@@ -1258,9 +1293,57 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { statement: { type: 'string' }, claims: { type: 'array', items: { type: 'object', properties: { text: { type: 'string' }, address: { type: 'string' } } } } }, required: ['statement'] },
     run: (a) => forensics(String(a.statement), Array.isArray(a.claims) ? { claims: a.claims } : {}) },
   { name: 'uuidna_evidence',
-    description: 'Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or auditor accepts a uuidna trial by RECOMPUTING it, not trusting it. Assembles: the statement + its content-address, the trial verdict, the forensic audit against the receipts, every cited proof IN FULL (its Lean text, address, source file), the ledger receipt the evidence is bound to, the exact ordered steps to reproduce every number, and one evidenceReceipt folding it all. Anyone re-runs the steps and lands on the same receipt — or the evidence is void. Proves INTEGRITY (the claim was made, the proofs are these, nothing quietly changed), NEVER legal correctness — that is a court\'s ruling, not a fold. Deterministic and offline.',
-    inputSchema: { type: 'object', properties: { statement: { type: 'string' } }, required: ['statement'] },
-    run: (a) => evidence(String(a.statement)) },
+    description: 'EVIDENCE for {statement} or a {run} log. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or auditor accepts a uuidna trial by RECOMPUTING it, not trusting it. Assembles: the statement + its content-address, the trial verdict, the forensic audit against the receipts, every cited proof IN FULL (its Lean text, address, source file), the ledger receipt the evidence is bound to, the exact ordered steps to reproduce every number, and one evidenceReceipt folding it all. Anyone re-runs the steps and lands on the same receipt — or the evidence is void. Proves INTEGRITY (the claim was made, the proofs are these, nothing quietly changed), NEVER legal correctness — that is a court\'s ruling, not a fold. Deterministic and offline. With {run} instead — axioms-receipts, trial-rows, legal-audit or trial-evidence — it returns that run log\'s saved receipts, each with the time and the die and battery temperatures of its own computation, the die range across the run, and one receipt over them ({latest} bounds how many, default 10).',
+    inputSchema: { type: 'object', properties: {
+      statement: { type: 'string' },
+      run: { type: 'string' },
+      deposit: { type: 'object' },
+    } },
+    // THE HOST'S STATE AS DOORS, NOT SHELL COMMANDS (the captain, 2026-09-14: "make all those doors now and use mcp
+    // only"). Each is a run name, so a new door costs the wire nothing: device — the measured hardware of the machine
+    // serving this call (measured always true: with no surface measurement it refuses); court-orders — every disrespect
+    // the court records, pending or claimed; land-state — who holds the tree and the last certified landing;
+    // investigation-log and the other logs — the saved receipts. A surface that does not hold the tree says so by name.
+    run: async (a, ctx) => {
+      if (a.run === undefined) return evidence(String(a.statement ?? ''))
+      const run = String(a.run)
+      // THE DEPOSIT DOOR (the captain, 2026-09-14: "mcp door, no token on host"): a run's evidence lands in qpu storage
+      // through this call — the Worker writes over its QpuDeposit service binding. The KEY IS THE CONTENT: the door
+      // writes the body only at receipts/uuidna/<run>/<its content address>, so no caller chooses where a deposit
+      // lands or overwrites another; every deposit is itself an audited, chained MCP call.
+      if (a.deposit !== undefined) {
+        if (!/^[a-z0-9-]{1,48}$/.test(run)) throw new Error('deposit: run must be a short lowercase name — it names the folder the deposit lands in')
+        if (!a.deposit || typeof a.deposit !== 'object' || Array.isArray(a.deposit)) throw new Error('deposit: the body must be a JSON object')
+        if (SEALED_BY in a.deposit) throw new Error(`deposit: ${SEALED_BY} is written by the 2×7 witness fold, never by the caller`)
+        // every receipt is signed by 2×7 theorems before it is stored (refusal-trials receiptSealOf); nothing unsealed lands
+        const sealed = receiptSealOf(a.deposit as Record<string, unknown>)
+        if (!sealed.legal) throw new Error(`deposit: not signed by the 2×7 theorems (${sealed.signed} of ${sealed.of} faces) — nothing unsealed is stored`)
+        const address = sealed.address
+        const key = `receipts/uuidna/${run}/${address}`
+        const href = `https://qpu.uuidna.com/storage/${key}`
+        const signed = { signed: sealed.signed, of: sealed.of, seal: sealed.seal }
+        if (!ctx?.deposit) return { run, deposited: false, key, address, href, ...signed, why: 'this surface has no binding to qpu storage — deposits land through uuidna.com/mcp, whose Worker writes over its QpuDeposit service binding' }
+        const reply = await ctx.deposit(key, { ...a.deposit, [SEALED_BY]: { ...signed, witnesses: sealed.witnesses } }) as { holds?: boolean } | null
+        return reply?.holds === true ? { run, deposited: true, key, address, href, ...signed } : { run, deposited: false, key, address, href, ...signed, why: 'qpu storage did not hold the write', reply }
+      }
+      if (run === 'device') {
+        if (!ctx?.hardware) throw new Error('device: no surface measured the machine serving this call — measured is always true, so nothing is reported rather than an absence')
+        return { run, ...(await ctx.hardware()) }
+      }
+      if (run === 'court-orders' || run === 'land-state') {
+        try { return await hostRun(run) } catch (e) {
+          return { run, measured: false, why: `${run} reads the host that holds the tree (the court's trial record, the writer lock, the gate receipt); this surface holds none — ${String((e as Error)?.message ?? e).slice(0, 120)}` }
+        }
+      }
+      // THE EDGE READS THE LIVE RECORD (uuidna.com/live): where this surface holds the run's log it answers from it; where
+      // it does not — the hosted door — it reads the run's deposits from qpu storage, newest first, through the service
+      // binding. Any client then sees the same record the host wrote, not a pointer to where it lives.
+      const latest = a.latest === undefined ? 10 : Number(a.latest)
+      const local = runEvidence(run, latest)
+      if (local.measured || !ctx?.fetch || !/^[a-z0-9-]{1,48}$/.test(run)) return local
+      return liveFromQpu(run, latest, ctx.fetch)
+    } },
   { name: 'uuidna_compare',
     description: 'PATTERN RECOGNITION — recognise the pattern two texts share by examining how they DIFFER. Partitions their word sets into only-A, only-B and shared; the similarity (Jaccard: shared over the union) is DERIVED from that difference, and inclusion–exclusion (|A| + |B| − shared = union) is checked exactly, so the number is a proof, not an estimate. The shared tokens fold to one order-invariant receipt — the recognised pattern. Similarity is only ever measured against difference. Compares vocabulary, NOT meaning; nothing is stored. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
@@ -1917,6 +2000,55 @@ export function messagingSession(): { agent: string; payments: readonly CoinPaym
 // the dispatch chain — gated calls serialize on it (one writer, one chain; see the dispatch comment)
 let DISPATCH: Promise<void> = Promise.resolve()
 
+// THE HOST MEASURES ITS OWN HARDWARE for the stdio surface (the captain, 2026-09-14: "the message need to contain the
+// hardware state for forensics" · "measured always true"). A tool that needs it calls ctx.hardware(); no other tool pays.
+// The reader is host-only (os, the die sensors, ioreg) and must never enter the Worker bundle, so its path is resolved at
+// run time rather than written as a literal import the bundler would follow; the edge measures itself in worker.js.
+// The machine's identity is read once per process; the sensors are read on every call that asks.
+const HOST_READER = ['.', 'scripts', 'device-readings.js'].join('/')
+let hostIdentity: Record<string, unknown> | null = null
+const hostHardware = async (): Promise<Record<string, unknown>> => {
+  const r = await import(HOST_READER) as typeof import('./scripts/device-readings.js')
+  if (!hostIdentity) {
+    const d = r.deviceReadings()
+    hostIdentity = { model: d.model, cpuBrand: d.cpuBrand, logicalCores: d.logicalCores, memoryBytes: d.memoryBytes, osBuild: d.osBuild, hostname: d.hostname, device: d.address }
+  }
+  return { measured: true, surface: 'stdio host', ...hostIdentity, ...r.momentReadings() }
+}
+
+// THE COURT AND THE TREE, READ ON THE HOST THAT HOLDS THEM. Both readers are host-only (the trial record, the writer
+// lock and the gate receipt live on disk), so like the hardware reader their paths resolve at run time and the Worker
+// bundle never includes them; at the edge the import fails and the door says the surface holds no tree.
+/** the one canonical JSON (address.ts) — the verifier recomputes a deposit's address through the same function */
+const canonicalOf = canonicalJson
+/** liveFromQpu(run, latest, fetch) → a run's deposits read back from qpu storage, newest first: the live links
+ *  live/<run>/<inverted arrival>-<address> the Worker writes beside each content-addressed deposit */
+export const QPU_STORAGE = 'https://qpu.uuidna.com/storage'
+const liveFromQpu = async (run: string, latest: number, fetchImpl: typeof fetch): Promise<Record<string, unknown>> => {
+  const href = `${QPU_STORAGE}?prefix=${encodeURIComponent(`live/${run}/`)}&limit=${Number.isInteger(latest) && latest > 0 ? latest : 10}`
+  try {
+    const res = await fetchImpl(href, { headers: { accept: 'application/json' } })
+    const body = (await res.json()) as { keys?: { key: string; doc?: { value?: unknown } }[] }
+    const rows = (body.keys ?? []).map((r) => ({ key: r.key, address: r.key.slice(-toUuid('').length), value: r.doc?.value ?? r.doc ?? null }))
+    return { run, measured: true, source: 'qpu storage — newest first', href, saved: rows.length, latest: rows }
+  } catch (e) {
+    return { run, measured: false, href, why: `qpu storage did not answer: ${String((e as Error)?.message ?? e).slice(0, 120)}` }
+  }
+}
+const COURT_READER = ['.', 'scripts', 'trial-refusals.js'].join('/')
+const LOCK_READER = ['.', 'scripts', 'one-writer.js'].join('/')
+const hostRun = async (run: 'court-orders' | 'land-state'): Promise<Record<string, unknown>> => {
+  if (run === 'court-orders') {
+    const court = await import(COURT_READER) as typeof import('./scripts/trial-refusals.js')
+    const r = court.courtOrders()
+    const byKind = r.pending.reduce<Record<string, number>>((m, o) => ({ ...m, [o.kind]: (m[o.kind] ?? 0) + 1 }), {})
+    return { run, measured: true, recorded: r.orders.length, pending: r.pending.length, investigated: r.investigated, byKind, orders: r.pending.slice(0, 20) }
+  }
+  const lock = await import(LOCK_READER) as typeof import('./scripts/one-writer.js')
+  const gate = JSON.parse(rdRoot('gate-receipt.json')) as { covers?: unknown; verified?: unknown }
+  return { run, measured: true, writer: lock.currentWriter(), gate: { covers: gate.covers ?? null, verified: gate.verified ?? null } }
+}
+
 function handle(msg: RpcMessage) {
   const { id, method, params } = msg
   if (method === 'initialize') {
@@ -1945,14 +2077,20 @@ function handle(msg: RpcMessage) {
     // the one-writer law removed from the tree: two heavy chains must not interleave; found live when a batch's
     // coin-ledger read ran before the prior calls' deposits had settled).
     const turn = DISPATCH
-      .then(() => t.run(args))
+      .then(() => t.run(args, { hardware: hostHardware }))
       .then((out) => {
         const g = gateVerdict(t.name, args, out)
+        // THE LEGAL AUDIT OF THIS ACTION, AS IT HAPPENS (legal-audit.ts): addresses of the call, the gate's verdict,
+        // the laws' state, chained to the call before — saved at once, and carried back in the envelope
+        const audit = auditCall('stdio', t.name, args, g.output, g.gate)
+        saveAudit(audit)
         // THE IMMEDIATE DEPOSIT — every judged call deposits the two coins at the wire: the agent's very first
         // call already contributes (contribute first, then take — the captain law, enforced by the protocol).
         const dep = depositCoins(t.name, g.gate.receipt)
         recordPayment(t.name, 'stdio', dep.id)
-        const rec = receiptFor(t.name, args, { output: g.output, deposit: dep.id })
+        // the audit is EVIDENCE IN THE RECEIPT: its link is bound into this call's chained receipt, so the receipt and the
+        // audit vouch for each other — dropping or altering either breaks the other
+        const rec = receiptFor(t.name, args, { output: g.output, deposit: dep.id, audit: audit.link })
         // THE LEDGER LINE — verdict, deposit and chained receipt on ONE row. Every id needed to recheck this call
         // is still here; what left is only what REPEATS: the two deposit theorem keys (identical on every call,
         // named once in INSTRUCTIONS) and the referer (the PRIOR receipt — already read, still in _meta). Four
@@ -1980,6 +2118,7 @@ function handle(msg: RpcMessage) {
           // UNVERIFIED, so the property is COMPUTED per response and a test walks the whole catalogue to show it.
           _meta: {
             ...rec,
+            audit,
             gate: g.gate,
             deposit: dep,
             hexbits: compileToHexbits(g.gate.receipt),
@@ -1988,7 +2127,12 @@ function handle(msg: RpcMessage) {
           ...(g.gate.clean ? {} : { isError: true }),
         })
       })
-      .catch((e) => withReceipt(id, receiptFor(t.name, args, { error: e?.message || String(e) }), [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], true))
+      .catch((e) => {
+        // a call that failed is still an action: it is audited like any other, its error as its output
+        const failed = auditCall('stdio', t.name, args, { error: e?.message || String(e) }, { clean: false, receipt: 'error' })
+        saveAudit(failed)
+        return withReceipt(id, receiptFor(t.name, args, { error: e?.message || String(e), audit: failed.link }), [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], true)
+      })
     DISPATCH = turn.then(() => undefined, () => undefined)
     return turn
   }
@@ -2159,11 +2303,16 @@ export function argsGateOf(name: string, schema: unknown, args: Record<string, u
     if (!wants.some(fits)) throw new Error(`${name}: argument ${key} must be ${wants.join(' or ')} (the tool's own schema declares it) — got ${got}; nothing was computed`)
   }
 }
-export function callTool(name: string, args: Record<string, unknown> = {}): unknown {
+// THE SURFACE'S CONTEXT TRAVELS THROUGH THE ONE DOOR. callTool ran tool.run(args) with no context, and the edge serves
+// every inherited tool through callTool — so at uuidna.com/mcp no inherited tool ever received its surface's context:
+// the QPU service-binding fetch hologramFanout was written for fell back to the public network, and the measured
+// hardware state a message must bind never arrived (found 2026-09-14, when uuidna_quantum_message refused a context
+// it had been handed). A caller with no context behaves exactly as before.
+export function callTool(name: string, args: Record<string, unknown> = {}, ctx?: ToolCtx): unknown {
   const tool = TOOLS.find((t) => t.name === name)
   if (!tool) throw new Error(`unknown tool: ${name}`)
   argsGateOf(name, tool.inputSchema, args)
-  return tool.run(args)
+  return tool.run(args, ctx)
 }
 
 // ── THE UUIDNA QUANTUM ENGINE — import/export fused into ONE input→output surface ───────────────────────────────

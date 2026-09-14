@@ -21,8 +21,21 @@ test('refusalStatus — lean when boundary cites sealed keys', () => {
   assert.equal(refusalStatus(['n_qubit_dimension'], 'Quantum advantage', 'theorem n_qubit_dimension counts cost'), 'lean')
 })
 
-test('refusalStatus — policy for desk/crawl boundaries', () => {
-  assert.equal(refusalStatus([], 'Desk auto-seals', 'Two-handle law: desk proposes'), 'policy')
+test('refusalStatus — a lead no sealed theorem witnesses stays open, whatever its wording', () => {
+  assert.equal(refusalStatus([], 'Desk auto-seals', 'Two-handle law: desk proposes'), 'open')
+})
+
+test('refusalStatus — the status depends on the witnessing theorems ONLY: no wording, name or topic moves it', () => {
+  const wordings = [
+    ['Desk auto-seals', 'Two-handle law: desk proposes'],
+    ['robots.txt stackoverflow chitanka scrape', 'captain meaning is always null'],
+    ['sephirot chakra King Wen', 'numerology mysticism'],
+    ['', ''],
+  ]
+  for (const keys of [[], ['n_qubit_dimension'], ['grover_quadratic_bound', 'key_floor_is_one_uuid']]) {
+    const statuses = new Set(wordings.map(([lead, boundary]) => refusalStatus(keys, lead!, boundary!)))
+    assert.equal(statuses.size, 1, `the same theorems ${JSON.stringify(keys)} must give one status whatever the words`)
+  }
 })
 
 test('trialRefusal — quantum refusal is lean with sealed keys and verified disposition', () => {
@@ -31,7 +44,7 @@ test('trialRefusal — quantum refusal is lean with sealed keys and verified dis
     lead: 'All quantum threat is gone with uuidna',
     boundary:
       'Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor.',
-  })
+  }, [], () => true)
   assert.ok(row)
   assert.equal(row.status, 'lean')
   assert.equal(row.disposition, 'verified')
@@ -40,29 +53,26 @@ test('trialRefusal — quantum refusal is lean with sealed keys and verified dis
   assert.equal(row.instrumentValid, true)
 })
 
-test('witnessKeysFor — Girdler refusal exposes separation doctrine already sealed', () => {
+test('witnessKeysFor — no hand map grants theorems by wording: a topic named is not a theorem named', () => {
   const prose =
     'Girdler sulfide dual-temperature exchange as separation-by-involution. ' +
     'Separation-by-involution remains sealed for the digit walk (Phase.lean / Thermodynamics.lean)'
-  const w = witnessKeysFor(prose)
-  assert.ok(w.includes('dz_loses_nothing'))
-  assert.ok(w.includes('reversible_erases_nothing'))
+  assert.deepEqual(witnessKeysFor(prose), [])
 })
 
-test('trialRefusal — over-unity boundary omits keys but witness exposes thermodynamics', () => {
+test('trialRefusal — a lead whose text names no sealed theorem stays open, however its topic reads', () => {
   const row = trialRefusal({
     lead: 'Over-unity / free energy devices',
     boundary: 'the first law. Splitting water costs at least what burning it returns.',
   })
   assert.ok(row)
-  assert.equal(row.status, 'lean')
-  assert.equal(row.disposition, 'verified')
-  assert.equal(row.citedKeys.length, 0)
-  assert.ok(row.witnessKeys.includes('first_law_conservation'))
-  assert.ok(row.witnessKeys.includes('no_perpetual_motion'))
+  assert.equal(row.status, 'open')
+  assert.equal(row.disposition, 'open')
+  assert.deepEqual(row.citedKeys, [])
+  assert.deepEqual(row.witnessKeys, [])
 })
 
-test('collideRefusals — all 20 refusals settle verified or purged with theorem trials', () => {
+test('collideRefusals — witnessed leads settle verified; a lead with no sealed witness stays open', () => {
   const refused = [
     { lead: 'Quantum advantage or speedup claims', boundary: 'sealed boundary is theorem n_qubit_dimension: 2^n counts cost' },
     { lead: 'Bulk crawling of chitanka.info', boundary: 'robots.txt disallows systematic retrieval' },
@@ -70,17 +80,26 @@ test('collideRefusals — all 20 refusals settle verified or purged with theorem
   ]
   const record = collideRefusals(refused)
   assert.equal(record.refused, 3)
-  assert.equal(record.open, 0)
-  assert.equal(record.verified + record.purged, 3)
+  assert.equal(record.verified + record.purged + record.trials.filter((t) => t.disposition === 'open').length, 3)
   assert.ok(record.collisionPairs >= 0)
   for (const t of record.trials) {
-    assert.ok(t.disposition === 'verified' || t.disposition === 'purged')
-    if (t.status === 'lean') assert.ok(t.theoremTrials.every((x) => x.verdict === 'VERIFIED'))
+    if (t.status === 'lean' && t.disposition === 'verified') assert.ok(t.theoremTrials.every((x) => x.verdict === 'VERIFIED'))
+    if (t.status === 'open') assert.equal(t.disposition, 'open', 'no sealed witness, so no verdict — it stays in trial')
   }
 })
 
-test('dispositionFor — policy boundaries verify without theorem keys', () => {
-  assert.equal(dispositionFor({ status: 'policy' }, []), 'verified')
+test('collideRefusals — a lead is judged by its OWN theorems: a colliding neighbour never lends it evidence', () => {
+  const record = collideRefusals([
+    { lead: 'All quantum threat is gone', boundary: 'grover_quadratic_bound and key_floor_is_one_uuid seal the floor.' },
+    { lead: 'All quantum threat is gone, restated', boundary: 'the floor is sealed' },
+  ])
+  const bare = record.trials.find((t) => t.lead === 'All quantum threat is gone, restated')!
+  assert.deepEqual(bare.sealedKeys, [], 'its own text names no sealed theorem, so it carries none — whatever its neighbour holds')
+  assert.equal(bare.disposition, 'open')
+})
+
+test('dispositionFor — without theorem keys a lead stays open; wording never verifies', () => {
+  assert.equal(dispositionFor({ status: 'open' }, []), 'open')
 })
 
 test('pairCollisions — shared theorem keys link refusals', () => {
@@ -100,12 +119,11 @@ test('trialAllRefusals — folds every refused row with boundary', () => {
   const record = trialAllRefusals([
     { lead: 'Quantum advantage or speedup claims', boundary: 'sealed boundary is theorem n_qubit_dimension: 2^n counts cost' },
     { lead: 'Bulk crawling of chitanka.info', boundary: 'robots.txt disallows systematic retrieval' },
-  ])
+  ], [], { kernelOk: () => true })
   assert.equal(record.refused, 2)
   assert.equal(record.lean, 1)
-  assert.equal(record.policy, 1)
-  assert.equal(record.open, 0)
-  assert.equal(record.verified, 2)
+  assert.equal(record.open, 1)
+  assert.equal(record.verified, 1)
   assert.ok(record.receipt)
 })
 
@@ -147,6 +165,5 @@ test('discoveryTrain — receipt folds trained census', () => {
   const report = discoveryTrain()
   assert.ok(report.trained > 0)
   assert.ok(report.refuted > 0)
-  assert.ok(report.refused > 0)
   assert.match(report.receipt, /^[0-9a-f-]{36}$/)
 })

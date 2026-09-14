@@ -1,0 +1,12 @@
+{
+  "handle": "175740cd",
+  "address": "175740cd-de4b-8062-8a88-ed780cc45656",
+  "statement": "([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 0 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 0 ∧ ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 1 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 1 ∧ ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).count 2 = ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).count 2 ∧ ((([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).zip ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).tail).map (fun b => (([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).zip ([0,0,0,0,1,1,1,1,2,2,2,2] : List Nat).tail).count b)).foldl (· + ·) 0 = 29 ∧ ((([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).map (fun b => (([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).zip ([0,1,2,2,1,0,1,1,2,0,0,2] : List Nat).tail).count b)).foldl (· + ·) 0 = 15",
+  "tactic": "decide",
+  "keys": [
+    "letter_order_moves_bigram_collisions"
+  ],
+  "files": [
+    "Decipher.lean"
+  ]
+}

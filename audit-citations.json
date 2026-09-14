@@ -1,18 +1,18 @@
 {
-  "key": "2d89046e-714c-8cd6-b0cb-7a3f78def35b",
-  "publications": 179,
-  "sealedTheorems": 70919,
+  "key": "ec4c8813-e4e4-89ad-b864-433ac330bba1",
+  "publications": 239,
+  "sealedTheorems": 70931,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2595,
-    "theorems": 70919,
+    "claims": 2607,
+    "theorems": 70931,
     "bijection": false,
     "digitalRoots": {
-      "claims": 3,
-      "theorems": 8,
-      "publications": 8
+      "claims": 6,
+      "theorems": 2,
+      "publications": 5
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -373,6 +373,30 @@
       "slug": "scripture",
       "claims": 6,
       "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "cyber",
+      "claims": 2,
+      "cited": 2,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "forensics",
+      "claims": 3,
+      "cited": 3,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "decipher",
+      "claims": 2,
+      "cited": 2,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1171,64 +1195,520 @@
     },
     {
       "slug": "equilibrium-xor1",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor2",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor3",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor4",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor5",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor6",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor7",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
     },
     {
       "slug": "equilibrium-xor8",
-      "claims": 8,
-      "cited": 8,
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor9",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor10",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor11",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor12",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor13",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor14",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor15",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor16",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor17",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor18",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor19",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor20",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor21",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor22",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor23",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor24",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor25",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor26",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor27",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor28",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor29",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor30",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor31",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor32",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor33",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor34",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor35",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor36",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor37",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor38",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor39",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor40",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor41",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor42",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor43",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor44",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor45",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor46",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor47",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor48",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor49",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor50",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor51",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor52",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor53",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor54",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor55",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor56",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor57",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor58",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor59",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor60",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor61",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor62",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor63",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "equilibrium-xor64",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "queneau",
+      "claims": 5,
+      "cited": 5,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

@@ -1,0 +1,12 @@
+{
+  "handle": "60b6b2d3",
+  "address": "60b6b2d3-c468-8e7c-b990-d8702c6f4275",
+  "statement": "70847 + 422 + 239 = 71508",
+  "tactic": "decide",
+  "keys": [
+    "three_kinds_partition_the_store"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

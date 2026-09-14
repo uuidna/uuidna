@@ -34,11 +34,10 @@ export {
   type SchoolApiRegistry, type Heartbeat, type SourceProbe,
 } from '../school/index.js'
 export {
-  extendedResearchSources, EXTENDED_RESEARCH_SOURCE_NAMES, EXTENDED_RESEARCH_PROBES,
-  CORE_RESEARCH_SOURCE_NAMES, coreResearchSources,
+  RESEARCH_DOORS,
   unansweredMath, UNANSWERED_MATH_URL,
   researchSweep, researchEvidence, RESEARCH_SOURCE_NAMES,
-  type ExtendedResearchSource, type ResearchSource,
+  type ResearchDoor, type ResearchSource,
 } from '../research/index.js'
 export {
   publicApiRegistry,

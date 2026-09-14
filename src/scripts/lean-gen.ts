@@ -3,7 +3,7 @@
 // emit(): it checks every fact holds in JS, writes lean/<File>.lean and lean/<file>-manifest.json (the microdata
 // bridge — {key,name} per theorem), and shells out to `lean` to verify the file compiles sorry-free. One helper,
 // no repetition. Integrity.
-import { writeFileSync, readFileSync, existsSync } from 'node:fs'
+import { writeFileSync, readFileSync, existsSync, mkdirSync, renameSync, rmSync } from 'node:fs'
 import { execFile } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -103,15 +103,17 @@ export const MAXBUF = 64 * 1024 * 1024
 // and `List.getD` are defined by well-founded recursion over `Nat.bitwise`, whose `by decide` path borrows the
 // `propext` axiom — so a theorem using them is NOT kernel-only. These structural-recursion replacements compute the
 // SAME values and depend on NO axioms (verified by scripts/lean-axioms), keeping the ledger's trust base at the
-// leanprover/lean4 kernel alone. LXOR_DEF covers 0..255 (8-bit fuel) — wider than any xor the ledger takes.
-export const LXOR_DEF = `-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native \`^^^\` (Nat.xor) is defined by well-founded
+// leanprover/lean4 kernel alone. lxorDef(width) sizes the fuel to the values a wing takes — every recursion step past
+// the widest value is kernel work that decides nothing (measured: one six-cube translation, 12.8 s at fuel 8, 9.5 s at
+// the six bits its cells need). LXOR_DEF keeps the 8-bit fuel (0..255) the shared wings were proved with.
+export const lxorDef = (width: number, scope = 'wider than any xor the ledger\n-- takes'): string => `-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native \`^^^\` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose \`by decide\` proof term borrows the \`propext\` axiom — so a theorem stated with it
--- is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 0..255, wider than any xor the ledger
--- takes) folds the SAME value with NO axiom; scripts/lean-axioms proves it. \`lxor a b\` = a XOR b.
+-- is NOT kernel-only. This structural recursion over an ${width}-bit fuel (covers 0..${(1 << width) - 1}, ${scope}) folds the SAME value with NO axiom; scripts/lean-axioms proves it. \`lxor a b\` = a XOR b.
 def lxorAux : Nat → Nat → Nat → Nat
   | 0, _, _ => 0
   | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
-def lxor (a b : Nat) : Nat := lxorAux 8 a b`
+def lxor (a b : Nat) : Nat := lxorAux ${width} a b`
+export const LXOR_DEF = lxorDef(8)
 // nth AND nthR ARE TWO VOCABULARIES, NOT ONE, and shipping them as one block left four wings carrying a
 // definition no theorem in them reaches. Measured by src/axiom-reach.ts: of the five wings that include this
 // preamble, ALL use `nth` and only Matching uses `nthR`, so Comparisons, Installs, Software and Waves each
@@ -406,6 +408,23 @@ process.on('exit', () => {
   console.error('  A generated wing with no kernel signature is a claim with no proof. The entry point must call provePending().')
 })
 
+// ── THE KERNEL'S RESULT IS SAVED AND PASSED ON, NEVER RE-COMPUTED (the captain, 2026-09-14: "things need to be
+// remembered at each step instead of saved and passed to the next"). A wing compiled with `lean -o` leaves its .olean:
+// the kernel-checked environment, 51 KB for EquilibriumXor1, whose elaboration peaks at 5.1 GB and 51.8 s. Every later
+// question about that wing imports it instead: its axioms came back in 0.20 s at 401 MB, 8 of 8, whatever the wing
+// weighs. The file is addressed by the toolchain and the exact text compiled, so a moved byte or a new Lean can never
+// read a stale one; it is renamed into place only after the kernel accepts, so a saved .olean exists only for an
+// accepted wing.
+export const savedOleanOf = (file: string, text: string): string =>
+  join(ROOT, 'dist', 'olean', toUuid(readFileSync(join(ROOT, 'lean-toolchain'), 'utf8').trim() + '\n' + text), file.replace(/\.lean$/, '.olean'))
+/** savingTo(olean) → the `-o` arguments that write the kernel's result beside its final place, then keep it (commit)
+ *  only once the kernel accepted, or throw the partial file away (discard) */
+export const savingTo = (olean: string): { args: string[]; commit: () => void; discard: () => void } => {
+  mkdirSync(dirname(olean), { recursive: true })
+  const partial = `${olean}.${process.pid}.partial`
+  return { args: ['-o', partial], commit: () => renameSync(partial, olean), discard: () => rmSync(partial, { force: true }) }
+}
+
 /** provePending(lanes) → run the queued kernel verifications concurrently; returns what failed.
  *
  *  A wing that fails prints the kernel's OWN diagnostic named to its file, exactly as the inline spawn did — the
@@ -421,8 +440,10 @@ export async function provePending(lanes: number): Promise<{ proved: number; fai
   // COMPARABLE run to run — and comparability is not a luxury here, because the last defect of the day was a
   // generator whose self-timing moved a decade for no reason but which siblings it shared the machine with.
   const results = await poolByHandle(queued.map((p) => ({ address: p.address, run: () => new Promise<boolean>((resolve) => {
-    execFile('lean', [p.path], { cwd: ROOT, maxBuffer: MAXBUF }, (err, stdout, stderr) => {
-      if (!err) return resolve(true)
+    const save = savingTo(savedOleanOf(p.file, readFileSync(p.path, 'utf8')))
+    execFile('lean', [...save.args, p.path], { cwd: ROOT, maxBuffer: MAXBUF }, (err, stdout, stderr) => {
+      if (!err) { save.commit(); return resolve(true) }
+      save.discard()
       const diag = (String(stdout || '') + String(stderr || '')).trim()
       console.error('✗ lean/' + p.file + ' — Lean verification FAILED:\n' + (diag || String(err)))
       resolve(false)

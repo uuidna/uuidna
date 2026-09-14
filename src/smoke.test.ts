@@ -136,7 +136,7 @@ test('the trial — one answer, VERIFIED or UNVERIFIED, all else void', () => {
 test('harness makes any output auditable; reeducate bounds overclaims until they hold', () => {
   assert.equal(harness('anything').auditable, true)
   assert.equal(harness7('x').auditableInAll, true)
-  // reeducate bounds a FABRICATED citation until it holds (the theorem-fold: a lexical boast is revealed
+  // reeducate bounds a FABRICATED citation until it holds, against the sealed bound n_qubit_dimension (the theorem-fold: a lexical boast is revealed
   const r = reeducate('quantum supremacy, proven in theorem riemann_is_solved, faster than light')
   assert.equal(r.passed, true)
   assert.ok(r.steps.length >= 1)

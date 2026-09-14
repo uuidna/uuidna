@@ -24,16 +24,15 @@
 // address space. This tree has no cell-adjacency relation — addresses are minted and compared, never stepped
 // between — and a 64-cell space with no edges is a set, whose vertex-transitivity is vacuous. Nothing here says
 // otherwise, and no adjacency was invented in order to make the theorems apply.
-import { emit, range, LXOR_DEF } from './lean-gen.js'
+import { emit, range, LXOR_DEF, lxorDef } from './lean-gen.js'
+import { BITS, CELLS, xorWings } from './equilibrium-family.js'
 
-const BITS = 6
-const CELLS = 1 << BITS                       // 64
 const STATES = CELLS * 2                      // 128 — (cell, polarity)
 const POW = range(BITS).map((k) => 1 << k)    // the six single-bit differences
 
 const xor = (a: number, b: number): number => {
   let r = 0
-  for (let k = 0; k < 8; k++) { const m = 1 << k; if (((a & m) === 0) !== ((b & m) === 0)) r += m }
+  for (let k = 0; k < BITS; k++) { const m = 1 << k; if (((a & m) === 0) !== ((b & m) === 0)) r += m }
   return r
 }
 const cellOf = (s: number): number => s % CELLS
@@ -82,8 +81,6 @@ const XOR_PRESERVES = range(CELLS).map((a) => ({
   js: () => range(CELLS).every((c) => range(CELLS).every((d) => xor(xor(c, a), xor(d, a)) === xor(c, d))),
   lean: `theorem xor_translation_preserves_adjacency_${a} : (List.range ${CELLS}).all (fun c => (List.range ${CELLS}).all (fun d => lxor (lxor c ${a}) (lxor d ${a}) == lxor c d)) := by decide`,
 }))
-const XOR_CHUNK = 8
-const XOR_FILES = (CELLS + XOR_CHUNK - 1 - ((CELLS + XOR_CHUNK - 1) % XOR_CHUNK)) / XOR_CHUNK   // ceil in integers: the tree hard-rejects the rounding helpers
 
 const FACTS = [
   ...cellGroups.map((grp, gi) => ({
@@ -137,11 +134,13 @@ emit({ file: 'Equilibrium.lean',
   defs: LXOR_DEF,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
 
-for (let i = 0; i < XOR_FILES; i++) {
-  const facts = XOR_PRESERVES.slice(i * XOR_CHUNK, (i + 1) * XOR_CHUNK)
-  emit({ file: `EquilibriumXor${i + 1}.lean`,
-    header: `THE XOR TRANSLATIONS ARE AUTOMORPHISMS, FILE ${i + 1} OF ${XOR_FILES} — translations ${i * XOR_CHUNK} to ${((i + 1) * XOR_CHUNK < CELLS ? (i + 1) * XOR_CHUNK : CELLS) - 1} of the six-cube, one theorem each, eight to a file so that lean-all's lanes prove the family in parallel: a wing is proved per FILE, and one file of sixty-four near-cap theorems held the whole landing behind a single kernel while every other lane idled. Same sixty-four claims as before the split; the claim is not narrowed, the chunk is sized to a lane. Backed by the chunk law this tree already seals for walk depth (Recursion.lean), applied to walk work.`,
+// one wing per translation (equilibrium-family.ts says why and carries the measurement); the fuel is the six bits the
+// cells need, derived from BITS, never the shared 8
+for (const w of xorWings()) {
+  const f = XOR_PRESERVES[w.a]!
+  emit({ file: w.file,
+    header: `THE XOR TRANSLATION BY ${w.a} IS AN AUTOMORPHISM, FILE ${w.a + 1} OF ${CELLS} — one theorem to a file, the smallest wing that changes no statement: a file is the unit the kernel compiles and saves, so each translation compiles alone, is saved as its own result, and every later step imports it instead of re-computing it. Same ${CELLS} claims as before the split; the claim is not narrowed. Backed by the chunk law this tree already seals for walk depth (Recursion.lean), applied to walk work.`,
     skill: 'wave',
-    defs: LXOR_DEF,
-    facts: facts.map((f) => ({ ...f, name: f.why })) })
+    defs: lxorDef(BITS, `exactly the ${BITS} bits every cell of the six-cube\n-- needs`),
+    facts: [{ ...f, name: f.why }] })
 }

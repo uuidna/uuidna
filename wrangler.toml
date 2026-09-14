@@ -27,6 +27,19 @@ command = "node dist/scripts/ship-build.js"
 # trial verdict with it, so only uuidna.com can sign an authoritative trial (a fork recomputes the same verdict but
 # cannot forge the signature). Until the secret is set, trials return unsigned (valid by recomputation only).
 
+# qpu, the circuit (repo uuidna/qpu, worker uuidna-qpu), is fused over a service binding: uuidna_fanout's calls to
+# qpu.uuidna.com ride env.QPU with no public hop, and Cloudflare bills no extra request for a service binding.
+[[services]]
+binding = "QPU"
+service = "uuidna-qpu"
+
+# THE DEPOSIT DOOR, NO TOKEN ON ANY HOST (the captain, 2026-09-14): qpu's QpuDeposit RPC entrypoint, reachable only
+# through this binding — the MCP door uuidna_evidence {run, deposit} writes run evidence to qpu storage through it.
+[[services]]
+binding = "QPU_DEPOSIT"
+service = "uuidna-qpu"
+entrypoint = "QpuDeposit"
+
 [assets]
 directory = "./docs/.vitepress/dist"
 binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch

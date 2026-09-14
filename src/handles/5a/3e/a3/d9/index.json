@@ -1,0 +1,12 @@
+{
+  "handle": "5a3ea3d9",
+  "address": "5a3ea3d9-a97c-813c-8af6-3c95eff51dfb",
+  "kind": "chunk",
+  "keys": [
+    "the_third_level_already_shares"
+  ],
+  "statement": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71348 < 71505)",
+  "files": [
+    "Cyber.lean"
+  ]
+}

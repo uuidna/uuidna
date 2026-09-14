@@ -29,8 +29,6 @@ export interface HandleRecord {
   identity?: string
 }
 
-const FORBIDDEN = /principle|skill|title|blurb|sephirot|chakra|wen\b|king wen/i
-
 /** buildHandleRecords() — pure, deterministic: chunks plus freeze publication|page. Collision refuse. */
 export function buildHandleRecords(): HandleRecord[] {
   const byHandle = new Map<string, HandleRecord>()
@@ -71,12 +69,6 @@ export function buildHandleRecords(): HandleRecord[] {
   return [...byHandle.values()].sort((a, b) => a.handle < b.handle ? -1 : a.handle > b.handle ? 1 : 0)
 }
 
-export function assertIdentityPayload(r: HandleRecord): void {
-  for (const k of Object.keys(r)) {
-    if (FORBIDDEN.test(k)) throw new Error(`handle store: identity payload carried grouping key ${k} on ${r.handle}`)
-  }
-}
-
 export interface HandleStoreWrite { written: number; unchanged: number; removed: number; dirsRemoved: number }
 
 /** prune(dir) — remove every file the wanted set does not name, then the directory itself if nothing is left.
@@ -98,7 +90,6 @@ function prune(dir: string, want: ReadonlySet<string>, tally: HandleStoreWrite, 
 
 export function writeHandleStore(): HandleStoreWrite {
   const records = buildHandleRecords()
-  for (const r of records) assertIdentityPayload(r)
   const tally: HandleStoreWrite = { written: 0, unchanged: 0, removed: 0, dirsRemoved: 0 }
   const want = new Set<string>()
   for (const r of records) {

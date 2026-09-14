@@ -1,16 +1,16 @@
 {
-  "generated": "2026-09-13",
+  "generated": "2026-09-14",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_theorems": 70919,
-  "total_claimed": 70919,
-  "categories": 2,
+  "total_theorems": 70931,
+  "total_claimed": 70931,
+  "categories": 4,
   "coverage_percent": "100.0",
   "categories_list": [
     {
       "category": "Uncategorized",
-      "theorems": 70494,
-      "address": "978b7aa8-ace9-8a51-b6e6-ef6801b4b0a3",
+      "theorems": 70499,
+      "address": "68ab5d12-14fa-8367-b270-e9df975d9960",
       "verified": true
     },
     {
@@ -18,12 +18,24 @@
       "theorems": 425,
       "address": "f5cf69b7-3d58-8fe8-9f21-f7e8657e1f39",
       "verified": false
+    },
+    {
+      "category": "Security",
+      "theorems": 5,
+      "address": "05f7e9aa-4e13-8a2b-ac72-1027a971f402",
+      "verified": true
+    },
+    {
+      "category": "Language",
+      "theorems": 2,
+      "address": "2ed2b17c-820f-8b56-b807-d64cffb38bd1",
+      "verified": true
     }
   ],
-  "claim_receipt": "0cba4648-6df7-82a3-abd3-b4320663f370",
+  "claim_receipt": "f45ee247-73da-89ab-b4f6-4eaa6c440cb8",
   "honest_scope": {
     "proves": [
-      "All 70836 distinct theorems (under 70919 keys) are Lean-verified (by decide)",
+      "All 70847 distinct theorems (under 70931 keys) are Lean-verified (by decide)",
       "Every theorem is categorized and accounted for",
       "The captain takes responsibility for all claims",
       "No theorem escapes the audit (100% coverage)"
@@ -35,5 +47,5 @@
       "That categorization implies priority or use"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"All 70836 distinct theorems under 70919 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"All 70847 distinct theorems under 70931 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
 }

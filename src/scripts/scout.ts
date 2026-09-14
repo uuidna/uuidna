@@ -25,7 +25,7 @@ export interface Lead { handle: string; bucket: number; status: string; lead: st
 export function leads(): Lead[] {
   const raw = JSON.parse(readFileSync('lean/leads.json', 'utf8')) as Record<string, unknown>
   const out: Lead[] = []
-  for (const kind of ['held', 'refuted', 'refused']) {
+  for (const kind of ['trial', 'refuted', 'refused']) {
     const rows = raw[kind]
     if (!Array.isArray(rows)) continue
     for (const r of rows as Record<string, string>[]) {
@@ -213,7 +213,7 @@ function main(): void {
   console.log('║ SCOUT BRIEF — one call, the whole board, hexbit-bucketed     ║')
   console.log('╚══════════════════════════════════════════════════════════════╝')
   console.log(`ledger    : ${LEAN_LEDGER.length} sealed keys — the ONLY citable names; anything else drains the report`)
-  console.log(`leads     : ${all.length}  (held ${all.filter((l) => l.kind === 'held').length}` +
+  console.log(`leads     : ${all.length}  (in trial ${all.filter((l) => l.kind === 'trial').length}` +
     ` · refuted ${all.filter((l) => l.kind === 'refuted').length} · refused ${all.filter((l) => l.kind === 'refused').length})`)
   console.log(`buckets   : 16 hexbit buckets, sizes ${bs.map((b) => b.length).join(',')}`)
   console.log()

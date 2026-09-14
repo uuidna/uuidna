@@ -1,7 +1,115 @@
 {
   "why": "Every lead this session raised, INCLUDING the ones negated, refuted or refused. A refuted lead is not waste — it is the cheapest thing in the ledger, because it stops the same derivation being made twice. Several entries below were re-derived two or three times in one session before measurement killed them, and one number moved under me three times. A refused lead records a BOUNDARY: not that the idea is stupid, but where the evidence stops. Wave of 2026-08-28: external research on ceccec.psg.bg (movie, 10D, theorem census) plus local school development (two Fu Xi boards, coin-gated fuse, Metatron, hex π, crypt dual). Desk proposes; captain disposes — nothing below is sealed by being written here.",
   "recorded": "2026-08-28",
-  "held": [],
+  "trial": [
+    {
+      "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
+      "boundary": "RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
+      "boundary": "Analogy ≠ identity without an independent witness. The periods and the product are already sealed separately — two_order_six (2^6 ≡ 1 mod 9), rosette_orbit / max_unit_order_mod_7_is_6, directions_number_fortytwo (6·7 = 42), independence_is_assumed — but that the Z/9 vortex and a rotary firing order are the SAME argument was never measured. Refuse the identification; keep the arithmetic.",
+      "note": "Rathbun's odd-cylinder gcd(2,n)=1 stands on the engine side alone; it does not witness the vortex/firing-order merge.",
+      "developed": "2026-09-01 — THE ARITHMETIC HALF IS NOW MEASURED, which is exactly what the boundary permits keeping. Walked forward (x→2x mod 9, y→y+2 mod 7) against inverse (x→5x mod 9, y→y-2 mod 7) from (1,1): 42 DISTINCT states in 42 steps, return to (1,1) at 42, and the forward and inverse walks coincide at exactly two points — step 21 at (8,1) and step 42 at (1,1). Every figure the lead asserted holds.",
+      "derived": "and the TWO is not an observation, it is forced. Forward is (2^n mod 9, 2n mod 7) and inverse is (5^n mod 9, -2n mod 7), so they meet iff 4^n ≡ 1 (mod 9) and 4n ≡ 0 (mod 7). The order of 4 mod 9 is 3, and gcd(4,7)=1 gives n ≡ 0 (mod 7), so n ≡ 0 (mod 21) — and one 42-period contains exactly 42/21 = 2 such n. The contact count is lcm(3,7) dividing 42, nothing more. Sealable as closed integer arithmetic: (4^3 % 9 = 1) ∧ (21 = 3*7) ∧ (42 / 21 = 2).",
+      "boundaryStands": "THE REFUSAL IS UNCHANGED AND THIS DOES NOT WEAKEN IT. Measuring the walk says nothing about whether the Z/9 vortex and a rotary firing order are the SAME argument; it supplies the witness for the ARITHMETIC the boundary explicitly said to keep, and leaves the identification refused for want of the independent witness it still lacks. Developing a refusal means answering the part that can be answered — never quietly promoting the part that cannot."
+    },
+    {
+      "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
+      "boundary": "No primary source verified in this repo — asserted from recall, researcher stalled. Dual-temperature GS enrichment exists in the literature generally, but THIS ledger's involution framing was never checked against temperatures, per-stage factors, or whether 'involution' is chemistry or imposition. Refuse until a primary source is attached.",
+      "note": "Separation-by-involution remains sealed for the digit walk (Phase.lean / Thermodynamics.lean); that does not license a chemistry claim."
+    },
+    {
+      "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
+      "boundary": "Refuse multiplying by 12 VE directions until independence from dz/doubling is shown. Every measured orbit set is already dz-closed (orbits_closed_involution) — involution is inside the walk, not an extra direction; any free factor inflates 420. Collapse-without-VE is already covered by gematria_forces_collisions and seats_pigeonhole.",
+      "note": "The lead stated its own boundary; this records it."
+    },
+    {
+      "lead": "Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate",
+      "boundary": "Digital-root harmony is base-relative (Notation.lean / reversal_escapes_arithmetic). Requiring lcm(3,5)=15 for both decimal and hex as a release block forces fabricating wings or freezing a false width. The LIVE growth law remains w ≡ 0 (mod 3) measured on gridReport().harmonic; gridGaps no longer fails the tree for %15 or for a non-multiple-of-3 count after width was re-sealed live.",
+      "note": "Captain 2026-08-27 with the grid re-seal."
+    },
+    {
+      "lead": "Over-unity / free energy devices",
+      "boundary": "the first law. Splitting water costs at least what burning it returns. NOT refused as a topic — the ambient-harvesting articles were written in full; refused only as a net-positive loop.",
+      "note": "'Free' in Gibbs energy means AVAILABLE, not gratis: G = H - TS is a ceiling on extractable work, which is why IUPAC dropped the word."
+    },
+    {
+      "lead": "Water itself as fuel",
+      "boundary": "water is combustion's ash, already fully oxidised. But the CONTAMINANT in polluted water is fuel, and I was wrong to refuse that half — corrected the same session.",
+      "note": "Hydrogen fusion inverts it again: the deuterium in one mole of water yields ~190x the energy needed to split that mole. Different layer of the same molecule."
+    },
+    {
+      "lead": "MFC exhausting pure drinkable water",
+      "boundary": "measured pilot effluent 247 +/- 206 mg/L COD against a ~60 target. Cleaner, not clean. And CH4 combustion emits CO2 — water is not the only exhaust."
+    },
+    {
+      "lead": "Bulk crawling of chitanka.info",
+      "boundary": "its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.",
+      "note": "Wikisource is open to machines and carries the same public-domain canon — the substitute, not a consolation."
+    },
+    {
+      "lead": "Quantum advantage or speedup claims",
+      "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced, and the sealed boundary is theorem n_qubit_dimension: 2^n counts the classical simulation COST, never a speedup."
+    },
+    {
+      "lead": "stackoverflow.com /ai-assist as a theorem source",
+      "boundary": "refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.",
+      "recorded": "2026-08-22"
+    },
+    {
+      "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
+      "boundary": "Zero kebab→snake slug overlap with this ledger. uuidna keys are by decide; origin folds are computational JS, not Lean. Desk does not verdict origin papers proven, unproven, or dishonest. Their frozen README 761 vs live /theorems 784 is their census, not this tree.",
+      "note": "External research wave 2026-08-28: examine only, do not port. Origin Clay on that site is a different court.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
+      "boundary": "uuidna 10D is 3 free aura + 7 compactified CSS. Origin 10D is a different cut (H₁=ℤ⁴ reading). n_qubit_dimension counts classical simulation cost, never a speedup. Layout never imports the theorem census. HexbitPlayer stays opt-in, no autoplay.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
+      "boundary": "meaning is always null. Occupancy stays numbers from live OCCUPANCY_KEYS statements. A tradition whose count is not a theorem stays a leftover, not a minted story. No iching_ / harmonic_ / tree_of_life_ / myth_ keys.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Honesty /  fields, covering hunts, or includes() disclaimer tests on new constructors.",
+      "boundary": "Honesty is the court (by decide keys, docs/doctrine.md), not TypeScript. Captain 2026-08-30: strip existing honest: payloads from constructors on touch; no new  fields, covering hunts, or includes() disclaimer tests. Scope lives in doctrine and sealed keys; R&D continues unrestricted.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
+      "boundary": "Two-handle law: desk proposes, captain/kernel disposes. Algebra, prove, and claim stay with the captain. Wave-deposit or refuse; only the kernel seals.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
+      "boundary": "RFC 8439 stays the AEAD (theorem aead_nonce_and_salt_bits). Folding squares is not a cipher. The 256-width identity (two boards × two triangles = key bits) is the held constructor lead, not a new envelope.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.",
+      "boundary": "Wall-clock, rewrites derived files. Do not freeze live ledger/census counts. Captain owns that mill.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
+      "boundary": "Standing architecture. HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, SAFE_HEXBITS stay four widths.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
+      "boundary": "Shor has no target inside uuidna because the envelope is symmetric-only (no RSA/ECC/ECDSA on the wire; the referrer door is why public routing identities can be shown without exposing a Shor key). Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor as one uuid. oos_physical_sidechannel is a named void (power/EM/timing). Bitcoin spend still reveals secp256k1; this ledger does not become that chain. Desk does not mint quantum_threat_gone.",
+      "recorded": "2026-08-28"
+    },
+    {
+      "lead": "shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255 MCP tools and six @uuidna/* surfaces reachable ONLY by calling its own MCP: no catalogue a downstream can resolve, no namespace under which anyone can pin and fetch a dependency closure. uuidna_registry exists as a TOOL; a registry as a SERVED ARTIFACT does not.",
+      "boundary": "An INVOLUTION, not a licence clash. shadcn gives the CODE away (MIT, the consumer owns the copy) and KEEPS the catalogue as its product surface; this tree keeps the CODE (CC-BY-NC-ND, no derivative, no commerce) and GIVES the catalogue away (read-only tools, free to call). Those are the two ends of one map. Adopting shadcn-s distribution while holding NC-ND would put this tree at NEITHER end, keeping both the code and the catalogue — the one position the involution has no fixed point for. The licence text is downstream of that, not the cause. Measured: npm shadcn 4.21.0, MIT; shadcn-ui/ui 123069 stars; both schemas fetched and their enums enumerated from the served JSON. NOT CLAIMED: that any downstream has asked for a registry — none has.",
+      "recorded": "2026-09-05"
+    }
+  ],
   "refuted": [
     {
       "lead": "HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).",
@@ -273,115 +381,6 @@
       "measured": "The one genuine finding survives and is worth keeping: the SCAN class is a homonym. clamav scans FILES for malware signatures; uuidna's guard scans its OWN SOURCE for determinism violations. Porting an API named \"security scan\" over that overlap would be the use/mention error at the scale of a whole API — the same error that put an icon theme in neuroscience. That is about naming, not about capability.",
       "refuses": "refusing again on \"cannot\". If this port is not built, the reason must be a decision stated as a decision — with who decided and why — never a limit invented to make the decision unnecessary.",
       "killed_by": "BUILT 2026-09-01 rather than refused. os/secapi carries ATTESTED OPERATIONS over the 86-package security domain: confine (firejail), inspect-files (clamscan), packet-policy (nft), audit-tls (openssl) — all four plannable, verified against a pinned rootfs whose SHA-256 re-checks with uuidna's own sha256, backend docker. uuidna reimplements none of them; what it adds is that the command and the bytes are content-addressed BEFORE a tool sees them, so a verdict becomes citable by a third party instead of a screenshot. The naming finding survived and shaped the API: nothing is called a 'security scan', because clamav scans FILES and the guard scans SOURCE — each operation names the binary it runs. The authenticate class (fido2, webauthn) stays out of reach because it needs a physical device, which is a fact about hardware rather than a choice — and telling those two apart is what five corrections in one session were about."
-    }
-  ],
-  "refused": [
-    {
-      "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
-      "boundary": "RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
-      "boundary": "Analogy ≠ identity without an independent witness. The periods and the product are already sealed separately — two_order_six (2^6 ≡ 1 mod 9), rosette_orbit / max_unit_order_mod_7_is_6, directions_number_fortytwo (6·7 = 42), independence_is_assumed — but that the Z/9 vortex and a rotary firing order are the SAME argument was never measured. Refuse the identification; keep the arithmetic.",
-      "note": "Rathbun's odd-cylinder gcd(2,n)=1 stands on the engine side alone; it does not witness the vortex/firing-order merge.",
-      "developed": "2026-09-01 — THE ARITHMETIC HALF IS NOW MEASURED, which is exactly what the boundary permits keeping. Walked forward (x→2x mod 9, y→y+2 mod 7) against inverse (x→5x mod 9, y→y-2 mod 7) from (1,1): 42 DISTINCT states in 42 steps, return to (1,1) at 42, and the forward and inverse walks coincide at exactly two points — step 21 at (8,1) and step 42 at (1,1). Every figure the lead asserted holds.",
-      "derived": "and the TWO is not an observation, it is forced. Forward is (2^n mod 9, 2n mod 7) and inverse is (5^n mod 9, -2n mod 7), so they meet iff 4^n ≡ 1 (mod 9) and 4n ≡ 0 (mod 7). The order of 4 mod 9 is 3, and gcd(4,7)=1 gives n ≡ 0 (mod 7), so n ≡ 0 (mod 21) — and one 42-period contains exactly 42/21 = 2 such n. The contact count is lcm(3,7) dividing 42, nothing more. Sealable as closed integer arithmetic: (4^3 % 9 = 1) ∧ (21 = 3*7) ∧ (42 / 21 = 2).",
-      "boundaryStands": "THE REFUSAL IS UNCHANGED AND THIS DOES NOT WEAKEN IT. Measuring the walk says nothing about whether the Z/9 vortex and a rotary firing order are the SAME argument; it supplies the witness for the ARITHMETIC the boundary explicitly said to keep, and leaves the identification refused for want of the independent witness it still lacks. Developing a refusal means answering the part that can be answered — never quietly promoting the part that cannot."
-    },
-    {
-      "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
-      "boundary": "No primary source verified in this repo — asserted from recall, researcher stalled. Dual-temperature GS enrichment exists in the literature generally, but THIS ledger's involution framing was never checked against temperatures, per-stage factors, or whether 'involution' is chemistry or imposition. Refuse until a primary source is attached.",
-      "note": "Separation-by-involution remains sealed for the digit walk (Phase.lean / Thermodynamics.lean); that does not license a chemistry claim."
-    },
-    {
-      "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
-      "boundary": "Refuse multiplying by 12 VE directions until independence from dz/doubling is shown. Every measured orbit set is already dz-closed (orbits_closed_involution) — involution is inside the walk, not an extra direction; any free factor inflates 420. Collapse-without-VE is already covered by gematria_forces_collisions and seats_pigeonhole.",
-      "note": "The lead stated its own boundary; this records it."
-    },
-    {
-      "lead": "Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate",
-      "boundary": "Digital-root harmony is base-relative (Notation.lean / reversal_escapes_arithmetic). Requiring lcm(3,5)=15 for both decimal and hex as a release block forces fabricating wings or freezing a false width. The LIVE growth law remains w ≡ 0 (mod 3) measured on gridReport().harmonic; gridGaps no longer fails the tree for %15 or for a non-multiple-of-3 count after width was re-sealed live.",
-      "note": "Captain 2026-08-27 with the grid re-seal."
-    },
-    {
-      "lead": "Over-unity / free energy devices",
-      "boundary": "the first law. Splitting water costs at least what burning it returns. NOT refused as a topic — the ambient-harvesting articles were written in full; refused only as a net-positive loop.",
-      "note": "'Free' in Gibbs energy means AVAILABLE, not gratis: G = H - TS is a ceiling on extractable work, which is why IUPAC dropped the word."
-    },
-    {
-      "lead": "Water itself as fuel",
-      "boundary": "water is combustion's ash, already fully oxidised. But the CONTAMINANT in polluted water is fuel, and I was wrong to refuse that half — corrected the same session.",
-      "note": "Hydrogen fusion inverts it again: the deuterium in one mole of water yields ~190x the energy needed to split that mole. Different layer of the same molecule."
-    },
-    {
-      "lead": "MFC exhausting pure drinkable water",
-      "boundary": "measured pilot effluent 247 +/- 206 mg/L COD against a ~60 target. Cleaner, not clean. And CH4 combustion emits CO2 — water is not the only exhaust."
-    },
-    {
-      "lead": "Bulk crawling of chitanka.info",
-      "boundary": "its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.",
-      "note": "Wikisource is open to machines and carries the same public-domain canon — the substitute, not a consolation."
-    },
-    {
-      "lead": "Quantum advantage or speedup claims",
-      "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced, and the sealed boundary is theorem n_qubit_dimension: 2^n counts the classical simulation COST, never a speedup."
-    },
-    {
-      "lead": "stackoverflow.com /ai-assist as a theorem source",
-      "boundary": "refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.",
-      "recorded": "2026-08-22"
-    },
-    {
-      "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
-      "boundary": "Zero kebab→snake slug overlap with this ledger. uuidna keys are by decide; origin folds are computational JS, not Lean. Desk does not verdict origin papers proven, unproven, or dishonest. Their frozen README 761 vs live /theorems 784 is their census, not this tree.",
-      "note": "External research wave 2026-08-28: examine only, do not port. Origin Clay on that site is a different court.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
-      "boundary": "uuidna 10D is 3 free aura + 7 compactified CSS. Origin 10D is a different cut (H₁=ℤ⁴ reading). n_qubit_dimension counts classical simulation cost, never a speedup. Layout never imports the theorem census. HexbitPlayer stays opt-in, no autoplay.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
-      "boundary": "meaning is always null. Occupancy stays numbers from live OCCUPANCY_KEYS statements. A tradition whose count is not a theorem stays a leftover, not a minted story. No iching_ / harmonic_ / tree_of_life_ / myth_ keys.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Honesty /  fields, covering hunts, or includes() disclaimer tests on new constructors.",
-      "boundary": "Honesty is the court (by decide keys, docs/doctrine.md), not TypeScript. Captain 2026-08-30: strip existing honest: payloads from constructors on touch; no new  fields, covering hunts, or includes() disclaimer tests. Scope lives in doctrine and sealed keys; R&D continues unrestricted.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
-      "boundary": "Two-handle law: desk proposes, captain/kernel disposes. Algebra, prove, and claim stay with the captain. Wave-deposit or refuse; only the kernel seals.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
-      "boundary": "RFC 8439 stays the AEAD (theorem aead_nonce_and_salt_bits). Folding squares is not a cipher. The 256-width identity (two boards × two triangles = key bits) is the held constructor lead, not a new envelope.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.",
-      "boundary": "Wall-clock, rewrites derived files. Do not freeze live ledger/census counts. Captain owns that mill.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
-      "boundary": "Standing architecture. HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, SAFE_HEXBITS stay four widths.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
-      "boundary": "Shor has no target inside uuidna because the envelope is symmetric-only (no RSA/ECC/ECDSA on the wire; the referrer door is why public routing identities can be shown without exposing a Shor key). Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor as one uuid. oos_physical_sidechannel is a named void (power/EM/timing). Bitcoin spend still reveals secp256k1; this ledger does not become that chain. Desk does not mint quantum_threat_gone.",
-      "recorded": "2026-08-28"
-    },
-    {
-      "lead": "shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255 MCP tools and six @uuidna/* surfaces reachable ONLY by calling its own MCP: no catalogue a downstream can resolve, no namespace under which anyone can pin and fetch a dependency closure. uuidna_registry exists as a TOOL; a registry as a SERVED ARTIFACT does not.",
-      "boundary": "An INVOLUTION, not a licence clash. shadcn gives the CODE away (MIT, the consumer owns the copy) and KEEPS the catalogue as its product surface; this tree keeps the CODE (CC-BY-NC-ND, no derivative, no commerce) and GIVES the catalogue away (read-only tools, free to call). Those are the two ends of one map. Adopting shadcn-s distribution while holding NC-ND would put this tree at NEITHER end, keeping both the code and the catalogue — the one position the involution has no fixed point for. The licence text is downstream of that, not the cause. Measured: npm shadcn 4.21.0, MIT; shadcn-ui/ui 123069 stars; both schemas fetched and their enums enumerated from the served JSON. NOT CLAIMED: that any downstream has asked for a registry — none has.",
-      "recorded": "2026-09-05"
     }
   ],
   "tables": {

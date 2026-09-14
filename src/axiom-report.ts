@@ -74,9 +74,11 @@ import { toUuid } from './address.js'
 /** one wing's audit, keyed by what the kernel was actually asked: its text and the theorems named */
 export interface WingReceipt { asked: string; verdict: Record<string, string[]> }
 
-/** wingAskedKey(text, keys) → the handle of the exact probe the kernel answers; order of keys is part of the question */
-export const wingAskedKey = (wingText: string, keys: readonly string[]): string =>
-  handleOf(toUuid(wingText + '\n' + keys.map((k) => '#print axioms ' + k).join('\n')))
+/** wingAskedKey(text, keys, toolchain) → the address of the exact probe the kernel answers: the Lean toolchain, the
+ *  wing's text and the keys asked, in order. A full 128-bit uuid, not a 32-bit handle, so no edited wing can be made
+ *  to collide with its old receipt; and the toolchain is part of the question, so a new Lean re-asks every wing. */
+export const wingAskedKey = (wingText: string, keys: readonly string[], toolchain = ''): string =>
+  toUuid(toolchain + '\n' + wingText + '\n' + keys.map((k) => '#print axioms ' + k).join('\n'))
 
 /** reusableWings(prior, asks) → which wings' prior verdicts still answer the identical question */
 export function reusableWings(

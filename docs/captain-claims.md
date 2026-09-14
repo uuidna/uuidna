@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-13
+**Generated:** 2026-09-14
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 70919/70919 theorems — every one, by construction
-**Discovery claimed:** 70537 — the other 382 restate a fact a named source found first
+**Formalisation claimed:** 70931/70931 theorems — every one, by construction
+**Discovery claimed:** 70549 — the other 382 restate a fact a named source found first
 
 *The 382 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 331 of 365 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `8059235a-df88-88ed-becc-6254e0776d72`
+**Claim receipt:** `52e5bcf5-bf94-83c3-a37d-81874f9eff4f`
 
 ### Facts the captain does not claim to have discovered
 
@@ -450,6 +450,33 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [beast_number_fits_two_readings](/theorem/beast_number_fits_two_readings) · [nicomachus_digit_rule_fails](/theorem/nicomachus_digit_rule_fails) · [augustine_six_is_perfect](/theorem/augustine_six_is_perfect) · [sefer_yetzirah_stones_build_houses](/theorem/sefer_yetzirah_stones_build_houses) · [llull_pairs_and_triples](/theorem/llull_pairs_and_triples) · [baudhayana_sqrt2_is_pell](/theorem/baudhayana_sqrt2_is_pell)
+
+### The build-host surface
+
+- **Theorems:** 2
+- **Sample lineAddress:** `73fffdd6-e6b5-8d49-988a-1272167324c3`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[the_store_footprint_is_its_folders](/theorem/the_store_footprint_is_its_folders) · [the_third_level_already_shares](/theorem/the_third_level_already_shares)
+
+### The forensic odds
+
+- **Theorems:** 3
+- **Sample lineAddress:** `356f795e-f62e-8cf6-bb11-55cb8f5a8d27`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[forged_address_odds_are_negligible](/theorem/forged_address_odds_are_negligible) · [forged_handle_odds_are_small](/theorem/forged_handle_odds_are_small) · [sixteen_bit_handles_would_collide](/theorem/sixteen_bit_handles_would_collide)
+
+### The substitution invariants
+
+- **Theorems:** 2
+- **Sample lineAddress:** `23b34688-4845-888b-b66d-5d28a10af005`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[relabel3_preserves_bigram_collisions](/theorem/relabel3_preserves_bigram_collisions) · [letter_order_moves_bigram_collisions](/theorem/letter_order_moves_bigram_collisions)
 
 ### The time coordinate
 
@@ -1342,77 +1369,590 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [conway_ninetynine_counting_identity_holds](/theorem/conway_ninetynine_counting_identity_holds) · [conway_ninetynine_eigenvalues_are_integers](/theorem/conway_ninetynine_eigenvalues_are_integers) · [conway_ninetynine_multiplicities_are_integers_and_close](/theorem/conway_ninetynine_multiplicities_are_integers_and_close) · [no_arithmetic_obstruction_is_not_existence](/theorem/no_arithmetic_obstruction_is_not_existence) · [six_is_not_a_prime_power](/theorem/six_is_not_a_prime_power) · [this_ledger_offers_nothing_decidable_on_three_of_the_five](/theorem/this_ledger_offers_nothing_decidable_on_three_of_the_five)
 
-### The six-cube translations, file 1 of 8
+### The six-cube translation by 0
 
-- **Theorems:** 8
+- **Theorems:** 1
 - **Sample lineAddress:** `68664764-01c9-8c39-8a65-6f95cd050b1f`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_0](/theorem/xor_translation_preserves_adjacency_0) · [xor_translation_preserves_adjacency_1](/theorem/xor_translation_preserves_adjacency_1) · [xor_translation_preserves_adjacency_2](/theorem/xor_translation_preserves_adjacency_2) · [xor_translation_preserves_adjacency_3](/theorem/xor_translation_preserves_adjacency_3) · [xor_translation_preserves_adjacency_4](/theorem/xor_translation_preserves_adjacency_4) · [xor_translation_preserves_adjacency_5](/theorem/xor_translation_preserves_adjacency_5) · [xor_translation_preserves_adjacency_6](/theorem/xor_translation_preserves_adjacency_6) · [xor_translation_preserves_adjacency_7](/theorem/xor_translation_preserves_adjacency_7)
+[xor_translation_preserves_adjacency_0](/theorem/xor_translation_preserves_adjacency_0)
 
-### The six-cube translations, file 2 of 8
+### The six-cube translation by 1
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `8cf36655-926c-894c-b539-a1c9a3bc7514`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_1](/theorem/xor_translation_preserves_adjacency_1)
+
+### The six-cube translation by 2
+
+- **Theorems:** 1
+- **Sample lineAddress:** `7588650d-1670-8ede-8645-866081cb64b3`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_2](/theorem/xor_translation_preserves_adjacency_2)
+
+### The six-cube translation by 3
+
+- **Theorems:** 1
+- **Sample lineAddress:** `d9409d89-d6d4-8f19-b993-7611cd47863e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_3](/theorem/xor_translation_preserves_adjacency_3)
+
+### The six-cube translation by 4
+
+- **Theorems:** 1
+- **Sample lineAddress:** `eebb72c7-5ab3-83af-b5ad-7e6712fa2f8d`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_4](/theorem/xor_translation_preserves_adjacency_4)
+
+### The six-cube translation by 5
+
+- **Theorems:** 1
+- **Sample lineAddress:** `06bce009-a778-8a42-87be-9a8dcb8e1502`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_5](/theorem/xor_translation_preserves_adjacency_5)
+
+### The six-cube translation by 6
+
+- **Theorems:** 1
+- **Sample lineAddress:** `8aec3f7c-120e-84ed-a75a-fa1670548931`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_6](/theorem/xor_translation_preserves_adjacency_6)
+
+### The six-cube translation by 7
+
+- **Theorems:** 1
+- **Sample lineAddress:** `369dec67-9905-86de-9ebc-cad03f9f2390`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_7](/theorem/xor_translation_preserves_adjacency_7)
+
+### The six-cube translation by 8
+
+- **Theorems:** 1
 - **Sample lineAddress:** `47ccf91a-ec8e-8c19-abbe-4169225ae3f6`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_8](/theorem/xor_translation_preserves_adjacency_8) · [xor_translation_preserves_adjacency_9](/theorem/xor_translation_preserves_adjacency_9) · [xor_translation_preserves_adjacency_10](/theorem/xor_translation_preserves_adjacency_10) · [xor_translation_preserves_adjacency_11](/theorem/xor_translation_preserves_adjacency_11) · [xor_translation_preserves_adjacency_12](/theorem/xor_translation_preserves_adjacency_12) · [xor_translation_preserves_adjacency_13](/theorem/xor_translation_preserves_adjacency_13) · [xor_translation_preserves_adjacency_14](/theorem/xor_translation_preserves_adjacency_14) · [xor_translation_preserves_adjacency_15](/theorem/xor_translation_preserves_adjacency_15)
+[xor_translation_preserves_adjacency_8](/theorem/xor_translation_preserves_adjacency_8)
 
-### The six-cube translations, file 3 of 8
+### The six-cube translation by 9
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `9726f911-c31f-8568-bd8e-beb323316779`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_9](/theorem/xor_translation_preserves_adjacency_9)
+
+### The six-cube translation by 10
+
+- **Theorems:** 1
+- **Sample lineAddress:** `b7c070f1-249b-8a02-b5ea-7b31a2e0482a`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_10](/theorem/xor_translation_preserves_adjacency_10)
+
+### The six-cube translation by 11
+
+- **Theorems:** 1
+- **Sample lineAddress:** `c14c4f24-4caf-8535-ab21-45c6ba809d9f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_11](/theorem/xor_translation_preserves_adjacency_11)
+
+### The six-cube translation by 12
+
+- **Theorems:** 1
+- **Sample lineAddress:** `8e6073b8-1e73-8d18-b2d2-b5f7c1b3f3e0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_12](/theorem/xor_translation_preserves_adjacency_12)
+
+### The six-cube translation by 13
+
+- **Theorems:** 1
+- **Sample lineAddress:** `20810cf3-d188-86c2-8039-4e63d96bd031`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_13](/theorem/xor_translation_preserves_adjacency_13)
+
+### The six-cube translation by 14
+
+- **Theorems:** 1
+- **Sample lineAddress:** `f8f106d9-8f65-85f3-8415-71079e440c61`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_14](/theorem/xor_translation_preserves_adjacency_14)
+
+### The six-cube translation by 15
+
+- **Theorems:** 1
+- **Sample lineAddress:** `45515aa6-9d6e-8715-8375-630e7b241c00`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_15](/theorem/xor_translation_preserves_adjacency_15)
+
+### The six-cube translation by 16
+
+- **Theorems:** 1
 - **Sample lineAddress:** `1951f967-18b9-8bf8-b4e4-dd1ce04a91d3`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_16](/theorem/xor_translation_preserves_adjacency_16) · [xor_translation_preserves_adjacency_17](/theorem/xor_translation_preserves_adjacency_17) · [xor_translation_preserves_adjacency_18](/theorem/xor_translation_preserves_adjacency_18) · [xor_translation_preserves_adjacency_19](/theorem/xor_translation_preserves_adjacency_19) · [xor_translation_preserves_adjacency_20](/theorem/xor_translation_preserves_adjacency_20) · [xor_translation_preserves_adjacency_21](/theorem/xor_translation_preserves_adjacency_21) · [xor_translation_preserves_adjacency_22](/theorem/xor_translation_preserves_adjacency_22) · [xor_translation_preserves_adjacency_23](/theorem/xor_translation_preserves_adjacency_23)
+[xor_translation_preserves_adjacency_16](/theorem/xor_translation_preserves_adjacency_16)
 
-### The six-cube translations, file 4 of 8
+### The six-cube translation by 17
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `ffd10feb-7b43-8f1e-acbe-8abddd369e44`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_17](/theorem/xor_translation_preserves_adjacency_17)
+
+### The six-cube translation by 18
+
+- **Theorems:** 1
+- **Sample lineAddress:** `1dd84c4c-1887-8132-a30b-e56e95ba8c07`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_18](/theorem/xor_translation_preserves_adjacency_18)
+
+### The six-cube translation by 19
+
+- **Theorems:** 1
+- **Sample lineAddress:** `25e9fc3d-38f2-8d3a-8ca6-2131a50be8b6`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_19](/theorem/xor_translation_preserves_adjacency_19)
+
+### The six-cube translation by 20
+
+- **Theorems:** 1
+- **Sample lineAddress:** `39b4ae13-26cf-82c1-b761-68bfbab42d27`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_20](/theorem/xor_translation_preserves_adjacency_20)
+
+### The six-cube translation by 21
+
+- **Theorems:** 1
+- **Sample lineAddress:** `074fa6cb-a2a1-81fc-a139-23243b25867f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_21](/theorem/xor_translation_preserves_adjacency_21)
+
+### The six-cube translation by 22
+
+- **Theorems:** 1
+- **Sample lineAddress:** `4baa2b8f-97c6-89dd-b5b1-9b8f12422153`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_22](/theorem/xor_translation_preserves_adjacency_22)
+
+### The six-cube translation by 23
+
+- **Theorems:** 1
+- **Sample lineAddress:** `f432b350-6e03-8271-9d8f-2f15a1239ad5`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_23](/theorem/xor_translation_preserves_adjacency_23)
+
+### The six-cube translation by 24
+
+- **Theorems:** 1
 - **Sample lineAddress:** `0eccb09c-3d4c-85d5-b2c3-a6c5833160be`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_24](/theorem/xor_translation_preserves_adjacency_24) · [xor_translation_preserves_adjacency_25](/theorem/xor_translation_preserves_adjacency_25) · [xor_translation_preserves_adjacency_26](/theorem/xor_translation_preserves_adjacency_26) · [xor_translation_preserves_adjacency_27](/theorem/xor_translation_preserves_adjacency_27) · [xor_translation_preserves_adjacency_28](/theorem/xor_translation_preserves_adjacency_28) · [xor_translation_preserves_adjacency_29](/theorem/xor_translation_preserves_adjacency_29) · [xor_translation_preserves_adjacency_30](/theorem/xor_translation_preserves_adjacency_30) · [xor_translation_preserves_adjacency_31](/theorem/xor_translation_preserves_adjacency_31)
+[xor_translation_preserves_adjacency_24](/theorem/xor_translation_preserves_adjacency_24)
 
-### The six-cube translations, file 5 of 8
+### The six-cube translation by 25
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `5646c3f5-88da-8207-a608-aab62bfe412f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_25](/theorem/xor_translation_preserves_adjacency_25)
+
+### The six-cube translation by 26
+
+- **Theorems:** 1
+- **Sample lineAddress:** `120c92c0-388b-8cef-a125-609c48ca487e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_26](/theorem/xor_translation_preserves_adjacency_26)
+
+### The six-cube translation by 27
+
+- **Theorems:** 1
+- **Sample lineAddress:** `dd66cd59-395d-8297-9f89-5003a42b5623`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_27](/theorem/xor_translation_preserves_adjacency_27)
+
+### The six-cube translation by 28
+
+- **Theorems:** 1
+- **Sample lineAddress:** `09b12ac3-005d-8c9d-9a9b-cafc0b049ff6`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_28](/theorem/xor_translation_preserves_adjacency_28)
+
+### The six-cube translation by 29
+
+- **Theorems:** 1
+- **Sample lineAddress:** `cfb66ff0-521a-802f-8b11-f5dd44c2b0f4`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_29](/theorem/xor_translation_preserves_adjacency_29)
+
+### The six-cube translation by 30
+
+- **Theorems:** 1
+- **Sample lineAddress:** `080a4982-62a4-8b65-b34a-da53606d8cdb`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_30](/theorem/xor_translation_preserves_adjacency_30)
+
+### The six-cube translation by 31
+
+- **Theorems:** 1
+- **Sample lineAddress:** `1148bd67-3a91-8c32-b794-24ae0cfd8778`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_31](/theorem/xor_translation_preserves_adjacency_31)
+
+### The six-cube translation by 32
+
+- **Theorems:** 1
 - **Sample lineAddress:** `72d16381-eb21-8706-9433-5cd4cfa34e2e`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_32](/theorem/xor_translation_preserves_adjacency_32) · [xor_translation_preserves_adjacency_33](/theorem/xor_translation_preserves_adjacency_33) · [xor_translation_preserves_adjacency_34](/theorem/xor_translation_preserves_adjacency_34) · [xor_translation_preserves_adjacency_35](/theorem/xor_translation_preserves_adjacency_35) · [xor_translation_preserves_adjacency_36](/theorem/xor_translation_preserves_adjacency_36) · [xor_translation_preserves_adjacency_37](/theorem/xor_translation_preserves_adjacency_37) · [xor_translation_preserves_adjacency_38](/theorem/xor_translation_preserves_adjacency_38) · [xor_translation_preserves_adjacency_39](/theorem/xor_translation_preserves_adjacency_39)
+[xor_translation_preserves_adjacency_32](/theorem/xor_translation_preserves_adjacency_32)
 
-### The six-cube translations, file 6 of 8
+### The six-cube translation by 33
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `46e874c0-9dbe-8ace-b91a-ac9c9e16870a`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_33](/theorem/xor_translation_preserves_adjacency_33)
+
+### The six-cube translation by 34
+
+- **Theorems:** 1
+- **Sample lineAddress:** `e73c1728-2969-81b4-b9de-ef5da8827b5f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_34](/theorem/xor_translation_preserves_adjacency_34)
+
+### The six-cube translation by 35
+
+- **Theorems:** 1
+- **Sample lineAddress:** `a56be10d-9065-8e65-99aa-635a679f0467`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_35](/theorem/xor_translation_preserves_adjacency_35)
+
+### The six-cube translation by 36
+
+- **Theorems:** 1
+- **Sample lineAddress:** `385f2363-db9a-8705-a5a5-7fc9faefa98e`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_36](/theorem/xor_translation_preserves_adjacency_36)
+
+### The six-cube translation by 37
+
+- **Theorems:** 1
+- **Sample lineAddress:** `86d02f6e-0061-856b-9db3-7efb085da6bb`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_37](/theorem/xor_translation_preserves_adjacency_37)
+
+### The six-cube translation by 38
+
+- **Theorems:** 1
+- **Sample lineAddress:** `8f9e5a5c-00df-8766-859d-65b40b66a9d9`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_38](/theorem/xor_translation_preserves_adjacency_38)
+
+### The six-cube translation by 39
+
+- **Theorems:** 1
+- **Sample lineAddress:** `427d1ae7-3c56-8522-8d54-c4d97016ffc7`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_39](/theorem/xor_translation_preserves_adjacency_39)
+
+### The six-cube translation by 40
+
+- **Theorems:** 1
 - **Sample lineAddress:** `06d46cd7-64c7-82b8-88ec-646f19cf2319`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_40](/theorem/xor_translation_preserves_adjacency_40) · [xor_translation_preserves_adjacency_41](/theorem/xor_translation_preserves_adjacency_41) · [xor_translation_preserves_adjacency_42](/theorem/xor_translation_preserves_adjacency_42) · [xor_translation_preserves_adjacency_43](/theorem/xor_translation_preserves_adjacency_43) · [xor_translation_preserves_adjacency_44](/theorem/xor_translation_preserves_adjacency_44) · [xor_translation_preserves_adjacency_45](/theorem/xor_translation_preserves_adjacency_45) · [xor_translation_preserves_adjacency_46](/theorem/xor_translation_preserves_adjacency_46) · [xor_translation_preserves_adjacency_47](/theorem/xor_translation_preserves_adjacency_47)
+[xor_translation_preserves_adjacency_40](/theorem/xor_translation_preserves_adjacency_40)
 
-### The six-cube translations, file 7 of 8
+### The six-cube translation by 41
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `285f8024-9bbe-8619-a58b-ea04c2255b0b`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_41](/theorem/xor_translation_preserves_adjacency_41)
+
+### The six-cube translation by 42
+
+- **Theorems:** 1
+- **Sample lineAddress:** `c33ea960-2dd3-89f2-8bf7-4b4775ac0a36`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_42](/theorem/xor_translation_preserves_adjacency_42)
+
+### The six-cube translation by 43
+
+- **Theorems:** 1
+- **Sample lineAddress:** `867eb204-0b57-88a9-850c-d6eb160298ac`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_43](/theorem/xor_translation_preserves_adjacency_43)
+
+### The six-cube translation by 44
+
+- **Theorems:** 1
+- **Sample lineAddress:** `a813167d-c4a6-8984-a699-3f3fcf7dc824`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_44](/theorem/xor_translation_preserves_adjacency_44)
+
+### The six-cube translation by 45
+
+- **Theorems:** 1
+- **Sample lineAddress:** `8ee5de4e-062d-81ff-a5a1-ef9b7bd063f3`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_45](/theorem/xor_translation_preserves_adjacency_45)
+
+### The six-cube translation by 46
+
+- **Theorems:** 1
+- **Sample lineAddress:** `4a756c29-2e06-85eb-bb39-bdb20539f39a`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_46](/theorem/xor_translation_preserves_adjacency_46)
+
+### The six-cube translation by 47
+
+- **Theorems:** 1
+- **Sample lineAddress:** `d7a44aff-2719-836e-95eb-b56ce4247110`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_47](/theorem/xor_translation_preserves_adjacency_47)
+
+### The six-cube translation by 48
+
+- **Theorems:** 1
 - **Sample lineAddress:** `86f8202d-6416-8563-b049-748608e754cd`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_48](/theorem/xor_translation_preserves_adjacency_48) · [xor_translation_preserves_adjacency_49](/theorem/xor_translation_preserves_adjacency_49) · [xor_translation_preserves_adjacency_50](/theorem/xor_translation_preserves_adjacency_50) · [xor_translation_preserves_adjacency_51](/theorem/xor_translation_preserves_adjacency_51) · [xor_translation_preserves_adjacency_52](/theorem/xor_translation_preserves_adjacency_52) · [xor_translation_preserves_adjacency_53](/theorem/xor_translation_preserves_adjacency_53) · [xor_translation_preserves_adjacency_54](/theorem/xor_translation_preserves_adjacency_54) · [xor_translation_preserves_adjacency_55](/theorem/xor_translation_preserves_adjacency_55)
+[xor_translation_preserves_adjacency_48](/theorem/xor_translation_preserves_adjacency_48)
 
-### The six-cube translations, file 8 of 8
+### The six-cube translation by 49
 
-- **Theorems:** 8
+- **Theorems:** 1
+- **Sample lineAddress:** `ba0dd686-0334-8433-808f-6e3de0977f46`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_49](/theorem/xor_translation_preserves_adjacency_49)
+
+### The six-cube translation by 50
+
+- **Theorems:** 1
+- **Sample lineAddress:** `b1cd78ea-e78a-8a71-9156-5fef740f946c`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_50](/theorem/xor_translation_preserves_adjacency_50)
+
+### The six-cube translation by 51
+
+- **Theorems:** 1
+- **Sample lineAddress:** `cfbc20bb-9587-827e-998b-38ee08d6febc`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_51](/theorem/xor_translation_preserves_adjacency_51)
+
+### The six-cube translation by 52
+
+- **Theorems:** 1
+- **Sample lineAddress:** `e0d7796e-708f-8061-a73e-580a8b3b371a`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_52](/theorem/xor_translation_preserves_adjacency_52)
+
+### The six-cube translation by 53
+
+- **Theorems:** 1
+- **Sample lineAddress:** `0da360be-76af-8c21-843f-6e13bf903eda`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_53](/theorem/xor_translation_preserves_adjacency_53)
+
+### The six-cube translation by 54
+
+- **Theorems:** 1
+- **Sample lineAddress:** `1dedcafa-0c8d-88ec-bf86-c4b3ccca5f11`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_54](/theorem/xor_translation_preserves_adjacency_54)
+
+### The six-cube translation by 55
+
+- **Theorems:** 1
+- **Sample lineAddress:** `e93233f2-00c7-8f0b-af92-1156b28ce4d9`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_55](/theorem/xor_translation_preserves_adjacency_55)
+
+### The six-cube translation by 56
+
+- **Theorems:** 1
 - **Sample lineAddress:** `9b2dd494-0aa3-877c-a690-0c93ef525aa6`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[xor_translation_preserves_adjacency_56](/theorem/xor_translation_preserves_adjacency_56) · [xor_translation_preserves_adjacency_57](/theorem/xor_translation_preserves_adjacency_57) · [xor_translation_preserves_adjacency_58](/theorem/xor_translation_preserves_adjacency_58) · [xor_translation_preserves_adjacency_59](/theorem/xor_translation_preserves_adjacency_59) · [xor_translation_preserves_adjacency_60](/theorem/xor_translation_preserves_adjacency_60) · [xor_translation_preserves_adjacency_61](/theorem/xor_translation_preserves_adjacency_61) · [xor_translation_preserves_adjacency_62](/theorem/xor_translation_preserves_adjacency_62) · [xor_translation_preserves_adjacency_63](/theorem/xor_translation_preserves_adjacency_63)
+[xor_translation_preserves_adjacency_56](/theorem/xor_translation_preserves_adjacency_56)
+
+### The six-cube translation by 57
+
+- **Theorems:** 1
+- **Sample lineAddress:** `ad6f7332-df7c-80ba-bacd-48f481760f6c`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_57](/theorem/xor_translation_preserves_adjacency_57)
+
+### The six-cube translation by 58
+
+- **Theorems:** 1
+- **Sample lineAddress:** `abd9f230-004e-84a0-b53e-ee179bc2a386`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_58](/theorem/xor_translation_preserves_adjacency_58)
+
+### The six-cube translation by 59
+
+- **Theorems:** 1
+- **Sample lineAddress:** `2521a8d0-4998-887f-88aa-af098d5504fd`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_59](/theorem/xor_translation_preserves_adjacency_59)
+
+### The six-cube translation by 60
+
+- **Theorems:** 1
+- **Sample lineAddress:** `20ae19c2-c74e-8f08-b66d-c9ef998f3765`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_60](/theorem/xor_translation_preserves_adjacency_60)
+
+### The six-cube translation by 61
+
+- **Theorems:** 1
+- **Sample lineAddress:** `a7df36ff-0c4f-85d2-a40f-df0c1d5979ce`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_61](/theorem/xor_translation_preserves_adjacency_61)
+
+### The six-cube translation by 62
+
+- **Theorems:** 1
+- **Sample lineAddress:** `8234fb57-19b6-81bf-b98b-a3054d93302f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_62](/theorem/xor_translation_preserves_adjacency_62)
+
+### The six-cube translation by 63
+
+- **Theorems:** 1
+- **Sample lineAddress:** `ac815cb0-a4ef-8158-8d59-aa26fa0670ab`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[xor_translation_preserves_adjacency_63](/theorem/xor_translation_preserves_adjacency_63)
+
+### A hundred thousand billion poems
+
+- **Theorems:** 5
+- **Sample lineAddress:** `c0dc3b6b-564c-8632-b748-461f0ddbb2a0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[queneau_poems_are_ten_to_the_fourteen](/theorem/queneau_poems_are_ten_to_the_fourteen) · [queneau_one_strip_per_position](/theorem/queneau_one_strip_per_position) · [queneau_poems_are_the_fourteen_digit_numerals](/theorem/queneau_poems_are_the_fourteen_digit_numerals) · [queneau_a_sonnet_is_eight_and_six](/theorem/queneau_a_sonnet_is_eight_and_six) · [queneau_ten_sonnets_are_a_vanishing_sample](/theorem/queneau_ten_sonnets_are_a_vanishing_sample)
 
 ### The waves
 
@@ -1667,7 +2207,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70836 (70919 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 70847 (70931 entries, 84 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1685,7 +2225,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 70919 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 70931 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -1697,7 +2237,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 70919; he claims discovery of 70537 and credits the other 382 facts to their named sources
+- ✓ The captain formalised all 70931; he claims discovery of 70549 and credits the other 382 facts to their named sources
 - ✓ These theorems are Lean-verified (by decide)
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -1713,7 +2253,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70919; of these I claim discovery of 70537, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70931; of these I claim discovery of 70549, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

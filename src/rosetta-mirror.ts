@@ -467,6 +467,12 @@ the_hmac_pads_differ_in_the_bits_that_carry 27
 pbkdf2_block_count_is_the_ceiling_over_every_length_to_a_kilobit 27
 a_sha256_digest_is_two_uuids_and_four_boards_at_once 27
 the_claim_involution_fixes_only_the_honest_statement 27
+#Cyber.lean
+the_store_footprint_is_its_folders 27
+the_third_level_already_shares 27
+#Decipher.lean
+relabel3_preserves_bigram_collisions 19
+letter_order_moves_bigram_collisions 19
 #Discover.lean
 involution_census_self_explains 27
 happy_ending_verified_cases 27
@@ -636,76 +642,132 @@ polarity_flip_is_an_automorphism_15 26
 the_doubling_changes_the_degree_and_not_the_transitivity 27
 #EquilibriumXor1.lean
 xor_translation_preserves_adjacency_0 26
-xor_translation_preserves_adjacency_1 26
-xor_translation_preserves_adjacency_2 26
-xor_translation_preserves_adjacency_3 26
-xor_translation_preserves_adjacency_4 26
-xor_translation_preserves_adjacency_5 26
-xor_translation_preserves_adjacency_6 26
-xor_translation_preserves_adjacency_7 26
-#EquilibriumXor2.lean
-xor_translation_preserves_adjacency_8 26
+#EquilibriumXor10.lean
 xor_translation_preserves_adjacency_9 26
+#EquilibriumXor11.lean
 xor_translation_preserves_adjacency_10 26
+#EquilibriumXor12.lean
 xor_translation_preserves_adjacency_11 26
+#EquilibriumXor13.lean
 xor_translation_preserves_adjacency_12 26
+#EquilibriumXor14.lean
 xor_translation_preserves_adjacency_13 26
+#EquilibriumXor15.lean
 xor_translation_preserves_adjacency_14 26
+#EquilibriumXor16.lean
 xor_translation_preserves_adjacency_15 26
-#EquilibriumXor3.lean
+#EquilibriumXor17.lean
 xor_translation_preserves_adjacency_16 26
+#EquilibriumXor18.lean
 xor_translation_preserves_adjacency_17 26
+#EquilibriumXor19.lean
 xor_translation_preserves_adjacency_18 26
+#EquilibriumXor2.lean
+xor_translation_preserves_adjacency_1 26
+#EquilibriumXor20.lean
 xor_translation_preserves_adjacency_19 26
+#EquilibriumXor21.lean
 xor_translation_preserves_adjacency_20 26
+#EquilibriumXor22.lean
 xor_translation_preserves_adjacency_21 26
+#EquilibriumXor23.lean
 xor_translation_preserves_adjacency_22 26
+#EquilibriumXor24.lean
 xor_translation_preserves_adjacency_23 26
-#EquilibriumXor4.lean
+#EquilibriumXor25.lean
 xor_translation_preserves_adjacency_24 26
+#EquilibriumXor26.lean
 xor_translation_preserves_adjacency_25 26
+#EquilibriumXor27.lean
 xor_translation_preserves_adjacency_26 26
+#EquilibriumXor28.lean
 xor_translation_preserves_adjacency_27 26
+#EquilibriumXor29.lean
 xor_translation_preserves_adjacency_28 26
+#EquilibriumXor3.lean
+xor_translation_preserves_adjacency_2 26
+#EquilibriumXor30.lean
 xor_translation_preserves_adjacency_29 26
+#EquilibriumXor31.lean
 xor_translation_preserves_adjacency_30 26
+#EquilibriumXor32.lean
 xor_translation_preserves_adjacency_31 26
-#EquilibriumXor5.lean
+#EquilibriumXor33.lean
 xor_translation_preserves_adjacency_32 26
+#EquilibriumXor34.lean
 xor_translation_preserves_adjacency_33 26
+#EquilibriumXor35.lean
 xor_translation_preserves_adjacency_34 26
+#EquilibriumXor36.lean
 xor_translation_preserves_adjacency_35 26
+#EquilibriumXor37.lean
 xor_translation_preserves_adjacency_36 26
+#EquilibriumXor38.lean
 xor_translation_preserves_adjacency_37 26
+#EquilibriumXor39.lean
 xor_translation_preserves_adjacency_38 26
+#EquilibriumXor4.lean
+xor_translation_preserves_adjacency_3 26
+#EquilibriumXor40.lean
 xor_translation_preserves_adjacency_39 26
-#EquilibriumXor6.lean
+#EquilibriumXor41.lean
 xor_translation_preserves_adjacency_40 26
+#EquilibriumXor42.lean
 xor_translation_preserves_adjacency_41 26
+#EquilibriumXor43.lean
 xor_translation_preserves_adjacency_42 26
+#EquilibriumXor44.lean
 xor_translation_preserves_adjacency_43 26
+#EquilibriumXor45.lean
 xor_translation_preserves_adjacency_44 26
+#EquilibriumXor46.lean
 xor_translation_preserves_adjacency_45 26
+#EquilibriumXor47.lean
 xor_translation_preserves_adjacency_46 26
+#EquilibriumXor48.lean
 xor_translation_preserves_adjacency_47 26
-#EquilibriumXor7.lean
+#EquilibriumXor49.lean
 xor_translation_preserves_adjacency_48 26
+#EquilibriumXor5.lean
+xor_translation_preserves_adjacency_4 26
+#EquilibriumXor50.lean
 xor_translation_preserves_adjacency_49 26
+#EquilibriumXor51.lean
 xor_translation_preserves_adjacency_50 26
+#EquilibriumXor52.lean
 xor_translation_preserves_adjacency_51 26
+#EquilibriumXor53.lean
 xor_translation_preserves_adjacency_52 26
+#EquilibriumXor54.lean
 xor_translation_preserves_adjacency_53 26
+#EquilibriumXor55.lean
 xor_translation_preserves_adjacency_54 26
+#EquilibriumXor56.lean
 xor_translation_preserves_adjacency_55 26
-#EquilibriumXor8.lean
+#EquilibriumXor57.lean
 xor_translation_preserves_adjacency_56 26
+#EquilibriumXor58.lean
 xor_translation_preserves_adjacency_57 26
+#EquilibriumXor59.lean
 xor_translation_preserves_adjacency_58 26
+#EquilibriumXor6.lean
+xor_translation_preserves_adjacency_5 26
+#EquilibriumXor60.lean
 xor_translation_preserves_adjacency_59 26
+#EquilibriumXor61.lean
 xor_translation_preserves_adjacency_60 26
+#EquilibriumXor62.lean
 xor_translation_preserves_adjacency_61 26
+#EquilibriumXor63.lean
 xor_translation_preserves_adjacency_62 26
+#EquilibriumXor64.lean
 xor_translation_preserves_adjacency_63 26
+#EquilibriumXor7.lean
+xor_translation_preserves_adjacency_6 26
+#EquilibriumXor8.lean
+xor_translation_preserves_adjacency_7 26
+#EquilibriumXor9.lean
+xor_translation_preserves_adjacency_8 26
 #Exploits.lean
 fold_trojan_source_bidi 27
 fold_prototype_pollution 27
@@ -2839,6 +2901,10 @@ fixed_power_multiplicative_9_by_10 26
 fixed_power_multiplicative_9_by_11 26
 fixed_power_multiplicative_10_by_11 26
 fixed_power_law_is_not_vacuous 27
+#Forensics.lean
+forged_address_odds_are_negligible 27
+forged_handle_odds_are_small 27
+sixteen_bit_handles_would_collide 27
 #Glagolitic.lean
 glagolitic_units 27
 glagolitic_units_sum 27
@@ -69275,6 +69341,12 @@ buying_the_point_that_does_not_bind_buys_nothing 27
 a_cheaper_representation_multiplies_the_width_at_the_same_hardware 27
 the_two_axes_are_a_minimum_and_a_maximum 27
 the_exponential_moves_it_does_not_vanish 27
+#Queneau.lean
+queneau_poems_are_ten_to_the_fourteen 27
+queneau_one_strip_per_position 27
+queneau_poems_are_the_fourteen_digit_numerals 27
+queneau_a_sonnet_is_eight_and_six 27
+queneau_ten_sonnets_are_a_vanishing_sample 27
 #Readings.lean
 readings_seven_rays 27
 readings_en_names_sixteen 26

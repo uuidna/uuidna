@@ -7,6 +7,6 @@
   ],
   "statement": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 46) (lxor d 46) == lxor c d))",
   "files": [
-    "EquilibriumXor6.lean"
+    "EquilibriumXor47.lean"
   ]
 }

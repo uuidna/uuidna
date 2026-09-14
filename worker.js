@@ -160,6 +160,48 @@ export default {
     if (!mayServe(host))
       return Response.redirect(REDIRECT_TO, 302) // unlicensed → the terms it is missing
 
+    // THE LIVE PAGE — what uuidna does, visible as it happens (the captain, 2026-09-14: "when claude does something it is
+    // always visible. why uuidna is not?"). Every deposit lands in qpu storage through the MCP door and is linked into
+    // feed/ by arrival; this reads the newest from there through the service binding — every run, no list of runs typed
+    // anywhere — and shows what each receipt records, when it arrived, the machine and its state, and its address, each
+    // a link to the stored document. The page refreshes itself; /live.json is the same record for a client.
+    if (url.pathname === '/live' || url.pathname === '/live.json') {
+      const width = String(Number.MAX_SAFE_INTEGER).length
+      const listHref = `https://qpu.uuidna.com/storage?prefix=${encodeURIComponent('feed/')}&limit=${Number(url.searchParams.get('limit')) > 0 ? Number(url.searchParams.get('limit')) : 50}`
+      let rows = [], why = ''
+      try {
+        const res = env.QPU ? await env.QPU.fetch(new Request(listHref, { headers: { accept: 'application/json' } })) : await fetch(listHref, { headers: { accept: 'application/json' } })
+        const body = await res.json()
+        rows = (body.keys || []).map((r) => {
+          const name = r.key.slice('feed/'.length)
+          const t = name.slice(0, width), rest = name.slice(width + 1)
+          const address = rest.slice(-36), run = rest.slice(0, rest.length - 37)
+          const v = (r.doc && r.doc.value) || {}
+          const what = v.file || v.coord || v.tool || v.family || v.kind || (v.record && v.record.tool) || ''
+          const hw = (v.hardware && v.hardware.computedOn) || v.readings || {}
+          const die = Array.isArray(hw.die) ? hw.die.filter((d) => d && d.measured).reduce((m, d) => (d.millikelvin > m ? d.millikelvin : m), 0) : 0
+          const machine = [hw.surface, hw.colo, hw.model, die ? `${die} mK` : ''].filter(Boolean).join(' · ')
+          const sb = v.sealedBy
+          const signed = sb && sb.seal ? `${sb.signed} of ${sb.of}` : 'unsigned'
+          return { at: new Date(Number.MAX_SAFE_INTEGER - Number(t)).toISOString(), run, what, machine, signed, seal: (sb && sb.seal) || null, address, href: `https://qpu.uuidna.com/storage/receipts/uuidna/${run}/${address}` }
+        })
+      } catch (e) { why = String((e && e.message) || e) }
+      if (url.pathname === '/live.json')
+        return new Response(JSON.stringify({ source: listHref, newestFirst: true, rows, ...(why ? { why } : {}) }), { headers: { 'content-type': 'application/json; charset=utf-8', 'access-control-allow-origin': '*', 'cache-control': 'no-store' } })
+      const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+      const body = rows.length
+        ? rows.map((r) => `<tr><td class="t">${esc(r.at.replace('T', ' ').replace('Z', ''))}</td><td>${esc(r.run)}</td><td>${esc(r.what)}</td><td class="m">${esc(r.machine)}</td><td class="t">${esc(r.signed)}</td><td class="a"><a href="${esc(r.href)}">${esc(r.address.slice(0, 8))}</a></td></tr>`).join('')
+        : `<tr><td colspan="6" class="empty">${why ? 'qpu storage did not answer: ' + esc(why) : 'No deposit has landed yet — the first run that deposits through the MCP door appears here.'}</td></tr>`
+      const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="10"><title>uuidna live</title>
+<style>:root{--bg:#f7f8f6;--fg:#1d231f;--dim:#5d6a62;--line:#dde3de;--acc:#2f6b4f}@media(prefers-color-scheme:dark){:root{--bg:#121614;--fg:#e3e9e5;--dim:#93a39a;--line:#26302b;--acc:#7cc7a1}}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,system-ui,sans-serif}main{max-width:1100px;margin:0 auto;padding:24px 16px}h1{font-size:20px;margin:0 0 4px}p{color:var(--dim);margin:0 0 16px}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.03em}
+.t,.a,.m{font-variant-numeric:tabular-nums;white-space:nowrap}.m{color:var(--dim)}a{color:var(--acc)}.empty{color:var(--dim);padding:18px 10px}</style></head>
+<body><main><h1>uuidna, live</h1><p>Every receipt uuidna deposits through its MCP door, newest first, refreshed every 10 seconds. Each is signed by fourteen sealed theorems its own address picks (8 + 6 faces), and each address links to the stored document in qpu storage.</p>
+<div class="wrap"><table><thead><tr><th>arrived (UTC)</th><th>run</th><th>what</th><th>machine</th><th>signed by 2×7 theorems</th><th>address</th></tr></thead><tbody>${body}</tbody></table></div></main></body></html>`
+      return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } })
+    }
+
     // Trial CRUD.
     if (url.pathname === '/trials' || url.pathname.startsWith('/trials/')) {
       const res = await handleTrials(request, url, env)
@@ -233,9 +275,43 @@ export default {
         return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
+      // QPU IS FUSED, NOT FETCHED: with the QPU service binding a call to qpu.uuidna.com rides env.QPU — no public hop,
+      // no extra billed request (Cloudflare: "Service bindings don't increase costs"); every other host, or a deploy
+      // without the binding, goes to the network as before.
+      const qpuFetch = env.QPU
+        ? (input, init) => (new URL(String(input)).host === 'qpu.uuidna.com' ? env.QPU.fetch(new Request(input, init)) : fetch(input, init))
+        : undefined
       const mcpCtx = {
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
+        fetch: qpuFetch,
+        // THE EDGE MEASURES ITS OWN MACHINE (the captain, 2026-09-14: "the message need to contain the hardware state for
+        // forensics" · "measured always true"): which Cloudflare location served the call, its network and protocol,
+        // and the request's ray — what a Worker can observe of the machine it runs on. The host measures its sensors
+        // itself (mcp.ts hostHardware); a tool reads this only when it needs it.
+        // THE DEPOSIT DOOR (no token on any host): qpu's QpuDeposit entrypoint over the service binding; the MCP door
+        // chooses the key from the content, so a caller never picks where a deposit lands
+        deposit: env.QPU_DEPOSIT ? async (key, value) => {
+          const stored = await env.QPU_DEPOSIT.deposit(key, value)
+          // THE LIVE LINKS: once the content-addressed write holds, the same value is linked twice more, ordered by arrival
+          // — feed/<t>-<run>-<address> (every run, what uuidna.com/live reads) and live/<run>/<t>-<address> (one run,
+          // what uuidna_evidence {run} reads at the edge). t is this machine's clock read at the boundary — measured
+          // state, never minted in the core — inverted against the platform's own largest safe integer and padded to its
+          // length, so an ascending listing is newest first. The door still chose the content key; so does this.
+          const parts = key.split('/')
+          if (stored && stored.holds === true && parts.length === 4 && parts[0] === 'receipts' && parts[1] === 'uuidna') {
+            const width = String(Number.MAX_SAFE_INTEGER).length
+            const t = String(Number.MAX_SAFE_INTEGER - Date.now()).padStart(width, '0')
+            await env.QPU_DEPOSIT.deposit(`feed/${t}-${parts[2]}-${parts[3]}`, value)
+            await env.QPU_DEPOSIT.deposit(`live/${parts[2]}/${t}-${parts[3]}`, value)
+          }
+          return stored
+        } : undefined,
+        hardware: () => ({
+          measured: true, surface: 'uuidna.com edge', runtime: 'cloudflare-workers',
+          colo: request.cf?.colo ?? null, country: request.cf?.country ?? null, city: request.cf?.city ?? null,
+          asn: request.cf?.asn ?? null, httpProtocol: request.cf?.httpProtocol ?? null, ray: request.headers.get('cf-ray'),
+        }),
       }
       if (Array.isArray(msg)) {                                   // a JSON-RPC batch
         const out = (await Promise.all(msg.map((m) => handleMcpRpc(m, mcpCtx)))).filter(Boolean)   // a thenable dispatch settles here

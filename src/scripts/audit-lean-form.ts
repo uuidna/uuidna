@@ -6,9 +6,8 @@
 // README + docs/*.md (197 markdown surfaces). It does NOT reach source comments, string literals, or Lean headers,
 // which is where the remaining denials live. This finder covers exactly that gap.
 //
-// EXEMPTIONS ARE NAMED.
-// The gate machinery must utter the refused phrase to refuse it — the regex that rejects a release cannot be written
-// without the words it rejects — so those files are listed below by path, in the open.
+// NO FILE IS EXEMPT. The gate machinery must utter the refused phrase to refuse it, and it confirms the way every
+// other surface does: the sealed bound is cited in the same block, so a Lean theorem, not a list of paths, passes it.
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join, extname } from 'node:path'
 import { theorems } from '../index.js'
@@ -16,20 +15,6 @@ import { ROOT, relRoot } from './api.js'
 
 const PHYSICS_CLAIM = /quantum\s+(?:speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/gi
 const SEALED = new Set(theorems().map((t) => t.key))
-
-// NAMED EXEMPTIONS — the gate machinery and the law's own statement. Each must SAY the phrase to enforce it.
-const EXEMPT = new Set([
-  'src/scripts/next.ts',                // ARM 6: the release-title regex and its failure message
-  'src/scripts/one-receipt.ts',         // the NEG demarcation regex
-  'src/scripts/derive-prose-trials.ts', // the law's own statement (PHYSICS_CLAIM)
-  'src/scripts/audit-lean-form.ts',     // this finder
-  'src/energy.test.ts',           // the assertion that tool descriptions stay clean
-  'src/readme-quantum.test.ts',   // the assertion that the README stays clean
-  'lean/leads.json',                    // a research lead NAMES the claim class it hunts
-  'src/daemon.test.ts',           // NEGATIVE FIXTURE: the sentence fed to the refuser to prove it refuses
-  'src/smoke.test.ts',            // NEGATIVE FIXTURE: same, through reeducate()
-  'src/theorems/generated.ts',          // GENERATED from the lean-*.ts sources; fixing a copy is drift
-])
 
 // SOURCE OF TRUTH ONLY — generated trees (lean/*.lean, packages/**, docs/**, src/seeds/**, *.json artifacts) carry
 // copies; fixing a copy is drift. The finder reads the files a human edits, so a fix lands where it regenerates from.
@@ -51,7 +36,6 @@ interface Violation { surface: string; line: number; claim: string; text: string
 const violations: Violation[] = []
 for (const f of files) {
   const rel = relRoot(f)
-  if (EXEMPT.has(rel)) continue
   const lines = readFileSync(f, 'utf8').split('\n')
   // group consecutive comment lines into one block; every other line is its own block
   let i = 0
@@ -77,12 +61,11 @@ for (const f of files) {
 
 console.log('  THE LEAN FORM — source prose confirms by citation.')
 console.log(`    surfaces   : ${files.length} (src/**/*.ts, source of truth only)`)
-console.log(`    exempt     : ${EXEMPT.size} named (gate machinery — it must say the phrase to refuse it)`)
 if (violations.length === 0) {
   console.log('    lean form  : ✓ every mention cites the sealed bound in its own block')
   process.exit(0)
 }
 console.log(`    lean form  : ✗ ${violations.length} denial(s) with no sealed citation in the block:`)
 for (const v of violations) console.log(`      ✗ ${v.surface}:${v.line}  "${v.claim}"  — ${v.text}`)
-console.log('    fix: state what IS and cite the bound (n_qubit_dimension), or name the file in EXEMPT with a reason.')
+console.log('    fix: state what IS and cite the bound (n_qubit_dimension) in the same block.')
 process.exit(1)

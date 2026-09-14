@@ -8,16 +8,16 @@
 // RELEASE is the act of telling the world the tree is what it says it is, and a release over an open lead
 // publishes a claim nobody finished checking.
 //
-// SETTLEMENT ALREADY HAS A VOCABULARY HERE and this module borrows it rather than inventing one. lean/leads.json
-// has kept three buckets since it was written:
+// SETTLEMENT ALREADY HAS A VOCABULARY HERE and this module borrows it rather than inventing one:
 //
 //   VERIFIED  a `by decide` proof seals it — the kernel decided, and nothing else in this tree seals anything
 //   REFUTED   a MEASUREMENT killed it, carried in killed_by. A refuted lead is the cheapest thing in the
 //             ledger: it stops the same derivation being made twice.
-//   REFUSED   a named BOUNDARY declines it, carried in `boundary` — physics, licence, scope.
 //
-// and HELD, which carries `owes`: what the lead still needs. Held is the open state, and the settlement is
-// evidence-bearing in every case — a lead does not become settled by someone deciding to stop looking at it.
+// and IN TRIAL, which carries `owes`: what the lead still needs. In trial is the open state, and the settlement is
+// evidence-bearing in every case — a lead does not become settled by someone deciding to stop looking at it. A
+// hand-written boundary is not a settlement: the refused bucket is removed, because Lean decides (the captain,
+// 2026-09-14).
 //
 // THE THREE-STATE RULE, which this module exists to hold. A source is ASKED, and it either answers or it does
 // not. A source that could not be read reports UNMEASURED and BLOCKS — it is never folded into "no leads found",
@@ -32,13 +32,13 @@ import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 
 /** how a lead stopped being a lead — each carries its own evidence, and none of them is "we stopped looking" */
-export type Settlement = 'VERIFIED' | 'REFUTED' | 'REFUSED'
+export type Settlement = 'VERIFIED' | 'REFUTED'
 
 /** one open lead: what is unsettled, and what it OWES to become settled */
 export interface Lead {
   source: string      // which census surfaced it
   what: string        // the unsettled claim, in words
-  owes: string        // what would settle it — a proof, a measurement, or a named boundary
+  owes: string        // what would settle it — a proof, or a measurement that refutes it
 }
 
 /** what ONE source answered. `reached:false` is a fact about the reader, never about the tree. */
@@ -46,7 +46,7 @@ export interface SourceReading {
   source: string
   reached: boolean
   why: string | null   // when it did not answer: the reason
-  open: Lead[]         // leads still held
+  open: Lead[]         // leads still in trial
   settled: number      // how many this source has settled — the denominator that makes `open` meaningful
 }
 
@@ -73,7 +73,7 @@ export const unread = (source: string, why: string): SourceReading =>
 /** THE CENSUS. Ready iff every source ANSWERED and no answer holds a lead.
  *
  *  The two failure modes are reported apart because a caller acts differently on each: an open lead is work
- *  (settle it, or refute it with a measurement, or refuse it at a boundary); an unmeasured source is a broken
+ *  (settle it, or refute it with a measurement); an unmeasured source is a broken
  *  reader (fix the reader, then ask again). Folding them together would make the second look like the first and
  *  send someone hunting a lead that was never found. */
 export function leadCensus(sources: readonly SourceReading[]): LeadCensus {
@@ -86,7 +86,7 @@ export function leadCensus(sources: readonly SourceReading[]): LeadCensus {
     ? `every one of ${sources.length} lead sources answered, and none holds a lead — ${settled} settled. A release may ship.`
     : unmeasured.length
       ? `${unmeasured.length} of ${sources.length} lead sources could NOT be read (${unmeasured.join(', ')}), so this is not a clean census — it is an absent one. A release must not ship on a reading nobody took.`
-      : `${open.length} lead(s) still held across ${answered.length} source(s). Each is unverified, and a release is the act of saying the tree is what it claims — settle, refute with a measurement, or refuse at a named boundary.`
+      : `${open.length} lead(s) still in trial across ${answered.length} source(s). Each is unverified, and a release is the act of saying the tree is what it claims — settle it, or refute it with a measurement.`
   return {
     sources: [...sources], open, unmeasured, settled,
     asked: sources.length, answered: answered.length, ready, why,
@@ -105,7 +105,7 @@ export function renderCensus(c: LeadCensus, limit = 12): string[] {
       : `  ✗ ${s.source.padEnd(16)} UNREAD — ${s.why}`)
   }
   if (c.open.length) {
-    out.push('', `  ${c.open.length} lead(s) held:`)
+    out.push('', `  ${c.open.length} lead(s) in trial:`)
     for (const l of c.open.slice(0, limit)) {
       out.push(`    · [${l.source}] ${l.what.slice(0, 96)}${l.what.length > 96 ? '…' : ''}`)
       out.push(`        owes: ${l.owes.slice(0, 96)}${l.owes.length > 96 ? '…' : ''}`)

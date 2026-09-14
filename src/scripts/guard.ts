@@ -5,6 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
+import { leadsGuardGaps } from './leads-conserved.js'
 import { linearGaps, memoGaps } from './dry-gaps.js'
 import { impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
@@ -311,6 +312,9 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // described "heal → commit → push" while the commit step did not exist. Asks the one decidable question that
   // keeps costing landings: a script that mutates git must verify the mutation.
   { name: 'landing', run: () => landingGaps([...sourceGraph().keys()]) },
+  // NO LEAD VANISHES AND NONE ESCAPES ITS TRIAL — the 2026-09-14 deletion of 21 leads, involuted: every lead at HEAD
+  // must still be in the record, and every lead on the docket must have a trial.
+  { name: 'leads', run: () => leadsGuardGaps() },
   // A CLAIM THAT SOMETHING IS OUT OF REACH NAMES ITS REASON — the captain's law. Six false walls were written and corrected in one
   // session, none caught by a test: a negation that dresses a CHOICE as an IMPOSSIBILITY reads as rigour, so
   // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may

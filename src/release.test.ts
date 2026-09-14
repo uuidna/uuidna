@@ -1,26 +1,37 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { releaseSteps } from './scripts/release.js'
-import { depositEvidence } from './scripts/receipt-deposit.js'
+import { depositEvidence, MCP_DOOR } from './scripts/receipt-deposit.js'
 
-test('release evidence goes to qpu storage by the bearer-gated PUT, and without a token it is UNSENT, never sent', async () => {
-  let calls = 0
+// NO TOKEN ON ANY HOST (the captain, 2026-09-14: "mcp door, no token on host"): release evidence reaches qpu storage as
+// one uuidna_evidence {run, deposit} call on the MCP door; the Worker writes over its service binding and chooses the key.
+test('release evidence is deposited through the MCP door — a run name and a body, never a token or a storage key', async () => {
+  const seen: { url: string; headers: Record<string, string>; body: { method: string; params: { name: string; arguments: { run: string; deposit: unknown } } } }[] = []
   const fake = (async (url: string, init: { method: string; headers: Record<string, string>; body: string }) => {
-    calls++
-    assert.equal(url, 'https://qpu.uuidna.com/storage/receipts/uuidna/release-9.9.9')
-    assert.equal(init.method, 'PUT')
-    assert.equal(init.headers.authorization, 'Bearer t0k')
-    assert.deepEqual(JSON.parse(init.body).steps, [{ step: 'land', kind: 'land', ok: true }])
-    return { status: 200, json: async () => ({ holds: true }) }
+    seen.push({ url, headers: init.headers, body: JSON.parse(init.body) })
+    const text = JSON.stringify({ run: 'release', deposited: true, href: 'https://qpu.uuidna.com/storage/receipts/uuidna/release/x' })
+    return { status: 200, json: async () => ({ jsonrpc: '2.0', id: 1, result: { content: [{ type: 'text', text }] } }) }
   }) as unknown as typeof fetch
   const body = { kind: 'release', steps: [{ step: 'land', kind: 'land', ok: true }] }
-  const unsent = await depositEvidence('receipts/uuidna/release-9.9.9', body, undefined, fake)
-  assert.equal(unsent.sent, false)
-  assert.match(unsent.why ?? '', /QPU_WRITE_TOKEN/)
-  assert.equal(calls, 0, 'no token means nothing leaves the machine')
-  const sent = await depositEvidence('receipts/uuidna/release-9.9.9', body, 't0k', fake)
+  const sent = await depositEvidence('release', body, fake)
   assert.equal(sent.sent, true)
-  assert.equal(calls, 1)
+  assert.equal(seen.length, 1)
+  assert.equal(seen[0]!.url, MCP_DOOR)
+  assert.equal(seen[0]!.body.method, 'tools/call')
+  assert.equal(seen[0]!.body.params.name, 'uuidna_evidence')
+  assert.deepEqual(seen[0]!.body.params.arguments, { run: 'release', deposit: body })
+  assert.equal(seen[0]!.headers.authorization, undefined, 'no bearer leaves the host')
+})
+
+test('CONTROL: a door that declines or cannot be reached is reported, never counted as sent', async () => {
+  const declined = (async () => ({ status: 200, json: async () => ({ result: { content: [{ type: 'text', text: JSON.stringify({ deposited: false, why: 'this surface has no binding to qpu storage' }) }] } }) })) as unknown as typeof fetch
+  const r = await depositEvidence('release', { n: 1 }, declined)
+  assert.equal(r.sent, false)
+  assert.match(r.why ?? '', /no binding/)
+  const down = (async () => { throw new Error('connect ECONNREFUSED') }) as unknown as typeof fetch
+  const d = await depositEvidence('release', { n: 1 }, down)
+  assert.equal(d.sent, false)
+  assert.match(d.why ?? '', /ECONNREFUSED/)
 })
 
 const kinds = (s: Parameters<typeof releaseSteps>[0]): string[] => releaseSteps(s).map((x) => x.kind)

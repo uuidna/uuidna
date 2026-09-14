@@ -59,7 +59,7 @@ export const leads = (root = '.', queue = QUEUE): { leads: Lead[]; unreadable: s
   const sealed = join(root, 'lean/leads.json')
   try {
     const j = JSON.parse(readFileSync(sealed, 'utf8')) as Record<string, { lead?: string; killed_by?: string; boundary?: string }[]>
-    for (const bin of ['refuted', 'refused', 'held']) {
+    for (const bin of ['refuted', 'refused', 'trial']) {
       for (const r of Array.isArray(j[bin]) ? j[bin] : []) {
         add('lean/leads.json', bin, [r.lead, r.killed_by, r.boundary].filter(Boolean).join(' — '))
       }

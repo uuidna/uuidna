@@ -17,44 +17,51 @@ export const QPU_RECEIPTS = 'https://qpu.uuidna.com/storage/receipts/uuidna'
 
 export interface GateReceipt { covers: Record<string, string>; verified: string[]; honest?: string }
 
-export const depositRequestOf = (receipt: GateReceipt, commit: string, token: string | undefined): { url: string; init: { method: 'PUT'; headers: Record<string, string>; body: string } } => {
-  if (!token) throw new Error('receipt-deposit: QPU_WRITE_TOKEN is not in the environment; qpu refuses unauthenticated writes, so nothing is sent')
+/** gateDepositOf(covers, commit) → the landing's proof as a deposit body — ONLY what a verifier can recompute from its own
+ *  tree (the covers) and the commit, so the MCP door lands it at a content address the verifier derives by itself: a
+ *  deposit found at that address proves the covers match, because the address IS their hash. */
+export const gateDepositOf = (covers: GateReceipt['covers'], commit: string): Record<string, unknown> => {
   if (!/^[0-9a-f]{7,40}$/.test(commit)) throw new Error(`receipt-deposit: commit must be a hex sha — got ${JSON.stringify(commit)}`)
-  const body = JSON.stringify({ kind: 'gate-receipt', repo: 'uuidna/uuidna', commit, covers: receipt.covers, verified: receipt.verified, honest: receipt.honest ?? '' })
-  return { url: `${QPU_RECEIPTS}/${commit}`, init: { method: 'PUT', headers: { 'content-type': 'application/json', accept: 'application/ld+json', authorization: `Bearer ${token}` }, body } }
+  return { kind: 'gate-receipt', repo: 'uuidna/uuidna', commit, covers }
 }
 
-/** depositEvidence(path, body, token) → any run's evidence into qpu storage through the same bearer-gated PUT, so the
- *  captain and the agent read one document by GET. Never throws: no token is UNSENT, said with its reason, and a
- *  registry that answers badly is reported rather than allowed to undo the work it records. */
-export const depositEvidence = async (path: string, body: Record<string, unknown>, token: string | undefined, fetchImpl: typeof fetch = fetch):
+/** the MCP door every host deposits through — no token on any host (the captain, 2026-09-14: "mcp door, no token on host") */
+export const MCP_DOOR = 'https://uuidna.com/mcp'
+
+/** depositEvidence(run, body) → a run's evidence into qpu storage THROUGH THE MCP DOOR: one uuidna_evidence {run, deposit}
+ *  call, whose Worker writes over its QpuDeposit service binding at receipts/uuidna/<run>/<content address> — the door
+ *  chooses the key from the content. The captain and the agent read it back by GET. Never throws: a door that is
+ *  unreachable or declines is reported with its reason, never allowed to undo the work it records. */
+export const depositEvidence = async (run: string, body: Record<string, unknown>, fetchImpl: typeof fetch = fetch):
   Promise<{ sent: boolean; href: string; status?: number; why?: string }> => {
-  const href = `https://qpu.uuidna.com/storage/${path}`
-  if (!token) return { sent: false, href, why: 'no QPU_WRITE_TOKEN in the environment; qpu refuses unauthenticated writes' }
   try {
-    const res = await fetchImpl(href, { method: 'PUT', headers: { 'content-type': 'application/json', accept: 'application/ld+json', authorization: `Bearer ${token}` }, body: JSON.stringify(body) })
-    const reply = (await res.json().catch(() => ({}))) as { holds?: boolean }
-    return res.status === 200 && reply.holds === true ? { sent: true, href, status: res.status } : { sent: false, href, status: res.status, why: `qpu answered ${res.status} without holds` }
-  } catch (e) { return { sent: false, href, why: String((e as Error)?.message ?? e) } }
+    const res = await fetchImpl(MCP_DOOR, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } }),
+    })
+    const rpc = (await res.json().catch(() => ({}))) as { result?: { content?: { text?: string }[] } }
+    const text = rpc.result?.content?.[0]?.text ?? ''
+    let reply: { deposited?: boolean; href?: string; why?: string } = {}
+    try { reply = JSON.parse(text) as typeof reply } catch { /* a refusal is plain text */ }
+    return reply.deposited === true
+      ? { sent: true, href: reply.href ?? MCP_DOOR, status: res.status }
+      : { sent: false, href: reply.href ?? MCP_DOOR, status: res.status, why: reply.why ?? (text.slice(0, 200) || `the MCP door answered ${res.status}`) }
+  } catch (e) { return { sent: false, href: MCP_DOOR, why: String((e as Error)?.message ?? e) } }
 }
 
-export const deposit = async (commit: string, fetchImpl: typeof fetch = fetch): Promise<{ ok: boolean; href: string; status: number }> => {
+/** deposit(commit) → the landing's gate receipt through the MCP door (run "gate"), no token on any host */
+export const deposit = async (commit: string, fetchImpl: typeof fetch = fetch): Promise<{ ok: boolean; href: string; status: number; why?: string }> => {
   const receipt = JSON.parse(readFileSync(join(ROOT, 'gate-receipt.json'), 'utf8')) as GateReceipt
-  const { url, init } = depositRequestOf(receipt, commit, process.env.QPU_WRITE_TOKEN)
-  const res = await fetchImpl(url, init)
-  const reply = (await res.json().catch(() => ({}))) as { holds?: boolean }
-  return { ok: res.status === 200 && reply.holds === true, href: url, status: res.status }
+  const r = await depositEvidence('gate', gateDepositOf(receipt.covers, commit), fetchImpl)
+  return { ok: r.sent, href: r.href, status: r.status ?? 0, ...(r.why ? { why: r.why } : {}) }
 }
 
 const IS_CLI = (process.argv[1] ?? '').endsWith('receipt-deposit.js')
 if (IS_CLI) {
   const commit = process.argv[2] ?? ''
-  if (!process.env.QPU_WRITE_TOKEN) {
-    console.log('· receipt-deposit — no QPU_WRITE_TOKEN in the environment; the receipt stays local and deploy proves by tree')
-    process.exit(0)
-  }
   deposit(commit).then((r) => {
-    console.log(r.ok ? `✓ receipt-deposit — ${r.href} (${r.status}); a verifier proves ${commit.slice(0, 8)} by one fetch` : `✗ receipt-deposit — ${r.href} answered ${r.status}; the receipt stays local`)
+    console.log(r.ok ? `✓ receipt-deposit — ${r.href}; a verifier proves ${commit.slice(0, 8)} by one fetch` : `✗ receipt-deposit — not deposited (${r.why ?? r.status}); the receipt stays local`)
     process.exit(0)
   }, (e: unknown) => { console.log(`✗ receipt-deposit — ${String((e as Error)?.message ?? e)}`); process.exit(0) })
 }

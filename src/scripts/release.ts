@@ -21,6 +21,7 @@ import { spawnSync } from 'node:child_process'
 import { ROOT, streamStep } from './api.js'
 import { awaitValue } from './await-live.js'
 import { depositEvidence } from './receipt-deposit.js'
+import { deviceReadings } from './device-readings.js'
 
 export interface ReleaseState { ahead: number; behind: number; version: string; tagged: boolean }
 export interface ReleaseStep { name: string; kind: 'land' | 'forge' | 'cut' | 'registry' | 'ship' | 'live'; cmd?: string }
@@ -91,10 +92,11 @@ if (isMain) {
   // document, so the captain and the agent read the same run by one GET instead of a log on the machine that ran it.
   // Order only, never times (the clock law); a registry it cannot reach is reported and never undoes the release.
   const evidence: { step: string; kind: ReleaseStep['kind']; ok: boolean }[] = []
+  // which machine ran the release, in full — a reading beside the evidence, never part of any seal
+  const device = deviceReadings()
   const report = async (commit: string): Promise<void> => {
-    const r = await depositEvidence(`receipts/uuidna/release-${pkg.version}`,
-      { kind: 'release', repo: 'uuidna/uuidna', version: pkg.version, commit, plan: steps.map((s) => s.name), steps: evidence },
-      process.env.QPU_WRITE_TOKEN)
+    const r = await depositEvidence('release',
+      { kind: 'release', repo: 'uuidna/uuidna', version: pkg.version, commit, plan: steps.map((s) => s.name), steps: evidence, device })
     console.log(r.sent ? `· release — evidence at ${r.href} (${r.status})` : `· release — evidence UNSENT: ${r.why}`)
   }
   for (const step of steps) {

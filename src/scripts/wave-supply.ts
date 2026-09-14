@@ -103,7 +103,7 @@ export function waveSupply(): Supply {
     // could not see one of them, and each carries what it OWES, which is the most specific statement of demand
     // this tree produces. The comment above says the first version "reproduced, inside the supply census, the
     // collapse of nothing-to-report into nothing-wrong". It did it twice.
-    { name: 'held-leads', count: countIn(join('lean', 'leads.json'), 'held'), where: 'lean/leads.json (held)',
+    { name: 'trial-leads', count: countIn(join('lean', 'leads.json'), 'trial'), where: 'lean/leads.json (trial)',
       reach: 'noticed and unsettled, each carrying the evidence it OWES — a proof, a measurement, or a boundary' },
     // and the coordinates the ledger exposes about ITSELF: a principle with one theorem and no neighbour, a
     // broken grid seat. Counted through the same walk uuidna_expose serves, so the census and the served surface

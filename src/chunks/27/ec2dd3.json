@@ -4,9 +4,11 @@
   "statement": "10 ^ 14 = 100000000000000",
   "tactic": "decide",
   "keys": [
-    "literature_sonnet_volume"
+    "literature_sonnet_volume",
+    "queneau_poems_are_ten_to_the_fourteen"
   ],
   "files": [
+    "Queneau.lean",
     "Wave.lean"
   ]
 }

@@ -5,54 +5,54 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 70836,
-        "keys": 70919,
-        "renamings": 83,
-        "principles": 179,
-        "skills": 118,
+        "distinct": 70847,
+        "keys": 70931,
+        "renamings": 84,
+        "principles": 239,
+        "skills": 121,
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
-        "smallestPrinciple": "The uuid mix space (2)",
-        "ledgerReceipt": "59fc0ba6-0a1b-8efe-94b1-867ee4a1a776"
+        "smallestPrinciple": "The six-cube translation by 9 (1)",
+        "ledgerReceipt": "808bf550-8842-888c-8218-803d7f79d478"
       },
-      "address": "efc28dfa-77b2-8132-a196-67a1a5138a9b"
+      "address": "690dcf6d-5026-8617-bf12-18aa537dcd33"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 70919,
-        "ledgerKeys": 70919,
+        "theoremsMeasured": 70931,
+        "ledgerKeys": 70931,
         "unmeasured": 0,
         "decideStepsHexbits": 6,
         "decideStepsBits": 25
       },
-      "address": "4778383a-9f5c-8044-8f46-24c66d86aec5"
+      "address": "e558a5ed-6f0c-803a-b6c0-56e78259a0ba"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 179,
-        "sealedTheorems": 70919,
+        "publications": 239,
+        "sealedTheorems": 70931,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "5aab68d6-11a0-8d98-b975-1228aba41dfe"
+      "address": "8463db20-d77b-83ca-8d46-f61ff51e618c"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1245,
-        "roots": 766,
-        "supported": 1245,
+        "modules": 1264,
+        "roots": 783,
+        "supported": 1264,
         "dead": 0,
-        "receipt": "b91c1cd1-22aa-8e46-968d-964487a6a374"
+        "receipt": "94c9f10d-0eb4-89fe-a7b3-d6a0e6676249"
       },
-      "address": "9fc473cf-d0b0-813b-9c2c-50c724cf30db"
+      "address": "f2516e71-2176-8920-a128-297816ab92a0"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "c18fec41ed0fc910",
-        "unifiedFold": "82f21cdf2d49ea9e",
+        "foldReceipt": "31a48a56b919e114",
+        "unifiedFold": "c00b7b1cd5241f79",
         "zeroEntropy": "true"
       },
-      "address": "e91befa5-fac8-89b2-96d6-cb31bebf7c48"
+      "address": "ccffe116-2b9e-8b6c-b595-20573a10ce34"
     },
     {
       "title": "Gate receipt",
@@ -94,74 +94,74 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 70919,
+        "captainClaimsTheorems": 70931,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 0,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "4acffc14-fc0a-8c7b-b025-873f3d115846"
+      "address": "60822792-0655-881d-8710-25d72f1ffcec"
     }
   ],
-  "receipt": "5b4c5f37-f54a-8b3b-b7ee-198b3e8488d1",
-  "handle": "5b4c5f37",
+  "receipt": "c4ecdd02-0d07-8f94-a3a2-20bd0497c4ab",
+  "handle": "c4ecdd02",
   "hexbits": [
-    5,
-    11,
-    4,
     12,
-    5,
-    15,
-    3,
-    7,
-    15,
-    5,
     4,
-    10,
-    8,
-    11,
-    3,
-    11,
-    11,
-    7,
     14,
-    14,
-    1,
-    9,
-    8,
-    11,
-    3,
-    14,
-    8,
-    4,
-    8,
-    8,
+    12,
     13,
-    1
-  ],
-  "door": "https://uuidna.com/5b4c5f37",
-  "coin": [
-    5,
-    11,
-    4,
-    12,
-    5,
-    15,
-    3,
+    13,
+    0,
+    2,
+    0,
+    13,
+    0,
     7,
+    8,
     15,
-    5,
+    9,
     4,
     10,
-    8,
-    11,
     3,
+    10,
+    2,
+    2,
+    0,
+    11,
+    13,
+    0,
+    4,
+    9,
+    7,
+    12,
+    4,
+    10,
     11
   ],
+  "door": "https://uuidna.com/c4ecdd02",
+  "coin": [
+    12,
+    4,
+    14,
+    12,
+    13,
+    13,
+    0,
+    2,
+    0,
+    13,
+    0,
+    7,
+    8,
+    15,
+    9,
+    4
+  ],
   "place": {
-    "handle": "5b4c5f37",
-    "value": 1531731767,
+    "handle": "c4ecdd02",
+    "value": 3303857410,
     "span": 4294967296,
-    "residue": 5,
+    "residue": 7,
     "nilpotent": false,
     "hexbits": 8
   },

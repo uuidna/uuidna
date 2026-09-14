@@ -17,6 +17,9 @@ import { theorems, PRINCIPLES, coins, renderAdvantageMcpMarkdown } from '../inde
 import { hexbitsOf, bitsOf } from '../hexbit/index.js'
 import { schoolLeads, leadsCensus, renderSchoolLeads, type LeadsRecord } from '../school/leads/index.js'
 import { ROOT } from './api.js'
+import { courtSettlements } from './trial-refusals.js'
+import { laws } from '../laws.js'
+import { renderSchoolLaws, LAWS_START, LAWS_END } from '../school/laws/index.js'
 import { portsCensus } from '../quantum/os/ports/index.js'
 import { allDomainCensuses } from '../quantum/os/domains/index.js'
 import { schoolEfficiency, payloadlessSpace } from '../school/efficiency/index.js'
@@ -26,7 +29,8 @@ const leadsRecord = ((): LeadsRecord => {
     return JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as LeadsRecord
   } catch { return {} }
 })()
-const leadsRoster = schoolLeads(leadsRecord)
+const settlementAt = courtSettlements()
+const leadsRoster = schoolLeads(leadsRecord, (i) => settlementAt(i)?.stands === true)
 const leadsFig = leadsCensus(leadsRoster)
 
 const T = theorems() as { file: string }[]
@@ -75,8 +79,8 @@ const PRACTICES: string[] = [
    it, which is the law ${cite('hexbit_is_four_qubits')} enforces for the unit and nothing enforced for the film.
    *Practice:* run \`UUIDNA_METER=1 npm run x -- guard\`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?`,
-  `8. **Discuss the open at school** — every lead enrolls on this page (${leadsFig.held} held · ${leadsFig.refuted} refuted · ${leadsFig.refused} refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (\`labOf\`) recompute only the sealed half. Silence never refutes (${cite('silence_never_refutes')}).
-   *Practice:* open a held door, name a finite structure, deposit the two coins
+  `8. **Discuss the open at school** — every lead enrolls on this page (${leadsFig.trial} in trial · ${leadsFig.reopened} reopened · ${leadsFig.refuted} refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (\`labOf\`) recompute only the sealed half. Silence never refutes (${cite('silence_never_refutes')}).
+   *Practice:* open a lead in trial, name a finite structure, deposit the two coins
    (${cite('two_coins')}). A student's answer is a deposit, not a comment.`,
   `9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
    ${cite('usable_gap_is_two_to_eighty')} and ${cite('n_qubit_dimension')}, served as tools/call on
@@ -345,5 +349,12 @@ out = li >= 0 && lj > li
   ? out.slice(0, li) + leadsBlock + out.slice(lj + LEADS_END.length)
   : out.trimEnd() + '\n\n' + leadsBlock + '\n'
 
+// EVERY LAW ENROLLS TOO (school/laws): the block is recomputed from laws() at each generation, in place between its markers
+const lawsBlock = renderSchoolLaws(laws())
+const lawsAt = out.indexOf(LAWS_START), lawsEnd = out.indexOf(LAWS_END)
+out = lawsAt >= 0 && lawsEnd > lawsAt
+  ? out.slice(0, lawsAt) + lawsBlock + out.slice(lawsEnd + LAWS_END.length)
+  : out.trimEnd() + '\n\n' + lawsBlock + '\n'
+
 writeFileSync(path, out)
-console.log(`✓ gen-school — ${PRACTICES.length} practices + ${byWing.size} wings + ${censuses.length} port domains (${ports.totals.domains} with an API) + ${CLAY.length} Clay lessons + efficiency median ${eff.median}x + ${leadsFig.of} leads (${leadsFig.held} held · ${leadsFig.refuted} refuted · ${leadsFig.refused} refused); figures: ${fig.monographs} monographs + ${fig.auras} auras = ${fig.redundant} (${fig.hexbits} hexbits, ${fig.bits} bits)`)
+console.log(`✓ gen-school — ${PRACTICES.length} practices + ${byWing.size} wings + ${censuses.length} port domains (${ports.totals.domains} with an API) + ${CLAY.length} Clay lessons + efficiency median ${eff.median}x + ${leadsFig.of} leads (${leadsFig.trial} in trial · ${leadsFig.reopened} reopened · ${leadsFig.refuted} refuted); figures: ${fig.monographs} monographs + ${fig.auras} auras = ${fig.redundant} (${fig.hexbits} hexbits, ${fig.bits} bits)`)

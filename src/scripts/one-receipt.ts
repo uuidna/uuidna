@@ -170,7 +170,9 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
   const EXEMPT = new Set(['mcp.md', 'captain-claims.md', 'analytics.md', 'prose-evidence.md', 'changelog.md', 'search.md', 'theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'publications.md'])
   const pages = readdirSync(join(ROOT, 'docs')).filter((f) => f.endsWith('.md'))
   for (const f of pages) {
-    const prose = rd(`docs/${f}`).replace(/```[\s\S]*?```/g, '')
+    // a quotation is a claim on record, not a teaching: a reopened lead shows what its settlement claimed word for word
+    // (<q>…</q>, gen-leads) beside the computed reason it does not stand — no one withdraws what was said
+    const prose = rd(`docs/${f}`).replace(/```[\s\S]*?```/g, '').replace(/<q>[\s\S]*?<\/q>/g, '')
     if (!EXEMPT.has(f) && !/\]\(\/(theorem|publications)\//.test(prose))
       gaps.push({ what: `docs/${f}: no sealed anchor — the page cannot walk to a theorem or cluster`, fix: `edit docs/${f}: link the page's subject to its cluster ([the <name> cluster](/publications/<slug>)) or a sealed theorem ([\`<key>\`](/theorem/<key>)) — pick from the ledger, cite nothing unsealed` })
     for (const m of prose.matchAll(/(?:^|[\s(`])(\.?\/?(?:docs\/\.vitepress|src|lean|packages|hooks)\/[A-Za-z0-9_./-]+|worker\.js|wrangler\.toml|CONTRIBUTING\.md|LICENSE)(?=[\s)`.,:]|$)/gm)) {
@@ -968,7 +970,7 @@ export function importGaps(): Gap[] {
 // that fixes the bound. Scoped truth + pointer is honest; scoped truth alone is the omission the trial drains, and
 // it is the more dangerous half here, because a demarcation READS like rigour while pointing at nothing.
 // A pointer is a /theorem/<key> link, a `theorem <key>` citation, or any sealed key named in the same breath —
-// resolved against the LIVE ledger.
+// resolved against the LIVE ledger. The bound the advantage clause below guards is n_qubit_dimension.
 export function negationGaps(): Gap[] {
   const gaps: Gap[] = []
   const keys = new Set(theorems().map((t) => t.key))

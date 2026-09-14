@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "aeac3477715ce2a8",
+ "digest": "bfa86a3dc6a80476",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -4337,317 +4337,317 @@ export const BOUND_SLICE: BoundSlice = {
   },
   {
    "key": "xor_translation_preserves_adjacency_1",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor2.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_2",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor3.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_3",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor4.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_4",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor5.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_5",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor6.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_6",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor7.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_7",
-   "wing": "EquilibriumXor1.lean",
+   "wing": "EquilibriumXor8.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_8",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor9.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_9",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor10.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_10",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor11.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_11",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor12.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_12",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor13.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_13",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor14.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_14",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor15.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_15",
-   "wing": "EquilibriumXor2.lean",
+   "wing": "EquilibriumXor16.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_16",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor17.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_17",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor18.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_18",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor19.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_19",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor20.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_20",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor21.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_21",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor22.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_22",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor23.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_23",
-   "wing": "EquilibriumXor3.lean",
+   "wing": "EquilibriumXor24.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_24",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor25.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_25",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor26.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_26",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor27.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_27",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor28.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_28",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor29.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_29",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor30.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_30",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor31.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_31",
-   "wing": "EquilibriumXor4.lean",
+   "wing": "EquilibriumXor32.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_32",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor33.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_33",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor34.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_34",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor35.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_35",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor36.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_36",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor37.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_37",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor38.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_38",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor39.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_39",
-   "wing": "EquilibriumXor5.lean",
+   "wing": "EquilibriumXor40.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_40",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor41.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_41",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor42.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_42",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor43.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_43",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor44.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_44",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor45.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_45",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor46.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_46",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor47.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_47",
-   "wing": "EquilibriumXor6.lean",
+   "wing": "EquilibriumXor48.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_48",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor49.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_49",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor50.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_50",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor51.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_51",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor52.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_52",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor53.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_53",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor54.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_54",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor55.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_55",
-   "wing": "EquilibriumXor7.lean",
+   "wing": "EquilibriumXor56.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_56",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor57.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_57",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor58.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_58",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor59.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_59",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor60.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_60",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor61.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_61",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor62.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_62",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor63.lean",
    "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_63",
-   "wing": "EquilibriumXor8.lean",
+   "wing": "EquilibriumXor64.lean",
    "verdict": "survived-widening"
   },
   {

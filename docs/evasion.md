@@ -13,19 +13,19 @@ description: Every trick with the finder that catches it and the seal that convi
 
 | metric | value | unit |
 |---|---|---|
-| sealed theorems | **70919** | by decide, axiom-free |
+| sealed theorems | **70931** | by decide, axiom-free |
 | prose unverified | **3867** / 7044 | paragraphs — doors, not defeats |
 | prose drained | **0** / 7044 | fabricated citations caught |
-| doors held open | **0** | leads awaiting their two coins |
+| leads in trial | **21** | leads awaiting their two coins |
 | refuted honestly | **59** | killed by a measurement, recorded |
-| refused at boundary | **21** | sources that answered 418, named |
+| refused at boundary | **0** | sources that answered 418, named |
 | tricks catalogued | **10** | each with its finder and its convicting seal |
 
-Board fold: `c867a844` — recompute it from these figures or the tape has moved.
+Board fold: `20508e8e` — recompute it from these figures or the tape has moved.
 
 **The catches, sung** — the board's own address on the lattice:
 
-<HexbitPlayer :states="[12,8,6,7,10,8,4,4,3,9,14,11,8,5,10,9,8,10,5,6,1,1,9,3,12,8,12,15,1,0,9,4]" />
+<HexbitPlayer :states="[2,0,5,0,8,14,8,14,15,11,8,1,8,14,1,11,9,14,10,12,14,11,15,13,0,1,7,8,2,14,14,4]" />
 
 ## The catalogue — 10 tricks, each convicted at least once
 

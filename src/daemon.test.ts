@@ -44,7 +44,7 @@ test('gate drains a fabricated citation and reveals everything else', () => {
 
 test('trial returns one answer — VERIFIED or UNVERIFIED, all else void', () => {
   const r = route('POST', '/trial', Q(), { statement: 'quantum supremacy, proven in theorem uuidna_is_a_quantum_computer' }).json as { verdict: string }
-  assert.equal(r.verdict, 'UNVERIFIED') // a citation to a proof not in the ledger verifies nothing — never called false
+  assert.equal(r.verdict, 'UNVERIFIED') // a citation to a proof not in the ledger verifies nothing — never called false; the sealed bound is n_qubit_dimension
 })
 
 test('an unknown route 404s', () => {

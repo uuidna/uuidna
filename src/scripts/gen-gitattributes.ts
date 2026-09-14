@@ -22,7 +22,7 @@ import { DRAIN_PATHS, LFS_PATHS, ROOT } from './api.js'
  *  IT MAY ONLY SHRINK, and it shrinks by giving a path a writer — not by deciding the loss is acceptable. */
 const NOT_DERIVED: readonly string[] = [
   'lean/wave-queue.json',         // deposits: mcp.ts writes via depositCandidates, gen-waves only reads
-  'lean/leads.json',              // the research record — held / refuted / refused, authored
+  'lean/leads.json',              // the research record — in trial / refuted, authored
   'lean/research-ledger.json',    // hand-maintained; its own test calls it "the human record"
   'lean/dormant-scripts.json',    // a roster whose header says it MAY ONLY SHRINK
   'lean/mcp-context-budget.json', // a ceiling re-sealed deliberately, each raise carrying its reason

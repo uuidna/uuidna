@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   publicationGraph, graphCensus, graphNode, termsByPublication, modulusOf,
-  RARE_MAX, WORD_MIN, KIN, CONST_WEIGHT, MOD_WEIGHT,
+  RARE_MAX, WORD_MIN, KIN, CONST_WEIGHT, MOD_WEIGHT, familyOf,
 } from './publication-graph.js'
 import { publications } from './publish.js'
 import { merkleFold, toUuid } from './address.js'
@@ -65,13 +65,20 @@ test('kinship is symmetric in its shared terms', () => {
   }
 })
 
-test('rarity is what makes a term relate — a corpus-wide term relates nothing', () => {
+test('rarity is what makes a term relate — a term across more than RARE_MAX sources relates nothing', () => {
   const terms = termsByPublication()
-  const cf = new Map<string, number>()
-  for (const t of terms) for (const c of t.constants) cf.set(c, (cf.get(c) ?? 0) + 1)
+  // a SOURCE is a family: the numbered members of one generated family are one source (familyOf, derived from the file)
+  const cf = new Map<string, Set<string>>()
+  for (const t of terms) for (const c of t.constants) (cf.get(c) ?? cf.set(c, new Set()).get(c)!).add(familyOf(t.file))
   for (const t of terms)
     for (const c of t.rareConstants)
-      assert.ok((cf.get(c) ?? 0) <= RARE_MAX, `${t.slug}: ${c} appears in more than ${RARE_MAX} monographs`)
+      assert.ok((cf.get(c)?.size ?? 0) <= RARE_MAX, `${t.slug}: ${c} appears in more than ${RARE_MAX} sources`)
+  // CONTROL: a constant spread over more than RARE_MAX sources is never rare, wherever it appears
+  for (const t of terms)
+    for (const c of t.constants)
+      if ((cf.get(c)?.size ?? 0) > RARE_MAX) assert.ok(!t.rareConstants.includes(c), `${t.slug}: ${c} is corpus-wide and cannot relate`)
+  assert.equal(familyOf('EquilibriumXor64.lean'), familyOf('EquilibriumXor1.lean'), 'a numbered family is one source')
+  assert.notEqual(familyOf('Equilibrium.lean'), familyOf('Acoustics.lean'), 'distinct wings stay distinct sources')
   assert.ok(WORD_MIN >= 2, 'a word in one monograph cannot relate a pair')
 })
 

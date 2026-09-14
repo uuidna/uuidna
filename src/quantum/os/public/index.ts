@@ -3,7 +3,7 @@ import { merkleGravity } from '../../../gravity/index.js'
 import { toUuid } from '../../../address.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { RESEARCH_SOURCE_NAMES } from '../research/index.js'
-import { EXTENDED_RESEARCH_PROBES } from '../research/index.js'
+import { RESEARCH_DOORS } from '../research/index.js'
 import { SCHOOL_APIS, schoolApiRegistry } from '../school/index.js'
 import { JOURNAL_DOORS } from '../journals/index.js'
 
@@ -22,7 +22,7 @@ export interface PublicApiEntry {
   sweep: boolean
   heartbeat: boolean
   probe?: { query: string }
-  honest: string
+  honest?: string
 }
 
 const WEATHER_APIS: PublicApiEntry[] = [
@@ -47,14 +47,6 @@ const NEWS_APIS: PublicApiEntry[] = [
 
 /** Doors whose REST base is not the host root, or whose scope must be said in its own words rather than the
  *  generic research line. Keyed by host, so a door is described once and the sweep list stays a list of names. */
-const RESEARCH_DOOR_OVERRIDES: Record<string, { base?: string; honest?: string }> = {
-  'journals.aas.org': {
-    base: 'https://journals.aas.org/wp-json/wp/v2',
-    honest: 'AAS’s OWN journal pages — scope, policy, author instructions, the pre-submission checklist — through '
-      + 'the keyless WordPress REST API. The ARTICLES are IOP’s, under DOI prefix 10.3847: this door serves none of '
-      + 'them, and a hit here is AAS writing about a journal, never a paper in it.',
-  },
-}
 
 const OTHER_APIS: PublicApiEntry[] = [
   { id: 'zenodo-communities', host: 'zenodo.org', base: 'https://zenodo.org/api/communities',
@@ -111,24 +103,18 @@ export function publicApiRegistry(): {
   door: string
   honest: string
 } {
-  const research: PublicApiEntry[] = RESEARCH_SOURCE_NAMES.map((host) => {
-    const ext = EXTENDED_RESEARCH_PROBES.find((p) => p.id === host)
-    return {
-      id: host.replace(/\./g, '-'),
-      host,
-      base: RESEARCH_DOOR_OVERRIDES[host]?.base
-        ?? (host === 'mathoverflow.net' || host === 'api.stackexchange.com' || host.endsWith('.stackexchange.com')
-          ? 'https://api.stackexchange.com' : `https://${host}`),
-      kind: 'research' as const,
-      access: host === 'crossref.org' || host === 'openalex.org' ? 'mailto-polite' as const : 'keyless' as const,
-      direction: 'fetched' as const,
-      sweep: true,
-      heartbeat: true,
-      ...(ext ? { probe: { query: ext.query } } : { probe: { query: 'quantum' } }),
-      honest: RESEARCH_DOOR_OVERRIDES[host]?.honest
-        ?? 'External research CORROBORATES — provenance fingerprint only; only a by-decide theorem SEALS.',
-    }
-  })
+  // READ OFF THE DOORS (research/index.ts): each row is its door's own declaration — host, the base its reader fetches,
+  // its access — with no override, no special case and no per-source probe; every door is asked the wave's topic
+  const research: PublicApiEntry[] = RESEARCH_DOORS.map((d) => ({
+    id: d.host.replace(/\./g, '-'),
+    host: d.host,
+    base: d.base,
+    kind: 'research' as const,
+    access: d.access,
+    direction: 'fetched' as const,
+    sweep: true,
+    heartbeat: true,
+  }))
 
   const euEducation: PublicApiEntry[] = SCHOOL_APIS.map((s) => ({
     id: s.id,

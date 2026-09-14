@@ -113,7 +113,9 @@ const quantified = LEDGER.filter((t) => /∀|∃/.test(t.statement))
 // been the third time in one day that a rule failed to recognise a notation for the very thing it looks for —
 // `incomplete` could not see a ∀ binder, the claim measure could not see `List.range`, and this could not see
 // a finite type. The law is unchanged: every quantified statement in this ledger ranges over a bounded domain.
-const isBounded = (statement: string): boolean => /∈\s*\[/.test(statement) || /:\s*Fin\s+\d+/.test(statement)
+// A list literal under a type ascription — `∀ p ∈ ([(0,1,2), …] : List (Nat × Nat × Nat))` — is the same finite
+// membership with a parenthesis in front, so the rule reads the bracket after an optional `(` (2026-09-14, relabel3).
+const isBounded = (statement: string): boolean => /∈\s*\(?\s*\[/.test(statement) || /:\s*Fin\s+\d+/.test(statement)
 const unbounded = quantified.filter((t) => !isBounded(t.statement)).length
 // PER-WING MAXIMA, not every enumeration. The first version handed the kernel all 1,400-odd windows in the tree
 // and `decide` hit its recursion ceiling — the check was refused rather than passed, which is the delta gate doing

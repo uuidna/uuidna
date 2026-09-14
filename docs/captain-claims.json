@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-13",
+  "generated": "2026-09-14",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 70919,
-  "novelty_claimed": 70537,
+  "total_claimed": 70931,
+  "novelty_claimed": 70549,
   "formalisation_only": 382,
   "attributed_facts": [
     {
@@ -2688,7 +2688,7 @@
     "ground_truth_sensitivity": "11/17",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
-  "total_theorems": 70919,
+  "total_theorems": 70931,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7183,22 +7183,22 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "46aa6d4b-8338-8c73-a0ce-74754c6272a2",
-      "address": "8c969f38-af4e-87bc-ba1b-33c6d5122c20",
+      "lineAddress": "7b015d1a-f6e4-8886-8c7a-7690800cf89c",
+      "address": "e82a009c-0f4c-8e73-b17b-82c830a38eb1",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "1166bd3e-1877-8bd7-bb8a-d275d227b440",
-      "address": "bfec9c67-3cfd-88eb-9979-a8b3fa723d0f",
+      "lineAddress": "1a44a917-a0fa-88c3-91c4-3e8b55459b08",
+      "address": "f83e2e05-70ff-897b-959e-50f2a2da83fa",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "aa3b9a96-95c5-8313-86ce-fe078acad1a2",
-      "address": "76d2e274-b952-8815-a735-6121564c8d64",
+      "lineAddress": "b973edf1-eb24-8040-b156-5746fd45ed48",
+      "address": "478757f6-1db3-8026-ae3c-5ad54f130c15",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7519,15 +7519,15 @@
     },
     {
       "key": "the_axiom_index_partitions_without_remainder",
-      "lineAddress": "14c7b736-77b7-8f08-b7af-5f1172a432f4",
-      "address": "422d3875-cc9f-874f-8b99-d79efae50d6a",
+      "lineAddress": "b9fed3c1-cf0a-80a9-8b86-52275c1de3b9",
+      "address": "e44664cb-db08-86ba-8e9e-12310226834e",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "2806641c-e390-8d5f-abf5-4dcb4afeb6f3",
-      "address": "67478a4e-9f45-8114-9329-c7873e54948a",
+      "lineAddress": "a8af5fea-f426-8a15-99e9-63b1acefa6c2",
+      "address": "c06d4dab-24b7-8886-b8d8-5f3a4a9bd067",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7547,22 +7547,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "a5dd4919-f8b5-848b-bcbc-789392b9d3d1",
-      "address": "f11ecde8-4389-81f3-b65e-1e8e1b56fcd3",
+      "lineAddress": "790ef90a-edc3-8faa-b2d0-90a8a1084137",
+      "address": "eaad5a84-6d05-8ee7-9184-d31c3b9f2c10",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "e6508bf7-93fe-8616-8763-f3d68f93c885",
-      "address": "ced74e36-a0c2-8a04-82b9-ee3b2d9d3e4b",
+      "lineAddress": "bd692fbc-6d62-8b5e-99a1-632ac02cb879",
+      "address": "f569a1d6-d80e-8efb-8425-1f8d85706af1",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "d5c54d16-a67f-8b7c-8d42-7fcd5984e8a5",
-      "address": "6de818e1-9b84-8372-ae84-b5c887fdc7dc",
+      "lineAddress": "7478b778-51ff-80ab-b551-a5f86604eafe",
+      "address": "97f12c1d-839e-8314-89a9-6f5e32631cdc",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -8023,15 +8023,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "bca6edae-171a-8d1a-b39f-7e3e0a516318",
-      "address": "ac1b00b8-8706-86fc-8e78-f3d4820430ca",
+      "lineAddress": "e9500e9f-2447-8058-9925-dcc15800a3ae",
+      "address": "098b9313-d763-8fda-8e0a-10f0c9ab7cf8",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "b1dcd189-15f8-87f0-8efa-c0bba1d6e8d5",
-      "address": "126611b9-72d8-8670-bd90-a0a38bb152d4",
+      "lineAddress": "2f4cda55-278c-81ee-95bd-156327a6af9d",
+      "address": "47acb82c-3db0-89d2-a222-0daeb66ab932",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -8051,8 +8051,8 @@
     },
     {
       "key": "no_wing_buys_its_own_ceiling",
-      "lineAddress": "c5a8c487-b0a9-8f08-b582-3e15efaa92f1",
-      "address": "aa88635e-f623-82ff-afff-7d5d11d42f91",
+      "lineAddress": "d8c21187-2c25-82e4-8bbc-761d95c3600a",
+      "address": "8219641c-25d0-88d6-a620-0a26ce94ead3",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9374,15 +9374,15 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "0705d2b1-bb40-83f3-91df-29d82abee86d",
-      "address": "adbc7794-b818-8bba-ba6b-98db36681ef9",
+      "lineAddress": "9c41d530-4fe5-8d19-9e30-4430c076cd17",
+      "address": "6c2992c8-8424-8281-9667-acdff56876cb",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_kin_shortlist_accounts_for_every_edge",
-      "lineAddress": "0fa8ea45-1d22-8d1f-a1b0-d1b84d039a48",
-      "address": "a4f0adf3-dc11-8ca7-a070-6065c93ea970",
+      "lineAddress": "48082f65-d2cb-8a22-9214-03b14d3a2c5f",
+      "address": "f295f007-06e3-8c97-aa2d-5cebee49c061",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9827,6 +9827,55 @@
       "lineAddress": "8652d0ce-393a-88a5-ab75-c66880d9605d",
       "address": "53a8cc36-2055-8a2c-aa37-ee42eb525ac4",
       "principle": "The arithmetic of scripture",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_store_footprint_is_its_folders",
+      "lineAddress": "73fffdd6-e6b5-8d49-988a-1272167324c3",
+      "address": "9247ba7d-768c-88b3-996b-6c96ee6bf762",
+      "principle": "The build-host surface",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_third_level_already_shares",
+      "lineAddress": "f057e2e3-ede0-830e-885a-93889d426875",
+      "address": "e4c6c430-7b8e-89e4-b60e-86424a998dfa",
+      "principle": "The build-host surface",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "forged_address_odds_are_negligible",
+      "lineAddress": "356f795e-f62e-8cf6-bb11-55cb8f5a8d27",
+      "address": "3766b8cf-1be0-887f-a247-b225ade703ae",
+      "principle": "The forensic odds",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "forged_handle_odds_are_small",
+      "lineAddress": "a29d7dfa-826a-891a-9302-7dd1145b678f",
+      "address": "a9408881-2b9d-82d8-b863-f5d8929ecf4a",
+      "principle": "The forensic odds",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "sixteen_bit_handles_would_collide",
+      "lineAddress": "fd891f69-a9ee-8e70-9f30-8d5cccf7d8bb",
+      "address": "b624d208-cd3d-8d05-9411-18938294b76a",
+      "principle": "The forensic odds",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "relabel3_preserves_bigram_collisions",
+      "lineAddress": "23b34688-4845-888b-b66d-5d28a10af005",
+      "address": "c4678312-b42b-8596-bac6-50d2b9747cca",
+      "principle": "The substitution invariants",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "letter_order_moves_bigram_collisions",
+      "lineAddress": "64706da1-1f71-8bf6-8857-0a5d97cf22c2",
+      "address": "ebe16e4e-05f2-84fc-badd-21c184ab1a22",
+      "principle": "The substitution invariants",
       "held": "discovery+formalisation"
     },
     {
@@ -481257,8 +481306,8 @@
     },
     {
       "key": "the_store_holds_far_less_than_it_admits",
-      "lineAddress": "aa85b953-6c1a-801f-ab1b-a94553ef929c",
-      "address": "a91e8a8f-0105-81b2-a4e5-f5c07e7e0676",
+      "lineAddress": "5b07f01d-a021-8b06-b84f-cc4298f72204",
+      "address": "63e49802-5a8b-81ad-815f-269f546f6103",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "discovery+formalisation"
     },
@@ -481271,8 +481320,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "cb206c47-956c-80dd-a560-0e90ba745484",
-      "address": "4dbbdeca-e375-8a77-828b-31d67cb101c6",
+      "lineAddress": "c319ba21-2d61-8332-8cac-789fe9503bce",
+      "address": "4ef8a627-5478-8188-b118-8f75162895ae",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481292,15 +481341,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "2ec5c373-a8b4-8a4b-847f-aa5abda53755",
-      "address": "5eb34ac0-d46b-8199-b400-e89c27d234cd",
+      "lineAddress": "17d56d46-b8df-8d7f-86a3-dd65607a9087",
+      "address": "5c0717dd-abde-8396-a3d3-0f5e00512867",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "de1f6e0d-4e7f-8eca-a805-cb38f5317ce6",
-      "address": "460f6b77-73de-8bbc-83ff-6e6a19058d10",
+      "lineAddress": "919d98d0-276c-8fbd-8c04-5b359e202abe",
+      "address": "b291bdfa-2895-8398-85eb-44f8cbe7b23c",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481350,448 +481399,483 @@
       "key": "xor_translation_preserves_adjacency_0",
       "lineAddress": "68664764-01c9-8c39-8a65-6f95cd050b1f",
       "address": "adde5601-fb9a-845c-93f6-aef91668c3e7",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 0",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_1",
       "lineAddress": "8cf36655-926c-894c-b539-a1c9a3bc7514",
       "address": "804860f4-7e3d-8c56-ab5b-5280292372fd",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 1",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_2",
       "lineAddress": "7588650d-1670-8ede-8645-866081cb64b3",
       "address": "ceb0794c-19b0-80ac-b1ba-21e0455ce200",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 2",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_3",
       "lineAddress": "d9409d89-d6d4-8f19-b993-7611cd47863e",
       "address": "c4463b26-074d-80d3-86a7-bc10f83b92c8",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 3",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_4",
       "lineAddress": "eebb72c7-5ab3-83af-b5ad-7e6712fa2f8d",
       "address": "7fb94a4a-0fcc-8cac-a0b1-e4f17c39ce78",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 4",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_5",
       "lineAddress": "06bce009-a778-8a42-87be-9a8dcb8e1502",
       "address": "18e1a644-5aa2-8b34-aac9-fd76032a8435",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 5",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_6",
       "lineAddress": "8aec3f7c-120e-84ed-a75a-fa1670548931",
       "address": "200265e5-d84b-8c7e-ab72-97d65c1438fd",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 6",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_7",
       "lineAddress": "369dec67-9905-86de-9ebc-cad03f9f2390",
       "address": "8878e014-b455-8217-8433-efc3415b5651",
-      "principle": "The six-cube translations, file 1 of 8",
+      "principle": "The six-cube translation by 7",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_8",
       "lineAddress": "47ccf91a-ec8e-8c19-abbe-4169225ae3f6",
       "address": "7ac57485-102b-84e5-9359-66d001a4311a",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 8",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_9",
       "lineAddress": "9726f911-c31f-8568-bd8e-beb323316779",
       "address": "48b41218-2319-8c4c-85c9-55cbee79b37d",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 9",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_10",
       "lineAddress": "b7c070f1-249b-8a02-b5ea-7b31a2e0482a",
       "address": "21868852-14bf-8f52-9716-8c69521e21e2",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 10",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_11",
       "lineAddress": "c14c4f24-4caf-8535-ab21-45c6ba809d9f",
       "address": "5e47ec43-35c8-8ddd-b6ca-aacc61215118",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 11",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_12",
       "lineAddress": "8e6073b8-1e73-8d18-b2d2-b5f7c1b3f3e0",
       "address": "c5ea3ff0-2f02-85b2-bf77-a4b7d1deb56c",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 12",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_13",
       "lineAddress": "20810cf3-d188-86c2-8039-4e63d96bd031",
       "address": "01bab504-742d-8ae5-83f3-fc83cfd6f899",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 13",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_14",
       "lineAddress": "f8f106d9-8f65-85f3-8415-71079e440c61",
       "address": "f1fe7685-b172-8f32-b35b-c48f6264d813",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 14",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_15",
       "lineAddress": "45515aa6-9d6e-8715-8375-630e7b241c00",
       "address": "17fd2129-e149-8157-89dc-bc5d09b3b3af",
-      "principle": "The six-cube translations, file 2 of 8",
+      "principle": "The six-cube translation by 15",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_16",
       "lineAddress": "1951f967-18b9-8bf8-b4e4-dd1ce04a91d3",
       "address": "269b76b3-2095-8ca2-9de3-42aa9cd261ce",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 16",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_17",
       "lineAddress": "ffd10feb-7b43-8f1e-acbe-8abddd369e44",
       "address": "d0df644e-8557-8664-9c84-dc6617c3f3e1",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 17",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_18",
       "lineAddress": "1dd84c4c-1887-8132-a30b-e56e95ba8c07",
       "address": "f7812746-1cec-8abe-baf0-aeda589b9391",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 18",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_19",
       "lineAddress": "25e9fc3d-38f2-8d3a-8ca6-2131a50be8b6",
       "address": "ffb6c31f-54c0-87a8-ae64-1e4886e924d4",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 19",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_20",
       "lineAddress": "39b4ae13-26cf-82c1-b761-68bfbab42d27",
       "address": "82e0ec94-00a9-85f3-8cc4-4b187f67c885",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 20",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_21",
       "lineAddress": "074fa6cb-a2a1-81fc-a139-23243b25867f",
       "address": "f30fc194-f1b3-8a03-9a5c-d50f3af99bd6",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 21",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_22",
       "lineAddress": "4baa2b8f-97c6-89dd-b5b1-9b8f12422153",
       "address": "d776c3d2-de1b-8fed-ae31-d44d010a48eb",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 22",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_23",
       "lineAddress": "f432b350-6e03-8271-9d8f-2f15a1239ad5",
       "address": "5bd5a1ce-5712-8d24-8694-7907628c5d5e",
-      "principle": "The six-cube translations, file 3 of 8",
+      "principle": "The six-cube translation by 23",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_24",
       "lineAddress": "0eccb09c-3d4c-85d5-b2c3-a6c5833160be",
       "address": "ca781cf2-656a-8c2a-85b8-d5b15f83c85d",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 24",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_25",
       "lineAddress": "5646c3f5-88da-8207-a608-aab62bfe412f",
       "address": "9a01963e-eda5-87d0-b4d5-5fce006a07dd",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 25",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_26",
       "lineAddress": "120c92c0-388b-8cef-a125-609c48ca487e",
       "address": "6ea4d32d-a3d8-8e83-a814-7e3c1911e750",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 26",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_27",
       "lineAddress": "dd66cd59-395d-8297-9f89-5003a42b5623",
       "address": "e18ea24b-dc8b-8d25-98bb-a02529c73ee5",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 27",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_28",
       "lineAddress": "09b12ac3-005d-8c9d-9a9b-cafc0b049ff6",
       "address": "30213d82-69a1-881c-9c6a-b470a6070c61",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 28",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_29",
       "lineAddress": "cfb66ff0-521a-802f-8b11-f5dd44c2b0f4",
       "address": "325c562d-7a2b-8873-bbbb-b8612733ee2b",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 29",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_30",
       "lineAddress": "080a4982-62a4-8b65-b34a-da53606d8cdb",
       "address": "12842b03-62df-8771-965e-77b1ada1a982",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 30",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_31",
       "lineAddress": "1148bd67-3a91-8c32-b794-24ae0cfd8778",
       "address": "78e12841-58a8-84c8-9811-d1e71cd8a41e",
-      "principle": "The six-cube translations, file 4 of 8",
+      "principle": "The six-cube translation by 31",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_32",
       "lineAddress": "72d16381-eb21-8706-9433-5cd4cfa34e2e",
       "address": "b4649c8c-610a-852a-9139-3b14cd553c5a",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 32",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_33",
       "lineAddress": "46e874c0-9dbe-8ace-b91a-ac9c9e16870a",
       "address": "257e202b-5603-8956-a1a5-8cfdb92ee94c",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 33",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_34",
       "lineAddress": "e73c1728-2969-81b4-b9de-ef5da8827b5f",
       "address": "7e3da2d6-1578-8971-8484-5a0dc9b4a34f",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 34",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_35",
       "lineAddress": "a56be10d-9065-8e65-99aa-635a679f0467",
       "address": "f68df0e0-694c-8b0e-9b60-7f7cf51d2e91",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 35",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_36",
       "lineAddress": "385f2363-db9a-8705-a5a5-7fc9faefa98e",
       "address": "39f0274a-085b-8e86-bfde-47c023ecd6a0",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 36",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_37",
       "lineAddress": "86d02f6e-0061-856b-9db3-7efb085da6bb",
       "address": "2d8e4b73-4357-8a93-ad66-44782ef6f5dd",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 37",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_38",
       "lineAddress": "8f9e5a5c-00df-8766-859d-65b40b66a9d9",
       "address": "25a0d1c1-58e6-86f8-96b0-82ac29ca8fd2",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 38",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_39",
       "lineAddress": "427d1ae7-3c56-8522-8d54-c4d97016ffc7",
       "address": "2f526b11-8fde-881e-a6d6-ab84e3e2b227",
-      "principle": "The six-cube translations, file 5 of 8",
+      "principle": "The six-cube translation by 39",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_40",
       "lineAddress": "06d46cd7-64c7-82b8-88ec-646f19cf2319",
       "address": "f47cbb3f-9714-8903-a84c-de30f480de69",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 40",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_41",
       "lineAddress": "285f8024-9bbe-8619-a58b-ea04c2255b0b",
       "address": "3ca16e29-4b03-88e3-8b82-e260b4aa87af",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 41",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_42",
       "lineAddress": "c33ea960-2dd3-89f2-8bf7-4b4775ac0a36",
       "address": "0d9b6705-e713-8687-a8eb-81ed1c9c4906",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 42",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_43",
       "lineAddress": "867eb204-0b57-88a9-850c-d6eb160298ac",
       "address": "58d935eb-873a-8ee2-b2ae-7bc3ca78e5c9",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 43",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_44",
       "lineAddress": "a813167d-c4a6-8984-a699-3f3fcf7dc824",
       "address": "7d02048c-9e58-868e-ae61-57be662c31d4",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 44",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_45",
       "lineAddress": "8ee5de4e-062d-81ff-a5a1-ef9b7bd063f3",
       "address": "4ec63754-25b6-8e9e-ac80-4f0f24e861bc",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 45",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_46",
       "lineAddress": "4a756c29-2e06-85eb-bb39-bdb20539f39a",
       "address": "5373485a-9590-8000-89c6-4753dff2db0d",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 46",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_47",
       "lineAddress": "d7a44aff-2719-836e-95eb-b56ce4247110",
       "address": "92a11c9b-3a43-814d-af2a-98ce23c1a9ee",
-      "principle": "The six-cube translations, file 6 of 8",
+      "principle": "The six-cube translation by 47",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_48",
       "lineAddress": "86f8202d-6416-8563-b049-748608e754cd",
       "address": "3dbb123e-d55e-8a1b-9848-aec8b530bcef",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 48",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_49",
       "lineAddress": "ba0dd686-0334-8433-808f-6e3de0977f46",
       "address": "2543b30b-73f4-8fae-b00a-0b2226d4f6ed",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 49",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_50",
       "lineAddress": "b1cd78ea-e78a-8a71-9156-5fef740f946c",
       "address": "80cbd842-488f-83f3-8c67-acba3a2044d6",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 50",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_51",
       "lineAddress": "cfbc20bb-9587-827e-998b-38ee08d6febc",
       "address": "762d7e99-ae7c-8e4b-9d9d-26186418da82",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 51",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_52",
       "lineAddress": "e0d7796e-708f-8061-a73e-580a8b3b371a",
       "address": "5fb1d4e1-0d1c-88e0-90ca-d0935d5ed9be",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 52",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_53",
       "lineAddress": "0da360be-76af-8c21-843f-6e13bf903eda",
       "address": "ae0be628-e56e-8ab5-9278-cc0c86790eba",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 53",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_54",
       "lineAddress": "1dedcafa-0c8d-88ec-bf86-c4b3ccca5f11",
       "address": "dd3e5cf6-a4ea-8d76-b523-b0c863a4106a",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 54",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_55",
       "lineAddress": "e93233f2-00c7-8f0b-af92-1156b28ce4d9",
       "address": "ef48d6df-62d8-8839-846b-54a3e07cfe30",
-      "principle": "The six-cube translations, file 7 of 8",
+      "principle": "The six-cube translation by 55",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_56",
       "lineAddress": "9b2dd494-0aa3-877c-a690-0c93ef525aa6",
       "address": "e41bc709-f27b-83a1-973e-e6a9dac8729d",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 56",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_57",
       "lineAddress": "ad6f7332-df7c-80ba-bacd-48f481760f6c",
       "address": "4e24ce98-1011-8789-8679-b943b2a98e98",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 57",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_58",
       "lineAddress": "abd9f230-004e-84a0-b53e-ee179bc2a386",
       "address": "4b5a6258-d620-8111-a86d-b4bbd6418140",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 58",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_59",
       "lineAddress": "2521a8d0-4998-887f-88aa-af098d5504fd",
       "address": "fef146ec-4560-89f2-88f0-9c197a8042f1",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 59",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_60",
       "lineAddress": "20ae19c2-c74e-8f08-b66d-c9ef998f3765",
       "address": "295a1f40-f1de-896b-b5e5-26f2b315a4d8",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 60",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_61",
       "lineAddress": "a7df36ff-0c4f-85d2-a40f-df0c1d5979ce",
       "address": "fece10e8-b4ea-8a33-a974-02f2b40a1dc2",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 61",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_62",
       "lineAddress": "8234fb57-19b6-81bf-b98b-a3054d93302f",
       "address": "0fc28bf2-98c5-8d24-b5df-94de09431d8f",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 62",
       "held": "discovery+formalisation"
     },
     {
       "key": "xor_translation_preserves_adjacency_63",
       "lineAddress": "ac815cb0-a4ef-8158-8d59-aa26fa0670ab",
       "address": "776ca097-a3b9-8ca3-9d9f-df7aa6734a3c",
-      "principle": "The six-cube translations, file 8 of 8",
+      "principle": "The six-cube translation by 63",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "queneau_poems_are_ten_to_the_fourteen",
+      "lineAddress": "c0dc3b6b-564c-8632-b748-461f0ddbb2a0",
+      "address": "17c10a42-df2b-856f-ad98-9d3ab4d3b688",
+      "principle": "A hundred thousand billion poems",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "queneau_one_strip_per_position",
+      "lineAddress": "707bde4e-3007-87da-97ab-9dcdc4051b54",
+      "address": "ba320eba-2adf-891d-8173-fd74cdba0185",
+      "principle": "A hundred thousand billion poems",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "queneau_poems_are_the_fourteen_digit_numerals",
+      "lineAddress": "7e044f73-4d2c-8b33-a790-91821525bcdc",
+      "address": "a56256ad-d3cd-8583-b381-189407f78f8b",
+      "principle": "A hundred thousand billion poems",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "queneau_a_sonnet_is_eight_and_six",
+      "lineAddress": "a653720a-dc13-8e10-a358-224e4d5a4f3e",
+      "address": "63327b12-3baf-8b4d-ae1d-422915150cbb",
+      "principle": "A hundred thousand billion poems",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "queneau_ten_sonnets_are_a_vanishing_sample",
+      "lineAddress": "bc308136-1ac6-81ea-8868-23415b7e170e",
+      "address": "87f26d0e-54cb-8bf1-8807-472b71a263fe",
+      "principle": "A hundred thousand billion poems",
       "held": "discovery+formalisation"
     },
     {
@@ -499141,11 +499225,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "8059235a-df88-88ed-becc-6254e0776d72",
+  "claim_receipt": "52e5bcf5-bf94-83c3-a37d-81874f9eff4f",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 70919; he claims discovery of 70537 and credits the other 382 facts to their named sources",
+      "The captain formalised all 70931; he claims discovery of 70549 and credits the other 382 facts to their named sources",
       "These theorems are Lean-verified (by decide)",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -499158,5 +499242,5 @@
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70919; of these I claim discovery of 70537, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70931; of these I claim discovery of 70549, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

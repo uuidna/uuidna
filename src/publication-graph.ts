@@ -25,6 +25,9 @@ import { parseFormula, congruenceOf } from './formula.js'
 
 /** A constant or word in more than this many monographs is corpus-wide furniture, not a shared subject. */
 export const RARE_MAX = 20
+/** familyOf(file) → the source a wing belongs to: its own name with the member number removed, so the numbered members
+ *  of one generated family (EquilibriumXor1…64) count as ONE source for rarity — derived from the file, never listed */
+export const familyOf = (file: string): string => file.replace(/\d+\.lean$/, '.lean')
 /** A word must appear in at least two monographs to relate any pair at all. */
 export const WORD_MIN = 2
 /** How many nearest kin a monograph keeps. Five is a reader's shortlist, not a directory. */
@@ -104,12 +107,17 @@ export function termsByPublication(theorems: readonly Theorem[] = THEOREMS): Pub
       constants: [...constants].sort(), words: [...words].sort(), moduli: [...moduli].sort(),
     }
   }).sort((a, b) => (a.file < b.file ? -1 : a.file > b.file ? 1 : 0))
-  // Second pass: the frequency census that decides what is rare.
-  const cf = new Map<string, number>()
-  const wf = new Map<string, number>()
+  // Second pass: the frequency census that decides what is rare. RARITY COUNTS SOURCES, NOT FILES: the members of one
+  // generated family (EquilibriumXor1…64, one theorem to a file so each compiles small) are one source, and a term they
+  // share is that family's subject, not corpus-wide furniture. A file's family is its own name with the member number
+  // removed — derived from the file, never listed. A word still needs WORD_MIN files to relate any pair at all.
+  const cf = new Map<string, Set<string>>()
+  const wf = new Map<string, Set<string>>()
+  const wfFiles = new Map<string, number>()
   for (const r of raw) {
-    for (const c of r.constants) cf.set(c, (cf.get(c) ?? 0) + 1)
-    for (const w of r.words) wf.set(w, (wf.get(w) ?? 0) + 1)
+    const fam = familyOf(r.file)
+    for (const c of r.constants) (cf.get(c) ?? cf.set(c, new Set()).get(c)!).add(fam)
+    for (const w of r.words) { (wf.get(w) ?? wf.set(w, new Set()).get(w)!).add(fam); wfFiles.set(w, (wfFiles.get(w) ?? 0) + 1) }
   }
   return raw.map((r) => ({
     file: r.file,
@@ -117,11 +125,8 @@ export function termsByPublication(theorems: readonly Theorem[] = THEOREMS): Pub
     count: r.count,
     constants: r.constants,
     moduli: r.moduli,
-    rareConstants: r.constants.filter((c) => (cf.get(c) ?? 0) <= RARE_MAX),
-    rareWords: r.words.filter((w) => {
-      const n = wf.get(w) ?? 0
-      return n <= RARE_MAX && n >= WORD_MIN
-    }),
+    rareConstants: r.constants.filter((c) => (cf.get(c)?.size ?? 0) <= RARE_MAX),
+    rareWords: r.words.filter((w) => (wf.get(w)?.size ?? 0) <= RARE_MAX && (wfFiles.get(w) ?? 0) >= WORD_MIN),
   }))
 }
 

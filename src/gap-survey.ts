@@ -185,7 +185,7 @@ export interface GapSurvey {
   alpinePending: number
   wavePending: number
   waveInFlight: number
-  refusalOpen: number
+  refusalOpen: number | null
   bookTrialsUntried: number
   buckets: GapBucket[]
   kernelOnly: GapBucket[]
@@ -199,7 +199,7 @@ const readLeadsRecord = (): LeadsRecord | null =>
 export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading[] = []): GapSurvey {
   const record = readLeadsRecord()
   const trialGaps = record ? leadsTrialGaps(record).length : 0
-  const held = (record?.held ?? []).filter((r) => String(r.lead ?? '').trim()).length
+  const inTrial = (record?.trial ?? []).filter((r) => String(r.lead ?? '').trim()).length
   const openLeads = gatherOpenLeads().length
   const tables = record as { tables?: { found?: { wing: string; object: string; size: string }[] } } | null
   const short = tableLeadsFrom(tables?.tables?.found ?? [], theoremCasesByFile(), theoremCountByFile())
@@ -225,8 +225,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const sealedNames = new Set<string>(theorems().map((t: { name: string }) => t.name))
   const alpinePending = alpineExpectedClaimKeys().filter((k) => !sealedNames.has(k) && !alpineQueued.has(k)).length
   const trialsRecord = readRepoJson('lean/refusal-trials.json') as RefusalTrialsRecord | null
-  const refusedCount = (record?.refused ?? []).filter((r) => String(r.boundary ?? '').trim() && String(r.lead ?? '').trim()).length
-  const refusalOpen = trialsRecord ? refusalTrialsOpen(trialsRecord) : refusedCount
+  const refusalOpen = refusalTrialsOpen(trialsRecord)
   const bookRaw = readRepoJson('book-leads.json') as { lead?: unknown[] } | null
   const bookCorpus = bookRaw?.lead?.length ?? 0
   const bookRecord = readRepoJson('lean/book-trials.json') as BookTrialsRecord | null
@@ -236,12 +235,12 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const buckets: GapBucket[] = []
   if (trialGaps > 0) buckets.push({
     kind: 'trial-gaps', count: trialGaps, automatable: false,
-    act: 'settle lean/leads.json — refuted needs killed_by, refused needs boundary',
+    act: 'settle lean/leads.json — refuted needs killed_by',
     note: boundaryCitation(BOUNDARY_THEOREMS.admission),
   })
-  if (held > 0) buckets.push({
-    kind: 'held-leads', count: held, automatable: false,
-    act: 'move held[] to refuted[] with killed_by, refused[] with boundary, or seal by decide',
+  if (inTrial > 0) buckets.push({
+    kind: 'trial-leads', count: inTrial, automatable: false,
+    act: 'seal it by decide, or refute it inside Lean (the involution theorem the court reads)',
     note: boundaryCitation(BOUNDARY_THEOREMS.admission),
   })
   if (release.open.length > 0) buckets.push({
@@ -272,10 +271,15 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
       note: boundaryCitation(BOUNDARY_THEOREMS.window),
     })
   }
-  if (refusalOpen > 0) buckets.push({
+  if (refusalOpen === null) buckets.push({
+    kind: 'refusal-trials', count: 1, automatable: true,
+    act: 'node dist/scripts/trial-refusals.js',
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — no trial record: every lead is unmeasured until the court runs`,
+  })
+  else if (refusalOpen > 0) buckets.push({
     kind: 'refusal-trials', count: refusalOpen, automatable: true,
-    act: 'node dist/scripts/trial-refusals.js --books',
-    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — trial each refused boundary against the ledger and book corpus until lean or exposed`,
+    act: 'node dist/scripts/trial-refusals.js',
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — leads still in trial: each needs a sealed theorem its own text names, with a fresh kernel receipt`,
   })
   if (bookTrialsGap > 0) buckets.push({
     kind: 'book-trials', count: bookTrialsGap, automatable: true,
@@ -285,7 +289,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   if (openLeads > 0) buckets.push({
     kind: 'open-leads', count: openLeads, automatable: true,
     act: DERIVE_SURFACES_CMD,
-    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — only held and undecided prose develop feed open-questions; refuted and refused are closed on docs/leads`,
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — only leads in trial and undecided prose develop feed open-questions; refuted and refused are closed on docs/leads`,
   })
 
   buckets.push({
@@ -298,7 +302,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const kernelOnly = buckets.filter((b) => !b.automatable && b.count > 0)
 
   return {
-    releaseReady: release.ready && trialGaps === 0 && held === 0,
+    releaseReady: release.ready && trialGaps === 0 && inTrial === 0,
     releaseOpen: release.open.length,
     trialGaps,
     openLeads,

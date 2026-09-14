@@ -50,7 +50,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 
 ## The grid <Badge type="tip" :text="`242`" />
 
-242 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 111 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+242 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 112 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -82,6 +82,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-editorial"><code>editorial</code></a>
 <a href="#uuidna-engineering"><code>engineering</code></a>
+<a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-expose"><code>expose</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -188,7 +189,6 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-double-torus"><code>double_torus</code></a>
 <a href="#uuidna-education-jobs"><code>education_jobs</code></a>
 <a href="#uuidna-engine"><code>engine</code></a>
-<a href="#uuidna-evidence"><code>evidence</code></a>
 <a href="#uuidna-exec"><code>exec</code></a>
 <a href="#uuidna-fanout"><code>fanout</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
@@ -780,9 +780,15 @@ The mission board, derived: open work with an exact deliverable — a finding no
 
 ### `uuidna_laws`
 
-uuidna's standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. Returns {laws:[{law,enforcedBy,holds,detail}],allHold,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+The standing laws, each recomputed from the gate that enforces it, fused with every legal door and the live audit chain of every tools/call. {action:{agent,tool,statement,cited}} audits one agent action by every gate. Boundary declared — theorem drift_is_named_or_caught.
 
-_No parameters._
+uuidna's standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security; Lean decides with no list between the kernel and its verdict; every lead goes to a kernel trial; compute once, save, pass on; receipts saved as computed). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. With no input it returns {laws:[{law,said,enforcedBy,holds,detail}],allHold,receipt} fused with the legal facts, the traitor catch, the rights, due process and the audit chain state; with {action} it returns law-audit's verdict: the adjudication, the honesty gate, the forensic audit of the cited theorems, the laws' state, the breaches and one receipt.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `action` | object | no |  |
 
 ### `uuidna_reports`
 
@@ -856,8 +862,9 @@ FUSE quantum states, theorems, and auras into a single witnessed message. A quan
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `plaintext` | string | **yes** | the message plaintext |
-| `theoremKey` | string | **yes** | the sealed theorem that backs t… |
+| `plaintext` | string | **yes** |  |
+| `theoremKey` | string | **yes** |  |
+| `hardware` | object | no |  |
 
 ### `uuidna_theorem_message`
 
@@ -2857,13 +2864,15 @@ FORENSICS — audit an agent STATEMENT against the RECEIPTS, to catch a FALSE TR
 
 ### `uuidna_evidence`
 
-Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or auditor accepts a uuidna trial by RECOMPUTING it, not trusting it. Assembles: the statement + its content-address, the trial verdict, the forensic audit against the receipts, every cited proof IN FULL (its Lean text, address, source file), the ledger receipt the evidence is bound to, the exact ordered steps to reproduce every number, and one evidenceReceipt folding it all. Anyone re-runs the steps and lands on the same receipt — or the evidence is void. Proves INTEGRITY (the claim was made, the proofs are these, nothing quietly changed), NEVER legal correctness — that is a court's ruling, not a fold. Deterministic and offline.
+Deliver the recomputable EVIDENCE bundle for a {statement}, so a court or auditor accepts a uuidna trial by RECOMPUTING it, not trusting it. Assembles: the statement + its content-address, the trial verdict, the forensic audit against the receipts, every cited proof IN FULL (its Lean text, address, source file), the ledger receipt the evidence is bound to, the exact ordered steps to reproduce every number, and one evidenceReceipt folding it all. Anyone re-runs the steps and lands on the same receipt — or the evidence is void. Proves INTEGRITY (the claim was made, the proofs are these, nothing quietly changed), NEVER legal correctness — that is a court's ruling, not a fold. Deterministic and offline. With {run} instead — axioms-receipts, trial-rows, legal-audit or trial-evidence — it returns that run log's saved receipts, each with the time and the die and battery temperatures of its own computation, the die range across the run, and one receipt over them ({latest} bounds how many, default 10).
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `statement` | string | **yes** |  |
+| `statement` | string | no |  |
+| `run` | string | no |  |
+| `deposit` | object | no |  |
 
 ## MCP self-benchmark (usability) <Badge type="tip" :text="'1'" />
 

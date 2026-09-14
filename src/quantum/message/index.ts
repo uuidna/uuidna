@@ -20,7 +20,7 @@
 // CONFIRMED by theorem n_qubit_dimension.
 
 import { theorems } from '../../theorems/index.js'
-import { toUuid } from '../../address.js'
+import { toUuid, canonicalJson } from '../../address.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
 import { qubitsToHexbits, HEXBIT_BITS, sha256IsFourSixtyfours } from '../../hexbit/index.js'
@@ -178,6 +178,25 @@ export function serializeMessage(message: QuantumMessage): {
     quantumReceipt: message.quantum.receipt,
     fold: message.fold,
   }
+}
+
+// ── THE HARDWARE STATE TRAVELS WITH THE MESSAGE, FOR FORENSICS (the captain, 2026-09-14: "the message need to contain
+// the hardware state for forensics"). Which machine computed a message, and in what state — its die sensors, battery,
+// GPU and identity — is bound into the message's fold, so a reader can tell the device and its conditions, and any
+// altered reading breaks the fold. MEASURED IS ALWAYS TRUE (the captain: "measured always true"): every surface measures
+// the machine it runs on — the host its sensors and identity (mcp.ts hostHardware), the edge its Cloudflare location,
+// network and ray (worker.js) — and hands it in; a caller may add further readings, bound alongside. A message with no
+// measurement of its computing machine is never minted: bindHardware refuses rather than binding an absence. ──
+const canonical = canonicalJson   // the one canonical form (address.ts)
+/** bindHardware(message, computedOn, supplied?) → the message with the computing machine's measured hardware state bound
+ *  in: that state verbatim (and any caller-supplied readings), its content address, the message's own fold kept as
+ *  witnessFold, and one fold over both. Refuses when computedOn is not a measurement. Pure. */
+export function bindHardware<T extends { fold: string }>(message: T, computedOn: Record<string, unknown> | null | undefined, supplied?: Record<string, unknown> | null) {
+  if (!computedOn || typeof computedOn !== 'object' || computedOn.measured !== true)
+    throw new Error('quantum message refused: no measured hardware state of the computing machine reached this door — a message is minted only with the state of the machine that computed it (measured always true)')
+  const state = { computedOn, supplied: supplied && typeof supplied === 'object' && Object.keys(supplied).length ? supplied : null }
+  const hardwareAddress = toUuid(canonical(state))
+  return { ...message, witnessFold: message.fold, hardware: state, hardwareAddress, fold: merkleGravity([message.fold, hardwareAddress]) }
 }
 
 export function deserializeMessage(data: {

@@ -1,0 +1,12 @@
+{
+  "handle": "2f450b67",
+  "address": "2f450b67-f13f-8a43-bf53-266388b6273b",
+  "statement": "(List.replicate 14 10).foldl (· * ·) 1 = 10 ^ 14",
+  "tactic": "decide",
+  "keys": [
+    "queneau_one_strip_per_position"
+  ],
+  "files": [
+    "Queneau.lean"
+  ]
+}

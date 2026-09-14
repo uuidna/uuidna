@@ -164,3 +164,16 @@ test('EVERY sealed division typesets to a form that is true as written', () => {
   }
   assert.deepEqual(wrong, [], 'a rendering that misstates its own division is worse than an unrendered one')
 })
+
+// `%` BINDS WITH `*` AND `/`, as it does in Lean (infixl 70, above `+` at 65). Each case is TRUE only under Lean's
+// reading and FALSE under the table that put `%` below `+`, so the old precedence cannot pass it.
+test('`%` binds with `*` and `/` above `+`, as the kernel reads it', () => {
+  for (const s of ['3 + 7 % 5 = 5', '27 % 9 + 1 = 1', '(27 % 9 + 1) * 10 ^ (27 / 9) = 1000']) {
+    const p = parseFormula(s)
+    assert.ok(p.ok, `${s} parses`)
+    if (p.ok) assert.equal(evaluate(p.node), true, `${s} is TRUE as Lean reads it`)
+  }
+  // CONTROL: the old reading is a different number, and says so when written out with its own brackets
+  const old = parseFormula('(3 + 7) % 5 = 5')
+  assert.ok(old.ok && evaluate(old.node) === false, '(3 + 7) % 5 is 0, so the old grouping is not what Lean decided')
+})

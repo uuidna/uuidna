@@ -1,0 +1,321 @@
+{
+  "file": "EquilibriumXor6.lean",
+  "slug": "equilibriumxor6",
+  "status": "usable",
+  "address": "f452f37b-2716-87b9-ab6e-5ac8d9b3802f",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "EquilibriumXor6.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/EquilibriumXor6.lean — GENERATED. THE XOR TRANSLATION BY 5 IS AN AUTOMORPHISM, FILE 6 OF 64 — one theorem to a file, the smallest wing that changes no statement: a file is the unit the kernel compiles and saves, so each translation compiles alone, is saved as its own result, and every later step imports it instead of re-computing it. Same 64 claims as before the split; the claim is not narrowed. Backed by the chunk law this tree already seals for walk depth (Recursion.lean), applied to walk work. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded\n-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it\n-- is NOT kernel-only. This structural recursion over an 6-bit fuel (covers 0..63, exactly the 6 bits every cell of the six-cube\n-- needs) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.\ndef lxorAux : Nat → Nat → Nat → Nat\n  | 0, _, _ => 0\n  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)\ndef lxor (a b : Nat) : Nat := lxorAux 6 a b\n\n/-- AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 5: translating both ends of a pair by the\n    same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over\n    all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on\n    the undoubled graph already. -/\ntheorem xor_translation_preserves_adjacency_5 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 5) (lxor d 5) == lxor c d)) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_40",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 40: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 40) (lxor d 40) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_40 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 40) (lxor d 40) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_41",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 41: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 41) (lxor d 41) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_41 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 41) (lxor d 41) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_42",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 42: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 42) (lxor d 42) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_42 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 42) (lxor d 42) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_43",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 43: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 43) (lxor d 43) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_43 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 43) (lxor d 43) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_44",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 44: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 44) (lxor d 44) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_44 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 44) (lxor d 44) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_45",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 45: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 45) (lxor d 45) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_45 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 45) (lxor d 45) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_46",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 46: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 46) (lxor d 46) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_46 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 46) (lxor d 46) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-xor_translation_preserves_adjacency_47",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 47: translating both ends of a pair by the same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on the undoubled graph already."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 47) (lxor d 47) == lxor c d))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem xor_translation_preserves_adjacency_47 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 47) (lxor d 47) == lxor c d)) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

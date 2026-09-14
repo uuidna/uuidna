@@ -1,0 +1,12 @@
+{
+  "handle": "0174846b",
+  "address": "0174846b-d649-8c67-8536-3d341792f755",
+  "kind": "chunk",
+  "keys": [
+    "queneau_a_sonnet_is_eight_and_six"
+  ],
+  "statement": "8 + 6 = 14 ∧ 10 ^ 8 * 10 ^ 6 = 10 ^ 14",
+  "files": [
+    "Queneau.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2e80a8c6",
+  "address": "2e80a8c6-9de2-8f9c-a7fa-9bc14aa172c9",
+  "statement": "100000000000000 / 10 = 10000000000000 ∧ 10 < 100000000000000",
+  "tactic": "decide",
+  "keys": [
+    "queneau_ten_sonnets_are_a_vanishing_sample"
+  ],
+  "files": [
+    "Queneau.lean"
+  ]
+}

@@ -13,17 +13,17 @@
 //   npm run axioms --check   → audit only; do not rewrite the receipt (CI diff guard)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
-import { laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
-import { join } from 'node:path'
-import { tmpdir } from 'node:os'
+import { join, dirname } from 'node:path'
+import { tmpdir, platform, cpus } from 'node:os'
 import { theorems } from '../index.js'
-import { ROOT, MAXBUF } from './lean-gen.js'
+import { ROOT, MAXBUF, savedOleanOf, savingTo } from './lean-gen.js'
 
 // The receipt is the kernel's own `#print axioms`: every axiom it names is reported, with no list in between.
 import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
 import { parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
+import { measured, appendEvidence, loggedEvidence, freeMemoryBytes } from './device-readings.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
 
 const T = theorems()
@@ -59,35 +59,92 @@ const parse = parseAxiomReport
 //  • A failure with NO verdict and NO error is treated as a TRANSIENT spawn/exec hiccup (a flaky parallel `lean`) and
 //    retried, so the audit does not drop a theorem to "unaudited" on a resource blip.
 const RETRIES = 2
-const runLean = (probe: string, attempt = 0): Promise<string> =>
-  new Promise((resolve, reject) => {
-    execFile('lean', [probe], { maxBuffer: MAXBUF }, (err, stdout, stderr) => {
-      const msg = String(stdout || '') + String(stderr || '')
-      if (/: error:/.test(msg)) return reject(new Error('lean elaboration error in ' + probe + ':\n' + msg.slice(0, 300)))
-      const hasVerdict = /depends on axioms|does not depend on any axioms/.test(msg)
-      if (err && !hasVerdict) {
-        if (attempt < RETRIES) return resolve(runLean(probe, attempt + 1)) // transient — retry
-        return reject(new Error('lean produced no axiom verdict after ' + (RETRIES + 1) + ' attempts on ' + probe + (msg.trim() ? ':\n' + msg.slice(0, 200) : ' — the spawn itself failed: is the lean kernel installed on this host? (an absent instrument voids, it does not verdict)')))
-      }
-      resolve(msg)
-    })
+// EVERY PROBE IS MEASURED BY THE SYSTEM'S OWN COUNTER: /usr/bin/time reports the peak resident memory of the lean
+// process (macOS -l in bytes, GNU -v in kilobytes). The scheduler below admits wings by these measurements, never by a
+// typed per-job constant — the constant admitted eleven giant wings at once and the host swapped (2026-09-14).
+const TIME_ARGS = platform() === 'darwin' ? ['-l'] : ['-v']
+const peakOf = (stderr: string): number | null => {
+  const mac = stderr.match(/(\d+)\s+maximum resident set size/)
+  if (mac) return Number(mac[1])
+  const gnu = stderr.match(/Maximum resident set size \(kbytes\):\s*(\d+)/)
+  return gnu ? Number(gnu[1]) * 1024 : null
+}
+const timedLean = (args: readonly string[], leanPath?: string): Promise<{ failed: boolean; msg: string; peak: number | null }> =>
+  new Promise((resolve) => {
+    execFile('/usr/bin/time', [...TIME_ARGS, 'lean', ...args], { maxBuffer: MAXBUF, env: leanPath ? { ...process.env, LEAN_PATH: leanPath } : process.env }, (err, stdout, stderr) =>
+      resolve({ failed: err !== null, msg: String(stdout || '') + String(stderr || ''), peak: peakOf(String(stderr || '')) }))
   })
-
-// Compile one file + its axiom queries; resolve name → axiom-list for every theorem in the file. `async` so a failed
-// read/write (a missing probe source) surfaces as a promise REJECTION the pool awaits.
-const auditFile = async (file: string, keys: string[]): Promise<Record<string, string[]>> => {
-  const src = readFileSync(join(ROOT, 'lean', file), 'utf8')
-  const probe = join(tmpdir(), 'uuidna-ax-' + file)
-  writeFileSync(probe, src + '\n' + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
-  return parse(await runLean(probe))
+const runLean = async (probe: string, leanPath: string, attempt = 0): Promise<{ msg: string; peak: number | null }> => {
+  const { failed, msg, peak } = await timedLean([probe], leanPath)
+  if (/: error:/.test(msg)) throw new Error('lean elaboration error in ' + probe + ':\n' + msg.slice(0, 300))
+  const hasVerdict = /depends on axioms|does not depend on any axioms/.test(msg)
+  if (failed && !hasVerdict) {
+    if (attempt < RETRIES) return runLean(probe, leanPath, attempt + 1) // transient — retry
+    throw new Error('lean produced no axiom verdict after ' + (RETRIES + 1) + ' attempts on ' + probe + (msg.trim() ? ':\n' + msg.slice(0, 200) : ' — the spawn itself failed: is the lean kernel installed on this host? (an absent instrument voids, it does not verdict)'))
+  }
+  return { msg, peak }
 }
 
-// Bounded-concurrency pool (parallel Lean processes), mirroring lean-heartbeats.
-async function pool<X, R>(items: X[], concurrency: number, worker: (x: X) => Promise<R>): Promise<R[]> {
+// THE WING IS COMPILED ONCE AND ITS RESULT SAVED; THE QUESTION IMPORTS IT (the captain, 2026-09-14: "things need to be
+// remembered at each step instead of saved and passed to the next"). The probe used to paste the whole wing text ahead
+// of its `#print axioms` lines, so every audit re-elaborated every moved wing in memory: EquilibriumXor1 peaked at
+// 5.1 GB for 51.8 s, and ten at once swapped the host. Now the wing's .olean — saved by lean-gen when it proved the
+// wing, or here on the first ask — is imported: 0.20 s and 401 MB, 8 of 8 answers. The answer is the same kernel's
+// `#print axioms` over the same constants; only the re-computation is gone. A failed compile saves nothing.
+type Step = 'import' | 'compile'
+const auditFile = async (file: string, keys: string[]): Promise<{ verdict: Record<string, string[]>; peak: number | null; step: Step }> => {
+  const path = join(ROOT, 'lean', file)
+  const olean = savedOleanOf(file, readFileSync(path, 'utf8'))
+  const step: Step = existsSync(olean) ? 'import' : 'compile'
+  let compiled: number | null = null
+  for (let attempt = 0; step === 'compile'; attempt++) {
+    const save = savingTo(olean)
+    const c = await timedLean([...save.args, path])
+    if (!c.failed) { save.commit(); compiled = c.peak; break }
+    save.discard()
+    if (/: error:/.test(c.msg) || attempt >= RETRIES) throw new Error('lean elaboration error in lean/' + file + ':\n' + c.msg.slice(0, 300))
+  }
+  const probe = join(tmpdir(), 'uuidna-ax-' + file)
+  writeFileSync(probe, `import ${file.replace(/\.lean$/, '')}\n` + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
+  const r = await runLean(probe, dirname(olean))
+  const peak = compiled === null ? r.peak : r.peak === null || compiled > r.peak ? compiled : r.peak
+  return { verdict: parse(r.msg), peak, step }
+}
+
+/** memoryPool(items, estimate, known, freeNow, cores, worker) → every item run, in INVOLUTION order (heaviest,
+ *  lightest, next heaviest, next lightest…), each admitted by LIVE MEASUREMENT: while nothing has been measured yet
+ *  only one runs, so the first sets the scale; after that the next starts only if the memory measured free AT THAT
+ *  MOMENT holds its estimate (its own measured peak, or the heaviest measured so far), and a core is free. When memory
+ *  is short nothing new starts until a running item finishes. No typed constant and no guessed share: the lane count
+ *  is whatever the measurements admit — many light items at once, one or two giants. One item always runs. */
+async function memoryPool<X, R>(
+  items: readonly X[], estimate: (x: X) => number, known: () => boolean, freeNow: () => number | null, cores: number,
+  worker: (x: X) => Promise<R>, measured?: (x: X, r: R) => void,
+): Promise<R[]> {
+  const byWeight = items.map((x, i) => ({ x, i })).sort((a, b) => estimate(b.x) - estimate(a.x))
+  const order: { x: X; i: number }[] = []
+  for (let lo = 0, hi = byWeight.length - 1; lo <= hi; lo++, hi--) { order.push(byWeight[lo]!); if (lo !== hi) order.push(byWeight[hi]!) }
   const out: R[] = new Array(items.length)
-  let next = 0
-  const run = async () => { while (next < items.length) { const i = next++; out[i] = await worker(items[i]) } }
-  await Promise.all(Array.from({ length: concurrency }, run))
+  // a job just started has not yet grown to its peak, so what is free now is reduced by every estimate in flight — the
+  // memory the running jobs are about to take is never handed out twice
+  let inFlight = 0, next = 0, reserved = 0
+  await new Promise<void>((done, fail) => {
+    const pump = (): void => {
+      if (next >= order.length && inFlight === 0) return done()
+      while (next < order.length && inFlight < cores) {
+        const e = estimate(order[next]!.x)
+        if (inFlight > 0) {
+          if (!known()) break
+          const free = freeNow()
+          if (free === null || free - reserved < e) break
+        }
+        const { x, i } = order[next++]!
+        inFlight++; reserved += e
+        worker(x).then((r) => { out[i] = r; measured?.(x, r); inFlight--; reserved -= e; pump() }, fail)
+      }
+    }
+    pump()
+  })
   return out
 }
 
@@ -104,7 +161,8 @@ async function main() {
   // UUIDNA_PROVE_ALL=1 always re-ask, so nothing hides behind the gate.
   const wingBytes = files.map((f) => readFileSync(join(ROOT, 'lean', f), 'utf8')).join('')
   const ledgerSrc = existsSync(LEDGER_SRC) ? readFileSync(LEDGER_SRC, 'utf8') : ''
-  const askedKey = handleOf(toUuid(wingBytes + ledgerSrc))
+  // a full uuid over the toolchain too — a 32-bit handle could be collided by an edit, and a new Lean must re-ask
+  const askedKey = toUuid(readFileSync(join(ROOT, 'lean-toolchain'), 'utf8').trim() + '\n' + wingBytes + ledgerSrc)
 
   // THE WITNESS REFUSES A DENOMINATOR IT CANNOT VERIFY (2026-08-25). Every number this audit reports is counted
   // against `T.length`, and T comes from `theorems()` — the COMPILED ledger in dist/. The ledger it is auditing is
@@ -138,8 +196,10 @@ async function main() {
   const cachePath = join(ROOT, 'lean', 'axioms.json')
   if (!check && !process.env.UUIDNA_PROVE_ALL && existsSync(cachePath)) {
     try {
-      const prior = JSON.parse(readFileSync(cachePath, 'utf8')) as { audited?: number; axiomFree?: number; asked?: string }
-      if (prior.asked === askedKey && prior.audited === T.length && prior.axiomFree === T.length) {
+      const prior = JSON.parse(readFileSync(cachePath, 'utf8')) as { audited?: number; axiomFree?: number; asked?: string; toolchain?: string }
+      // a receipt that does not name its toolchain is re-written through the per-wing path (every unchanged wing reused)
+      const toolchainNow = readFileSync(join(ROOT, 'lean-toolchain'), 'utf8').trim()
+      if (prior.asked === askedKey && prior.audited === T.length && prior.axiomFree === T.length && prior.toolchain === toolchainNow) {
         console.log('✓ axiom audit — ' + T.length + '/' + T.length + ' kernel-only, verified by receipt (unchanged at ' + askedKey + '; UUIDNA_PROVE_ALL=1 re-asks)')
         return
       }
@@ -148,7 +208,9 @@ async function main() {
 
   // PER-WING (lead 228): a wing whose text and asked keys are unchanged since its last receipt is not re-probed —
   // its verdict is read back. Only the wings that moved reach the kernel. --check and UUIDNA_PROVE_ALL=1 re-ask all.
-  const asks: Record<string, string> = Object.fromEntries(files.map((f) => [f, wingAskedKey(readFileSync(join(ROOT, 'lean', f), 'utf8'), byFile[f])]))
+  // the toolchain is part of every wing's question: a new Lean re-asks them all
+  const toolchain = readFileSync(join(ROOT, 'lean-toolchain'), 'utf8').trim()
+  const asks: Record<string, string> = Object.fromEntries(files.map((f) => [f, wingAskedKey(readFileSync(join(ROOT, 'lean', f), 'utf8'), byFile[f], toolchain)]))
   let priorWings: Record<string, WingReceipt> | undefined
   if (!check && !process.env.UUIDNA_PROVE_ALL && existsSync(cachePath)) {
     try { priorWings = (JSON.parse(readFileSync(cachePath, 'utf8')) as { wings?: Record<string, WingReceipt> }).wings } catch { priorWings = undefined }
@@ -187,19 +249,47 @@ async function main() {
       }
     } catch { /* no git, no history, no bootstrap — every wing goes to the kernel */ }
   }
+  // RESUME FROM RECEIPTS ALREADY SAVED: every wing's receipt is appended the moment its probe returns, so a stopped run
+  // loses nothing — a logged receipt that answered the identical question (same wing text, same keys, same toolchain)
+  // is read back like any other. --check re-asks everything.
+  if (!check) {
+    const logged = loggedEvidence<{ file: string; asked: string; verdict: Record<string, string[]> }>('axioms-receipts')
+    const fresh = Object.fromEntries(logged.filter((l) => asks[l.file] === l.asked).map((l) => [l.file, { asked: l.asked, verdict: l.verdict }]))
+    if (Object.keys(fresh).length) priorWings = { ...(priorWings ?? {}), ...fresh }
+  }
   const { reuse, probe: toProbe } = reusableWings(priorWings, asks)
   if (reuse.length) console.log(`· axiom audit — ${reuse.length} wing(s) unchanged since their receipt, read back; ${toProbe.length} wing(s) moved and go to the kernel`)
-  // FUSED TO THE BALANCER, AND THE FOOTPRINT IS PASSED. The width is the host's, never a number typed here —
-  // eight was right for one machine and wrong for every other. But `capacity()` with no per-job footprint
-  // considers CORES ONLY and says so in its own `binds` field, so this asked for as many lean processes as the
-  // machine has threads while each one peaks near 2,696 MB. `laneBudget` passes the measured footprint so the
-  // memory point can bind, and subtracts the neighbours it can see; yielding is unilateral and needs no
-  // agreement between sessions, which is what makes it work on a shared tree at all.
-  const { lanes, binds } = laneBudget(LEAN_JOB_BYTES, '[l]ean ')
-  console.log(`· axiom audit — ${lanes} lane(s) (${binds})`)
-  const probed = await pool(toProbe, lanes, (f) => auditFile(f, byFile[f]))
+  // each wing's receipt is saved the moment the kernel answers, with the readings of that computation beside it —
+  // its time, the chip's temperatures, the peak memory the system measured, and which step ran: an IMPORT of the
+  // saved result, or the one COMPILE that saves it. Peaks are kept per step (a receipt from before the saved results
+  // was a compile), so a 5 GB compile never stands in for a 0.4 GB import, nor the reverse. A wing never measured
+  // is estimated at the heaviest peak of its step, else the heaviest of any; while nothing is measured, one runs.
+  const peakSeen = new Map<string, number>()
+  const note = (f: string, step: Step, p: number | null | undefined): void => {
+    if (typeof p === 'number' && p > (peakSeen.get(`${f}|${step}`) ?? 0)) peakSeen.set(`${f}|${step}`, p)
+  }
+  for (const l of loggedEvidence<{ file: string; step?: Step; readings?: { peak?: number | null } }>('axioms-receipts')) note(l.file, l.step ?? 'compile', l.readings?.peak)
+  const heaviest = (step?: Step): number => [...peakSeen].filter(([k]) => !step || k.endsWith(`|${step}`)).reduce((m, [, v]) => (v > m ? v : m), 0)
+  const stepBefore = Object.fromEntries(toProbe.map((f) => [f, existsSync(savedOleanOf(f, readFileSync(join(ROOT, 'lean', f), 'utf8'))) ? 'import' : 'compile'])) as Record<string, Step>
+  const saved = toProbe.filter((f) => stepBefore[f] === 'import').length
+  const budget = freeMemoryBytes()
+  const cores = cpus().length
+  console.log(`· axiom audit — ${saved} of ${toProbe.length} wing(s) asked by import of their saved result, ${toProbe.length - saved} compiled once and saved · ${budget === null ? 'memory UNMEASURED (one wing at a time)' : `${(budget / 1073741824).toFixed(1)} GiB measured free`} · ${cores} cores`)
+  const probed = await memoryPool(
+    toProbe,
+    (f) => peakSeen.get(`${f}|${stepBefore[f]}`) ?? (heaviest(stepBefore[f]) || heaviest()),
+    () => peakSeen.size > 0,
+    freeMemoryBytes,
+    cores,
+    async (f) => {
+      const m = await measured(() => auditFile(f, byFile[f]))
+      appendEvidence('axioms-receipts', { file: f, asked: asks[f], step: m.value.step, verdict: m.value.verdict, readings: { ...m.readings, peak: m.value.peak } })
+      return m.value
+    },
+    (f, r) => note(f, r.step, r.peak),
+  )
   const verdictOf: Record<string, Record<string, string[]>> = {}
-  toProbe.forEach((f, i) => { verdictOf[f] = probed[i] })
+  toProbe.forEach((f, i) => { verdictOf[f] = probed[i]!.verdict })
   for (const f of reuse) verdictOf[f] = priorWings![f]!.verdict
   const results = files.map((f) => verdictOf[f]!)
   const wings: Record<string, WingReceipt> = Object.fromEntries(files.map((f) => [f, { asked: asks[f], verdict: verdictOf[f]! }]))
@@ -246,7 +336,8 @@ async function main() {
   // the drain means a run that has already decided it failed does not get to leave a receipt. A stale witness is
   // then the worst case, and a stale one is at least a statement somebody made about a tree that existed.
   const axiomFree = audited - Object.keys(offenders).length
-  const receipt = { audited, total: T.length, axiomFree, offenders, dependencySets, asked: askedKey, wings }
+  // the toolchain in plain text too: the same on every machine running this Lean, and the first thing a recomputer needs
+  const receipt = { audited, total: T.length, axiomFree, offenders, dependencySets, asked: askedKey, toolchain: readFileSync(join(ROOT, 'lean-toolchain'), 'utf8').trim(), wings }
 
   console.log('\n=== axiom audit — the whole ledger ===')
   console.log('theorems audited :', audited + '/' + T.length + (unseen.length ? ` (${unseen.length} UNSEEN)` : ''))

@@ -1,0 +1,12 @@
+{
+  "handle": "0cb32fdf",
+  "address": "0cb32fdf-9ff2-8d3f-90b0-64afc92910e1",
+  "statement": "71508 < 2 ^ 32",
+  "tactic": "decide",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}
