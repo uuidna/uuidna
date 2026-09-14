@@ -24,7 +24,7 @@ export function recordPracticeTrial(
   timeSpent: number,
   hintCount: number
 ): PracticeTrial {
-  // The verdict is the ledger's, not a simulation: a practice claim on a sealed key is VERIFIED,
+  // The verdict is the ledger's, not an estimate: a practice claim on a sealed key is VERIFIED,
   // on an unsealed key it stays UNVERIFIED — never false, only not-yet (the trial's own law).
   const verdict = theoremByKey().has(theoremKey) ? 'VERIFIED' as const : 'UNVERIFIED' as const
   return foldPracticeTrial(studentId, theoremKey, attemptCount, timeSpent, hintCount, verdict)

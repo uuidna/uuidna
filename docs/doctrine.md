@@ -61,7 +61,7 @@ executives, insurers, accountants, compliance officers, tax accountants, arbitra
 to the same primitive — *verify a claim against a record both sides can recompute* — which is what the ledger does at
 zero marginal cost. The detailed 11-domain walkthrough is retired to git history; the operational replacements are
 live and linked: [the trials](/trials) (adjudication), [the tests](/tests) (audit), [MCP tools](/mcp) (the working
-interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="808bf550-8842-888c-8218-803d7f79d478">70847</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="808bf550-8842-888c-8218-803d7f79d478">70931</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
+interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="608f649f-fcc3-8c11-93a0-82a0a42074a1">70854</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="608f649f-fcc3-8c11-93a0-82a0a42074a1">70938</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
 **verification** these professions perform, not the judgment, advocacy, or human accountability they also carry.
 
 ## Sufficiency charter — what hexbit / uuidna *is* sufficient for
@@ -79,7 +79,7 @@ interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" 
 | Handle capacity | 2¹²⁸ content-address architecture; usable gap vs reported logical | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture), [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) |
 | Captain coins | Conserved fair-exchange denomination; gate requires the two coins | [`two_coins`](/theorem/two_coins), [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) |
 | Honesty gate | Hollow unbacked prose drains; clean iff detectors clear | [`exactly_one_flag`](/theorem/exactly_one_flag), [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) |
-| Classical / anti-Shor | Simulation cost 2ⁿ; Grover halves, no asymmetric Shor target | [`n_qubit_dimension`](/theorem/n_qubit_dimension), [`grover_quadratic_bound`](/theorem/grover_quadratic_bound), [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) |
+| Classical / anti-Shor | Classical state-vector cost 2ⁿ; Grover halves, no asymmetric Shor target | [`n_qubit_dimension`](/theorem/n_qubit_dimension), [`grover_quadratic_bound`](/theorem/grover_quadratic_bound), [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) |
 | Alpine / hexbit catalogue | Specs compile to hexbit states; OS provenance is integrity, not execution | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits), [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
 | Navigation | Referrer/home reach; crumbs and crosslinks are stock VitePress surfaces | [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
 | Integrity ≠ truth | Byte-identity and tamper-evidence; never content-truth or due process | [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth), [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) |

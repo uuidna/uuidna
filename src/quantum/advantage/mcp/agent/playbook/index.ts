@@ -29,7 +29,7 @@ export interface QuantumAdvantagePlaybook {
     note: string
   }
   steps: PlaybookStep[]
-  simulate: { tool: string; bell: Record<string, unknown>; ghz: Record<string, unknown> }
+  compute: { tool: string; bell: Record<string, unknown>; ghz: Record<string, unknown> }
   alpine: { tool: string; lines: string[] }
   curriculum: { endpoint: string; receipt: string; exampleCount: number }
   receipt: string
@@ -56,7 +56,7 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
       tool: 'uuidna_os',
       arguments: {},
       theorem: 'usable_gap_is_two_to_eighty',
-      reads: `capacity.uuidBits=${UUID_BITS}, capacity.servedQubits=${servedQubits} — usable address column before any simulate`,
+      reads: `capacity.uuidBits=${UUID_BITS}, capacity.servedQubits=${servedQubits} — usable address column before any state-vector call`,
     },
     {
       order: 2,
@@ -70,14 +70,14 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
       tool: 'uuidna_decide',
       arguments: { input: `2^${ghz4}=${pow2(ghz4)}` },
       theorem: 'n_qubit_dimension',
-      reads: 'verdict=VERIFIED_BY_DECIDE — simulation cost is 2^n amplitudes (not a hardware speedup claim)',
+      reads: 'verdict=VERIFIED_BY_DECIDE — the classical cost is 2^n amplitudes (not a hardware speedup claim)',
     },
     {
       order: 4,
       tool: 'uuidna_quantum',
       arguments: { circuit: 'bell' },
       theorem: 'n_qubit_dimension',
-      reads: 'outcomes and marginals — exact classical state-vector; honest field names simulation',
+      reads: 'outcomes and marginals — exact classical state-vector; honest field names the classical computation',
     },
     {
       order: 5,
@@ -121,7 +121,7 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
       note: 'N/log(N) grows — prove once O(N), verify forever O(log N). Architectural usable-column gap: theorem usable_gap_is_two_to_eighty.',
     },
     steps,
-    simulate: {
+    compute: {
       tool: 'uuidna_quantum',
       bell: { circuit: 'bell' },
       ghz: { circuit: 'ghz', qubits: ghz4 },
@@ -132,7 +132,7 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
     },
     curriculum: { endpoint: cur.endpoint, receipt: cur.receipt, exampleCount: cur.examples.length },
     receipt,
-    honest: 'Classical exact simulation (2^n amplitudes, exponential — theorem n_qubit_dimension). Magnitudes cite verify_beats_recompute_by_magnitudes (integrity verification), not quantum hardware supremacy. Alpine apps: provenance via uuidna_exec only.',
+    honest: 'Classical exact state-vector computation (2^n amplitudes, exponential — theorem n_qubit_dimension). Magnitudes cite verify_beats_recompute_by_magnitudes (integrity verification), not quantum hardware supremacy. Alpine apps: provenance via uuidna_exec only.',
   }
 }
 

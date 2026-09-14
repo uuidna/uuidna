@@ -25,13 +25,17 @@ import { sealedKeysIn } from '../refusal-trials.js'
 import { momentReadings } from './device-readings.js'
 import { depositEvidence } from './receipt-deposit.js'
 import { courtOrders } from './trial-refusals.js'
+import { currentWriter, LOCK_PATH } from './one-writer.js'
+import { laws } from '../laws.js'
 
 interface HookInput { hook_event_name?: string; session_id?: string; stop_hook_active?: boolean; tool_name?: string; tool_input?: unknown; tool_response?: unknown }
 
-/** the statement an action makes: every string the tool was handed, joined — the command, the path, the text written */
+/** the statement an action makes: every string the tool was handed, each on its own line — the command, the path, the
+ *  text written. A line apiece keeps a Lean declaration that opens a written text at the start of its line, where the
+ *  honesty gate reads it as a declaration (it defines a name) rather than as a citation of one */
 const statementOf = (input: unknown): string =>
   input && typeof input === 'object'
-    ? Object.values(input as Record<string, unknown>).filter((v): v is string => typeof v === 'string').join(' ')
+    ? Object.values(input as Record<string, unknown>).filter((v): v is string => typeof v === 'string').join('\n')
     : String(input ?? '')
 
 const LOCK = join(ROOT, 'dist', 'evidence', 'legal-audit.lock')
@@ -79,10 +83,39 @@ const court = (call: HookInput): void => {
   }))
 }
 
+// NO FUTURE AGENT VIOLATIONS (the captain, 2026-09-14: "ensure no future agent violations"). Two of the day's violations
+// become impossible here rather than remembered:
+//  · SessionStart — every session and agent in this repository begins with the standing laws in the captain's own
+//    words (laws(), the same source uuidna_laws serves), before its first action.
+//  · PreToolUse (Edit|Write) — the tree a landing holds is not written. An edit made while land certifies moves the tree
+//    after it was proven green; the pre-push court then refuses and the whole certification runs again (measured the
+//    same day: one agent's mid-landing edit cost a blocked push and a second full suite). The holder is read from the
+//    one-writer lock, live only — a dead holder is stale by definition — so a crashed landing blocks nothing.
+const brief = (): void => {
+  const L = laws()
+  const lines = L.laws.map((l) => `- ${l.law}${l.said ? ` — ${l.said}` : ''}${l.holds ? '' : ` [does not hold here${l.unmeasured ? `: ${l.unmeasured}` : ''}]`}`)
+  const context = `uuidna's standing laws (uuidna_laws, ${L.laws.length} laws, receipt ${L.receipt}). Every tool call in this repository is audited against them as it happens, and the court refuses a stop while its orders are uninvestigated:\n` +
+    lines.join('\n') +
+    '\nAnd, enforced by this repository\'s hooks: the tree is never edited while a landing holds it (the edit is refused, and names the holder); quantum results are verified by their receipts through the uuidna-qpu and uuidna MCP doors (.mcp.json), not judged from reading code.'
+  console.log(JSON.stringify({ hookSpecificOutput: { hookEventName: 'SessionStart', additionalContext: context } }))
+}
+
+const guardLanding = (call: HookInput): void => {
+  const input = (call.tool_input ?? {}) as { file_path?: unknown; notebook_path?: unknown }
+  const file = String(input.file_path ?? input.notebook_path ?? '')
+  if (!file.startsWith(ROOT + '/')) return
+  const holder = currentWriter(LOCK_PATH)
+  if (!holder) return
+  console.log(JSON.stringify({ hookSpecificOutput: { hookEventName: 'PreToolUse', permissionDecision: 'deny',
+    permissionDecisionReason: `The tree is held by a live ${holder.purpose} (pid ${holder.pid}). An edit now moves the tree after it was proven green, so the pre-push court refuses the push and the certification runs again. Queue this edit until the landing pushes, or stop the landing first and certify once with the edit in.` } }))
+}
+
 const main = async (): Promise<void> => {
   const call = ((): HookInput => { try { return JSON.parse(readFileSync(0, 'utf8')) as HookInput } catch { return {} } })()
   if (call.hook_event_name === 'PostToolUse') await audit(call)
   else if (call.hook_event_name === 'Stop') court(call)
+  else if (call.hook_event_name === 'SessionStart') brief()
+  else if (call.hook_event_name === 'PreToolUse') guardLanding(call)
 }
 
 main().catch((e) => { console.error(`court-hooks: ${e instanceof Error ? e.message : String(e)}`); process.exitCode = 0 })

@@ -10,10 +10,12 @@
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { rdRoot } from './boundary.js'
+import { rdRoot, hasFilesystem } from './boundary.js'
 
 export interface AxiomWitnessReport {
   shipped: boolean                       // lean/axioms.json found beside dist (in the package or the repo)
+  measured: boolean                      // false where this surface has no filesystem: the receipt was not looked at, not found missing
+  why?: string                           // present when measured is false — where the receipt is read instead
   holds: boolean                         // shipped AND audited=axiomFree=ledger total AND no offender
   audited: number                        // theorems the Lean toolchain audited when the receipt was sealed
   axiomFree: number                      // of those, kernel-only (no propext, no Classical.choice, no sorryAx)
@@ -46,8 +48,12 @@ export function axiomWitness(): AxiomWitnessReport {
     shipped = true
   } catch { shipped = false }
   const holds = shipped && audited === ledger && axiomFree === ledger && Object.keys(offenders).length === 0
+  // holds stays false where nothing was read: an unread receipt is never a clean one, and never a missing one either
+  const measured = hasFilesystem
   return {
-    shipped, holds, audited, axiomFree, ledger, offenders,
+    shipped, measured,
+    ...(measured ? {} : { why: 'this surface has no filesystem, so lean/axioms.json was not read — the witness is measured on a host with the package or the repo (npm run axioms writes it)' }),
+    holds, audited, axiomFree, ledger, offenders,
     receipt: merkleGravity([toUuid(`axiom-witness|${shipped}|${holds}|${audited}|${axiomFree}|${ledger}`),
       ...Object.keys(offenders).sort().map((k) => toUuid('offender|' + k + '|' + offenders[k].join(',')))]),
     honest: HONEST,

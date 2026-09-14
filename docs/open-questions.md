@@ -34,7 +34,7 @@ page regrows without it.
 - **Quantum advantage or speedup claims**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
-  <br><small>sealed neighbors: [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
+  <br><small>sealed neighbors: [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.**
   <br><small>door: the leads in trial</small>
@@ -48,8 +48,8 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) </small>
-  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) </small>
+  <br><small>involutions around: [`imprint_capacity_entangles`](/theorem/imprint_capacity_entangles) · [`involution_b13fd37a`](/theorem/involution_b13fd37a) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) · [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## chemistry — 3 open
@@ -75,7 +75,7 @@ page regrows without it.
 - **KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) · [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) </small>
-  <br><small>sealed neighbors: [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
+  <br><small>sealed neighbors: [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.**
   <br><small>door: the leads in trial</small>

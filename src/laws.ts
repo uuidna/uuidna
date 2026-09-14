@@ -5,19 +5,21 @@
 import { theorems } from './theorems/index.js'
 import { conformance } from './conformance.js'
 import { computes } from './gate.js'
-import { toUuid } from './address.js'
+import { toUuid, toUuidOnce } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { axiomsOf, wingAskedKey } from './axiom-report.js'
 import { dispositionFor, involutionOf, witnessSealOf, receiptSealOf, receiptSealed, SEALED_BY } from './refusal-trials.js'
 import { VE_FACES } from './hexbit/index.js'
-import { runEvidence } from './run-evidence.js'
+import { runEvidenceOf } from './run-evidence.js'
 import { auditRecordOf, auditChainBreaks } from './legal-audit.js'
 import { RESEARCH_DOORS } from './quantum/os/research/index.js'
 
 /** `said` keeps the captain's own words and date beside the law, so every client of uuidna_laws reads the rule as it
  *  was given — not an agent's paraphrase in a private note */
-export interface Law { law: string; said?: string; enforcedBy: string; holds: boolean; detail: string }
-export interface Laws { laws: Law[]; allHold: boolean; receipt: string }
+export interface Law { law: string; said?: string; enforcedBy: string; holds: boolean; detail: string; unmeasured?: string }
+/** `unmeasured` names the laws this surface could not measure (their gates, with the reason on each law) — such a law
+ *  reports holds:false, never a silent true, and allHold stays false until a surface that can measure it answers */
+export interface Laws { laws: Law[]; allHold: boolean; unmeasured: string[]; receipt: string }
 
 /** laws() → the standing development invariants, each with its ENFORCING gate and its recomputed `holds`. Demonstrated,
  *  not claimed; recomputable by anyone. The rules live here, in uuidna — never hand-written into a side note. */
@@ -25,7 +27,11 @@ export function laws(): Laws {
   const T = theorems()
   const conf = conformance()
   const check = (id: string): boolean => conf.checks.find((c) => c.id === id)?.pass ?? false
-  const forged = T.filter((t) => toUuid(t.key + ':' + t.statement) !== t.address).length
+  const unmeasuredOf = (id: string): { unmeasured: string } | Record<string, never> => {
+    const why = conf.checks.find((c) => c.id === id)?.unmeasured
+    return why ? { unmeasured: why } : {}
+  }
+  const forged = T.filter((t) => toUuidOnce(t.key + ':' + t.statement) !== t.address).length
 
   const L: Law[] = [
     { law: 'Generate all only from Lean — the sealed theorems are the single source; the derived layer is computed and diff-gated.',
@@ -42,6 +48,7 @@ export function laws(): Laws {
       detail: 'coins() = 2, the Euler characteristic −χ of the double torus' },
     { law: 'Zero runtime dependencies and a clean security posture — no third-party code runs; defences + collision-resistance sealed.',
       enforcedBy: 'conformance:security-posture-clean (security-audit)', holds: check('security-posture-clean'),
+      ...unmeasuredOf('security-posture-clean'),
       detail: 'zero runtime deps; the honesty gate bites; uuidna solves 0 of 7' },
     { law: 'Lean decides — the kernel\'s own `#print axioms` is the verdict, with no allow list, deny list or hand rule between them.',
       said: 'the captain, 2026-09-14: "remove any allow lists or disallowed or any manual logic whatsoever not coming from lean decisions"',
@@ -65,11 +72,16 @@ export function laws(): Laws {
         && wingAskedKey('w', ['k'], 'a') !== wingAskedKey('w', ['k'], 'b')
         && wingAskedKey('w', ['k'], 'a') !== wingAskedKey('w ', ['k'], 'a'),
       detail: 'a new toolchain or one moved byte asks again; measured with /usr/bin/time -l under Lean 4.33, EquilibriumXor1 re-elaborated peaks at 5.1 GB in 51.8 s, its saved result answers by import at 401 MB in 0.20 s' },
-    { law: 'Each receipt is saved the moment it is computed, carrying the readings of its own computation; a run with no saved log reads as not measured.',
+    { law: 'A saved receipt reads back carrying the device readings taken as it finished, and none where none were saved; a run with no saved log reads as not measured.',
       said: 'the captain, 2026-09-14: "each receipt holds the data. and receipt are saved at once they are computed"',
-      enforcedBy: 'device-readings appendEvidence (the hook) + run-evidence.test',
-      holds: runEvidence('unnamed-run').measured === false,
-      detail: 'the receipts and their readings are in dist/evidence and qpu storage' },
+      enforcedBy: 'run-evidence runEvidenceOf (the reader of dist/evidence) + device-readings appendEvidence (the writer)',
+      holds: ((mk = 310000, row = { file: 'k.lean', readings: { ns: '7', die: [{ measured: true, millikelvin: mk, source: 's' }], battery: null } },
+        saved = runEvidenceOf('trial-rows', JSON.stringify(row) + '\n'), bare = runEvidenceOf('trial-rows', JSON.stringify({ file: 'k.lean' }) + '\n')) =>
+        saved.measured && saved.saved === 1 && saved.latest[0]?.ns === '7' && saved.latest[0]?.dieMax === mk
+        && bare.measured && bare.latest[0]?.ns === null && bare.latest[0]?.dieMax === null
+        && runEvidenceOf('trial-rows', null).measured === false
+        && runEvidenceOf('unnamed-run', JSON.stringify(row) + '\n').measured === false)(),
+      detail: 'a receipt saved with its readings reads back with that clock and that die temperature, one saved without them reads back with none, and an absent log or an unknown run is not measured; that each receipt is appended the moment it is computed is appendEvidence\'s, which writes through the host\'s filesystem and is not recomputed here' },
     { law: 'A refutation stands only when it involutes inside Lean — the lead\'s own claim stated as lead_<handle> : Prop and the kernel\'s proof of involution_<handle> : ¬ lead_<handle>; no reader, agent or verifier decides that a theorem settles a lead. Otherwise the lead is reopened by default, its settlement kept word for word.',
       said: 'the captain, 2026-09-14: "reopen by default so no escape for traitors" · "noone can withdraw. only can prove what they meant" · "involute all refuted leads immediately" · on a binding a reader judged decisive: "illegal"',
       enforcedBy: 'refusal-trials involutionOf + trial-refusals settlementOf + the leads gate (a reopened lead blocks a release)',
@@ -114,5 +126,5 @@ export function laws(): Laws {
 
   const allHold = L.every((l) => l.holds)
   const receipt = merkleGravity(L.map((l) => toUuid(l.law + '|' + l.holds)))
-  return { laws: L, allHold, receipt }
+  return { laws: L, allHold, unmeasured: L.filter((l) => l.unmeasured).map((l) => l.enforcedBy), receipt }
 }

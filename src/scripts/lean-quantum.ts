@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // Automate the Lean layer for the QUANTUM computer — the exact facts src/quantum.ts computes. this
-// is the algebra of a CLASSICAL state-vector simulation (integer positions, no decimal drift)
+// is the algebra of a CLASSICAL state-vector computation (integer positions, no decimal drift)
 // hardware — the cost is the classical 2^n CONFIRMED by n_qubit_dimension. Amplitudes are Gaussian integers over √(2^scale); the Born-rule weights and
 // marginals are non-negative integers (Nat), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I) lives in ℤ. COMPUTE
-// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation.
+// each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Exact arithmetic.
 import { emit, LXOR_DEF } from './lean-gen.js'
 import { HANDLE_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 
-// JS mirrors of the exact simulator arithmetic (must each hold before a line is written).
+// JS mirrors of the exact state-vector arithmetic (must each hold before a line is written).
 const div = (a: number, b: number) => (a - (a % b)) / b // integer floor division — no Math.* (the two-coins guard)
 const sq = (a: number) => a * a
 const CLIFFORD = [[1, 0], [0, 1], [3, -5], [-2, 7]] // sample Gaussian-integer amplitudes (re, im)
@@ -80,7 +80,7 @@ const FACTS = [
     js: () => CLIFFORD.every(([re, im]) => { let p = [re, im]; for (let k = 0; k < 4; k++) p = [-p[1], p[0]]; return p[0] === re && p[1] === im }),
     lean: 'theorem s_fourth_is_identity : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2))) := by decide' },
   // ── the interference at the heart of the algorithms (Deutsch–Jozsa), computed as exact ± phase sums ──
-  { key: 'dj_balanced_cancels', why: 'Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear algebra, no advantage)',
+  { key: 'dj_balanced_cancels', why: 'Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the state-vector code computes it (classical linear algebra, no advantage)',
     js: () => [1, 1, -1, -1].reduce((a, b) => a + b, 0) === 0,
     lean: 'theorem dj_balanced_cancels : ([1, 1, -1, -1] : List Int).sum = 0 := by decide' },
   { key: 'dj_constant_reinforces', why: 'Deutsch–Jozsa: a CONSTANT boolean sends one phase, so all four reinforce to ±4 — the opposite of the balanced cancellation. Constant vs balanced IS exactly this interference sum',
@@ -91,11 +91,11 @@ const FACTS = [
     js: () => (1 * 1 - 0 * 0) !== 0 && (1 * 0 - 0 * 0) === 0 && (1 * 0 - 1 * 0) === 0,
     lean: 'theorem entanglement_determinant : ((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0) := by decide' },
   // ── the nonabelian core: Pauli X and Z anticommute (XZ = −ZX) ──
-  { key: 'pauli_x_z_anticommute', why: 'Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the simulator carries; the nonabelian core of the gate algebra',
+  { key: 'pauli_x_z_anticommute', why: 'Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the state vector carries; the nonabelian core of the gate algebra',
     js: () => [0, 1].every((b) => (-1) ** b === -((-1) ** (1 - b))),
     lean: 'theorem pauli_x_z_anticommute : (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b))) := by decide' },
   // ── the W state: a distinct entanglement class (three corners
-  { key: 'w_state_three_outcomes', why: 'The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted',
+  { key: 'w_state_three_outcomes', why: 'The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The computed amplitude vector, counted',
     js: () => [0, 1, 1, 0, 1, 0, 0, 0].filter((a) => a !== 0).length === 3,
     lean: 'theorem w_state_three_outcomes : (([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3 := by decide' },
   { key: 'w_state_normalized', why: 'W-state normalization: Σ|amp|² = 1+1+1 = 3 over √3 — an exact distribution over the three single-excitation corners',
@@ -105,9 +105,9 @@ const FACTS = [
   { key: 'bell_basis_orthogonal', why: 'The four Bell states form a complete ORTHOGONAL basis: ⟨Φ⁺|Φ⁻⟩ = 0 and ⟨Ψ⁺|Ψ⁻⟩ = 0 (over √2 integer vectors), while ⟨Φ⁺|Φ⁺⟩ = 2 — the entangled-basis measurement, as exact integer inner products',
     js: () => (1 * 1 + 0 * 0 + 0 * 0 + 1 * -1) === 0 && (0 * 0 + 1 * 1 + 1 * -1 + 0 * 0) === 0 && (1 * 1 + 0 * 0 + 0 * 0 + 1 * 1) === 2,
     lean: 'theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide' },
-  // ── the state space, counted: n qubits span 2ⁿ amplitudes — EXPONENTIAL, which is why the classical simulation is
-  //    costly. : this is the cost of simulation. ──
-  { key: 'n_qubit_dimension', why: 'n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage.',
+  // ── the state space, counted: n qubits span 2ⁿ amplitudes — EXPONENTIAL, which is why the classical computation is
+  //    costly. : this is the classical state-vector cost. ──
+  { key: 'n_qubit_dimension', why: 'n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why computing it classically is costly. this counts the classical state-vector cost, it is NOT a speedup or a quantum advantage.',
     js: () => JSON.stringify([1, 2, 3, 4, 5].map((n) => 2 ** n)) === JSON.stringify([2, 4, 8, 16, 32]),
     lean: 'theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide' },
   { key: 'served_qubit_ceiling',
@@ -157,7 +157,7 @@ const FACTS = [
   { key: 'phase_gate_order_ladder', why: 'The phase gates form an order ladder: T has order 8, S = T² has order 4, Z = S² has order 2 — each the square of the next (8 = 2·4, 4 = 2·2) — and T⁸ = I is a full 2π turn (8 mod 8 = 0). Squaring a phase gate halves its order.',
     js: () => 8 === 2 * 4 && 4 === 2 * 2 && 8 % 8 === 0,
     lean: 'theorem phase_gate_order_ladder : (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0) := by decide' },
-  { key: 'chsh_beats_classical', why: 'The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).',
+  { key: 'chsh_beats_classical', why: 'The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the state-vector code computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).',
     js: () => 2 ** 2 < 2 ** 3 && 2 ** 3 === 8,
     lean: 'theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide' },
   { key: 'no_cloning_dimension', why: 'The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)² dimensions from 2ⁿ, but a unitary preserves dimension — 2² = 4 < 16 = (2²)². this is the arithmetic SHADOW of the no-cloning theorem (a linearity fact).',
@@ -199,7 +199,7 @@ const FACTS = [
     js: () => { const nest = HANDLE_HEXBITS + HEXBIT_BITS; const qubits = HEXBIT_BITS * HEXBIT_BITS; const states = HEXBIT_STATES ** HEXBIT_BITS; return qubits - nest === 4 && 2 ** 4 === 16 && states / (2 ** nest) === 16 },
     lean: 'theorem register_exceeds_served : (16 - 12 = 4) ∧ (2 ^ 4 = 16) ∧ (65536 / 4096 = 16) := by decide' },
 
-  // ── the computer's MEMORY, folded here: the content-address receipt the simulator's state distils to, under the
+  // ── the computer's MEMORY, folded here: the content-address receipt the computed state distils to, under the
   //    SAME axiom-free XOR (lxor) the gate permutations use (CNOT = i⊕2·q0). Kept skill 'memory'. a
   //    classical INTEGRITY receipt — not a quantum memory. (Statements verbatim: addresses stable.) ──
   { key: 'store_fold_order_invariant', skill: 'memory',
@@ -239,7 +239,7 @@ const FACTS = [
     lean: 'theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1)) := by decide' },
 
   { key: 'all_signaling_duality',
-    why: 'UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.',
+    why: 'UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the computed state). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.',
     js: () => (1 + 0 === 0 + 1) && [0, 1, 2].every((a) => [0, 1, 2].every((b) => [0, 1, 2].every((c) => [0, 1, 2].every((d) => ((10 * a + b === 10 * c + d) === (a === c && b === d)))))),
     lean: 'theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d)))))) := by decide' },
 
@@ -254,8 +254,8 @@ const FACTS = [
     lean: 'theorem hexbit_slit_cross_is_overlap : (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1) := by decide' },
 ]
 
-console.log('computing ' + FACTS.length + ' QUANTUM facts (classical simulation— the classical 2^n of n_qubit_dimension) …')
+console.log('computing ' + FACTS.length + ' QUANTUM facts (exact classical computation — the classical 2^n of n_qubit_dimension) …')
 
 emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF,
-  header: 'The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL.',
+  header: 'The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

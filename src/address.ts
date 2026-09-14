@@ -107,8 +107,22 @@ export function toUuid(seed: string): string {
   const cached = _uuidCache.get(seed)
   if (cached !== undefined) return cached
   const uuid = formatUuid(bytesFromSeed(seed))
-  _uuidCache.set(seed, uuid)
+  if (keep) _uuidCache.set(seed, uuid)
   return uuid
+}
+
+// WHETHER THIS PROCESS KEEPS ADDRESSES. A host keeps every seed it addressed, which makes the second ask free. The edge
+// isolate cannot: a sweep over the whole ledger pins every statement in the cache, past the isolate's memory (measured
+// 157.5 MB against 128 MB on the first tool call after the ledger was read). The edge's own ledger module switches this
+// off when it loads — the surface declares it, no size is typed and no runtime is sniffed.
+let keep = true
+/** keepAddresses(on) → whether toUuid keeps what it addressed; off clears what was kept */
+export const keepAddresses = (on: boolean): void => { keep = on; if (!on) _uuidCache.clear() }
+
+/** toUuidOnce(seed) → exactly toUuid(seed), without keeping the seed. For a one-shot seed of any size — a deposit body's
+ *  canonical JSON, a ledger piece — where the cache would pin every byte of it for the life of the process. */
+export function toUuidOnce(seed: string): string {
+  return _uuidCache.get(seed) ?? formatUuid(bytesFromSeed(seed))
 }
 
 /** Cryptographic (SHA-256) content-address — collision- and preimage-resistant, formatted as a v8 UUID from the

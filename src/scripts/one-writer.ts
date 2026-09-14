@@ -90,7 +90,7 @@ const holds = (w: Writer): boolean => {
 // asked). So the chain is a constant of the process, and a constant is computed once.
 const ancestry = new Map<number, readonly number[]>()
 
-const ancestorsOf = (pid: number): readonly number[] => {
+export const ancestorsOf = (pid: number): readonly number[] => {
   const cached = ancestry.get(pid)
   if (cached) return cached
   const probe = parentProbe()

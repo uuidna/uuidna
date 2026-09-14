@@ -3,7 +3,9 @@
 // and this module is the typed, addressed view the package, the MCP tools, the trial and the site all consume.
 // No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth.
 import { hexbitsOf as hexbitUnit, UUID_HEXBITS as HEXBIT_UUID } from '../hexbit/index.js'
-import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
+// '#ledger' (package.json "imports"): the bundled literal on a host, the storage ledger at the edge (src/edge-ledger.ts)
+import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, LEDGER_EDGE, type LeanTheorem } from '#ledger'
+import { lazyList } from './ledger-shape.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
 import { coins } from '../captain/billing/index.js'
@@ -118,13 +120,16 @@ export function skillOf(key: string): string {
  *  questions ("is this the same proposition" vs "is this the same literal line"), not a duplicate of one. */
 export interface Theorem extends LeanTheorem { lean: string; address: string; lineAddress: string; skill: string; coins: number }
 
-const withDerived = (t: LeanTheorem): Theorem => {
+const withDerived = (t: LeanTheorem, i: number): Theorem => {
   const lean = `theorem ${t.key} : ${t.statement} := by ${t.tactic}`
   return {
     ...t,
     lean,
-    address: toUuid(t.key + ':' + t.statement),
-    lineAddress: toUuid(lean),
+    // AT THE EDGE both addresses arrive pinned — the address in the baked root, the line address with its storage piece,
+    // whose bytes the root pins — so the edge does not rehash 70,931 rows (0.5 s and 94 MB of cached seeds, measured);
+    // on a host there is no edge state and both are computed here, as they always were
+    address: LEDGER_EDGE?.addressOf(t.key) ?? toUuid(t.key + ':' + t.statement),
+    lineAddress: LEDGER_EDGE?.lineAt(i) ?? toUuid(lean),
     // INLINE first: the skill authored in Lean (carried through the manifest → ledger). skillOf(key) is only the
     // migration fallback for theorems not yet annotated; once every theorem carries an inline skill it is retired.
     skill: t.skill ?? skillOf(t.key),
@@ -133,8 +138,24 @@ const withDerived = (t: LeanTheorem): Theorem => {
   }
 }
 
-/** Every Lean-proven theorem, in computing-principle order. */
-export const THEOREMS: readonly Theorem[] = LEAN_LEDGER.map(withDerived)
+/** Every Lean-proven theorem, in computing-principle order. Built on first read, not at import: importing the ledger
+ *  costs nothing until a surface reads it, which is what lets the Worker start before its rows are read from storage. */
+export const THEOREMS: readonly Theorem[] = lazyList(() => LEAN_LEDGER.map(withDerived))
+
+/** the sealed keys in ledger order — what the 2×7 witness fold indexes by position. The edge reads them from its baked
+ *  root without the rows; a host reads them off THEOREMS. The root is baked from this ledger, so both are one list. */
+let _sealedKeys: readonly string[] | null = null
+export const sealedKeys = (): readonly string[] => LEDGER_EDGE ? LEDGER_EDGE.keys() : (_sealedKeys ??= THEOREMS.map((t) => t.key))
+
+/** sealedAddressOf(key) → a sealed key's address, or undefined for a key the ledger does not hold — what the honesty
+ *  gate asks. The edge answers from its baked root without the rows; a host answers from THEOREMS. */
+export const sealedAddressOf = (key: string): string | undefined =>
+  LEDGER_EDGE ? LEDGER_EDGE.addressOf(key) : theoremByKey().get(key)?.address
+
+/** every sealed address, as a set — what forensics asks when a text presents a uuid as a ledger address */
+let _sealedAddresses: ReadonlySet<string> | null = null
+export const sealedAddresses = (): ReadonlySet<string> =>
+  (_sealedAddresses ??= new Set(sealedKeys().map((k) => sealedAddressOf(k) as string)))
 
 /** SEALED BUT NOT A PAGE EACH. The four-hex span is one property over 2^16 addresses — counted in the ledger,
  *  served on demand at `/theorem/enumeration_hex4_<hex>`, never listed or SSG'd as 65,536 near-identical rows.
@@ -142,7 +163,7 @@ export const THEOREMS: readonly Theorem[] = LEAN_LEDGER.map(withDerived)
 export const isPagelessFile = (file: string): boolean => /^HexSpan\d+\.lean$/.test(file)
 
 /** The distinct skills present, in the order they first appear in the ledger. */
-export const SKILLS: readonly string[] = [...new Set(THEOREMS.map((t) => t.skill))]
+export const SKILLS: readonly string[] = lazyList(() => [...new Set(THEOREMS.map((t) => t.skill))])
 
 export interface SkillGroup { skill: string; count: number; fold: string; theorems: Theorem[] }
 /** The ledger organised by SKILL (the capability axis) — each group's content-addresses fold, order-invariantly,

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// @non-harmonic: measures wall-clock compile sweeps for the quantum monitor's TIME figures (same exemption
+// @non-harmonic: measures wall-clock compile sweeps for the monitor's TIME figures (same exemption
 // gen-quantum-capacity / gen-quantum-advantage carry). Never imported by the harmonic core.
 //
-// gen-os — THE DEFAULT INSTALL + THE QUANTUM MONITOR. TypeScript is the quantum computer (src/quantum/os
-// compiles Alpine to hexbits); VitePress is the quantum monitor (this page displays the recomputed facts).
+// gen-os — THE DEFAULT INSTALL + THE MONITOR. src/quantum/os compiles Alpine package specifications to hexbits;
+// the VitePress page displays the recomputed facts.
 //
 // Every figure is computed from the committed mirror / catalogue — never authored. Integrity and meaning,
 // verified loading rather than a boot (theorem the_os_is_bootable_quantum).
@@ -87,16 +87,14 @@ description: Every uuidna.com path given its exact meaning — the packages a de
 
 # The OS — the default install <Badge type="tip" text="ported in full · every claim sealed" />
 
-> If uuidna.com is the hexbit quantum computer served through VitePress, then each of its paths has an **exact
-> meaning**: the specification of one package in Alpine's repository. The set of paths is the set a **default
+> Each uuidna.com path has an **exact meaning**: the specification of one package in Alpine's repository. The set of paths is the set a **default
 > Alpine install** carries — \`alpine-base\` followed dependency by dependency through the published index until
 > it closes at **${port.count} packages** (${th('default_install_is_dependency_closed')}). uuidna never installs,
 > links, boots, or executes any of them: the port is the port of the **integrity** and the **meaning**.
 
-**Architecture of this page:** TypeScript (\`src/quantum/os\`, \`src/hexbit\`) **is** the quantum computer —
-exact-integer folds to 2^${UUID_BITS} addresses and ${UUID_HEXBITS} hexbit states per package. VitePress **is**
-the quantum monitor — it displays those recomputed facts below. No physics QC layer; classical architecture
-(${th('handle_capacity_is_quantum_by_architecture')}, ${th('n_qubit_dimension')}).
+**Architecture of this page:** TypeScript (\`src/quantum/os\`, \`src/hexbit\`) computes exact-integer folds to
+2^${UUID_BITS} addresses and ${UUID_HEXBITS} hexbit states per package; VitePress displays those recomputed facts
+below. ${th('handle_capacity_is_quantum_by_architecture')} decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128.
 
 **Home is the special one because \`alpine-base\` is**: the meta package — "${home.meaning}" — the one member
 that exists only to name the others. Opening \`/\` is installing the default set
@@ -107,7 +105,7 @@ The base: Alpine **${port.release.version}** (\`${port.branch}\`, ${port.repo}/$
 \`sha256:${port.release.rootfsSha256}\` — always Alpine **latest**: the mirror regenerates from upstream at the
 named \`src/os\` boundary on every lean run, never hand-frozen.
 
-## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
+## Monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
 **Port completeness** is **man pages testing the apps**, folded into hexbits
 (\`manDrivenPortCoverage\`) — **Alpine APKINDEX only** (main + community). npm/curl overlay ports
@@ -142,9 +140,9 @@ ${mcpMan.exposed < mcpMan.total
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
-- **Scale:** every package address lives in **2^${UUID_BITS}** usable states (${th('handle_capacity_is_quantum_by_architecture')} — 128 = 2^7, the 7-qubit fold). ${community.ported.toLocaleString('en-US')} community packages ≪ 2^128.
-- **Time:** community compile sweep in the **${communityCompileNsDecade.toLocaleString('en-US')} ns** decade (~**${communityNsPerDecade.toLocaleString('en-US')} ns**/package decade); man-page corpus **${manCompileNsDecade.toLocaleString('en-US')} ns** (~**${manNsPerDecade.toLocaleString('en-US')} ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
-- **Honesty:** uuidna is classical — ${th('n_qubit_dimension')} counts simulation cost.
+- **Scale:** every package address lives in **2^${UUID_BITS}** usable states (${th('handle_capacity_is_quantum_by_architecture')} decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128). ${community.ported.toLocaleString('en-US')} community packages ≪ 2^128.
+- **Time:** community compile sweep in the **${communityCompileNsDecade.toLocaleString('en-US')} ns** decade (~**${communityNsPerDecade.toLocaleString('en-US')} ns**/package decade); man-page corpus **${manCompileNsDecade.toLocaleString('en-US')} ns** (~**${manNsPerDecade.toLocaleString('en-US')} ns**/doc), measured on the build host.
+- **State-vector cost:** ${th('n_qubit_dimension')} decides 2^n for n = 1..5.
   **Each theorem unlocks** what it seals \`by decide\` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
   (${th('metonic_is_the_intercalation')}, ${th('fock_window_exceeds_a_monthly_toll')});
@@ -317,15 +315,15 @@ const figures: Figure[] = [
   { name: 'package self-test — coverage', value: Number(pct(selfTest.passed, selfTest.total)), unitText: '%', measurementTechnique: 'computed',
     citation: 'closure + compile + provenance per package · gate alpine-hexbit-port.test.ts' },
   { name: 'usable address space', value: UUID_BITS, unitText: 'bits (2^N states)', measurementTechnique: 'declared',
-    citation: 'theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture' },
+    citation: 'theorem handle_capacity_is_quantum_by_architecture — 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128' },
   { name: 'community compile — ns per package (decade)', value: communityNsPerDecade, unitText: 'ns', measurementTechnique: 'measured',
     citation: 'TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable' },
 ]
 
 const dataset = reportDataset({
   slug: 'alpine-hexbit-monitor',
-  name: 'uuidna Alpine hexbit quantum monitor',
-  description: 'TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).',
+  name: 'uuidna Alpine hexbit monitor',
+  description: 'TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress displays that witness plus provenance compile coverage and the compile timings measured on the build host.',
   figures,
   receipt: monitorReceipt,
 })
@@ -395,7 +393,7 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
   time: { communityCompileNsDecade, communityNsPerDecade, manCompileNsDecade, manNsPerDecade },
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
-  honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',
+  honest: 'Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.',
 }, null, 1) + '\n')
 
 writeFileSync(join(ROOT, 'lean', 'mcp-alpine-man.json'), JSON.stringify({
@@ -405,13 +403,13 @@ writeFileSync(join(ROOT, 'lean', 'mcp-alpine-man.json'), JSON.stringify({
   after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors, catalogManDriven: `${completeness.witnessed}/${completeness.total}` },
 }, null, 1) + '\n')
 
-console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, self-test ${selfTest.passed}/${selfTest.total}, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
+console.log(`✓ docs/os.md — default install ${port.count} paths + monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, self-test ${selfTest.passed}/${selfTest.total}, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
 console.log(`  → docs/public/alpine-hexbit-monitor.jsonld · lean/alpine-hexbit-monitor.json · receipt ${monitorReceipt}`)
 console.log(`  → lean/mcp-alpine-man.json · ${mcpMan.exposed}/${mcpMan.total} · receipt ${mcpMan.receipt}`)
 
 
-// ── THE MONITOR'S INVENTORY, GENERATED (the captain: "fold vitepress in uuidnaOS as the quantum computer
-// monitor"). The monitor census holds no filesystem, so that it can be asked from a tab as readily as from a
+// ── THE MONITOR'S INVENTORY, GENERATED.
+// The monitor census holds no filesystem, so that it can be asked from a tab as readily as from a
 // build; the enumeration is the host's job and it happens here, where gen-os already reads the theme and writes
 // the page. Emitting it as a module rather than a JSON file means the browser bundle carries it and the applet
 // answers everywhere — the same reason the ledger is a module.

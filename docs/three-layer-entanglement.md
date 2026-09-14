@@ -19,14 +19,10 @@
 ## The Three Layers of Entanglement
 
 ```
-LAYER 1: FOUR PHYSICAL FRAMES (Proof Integrity)
-  ├─ Crypto Frame (ChaCha20-Poly1305 + PBKDF2)
-  ├─ Bio Frame (DNA codon + Chargaff balance)
-  ├─ Chemo Frame (pH, redox, equilibrium)
-  └─ Physical Frame (wave, entropy, symmetry)
-       ↓ all four converge ↓
-    Receipt: proof is cryptographically sound, biologically coherent,
-            chemically equilibrated, physically consistent
+LAYER 1: THE LEAN SEAL (Proof Integrity)
+  └─ each theorem proven by the Lean kernel, addressed as toUuid(key:statement)
+       ↓ the address recomputes ↓
+    Receipt: the theorem's ledger address
 
 LAYER 2: SIX ROSETTA LEGS + EIGHT HEXBITS (Metadata Structure)
   ├─ Six Rosetta Legs (symbol, proof, witness, falsifier, address, recomputation)
@@ -48,30 +44,16 @@ SINGULARITY: All three layer receipts fold order-invariantly to ONE root
 
 ---
 
-## Layer 1: Four Physical Frames (Proof Integrity)
+## Layer 1: The Lean Seal (Proof Integrity)
 
-**Scope:** Does the PROOF itself verify across four independent physical laws?
-
-### The Four Frames
-
-| Frame | Verifies | Detects | Bound |
-|-------|----------|---------|-------|
-| **Crypto** | RFC 8439 AEAD integrity | Bit flips, tampering, truncation | Break ChaCha20-Poly1305 |
-| **Bio** | DNA codon alignment + Chargaff | Frame shifts, base pairing failure | Violate molecular structure |
-| **Chemo** | pH + redox + equilibrium | Charge imbalance, instability | Break conservation laws |
-| **Physical** | Wave + entropy + symmetry | Incomplete coverage, broken symmetry | Break thermodynamics |
+**Scope:** Is the theorem sealed? Every ledger entry is proven by the Lean kernel and carries the address
+`toUuid(key + ':' + statement)`, so a changed statement moves the address.
 
 ### Layer 1 Verdict
 
-✓ **LAYER 1 PASS:** All four frames return non-UNVERIFIED verdicts
-  - `crypto.verdict == 'CRYPTOGRAPHICALLY_SOUND'`
-  - `bio.verdict == 'BIOLOGICALLY_COHERENT'`
-  - `chemo.verdict == 'CHEMICALLY_EQUILIBRATED'`
-  - `physical.verdict == 'PHYSICALLY_CONSISTENT'`
-  
-✗ **LAYER 1 FAIL:** One or more frames UNVERIFIED → proof incomplete or forged
+✓ **LAYER 1 PASS:** the key is in the ledger and `toUuid(key + ':' + statement)` equals its recorded address
 
-**Cost of forgery:** Simultaneously break cryptography, molecular biology, chemistry, and physics.
+✗ **LAYER 1 FAIL:** the key is absent, or the recomputed address differs from the recorded one
 
 ---
 
@@ -136,7 +118,7 @@ Handle: a9 3c 01 a5
     ↓
 @uuidna/research        (Corroboration: external APIs, novelty detection)
     ↓
-@uuidna/quantum         (Verification: Lean, exact simulator, entanglement)
+@uuidna/quantum         (Verification: Lean, exact state vectors, entanglement)
     ↓
 @uuidna/mcp             (Interface: gate logic, MCP tools, response wrapping)
     ↓
@@ -185,7 +167,7 @@ Each motion traverses ℤ/9 address space:
 
 ```typescript
 Receipt = merkleGravity([
-  layer1_receipt,  // four physical frames converge
+  layer1_receipt,  // the theorem's sealed ledger address
   layer2_receipt,  // six legs + eight hexbits align
   layer3_receipt   // six packages + six motions close
 ])
@@ -196,7 +178,7 @@ Receipt = merkleGravity([
 - **Deterministic:** Same inputs always produce same output
 - **Independent:** Each layer verifies a distinct property (proof, metadata, topology)
 - **Unforgeable:** To forge the receipt, you'd need to simultaneously:
-  1. Break cryptography (Layer 1)
+  1. Change a sealed statement without moving its address (Layer 1)
   2. Forge external witnesses AND invalidate test suites (Layer 2)
   3. Inject package cycles AND break algebra (Layer 3)
 
@@ -209,7 +191,7 @@ Receipt = merkleGravity([
 ```
 New theorem discovered via audit
          ↓
-1. Lean proves it (by decide) → Layer 1 generates four-frame receipt
+1. Lean proves it (by decide) → Layer 1 is its ledger address
 2. Theorem maps to handle, hexbits align → Layer 2 verifies metadata
 3. MCP tool computes, ledger grows → Layer 3 topology stays sound
          ↓
@@ -221,15 +203,11 @@ Theorem sealed to ledger with full entanglement
 ### Scenario 2: Attempted Forgery (Corrupt Layer 1)
 
 ```
-Attacker modifies proof content (bit flip)
+Attacker modifies a sealed statement (bit flip)
          ↓
-Layer 1: Crypto frame detects tampering
+Layer 1: toUuid(key + ':' + statement) no longer equals the recorded address
          ↓
-Gate FAILS: crypto.verdict != 'CRYPTOGRAPHICALLY_SOUND'
-         ↓
-Two coins deposited, response re-verified
-         ↓
-Forgery detected, attacker's coins gone, attempt logged
+Gate FAILS: the address does not recompute
 ```
 
 ### Scenario 3: Attempted Forgery (Corrupt Layer 2)
@@ -260,37 +238,16 @@ Build fails, package cannot deploy, topology corruption detected
 
 ---
 
-## Integration with VitePress README
-
-The gen-readme.ts script now generates documentation that shows all three layers:
-
-```markdown
-## How Theorems Are Verified (Three-Layer Entanglement)
-
-### Layer 1: Four Physical Frames
-[Section 1 content — crypto, bio, chemo, physical]
-
-### Layer 2: Six Rosetta Legs + Eight Hexbits
-[Section 2 content — metadata structure, recomputation]
-
-### Layer 3: Six Packages + Six Vector Motions
-[Section 3 content — ledger topology, package integrity]
-
-### The Singularity Receipt
-[All three fold order-invariantly to one root]
-```
-
----
-
 ## Usage in Code
 
 ### Verify all three layers for a theorem:
 
 ```typescript
-import { entangleAllFrames, entangleLayer2, entangleLayer3 } from '@uuidna/quantum'
+import { theoremByKey, toUuid, merkleGravity, entangleLayer2, entangleLayer3 } from '@uuidna/uuidna'
 
-// Layer 1: Proof frames
-const layer1 = entangleAllFrames(theoremKey, handle, proofContent, casesWalked)
+// Layer 1: the Lean seal — the theorem is in the ledger and its address recomputes
+const t = theoremByKey().get(theoremKey)
+const layer1Sealed = t !== undefined && toUuid(t.key + ':' + t.statement) === t.address
 
 // Layer 2: Metadata structure
 const layer2 = entangleLayer2(theoremKey, handle, proofContent, rosettaLegs)
@@ -299,29 +256,14 @@ const layer2 = entangleLayer2(theoremKey, handle, proofContent, rosettaLegs)
 const layer3 = entangleLayer3(theoremCount)
 
 // Singularity receipt
-const singularity = merkleGravity([layer1.singleReceipt, layer2.receipt, layer3.receipt])
+const singularity = merkleGravity([t!.address, layer2.receipt, layer3.receipt])
 
 // All three must agree
-if (layer1.allFramesAgree && layer2.allLegsPresent && layer3.topologyComplete) {
+if (layer1Sealed && layer2.allLegsPresent && layer3.topologyComplete) {
   console.log('✓ SINGULARITY SEALED:', singularity)
 } else {
   throw new Error('Entanglement broken — theorem cannot seal')
 }
-```
-
-### MCP response with full three-layer verification:
-
-```typescript
-const response = { coins: 2, coverage: 32 }
-
-// Wrap response with all three layers
-const entangled = wrapMCPResponse(response, 'uuidna_coins', handle, casesWalked)
-
-// Response now carries:
-// entangled._meta.layer1 = { frames, receipt }
-// entangled._meta.layer2 = { legs, hexbits, receipt }
-// entangled._meta.layer3 = { packages, motions, receipt }
-// entangled._meta.singularity = merkleGravity([all three])
 ```
 
 ---
@@ -332,7 +274,7 @@ All three layers measure **INTEGRITY**, not truth — the seal is the kernel's j
 proposition, never the world's judgment on the named problem
 ([`mombh_verified_ne_solved`](/theorem/mombh_verified_ne_solved)):
 
-- **Layer 1 (Four frames):** Proof exists and is consistent
+- **Layer 1 (Lean seal):** The theorem is sealed and its address recomputes
 - **Layer 2 (Six legs + eight hexbits):** Theorem is complete and recomputable
 - **Layer 3 (Six packages + six motions):** Ledger topology is sound and unfragmented
 
@@ -353,15 +295,15 @@ Three layers converging prove a theorem has been **HONESTLY SEALED**. They do NO
         L1_RCP          L2_RCP          L3_RCP
      (proof OK)     (metadata OK)    (topology OK)
         ↑                ↑                ↑
-      ╱ ╲ ╲        ╱ ╲ ╲ ╲        ╱ ╲ ╲ ╲ ╲
-    /   |  \      /   |  \  \    /   |  \  \  \
-  C    B   CH   PH   SYM  PRF  WIT FAL ADR RCMP  PKG1 PKG2 ... MOT1 MOT2 ...
+        |          ╱ ╲ ╲ ╲        ╱ ╲ ╲ ╲ ╲
+        |         /   |  \  \    /   |  \  \  \
+      SEAL      SYM  PRF  WIT FAL ADR RCMP  PKG1 PKG2 ... MOT1 MOT2 ...
 
 LAYER 1         LAYER 2              LAYER 3
-Four frames → Six legs + hexbits → Six packages + motions
+Lean seal →  Six legs + hexbits → Six packages + motions
   (proof)      (metadata)             (topology)
 ```
 
 ---
 
-**Built with mathematics. Sealed by three independent layers. Verified by physics itself.**
+**Built with mathematics. Sealed by the Lean kernel. Checked by three layers.**

@@ -1,6 +1,6 @@
-# Complete Entanglement System: Crypto/Bio/Chemo/Physical in UUID-Handled uuidna MCP
+# Complete Entanglement System in UUID-Handled uuidna MCP
 
-**Every sealed theorem is verified through FOUR independent entanglement dimensions, arranged in a trinity of verification layers, with bidirectional rotational spin through 6×7 and 7×6 planes.**
+**Every sealed theorem is read through three structural dimensions — six Rosetta legs, eight hexbit bands, six vector motions — on top of its Lean seal, arranged in three verification layers, with bidirectional rotational spin through 6×7 and 7×6 planes.**
 
 > **Sealed anchors.** The entanglement this page composes is carried by the ledger itself: the address IS
 > two 8×8 vortex boards on the double torus, 64 + 64 = 128
@@ -25,14 +25,14 @@
                  ╱────────────────────────────╲
                 ╱              │               ╲
          LAYER 1          LAYER 2          LAYER 3
-      (Proof Frames)   (Metadata)        (Topology)
-      4 frames         6 Legs +          6 Packages +
+      (Lean Seal)      (Metadata)        (Topology)
+      key → address    6 Legs +          6 Packages +
                        8 Hexbits         6 Motions
       ↓                ↓                 ↓
-    Crypto         Symbol              @uuidna/crypto
-    Bio            Proof               @uuidna/ledger
-    Chemo          Witness             @uuidna/research
-    Physical       Falsifier           @uuidna/quantum
+    toUuid(        Symbol              @uuidna/crypto
+     key:          Proof               @uuidna/ledger
+     statement)    Witness             @uuidna/research
+                   Falsifier           @uuidna/quantum
                    Address             @uuidna/mcp
                    Recomputation       @uuidna/edge
                    (+ wing/principle/  Doubling, Halving,
@@ -50,22 +50,9 @@
 
 ---
 
-## The Four Entanglement Dimensions
+## The Three Entanglement Dimensions
 
-### DIMENSION 1: Four Physical Frames (Proof Content)
-
-**Verifies:** Does the proof itself satisfy four independent physical laws?
-
-| Frame | Law | Detects | Witness |
-|-------|-----|---------|---------|
-| **Crypto** | ChaCha20-Poly1305 (RFC 8439) + PBKDF2-SHA256 | Bit flips, tampering, truncation | Cryptography |
-| **Bio** | DNA codon alignment + Chargaff's law | Frame shifts, base pairing failure | Molecular biology |
-| **Chemo** | pH + redox + equilibrium + conservation | Charge imbalance, instability, loss of degrees of freedom | Chemistry |
-| **Physical** | Wave + entropy + symmetry + gauge | Incomplete coverage, broken symmetry, unwalked cases | Physics |
-
-**Verdict:** All four must return non-UNVERIFIED. Cost of forgery: break cryptography AND molecular biology AND chemistry AND thermodynamics simultaneously.
-
-### DIMENSION 2: Six Rosetta Legs (Metadata Structure)
+### DIMENSION 1: Six Rosetta Legs (Metadata Structure)
 
 **Verifies:** Is the theorem complete, recomputable, and independently witnessed?
 
@@ -80,7 +67,7 @@
 
 **Verdict:** All six legs must be present. Cost of forgery: forge external witnesses AND invalidate entire test suite AND suppress independent recomputation.
 
-### DIMENSION 3: Eight Hexbit Bands (Handle Structure)
+### DIMENSION 2: Eight Hexbit Bands (Handle Structure)
 
 **Verifies:** Is the 8-hexbit handle structurally sound? Do all address bands align?
 
@@ -95,7 +82,7 @@
 
 **Verdict:** All eight hexbits must align. Cost of forgery: simultaneously realign all eight structural bands and forge witness alignment.
 
-### DIMENSION 4: Six Vector Motions (Ledger Topology)
+### DIMENSION 3: Six Vector Motions (Ledger Topology)
 
 **Verifies:** Can every address reach every package? Do all motions form complete cycles?
 
@@ -114,13 +101,11 @@
 
 ## Triple Verification Layers
 
-### Layer 1: Four Proof Frames
-- Crypto Frame: `CRYPTOGRAPHICALLY_SOUND`
-- Bio Frame: `BIOLOGICALLY_COHERENT`
-- Chemo Frame: `CHEMICALLY_EQUILIBRATED`
-- Physical Frame: `PHYSICALLY_CONSISTENT`
+### Layer 1: The Lean Seal
+- The theorem key is in the ledger, proven by the Lean kernel
+- Its address recomputes: `toUuid(key + ':' + statement) === address`
 
-**Receipt:** `L1_receipt = merkleGravity([crypto_fp, bio_seq, chemo_state, physical_action])`
+**Receipt:** `L1_receipt = address` (the theorem's sealed ledger address)
 
 ### Layer 2: Metadata + Structure
 - Six Rosetta Legs: All present (symbol, proof, witness, falsifier, address, recomputation)
@@ -190,100 +175,19 @@ Both rotations must:
 
 ---
 
-## Integration with UUID-Handled MCP Tools
-
-Every MCP call (e.g., `uuidna_coins`, `uuidna_search`, `uuidna_decide`) carries full entanglement:
-
-```typescript
-// MCP Tool Handler Flow
-function uuidna_coins(request) {
-  // 1. Extract handle from request path
-  const handle = handleOf(request.uuid)  // 8-hexbit address
-  
-  // 2. Compute response
-  const response = { coins: 2, coverage: 32 }
-  
-  // 3. Verify across ALL entanglement dimensions
-  const L1 = entangleAllFrames(theoremKey, handle, JSON.stringify(response), casesWalked)
-  const L2 = entangleLayer2(theoremKey, handle, JSON.stringify(response), rosettaLegs)
-  const L3 = entangleLayer3(theoremCount)
-  const rotational = entangleBirotational(theoremKey, handle, casesWalked)
-  
-  // 4. Fold to singularity
-  const singularity = merkleGravity([
-    L1.singleReceipt,
-    L2.receipt,
-    L3.receipt,
-    rotational.convergenceReceipt
-  ])
-  
-  // 5. Gate: All must agree
-  if (L1.allFramesAgree && L2.allLegsPresent && L3.topologyComplete && rotational.bothConverge) {
-    // 6. Ship response with entanglement metadata
-    return {
-      ...response,
-      _meta: {
-        handle,
-        layer1: { frames: L1.frames, verdict: 'CONVERGED' },
-        layer2: { legs: L2.legs, hexbits: L2.hexbits, verdict: 'ANCHORED' },
-        layer3: { packages: L3.packages.length, motions: 6, verdict: 'SOUND' },
-        rotational: { forward: L2.plane6x7.receipt, reverse: L2.plane7x6.receipt, verdict: 'CONVERGED' },
-        singularity,
-        gate: '✓ ALL ENTANGLEMENT LAYERS CONVERGE'
-      }
-    }
-  } else {
-    // Gate FAILS: deposit coins, re-verify
-    throw new Error('Entanglement broken — theorem cannot ship')
-  }
-}
-```
-
----
-
-## VitePress README Generation (Updated)
-
-The `gen-readme.ts` script now generates documentation showing ALL entanglement layers:
-
-```markdown
-## How Theorems Are Verified (Complete Entanglement System)
-
-### Layer 1: Four Physical Frames (Proof Content)
-[Crypto, Bio, Chemo, Physical — all must converge]
-
-### Layer 2: Six Rosetta Legs + Eight Hexbits (Metadata Structure)
-[Symbol, Proof, Witness, Falsifier, Address, Recomputation]
-[Wing, Principle, Payload, Motion, Destiny]
-
-### Layer 3: Six Packages + Six Vector Motions (Ledger Topology)
-[@uuidna/{crypto,ledger,research,quantum,mcp,edge}]
-[Doubling, Halving, Reflection, Shift, Counter, Folding]
-
-### Rotational Entanglement (Bidirectional Spin)
-[6×7 Plane clockwise + 7×6 Plane counter-clockwise]
-[Both must traverse all 42 states and converge]
-
-### The Singularity Receipt
-[All layers fold order-invariantly to ONE root]
-
----
-
 ## Cost of Forgery
 
 To forge a proof that passes ALL entanglement layers, an attacker must:
 
-1. **Break cryptography:** ChaCha20-Poly1305 + PBKDF2-SHA256
-2. **Break biology:** Violate Chargaff's law (molecular pairing involution)
-3. **Break chemistry:** Violate conservation of charge, mass, redox balance
-4. **Break physics:** Violate thermodynamic entropy, break gauge symmetry
-5. **Forge external witnesses:** Manipulate all independent research APIs
-6. **Invalidate test suites:** Suppress falsifier tests across all edges
-7. **Realign hexbits:** Simultaneously alter all eight handle bands
-8. **Break modular algebra:** Inject cycles into ℤ/9 address space
-9. **Forge six packages:** Replicate all dependency graphs and exports
-10. **Fake rotations:** Create opposite-direction 42-step paths that converge
+1. **Move no address:** change a sealed statement without changing `toUuid(key + ':' + statement)`
+2. **Forge external witnesses:** Manipulate all independent research APIs
+3. **Invalidate test suites:** Suppress falsifier tests across all edges
+4. **Realign hexbits:** Simultaneously alter all eight handle bands
+5. **Break modular algebra:** Inject cycles into ℤ/9 address space
+6. **Forge six packages:** Replicate all dependency graphs and exports
+7. **Fake rotations:** Create opposite-direction 42-step paths that converge
 
-**Simpler to prove the theorem correct than to forge it across all ten vectors.**
+**Simpler to prove the theorem correct than to forge it across all seven.**
 
 ---
 
@@ -303,9 +207,7 @@ All entanglement layers measure **INTEGRITY**, not TRUTH:
 ## Next Steps
 
 ### For implementers:
-- Import from `@uuidna/quantum`: All four entanglement modules
-- Use `wrapMCPResponse()` to ship every MCP response with full entanglement
-- Run `npm run guard` (includes all entanglement checks)
+- Import `entangleLayer2`, `entangleLayer3` and `entangleBirotational` from `@uuidna/uuidna`
 - Deploy via `npm run docs:build` and `npm run edge:deploy`
 
 ### For researchers:
@@ -314,12 +216,9 @@ All entanglement layers measure **INTEGRITY**, not TRUTH:
 - Study convergence properties of order-invariant merkle roots
 
 ### For users:
-- Every MCP response carries `_meta.gate` verdict (visible)
 - Verify singularity independently: `merkleGravity([L1, L2, L3, rotational])`
 - No need to trust captain — verify the math
 
 ---
 
-**Built with mathematics. Sealed by four physical frames. Verified through three layers. Spun in opposite directions. Converging to singularity.**
-
-*The future is not hoped for. It is proven.*
+**Built with mathematics. Sealed by the Lean kernel. Checked through three layers. Spun in opposite directions.**

@@ -34,7 +34,7 @@ export interface Reveal {
    *  formed. So the gate can confirm a citation EXISTS and is structurally incapable of noticing that the cited
    *  theorem DENIES the claim citing it. The demonstration: "uuidna achieves quantum advantage, by theorem
    *  n_qubit_dimension" returns VERIFIED, and n_qubit_dimension's own sealed prose ends "...this counts the
-   *  simulation cost, it is NOT a speedup or a quantum advantage." The gate read the key and never read the
+   *  classical state-vector cost, it is NOT a speedup or a quantum advantage." The gate read the key and never read the
    *  sentence. A citation that refutes its citer is the one move a citation-existence check is blind to catch.
    *
    *  WHY THIS IS NOT A CONTRADICTION-DETECTOR, and must not become one. The obvious repair — scan the cited prose

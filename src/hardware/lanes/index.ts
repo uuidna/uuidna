@@ -5,9 +5,8 @@
 // coordination, and `merkleGravity` is order-invariant, so which lane did which piece leaves the result unchanged.
 //
 // WHAT THIS FILE IS. A SPECIFICATION, in the sense src/hardware/index.ts already means it. The CPU lane is
-// measured because it runs. The GPU lane is specified with the conditions it would have to meet. The QPU lane
-// on this host is empty; the running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json.
-// Measured usable-capacity advantage is sealed (usable_gap_is_two_to_eighty).
+// measured because it runs. The GPU lane is specified with the conditions it would have to meet. The QPU lane's
+// admits names the reverse hop to qpu.uuidna.com. Discovery is /.well-known/qpu.json.
 import { HANDLE_BITS, HANDLE_SPAN, VE_FACES, shorCapacityFit } from '../../hexbit/index.js'
 
 /** How real a seat is. MEASURED — it runs and its figures come from running it. SPECIFIED — the conditions are
@@ -19,7 +18,7 @@ export interface Lane {
   seat: Seat
   /** what a piece of work must be for this lane to take it at all */
   admits: string
-  /** the honest note — for an empty seat, where the live circuit is */
+  /** the honest note — for an empty seat, where the hop goes */
   note: string
 }
 
@@ -57,8 +56,7 @@ export const LANES: readonly Lane[] = [
     name: 'QPU',
     seat: 'empty',
     admits: 'reverse hop: GET the same path on https://qpu.uuidna.com',
-    note: 'This host\'s QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. ' +
-      'Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp.',
+    note: 'Reverse hop to qpu.uuidna.com. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp.',
   },
 ]
 

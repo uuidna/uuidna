@@ -12,6 +12,6 @@ export {
 } from './leads/index.js'
 // laboratory — labs entangled to theorems and related resources; sufficient for every admitted domain
 export {
-  labOf, domainLab, schoolLabs, simulationKind, LAB_CITES,
-  type Lab, type LabMember, type LabKind, type SimulationKind, type Simulation, type Emulator, type DomainLab, type SchoolLabs,
+  labOf, domainLab, schoolLabs, computationKind, LAB_CITES,
+  type Lab, type LabMember, type LabKind, type ComputationKind, type Computation, type Emulator, type DomainLab, type SchoolLabs,
 } from './laboratory/index.js'

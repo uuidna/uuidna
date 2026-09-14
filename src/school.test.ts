@@ -219,7 +219,7 @@ test('the levels section RENDERS the derivation — the measure reaches the read
   assert.ok(!/undefined|NaN|: $/.test(body), 'the section has an unresolved field')
 })
 
-test('the laboratory section RENDERS every admitted domain — sufficient for simulations and emulators', () => {
+test('the laboratory section RENDERS every admitted domain — sufficient for computations and emulators', () => {
   const s = school()
   assert.ok(s.laboratory.sufficient)
   assert.equal(s.sections.filter((x) => x.computed).length >= 9, true)

@@ -1,6 +1,6 @@
 ---
 title: Tests
-description: What uuidna's test suite verifies — crypto known-answer vectors, the no-Math purity guard, exact quantum simulation, encrypted streams, contract messaging, book audits, and that the Lean ℤ/9 facts recompute. Every test runs in the release gate before any publish.
+description: What uuidna's test suite verifies — crypto known-answer vectors, the no-Math purity guard, exact quantum state-vector computation, encrypted streams, contract messaging, book audits, and that the Lean ℤ/9 facts recompute. Every test runs in the release gate before any publish.
 ---
 
 # Tests <Badge type="tip" text="the audit gate" />
@@ -17,7 +17,7 @@ Run them yourself with `npm test`.
 | --- | --- |
 | **kat** | The crypto primitives match the standards, byte for byte: SHA-256, HMAC-SHA256, PBKDF2, ChaCha20, Poly1305 and ChaCha20-Poly1305 AEAD against their **RFC / NIST known-answer vectors**. Not "trust the code" — reproduce the published test vectors. |
 | **smoke** | The honest floor: the ℤ/9 vortex facts recompute (units, doubling orbit, digital roots, the involution's single fixed point — [the discover cluster](/publications/discover), [the core](/publications/core)), the order-invariant fold is order-invariant, and the **`Math.*` purity guard** — a host `Math.*` call is hard-rejected from `src/`, because it is not a local theorem. |
-| **quantum** | The state-vector simulator is **exact**: Gaussian-integer amplitudes over √(2ⁿ), no floats, no drift; Bell/GHZ distributions, per-qubit marginals (the no-signaling check), and the classical truth tables an H-free circuit computes. |
+| **quantum** | The state-vector computation is **exact**: Gaussian-integer amplitudes over √(2ⁿ), no floats, no drift; Bell/GHZ distributions, per-qubit marginals (the no-signaling check), and the classical truth tables an H-free circuit computes. |
 | **stream** | Encrypted uuid messaging round-trips both ways; onion layers peel outermost-first; a wrong key, a reordered key list, or a tampered chain **throws** (Poly1305 authentication); the ratchet breaks on a dropped or reordered link. |
 | **contract** | Contract-keyed messaging: the domain **is** the contract's address; the public tag routes but the ciphertext does not leak the plaintext; a wrong contract is rejected; a **license change invalidates old ciphertext**. |
 | **books** | The book audit: the content-address is the exact-copy fingerprint, chapters merkle-fold, the structural decode and ℤ/9 gravity recompute, and a translation binds source→translation directionally. |

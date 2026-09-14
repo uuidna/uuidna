@@ -45,7 +45,7 @@ export {
 } from '../public/index.js'
 export {
   fetchOpenMeteoForecast, fetchNoaaTideHeight, NOAA_PROBE_DATE,
-  discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation,
+  discoverQuantumSailingAPIs, correlateWeatherToTheorems, sampleQuantumSailingWeather, serializeWeatherCorrelation,
   type WeatherFact, type QuantumSailingWeatherCorrelation,
 } from '../weather/index.js'
 export {

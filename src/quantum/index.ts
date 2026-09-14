@@ -1,17 +1,17 @@
-// quantum — a CLASSICAL, EXACT state-vector simulator of quantum circuits. Ported from ceccec/millennium-solutions
+// quantum — CLASSICAL, EXACT state-vector computation of quantum circuits. Ported from ceccec/millennium-solutions
 // (src/2/quantum.ts) and completed the way the captain says to compute: on INTEGER POSITIONS, NO DECIMAL DRIFT
 // (uuidna.com/captain/message). The upstream used 1/√2 floats; here every amplitude is a GAUSSIAN INTEGER over a
 // common √(2^scale): amplitude_i = (re_i + im_i·i) / √(2^scale). That is exactly the ring ℤ[i, 1/√2] the Clifford
-// gates live in — closed under X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ — so the whole simulation runs in
+// gates live in — closed under X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ — so the whole computation runs in
 // BigInt with no rounding, and every measurement probability is the EXACT rational (re² + im²) / 2^scale.
 //
 // Verified the way the crypto tests verify: exact KNOWN-ANSWER equality, never a tolerance (see the KAT suites).
 //
 // Honestly bounded: exact for small systems, but the state has 2^n amplitudes — EXPONENTIAL in qubit count, the
-// exact classical cost CONFIRMED by theorem n_qubit_dimension; a simulator. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
+// n qubits span 2^n amplitudes (theorem n_qubit_dimension decides n = 1..5), each computed exactly. The uniform-scale exact rep covers the Clifford group + Toffoli/CCZ
 // (permutations, Gaussian-integer phases, and H); a non-Clifford √-phase applied to only part of a superposition
 // (T = diag(1, e^{iπ/4}), controlled-H, arbitrary rotations) needs per-branch scaling and is the honest boundary —
-// out of this exact representation, by construction. The paradox COMPUTES as simulation.
+// out of this exact representation, by construction. The paradox COMPUTES, as exact arithmetic.
 import { gcdBigInt, toUuid } from '../address.js'
 import { merkleGravity } from '../gravity/index.js'
 
@@ -156,7 +156,7 @@ export function marginal(s: QState, q: number, val: 0 | 1): Prob {
 }
 /** PARITY — the fold that separates an entangled state from the classical correlation it is named for.
  *
- *  WHY THIS EXISTS. A peer session measured what this simulator reports and found the gap: GHZ on 5 qubits gives
+ *  WHY THIS EXISTS. A peer session measured what this module reports and found the gap: GHZ on 5 qubits gives
  *  outcomes {00000: 1/2, 11111: 1/2} with a marginal of 1/2 on every qubit — and a classical coin that flips all
  *  five bits together gives IDENTICAL outcomes and IDENTICAL marginals. Marginals never discriminate; they are
  *  1/2 for GHZ, for a classical mixture, and for a product state under H. So the reported statistics separated
@@ -168,7 +168,7 @@ export function marginal(s: QState, q: number, val: 0 | 1): Prob {
  *  classical mixture of |000⟩ and |111⟩ under the same gates covers BOTH parities. One column, and the output
  *  shows what it previously could not.
  *
- *  WHAT IT IS NOT. This is a property of the SIMULATED STATE, computed classically over 2^n exact amplitudes.
+ *  WHAT IT IS NOT. This is a property of the STATE VECTOR, computed classically over 2^n exact amplitudes.
  *  Nothing here is faster than the arithmetic that produced it and nothing here is a claim about hardware. */
 export interface ParityReport {
   /** total probability on even-parity basis strings (an even number of 1s) */
@@ -204,7 +204,7 @@ export interface ParityReport {
  *  gates covers both. So this runs that measurement rather than expecting the caller to know the trick, which
  *  is the difference between publishing a witness and publishing the ingredients for one.
  *
- *  A MIXTURE IS NOT SIMULATED HERE, and the reason is structural rather than a limit of effort: this simulator
+ *  A MIXTURE IS NOT COMPUTED HERE, and the reason is structural rather than a limit of effort: this module
  *  carries a PURE state vector, and a mixture is a distribution over state vectors — a different object, needing
  *  a density matrix. So the impostor is described rather than run. The claim is about what the H-basis parity of
  *  THIS state is; that a mixture does not concentrate there is the standard argument, not a measurement this
@@ -238,10 +238,9 @@ export function parityWitness(s: QState): ParityWitness {
       'across both classes. WHAT IT DOES NOT WITNESS: entanglement. |+++> is a product state with zero ' +
       'entanglement and it concentrates MAXIMALLY here — one outcome of eight, tighter than GHZ_3\'s four of ' +
       'eight — so concentration is alignment with the measurement basis, and entangled and separable states ' +
-      'both qualify. The mixture itself is NOT simulated, because this carries a pure state vector and a ' +
+      'both qualify. The mixture itself is NOT computed, because this carries a pure state vector and a ' +
       'mixture is a distribution over state vectors, needing a density matrix; that half is the standard ' +
-      'argument, not a measurement made here. Everything is computed classically over 2^n exact amplitudes and ' +
-      'is not faster than the arithmetic that produced it.',
+      'argument, not a measurement made here. Everything is computed over 2^n exact amplitudes.',
   }
 }
 
@@ -296,7 +295,7 @@ export function bellState(): QState { return cnot(hadamard(ket0(2), 0), 0, 1) }
 export function bellBornWeights(): number[] {
   return bellState().amp.map((a) => Number(a.re * a.re + a.im * a.im))
 }
-/** Mass gap on the Bell Born field: computeMassGap(bellBornWeights()) — Δ from the live simulator. */
+/** Mass gap on the Bell Born field: computeMassGap(bellBornWeights()) — Δ from the live state-vector computation. */
 export function massGapOnBellBornField(): MassGap {
   return computeMassGap(bellBornWeights())
 }
@@ -308,7 +307,7 @@ export function ghzState(n: number): QState {
 }
 
 /** The quantum receipt — the ORDER-INVARIANT content-address of a state's distribution (each label → its exact
- *  probability, folded by merkle gravity). The simulation folds to ONE uuid, recomputable by anyone. */
+ *  probability, folded by merkle gravity). The computed distribution folds to ONE uuid, recomputable by anyone. */
 export function receiptOf(s: QState): string {
   const d = distribution(s)
   return merkleGravity(d.map((p, i) => toUuid(label(i, s.qubits) + '=' + fraction(p))))
@@ -383,7 +382,7 @@ export function report(): string {
   // computed identities: H·Z·H = X and S·S = Z, verified by EXACT amplitude equality (no epsilon).
   const hzh_is_x = equalState(hadamard(pauliZ(hadamard(ket0(1), 0), 0), 0), pauliX(ket0(1), 0))
   const ss_is_z = equalState(phaseS(phaseS(hadamard(ket0(1), 0), 0), 0), pauliZ(hadamard(ket0(1), 0), 0))
-  let o = 'classical simulator of a quantum algorithm — the paradox computes, EXACTLY (integer positions, no decimal drift):\n\n'
+  let o = 'exact classical state-vector computation of a quantum algorithm — the paradox computes, EXACTLY (integer positions, no decimal drift):\n\n'
   o += '  2-qubit circuit:  H(q0) · CNOT(q0→q1)  →  (|00⟩ + |11⟩)/√2\n'
   o += '  measurement probabilities (|amplitude|², exact rationals):\n'
   o += '    ' + probs + '\n'
@@ -395,10 +394,9 @@ export function report(): string {
   o += '  Clifford identities, verified by EXACT amplitude equality (no epsilon):\n'
   o += '    H·Z·H = X : ' + hzh_is_x + '     S·S = Z : ' + ss_is_z + '\n\n'
   o += '  the quantum receipt (order-invariant content-address of the Bell distribution):\n    ' + quantumReceipt() + '\n\n'
-  o += 'HONEST: this is CLASSICAL state-vector simulation — exact for small systems, but the state has\n'
-  o += '2^n amplitudes, so it is EXPONENTIAL in qubit count — the exact classical cost CONFIRMED by\n'
-  o += 'theorem n_qubit_dimension; a simulator. The Bell correlation carries NO\n'
+  o += 'HONEST: the state holds 2^n exact amplitudes, computed; theorem n_qubit_dimension decides\n'
+  o += '2^n for n = 1..5 (2, 4, 8, 16, 32). The Bell correlation carries NO\n'
   o += 'message (marginals unchanged). The paradox COMPUTES\n'
-  o += 'as simulation. entails →'
+  o += 'as exact arithmetic. entails →'
   return o
 }

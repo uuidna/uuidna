@@ -81,7 +81,7 @@ export {
   type QuantumAdvantageAudit,
 } from './quantum/advantage/audit/index.js'
 
-// per-page QA metrics — TypeScript computes; VitePress monitors (not the global capacity bag alone)
+// per-page QA metrics (not the global capacity bag alone)
 export {
   pageAdvantageMetrics,
   costBarOf,
@@ -188,19 +188,6 @@ export { apiMintHarvest, apiMintDeposit, collectApiEvidence, collectMintExtras, 
 export { proposeFinding, type Finding } from './research-ledger.js'
 export { harvestFragments, fragmentToLean, keyFromFragment, mintLeadsFromText, mintLeadsToCandidates, type MintLead } from './harvest.js'
 
-// QUANTUM ENTANGLEMENT — the four physical frames (crypto/bio/chemo/physical) verify every theorem
-export {
-  verifyCryptoFrame, verifyBioFrame, verifyChemoFrame, verifyPhysicalFrame,
-  entangleAllFrames, entanglementReport, frameMaskFromEntanglement,
-  type CryptoFrame, type BioFrame, type ChemoFrame, type PhysicalFrame,
-  type QuantumEntanglement, type EntanglementReport, type FrameLeg
-} from './entangle-crypto-bio-chemo-physical.js'
-
-export {
-  verifyEntangledResponse, wrapMCPResponse, entanglementSummary,
-  type MCPEntanglementMeta
-} from './mcp-entanglement-gate.js'
-
 // LOOP CLOSURE — every closed loop folds and emits its continuation; handlers are synchronous by law
 export * from './loop-closure-auto-fold.js'
 
@@ -264,11 +251,11 @@ export { coinsJobs, COIN_JOBS, type CoinJob, type CoinJobsReport } from './capta
 // three days with no writer and no reader); a computed one stays current. A section whose artifact is absent says so.
 export { reportAll, type ConsolidatedReports, type ReportSection } from './reports.js'
 
-// quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
+// quantum — CLASSICAL, EXACT state-vector computation, ported from millennium-solutions and completed as the captain
 // computes: on integer positions, no decimal drift. Amplitudes are GAUSSIAN INTEGERS over √(2^scale) — the ring
 // ℤ[i,1/√2] the Clifford gates live in — so the full gate set (X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ)
 // runs in BigInt and every probability is an exact rational. Honestly bounded — 2^n amplitudes, EXPONENTIAL: the
-// exact classical cost CONFIRMED by theorem n_qubit_dimension; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
+// n qubits span 2^n amplitudes (theorem n_qubit_dimension decides n = 1..5); non-Clifford √-phase gates (T, controlled-H) need per-branch scaling.
 export {
   ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
   distribution, probability, marginal, parity, parityWitness, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
@@ -588,7 +575,7 @@ export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extract
 // (NOAA, Open-Meteo) that provide decidable facts (temperature, wind, pressure, waves, tides) and LINKS them to
 // theorems sealed in the ledger. Pure correlation: no network calls (only on demand), only checks against ledger.
 // Weather facts are either sealed-match (already a theorem) or novel (research leads awaiting sealing).
-export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, fetchOpenMeteoForecast, fetchNoaaTideHeight, type WeatherFact, type QuantumSailingWeatherCorrelation } from './desk/sailing/weather/index.js'
+export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, sampleQuantumSailingWeather, serializeWeatherCorrelation, fetchOpenMeteoForecast, fetchNoaaTideHeight, type WeatherFact, type QuantumSailingWeatherCorrelation } from './desk/sailing/weather/index.js'
 
 // quantum-sailing-cross-book — CROSS-BOOK CORRELATION: the captain reads across the library and finds theorems that
 // RESONATE only when two or more books are read together. Each book links decidable facts in isolation; read together,
@@ -648,7 +635,7 @@ export { balanceContext, RECEIPT_TOKENS, type ContextCategory, type ContextBalan
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
 // own pure-TS SHA-256, track upstream via fetchDriverLatest. uuidna never loads or runs a module — port the INTEGRITY.
 export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from './drivers/driver/index.js'
-export { hostQuantumDevice, proveHardwareQuantum, LEVEL_PROBES, type QuantumDevice, type HardwareProof } from './drivers/quantum/index.js'
+export { hostQuantumDevice, runWitnessBattery, LEVEL_PROBES, type QuantumDevice, type WitnessRun } from './drivers/quantum/index.js'
 export { portCatalogue, portApp, harmoniseOf, type AppPort, type AppCatalogue, type IndexPackage } from './os/apps/index.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
@@ -793,7 +780,7 @@ export { primeMonitor, monitorPrimed, monitorCensus, renderMonitor, compilerCens
 // security — ATTESTED operations, not reimplementations; and a hardware key folded to an address
 export { secApi, planSecurityOp, attestBytes, securityClaims, securityCensus, SECURITY_OPS, type AttestedPlan, type SecApiCensus } from './os/secapi/index.js'
 export { authnPresence, addressCredential, enrol, type AuthnPresence, type AddressedCredential, type EnrolResult } from './os/webauthn/index.js'
-// the installer discipline — simulate, then commit, and never destroy without naming what is destroyed
+// the installer discipline — plan, then commit, and never destroy without naming what is destroyed
 export {
   planChange, renderPlan, commitChange, interactiveInstall, simpleInstall,
   parseInstallLine, installCombinationsOf, INSTALL_PACKAGES, INSTALL_OCCUPANCIES, INSTALL_CLOUDFLARE,

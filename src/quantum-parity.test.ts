@@ -3,8 +3,8 @@ import assert from 'node:assert/strict'
 import { bellState, ghzState, runCircuit, parity, parityWitness, marginal, distribution, type GateOp } from './quantum/index.js'
 import { callTool } from './mcp.js'
 
-// ── WHY THIS EXISTS. A peer session measured this simulator's own output and found it could not distinguish the
-// state it simulates: GHZ on 5 qubits reports {00000: 1/2, 11111: 1/2} with a marginal of 1/2 on every qubit,
+// ── WHY THIS EXISTS. A peer session measured this module's own output and found it could not distinguish the
+// state it computes: GHZ on 5 qubits reports {00000: 1/2, 11111: 1/2} with a marginal of 1/2 on every qubit,
 // and a classical coin that flips all five bits together reports IDENTICAL outcomes and IDENTICAL marginals.
 // Marginals never discriminate — they are 1/2 for GHZ, for a mixture, and for a product state under H. The
 // separating observation is the parity AFTER H on every qubit, and it costs nothing that was not already
@@ -78,7 +78,7 @@ test('parityWitness runs the measurement itself, and states what it does NOT wit
   }
   const w = parityWitness(ghzState(5))
   assert.match(w.honest, /does NOT separate/i, 'the raw-parity limit must be stated, not implied')
-  assert.match(w.honest, /mixture itself is NOT simulated/i, 'a pure-state simulator cannot run the impostor')
+  assert.match(w.honest, /mixture itself is NOT computed/i, 'a pure-state computation cannot run the impostor')
 })
 
 test('uuidna_quantum serves the parity column beside the marginals', () => {

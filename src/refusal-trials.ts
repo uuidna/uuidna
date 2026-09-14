@@ -1,13 +1,12 @@
 // refusal-trials — TRIAL EACH REFUSAL: the boundary is read against the sealed ledger and the book corpus.
 // A refused lead is already settled (boundary recorded); this pass asks what the refusal CITES, what books STATE
 // nearby, and whether the instrument can discriminate — desk proposes reasoning; captain seals.
-import { toUuid, canonicalJson } from './address.js'
+import { toUuid, toUuidOnce, canonicalJson } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { adjudicate, contentWords, type VerdictKind } from './adjudicate.js'
 import { testClaim } from './quantum/apps/categories/coding/claim-tester.js'
-import { LEAN_LEDGER } from './theorems/generated.js'
-import { theoremByKey, axiomIndex, THEOREMS, type WingDefEntry } from './theorems/index.js'
+import { theoremByKey, axiomIndex, THEOREMS, sealedKeys, type WingDefEntry } from './theorems/index.js'
 import { axiomHunt } from './scripts/axiom-hunt.js'
 import { type LeadsRecord, type LeadRow } from './school/leads/index.js'
 import { readRepoJson } from './desk/repo/json/index.js'
@@ -45,15 +44,19 @@ export function witnessSealOf(subject: string, witnesses: readonly Witness[]): {
  *  signs and seals them. The seal rides in the stored receipt under SEALED_BY, which only this fold writes. Pure. */
 export const SEALED_BY = 'sealedBy'
 export function receiptSealOf(body: Readonly<Record<string, unknown>>): { address: string; witnesses: Required<Witness>[]; legal: boolean; signed: number; of: number; seal: string | null } {
-  const address = toUuid(canonicalJson(body))
-  const size = BigInt(THEOREMS.length)
+  // the body is addressed once and not cached: a deposit can be a whole ledger piece, and the cache would keep it
+  const address = toUuidOnce(canonicalJson(body))
+  // the witnesses are picked by position from the sealed keys — at the edge the baked root, so the door signs before
+  // (and without) the ledger's rows being read from storage
+  const keys = sealedKeys()
+  const size = BigInt(keys.length)
   const taken = new Set<number>()
-  const faces = THEOREMS.length < VE_FACES ? THEOREMS.length : VE_FACES
+  const faces = keys.length < VE_FACES ? keys.length : VE_FACES
   const witnesses = Array.from({ length: faces }, (_, face) => {
     let i = Number(BigInt('0x' + toUuid(`${address}:${face}`).replace(/-/g, '')) % size)
-    while (taken.has(i)) i = (i + 1) % THEOREMS.length
+    while (taken.has(i)) i = (i + 1) % keys.length
     taken.add(i)
-    const by = THEOREMS[i]!.key
+    const by = keys[i]!
     return { face, by, statement: `face ${face} signs receipt ${address}: recomputed theorem ${by}` }
   })
   return { address, witnesses, ...witnessSealOf(address, witnesses) }
@@ -137,7 +140,7 @@ export interface BookLeadInput {
   book: { id: number; title: string; address: string }
 }
 
-const sealedKeySet = (): Set<string> => new Set(LEAN_LEDGER.map((t) => t.key))
+const sealedKeySet = (): Set<string> => new Set(sealedKeys())
 
 /** sealedKeysIn(text) → every ledger key the text names as a WHOLE identifier. A substring is not a citation: a key
  *  that only occurs inside a longer word or a longer key is not named, so no lead gains a theorem by accident of

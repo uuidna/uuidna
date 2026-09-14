@@ -1,0 +1,12 @@
+{
+  "handle": "66f37a0a",
+  "address": "66f37a0a-579f-8373-a6a0-6bf9f09b6e2e",
+  "kind": "chunk",
+  "keys": [
+    "forged_handle_odds_are_small"
+  ],
+  "statement": "71521 * 2 ^ 15 < 2 ^ 32",
+  "files": [
+    "Forensics.lean"
+  ]
+}

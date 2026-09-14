@@ -11,7 +11,7 @@ test('a plan says exactly what a change would do, and changes nothing', () => {
   assert.deepEqual(p.removed.map((r) => r.key), ['b'])
   assert.deepEqual(p.changed.map((c) => c.key), ['c'])
   assert.equal(p.kept, 1)
-  assert.equal(A.length, 3, 'planning must not mutate the input — simulate touches nothing')
+  assert.equal(A.length, 3, 'planning must not mutate the input — a plan touches nothing')
 })
 
 test('a lossy commit is REFUSED by default', () => {
@@ -50,7 +50,7 @@ test('the plan carries a receipt that moves with the plan', () => {
   assert.notEqual(one.receipt, other.receipt, 'a different plan must not share it')
 })
 
-test('interactive installer asks, simulates, commits, and audits the fused payload stack', () => {
+test('interactive installer asks, plans, commits, and audits the fused payload stack', () => {
   const reset = interactiveInstall({ reset: true })
   assert.equal(reset.kind, 'install')
   assert.equal(reset.interactive, true)
@@ -59,9 +59,9 @@ test('interactive installer asks, simulates, commits, and audits the fused paylo
   interactiveInstall({ yes: true, step: 0 })
   interactiveInstall({ yes: true, step: 1 })
   interactiveInstall({ yes: true, step: 2 })
-  const simulated = interactiveInstall({ verb: 'simulate' })
-  assert.equal(simulated.plan.lossless, true)
-  assert.deepEqual(simulated.pending, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
+  const planned = interactiveInstall({ verb: 'plan' })
+  assert.equal(planned.plan.lossless, true)
+  assert.deepEqual(planned.pending, ['qpu-mcp', 'payload-mcp', 'vitepress-payload'])
   const committed = interactiveInstall({ verb: 'commit' })
   assert.equal(committed.committed, true)
   const audited = interactiveInstall({ verb: 'audit' })

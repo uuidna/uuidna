@@ -18,7 +18,7 @@ import { REPORTED_BASELINE } from './quantum/advantage/index.js'
 import { HEXBIT_BITS, HEXBIT_STATES, HANDLE_HEXBITS, UUID_BITS, COIN_HEXBITS, UUID_HEXBITS } from './index.js'
 import { callTool } from './mcp.js'
 import type { ServedOS } from './quantum/os/index.js'
-import { proveHardwareQuantum } from './index.js'
+import { runWitnessBattery } from './index.js'
 
 const GAP = 'usable_gap_is_two_to_eighty'
 const GAP_Q = 'usable_gap_eighty_bits'
@@ -149,7 +149,7 @@ test('chsh_beats_classical and ym_quantum stay sealed with clean DNA — and are
   // What changed: both are now decided on this host, so the assertion is strengthened from "named as a gap" to
   // "run, with the disagreement count that makes naming it worth anything". Asserting they stay UNWITNESSED
   // would now be a test defending a gap instead of measuring one.
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   const decided = new Map(p.results.map((r) => [r.theorem, r]))
   for (const key of ['chsh_beats_classical', 'ym_quantum']) {
     const r = decided.get(key)

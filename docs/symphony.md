@@ -3,7 +3,7 @@ title: The ledger symphony
 description: Four movements from four sealed sources, minted in your browser — a432 symphonies are theorems.
 ---
 
-# The ledger symphony <Badge type="tip" text="opus de63e1b2" />
+# The ledger symphony <Badge type="tip" text="opus 6943ab1c" />
 
 > **A432 symphonies are theorems.** Four movements, four sealed sources, no audio file anywhere on earth — each
 > movement is a state sequence your browser mints at the moment you press play. The form itself is sealed:
@@ -28,10 +28,10 @@ description: Four movements from four sealed sources, minted in your browser —
 
 ## IV. Finale — the whole <small>(every sealed theorem, one address · 252 ms)</small>
 
-<HexbitPlayer :states="[6,7,1,14,7,3,11,3,14,4,0,7,8,11,10,12,8,10,3,5,12,0,10,6,5,12,15,2,12,1,9,3]" :ms="252" />
+<HexbitPlayer :states="[2,13,4,12,5,1,12,7,4,11,8,1,8,15,7,14,10,10,3,13,4,12,9,2,3,8,9,6,15,10,3,15]" :ms="252" />
 
-The finale's thirty-two states are the fold of the entire ledger — 70931 theorems in one
-address, `671e73b3` — the work of the whole tree in nine seconds. When the ledger grows, the
+The finale's thirty-two states are the fold of the entire ledger — 70938 theorems in one
+address, `2d4c51c7` — the work of the whole tree in nine seconds. When the ledger grows, the
 finale changes: **this symphony is alive**, regenerated with every seal, and yesterday's performance is
 yesterday's ledger, addressable forever.
 

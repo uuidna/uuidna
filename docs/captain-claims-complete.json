@@ -2,16 +2,16 @@
   "generated": "2026-09-14",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_theorems": 70931,
-  "total_claimed": 70931,
+  "total_theorems": 70938,
+  "total_claimed": 70938,
   "categories": 4,
   "coverage_percent": "100.0",
   "categories_list": [
     {
       "category": "Uncategorized",
-      "theorems": 70499,
-      "address": "68ab5d12-14fa-8367-b270-e9df975d9960",
-      "verified": true
+      "theorems": 70506,
+      "address": "6fb18a5e-8b55-888b-ae7c-dc3e1e495bf8",
+      "verified": false
     },
     {
       "category": "Algebra",
@@ -32,10 +32,10 @@
       "verified": true
     }
   ],
-  "claim_receipt": "f45ee247-73da-89ab-b4f6-4eaa6c440cb8",
+  "claim_receipt": "1c3b14d2-1923-8439-90a0-8df385aceee9",
   "honest_scope": {
     "proves": [
-      "All 70847 distinct theorems (under 70931 keys) are Lean-verified (by decide)",
+      "All 70854 distinct theorems (under 70938 keys) are Lean-verified (by decide)",
       "Every theorem is categorized and accounted for",
       "The captain takes responsibility for all claims",
       "No theorem escapes the audit (100% coverage)"
@@ -47,5 +47,5 @@
       "That categorization implies priority or use"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"All 70847 distinct theorems under 70931 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"All 70854 distinct theorems under 70938 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
 }

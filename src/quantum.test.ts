@@ -1,4 +1,4 @@
-// quantum — the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale)). Verified the
+// quantum — the EXACT classical state-vector computation (Gaussian-integer amplitudes over √(2^scale)). Verified the
 // way the crypto KATs verify: exact KNOWN-ANSWER equality on integer positions, no tolerances, no decimal drift.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'

@@ -1,0 +1,12 @@
+{
+  "handle": "5a7dc349",
+  "address": "5a7dc349-25c8-8db7-b2a3-206d347920c9",
+  "kind": "chunk",
+  "keys": [
+    "not_dvd_of_bound_e92de628"
+  ],
+  "statement": "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n",
+  "files": [
+    "Involutione92de628.lean"
+  ]
+}

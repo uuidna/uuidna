@@ -237,7 +237,7 @@ const FACTS = [
     lean: `theorem hexbit_ring_mass_gap : ((${RING.delta}:Nat) > 0) ∧ (List.range ${RING.states}).all (fun n => ¬ (0 < n ∧ n < ${RING.delta})) ∧ (List.range' 1 ${RING.states}).all (fun e => ${RING.delta} ≤ e) ∧ (List.range ${RING.states - 1}).all (fun n => (n + 1) - n = ${RING.delta}) := by decide` },
 
   { key: 'born_field_mass_gap_on_bell',
-    why: `THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights ${L(BELL_WEIGHTS)} from the live simulator, Δ = ${BELL_GAP.delta} computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.`,
+    why: `THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights ${L(BELL_WEIGHTS)} from the live state-vector computation, Δ = ${BELL_GAP.delta} computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.`,
     js: () => {
       const g = massGapOnBellBornField()
       return g.holds && g.delta === BELL_GAP.delta

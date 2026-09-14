@@ -509,6 +509,7 @@ export const DRAIN_PATHS: readonly string[] = [
   // the refusals register as a module — the edge serves uuidna_refusals from it (no filesystem there)
   'src/school/refusals/generated.ts',
   'src/edge-slices/generated.ts',
+  'src/theorems/edge-root.ts',
   'docs/articles', 'docs/public/feed.json', 'docs/public/terminology.json', 'docs/public/statement-addresses.json', 'docs/prose-evidence.md',
   '.gitattributes',
   'packages', 'lean',
@@ -628,6 +629,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-leads': ['docs/leads.md'],
   'gen-refusals': ['src/school/refusals/generated.ts'],
   'gen-edge-slices': ['src/edge-slices/generated.ts'],
+  'ledger-deposit': ['src/theorems/edge-root.ts'],
   'gen-zenodo': ['.zenodo.json'],
   'test-plan': [],   // runs the delta the receipt names; reports, writes nothing (the receipt is gate-receipt's to mint)
   'gen-zenodo-seals': ['zenodo'],

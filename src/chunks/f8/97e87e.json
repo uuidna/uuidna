@@ -1,0 +1,12 @@
+{
+  "handle": "f897e87e",
+  "address": "f897e87e-146b-8910-81a3-d5277e6fd20d",
+  "statement": "(2557590960 = (71521 * (71521 - 1)) / 2) ∧ (2557590960 > 2000 * 71520)",
+  "tactic": "decide",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

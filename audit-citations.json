@@ -1,18 +1,18 @@
 {
-  "key": "ec4c8813-e4e4-89ad-b864-433ac330bba1",
-  "publications": 239,
-  "sealedTheorems": 70931,
+  "key": "5df2abfe-1ad3-84d2-bb85-b27540730b51",
+  "publications": 242,
+  "sealedTheorems": 70938,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2607,
-    "theorems": 70931,
+    "claims": 2614,
+    "theorems": 70938,
     "bijection": false,
     "digitalRoots": {
-      "claims": 6,
-      "theorems": 2,
-      "publications": 5
+      "claims": 4,
+      "theorems": 9,
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -1701,6 +1701,30 @@
       "slug": "equilibrium-xor64",
       "claims": 1,
       "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "involution2d552f1f",
+      "claims": 2,
+      "cited": 2,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "involutionb13fd37a",
+      "claims": 2,
+      "cited": 2,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "involutione92de628",
+      "claims": 3,
+      "cited": 3,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

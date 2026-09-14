@@ -6,7 +6,7 @@
 //   npm run x -- install --yes
 //   npm run x -- install --select=qpu-mcp,payload-mcp --occupancy=saas
 //
-// apk still runs: simulate, then commit. The user only picks once.
+// apk still runs: plan, then commit. The user only picks once.
 import { createInterface } from 'node:readline/promises'
 import { stdin as input, stdout as output } from 'node:process'
 import {

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "uuidna-qpu": {
+      "type": "http",
+      "url": "https://qpu.uuidna.com/mcp"
+    },
+    "uuidna": {
+      "type": "http",
+      "url": "https://uuidna.com/mcp"
+    }
+  }
+}

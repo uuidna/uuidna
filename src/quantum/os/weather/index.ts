@@ -65,12 +65,12 @@ export function correlateWeatherToTheorems(facts: WeatherFact[]): QuantumSailing
   }
 }
 
-export function simulateQuantumSailingWeather(): WeatherFact[] {
+export function sampleQuantumSailingWeather(): WeatherFact[] {
   return [
-    { source: 'Open-Meteo (simulated)', measurement: 'wind_speed_10m_kmh', value: 15, unit: 'km/h', address: toUuid('wind_speed_10m_kmh:15') },
-    { source: 'NOAA (simulated)', measurement: 'wave_height_m', value: 2, unit: 'm', address: toUuid('wave_height_m:2') },
-    { source: 'Open-Meteo (simulated)', measurement: 'temperature_2m_c', value: 22, unit: '°C', address: toUuid('temperature_2m_c:22') },
-    { source: 'NOAA (simulated)', measurement: 'pressure_hpa', value: 1013, unit: 'hPa', address: toUuid('pressure_hpa:1013') },
+    { source: 'Open-Meteo (fixed sample)', measurement: 'wind_speed_10m_kmh', value: 15, unit: 'km/h', address: toUuid('wind_speed_10m_kmh:15') },
+    { source: 'NOAA (fixed sample)', measurement: 'wave_height_m', value: 2, unit: 'm', address: toUuid('wave_height_m:2') },
+    { source: 'Open-Meteo (fixed sample)', measurement: 'temperature_2m_c', value: 22, unit: '°C', address: toUuid('temperature_2m_c:22') },
+    { source: 'NOAA (fixed sample)', measurement: 'pressure_hpa', value: 1013, unit: 'hPa', address: toUuid('pressure_hpa:1013') },
   ]
 }
 

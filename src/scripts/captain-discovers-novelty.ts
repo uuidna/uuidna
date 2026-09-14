@@ -488,7 +488,7 @@ Captain coins turns the void into the frontier.
 (async () => {
   const captain = new CaptainNoveltyDiscovery()
 
-  // Simulate external searches that found no prior work
+  // Hand-written example searches that found no prior work (fixtures, not live queries)
   const search1: ExternalSearch = {
     query: 'Proof of the Riemann Hypothesis',
     timestamp: new Date().toISOString(),

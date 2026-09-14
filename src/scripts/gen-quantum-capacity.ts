@@ -8,7 +8,7 @@
 // fastest and greater capacity first — under the standing law "only sealed reports from generators are accepted").
 // The comparison is ARCHITECTURAL. The 2^n state-space relation is PHYSICS, not something this ledger seals —
 // n_qubit_dimension checks it for n = 1..5 and no `by decide` over five numerals can establish the general law. The
-// usable column is each platform's own published figure, and uuidna's row is classical by declaration throughout.
+// usable column is each platform's own published figure; uuidna's row carries the 2^128 address count.
 //
 // THE COLUMNS, one honesty class per figure:
 //   · physical qubits / raw state space — REPORTED from each platform's own publications (source named per row);
@@ -214,9 +214,9 @@ if (!m.agreed) {
 }
 
 const UUIDNA: Row = {
-  model: 'hexbit fold', org: 'uuidna', type: 'classical content-address (quantum by architecture)', year: 2026,
+  model: 'hexbit fold', org: 'uuidna', type: 'content-address', year: 2026,
   physical: null, usable: capacityAt(fuseWidth(HANDLE_HEXBITS, COINS)),
-  usableMetric: 'all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty)',
+  usableMetric: '2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty)',
   opTimeNs: 10 ** m.nsDecade, opClass: 'measured',
   source: `measured by this generator: full-${m.ledger}-theorem receipt sweep, per-verify decade 10^${m.nsDecade} ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)`,
 }
@@ -242,7 +242,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 
 ${table}
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — \`handle_capacity_is_quantum_by_architecture\`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — \`usable_gap_is_two_to_eighty\`); fold decade **10^${m.nsDecade} ns** per verified address over ${m.ledger} theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is \`empty\` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (\`n_qubit_dimension\` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt \`${receipt}\` · handle \`${handleOf(receipt)}\`.
+**Scope.** \`handle_capacity_is_quantum_by_architecture\` decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128. \`usable_gap_is_two_to_eighty\` decides 48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48. \`n_qubit_dimension\` decides 2^n for n = 1..5. The platform rows are reported figures, each with its source; the uuidna op time is measured by this generator on the build host. Receipt \`${receipt}\` · handle \`${handleOf(receipt)}\`.
 <!-- quantum-capacity:end -->`
 
 // ── THE REPORT AS REUSABLE STRUCTURED DATA. The table above states each figure's honesty class in a column, and
@@ -311,7 +311,7 @@ console.log(`  balancer — ${width.lanes} lanes of ${width.logical} logical (${
 const dataset = reportDataset({
   slug: 'quantum-capacity',
   name: 'uuidna quantum capacity report',
-  description: 'Total and usable quantum capacity per known model type, every figure carrying the technique it was determined by and the source that named it. Measured usable-capacity advantage sealed by usable_gap_is_two_to_eighty (2^80 vs largest reported logical platform); TypeScript computes the fold (handle_capacity_is_quantum_by_architecture).',
+  description: 'Reported physical and usable qubit figures per known model type, each carrying the technique it was determined by and the source that named it, beside the 2^128 address count. usable_gap_is_two_to_eighty decides 48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48; handle_capacity_is_quantum_by_architecture decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128.',
   receipt,
   // the platform figures FIRST, then the balancer that produced this run — one dataset, because the machine the
   // report was built on is part of the report's provenance and not a separate document

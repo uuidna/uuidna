@@ -22,7 +22,7 @@
 // QUANTUM POSTURE (honest): the scheme is SYMMETRIC-ONLY — no RSA/ECC — so Shor's algorithm has no asymmetric
 // target here. The one quantum threat, Grover, is a quadratic speedup that reduces the 256-bit ChaCha key to
 // ~128-bit and SHA-256 preimages to ~128-bit — still strong. This code has no quantum device and no key exchange;
-// a classical simulator secures nothing.
+// exact classical state-vector arithmetic secures nothing.
 import { toUuid, merkleFold } from './address.js'
 import { pbkdf2Sha256, sha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'

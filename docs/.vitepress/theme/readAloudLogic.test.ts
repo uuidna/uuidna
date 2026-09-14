@@ -83,7 +83,7 @@ test('the chunk queue actually reaches completion — onend chains through every
   assert.equal(created.length, 3, 'three sentences should produce three queued utterances')
   assert.equal(calls.filter((x) => x === 'speak').length, 1)
 
-  // simulate the browser firing onend for each chunk in turn, exactly as real playback would
+  // fire onend for each chunk in turn, as the browser does during real playback
   created[0].onend!()
   assert.equal(calls.filter((x) => x === 'speak').length, 2)
   assert.equal(c.getState().phase, 'reading')

@@ -1,0 +1,12 @@
+{
+  "handle": "da9ab562",
+  "address": "da9ab562-0cf1-887f-bc6a-b035d1102446",
+  "statement": "(0 < 238) ∧ (0 < 3) ∧ (70887 = 70887 + 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

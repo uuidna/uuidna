@@ -35,6 +35,10 @@ const url = getBuiltin?.<UrlModule>('node:url')
  *  instead of throwing a resolution error nobody can read. */
 export const nodeBuiltin = <T,>(name: string): T | undefined => getBuiltin?.<T>(name)
 
+/** does this surface have a filesystem at all — false on the edge and in a browser, where every verb below refuses.
+ *  A reader that cannot read here says "not measured on this surface" instead of reading the refusal as a verdict. */
+export const hasFilesystem: boolean = !!(fs && path)
+
 /** the repo root (dist/boundary.js → one level up); '' in a browser, where no path exists to resolve */
 export const ROOT = fs && path && url ? path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..') : ''
 /** read a repo-relative file as utf8 — the boundary's first verb; Node-only, refuses elsewhere by name */

@@ -1,7 +1,7 @@
-// quantum/os/session — SIMULATED INSTALL + WRITABLE VFS for uuidna_exec (Layer 1).
+// quantum/os/session — SESSION INSTALL STATE + WRITABLE VFS for uuidna_exec (Layer 1).
 //
 // The boot closure stays sealed; session adds AVAILABLE packages and content-addressed files
-// in-process. Receipts name execSessionStamp() so simulated state is never silent.
+// in-process. Receipts name execSessionStamp() so session state is never silent.
 import { cataloguePackage } from '../catalogue/index.js'
 import { toUuid } from '../../../address.js'
 
@@ -22,7 +22,7 @@ export function resetExecSession(): void {
   cwd = '/'
 }
 
-/** execSessionStamp() → content-address of simulated install + vfs + cwd. */
+/** execSessionStamp() → content-address of session install state + vfs + cwd. */
 export function execSessionStamp(): string {
   const names = [...added].sort().join(',')
   const vfs = [...files.keys()].sort().join(',')

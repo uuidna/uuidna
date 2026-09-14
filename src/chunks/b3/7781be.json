@@ -1,0 +1,12 @@
+{
+  "handle": "b37781be",
+  "address": "b37781be-d790-8a78-b29d-a2bcd83446d9",
+  "statement": "(667 + 70775 + 74 + 5 = 71521) ∧ (79 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

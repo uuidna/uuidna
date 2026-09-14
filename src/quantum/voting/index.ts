@@ -112,7 +112,7 @@ export function tallyVotes(votes: { voterId: string; decision: boolean; weight: 
   const quantumVotes: Vote[] = votes.map(v => {
     // the encoded state is USED. This line previously derived quantumState and
     // the next overwrote it with a plain merkle fold of the same two fields — a dead store, and one that could be
-    // reproduced without loading the simulator at all. The receipt now depends on the encoding it names.
+    // reproduced without computing the state vector at all. The receipt now depends on the encoding it names.
     const quantumState = encodeVote(v.decision, v.weight)
     return {
       voterId: v.voterId,  // anonymized (content-address

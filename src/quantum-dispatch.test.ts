@@ -14,7 +14,7 @@ const ALSO_REAL = 'bell_born_weights'
 
 test('a claim that cites its own sealed witness is dispatched as a quantum message', () => {
   const d = dispatch({
-    claim: `The simulation cost is exponential in the qubit count, by theorem ${REAL}.`,
+    claim: `The classical state-vector cost is exponential in the qubit count, by theorem ${REAL}.`,
     witness: REAL,
   })
   assert.equal(d.passed, true)
@@ -28,7 +28,7 @@ test('a claim that cites its own sealed witness is dispatched as a quantum messa
 
 test('THE LAUNDERING CASE — a real sealed witness the claim does not cite is REFUSED', () => {
   const d = dispatch({
-    claim: `The simulation cost is exponential in the qubit count, by theorem ${REAL}.`,
+    claim: `The classical state-vector cost is exponential in the qubit count, by theorem ${REAL}.`,
     witness: ALSO_REAL,                                   // sealed, real, and irrelevant to this sentence
   })
   assert.equal(d.passed, false, 'an existence check passes this; that is precisely why it is not enough')

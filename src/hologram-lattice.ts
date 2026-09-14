@@ -7,7 +7,7 @@
 // hologram-fanout.ts, declared non-harmonic, allowlisted to these four hosts and nothing else.
 export const HOLOGRAM_HOSTS = [
   { host: 'uuidna.com', kind: 'root', serves: 'the sealed ledger — theorems, decide, verify, receipts' },
-  { host: 'qpu.uuidna.com', kind: 'qpu', serves: 'the running circuit — the state-vector simulator, Shor, the receipts, the lattice steps' },
+  { host: 'qpu.uuidna.com', kind: 'qpu', serves: 'the running circuit — exact state-vector computation, Shor, the receipts, the lattice steps' },
   { host: 'lean.uuidna.com', kind: 'lean', serves: 'the Lean publishing worker — standing, theorems, axioms, the census' },
   { host: 'unreal.uuidna.com', kind: 'unreal', serves: 'the Unreal publishing worker — the hologram views' },
 ] as const

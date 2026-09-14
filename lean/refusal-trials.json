@@ -17718,16 +17718,16 @@
    "settlement": {
     "handle": "b13fd37a",
     "cites": [],
-    "involution": null,
-    "kernelAccepted": false,
-    "involuted": false,
+    "involution": "involution_b13fd37a",
+    "kernelAccepted": true,
+    "involuted": true,
     "witnesses": {
-     "signed": 0,
-     "of": 0,
-     "seal": null
+     "signed": 14,
+     "of": 14,
+     "seal": "46150015-7ebc-8d76-9fe3-c0e78de249c5"
     },
     "missing": [],
-    "stands": false
+    "stands": true
    }
   },
   {
@@ -18675,16 +18675,16 @@
    "settlement": {
     "handle": "2d552f1f",
     "cites": [],
-    "involution": null,
-    "kernelAccepted": false,
-    "involuted": false,
+    "involution": "involution_2d552f1f",
+    "kernelAccepted": true,
+    "involuted": true,
     "witnesses": {
-     "signed": 0,
-     "of": 0,
-     "seal": null
+     "signed": 14,
+     "of": 14,
+     "seal": "80e651b5-084d-8d92-a451-1dec7c1e04e1"
     },
     "missing": [],
-    "stands": false
+    "stands": true
    }
   },
   {
@@ -19071,16 +19071,16 @@
    "settlement": {
     "handle": "e92de628",
     "cites": [],
-    "involution": null,
-    "kernelAccepted": false,
-    "involuted": false,
+    "involution": "involution_e92de628",
+    "kernelAccepted": true,
+    "involuted": true,
     "witnesses": {
-     "signed": 0,
-     "of": 0,
-     "seal": null
+     "signed": 14,
+     "of": 14,
+     "seal": "3ea6893d-79b6-8051-b668-7037ea1cd0be"
     },
     "missing": [],
-    "stands": false
+    "stands": true
    }
   },
   {
@@ -60482,9 +60482,9 @@
  "inputs": {
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "61d16885-4ac1-8a62-b13c-6ece405f18b5",
-  "lean/wave-queue.json": "a306bb30-8c6c-8006-bb67-9225c1f5b5ba",
-  "src/theorems/generated.ts": "0fbd6b3d-6a44-8e50-8143-30b376c4d033",
-  "lean/axioms.json": "d61dad4a-500a-82d5-9d16-313a56252880",
+  "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
+  "src/theorems/generated.ts": "1c82f3ee-2d42-8132-8a23-929ac5c74bdc",
+  "lean/axioms.json": "b678ce18-e485-864b-9812-226500d714c8",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -60502,7 +60502,7 @@
   },
   "max_unit_order_mod_7_is_6": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
@@ -60544,7 +60544,7 @@
   },
   "n_qubit_dimension": {
    "wing": "Quantum.lean",
-   "asked": "413341aa-a03d-8609-90ab-a165693866c1",
+   "asked": "afe07c04-fdce-8d3a-ba36-b429ec7ecce9",
    "fresh": true,
    "axioms": []
   },
@@ -60658,31 +60658,31 @@
   },
   "alpine_bindings_partition_packages_28635": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
   "alpine_domain_database_partitions_28635": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
   "four_wire_sorting_needs_five_comparators": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
   "tet_semitone_no_integer_lattice": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
   "pluck_preserves_bound": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
    "fresh": true,
    "axioms": []
   },
@@ -60694,11 +60694,29 @@
   },
   "truncated_run_counted_47": {
    "wing": "Wave.lean",
-   "asked": "a0a0d5c8-ae2a-806e-84a9-cbfd5b78a32f",
+   "asked": "abfa5230-7160-8ed1-a304-dcf03c8d5b67",
+   "fresh": true,
+   "axioms": []
+  },
+  "involution_b13fd37a": {
+   "wing": "Involutionb13fd37a.lean",
+   "asked": "697aff20-41a2-80b6-8656-136e42a55ed5",
+   "fresh": true,
+   "axioms": []
+  },
+  "involution_2d552f1f": {
+   "wing": "Involution2d552f1f.lean",
+   "asked": "221e265e-9aac-8607-8dd8-7d7b61b5b7ce",
+   "fresh": true,
+   "axioms": []
+  },
+  "involution_e92de628": {
+   "wing": "Involutione92de628.lean",
+   "asked": "b7e4be0b-7018-88df-9253-64d0e47cdef8",
    "fresh": true,
    "axioms": []
   }
  },
  "unreceipted": [],
- "seal": "203909e0-a7a9-87db-8ec4-0d713c34f948"
+ "seal": "9c0fb0c6-a18c-8d12-9bd2-4e7267287e60"
 }

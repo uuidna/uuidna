@@ -7,7 +7,7 @@ description: "Computed from lean/Wave.lean — 968 sealed theorems, every claim 
 
 > WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 967 siblings below.
 
-**968 theorems** and **1,000 decided cases**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 779 of its 968 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**968 theorems** and **1,000 decided cases**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 778 of its 968 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 968 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -305,21 +305,21 @@ The ledger holds this as [the_buyer_sees_thirty_five_missing](/theorem/the_buyer
 (500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (500 - 465 = 35)
 ```
 
-### THE ENTANGLEMENT PROTOCOL'S CLASSICAL PRICE IS THE TWO COINS (captain: 'quantum entanglement cost (captain coins)'): a Bell measurement has 2^2 = 4 outcomes, and one classical bit cannot name four (2^1 < 2^2) while two bits exactly do (2·2 = 4) — so teleporting one qubit consumes the entangled pair PLUS exactly two classical bits (Bennett et al. 1993, the literature's protocol, REPORTED), and superdense coding returns the same rate reversed (one ebit + one qubit carries two classical bits). The exchange rate of entanglement, both directions, is 2 — the captain's conserved coins() = 2 appearing in the quantum accounting as the FORCED minimum, not a chosen fee. the counting arithmetic seals (four outcomes need two bits — pigeonhole on names); the protocols are the literature's; no PHYSICS quantum advantage is claimed by this ledger (classical computation throughout, per the RULE); the advantage the house DOES report is ARCHITECTURAL and MEASURED — build-speed comparisons of receipt-verification against re-derivation, timings carried as data in the reported class.
+### A Bell measurement has 2^2 = 4 outcomes; one bit cannot name four (2^1 < 2^2) and two bits do (2·2 = 4). The teleportation protocol (Bennett et al. 1993) is the literature's, cited as reported.
 The ledger holds this as [teleportation_costs_the_two_coins](/theorem/teleportation_costs_the_two_coins) — proven `by decide`, sorry-free:
 
 ```lean
 (2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)
 ```
 
-### THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact).
+### 16^8 = 2^32 handles, 2^32 · 2^96 = 2^128, and 2^7 = 128.
 The ledger holds this as [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture) — proven `by decide`, sorry-free:
 
 ```lean
 (16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)
 ```
 
-### THE ARCHITECTURAL QUANTUM ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems', the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 − 48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity report publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever.
+### 48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48. The 48 is a reported figure (Bluvstein et al., Nature 2023), named as such.
 The ledger holds this as [usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty) — proven `by decide`, sorry-free:
 
 ```lean

@@ -5,15 +5,14 @@
 // the module's declared LEVELS in O(sealed-file) time — theorem verify_beats_recompute_by_magnitudes. One byte of
 // structural drift fails; full remeasure is `npm run x -- gen-quantum-advantage` off the critical path.
 //
-// WHAT IT COVERS (metrics-aligned):
-//   · usable_gap_is_two_to_eighty sealed in the ledger (the usable-column quantum advantage)
-//   · handle_capacity_is_quantum_by_architecture + verify_beats_recompute_by_magnitudes present
+// WHAT IT COVERS:
+//   · every QA_REQUIRED_THEOREMS key sealed in the ledger
 //   · sealed report.complete with every LEVEL row (reach declared, cost/fidelity measured)
-//   · every row seal key exists in the ledger; dispatch clear; fidelity bound honest
-//   · no false blanket denial ("no physics quantum advantage is claimed") in sealed report / jsonld / md
-//   · content-address of the sealed JSON matches the receipt fold (tamper check)
+//   · every row seal key exists in the ledger; dispatch clear; zero disagreements in the battery
+//   · report.honest cites usable_gap_is_two_to_eighty by key
+//   · the sealed JSON, md and jsonld exist; the receipt is present
 //
-// TypeScript computes; VitePress monitors (docs + public jsonld). Wall-clock target: ≪ 60s on the push path.
+// Wall-clock target: ≪ 60s on the push path.
 import { existsRoot, rdRoot } from '../../../boundary.js'
 import { sha256 } from '../../../sha256.js'
 import { theorems, theoremByKey } from '../../../theorems/index.js'
@@ -24,7 +23,7 @@ export const QA_SEAL_PATH = 'lean/quantum-advantage.json'
 export const QA_MD_PATH = 'lean/quantum-advantage.md'
 export const QA_JSONLD_PATH = 'docs/public/quantum-advantage.jsonld'
 
-/** Theorems the advantage audit REQUIRES — usable-capacity gap is the measured quantum advantage axis. */
+/** Theorems the advantage audit requires to be sealed in the ledger. */
 export const QA_REQUIRED_THEOREMS: readonly string[] = [
   'usable_gap_is_two_to_eighty',
   'handle_capacity_is_quantum_by_architecture',
@@ -33,8 +32,6 @@ export const QA_REQUIRED_THEOREMS: readonly string[] = [
   'served_qubit_ceiling',
   'gate_error_baseline_class',
 ] as const
-
-const FALSE_DENIAL = /no physics quantum advantage is claimed|never a quantum computer/i
 
 export interface QaGap { what: string; fix: string }
 
@@ -75,7 +72,6 @@ interface SealedQa {
     results?: unknown[]
   }
   dispatch?: { clear?: boolean; passed?: number; refused?: unknown[] }
-  device?: { honest?: string }
 }
 
 const hexOf = (b: Uint8Array): string => { let s = ''; for (const x of b) s += (x < 16 ? '0' : '') + x.toString(16); return s }
@@ -97,7 +93,7 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
     if (!byKey.has(k)) {
       gaps.push({
         what: `required advantage theorem missing: ${k}`,
-        fix: 'seal it in lean/ (usable_gap_is_two_to_eighty is the measured usable-column quantum advantage)',
+        fix: `seal ${k} in lean/`,
       })
     }
   }
@@ -192,25 +188,12 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
         gaps.push({ what: `${level.name}: claim does not cite theorem ${level.seals}`, fix: 'claimOf must cite the seal' })
       }
     }
-    if (FALSE_DENIAL.test(report.honest ?? '')) {
-      gaps.push({
-        what: 'sealed report.honest contains a false blanket denial of measured usable-capacity advantage',
-        fix: 'cite usable_gap_is_two_to_eighty; refuse "no physics quantum advantage is claimed" where metrics show the usable-column gap',
-      })
-    }
     if (!/usable_gap_is_two_to_eighty/.test(report.honest ?? '')) {
       gaps.push({
-        what: 'sealed report.honest does not cite usable_gap_is_two_to_eighty',
-        fix: 'honest scope must name the measured usable-capacity quantum advantage theorem',
+        what: 'sealed report.honest does not cite the key usable_gap_is_two_to_eighty',
+        fix: 'cite the key usable_gap_is_two_to_eighty in src/quantum/advantage HONEST',
       })
     }
-  }
-
-  if (sealed.device?.honest && FALSE_DENIAL.test(sealed.device.honest)) {
-    gaps.push({
-      what: 'device.honest denies measured usable-capacity advantage',
-      fix: 'align drivers/quantum honest string with usable_gap_is_two_to_eighty',
-    })
   }
 
   if (sealed.dispatch && sealed.dispatch.clear !== true) {
@@ -224,7 +207,7 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
     if ((sealed.proof.disagreements ?? 1) !== 0) {
       gaps.push({
         what: `proof battery had ${sealed.proof.disagreements} disagreements`,
-        fix: 'proveHardwareQuantum must be EXACT against Lean',
+        fix: 'runWitnessBattery must be EXACT against Lean',
       })
     }
     if (!(sealed.proof.executed! > 0)) {
@@ -234,19 +217,9 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
     gaps.push({ what: 'sealed proof block missing', fix: 'regenerate gen-quantum-advantage' })
   }
 
-  // companion surfaces — VitePress monitor + jsonld must not carry false denials
+  // companion surfaces — the generated md and jsonld must exist
   for (const rel of [QA_MD_PATH, QA_JSONLD_PATH]) {
-    if (!existsRoot(rel)) {
-      gaps.push({ what: `${rel} missing`, fix: 'regenerate gen-quantum-advantage' })
-      continue
-    }
-    const text = rdRoot(rel)
-    if (FALSE_DENIAL.test(text)) {
-      gaps.push({
-        what: `${rel} contains false blanket advantage denial`,
-        fix: 'metrics-aligned wording: usable_gap_is_two_to_eighty is the measured usable-column quantum advantage; TypeScript computes, VitePress monitors',
-      })
-    }
+    if (!existsRoot(rel)) gaps.push({ what: `${rel} missing`, fix: 'regenerate gen-quantum-advantage' })
   }
 
   // tamper / identity: receipt present and seal digest non-empty
@@ -272,9 +245,8 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
     receipt,
     sealDigest,
     honest:
-      'Full quantum-advantage audit on VERIFY path (verify_beats_recompute_by_magnitudes): sealed ' +
-      'lean/quantum-advantage.json checked against LEVELS + usable_gap_is_two_to_eighty + dispatch clear + ' +
-      'no false denials. Remeasure only on drift via gen-quantum-advantage off the push path. TypeScript ' +
-      'computes; VitePress monitors.',
+      `VERIFY path (verify_beats_recompute_by_magnitudes): sealed lean/quantum-advantage.json checked against ` +
+      `${LEVELS.length} LEVELS, ${QA_REQUIRED_THEOREMS.length} required sealed keys, dispatch clear and the ` +
+      `battery's disagreement count; ${gaps.length} gaps.`,
   }
 }

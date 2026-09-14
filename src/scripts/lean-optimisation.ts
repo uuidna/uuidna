@@ -5,9 +5,9 @@
 // duality (every feasible primal value ≤ a dual-feasible value), STRONG duality (primal max 11 = dual min 11 —
 // exact, no epsilon), COMPLEMENTARY SLACKNESS (positive dual ↔ tight constraint, both pairs), and one simplex
 // pivot strictly improving. The quantum bridge is the honest one: enumerating n binary decisions IS walking the
-// 2^n basis states the exact simulator holds (n_qubit_dimension) — and the sealed Grover margin only ever
+// 2^n basis states the exact state vector holds (n_qubit_dimension) — and the sealed Grover margin only ever
 // HALVES that exponent, never removes it. exact optima of small named instances by enumeration —
-// NOT a solver at scale, NOT an NP claim, NO quantum advantage (the simulator is classical and says so).
+// NOT a solver at scale, NOT an NP claim, NO quantum advantage (the state-vector computation is classical and says so).
 import { emit } from './lean-gen.js'
 
 // the instance, enumerated in the js mirrors exactly as `by decide` walks it: x ∈ 0..3, y ∈ 0..4, x+y ≤ 4
@@ -49,12 +49,12 @@ const FACTS = [
     lean: 'theorem simplex_pivot_improves : (3*3 + 2*0 = 9) ∧ (9 < 11) := by decide' },
 
   { key: 'optimisation_space_is_qubit_dimension', skill: 'optimisation',
-    name: 'the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state the classical simulator holds (n_qubit_dimension); the search space IS the basis',
+    name: 'the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state vector the classical computation holds (n_qubit_dimension); the search space IS the basis',
     js: () => 2 ** 10 === 1024,
     lean: 'theorem optimisation_space_is_qubit_dimension : 2^10 = 1024 := by decide' },
 
   { key: 'grover_halves_the_search_exponent', skill: 'optimisation',
-    name: 'the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger\'s simulator claims NO advantage at all',
+    name: 'the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger\'s state-vector computation claims NO advantage at all',
     js: () => 20 === 2 * 10 && 2 ** 20 === 1024 * 1024,
     lean: 'theorem grover_halves_the_search_exponent : (20 = 2 * 10) ∧ (2^20 = 1024 * 1024) := by decide' },
 
@@ -67,5 +67,5 @@ const FACTS = [
 console.log('computing ' + FACTS.length + ' OPTIMISATION facts (linear optima, duality and the qubit basis — exact instances) …')
 
 emit({ file: 'Optimisation.lean', skill: 'optimisation',
-  header: 'THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim',
+  header: 'THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical state-vector computation claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim',
   facts: FACTS })

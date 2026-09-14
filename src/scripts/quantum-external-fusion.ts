@@ -200,16 +200,16 @@ class QuantumExternalFusion {
       return this.cache.get(cacheKey);
     }
 
-    // Simulate API call (in production, would use actual HTTP)
-    const result = this.simulateAPIResponse(api, query);
+    // Stand-in response (no HTTP call is made here)
+    const result = this.standInAPIResponse(api, query);
 
     // Cache result
     this.cache.set(cacheKey, result);
     return result;
   }
 
-  private simulateAPIResponse(api: ExternalAPI, query: string): any {
-    // Deterministic simulation (same input = same output)
+  private standInAPIResponse(api: ExternalAPI, query: string): any {
+    // Deterministic stand-in (same input = same output)
     return {
       found: false,
       prior_work: null,

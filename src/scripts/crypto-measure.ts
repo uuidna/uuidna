@@ -382,7 +382,7 @@ function measureFnvCollisionResistance() {
   const hashes = new Set<number>()
   let firstCollision = -1
 
-  log(`Running birthday simulation with ${samples.toLocaleString()} deterministic inputs...\n`)
+  log(`Counting birthday collisions over ${samples.toLocaleString()} deterministic inputs...\n`)
 
   for (let i = 0; i < samples; i++) {
     const input = new Uint8Array(4)

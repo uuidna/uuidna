@@ -6,7 +6,7 @@
 // "without consent nothing is stored"). It exposes what uuidna proves and checks — content-address anything, try a
 // statement (the three-way verdict), read the sealed ledger, run the honesty gate, fold the trial receipt, and
 // VERIFY a text against a claimed address (the keyless tamper-check). It is NOT a censor (it removes nothing, it only
-// flags a claim and asks for a proof) and NOT a quantum computer (uuidna's quantum is a classical simulation) — both
+// flags a claim and asks for a proof) and NOT a quantum computer (uuidna's quantum is exact classical state-vector arithmetic) — both
 // were refuted at trial. This is how uuidna installs deeper on a device: as a service, honestly bounded. Integrity.
 import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
 import { readFileSync } from 'node:fs'

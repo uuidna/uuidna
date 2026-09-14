@@ -1,0 +1,12 @@
+{
+  "handle": "064913df",
+  "address": "064913df-deec-81e7-9c63-e6953186df39",
+  "kind": "chunk",
+  "keys": [
+    "anatomy_e92de628"
+  ],
+  "statement": "pairGrid = 42 ∧ fullGrid historicalWings = 432 ∧ Nat.gcd pairGrid (fullGrid historicalWings) = projected.length ∧ ¬ (dimensions.length ∣ historicalWings)",
+  "files": [
+    "Involutione92de628.lean"
+  ]
+}

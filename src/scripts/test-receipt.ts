@@ -87,6 +87,10 @@ export default async function* testReceipt(source: AsyncIterable<TestEvent>): As
   // THE SLOWEST FIVE, NAMED — the reading that turns "the suite is slow" into a file to open.
   const slowest = [...msByFile.entries()].sort(([fa, a], [fb, b]) => b - a || (fa < fb ? -1 : fa > fb ? 1 : 0)).slice(0, 5)   // ties by name: order-invariant
   if (slowest.length) yield `⏱ slowest superpositions: ${slowest.map(([f, ms]) => `${f} ${(ms / 1000).toFixed(1)}s`).join(' · ')}\n`
+  // THE MEMORY THIS RUN TOOK, MEASURED (2026-09-14): the tests run in this process (--test-isolation=none), so its
+  // maxRSS is the run's peak — the reading test-plan sizes the next split by. A reading, never part of the fold, and
+  // printed only for a runner test-plan started as a shard, so the reporter's own output stays identical run to run.
+  if (process.env.UUIDNA_TEST_SHARD) yield `⚖ peak ${process.resourceUsage().maxRSS * 1024} bytes (maxRSS of this runner)\n`
   const total = passedCount + failed.length
   const root = totalOf(leaves)
   yield failed.length === 0

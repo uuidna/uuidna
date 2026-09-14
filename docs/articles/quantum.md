@@ -5,7 +5,7 @@ description: "Computed from lean/Quantum.lean — 58 sealed theorems, every clai
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 57 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 57 siblings below.
 
 **58 theorems** and **284 decided cases**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in <a href="/lean/Quantum.lean">lean/Quantum.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 58 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
@@ -151,7 +151,7 @@ The ledger holds this as [s_fourth_is_identity](/theorem/s_fourth_is_identity) �
 ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2)))
 ```
 
-### Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear algebra, no advantage)
+### Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query amplitude vanishes. The honest heart of the algorithm, as the state-vector code computes it (classical linear algebra, no advantage)
 The ledger holds this as [dj_balanced_cancels](/theorem/dj_balanced_cancels) — proven `by decide`, sorry-free:
 
 ```lean
@@ -172,14 +172,14 @@ The ledger holds this as [entanglement_determinant](/theorem/entanglement_determ
 ((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0)
 ```
 
-### Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the simulator carries; the nonabelian core of the gate algebra
+### Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both bits — the sign the state vector carries; the nonabelian core of the gate algebra
 The ledger holds this as [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b)))
 ```
 
-### The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted
+### The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct entanglement class, robust to one-party loss. The computed amplitude vector, counted
 The ledger holds this as [w_state_three_outcomes](/theorem/w_state_three_outcomes) — proven `by decide`, sorry-free:
 
 ```lean
@@ -200,7 +200,7 @@ The ledger holds this as [bell_basis_orthogonal](/theorem/bell_basis_orthogonal)
 ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2)
 ```
 
-### n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage.
+### n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why computing it classically is costly. this counts the classical state-vector cost, it is NOT a speedup or a quantum advantage.
 The ledger holds this as [n_qubit_dimension](/theorem/n_qubit_dimension) — proven `by decide`, sorry-free:
 
 ```lean
@@ -284,7 +284,7 @@ The ledger holds this as [phase_gate_order_ladder](/theorem/phase_gate_order_lad
 (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0)
 ```
 
-### The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
+### The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the state-vector code computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL).
 The ledger holds this as [chsh_beats_classical](/theorem/chsh_beats_classical) — proven `by decide`, sorry-free:
 
 ```lean
@@ -396,7 +396,7 @@ The ledger holds this as [merkle_sort_invariant](/theorem/merkle_sort_invariant)
 (let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1))
 ```
 
-### UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.
+### UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no message — the invariance bell_no_signaling holds over the computed state). uuidna side: the address is ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two parties computing the same receipt IS the message. The same arithmetic run in opposite directions: invariance hides, injectivity announces. Nothing rides hidden in a marginal because everything rides open in an address — secure messaging by total signal.
 The ledger holds this as [all_signaling_duality](/theorem/all_signaling_duality) — proven `by decide`, sorry-free:
 
 ```lean
@@ -419,7 +419,7 @@ The ledger holds this as [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cro
 
 
 ::: warning 
-The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum. The boundary is confirmed by the wing's own sealed theorems — e.g. [bell_born_weights](/theorem/bell_born_weights) — never merely denied.
+The QUANTUM computer — the exact facts the classical state-vector code (src/quantum. The boundary is confirmed by the wing's own sealed theorems — e.g. [bell_born_weights](/theorem/bell_born_weights) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

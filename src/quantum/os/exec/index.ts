@@ -181,7 +181,7 @@ export type Applet = (typeof APPLETS)[number]
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
 export const FOLDED_APPLETS = [] as const
 
-/** apk READ + simulated WRITE (session only — host rootfs unchanged). Host binary run: uuidna_run. */
+/** apk READ + session WRITE (session state only — host rootfs unchanged). Host binary run: uuidna_run. */
 export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends', 'add', 'del', 'policy'] as const
 
 /** sequence — living field constructors (lean/Sequence.lean runtime). */
@@ -210,7 +210,7 @@ const apkMiss = (verb: string, name: string): string => {
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
 const specByRoute = (route: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.route === norm(route))
 
-/** installed set for apk: boot closure + session-added simulated packages. */
+/** installed set for apk: boot closure + session-added packages. */
 const sessionInstalledNames = (specs: readonly InstallSpec[]): Set<string> => {
   const s = new Set(specs.map((x) => x.name))
   for (const n of sessionAdded()) s.add(n)
@@ -306,7 +306,7 @@ export function uuidnaExec(line: string): ExecResult {
           const compiled = catalogueCompile(c)
           emit([`${c.name}-${c.version} description:`, `  ${c.desc}`, `${c.name}-${c.version} webpage:`, `  ${catalogueRouteOf(name)}`,
             `${c.name}-${c.version} depends on:`, ...(c.deps.length ? c.deps.map((d) => '  ' + d) : ['  (none)']),
-            `(SESSION — simulated install; host rootfs unchanged)`],
+            `(SESSION — install recorded in session state; host rootfs unchanged)`],
             { name: c.name, version: c.version, route: catalogueRouteOf(name), meaning: c.desc, checksum: c.checksum, deps: c.deps, address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, state: 'SESSION' })
           break
         }
@@ -375,7 +375,7 @@ export function uuidnaExec(line: string): ExecResult {
         }
         if (okNames.length && ok) {
           emit([
-            `OK: ${okNames.length} simulated install(s) — session only, host rootfs unchanged`,
+            `OK: ${okNames.length} session install(s) — recorded in session state only, host rootfs unchanged`,
             ...okNames.map((n) => `  ${n} → ${catalogueRouteOf(n)}`),
             `(host binary execution: uuidna_run — verify-then-run at the os/ boundary)`,
           ], { added: okNames, session: sessionAdded(), stamp: execSessionStamp() })
@@ -397,7 +397,7 @@ export function uuidnaExec(line: string): ExecResult {
         emit([
           `${INSTALLS_MIRROR.branch}/${INSTALLS_MIRROR.arch} · pinned ${INSTALLS_MIRROR.release.version}`,
           'repositories: main, community, overlay',
-          'Layer 1 (uuidna_exec): simulated apk add/del — session state only',
+          'Layer 1 (uuidna_exec): apk add/del recorded in session state only',
           'Layer 2 (uuidna_run): host verify-then-run when mirror/' + pinnedFileHint() + ' is present (`npm run x -- fetch-pinned-rootfs`)',
         ], {
           branch: INSTALLS_MIRROR.branch, arch: INSTALLS_MIRROR.arch, version: INSTALLS_MIRROR.release.version,
@@ -729,9 +729,9 @@ export function uuidnaExec(line: string): ExecResult {
       'acme  — ACME/Let\'s Encrypt port census; acme issue <domain…> [--certbot] plans HTTP-01 issuance',
       'sequence field · sequence run <n|text> · sequence dash · sequence invariants  — living field (Sequence.lean)',
       'driver  — netboot/modloop driver bundle provenance (pinned release)',
-      'device  — this host executing the sealed quantum algebra (drivers/quantum)',
+      'device  — the host running the sealed witness battery (drivers/quantum)',
       'host binary execution: uuidna_run (stdio MCP — verify-then-run, separate door)',
-      'Layer 1 simulates; Layer 2 executes pinned bytes when mirror rootfs is present'],
+      'Layer 1 computes over catalogue + session state; Layer 2 executes pinned bytes when mirror rootfs is present'],
       { applets: APPLETS, apk: APK_VERBS, sessionStamp: execSessionStamp() }); break
     case '': err('exec: empty command — try `help`'); break
     // THE CODEC APPLETS ARE PORTED, AND NOT HERE. Letting them fall through to the default would report

@@ -84,7 +84,12 @@ export function trialAdmit(
   const row = rowFor(ledger, c.key)
   if (row && row.statement === c.statement && row.file === c.file) {
     const bound = c.lean.startsWith('theorem ' + c.key + ' ') || c.lean.startsWith('theorem ' + c.key + ':')
-    if (bound && c.lean.includes(':= by decide') && toUuid(c.key + ':' + c.statement) === row.address) {
+    // THE PROOF IS THE ROW'S OWN, READ FROM THE ROW — never a typed tactic. The gate once admitted only ':= by decide',
+    // and so refused the court's first involutions, whose kernel-accepted proofs run `exact`/`intro`/`unfold …; decide`
+    // (decide on Nat dvd or String membership drags propext; every row is audited axiom-free by lean-axioms). A
+    // candidate that carries a different proof than the sealed one is still refused.
+    const tactic = (row as { tactic?: string }).tactic ?? 'decide'
+    if (bound && c.lean.includes(':= by ' + tactic) && toUuid(c.key + ':' + c.statement) === row.address) {
       return { admitted: true, kind: 'verified', detail: row.key }
     }
     return {

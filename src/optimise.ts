@@ -1,7 +1,7 @@
 // optimise — THE EXACT LINEAR OPTIMISER on the quantum API's honest terms: small integer linear programs solved
 // by TOTAL enumeration of the lattice — every candidate checked, nothing sampled, the optimum exact and the
 // receipt recomputable. The search space is the qubit basis made literal: bounding each of n variables to
-// {0..bound} walks (bound+1)^n candidates exactly as the classical simulator walks its 2^n basis states —
+// {0..bound} walks (bound+1)^n candidates exactly as the exact state-vector computation walks its 2^n basis states —
 // EXPONENTIAL, honestly (theorem optimisation_space_is_qubit_dimension); the work is capped so the honesty is
 // structural, not aspirational. Backed by the Optimisation.lean wing: the optimum sits at a vertex, strong
 // duality holds exact on the sealed instance, Grover only halves the exponent. Integrity— an exact

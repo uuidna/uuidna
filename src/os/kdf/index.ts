@@ -163,7 +163,7 @@ export async function securityLevel(): Promise<SecurityLevel> {
 // Both bounds are chosen in the ATTACKER'S favour. The margin is what survives that generosity.
 //
 // WHAT THIS IS NOT. It is not a claim that uuidna resists a quantum computer that does not exist, and it is not
-// a supremacy claim of its own — n_qubit_dimension counts classical simulation cost and this tree has refused
+// a supremacy claim of its own — n_qubit_dimension counts the classical state-vector cost and this tree has refused
 // "all quantum threat is gone" as a lead. It is arithmetic over three named quantities, and its whole value is
 // that the quantities are named: change any of them and the margin recomputes in public.
 export interface QuantumMargin {

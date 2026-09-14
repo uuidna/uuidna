@@ -7,8 +7,8 @@
 // 18 tests, and one lean json. The suite that needed re-proving was a fraction of the suite that ran.
 //
 // SO THE PLANNER ASKS THE GRAPH. Two kinds of dependency, both read from the built tree, never typed:
-//   IMPORTS — every compiled module's relative import, export-from, and literal dynamic import, reversed, so a moved
-//             source reaches every test that transitively imports it.
+//   IMPORTS — every compiled module's relative or subpath ('#ledger') import, export-from, and literal dynamic import,
+//             reversed, so a moved source reaches every test that transitively imports it.
 //   READS   — a module that calls a filesystem read and names a covered data directory (lean/, src/handles/, or the
 //             source tree itself) depends on every file under it; a module that reads the repository root without
 //             naming a directory depends on everything, and so does a dynamic import whose specifier is not a
@@ -44,8 +44,8 @@ export type GraphModule = {
 export type TestGraph = { modules: Map<string, GraphModule>; importers: Map<string, Set<string>> }
 
 const SKIP = /^dist\/(seeds|chunks|handles)\//
-const IMPORT_RE = /(?:^|[^\w$])(?:import|export)\s*(?:[\w${},*\s]+from\s*)?['"](\.{1,2}\/[^'"]+)['"]/g
-const DYNAMIC_LITERAL_RE = /import\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/g
+const IMPORT_RE = /(?:^|[^\w$])(?:import|export)\s*(?:[\w${},*\s]+from\s*)?['"]((?:\.{1,2}\/|#)[^'"]+)['"]/g
+const DYNAMIC_LITERAL_RE = /import\(\s*['"]((?:\.{1,2}\/|#)[^'"]+)['"]\s*\)/g
 const DYNAMIC_OPEN_RE = /import\(\s*(?!['"])/
 const FS_READ_RE = /\b(?:readFileSync|readdirSync|readFile|readdir|statSync|existsSync|createReadStream|opendirSync)\b/
 /** a quoted literal that IS a source path: 'src' or 'src/...' at the start of the string, nothing before it */
@@ -86,6 +86,23 @@ const resolveImport = (from: string, spec: string): string => {
   return abs.replace(/^\//, '')
 }
 
+/** the package's own "imports" map, read once per root */
+const subpathMaps = new Map<string, Record<string, unknown>>()
+const importsMapOf = (root: string): Record<string, unknown> => {
+  let m = subpathMaps.get(root)
+  if (!m) {
+    m = (JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as { imports?: Record<string, unknown> }).imports ?? {}
+    subpathMaps.set(root, m)
+  }
+  return m
+}
+const targetsOf = (v: unknown): string[] =>
+  typeof v === 'string' ? [v] : v && typeof v === 'object' ? Object.values(v).flatMap(targetsOf) : []
+/** a subpath import ('#ledger') resolves through package.json "imports" to EVERY condition's target: each surface runs
+ *  one of them (a host the default, the Worker the workerd one), so a change to either reaches the importer's tests */
+const resolveImports = (root: string, from: string, spec: string): string[] =>
+  spec.startsWith('#') ? targetsOf(importsMapOf(root)[spec]).map((t) => t.replace(/^\.\//, '')) : [resolveImport(from, spec)]
+
 export const moduleOf = (root: string, file: string): GraphModule => {
   // THE GRAPH READS CODE, NOT PROSE (2026-09-12). Measured: of the 12 modules that reached 100+ tests as
   // "reads everything", 5 were flagged by a `src/` in a HEADER COMMENT and api.js by an `import(` in a doc comment;
@@ -94,8 +111,8 @@ export const moduleOf = (root: string, file: string): GraphModule => {
   // lexical rule turned prose and single files into "the whole tree", and a stale receipt into 372 of 402 files.
   const text = stripComments(readFileSync(join(root, file), 'utf8'))
   const imports = new Set<string>()
-  for (const m of text.matchAll(IMPORT_RE)) imports.add(resolveImport(file, m[1]!))
-  for (const m of text.matchAll(DYNAMIC_LITERAL_RE)) imports.add(resolveImport(file, m[1]!))
+  for (const m of text.matchAll(IMPORT_RE)) for (const p of resolveImports(root, file, m[1]!)) imports.add(p)
+  for (const m of text.matchAll(DYNAMIC_LITERAL_RE)) for (const p of resolveImports(root, file, m[1]!)) imports.add(p)
   const readsFs = FS_READ_RE.test(text)
   // A DATA LITERAL WITH AN EXTENSION NAMES ONE FILE ('lean/heartbeats.json'): a dependency on that file. Only a
   // bare directory literal ('lean/', 'lean', join(root,'src','handles')) depends on the whole directory. Measured

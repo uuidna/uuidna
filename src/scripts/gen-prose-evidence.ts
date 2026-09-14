@@ -10,7 +10,7 @@
 // Fixed by moving the citation rather than by widening the law. A law that learns to look one paragraph further
 // is a law with a longer reach and a weaker grip, and the next surface to split a claim from its evidence would
 // pass. Emitting them together makes the document true at the granularity the law actually reads.
-// Every claim in README/homepage is content-addressed and linked to its sealing theorems
+// Each listed phrase is content-addressed and linked to the theorems filtered for it by key
 
 import { theorems, toUuid } from '../index.js'
 import { writeFileSync } from 'node:fs'
@@ -59,11 +59,6 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
     backing: T.filter(t => t.key === 'usable_gap_is_two_to_eighty')
   },
   {
-    claim: 'typescript is the quantum computer',
-    prose: 'TypeScript is the quantum computer',
-    backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
-  },
-  {
     claim: 'cost per seal is always two coins',
     prose: 'Cost per seal is always two coins',
     backing: T.filter(t => t.key === 'two_coins' || t.key === 'captain_theorem')
@@ -84,11 +79,6 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
     backing: T.filter(t => t.key === 'crt_pairs_are_a_bijection' || t.key === 'rosette_and_vortex_are_coprime')
   },
   {
-    claim: 'vitepress is the monitor',
-    prose: 'TypeScript computes it and VitePress monitors it',
-    backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
-  },
-  {
     claim: 'each theorem unlocks what it seals',
     prose: 'the ledger is the unlock board',
     backing: T.filter(t => t.key === 'two_coins' || t.key === 'captain_computes_only_with_two_coins')
@@ -103,7 +93,7 @@ const ledger: EvidenceEntry[] = evidenceData.map((e) => ({
 
 const md = `# Prose Evidence Ledger
 
-**Every claim in the README and homepage is backed by sealed Lean theorems.** This ledger proves the connection.
+Each entry below quotes one phrase and lists the sealed theorems filtered for it by key, with each theorem's statement.
 
 ${ledger
   .map(

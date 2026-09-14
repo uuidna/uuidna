@@ -8,7 +8,7 @@
 // YOUR notes — desk proposes, the kernel does not auto-seal. Resonance is a lookup of related decided arithmetic,
 // never a claim that your subject IS uuidna.
 //
-// Classical throughout: n qubits span 2^n amplitudes (simulation cost, not a physics speedup). The speed here is
+// Classical throughout: n qubits span 2^n amplitudes (classical state-vector cost, not a physics speedup). The speed here is
 // verify-beats-recompute — a sealed identity is O(1) to look up. Meaning is null.
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'

@@ -17,7 +17,7 @@ import { merkleGravity } from './gravity/index.js'
  * 1. @uuidna/crypto — cryptographic primitives (handles, proofs, signatures)
  * 2. @uuidna/ledger — the sealed theorem database
  * 3. @uuidna/research — external research sources (corroboration)
- * 4. @uuidna/quantum — quantum simulator, Lean verification
+ * 4. @uuidna/quantum — exact state-vector computation, Lean verification
  * 5. @uuidna/mcp — the MCP tool interface and gate logic
  * 6. @uuidna/edge — Cloudflare Workers edge deployment
  */
@@ -40,9 +40,9 @@ export function verifyPackageIntegrity(pkg: Package): PackageIntegrity {
     '@uuidna/crypto': ['handleOf', 'toUuid', 'merkleGravity', 'merkleRoot', 'merkleProof'],
     '@uuidna/ledger': ['theorems', 'coins', 'ledgerCoins', 'reportAll', 'ledgerMass'],
     '@uuidna/research': ['researchEvidence', 'corroborateWithResearch', 'RESEARCH_SOURCE_NAMES'],
-    '@uuidna/quantum': ['entangleAllFrames', 'verifyCryptoFrame', 'verifyBioFrame', 'verifyChemoFrame', 'verifyPhysicalFrame'],
-    '@uuidna/mcp': ['wrapMCPResponse', 'verifyEntangledResponse', 'entanglementSummary'],
-    '@uuidna/edge': ['auditCloudflareBindings', 'handleOf', 'merkleRoot', 'entanglementReport'],
+    '@uuidna/quantum': ['hostQuantumDevice', 'LEVEL_PROBES', 'merkleGravity', 'diamond', 'involute'],
+    '@uuidna/mcp': ['sanitizeValue', 'sanitizeInput', 'scrubString'],
+    '@uuidna/edge': ['auditCloudflareBindings', 'serialize', 'documentAddress', 'quantumProfile'],
   }
 
   const pkgDeps: Record<Package, Package[]> = {

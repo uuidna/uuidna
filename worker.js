@@ -36,6 +36,17 @@ import { handleAnalytics } from './dist/analytics-handler.js'
 // Colliding first-8 doors are omitted from this map (birthday past 2^16): unknown → 404, never a wrong page.
 import HANDLES from './handles.js'
 import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
+// THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
+// allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
+// once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
+import { primeEdgeLedger } from './dist/edge-ledger.js'
+
+// QPU IS FUSED, NOT FETCHED: with the QPU service binding a call to qpu.uuidna.com rides env.QPU — no public hop, no
+// extra billed request (Cloudflare: "Service bindings don't increase costs"); every other host, or a deploy without
+// the binding, goes to the network as before.
+const qpuFetchOf = (env) => env.QPU
+  ? (input, init) => (new URL(String(input)).host === 'qpu.uuidna.com' ? env.QPU.fetch(new Request(input, init)) : fetch(input, init))
+  : undefined
 
 // A bare first-part handle: exactly 8 lowercase hex at the root (/808f7b27). The full uuid is never a URL — only its
 // first part is the door; the rest recomputes from the proof. Unknown handle → fall through (asset 404), never a wrong page.
@@ -163,7 +174,7 @@ export default {
     // THE LIVE PAGE — what uuidna does, visible as it happens (the captain, 2026-09-14: "when claude does something it is
     // always visible. why uuidna is not?"). Every deposit lands in qpu storage through the MCP door and is linked into
     // feed/ by arrival; this reads the newest from there through the service binding — every run, no list of runs typed
-    // anywhere — and shows what each receipt records, when it arrived, the machine and its state, and its address, each
+    // anywhere — and shows what each receipt records, when it arrived, the surface it records, how many faces signed it, and its address, each
     // a link to the stored document. The page refreshes itself; /live.json is the same record for a client.
     if (url.pathname === '/live' || url.pathname === '/live.json') {
       const width = String(Number.MAX_SAFE_INTEGER).length
@@ -178,9 +189,11 @@ export default {
           const address = rest.slice(-36), run = rest.slice(0, rest.length - 37)
           const v = (r.doc && r.doc.value) || {}
           const what = v.file || v.coord || v.tool || v.family || v.kind || (v.record && v.record.tool) || ''
+          // the surface, serving data centre and model the receipt itself records — no temperature: a maximum over every
+          // die channel includes channels that never move (run-evidence.ts names them constant across a run), and one row
+          // has no second reading to tell them apart
           const hw = (v.hardware && v.hardware.computedOn) || v.readings || {}
-          const die = Array.isArray(hw.die) ? hw.die.filter((d) => d && d.measured).reduce((m, d) => (d.millikelvin > m ? d.millikelvin : m), 0) : 0
-          const machine = [hw.surface, hw.colo, hw.model, die ? `${die} mK` : ''].filter(Boolean).join(' · ')
+          const machine = [hw.surface, hw.colo, hw.model].filter(Boolean).join(' · ')
           const sb = v.sealedBy
           const signed = sb && sb.seal ? `${sb.signed} of ${sb.of}` : 'unsigned'
           return { at: new Date(Number.MAX_SAFE_INTEGER - Number(t)).toISOString(), run, what, machine, signed, seal: (sb && sb.seal) || null, address, href: `https://qpu.uuidna.com/storage/receipts/uuidna/${run}/${address}` }
@@ -197,8 +210,8 @@ export default {
 body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,system-ui,sans-serif}main{max-width:1100px;margin:0 auto;padding:24px 16px}h1{font-size:20px;margin:0 0 4px}p{color:var(--dim);margin:0 0 16px}
 .wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--dim);font-weight:600;letter-spacing:.03em}
 .t,.a,.m{font-variant-numeric:tabular-nums;white-space:nowrap}.m{color:var(--dim)}a{color:var(--acc)}.empty{color:var(--dim);padding:18px 10px}</style></head>
-<body><main><h1>uuidna, live</h1><p>Every receipt uuidna deposits through its MCP door, newest first, refreshed every 10 seconds. Each is signed by fourteen sealed theorems its own address picks (8 + 6 faces), and each address links to the stored document in qpu storage.</p>
-<div class="wrap"><table><thead><tr><th>arrived (UTC)</th><th>run</th><th>what</th><th>machine</th><th>signed by 2×7 theorems</th><th>address</th></tr></thead><tbody>${body}</tbody></table></div></main></body></html>`
+<body><main><h1>uuidna, live</h1><p>Every receipt uuidna deposits through its MCP door, newest first, refreshed every 10 seconds. receiptSealOf folds each receipt's content address to one sealed theorem per face, 8 + 6 = 14 faces (theorem ve_fourteen_faces); the faces column counts the faces whose witness signed. Each address links to the stored document in qpu storage.</p>
+<div class="wrap"><table><thead><tr><th>arrived (UTC)</th><th>run</th><th>what</th><th>recorded on</th><th>faces signed</th><th>address</th></tr></thead><tbody>${body}</tbody></table></div></main></body></html>`
       return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } })
     }
 
@@ -275,27 +288,25 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
-      // QPU IS FUSED, NOT FETCHED: with the QPU service binding a call to qpu.uuidna.com rides env.QPU — no public hop,
-      // no extra billed request (Cloudflare: "Service bindings don't increase costs"); every other host, or a deploy
-      // without the binding, goes to the network as before.
-      const qpuFetch = env.QPU
-        ? (input, init) => (new URL(String(input)).host === 'qpu.uuidna.com' ? env.QPU.fetch(new Request(input, init)) : fetch(input, init))
-        : undefined
+      const qpuFetch = qpuFetchOf(env)
+      // a tool call may read the ledger, so its rows are primed first; initialize, tools/list and ping never wait on them
+      if ((Array.isArray(msg) ? msg : [msg]).some((m) => m && m.method === 'tools/call')) await primeEdgeLedger(qpuFetch ?? fetch)
       const mcpCtx = {
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
         fetch: qpuFetch,
-        // THE EDGE MEASURES ITS OWN MACHINE (the captain, 2026-09-14: "the message need to contain the hardware state for
-        // forensics" · "measured always true"): which Cloudflare location served the call, its network and protocol,
-        // and the request's ray — what a Worker can observe of the machine it runs on. The host measures its sensors
-        // itself (mcp.ts hostHardware); a tool reads this only when it needs it.
+        // WHAT THE EDGE CAN READ OF THE CALL (the captain, 2026-09-14: "the message need to contain the hardware state for
+        // forensics" · "measured always true"). Of request.cf only colo names the serving side — the Cloudflare data
+        // centre that ran this Worker. httpProtocol and the cf-ray header describe the incoming request, so they sit under
+        // `request`; the client's country, city and asn describe the caller, not a machine, and are not bound into a
+        // message that lands in public storage. A Worker reads no sensor; the host measures its own (mcp.ts hostHardware).
         // THE DEPOSIT DOOR (no token on any host): qpu's QpuDeposit entrypoint over the service binding; the MCP door
         // chooses the key from the content, so a caller never picks where a deposit lands
         deposit: env.QPU_DEPOSIT ? async (key, value) => {
           const stored = await env.QPU_DEPOSIT.deposit(key, value)
           // THE LIVE LINKS: once the content-addressed write holds, the same value is linked twice more, ordered by arrival
           // — feed/<t>-<run>-<address> (every run, what uuidna.com/live reads) and live/<run>/<t>-<address> (one run,
-          // what uuidna_evidence {run} reads at the edge). t is this machine's clock read at the boundary — measured
+          // what uuidna_evidence {run} reads at the edge). t is the Worker's clock read at the boundary — measured
           // state, never minted in the core — inverted against the platform's own largest safe integer and padded to its
           // length, so an ascending listing is newest first. The door still chose the content key; so does this.
           const parts = key.split('/')
@@ -309,8 +320,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         } : undefined,
         hardware: () => ({
           measured: true, surface: 'uuidna.com edge', runtime: 'cloudflare-workers',
-          colo: request.cf?.colo ?? null, country: request.cf?.country ?? null, city: request.cf?.city ?? null,
-          asn: request.cf?.asn ?? null, httpProtocol: request.cf?.httpProtocol ?? null, ray: request.headers.get('cf-ray'),
+          colo: request.cf?.colo ?? null,
+          request: { httpProtocol: request.cf?.httpProtocol ?? null, ray: request.headers.get('cf-ray') },
         }),
       }
       if (Array.isArray(msg)) {                                   // a JSON-RPC batch
@@ -384,6 +395,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // for them, so a rebuilt SSG page is never shadowed.
     const thMatch = url.pathname.match(/^\/theorem\/([A-Za-z0-9_]+)$/)
     if (thMatch && request.method === 'GET') {
+      await primeEdgeLedger(qpuFetchOf(env) ?? fetch)
       const page = theoremPage(thMatch[1])
       if (page) {
         return new Response(renderTheoremPage(page), {

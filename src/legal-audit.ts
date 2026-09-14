@@ -19,6 +19,7 @@
 // save and read back dist/evidence/legal-audit.jsonl — a named boundary; the records themselves are pure.
 import { toUuid } from './address.js'
 import { laws } from './laws.js'
+import { LEDGER_EDGE } from '#ledger'
 
 /** canonical JSON: keys sorted, so the same arguments always address the same */
 const canonical = (v: unknown): string =>
@@ -31,8 +32,16 @@ let lawsNow: LawsState | null = null
 /** lawsState() → the laws' receipt, whether all hold, and the gates of any that do not — computed once per process */
 export const lawsState = (): LawsState => {
   if (lawsNow) return lawsNow
+  // AN EDGE WHOSE LEDGER IS NOT READ YET MEASURES NO LAW. The laws recompute over every theorem, and the edge's rows
+  // arrive from qpu storage — the ledger's own deposit, through this door, comes before them. So such a call is audited
+  // with every law named unmeasured and the reason, never cached, and the next call after the rows arrive measures them.
+  if (LEDGER_EDGE && !LEDGER_EDGE.primed()) {
+    const why = 'the edge ledger is not read from qpu storage yet'
+    return { receipt: toUuid('laws unmeasured: ' + why), allHold: false, failing: [`every law — unmeasured here: ${why}`] }
+  }
   const l = laws()
-  lawsNow = { receipt: l.receipt, allHold: l.allHold, failing: l.laws.filter((x) => !x.holds).map((x) => x.enforcedBy) }
+  // a law this surface could not measure is named as such, with its reason — never recorded as a plain failure
+  lawsNow = { receipt: l.receipt, allHold: l.allHold, failing: l.laws.filter((x) => !x.holds).map((x) => (x.unmeasured ? `${x.enforcedBy} — unmeasured here: ${x.unmeasured}` : x.enforcedBy)) }
   return lawsNow
 }
 

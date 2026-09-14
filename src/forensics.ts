@@ -9,13 +9,11 @@
 //   · fabricated-citation — it cites a /theorem/<key> or "theorem <key>" that is NOT in the sealed ledger.
 //   · false-address       — it presents a uuid AS a ledger/theorem address that is not one of the real ones.
 //   · address-mismatch    — an explicit {text → address} claim that does not recompute (a tamper or a forgery).
-import { THEOREMS } from './theorems/index.js'
+// the sealed keys and addresses are asked on use, not collected at import: the edge answers them from its baked root
+import { sealedAddressOf, sealedAddresses } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
 import { adjudicate, type VerdictKind } from './adjudicate.js'
-
-const SEALED_KEYS = new Set(THEOREMS.map((t) => t.key))
-const SEALED_ADDRS = new Set(THEOREMS.map((t) => t.address))
 
 export interface Violation { kind: 'overreach' | 'fabricated-citation' | 'false-address' | 'address-mismatch' | 'unbacked-law'; detail: string; address: string }
 export interface ForensicReport {
@@ -45,7 +43,7 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
   const cited = new Set<string>()
   for (const m of statement.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) cited.add(m[1])
   for (const m of statement.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) cited.add(m[1])
-  for (const k of cited) if (!SEALED_KEYS.has(k)) add('fabricated-citation', `cites theorem "${k}" — no such sealed theorem in the ledger`)
+  for (const k of cited) if (sealedAddressOf(k) === undefined) add('fabricated-citation', `cites theorem "${k}" — no such sealed theorem in the ledger`)
 
   // 3) false addresses — a uuid presented AS a ledger/theorem address (a nearby "address / sealed / theorem /
   //    receipt / proof" word) that is not one of the real sealed addresses. A plain uuid with no such framing is fine.
@@ -54,7 +52,7 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
     const uuid = m[0].toLowerCase()
     const at = m.index ?? 0
     const before = statement.slice(at < 32 ? 0 : at - 32, at)
-    if (FRAME.test(before) && !SEALED_ADDRS.has(uuid)) add('false-address', `presents ${uuid} as a sealed address — not among the ledger's ${SEALED_ADDRS.size} addresses`)
+    if (FRAME.test(before) && !sealedAddresses().has(uuid)) add('false-address', `presents ${uuid} as a sealed address — not among the ledger's ${sealedAddresses().size} addresses`)
   }
 
   // 4) explicit {text → address} claims — recompute and compare (a keyless tamper/forgery check).

@@ -1,5 +1,30 @@
 {
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dist/scripts/court-hooks.js\"",
+            "timeout": 120,
+            "statusMessage": "Reading the standing laws…"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dist/scripts/court-hooks.js\"",
+            "timeout": 30,
+            "statusMessage": "Is the tree held by a landing?"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "*",

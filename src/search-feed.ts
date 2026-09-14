@@ -99,7 +99,7 @@ const FEED_PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+
 /** feedPhysicsCite(query) → markdown cite of n_qubit_dimension, or empty. Pure. */
 export function feedPhysicsCite(query: string): string {
   return FEED_PHYSICS.test(query)
-    ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)'
+    ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical state-vector cost)'
     : ''
 }
 

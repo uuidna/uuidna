@@ -39,3 +39,11 @@ export function grepProbe(): string {
   const alts = TREE_WRITERS.map((w) => `[${w[0]}]${w.slice(1)}`.replace(/\./g, '\\.')).join('|')
   return `ps aux | grep -E "${alts}" | wc -l`
 }
+
+/** writerPidsProbe() → the pids of every running tree writer, one per line, from the same list and the same
+ *  bracket escape — so a caller can leave out the writers that are ITS OWN ancestry (the landing that started it)
+ *  and wait only for a different gate. */
+export function writerPidsProbe(): string {
+  const alts = TREE_WRITERS.map((w) => `[${w[0]}]${w.slice(1)}`.replace(/\./g, '\\.')).join('|')
+  return `ps -eo pid=,args= | grep -E "${alts}" | awk '{print $1}'`
+}

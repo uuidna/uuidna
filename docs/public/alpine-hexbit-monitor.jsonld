@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@id": "urn:uuid:65234cf8-3f30-8241-9732-af0542c96217",
   "@type": "Dataset",
-  "name": "uuidna Alpine hexbit quantum monitor",
-  "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
+  "name": "uuidna Alpine hexbit monitor",
+  "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress displays that witness plus provenance compile coverage and the compile timings measured on the build host.",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
   "identifier": "8ddc9d3c-a3de-8c71-ba34-776bfb001445",
   "isAccessibleForFree": true,
@@ -118,7 +118,7 @@
       "value": 128,
       "unitText": "bits (2^N states)",
       "measurementTechnique": "declared",
-      "citation": "theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture"
+      "citation": "theorem handle_capacity_is_quantum_by_architecture — 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128"
     },
     {
       "@type": "PropertyValue",

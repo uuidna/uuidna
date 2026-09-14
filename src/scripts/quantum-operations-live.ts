@@ -266,13 +266,13 @@ ${'─'.repeat(70)}
   }
 }
 
-// Simulate first week of operations
-async function simulateFirstWeek() {
+// Walk a scripted first week of operations
+async function scriptedFirstWeek() {
   const ops = new QuantumOperationsLive()
 
   console.log(`
 ╔═══════════════════════════════════════════════════════════════════════════╗
-║                  CAPTAIN COINS: WEEK 1 SIMULATION                         ║
+║                  CAPTAIN COINS: WEEK 1 SCRIPTED RUN                       ║
 ║                    Watch the system in action                             ║
 ╚═══════════════════════════════════════════════════════════════════════════╝
 
@@ -327,7 +327,7 @@ ENROLLMENT BEGINS...
   console.log('\n')
   ops.printEventLog()
 
-  // Simulate graduation and teaching
+  // Scripted graduation and teaching
   console.log(`
 ╔═══════════════════════════════════════════════════════════════════════════╗
 ║               FAST-FORWARD: Month 2 (Exponential Growth)                  ║
@@ -429,5 +429,5 @@ The world changes.
 
 // Main execution
 (async () => {
-  await simulateFirstWeek()
+  await scriptedFirstWeek()
 })()

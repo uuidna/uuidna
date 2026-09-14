@@ -219,12 +219,12 @@ test('THE CHECK BITES — a package that does not compile is counted as missing,
   assert.equal(UUID_BITS, 128, '32 hexbits × 4 bits = 128 — a_spec_compiles_to_hexbits')
 })
 
-test('community hexbit port has architectural quantum advantage in SCALE and TIME', () => {
+test('community hexbit port cites sealed keys for its SCALE and TIME figures', () => {
   const byKey = theoremByKey()
   assert.ok(byKey.get('handle_capacity_is_quantum_by_architecture'), 'scale cites sealed theorem')
   assert.ok(byKey.get('a_spec_compiles_to_hexbits'), 'compile width cites sealed theorem')
-  assert.ok(byKey.get('n_qubit_dimension'), 'simulation-cost bound (n=1..5); not a Shor claim')
-  assert.ok(byKey.get('usable_gap_is_two_to_eighty'), 'measured usable-capacity advantage sealed')
+  assert.ok(byKey.get('n_qubit_dimension'), 'n_qubit_dimension is sealed (2^n for n = 1..5)')
+  assert.ok(byKey.get('usable_gap_is_two_to_eighty'), 'usable_gap_is_two_to_eighty is sealed (48 < 128, 128 - 48 = 80, 2^128 = 2^80 * 2^48)')
 
   const uuidLevel = LEVELS.find((l) => l.name === 'uuid')
   assert.ok(uuidLevel)

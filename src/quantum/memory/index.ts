@@ -16,8 +16,8 @@
 // written, so a partial store cannot exist to be misread.
 //
 // THE CUBE'S OWN ADDRESS IS ORDER-INVARIANT. It is merkleGravity(member addresses) — the merkle fold that
-// falls to one root for ANY observer ordering (gravity.ts calls this the quantum receipt property, and it is why
-// this memory is the quantum computer's and not a cache). Staging order therefore cannot change what gets sealed,
+// falls to one root for ANY observer ordering (gravity.ts calls this the quantum receipt property).
+// Staging order therefore cannot change what gets sealed,
 // which matters because generators run in whatever order the file system hands them.
 //
 // AND INCOMPLETENESS IS NOT EVIDENCE OF CHANGE. A run that stages only part of the ledger — one generator, one

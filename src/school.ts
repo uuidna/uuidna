@@ -58,7 +58,7 @@ export interface School {
    *  measurements and one resting on none rendered identically before this field: both were simply a list of
    *  courses. A reading that does not report how much it read cannot be audited. */
   covered: { graded: number; of: number }
-  /** THE LABORATORY. One lab per admitted world domain (skill), each with a simulation and an emulator,
+  /** THE LABORATORY. One lab per admitted world domain (skill), each with a computation and an emulator,
    *  entangled to the head theorem and its related resources. Sufficient iff every review domain is equipped. */
   laboratory: Pick<SchoolLabs, 'domains' | 'sufficient' | 'receipt'>
 }
@@ -564,13 +564,13 @@ export function school(): School {
     ] },
     { id: 'laboratory', title: 'Laboratory', computed: true, body: [
       'The school laboratory is sufficient for every world domain the ledger admits — a skill in the domain review.',
-      'Each domain has a simulation (recompute the sealed arithmetic; classical state-vector for quantum; Layer 1',
+      'Each domain has a computation (recompute the sealed arithmetic; classical state-vector for quantum; Layer 1',
       'uuidna_exec for OS) and an emulator (32 hexbit states plus the skill-matched shelf). Labs are computationally',
       'entangled to the theorem and its related resources: one order-invariant receipt; only sealed members bind.',
-      'A domain not admitted cannot pass the gates. This is not a physics-world simulator.',
+      'A domain not admitted cannot pass the gates. This is not a physics-world model.',
       line('World domains admitted', labs.domains),
       line('Labs sufficient', labs.sufficient ? 'every admitted domain' : 'gaps named'),
-      ...labs.roster.map((r) => `  ${r.domain} — sim ${r.simulation} / emu ${r.emulator}`),
+      ...labs.roster.map((r) => `  ${r.domain} — computes ${r.computation} / emu ${r.emulator}`),
       line('Quantum-advantage MCP examples', mcpEx.examples.length),
       '  Each example is a tools/call on https://uuidna.com/mcp — constructor fields, named absents, no new theorem.',
       ...mcpEx.examples.map((e) => `  ${e.tool} ${JSON.stringify(e.arguments)} — ${e.theorem}`),

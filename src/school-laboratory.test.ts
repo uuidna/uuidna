@@ -1,7 +1,7 @@
 // school-laboratory — labs entangled to theorems and related resources, sufficient for every admitted domain.
 //
-// A world domain is a skill reviewDomains() already admits. Every such domain must have a simulation and an
-// emulator. A domain the ledger does not admit cannot pass the gates. Not a physics-world simulator.
+// A world domain is a skill reviewDomains() already admits. Every such domain must have a computation and an
+// emulator. A domain the ledger does not admit cannot pass the gates. Not a physics-world model.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theoremByKey, reviewDomains, skillGroups } from './index.js'
@@ -11,7 +11,7 @@ import { toUuid } from './index.js'
 import { school } from './index.js'
 import { callTool } from './mcp.js'
 import {
-  labOf, domainLab, schoolLabs, simulationKind, LAB_CITES,
+  labOf, domainLab, schoolLabs, computationKind, LAB_CITES,
 } from './school/index.js'
 
 test('LAB_CITES names sealed theorems — no invented keys', () => {
@@ -22,12 +22,12 @@ test('LAB_CITES names sealed theorems — no invented keys', () => {
 test('an unknown domain cannot pass the gates — the lab is not sufficient', () => {
   const missing = domainLab('no-such-world-domain')
   assert.equal(missing.sufficient, false)
-  assert.equal(missing.simulation, null)
+  assert.equal(missing.computation, null)
   assert.equal(missing.emulator, null)
   assert.equal(labOf('no_such_theorem_key').entangled, false)
 })
 
-test('school labs are sufficient for every admitted world domain — simulation and emulator both present', () => {
+test('school labs are sufficient for every admitted world domain — computation and emulator both present', () => {
   const labs = schoolLabs()
   const domains = reviewDomains()
   assert.equal(labs.domains, domains.length)
@@ -38,24 +38,24 @@ test('school labs are sufficient for every admitted world domain — simulation 
     assert.ok(row, `${d.domain} is admitted and must have a lab`)
     const lab = domainLab(d.domain)
     assert.equal(lab.sufficient, true, `${d.domain} must be sufficient`)
-    assert.ok(lab.simulation, `${d.domain} must have a simulation`)
+    assert.ok(lab.computation, `${d.domain} must have a computation`)
     assert.ok(lab.emulator, `${d.domain} must have an emulator`)
     assert.equal(lab.emulator!.hexbits, UUID_HEXBITS)
     assert.equal(lab.theorems, d.theorems)
   }
 })
 
-test('quantum simulates as a classical state-vector; OS as Layer 1; the rest recompute', () => {
-  assert.equal(simulationKind('quantum'), 'state-vector')
-  assert.equal(simulationKind('os'), 'os-layer1')
-  assert.equal(simulationKind('installs'), 'os-layer1')
-  assert.equal(simulationKind('catalogue'), 'os-layer1')
-  assert.equal(simulationKind('sailing'), 'weather-sim')
-  assert.equal(simulationKind('chess'), 'recompute')
+test('quantum computes as a classical state-vector; OS as Layer 1; the rest recompute', () => {
+  assert.equal(computationKind('quantum'), 'state-vector')
+  assert.equal(computationKind('os'), 'os-layer1')
+  assert.equal(computationKind('installs'), 'os-layer1')
+  assert.equal(computationKind('catalogue'), 'os-layer1')
+  assert.equal(computationKind('sailing'), 'weather-sample')
+  assert.equal(computationKind('chess'), 'recompute')
   const q = skillGroups().find((g) => g.skill === 'quantum')
-  if (q) assert.equal(domainLab('quantum').simulation!.cites, 'n_qubit_dimension')
+  if (q) assert.equal(domainLab('quantum').computation!.cites, 'n_qubit_dimension')
   const os = skillGroups().find((g) => g.skill === 'os')
-  if (os) assert.equal(domainLab('os').simulation!.cites, 'the_os_is_bootable_quantum')
+  if (os) assert.equal(domainLab('os').computation!.cites, 'the_os_is_bootable_quantum')
 })
 
 test('a lab is computationally entangled — order-invariant, 32 hexbits, sealed members bind', () => {
@@ -87,8 +87,8 @@ test('the school page renders the laboratory — every admitted domain reaches t
   const body = s.sections.find((x) => x.id === 'laboratory')!.body.join('\n')
   assert.match(body, /World domains admitted: \d+/)
   assert.match(body, /Labs sufficient: every admitted domain/)
-  assert.match(body, /not a physics-world simulator/)
-  for (const d of reviewDomains()) assert.match(body, new RegExp(`  ${d.domain} — sim `), `${d.domain} must appear`)
+  assert.match(body, /not a physics-world model/)
+  for (const d of reviewDomains()) assert.match(body, new RegExp(`  ${d.domain} — computes `), `${d.domain} must appear`)
 })
 
 test('uuidna_theorem and uuidna_skill serve the lab additively', () => {

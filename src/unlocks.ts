@@ -41,7 +41,7 @@ export const UNLOCK_ILLUSTRATIONS: readonly { key: string; label: string }[] = [
   { key: 'the_os_is_bootable_quantum', label: 'Alpine OS provenance' },
   { key: 'a_spec_compiles_to_hexbits', label: 'hexbit compile width' },
   { key: 'key_floor_is_one_uuid', label: 'cipher hexbit floor' },
-  { key: 'n_qubit_dimension', label: 'classical simulation cost' },
+  { key: 'n_qubit_dimension', label: 'classical state-vector cost' },
   { key: 'hexbit_ring_mass_gap', label: 'hexbit ring mass gap' },
   { key: 'message_cap_is_four_hexbits', label: 'message cap = 4 hexbits' },
   { key: 'born_field_mass_gap_on_bell', label: 'Bell Born-field mass gap' },

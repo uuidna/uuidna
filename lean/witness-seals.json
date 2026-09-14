@@ -1,0 +1,176 @@
+{
+ "involution_2d552f1f": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report ae717b4f-30f5-8bda-a2ea-1a89111e8dbc"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report 91833028-8a84-8bf9-aee7-6546e6437758"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report 85f1ad6a-df5a-8846-ac16-72c831642b1f"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report d7bdeb56-43a8-803c-aa47-5f208f39779b"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report bff347f2-e066-808d-8fe6-aebbf5133890"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report 5e160125-131c-8716-9b1f-e5d81218816a"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, kernel recompile: compiled the wing of lead 2d552f1f and read no axiom behind theorem involution_2d552f1f; report 79ab7a19-57b1-8ac4-95e9-a8de9dd390a8"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report ae717b4f-30f5-8bda-a2ea-1a89111e8dbc"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report 91833028-8a84-8bf9-aee7-6546e6437758"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report 85f1ad6a-df5a-8846-ac16-72c831642b1f"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report d7bdeb56-43a8-803c-aa47-5f208f39779b"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report bff347f2-e066-808d-8fe6-aebbf5133890"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report 5e160125-131c-8716-9b1f-e5d81218816a"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, faithfulness judgment: lead_2d552f1f states lead 2d552f1f as recorded, and theorem involution_2d552f1f refutes it; report 79ab7a19-57b1-8ac4-95e9-a8de9dd390a8"
+  }
+ ],
+ "involution_b13fd37a": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report 3c816289-d27f-81ca-acf7-7e147de7907b"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report 1f7c594b-9d4b-8560-bf1f-dfb41f4a3c61"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report 4b866a5f-5060-8c3a-a4af-af5c3572de63"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report 59734aff-ee68-8692-8ff7-8868da6f03e9"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report f8271c03-d19c-8850-9da4-cd7262c2b346"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report f8724bde-53a3-86e9-8670-c193c83ff8be"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, kernel recompile: compiled the wing of lead b13fd37a and read no axiom behind theorem involution_b13fd37a; report 20c61e75-8f09-8dbb-ac0a-329fd98def1c"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report 3c816289-d27f-81ca-acf7-7e147de7907b"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report 1f7c594b-9d4b-8560-bf1f-dfb41f4a3c61"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report 4b866a5f-5060-8c3a-a4af-af5c3572de63"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report 59734aff-ee68-8692-8ff7-8868da6f03e9"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report f8271c03-d19c-8850-9da4-cd7262c2b346"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report f8724bde-53a3-86e9-8670-c193c83ff8be"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, faithfulness judgment: lead_b13fd37a states lead b13fd37a as recorded, and theorem involution_b13fd37a refutes it; report 20c61e75-8f09-8dbb-ac0a-329fd98def1c"
+  }
+ ],
+ "involution_e92de628": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 560be572-30ba-8bc2-938d-b2330fdaf3f1"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 7b0e800a-ab30-8a6a-8e53-35b9f99497a9"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 5d0dbb17-a974-858a-86f1-5d76b4db58e6"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 81d8a3d6-4159-8352-88c9-15ec5214c469"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 9e9fcdb5-639a-82d2-83c9-a5bd0e73a676"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 476ac5de-d798-8132-a6ad-f1940cbf0ff4"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, kernel recompile: compiled the wing of lead e92de628 and read no axiom behind theorem involution_e92de628; report 0a705fdd-e447-8170-b015-e91c445f2b76"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 560be572-30ba-8bc2-938d-b2330fdaf3f1"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 7b0e800a-ab30-8a6a-8e53-35b9f99497a9"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 5d0dbb17-a974-858a-86f1-5d76b4db58e6"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 81d8a3d6-4159-8352-88c9-15ec5214c469"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 9e9fcdb5-639a-82d2-83c9-a5bd0e73a676"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 476ac5de-d798-8132-a6ad-f1940cbf0ff4"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, faithfulness judgment: lead_e92de628 states lead e92de628 as recorded, and theorem involution_e92de628 refutes it; report 0a705fdd-e447-8170-b015-e91c445f2b76"
+  }
+ ]
+}

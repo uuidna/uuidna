@@ -158,6 +158,9 @@ export interface EmitArgs {
   facts: Fact[]
   defs?: string
   skill?: string
+  /** how this wing's proofs are checked, when it is not every one `by decide` — the header states it as it is
+   *  (absent: the header says `by decide`, so every existing wing's text, and its sealed address, stays the same) */
+  proofs?: string
 }
 
 /** chunkedSum(values) → Lean that sums a long list of numbers WITHOUT a fold as deep as the list.
@@ -305,7 +308,7 @@ export function docComment(prose: string, width = 108): string {
 }
 
 // One helper, no repetition: JS-check every fact, write lean/<File>.lean + its manifest, verify sorry-free.
-export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
+export function emit({ file, header, facts, defs = '', skill, proofs }: EmitArgs): number {
   // one pass: each fact's JS is run ONCE, its verdict checked and its walk tallied on the same execution, so
   // the recorded mass belongs to the computation that was actually validated.
   const cases = new Map<string, number>()
@@ -327,7 +330,7 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
     const doc = docComment(f.name || f.why || f.stmt || f.key)
     return f.lean ? f.lean.replace(/^theorem\s/gm, doc + 'theorem ') : doc + `theorem ${f.key} : ${f.stmt} := by decide`
   }).join('\n\n')
-  const lean = `-- lean/${file} — GENERATED. ${header} Every proof \`by decide\`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
+  const lean = `-- lean/${file} — GENERATED. ${header} ${proofs ?? 'Every proof `by decide`'}, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n${defs ? defs.trim() + '\n\n' : ''}${body}\n`
   // The manifest carries {key, name, skill} — the microdata bridge. skill is the inline, authored capability
   // (a Fact's own skill, else the file-level default); omitted when neither is set, so the ledger falls back.
   const manifestPath = join(ROOT, 'lean', file.replace('.lean', '').toLowerCase() + '-manifest.json')

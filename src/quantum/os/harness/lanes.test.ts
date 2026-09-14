@@ -93,8 +93,10 @@ test('the trinity seats one empty QPU lane on this host, and names qpu.uuidna.co
 
   const qpu = LANES.find((l) => l.name === 'QPU')!
   assert.equal(qpu.seat, 'empty')
-  assert.match(qpu.admits, /qpu\.uuidna\.com/, 'the hop is the live circuit')
-  assert.match(qpu.note, /theorem quantum/, 'the fridge is attributed to QPU Lean')
+  assert.match(qpu.admits, /qpu\.uuidna\.com/, 'the lane names the reverse hop')
+  assert.match(qpu.note, /\/\.well-known\/qpu\.json/, 'the note names the discovery door')
+  assert.doesNotMatch(qpu.note, /theorem quantum|fridge|running circuit|superconducting|classical silicon/i,
+    'the note describes the hop and neither claims nor denies hardware')
   assert.ok(!LANES.some((l) => l.seat === 'measured' && l.name !== 'CPU'),
     'a seat reads MEASURED once something has been measured on it')
 })

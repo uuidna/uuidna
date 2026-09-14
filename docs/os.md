@@ -5,16 +5,14 @@ description: Every uuidna.com path given its exact meaning — the packages a de
 
 # The OS — the default install <Badge type="tip" text="ported in full · every claim sealed" />
 
-> If uuidna.com is the hexbit quantum computer served through VitePress, then each of its paths has an **exact
-> meaning**: the specification of one package in Alpine's repository. The set of paths is the set a **default
+> Each uuidna.com path has an **exact meaning**: the specification of one package in Alpine's repository. The set of paths is the set a **default
 > Alpine install** carries — `alpine-base` followed dependency by dependency through the published index until
 > it closes at **25 packages** ([`default_install_is_dependency_closed`](/theorem/default_install_is_dependency_closed)). uuidna never installs,
 > links, boots, or executes any of them: the port is the port of the **integrity** and the **meaning**.
 
-**Architecture of this page:** TypeScript (`src/quantum/os`, `src/hexbit`) **is** the quantum computer —
-exact-integer folds to 2^128 addresses and 32 hexbit states per package. VitePress **is**
-the quantum monitor — it displays those recomputed facts below. No physics QC layer; classical architecture
-([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture), [`n_qubit_dimension`](/theorem/n_qubit_dimension)).
+**Architecture of this page:** TypeScript (`src/quantum/os`, `src/hexbit`) computes exact-integer folds to
+2^128 addresses and 32 hexbit states per package; VitePress displays those recomputed facts
+below. [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128.
 
 **Home is the special one because `alpine-base` is**: the meta package — "Meta package for minimal alpine base" — the one member
 that exists only to name the others. Opening `/` is installing the default set
@@ -25,7 +23,7 @@ The base: Alpine **3.24.1** (`latest-stable`, main/x86_64), minirootfs
 `sha256:41f73e3cf5fa919b8aa5ca6b30dc48f0da2720776d7423e2a7748211456fe081` — always Alpine **latest**: the mirror regenerates from upstream at the
 named `src/os` boundary on every lean run, never hand-frozen.
 
-## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
+## Monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
 **Port completeness** is **man pages testing the apps**, folded into hexbits
 (`manDrivenPortCoverage`) — **Alpine APKINDEX only** (main + community). npm/curl overlay ports
@@ -54,9 +52,9 @@ distro membership. Provenance meters still recompute below so every published ro
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
-- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,670 community packages ≪ 2^128.
-- **Time:** community compile sweep in the **10,000,000 ns** decade (~**100 ns**/package decade); man-page corpus **1,000,000 ns** (~**100 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
-- **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
+- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128). 22,670 community packages ≪ 2^128.
+- **Time:** community compile sweep in the **10,000,000 ns** decade (~**100 ns**/package decade); man-page corpus **1,000,000 ns** (~**100 ns**/doc), measured on the build host.
+- **State-vector cost:** [`n_qubit_dimension`](/theorem/n_qubit_dimension) decides 2^n for n = 1..5.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
   ([`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation), [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll));

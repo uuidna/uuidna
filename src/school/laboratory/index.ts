@@ -1,7 +1,7 @@
 // school/laboratory — LABS ENTANGLED TO THEOREMS AND RELATED RESOURCES, sufficient for every admitted domain.
 //
 // A world domain here is a skill `reviewDomains()` already admits. Every such domain gets a school lab:
-//   simulation — recompute the sealed arithmetic (classical state-vector for quantum; Layer 1 uuidna_exec for OS)
+//   computation — recompute the sealed arithmetic (classical state-vector for quantum; Layer 1 uuidna_exec for OS)
 //   emulator   — the theorem compiled to 32 hexbit states plus the skill-matched shelf
 // The lab of one theorem is the order-invariant fold of that theorem AND its related resources (cited sealed
 // keys, PORTED benches this theorem names, the skill instrument). Verifying the whole verifies every part;
@@ -9,7 +9,7 @@
 // Alpine published meaning and a browser shelf are extra SURFACES of the same handle, never extra STATES
 // (handle_capacity_invariant_under_entanglement). Entanglement completes one theorem at a time.
 //
-// this is not a physics-world simulator. n_qubit_dimension counts classical simulation cost.
+// this is not a physics-world model. n_qubit_dimension counts the classical state-vector cost.
 // A domain the ledger does not admit cannot pass the gates (legal_only_the_proven_is_admitted). The 28k
 // Alpine catalogue is the warehouse, not the bench set. Nothing here installs, links, or runs Alpine ELF.
 import { toUuid } from '../../address.js'
@@ -32,10 +32,10 @@ export const LAB_CITES = [
 
 const HONEST =
   'School labs are sufficient for every world domain the ledger admits (a skill in reviewDomains): each has a ' +
-  'simulation (recompute the sealed arithmetic; classical state-vector for quantum; Layer 1 uuidna_exec for OS) ' +
+  'computation (recompute the sealed arithmetic; classical state-vector for quantum; Layer 1 uuidna_exec for OS) ' +
   'and an emulator (32 hexbit states plus the skill shelf). Labs are computationally entangled to the theorem and ' +
   'its related resources — one order-invariant receipt; only sealed members bind; extra surfaces are not extra ' +
-  'states. A domain not admitted cannot pass the gates. Not a physics-world simulator. Integrity, not execution.'
+  'states. A domain not admitted cannot pass the gates. Not a physics-world model. Integrity, not execution.'
 
 const CITE = /(?:theorem\s+|\/theorem\/)([a-z][a-z0-9_]*)/g
 
@@ -43,7 +43,7 @@ const mentions = (name: string, hay: string): boolean =>
   new RegExp('(^|[^a-z0-9-])' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '([^a-z0-9-]|$)').test(hay)
 
 export type LabKind = 'theorem' | 'citation' | 'bench' | 'instrument'
-export type SimulationKind = 'recompute' | 'state-vector' | 'os-layer1' | 'weather-sim'
+export type ComputationKind = 'recompute' | 'state-vector' | 'os-layer1' | 'weather-sample'
 
 export interface LabMember {
   kind: LabKind
@@ -67,8 +67,8 @@ export interface Lab {
   honest: string
 }
 
-export interface Simulation {
-  kind: SimulationKind
+export interface Computation {
+  kind: ComputationKind
   route: string
   cites: string
 }
@@ -86,7 +86,7 @@ export interface DomainLab {
   sufficient: boolean
   theorems: number
   fold: string
-  simulation: Simulation | null
+  computation: Computation | null
   emulator: Emulator | null
   lab: Lab | null
   honest: string
@@ -95,17 +95,17 @@ export interface DomainLab {
 export interface SchoolLabs {
   domains: number
   sufficient: boolean
-  roster: { domain: string; simulation: SimulationKind; emulator: string }[]
+  roster: { domain: string; computation: ComputationKind; emulator: string }[]
   receipt: string
   cites: typeof LAB_CITES
   honest: string
 }
 
-/** simulationKind(skill) → the simulator this capability already has. Named existing doors, never a new engine. */
-export function simulationKind(skill: string): SimulationKind {
+/** computationKind(skill) → the computation this capability already has. Named existing doors, never a new engine. */
+export function computationKind(skill: string): ComputationKind {
   if (skill === 'quantum') return 'state-vector'
   if (skill === 'os' || skill === 'installs' || skill === 'catalogue') return 'os-layer1'
-  if (skill === 'sailing') return 'weather-sim'
+  if (skill === 'sailing') return 'weather-sample'
   return 'recompute'
 }
 
@@ -180,24 +180,24 @@ export function domainLab(domain: string): DomainLab {
   const group = skillGroups().find((g) => g.skill === domain)
   if (!group) {
     return {
-      domain, sufficient: false, theorems: 0, fold: '', simulation: null, emulator: null, lab: null,
+      domain, sufficient: false, theorems: 0, fold: '', computation: null, emulator: null, lab: null,
       honest: HONEST,
     }
   }
   const head = group.theorems[0]!
   const lab = labOf(head.key)
   const shelf = shelfForSkill(domain)
-  const simKind = simulationKind(domain)
+  const compKind = computationKind(domain)
   return {
     domain,
     sufficient: true,
     theorems: group.count,
     fold: group.fold,
-    simulation: {
-      kind: simKind,
-      route: simKind === 'os-layer1' ? '/terminal' : '/theorem/' + head.key,
-      cites: simKind === 'state-vector' ? 'n_qubit_dimension'
-        : simKind === 'os-layer1' ? 'the_os_is_bootable_quantum'
+    computation: {
+      kind: compKind,
+      route: compKind === 'os-layer1' ? '/terminal' : '/theorem/' + head.key,
+      cites: compKind === 'state-vector' ? 'n_qubit_dimension'
+        : compKind === 'os-layer1' ? 'the_os_is_bootable_quantum'
           : 'a_spec_compiles_to_hexbits',
     },
     emulator: {
@@ -212,16 +212,16 @@ export function domainLab(domain: string): DomainLab {
   }
 }
 
-/** schoolLabs() → one lab per admitted world domain. Sufficient iff every review domain has simulation and emulator. */
+/** schoolLabs() → one lab per admitted world domain. Sufficient iff every review domain has computation and emulator. */
 export function schoolLabs(): SchoolLabs {
   const domains = reviewDomains()
   const labs = domains.map((d) => domainLab(d.domain))
   const roster = labs.map((l) => ({
     domain: l.domain,
-    simulation: l.simulation!.kind,
+    computation: l.computation!.kind,
     emulator: l.emulator!.route,
   }))
-  const sufficient = labs.every((l) => l.sufficient && l.simulation !== null && l.emulator !== null)
+  const sufficient = labs.every((l) => l.sufficient && l.computation !== null && l.emulator !== null)
   return {
     domains: domains.length,
     sufficient,

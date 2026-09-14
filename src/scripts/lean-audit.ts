@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE DETECTORS — the provenance audit's decision logic, proven. The gate scans prose
-// for a HOLLOW superlative (h) and flags it UNLESS it is DEMARCATED (d: not/never/no/honest/simulation/finite) OR
+// for a HOLLOW superlative (h) and flags it UNLESS it is DEMARCATED (d: not/never/no/honest/classical/finite) OR
 // BACKED (b: it names a sealed theorem). The whole detector is one decidable function, flag(h,d,b)=h·(1−d)·(1−b)
 // over {0,1}³, and its guarantees are theorems: it flags only hollow prose, a demarcation clears it, a backing
 // clears it, and of the eight states EXACTLY ONE fires (precise. The detector is itself a skilled
@@ -31,7 +31,7 @@ const FACTS = [
     lean: 'theorem flag_requires_hollow : (List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2) := by decide' },
 
   { key: 'demarcation_clears',
-    why: 'A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "simulation" pass, as the honest use of the word should.',
+    why: 'A demarcation clears the claim: whenever d=1 the flag is 0 (flag·d = 0) — "never infinity", "not quantum hardware", "classical" pass, as the honest use of the word should.',
     js: () => R(0, 8).every((n) => { const [, d] = bits(n); return flag(...bits(n)) * d === 0 }),
     lean: 'theorem demarcation_clears : (List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/2%2) == 0) := by decide' },
 

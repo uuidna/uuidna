@@ -24,12 +24,20 @@ const lo = (xs: readonly number[]): number | null => (xs.length ? xs.reduce((m, 
 
 /** runEvidence(run, latest?, root?) → the saved receipts of one run log, compact — or measured:false with where they live */
 export function runEvidence(run: string, latest = 10, root?: string) {
-  if (!(RUN_LOGS as readonly string[]).includes(run)) return { run, measured: false as const, why: `run must be one of ${RUN_LOGS.join(', ')}` }
-  let text: string
+  if (!(RUN_LOGS as readonly string[]).includes(run)) return runEvidenceOf(run, null, latest)
+  let text: string | null
   try {
     const fs = builtin<typeof import('node:fs')>('node:fs'), path = builtin<typeof import('node:path')>('node:path')
     text = fs.readFileSync(path.join(root ?? process.cwd(), 'dist', 'evidence', `${run}.jsonl`), 'utf8')
-  } catch {
+  } catch { text = null }
+  return runEvidenceOf(run, text, latest)
+}
+
+/** runEvidenceOf(run, text, latest?) → the same answer from a log's text already in hand (null: no log was readable) —
+ *  pure, so the law that checks it recomputes on every surface, the edge included */
+export function runEvidenceOf(run: string, text: string | null, latest = 10) {
+  if (!(RUN_LOGS as readonly string[]).includes(run)) return { run, measured: false as const, why: `run must be one of ${RUN_LOGS.join(', ')}` }
+  if (text === null) {
     return { run, measured: false as const, why: `no ${run} log is readable here — run evidence is saved on the host that ran it (dist/evidence/${run}.jsonl) and deposited to qpu storage under receipts/uuidna/${run}/<address> once QPU_WRITE_TOKEN is bound` }
   }
   const rows = text.split('\n').filter(Boolean).flatMap((l) => { try { return [JSON.parse(l) as Row] } catch { return [] } })

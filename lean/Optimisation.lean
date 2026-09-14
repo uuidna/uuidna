@@ -1,4 +1,4 @@
--- lean/Optimisation.lean — GENERATED. THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Optimisation.lean — GENERATED. THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical state-vector computation claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- the primal instance max 3x+2y s.t. x+y ≤ 4, x ≤ 3: every feasible lattice point scores ≤ 11, and (3,1)
     scores exactly 11 — the optimum by TOTAL enumeration, exact, no epsilon -/
@@ -26,13 +26,13 @@ theorem lp_complementary_slackness : (2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 
 theorem simplex_pivot_improves : (3*3 + 2*0 = 9) ∧ (9 < 11) := by decide
 
 /-- the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the
-    dimension of the 10-qubit state the classical simulator holds (n_qubit_dimension); the search space IS the
-    basis -/
+    dimension of the 10-qubit state vector the classical computation holds (n_qubit_dimension); the search space
+    IS the basis -/
 theorem optimisation_space_is_qubit_dimension : 2^10 = 1024 := by decide
 
 /-- the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs
     only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch,
-    and this ledger's simulator claims NO advantage at all -/
+    and this ledger's state-vector computation claims NO advantage at all -/
 theorem grover_halves_the_search_exponent : (20 = 2 * 10) ∧ (2^20 = 1024 * 1024) := by decide
 
 /-- the 2×2 assignment instance with costs [[1,3],[2,1]]: the two matchings cost 1+1 = 2 and 3+2 = 5 — the

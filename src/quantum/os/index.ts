@@ -1,5 +1,5 @@
-// quantum/os — THE DEFAULT INSTALL AS THE SITE'S PATH ALGEBRA, pure and deterministic. If uuidna.com is the
-// hexbit quantum computer served through VitePress, then each of its paths has an EXACT meaning: the
+// quantum/os — THE DEFAULT INSTALL AS THE SITE'S PATH ALGEBRA, pure and deterministic. Each of the
+// site's paths has an EXACT meaning: the
 // specification of one package in Alpine's repository, and the set of paths is the set a DEFAULT Alpine
 // install carries — the alpine-base metapackage followed dependency by dependency through the PUBLISHED index
 // until it closes. Home is the special one because alpine-base is: the meta package, the one member that

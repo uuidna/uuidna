@@ -117,7 +117,7 @@ function main() {
   const message = createQuantumMessage(
     'alice@uuidna.local',
     'bob@uuidna.local',
-    'Hello Bob! This message is sealed by quantum imprint.',
+    'Hello Bob!',
   )
 
   console.log('MESSAGE CREATED:')

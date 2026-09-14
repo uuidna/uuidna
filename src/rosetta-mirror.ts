@@ -68568,8 +68568,8 @@ derivative_finite_rate 27
 dirac_unit_mass 27
 horizon_curvature_finite 27
 newton_singularity_finite 27
-reach_all_decide 27
-reach_quantifiers_bounded 27
+reach_tactics_census 27
+reach_quantifier_census 27
 reach_window_finite 27
 window_not_universal 27
 #Installs.lean
@@ -68585,6 +68585,16 @@ every_path_carries_its_published_meaning 27
 a_spec_compiles_to_hexbits 27
 the_os_is_bootable_quantum 27
 the_install_set_names_the_bytes_it_rests_on 27
+#Involution2d552f1f.lean
+involution_2d552f1f 18
+budget_census_2d552f1f 18
+#Involutionb13fd37a.lean
+reconciled_b13fd37a 18
+involution_b13fd37a 18
+#Involutione92de628.lean
+not_dvd_of_bound_e92de628 18
+involution_e92de628 18
+anatomy_e92de628 18
 #Isometry.lean
 xor_preserves_distance 27
 reuse_leaks_by_isometry 27

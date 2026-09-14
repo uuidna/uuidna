@@ -1,0 +1,12 @@
+{
+  "handle": "75a0eb13",
+  "address": "75a0eb13-7ede-85e5-b402-fbf7281ac503",
+  "kind": "chunk",
+  "keys": [
+    "involution_e92de628"
+  ],
+  "statement": "¬ lead_e92de628",
+  "files": [
+    "Involutione92de628.lean"
+  ]
+}

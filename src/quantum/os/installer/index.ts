@@ -1,4 +1,4 @@
-// quantum/os/installer — APK'S OWN DISCIPLINE, PORTED: simulate, show the plan, then commit.
+// quantum/os/installer — APK'S OWN DISCIPLINE, PORTED: compute the plan, show it, then commit.
 //
 // THE INCIDENT THIS EXISTS FOR (2026-09-01). A `git checkout lean/wave-queue.json` reverted one bad edit and,
 // in the same stroke, discarded thirty claims the wave had already accepted. The ledger fell from 2532 theorems
@@ -9,7 +9,7 @@
 // Alpine solved this decades ago and every package manager since has copied it: NEVER change a system without
 // first computing what the change does, and never destroy without saying what is being destroyed. `apk add
 // --simulate` prints the plan and touches nothing; `apk` numbers each step as it commits; `apk audit` reports
-// what drifted from the installed manifest. Three verbs — simulate, commit, audit — and the middle one is only
+// what drifted from the installed manifest. Three verbs — plan, commit, audit — and the middle one is only
 // reached deliberately.
 //
 // So this is that shape over the tree's own records. A plan is computed from BEFORE and AFTER, losses are
@@ -193,7 +193,7 @@ const seatKeys = (keys: readonly string[]) => {
   }
 }
 
-export type InstallVerb = 'ask' | 'simulate' | 'commit' | 'audit'
+export type InstallVerb = 'ask' | 'plan' | 'commit' | 'audit'
 
 export interface InteractiveInstall {
   kind: 'install'
@@ -227,7 +227,7 @@ const interactiveSeated: string[] = []
 
 let interactiveOccupancy: InstallOccupancy = 'personal'
 
-/** interactiveInstall — apk ask → simulate → commit → audit. Select combinations in one line, or one package at a time. */
+/** interactiveInstall — apk ask → plan → commit → audit. Select combinations in one line, or one package at a time. */
 export function interactiveInstall(args: {
   verb?: InstallVerb
   step?: number
@@ -255,7 +255,7 @@ export function interactiveInstall(args: {
   if (typeof args.occupancy === 'string' && (INSTALL_OCCUPANCIES as readonly string[]).includes(args.occupancy)) {
     interactiveOccupancy = args.occupancy as InstallOccupancy
   }
-  const verb: InstallVerb = args.verb === 'simulate' || args.verb === 'commit' || args.verb === 'audit' ? args.verb : 'ask'
+  const verb: InstallVerb = args.verb === 'plan' || args.verb === 'commit' || args.verb === 'audit' ? args.verb : 'ask'
   let step = typeof args.step === 'number' && args.step >= 0 && args.step < INSTALL_PACKAGES.length ? args.step : interactivePending.length
   if (verb === 'ask' && args.yes && !picked && step < INSTALL_PACKAGES.length) {
     const key = INSTALL_PACKAGES[step]!.key
@@ -311,8 +311,8 @@ export function interactiveInstall(args: {
     },
     next:
       verb === 'ask' && current
-        ? '{ yes: true } seats this package. Then { verb: "simulate" } then { verb: "commit", yes: true } then { verb: "audit" }.'
-        : verb === 'simulate'
+        ? '{ yes: true } seats this package. Then { verb: "plan" } then { verb: "commit", yes: true } then { verb: "audit" }.'
+        : verb === 'plan'
           ? '{ verb: "commit" } applies a lossless plan. Removals need allowRemovals.'
           : verb === 'commit'
             ? '{ verb: "audit" } names what is seated.'
@@ -322,7 +322,7 @@ export function interactiveInstall(args: {
   }
 }
 
-/** simpleInstall — one shot: pick combinations, simulate, commit. Enter / --yes seats all. */
+/** simpleInstall — one shot: pick combinations, plan, commit. Enter / --yes seats all. */
 export function simpleInstall(args: {
   line?: string
   select?: readonly string[]
@@ -337,6 +337,6 @@ export function simpleInstall(args: {
     line: args.line,
     occupancy: args.occupancy ?? picked.occupancy,
   })
-  interactiveInstall({ verb: 'simulate' })
-  return interactiveInstall({ verb: args.yes === false ? 'simulate' : 'commit' })
+  interactiveInstall({ verb: 'plan' })
+  return interactiveInstall({ verb: args.yes === false ? 'plan' : 'commit' })
 }

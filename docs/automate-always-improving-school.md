@@ -142,7 +142,7 @@ For each skill in the ledger:
 
 **Estimated time to completion: 4.5 hours**  
 **Projected success rate: 75%**  
-**Next recommended: Quantum Simulator, Ledger Architecture**
+**Next recommended: Quantum State Vectors, Ledger Architecture**
 
 ---
 
@@ -280,10 +280,7 @@ Next improvement: 7 days
 # The automation is built into src/school/automate-improvement.ts
 npm install
 
-# Run once to see what would happen
-npm run school:simulate
-
-# Run the actual automation loop (weekly)
+# Run the automation loop (weekly)
 npm run school:improve
 
 # View past reports

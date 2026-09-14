@@ -18,7 +18,9 @@ import { merkleGravity } from './gravity/index.js'
 import { wireBytes, sealedBudget, type WireTool } from './mcp-wire.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
-import { theoremByKey, theorems } from './theorems/index.js'
+import { sealedAddressOf, theorems } from './theorems/index.js'
+import { lazyList } from './theorems/ledger-shape.js'
+import { LEDGER_EDGE } from '#ledger'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 import { channelAudit } from './hexagram.js'
 import { runSequence, type DigitPolarity } from './sequence-run.js'
@@ -44,7 +46,7 @@ export const MESSAGING_WITNESS = { total: true, keys: 2127, distinct: 2044 } as 
  *  compute; it can only go stale. The spec is therefore SELECTED: every sealed theorem whose statement is about
  *  the gate's own algebra — the conjunction `cleanAudit` or the forgery detector `forged` that feeds it. Seal a
  *  new one and it joins the spec; rename one and nothing breaks, because no name is written down here. */
-export const GATE_THEOREMS: readonly string[] = theorems()
+export const gateTheoremsOf = (ts: readonly { key: string; file: string; statement: string }[]): string[] => ts
   .filter((t) =>
     // the MECHANISM: the conjunction itself and the forgery detector that feeds it. The boundary clause that
     // stood beside this one selected the Clay wing's non-dz theorems, and there are none: the wing proved
@@ -52,6 +54,10 @@ export const GATE_THEOREMS: readonly string[] = theorems()
     t.file === 'AntiFraud.lean' && /\bcleanAudit\b|\bforged\b/.test(t.statement))
   .map((t) => t.key)
   .sort()
+/** the spec, selected on first read: at the edge the baked root carries this same selection (ledger-deposit --bake runs
+ *  gateTheoremsOf over the ledger), so every gated call — the deposit door that fills storage included — is judged
+ *  before, and without, the rows; on a host it is selected here from the ledger, as it always was */
+export const GATE_THEOREMS: readonly string[] = lazyList(() => LEDGER_EDGE?.root?.gate ?? gateTheoremsOf(theorems()))
 
 /** cleanAudit — the sealed conjunction gate, literally: (1−f)·(1−d)·(1−v) over the three violation bits. */
 export const cleanAudit = (f: number, d: number, v: number): number => (1 - f) * (1 - d) * (1 - v)
@@ -109,11 +115,11 @@ export interface CoinDeposit { coins: 2; statement: string; id: string; theorems
  *  the same judged call always deposits the same id. Cites only theorems actually sealed in the ledger. The
  *  honest demarcation travels IN the deposit (user-facing, both surfaces): a record. */
 export function depositCoins(op: string, gateReceipt: string): CoinDeposit {
-  const ledger = theoremByKey()
-  const cited = ['captain_commission_two_coins', 'two_coins'].filter((k) => ledger.has(k))
+  // addresses only — asked of the sealed keys, so the edge deposits before (and without) its rows
+  const cited = ['captain_commission_two_coins', 'two_coins'].filter((k) => sealedAddressOf(k) !== undefined)
   const statement = `Two coins deposited by the call ${op}: the work judged by the sealed gate (${gateReceipt}), proven by ${cited.map((k) => 'theorem ' + k).join(' and ')}.`
   const id = toUuid(statement)
-  const receipt = merkleGravity([toUuid(op), gateReceipt, toUuid('coins:2'), ...cited.map((k) => ledger.get(k)!.address)])
+  const receipt = merkleGravity([toUuid(op), gateReceipt, toUuid('coins:2'), ...cited.map((k) => sealedAddressOf(k)!)])
   return { coins: 2, statement, id, theorems: cited, receipt, honest: 'a recomputable RECORD of judged work — no value is transferred; not a payment' }
 }
 

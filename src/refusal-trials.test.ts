@@ -109,7 +109,7 @@ test('pairCollisions — shared theorem keys link refusals', () => {
   })!
   const b = trialRefusal({
     lead: 'Quantum advantage or speedup claims',
-    boundary: 'n_qubit_dimension counts simulation cost.',
+    boundary: 'n_qubit_dimension counts classical state-vector cost.',
   })!
   const pairs = pairCollisions([a, b])
   assert.equal(pairs[0]!.length + pairs[1]!.length, 0)

@@ -5,7 +5,7 @@ description: "Computed from lean/Optimisation.lean — 9 sealed theorems, every 
 
 # The linear optimum
 
-> THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim — held by [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) and its 8 siblings below.
+> THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical state-vector computation claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim — held by [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) and its 8 siblings below.
 
 **9 theorems** and **35 decided cases**, from [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) onward, each proven `by decide` in <a href="/lean/Optimisation.lean">lean/Optimisation.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [lp_strong_duality_instance](/theorem/lp_strong_duality_instance). A boundary stated here is decided.
 
@@ -53,14 +53,14 @@ The ledger holds this as [simplex_pivot_improves](/theorem/simplex_pivot_improve
 (3*3 + 2*0 = 9) ∧ (9 < 11)
 ```
 
-### the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state the classical simulator holds (n_qubit_dimension); the search space IS the basis
+### the quantum bridge, honest: enumerating 10 binary decisions is walking 2^10 = 1024 candidates — EXACTLY the dimension of the 10-qubit state vector the classical computation holds (n_qubit_dimension); the search space IS the basis
 The ledger holds this as [optimisation_space_is_qubit_dimension](/theorem/optimisation_space_is_qubit_dimension) — proven `by decide`, sorry-free:
 
 ```lean
 2^10 = 1024
 ```
 
-### the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger's simulator claims NO advantage at all
+### the demarcated speedup: unstructured search over 2^20 candidates takes 2^20 classical checks; Grover needs only ~sqrt = 2^10 — the EXPONENT halves (20 = 2·10) and never vanishes; a quadratic aid, not a free lunch, and this ledger's state-vector computation claims NO advantage at all
 The ledger holds this as [grover_halves_the_search_exponent](/theorem/grover_halves_the_search_exponent) — proven `by decide`, sorry-free:
 
 ```lean
@@ -76,7 +76,7 @@ The ledger holds this as [assignment_two_by_two_optimum](/theorem/assignment_two
 
 
 ::: warning 
-THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). The boundary is confirmed by the wing's own sealed theorems — e.g. [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) — never merely denied.
+THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical state-vector computation claims no advantage). The boundary is confirmed by the wing's own sealed theorems — e.g. [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

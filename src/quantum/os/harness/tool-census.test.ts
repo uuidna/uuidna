@@ -133,7 +133,7 @@ test('uuidna_quantum_advantage — paying agents get the compute playbook and ma
 
   const bell = call('uuidna_quantum', { circuit: 'bell' })
   assert.equal(bell.qubits, 2)
-  assert.match(bell.honest, /classical|simulation/i)
+  assert.match(bell.honest, /classical|exact amplitudes computed/i)
 })
 
 test('uuidna_fill_gaps — verify runs advantage hook at scale', async () => {

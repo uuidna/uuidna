@@ -136,12 +136,16 @@ test('the report receipt follows the HOST as well as the rows — two machines c
   assert.notEqual(here.receipt, there.receipt, '"measured on this host" must be recomputable, so the host is in the fold')
 })
 
-test('the honest scope survives in the report itself, not only in a comment', () => {
+test('the report states its scope by the sealed keys it cites, with no prose claim or prose denial', () => {
   const r = advantageReport('host', full())
-  assert.match(r.honest, /TypeScript computes|quantum by architecture/i)
-  assert.match(r.honest, /usable_gap_is_two_to_eighty/)
-  assert.match(r.honest, /n_qubit_dimension/)
-  assert.doesNotMatch(r.honest, /no physics quantum advantage/i)
+  const byKey = theoremByKey()
+  for (const key of ['usable_gap_is_two_to_eighty', 'n_qubit_dimension', 'gate_error_baseline_class']) {
+    assert.ok(r.honest.includes(key), `the report must cite ${key}`)
+    assert.ok(byKey.has(key), `${key} is cited but not sealed`)
+  }
+  // neither side of the prose: no claim the kernel did not decide, and no denial of one
+  assert.doesNotMatch(r.honest, /quantum computer|quantum by architecture|quantum-by-architecture|quantum advantage|TypeScript computes/i)
+  assert.doesNotMatch(r.honest, /classical|superconducting|QPU|Shor|not a .* claim|no physics/i)
 })
 
 test('THE SEAL IS WARRANTED BY AGREEMENT, NOT BY A THRESHOLD — split estimates are refused', () => {

@@ -105,6 +105,9 @@ const GENERATORS: Gen[] = [
   { file: 'gen-receipts.js', args: [], note: 'the cross-gateway receipts (coverage projection, decode) minted once per ledger state — 215 s and 191 s become O(1) reads' },
   // after gen-receipts, whose decode receipt it bakes: the edge has no lean/ to read it from
   { file: 'gen-edge-slices.js', args: [], note: 'src/edge-slices/generated.ts — package.json, wrangler.toml, packages/ and the minted receipts as a module, so the twelve edge tools that refused on uuidna.com/mcp with no filesystem answer from the same derivation the host reads' },
+  // the edge reads the ledger's rows from qpu storage and carries only its root: re-baked from the ledger this run built,
+  // so a Worker can never ship a root that lags its ledger (a null or stale root refuses every edge tool call)
+  { file: 'ledger-deposit.js', args: ['--bake'], note: 'src/theorems/edge-root.ts — the manifest root, the sealed keys and their addresses, the only part of the ledger the Worker bundles' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
   // THE FREEZE RUNS LAST. It seals every navigable route, and gen-articles (below it once) writes a page per wing —
   // a wing landed above it froze a map without its own article, and the seal test named the article as a new

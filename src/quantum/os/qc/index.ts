@@ -183,7 +183,7 @@ export interface QcStage { n: number; stage: string; what: string; reachedHere: 
 /** The document's four-stage route, and honestly which stage this tree stands on. */
 export const QC_ROUTE: readonly QcStage[] = [
   { n: 1, stage: 'simulate a quantum computer', what: 'state-vector simulation, tensor products, single-qubit gates, CNOT, measurement sampling, density matrices, tomography',
-    reachedHere: false, why: 'this tree runs no state-vector simulator. It could — the arithmetic is ordinary — and it does not, so the honest answer is no.' },
+    reachedHere: false, why: 'in part: src/quantum/index.ts computes exact state vectors (ket0, single-qubit gates, cnot, toffoli; served by uuidna_quantum) with exact distributions and marginals. It holds no density matrices, samples no measurements (exact distributions, no RNG) and does no tomography, so the stage’s whole list is not met.' },
   { n: 2, stage: 'use cloud-accessible hardware', what: 'run the same circuits on a real processor and compare ideal, noisy and hardware output',
     reachedHere: false, why: 'no quantum SDK is wired and no hardware is reached.' },
   { n: 3, stage: 'build a tabletop educational device', what: 'an optical polarization qubit, a single-photon interferometer, an NMR demonstrator',
@@ -336,12 +336,9 @@ export function qcVerdict(): QcVerdict {
     metrics,
     claims,
     refused: [
-      // CITED, because a denial without a sealed citation is a claim a reader cannot check either way. What
-      // this tree DOES prove about speed is theorem verify_beats_recompute_by_magnitudes — verification is
-      // magnitudes cheaper than recomputation, which is a statement about a merkle path and not about
-      // hardware — and theorem n_qubit_dimension fixes why the simulation cannot be an advantage: n qubits
-      // span 2^n amplitudes, so this is exponential classical work by construction.
-      'quantum advantage or speedup claims (theorem n_qubit_dimension: n qubits span 2^n amplitudes, so the simulation is exponential classical work; the only speed this tree proves is theorem verify_beats_recompute_by_magnitudes, about a merkle path rather than hardware)',
+      // CITED, because a statement without a sealed citation is one a reader cannot check either way. The speed
+      // this tree proves is theorem verify_beats_recompute_by_magnitudes — verification against recomputation.
+      'quantum advantage or speedup claims (no sealed theorem decides one; the speed this tree proves is theorem verify_beats_recompute_by_magnitudes, verification against recomputation)',
       'that all quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA',
       'rewriting IBM or Google hardware figures as this tree’s own',
     ],
@@ -421,7 +418,7 @@ export const QC_AUDIT: QcDocument = {
   ],
 }
 
-/** The gate set the simulator's `ops` path accepts — the measured reason period finding stays out of reach. */
+/** The gate set the state-vector `ops` path accepts — the measured reason period finding stays out of reach. */
 export const EXPOSED_GATE_SET: readonly string[] =
   ['h', 'x', 'y', 'z', 's', 'sdg', 'cx', 'cz', 'swap', 'ccx', 'ccz']
 
@@ -445,7 +442,7 @@ export interface AuditFinding {
 /** Every scope finding the audit recorded, transcribed with its arithmetic so the ledger can be checked against it. */
 export const EXTERNAL_AUDIT_FINDINGS: readonly AuditFinding[] = [
   { id: 'n-qubit-dimension', theorem: 'n_qubit_dimension', arithmetic: ['[2,4,8,16,32]'],
-    provesExactly: 'the finite list of state-vector dimensions for 1..5 qubits — the CLASSICAL simulation cost',
+    provesExactly: 'the finite list of state-vector dimensions for 1..5 qubits — the CLASSICAL cost of holding every amplitude',
     outsideScope: 'a quantum advantage, which the seal\u2019s own prose already declines',
     verdict: 'CONFIRMED' },
   { id: 'chsh', theorem: 'chsh_beats_classical', arithmetic: ['2^2 < 2^3', '2^3 = 8'],
@@ -474,7 +471,7 @@ export const EXTERNAL_AUDIT_FINDINGS: readonly AuditFinding[] = [
     outsideScope: 'a Shor circuit, modular exponentiation, period finding, or factoring any modulus',
     verdict: 'CONFIRMED' },
   { id: 'state-vector-is-classical', arithmetic: ['2^16 = 65536'],
-    provesExactly: 'the simulator\u2019s own output labels itself a classical state-vector simulation and names 2^n as the classical bound',
+    provesExactly: 'uuidna_quantum\u2019s own output names its 2^n exact amplitudes and cites theorem n_qubit_dimension, which decides 2^n for n = 1..5',
     outsideScope: 'quantum hardware — and the audit calls this the decisive internal evidence',
     verdict: 'CONFIRMED' },
   { id: 'exposed-circuit-menu', arithmetic: ['11 gates'],

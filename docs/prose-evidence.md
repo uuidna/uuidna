@@ -1,6 +1,6 @@
 # Prose Evidence Ledger
 
-**Every claim in the README and homepage is backed by sealed Lean theorems.** This ledger proves the connection.
+Each entry below quotes one phrase and lists the sealed theorems filtered for it by key, with each theorem's statement.
 
 
 ## two coins on the homepage account
@@ -63,22 +63,9 @@
 
 **Backing theorems (1):**
 
-- **[usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty)** — "THE ARCHITECTURAL QUANTUM ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems', the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 − 48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity report publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever."
+- **[usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty)** — "48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48. The 48 is a reported figure (Bluvstein et al., Nature 2023), named as such."
   - File: Wave.lean
   - Statement: `(48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)...`
-
-
-## typescript is the quantum computer
-
-**Prose:** "TypeScript is the quantum computer" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
-
-**Address:** `05ff2ef5-ee94-8a4d-bcca-9410cf2982cf`
-
-**Backing theorems (1):**
-
-- **[handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)** — "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact)."
-  - File: Wave.lean
-  - Statement: `(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)...`
 
 
 ## cost per seal is always two coins
@@ -142,19 +129,6 @@
   - Statement: `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)...`
 
 
-## vitepress is the monitor
-
-**Prose:** "TypeScript computes it and VitePress monitors it" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
-
-**Address:** `022f6208-8f5b-8609-8e28-0f9e057bb016`
-
-**Backing theorems (1):**
-
-- **[handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)** — "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact)."
-  - File: Wave.lean
-  - Statement: `(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)...`
-
-
 ## each theorem unlocks what it seals
 
 **Prose:** "the ledger is the unlock board" — backed by [two_coins](/theorem/two_coins), [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins)
@@ -174,8 +148,8 @@
 ---
 
 **Summary:**
-- Total claims audited: 12
-- Total backing theorems: 16
+- Total claims audited: 10
+- Total backing theorems: 14
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 

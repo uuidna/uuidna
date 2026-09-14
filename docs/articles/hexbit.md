@@ -158,7 +158,7 @@ The ledger holds this as [hexbit_ring_mass_gap](/theorem/hexbit_ring_mass_gap) �
 ((1:Nat) > 0) ∧ (List.range 16).all (fun n => ¬ (0 < n ∧ n < 1)) ∧ (List.range' 1 16).all (fun e => 1 ≤ e) ∧ (List.range 15).all (fun n => (n + 1) - n = 1)
 ```
 
-### THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.
+### THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.
 The ledger holds this as [born_field_mass_gap_on_bell](/theorem/born_field_mass_gap_on_bell) — proven `by decide`, sorry-free:
 
 ```lean

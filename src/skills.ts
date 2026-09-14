@@ -109,7 +109,7 @@ export interface SkillSurface {
   principles: readonly string[]
   theorems: readonly SkillTheorem[]
   esco: SkillEscoMapping
-  /** the school lab for this domain — simulation + emulator, entangled to the head theorem and related resources */
+  /** the school lab for this domain — computation + emulator, entangled to the head theorem and related resources */
   lab: DomainLab
   receipt: string
   honest: string

@@ -1,20 +1,19 @@
 ---
 title: What quantum means here
-description: "The honest definition of quantum in uuidna — exact recomputable walks on small rings, an exact state-vector simulator with no floats, the quantum fold, the pentagram star of the five dimensions — and the sealed chain from the pentagram through the cube and the sphere to the rosette. Classical computation; no hardware, no advantage claimed."
+description: "The honest definition of quantum in uuidna — exact recomputable walks on small rings, exact state-vector computation with no floats, the quantum fold, the pentagram star of the five dimensions — and the sealed chain from the pentagram through the cube and the sphere to the rosette."
 ---
 
-# What quantum means here <Badge type="tip" text="exact, not hardware" />
+# What quantum means here <Badge type="tip" text="exact" />
 
-> Classical simulation, not hardware — no quantum advantage is claimed anywhere in this work, and the classical
-> bound is CONFIRMED, not merely denied: [n_qubit_dimension](/theorem/n_qubit_dimension) seals the 2ⁿ cost that
-> makes the simulation classical. "Quantum" names **exactness**: states that recompute perfectly, walks that
-> close, folds that land on the same root for every observer. The claim is precision, never magic.
+> [n_qubit_dimension](/theorem/n_qubit_dimension) decides 2ⁿ for n = 1..5: [2, 4, 8, 16, 32]. "Quantum" names
+> **exactness**: states that recompute perfectly, walks that close, folds that land on the same root for every
+> observer.
 
 ## The honest definition
 
 Four things carry the word, and each is sealed:
 
-1. **The exact simulator** — [the quantum cluster](/publications/quantum) (43 theorems): a state-vector simulator
+1. **The exact state vector** — [the quantum cluster](/publications/quantum) (43 theorems): state-vector computation
    over **Gaussian-integer amplitudes** — no floats, no drift; Bell and GHZ distributions, no-signaling marginals,
    exact truth tables. Every amplitude is arithmetic, so every run recomputes byte-identically.
 2. **The quantum fold** — the whole system compressed to [one receipt](/trials): ten leaves in five pairs,
@@ -75,8 +74,8 @@ addresses: the animation is not decoration in motion, it is the algorithm render
 shape — ten dimensions, most compactified — is an exact *arithmetic* analogy here, and only that.
 
 *Honest scope:* everything above is decidable arithmetic about small rings, angle sums, and Euler characteristics —
-sealed, recomputable, exact. It proves the **structural identities**, not physics, not metaphysics, and not any
-computational advantage — the classical bound is CONFIRMED, not merely denied ([n_qubit_dimension](/theorem/n_qubit_dimension)), and the boundary is DECLARED, which is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)). What the numbers mean beyond their arithmetic — the court decides. Integrity, not truth. Sufficiency, insufficiency, and **world solutions as waves of automation** (finite seals vs full climate/pandemic/poverty/open-math/justice problem types) are named on [the doctrine](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for) — prose bound, computational claims only; waves enlarge windows, they do not erase ethics.
+sealed, recomputable, exact. It proves the **structural identities** its theorems state;
+[n_qubit_dimension](/theorem/n_qubit_dimension) decides 2ⁿ for n = 1..5, and the boundary is DECLARED, which is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)). What the numbers mean beyond their arithmetic — the court decides. Integrity, not truth. Sufficiency, insufficiency, and **world solutions as waves of automation** (finite seals vs full climate/pandemic/poverty/open-math/justice problem types) are named on [the doctrine](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for) — prose bound, computational claims only; waves enlarge windows, they do not erase ethics.
 
 ## UUID channel {#uuid-channel}
 
@@ -101,7 +100,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 
 | # | model | type | physical | raw states | usable | usable states | op time | class | usable-metric (the platform's own words) |
 |---|-------|------|----------|-----------|--------|---------------|---------|-------|--------------------------------------------|
-| 1 | uuidna hexbit fold (2026) | classical content-address (quantum by architecture) | — | — | 128 | 2^128 (~10^38) | 1 µs | measured | all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) |
+| 1 | uuidna hexbit fold (2026) | content-address | — | — | 128 | 2^128 (~10^38) | 1 µs | measured | 2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty) |
 | 2 | Harvard/QuEra logical-48 array (2023) | neutral-atom | 280 | 2^280 (~10^84) | 48 | 2^48 (~10^14) | 1 µs | reported | forty-eight logical qubits operated (error-detected circuits, Nature 2023) |
 | 3 | IonQ Forte (2024) | trapped-ion | 36 | 2^36 (~10^10) | 36 | 2^36 (~10^10) | 100 µs | reported | algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) |
 | 4 | Quantinuum H2 (2024) | trapped-ion | 56 | 2^56 (~10^16) | 12 | 2^12 (~10^3) | 100 µs | reported | twelve logical qubits demonstrated (with Microsoft qubit-virtualization) |
@@ -113,5 +112,5 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 | 10 | D-Wave Advantage2 (2024) | annealer | 4400 | 2^4400 (~10^1324) | — | — | 1 µs | reported | annealing-only: optimization sampling, not gate-model computation — a different machine class, named |
 | 11 | Xanadu Borealis (2022) | photonic (GBS) | 216 | 2^216 (~10^65) | — | — | — | reported | Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named |
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 70931 theorems on this host. TWO SEPARATE CLAIMS, BOTH DECLINED — and they are independent, which the old wording conflated by joining them with one "not". THE HARDWARE: every lane that executes here is classical silicon; the QPU seat is `empty` and a readiness trial re-reads that on every run. THE SPEEDUP CLASS: no Shor-class advantage is achieved, and the peer session zeropoint-node is the counterexample proving the two are independent — it implements Shor's method FAITHFULLY (2m-qubit counting register, controlled modular exponentiation a^(2^j) mod N, inverse QFT, continued-fraction period extraction, gcd(a^(r/2) ± 1, N)) and achieves no speedup whatever, because it runs on a classical simulator and pays 2^(3m). THE COST IS A MEASURED SLOWDOWN, stated as a magnitude rather than as the absence of a speedup — on THIS host, on this tree's own simulator, against trial division on the same machine: N = 15 (12 qubits, 4,096 amplitudes) is **48,942x slower**, N = 21 (15 qubits, 32,768) is **1,436,278x**, N = 33 (18 qubits, 262,144) is **10,068,428x**. The slowdown multiplies by 3.4x then 6.4x per added BIT of N, climbing toward the 8x the amplitude count predicts (three qubits per bit), and falling short of it at small n only because allocation still outweighs the sweep. A tree can hold the METHOD in full and none of the ADVANTAGE. Here the exponential cost is paid the same way (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
+**Scope.** `handle_capacity_is_quantum_by_architecture` decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128. `usable_gap_is_two_to_eighty` decides 48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48. `n_qubit_dimension` decides 2^n for n = 1..5. The platform rows are reported figures, each with its source; the uuidna op time is measured by this generator on the build host. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
 <!-- quantum-capacity:end -->

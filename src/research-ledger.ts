@@ -161,7 +161,7 @@ export const FINDINGS: readonly Finding[] = [
   // THE FIRST FINDING TO NAME THE THEOREM IT ANCHORS. The anchoring law had predicates and a census and no
   // subject — `anchors(f)` asked whether a finding MAY anchor and nothing recorded whether one DID — so
   // tensionReport answered NOT CHECKABLE over all twenty-eight. This is its first subject, and it is deliberately
-  // the theorem the tree is most often misread about: n_qubit_dimension counts the classical cost of SIMULATING
+  // the theorem the tree is most often misread about: n_qubit_dimension counts the classical cost of HOLDING the state of
   // n qubits and is explicitly not a speedup, which is precisely what the primary source says too. A witness that
   // confirms the BOUNDARY of a claim is worth more than one that confirms its headline.
   { claim: 'An N-qubit register\'s state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N',

@@ -13,7 +13,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  proveHardwareQuantum, runWitnesses, WITNESSES, hostQuantumDevice, LEVEL_PROBES, ledgerUnits,
+  runWitnessBattery, runWitnesses, WITNESSES, hostQuantumDevice, LEVEL_PROBES, ledgerUnits,
   type Witness,
 } from '../../../drivers/quantum/index.js'
 import { HEXBIT_BITS, HEXBIT_STATES } from '../../../hexbit/index.js'
@@ -26,7 +26,7 @@ test('every witness in the battery cites a theorem that IS sealed in the ledger'
 })
 
 test('the sealed quantum algebra executes EXACTLY on this host — every witness, zero disagreements', () => {
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   assert.equal(p.refused.length, 0)
   assert.equal(p.results.length, WITNESSES.length)
   const bad = p.results.filter((r) => r.disagreements > 0)
@@ -69,8 +69,8 @@ test('a shrinking battery shows up as a shrinking COUNT, not as an unchanged gre
 })
 
 test('sweeps multiply the executions and the bound, and the count travels with the claim', () => {
-  const one = proveHardwareQuantum(1)
-  const ten = proveHardwareQuantum(10)
+  const one = runWitnessBattery(1)
+  const ten = runWitnessBattery(10)
   assert.equal(ten.executed, one.executed * 10)
   assert.match(ten.bound, new RegExp(String(ten.executed)))
 })
@@ -84,14 +84,24 @@ test('the device is THIS host, folded — recomputable rather than asserted', ()
   assert.deepEqual([...a.witnesses].sort(), [...WITNESSES.map((w) => w.theorem)].sort())
 })
 
-test('the device records measured advantage on a classical host executing the quantum computer', () => {
+test('the device and the run state only what they decide — witness count, sealed keys, disagreements', () => {
   const d = hostQuantumDevice()
-  assert.match(d.honest, /CLASSICAL HOST/)
-  assert.match(d.honest, /quantum-by-architecture|TypeScript is the quantum/i)
-  assert.match(d.honest, /usable_gap_is_two_to_eighty/)
-  assert.match(d.honest, /n_qubit_dimension/)
-  assert.doesNotMatch(d.honest, /no physics quantum advantage/i)
-  assert.match(proveHardwareQuantum(1).honest, /WHAT IT DOES NOT PROVE/)
+  const byKey = theoremByKey()
+  const sealed = WITNESSES.filter((w) => byKey.has(w.theorem)).length
+  assert.match(d.honest, new RegExp(`^${WITNESSES.length} witnesses, ${sealed} of them citing a sealed theorem key`))
+  assert.equal(sealed, WITNESSES.length, 'every witness the device carries cites a sealed key')
+  assert.ok(byKey.has('message_qubit_cap_states') && d.honest.includes('message_qubit_cap_states'))
+
+  const p = runWitnessBattery(1)
+  assert.match(p.honest, new RegExp(`^${p.results.length} witnesses run, each citing a sealed theorem key; 0 refused`))
+  assert.match(p.honest, new RegExp(`${p.executed} decisions executed; 0 disagreements with the Lean-sealed values`))
+  for (const r of p.results) assert.ok(byKey.has(r.theorem), `${r.theorem} ran without a seal`)
+
+  // neither side of the prose: no claim the kernel did not decide, and no denial of one
+  for (const text of [d.honest, p.honest, d.kind]) {
+    assert.doesNotMatch(text, /quantum computer|quantum-by-architecture|quantum by architecture|hardware|advantage/i)
+    assert.doesNotMatch(text, /classical|superconducting|QPU|Shor|DOES NOT PROVE/i)
+  }
 })
 
 test('EVERY LEVEL PROBE MEASURES ITS OWN LEVEL — a pass does many units, and only that level\'s work', () => {
@@ -124,7 +134,7 @@ test('the ledger probe re-addresses theorems from the SAME preimage the ledger s
 // with no denominator, which reads as complete. Guard did not catch it: all eight of its hardcode finders pass
 // over the table. It is the same defect as a decoder that read 2 of 16 Alpine indexes, committed here.
 test('THE BATTERY REPORTS ITS DENOMINATOR — coverage of the wing, not a bare witness count', () => {
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   const wing = [...theoremByKey().values()].filter((t) => t.skill === 'quantum')
   assert.equal(p.coverage.wing, wing.length, 'the denominator is counted from the ledger, never from the list')
   assert.ok(p.coverage.witnessed > 0)
@@ -134,7 +144,7 @@ test('THE BATTERY REPORTS ITS DENOMINATOR — coverage of the wing, not a bare w
 })
 
 test('THE UNWITNESSED ARE NAMED, so a growing gap is visible rather than merely absent', () => {
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   for (const key of p.coverage.unwitnessed) {
     assert.ok(theoremByKey().has(key), `${key} is named as unwitnessed but is not in the ledger at all`)
     assert.ok(!WITNESSES.some((w) => w.theorem === key), `${key} is named unwitnessed while a witness decides it`)
@@ -144,7 +154,7 @@ test('THE UNWITNESSED ARE NAMED, so a growing gap is visible rather than merely 
 })
 
 test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently counted as wing coverage', () => {
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   const wing = new Set([...theoremByKey().values()].filter((t) => t.skill === 'quantum').map((t) => t.key))
   for (const key of p.coverage.beyondWing) {
     assert.ok(theoremByKey().has(key), `${key} is sealed`)
@@ -157,7 +167,7 @@ test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently c
 
 // ── THE THEOREMS THIS BATTERY FALSIFIES, NAMED SO THE LEG CENSUS CAN SEE THEM ────────────────────────────────
 // rosetta grants the FALSIFIER leg when "a test names it, which is where a mutation that must fail would live".
-// The falsification already existed — `proveHardwareQuantum` runs every witness and the suite asserts zero
+// The falsification already existed — `runWitnessBattery` runs every witness and the suite asserts zero
 // disagreements, so a theorem whose proposition stopped reproducing on this silicon turns this file red. But the
 // census greps TEST FILES for the literal key, and the battery lives in src/drivers, so 43 of the 48 theorems it
 // decides read as owing a falsifier they in fact have.
@@ -251,7 +261,7 @@ test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES
 })
 
 test('every named theorem is decided on this host, so naming it here is backed by a run', () => {
-  const p = proveHardwareQuantum(1)
+  const p = runWitnessBattery(1)
   const decided = new Map(p.results.map((r) => [r.theorem, r]))
   for (const key of FALSIFIED) {
     const r = decided.get(key)

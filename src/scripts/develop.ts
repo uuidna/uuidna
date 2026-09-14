@@ -14,7 +14,8 @@
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
 import { curesFor } from './develop-cures.js'
-import { grepProbe } from '../tree-writers.js'
+import { writerPidsProbe } from '../tree-writers.js'
+import { ancestorsOf } from './one-writer.js'
 import { teeStep, ROOT, h16, pauseSeconds } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { execSync, spawnSync } from 'node:child_process'
@@ -187,18 +188,23 @@ const treeState = (): string => {
  *  and a probe that could not run at all had no answer of its own. This function guards the mixed-dist hazard —
  *  editing a tree while another gate is mid-run — so 'I could not tell' must never be spent as 'quiet'. It
  *  refuses instead, and says which instrument failed. Bounded: 30 probes x 10s. */
+// THE LANDING THAT RUNS THIS PASS IS NOT ANOTHER GATE (2026-09-14). land.js is a tree writer and develop runs as its
+// child, so a probe that counted every writer read the tree as busy on every round and spent its whole 30 × 10 s wait
+// before a single step — measured as most of a 34-minute heal, and six rounds of it in one landing. The writers in this
+// process's own ancestry are this pass itself; any other writer is still waited for.
 const waitForQuiet = (): void => {
   const sh = shellOrExit('develop')
+  const mine = new Set(ancestorsOf(process.pid))
   for (let i = 0; i < 30; i++) {
-    const r = spawnSync(sh.file, sh.argv(grepProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+    const r = spawnSync(sh.file, sh.argv(writerPidsProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
     if (r.error || r.status !== 0) {
       console.error('x develop — the quiescence probe could not RUN, so this pass cannot tell a quiet tree from a')
       console.error('  busy one. Refusing rather than editing a tree another gate may be mid-run on.')
       console.error('  ' + (r.error?.message ?? `exit ${r.status}`))
       process.exit(1)
     }
-    const busy = r.stdout.trim()
-    if (busy === '0') return
+    const others = r.stdout.split(/\s+/).filter(Boolean).map(Number).filter((p) => Number.isInteger(p) && !mine.has(p))
+    if (others.length === 0) return
     if (i === 0) console.log('· develop — another gate is running on this tree; waiting for quiescence (never edit mid-gate)')
     pauseSeconds(10)
   }

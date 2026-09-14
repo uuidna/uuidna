@@ -24,6 +24,7 @@ import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
 import { parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
 import { measured, appendEvidence, loggedEvidence, freeMemoryBytes } from './device-readings.js'
+import { memoryPool } from '../memory-pool.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
 
 const T = theorems()
@@ -109,43 +110,6 @@ const auditFile = async (file: string, keys: string[]): Promise<{ verdict: Recor
   const r = await runLean(probe, dirname(olean))
   const peak = compiled === null ? r.peak : r.peak === null || compiled > r.peak ? compiled : r.peak
   return { verdict: parse(r.msg), peak, step }
-}
-
-/** memoryPool(items, estimate, known, freeNow, cores, worker) → every item run, in INVOLUTION order (heaviest,
- *  lightest, next heaviest, next lightest…), each admitted by LIVE MEASUREMENT: while nothing has been measured yet
- *  only one runs, so the first sets the scale; after that the next starts only if the memory measured free AT THAT
- *  MOMENT holds its estimate (its own measured peak, or the heaviest measured so far), and a core is free. When memory
- *  is short nothing new starts until a running item finishes. No typed constant and no guessed share: the lane count
- *  is whatever the measurements admit — many light items at once, one or two giants. One item always runs. */
-async function memoryPool<X, R>(
-  items: readonly X[], estimate: (x: X) => number, known: () => boolean, freeNow: () => number | null, cores: number,
-  worker: (x: X) => Promise<R>, measured?: (x: X, r: R) => void,
-): Promise<R[]> {
-  const byWeight = items.map((x, i) => ({ x, i })).sort((a, b) => estimate(b.x) - estimate(a.x))
-  const order: { x: X; i: number }[] = []
-  for (let lo = 0, hi = byWeight.length - 1; lo <= hi; lo++, hi--) { order.push(byWeight[lo]!); if (lo !== hi) order.push(byWeight[hi]!) }
-  const out: R[] = new Array(items.length)
-  // a job just started has not yet grown to its peak, so what is free now is reduced by every estimate in flight — the
-  // memory the running jobs are about to take is never handed out twice
-  let inFlight = 0, next = 0, reserved = 0
-  await new Promise<void>((done, fail) => {
-    const pump = (): void => {
-      if (next >= order.length && inFlight === 0) return done()
-      while (next < order.length && inFlight < cores) {
-        const e = estimate(order[next]!.x)
-        if (inFlight > 0) {
-          if (!known()) break
-          const free = freeNow()
-          if (free === null || free - reserved < e) break
-        }
-        const { x, i } = order[next++]!
-        inFlight++; reserved += e
-        worker(x).then((r) => { out[i] = r; measured?.(x, r); inFlight--; reserved -= e; pump() }, fail)
-      }
-    }
-    pump()
-  })
-  return out
 }
 
 async function main() {

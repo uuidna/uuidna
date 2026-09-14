@@ -1,6 +1,6 @@
 ---
 title: Quantum Cryptography
-description: "The quantum school's first full course — quantum cryptography taught module by module, every claim a sealed theorem or a known-answer test, honest scope binding: classical simulation, no hardware advantage, flaws patched by name and the one boundary named unpatched. Integrity, not omniscience."
+description: "The quantum school's first full course — quantum cryptography taught module by module, every claim a sealed theorem or a known-answer test, honest scope binding: exact classical computation, no hardware advantage, flaws patched by name and the one boundary named unpatched. Integrity, not omniscience."
 ---
 
 # Quantum Cryptography <Badge type="tip" text="a full course — the school is the ledger" />

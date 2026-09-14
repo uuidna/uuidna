@@ -7,10 +7,26 @@
 // uuidna VERIFIES; it never REFUTES — a citation to a nonexistent proof does not make the CLAIM false, it just fails
 // to verify it. The `fabricated` list is still returned (the publish/prose gate refuses shipping a note that names a
 // proof which does not exist), but the VERDICT is binary. Recomputable from the ledger alone. Integrity, not truth.
-import { THEOREMS } from './theorems/index.js'
+import { sealedAddressOf } from './theorems/index.js'
 import { merkleFold, toUuid } from './address.js'
 
-const SEALED = new Map(THEOREMS.map((t) => [t.key, t.address]))
+// the sealed keys and their addresses, read without the ledger's rows — at the edge from the baked root, on a host from
+// the ledger; a map built over every theorem when this module loads kept the edge Worker from starting
+const SEALED = { has: (k: string): boolean => sealedAddressOf(k) !== undefined, get: (k: string): string | undefined => sealedAddressOf(k) }
+
+/** the name continues past the match through a placeholder (`involution_<handle>`, `involution_${h}`, `{handle}`):
+ *  what was matched is a cut-off prefix, not a key */
+const placeholder = (text: string, m: RegExpMatchArray): boolean => /[<${]/.test(text.charAt((m.index ?? 0) + m[0].length))
+
+/** a Lean DECLARATION: `theorem NAME` opening its line (after a closing doc comment, an attribute, or a modifier) and
+ *  followed by binders or its type's colon — it defines NAME and cites nothing. Prose that merely starts a line with
+ *  "theorem two_coins backs this" is not followed by a binder or colon, so it still counts as a citation. */
+const declared = (text: string, m: RegExpMatchArray): boolean => {
+  const at = m.index ?? 0
+  const before = text.slice(text.lastIndexOf('\n', at - 1) + 1, at)
+  const after = text.slice(at + m[0].length)
+  return /^(?:.*-\/)?\s*(?:@\[[^\]]*\]\s*)?(?:(?:private|protected|noncomputable)\s+)*$/.test(before) && /^\s*[:({[⦃]/.test(after)
+}
 
 export interface SlimVerdict {
   claim: string
@@ -31,8 +47,14 @@ export function slimGate(claim: string): SlimVerdict {
   // ambiguous with ordinary prose ("the theorem ledger", "a theorem computes"), so it counts ONLY when the token is
   // KEY-SHAPED — carries an underscore or a digit, the real key convention (diamond_involution, z7fermat) — which no
   // plain English word does. This is what keeps the theorem-fold from misreading prose about theorems as a citation.
-  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) keys.add(m[1])
-  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) if (/[_0-9]/.test(m[1])) keys.add(m[1])
+  // Two shapes carry the word "theorem" and cite nothing, and both read as fabricated before this: a Lean DECLARATION
+  // (`theorem brand_new_x : 1 = 1 := rfl` in a written wing or snippet) defines its name — a new name is not yet sealed
+  // by construction — and a PLACEHOLDER (`involution_<handle>`, `involution_${h}`) is a name cut where it continues.
+  // 22 court orders from one wave were raised this way (court-hooks → law-audit → this gate).
+  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
+  for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,})/gi)) {
+    if (/[_0-9]/.test(m[1]) && !placeholder(claim, m) && !declared(claim, m)) keys.add(m[1])
+  }
   const cited = [...keys]
   const real = cited.filter((k) => SEALED.has(k))
   const fabricated = cited.filter((k) => !SEALED.has(k))

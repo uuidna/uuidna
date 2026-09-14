@@ -115,8 +115,15 @@ const quantified = LEDGER.filter((t) => /∀|∃/.test(t.statement))
 // a finite type. The law is unchanged: every quantified statement in this ledger ranges over a bounded domain.
 // A list literal under a type ascription — `∀ p ∈ ([(0,1,2), …] : List (Nat × Nat × Nat))` — is the same finite
 // membership with a parenthesis in front, so the rule reads the bracket after an optional `(` (2026-09-14, relabel3).
-const isBounded = (statement: string): boolean => /∈\s*\(?\s*\[/.test(statement) || /:\s*Fin\s+\d+/.test(statement)
-const unbounded = quantified.filter((t) => !isBounded(t.statement)).length
+// AND MEMBERSHIP IN A NAMED LIST THE WING DEFINES (2026-09-14, the court's involutions): `∀ g ∈ reconcileRuns` ranges
+// over a `def reconcileRuns : List …` — as finite as a bracket literal, only named. The names are read from each wing's
+// own `def … : List` declarations, never typed here.
+const LIST_DEFS = new Map(readdirSync(join(ROOT, 'lean')).filter((x) => x.endsWith('.lean')).map((f) =>
+  [f, new Set([...readFileSync(join(ROOT, 'lean', f), 'utf8').matchAll(/^def\s+(\w+)\s*:\s*List\b/gm)].map((m) => m[1]!))] as const))
+const isBoundedIn = (file: string, statement: string): boolean =>
+  /∈\s*\(?\s*\[/.test(statement) || /:\s*Fin\s+\d+/.test(statement)
+  || [...statement.matchAll(/∈\s*(\w+)/g)].some((m) => LIST_DEFS.get(file)?.has(m[1]!) === true)
+const unbounded = quantified.filter((t) => !isBoundedIn(t.file, t.statement)).length
 // PER-WING MAXIMA, not every enumeration. The first version handed the kernel all 1,400-odd windows in the tree
 // and `decide` hit its recursion ceiling — the check was refused rather than passed, which is the delta gate doing
 // its job on my own arithmetic. One number per wing folds in the kernel comfortably and states the same fact.
@@ -140,19 +147,24 @@ const LIST = (ns: number[]): string => '[' + ns.join(', ') + ']'
 // avoid. Folding one number per wing makes the kernel walk every wing to reach the total, and the elementwise
 // comparison against a wing-length list of zeros fails if ANY single wing ever admits an unbounded quantifier.
 const quantPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement)).length)
-const unboundPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement) && !isBounded(t.statement)).length)
-const ZEROS = wingFiles.map(() => 0)
+const unboundPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement) && !isBoundedIn(f, t.statement)).length)
+const boundedPer = quantPer.map((q, i) => q - unboundPer[i]!)
+// THE TACTIC CENSUS (2026-09-14). The court's first involutions are kernel-accepted and axiom-free but not `by decide`
+// (a decide on Nat dvd or String membership drags propext), so "every theorem is decided" became false and is restated as
+// the count it is: how many by decide, how many by the other tactics the kernel checks, each named, per wing.
+const otherPer = thmsPer.map((t, i) => t - decidedPer[i]!)
+const otherTactics = [...new Set(LEDGER.filter((t) => !/^decide\b/.test(t.tactic)).map((t) => t.tactic.split(/[\s;]+/)[0]!))].sort()
 
 const REACH = [
-  { key: 'reach_all_decide',
-    why: `EVERY THEOREM IN THE LEDGER IS DECIDED— ${notDecided} are proved by any tactic other than \`decide\`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: \`decide\` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else`,
-    js: () => notDecided === 0 && LEDGER.length > 0 && decidedPer.every((d, i) => d === thmsPer[i]),
-    lean: `theorem reach_all_decide : (${chunkedSum(decidedPer)} = ${LEDGER.length}) ∧ (${chunkedList(decidedPer)} = ${chunkedList(thmsPer)}) := by decide` },
+  { key: 'reach_tactics_census',
+    why: `EVERY THEOREM IN THE LEDGER IS CHECKED BY THE KERNEL — ${LEDGER.length - notDecided} by \`decide\`, which runs the proposition as a program so a finite computation settles it, and ${notDecided} by other tactics the kernel checks (${otherTactics.join(', ') || 'none'}), across every wing but this one (self-excluded: it is written after the census it states). Per wing the two kinds add up to the wing's theorems, and lean-axioms audits every theorem axiom-free, so the trust base is the leanprover/lean4 kernel and nothing else`,
+    js: () => LEDGER.length > 0 && decidedPer.every((d, i) => d + otherPer[i]! === thmsPer[i]) && otherPer.reduce((a, b) => a + b, 0) === notDecided,
+    lean: `theorem reach_tactics_census : (${chunkedSum(decidedPer)} = ${LEDGER.length - notDecided}) ∧ (${chunkedSum(otherPer)} = ${notDecided}) ∧ (${chunkedSum(thmsPer)} = ${LEDGER.length}) := by decide` },
 
-  { key: 'reach_quantifiers_bounded',
-    why: `FINITE WITHIN INFINITY, COUNTED — exactly ${quantified.length} statements in the whole ledger carry a ∀ or ∃, and ${unbounded} of them range over an unbounded domain. They are bounded in the two ways this ledger admits, and both keep the decision finite. ONE ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. The REST bind a finite type — \`Fin N\` — whose domain is finite by construction rather than by a hypothesis a reader must check, so the kernel walks all N inhabitants and stops. Every other statement in the ledger is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan, and the census is recomputed from the statements themselves, so a wing sealed tomorrow that quantified over something unbounded would break it tomorrow`,
-    js: () => unbounded === 0 && quantified.length >= 1 && unboundPer.every((n) => n === 0),
-    lean: `theorem reach_quantifiers_bounded : (${chunkedList(unboundPer)} = ${chunkedList(ZEROS)}) ∧ (${chunkedSum(quantPer)} = ${quantified.length}) := by decide` },
+  { key: 'reach_quantifier_census',
+    why: `FINITE WITHIN INFINITY, COUNTED — ${quantified.length} statements in the ledger carry a ∀ or ∃: ${quantified.length - unbounded} range over a bounded domain (a list literal, a list the wing itself defines, or a \`Fin N\` type), which the kernel decides by walking it, and ${unbounded} range over an unbounded domain, which no walk can settle — only a proof over every value, induction or a structural argument, and the kernel checks those too. Recomputed per wing from the statements themselves`,
+    js: () => quantified.length >= 1 && boundedPer.every((b, i) => b + unboundPer[i]! === quantPer[i]),
+    lean: `theorem reach_quantifier_census : (${chunkedSum(boundedPer)} = ${quantified.length - unbounded}) ∧ (${chunkedSum(unboundPer)} = ${unbounded}) ∧ (${chunkedSum(quantPer)} = ${quantified.length}) := by decide` },
 
   { key: 'reach_window_finite',
     why: `THE WIDEST WINDOW IN THE LEDGER IS ${widest}, and it is a window — the largest enumeration any theorem here performs, across ${windows.length} enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number`,
@@ -164,7 +176,7 @@ const REACH = [
     lean: `theorem reach_window_finite : (${LIST(windows)}.all (fun w => w ≤ ${widest})) ∧ (${LIST(windows)}.any (fun w => w == ${widest})) ∧ (${widest} < ${widest + 1}) := by decide` },
 
   { key: 'window_not_universal',
-    why: 'THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side',
+    why: 'THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by enumeration: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first — it needs a proof over every value, such as induction. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side',
     js: () => [...Array(10).keys()].every((n) => n < 10) && !(10 < 10),
     lean: 'theorem window_not_universal : ((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10) := by decide' },
 ]

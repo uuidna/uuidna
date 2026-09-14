@@ -124,7 +124,7 @@ test('flag_matches_spec — recompute the arithmetic detector against an indepen
   assert.notDeepEqual(truthTable(dropsBackingClearance), over8((h, d, b) => spec(h, d, b)))
 })
 
-test('witnesses_locate_faults — simulate majority voting to rederive the 2t+1 bound; the mutated bound 2t must fail to locate, splitting evenly instead', () => {
+test('witnesses_locate_faults — recompute majority voting to rederive the 2t+1 bound; the mutated bound 2t must fail to locate, splitting evenly instead', () => {
   // A witness reports a verdict. The honest ones report the true verdict; t faulty ones collude on the other.
   const ballot = (n: number, t: number) => {
     const tally = new Map<string, number>()

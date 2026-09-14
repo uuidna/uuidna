@@ -1,4 +1,4 @@
--- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -85,8 +85,8 @@ theorem h_involution_on_zero : (([2,0] : List Nat).map (fun a => a / 2)) = [1, 0
 theorem s_fourth_is_identity : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2))) := by decide
 
 /-- Deutsch–Jozsa interference: a BALANCED boolean sends equal +1/−1 phases, which cancel to 0 — the query
-    amplitude vanishes. The honest heart of the algorithm, as the simulator computes it (classical linear
-    algebra, no advantage) -/
+    amplitude vanishes. The honest heart of the algorithm, as the state-vector code computes it (classical
+    linear algebra, no advantage) -/
 theorem dj_balanced_cancels : ([1, 1, -1, -1] : List Int).sum = 0 := by decide
 
 /-- Deutsch–Jozsa: a CONSTANT boolean sends one phase, so all four reinforce to ±4 — the opposite of the
@@ -99,11 +99,11 @@ theorem dj_constant_reinforces : (([1, 1, 1, 1] : List Int).sum = 4) ∧ (([-1, 
 theorem entanglement_determinant : ((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0) := by decide
 
 /-- Pauli X and Z ANTICOMMUTE (XZ = −ZX): X flips the bit, Z stamps (−1)^bit, and (−1)^b = −(−1)^(1−b) on both
-    bits — the sign the simulator carries; the nonabelian core of the gate algebra -/
+    bits — the sign the state vector carries; the nonabelian core of the gate algebra -/
 theorem pauli_x_z_anticommute : (List.range 2).all (fun b => ((-1 : Int))^b == -(((-1 : Int))^(1 - b))) := by decide
 
 /-- The W state (|001⟩+|010⟩+|100⟩)/√3 — exactly THREE of the 2³ corners carry weight (vs GHZ’s two): a distinct
-    entanglement class, robust to one-party loss. The simulator’s amplitude vector, counted -/
+    entanglement class, robust to one-party loss. The computed amplitude vector, counted -/
 theorem w_state_three_outcomes : (([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3 := by decide
 
 /-- W-state normalization: Σ|amp|² = 1+1+1 = 3 over √3 — an exact distribution over the three single-excitation
@@ -115,8 +115,8 @@ theorem w_state_normalized : ((1*1 + 1*1 + 1*1 : Nat) = 3) := by decide
 theorem bell_basis_orthogonal : ((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0) ∧ ((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0) ∧ ((1*1 + 0*0 + 0*0 + 1*1 : Int) = 2) := by decide
 
 /-- n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY,
-    which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a
-    speedup or a quantum advantage. -/
+    which is exactly why computing it classically is costly. this counts the classical state-vector cost, it is
+    NOT a speedup or a quantum advantage. -/
 theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide
 
 /-- THE SERVED CEILING IS ALGEBRA, NOT A HELD AXIOM. Honesty is the Hilbert dimension in every served width: 12
@@ -182,8 +182,9 @@ theorem clifford_group_order_24 : 6 * 4 = 24 := by decide
 theorem phase_gate_order_ladder : (8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0) := by decide
 
 /-- The CHSH game: quantum correlations exceed every local hidden variable — the Tsirelson value 2√2 beats the
-    classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the simulator
-    computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing FTL). -/
+    classical bound 2. Sealed as the SQUARED comparison (2√2 is irrational): 2² = 4 < 8 = 2³. the state-vector
+    code computes the correlation exactly; the squared bound is what decides — and no signal crosses (nothing
+    FTL). -/
 theorem chsh_beats_classical : ((2:Nat)^2 < 2^3) ∧ (2^3 = 8) := by decide
 
 /-- The dimension obstruction behind no-cloning: a cloner of an n-qubit state would need to write into (2ⁿ)²
@@ -274,7 +275,7 @@ theorem merkle_sort_invariant : (let fold3 := fun (a b c : Nat) => let mn := Nat
 
 /-- UUIDNA MESSAGING IS THE EXACT OPPOSITE OF NO-SIGNALING, and the opposition is the design — sealed as one
     duality. Physics side: the marginal is BLIND — the sum a+b sees only the total; correlation carries no
-    message — the invariance bell_no_signaling holds over the simulation). uuidna side: the address is
+    message — the invariance bell_no_signaling holds over the computed state). uuidna side: the address is
     ALL-SEEING — the place-value fold 10·a+b is INJECTIVE on the digit model (two contents agree in address
     exactly when they agree digit for digit), so EVERY bit of content moves the fold and the correlation of two
     parties computing the same receipt IS the message. The same arithmetic run in opposite directions:

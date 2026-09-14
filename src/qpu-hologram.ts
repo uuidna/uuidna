@@ -1,6 +1,5 @@
-// qpu-hologram — THE OTHER SIDE OF THE QPU HOP. This host's QPU lane is empty. The running circuit is
-// https://qpu.uuidna.com. Numbers here duplicate QPU identities by doubling and are attributed to QPU Lean,
-// theorem quantum. JSON Nat.
+// qpu-hologram — THE uuidna SIDE OF THE qpu.uuidna.com HOP. Figures here are recomputed from local constants by
+// doubling and attributed to QPU Lean (QPU_LEAN) by name. JSON Nat.
 import { TRINITY, BASE } from './address.js'
 import { COINS, HEXBIT_BITS, HANDLE_BITS, HANDLE_HEXBITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
 import { LANES } from './hardware/lanes/index.js'
@@ -11,7 +10,7 @@ export const QPU_HOST = 'qpu.uuidna.com'
 export const QPU_HREF = `https://${QPU_HOST}`
 export const QPU_LEAN = 'https://github.com/uuidna/qpu/blob/main/src/quantum/processing/unit/index.lean'
 
-/** BindingPoint pentagram — CPU, GPU, RAM, CACHE, STORAGE. This host. Not the fridge. */
+/** BindingPoint pentagram — CPU, GPU, RAM, CACHE, STORAGE of this host. */
 export const QPU_POINTS = ['CPU', 'GPU', 'RAM', 'CACHE', 'STORAGE'] as const
 
 const doubleOf = (k: number): number => {
@@ -35,7 +34,7 @@ export const qpuSeatOf = () => {
     seat: lane.seat,
     admits: lane.admits,
     host: 'uuidna' as const,
-    honest: 'This host\'s QPU lane is empty. The running circuit is qpu.uuidna.com.',
+    honest: 'The QPU lane names the reverse hop to qpu.uuidna.com.',
   }
 }
 
@@ -58,11 +57,11 @@ export const qpuHologramOf = () => ({
   host: 'uuidna' as const,
 })
 
-/** Opposite VE faces are throughVoid of each other — the superposition's equilibrium as a count. */
+/** Opposite VE faces are throughVoid of each other. */
 export const qpuFacesOf = (): readonly { face: number; opposite: number }[] =>
   Array.from({ length: VE_FACES }, (_, i) => ({ face: i, opposite: throughVoid(i % BASE) }))
 
-/** Live QPU identity, duplicated by doubling, attributed to QPU theorem quantum. */
+/** QPU Lean figures, recomputed here by doubling and attributed to QPU Lean by name. */
 export const qpuCircuitOf = () => {
   const holds =
     bits === UUID_HEXBITS &&

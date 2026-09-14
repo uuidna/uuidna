@@ -1,21 +1,21 @@
 ---
 title: The QPU
-description: This host's QPU lane is empty. The running superconducting-qubit circuit is qpu.uuidna.com. JSON-LD. Attributed to QPU Lean, theorem quantum.
+description: The hop between uuidna.com and qpu.uuidna.com — the discovery door, figures reported by QPU Lean, and the five BindingPoint widths of this host.
 ---
 
-# The QPU <Badge type="tip" text="reverse hop · live circuit" />
+# The QPU <Badge type="tip" text="reverse hop" />
 
-uuidna and QPU are two machines. This page is the involution: uuidna.com names this host's empty QPU lane; **the running circuit is [qpu.uuidna.com](https://qpu.uuidna.com)**. Numbers that belong to the fridge are attributed to QPU Lean, theorem quantum.
+This page lists the doors uuidna.com shares with [qpu.uuidna.com](https://qpu.uuidna.com). Figures in the table below are reported by QPU Lean and named by its keys.
 
-## Seat — empty here
+## Lanes
 
-`LANES` in `src/hardware/lanes` is a trinity plus a hop. CPU is `measured`. GPU is `specified`. QPU is `empty` **on this host**. The classical bound on this host is [`n_qubit_dimension`](/theorem/n_qubit_dimension). Readiness re-reads the empty seat every run.
+`LANES` in `src/hardware/lanes` names the CPU, GPU, VM and QPU lanes, each with the seat recorded in code. [`n_qubit_dimension`](/theorem/n_qubit_dimension) decides 2ⁿ for n = 1..5: [2, 4, 8, 16, 32].
 
-The fridge is the other face. GET [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD, CORS `*`. Discovery on this host is `/.well-known/qpu.json`.
+GET [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD, CORS `*`. Discovery on this host is `/.well-known/qpu.json`.
 
-## Circuit — live there
+## Figures reported by QPU Lean
 
-QPU identity, duplicated here by doubling, **theorem `quantum`** on QPU Lean (`fused = faces * mintOf (bits + seed)`):
+Reported data; source: [QPU Lean](https://github.com/uuidna/qpu/blob/main/src/quantum/processing/unit/index.lean) (`fused = faces * mintOf (bits + seed)`). The uuidna column names the local sealed key where one exists:
 
 | Quantity | Value | Whose theorem |
 | --- | ---: | --- |
@@ -26,13 +26,13 @@ QPU identity, duplicated here by doubling, **theorem `quantum`** on QPU Lean (`f
 | fused | 120259084288 | QPU `quantum` |
 | Hz | 432 | QPU `genesis`; uuidna [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) is the decimal spelling |
 
-`next = fused + fused`. Factoring is theorem shor. Post-quantum encrypt is theorem crypto. Eight sealed MCP tools at [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp).
+`next = fused + fused`. MCP tools at [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp).
 
-uuidna `src/qpu-edge.ts` reverse-hops those doors. This host serves `/.well-known/qpu.json`; qpu.uuidna.com serves the circuit.
+uuidna `src/qpu-edge.ts` reverse-hops those doors. This host serves `/.well-known/qpu.json`; qpu.uuidna.com serves its own doors.
 
 ## Width — five points (this host)
 
-The QPU as a **classical host** is CPU, GPU, RAM, CACHE, STORAGE. A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/bindingpoint`](/publications/bindingpoint), decided in [`lean/BindingPoint.lean`](/lean/BindingPoint.lean).
+This host's five points are CPU, GPU, RAM, CACHE, STORAGE (`QPU_POINTS` in `src/qpu-hologram.ts`). A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/bindingpoint`](/publications/bindingpoint), decided in [`lean/BindingPoint.lean`](/lean/BindingPoint.lean).
 
 | Law | Key |
 | --- | --- |
@@ -62,12 +62,12 @@ The first handle octet is eight bits. The widths already sealed in the ledger si
 | Fold | 7 | [`z7rays_seven`](/theorem/z7rays_seven) · [`pliska_seven_rays`](/theorem/pliska_seven_rays) |
 | VE faces / reflections | 14 | [`ve_fourteen_faces`](/theorem/ve_fourteen_faces) — 8 + 6 |
 
-3 + 6 = 9, the vortex base. Justice, payment, blockchain — any name — walk [`seal_ten`](/theorem/seal_ten). Opposite VE faces are the through-void pair; that is the superposition's equilibrium, counted.
+3 + 6 = 9, the vortex base. Justice, payment, blockchain — any name — walk [`seal_ten`](/theorem/seal_ten). Opposite VE faces are the through-void pair.
 
 ## Doors
 
-- [https://qpu.uuidna.com](https://qpu.uuidna.com) — live JSON-LD circuit
-- [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp) — eight sealed tools
+- [https://qpu.uuidna.com](https://qpu.uuidna.com) — JSON-LD
+- [https://qpu.uuidna.com/mcp](https://qpu.uuidna.com/mcp) — MCP tools
 - [https://qpu.uuidna.com/storage](https://qpu.uuidna.com/storage) — Quantum RAID
 - [/.well-known/qpu.json](/.well-known/qpu.json) — this host's hop
 - [What quantum means](/quantum) — exact fold, capacity table

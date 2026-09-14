@@ -40,7 +40,7 @@ export function computeSchoolMetrics(): SchoolMetrics {
   const T = theorems()
   const L = ledgerCoins(T)
 
-  // Simulated metrics (in real system, read from student progress ledger)
+  // Fixed placeholder metrics — not yet read from the student progress ledger
   const enrolledStudents = 50 // current enrollment
   const activeStudents = (4 * enrolledStudents - ((4 * enrolledStudents) % 5)) / 5 // floor(4n/5) — 80% active, exact
   const graduatedTeachers = (3 * enrolledStudents - ((3 * enrolledStudents) % 20)) / 20 // floor(3n/20) — 15%, exact

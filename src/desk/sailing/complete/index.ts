@@ -4,7 +4,7 @@
 
 import { theorems, toUuid, merkleGravity, auditBook, linkBookFacts, type BookAudit, type BookLedgerLinkage } from '../../../index.js'
 import { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type CrossBookResonance, type CrossBookCluster } from '../cross/book/index.js'
-import { correlateWeatherToTheorems, simulateQuantumSailingWeather, type QuantumSailingWeatherCorrelation, type WeatherFact } from '../weather/index.js'
+import { correlateWeatherToTheorems, sampleQuantumSailingWeather, type QuantumSailingWeatherCorrelation, type WeatherFact } from '../weather/index.js'
 
 export interface BookWithLinkage {
   gutenbergId: number
@@ -61,8 +61,8 @@ export async function automateQuantumSailing(bookIds: number[] = [2701, 26, 4300
     }
   }
 
-  // Phase 2: Simulate weather and correlate to theorems
-  const weatherFacts = simulateQuantumSailingWeather()
+  // Phase 2: take the fixed weather sample and correlate it to theorems
+  const weatherFacts = sampleQuantumSailingWeather()
   const weather = correlateWeatherToTheorems(weatherFacts)
 
   // Phase 3: Cross-correlate all books

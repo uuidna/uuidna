@@ -1,0 +1,12 @@
+{
+  "handle": "2e8bb117",
+  "address": "2e8bb117-949d-826a-a66a-dc5548f24423",
+  "kind": "chunk",
+  "keys": [
+    "involution_b13fd37a"
+  ],
+  "statement": "¬ lead_b13fd37a",
+  "files": [
+    "Involutionb13fd37a.lean"
+  ]
+}

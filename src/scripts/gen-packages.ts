@@ -42,7 +42,7 @@ const PARTITION: Record<string, string> = {
   './aspects.js': 'research',
   './search-feed.js': 'research',
   './search-feed-online.js': 'research',
-  // quantum — the exact simulator, messages/voting, the sailing fleet, the folds, the provenance boundary
+  // quantum — exact state-vector computation, messages/voting, the sailing fleet, the folds, the provenance boundary
   './quantum/index.js': 'quantum', './gravity/index.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
   './pentagram-stream.js': 'quantum', './pentagram-monographs.js': 'quantum', './cycles.js': 'quantum',
   './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message/index.js': 'quantum',
@@ -79,7 +79,7 @@ const HEADERS: Record<string, string> = {
   crypto: '// @uuidna/crypto — the CRYPTO SURFACE of uuidna: pure-TS SHA-256 / HMAC / PBKDF2, ChaCha20-Poly1305\n// (RFC 8439, KAT-verified), the 7d-fold envelope, onion-sealed uuid streams, contract seals, byte-level\n// provenance, the exploit fold, and the quantum-cube challenge. Integrity.\n',
   ledger: '// @uuidna/ledger — the SEALED THEOREM LEDGER and every gate that stands on it: the content-address core,\n// merkle proofs, the honesty gates (slimGate / computes / overreachOf), the trial, commit signing, anti-fraud,\n// forensics, conformance, treason, the ledger fingerprint, laws, credits, and the billing coins. A claim is\n// judged solely by whether the theorems it cites are sealed here. Integrity.\n',
   research: '// @uuidna/research — RECOMPUTABLE RESEARCH: deep research through the imprint codec, corroboration and\n// publication scans, book/movie/record/standard audits, gated publications, the reporter’s method, prior art,\n// the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, the\n// reasoner, and reflections. Provenance and structure. Integrity.\n',
-  quantum: '// @uuidna/quantum — the CLASSICAL, EXACT quantum surface: the Gaussian-integer state-vector simulator\n// (honestly bounded — the exact classical 2^n of theorem n_qubit_dimension), quantum messages / voting / receipts, the sailing fleet, the news\n// portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura,\n// quantum analytics, and the uuidnaOS provenance boundary (provenance and integrity. Integrity.\n',
+  quantum: '// @uuidna/quantum — the CLASSICAL, EXACT quantum surface: exact Gaussian-integer state-vector computation\n// (honestly bounded — the exact classical 2^n of theorem n_qubit_dimension), quantum messages / voting / receipts, the sailing fleet, the news\n// portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura,\n// quantum analytics, and the uuidnaOS provenance boundary (provenance and integrity. Integrity.\n',
   mcp: '// @uuidna/mcp — the MCP SERVER package: the `uuidna-mcp` stdio bin (re-served from the root dist) plus the\n// I/O boundary the server stands on — the sanitizers and the reeducating harness. Integrity.\n',
   edge: '// @uuidna/edge — the DEPLOYMENT SURFACE: the Cloudflare bindings audit (committed config. Integrity.\n',
 }

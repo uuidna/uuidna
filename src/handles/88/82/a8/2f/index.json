@@ -1,0 +1,12 @@
+{
+  "handle": "8882a82f",
+  "address": "8882a82f-6165-8300-8317-62080c10759d",
+  "kind": "chunk",
+  "keys": [
+    "budget_census_2d552f1f"
+  ],
+  "statement": "famTally (fun a b => budget (arow a b) == (4, 5)) = 18 ∧ famTally (fun a b => budget (arow a b) == (5, 4)) = 30 ∧ famTally (fun a b => budget (arow a b) == (6, 3)) = 6 ∧ famTally (fun a b => budget ((arow a b).map dz) == budget (arow a b)) = 30 ∧ fallingOf (arow 1 3) = 4 ∧ fallingOf ((arow 1 3).map dz) = 5",
+  "files": [
+    "Involution2d552f1f.lean"
+  ]
+}

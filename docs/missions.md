@@ -3,15 +3,15 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'282 open'" />
+# Missions <Badge type="tip" :text="'285 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**282 missions** — 28 seal-finding · 134 decide-bound · 120 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`bfa86a3dc6a80476`) and the research ledger. The captain of every mission
+**285 missions** — 28 seal-finding · 134 decide-bound · 123 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`7dee8e508acb75d5`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -28,12 +28,12 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | --- | ---: | ---: | ---: | --- |
 | wave | 67076 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
+| involution | 11 | 5 | 7 | `fdb12218` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | vortex | 24 | 4 | 6 | `fa48a04a` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
 | coins | 27 | 3 | 5 | `1b48b046` |
 | foundational | 3 | 2 | 4 | `fdb12218` |
-| involution | 4 | 2 | 4 | `fdb12218` |
 | reflection | 21 | 3 | 4 | `c5c25997` |
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
 | neuro | 19 | 2 | 3 | `c912e182` |
@@ -730,7 +730,7 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 120 open
+## Give a theorem its symbol leg — 123 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
@@ -1161,6 +1161,18 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
 - **`06f561bd`** give 4096 theorems in HexSpan9.lean the symbol leg
   <br><small>deliverable: 4096 theorems in HexSpan9.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`enumeration_hex4_8000`](/theorem/enumeration_hex4_8000) · [`enumeration_hex4_8001`](/theorem/enumeration_hex4_8001) · [`enumeration_hex4_8002`](/theorem/enumeration_hex4_8002) · [`enumeration_hex4_8003`](/theorem/enumeration_hex4_8003) · [`enumeration_hex4_8004`](/theorem/enumeration_hex4_8004) · [`enumeration_hex4_8005`](/theorem/enumeration_hex4_8005) · [`enumeration_hex4_8006`](/theorem/enumeration_hex4_8006) · [`enumeration_hex4_8007`](/theorem/enumeration_hex4_8007) · [`enumeration_hex4_8008`](/theorem/enumeration_hex4_8008) · [`enumeration_hex4_8009`](/theorem/enumeration_hex4_8009) · [`enumeration_hex4_800a`](/theorem/enumeration_hex4_800a) · [`enumeration_hex4_800b`](/theorem/enumeration_hex4_800b) · +4084 more in the wing</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`f4985b92`** give 2 theorems in Involution2d552f1f.lean the symbol leg
+  <br><small>deliverable: 2 theorems in Involution2d552f1f.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`involution_2d552f1f`](/theorem/involution_2d552f1f) · [`budget_census_2d552f1f`](/theorem/budget_census_2d552f1f)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`2755c4b3`** give 2 theorems in Involutionb13fd37a.lean the symbol leg
+  <br><small>deliverable: 2 theorems in Involutionb13fd37a.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`reconciled_b13fd37a`](/theorem/reconciled_b13fd37a) · [`involution_b13fd37a`](/theorem/involution_b13fd37a)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`1710d18c`** give 3 theorems in Involutione92de628.lean the symbol leg
+  <br><small>deliverable: 3 theorems in Involutione92de628.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`not_dvd_of_bound_e92de628`](/theorem/not_dvd_of_bound_e92de628) · [`involution_e92de628`](/theorem/involution_e92de628) · [`anatomy_e92de628`](/theorem/anatomy_e92de628)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`5f0e226f`** give 353 theorems in Laws.lean the symbol leg
   <br><small>deliverable: 353 theorems in Laws.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

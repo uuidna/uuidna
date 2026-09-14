@@ -1,12 +1,11 @@
-// quantum-message — FUSE quantum states, theorems, and auras into a single message identity.
-// A quantum message encodes plaintext + theorem proof into a quantum superposition, signs it against
-// the ledger, and binds it to an A432 aura (content-addressed, deterministic). The same message
-// always folds to the same aura and quantum state for every observer — integrity without secrets.
+// quantum-message — bind a plaintext, a sealed theorem, a computed qubit state and an A432 aura into one identity.
+// encodeMessage refuses a theorem key the ledger does not carry; bits drawn from the key's uuid set a computed
+// 16-qubit state (X on a set bit, H otherwise); the plaintext enters only the id and the fold. The same plaintext and
+// key always fold to the same aura, state receipt and fold for every observer.
 //
 // Not a cipher — the cipher is the sealed ChaCha20-Poly1305 layer (../crypt.ts), rotating per step —
-// (everyone sees the aura, the state, and can rebuild it); not a signature (the
-// proof is sealed. A quantum message is a **witnessed message** — the witness
-// is a sealed theorem, and the message's quantum encoding is the proof that the witness was cited.
+// (everyone sees the aura, the state, and can rebuild it); not a signature. A quantum message is a **witnessed
+// message** — the witness is a sealed theorem the ledger carries, checked by key before anything is encoded.
 //
 // sealMessage/openMessage COMPLETE the crypto↔quantum fusion: secrecy from the ChaCha20-Poly1305 envelope
 // (crypt.ts, symmetric-only — no Shor target). MEASURED IN HEXBITS, the unit this architecture computes in: the
@@ -14,12 +13,11 @@
 // uuid. The cipher's post-quantum floor and an identifier's width are the same number in the same unit, sealed
 // as `key_floor_is_one_uuid` (256/4 = 64, 128/4 = 32, 32·4 = 128). In bits that reads as 256 falling to 128 and
 // the correspondence is invisible; bits are the borrowed unit here, hexbits the native one.
-// witness from the sealed theorem — quantum-encoded over the CIPHERTEXT envelope's address
-// plaintext, so anyone verifies the witness and the envelope's integrity while only the key holder reads.
-// The quantum encoding adds NO secrecy and NO quantum channel — not QKD; the cost stays the classical 2^n
-// CONFIRMED by theorem n_qubit_dimension.
+// sealMessage encodes the witness over the CIPHERTEXT envelope's address, not the plaintext, so anyone verifies the
+// witness and the envelope's integrity while only the key holder reads. Secrecy comes from the cipher alone.
 
-import { theorems } from '../../theorems/index.js'
+import { theorems, sealedAddressOf } from '../../theorems/index.js'
+import { lazyList } from '../../theorems/ledger-shape.js'
 import { toUuid, canonicalJson } from '../../address.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
@@ -34,7 +32,7 @@ export interface QuantumMessage {
   theoremKey: string          // the sealed theorem that backs this message
   theoremAddress: string      // the address of that theorem in the ledger
   aura: Aura                  // A432 color (content-addressed, deterministic)
-  quantum: QuantumState       // the encoded quantum superposition
+  quantum: QuantumState       // the computed qubit state and its receipt
   fold: string                // merkleGravity of (id, theorem address, quantum receipt)
   honest: string
 }
@@ -50,14 +48,18 @@ export interface QuantumState {
   receipt: string             // one-way hash of the state (tamper-evident)
 }
 
-const THEOREMS = theorems()
+// read on first use, not at import — the edge primes its ledger from storage before a call that needs it
+const THEOREMS = lazyList(() => theorems())
 
-/** encodeMessage(plaintext, theoremKey) → a quantum message that fuses the plaintext with a sealed theorem proof.
- *  The message encodes the theorem's "truth" in quantum superposition (Hadamard + controlled-X per theorem bit).
- *  The same plaintext + theorem always folds to the same aura and quantum state (deterministic, content-addressed). */
+/** encodeMessage(plaintext, theoremKey) → a message binding the plaintext to a sealed theorem. A key the ledger does
+ *  not carry is refused. Bits drawn from the key's uuid set a computed 16-qubit state: X on a set bit, H otherwise.
+ *  The plaintext enters only the id and the fold. Deterministic, content-addressed. */
 export function encodeMessage(plaintext: string, theoremKey: string): QuantumMessage {
-  const t = THEOREMS.find(x => x.key === theoremKey)
-  if (!t) throw new Error(`theorem ${theoremKey} not found in ledger`)
+  // the witness needs only the key's sealed address — asked of the sealed keys, so the gated envelope is built at the
+  // edge before (and without) the rows
+  const address = sealedAddressOf(theoremKey)
+  if (address === undefined) throw new Error(`theorem ${theoremKey} not found in ledger`)
+  const t = { address }
 
   const id = toUuid(plaintext + ':' + theoremKey)
   const aura = quantumAura(id)
@@ -70,9 +72,6 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   // Quantum state: start in |0…0⟩
   let state = ket0(qubits)
 
-  // For each qubit, apply Hadamard (superposition) then controlled-X based on theorem bit — fused into one
-  // O(2^n) pass via hadamardX when the bit is set (algebraically identical to hadamard-then-pauliX; see
-  // src/quantum/index.ts), instead of two full state-vector allocations for roughly half the qubits.
   // THE KEY BIT MUST SURVIVE MEASUREMENT, SO IT CANNOT LIVE IN A PHASE.
   //
   // This applied hadamardX where the bit was set and hadamard where it was not. Those are algebraically distinct
@@ -92,7 +91,7 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   // DELEGATED, not recomputed. This built the denominator as BigInt(1 << (state.scale * 2)), and with scale 16
   // that is 1 << 32, which WRAPS TO 1 in JavaScript's 32-bit bitwise arithmetic. Every probability came out as 1,
   // so every receipt was the same constant regardless of theorem or plaintext — a "tamper-evident" fold that was a
-  // constant function of qubit count. distribution() is the simulator's own, verified against Bell, GHZ and the
+  // constant function of qubit count. distribution() is the state-vector module's own, verified against Bell, GHZ and the
   // no-signalling marginals in exact BigInt. Reimplementing arithmetic that already exists correctly is what
   // produced the bug; this stops doing it.
   const probs = distribution(state)
@@ -114,17 +113,17 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
   return {
     id, plaintext, theoremKey, theoremAddress: t.address, aura, quantum, fold,
     honest:
-      'A quantum message is NOT a cipher or signature (the cipher is the sealed ChaCha20-Poly1305 layer) — it is a WITNESSED message. The plaintext is public ' +
-      '(everyone sees it), the aura is deterministic (same message → same color for all observers), and the quantum ' +
-      'state proves the theorem was cited (the basis encodes the theorem key, Hadamard guarantees superposition, ' +
-      'and the receipt is tamper-evident). Integrity— and when secrecy IS wanted, sealMessage carries ' +
+      'A quantum message is NOT a cipher or signature (the cipher is the sealed ChaCha20-Poly1305 layer) — it is a WITNESSED message: ' +
+      'a theorem key the ledger does not carry is refused. The plaintext is public (everyone sees it) and enters only the id and ' +
+      'the fold; the aura is deterministic (same message → same color for all observers); bits drawn from the theorem key\'s ' +
+      'uuid set the computed state (X on a set bit, H otherwise), and the receipt folds its exact distribution. When secrecy IS wanted, sealMessage carries ' +
       'this same envelope into the ChaCha20-Poly1305 layer, whose derivation rotates with every advancing step. ' +
       'The same message always folds to the same state and aura — recomputable by anyone.',
   }
 }
 
-/** measureMessage(message) → collapse the quantum superposition and return the measurement outcome as a bit-string.
- *  Every measurement is deterministic given the message (same message always gives the same measurement). */
+/** measureMessage(message) → a bit-string: per qubit, '1' where the exact marginal P(1) exceeds P(0), else '0'.
+ *  Nothing is sampled and nothing changes the state — the same message always gives the same string. */
 export function measureMessage(message: QuantumMessage): string {
   const state = message.quantum.state
   let outcome = ''
@@ -142,9 +141,9 @@ export function measureMessage(message: QuantumMessage): string {
 
 /** verifyMessage(message) → check that the message's aura, quantum state, and fold are consistent with the plaintext and theorem. */
 export function verifyMessage(message: QuantumMessage): { valid: boolean; reason: string } {
-  const t = THEOREMS.find(x => x.key === message.theoremKey)
-  if (!t) return { valid: false, reason: `theorem ${message.theoremKey} not found` }
-  if (t.address !== message.theoremAddress) return { valid: false, reason: 'theorem address mismatch' }
+  const address = sealedAddressOf(message.theoremKey)
+  if (address === undefined) return { valid: false, reason: `theorem ${message.theoremKey} not found` }
+  if (address !== message.theoremAddress) return { valid: false, reason: 'theorem address mismatch' }
 
   const expectedId = toUuid(message.plaintext + ':' + message.theoremKey)
   if (expectedId !== message.id) return { valid: false, reason: 'message id does not match plaintext + theorem' }
@@ -181,12 +180,10 @@ export function serializeMessage(message: QuantumMessage): {
 }
 
 // ── THE HARDWARE STATE TRAVELS WITH THE MESSAGE, FOR FORENSICS (the captain, 2026-09-14: "the message need to contain
-// the hardware state for forensics"). Which machine computed a message, and in what state — its die sensors, battery,
-// GPU and identity — is bound into the message's fold, so a reader can tell the device and its conditions, and any
-// altered reading breaks the fold. MEASURED IS ALWAYS TRUE (the captain: "measured always true"): every surface measures
-// the machine it runs on — the host its sensors and identity (mcp.ts hostHardware), the edge its Cloudflare location,
-// network and ray (worker.js) — and hands it in; a caller may add further readings, bound alongside. A message with no
-// measurement of its computing machine is never minted: bindHardware refuses rather than binding an absence. ──
+// the hardware state for forensics"). The object the surface hands in, marked measured: true, is bound verbatim into
+// the fold, so any altered reading breaks it. MEASURED IS ALWAYS TRUE (the captain: "measured always true"): a caller
+// may add further readings, bound alongside, and an object not marked measured: true is refused — bindHardware never
+// binds an absence. ──
 const canonical = canonicalJson   // the one canonical form (address.ts)
 /** bindHardware(message, computedOn, supplied?) → the message with the computing machine's measured hardware state bound
  *  in: that state verbatim (and any caller-supplied readings), its content address, the message's own fold kept as

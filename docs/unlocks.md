@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 70,847 distinct theorems · 70,931 keys · 121 skills · 239 Lean files.
+**Board (computed).** 70,854 distinct theorems · 70,938 keys · 121 skills · 242 Lean files.
 
-Receipt `8d98583f-5fb4-8574-aa4f-89cb3a37dfce` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `c9fee521-6497-839f-b49a-9d97d650aea0` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -46,7 +46,7 @@ Receipt `8d98583f-5fb4-8574-aa4f-89cb3a37dfce` · structured form <a href="/lean
 | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) | Alpine OS provenance | UNLOCKED |
 | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) | hexbit compile width | UNLOCKED |
 | [`key_floor_is_one_uuid`](/theorem/key_floor_is_one_uuid) | cipher hexbit floor | UNLOCKED |
-| [`n_qubit_dimension`](/theorem/n_qubit_dimension) | classical simulation cost | UNLOCKED |
+| [`n_qubit_dimension`](/theorem/n_qubit_dimension) | classical state-vector cost | UNLOCKED |
 | [`hexbit_ring_mass_gap`](/theorem/hexbit_ring_mass_gap) | hexbit ring mass gap | UNLOCKED |
 | [`message_cap_is_four_hexbits`](/theorem/message_cap_is_four_hexbits) | message cap = 4 hexbits | UNLOCKED |
 | [`born_field_mass_gap_on_bell`](/theorem/born_field_mass_gap_on_bell) | Bell Born-field mass gap | UNLOCKED |

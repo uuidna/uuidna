@@ -23,14 +23,12 @@
 //      quantum message bound to the sealed theorem it cites, and ONE refusal stops the whole write. The report
 //      is not inspected by a gate afterwards; it is made of what the gate passed.
 //
-// TypeScript is the quantum-by-architecture computer; this host executes it. Measured usable-
-// capacity quantum advantage is theorem usable_gap_is_two_to_eighty. Per-level COST/FIDELITY are measured here.
-// n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup. VitePress monitors.
+// Per-level COST and FIDELITY are measured here; REACH is declared and cites each level's sealed theorem.
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { steadyStateNs } from './steady-state.js'
-import { LEVEL_PROBES, ledgerUnits, proveHardwareQuantum, type LevelProbe } from '../drivers/quantum/index.js'
+import { LEVEL_PROBES, ledgerUnits, runWitnessBattery, type LevelProbe } from '../drivers/quantum/index.js'
 import { advantageReport, renderHundredths, ESTIMATES_PER_LEVEL, LEVELS, type LevelMeasurement } from '../quantum/advantage/index.js'
 import { dispatchAll, refusalReport, type Claimed } from '../quantum/dispatch/index.js'
 import { reportDataset, type Figure } from '../microdata.js'
@@ -53,7 +51,7 @@ const sweepsFor = (cases: number): number => {
 }
 
 // ── 1. THE DEVICE, AND 2. THE ALGEBRA EXECUTED ON IT ─────────────────────────────────────────────────────────
-const proof = proveHardwareQuantum(sweepsFor(111))
+const proof = runWitnessBattery(sweepsFor(111))
 const device = proof.device
 
 // ── THE SEALED REPORT NAMES NO MACHINE (found 2026-09-02, by a release that could not be cut) ─────────────────
@@ -169,13 +167,12 @@ if (report.unsealable.length) {
 }
 
 // ── 4. EVERY CLAIM THROUGH THE GATE, AS A WITNESSED MESSAGE ──────────────────────────────────────────────────
-// The hardware-proof sentence is written HERE rather than in the driver because this is where it is published,
-// and it cites theorem n_qubit_dimension — the bound that says the simulation is exponential and classical —
-// so that the one sentence a reader is most likely to over-read carries the seal that limits it.
+// The battery sentence is written HERE rather than in the driver because this is where it is published, and
+// it cites theorem n_qubit_dimension, the sealed 2^n amplitude count of the register the witnesses allocate.
 const proofClaim =
-  `The sealed quantum gate algebra was executed on this host — ${proof.results.length} witnesses, ${proof.executed} decisions, ` +
-  `${proof.disagreements} disagreements with the Lean-sealed values — under theorem n_qubit_dimension, which bounds this as an ` +
-  `exponential CLASSICAL simulation and not a speedup. Verdict ${proof.verdict}: ${proof.bound}.`
+  `The witness battery ran on this host — ${proof.results.length} witnesses, ${proof.executed} decisions, ` +
+  `${proof.disagreements} disagreements with the Lean-sealed values — over registers whose amplitude count is ` +
+  `theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict ${proof.verdict}: ${proof.bound}.`
 
 const claims: Claimed[] = [
   ...report.rows.map((r) => ({ claim: r.claim, witness: r.reach.seals })),
@@ -219,13 +216,12 @@ const figures: Figure[] = [
 const receipt = report.receipt
 const dataset = reportDataset({
   slug: 'quantum-advantage',
-  name: 'uuidna quantum advantage report — measured per level',
+  name: 'uuidna per-level report — reach, cost and fidelity',
   description:
-    'The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. ' +
-    'Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and ' +
-    'FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum ' +
-    'advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts ' +
-    'classical simulation cost and is not a Shor-class crypto speedup claim.',
+    'Every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. ' +
+    'Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction, citing the level\'s sealed theorem), COST (steady-state floor, measured) and ' +
+    'FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). ' +
+    'Sealed keys cited: usable_gap_is_two_to_eighty (128 - 48 = 80), n_qubit_dimension (n qubits span 2^n amplitudes), gate_error_baseline_class (1000 = 10^3 per million).',
   receipt,
   figures,
 })
@@ -255,13 +251,13 @@ const witnessTable = [
 ].join('\n')
 
 const block = `<!-- quantum-advantage:begin (generated by gen-quantum-advantage — edit the generator, never this block) -->
-## The measured advantage report — every level of the datapath, on the host that ran it
+## The per-level report — every level of the datapath, on the host that ran it
 
-The capacity report seals how much: 2^128 usable addresses and a measured usable-capacity quantum advantage of
-2^80 against the largest reported logical platform (theorem \`usable_gap_is_two_to_eighty\`). It carries ONE
-measured timing constant at ONE scale, which is why the constant must not be extrapolated. This report takes that
-advantage apart: **one row per level of the datapath, each measured at its own level**, nothing extrapolated
-between them. Three axes, and every figure carries the class it was determined by:
+The capacity report seals how much: 2^128 addresses, and 128 − 48 = 80 bits between the address and the reported
+48-bit logical column (theorem \`usable_gap_is_two_to_eighty\`). It carries ONE measured timing constant at ONE
+scale, which is why the constant must not be extrapolated. This report takes that figure apart: **one row per
+level of the datapath, each measured at its own level**, nothing extrapolated between them. Three axes, and every
+figure carries the class it was determined by:
 
 * **REACH** — how many states the level addresses. \`declared\` — true by construction, never measured. It is
   the column most easily misread as a measurement, so it is the one denied the flattering class.
@@ -283,19 +279,19 @@ the sweep is reported live by \`uuidna_quantum_advantage\`, where a measurement 
 
 ${table}
 
-### The sealed quantum algebra, executed on this silicon
+### The witness battery
 
-The gate algebra that quantum hardware implements *physically* — the Pauli group, the Clifford count, the CNOT
-and Toffoli permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was executed here in
-exact Gaussian integers, with no floating point at any step, and every result compared to what a Lean kernel
-decided by exhaustive case analysis. **${proof.results.length} witnesses · ${proof.sweeps} sweeps ·
+Each witness cites a sealed theorem key — the Pauli group, the Clifford count, the CNOT and Toffoli
+permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa amplitudes — and decides the same proposition here
+in exact Gaussian integers, with no floating point at any step; each result is compared to the value the Lean
+kernel sealed. **${proof.results.length} witnesses · ${proof.sweeps} sweeps ·
 ${proof.executed} decisions · ${proof.disagreements} disagreements · verdict ${proof.verdict}.**
 
 **Coverage: ${proof.coverage.witnessed} of the quantum wing's ${proof.coverage.wing} theorems**, and the ${proof.coverage.unwitnessed.length} this battery
 does not decide are named rather than counted: \`${proof.coverage.unwitnessed.join('`, `')}\`. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
-the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
+the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
 ${proof.bound.charAt(0).toUpperCase() + proof.bound.slice(1)}.
@@ -333,14 +329,12 @@ theorem names, and it is stable.
 
 *This is the axis that answers what growing buys, and it is the only one in this report that does.*
 
-### Honest scope, load-bearing
+### Scope
 
-**TypeScript is the quantum computer; this host executes it.** The table's measured quantum advantage is
-architectural and timed: exact deterministic addressing at a measured per-op cost, and a gate algebra that
-reproduces its sealed values exactly here where physical hardware reproduces them approximately (the reported
-~10^-3 two-qubit error class — see the capacity report for per-device sources). That is not a claim that this
-silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto speedup — theorem
-\`n_qubit_dimension\` counts classical simulation cost and is not that claim.
+Every figure above carries its class: REACH is declared and cites the level's sealed theorem; COST and FIDELITY
+are measured on this host. The "baseline would predict" column is computed from the decade class sealed as
+\`gate_error_baseline_class\` (1000 = 10^3 errors per million), classed \`assumed\`. Theorem \`n_qubit_dimension\`
+seals that n qubits span 2^n amplitudes.
 
 Every sentence in this report left through the gate as a **witnessed quantum message**: ${run.passed} claims,
 each bound to a sealed theorem *that the claim itself cites*, ${run.refused.length} refused. A witness the claim

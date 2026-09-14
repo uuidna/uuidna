@@ -33,7 +33,7 @@ This is the automated stream — {{ data.publishable }} notes over {{ data.theor
 
 A publication is not an opinion piece — it is a **fold of proofs into prose**. The rule is the same one that audits
 every word on this site: a claim earns its place by pointing at a sealed `/theorem/&lt;key&gt;`, or it is demarcated
-(*not · never · no · simulation · finite · bounded*), or it is flagged and refused until it is. That gate runs at
+(*not · never · no · classical · finite · bounded*), or it is flagged and refused until it is. That gate runs at
 build time; you are reading only what survived it.
 
 - **Read → write.** The note holds only what its linked proofs already sealed. It cannot say more than the ledger.

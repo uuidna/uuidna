@@ -3,7 +3,7 @@
   "@id": "urn:uuid:62720f63-6b3d-872b-82f5-30ce5b92e2be",
   "@type": "Dataset",
   "name": "uuidna quantum capacity report",
-  "description": "Total and usable quantum capacity per known model type, every figure carrying the technique it was determined by and the source that named it. Measured usable-capacity advantage sealed by usable_gap_is_two_to_eighty (2^80 vs largest reported logical platform); TypeScript computes the fold (handle_capacity_is_quantum_by_architecture).",
+  "description": "Reported physical and usable qubit figures per known model type, each carrying the technique it was determined by and the source that named it, beside the 2^128 address count. usable_gap_is_two_to_eighty decides 48 < 128, 128 − 48 = 80 and 2^128 = 2^80 · 2^48; handle_capacity_is_quantum_by_architecture decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128.",
   "url": "https://uuidna.com/quantum-capacity.jsonld",
   "identifier": "6a71ca14-93f1-842b-8d2e-6520f41156bb",
   "isAccessibleForFree": true,
@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-70931-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-70938-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-70931-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-70938-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -261,7 +261,7 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — work distributed",
-      "value": 70931,
+      "value": 70938,
       "unitText": "items",
       "measurementTechnique": "measured",
       "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
@@ -272,7 +272,7 @@
       "value": 102,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 7193, quietest held 7006 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 7194, quietest held 7003 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",
@@ -324,7 +324,7 @@
       "name": "executor seat — QPU",
       "value": "empty",
       "measurementTechnique": "declared",
-      "citation": "reverse hop: GET the same path on https://qpu.uuidna.com — This host's QPU lane is empty. The running circuit is qpu.uuidna.com, theorem quantum. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp."
+      "citation": "reverse hop: GET the same path on https://qpu.uuidna.com — Reverse hop to qpu.uuidna.com. Discovery is /.well-known/qpu.json. MCP is https://qpu.uuidna.com/mcp."
     }
   ]
 }

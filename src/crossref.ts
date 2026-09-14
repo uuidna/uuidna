@@ -139,8 +139,8 @@ export interface CandidateSource { citation: Citation; judged: false }
  *  SUPPORTS a claim from one that DENIES it — the gate stamped "uuidna achieves quantum advantage" VERIFIED
  *  against theorem n_qubit_dimension — whose own name ends "it is NOT a speedup or a quantum advantage".
  *  WHAT THAT THEOREM STATES is a dimension and a COST, not an advantage: [1,2,3,4,5] qubits span [2,4,8,16,32]
- *  amplitudes, which is precisely why simulating such a register classically is expensive. The bound is on the
- *  SIMULATION. Crossref has exactly that gap: it reports
+ *  amplitudes, which is precisely why holding such a register classically is expensive. The bound is on that
+ *  CLASSICAL COST. Crossref has exactly that gap: it reports
  *  what a publisher deposited, never whether the work bears on the claim citing it. Automating the attachment
  *  would reproduce that defect once per theorem instead of once.
  *

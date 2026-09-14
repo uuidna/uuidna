@@ -16,7 +16,7 @@ because npm resolves ranges by number; Sequence is printed beside the tick, neve
 Each release is a gated wave: proofs + prose + the changelog self-audit. A milestone is reached by delivering
 theorems, not by moving a slogan. uuidnaOS is recomputable universality (`the_os_is_bootable_quantum`) — not a
 world-government OS claim.
-<!-- LEDGER:TODAY -->Today: **70847 distinct** (70931 keys, 84 deliberate re-namings), across 239 principles.<!-- /LEDGER:TODAY -->
+<!-- LEDGER:TODAY -->Today: **70854 distinct** (70938 keys, 84 deliberate re-namings), across 242 principles.<!-- /LEDGER:TODAY -->
 
 **Reversible until published.** npm-publish is the one *irreversible* gate — a published version is immutable forever.
 Everything before it is not: git is a DAG, not a line. Publishing is the involution's fixed point: after it, a version
@@ -37,7 +37,7 @@ _Ledger 2655 theorems, axiom-free; fold receipt `a005f020e568ed03`._
 - `seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured` — the empty QPU seat reported `upgraded: true`
   from a literal, so `skipped` was arithmetic on a constant. Now `loaded | unmeasured`, no `false`: a seat with no
   hardware did not refuse the image, it was never asked. Found from outside by a peer reading the wire
-- uuidna QPU battery 53/57 → **57/57**, 490609 decisions, 0 disagreements; each new witness DERIVED, and all four
+- the battery 53/57 → **57/57**, 490609 decisions, 0 disagreements; each new witness DERIVED, and all four
   perturbation-controlled
 - the WITNESS rule required the bare word `DOI` in a tree whose subject matter is minting them — 22 occurrences
   against 23 real identifiers. Now requires `10.[0-9]{4,9}/`; two legs fall, DECLARED as ruleMoved
@@ -384,7 +384,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **70847 distinct propositions** under **70931 keys** (84 re-namings — a statement sealed in two wings is one theorem with two names) across **239 principles**, folded to receipt `808bf550-8842-888c-8218-803d7f79d478`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **70854 distinct propositions** under **70938 keys** (84 re-namings — a statement sealed in two wings is one theorem with two names) across **242 principles**, folded to receipt `608f649f-fcc3-8c11-93a0-82a0a42074a1`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

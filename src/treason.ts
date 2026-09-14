@@ -86,9 +86,12 @@ export function catchTraitors(): TreasonReport {
   // to its own key ('theorem <key> …') and IS a by-decide proof — a placeholder or tampered lean caught fast, offline,
   // without the Lean toolchain (that full re-verify is the reconcile's job; this is the millisecond structural catch,
   // brought forward of the slow verify, exactly like the axiom-witness and the prose gate).
+  // THE PROOF IS THE ROW'S OWN, READ FROM THE ROW (2026-09-14): a typed `by decide` refused the court's first
+  // involutions, whose kernel-accepted, axiom-free proofs run exact/intro/unfold; the check still refuses a lean that
+  // names another key, and one whose proof is not the tactic the sealed row records.
   checksRun.push('seal-integrity')
-  for (const t of T) if (!(t.lean.startsWith('theorem ' + t.key + ' ') || t.lean.startsWith('theorem ' + t.key + ':')) || !t.lean.includes(':= by decide'))
-    traitors.push({ kind: 'seal-integrity', detail: `${t.key} — its lean does not bind to the key or is not a by-decide proof (a placeholder or key↔lean desync the DNA fold misses)` })
+  for (const t of T) if (!(t.lean.startsWith('theorem ' + t.key + ' ') || t.lean.startsWith('theorem ' + t.key + ':')) || !t.lean.includes(':= by ' + t.tactic))
+    traitors.push({ kind: 'seal-integrity', detail: `${t.key} — its lean does not bind to the key or does not carry the proof its sealed row records (a placeholder or key↔lean desync the DNA fold misses)` })
 
   // 8) ARCHITECTURE — court/gates speak only hexbit for mass gap + message cap. A twin seal on Quantum.lean
   // (or any other wing) is a traitor filtered by architecture; forbidden aliases (qft_mass_gap, …) never admit.

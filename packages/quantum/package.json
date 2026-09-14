@@ -1,7 +1,7 @@
 {
   "name": "@uuidna/quantum",
   "version": "0.1.0",
-  "description": "The classical, exact quantum surface of uuidna: the Gaussian-integer state-vector simulator (honestly bounded), quantum messages/voting/receipts, the sailing fleet, the news portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura, quantum analytics, and the uuidnaOS provenance boundary.",
+  "description": "The classical, exact quantum surface of uuidna: exact Gaussian-integer state-vector computation (honestly bounded), quantum messages/voting/receipts, the sailing fleet, the news portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura, quantum analytics, and the uuidnaOS provenance boundary.",
   "type": "module",
   "license": "CC-BY-NC-ND-4.0",
   "author": "Tsvetan Rouschev <ceccec@psg.bg>",

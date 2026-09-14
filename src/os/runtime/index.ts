@@ -1,6 +1,6 @@
 // @non-harmonic: host binary execution — verify-then-run at the os/ boundary; may spawn subprocesses.
 //
-// Layer 2 beside uuidna_exec (Layer 1). uuidna_exec simulates on the lattice; uuidna_run executes pinned
+// Layer 2 beside uuidna_exec (Layer 1). uuidna_exec computes on the lattice (catalogue + session state); uuidna_run executes pinned
 // Alpine bytes on the host when a rootfs tarball is present and verified. Output is DATA (content-addressed),
 // never folded into the boot hexbit image (theorem the_os_is_bootable_quantum stays true for Layer 1).
 import { join } from './hostnode/index.js'

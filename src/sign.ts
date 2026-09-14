@@ -12,9 +12,8 @@ import { slimGate } from './slimgate.js'
 import { overreachOf } from './prose-gate.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { THEOREMS } from './theorems/index.js'
-
-const SEALED = new Map(THEOREMS.map((t) => [t.key, t.address]))
+// the sealed addresses are asked per citation, not mapped at import: the edge answers them from its baked root
+import { sealedAddressOf } from './theorems/index.js'
 
 export interface CommitSignature {
   signed: boolean            // true iff slimGate VERIFIED — cites a real sealed theorem AND none fabricated
@@ -36,7 +35,7 @@ export function signCommit(message: string): CommitSignature {
   const address = toUuid(message)
   const cited = g.real
   const signed = g.verdict === 'VERIFIED'                                       // cites a real sealed theorem, none fabricated
-  const fold = merkleGravity([address, ...cited.map((k) => SEALED.get(k) as string)]) // one root, through the ÷0 gravity fold
+  const fold = merkleGravity([address, ...cited.map((k) => sealedAddressOf(k) as string)]) // one root, through the ÷0 gravity fold
   const reason = g.fabricated.length
     ? `REFUSED — cites a proof NOT in the ledger: ${g.fabricated.join(', ')}. A commit cannot be signed true on a fabricated citation.`
     : cited.length

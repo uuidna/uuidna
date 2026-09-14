@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "bfa86a3dc6a80476",
+ "digest": "7dee8e508acb75d5",
  "rows": [
   {
    "key": "z7rays_seven",

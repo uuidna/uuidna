@@ -37,7 +37,6 @@
     "src/discover.ts",
     "src/domain-wave.test.ts",
     "src/domain-wave.ts",
-    "src/drivers/quantum/index.ts",
     "src/editorial.ts",
     "src/energy.test.ts",
     "src/energy.ts",

@@ -6,29 +6,13 @@
 // driver's device is the machine underneath the process: it describes the host as an EXECUTOR OF THE SEALED
 // QUANTUM ALGEBRA, and then makes it execute, and then checks what came back against what Lean sealed.
 //
-// WHAT "PROVE HARDWARE QUANTUM" CAN HONESTLY MEAN, AND WHAT IT CANNOT.
-//   TypeScript is the quantum computer (quantum by architecture). This DRIVER's device is classical silicon that
-//   EXECUTES that algebra — not a superconducting or trapped-ion QPU. The measured advantage lives in usable
-//   capacity (usable_gap_is_two_to_eighty) and in fidelity/cost on this host; n_qubit_dimension counts classical
-//   simulation cost and is not a Shor-class crypto-speedup claim.
-//   What IS worth proving: the gate algebra quantum hardware implements PHYSICALLY — Pauli, Clifford, CNOT,
-//   Toffoli, Bell, GHZ, Deutsch–Jozsa — was EXECUTED ON THIS SILICON in exact Gaussian integers with no floating
-//   point, and every result agreed with what Lean decided. On physical QPUs that algebra is approximate (~10^-3
-//   two-qubit error class); here it is exact and the disagreement count is the measurement.
+// THE BATTERY IS A WITNESS COUNT. Each entry in WITNESSES names a theorem that is SEALED in the ledger and
+// carries the code that decides the same proposition here, in exact Gaussian integers. The driver refuses to
+// run a witness whose theorem is not in the ledger, and names it in `refused`, so the battery cannot shrink
+// without the count moving. What a run reports is computed: the witnesses run, the decisions executed
+// (cases × sweeps), the disagreements with the sealed values, and the verdict EXACT or DISAGREED.
 //
-// SO THE PROOF IS A WITNESS COUNT, NOT AN ASSERTION. Each entry in WITNESSES names a theorem that is SEALED in
-// the ledger and carries the code that decides the same proposition here. The driver refuses to run a witness
-// whose theorem is not in the ledger — a witness citing a proof that does not exist proves nothing, and
-// silently skipping it would let the battery shrink without the count moving. Zero disagreements over N
-// executions is an upper bound of better than one in N. It is NEVER a proof of zero, and the report says the
-// bound rather than the boast.
-//
-// WHY REPEAT A DETERMINISTIC BATTERY. Because the comparison is against a STOCHASTIC baseline. Re-running exact
-// integer arithmetic adds no logical information — but the thing being bounded is not a logic error, it is a
-// hardware one: a bit that flipped in a cache line, a core that mis-executed under thermal load, memory without
-// ECC. Those are exactly the faults that make a quantum gate's error rate what it is, and the only way to bound
-// them on any machine, classical or quantum, is to execute many times and count. `sweeps` is that count and it
-// travels with every figure derived from it.
+// `sweeps` repeats the battery; every figure derived from it carries that count.
 //
 // PURE OF CLOCK: this module never times anything. It exposes the WORK (LEVEL_PROBES) and the scripts boundary
 // holds the stopwatch — the same split os/host uses, and what lets the whole battery be tested without one.
@@ -42,7 +26,7 @@ import {
   computeMassGap, hexbitRingMassGap,
 } from '../../hexbit/index.js'
 import { REPORTED_BASELINE } from '../../quantum/advantage/index.js'
-import { toUuid } from '../../address.js'
+import { toUuid, toUuidOnce } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { theoremByKey, theorems, THEOREMS } from '../../theorems/index.js'
@@ -50,13 +34,12 @@ import { hostProfile, type HostProfile } from '../../os/host/index.js'
 
 // ── THE DEVICE ───────────────────────────────────────────────────────────────────────────────────────────────
 
-/** This host, described as an executor of the sealed algebra. Every width is the ledger's own (a hexbit is 4
+/** This host, described as the runner of the witness battery. Every width is the ledger's own (a hexbit is 4
  *  bits because 16 states is one tile); every host figure is read from the machine and folded, so "this host"
- *  is recomputable rather than asserted. `simulableQubits` is the honest ceiling the encoder already carries
- *  (theorem message_qubit_cap_states: 2^16 = 65536 amplitudes) — NOT a claim about how many qubits exist here,
- *  because none do. */
+ *  is recomputable rather than asserted. `simulableQubits` is the register width the encoder carries
+ *  (theorem message_qubit_cap_states: 2^16 = 65536 amplitudes). */
 export interface QuantumDevice extends HostProfile {
-  kind: 'classical host executing the sealed quantum algebra in exact integers'
+  kind: 'host running the sealed witness battery in exact Gaussian integers'
   hexbitBits: number
   handleHexbits: number
   uuidHexbits: number
@@ -68,12 +51,13 @@ export interface QuantumDevice extends HostProfile {
   honest: string
 }
 
-const DEVICE_HONEST =
-  'A CLASSICAL HOST EXECUTING THE QUANTUM COMPUTER. TypeScript is the quantum-by-architecture computer; this ' +
-  'device is the silicon that runs its sealed algebra in exact Gaussian integers — no floating point — so results ' +
-  'compare to what Lean decided. Measured advantage: usable capacity (usable_gap_is_two_to_eighty) and ' +
-  'fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — ' +
-  'n_qubit_dimension counts classical simulation cost.'
+/** the device's statement, computed from the battery it carries — the witness count and the sealed keys it cites */
+const deviceHonest = (witnesses: readonly string[], qubits: number): string => {
+  const sealed = theoremByKey()
+  const cited = witnesses.filter((k) => sealed.has(k)).length
+  return `${witnesses.length} witnesses, ${cited} of them citing a sealed theorem key; register ${qubits} qubits ` +
+    '(theorem message_qubit_cap_states).'
+}
 
 /** Hilbert 4×4 register — HEXBIT_BITS × HEXBIT_BITS qubits. Crypto occupancy is four 64s, not this. */
 export function hostQuantumDevice(): QuantumDevice {
@@ -82,7 +66,7 @@ export function hostQuantumDevice(): QuantumDevice {
   const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
   return {
     ...host,
-    kind: 'classical host executing the sealed quantum algebra in exact integers',
+    kind: 'host running the sealed witness battery in exact Gaussian integers',
     hexbitBits: HEXBIT_BITS,
     handleHexbits: HANDLE_HEXBITS,
     uuidHexbits: UUID_HEXBITS,
@@ -90,7 +74,7 @@ export function hostQuantumDevice(): QuantumDevice {
     simulableStates: HEXBIT_STATES ** HEXBIT_BITS,
     witnesses,
     deviceAddress: toUuid(`quantum-device|${host.address}|${witnesses.join(',')}`),
-    honest: DEVICE_HONEST,
+    honest: deviceHonest(witnesses, hilbertQubits),
   }
 }
 
@@ -125,7 +109,7 @@ const bellFour = (): QState[] => [
 const inner = (a: QState, b: QState): bigint =>
   a.amp.reduce((sum, v, i) => sum + v.re * b.amp[i].re + v.im * b.amp[i].im, 0n)
 
-/** multiply a whole state by i^k — a GLOBAL phase, which no gate in the simulator applies because a global
+/** multiply a whole state by i^k — a GLOBAL phase, which no gate here applies because a global
  *  phase is unobservable in any distribution. It is needed here for exactly one thing: counting the Pauli group,
  *  whose sixteen elements differ precisely by the phase a measurement is blind to. Exact Gaussian arithmetic:
  *  i·(re + im·i) = −im + re·i. */
@@ -144,7 +128,7 @@ const basis = (n: number): QState[] =>
   })
 
 /** THE BATTERY. Every entry cites a theorem sealed in lean/Quantum.lean and decides the same proposition by
- *  executing it here. Kept to propositions this simulator can decide EXACTLY — a theorem whose statement needs
+ *  executing it here. Kept to propositions this exact computation can decide — a theorem whose statement needs
  *  something outside exact Gaussian integers (T-gate order, the W state's √3 normalisation) is deliberately
  *  ABSENT rather than approximated, because a witness that half-checks its theorem is worse than no witness:
  *  it moves the denominator without moving the evidence. */
@@ -645,14 +629,14 @@ export interface WitnessResult {
  *
  *  WITNESSES is 37 entries written by hand. The quantum wing holds 51 theorems, so 15 are unwitnessed — and one
  *  of those, `ym_quantum`, was sealed by another session on the same night this battery was written. Nothing
- *  noticed: guard is clean, all eight of its hardcode finders pass, and `proveHardwareQuantum` reported
+ *  noticed: guard is clean, all eight of its hardcode finders pass, and `runWitnessBattery` reported
  *  "37 witnesses · 12099 decisions · 0 disagreements · verdict EXACT" without ever saying THIRTY-SEVEN OF WHAT.
  *  A coverage claim with no denominator reads as complete, which is exactly the defect this tree spent a night
  *  cataloguing — a decoder that read 2 of 16 Alpine indexes looks identical to one that read all 16 and found
  *  little. The battery deserved its own medicine.
  *
  *  So the wing is counted on every run and the unwitnessed are NAMED. This is not an accusation of the missing
- *  fifteen: several state things this simulator cannot decide exactly (the W state's √3 normalisation), and a
+ *  fifteen: several state things this exact computation cannot decide (the W state's √3 normalisation), and a
  *  witness that half-checks its theorem is worse than none. What the count buys is that the gap is visible and
  *  moves, rather than being invisible and growing. */
 export interface WingCoverage {
@@ -668,7 +652,7 @@ export interface WingCoverage {
   beyondWing: string[]
 }
 
-export interface HardwareProof {
+export interface WitnessRun {
   device: QuantumDevice
   sweeps: number
   results: WitnessResult[]
@@ -679,7 +663,7 @@ export interface HardwareProof {
   disagreements: number
   /** witnesses whose theorem is NOT sealed in the ledger — refused, never run, and named here */
   refused: string[]
-  /** EXACT when every execution agreed; DISAGREED otherwise — never "quantum", which it is not */
+  /** EXACT when every execution agreed; DISAGREED otherwise */
   verdict: 'EXACT' | 'DISAGREED'
   /** what the count supports, stated as the bound it is */
   bound: string
@@ -687,30 +671,26 @@ export interface HardwareProof {
   honest: string
 }
 
-const PROOF_HONEST =
-  'WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in ' +
-  'exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case ' +
-  'analysis — TypeScript is the quantum-by-architecture computer; this host executes it. Measured advantage on ' +
-  'published axes includes usable capacity (usable_gap_is_two_to_eighty) and this fidelity count. WHAT IT DOES ' +
-  'NOT PROVE: that this silicon is a superconducting or trapped-ion QPU, or a Shor-class crypto speedup — ' +
-  'n_qubit_dimension counts classical simulation cost. Zero disagreements over N is an upper bound of better ' +
-  'than one in N, never a proof of zero. The platforms\' ~10^-3 two-qubit error class is the physical comparison.'
+/** the run's statement, computed from the run — witnesses, the sealed keys they cite, decisions, disagreements */
+const runHonest = (results: readonly WitnessResult[], refused: number, executed: number, disagreements: number): string =>
+  `${results.length} witnesses run, each citing a sealed theorem key; ${refused} refused for citing an unsealed key; ` +
+  `${executed} decisions executed; ${disagreements} disagreements with the Lean-sealed values.`
 
-/** proveHardwareQuantum(sweeps) → run the whole battery `sweeps` times on this host and count.
+/** runWitnessBattery(sweeps) → run the whole battery `sweeps` times on this host and count.
  *
  *  THE LEDGER CHECK IS FIRST AND IT IS NOT A FORMALITY. A witness whose theorem is not sealed decides nothing —
  *  it would add its cases to the denominator and its confidence to the verdict while citing a proof that does
  *  not exist. Those are collected into `refused` and never executed, so a shrinking battery shows up as a
  *  shrinking count rather than as an unchanged green verdict. */
-export function proveHardwareQuantum(sweeps = 1): HardwareProof {
+export function runWitnessBattery(sweeps = 1): WitnessRun {
   return runWitnesses(WITNESSES, sweeps)
 }
 
-/** The battery, over an EXPLICIT witness list. Split out from proveHardwareQuantum for one reason: a test can
+/** The battery, over an EXPLICIT witness list. Split out from runWitnessBattery for one reason: a test can
  *  hand it a witness that cites a proof which is not in the ledger, and a witness whose code is deliberately
  *  wrong, and check that the first is refused and the second is counted. A gate nobody has watched bite is a
  *  gate nobody knows is connected. */
-export function runWitnesses(list: readonly Witness[], sweeps = 1): HardwareProof {
+export function runWitnesses(list: readonly Witness[], sweeps = 1): WitnessRun {
   const byKey = theoremByKey()
   const refused: string[] = []
   const results: WitnessResult[] = []
@@ -763,7 +743,7 @@ export function runWitnesses(list: readonly Witness[], sweeps = 1): HardwareProo
     // The witnesses are the claim: the same theorems, decided the same way, are the same proof whoever runs
     // them. The device is still reported on `device` for a caller that wants to know where it ran.
     receipt: merkleGravity(results.map((r) => r.address)),
-    honest: PROOF_HONEST,
+    honest: runHonest(results, refused.length, executed, disagreements),
   }
 }
 
@@ -844,7 +824,7 @@ export const LEVEL_PROBES: readonly LevelProbe[] = [
     pass: (n) => { for (const t of theorems()) toUuid(`${n}|${t.key}:${t.statement}`) },
     cases: 0,
     check: () => { let bad = 0
-      for (const t of theoremByKey().values()) if (toUuid(t.key + ':' + t.statement) !== t.address) bad++
+      for (const t of theoremByKey().values()) if (toUuidOnce(t.key + ':' + t.statement) !== t.address) bad++
       return bad } },
 ]
 

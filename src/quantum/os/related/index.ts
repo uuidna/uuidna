@@ -24,7 +24,7 @@
 // offline over sealed data and can be recomputed by anyone.
 import { toUuid } from '../../../address.js'
 import { defaultInstalls } from '../index.js'
-import { LEAN_LEDGER } from '../../../theorems/generated.js'
+import { LEAN_LEDGER } from '#ledger'
 
 export type Verdict = 'PORTED' | 'QUOTED' | 'UNDECIDED'
 export interface RelatedPackage { name: string; verdict: Verdict; why: string }

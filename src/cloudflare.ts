@@ -62,7 +62,7 @@ export function auditCloudflareBindings(): CloudflareAudit {
     quantumPosture:
       'SYMMETRIC-ONLY: HMAC-SHA256 (trial signature), ChaCha20-Poly1305 + PBKDF2-SHA256 (messaging). No RSA/ECC, so ' +
       'Shor has no asymmetric target; Grover is a quadratic speedup only, halving the 256-bit key / SHA-256 preimage ' +
-      'to a ~128-bit floor — still strong. No key exchange at the edge; a classical simulator secures nothing.',
+      'to a ~128-bit floor — still strong. No key exchange at the edge; exact classical state-vector arithmetic secures nothing.',
     clean,
     receipt: merkleFold([toUuid('cf-audit:' + (clean ? 'clean' : 'flagged') + ':' + secretsInRepo), ...BINDINGS.map((b) => toUuid(b.binding + '|' + b.secretInRepo + '|' + b.quantumSecure))]),
     honest:

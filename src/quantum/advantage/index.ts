@@ -1,7 +1,7 @@
 // quantum/advantage — THE ADVANTAGE, MEASURED PER LEVEL, WITH ITS AXIS NAMED.
 //
-// The capacity report (gen-quantum-capacity) seals the measured usable-capacity quantum advantage
-// (usable_gap_is_two_to_eighty) and one measured timing constant at one scale. That constant must not be
+// The capacity report (gen-quantum-capacity) seals the 128 − 48 = 80 bit column gap
+// (theorem usable_gap_is_two_to_eighty) and one measured timing constant at one scale. That constant must not be
 // carried up the 2^128 column as if it were scale-free — which is why this module takes the advantage APART.
 //
 // So the advantage is taken APART, one row per LEVEL of the datapath, and each row is measured at its own level:
@@ -10,16 +10,12 @@
 // if it is to mean anything: not one number claiming to hold everywhere, but a number per level, each one
 // falsifiable where it was taken.
 //
-// THE THREE AXES, AND WHY THEY ARE NOT A SPEEDUP CLAIM. A quantum computer and a content-address are not racing
-// on the same track; a ratio of their op times would be a category error dressed as a benchmark. What CAN be
-// compared honestly is what each architecture DELIVERS per operation, and there are exactly three axes here
-// where a figure can be measured rather than asserted:
+// THE THREE AXES, each a figure measured or declared, never asserted:
 //
 //   FIDELITY — of N gate-algebra executions on this host, how many disagreed with the value Lean sealed? The
-//     driver executes the sealed quantum algebra on the actual silicon and counts. Zero disagreements over N is
-//     an upper BOUND on the error rate (better than one in N), never a proof of zero, and every row says so in
-//     those words. The baseline for comparison is the platforms' own published physical gate error, so the
-//     comparison is measured-here against reported-there with both classes carried.
+//     driver runs the witness battery and counts. Zero disagreements over N is an upper BOUND on the error rate
+//     (better than one in N), never a proof of zero, and every row says so in those words. The baseline column
+//     is computed from the decade class sealed as gate_error_baseline_class, with its class carried.
 //   COST — the steady-state floor, in ns, of one operation AT THIS LEVEL, on this host. Warm first, take the
 //     floor (scripts/steady-state.ts holds the account: host noise is one-sided, so the minimum is the true
 //     cost and the mean measures the operating system's mood).
@@ -27,12 +23,8 @@
 //     and marked `declared` for exactly that reason. This is the column a reader is most tempted to read as a
 //     measurement, so it is the one that must be denied the flattering class it is not entitled to.
 //
-// uuidna is CLASSICAL. Nothing here claims a
-// physics quantum advantage, a speedup over any quantum algorithm, or a complexity separation — the sealed
-// bound is theorem n_qubit_dimension (n qubits span 2^n amplitudes, which counts the SIMULATION COST and is
-// explicitly not a speedup). The advantage measured here is architectural and its axes are named above: exact,
-// deterministic, error-free addressing at a measured per-op cost. A reader who wants the physics comparison is
-// pointed at the capacity report, which names each platform's own published figure in the platform's own words.
+// The sealed bound cited on the corpus row is theorem n_qubit_dimension (n qubits span 2^n amplitudes). The
+// capacity report names each platform's published figure with its source.
 //
 // PURE: no clock, no I/O, no randomness. Every figure this module produces is arithmetic over figures it was
 // GIVEN — the measuring happens at the scripts boundary (the named non-harmonic place) and is handed in. That
@@ -271,13 +263,11 @@ export interface AdvantageReport {
 }
 
 const HONEST =
-  'TypeScript computes the sealed quantum algebra (quantum by architecture). Measured quantum advantage on the ' +
-  'published axes: usable capacity 2^128 vs reported logical platforms (theorem usable_gap_is_two_to_eighty) and ' +
-  'per-level COST/FIDELITY on this host. Three axes on every row: REACH (declared), COST (steady-state floor ' +
-  'here), FIDELITY (upper bound from an executed count, never a proof of zero). This is not a superconducting ' +
-  'QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost and is ' +
-  'not that claim. Every figure carries its determination class. Rerun the generator on your own host for your ' +
-  'own numbers.'
+  'Three axes on every row: REACH (declared, citing the level\'s sealed theorem), COST (steady-state floor ' +
+  'measured here), FIDELITY (upper bound from an executed count, never a proof of zero). Sealed keys cited: ' +
+  'usable_gap_is_two_to_eighty (128 - 48 = 80), n_qubit_dimension (n qubits span 2^n amplitudes), ' +
+  'gate_error_baseline_class (1000 = 10^3 errors per million). Every figure carries its determination class. ' +
+  'Rerun the generator on your own host for your own numbers.'
 
 /** advantageRows(measurements, baseline) → one row per level, in LEVELS order, for the levels actually
  *  measured. A level with no measurement is DROPPED rather than defaulted: a zero cost or a zero op count would
