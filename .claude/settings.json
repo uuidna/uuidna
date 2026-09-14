@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dist/scripts/court-hooks.js\"",
+            "timeout": 30,
+            "statusMessage": "Legal audit of this action…"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/dist/scripts/court-hooks.js\"",
+            "timeout": 120,
+            "statusMessage": "The court reads its pending orders…"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -471,8 +471,8 @@ the_claim_involution_fixes_only_the_honest_statement 27
 the_store_footprint_is_its_folders 27
 the_third_level_already_shares 27
 #Decipher.lean
-relabel3_preserves_bigram_collisions 19
-letter_order_moves_bigram_collisions 19
+relabel3_preserves_bigram_collisions 27
+letter_order_moves_bigram_collisions 27
 #Discover.lean
 involution_census_self_explains 27
 happy_ending_verified_cases 27

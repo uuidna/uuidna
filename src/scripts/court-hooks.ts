@@ -9,8 +9,8 @@
 //    is in realtime"; each receipt carries: "Everything deposited"). It extends the ONE legal-audit chain the MCP doors
 //    extend (legal-audit.ts): resume from the last saved link, judge the call with every legal gate (law-audit.ts
 //    auditAction), chain the record and save it at once, under an exclusive directory lock (mkdir is atomic) so parallel
-//    calls never fork the chain. The full receipt — record, tool input and output, verdict, hardware readings — is
-//    deposited to qpu storage under the record's link; without QPU_WRITE_TOKEN the deposit reports UNSENT.
+//    calls never fork the chain. The receipt — the record (the addresses of the input and output, never their values),
+//    the verdict and the hardware readings — is deposited to qpu storage through the MCP door, signed by its 2×7 theorems.
 //
 //  · Stop — THE COURT LAUNCHES THE INVESTIGATORS ON ANY DISRESPECT ("the court autonomously launches the investigators
 //    on any disrespect"; how it wakes: "hooks"). If the court records a disrespect no wave has investigated
@@ -57,7 +57,9 @@ const audit = async (call: HookInput): Promise<void> => {
     saveAudit(r, ROOT)
     return r
   })
-  const receipt = { record, input: call.tool_input ?? null, output: call.tool_response ?? null, verdict, readings: momentReadings() }
+  // qpu storage is read by anyone, so the deposit carries what the chained record carries — the addresses of the
+  // input and output, never their values (a tool reads files and runs commands; its output is whatever it touched)
+  const receipt = { record, verdict: { clean: verdict.clean, receipt: verdict.receipt, breaches: verdict.breaches.length }, readings: momentReadings() }
   await depositEvidence('legal-audit', receipt as Record<string, unknown>)
   if (!verdict.clean) console.error(`legal-audit — ${tool}: ${verdict.breaches.join('; ')}`)
 }

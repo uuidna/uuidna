@@ -499,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "dots-studio/dots-3-note-preview:free",
@@ -1416,8 +1416,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3-super-120b-a12b",
    "name": "NVIDIA: Nemotron 3 Super",
    "contextTokens": 262144,
-   "promptPrice": "0.000000085",
-   "completionPrice": "0.0000004"
+   "promptPrice": "0.00000008",
+   "completionPrice": "0.00000045"
   },
   {
    "id": "nvidia/nemotron-3-super-120b-a12b:free",
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek: DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000000352",
-   "completionPrice": "0.0000001056"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.0000001"
   },
   {
    "id": "~google/gemini-flash-latest",
@@ -3068,8 +3068,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000002025",
-   "completionPrice": "0.00001134"
+   "promptPrice": "0.0000021",
+   "completionPrice": "0.00001095"
   },
   {
    "id": "~openai/gpt-astra-latest",

@@ -1595,6 +1595,10 @@ export function dormantGaps(): Gap[] {
   }
   const wrangler = join(ROOT, 'wrangler.toml')
   if (existsSync(wrangler)) corpus += ' ' + fileText(wrangler) // [build] runs ship-build.js on deploy
+  // the shared Claude Code settings run their hook commands on every agent's tool calls and stops — an invocation as
+  // real as a git hook; the personal settings.local.json is untracked, so it wires nothing anyone else runs
+  const agentHooks = join(ROOT, '.claude', 'settings.json')
+  if (existsSync(agentHooks)) corpus += ' ' + fileText(agentHooks)
   // a sibling script naming this one counts as an invocation; the file naming ITSELF does not. Found 2026-08-19:
   // a script that documents its own usage as `node dist/scripts/<name>.js …` had that comment read
   // as proof something ran it — so ANY dormant script could exempt itself simply by naming its compiled form.

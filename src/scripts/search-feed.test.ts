@@ -59,12 +59,13 @@ test('a custom corpus is the set — order of listing does not move the receipt'
   assert.ok(r1.silent.includes('b'))
 })
 
-test('wired portals sit in the mill — ESCO chemistry, data.europa education, MathOverflow prime', () => {
+test('wired portals sit in the mill — ESCO chemistry, data.europa education, CORDIS quantum', () => {
   const portals = portalQueries()
   assert.ok(portals.some((q) => q.id === 'api-esco' && q.query === 'chemistry'))
   assert.ok(portals.some((q) => q.id === 'api-data-europa' && q.query === 'education'))
   assert.ok(portals.some((q) => q.id === 'api-cordis' && q.query === 'quantum'))
-  assert.ok(portals.some((q) => q.source === 'mathoverflow.net' && q.query === 'prime'))
+  // the research doors carry no per-source query — every door is asked the wave's topic (research/index.ts)
+  assert.ok(!portals.some((q) => q.source === 'mathoverflow.net'), 'no research door rides the mill with a query of its own')
   assert.ok(FEED_QUERIES.some((q) => q.query === 'chemistry'), 'ESCO probe is in the default mill')
   assert.ok(FEED_QUERIES.length >= MOST_SEARCHED.length)
 })

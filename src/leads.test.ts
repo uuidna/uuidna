@@ -35,7 +35,7 @@ test('ONE held lead REFUSES the release, however many are settled', () => {
   const c = leadCensus([read('ledger', [lead('ledger', 'the 42-state paired walk')], 17), read('expose', [], 23)])
   assert.equal(c.ready, false)
   assert.equal(c.open.length, 1)
-  assert.match(c.why, /still held/)
+  assert.match(c.why, /still in trial/)
   // the settled count must NOT buy off the open one — 17 settled and 1 open is not 94% ready, it is not ready
   assert.equal(c.settled, 40)
   assert.equal(c.ready, false, 'a release is not a percentage')
