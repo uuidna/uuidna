@@ -37,7 +37,7 @@ export function runEvidence(run: string, latest = 10, root?: string) {
   // fixed 51.85 °C, five gas-gauge values and NAND CH0 did not move between reads, and PMU tcal passed for the hottest
   // die on every receipt). Across the run a channel — its name and its position — whose value never changes is listed as
   // constant, and the range and the hottest channel are computed over the channels that varied. No name list: the
-  // readings decide. One receipt cannot show variation, so then every channel counts and the answer says so.
+  // readings decide. One receipt has no second value to vary from (by construction), so then every channel counts and the answer says so.
   const tempsOf = (r: Row): Temp[] => (Array.isArray(r.readings?.die) ? r.readings!.die as Temp[] : [])
   const channelOf = (d: Temp, i: number): string => `${d.source ? d.source.replace(/^die sensor /, '').replace(/, IOHIDEventSystem.*$/, '') : 'channel'} #${i}`
   const seen = new Map<string, Set<number>>()

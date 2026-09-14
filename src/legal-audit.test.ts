@@ -7,9 +7,9 @@ import { laws } from './laws.js'
 import { callTool } from './mcp.js'
 
 test('a call is audited with addresses only — no argument value reaches the record', () => {
-  const secret = 'sk-never-in-the-record-7f3a'
-  const r = auditCall('test', 'uuidna_sha256', { text: secret }, { digest: 'x' }, { clean: true, receipt: 'g' })
-  assert.ok(!JSON.stringify(r).includes(secret), 'the argument value is not in the record')
+  const argument = 'never-in-the-record-7f3a'
+  const r = auditCall('test', 'uuidna_sha256', { text: argument }, { digest: 'x' }, { clean: true, receipt: 'g' })
+  assert.ok(!JSON.stringify(r).includes(argument), 'the argument value is not in the record')
   assert.match(r.args, /^[0-9a-f-]{36}$/)
   assert.equal(r.laws, laws().receipt, 'the record carries the laws\' own receipt')
   assert.equal(r.allHold, laws().allHold)
@@ -48,7 +48,7 @@ test('manipulation is measured from the evidence: each drained call by its signa
   assert.equal(m.chain, null)
   // CONTROL: a record made to look clean after the fact is named as a break in the chain
   assert.equal(auditManipulation([a, { ...b, clean: true }, c, d]).chain?.at, 1)
-  // CONTROL: an empty log measures nothing — zero, never a clean bill it cannot back
+  // CONTROL: an empty log audited no call, so it reports zero — never a clean bill with no record behind it
   assert.equal(auditManipulation([]).audited, 0)
 })
 

@@ -10,7 +10,7 @@
 //   · the committed trial record is EXACTLY what buildTrialRecord() computes now — its seal binds the inputs, the
 //     docket and every field of every row, so a hand edit, a stale record or a skipped lead is refused by name.
 //
-// UNREAD IS NOT CLEAN. A HEAD that cannot be read reports conservation UNMEASURED as a gap, never an empty list.
+// UNREAD IS NOT CLEAN. A HEAD git does not answer for (a repository with no commit, a shallow or absent clone) reports conservation UNMEASURED as a gap, never an empty list.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { execFileSync } from 'node:child_process'
