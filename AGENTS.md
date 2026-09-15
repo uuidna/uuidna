@@ -45,3 +45,5 @@ Everything a session needs to remember lives in this repository, which is public
 - The tree is not edited while a landing holds it; the PreToolUse hook refuses the edit and names the holder.
 - Ask the captain only for credentials, irreversible outward acts, or a choice no theorem decides. The acts only the
   owner can take are listed in `.claude/lessons.md` § Owner decisions.
+- Compute through `npm run mcp -- <tool> '<json>'` (hosted door → qpu; `list <words>` finds a tool). Ad-hoc `node -e`
+  over dist/ is refused, and a missing door is recorded with `UUIDNA_MCP_GAP="<what is missing>"`.
