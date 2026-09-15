@@ -92,6 +92,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },
   { file: 'gen-alpine-overlay.js', args: [], note: 'npm/curl apps ported as Alpine overlay rows (omp/oh-my-pi); merged into catalogue at read time' },
   { file: 'gen-alpine-testing-leads.js', args: [], note: 'edge/testing packages that close latest-stable community deps; named gaps are filled, not kept open' },
+  { file: 'gen-remaining-alpine.js', args: [], note: 'lean/remaining-alpine-port.json — the port census for the mirrors as they stand, recorded here so the heal commits it and tests only read it' },
   { file: 'browser-apps-usable.js', args: [], note: 'browser usability seal — store mounts + man→app→hexbit + terminal man samples; orphans named, never padded' },
   { file: 'alpine-discovery.js', args: [], note: 'Alpine port census — harmonised/crypto/port bindings, harvest ore, axiom-hunt fold; desk proposes, never auto-seals' },
   { file: 'gen-models.js', args: [], note: 'the model comparison over all public live data — every figure\'s honesty class visible; every sealed claim an Models.lean cite' },

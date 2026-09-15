@@ -371,8 +371,10 @@ export function foldRemainingAlpine(
   }
 }
 
-/** portRemainingAlpine() → remaining catalogue after the sealed boot names, one major reverse-and-quantumize batch. */
-export function portRemainingAlpine(bitWidth: number = UUID_BITS): RemainingAlpinePort {
+/** portRemainingAlpine() → remaining catalogue after the sealed boot names, one major reverse-and-quantumize batch.
+ *  A cache miss is folded fresh and returned; only `{ record: true }` (gen-remaining-alpine, in the chain) writes the
+ *  entry, because the cache is a tracked file and a verification that wrote it moved the tree under its receipt. */
+export function portRemainingAlpine(bitWidth: number = UUID_BITS, opts: { record?: boolean } = {}): RemainingAlpinePort {
   const boot = defaultInstalls()
   const done = new Set(boot.specs.map((s) => s.name))
   // THE CACHE IS KEYED ON THE COMMITTED FILES, SO ONLY A WORLD LOADED FROM THEM MAY READ OR WRITE IT. A primed catalogue
@@ -382,7 +384,7 @@ export function portRemainingAlpine(bitWidth: number = UUID_BITS): RemainingAlpi
   const cached = readRemainingAlpineCache(key)
   if (cached) return cached
   const out = foldRemainingAlpine(remainingAvailableQueue(done), done, bitWidth)
-  writeRemainingAlpineCache(key, out)
+  if (opts.record) writeRemainingAlpineCache(key, out)
   return out
 }
 
