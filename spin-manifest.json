@@ -6,8 +6,8 @@
     "lean/axioms.json": "9dfb7a058e87874b",
     "docs/mcp.md": "38658302218882d5",
     "audit-citations.json": "9154e92e182e8171",
-    "support-audit.json": "4b1c384bb7ab8b03",
-    "research-leads.json": "5a949b9c4fd48e6d",
+    "support-audit.json": "ecd2a8eb113080c6",
+    "research-leads.json": "681918fa4214872c",
     ".zenodo.json": "5a08db48060b8598",
     "reports.json": "301c2ce225998f85",
     "lean/statement-index.json": "853c509f9c838bc2",
@@ -16,5 +16,5 @@
     "src/chunks": "f349d635d41f8a91",
     "lean": "5c6567a43b3b8562"
   },
-  "receipt": "14f6fab5-9495-8db9-a859-ea83228c35ec"
+  "receipt": "757fdbd4-dd7f-849a-8659-785df74d66a6"
 }

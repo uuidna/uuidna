@@ -16,7 +16,7 @@ const SEALED = { has: (k: string): boolean => sealedAddressOf(k) !== undefined, 
 
 /** the name continues past the match through a placeholder (`involution_<handle>`, `involution_${h}`, `{handle}`):
  *  what was matched is a cut-off prefix, not a key */
-const placeholder = (text: string, m: RegExpMatchArray): boolean => /[<${]/.test(text.charAt((m.index ?? 0) + m[0].length))
+const placeholder = (text: string, m: RegExpMatchArray): boolean => /[<${[]/.test(text.charAt((m.index ?? 0) + m[0].length))
 
 /** a Lean DECLARATION: `theorem NAME` opening its line (after a closing doc comment, an attribute, or a modifier) and
  *  followed by binders or its type's colon — it defines NAME and cites nothing. Prose that merely starts a line with
@@ -69,11 +69,21 @@ export function slimGate(claim: string): SlimVerdict {
   // (`theorem brand_new_x : 1 = 1 := rfl` in a written wing or snippet) defines its name — a new name is not yet sealed
   // by construction — and a PLACEHOLDER (`involution_<handle>`, `involution_${h}`) is a name cut where it continues.
   // 22 court orders from one wave were raised this way (court-hooks → law-audit → this gate).
-  // A Lean name may end in primes (two_coins'), and a primed name is its own theorem, never its stem; a prime that a
-  // letter follows is English (theorem two_coins's proof), so it stays outside the key.
-  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+(?:'+(?![A-Za-z0-9_]))?)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
+  // A Lean name may end in primes (two_coins'), and a primed name is its own theorem, never its stem. A prime that a
+  // letter follows is English (theorem two_coins's proof), a quote that closes a single-quoted literal on the same
+  // line is the string's (signCommit('Backed by theorem two_coins')), and a route carries no prime at all.
+  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
+  let quotes: Uint32Array | null = null   // single quotes since the line's start, counted once, only if a prime appears
+  const inLiteral = (at: number): boolean => {
+    if (quotes === null) {
+      quotes = new Uint32Array(claim.length + 1)
+      for (let i = 0; i < claim.length; i++) quotes[i + 1] = claim[i] === '\n' ? 0 : quotes[i]! + (claim[i] === "'" ? 1 : 0)
+    }
+    return quotes[at]! % 2 === 1
+  }
   for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,}(?:'+(?![A-Za-z0-9_]))?)/gi)) {
-    if (/[_0-9]/.test(m[1]) && !placeholder(claim, m) && !declared(claim, m)) keys.add(m[1])
+    const key = m[1]!.endsWith("'") && inLiteral(m.index ?? 0) ? m[1]!.replace(/'+$/, '') : m[1]!
+    if (/[_0-9]/.test(key) && !placeholder(claim, m) && !declared(claim, m)) keys.add(key)
   }
   const cited = [...keys]
   const real = cited.filter((k) => SEALED.has(k))

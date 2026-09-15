@@ -499,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "dots-studio/dots-3-note-preview:free",
@@ -3040,8 +3040,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000066",
-   "completionPrice": "0.00000198"
+   "promptPrice": "0.00000096",
+   "completionPrice": "0.00000288"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",

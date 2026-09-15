@@ -9,11 +9,19 @@ import { THEOREMS } from './theorems/index.js'
 const sealedKey = THEOREMS.find((t) => /_/.test(t.key) && !THEOREMS.some((u) => u.key === t.key + "'"))!.key
 
 test('a primed name is not verified by its sealed stem', () => {
-  for (const claim of [`proven in theorem ${sealedKey}'`, `see /theorem/${sealedKey}' here`]) {
-    const v = slimGate(claim)
-    assert.equal(v.verdict, 'UNVERIFIED', claim)
-    assert.deepEqual(v.fabricated, [sealedKey + "'"], claim)
-  }
+  const v = slimGate(`proven in theorem ${sealedKey}'`)
+  assert.equal(v.verdict, 'UNVERIFIED')
+  assert.deepEqual(v.fabricated, [sealedKey + "'"])
+})
+
+test('a quote that closes a single-quoted literal is the string\'s, and a route carries no prime', () => {
+  const quoted = slimGate(`signCommit('Backed by theorem ${sealedKey}')`)
+  assert.deepEqual(quoted.real, [sealedKey])
+  assert.deepEqual(quoted.fabricated, [])
+  assert.deepEqual(slimGate("edgeServes('/theorem/enumeration_hex4_zzzz')").fabricated, ['enumeration_hex4_zzzz'])
+  assert.deepEqual(slimGate(`see /theorem/${sealedKey}' here`).real, [sealedKey])
+  // CONTROL: a regex class after a route is a cut name, not a citation
+  assert.deepEqual(slimGate('/theorem/enumeration_hex4_[0-9a-f]{4}').cited, [])
 })
 
 test('a declaration of a primed name cites nothing', () => {
