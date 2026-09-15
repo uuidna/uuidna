@@ -31,8 +31,20 @@ const referencesFor = (file: string): string => {
 import { join } from 'node:path'
 import { theorems } from '../index.js'
 import { ROOT } from './api.js'
+import { isPagelessFile } from '../theorems/index.js'
+import { spanOf, type Span } from '../edge-served.js'
 
-interface Entry { key: string; name: string; statement: string; file: string; principle: string; skill: string ; cases?: number }
+/** a pageless wing's body: its one statement at every station, the two ends linked, the route that serves each */
+const spanBody = (file: string, s: Span): string =>
+  `### ${s.count.toLocaleString('en-US')} stations, one statement each\n` +
+  `Every theorem in lean/${file} is this statement at its own station n — the number its key ends in, read as hex — ` +
+  `checked against all ${s.count.toLocaleString('en-US')} when this article was generated, so this is the exact set, not a sample:\n\n` +
+  '```lean\n' + s.template + '\n```\n\n' +
+  `They run from [${s.first}](/theorem/${s.first}) to [${s.last}](/theorem/${s.last}). The site builds no page per station — ` +
+  `a page list spread into one call overflows V8's argument limit near 2^16, the span's own size — so the Worker renders ` +
+  `each at \`${s.route}\` from the ledger, and \`uuidna_theorem\` answers any of them.\n`
+
+interface Entry { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string ; cases?: number }
 
 const T = theorems() as Entry[]
 const byFile = new Map<string, Entry[]>()
@@ -110,12 +122,16 @@ for (const [file, entries] of [...byFile.entries()].sort((a, b) => a[0] < b[0] ?
   const lede = ledeOf(file)
   const slug = slugOf(file)
   const scope = lede.match(/([^.]*\.)/)?.[1] ?? ''
-  const body = entries.map((t) =>
+  // a pageless wing is stated once as its span — the ledger declares its rows near-identical and never listed
+  const span = isPagelessFile(file) ? spanOf(entries) : null
+  if (isPagelessFile(file) && span === null) throw new Error(`gen-articles — lean/${file} is pageless, but its theorems are not one statement at every station`)
+  const body = span ? spanBody(file, span) : entries.map((t) =>
     // heading and citation stay ONE block (no blank line): the claim and its proof are inseparable — a
     // paragraph is never split from the citation that confirms it (the lean form: confirm
     `### ${t.name}\n` +
-    `The ledger holds this as [${t.key}](/theorem/${t.key}) — proven \`by decide\`, sorry-free:\n\n` +
+    `The ledger holds this as [${t.key}](/theorem/${t.key}) — proven \`by ${t.tactic.split(/[\s;]/)[0]}\`, sorry-free:\n\n` +
     '```lean\n' + t.statement + '\n```\n').join('\n')
+  const proofs = entries.every((t) => /^decide\b/.test(t.tactic)) ? 'each proven `by decide`' : 'each checked by the kernel'
   const md = `---
 title: "${principle.replace(/"/g, "'")}"
 description: "Computed from lean/${file} — ${entries.length} sealed theorems, every claim citing its proof."
@@ -125,7 +141,7 @@ description: "Computed from lean/${file} — ${entries.length} sealed theorems, 
 
 > ${lede.replace(/\n/g, ' ')} — held by [${entries[0]!.key}](/theorem/${entries[0]!.key}) and its ${entries.length - 1} siblings below.
 
-**${entries.length} theorems** and **${entries.reduce((s, t) => s + (t.cases ?? 1), 0).toLocaleString('en-US')} decided cases**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in <a href="/lean/${file}">lean/${file}</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. ${boundaryLine(entries)}
+**${entries.length} theorems** and **${entries.reduce((s, t) => s + (t.cases ?? 1), 0).toLocaleString('en-US')} decided cases**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, ${proofs} in <a href="/lean/${file}">lean/${file}</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. ${boundaryLine(entries)}
 
 **[Re-prove this wing in your browser ↗](${verifyLink(file)})** — nothing to install. The editor fetches \`lean/${file}\` from the repository and re-decides all ${entries.length} proofs on Lean ${LEAN_VERSION}, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 

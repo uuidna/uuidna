@@ -19,6 +19,8 @@ import { kernelVerdicts } from '../axiom-witness.js'
 import { externalFactGaps, armDisagreement, gradeOf, gradeCensus } from '../external-fact.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { isPagelessFile, theoremByKey } from '../theorems/index.js'
+import { spanOf } from '../edge-served.js'
 
 const T = theorems()
 
@@ -148,6 +150,17 @@ console.log()
 
 // Group by principle for the MARKDOWN'S readability only — a presentational view over the same flat data,
 // never the thing coverage is checked against.
+// a pageless claim is rendered once as its span, never as one link per near-identical station
+const ROW = theoremByKey()
+const claimLinks = (list: typeof claimsList): string => {
+  const paged = list.filter((c) => !isPagelessFile(ROW.get(c.key)?.file ?? ''))
+  const pageless = list.filter((c) => isPagelessFile(ROW.get(c.key)?.file ?? ''))
+  const span = spanOf(pageless.map((c) => ({ key: c.key, statement: ROW.get(c.key)?.statement ?? '' })))
+  const stations = span
+    ? `and the span's ${span.count.toLocaleString('en-US')} stations, each \`${span.template}\` at its own n, from [${span.first}](/theorem/${span.first}) to [${span.last}](/theorem/${span.last}), each served at \`${span.route}\``
+    : pageless.map((c) => `[${c.key}](/theorem/${c.key})`).join(' · ')
+  return [paged.map((c) => `[${c.key}](/theorem/${c.key})`).join(' · '), stations].filter(Boolean).join('\n\n')
+}
 const byPrinciple = new Map<string, typeof claimsList>()
 for (const c of claimsList) {
   const list = byPrinciple.get(c.principle) ?? []
@@ -197,7 +210,7 @@ ${[...byPrinciple.entries()]
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-${list.map((c) => `[${c.key}](/theorem/${c.key})`).join(' · ')}
+${claimLinks(list)}
 `
   )
   .join('\n')}

@@ -189,8 +189,9 @@ try {
         // --max-old-space-size=8192 while this spawned it bare, so the same build that succeeds from the npm
         // script died of "Ineffective mark-compacts near heap limit" here and in the `audit` chain. The site is
         // ~3000 pages and the render retains per page; node's default ceiling is under what it needs. One flag,
-        // in every place that spawns it, or the gate fails on a limit the working path does not have.
-        execFileSync(process.execPath, ['--max-old-space-size=8192', bin, 'build', 'docs'], { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
+        // in every place that spawns it, or the gate fails on a limit the working path does not have. The pin is
+        // docs:build's, and quantum-advantage-theme.test.ts holds the two equal.
+        execFileSync(process.execPath, ['--max-old-space-size=12288', bin, 'build', 'docs'], { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' })
         console.log('  ✓ docs — the site renders from the converged derived layer')
       } catch (e) {
         failed = true

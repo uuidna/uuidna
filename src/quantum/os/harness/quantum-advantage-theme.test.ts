@@ -182,8 +182,11 @@ test('the monitor does not import the package barrel; VitePress reads constructo
   // formulaCensus()'s to report, not prose's — and that spent the last of a
   // margin already measured at under 33%, so the local build OOMed at 4096 with peak RSS 7.49 GB. At 8192 the
   // same site builds in 107.8s at 8.46 GB, with the dead-link check strict. The ceiling that remains is the
-  // machine's, and it is the honest one to be near.
-  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=8192/, 'the SSG renders on the operator machine now; the 8 GiB container no longer bounds this flag')
+  // machine's, and it is the honest one to be near. 2026-09-15: 11,438 pages (11,013 object + 425 static) died
+  // rendering at the 8192 cap — past the 10,344 measured to fit — so the pin moved to 12288 on a 32 GiB host.
+  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=12288/, 'the SSG renders on the operator machine now; the 8 GiB container no longer bounds this flag')
+  const autoImprove = readFileSync(join(ROOT, 'src', 'scripts', 'auto-improve.ts'), 'utf8')
+  assert.match(autoImprove, /'--max-old-space-size=12288', bin, 'build', 'docs'/, 'every place that spawns the SSG carries the same pin')
   assert.doesNotMatch(wranglerBuild(), /docs:build/, 'and nothing may put the SSG back inside the container')
   const vpConfig = readFileSync(join(ROOT, 'docs', '.vitepress', 'config.ts'), 'utf8')
   const conc = /buildConcurrency:\s*(\d+)/.exec(vpConfig)
