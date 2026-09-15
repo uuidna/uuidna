@@ -10,14 +10,24 @@ import { ROOT } from './boundary.js'
 import { theorems, merkleGravity, toUuid } from './index.js'
 import { buildFeed } from './scripts/gen-feed.js'
 import { auditJsonLd } from './schema-org-vocab.js'
+import { isPagelessFile } from './theorems/index.js'
+import { spanOf } from './edge-served.js'
 
-test('feed: unites every theorem, exactly once, nothing dropped', () => {
+test('feed: unites every theorem, exactly once, nothing dropped — each paged theorem an item, the span one collection', () => {
   const feed = buildFeed()
-  const T = theorems()
-  assert.equal(feed.dataFeedElement.length, T.length)
-  const itemIdentifiers = new Set(feed.dataFeedElement.map((e) => (e.item as { identifier: string }).identifier))
-  assert.equal(itemIdentifiers.size, T.length, 'every item must be present exactly once — a duplicate would mean a theorem is double-counted, a missing one silently dropped')
-  for (const t of T) assert.ok(itemIdentifiers.has(t.address), `${t.key} is missing from the feed`)
+  const paged = theorems().filter((t) => !isPagelessFile(t.file))
+  const pageless = theorems().filter((t) => isPagelessFile(t.file))
+  const items = feed.dataFeedElement.map((e) => e.item as { '@type'?: string; identifier?: string; name?: string; description?: string })
+  const identifiers = new Set(items.filter((i) => i['@type'] !== 'Collection').map((i) => i.identifier))
+  assert.equal(identifiers.size, paged.length, 'every paged theorem is present exactly once — a duplicate would double-count it, a missing one drop it silently')
+  for (const t of paged) assert.ok(identifiers.has(t.address), `${t.key} is missing from the feed`)
+  // the pageless rows are not dropped: they are stated once, as the span spanOf computes from exactly those rows
+  const span = spanOf(pageless)!
+  const collection = items.filter((i) => i['@type'] === 'Collection')
+  assert.equal(collection.length, 1, 'the span is one collection')
+  assert.ok(collection[0]!.name?.startsWith(`${span.count} stations`), 'it counts every pageless theorem')
+  assert.ok(collection[0]!.description?.includes(span.template), 'it states the one statement every station is')
+  assert.equal(feed.dataFeedElement.length, paged.length + 1)
 })
 
 test('feed: @type/@id are structurally correct DataFeed/DataFeedItem, receipt is recomputable', () => {

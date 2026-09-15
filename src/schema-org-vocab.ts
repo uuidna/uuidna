@@ -20,6 +20,7 @@ export const SCHEMA_ORG_TYPES: Readonly<Record<string, string>> = {
   DataFeed: 'https://schema.org/DataFeed',
   DataFeedItem: 'https://schema.org/DataFeedItem',
   PropertyValue: 'https://schema.org/PropertyValue',
+  Collection: 'https://schema.org/Collection',
 }
 
 export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {
@@ -32,6 +33,7 @@ export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {
   isBasedOn: 'https://schema.org/isBasedOn',
   creativeWorkStatus: 'https://schema.org/creativeWorkStatus',
   isPartOf: 'https://schema.org/isPartOf',
+  hasPart: 'https://schema.org/hasPart',
   publisher: 'https://schema.org/publisher',
   mainEntity: 'https://schema.org/mainEntity',
   description: 'https://schema.org/description',
