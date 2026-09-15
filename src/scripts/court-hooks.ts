@@ -28,15 +28,12 @@ import { courtOrders } from './trial-refusals.js'
 import { currentWriter, LOCK_PATH } from './one-writer.js'
 import { laws } from '../laws.js'
 
-interface HookInput { hook_event_name?: string; session_id?: string; stop_hook_active?: boolean; tool_name?: string; tool_input?: unknown; tool_response?: unknown }
+import { statementOf, investigateAudits, transcriptsOf, type InvestigateReport } from './court-investigate.js'
 
-/** the statement an action makes: every string the tool was handed, each on its own line — the command, the path, the
- *  text written. A line apiece keeps a Lean declaration that opens a written text at the start of its line, where the
- *  honesty gate reads it as a declaration (it defines a name) rather than as a citation of one */
-const statementOf = (input: unknown): string =>
-  input && typeof input === 'object'
-    ? Object.values(input as Record<string, unknown>).filter((v): v is string => typeof v === 'string').join('\n')
-    : String(input ?? '')
+interface HookInput { hook_event_name?: string; session_id?: string; transcript_path?: string; stop_hook_active?: boolean; tool_name?: string; tool_input?: unknown; tool_response?: unknown }
+
+// statementOf — the statement an action makes — lives in court-investigate.ts: the hook audits a call on it, and the
+// investigator must recompute the gate on exactly the same statement, so there is one definition for both.
 
 const LOCK = join(ROOT, 'dist', 'evidence', 'legal-audit.lock')
 const withLock = async <T>(fn: () => T): Promise<T> => {
@@ -68,14 +65,26 @@ const audit = async (call: HookInput): Promise<void> => {
   if (!verdict.clean) console.error(`legal-audit — ${tool}: ${verdict.breaches.join('; ')}`)
 }
 
-const court = (call: HookInput): void => {
+// THE COURT INVESTIGATES ITS OWN AUDIT ORDERS FIRST (2026-09-15). Every audit order used to be answered by a session
+// running the same recomputation by hand; the investigator (court-investigate.ts) claims the orders for this session,
+// classes every drained call from its own input, and records the result when nothing is unexplained. What it cannot
+// explain — or a law down, which refuses any record — stays claimed by this session and is handed to it below.
+const court = async (call: HookInput): Promise<void> => {
   if (call.stop_hook_active) return
-  const { pending } = courtOrders()
+  const inv = await investigateAudits({ claimant: `claude-code:${call.session_id ?? 'unknown'}`, transcripts: transcriptsOf(call.transcript_path), record: true })
+    .catch((e: unknown): InvestigateReport => ({ claimed: [], resumed: [], calls: [], unexplained: [], recorded: 0, refused: `the investigator threw: ${e instanceof Error ? e.message : String(e)}` }))
+  const open = inv.refused === null ? [] : [...inv.claimed, ...inv.resumed]
+  const pending = [...courtOrders().pending, ...open]
   if (pending.length === 0) return
   const kinds = pending.reduce<Record<string, number>>((m, o) => ({ ...m, [o.kind]: (m[o.kind] ?? 0) + 1 }), {})
+  const investigated = open.length
+    ? ` The court's investigator holds ${open.length} audit order(s) for this session and recorded nothing: ${inv.refused}.` +
+      (inv.unexplained.length ? ` Unexplained: ${inv.unexplained.slice(0, 12).map((c) => `${c.seq} ${c.tool} ${c.classes.join('/')} — ${c.context.slice(0, 160)}`).join('; ')}.` : '') +
+      ' Read those calls (`npm run x -- court-investigate --claimant claude-code:<this session>` names them again) and append each result once a person has read it.'
+    : ''
   console.log(JSON.stringify({
     decision: 'block',
-    reason: `The court records ${pending.length} disrespect(s) no wave has investigated (${Object.entries(kinds).map(([k, n]) => `${n} ${k}`).join(', ')}). ` +
+    reason: `The court records ${pending.length} disrespect(s) no wave has investigated (${Object.entries(kinds).map(([k, n]) => `${n} ${k}`).join(', ')}).${investigated} ` +
       'Launch the 2×7 investigators on them now: the pending orders are in `node dist/scripts/trial-refusals.js --orders`; 7 investigators propose only what the kernel can check ' +
       '(a lead closes only as def lead_<handle> : Prop with theorem involution_<handle> : ¬ lead_<handle>), 7 witnesses recompute it and sign, and the VE_FACES signatures ' +
       'go to lean/witness-seals.json. CLAIM FIRST: before launching, append {address, kind, claimedBy: <this session>} per order to dist/evidence/investigations.jsonl, ' +
@@ -113,7 +122,7 @@ const guardLanding = (call: HookInput): void => {
 const main = async (): Promise<void> => {
   const call = ((): HookInput => { try { return JSON.parse(readFileSync(0, 'utf8')) as HookInput } catch { return {} } })()
   if (call.hook_event_name === 'PostToolUse') await audit(call)
-  else if (call.hook_event_name === 'Stop') court(call)
+  else if (call.hook_event_name === 'Stop') await court(call)
   else if (call.hook_event_name === 'SessionStart') brief()
   else if (call.hook_event_name === 'PreToolUse') guardLanding(call)
 }

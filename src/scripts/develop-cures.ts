@@ -1,117 +1,118 @@
-// develop-cures — THE TAUGHT CURES AND THE CHOICE AMONG THEM, as pure data and pure functions so the loop is testable.
+// develop-cures — THE HEAL'S TAUGHT CURES, AND WHICH ONES ONE GATE OUTPUT NAMES, as pure data and pure functions so
+// the loop's choice is testable and every runner that heals (develop, land's heal, the autopilot train) reads ONE table.
 //
 // The loop in develop.ts used to take the FIRST matching cure and rebuild the world before reading the next
 // denial in the same output (lead 229: three visible cures cost three four-minute rounds). The selection is now
 // every match in table order — most specific first, exactly the order the table is written in — with each
 // distinct command run once, because two denials that the same command answers are one cure, not two.
 //
-// THE TABLES LIVE HERE, not in develop.ts, because develop.ts runs its loop on import: a test that reads the
-// real table through develop.ts would start a landing. The tables are data, so a test holds each signature
-// against the output that summons it and against the near miss that must not.
-import { existsSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT, RECONCILE_OUTPUTS } from './api.js'
+// THE TABLE MOVED HERE FROM develop.ts (2026-09-15) because a second runner needed it: the autopilot train runs the
+// same cures in the order that converged, and a copy of the table there would be the eighth hand-copy the dry law
+// refuses. develop.ts imports it; nothing else holds a cure.
+export interface CureRow { name: string; when: RegExp; cmd: string; because: string }
 
-/** A command that is known only once the objection is read: it returns the command, or null when the output
- *  names something no deterministic command answers (that denial then stays the human's). */
-export type CmdOf = (out: string) => string | null
-/** An objection this pass can cure: its signature in the gate's own output, and the deterministic command that
- *  fixes it. `alone` marks a cure whose command re-derives everything the other matches would regenerate. */
-export interface CureRow { name: string; when: RegExp; cmd: string | CmdOf; because: string; alone?: boolean }
-export type Resolved<C extends CureRow> = Omit<C, 'cmd'> & { cmd: string }
-
-/** denialLines(out) → the lines a gate DENIES with: `✗ …`, `GAP …`, `FIX …`. Every other line is evidence the
- *  gate quotes — a moved JSON field, a theorem key, a path — and a word inside evidence is not a denial. The whole
- *  output is the fallback for a gate that marked nothing, so an unmarked refusal is still read. */
-export function denialLines(out: string): string {
-  const marked = out.split('\n').filter((l) => /^\s*(?:GAP|FIX)\b/.test(l) || /^\s*✗\s/.test(l))
-  return marked.length ? marked.join('\n') : out
+/** curesFor(out, table) → every cure whose signature the output carries, table order, one per distinct command */
+export function curesFor<C extends CureRow>(out: string, table: readonly C[]): C[] {
+  const hit = table.filter((c) => c.when.test(out))
+  return hit.filter((c, i) => hit.findIndex((d) => d.cmd === c.cmd) === i)
 }
 
-// ── THE GENERATED PAGE AND ITS WRITER. A bare negation on a GENERATED page is fixed at the generator's source, and
-// the guard that reads the page before the generator re-runs reads the previous generation. The owner of a path is
-// read from RECONCILE_OUTPUTS, the one declaration of what each chain generator writes, so a page this map omits is
-// a page no generator declares — hand-written, and the author's to answer.
-/** generatorsOf(path) → every reconcile generator that declares it writes `path` (exactly, or as a directory). */
-export function generatorsOf(path: string, outputs: Readonly<Record<string, readonly string[]>> = RECONCILE_OUTPUTS): string[] {
-  return Object.entries(outputs).filter(([, outs]) => outs.some((o) => o === path || path.startsWith(o + '/'))).map(([g]) => g)
+/** namedGap(out, tail) → the FINDER'S OWN named gap, not the tail of its log.
+ *
+ *  All three refusal paths in develop used to print `out.split('\n').slice(-8)`. Measured 2026-09-02: guard failed on
+ *  a bare modal claim in one comment, and the tail window showed the rosette receipt, the unified fold and the
+ *  aura line — guard's closing ceremony — while the actual GAP sat twenty lines above and the report read as
+ *  though the fold itself were the objection. A gate that knows the finding and prints something else makes the
+ *  next hand re-run it to learn the accusation, which is the cost this whole loop exists to remove.
+ *
+ *  Guard and the finders emit their findings in a fixed shape (`GAP …` / `FIX …`, under a `✗ <finder>` line), so
+ *  those lines ARE the answer. The tail stays as the fallback for a gate that named nothing in that shape — an
+ *  output with no named gap is still worth showing, and showing it is not the same as pretending it was named. */
+export const namedGap = (out: string, tail: number): string => namedLines(out, tail).join('\n         ')
+/** namedLines(out, tail) → the same lines as a list, for a runner that prints them one per GAP */
+export const namedLines = (out: string, tail: number): string[] => {
+  const lines = out.split('\n').map((l) => l.trimEnd())
+  const named = lines.filter((l) => /^\s*(GAP|FIX)\b/.test(l) || /^✗\s/.test(l))
+  return named.length ? named : lines.filter((l) => l.trim().length > 0).slice(-tail)
 }
 
-const BARE = /GAP (docs\/[^\s:]+\.md): the boundary "[^"\n]*" is stated bare/g
-
-/** barePages(out) → every docs page the negation finder named, once each, in the order named */
-export function barePages(out: string): string[] {
-  return [...new Set([...out.matchAll(BARE)].map((m) => m[1]!))]
+// ── THE BUILD GATE COMES BEFORE ANY REGENERATION (taught 2026-09-15, PATCHES §41 and §45). A generated file the type
+// checker refuses deadlocks its own regeneration: the build fails, dist stays stale, and lean-one / lean-ledger then
+// run the OLD compiled generators — Fluid came back 6 theorems instead of 25, ef58b583's wing unchanged. And a chain
+// that went on past a failed build tested the old dist seven times, so fixed looked the same as unfixed. The cure is
+// the autopilot's build stage: it bootstraps ONCE with --noEmitOnError false only when every type error sits in a
+// file a declared generator owns, regenerates with those owners, and then a normal build must pass on its own.
+export const BUILD_GATE: CureRow = {
+  name: 'build gate before regeneration', when: /^\S+\.tsx?\(\d+,\d+\): error TS\d+/m,
+  cmd: 'node dist/scripts/autopilot.js --stage build',
+  because: 'a type error in a generated file deadlocks its own regeneration (the build fails, dist stays stale, the generators that would cure it run as their old compiled selves — measured 2026-09-15: Fluid 6 of 25 theorems); the build stage bootstraps once only when every error sits in a file a declared generator owns, then a normal build must pass — any other type error stops',
 }
 
-/** regenerateBarePages(out) → the generators of every page named, then the negation finder asked again; null when
- *  any page named has no declared, compiled generator — a hand-written page is fixed by its author, never here. */
-export const regenerateBarePages = (out: string, root: string = ROOT): string | null => {
-  const pages = barePages(out)
-  if (!pages.length) return null
-  const gens: string[] = []
-  for (const page of pages) {
-    const owners = generatorsOf(page).filter((g) => existsSync(join(root, 'dist', 'scripts', `${g}.js`)))
-    if (!owners.length) return null
-    for (const g of owners) if (!gens.includes(g)) gens.push(g)
-  }
-  return [...gens.map((g) => `node dist/scripts/${g}.js`), 'node dist/scripts/one-receipt.js negation'].join(' && ')
+// ── WING GENERATORS RUN THROUGH lean-one, NEVER DIRECTLY (taught 2026-09-15, PATCHES §41). A wing script run on its own
+// WRITES its .lean text and queues the kernel call; only an entry point drains the queue (lean-gen provePending). The
+// admission of ef58b583 ran lean-involutions directly and wrote two wings the kernel never proved — generated text
+// nobody signed. lean-one is the single-wing entry point that writes AND proves. The domain is appended per wing.
+export const WING_STEP: CureRow = {
+  name: 'wing generators through lean-one', when: /(?!)/,
+  cmd: 'node dist/scripts/lean-one.js',
+  because: 'a wing script run directly writes its wing and leaves the kernel call queued — measured 2026-09-15, direct lean-involutions wrote two wings and proved neither; lean-one is the entry point that drains the queue, so a wing is regenerated and signed in one step',
 }
 
-// ORDER IS LOAD-BEARING — most specific first, because matches run in table order (every match, once each, per round). Learned on this pass's very first real
-// run: a spin objection NAMES the files that moved, so a filename cure (regenerate support-audit.json) matched before
-// the spin cure (reconcile, which re-derives AND re-seals) and "cured" the wrong thing twice; the run converged only
-// because the guard happens to re-seal the fold. A drift of the SEAL is never cured by regenerating one of its files.
+/** The objections this pass can cure: each signature as the gate prints it, and the deterministic command that fixes it.
+ *
+ *  ORDER IS LOAD-BEARING — most specific first, and matches run in table order (every match, once each, per round).
+ *  Learned on develop's very first real run: a spin objection NAMES the files that moved, so a filename cure
+ *  (regenerate support-audit.json) matched before the spin cure (reconcile, which re-derives AND re-seals) and "cured"
+ *  the wrong thing twice. A drift of the SEAL is never cured by regenerating one of its files.
+ *
+ *  AND THE LEDGER'S DEPENDENTS RUN BEFORE THE SEAL (2026-09-15, landings 2 and 3): the rows from 'proved wings not yet
+ *  served' down to 'court record stale' sit ABOVE the spin cure because each writes a file spin seals — HEAL_ORDER below
+ *  is the measured order, and the table keeps it. */
 export const CURES: CureRow[] = [
-  { name: 'derived layer drift (spin)', when: /✗ spin --verify — NON-QUANTUM DRIFT|Spin hard-rejects drift/,
-    // --derive-only, NOT plain reconcile. Plain reconcile ends by committing AND PUSHING to origin, so this cure
-    // made a routine self-heal an outward act — the pass built to keep the gate green unattended could not safely
-    // be run unattended, which is why the same sequence was being hand-run instead. The flag stops after the seal:
-    // re-derive and re-seal locally, publish never. Publishing stays a separate, deliberate command.
-    // THE RE-ASK IS PART OF THE CURE: a drift that survives the re-derive fails the cure on a tree no one else is
-    // writing, and develop hands it to a human rather than walking the same re-derive again.
-    // ALONE: the objection names every drifted file, so the filename cures below also match it; each of those
-    // regenerates one file the re-derive already wrote, and one that runs after the seal can move the seal again.
-    cmd: 'node dist/scripts/reconcile.js --derive-only && node dist/scripts/spin.js --verify',
-    alone: true,
-    because: 'the derived files moved since the last seal; only the full re-derivation re-seals them (regenerating one named file leaves the seal stale) — and the cure stops at the seal, because healing must not publish. Spin is asked again at once: a drift the re-derive leaves is not drift, and it is the human\'s' },
-  { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
-    cmd: 'node dist/scripts/gen-changelog-section.js',
-    because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry' },
-  { name: 'rosetta mirror stale', when: /hosted edge would answer from a stale census/,
-    cmd: 'node dist/scripts/rosetta.js && npm run build',
-    because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face— see NO_CURE' },
+  BUILD_GATE,
   // BEFORE the axiom witness: a new theorem can be witnessed only once the served ledger names it.
   { name: 'proved wings not yet served', when: /PROVED in lean\/ and absent from the served ledger|NOT witnessed by any wing/,
-    cmd: 'node dist/scripts/lean-ledger.js && npm run build && npm run axioms',
-    because: 'the served ledger is generated from lean/, so a merge that brings proved wings, or changes a wing\'s statements, leaves src/theorems/generated.ts naming the previous set — the kernel-proved work is invisible to the site, the MCP tools and the publications, and entries the wings no longer state linger unwitnessed. The guard\'s own FIX is this regeneration and the rebuild that compiles it. Taught 2026-09-14, after a merge of seven waves stopped land here on exactly these two objections. The witness runs in the same command: a ledger that names theorems the kernel-only witness does not cover fails the security-posture law for every call made until the witness catches up (audit seq 3705–3707, 2026-09-15), so the heal no longer re-guards between the two. It shrinks the window to this one command; it does not close it — that needs lean-ledger to write the witness for the rows it seals' },
+    cmd: 'node dist/scripts/lean-ledger.js && npm run build',
+    because: 'the served ledger is generated from lean/, so a merge that brings proved wings, or changes a wing\'s statements, leaves src/theorems/generated.ts naming the previous set — the kernel-proved work is invisible to the site, the MCP tools and the publications, and entries the wings no longer state linger unwitnessed. The guard\'s own FIX is this regeneration and the rebuild that compiles it. Taught 2026-09-14, after a merge of seven waves stopped land here on exactly these two objections' },
   { name: 'axiom witness stale', when: /AXIOM WITNESS STALE|kernel-only-witness-shipped/,
     cmd: 'npm run axioms',
     because: 'a new theorem has no kernel-only witness yet; the audit regenerates them in one probe per file' },
+  // Moved ABOVE the court (2026-09-15, landing 3): "heartbeats missing" came first in the objection sequence, and
+  // `lean-heartbeats --sync` read 70998/70998 current the moment it ran — the objection was the heal's check order.
+  { name: 'heartbeats missing', when: /heartbeats cover the ledger|MISSING \d+: [a-z_]/,
+    cmd: 'node dist/scripts/lean-heartbeats.js --sync',
+    because: 'the delta mode measures only the new keys — NOT --all, which spawns a kernel per theorem and burned ninety minutes once' },
   // TWO DENIALS THE LOOP MET AND COULD NOT ANSWER (2026-09-07, the render-budget landing): a new wing moved the
   // ledger's distinct count, and the guard's exact FIX lines were re-typed by hand three times before the table
   // learned them. Both cures are the guard's own words; neither invents anything.
   { name: 'stamped ledger slots stale', when: /carries stamped ledger slot\(s\)/,
     cmd: 'node dist/scripts/stamp.js',
     because: 'the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number' },
-  // Taught 2026-09-14: the witness seal moved from one subject to a theorem per face (receipts signed by 2×7 theorems),
-  // and land stopped four rounds on the court record the guard's own FIX recomputes. Two spellings, one record: the
-  // guard's leads finder names the file, the leads gate names "the trial record" — both are a seal that differs.
-  { name: 'court record stale', when: /(?:lean\/refusal-trials\.json|the trial record) is not what the court computes now/,
-    cmd: 'node dist/scripts/trial-refusals.js',
-    because: 'the record is recomputed from the leads, the ledger and the kernel\'s receipts, never edited — any change to those inputs, or to the court\'s own seal, leaves it naming the previous verdicts' },
-  // A BARE NEGATION ON A GENERATED PAGE (taught 2026-09-15): the source was fixed and the guard read the page the
-  // previous generation wrote, so the landing stopped on words nobody had left in the tree. The page's own
-  // generator re-runs, then the negation finder is asked again; a page no generator declares stays the author's.
-  { name: 'generated page states a boundary bare', when: /GAP docs\/[^\s:]+\.md: the boundary "[^"\n]*" is stated bare/,
-    cmd: regenerateBarePages,
-    because: 'the page is generated, so its words are its generator\'s: re-running the writer RECONCILE_OUTPUTS declares for it carries the fixed source onto the page, and the finder asked again says whether the source was fixed at all — a negation that survives regeneration is in the source, and the author\'s' },
   { name: 'messaging witness short of the ledger', when: /"messaging_total":false/,
     cmd: 'node dist/scripts/one-receipt.js messaging',
     because: 'lean/messaging-witness.json must cover the current ledger — every carrier round-trips byte-exact — or the one-receipt seal is refused' },
-  { name: 'heartbeats missing', when: /heartbeats cover the ledger|MISSING \d+: [a-z_]/,
-    cmd: 'node dist/scripts/lean-heartbeats.js --sync',
-    because: 'the delta mode measures only the new keys — NOT --all, which spawns a kernel per theorem and burned ninety minutes once' },
+  // Taught 2026-09-14: the witness seal moved from one subject to a theorem per face (receipts signed by 2×7 theorems),
+  // and land stopped four rounds on the court record the guard's own FIX recomputes.
+  // AND IT RUNS BEFORE THE SPIN CURE (2026-09-15, PATCHES §40–§44): lean/refusal-trials.json is in spin's sealed set,
+  // so a court cure drifts spin BY DESIGN. With the spin cure first in the table, land2 and land3 each spent six rounds
+  // alternating "derived layer drift (spin)" ↔ "court record stale" and pushed nothing; and reconcile --derive-only
+  // runs the guard as its precondition, so while the court is stale the spin cure stops at its first step, by construction.
+  { name: 'court record stale', when: /lean\/refusal-trials\.json is not what the court computes now/,
+    cmd: 'node dist/scripts/trial-refusals.js',
+    because: 'the record is recomputed from the leads, the ledger and the kernel\'s receipts, never edited — any change to those inputs, or to the court\'s own seal, leaves it naming the previous verdicts; it runs before the spin reseal because the record is one of the files spin seals (measured 2026-09-15: six rounds of court ↔ spin alternation in each of two landings with the order reversed)' },
+  { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
+    // --derive-only, NOT plain reconcile. Plain reconcile ends by committing AND PUSHING to origin, so this cure
+    // made a routine self-heal an outward act — the pass built to keep the gate green unattended could not safely
+    // be run unattended, which is why the same sequence was being hand-run instead. The flag stops after the seal:
+    // re-derive and re-seal locally, publish never. Publishing stays a separate, deliberate command.
+    cmd: 'node dist/scripts/reconcile.js --derive-only',
+    because: 'the derived files moved since the last seal; only the full re-derivation re-seals them (regenerating one named file leaves the seal stale) — and the cure stops at the seal, because healing must not publish' },
+  { name: 'changelog section missing', when: /CHANGELOG\.md does not mention version/,
+    cmd: 'node dist/scripts/gen-changelog-section.js',
+    because: 'the calendar ticks the odometer on its own, so the FACTS of a version (counts, receipts, the odometer step, the surfaces) are emitted from the ledger; the narrative is still never generated — the section says the meaning is owed, and a human completing it is finishing the entry' },
+  { name: 'rosetta mirror stale', when: /hosted edge would answer from a stale census/,
+    cmd: 'node dist/scripts/rosetta.js && npm run build',
+    because: 'the five-leg census is recomputed from the ledger and shipped to the hosted edge as src/rosetta-mirror.ts, so ANY change to the ledger leaves the edge answering from the previous generation — the test that catches it prints exactly this command. The rebuild is part of the cure and not an afterthought: rewriting the mirror source without compiling it leaves dist/ carrying the stale census, which is the same fault one step further along. Taught 2026-08-20, after a session where this objection came back three times and was hand-run each time. DELIBERATELY NARROW: the signature matches only the STALE-MIRROR face— see NO_CURE' },
   // Found 2026-08-19 by adding a drain path (src/chunks) and watching the gate object with a cure the pass could
   // not apply: .gitattributes is GENERATED from DRAIN_PATHS, so declaring a new derived path always leaves the
   // mark stale until someone runs the generator. Deterministic, single-command, and the finder already prints the
@@ -167,11 +168,7 @@ export const CURES: CureRow[] = [
     because: 'the cube memory holds a handle until its whole neighbourhood is complete; an unsealed cube usually means the census ran against wings mid-write, and re-generating then re-sealing is the repair' },
 ]
 
-/** Objections that are deliberately NOT cured here — each needs a human, and saying so is the honest answer.
- *  READ AGAINST THE DENIAL LINES ONLY (2026-09-15): spin names each drifted JSON file's moved fields, and
- *  audit-citations.json keys every entry `fabricated` while lean/axioms.json names theorems like
- *  `fabricated_cite_stays_unverified` — so any drift in either read as an honesty refusal and stopped the landing
- *  "for a human" before the taught re-derive was consulted. A word the gate quotes as evidence is not its verdict. */
+/** Objections that are deliberately NOT cured here — each needs a human, and saying so is the honest answer. */
 export const NO_CURE: { when: RegExp; why: string }[] = [
   // (the changelog-missing-version class moved OUT of NO_CURE on 2026-08-17 — see CURES: the calendar now emits a
   // factual section, and only the MEANING is still owed to a human. A statistic is not a story.)
@@ -181,28 +178,32 @@ export const NO_CURE: { when: RegExp; why: string }[] = [
     why: 'the honesty gate refused a claim — fix the claim at its source; a pass that silences this would be the fraud it exists to catch' },
 ]
 
-/** curesFor(out, table) → every cure whose signature the output carries, table order, one per distinct command.
- *  A cure whose command is read from the output and comes back null is not a cure for this output. A matching
- *  `alone` cure answers by itself, because its command already writes what the others would. */
-export function curesFor<C extends CureRow>(out: string, table: readonly C[]): Resolved<C>[] {
-  const hit: Resolved<C>[] = []
-  for (const c of table) {
-    if (!c.when.test(out)) continue
-    const cmd = typeof c.cmd === 'string' ? c.cmd : c.cmd(out)
-    if (cmd !== null) hit.push({ ...c, cmd })
-  }
-  const solo = hit.find((c) => c.alone)
-  const pick = solo ? [solo] : hit
-  return pick.filter((c, i) => pick.findIndex((d) => d.cmd === c.cmd) === i)
-}
+// ── THE ORDER THAT CONVERGED (2026-09-15, the autopilot's fixed point). Each cure writes an input of the ones after it:
+// the wings feed the served ledger; the ledger feeds the axiom witness, the heartbeats, the stamped slots and the
+// messaging witness; all of those feed the court's record; and the court's record is one of the files spin seals.
+// Land 2 and land 3 ran the same cures in the table's old order (spin first) and alternated six rounds each; run in
+// this order, the chain reaches a tree the guard, spin --verify and the court all accept.
+export const HEAL_ORDER: readonly { cure: string; because: string }[] = [
+  { cure: WING_STEP.name, because: 'the wing texts are the ledger\'s source; a generator that changed since the last landing is re-run and PROVED before anything reads its wing (§41: a wing written and not proved is text nobody signed)' },
+  { cure: 'proved wings not yet served', because: 'the served ledger is generated from the proved wings, and the rebuild makes the generators after it read the new ledger (§41: a stale dist runs the old generators)' },
+  { cure: 'axiom witness stale', because: 'the witness must cover the ledger just served, or security-posture fails and every audited call in that window reads a law down (§34: 46 calls at 1642–1687)' },
+  { cure: 'heartbeats missing', because: 'heartbeats cover the ledger\'s keys; the delta sync reads the new ledger (§42: the objection was the check order, the cure worked at once)' },
+  { cure: 'stamped ledger slots stale', because: 'stamped surfaces carry the live census, which moved with the ledger' },
+  { cure: 'messaging witness short of the ledger', because: 'every carrier of the current ledger must round-trip before the seal' },
+  { cure: 'court record stale', because: 'the court reads the ledger, lean/axioms.json and the witness seals — every cure above writes one of them — and its record is sealed by spin (§44), so it is recomputed after them and before the seal' },
+  { cure: 'derived layer drift (spin)', because: 'the seal is LAST: it fingerprints every derived file, so any write after it drifts it (§40–§44: six rounds of court ↔ spin in each of two landings when the seal ran first). Its cure is a full reconcile, and reconcile now computes the court record as its own last derivation, just before its seal (§46: a court refresh followed by a re-derivation that did not recompute the court left it stale, aab15809 ≠ 1bdb8d24) — so derive, court and seal happen together and cannot alternate' },
+]
 
-/** verdictOf(out) → what develop does with one gate's objection: a human's (NO_CURE, read on the denial lines),
- *  the taught cures it names, or untaught — the three answers, in the order develop asks them. */
-export function verdictOf(out: string, table: readonly CureRow[] = CURES, blocked: readonly { when: RegExp; why: string }[] = NO_CURE):
-  { kind: 'blocked'; why: string } | { kind: 'cures'; cures: Resolved<CureRow>[] } | { kind: 'untaught' } {
-  const denial = denialLines(out)
-  const human = blocked.find((n) => n.when.test(denial))
-  if (human) return { kind: 'blocked', why: human.why }
-  const cures = curesFor(out, table)
-  return cures.length ? { kind: 'cures', cures } : { kind: 'untaught' }
+/** a cure that is not in HEAL_ORDER still writes derived files, so after it the tail from here is re-run — the court's
+ *  record and the spin seal, the two files every derived write moves */
+export const RESEAL_FROM = 'court record stale'
+
+/** healPlan(order, rows) → the HEAL_ORDER entries resolved to their cure rows, in order — a name that resolves to no
+ *  row THROWS, because an order naming a cure nobody taught is a plan that silently skips a step */
+export function healPlan(order: readonly { cure: string; because: string }[], rows: readonly CureRow[]): (CureRow & { order: string })[] {
+  return order.map((o) => {
+    const row = rows.find((r) => r.name === o.cure)
+    if (!row) throw new Error(`develop-cures: HEAL_ORDER names "${o.cure}", which no cure row carries`)
+    return { ...row, order: o.because }
+  })
 }

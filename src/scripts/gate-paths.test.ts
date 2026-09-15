@@ -93,14 +93,17 @@ test('the built-site audit DISCOVERS its pages — no gate hardcodes a page of t
 //     develop across a sampled run, most of it the second pass repeating a clean first one.
 test('develop prints the finder’s NAMED gap, never a tail slice of its log', () => {
   const src = readFileSync(join(ROOT, 'src', 'scripts', 'develop.ts'), 'utf8')
-  assert.match(src, /const namedGap = /, 'one helper owns how a finding is shown')
+  // the helper moved beside the cure table (develop-cures.ts, 2026-09-15) so the autopilot train shows findings the same way
+  const cures = readFileSync(join(ROOT, 'src', 'scripts', 'develop-cures.ts'), 'utf8')
+  assert.match(cures, /export const namedGap = /, 'one helper owns how a finding is shown')
+  assert.match(src, /import \{[^}]*\bnamedGap\b[^}]*\} from '\.\/develop-cures\.js'/, 'and develop shows findings through it')
   // every refusal path must go through it — a tail slice anywhere reintroduces the ceremony-as-gap report
   const gapPrints = [...src.matchAll(/console\.error\(`\s*GAP [^`]*`\)/g)].map((m) => m[0])
   assert.ok(gapPrints.length >= 3, 'develop refuses in three places: blocked, no-cure, and cure-did-not-cure')
   for (const p of gapPrints)
     assert.match(p, /namedGap\(/, `this GAP print still slices a tail: ${p.slice(0, 80)}`)
   // and the helper prefers the finders' own shape, with the tail only as a declared fallback
-  const helper = /const namedGap[\s\S]*?\n}/.exec(src)?.[0] ?? ''
+  const helper = /export const namedLines[\s\S]*?\n}/.exec(cures)?.[0] ?? ''
   assert.match(helper, /GAP\|FIX/, 'the named lines are what guard and the finders actually emit')
   assert.match(helper, /slice\(-tail\)/, 'a gate that named nothing is still shown, as a fallback')
 })

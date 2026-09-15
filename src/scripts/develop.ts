@@ -13,32 +13,15 @@
 // question). Usage:
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
-import { verdictOf } from './develop-cures.js'
+import { curesFor, namedGap, CURES, NO_CURE } from './develop-cures.js'
 import { writerPidsProbe } from '../tree-writers.js'
 import { ancestorsOf } from './one-writer.js'
 import { teeStep, ROOT, h16, pauseSeconds } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { execSync, spawnSync } from 'node:child_process'
 
-// THE CURE TABLE AND NO_CURE live in develop-cures.ts: this file runs its loop on import, so the tables sit where a
-// test can hold each signature against its objection and its near miss without starting a landing.
-/** namedGap(out, tail) → the FINDER'S OWN named gap, not the tail of its log.
- *
- *  All three refusal paths below used to print `out.split('\n').slice(-8)`. Measured 2026-09-02: guard failed on
- *  a bare modal claim in one comment, and the tail window showed the rosette receipt, the unified fold and the
- *  aura line — guard's closing ceremony — while the actual GAP sat twenty lines above and the report read as
- *  though the fold itself were the objection. A gate that knows the finding and prints something else makes the
- *  next hand re-run it to learn the accusation, which is the cost this whole loop exists to remove.
- *
- *  Guard and the finders emit their findings in a fixed shape (`GAP …` / `FIX …`, under a `✗ <finder>` line), so
- *  those lines ARE the answer. The tail stays as the fallback for a gate that named nothing in that shape — an
- *  output with no named gap is still worth showing, and showing it is not the same as pretending it was named. */
-const namedGap = (out: string, tail: number): string => {
-  const lines = out.split('\n').map((l) => l.trimEnd())
-  const named = lines.filter((l) => /^\s*(GAP|FIX)\b/.test(l) || /^✗\s/.test(l))
-  const pick = named.length ? named : lines.filter((l) => l.trim().length > 0).slice(-tail)
-  return pick.join('\n         ')
-}
+// THE CURE TABLE, NO_CURE AND THE NAMED-GAP READER LIVE IN develop-cures.ts (moved 2026-09-15): the autopilot train
+// heals with the same cures in the order that converged, and one table read by two runners cannot drift into two.
 
 /** The walk: the cheapest gates first, each able to name its own objection.
  *  Guard is the compiled door, never `npm run guard`: that wrapper rebuilds, so a walk that already built
@@ -84,22 +67,19 @@ const treeState = (): string => {
 // child, so a probe that counted every writer read the tree as busy on every round and spent its whole 30 × 10 s wait
 // before a single step — measured as most of a 34-minute heal, and six rounds of it in one landing. The writers in this
 // process's own ancestry are this pass itself; any other writer is still waited for.
-/** otherWriters() → the pids of every tree writer outside this pass's own ancestry, asked once. */
-const otherWriters = (): number[] => {
+const waitForQuiet = (): void => {
   const sh = shellOrExit('develop')
   const mine = new Set(ancestorsOf(process.pid))
-  const r = spawnSync(sh.file, sh.argv(writerPidsProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
-  if (r.error || r.status !== 0) {
-    console.error('x develop — the quiescence probe could not RUN, so this pass has no way to tell a quiet tree from a')
-    console.error('  busy one. Refusing rather than editing a tree another gate may be mid-run on.')
-    console.error('  ' + (r.error?.message ?? `exit ${r.status}`))
-    process.exit(1)
-  }
-  return r.stdout.split(/\s+/).filter(Boolean).map(Number).filter((p) => Number.isInteger(p) && !mine.has(p))
-}
-const waitForQuiet = (): void => {
   for (let i = 0; i < 30; i++) {
-    if (otherWriters().length === 0) return
+    const r = spawnSync(sh.file, sh.argv(writerPidsProbe()), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+    if (r.error || r.status !== 0) {
+      console.error('x develop — the quiescence probe could not RUN, so this pass cannot tell a quiet tree from a')
+      console.error('  busy one. Refusing rather than editing a tree another gate may be mid-run on.')
+      console.error('  ' + (r.error?.message ?? `exit ${r.status}`))
+      process.exit(1)
+    }
+    const others = r.stdout.split(/\s+/).filter(Boolean).map(Number).filter((p) => Number.isInteger(p) && !mine.has(p))
+    if (others.length === 0) return
     if (i === 0) console.log('· develop — another gate is running on this tree; waiting for quiescence (never edit mid-gate)')
     pauseSeconds(10)
   }
@@ -158,11 +138,11 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     process.exit(0)
   }
 
-  const verdict = verdictOf(objection.out)
-  if (verdict.kind === 'blocked') {
+  const blocked = NO_CURE.find((n) => n.when.test(objection.out))
+  if (blocked) {
     console.error(`\n✗ develop — the "${objection.label}" gate objected, and this is NOT a machine's to cure:`)
     console.error(`    GAP ${objection.label}: ${namedGap(objection.out, 6)}`)
-    console.error(`    FIX ${verdict.why}`)
+    console.error(`    FIX ${blocked.why}`)
     process.exit(1)
   }
   // EVERY TAUGHT CURE THE OUTPUT NAMES, IN ONE ROUND (lead 229, folded 2026-09-07). The first match alone ran,
@@ -170,13 +150,13 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
   // printed in the same output, was even read. Three cures visible at once cost three rounds. The guard prints
   // every finding it has; the loop now answers every one it was taught, in table order (most specific first), each
   // distinct command once, and rebuilds once. A denial no cure matches still ends the round the honest way.
-  if (verdict.kind === 'untaught') {
+  const cures = curesFor(objection.out, CURES)
+  if (!cures.length) {
     console.error(`\n✗ develop — the "${objection.label}" gate objected with no taught cure. Read it, fix it, and TEACH it:`)
     console.error(`    GAP ${namedGap(objection.out, 8)}`)
     console.error('    FIX add the objection\'s signature + its deterministic command to CURES in src/scripts/develop-cures.ts')
     process.exit(1)
   }
-  const cures = verdict.cures
   const attempt = `${cures.map((c) => c.name).join(' + ')}::${objection.label}`
   if (attempt === lastAttempt) {
     console.error(`\n✗ develop — the cure(s) for "${cures.map((c) => c.name).join(' + ')}" did not cure it: the "${objection.label}" gate objects the same way twice.`)
@@ -195,19 +175,14 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
     // A CONCURRENT WRITER IS NOT A BREAK — the third category, learned when this pass first met one: another session
     // was mid-landing a theorem, so generated.ts moved under the reconcile's own push and the cure "failed" for a
     // reason that was nobody's fault and fixes itself. Distinguish by asking whether the tree moved during the round.
-    // AND WHO MOVED IT: a cure writes the tree itself, so a moved tree alone read every failed cure as a neighbour's
-    // landing and walked the same cure again. A cure that ends with its gate re-asked (the spin re-derive, the page
-    // regeneration) fails on its own writes when the objection survives, and with no other writer running that
-    // failure is the human's.
-    if (treeState() !== stateAtRoundStart && otherWriters().length > 0) {
+    if (treeState() !== stateAtRoundStart) {
       console.log(`· develop — the tree moved during round ${round} (another session is landing); waiting and walking again`)
       applied.pop()
       lastAttempt = ''
       broke = true
       break
     }
-    console.error(`✗ develop — the cure for "${cure.name}" failed with no other writer on the tree: the objection survived its taught cure, and it is a human's.`)
-    console.error(`    GAP ${namedGap(fix.out, 8)}`)
+    console.error(`✗ develop — the cure for "${cure.name}" itself failed on a tree that did not move; that is a real break.`)
     process.exit(1)
   }
   if (broke) continue

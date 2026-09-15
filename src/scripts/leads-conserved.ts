@@ -14,7 +14,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { execFileSync } from 'node:child_process'
-import { ROOT } from './api.js'
+import { ROOT, report } from './api.js'
 import type { Gap } from './landing-gaps.js'
 import { buildTrialRecord } from './trial-refusals.js'
 // the pure half lives in src/leads-conservation.ts so laws() reaches it at the edge without this module's node imports
@@ -80,3 +80,8 @@ export function leadsGuardGaps(): Gap[] {
     ...sealMismatch(committed, computed),
   ]
 }
+
+// ASKED ALONE, BY NAME (2026-09-15): the autopilot's fixed point reads "the court record is current" as its own verdict
+// after every round — the same finder the guard blocks on, so the court's answer is one exit code, not a line to find in
+// the guard's whole log
+if (process.argv[1]?.endsWith('leads-conserved.js')) report('leads', leadsGuardGaps(), 'every lead is conserved and the court record is what the court computes now')

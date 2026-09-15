@@ -29,6 +29,7 @@ export const TREE_WRITERS = [
   'lean-heartbeats.js', // writes lean/heartbeats.json; a --sync over a fresh wave runs for hours
   'land.js',            // the landing loop: heals, re-derives, seals, stages and pushes
   'one-receipt.js',     // seal() drains and re-seals the tree
+  'autopilot.js',       // the train: build gate, the heal's fixed point, land, ship — holds the lock end to end
 ] as const
 
 /** grepProbe() → the `ps aux` pattern naming every writer, bracket-escaped so the probe never counts itself.
