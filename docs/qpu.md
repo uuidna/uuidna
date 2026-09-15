@@ -32,7 +32,7 @@ uuidna `src/qpu-edge.ts` reverse-hops those doors. This host serves `/.well-know
 
 ## Width — five points (this host)
 
-This host's five points are CPU, GPU, RAM, CACHE, STORAGE (`QPU_POINTS` in `src/qpu-hologram.ts`). A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/bindingpoint`](/publications/bindingpoint), decided in [`lean/BindingPoint.lean`](/lean/BindingPoint.lean).
+This host's five points are CPU, GPU, RAM, CACHE, STORAGE (`QPU_POINTS` in `src/qpu-hologram.ts`). A fan-out may run as wide as the **smallest** of what those points afford. That arithmetic is BindingPoint, published at [`/publications/binding-point`](/publications/binding-point), decided in `lean/BindingPoint.lean`.
 
 | Law | Key |
 | --- | --- |
@@ -72,6 +72,6 @@ The first handle octet is eight bits. The widths already sealed in the ledger si
 - [/.well-known/qpu.json](/.well-known/qpu.json) — this host's hop
 - [What quantum means](/quantum) — exact fold, capacity table
 - [The OS](/os) — Alpine hexbit port
-- [Binding point](/publications/bindingpoint) — width algebra
+- [Binding point](/publications/binding-point) — width algebra
 - [Vector equilibrium](/articles/vector-equilibrium) — fourteen faces
 - [Pentagram](/articles/pentagram) — the five-point stroke
