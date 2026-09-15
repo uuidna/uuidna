@@ -69,6 +69,7 @@ run('node dist/scripts/lean-heartbeats.js --sync')    // heartbeats.json — pru
 run('node dist/scripts/support.js')                   // support-audit.json + research-leads.json — code reachability, dead → R&D
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
+run('node dist/scripts/trial-refusals.js')           // lean/refusal-trials.json — the COURT RECORD, computed LAST among the derivations: it reads the ledger, lean/axioms.json (rewritten above by lean-axioms) and the witness seals, and spin seals it, so it must come after every derivation and before the seal (PATCHES §46: computed before this chain, the record went stale and the heal alternated court ↔ spin six rounds, twice)
 run('node dist/scripts/spin.js --seal')               // spin-manifest.json — SEAL the coins of the freshly-rotated derived layer LAST (after every generator); once sealed, the gate re-spins them by itself (verify O(1))
 
 
