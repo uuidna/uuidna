@@ -60484,7 +60484,7 @@
   "lean/leads.json": "61d16885-4ac1-8a62-b13c-6ece405f18b5",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
   "src/theorems/generated.ts": "02a80eaf-d585-8736-b532-2dfa74c5afc3",
-  "lean/axioms.json": "9dfb7a05-8e87-874b-8725-bb9918092453",
+  "lean/axioms.json": "264c3b40-cc0b-8720-bf08-6e32442ce09b",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -60700,7 +60700,7 @@
   },
   "involution_b13fd37a": {
    "wing": "Involutionb13fd37a.lean",
-   "asked": "c4bd5c01-ecb0-83e8-ab15-ee345187ee1f",
+   "asked": "2c46ae88-555c-8615-978e-4f8af1a74ea1",
    "fresh": true,
    "axioms": []
   },
@@ -60718,5 +60718,5 @@
   }
  },
  "unreceipted": [],
- "seal": "bc346895-4f09-828d-876b-cad7a1f375ee"
+ "seal": "b6e27f60-d1c7-8d21-83f6-75bc27698dcc"
 }

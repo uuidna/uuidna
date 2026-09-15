@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.0000001"
+   "promptPrice": "0.000000055",
+   "completionPrice": "0.00000011"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731:batch",
@@ -3068,8 +3068,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000021",
-   "completionPrice": "0.00001095"
+   "promptPrice": "0.000001875",
+   "completionPrice": "0.0000105"
   },
   {
    "id": "~openai/gpt-astra-latest",
