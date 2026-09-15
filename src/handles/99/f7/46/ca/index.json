@@ -1,0 +1,12 @@
+{
+  "handle": "99f746ca",
+  "address": "99f746ca-579f-8d48-ad06-aa3be553db94",
+  "kind": "chunk",
+  "keys": [
+    "proof_f59dbc3d"
+  ],
+  "statement": "lead_f59dbc3d",
+  "files": [
+    "Prooff59dbc3d.lean"
+  ]
+}

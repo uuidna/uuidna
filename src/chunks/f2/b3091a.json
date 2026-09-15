@@ -1,0 +1,12 @@
+{
+  "handle": "f2b3091a",
+  "address": "f2b3091a-7637-83b1-a12f-6cad345b2add",
+  "statement": "∀ S : Nat, 16 * S = (S + S + S + S) + (S + S + S + S) + (S + S + S + S) + (S + S + S + S)",
+  "tactic": "intro S rw [Nat.mul_comm] show S * 0 + S + S + S + S + S + S + S + S + S + S + S + S + S + S + S + S = _ rw [Nat.mul_zero, Nat.zero_add] repeat rw [← Nat.add_assoc]",
+  "keys": [
+    "sixteen_mul_is_four_fours"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

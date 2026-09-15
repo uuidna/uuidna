@@ -1,0 +1,12 @@
+{
+  "handle": "579c7eb3",
+  "address": "579c7eb3-6f56-88de-a673-b2a60a4e8d3e",
+  "kind": "chunk",
+  "keys": [
+    "alternation_misses_from_zero"
+  ],
+  "statement": "¬ (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t)",
+  "files": [
+    "Involutionef58b583.lean"
+  ]
+}

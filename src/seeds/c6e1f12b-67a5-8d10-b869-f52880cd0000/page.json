@@ -1,0 +1,69 @@
+{
+  "file": "Proofde5612a2.lean",
+  "slug": "proofde5612a2",
+  "status": "usable",
+  "address": "12eefd34-89e0-8791-bf0f-1e7dcf85bfe8",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Proofde5612a2.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Proofde5612a2.lean — GENERATED. PROOF de5612a2: lead de5612a2 of lean/leads.json (trial), stated in the row's own lean field as lead_de5612a2, and proof_de5612a2, the kernel's proof of it, accepted at the door for the text addressed 5c293fc3-79ab-8789-8f76-24255a17230b. Every proof checked by the kernel (by unfold), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- The walk's two rings: doubling in Z/9 and stepping by two in Z/7, with their inverses (5 is the inverse of 2\n-- mod 9, and adding 5 is subtracting 2 mod 7), each a bijection of its ring.\ndef dbl (x : Nat) : Nat := 2 * x % 9\ndef half (x : Nat) : Nat := 5 * x % 9\ndef up2 (y : Nat) : Nat := (y + 2) % 7\ndef down2 (y : Nat) : Nat := (y + 5) % 7\ndef iter (f : Nat → Nat) : Nat → Nat → Nat\n  | 0, x => x\n  | n + 1, x => f (iter f n x)\n-- the forward and the inverse paired walk, both from (1, 1)\ndef fwd (k : Nat) : Nat × Nat := (iter dbl k 1, iter up2 k 1)\ndef inv (k : Nat) : Nat × Nat := (iter half k 1, iter down2 k 1)\n\n/-- The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so\n    the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at\n    step 21 (8,1) and step 42 (1,1) — two contact points per revolution. -/\ndef lead_de5612a2 : Prop :=\n  (iter dbl 6 1 = 1 ∧ (List.range 5).all (fun j => iter dbl (j + 1) 1 != 1) = true) ∧\n  (iter up2 7 1 = 1 ∧ (List.range 6).all (fun j => iter up2 (j + 1) 1 != 1) = true) ∧\n  Nat.gcd 6 7 = 1 ∧\n  (List.range 9).all (fun x => half (dbl x) == x && dbl (half x) == x) = true ∧\n  (List.range 7).all (fun y => down2 (up2 y) == y && up2 (down2 y) == y) = true ∧\n  (fwd 42 = fwd 0 ∧ (List.range 41).all (fun j => fwd (j + 1) != fwd 0) = true) ∧\n  ((List.range 42).map fwd).eraseDups.length = 42 ∧\n  fwd 21 = inv 21 ∧ fwd 21 = (8, 1) ∧ fwd 42 = inv 42 ∧ fwd 42 = (1, 1) ∧\n  ((List.range 42).map (· + 1)).filter (fun k => fwd k == inv k) = [21, 42]\n\n/-- The kernel proves lead de5612a2: The 42-state paired walk: doubling in Z/9 (period 6) against stepping by\n    two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning.\n    Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution. -/\ntheorem proof_de5612a2 : lead_de5612a2 := by unfold lead_de5612a2; decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-proof_de5612a2",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel proves lead de5612a2: The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "lead_de5612a2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem proof_de5612a2 : lead_de5612a2 := by unfold lead_de5612a2; decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

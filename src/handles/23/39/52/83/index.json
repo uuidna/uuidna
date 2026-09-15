@@ -1,0 +1,12 @@
+{
+  "handle": "23395283",
+  "address": "23395283-be46-84b0-93d7-dde38f92f9db",
+  "kind": "chunk",
+  "keys": [
+    "discrete_curl_of_gradient_vanishes"
+  ],
+  "statement": "∀ p q r s dx dy dx' dy' : Nat, q = p + dx → s = q + dy' → r = p + dy → s = r + dx' → dx + dy' = dy + dx'",
+  "files": [
+    "Fluid.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fce2a3b8",
+  "address": "fce2a3b8-481f-8bdf-ab9b-a91def6fa445",
+  "kind": "chunk",
+  "keys": [
+    "ring_divergence_is_zero"
+  ],
+  "statement": "∀ (f : Nat → Nat) (n : Nat), f n = f 0 → psum (fun i => f (i + 1)) n = psum f n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

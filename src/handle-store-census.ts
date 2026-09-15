@@ -18,10 +18,10 @@
 // backticked key: a citation is checked against the SERVED ledger, and quoting a key the ledger does not yet
 // serve is a fabricated citation whatever the intent — the wing may seal it while the derived layer lags.)
 //
-// PURE OVER A DIRECTORY, no clock and no network: given a root it walks and counts. The root is a parameter so a
-// test can hand it a fixture and the shared tree is never the subject of its own measurement.
-import { readdirSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
+// TWO HALVES. censusOfLeaves is pure over leaves it is handed; handleStoreCensus reads them from a root through the
+// host's filesystem (boundary.ts), so this module loads at the edge, where it answers UNMEASURED by name. The root
+// is a parameter so a test can hand it a fixture and the shared tree is never the subject of its own measurement.
+import { hostFs, unmeasuredHere, type HostFs, type Unmeasured } from './boundary.js'
 
 export interface HandleStoreCensus {
   /** leaves found on disk */
@@ -44,50 +44,67 @@ export interface HandleStoreCensus {
   unreadable: string[]
 }
 
-/** handleStoreCensus(root) → occupancy, capacity and use, kept separate */
-export function handleStoreCensus(root: string): HandleStoreCensus {
+/** one index.json as found: where it is, the folder segments above it, and its text (null when it could not be read) */
+export interface StoreLeaf { readonly where: string; readonly segs: readonly string[]; readonly text: string | null }
+
+/** censusOfLeaves(leaves, unreadableDirs) → occupancy, capacity and use, kept separate. Pure: no disk, no clock. */
+export function censusOfLeaves(found: readonly StoreLeaf[], unreadableDirs: readonly string[] = []): HandleStoreCensus {
   const kinds: Record<string, number> = {}
   const keysPerLeaf: Record<number, number> = {}
   const pathMismatch: string[] = []
   const prefixMismatch: string[] = []
-  const unreadable: string[] = []
+  const unreadable: string[] = [...unreadableDirs]
   let leaves = 0, keys = 0
-
-  const walk = (dir: string, seg: string[]): void => {
-    let entries: { name: string; isDirectory: () => boolean }[]
-    try { entries = readdirSync(dir, { withFileTypes: true }) as unknown as typeof entries }
-    catch { unreadable.push(dir); return }
-    for (const e of entries) {
-      const here = join(dir, e.name)
-      if (e.isDirectory()) { walk(here, [...seg, e.name]); continue }
-      if (e.name !== 'index.json') continue
-      let j: { handle?: string; address?: string; kind?: string; keys?: string[] }
-      // UNREADABLE IS ITS OWN ANSWER. A leaf that cannot be parsed is not a leaf that agreed with everything —
-      // folding the two is the defect this tree has now corrected in four separate finders.
-      try { j = JSON.parse(readFileSync(here, 'utf8')) as typeof j } catch { unreadable.push(here); continue }
-      leaves += 1
-      const k = (j.keys ?? []).length
-      keys += k
-      keysPerLeaf[k] = (keysPerLeaf[k] ?? 0) + 1
-      const kind = j.kind ?? 'unnamed'
-      kinds[kind] = (kinds[kind] ?? 0) + 1
-      if (seg.join('') !== j.handle) pathMismatch.push(here)
-      // NO RAW CONTROL BYTE IN THE SOURCE. A literal NUL byte makes grep classify the whole file as binary and
-      // skip it — that is grep's documented behaviour on a NUL, a HOST FACT and not a choice, so a reviewer's
-      // search cannot reach this file while the byte is present. The sentinel is written as an escape instead:
-      // the compiled string is identical and the file stays searchable.
-      const handle = j.handle ?? '\u0000'
-      if (!String(j.address ?? '').replace(/-/g, '').startsWith(handle)) prefixMismatch.push(here)
-    }
+  for (const leaf of found) {
+    let j: { handle?: string; address?: string; kind?: string; keys?: string[] }
+    // UNREADABLE IS ITS OWN ANSWER. A leaf that cannot be parsed is not a leaf that agreed with everything —
+    // folding the two is the defect this tree has now corrected in four separate finders.
+    try { if (leaf.text === null) throw new Error('unread'); j = JSON.parse(leaf.text) as typeof j } catch { unreadable.push(leaf.where); continue }
+    leaves += 1
+    const k = (j.keys ?? []).length
+    keys += k
+    keysPerLeaf[k] = (keysPerLeaf[k] ?? 0) + 1
+    const kind = j.kind ?? 'unnamed'
+    kinds[kind] = (kinds[kind] ?? 0) + 1
+    if (leaf.segs.join('') !== j.handle) pathMismatch.push(leaf.where)
+    // NO RAW CONTROL BYTE IN THE SOURCE. A literal NUL byte makes grep classify the whole file as binary and
+    // skip it — grep's documented behaviour on a NUL, a HOST FACT — so the sentinel is written as an escape: the
+    // compiled string is identical and the file stays searchable.
+    const handle = j.handle ?? '\u0000'
+    if (!String(j.address ?? '').replace(/-/g, '').startsWith(handle)) prefixMismatch.push(leaf.where)
   }
-  walk(join(root, 'src', 'handles'), [])
-
   return {
     leaves,
     treeLinks: leaves > 0 ? leaves - 1 : 0,
     pairs: (leaves * (leaves - 1)) / 2,
     kinds, keysPerLeaf, keys, pathMismatch, prefixMismatch, unreadable,
   }
+}
+
+/** storeLeaves(root) → every index.json under <root>/src/handles, read from the host; Unmeasured without a filesystem */
+export function storeLeaves(root: string, fs: HostFs | null = hostFs): { leaves: StoreLeaf[]; unreadable: string[] } | Unmeasured {
+  if (!fs) return unmeasuredHere('the handle store census')
+  const leaves: StoreLeaf[] = [], unreadable: string[] = []
+  const walk = (dir: string, seg: string[]): void => {
+    let entries: { name: string; isDirectory: () => boolean }[]
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }) } catch { unreadable.push(dir); return }
+    for (const e of entries) {
+      const here = fs.path.join(dir, e.name)
+      if (e.isDirectory()) { walk(here, [...seg, e.name]); continue }
+      if (e.name !== 'index.json') continue
+      let text: string | null
+      try { text = fs.readFileSync(here, 'utf8') } catch { text = null }
+      leaves.push({ where: here, segs: seg, text })
+    }
+  }
+  walk(fs.path.join(root, 'src', 'handles'), [])
+  return { leaves, unreadable }
+}
+
+/** handleStoreCensus(root) → the census of the store under root, or Unmeasured where there is no filesystem */
+export function handleStoreCensus(root: string, fs: HostFs | null = hostFs): HandleStoreCensus | Unmeasured {
+  const found = storeLeaves(root, fs)
+  return 'unmeasured' in found ? found : censusOfLeaves(found.leaves, found.unreadable)
 }
 
 /** the report a surface or a tool prints — occupancy, capacity and use, each labelled as what it is */

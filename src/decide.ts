@@ -4,9 +4,10 @@
 // DivByZero.lean: dz_zero_only_zero, dz_bounded — exactly Lean's own Nat semantics), subtraction truncates at
 // the floor (Nat), and every operation is exact BigInt under honest caps. The route, in order: (1) the SEALED
 // INDEX — input matching a sealed theorem's statement verbatim (normalized) is VERIFIED by the kernel's own
-// prior decision, cited; (2) the GRAMMAR — a bounded recursive-descent parser (never eval) decides fresh
-// arithmetic propositions: true → VERIFIED_BY_DECIDE, false → REFUTED — truth and falsehood at last wear
-// different verdicts; a bare expression computes its exact value; (3) PROSE — everything else goes to the gate
+// prior decision, cited; (2) the GRAMMAR — a bounded recursive-descent parser (never eval) EVALUATES fresh
+// arithmetic propositions in JavaScript: true → EVALUATED_TRUE, false → EVALUATED_FALSE — truth and falsehood
+// wear different labels, and neither is a kernel verdict (the kernel is the only verifier: the evaluator mirrors
+// its Nat semantics and runs no proof); a bare expression computes its exact value; (3) PROSE — everything else goes to the gate
 // (reveal), language-blind, citations decided by the ledger. Deterministic: no wall-clock, no RNG, no host
 // intrinsics; the same input always folds to the same receipt. Integrity— a decided proposition is
 // decided ABOUT ITS ARITHMETIC.
@@ -17,7 +18,7 @@ import { reveal } from './gate.js'
 export interface Decision {
   input: string
   kind: 'sealed-theorem' | 'decided-arithmetic' | 'computed-value' | 'prose'
-  verdict: 'VERIFIED' | 'VERIFIED_BY_DECIDE' | 'REFUTED' | 'UNVERIFIED' | 'DRAINED'
+  verdict: 'VERIFIED' | 'EVALUATED_TRUE' | 'EVALUATED_FALSE' | 'UNVERIFIED' | 'DRAINED'
   value: string | null
   cites: string[]
   /** THE CITED THEOREMS' OWN LEAN LINES, so a caller RECHECKS instead of trusting.
@@ -180,14 +181,14 @@ export function decide(input: string): Decision {
   try {
     const v = new Parser(norm).parse()
     if (v.b !== undefined) return seal({
-      input: raw, kind: 'decided-arithmetic', verdict: v.b ? 'VERIFIED_BY_DECIDE' : 'REFUTED', value: String(v.b),
+      input: raw, kind: 'decided-arithmetic', verdict: v.b ? 'EVALUATED_TRUE' : 'EVALUATED_FALSE', value: String(v.b),
       cites: ['dz_zero_only_zero', 'dz_bounded'],
       honest: v.b
-        ? 'decided TRUE by exact total arithmetic (Nat semantics: x/0 = 0, truncated subtraction) — true of the ARITHMETIC, a fresh decision not yet a sealed theorem'
-        : 'REFUTED by exact total arithmetic — decidably false, at last distinguishable from merely unbacked',
+        ? 'evaluated TRUE by exact total arithmetic (Nat semantics: x/0 = 0, truncated subtraction) — true of the ARITHMETIC, an evaluation not yet a sealed theorem; only the kernel verifies'
+        : 'evaluated FALSE by exact total arithmetic — distinguishable from merely unbacked; an evaluation, not a kernel verdict',
     })
     return seal({
-      input: raw, kind: 'computed-value', verdict: 'VERIFIED_BY_DECIDE', value: String(v.n),
+      input: raw, kind: 'computed-value', verdict: 'EVALUATED_TRUE', value: String(v.n),
       cites: ['dz_zero_only_zero', 'dz_bounded'],
       honest: `computed exactly: ${raw.trim()} = ${v.n} under total Nat semantics — division by zero returns 0 (the finite reflection), subtraction floors at 0, every step exact`,
     })

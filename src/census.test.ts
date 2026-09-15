@@ -6,7 +6,15 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { statementCensus, theorems, PRINCIPLES } from './index.js'
-import { censusGaps } from './scripts/one-receipt.js'
+import { censusGaps, quantifiesStatement } from './scripts/one-receipt.js'
+
+test('a ∀ binder quantifies in every form Lean writes it, and a point fact does not — the universal-name finder, both ways', () => {
+  for (const s of ['∀ l : Fin 128, l.val < 128', '∀ a b c m : Nat, a ≤ m → a ≤ m + m',
+    '∀ (f : Nat → Nat) (n : Nat), f n = f n', "∀ p q dx' dy' : Nat, q = p + dx' → dx' = dx'"])
+    assert.ok(quantifiesStatement(s), `quantifies: ${s}`)
+  for (const s of ['(2 * 64 = 128) ∧ (2 ^ 7 = 128)', '¬ lead_2d552f1f', 'a + b + b + c ≤ 4 * m'])
+    assert.ok(!quantifiesStatement(s), `a point fact quantifies over nothing: ${s}`)
+})
 
 test('statementCensus is the Lean-derived census — entries match theorems().length', () => {
   const c = statementCensus()

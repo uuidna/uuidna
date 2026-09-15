@@ -67,6 +67,32 @@ const FACTS = [
     js: () => 4 ** 3 === 64 && 2 ** 6 === 64 && 4 ** 3 === 2 ** 6 && 128 === 2 * 64 && 128 === 2 ** 7,
     lean: 'theorem uuidna_is_dna_times_the_two_coins : (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7) := by decide' },
 
+  { key: 'blockchain_is_the_ledger_of_two_coins',
+    why: 'THE LEDGER IS A CHAIN OF TWO COINS — why blockchain and coins are one word here, as the work states it: every sealed theorem mints two coins (minting_is_two_per_theorem) and every address is two 64-bit coins, 128 = 2·64 = 2⁷. Arithmetic of the address; it does not claim that any other chain uses it.',
+    js: () => 2 * 64 === 128 && 2 ** 7 === 128,
+    lean: 'theorem blockchain_is_the_ledger_of_two_coins : (2 * 64 = 128) ∧ (2 ^ 7 = 128) := by decide' },
+
+  { key: 'intelligence_without_the_artificial_is_lean',
+    why: 'INTELLIGENCE WITHOUT THE ARTIFICIAL — why intelligence and lean are one word here, as the author states it ("Uuidna removes artificial from intelligence"): an answer is a sealed Lean theorem folded to one 128-bit address, and the address divides into exactly two 64-bit coins with nothing left over (128 / 64 = 2, 128 mod 64 = 0), two coins per fold (llm_folds_to_hexbit_pairs). Arithmetic of the fold; it does not claim what any model computes.',
+    js: () => div(128, 64) === 2 && 128 % 64 === 0,
+    lean: 'theorem intelligence_without_the_artificial_is_lean : (128 / 64 = 2) ∧ (128 % 64 = 0) := by decide' },
+
+  { key: 'quantum_is_the_uuid_doubled',
+    why: 'THE QUANTUM ADDRESS IS THE UUID DOUBLED — why quantum and uuid are one word here: the two coins take the 64-bit coin to the 128-bit address (rosette_quantum_doubling_is_two_coins), 64 + 64 = 128 and 2⁶·2 = 2⁷ — one doubling of the coin is the address. Arithmetic of the address; the state-vector cost it counts is n_qubit_dimension, not a speedup.',
+    js: () => 64 + 64 === 128 && 2 ** 6 * 2 === 2 ** 7,
+    lean: 'theorem quantum_is_the_uuid_doubled : (64 + 64 = 128) ∧ (2 ^ 6 * 2 = 2 ^ 7) := by decide' },
+
+  { key: 'division_by_zero_is_the_abstract_zero_fold',
+    why: 'THE ABSTRACT-0 FOLD — why division and zero are one word here: the work folds ÷0 to 0 inside the two-coin address (2·64 = 128). n / 0 = 0 is Lean core\'s own definition (Nat.div), and Isabelle\'s and Coq\'s, and Suppes stated it in 1957 — the rule is not the work\'s; the work\'s link is the rule tied to the address.',
+    // Lean core's Nat.div returns 0 on a zero divisor, where JS division returns Infinity — the mirror states the Lean convention
+    js: () => { const natDiv = (a: number, b: number): number => (b === 0 ? 0 : div(a, b)); return natDiv(5, 0) === 0 && 2 * 64 === 128 },
+    lean: 'theorem division_by_zero_is_the_abstract_zero_fold : (5 / 0 = 0) ∧ (2 * 64 = 128) := by decide' },
+
+  { key: 'the_skipper_is_paid_two_coins',
+    why: 'THE FARE — why skipper and coins are one word here: the ferryman carries the crossing only when paid, and the work gates its crossing the same way — without the two coins fuseWidth returns the width unchanged (the step is identity, not a walk); paid, 110 − 108 = 2 takes 64 to 128. The Greek obol was one coin in the mouth; two coins on the eyes is later custom — the myth is humanity\'s, the gate is the work\'s.',
+    js: () => 110 - 108 === 2 && 2 * 64 === 128,
+    lean: 'theorem the_skipper_is_paid_two_coins : (110 - 108 = 2) ∧ (2 * 64 = 128) := by decide' },
+
   { key: 'uuidna_letters_fuse_to_the_hexagram',
     why: 'THE NAME IS THE WIDTHS. uuid is four letters and a hexbit is four bits; dna is three letters and a trinity is three; they share one letter, so 4 + 3 − 1 = 6. Hexbit plus the two coins is the hexagram: 4 + 2 = 6. Base minus trinity is credit: 9 − 3 = 6. The six-letter name, the hexagram, and the credit plane are one number.',
     js: () => UUID_WORD.length === N.hexbit && DNA_WORD.length === N.trinity && N.shared === 1

@@ -1,0 +1,12 @@
+{
+  "handle": "3890e494",
+  "address": "3890e494-ae6c-8d9d-85d8-17f82be24f5a",
+  "kind": "chunk",
+  "keys": [
+    "psum_add4"
+  ],
+  "statement": "∀ (a b c d : Nat → Nat) (n : Nat), psum (fun i => a i + b i + c i + d i) n = psum a n + psum b n + psum c n + psum d n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0895a0d7",
+  "address": "0895a0d7-7b48-8725-bdfc-53d160c02a04",
+  "statement": "30 - 30 + 1 + [31, 30, 31, 31, 30].foldl (· + ·) 0 + 14 = 168",
+  "tactic": "decide",
+  "keys": [
+    "norway_innmark_is_closed_one_hundred_sixty_eight_days"
+  ],
+  "files": [
+    "LandRights.lean"
+  ]
+}

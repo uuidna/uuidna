@@ -68,8 +68,8 @@ test('pipeGaps refuses coalescing a stream onto a different source, and permits 
 
 test('the finders scan EXECUTABLE source, so a comment cannot make one report itself', () => {
   // pipeGaps' own comment quotes `err.stderr ?? err.message` to explain what it hunts. Before stripping, three
-  // of its first five findings were its own prose and queue-wave's.
-  const stripped = executableSource(readFileSync(join(ROOT, 'src', 'scripts', 'queue-wave.ts'), 'utf8'))
+  // of its first five findings were its own prose and queue-wave's (the probe now lives in kernel-probe.ts).
+  const stripped = executableSource(readFileSync(join(ROOT, 'src', 'scripts', 'kernel-probe.ts'), 'utf8'))
   assert.doesNotMatch(stripped, /LEAN WRITES ITS ERRORS TO STDOUT/, 'the comment must be gone')
   assert.match(stripped, /export function probe/, 'and the code must remain')
 })

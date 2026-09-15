@@ -29,7 +29,7 @@ import { docComment, gcdOf, unitsOf, MAXBUF, type Fact } from './lean-gen.js'
 const readText = (rel: string): string => readFileSync(join(ROOT, rel), 'utf8')
 const readJson = <T>(rel: string): T => JSON.parse(readText(rel)) as T
 
-export interface LeadRow { lead: string; killed_by?: string; replaced_by?: string }
+export interface LeadRow { lead: string; killed_by?: string; replaced_by?: string; lean?: string; kernel?: KernelVerdict }
 export interface InvolutionWing { handle: string; file: string; title: string; summary: string }
 export interface WingText { file: string; header: string; defs: string; facts: Fact[] }
 
@@ -271,19 +271,181 @@ const headerOf = (h: string): string =>
 export const INVOLUTION_HANDLES: readonly string[] = Object.keys(BUILDERS).sort()
 export const wingFileOf = (handle: string): string => `Involution${handle}.lean`
 
-/** involutionWings() → one wing per involution, with the title and summary the ledger shows for it */
-export const involutionWings = (rows?: readonly LeadRow[]): InvolutionWing[] => INVOLUTION_HANDLES.map((handle) => ({
-  handle,
-  file: wingFileOf(handle),
-  title: `The involution of lead ${handle}`,
-  summary: `lead_${handle} states the refuted lead "${leadOf(handle, rows).lead}" over the objects its source derives, and involution_${handle} is the kernel's proof of its negation`,
-}))
+/** involutionWings() → one wing per involution, with the title and summary the ledger shows for it, and then one
+ *  wing per formalised lead the kernel accepted (formalLeads) */
+export const involutionWings = (rows?: readonly LeadRow[], book?: LeadBook): InvolutionWing[] => [
+  ...INVOLUTION_HANDLES.map((handle) => ({
+    handle,
+    file: wingFileOf(handle),
+    title: `The involution of lead ${handle}`,
+    summary: `lead_${handle} states the refuted lead "${leadOf(handle, rows).lead}" over the objects its source derives, and involution_${handle} is the kernel's proof of its negation`,
+  })),
+  ...formalLeads(book).map((f) => ({
+    handle: f.handle,
+    file: formalFileOf(f),
+    title: f.kind === 'involution' ? `The involution of lead ${f.handle}` : `The proof of lead ${f.handle}`,
+    summary: `lead_${f.handle} states the ${f.section} lead "${f.row.lead}" in the row's own Lean, and ${f.kind}_${f.handle} is the kernel's proof of ${f.kind === 'involution' ? 'its negation' : 'it'}`,
+  })),
+]
 
 /** buildWing(handle) → the wing's text parts, every object read from its source and every fact carrying its js leg */
 export async function buildWing(handle: string): Promise<WingText> {
   const build = BUILDERS[handle]
   if (!build) throw new Error(`no involution is declared for ${handle}`)
   return { file: wingFileOf(handle), ...(await build(handle, leadOf(handle))) }
+}
+
+// ── FORMALISED LEADS: THE ROW'S OWN LEAN, JUDGED BY THE KERNEL ───────────────────────────────────────────────────
+//
+// A lead row of lean/leads.json (trial or refuted) may carry `lean`: `def lead_<handle> : Prop := …` stating the
+// lead's own claim, and then exactly one verdict — `theorem proof_<handle> : lead_<handle> := by …` or
+// `theorem involution_<handle> : ¬ lead_<handle> := by …`. The handle is the lead text's own (handleOf ∘ toUuid),
+// so a row can state no lead but its own. The door (formaliseLeads) sends the text through the conveyor's probe
+// and records the verdict on the row as `kernel`, bound to the text by its content address; the lead, its section
+// and every other field are left as they are. A row whose verdict is `accepted` for its current text becomes a wing
+// through buildFormalWing, the one generic builder — no handle needs a hand-written builder to enter the ledger.
+
+/** the kernel's verdict on a row's `lean`, bound to the exact text it judged by that text's content address */
+export interface KernelVerdict {
+  verdict: 'accepted' | 'refused'
+  /** 'door' when the text was refused before the kernel saw it (its names or its shape), else 'kernel' */
+  by: 'door' | 'kernel'
+  theorem: string | null
+  receipt: string
+  /** the axioms `#print axioms` named for the verdict theorem — present, and empty, only on acceptance */
+  axioms?: string[]
+  /** the refusal, in the kernel's words (host paths stripped by the probe) or the door's */
+  said?: string
+}
+export interface LeadBook { trial: LeadRow[]; refuted: LeadRow[] }
+/** the conveyor's probe (kernel-probe.ts): null when the kernel accepts `key` with no axiom, else its diagnostic */
+export type Probe = (c: { key: string; why: string; lean: string }) => string | null
+export const FORMAL_SECTIONS = ['trial', 'refuted'] as const
+export type Section = (typeof FORMAL_SECTIONS)[number]
+export interface FormalShape { theorem: string; kind: 'proof' | 'involution'; defs: string; verdict: string }
+
+const esc = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+/** formalShapeOf(handle, lean) → the verdict theorem the text declares and the text split at it, or the reason the
+ *  door refuses it before the kernel. The shape is the one lean-ledger reads (`theorem <key> : <statement> := by`),
+ *  and the verdict closes the text so everything before it is the wing's defs. */
+export function formalShapeOf(handle: string, lean: string): FormalShape | { refused: string } {
+  const foreign = [...new Set([...codeOf(lean).matchAll(/\b(?:lead|proof|involution)_([0-9a-f]{8})\b/g)].filter((m) => m[1] !== handle).map((m) => m[0]))]
+  if (foreign.length) return { refused: `the text names ${foreign.join(', ')}, and this lead's own handle is ${handle}; a row states its own lead and no other` }
+  const defs = [...lean.matchAll(new RegExp(`^def lead_${handle} : Prop :=`, 'gm'))]
+  if (defs.length !== 1) return { refused: `the text declares \`def lead_${handle} : Prop :=\` ${defs.length} times; the lead's claim is stated exactly once` }
+  const heads = [...lean.matchAll(new RegExp(`^theorem (proof|involution)_${handle}\\b.*$`, 'gm'))]
+  if (heads.length !== 1) return { refused: `the text declares ${heads.length} verdict theorems; a row carries exactly one, proof_${handle} or involution_${handle}` }
+  const head = heads[0]!, kind = head[1] as 'proof' | 'involution'
+  const statement = kind === 'proof' ? `lead_${handle}` : `¬ lead_${handle}`
+  if (!new RegExp(`^theorem ${kind}_${handle} : ${esc(statement)} := by\\b`).test(head[0])) {
+    return { refused: `the verdict must read \`theorem ${kind}_${handle} : ${statement} := by …\` on one line, the shape lean-ledger reads` }
+  }
+  const after = lean.slice(head.index! + head[0].length).split('\n').filter((l) => /^\S/.test(l))
+  if (after.length) return { refused: `the verdict theorem must close the text, and \`${after[0]!.slice(0, 60)}\` follows it at the margin` }
+  if (defs[0]!.index! > head.index!) return { refused: `lead_${handle} must be declared before its verdict` }
+  return { theorem: `${kind}_${handle}`, kind, defs: lean.slice(0, head.index).trimEnd(), verdict: lean.slice(head.index).trim() }
+}
+
+/** verdictCurrent(row) → the recorded verdict is for the row's current text; an edited text needs a new trial */
+export const verdictCurrent = (row: LeadRow): boolean => typeof row.lean === 'string' && row.kernel?.receipt === toUuid(row.lean)
+
+/** judgeRow(handle, row, probe) → the verdict on the row's `lean`: the door's names-and-shape check first, then the
+ *  kernel, asked for the verdict theorem's axioms in the same invocation (sorry and any axiom are refused there) */
+export function judgeRow(handle: string, row: LeadRow, probe: Probe): KernelVerdict {
+  const lean = row.lean ?? ''
+  const receipt = toUuid(lean)
+  const shape = formalShapeOf(handle, lean)
+  if ('refused' in shape) return { verdict: 'refused', by: 'door', theorem: null, receipt, said: shape.refused }
+  const said = probe({ key: shape.theorem, why: row.lead, lean })
+  return said === null
+    ? { verdict: 'accepted', by: 'kernel', theorem: shape.theorem, receipt, axioms: [] }
+    : { verdict: 'refused', by: 'kernel', theorem: shape.theorem, receipt, said }
+}
+
+export interface Judged { section: Section; handle: string; kernel: KernelVerdict }
+
+/** formaliseLeads(book, probe) → the book with a verdict on every row whose `lean` has none for its current text,
+ *  and the verdicts it gave. Rows keep their order, their lead text and every other field; a lead that moved or a
+ *  count that dropped throws before anything is returned, so a caller has nothing to write. */
+export function formaliseLeads<B extends LeadBook>(book: B, probe: Probe): { book: B; judged: Judged[] } {
+  const judged: Judged[] = []
+  const next: B = { ...book }
+  for (const s of FORMAL_SECTIONS) {
+    next[s] = book[s].map((row) => {
+      if (typeof row.lean !== 'string' || verdictCurrent(row)) return row
+      const handle = handleOf(toUuid(row.lead))
+      const kernel = judgeRow(handle, row, probe)
+      judged.push({ section: s, handle, kernel })
+      return { ...row, kernel }
+    })
+    if (next[s].length !== book[s].length || next[s].some((r, i) => r.lead !== book[s][i]!.lead)) {
+      throw new Error(`formaliseLeads: ${s} would move from ${book[s].length} rows to ${next[s].length} or reword a lead; the door records verdicts only`)
+    }
+  }
+  return { book: next, judged }
+}
+
+export interface FormalLead { handle: string; section: Section; kind: 'proof' | 'involution'; row: LeadRow }
+
+/** formalLeads(book?) → every row whose current `lean` the kernel accepted, in handle order. A handle with a
+ *  hand-built wing is left to its builder: its wing and its witness seals are bound to that text. */
+export function formalLeads(book: LeadBook = readJson<LeadBook>('lean/leads.json')): FormalLead[] {
+  const out: FormalLead[] = []
+  for (const section of FORMAL_SECTIONS) {
+    for (const row of book[section] ?? []) {
+      if (!verdictCurrent(row) || row.kernel?.verdict !== 'accepted') continue
+      const handle = handleOf(toUuid(row.lead))
+      if (BUILDERS[handle]) continue
+      const shape = formalShapeOf(handle, row.lean!)
+      if ('refused' in shape) continue
+      out.push({ handle, section, kind: shape.kind, row })
+    }
+  }
+  return out.sort((a, b) => (a.handle < b.handle ? -1 : a.handle > b.handle ? 1 : 0))
+}
+export const formalFileOf = (f: Pick<FormalLead, 'handle' | 'kind'>): string => (f.kind === 'involution' ? wingFileOf(f.handle) : `Proof${f.handle}.lean`)
+
+/** buildFormalWing(f) → the wing of a formalised lead: the row's Lean before its verdict as defs, the lead's own text
+ *  documenting lead_<handle>, and the verdict as the one fact. The js leg is the recorded acceptance of this exact
+ *  text — the kernel is the judge, and emit's compile asks it again. */
+export function buildFormalWing(f: FormalLead): WingText {
+  const shape = formalShapeOf(f.handle, f.row.lean ?? '')
+  if ('refused' in shape) throw new Error(`lead ${f.handle}: ${shape.refused}`)
+  // a doc comment the row wrote on its verdict moves onto the fact, because emit documents every theorem itself
+  const trailingDoc = /\/--([\s\S]*?)-\/\s*$/.exec(shape.defs)
+  const before = trailingDoc ? shape.defs.slice(0, trailingDoc.index).trimEnd() : shape.defs
+  const at = before.search(new RegExp(`^def lead_${f.handle} : Prop :=`, 'm'))
+  const documented = /-\/\s*$/.test(before.slice(0, at))
+  const defs = documented ? before : before.slice(0, at).trimEnd() + (at > 0 ? '\n\n' : '') + block(f.row.lead, before.slice(at))
+  // SUPPORTING THEOREMS a row states before its verdict are facts too. Left inside the defs they reached the ledger as
+  // rows no wing registers — no skill, no cases: a row shape the ledger otherwise never takes, and the ledger's array
+  // literal went past the type checker (TS2590, lead ef58b583's two companions, 2026-09-15). A theorem block is its
+  // `theorem` line and the indented lines under it; everything else stays a definition.
+  const lines = defs.split('\n')
+  const kept: string[] = []
+  const supporting: { key: string; text: string }[] = []
+  for (let i = 0; i < lines.length; i++) {
+    const m = /^theorem\s+(\w+)/.exec(lines[i]!)
+    if (!m) { kept.push(lines[i]!); continue }
+    const text = [lines[i]!]
+    while (i + 1 < lines.length && /^\s+\S/.test(lines[i + 1]!)) text.push(lines[++i]!)
+    supporting.push({ key: m[1]!, text: text.join('\n') })
+  }
+  const verb = f.kind === 'involution' ? 'refutes' : 'proves'
+  const facts: Fact[] = [...supporting.map((s) => ({
+    key: s.key,
+    name: `a supporting theorem the row states for lead ${f.handle}, decided by the kernel with its verdict`,
+    js: () => verdictCurrent(f.row) && f.row.kernel?.verdict === 'accepted',
+    lean: s.text,
+  })), {
+    key: shape.theorem,
+    name: trailingDoc ? trailingDoc[1]!.trim() : `The kernel ${verb} lead ${f.handle}: ${said(f.row.lead)}`,
+    js: () => verdictCurrent(f.row) && f.row.kernel?.verdict === 'accepted' && f.row.kernel.theorem === shape.theorem,
+    lean: shape.verdict,
+  }]
+  const header = `${f.kind === 'involution' ? 'INVOLUTION' : 'PROOF'} ${f.handle}: lead ${f.handle} of lean/leads.json (${f.section}), stated in the row's own lean field as lead_${f.handle}, and ${shape.theorem}, the kernel's proof of ${f.kind === 'involution' ? 'its negation' : 'it'}, accepted at the door for the text addressed ${f.row.kernel!.receipt}.`
+  return { file: formalFileOf(f), header, defs: kept.join('\n').trim(), facts }
 }
 
 // ── THE 2×7 WITNESS SEALS ────────────────────────────────────────────────────────────────────────────────────────

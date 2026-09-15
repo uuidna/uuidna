@@ -2,7 +2,8 @@
   "name": "@uuidna/uuidna",
   "version": "0.3.1",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "Content-addressed identity, honest by construction \u2014 mint + mind, holographic merkle proofs, a reversible imprint codec, a reeducating harness, a measured billing model, pure-TypeScript ChaCha20-Poly1305 encryption under a 7d-fold envelope, and an MCP server to fuse it into any harness.",
   "type": "module",
@@ -39,61 +40,76 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./mcp": {
       "types": "./dist/mcp.d.ts",
-      "import": "./dist/mcp.js"
+      "import": "./dist/mcp.js",
+      "default": "./dist/mcp.js"
     },
     "./crypto": {
       "types": "./packages/crypto/dist/index.d.ts",
-      "import": "./packages/crypto/dist/index.js"
+      "import": "./packages/crypto/dist/index.js",
+      "default": "./packages/crypto/dist/index.js"
     },
     "./ledger": {
       "types": "./packages/ledger/dist/index.d.ts",
-      "import": "./packages/ledger/dist/index.js"
+      "import": "./packages/ledger/dist/index.js",
+      "default": "./packages/ledger/dist/index.js"
     },
     "./research": {
       "types": "./packages/research/dist/index.d.ts",
-      "import": "./packages/research/dist/index.js"
+      "import": "./packages/research/dist/index.js",
+      "default": "./packages/research/dist/index.js"
     },
     "./quantum": {
       "types": "./packages/quantum/dist/index.d.ts",
-      "import": "./packages/quantum/dist/index.js"
+      "import": "./packages/quantum/dist/index.js",
+      "default": "./packages/quantum/dist/index.js"
     },
     "./edge": {
       "types": "./packages/edge/dist/index.d.ts",
-      "import": "./packages/edge/dist/index.js"
+      "import": "./packages/edge/dist/index.js",
+      "default": "./packages/edge/dist/index.js"
     },
     "./os": {
       "types": "./dist/quantum/os/npm/index.d.ts",
-      "import": "./dist/quantum/os/npm/index.js"
+      "import": "./dist/quantum/os/npm/index.js",
+      "default": "./dist/quantum/os/npm/index.js"
     },
     "./os/catalogue": {
       "types": "./dist/quantum/os/catalogue/index.d.ts",
-      "import": "./dist/quantum/os/catalogue/index.js"
+      "import": "./dist/quantum/os/catalogue/index.js",
+      "default": "./dist/quantum/os/catalogue/index.js"
     },
     "./apps": {
       "types": "./dist/quantum/apps/index.d.ts",
-      "import": "./dist/quantum/apps/index.js"
+      "import": "./dist/quantum/apps/index.js",
+      "default": "./dist/quantum/apps/index.js"
     },
     "./os/apps": {
       "types": "./dist/os/apps/index.d.ts",
-      "import": "./dist/os/apps/index.js"
+      "import": "./dist/os/apps/index.js",
+      "default": "./dist/os/apps/index.js"
     },
     "./drivers": {
       "types": "./dist/drivers/driver/index.d.ts",
-      "import": "./dist/drivers/driver/index.js"
+      "import": "./dist/drivers/driver/index.js",
+      "default": "./dist/drivers/driver/index.js"
     },
     "./drivers/quantum": {
       "types": "./dist/drivers/quantum/index.d.ts",
-      "import": "./dist/drivers/quantum/index.js"
-    }
+      "import": "./dist/drivers/quantum/index.js",
+      "default": "./dist/drivers/quantum/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "workspaces": [
     "packages/*"
   ],
   "bin": {
+    "uuidna": "./packages/mcp/bin.js",
     "uuidna-mcp": "./dist/mcp.js",
     "uuidna-install": "./dist/scripts/install.js"
   },
@@ -116,7 +132,9 @@
     "mirror/alpine-overlay.tsv",
     "mirror/alpine-testing-leads.tsv",
     "!**/.uuidna-books",
-    "!dist/.tsbuildinfo"
+    "!dist/.tsbuildinfo",
+    "!packages/*/src",
+    "!packages/*/tsconfig.json"
   ],
   "sideEffects": false,
   "engines": {

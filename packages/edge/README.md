@@ -2,6 +2,28 @@
 
 The deployment surface of uuidna: the Cloudflare bindings audit (symmetric-only posture, committed config — not the live edge), the one navigable site graph (`canonicalOrder`, `nextOf`, `gaps` — no next-gap, no orphan), quantum SEO, the theorem renderers, the serializer contract of a content-addressed document, and the profile / social cards the site serves.
 
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Quick start
+
+```js
+import { documentAddress } from '@uuidna/uuidna/edge'
+
+const doc = (text) => ({ root: { type: 'root', children: [{ type: 'paragraph', text }] } })
+console.log(documentAddress(doc('hello')) === documentAddress(doc('hello')))
+// → true
+console.log(documentAddress(doc('hello')) === documentAddress(doc('hello!')))
+// → false
+```
+
+The same document always has the same address, and editing any node moves it. The input is the shape of Lexical's
+`EditorState.toJSON()`. `@uuidna/uuidna/edge` is this surface inside the umbrella package, and `@uuidna/edge`
+re-exports the same bindings. The rest of it:
+
 ```ts
 import { auditCloudflareBindings, canonicalOrder, gaps, quantumSeo, renderTheorem, documentAddress } from '@uuidna/edge'
 ```

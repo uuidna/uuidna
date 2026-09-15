@@ -1,0 +1,12 @@
+{
+  "handle": "8366aad3",
+  "address": "8366aad3-b4e2-8469-a199-47b9b49f7113",
+  "kind": "chunk",
+  "keys": [
+    "two_products_le_sum_of_squares"
+  ],
+  "statement": "∀ x y : Nat, x * y + x * y ≤ x * x + y * y",
+  "files": [
+    "Fluid.lean"
+  ]
+}

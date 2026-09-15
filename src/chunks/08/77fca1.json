@@ -1,0 +1,12 @@
+{
+  "handle": "0877fca1",
+  "address": "0877fca1-698b-80d0-a9c2-b4e7193c9e6e",
+  "statement": "∀ (u : Nat → Int) (n : Nat), (∀ i : Nat, u (i + n) = u i) → psum (fun i => sq (stepZ u i).natAbs) n ≤ 16 * psum (fun i => sq (u i).natAbs) n",
+  "tactic": "intro u n h apply ring_energy_bound_of_pointwise (fun i => (u i).natAbs) (fun i => (stepZ u i).natAbs) n (fun i => congrArg Int.natAbs (h i)) intro i show (u i + u (i + 1) + u (i + 1) + u (i + 2)).natAbs ≤ (u i).natAbs + (u (i + 1)).natAbs + (u (i + 1)).natAbs + (u (i + 2)).natAbs exact Nat.le_trans (natAbs_triangle _ _) (Nat.add_le_add_right (Nat.le_trans (natAbs_triangle _ _) (Nat.add_le_add_right (natAbs_triangle _ _) _)) _)",
+  "keys": [
+    "signed_diffusion_step_never_increases_energy"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

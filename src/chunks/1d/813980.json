@@ -1,0 +1,12 @@
+{
+  "handle": "1d813980",
+  "address": "1d813980-4f5b-8c94-a703-a71085669254",
+  "statement": "(2 * 7 = 14) ∧ (14 / 2 = 7) ∧ (8 + 6 = 14) ∧ (7 = 1 + 6) ∧ (3 * 1 * (1 + 1) + 1 = 7) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "two_coins_make_a_coil_and_seven_coils_are_one_and_six"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

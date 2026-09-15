@@ -1,0 +1,12 @@
+{
+  "handle": "fce2a3b8",
+  "address": "fce2a3b8-481f-8bdf-ab9b-a91def6fa445",
+  "statement": "∀ (f : Nat → Nat) (n : Nat), f n = f 0 → psum (fun i => f (i + 1)) n = psum f n",
+  "tactic": "intro f n h have t : psum (fun i => f (i + 1)) n + f 0 = psum f n + f 0 := h ▸ discrete_divergence_telescopes f n exact add_right_cancel_by_induction _ _ _ t",
+  "keys": [
+    "ring_divergence_is_zero"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

@@ -134,7 +134,7 @@ export { optimiseLinear, type LinearProgram, type LinearOptimum } from './optimi
 // decide — THE QUANTUM CALCULATOR, founded on division by zero (x/0 = 0, well-defined in Lean, sealed in
 // DivByZero.lean): ANY input folds to one lean-green shape {verdict, cites, receipt} — a sealed statement is
 // recognized and cited, fresh arithmetic is decided totally (TRUE and FALSE at last wear different verdicts:
-// VERIFIED_BY_DECIDE vs REFUTED), a bare expression computes its exact value, and prose goes to the gate.
+// EVALUATED_TRUE vs EVALUATED_FALSE, an evaluation the kernel has not checked), a bare expression computes its exact value, and prose goes to the gate.
 export { decide, type Decision } from './decide.js'
 
 // cloudflare — audit the Cloudflare Workers bindings for a quantum-secure posture (no secret committed; symmetric-only

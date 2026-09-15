@@ -18,9 +18,26 @@ const SEALED = { has: (k: string): boolean => sealedAddressOf(k) !== undefined, 
  *  what was matched is a cut-off prefix, not a key */
 const placeholder = (text: string, m: RegExpMatchArray): boolean => /[<${[]/.test(text.charAt((m.index ?? 0) + m[0].length))
 
-/** a Lean DECLARATION: `theorem NAME` opening its line (after a closing doc comment, an attribute, or a modifier) and
- *  followed by binders or its type's colon — it defines NAME and cites nothing. Prose that merely starts a line with
- *  "theorem two_coins backs this" is not followed by a binder or colon, so it still counts as a citation. */
+/** a sealed key never ends in `_` (the live-ledger test asserts it), so a matched name ending in one was cut where it
+ *  continued — `grep -o '/theorem/enumeration_hex4_'` closes its quote on a prefix — and names no theorem */
+const cut = (key: string): boolean => key.replace(/'+$/, '').endsWith('_')
+
+/** what may stand before the quote that opens a string whose first token is `theorem`: nothing on the line, or the
+ *  `(` `[` `{` `,` `:` `=` of a call, array, object, field (`lean: '…'`) or assignment (`lean = "…"`) */
+const OPENS_LITERAL = new Set(['(', '[', '{', ',', ':', '='])
+const opensLiteral = (text: string, q: number): boolean => {
+  let j = q
+  if (text[j - 1] === '\\') j--   // an escaped quote in an encoded string (`\"theorem …`) opens it the same way
+  while (j > 0 && (text[j - 1] === ' ' || text[j - 1] === '\t')) j--
+  return j === 0 || text[j - 1] === '\n' || text[j - 1] === '\r' || OPENS_LITERAL.has(text[j - 1]!)
+}
+
+/** a Lean DECLARATION: `theorem NAME` followed by binders or its type's colon, where `theorem` opens its line (after a
+ *  closing doc comment, an attribute, or a modifier) or is the first token of a string literal (a generator's
+ *  `lean: 'theorem mul_add_by_induction : …'`, a template `` `theorem foo : …` ``, a fixture
+ *  `'theorem refused_key : 1 = 1 := by decide'`) — it defines NAME and cites nothing. Prose such as
+ *  "theorem two_coins backs this", or 'the proof is theorem two_coins', has no binder or colon after the name, or
+ *  words before `theorem` inside its quote, so it still counts as a citation. */
 const MODIFIERS = ['private', 'protected', 'noncomputable'] as const
 const declared = (text: string, m: RegExpMatchArray): boolean => {
   const at = m.index ?? 0
@@ -43,7 +60,9 @@ const declared = (text: string, m: RegExpMatchArray): boolean => {
     i = open
     blank()
   }
-  return i === 0 || text[i - 1] === '\n' || text[i - 1] === '\r' || text.endsWith('-/', i)
+  if (i === 0 || text[i - 1] === '\n' || text[i - 1] === '\r' || text.endsWith('-/', i)) return true
+  const q = text[i - 1]
+  return (q === "'" || q === '"' || q === '`') && opensLiteral(text, i - 1)
 }
 
 export interface SlimVerdict {
@@ -67,12 +86,13 @@ export function slimGate(claim: string): SlimVerdict {
   // plain English word does. This is what keeps the theorem-fold from misreading prose about theorems as a citation.
   // Two shapes carry the word "theorem" and cite nothing, and both read as fabricated before this: a Lean DECLARATION
   // (`theorem brand_new_x : 1 = 1 := rfl` in a written wing or snippet) defines its name — a new name is not yet sealed
-  // by construction — and a PLACEHOLDER (`involution_<handle>`, `involution_${h}`) is a name cut where it continues.
+  // by construction — and a PLACEHOLDER (`involution_<handle>`, `involution_${h}`) or a trailing `_` is a name cut
+  // where it continues.
   // 22 court orders from one wave were raised this way (court-hooks → law-audit → this gate).
   // A Lean name may end in primes (two_coins'), and a primed name is its own theorem, never its stem. A prime that a
   // letter follows is English (theorem two_coins's proof), a quote that closes a single-quoted literal on the same
   // line is the string's (signCommit('Backed by theorem two_coins')), and a route carries no prime at all.
-  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) if (!placeholder(claim, m)) keys.add(m[1])
+  for (const m of claim.matchAll(/\/theorem\/([a-z0-9_]+)/gi)) if (!placeholder(claim, m) && !cut(m[1]!)) keys.add(m[1]!)
   let quotes: Uint32Array | null = null   // single quotes since the line's start, counted once, only if a prime appears
   const inLiteral = (at: number): boolean => {
     if (quotes === null) {
@@ -83,7 +103,7 @@ export function slimGate(claim: string): SlimVerdict {
   }
   for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,}(?:'+(?![A-Za-z0-9_]))?)/gi)) {
     const key = m[1]!.endsWith("'") && inLiteral(m.index ?? 0) ? m[1]!.replace(/'+$/, '') : m[1]!
-    if (/[_0-9]/.test(key) && !placeholder(claim, m) && !declared(claim, m)) keys.add(key)
+    if (/[_0-9]/.test(key) && !cut(key) && !placeholder(claim, m) && !declared(claim, m)) keys.add(key)
   }
   const cited = [...keys]
   const real = cited.filter((k) => SEALED.has(k))

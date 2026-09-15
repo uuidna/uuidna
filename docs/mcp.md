@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="242 keys" />
+# MCP tools <Badge type="tip" text="243 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 242 tools below are read from the server's own tool list and
+is **built from the keys**: the 243 tools below are read from the server's own tool list and
 organised into 37 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 721cd827-d2d2-8df4-80b4-94e2b8c175c1
+gate CLEAN f0 d0 v0 · a1664d83-ed10-80be-be6c-05aa274cc6e6
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 242-tool registry folds to its
-order-invariant identity `5b849a76-f607-8999-81a6-87492893099f` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 243-tool registry folds to its
+order-invariant identity `8aa63a13-2c13-86bc-b323-8906ef70abaa` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`242`" />
+## The grid <Badge type="tip" :text="`243`" />
 
-242 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 112 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+243 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 113 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -100,6 +100,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-image-provenance"><code>image_provenance</code></a>
 <a href="#uuidna-interface"><code>interface</code></a>
 <a href="#uuidna-journals"><code>journals</code></a>
+<a href="#uuidna-land-rights"><code>land_rights</code></a>
 <a href="#uuidna-latex"><code>latex</code></a>
 <a href="#uuidna-lattice"><code>lattice</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
@@ -445,7 +446,7 @@ The STRICT content-address: normalise the input (so equivalent values converge) 
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 
-## Other <Badge type="tip" :text="'120'" />
+## Other <Badge type="tip" :text="'121'" />
 
 *skill: other*
 
@@ -1200,6 +1201,17 @@ Train theorem/axiom discovery from refuted and refused leads in lean/leads.json.
 | `recompute` | boolean | **yes** | run the sweep now |
 | `query` | string | no | a topic |
 
+### `uuidna_land_rights`
+
+THE PUBLIC'S DOOR TO THE RIGHT TO LAND AND TO ACCESS (src/rights). {claim}: VERIFIED only when the claim names an instrument in the sealed table (src/rights/land-instruments.json — the Universal Declaration, the Covenants, the declarations on indigenous peoples and on peasants, ILO 169, the tenure guidelines, the environment-right resolutions, Aarhus, the regional charters, the Nordic, Scottish, English, Icelandic, Estonian and Bulgarian access laws, the Charter of the Forest and the public trust case, each read from its official source) and every article it cites exists in that instrument; otherwise UNVERIFIED with the nearest rows. {url}: the page is read as a page, every detail audited (uuidna_audit_details), every instrument citation checked, and every table article sharing vocabulary returned as a legislative path with its kind, adopting body, qualifications and official source. Every answer carries a receipt signed by 2×7 theorems (receiptSealed re-verifies it). Integrity of the citation, not legal advice; no instrument in the table grants unrestricted access to all land (theorem every_access_instrument_is_qualified).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `claim` | string | no |  |
+| `url` | string | no |  |
+
 ### `uuidna_due_process`
 
 VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Every theorem faces the same fair trial, and every guarantee making that process DUE is itself a sealed lean/Legal.lean theorem: exactly ONE verdict per claim (PROVEN/REFUTED/NOT-PROVEN partition), only the PROVEN admitted, the NON-JUSTICIABLE never refuted (no test → never REFUTED), REFUTED only on a failed uncited test, remand TOTAL (nothing discarded), and the trial computing ONLY with the two coins deposited. Pass {claims:[...]} to put claims on the docket, each adjudicated by that same process with a note; folds to one docket receipt. Returns {verifiedAll,guarantees,allGuaranteesSealed,docket,allTheoremsVerified,receipt,honest}. uuidna's OWN recomputable adjudication, whose rules are theorems anyone rechecks — NOT a court of law, NOT legal advice, NOT an enforceable ruling. "Due" means fair and recomputable by its sealed guarantees; the binding ruling stays a human court's. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
@@ -1316,7 +1328,7 @@ _No parameters._
 
 ### `uuidna_decide`
 
-THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel's prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean's own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.
+THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel's prior decision and cited; fresh arithmetic is EVALUATED totally by a bounded grammar (never eval) mirroring Lean's Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns EVALUATED_TRUE and FALSE returns EVALUATED_FALSE (truth and falsehood wear different labels; an evaluation, not a kernel verdict — the kernel is the only verifier); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.
 
 **Parameters**
 
@@ -2324,9 +2336,9 @@ INVOLUTE of uuidna_contract_chain: verify terms + referer, decrypt each link (se
 
 ### `uuidna_audit_details`
 
-AUDIT EVERY SINGLE DETAIL of a text (offline, pure): deterministic split into sentence/line details, EACH adjudicated — sealed statements VERIFY, fresh arithmetic decides (VERIFIED_BY_DECIDE/REFUTED), prose runs the citation trial; a fabricated citation DRAINS. Controls run FIRST; an accepted control VOIDS the audit (an instrument that cannot fail proves nothing). Folds to one order-invariant receipt. HONEST: integrity, not truth — verdicts settle arithmetic/citations, never the world; overflow past 729 details is counted in `dropped`. Returns {address,details,dropped,controls,outcome,counts,verdicts,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.
+AUDIT EVERY SINGLE DETAIL of a text (offline, pure): deterministic split into sentence/line details, EACH adjudicated — sealed statements VERIFY, fresh arithmetic is evaluated (EVALUATED_TRUE/EVALUATED_FALSE), prose runs the citation trial; a fabricated citation DRAINS. Controls run FIRST; an accepted control VOIDS the audit (an instrument that cannot fail proves nothing). Folds to one order-invariant receipt. HONEST: integrity, not truth — verdicts settle arithmetic/citations, never the world; overflow past 729 details is counted in `dropped`. Returns {address,details,dropped,controls,outcome,counts,verdicts,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.
 
-THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passes" while a single sentence inside it overclaims — and a detail-by-detail audit (the movie audit of 2026-08-22) had to be driven by hand, one uuidna_trial call per claim. This tool is that session folded into the surface. THE ROUTES, in order: (1) the quantum calculator (decide) — a detail matching a sealed theorem verbatim is VERIFIED by the kernel's prior decision; fresh arithmetic is decided totally under Lean's Nat semantics, so truth and falsehood wear different verdicts (VERIFIED_BY_DECIDE / REFUTED — the ONLY route to a negative); terminal punctuation is stripped for the grammar only, the detail keeps its exact address. (2) prose — the citation trial (adjudicate): the relevance floor (a real citation about a disjoint topic verifies nothing) and the numeral-contradiction check; slimGate marks fabricated citations, each of which DRAINS. THE CONTROLS are pre-registered (trial-protocol): "2 + 2 = 5" must be REFUTED, a laundered real citation and a fabricated citation must not verify — controls are evaluated before the subject and returned in the result, so every audit carries the proof its instrument can fail; if any control passes the audit is VOID and adjudicates nothing (a void names the instrument, not the text). THE FOLD binds the text's address, every control outcome, and every detail's address WITH its verdict, through merkleGravity — order-invariant, so any observer recomputes the same receipt, and moving ONE verdict moves it.
+THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passes" while a single sentence inside it overclaims — and a detail-by-detail audit (the movie audit of 2026-08-22) had to be driven by hand, one uuidna_trial call per claim. This tool is that session folded into the surface. THE ROUTES, in order: (1) the quantum calculator (decide) — a detail matching a sealed theorem verbatim is VERIFIED by the kernel's prior decision; fresh arithmetic is decided totally under Lean's Nat semantics, so truth and falsehood wear different labels (EVALUATED_TRUE / EVALUATED_FALSE — the ONLY route to a negative; an evaluation, not a kernel verdict); terminal punctuation is stripped for the grammar only, the detail keeps its exact address. (2) prose — the citation trial (adjudicate): the relevance floor (a real citation about a disjoint topic verifies nothing) and the numeral-contradiction check; slimGate marks fabricated citations, each of which DRAINS. THE CONTROLS are pre-registered (trial-protocol): "2 + 2 = 5" must never read VERIFIED or EVALUATED_TRUE, a laundered real citation and a fabricated citation must not verify — controls are evaluated before the subject and returned in the result, so every audit carries the proof its instrument can fail; if any control passes the audit is VOID and adjudicates nothing (a void names the instrument, not the text). THE FOLD binds the text's address, every control outcome, and every detail's address WITH its verdict, through merkleGravity — order-invariant, so any observer recomputes the same receipt, and moving ONE verdict moves it.
 
 **Parameters**
 

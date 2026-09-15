@@ -1,0 +1,12 @@
+{
+  "handle": "7087f44a",
+  "address": "7087f44a-28ce-8860-a8a5-3161aa93d087",
+  "statement": "∀ (f g : Nat → Nat) (n : Nat), (∀ i : Nat, f i ≤ g i) → psum f n ≤ psum g n",
+  "tactic": "intro f g n h induction n with | zero => exact Nat.le_refl 0 | succ k ih => exact Nat.add_le_add ih (h k)",
+  "keys": [
+    "psum_le_of_pointwise"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

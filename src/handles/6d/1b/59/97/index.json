@@ -1,0 +1,12 @@
+{
+  "handle": "6d1b5997",
+  "address": "6d1b5997-06f8-8632-bed1-4fd6b764ade3",
+  "kind": "chunk",
+  "keys": [
+    "discrete_divergence_telescopes"
+  ],
+  "statement": "∀ (f : Nat → Nat) (n : Nat), psum (fun i => f (i + 1)) n + f 0 = psum f n + f n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

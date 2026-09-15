@@ -1,0 +1,12 @@
+{
+  "handle": "8b7c85f2",
+  "address": "8b7c85f2-b0f9-8c33-ae39-41085fb5ebd8",
+  "statement": "allBytes (fun b => or8 (and8 b 15) 128 == 128 + b % 16) = true",
+  "tactic": "decide",
+  "keys": [
+    "version_stamp"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

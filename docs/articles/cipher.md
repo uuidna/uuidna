@@ -1,15 +1,15 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 33 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 38 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 32 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 37 siblings below.
 
-**33 theorems** and **1,247 decided cases**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in <a href="/lean/Cipher.lean">lean/Cipher.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 33 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
+**38 theorems** and **1,252 decided cases**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in <a href="/lean/Cipher.lean">lean/Cipher.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 20 of its 38 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 33 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 38 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it.
 The ledger holds this as [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — proven `by decide`, sorry-free:
@@ -79,6 +79,41 @@ The ledger holds this as [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_
 
 ```lean
 (4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)
+```
+
+### THE LEDGER IS A CHAIN OF TWO COINS — why blockchain and coins are one word here, as the work states it: every sealed theorem mints two coins (minting_is_two_per_theorem) and every address is two 64-bit coins, 128 = 2·64 = 2⁷. Arithmetic of the address; it does not claim that any other chain uses it.
+The ledger holds this as [blockchain_is_the_ledger_of_two_coins](/theorem/blockchain_is_the_ledger_of_two_coins) — proven `by decide`, sorry-free:
+
+```lean
+(2 * 64 = 128) ∧ (2 ^ 7 = 128)
+```
+
+### INTELLIGENCE WITHOUT THE ARTIFICIAL — why intelligence and lean are one word here, as the author states it ("Uuidna removes artificial from intelligence"): an answer is a sealed Lean theorem folded to one 128-bit address, and the address divides into exactly two 64-bit coins with nothing left over (128 / 64 = 2, 128 mod 64 = 0), two coins per fold (llm_folds_to_hexbit_pairs). Arithmetic of the fold; it does not claim what any model computes.
+The ledger holds this as [intelligence_without_the_artificial_is_lean](/theorem/intelligence_without_the_artificial_is_lean) — proven `by decide`, sorry-free:
+
+```lean
+(128 / 64 = 2) ∧ (128 % 64 = 0)
+```
+
+### THE QUANTUM ADDRESS IS THE UUID DOUBLED — why quantum and uuid are one word here: the two coins take the 64-bit coin to the 128-bit address (rosette_quantum_doubling_is_two_coins), 64 + 64 = 128 and 2⁶·2 = 2⁷ — one doubling of the coin is the address. Arithmetic of the address; the state-vector cost it counts is n_qubit_dimension, not a speedup.
+The ledger holds this as [quantum_is_the_uuid_doubled](/theorem/quantum_is_the_uuid_doubled) — proven `by decide`, sorry-free:
+
+```lean
+(64 + 64 = 128) ∧ (2 ^ 6 * 2 = 2 ^ 7)
+```
+
+### THE ABSTRACT-0 FOLD — why division and zero are one word here: the work folds ÷0 to 0 inside the two-coin address (2·64 = 128). n / 0 = 0 is Lean core's own definition (Nat.div), and Isabelle's and Coq's, and Suppes stated it in 1957 — the rule is not the work's; the work's link is the rule tied to the address.
+The ledger holds this as [division_by_zero_is_the_abstract_zero_fold](/theorem/division_by_zero_is_the_abstract_zero_fold) — proven `by decide`, sorry-free:
+
+```lean
+(5 / 0 = 0) ∧ (2 * 64 = 128)
+```
+
+### THE FARE — why skipper and coins are one word here: the ferryman carries the crossing only when paid, and the work gates its crossing the same way — without the two coins fuseWidth returns the width unchanged (the step is identity, not a walk); paid, 110 − 108 = 2 takes 64 to 128. The Greek obol was one coin in the mouth; two coins on the eyes is later custom — the myth is humanity's, the gate is the work's.
+The ledger holds this as [the_skipper_is_paid_two_coins](/theorem/the_skipper_is_paid_two_coins) — proven `by decide`, sorry-free:
+
+```lean
+(110 - 108 = 2) ∧ (2 * 64 = 128)
 ```
 
 ### THE NAME IS THE WIDTHS. uuid is four letters and a hexbit is four bits; dna is three letters and a trinity is three; they share one letter, so 4 + 3 − 1 = 6. Hexbit plus the two coins is the hexagram: 4 + 2 = 6. Base minus trinity is credit: 9 − 3 = 6. The six-letter name, the hexagram, and the credit plane are one number.

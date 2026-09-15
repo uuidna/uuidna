@@ -1,0 +1,12 @@
+{
+  "handle": "61c45890",
+  "address": "61c45890-3cda-8d4c-8588-cf096d3d19a3",
+  "statement": "∀ n : Nat, amps n = 2 ^ n",
+  "tactic": "intro n induction n with | zero => rfl | succ k ih => show 2 * amps k = 2 ^ k * 2 rw [ih] exact Nat.mul_comm 2 (2 ^ k)",
+  "keys": [
+    "n_qubit_dimension_all"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

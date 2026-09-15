@@ -1,0 +1,1 @@
+[{"key":"proof_f59dbc3d","name":"The kernel proves lead f59dbc3d: HANDLE_BITS % HEXAGRAM_BITS = 2 (the eight-hex handle does not tile as hexagrams). HEXBIT_STATES % HEXAGRAM_BITS = 4. Those remainders are different cuts.","skill":"involution","cases":1}]

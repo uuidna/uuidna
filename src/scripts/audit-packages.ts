@@ -7,15 +7,45 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { workspacePackages } from '../npm-pack.js'
 
-const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
+// the workspaces are read from packages/, never listed here — a seventh package is audited the day it exists
+const PACKAGES = workspacePackages().map((p) => p.dir)
 // the ONE declared support floor — read from the root manifest, never frozen here (a constant copied into a
 // checker is a second source of truth, and the checker always wins the argument it should have lost)
-const ROOT_ENGINE: string | undefined = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf-8')).engines?.node
+const ROOT_MANIFEST = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf-8'))
+const ROOT_ENGINE: string | undefined = ROOT_MANIFEST.engines?.node
 const REQUIRED_FILES = ['package.json', 'tsconfig.json', 'src/index.ts', 'LICENSE', 'README.md']
 const REQUIRED_FIELDS = {
-  'package.json': ['name', 'version', 'description', 'type', 'license', 'author', 'homepage', 'repository', 'main', 'types', 'exports', 'engines', 'sideEffects', 'files', 'scripts', 'dependencies', 'devDependencies'],
+  'package.json': ['name', 'version', 'description', 'keywords', 'type', 'license', 'author', 'homepage', 'repository', 'bugs', 'publishConfig', 'main', 'types', 'exports', 'engines', 'sideEffects', 'files', 'scripts', 'dependencies', 'devDependencies'],
   'tsconfig.json': ['compilerOptions', 'include'],
+}
+
+interface Manifest { name?: string; exports?: Record<string, unknown>; bin?: Record<string, string>; publishConfig?: { access?: string } }
+
+// manifestGaps — what a CONSUMER hits first, each rule quoted from the framework that owns it:
+//  · Node "exports": a subpath not listed is unreachable, ./package.json included (bundlers and analysers read it);
+//    "default" is the catch-all condition and must come last, so require() (node >= 22.12) and tools without the
+//    "import" condition still resolve.
+//  · TypeScript: the "types" condition must come first, or a condition matched earlier wins and types go missing.
+//  · npm publish: a scoped name publishes restricted unless publishConfig.access is "public".
+//  · npm exec: `npx <pkg>` runs the only bin, or the bin named after the unscoped package name — anything else is
+//    "could not determine executable to run", which is what `npx @uuidna/uuidna` answered with two bins, neither named uuidna.
+export function manifestGaps(m: Manifest): string[] {
+  const gaps: string[] = []
+  const ex = m.exports ?? {}
+  if (ex['./package.json'] !== './package.json') gaps.push(`exports has no "./package.json": "./package.json" — reading the manifest throws ERR_PACKAGE_PATH_NOT_EXPORTED`)
+  for (const [sub, target] of Object.entries(ex)) {
+    if (typeof target !== 'object' || target === null) continue
+    const keys = Object.keys(target)
+    if (keys[0] !== 'types') gaps.push(`exports["${sub}"]: "types" must be the first condition (got ${keys.join(', ')})`)
+    if (keys[keys.length - 1] !== 'default') gaps.push(`exports["${sub}"]: "default" must be the last condition, so require() and non-"import" resolvers reach it (got ${keys.join(', ')})`)
+  }
+  if (m.name?.startsWith('@') && m.publishConfig?.access !== 'public') gaps.push(`publishConfig.access must be "public" — a scoped package otherwise publishes restricted`)
+  const bins = Object.keys(m.bin ?? {})
+  const unscoped = (m.name ?? '').split('/').pop() ?? ''
+  if (bins.length > 1 && !bins.includes(unscoped)) gaps.push(`\`npx ${m.name}\` cannot choose among bins ${bins.join(', ')} — npm exec needs a single bin or one named "${unscoped}"`)
+  return gaps
 }
 
 interface AuditResult {
@@ -79,6 +109,7 @@ function auditPackage(pkg: string): AuditResult {
       if (!pkgJson.exports?.['.']?.types || !pkgJson.exports?.['.']?.import) {
         result.errors.push(`Exports must have . entry with types and import`)
       }
+      result.errors.push(...manifestGaps(pkgJson))
 
       // Warn if description is too short
       if (!pkgJson.description || pkgJson.description.length < 20) {
@@ -151,8 +182,10 @@ function main() {
   let totalErrors = 0
   let totalWarnings = 0
 
-  for (const pkg of PACKAGES) {
-    const result = auditPackage(pkg)
+  // the umbrella is the package that is actually published, so its manifest answers to the same consumer rules
+  const rootResult: AuditResult = { package: String(ROOT_MANIFEST.name ?? 'root').replace(/^@uuidna\//, ''), errors: manifestGaps(ROOT_MANIFEST), warnings: [] }
+  for (const result of [rootResult, ...PACKAGES.map(auditPackage)]) {
+    const pkg = result.package
     results.push(result)
     totalErrors += result.errors.length
     totalWarnings += result.warnings.length
@@ -176,7 +209,7 @@ function main() {
     }
   }
 
-  console.log(`\n📊 Summary: ${PACKAGES.length} packages, ${totalErrors} errors, ${totalWarnings} warnings`)
+  console.log(`\n📊 Summary: ${results.length} packages (the root and ${PACKAGES.length} workspaces), ${totalErrors} errors, ${totalWarnings} warnings`)
 
   if (totalErrors > 0) {
     console.log('\n❌ audit-packages: FAILED — fix errors above before deploying')
@@ -188,8 +221,9 @@ function main() {
     process.exit(0)
   }
 
-  console.log('\n✅ audit-packages: PASSED — all 6 packages ready for publication')
+  console.log(`\n✅ audit-packages: PASSED — all ${results.length} packages ready for publication`)
   process.exit(0)
 }
 
-main()
+// run only as the guard's step, so a test can import manifestGaps without the audit exiting the process
+if (process.argv[1]?.endsWith('audit-packages.js')) main()

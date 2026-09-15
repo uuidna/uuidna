@@ -1,0 +1,96 @@
+# THE KERNEL GRADER — the school's proof exercises, judged by the Lean kernel on GitHub's runners.
+#
+# TWO JOBS, SPLIT BY WHAT EACH MAY HOLD. Running `lean` on a learner's text runs that text: elaboration executes
+# tactics. So the job that runs it holds nothing worth taking — contents: read, no id-token, no secret, checkout
+# without persisted credentials, the elan cache restored but never saved (a saved cache would carry this job's
+# writes into every workflow that restores the same key), and `lean` started with only PATH/HOME/ELAN_HOME/LANG.
+# The job that holds the signing permission (id-token: write) runs no checkout and no learner text: it downloads
+# the verdicts as data, checks the file parses as JSON, and posts it under an OIDC token whose audience is
+# https://uuidna.com. The Worker (src/school/grade) verifies that token against this file on refs/heads/main and
+# records a verdict only on a submission still queued.
+#
+# THE DOOR RUNS BEFORE THE KERNEL (src/school/grade/door/index.ts): the statement and theorem name come from the lesson in
+# this checkout; the learner supplies only the proof block, and a block holding #eval, #exit, run_cmd, run_tac, IO,
+# unsafe, @[extern], @[implemented_by], axiom, sorry, admit, native_decide, import or set_option, or one that could
+# close the proof and start a command, is door-refused and never reaches `lean`. Each proof has a 60 s budget.
+name: school-grade
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: school-grade
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    outputs:
+      graded: ${{ steps.grade.outputs.graded }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
+      - name: 'KERNEL CACHE — restore only'
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
+      - name: 'KERNEL — install the judge (elan resolves the repo-pinned toolchain)'
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSfL https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)"
+          "$HOME/.elan/bin/elan" default "$(cat lean-toolchain)"
+          "$HOME/.elan/bin/lean" --version
+      - name: 'GRADE — door, then kernel, for each queued submission'
+        id: grade
+        env:
+          SCHOOL_QUEUE: https://uuidna.com/school/submissions?status=queued
+        run: |
+          node dist/scripts/school-grade.js school-verdicts.json
+          echo "graded=$(jq '.verdicts | length' school-verdicts.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: school-verdicts
+          path: school-verdicts.json
+          retention-days: 1
+          if-no-files-found: error
+
+  post:
+    needs: kernel
+    if: needs.kernel.outputs.graded != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: school-verdicts
+      - name: 'POST — the verdicts, signed by this workflow''s OIDC token'
+        run: |
+          set -euo pipefail
+          jq -e '.verdicts | type == "array"' school-verdicts.json > /dev/null
+          TOKEN="$(curl -sSf -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https%3A%2F%2Fuuidna.com" | jq -r '.value')"
+          echo "::add-mask::$TOKEN"
+          curl -sSf -X POST https://uuidna.com/school/grade \
+            -H "Authorization: Bearer $TOKEN" \
+            -H 'content-type: application/json' \
+            --data-binary @school-verdicts.json

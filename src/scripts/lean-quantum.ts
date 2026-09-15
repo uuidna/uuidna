@@ -12,6 +12,14 @@ import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 const div = (a: number, b: number) => (a - (a % b)) / b // integer floor division — no Math.* (the two-coins guard)
 const sq = (a: number) => a * a
 const CLIFFORD = [[1, 0], [0, 1], [3, -5], [-2, 7]] // sample Gaussian-integer amplitudes (re, im)
+// the induction facts' mirrors sample n ≤ 16; the Lean statement is the ∀
+const amps = (n: number): number => (n === 0 ? 1 : 2 * amps(n - 1))
+const upTo16 = [...Array(17).keys()]
+const AMPS_DEF = `/-- the amplitudes an n-qubit register carries: none added means one (the empty product), and each qubit
+    doubles the space it joins -/
+def amps : Nat → Nat
+  | 0 => 1
+  | n + 1 => 2 * amps n`
 
 const FACTS = [
   // ── measurement: the Born rule on the Bell state (|00⟩+|11⟩)/√2, amplitudes [1,0,0,1] over √2 (scale 1) ──
@@ -252,10 +260,70 @@ const FACTS = [
     why: 'THE CROSS TERM IS THE RECORD OVERLAP — the whole mystery, one inner product. Identical records keep the fringes (⟨r₀|r₀⟩ = 1·1 + 0·0 = 1); orthogonal records kill them (⟨r₀|r₁⟩ = 1·0 + 0·1 = 0). And the quantum eraser is the same arithmetic run backwards: both records overlap the erasing diagonal [1,1] in exactly 1 (1·1 + 0·1 = 1 and 0·1 + 1·1 = 1), so sorting the screen by an erasing-basis read restores the fringes in each subensemble — nothing is undone, the bookkeeping is re-partitioned. Exact integer inner products, the bell_basis_orthogonal method applied to the slit.',
     js: () => (1 * 1 + 0 * 0 === 1) && (1 * 0 + 0 * 1 === 0) && (1 * 1 + 0 * 1 === 1) && (0 * 1 + 1 * 1 === 1),
     lean: 'theorem hexbit_slit_cross_is_overlap : (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1) := by decide' },
+
+  // ── the dimension for EVERY n, by induction — the universal n_qubit_dimension samples at n = 1..5 ──
+  { key: 'mul_add_by_induction', skill: 'infinity',
+    why: 'a·(x + y) = a·x + a·y for EVERY a, x, y — by induction on y, because Nat.mul recurses on its second argument. This wing proves the step itself rather than reusing core\'s distributivity, so the kernel sees every case.',
+    js: () => upTo16.every((a) => upTo16.every((x) => upTo16.every((y) => a * (x + y) === a * x + a * y))),
+    lean: `theorem mul_add_by_induction : ∀ a x y : Nat, a * (x + y) = a * x + a * y := by
+  intro a x y
+  induction y with
+  | zero => rfl
+  | succ k ih =>
+    show a * (x + k) + a = a * x + (a * k + a)
+    rw [ih, Nat.add_assoc]` },
+  { key: 'mul_assoc_by_induction', skill: 'infinity',
+    why: 'a·b·c = a·(b·c) for EVERY a, b, c — by induction on c, through mul_add_by_induction. Core\'s Nat.mul_assoc depends on propext; this proof depends on no axiom.',
+    js: () => upTo16.every((a) => upTo16.every((b) => upTo16.every((c) => a * b * c === a * (b * c)))),
+    lean: `theorem mul_assoc_by_induction : ∀ a b c : Nat, a * b * c = a * (b * c) := by
+  intro a b c
+  induction c with
+  | zero => rfl
+  | succ k ih =>
+    show a * b * k + a * b = a * (b * k + b)
+    rw [ih, mul_add_by_induction]` },
+  { key: 'n_qubit_dimension_all', skill: 'infinity',
+    why: 'n qubits span 2ⁿ amplitudes for EVERY n, by induction — n_qubit_dimension checks n = 1..5 by enumeration, this proves the universal. It counts the classical state-vector cost; it is not a speedup (n_qubit_dimension).',
+    js: () => upTo16.every((n) => amps(n) === 2 ** n),
+    lean: `theorem n_qubit_dimension_all : ∀ n : Nat, amps n = 2 ^ n := by
+  intro n
+  induction n with
+  | zero => rfl
+  | succ k ih =>
+    show 2 * amps k = 2 ^ k * 2
+    rw [ih]
+    exact Nat.mul_comm 2 (2 ^ k)` },
+  { key: 'one_more_qubit_doubles', skill: 'infinity',
+    why: 'adding one qubit doubles the dimension, for EVERY n — the step the induction walks, true by the definition of amps.',
+    js: () => upTo16.every((n) => amps(n + 1) === 2 * amps(n)),
+    lean: `theorem one_more_qubit_doubles : ∀ n : Nat, amps (n + 1) = 2 * amps n := by
+  intro n
+  rfl` },
+  { key: 'shl_pow', skill: 'infinity',
+    why: 'shifting left by k multiplies by 2ᵏ, for EVERY k and a — by induction on k through mul_assoc_by_induction.',
+    js: () => upTo16.every((k) => upTo16.every((a) => (a << k) === 2 ** k * a)),
+    lean: `theorem shl_pow : ∀ k a : Nat, a <<< k = 2 ^ k * a := by
+  intro k
+  induction k with
+  | zero => intro a; exact (Nat.one_mul a).symm
+  | succ k ih =>
+    intro a
+    show (2 * a) <<< k = 2 ^ k * 2 * a
+    rw [ih (2 * a), mul_assoc_by_induction]` },
+  { key: 'shift_is_the_dimension', skill: 'infinity',
+    why: 'the state vector the exact computation allocates (1 << n in src/quantum/index.ts) has exactly amps n entries, for EVERY n — shl_pow at a = 1, then n_qubit_dimension_all.',
+    js: () => upTo16.every((n) => (1 << n) === amps(n)),
+    lean: `theorem shift_is_the_dimension : ∀ n : Nat, 1 <<< n = amps n := by
+  intro n
+  rw [shl_pow n 1, Nat.mul_one, n_qubit_dimension_all n]` },
 ]
 
 console.log('computing ' + FACTS.length + ' QUANTUM facts (exact classical computation — the classical 2^n of n_qubit_dimension) …')
 
-emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF,
+// the header names the tactics the proofs use, read from the proofs themselves
+const tactics = [...new Set(FACTS.flatMap((f) => [...f.lean.matchAll(/\bby\s+([a-z_]+)/g)].map((m) => m[1]!)))].sort()
+
+emit({ file: 'Quantum.lean', skill: 'quantum', defs: LXOR_DEF + '\n\n' + AMPS_DEF,
+  ...(tactics.join() === 'decide' ? {} : { proofs: `Every proof checked by the kernel (by ${tactics.join(', by ')})` }),
   header: 'The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

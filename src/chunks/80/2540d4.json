@@ -1,0 +1,12 @@
+{
+  "handle": "802540d4",
+  "address": "802540d4-897f-85ff-8836-cfc91ce6505d",
+  "statement": "∀ a b k : Nat, a + k = b + k → a = b",
+  "tactic": "intro a b k induction k with | zero => intro h; exact h | succ k ih => intro h; exact ih (Nat.succ.inj h)",
+  "keys": [
+    "add_right_cancel_by_induction"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

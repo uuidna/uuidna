@@ -1,0 +1,12 @@
+{
+  "handle": "591320c8",
+  "address": "591320c8-f2e8-8ca2-815d-7082684524fc",
+  "kind": "chunk",
+  "keys": [
+    "natAbs_triangle"
+  ],
+  "statement": "∀ a b : Int, (a + b).natAbs ≤ a.natAbs + b.natAbs",
+  "files": [
+    "Fluid.lean"
+  ]
+}

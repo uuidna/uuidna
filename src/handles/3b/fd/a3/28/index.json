@@ -1,0 +1,12 @@
+{
+  "handle": "3bfda328",
+  "address": "3bfda328-49f2-8fe7-b2f5-83c858da465b",
+  "kind": "chunk",
+  "keys": [
+    "pigeonhole_for_every_size"
+  ],
+  "statement": "∀ (n : Nat) (f : Nat → Nat), (∀ x, x ≤ n → f x < n) → ∃ x y, x < y ∧ y ≤ n ∧ f x = f y",
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

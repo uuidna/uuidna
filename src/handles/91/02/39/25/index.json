@@ -1,0 +1,12 @@
+{
+  "handle": "91023925",
+  "address": "91023925-dac1-8a78-b88b-43599dc8c578",
+  "kind": "chunk",
+  "keys": [
+    "every_access_instrument_is_qualified"
+  ],
+  "statement": "([133, 119, 98, 209, 88, 111, 133, 143, 485, 213, 124, 256, 265, 150, 109, 110].length > 0) ∧ ([133, 119, 98, 209, 88, 111, 133, 143, 485, 213, 124, 256, 265, 150, 109, 110].all (fun n => n > 0))",
+  "files": [
+    "LandRights.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "990e6e60",
+  "address": "990e6e60-d4e5-8bdb-b471-162c7d6496a3",
+  "kind": "chunk",
+  "keys": [
+    "ring_energy_bound_of_pointwise"
+  ],
+  "statement": "∀ (g h : Nat → Nat) (n : Nat), (∀ i : Nat, g (i + n) = g i) → (∀ i : Nat, h i ≤ g i + g (i + 1) + g (i + 1) + g (i + 2)) → psum (fun i => sq (h i)) n ≤ 16 * psum (fun i => sq (g i)) n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

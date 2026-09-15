@@ -16,10 +16,57 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { leadCensus, renderCensus, read, unread, type Lead } from './leads.js'
-import { gatherLeads } from './scripts/leads-gate.js'
+import { gatherLeads, autoSettle, type LeadsFile } from './scripts/leads-gate.js'
 import { ROOT } from './boundary.js'
+import { handleOf } from './handle.js'
+import { toUuid } from './address.js'
 
 const lead = (source: string, what: string): Lead => ({ source, what, owes: 'evidence' })
+
+// ── AUTO-SETTLE: the kernel's verdict moves a lead; nothing else does, and no lead is dropped ──
+const hOf = (text: string): string => handleOf(toUuid(text))
+const REFUTE = 'a lead the kernel refutes'
+const PROVE = 'a lead the kernel proves'
+const NAMES = 'a lead that names two_coins, a sealed theorem'
+const fixture = (): LeadsFile => ({
+  why: 'fixture', trial: [{ lead: REFUTE }, { lead: PROVE }, { lead: NAMES, boundary: 'two_coins' }], refuted: [{ lead: 'already refuted', killed_by: 'x' }],
+})
+const sealed = [
+  { key: `involution_${hOf(REFUTE)}`, statement: `¬ lead_${hOf(REFUTE)}` },
+  { key: `proof_${hOf(PROVE)}`, statement: `lead_${hOf(PROVE)}` },
+  { key: 'two_coins', statement: '110 - 108 = 2' },
+]
+const leadsIn = (r: LeadsFile): string[] => [...r.trial, ...r.refuted, ...(r.proved ?? [])].map((x) => String(x.lead)).sort()
+
+test('autoSettle — involution_<h> : ¬ lead_<h> moves the lead to refuted; naming a sealed key moves nothing', () => {
+  const r = fixture()
+  const out = autoSettle(r, sealed, () => true)
+  assert.equal(out.before, 4)
+  assert.equal(out.after, 4)
+  assert.deepEqual(leadsIn(out.record), leadsIn(r), 'every lead is still in the record, same text')
+  const moved = out.record.refuted.find((x) => x.lead === REFUTE)!
+  assert.equal(moved.killed_by, `theorem involution_${hOf(REFUTE)} : ¬ lead_${hOf(REFUTE)}`)
+  assert.ok(out.record.trial.some((x) => x.lead === NAMES && x.proved === undefined), 'a lead whose text names two_coins stays in trial: two_coins states another proposition')
+  assert.equal(out.record.trial.find((x) => x.lead === PROVE)!.proved, `proof_${hOf(PROVE)}`, 'no proved list, so the proved lead stays in trial carrying the key')
+  assert.equal(r.trial.length, 3, 'the input record is not mutated')
+})
+
+test('autoSettle — a proved list, when the record has one, receives the proved lead; the count never drops', () => {
+  const out = autoSettle({ ...fixture(), proved: [] }, sealed, () => true)
+  assert.equal(out.before, out.after)
+  assert.deepEqual(out.record.proved!.map((x) => x.lead), [PROVE])
+  assert.deepEqual(out.moved.map((m) => m.to).sort(), ['proved', 'refuted'])
+})
+
+test('autoSettle — without the kernel\'s yes nothing moves, and a second pass over a settled record is a no-op', () => {
+  const none = autoSettle(fixture(), sealed, () => false)
+  assert.equal(none.moved.length, 0)
+  assert.deepEqual(none.record.trial, fixture().trial)
+  const once = autoSettle(fixture(), sealed, () => true)
+  const twice = autoSettle(once.record, sealed, () => true)
+  assert.equal(twice.moved.length, 0)
+  assert.equal(twice.after, once.after)
+})
 
 test('a clean census PERMITS — the half a red tree never shows you', () => {
   const c = leadCensus([read('ledger', [], 17), read('expose', [], 23), read('coverage', [], 41)])

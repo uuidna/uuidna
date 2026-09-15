@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // install — ONE LINE. Enter seats all. Combinations in the console; Cloudflare is one click.
 //
-//   npx uuidna-install
+//   npx -p @uuidna/uuidna uuidna-install   (bare `npx uuidna-install` asks the registry for a package of that name)
 //   npm run x -- install
 //   npm run x -- install --yes
 //   npm run x -- install --select=qpu-mcp,payload-mcp --occupancy=saas
@@ -71,7 +71,7 @@ if (yes || select) {
 
 if (!input.isTTY) {
   printMenu()
-  console.log('npx uuidna-install --yes')
+  console.log('npx -p @uuidna/uuidna uuidna-install --yes')
   console.log(`cloudflare ${INSTALL_CLOUDFLARE.qpu}`)
   process.exit(0)
 }

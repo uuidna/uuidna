@@ -97,7 +97,11 @@ test('search_feed — most-searched queries ring Lean; meaning stays null; crick
 })
 
 test('open_leads, leads_gate, open_questions — agnostic project backlog tools are pure and edge-safe', () => {
-  const verifiedClaim = 'The commission is two, backed by theorem two_coins.'
+  // VERIFIED only by an exact sealed statement; a claim that cites a theorem stays OPEN with the citation as evidence
+  const verifiedClaim = '110 - 108 = 2'
+  const citing = call('uuidna_open_leads', { items: [{ claim: 'The commission is two, backed by theorem two_coins.', source: 'smoke' }] })
+  assert.equal(citing.verified, 0)
+  assert.deepEqual(citing.items[0]!.cites, ['two_coins'])
   const custom = call('uuidna_open_leads', { items: [{ claim: verifiedClaim, source: 'smoke' }, { claim: 'the moon is cheese', source: 'smoke' }] })
   assert.equal(custom.total, 2)
   assert.equal(custom.verified, 1)

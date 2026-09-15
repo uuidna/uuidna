@@ -1,0 +1,12 @@
+{
+  "handle": "33d9fdd2",
+  "address": "33d9fdd2-3bb2-8adb-bd24-86d6138297b8",
+  "statement": "¬ lead_ef58b583",
+  "tactic": "intro ⟨h, _⟩; exact absurd h (by decide)",
+  "keys": [
+    "involution_ef58b583"
+  ],
+  "files": [
+    "Involutionef58b583.lean"
+  ]
+}

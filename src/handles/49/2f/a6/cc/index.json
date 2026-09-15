@@ -1,0 +1,12 @@
+{
+  "handle": "492fa6cc",
+  "address": "492fa6cc-8e9d-8a2e-a525-95b9e4da0915",
+  "kind": "chunk",
+  "keys": [
+    "diffusion_step_never_exceeds_the_maximum"
+  ],
+  "statement": "∀ a b c m : Nat, a ≤ m → b ≤ m → c ≤ m → a + b + b + c ≤ m + m + m + m",
+  "files": [
+    "Fluid.lean"
+  ]
+}

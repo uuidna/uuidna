@@ -1,0 +1,12 @@
+{
+  "handle": "9fd82b8d",
+  "address": "9fd82b8d-3ca3-8aba-b7ff-725bbfa8ed53",
+  "kind": "chunk",
+  "keys": [
+    "shl_pow"
+  ],
+  "statement": "∀ k a : Nat, a <<< k = 2 ^ k * a",
+  "files": [
+    "Quantum.lean"
+  ]
+}

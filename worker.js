@@ -40,6 +40,11 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
 import { primeEdgeLedger } from './dist/edge-ledger.js'
+// THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
+// OIDC-signed verdict post (src/school/routes delegates those two to src/school/grade). Every learner verdict is the
+// pure evaluator's, recomputed here from the served course file pinned to the bundled seal; all school records live in
+// the SCHOOL KV namespace, stored only with the learner's consent.
+import { handleSchool } from './dist/school/routes/index.js'
 
 // QPU IS FUSED, NOT FETCHED: with the QPU service binding a call to qpu.uuidna.com rides env.QPU — no public hop, no
 // extra billed request (Cloudflare: "Service bindings don't increase costs"); every other host, or a deploy without
@@ -47,6 +52,47 @@ import { primeEdgeLedger } from './dist/edge-ledger.js'
 const qpuFetchOf = (env) => env.QPU
   ? (input, init) => (new URL(String(input)).host === 'qpu.uuidna.com' ? env.QPU.fetch(new Request(input, init)) : fetch(input, init))
   : undefined
+
+// THE DEPOSIT DOOR (no token on any host): qpu's QpuDeposit entrypoint over the service binding; the MCP door
+// chooses the key from the content, so a caller never picks where a deposit lands. Declared once: /mcp and the
+// school's certificate route both deposit through it.
+const depositOf = (env) => env.QPU_DEPOSIT ? async (key, value) => {
+  const stored = await env.QPU_DEPOSIT.deposit(key, value)
+  // THE LIVE LINKS: once the content-addressed write holds, the same value is linked twice more, ordered by arrival
+  // — feed/<t>-<run>-<address> (every run, what uuidna.com/live reads) and live/<run>/<t>-<address> (one run,
+  // what uuidna_evidence {run} reads at the edge). t is the Worker's clock read at the boundary — measured
+  // state, never minted in the core — inverted against the platform's own largest safe integer and padded to its
+  // length, so an ascending listing is newest first. The door still chose the content key; so does this.
+  const parts = key.split('/')
+  if (stored && stored.holds === true && parts.length === 4 && parts[0] === 'receipts' && parts[1] === 'uuidna') {
+    const width = String(Number.MAX_SAFE_INTEGER).length
+    const t = String(Number.MAX_SAFE_INTEGER - Date.now()).padStart(width, '0')
+    await env.QPU_DEPOSIT.deposit(`feed/${t}-${parts[2]}-${parts[3]}`, value)
+    await env.QPU_DEPOSIT.deposit(`live/${parts[2]}/${t}-${parts[3]}`, value)
+  }
+  return stored
+} : undefined
+
+// The school's context: the Worker's clock for the per-handle rate limit, the deposit door reached through the same
+// uuidna_evidence {run, deposit} call every host uses (so the certificate is sealed by the door's own 2×7 fold), and
+// one stored qpu document read back by href.
+const schoolCtxOf = (url, env) => ({
+  now: Date.now(),
+  deposit: async (run, body) => {
+    const qpuFetch = qpuFetchOf(env)
+    await primeEdgeLedger(qpuFetch ?? fetch)
+    const res = await handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } },
+      { origin: url.origin, fetch: qpuFetch, deposit: depositOf(env) })
+    const text = (res && res.result && res.result.content && res.result.content[0] && res.result.content[0].text) || ''
+    try { return JSON.parse(text) } catch { return { deposited: false, why: text.slice(0, 200) || 'the MCP door answered without a reply' } }
+  },
+  read: async (href) => {
+    const res = await (qpuFetchOf(env) ?? fetch)(href, { headers: { accept: 'application/json' } })
+    if (!res.ok) return null
+    const doc = await res.json().catch(() => null)
+    return doc && typeof doc === 'object' ? (doc.value ?? null) : null
+  },
+})
 
 // A bare first-part handle: exactly 8 lowercase hex at the root (/808f7b27). The full uuid is never a URL — only its
 // first part is the door; the rest recomputes from the proof. Unknown handle → fall through (asset 404), never a wrong page.
@@ -215,6 +261,12 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } })
     }
 
+    // The school's learner doors; any other /school/ path (the learn page, a served course file) falls through to the assets.
+    if (url.pathname.startsWith('/school/')) {
+      const res = await handleSchool(request, url, env, schoolCtxOf(url, env))
+      if (res) return res
+    }
+
     // Trial CRUD.
     if (url.pathname === '/trials' || url.pathname.startsWith('/trials/')) {
       const res = await handleTrials(request, url, env)
@@ -300,24 +352,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         // centre that ran this Worker. httpProtocol and the cf-ray header describe the incoming request, so they sit under
         // `request`; the client's country, city and asn describe the caller, not a machine, and are not bound into a
         // message that lands in public storage. A Worker reads no sensor; the host measures its own (mcp.ts hostHardware).
-        // THE DEPOSIT DOOR (no token on any host): qpu's QpuDeposit entrypoint over the service binding; the MCP door
-        // chooses the key from the content, so a caller never picks where a deposit lands
-        deposit: env.QPU_DEPOSIT ? async (key, value) => {
-          const stored = await env.QPU_DEPOSIT.deposit(key, value)
-          // THE LIVE LINKS: once the content-addressed write holds, the same value is linked twice more, ordered by arrival
-          // — feed/<t>-<run>-<address> (every run, what uuidna.com/live reads) and live/<run>/<t>-<address> (one run,
-          // what uuidna_evidence {run} reads at the edge). t is the Worker's clock read at the boundary — measured
-          // state, never minted in the core — inverted against the platform's own largest safe integer and padded to its
-          // length, so an ascending listing is newest first. The door still chose the content key; so does this.
-          const parts = key.split('/')
-          if (stored && stored.holds === true && parts.length === 4 && parts[0] === 'receipts' && parts[1] === 'uuidna') {
-            const width = String(Number.MAX_SAFE_INTEGER).length
-            const t = String(Number.MAX_SAFE_INTEGER - Date.now()).padStart(width, '0')
-            await env.QPU_DEPOSIT.deposit(`feed/${t}-${parts[2]}-${parts[3]}`, value)
-            await env.QPU_DEPOSIT.deposit(`live/${parts[2]}/${t}-${parts[3]}`, value)
-          }
-          return stored
-        } : undefined,
+        deposit: depositOf(env),
         hardware: () => ({
           measured: true, surface: 'uuidna.com edge', runtime: 'cloudflare-workers',
           colo: request.cf?.colo ?? null,

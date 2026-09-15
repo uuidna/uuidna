@@ -57,7 +57,7 @@ export function mintLeadsFromText(source: string, from: string, text: string): M
   const leads: MintLead[] = []
   for (const fragment of harvestFragments(text)) {
     const d = decide(fragment)
-    if (d.verdict !== 'VERIFIED_BY_DECIDE' || d.kind !== 'decided-arithmetic') continue
+    if (d.verdict !== 'EVALUATED_TRUE' || d.kind !== 'decided-arithmetic') continue
     const prop = fragmentToLean(fragment)
     const key = keyFromFragment(fragment)
     if (sealed.has(key)) continue

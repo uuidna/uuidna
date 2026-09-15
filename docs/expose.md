@@ -11,8 +11,8 @@ seals, and regenerates on every reconcile — a board of TODAY's digs, not a his
 opens is two calls: `uuidna_expose` finds the coordinates, and `uuidna_wave_deposit` saves candidates into
 [the conveyor](/waves), where the kernel judges each alone.
 
-**Counts:** 64 lonely · 0 grid gap(s) · 0 pair gap(s) ·
-fold receipt `e26e391f-249d-8184-93d8-b8d6bc1d36f8`
+**Counts:** 66 lonely · 0 grid gap(s) · 0 pair gap(s) ·
+fold receipt `5f4843f5-5268-87a5-ae76-abc39f20f1e0`
 
 ## Lonely principles — clusters of one, asking for their second
 
@@ -85,6 +85,8 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 | [`xor_translation_preserves_adjacency_61`](/theorem/xor_translation_preserves_adjacency_61) | EquilibriumXor62.lean | The six-cube translation by 61 |
 | [`xor_translation_preserves_adjacency_62`](/theorem/xor_translation_preserves_adjacency_62) | EquilibriumXor63.lean | The six-cube translation by 62 |
 | [`xor_translation_preserves_adjacency_63`](/theorem/xor_translation_preserves_adjacency_63) | EquilibriumXor64.lean | The six-cube translation by 63 |
+| [`proof_de5612a2`](/theorem/proof_de5612a2) | Proofde5612a2.lean | The proof of lead de5612a2 |
+| [`proof_f59dbc3d`](/theorem/proof_f59dbc3d) | Prooff59dbc3d.lean | The proof of lead f59dbc3d |
 
 ## Grid gaps — the 432 grid's own report
 

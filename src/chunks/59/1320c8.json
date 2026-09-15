@@ -1,0 +1,12 @@
+{
+  "handle": "591320c8",
+  "address": "591320c8-f2e8-8ca2-815d-7082684524fc",
+  "statement": "∀ a b : Int, (a + b).natAbs ≤ a.natAbs + b.natAbs",
+  "tactic": "intro a b cases a with | ofNat m => cases b with | ofNat n => exact Nat.le_refl _ | negSucc n => exact natAbs_subNatNat_le m (n + 1) | negSucc m => cases b with | ofNat n => show (Int.subNatNat n (m + 1)).natAbs ≤ m + 1 + n rw [Nat.add_comm (m + 1) n] exact natAbs_subNatNat_le n (m + 1) | negSucc n => show m + n + 1 + 1 ≤ m + 1 + n + 1 rw [Nat.add_right_comm m 1 n] exact Nat.le_refl _",
+  "keys": [
+    "natAbs_triangle"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

@@ -77,12 +77,15 @@ export default defineConfig({
   themeConfig: {
     siteTitle: SITE.name,
 
+    // A newcomer's order: learn, use, verify, browse; the reference pages after. Every route stays reachable.
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Learn', link: '/school' },
       { text: 'Use', link: '/guides' },
-      { text: 'School', link: '/school' },
-      { text: 'Doctrine', link: '/doctrine' },
+      { text: 'Verify', link: '/trials' },
       { text: 'Theorems', link: '/theorems' },
+      { text: 'Topics', link: '/topics' },
+      { text: 'Doctrine', link: '/doctrine' },
       { text: 'Axioms', link: '/axioms' },
     ],
 

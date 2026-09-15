@@ -1,0 +1,12 @@
+{
+  "handle": "659944cc",
+  "address": "659944cc-e64e-8c98-89ab-d63977ddefe6",
+  "kind": "chunk",
+  "keys": [
+    "square_of_sum_expands"
+  ],
+  "statement": "∀ x y : Nat, (x + y) * (x + y) = (x * x + y * y) + (x * y + x * y)",
+  "files": [
+    "Fluid.lean"
+  ]
+}

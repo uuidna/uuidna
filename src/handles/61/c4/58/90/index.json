@@ -1,0 +1,12 @@
+{
+  "handle": "61c45890",
+  "address": "61c45890-3cda-8d4c-8588-cf096d3d19a3",
+  "kind": "chunk",
+  "keys": [
+    "n_qubit_dimension_all"
+  ],
+  "statement": "∀ n : Nat, amps n = 2 ^ n",
+  "files": [
+    "Quantum.lean"
+  ]
+}

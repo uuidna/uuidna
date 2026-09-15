@@ -7,9 +7,12 @@ import {
   trialAllRefusals,
   collideRefusals,
   dispositionFor,
+  leadVerdictOf,
   pairCollisions,
   witnessKeysFor,
 } from './refusal-trials.js'
+import { handleOf } from './handle.js'
+import { toUuid } from './address.js'
 
 test('sealedKeysIn finds theorem keys in boundary prose', () => {
   const keys = new Set(['grover_quadratic_bound', 'two_coins'])
@@ -38,7 +41,7 @@ test('refusalStatus — the status depends on the witnessing theorems ONLY: no w
   }
 })
 
-test('trialRefusal — quantum refusal is lean with sealed keys and verified disposition', () => {
+test('trialRefusal — a lead naming sealed keys whose lead_<h> is not sealed stays OPEN; the keys are evidence only', () => {
   const keys = new Set(['grover_quadratic_bound', 'sha256_grover_margin_is_the_address', 'key_floor_is_one_uuid'])
   const row = trialRefusal({
     lead: 'All quantum threat is gone with uuidna',
@@ -47,10 +50,36 @@ test('trialRefusal — quantum refusal is lean with sealed keys and verified dis
   }, [], () => true)
   assert.ok(row)
   assert.equal(row.status, 'lean')
-  assert.equal(row.disposition, 'verified')
-  assert.ok(row.sealedKeys.some((k) => keys.has(k)))
-  assert.ok(row.theoremTrials.every((t) => t.verdict === 'VERIFIED'))
+  assert.equal(row.disposition, 'open', 'the named theorems state other propositions — none states this lead')
+  assert.equal(row.verdictKey, null)
+  assert.ok(row.sealedKeys.some((k) => keys.has(k)), 'the citations stay recorded in the row')
+  assert.ok(row.theoremTrials.length > 0 && row.theoremTrials.every((t) => t.verdict === 'VERIFIED'), 'the cited theorems are still trialed, as evidence')
   assert.equal(row.instrumentValid, true)
+})
+
+const LEAD = 'All quantum threat is gone with uuidna'
+const H = handleOf(toUuid(LEAD))
+
+test('trialRefusal — a fixture ledger holding involution_<h> : ¬ lead_<h> REFUTES the lead, and only with the kernel\'s yes', () => {
+  const sealed = [{ key: `involution_${H}`, statement: `¬ lead_${H}` }, { key: 'grover_quadratic_bound', statement: '2 ^ 128 * 2 ^ 128 = 2 ^ 256' }]
+  const row = trialRefusal({ lead: LEAD, boundary: 'grover_quadratic_bound' }, [], () => true, sealed)!
+  assert.equal(row.disposition, 'refuted')
+  assert.equal(row.verdictKey, `involution_${H}`)
+  assert.equal(trialRefusal({ lead: LEAD, boundary: '' }, [], () => false, sealed)!.disposition, 'open', 'no fresh kernel receipt, no verdict')
+  assert.equal(trialRefusal({ lead: LEAD, boundary: '' }, [], undefined, sealed)!.disposition, 'open', 'an unmeasured kernel is never read as clean')
+})
+
+test('trialRefusal — a fixture ledger proving lead_<h> VERIFIES the lead; another lead\'s involution decides nothing here', () => {
+  assert.equal(trialRefusal({ lead: LEAD, boundary: '' }, [], () => true, [{ key: 'k', statement: `lead_${H}` }])!.disposition, 'verified')
+  assert.equal(trialRefusal({ lead: LEAD, boundary: '' }, [], () => true, [{ key: 'involution_0000ffff', statement: '¬ lead_0000ffff' }])!.disposition, 'open')
+  assert.equal(trialRefusal({ lead: LEAD, boundary: '' }, [], () => true, [{ key: `involution_${H}`, statement: '6 * 7 = 7 * 6' }])!.disposition, 'open', 'the right key with the wrong statement decides nothing')
+})
+
+test('leadVerdictOf — only the lead\'s own handle, in exactly the two statement shapes, decides', () => {
+  assert.deepEqual(leadVerdictOf(H, [{ key: `involution_${H}`, statement: `¬  lead_${H}` }]), { disposition: 'refuted', key: `involution_${H}` })
+  assert.deepEqual(leadVerdictOf(H, [{ key: 'p', statement: ` lead_${H} ` }]), { disposition: 'verified', key: 'p' })
+  assert.deepEqual(leadVerdictOf(H, [{ key: 'p', statement: `lead_${H} ∧ True` }]), { disposition: 'open', key: null })
+  assert.deepEqual(leadVerdictOf('not-a-handle', [{ key: 'p', statement: 'lead_not-a-handle' }]), { disposition: 'open', key: null })
 })
 
 test('witnessKeysFor — no hand map grants theorems by wording: a topic named is not a theorem named', () => {
@@ -98,8 +127,8 @@ test('collideRefusals — a lead is judged by its OWN theorems: a colliding neig
   assert.equal(bare.disposition, 'open')
 })
 
-test('dispositionFor — without theorem keys a lead stays open; wording never verifies', () => {
-  assert.equal(dispositionFor({ status: 'open' }, []), 'open')
+test('dispositionFor — an empty ledger decides nothing; wording never verifies', () => {
+  assert.deepEqual(dispositionFor(H, [], () => true), { disposition: 'open', key: null })
 })
 
 test('pairCollisions — shared theorem keys link refusals', () => {
@@ -121,9 +150,10 @@ test('trialAllRefusals — folds every refused row with boundary', () => {
     { lead: 'Bulk crawling of chitanka.info', boundary: 'robots.txt disallows systematic retrieval' },
   ], [], { kernelOk: () => true })
   assert.equal(record.refused, 2)
-  assert.equal(record.lean, 1)
+  assert.equal(record.lean, 1, 'one lead names a sealed theorem — evidence')
   assert.equal(record.open, 1)
-  assert.equal(record.verified, 1)
+  assert.equal(record.verified, 0, 'naming n_qubit_dimension does not state the lead: the ledger proves no lead_<h> for it')
+  assert.equal(record.refuted, 0)
   assert.ok(record.receipt)
 })
 

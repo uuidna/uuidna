@@ -6,7 +6,7 @@
 
 ## Summary
 
-uuidna is a corpus of 70856 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
+uuidna is a corpus of 70916 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
 
 **Why this route.** Machine-checkable mathematics at corpus scale is the fund's stated subject.
 
@@ -16,14 +16,14 @@ uuidna is a corpus of 70856 distinct mathematical propositions, each proven in L
 
 | quantity | value | how it is checked |
 | --- | --- | --- |
-| distinct propositions, formally proven | **70856** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
-| proof-name keys over those propositions | 70938 | 82 are renamings, folded to one record each |
+| distinct propositions, formally proven | **70916** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
+| proof-name keys over those propositions | 70998 | 82 are renamings, folded to one record each |
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
-| published monographs | 242 | every claim links the proof that earns it, or is one |
+| published monographs | 248 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
 | permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
 
-**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 70856 from the source and the kernel.
+**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 70916 from the source and the kernel.
 
 ## Licensing of the funded deliverables
 
@@ -44,7 +44,7 @@ This proposal was drafted with the assistance of a large language model (Anthrop
 
 ## What is claimed, and whose claim is whose
 
-Both halves at full strength. The results below are CLAIMED outright — 70856 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
+Both halves at full strength. The results below are CLAIMED outright — 70916 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
 
 - **The finite instances are claimed; the open conjectures are not solved by anyone here.** `decide` settles a decidable proposition over a FINITE domain, and every famous open conjecture quantifies over an infinite one — so no such proof exists in this corpus or can. What the corpus DOES hold, and claims, are finite instances and counting facts adjacent to those problems, each scoped in its own theorem name.
 - **No quantum-computational speedup.** The project's advantage claims are about verification costing less than recomputation, in measured magnitudes, on ordinary hardware.
@@ -53,11 +53,11 @@ Both halves at full strength. The results below are CLAIMED outright — 70856 p
 
 ## Eligibility against this call, measured
 
-- MET — formal-verification-track-record: 70856 distinct propositions, every one kernel-checked with an empty #print axioms verdict
-- MET — open-access-outputs: 242 monographs published openly, archived at 10.5281/zenodo.22256708
+- MET — formal-verification-track-record: 70916 distinct propositions, every one kernel-checked with an empty #print axioms verdict
+- MET — open-access-outputs: 248 monographs published openly, archived at 10.5281/zenodo.22256708
 
 No deadline: this route is rolling.
 
 ---
 
-Draft address `a045bc9a-6cae-85cf-9285-7b08dff9cfe2` — recomputes from the route, the ledger receipt (undated: no countdown was requested).
+Draft address `d3ea992f-1021-8e19-90f5-9899e8238a9c` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

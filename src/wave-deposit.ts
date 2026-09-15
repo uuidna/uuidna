@@ -30,10 +30,39 @@ const KEY = /^[a-z][a-z0-9_]{3,60}$/
 const LIT = String.raw`(?:\(\s*\d+\s*:\s*Nat\s*\)|\d+)`
 const BARE_LITERAL_CLAUSE = new RegExp('^\\s*\\(?\\s*' + LIT + '\\s*(?:≠|<|>|≤|≥|=)\\s*' + LIT + '\\s*\\)?\\s*$')
 
-function statementFromLean(lean: string): string | null {
-  const m = lean.match(/^theorem\s+\S+\s*:\s*(.+?)\s*:=\s*by\s+decide\s*$/)
-  return m?.[1]?.trim() ?? null
+const OPENERS = '([{⟨'
+const CLOSERS = ')]}⟩'
+
+/** splitTheorem(lean) → the name, statement and proof of `theorem <name> : <statement> := <proof>`, split at the
+ *  first `:=` outside every bracket, or null when no top-level `:=` separates a non-empty statement from a
+ *  non-empty proof. A `:=` inside a bracket belongs to the statement (a `fun`, a structure literal), so the
+ *  bracket depth decides which one ends it. */
+export function splitTheorem(lean: string): { name: string; statement: string; proof: string } | null {
+  const head = lean.match(/^theorem\s+(\S+?)\s*:/)
+  if (!head) return null
+  let depth = 0
+  for (let i = head[0].length; i < lean.length - 1; i++) {
+    const ch = lean[i]!
+    if (OPENERS.includes(ch)) depth++
+    else if (CLOSERS.includes(ch)) depth = depth > 0 ? depth - 1 : 0
+    else if (depth === 0 && ch === ':' && lean[i + 1] === '=') {
+      const statement = lean.slice(head[0].length, i).trim()
+      const proof = lean.slice(i + 2).trim()
+      return statement && proof ? { name: head[1]!, statement, proof } : null
+    }
+  }
+  return null
 }
+
+function statementFromLean(lean: string): string | null {
+  return splitTheorem(lean)?.statement ?? null
+}
+
+// What the door refuses in the proof text is only what the kernel's receipt could never accept: `sorry` and
+// `admit` leave the proof incomplete (the term carries sorryAx), `axiom` declares an assumption instead of proving
+// one, and `native_decide` trusts the compiler through Lean.ofReduceBool. Everything else, whatever the tactic, is
+// the kernel probe's to judge — it refuses any error and any axiom `#print axioms` names.
+const NEVER_PASSES = /\b(sorry|admit|axiom|native_decide)\b/
 
 function isBareLiteralStatement(stmt: string): boolean {
   return stmt.split('∧').every((c) => BARE_LITERAL_CLAUSE.test(c.trim()))
@@ -57,18 +86,24 @@ export function validateCandidate(c: WaveCandidate, sealed: ReadonlyMap<string, 
   if (typeof c.why !== 'string' || c.why.length < 20) return 'why is missing — a theorem presents with its prose'
   if (typeof c.lean !== 'string') return 'lean statement missing'
   if (!c.lean.startsWith(`theorem ${c.key} : `)) return 'lean must state exactly `theorem <key> : ...`'
-  if (!c.lean.trimEnd().endsWith(':= by decide')) return 'the court decides lean: the proof must be `by decide`'
-  if (/\bsorry\b|\baxiom\b/.test(c.lean)) return 'sorry/axiom are refused at the door'
+  const parts = splitTheorem(c.lean)
+  if (!parts) return 'lean must read `theorem <key> : <statement> := <proof>` — no top-level `:=` separates a statement from a proof'
+  // lean-ledger reads a theorem only as `theorem <key> : <statement> := by <tactic>`, so a term proof would be
+  // lifted into Wave.lean and never read back as a sealed row; the tactic after `by` is free.
+  if (!/^by\s+\S/.test(parts.proof)) return 'the proof must be a tactic block `:= by <tactic>`, because lean-ledger reads a sealed row only in that shape'
+  const never = c.lean.match(NEVER_PASSES)
+  if (never) return `sorry/admit/axiom/native_decide are refused at the door: \`${never[1]}\` can never earn the axiom-free receipt, since it leaves the proof incomplete or rests it on an assumption`
   if ((c.lean.match(/\btheorem\b/g) ?? []).length !== 1) return 'one candidate, one theorem'
+  // a later line at column 0 opens a new command in Lean, and lean-ledger ends a theorem at such a line
+  if (c.lean.split('\n').slice(1).some((l) => /^\S/.test(l))) return 'one candidate, one theorem — a later line at column 0 opens a new command; indent the proof under its theorem'
   if (sealed.has(c.key)) return 'key already sealed in the ledger'
-  const stmt = statementFromLean(c.lean)
-  if (stmt && isBareLiteralStatement(stmt)) return 'comparison of bare literals — the claim its key makes is nowhere in the algebra (literal gap law)'
+  const stmt = parts.statement
+  if (isBareLiteralStatement(stmt)) return 'comparison of bare literals — the claim its key makes is nowhere in the algebra (literal gap law)'
   // VACUITY IS THE FAULT THAT SURVIVES EVERY OTHER DOOR LAW, because the statement is perfectly TRUE: it has a
-  // lawful key, prose, one theorem, a `by decide` proof the kernel accepts on the first try, and no literal to
-  // compare. On 2026-09-05 the conveyor sealed `alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0)` and only
-  // the post-seal guard had a word for it — the wrong end of the belt for an automation that runs unattended.
-  // The rule is one declaration in src/vacuity.ts; one-receipt's vacuousGaps is the other consumer.
-  const void_ = stmt ? vacuityReason(stmt) : null
+  // lawful key, prose, one theorem, a proof the kernel accepts on the first try, and no literal to compare
+  // (`alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0)` is the shape). The rule is one declaration in
+  // src/vacuity.ts; one-receipt's vacuousGaps is the other consumer.
+  const void_ = vacuityReason(stmt)
   if (void_) return `the statement is TRUE and says nothing — ${void_} (vacuity law)`
   return null
 }
@@ -96,14 +131,23 @@ export function waveQueueRefusedKeys(queuePath: string): Set<string> {
   return waveQueueKeySets(queuePath).refused
 }
 
-/** waveQueueKeySetsFromData(q) → in-flight and refused keys from parsed queue JSON. Pure — edge bundle or host disk. */
-export function waveQueueKeySetsFromData(q: WaveQueueFile | null | undefined): { inFlight: Set<string>; refused: Set<string> } {
-  if (!q || !Array.isArray(q.pending) || !Array.isArray(q.accepted)) {
-    return { inFlight: new Set(), refused: new Set() }
-  }
+/** refusalAddress(key, lean) → what a kernel refusal blocks: the key paired with the content address of the exact
+ *  lean text the kernel refused. The same text under the same key stays refused; a changed proof under that key is
+ *  a new text, and it returns to the probe. */
+export const refusalAddress = (key: string, lean: string): string => `${key}:${toUuid(lean)}`
+
+interface QueueKeySets { inFlight: Set<string>; refused: Set<string>; refusedTexts: Set<string> }
+const emptyKeySets = (): QueueKeySets => ({ inFlight: new Set(), refused: new Set(), refusedTexts: new Set() })
+
+/** waveQueueKeySetsFromData(q) → in-flight keys, refused keys, and refused (key, text) addresses from parsed queue
+ *  JSON. Pure — edge bundle or host disk. */
+export function waveQueueKeySetsFromData(q: WaveQueueFile | null | undefined): QueueKeySets {
+  if (!q || !Array.isArray(q.pending) || !Array.isArray(q.accepted)) return emptyKeySets()
   const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
-  const refused = new Set(Array.isArray(q.refused) ? q.refused.map((c) => c.key) : [])
-  return { inFlight, refused }
+  const rows = Array.isArray(q.refused) ? q.refused : []
+  const refused = new Set(rows.map((c) => c.key))
+  const refusedTexts = new Set(rows.map((c) => refusalAddress(c.key, String(c.lean ?? ''))))
+  return { inFlight, refused, refusedTexts }
 }
 
 /** waveQueueState(q) → pending count plus in-flight and refused key sets from parsed queue JSON. Pure. */
@@ -117,16 +161,14 @@ export function waveQueueState(q: unknown): {
   return { pending: file?.pending?.length ?? 0, inFlight, refused }
 }
 
-function waveQueueKeySets(queuePath: string): { inFlight: Set<string>; refused: Set<string> } {
+function waveQueueKeySets(queuePath: string): QueueKeySets {
   try {
     const fs = fsm()
-    if (typeof fs?.readFileSync !== 'function' || !fs.existsSync(queuePath)) {
-      return { inFlight: new Set(), refused: new Set() }
-    }
+    if (typeof fs?.readFileSync !== 'function' || !fs.existsSync(queuePath)) return emptyKeySets()
     const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
     return waveQueueKeySetsFromData(q)
   } catch {
-    return { inFlight: new Set(), refused: new Set() }
+    return emptyKeySets()
   }
 }
 
@@ -151,13 +193,15 @@ export function depositCandidates(candidates: WaveCandidate[], queuePath: string
   const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
   if (!Array.isArray(q.pending) || !Array.isArray(q.accepted) || !Array.isArray(q.refused)) throw new Error('wave-queue.json is malformed (pending/accepted/refused arrays required)')
   const sealed = theoremByKey()
-  const { inFlight, refused: refusedKeys } = waveQueueKeySets(queuePath)
-  const blocked = new Set([...inFlight, ...refusedKeys])
+  const { inFlight, refusedTexts } = waveQueueKeySets(queuePath)
+  const blocked = new Set(inFlight)
   const deposited: string[] = []
   const refused: { key: string; reason: string }[] = []
   for (const raw of candidates) {
     const c: WaveCandidate = { key: String(raw?.key ?? ''), why: String(raw?.why ?? ''), lean: String(raw?.lean ?? '') }
-    const bad = validateCandidate(c, sealed) ?? (blocked.has(c.key) ? 'key already pending, accepted, or refused in the queue' : null)
+    const bad = validateCandidate(c, sealed)
+      ?? (blocked.has(c.key) ? 'key already pending or accepted in the queue' : null)
+      ?? (refusedTexts.has(refusalAddress(c.key, c.lean)) ? 'the kernel already refused this exact text under this key — a changed proof returns to the probe, the identical one stays refused' : null)
     if (bad) { refused.push({ key: c.key, reason: bad }); continue }
     q.pending.push(c)
     blocked.add(c.key)

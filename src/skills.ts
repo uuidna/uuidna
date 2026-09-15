@@ -30,7 +30,8 @@ import { domainLab, type DomainLab } from './school/laboratory/index.js'
 
 const HONEST =
   'A skill groups sealed theorems by the CAPABILITY they demonstrate — an axis ORTHOGONAL to principle (which groups ' +
-  'by derivation file). Every theorem in a group is `by decide`, kernel-verified sorry-free, witnessed by its wing; ' +
+  'by derivation file). Every theorem in a group is kernel-verified sorry-free and axiom-free — decided (`by decide`) ' +
+  'or proved (by induction or rewriting, for every value) — and witnessed by its wing; ' +
   'the group folds order-invariantly to one receipt anyone recomputes. The ESCO leg is a MAP BETWEEN VOCABULARIES: ' +
   'it says what this capability is CALLED in the European Commission\'s own taxonomy, and NEVER that any authority ' +
   'recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth). ' +

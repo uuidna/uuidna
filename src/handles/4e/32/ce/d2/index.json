@@ -1,0 +1,12 @@
+{
+  "handle": "4e32ced2",
+  "address": "4e32ced2-97fa-8c4e-966f-b039d530df57",
+  "kind": "chunk",
+  "keys": [
+    "proof_de5612a2"
+  ],
+  "statement": "lead_de5612a2",
+  "files": [
+    "Proofde5612a2.lean"
+  ]
+}

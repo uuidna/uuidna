@@ -1,0 +1,12 @@
+{
+  "handle": "36352217",
+  "address": "36352217-ade7-83d2-8f51-94e0c1009622",
+  "kind": "chunk",
+  "keys": [
+    "right_distrib_by_comm"
+  ],
+  "statement": "∀ x y z : Nat, (x + y) * z = x * z + y * z",
+  "files": [
+    "Fluid.lean"
+  ]
+}

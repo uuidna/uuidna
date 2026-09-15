@@ -2,9 +2,26 @@
 layout: home
 ---
 
-## Use
+<script setup>
+import { computed } from 'vue'
+import { useData } from 'vitepress'
 
-[Guides](/guides) — MCP fuse, TypeScript import, re-prove the ledger. [CONTRIBUTING.md](https://github.com/uuidna/uuidna/blob/main/CONTRIBUTING.md) — add a theorem, `npm run reconcile`, push. Hosted mill: [/mcp](/mcp).
+const { frontmatter } = useData()
+const census = computed(() => frontmatter.value.census || { theorems: 0, decided: 0, otherTactics: 0, axiomFree: 0, principles: 0, skills: 0, shor: null, tamper: null, phd: null })
+</script>
+
+## What you can do here
+
+- **Learn.** [The school](/school) teaches the ledger one lesson at a time. [Topics](/topics) groups the proofs by subject, and [Theorems](/theorems) lists every one of the {{ census.theorems.toLocaleString('en-US') }} with a search box.
+- **Check a claim.** [Trials](/trials) gives any statement one answer, VERIFIED or UNVERIFIED, and shows how that answer is able to fail.
+- **Re-check it all yourself.** [One command line](/guides#verify-every-theorem-yourself) re-runs the Lean kernel over every proof on your own machine.
+- **Explore.** [Quantum](/quantum) — what the ledger computes about quantum capacity. [Unlocks](/unlocks) — what each proof opens. [Doctrine](/doctrine) — the rules the work keeps.
+- **Cite it.** Every page has a short handle link, `https://uuidna.com/<handle>`, and every release is archived under DOI `10.5281/zenodo.22256708` — both sit in the site footer. [What stays permanent](/succession#what-is-already-permanent-with-or-without-anyone).
+- **Support it.** Free to read either way. If it was worth something to you, [send a captain coin](/captain): a deposit goes to `https://revolut.me/ceccec?note=<referrer>`, where the referrer is the handle link of the page that sent you (`encodeURIComponent`). Same licence everywhere: [CC BY-NC-ND 4.0](/license).
+
+## For developers
+
+[Guides](/guides) — MCP fuse, TypeScript import, re-prove the ledger. [CONTRIBUTING.md](https://github.com/uuidna/uuidna/blob/main/CONTRIBUTING.md) — add a theorem, `npm run reconcile`, push. Hosted mill: [/mcp](/mcp). Add the server to any MCP client:
 
 ```json
 { "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
@@ -12,17 +29,12 @@ layout: home
 
 ## Live system status — computed, not typed
 
-<script setup>
-import { computed } from 'vue'
-import { useData } from 'vitepress'
-
-const { frontmatter } = useData()
-const census = computed(() => frontmatter.value.census || { theorems: 0, principles: 0, skills: 0, shor: null, tamper: null, phd: null })
-</script>
+<details>
+<summary>The full live census</summary>
 
 | | |
 | --- | --- |
-| **Theorems sealed** | {{ census.theorems }} — every one `by decide`, recomputed each build from the ledger |
+| **Theorems sealed** | {{ census.theorems }} — each checked by the Lean kernel (`npm run lean`): {{ census.decided }} by `decide`, {{ census.otherTactics }} by other tactics; {{ census.axiomFree }} audited with no axiom ([axioms](/axioms)) — read from the ledger at each build |
 | **Principles** | {{ census.principles }} — each with its audited publication (`/publications`) |
 | **Skills** | {{ census.skills }} — the topics axis (`/topics`), mined from the keys |
 | **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins) (110 − 108 = −χ of the double torus) |
@@ -40,16 +52,18 @@ const census = computed(() => frontmatter.value.census || { theorems: 0, princip
 | **Shor full use** | {{ census.shor && census.shor.uuidChunks }} × GHZ({{ census.shor && census.shor.chunkQubits }}) = {{ census.shor && census.shor.uuidStates.toLocaleString('en-US') }} amplitudes · handle {{ census.shor && census.shor.handleMs }} ms · uuid {{ census.shor && census.shor.uuidMs }} ms ({{ census.shor && census.shor.underSecond ? 'under 1 s' : 'over 1 s' }}) — [`uuidna_os`](/mcp) · [`uuidna_quantum`](/mcp) |
 | **MCP doors** | [`uuidna_crypto`](/mcp) Alpine apps using crypto · [`uuidna_os`](/mcp) boot + capacity + stream fleet · [`uuidna_quantum`](/mcp) GHZ/Bell · [`uuidna_exec`](/mcp) `device` · [`uuidna_sha256`](/mcp) · [`uuidna_encrypt`](/mcp) · [`uuidna_seal_stream`](/mcp) · [`uuidna_machine`](/mcp) · [`uuidna_hardware`](/mcp) — catalog [/mcp](/mcp) |
 
-These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
+These numbers are read from the sealed ledger at build time, so the page says only what the ledger proves.
+
+</details>
+
+## Under the hood
 
 **Rings (computational).** Hexbit lattice 16 = 2⁴; address width 128 = 2⁷; digital-root fold on ℤ/9; Pliska on ℤ/7 — joined only where CRT seals ([`rosette_and_vortex_are_coprime`](/theorem/rosette_and_vortex_are_coprime)).
 
-**Permanence.** Cite `https://uuidna.com/<handle>` (DOI-class; worker HANDLES). Archive DOI `10.5281/zenodo.22256708` — both in the site footer. Completeness cites handle and DOI.
-
-**Captain coins.** Deposit `https://revolut.me/ceccec?note=<referrer>` — referrer = this page's handle door (`encodeURIComponent`). Same license everywhere: [CC BY-NC-ND 4.0](/license).
+**Permanence.** The handle is DOI-class (the worker serves HANDLES); completeness cites handle and DOI.
 
 <!-- unlocks:begin -->
-**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**70854** distinct / **70938** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
+**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**70914** distinct / **70998** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
 <!-- unlocks:end -->
 
 

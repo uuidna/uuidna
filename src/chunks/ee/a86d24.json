@@ -1,0 +1,12 @@
+{
+  "handle": "eea86d24",
+  "address": "eea86d24-d05b-8e37-bf90-e86db2af84fa",
+  "statement": "∀ (g : Nat → Nat) (n : Nat), (∀ i : Nat, g (i + n) = g i) → psum (fun i => g (i + 2)) n = psum g n",
+  "tactic": "intro g n h have h' : ∀ i, (fun j => g (j + 1)) (i + n) = (fun j => g (j + 1)) i := by intro i show g (i + n + 1) = g (i + 1) rw [Nat.add_right_comm] exact h (i + 1) have s1 := ring_shift_preserves_sum (fun j => g (j + 1)) n h' exact Eq.trans s1 (ring_shift_preserves_sum g n h)",
+  "keys": [
+    "ring_double_shift_preserves_sum"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

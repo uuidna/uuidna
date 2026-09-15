@@ -1,0 +1,12 @@
+{
+  "handle": "6d1b5997",
+  "address": "6d1b5997-06f8-8632-bed1-4fd6b764ade3",
+  "statement": "∀ (f : Nat → Nat) (n : Nat), psum (fun i => f (i + 1)) n + f 0 = psum f n + f n",
+  "tactic": "intro f n induction n with | zero => rfl | succ k ih => show psum (fun i => f (i + 1)) k + f (k + 1) + f 0 = psum f k + f k + f (k + 1) rw [Nat.add_right_comm, ih]",
+  "keys": [
+    "discrete_divergence_telescopes"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

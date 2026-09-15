@@ -1,15 +1,15 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 58 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 64 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 57 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 63 siblings below.
 
-**58 theorems** and **284 decided cases**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in <a href="/lean/Quantum.lean">lean/Quantum.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 58 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
+**64 theorems** and **11,079 decided cases**, from [bell_born_weights](/theorem/bell_born_weights) onward, each checked by the kernel in <a href="/lean/Quantum.lean">lean/Quantum.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 64 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 58 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 64 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -415,6 +415,48 @@ The ledger holds this as [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cro
 
 ```lean
 (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)
+```
+
+### a·(x + y) = a·x + a·y for EVERY a, x, y — by induction on y, because Nat.mul recurses on its second argument. This wing proves the step itself rather than reusing core's distributivity, so the kernel sees every case.
+The ledger holds this as [mul_add_by_induction](/theorem/mul_add_by_induction) — proven `by intro`, sorry-free:
+
+```lean
+∀ a x y : Nat, a * (x + y) = a * x + a * y
+```
+
+### a·b·c = a·(b·c) for EVERY a, b, c — by induction on c, through mul_add_by_induction. Core's Nat.mul_assoc depends on propext; this proof depends on no axiom.
+The ledger holds this as [mul_assoc_by_induction](/theorem/mul_assoc_by_induction) — proven `by intro`, sorry-free:
+
+```lean
+∀ a b c : Nat, a * b * c = a * (b * c)
+```
+
+### n qubits span 2ⁿ amplitudes for EVERY n, by induction — n_qubit_dimension checks n = 1..5 by enumeration, this proves the universal. It counts the classical state-vector cost; it is not a speedup (n_qubit_dimension).
+The ledger holds this as [n_qubit_dimension_all](/theorem/n_qubit_dimension_all) — proven `by intro`, sorry-free:
+
+```lean
+∀ n : Nat, amps n = 2 ^ n
+```
+
+### adding one qubit doubles the dimension, for EVERY n — the step the induction walks, true by the definition of amps.
+The ledger holds this as [one_more_qubit_doubles](/theorem/one_more_qubit_doubles) — proven `by intro`, sorry-free:
+
+```lean
+∀ n : Nat, amps (n + 1) = 2 * amps n
+```
+
+### shifting left by k multiplies by 2ᵏ, for EVERY k and a — by induction on k through mul_assoc_by_induction.
+The ledger holds this as [shl_pow](/theorem/shl_pow) — proven `by intro`, sorry-free:
+
+```lean
+∀ k a : Nat, a <<< k = 2 ^ k * a
+```
+
+### the state vector the exact computation allocates (1 << n in src/quantum/index.ts) has exactly amps n entries, for EVERY n — shl_pow at a = 1, then n_qubit_dimension_all.
+The ledger holds this as [shift_is_the_dimension](/theorem/shift_is_the_dimension) — proven `by intro`, sorry-free:
+
+```lean
+∀ n : Nat, 1 <<< n = amps n
 ```
 
 

@@ -1,0 +1,12 @@
+{
+  "handle": "38cba936",
+  "address": "38cba936-34e5-8543-8aed-44d7900b953e",
+  "statement": "∀ (f : Nat → Nat) (v n : Nat), (∃ x, x ≤ n ∧ f x = v) ∨ (∀ x, x ≤ n → f x ≠ v)",
+  "tactic": "intro f v n induction n with | zero => exact match Nat.decEq (f 0) v with | isTrue h => Or.inl ⟨0, Nat.le_refl 0, h⟩ | isFalse h => Or.inr (fun x hx => match x, hx with | 0, _ => h) | succ n ih => exact match ih with | Or.inl ⟨x, hx, h⟩ => Or.inl ⟨x, Nat.le_succ_of_le hx, h⟩ | Or.inr hn => match Nat.decEq (f (n + 1)) v with | isTrue h => Or.inl ⟨n + 1, Nat.le_refl _, h⟩ | isFalse h => Or.inr (fun x hx => match Nat.eq_or_lt_of_le hx with | Or.inl e => e ▸ h | Or.inr l => hn x (Nat.le_of_lt_succ l))",
+  "keys": [
+    "bounded_search_finds_or_refutes"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

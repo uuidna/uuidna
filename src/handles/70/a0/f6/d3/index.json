@@ -1,0 +1,12 @@
+{
+  "handle": "70a0f6d3",
+  "address": "70a0f6d3-e122-88cd-8881-80d4c409e070",
+  "kind": "chunk",
+  "keys": [
+    "land_rights_recorded_votes_carry_their_majorities"
+  ],
+  "statement": "([(48, 0, 8), (143, 4, 11), (121, 8, 54), (161, 0, 8), (43, 0, 4)].all (fun v => v.1 > v.2.1 + v.2.2)) ∧ ([(48, 0, 8), (143, 4, 11), (121, 8, 54), (161, 0, 8), (43, 0, 4)].map (fun v => v.1 + v.2.1 + v.2.2) = [56, 158, 183, 169, 47])",
+  "files": [
+    "LandRights.lean"
+  ]
+}

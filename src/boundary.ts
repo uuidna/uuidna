@@ -39,6 +39,18 @@ export const nodeBuiltin = <T,>(name: string): T | undefined => getBuiltin?.<T>(
  *  A reader that cannot read here says "not measured on this surface" instead of reading the refusal as a verdict. */
 export const hasFilesystem: boolean = !!(fs && path)
 
+/** the host's fs and path, or null on a surface without them — for a module that reads under a root it is handed
+ *  (a test fixture, another checkout) rather than under ROOT, and that must still load at the edge. */
+export type HostFs = FsModule & { path: PathModule }
+export const hostFs: HostFs | null = fs && path ? { ...fs, path } : null
+
+/** what a host-only measurement answers where there is no filesystem: the reason, named. An empty count here
+ *  would read as "measured, and there is nothing", which is a different claim from "not measured on this surface". */
+export interface Unmeasured { readonly unmeasured: string }
+export const unmeasuredHere = (what: string): Unmeasured =>
+  ({ unmeasured: `${what} — UNMEASURED on this surface: it has no filesystem (the edge, a browser), and the sources live on the host's disk; ask the host` })
+export const isUnmeasured = (x: unknown): x is Unmeasured => typeof x === 'object' && x !== null && 'unmeasured' in x
+
 /** the repo root (dist/boundary.js → one level up); '' in a browser, where no path exists to resolve */
 export const ROOT = fs && path && url ? path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..') : ''
 /** read a repo-relative file as utf8 — the boundary's first verb; Node-only, refuses elsewhere by name */

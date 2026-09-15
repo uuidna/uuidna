@@ -81,6 +81,13 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
     'src/os/runtime/hostnode/index.ts',
     'src/quantum/os/cache/index.ts',
     'src/theorem-page.ts',
+    'src/oidc.ts',
+    'src/school/grade/index.ts',
+    'src/school/grade/verdict/index.ts',
+    'src/school/grade/proof/index.ts',
+    'src/school/grade/door/index.ts',
+    'src/school/submission/index.ts',
+    'src/school/routes/index.ts',
   ]
   for (const rel of files) {
     const src = readFileSync(join(ROOT, rel), 'utf8')

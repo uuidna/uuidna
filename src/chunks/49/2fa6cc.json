@@ -1,0 +1,12 @@
+{
+  "handle": "492fa6cc",
+  "address": "492fa6cc-8e9d-8a2e-a525-95b9e4da0915",
+  "statement": "∀ a b c m : Nat, a ≤ m → b ≤ m → c ≤ m → a + b + b + c ≤ m + m + m + m",
+  "tactic": "intro a b c m ha hb hc exact Nat.add_le_add (Nat.add_le_add (Nat.add_le_add ha hb) hb) hc",
+  "keys": [
+    "diffusion_step_never_exceeds_the_maximum"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

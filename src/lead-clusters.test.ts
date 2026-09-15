@@ -11,8 +11,17 @@
 // numbers the slow way. An instrument that only agrees with itself is not corroborated.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { fold, around, leads, wingTerms, handleOfText, tokens } from './lead-clusters.js'
+import { readFileSync } from 'node:fs'
+import { fold as foldOn, around as aroundOn, leads as leadsOn, wingTerms as wingTermsOn, foldOf, handleOfText, tokens, LEADS_FILE, QUEUE_FILE } from './lead-clusters.js'
 import { callTool } from './mcp.js'
+import { isUnmeasured, type Unmeasured } from './boundary.js'
+
+// the host answers; an Unmeasured here is a failure of the host reading, named
+const measured = <T,>(x: T | Unmeasured): T => { if (isUnmeasured(x)) assert.fail(x.unmeasured); return x }
+const leads = () => measured(leadsOn())
+const fold = () => measured(foldOn())
+const around = (t: string) => measured(aroundOn(t))
+const wingTerms = () => measured(wingTermsOn())
 
 test('a lead is parsed at its own boundary, not on punctuation', () => {
   const { leads: all, unreadable } = leads()
@@ -75,4 +84,30 @@ test('the crosslink is handle to handle, both ends derived', () => {
   assert.ok(f.graph.every((e) => /^[0-9a-f]{8}$/.test(e.lead) && /^[0-9a-f]{8}$/.test(e.wing)),
     'both ends of every edge are handles, at the level the rest of the tree already works')
   for (const c of f.clusters) assert.equal(c.handle, handleOfText(c.term), 'a wing handle is derived, not assigned')
+})
+
+test('the sources are the tree\'s own: every lead comes from lean/, and nothing reads a private store', () => {
+  const all = leads().leads
+  assert.ok(all.every((l) => l.source === LEADS_FILE || l.source === QUEUE_FILE), 'a lead from outside the repo is a lead the tree cannot check')
+  assert.ok(all.some((l) => l.source === LEADS_FILE) && all.some((l) => l.source === QUEUE_FILE), 'both in-repo sources are read')
+  const src = readFileSync(new URL('./lead-clusters.js', import.meta.url), 'utf8')
+  assert.doesNotMatch(src, /homedir|\.claude/, 'no path outside the project')
+})
+
+test('with no filesystem every door answers UNMEASURED by name, never an empty fold; on the host it measures', () => {
+  for (const x of [foldOn('.', null), leadsOn('.', null), aroundOn('wave', '.', null), wingTermsOn('.', null)]) {
+    assert.ok(isUnmeasured(x))
+    assert.match(x.unmeasured, /lead clusters — UNMEASURED/)
+  }
+  assert.ok(!isUnmeasured(foldOn()))
+})
+
+test('foldOf is pure over its sources: a lead naming a wing clusters, and an unread source is named, not zero', () => {
+  const queue = JSON.stringify({ pending: [{ key: 'k', why: 'a wave candidate' }], accepted: [], refused: [{ key: 'r', why: 'nothing named', reason: 'no proof class' }] })
+  const f = foldOf({ leads: null, queue, wings: ['Wave.lean', 'Other.lean'] })
+  assert.deepEqual(f.clusters.map((c) => [c.term, c.n]), [['wave', 1]])
+  assert.equal(f.unanchored.length, 1)
+  assert.deepEqual(f.unreadable, [LEADS_FILE])
+  assert.deepEqual(f.leads.map((l) => l.status), ['open', 'refused'])
+  assert.deepEqual(foldOf({ leads: '{}', queue: '{}', wings: [] }).unreadable, [])
 })

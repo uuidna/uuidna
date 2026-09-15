@@ -1,0 +1,12 @@
+{
+  "handle": "42a060b9",
+  "address": "42a060b9-9e9a-8e3d-bbc1-5c5c7c4d5906",
+  "statement": "(110 - 108 = 2) ∧ (2 * 64 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "the_skipper_is_paid_two_coins"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -13,6 +13,10 @@ import { VE_FACES } from './hexbit/index.js'
 import { runEvidenceOf } from './run-evidence.js'
 import { auditRecordOf, auditChainBreaks } from './legal-audit.js'
 import { RESEARCH_DOORS } from './quantum/os/research/index.js'
+import { signCommit } from './sign.js'
+import { slimGate } from './slimgate.js'
+import { memoryHomeGaps } from './memory-home.js'
+import { leadsMissingFrom } from './leads-conservation.js'
 
 /** `said` keeps the captain's own words and date beside the law, so every client of uuidna_laws reads the rule as it
  *  was given — not an agent's paraphrase in a private note */
@@ -60,10 +64,12 @@ export function laws(): Laws {
     { law: 'Every lead goes to a kernel trial before it enters any list; no wording, map or hand disposition settles one.',
       said: 'the captain, 2026-09-14: "all leads go to trial before entering any list" · "lean decides"',
       enforcedBy: 'refusal-trials dispositionFor + the leads guard finder (leads-conserved)',
-      holds: ((t = [{ key: 'k', verdict: 'VERIFIED' as const }]) =>
-        dispositionFor({ status: 'lean' }, t) === 'open'
-        && dispositionFor({ status: 'lean' }, t, () => false) === 'open'
-        && dispositionFor({ status: 'lean' }, t, () => true) === 'verified')(),
+      holds: ((s = [{ key: 'involution_abcd1234', statement: '¬ lead_abcd1234' }, { key: 'k', statement: 'lead_1234abcd' }, { key: 'named_in_the_text', statement: '6 * 7 = 7 * 6' }]) =>
+        dispositionFor('abcd1234', s).disposition === 'open'
+        && dispositionFor('abcd1234', s, () => false).disposition === 'open'
+        && dispositionFor('abcd1234', s, () => true).disposition === 'refuted'
+        && dispositionFor('1234abcd', s, () => true).disposition === 'verified'
+        && dispositionFor('0000ffff', s, () => true).disposition === 'open')(),
       detail: 'without the kernel\'s answer a lead stays open; only the kernel accepting its own theorems verifies it' },
     { law: 'Compute once, save, pass on — a step reads the saved result of the step before, and only for the identical question.',
       said: 'the captain, 2026-09-14: "things need to be remembered at each step instead of saved and passed to the next"',
@@ -90,6 +96,13 @@ export function laws(): Laws {
         && involutionOf('abcd1234', [{ key: 'involution_abcd1234', statement: '6 * 7 = 7 * 6' }]) === null
         && involutionOf('abcd1234', [{ key: 'directions_number_fortytwo', statement: '¬ lead_abcd1234' }]) === null,
       detail: 'only the exact pair under the lead\'s own handle closes it; a true theorem judged decisive by reading closes nothing — the court recomputes this for every refuted lead on every run' },
+    { law: 'A verdict is VERIFIED or UNVERIFIED and nothing else — VERIFIED only when a claim recomputes or cites a sealed theorem; uncited prose and a citation to a proof the ledger does not seal are UNVERIFIED, never "false". Falsity has one road, the refutation law\'s involution inside Lean.',
+      said: 'the captain, 2026-08-12: "one answer VERIFIED or UNVERIFIED, all else void" · "lean verified"',
+      enforcedBy: 'slimgate slimGate (verdict: \'VERIFIED\' | \'UNVERIFIED\') + adjudicate',
+      holds: slimGate('proven in theorem two_coins').verdict === 'VERIFIED'
+        && slimGate('this tree is honest').verdict === 'UNVERIFIED'
+        && slimGate('proven in theorem nonexistent_xyz').verdict === 'UNVERIFIED',
+      detail: 'a sealed citation verifies; uncited prose and a fabricated citation both stay open, and the fabricated one is also what drains (the honesty law); nothing here calls a claim false' },
     { law: 'Nothing is legal unless signed and sealed by the 2×7 witness rosettas — every one of the VE_FACES (8 + 6) witnesses recomputes the verdict\'s theorem and signs it; a missing, duplicated or fabricated signature leaves it unsealed.',
       said: 'the captain, 2026-09-14: "unless signed and sealed by the 2x7 withness rosettas nothing is legal" · "fuse all and reuse or no way to handle all at once"',
       enforcedBy: 'refusal-trials witnessSealOf (signCommit + merkleGravity over VE_FACES) + trial-refusals settlementOf',
@@ -122,6 +135,31 @@ export function laws(): Laws {
       enforcedBy: 'research RESEARCH_DOORS + research-sources.test (the registry adds nothing to a door)',
       holds: RESEARCH_DOORS.length > 0 && RESEARCH_DOORS.every((d) => Object.keys(d).sort().join() === 'access,base,host,read'),
       detail: `${RESEARCH_DOORS.length} doors, each declaring only host, base, access and reader — no per-door query, override or prose` },
+    { law: 'A commit is signed only when its message names a sealed theorem; an unsigned commit is not rewritten, it is paid by the next commit that touches the same ground.',
+      said: 'the captain, 2026-09-07: "cite it in its next touch" · "drift is what unpaid work becomes"',
+      enforcedBy: 'sign signCommit + the pre-commit court (UNSIGNED advises, a fabricated citation refuses)',
+      holds: !signCommit('Tidy the README').signed
+        && signCommit('Backed by theorem two_coins').signed
+        && signCommit('Backed by theorem nonexistent_xyz').fabricated.join() === 'nonexistent_xyz',
+      detail: 'an uncited message and a fabricated citation are both refused a signature; the signature is the citation, never the truth of the claim (theorem provenance_integrity_not_content_truth)' },
+    { law: 'No memories outside the project — the laws live in src/laws.ts, the leads in lean/leads.json through the trial door, the lessons in .claude/lessons.md, and AGENTS.md indexes all three; a private note is a second copy that drifts.',
+      said: 'the captain, 2026-09-14: "no memories outside project" · "Nothing is excluded from the research leads and lean"',
+      enforcedBy: 'memory-home memoryHomeGaps + its guard finder (the host reads AGENTS.md, CLAUDE.md and .claude/lessons.md)',
+      holds: ((home = new Map([['AGENTS.md', 'src/laws.ts lean/leads.json .claude/lessons.md'], ['CLAUDE.md', '@AGENTS.md\n'], ['.claude/lessons.md', '']])) =>
+        memoryHomeGaps(home).length === 0
+        && memoryHomeGaps(new Map([...home].filter(([p]) => p !== 'CLAUDE.md'))).length === 1
+        && memoryHomeGaps(new Map([...home, ['CLAUDE.md', '@AGENTS.md\nremember: a private note']])).length === 1
+        && memoryHomeGaps(new Map([...home, ['AGENTS.md', 'src/laws.ts only']])).length === 2
+        && memoryHomeGaps(new Map()).length === 3)(),
+      detail: 'a whole home reads clean, and each missing index, a CLAUDE.md that grows its own prose, or an index that forgets a home is named; the tree\'s own files are read by the guard finder on the host, and a store outside the repository is not readable from here, so its emptiness is not recomputed' },
+    { law: 'Nothing is purged unless it blocks a natural Lean stream — a contradiction or an overclaim stays as evidence or a lead, and a lead leaves the record only by a verdict, never by deletion.',
+      said: 'the captain, 2026-09-14: "Nothing to purge unless blocking natural lean streams" (for uuidna and qpu)',
+      enforcedBy: 'leads-conservation leadsMissingFrom + the leads guard finder (leads-conserved) + leads-gate --settle (a settled lead moves, the count never drops)',
+      holds: ((head = { trial: [{ lead: 'a' }], refuted: [{ lead: 'b' }] }) =>
+        leadsMissingFrom(head, { trial: [], refuted: [{ lead: 'b' }, { lead: 'a' }] }).length === 0
+        && leadsMissingFrom(head, { trial: [], refuted: [{ lead: 'b' }] }).length === 1
+        && leadsMissingFrom(head, null).length === 2)(),
+      detail: 'a lead that moves between lists is conserved, one that vanishes is named, and an unreadable record names every lead at HEAD; whether a passage blocks the Lean stream (leads → kernel → ledger → seals) is a judgement no function decides, so the law recomputes its checkable half: nothing leaves the record unseen' },
   ]
 
   const allHold = L.every((l) => l.holds)

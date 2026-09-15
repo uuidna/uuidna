@@ -1,0 +1,12 @@
+{
+  "handle": "38cba936",
+  "address": "38cba936-34e5-8543-8aed-44d7900b953e",
+  "kind": "chunk",
+  "keys": [
+    "bounded_search_finds_or_refutes"
+  ],
+  "statement": "∀ (f : Nat → Nat) (v n : Nat), (∃ x, x ≤ n ∧ f x = v) ∨ (∀ x, x ≤ n → f x ≠ v)",
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

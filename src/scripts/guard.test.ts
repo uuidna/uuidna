@@ -100,6 +100,7 @@ const CONTROLLED_VIA: Record<string, string> = {
   linearGaps: 'linearScansIn — two crafted key scans over the ledger, asserted non-empty; a comment and the keyed lookup stay silent',
   memoGaps: 'writeOnlyMemosIn — a crafted write-only memo, asserted non-empty; an early return, a ??= and a Map .get() stay silent',
   leadsGuardGaps: 'leadsMissingFrom — a lead gone from the record, a refused candidate dropped and a stale seal, each asserted to come back as one gap (leads-conserved.test)',
+  memoryHomeGuardGaps: 'memoryHomeGuardGaps — the real tree reads clean, and each removed file, an index that forgets a home and a CLAUDE.md with its own prose are asserted non-empty (memory-home.test)',
 }
 
 /** the finders no test hands a crafted violation to — computed, never listed by hand */

@@ -1,0 +1,1531 @@
+[
+ {
+  "id": "udhr",
+  "title": "Universal Declaration of Human Rights",
+  "body": "UN General Assembly (A/RES/217(III)[A])",
+  "kind": "soft law (declaration)",
+  "adopted": 1948,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "13(1)",
+    "topic": "access",
+    "summary": "Freedom of movement and residence within the borders of each State. It concerns movement, not a right to enter private land."
+   },
+   {
+    "n": "17",
+    "topic": "property",
+    "summary": "Everyone may own property alone or in association with others; no arbitrary deprivation."
+   },
+   {
+    "n": "25(1)",
+    "topic": "land",
+    "summary": "Right to an adequate standard of living including food and housing. It is indirect: land is not named."
+   }
+  ],
+  "url": "https://www.un.org/en/about-us/universal-declaration-of-human-rights",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1948,
+    "source": "un.org UDHR page; UN Digital Library record 666853 action note 1948-12-10"
+   },
+   {
+    "fact": "votes in favour",
+    "value": 48,
+    "source": "UN Digital Library record 666853: Adopted 48-0-8"
+   },
+   {
+    "fact": "votes against",
+    "value": 0,
+    "source": "same"
+   },
+   {
+    "fact": "abstentions",
+    "value": 8,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Non-binding declaration. It has no right to land or to roam as such; land enters only through property (17) and living standard (25).",
+  "vote_url": "https://digitallibrary.un.org/record/666853",
+  "evidence": [
+   {
+    "anchor": "Article 17"
+   },
+   {
+    "anchor": "Article 25"
+   }
+  ]
+ },
+ {
+  "id": "icescr",
+  "title": "International Covenant on Economic, Social and Cultural Rights",
+  "body": "UN General Assembly (res. 2200A (XXI)); depositary UN Secretary-General",
+  "kind": "binding treaty",
+  "adopted": 1966,
+  "inForce": 1976,
+  "articles": [
+   {
+    "n": "1(2)",
+    "topic": "land",
+    "summary": "All peoples may freely dispose of their natural wealth and resources; a people may never be deprived of its own means of subsistence."
+   },
+   {
+    "n": "11(1)",
+    "topic": "land",
+    "summary": "Right to an adequate standard of living, including food and housing, with continuous improvement of living conditions."
+   },
+   {
+    "n": "11(2)(a)",
+    "topic": "land",
+    "summary": "Freedom from hunger: States improve food production, including by developing or reforming agrarian systems for efficient use of natural resources."
+   }
+  ],
+  "url": "https://www.ohchr.org/en/instruments-mechanisms/instruments/international-covenant-economic-social-and-cultural-rights",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1966,
+    "source": "UNTC status page: New York, 16 December 1966"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 1976,
+    "source": "UNTC: entry into force 3 January 1976"
+   },
+   {
+    "fact": "parties",
+    "value": 173,
+    "source": "UNTC status as at 15-09-2026"
+   },
+   {
+    "fact": "signatories",
+    "value": 72,
+    "source": "UNTC status as at 15-09-2026"
+   }
+  ],
+  "qualifications": "Progressive realisation under art. 2(1). Art. 1(2) is a right of peoples, not of individuals. No right of physical access to land.",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "status_url": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-3&chapter=4&clang=_en",
+  "evidence": [
+   {
+    "anchor": "Parties : 173"
+   },
+   {
+    "anchor": "3 January 1976"
+   }
+  ]
+ },
+ {
+  "id": "iccpr",
+  "title": "International Covenant on Civil and Political Rights",
+  "body": "UN General Assembly (res. 2200A (XXI)); depositary UN Secretary-General",
+  "kind": "binding treaty",
+  "adopted": 1966,
+  "inForce": 1976,
+  "articles": [
+   {
+    "n": "1(2)",
+    "topic": "land",
+    "summary": "Common article 1(2): peoples may freely dispose of their natural wealth and resources and may not be deprived of their means of subsistence."
+   },
+   {
+    "n": "12(1)",
+    "topic": "access",
+    "summary": "Everyone lawfully in a State has liberty of movement within it. It is subject to the limits in 12(3) and is no right over private land."
+   },
+   {
+    "n": "27",
+    "topic": "land",
+    "summary": "Minorities may not be denied the right to enjoy their own culture in community. It is relevant to land-based ways of life, but land is not named."
+   }
+  ],
+  "url": "https://www.ohchr.org/en/instruments-mechanisms/instruments/international-covenant-civil-and-political-rights",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1966,
+    "source": "UNTC: New York, 16 December 1966"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 1976,
+    "source": "UNTC: 23 March 1976 (art. 41 provisions: 28 March 1979)"
+   },
+   {
+    "fact": "parties",
+    "value": 175,
+    "source": "UNTC status as at 15-09-2026"
+   },
+   {
+    "fact": "signatories",
+    "value": 74,
+    "source": "UNTC status as at 15-09-2026"
+   }
+  ],
+  "qualifications": "Art. 12 is subject to restrictions provided by law (national security, public order, health, morals, rights of others).",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "status_url": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=IV-4&chapter=4&clang=_en",
+  "evidence": [
+   {
+    "anchor": "Parties : 175"
+   },
+   {
+    "anchor": "23 March 1976"
+   }
+  ]
+ },
+ {
+  "id": "undrip",
+  "title": "United Nations Declaration on the Rights of Indigenous Peoples",
+  "body": "UN General Assembly (A/RES/61/295)",
+  "kind": "soft law (declaration)",
+  "adopted": 2007,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "25",
+    "topic": "land",
+    "summary": "A distinctive spiritual relationship with traditionally owned or used lands, territories, waters and coastal seas, with responsibility to future generations."
+   },
+   {
+    "n": "26",
+    "topic": "land",
+    "summary": "Right to the lands, territories and resources traditionally owned, occupied or used; States give them legal recognition."
+   },
+   {
+    "n": "27",
+    "topic": "land",
+    "summary": "States set up a fair, independent, impartial, open and transparent process to recognise and adjudicate land rights, with indigenous laws and tenure systems recognised."
+   },
+   {
+    "n": "28",
+    "topic": "land",
+    "summary": "Redress for lands taken without consent: restitution, or else just, fair and equitable compensation."
+   },
+   {
+    "n": "29",
+    "topic": "environment",
+    "summary": "Conservation and protection of the environment and the productive capacity of their lands and resources."
+   },
+   {
+    "n": "32",
+    "topic": "land",
+    "summary": "Peoples set their own development priorities for their lands; States consult in good faith to obtain \"free and informed consent prior to the approval of any project\" (32(2))."
+   }
+  ],
+  "url": "https://www.un.org/esa/socdev/unpfii/documents/DRIPS_en.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 2007,
+    "source": "DRIPS_en.pdf: 13 September 2007"
+   },
+   {
+    "fact": "votes in favour",
+    "value": 143,
+    "source": "UN press release GA/10612"
+   },
+   {
+    "fact": "votes against",
+    "value": 4,
+    "source": "GA/10612 (Australia, Canada, New Zealand, United States)"
+   },
+   {
+    "fact": "abstentions",
+    "value": 11,
+    "source": "GA/10612"
+   }
+  ],
+  "qualifications": "Non-binding. The rights belong to indigenous peoples, collectively; it is not a general public right of access.",
+  "vote_url": "https://press.un.org/en/2007/ga10612.doc.htm",
+  "evidence": [
+   {
+    "anchor": "Article 26"
+   },
+   {
+    "anchor": "61/295"
+   }
+  ]
+ },
+ {
+  "id": "ilo169",
+  "title": "Indigenous and Tribal Peoples Convention, 1989 (No. 169)",
+  "body": "International Labour Conference (ILO), 76th session, Geneva",
+  "kind": "binding treaty",
+  "adopted": 1989,
+  "inForce": 1991,
+  "articles": [
+   {
+    "n": "13",
+    "topic": "land",
+    "summary": "Governments respect the special cultural and spiritual relationship with lands and territories; \"lands\" in arts. 15–16 includes the total environment."
+   },
+   {
+    "n": "14",
+    "topic": "land",
+    "summary": "Ownership and possession of traditionally occupied lands recognised; use of shared lands traditionally accessed for subsistence safeguarded (nomads, shifting cultivators); land-claim procedures."
+   },
+   {
+    "n": "15",
+    "topic": "land",
+    "summary": "Rights to natural resources pertaining to their lands safeguarded, including participation in use, management and conservation; consultation before sub-surface exploitation, benefit-sharing and compensation."
+   },
+   {
+    "n": "16",
+    "topic": "land",
+    "summary": "No removal from occupied lands; exceptional relocation only with free and informed consent or due procedure; right of return, or land of equal quality, or compensation."
+   },
+   {
+    "n": "17",
+    "topic": "land",
+    "summary": "Peoples' own procedures for transmitting land rights respected; consultation on alienation; outsiders barred from exploiting their customs to take land."
+   },
+   {
+    "n": "18",
+    "topic": "land",
+    "summary": "Penalties for unauthorised intrusion on, or use of, their lands."
+   },
+   {
+    "n": "19",
+    "topic": "land",
+    "summary": "National agrarian programmes give equal treatment: more land when needed, and means to develop the land held."
+   }
+  ],
+  "url": "https://normlex.ilo.org/dyn/nrmlx_en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:C169",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1989,
+    "source": "NORMLEX: Adoption: Geneva, 76th ILC session (27 Jun 1989)"
+   },
+   {
+    "fact": "ILC session",
+    "value": 76,
+    "source": "NORMLEX"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 1991,
+    "source": "NORMLEX: Entry into force 05 Sep 1991"
+   },
+   {
+    "fact": "ratifications",
+    "value": 24,
+    "source": "NORMLEX ratifications page, read 2026-09-15"
+   },
+   {
+    "fact": "denunciations",
+    "value": 0,
+    "source": "NORMLEX ratifications page"
+   }
+  ],
+  "qualifications": "Binds only the 24 ratifying States, and applies only to indigenous and tribal peoples.",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "status_url": "https://normlex.ilo.org/dyn/nrmlx_en/f?p=NORMLEXPUB:11300:0::NO::P11300_INSTRUMENT_ID:312314",
+  "evidence": []
+ },
+ {
+  "id": "undrop",
+  "title": "United Nations Declaration on the Rights of Peasants and Other People Working in Rural Areas",
+  "body": "UN General Assembly (A/RES/73/165); text first adopted by the Human Rights Council",
+  "kind": "soft law (declaration)",
+  "adopted": 2018,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "5",
+    "topic": "land",
+    "summary": "Right to access and sustainably use the natural resources in their communities needed for adequate living, and to take part in managing them; safeguards before exploitation."
+   },
+   {
+    "n": "17(1)",
+    "topic": "land",
+    "summary": "Right to land, individually and/or collectively, including access to and sustainable use of the water bodies, coastal seas, fisheries, pastures and forests on it."
+   },
+   {
+    "n": "17(3)",
+    "topic": "land",
+    "summary": "Legal recognition of tenure including customary tenure; protection against arbitrary eviction; States recognise and protect \"the natural commons and their related systems of collective use\"."
+   },
+   {
+    "n": "17(4)-(5)",
+    "topic": "land",
+    "summary": "Protection against arbitrary displacement; right to return to land arbitrarily taken and to restored access to resources."
+   },
+   {
+    "n": "17(6)",
+    "topic": "land",
+    "summary": "Agrarian reform for broad and equitable access to land; limit excessive concentration; priority for the landless in allocating public lands, fisheries and forests."
+   },
+   {
+    "n": "17(7)",
+    "topic": "environment",
+    "summary": "Conservation and sustainable use of land, including through agroecology."
+   },
+   {
+    "n": "18",
+    "topic": "environment",
+    "summary": "Right to conservation of the environment and productive capacity of their lands; a safe, clean and healthy environment."
+   }
+  ],
+  "url": "https://documents.un.org/api/symbol/access?s=A/RES/73/165&l=en&t=pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 2018,
+    "source": "UN Digital Library record 1661560: action note 2018-12-17"
+   },
+   {
+    "fact": "votes in favour",
+    "value": 121,
+    "source": "record 1661560: Adopted 121-8-54, 55th plenary meeting"
+   },
+   {
+    "fact": "votes against",
+    "value": 8,
+    "source": "same; GA/12107 names Australia, Guatemala, Hungary, Israel, New Zealand, Sweden, United Kingdom, United States"
+   },
+   {
+    "fact": "abstentions",
+    "value": 54,
+    "source": "same"
+   },
+   {
+    "fact": "plenary meeting",
+    "value": 55,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Non-binding. Its beneficiaries are peasants and rural workers; art. 28 ties it to existing law. Two roam-law States (Sweden and the UK) voted against.",
+  "vote_url": "https://digitallibrary.un.org/record/1661560",
+  "evidence": [
+   {
+    "anchor": "Article 17"
+   },
+   {
+    "anchor": "natural commons"
+   }
+  ]
+ },
+ {
+  "id": "vggt",
+  "title": "Voluntary Guidelines on the Responsible Governance of Tenure of Land, Fisheries and Forests in the Context of National Food Security",
+  "body": "FAO Committee on World Food Security (CFS), 38th (Special) Session",
+  "kind": "soft law (guidelines)",
+  "adopted": 2012,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "8.1-8.2",
+    "topic": "land",
+    "summary": "Where States own or control land, fisheries and forests, they set their use and control in the light of wider social, economic and environmental objectives, and recognise and protect legitimate tenure rights on public land."
+   },
+   {
+    "n": "8.3",
+    "topic": "access",
+    "summary": "Publicly owned land, fisheries and forests used and managed collectively (\"commons\") should be recognised and protected, with their systems of collective use."
+   },
+   {
+    "n": "9",
+    "topic": "land",
+    "summary": "Indigenous peoples and other communities with customary tenure systems."
+   }
+  ],
+  "url": "https://www.fao.org/4/i2801e/i2801e.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "endorsement year",
+    "value": 2012,
+    "source": "i2801e.pdf: endorsed by the CFS at its 38th (Special) Session on 11 May 2012"
+   },
+   {
+    "fact": "CFS session",
+    "value": 38,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Voluntary; they create no legal obligation. Their field is tenure governance, not a right to roam.",
+  "evidence": [
+   {
+    "anchor": "11 May 2012"
+   },
+   {
+    "anchor": "commons"
+   }
+  ]
+ },
+ {
+  "id": "unga76300",
+  "title": "The human right to a clean, healthy and sustainable environment (A/RES/76/300)",
+  "body": "UN General Assembly",
+  "kind": "soft law (resolution)",
+  "adopted": 2022,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "op. 1",
+    "topic": "environment",
+    "summary": "Recognises the right to a clean, healthy and sustainable environment as a human right. The paragraph number comes from the resolution structure; only the vote record was re-read this session."
+   }
+  ],
+  "url": "https://digitallibrary.un.org/record/3983329",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 2022,
+    "source": "Digital Library record 3983329: action note 2022-07-28"
+   },
+   {
+    "fact": "votes in favour",
+    "value": 161,
+    "source": "record 3983329: Adopted 161-0-8, 97th plenary meeting; press GA/12437"
+   },
+   {
+    "fact": "votes against",
+    "value": 0,
+    "source": "same"
+   },
+   {
+    "fact": "abstentions",
+    "value": 8,
+    "source": "same (Belarus, Cambodia, China, Ethiopia, Iran, Kyrgyzstan, Russian Federation, Syria)"
+   },
+   {
+    "fact": "plenary meeting",
+    "value": 97,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Non-binding. It says nothing of physical access to land. Operative-paragraph wording was not re-read this session (the vote record was).",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "evidence": []
+ },
+ {
+  "id": "hrc4813",
+  "title": "The human right to a clean, healthy and sustainable environment (A/HRC/RES/48/13)",
+  "body": "UN Human Rights Council, 48th session",
+  "kind": "soft law (resolution)",
+  "adopted": 2021,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "op. 1",
+    "topic": "environment",
+    "summary": "Recognises the right to a clean, healthy and sustainable environment as a human right. Only the record was re-read."
+   }
+  ],
+  "url": "https://digitallibrary.un.org/record/3945636",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 2021,
+    "source": "record 3945636: adopted by the HRC on 8 October 2021"
+   },
+   {
+    "fact": "votes in favour",
+    "value": 43,
+    "source": "record 3945636: Adopted 43-0-4, 43rd meeting"
+   },
+   {
+    "fact": "votes against",
+    "value": 0,
+    "source": "same"
+   },
+   {
+    "fact": "abstentions",
+    "value": 4,
+    "source": "same"
+   },
+   {
+    "fact": "HRC session",
+    "value": 48,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Non-binding. The operative text was not re-read this session.",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "evidence": []
+ },
+ {
+  "id": "aarhus",
+  "title": "Convention on Access to Information, Public Participation in Decision-Making and Access to Justice in Environmental Matters (Aarhus Convention)",
+  "body": "UN Economic Commission for Europe (UNECE)",
+  "kind": "binding treaty",
+  "adopted": 1998,
+  "inForce": 2001,
+  "articles": [
+   {
+    "n": "1",
+    "topic": "environment",
+    "summary": "Objective: protect the right of present and future generations to an adequate environment, through the three procedural pillars."
+   },
+   {
+    "n": "4",
+    "topic": "environment",
+    "summary": "Access to environmental information."
+   },
+   {
+    "n": "6",
+    "topic": "environment",
+    "summary": "Public participation in decisions on specific activities (arts. 6–8 cover participation)."
+   },
+   {
+    "n": "9",
+    "topic": "environment",
+    "summary": "Access to justice."
+   }
+  ],
+  "url": "https://treaties.un.org/doc/Treaties/1998/06/19980625%2008-35%20AM/Ch_XXVII_13p.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1998,
+    "source": "UNTC: Aarhus, Denmark, 25 June 1998"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 2001,
+    "source": "UNTC: 30 October 2001"
+   },
+   {
+    "fact": "parties",
+    "value": 48,
+    "source": "UNTC status as at 15-09-2026"
+   },
+   {
+    "fact": "signatories",
+    "value": 38,
+    "source": "UNTC status as at 15-09-2026"
+   }
+  ],
+  "qualifications": "PROCEDURAL ONLY: access to information, participation and justice. It grants no physical access to land, shores or nature.",
+  "status_url": "https://treaties.un.org/Pages/ViewDetails.aspx?src=TREATY&mtdsg_no=XXVII-13&chapter=27&clang=_en",
+  "evidence": [
+   {
+    "anchor": "ACCESS TO JUSTICE"
+   },
+   {
+    "anchor": "ACCESS TO ENVIRONMENTAL INFORMATION"
+   },
+   {
+    "anchor": "Parties : 48"
+   }
+  ]
+ },
+ {
+  "id": "echr_p1",
+  "title": "Protocol No. 1 to the Convention for the Protection of Human Rights and Fundamental Freedoms",
+  "body": "Council of Europe",
+  "kind": "binding treaty",
+  "adopted": 1952,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "P1-1",
+    "topic": "property",
+    "summary": "Peaceful enjoyment of possessions; deprivation only in the public interest under law; the State keeps power to control use of property in the general interest."
+   }
+  ],
+  "url": "https://www.echr.coe.int/documents/d/echr/convention_ENG",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "signature year",
+    "value": 1952,
+    "source": "convention_ENG.pdf: Paris, 20.III.1952"
+   },
+   {
+    "fact": "Convention signature year",
+    "value": 1950,
+    "source": "convention_ENG.pdf: Rome, 4.XI.1950"
+   }
+  ],
+  "qualifications": "Protects owners. Its \"control of use\" clause is what lets States impose public access, such as roaming rights, on private land. Protocol 1 entry-into-force date not re-read.",
+  "evidence": [
+   {
+    "anchor": "Paris, 20.III.1952"
+   },
+   {
+    "anchor": "Protection of property"
+   }
+  ]
+ },
+ {
+  "id": "achpr",
+  "title": "African Charter on Human and Peoples' Rights",
+  "body": "Organization of African Unity (now African Union)",
+  "kind": "binding treaty",
+  "adopted": 1981,
+  "inForce": 1986,
+  "articles": [
+   {
+    "n": "21",
+    "topic": "land",
+    "summary": "All peoples freely dispose of their wealth and natural resources, in their exclusive interest; a dispossessed people may lawfully recover property and be compensated."
+   },
+   {
+    "n": "24",
+    "topic": "environment",
+    "summary": "All peoples have the right to a general satisfactory environment favourable to their development."
+   }
+  ],
+  "url": "https://treaties.un.org/doc/Publication/UNTS/Volume%201520/volume-1520-I-26363-English.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1981,
+    "source": "UNTS vol. 1520 No. 26363: Nairobi, 27 June 1981"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 1986,
+    "source": "UNTS and au.int: 21 October 1986"
+   },
+   {
+    "fact": "UNTS volume",
+    "value": 1520,
+    "source": "UNTS"
+   }
+  ],
+  "qualifications": "These are peoples' (collective) rights. DISAGREEMENT: au.int gives the \"Date of Adoption\" as 1 June 1981, while UNTS gives Nairobi, 27 June 1981. Same year, different day.",
+  "page_url": "https://au.int/en/treaties/african-charter-human-and-peoples-rights",
+  "evidence": [
+   {
+    "anchor": "Article 21"
+   },
+   {
+    "anchor": "27 June 1981"
+   },
+   {
+    "anchor": "1 Jun 1981"
+   }
+  ]
+ },
+ {
+  "id": "achr",
+  "title": "American Convention on Human Rights (\"Pact of San José, Costa Rica\")",
+  "body": "Organization of American States (Inter-American Specialized Conference on Human Rights)",
+  "kind": "binding treaty",
+  "adopted": 1969,
+  "inForce": 1978,
+  "articles": [
+   {
+    "n": "21",
+    "topic": "property",
+    "summary": "Right to use and enjoy property, which the law may subordinate to the interest of society; no deprivation without just compensation."
+   }
+  ],
+  "url": "https://www.oas.org/dil/treaties_B-32_American_Convention_on_Human_Rights.htm",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "adoption year",
+    "value": 1969,
+    "source": "OAS B-32 signatories page: San Jose, 11/22/69"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 1978,
+    "source": "OAS: 07/18/78, art. 74.2"
+   },
+   {
+    "fact": "entry-into-force article",
+    "value": 74,
+    "source": "OAS"
+   }
+  ],
+  "qualifications": "Individual property right with a social-function limit. Its application to indigenous communal land comes from later case law not reviewed here.",
+  "evidence": [
+   {
+    "anchor": "Article 21. Right to Property"
+   },
+   {
+    "anchor": "07/18/78"
+   }
+  ]
+ },
+ {
+  "id": "eucfr",
+  "title": "Charter of Fundamental Rights of the European Union",
+  "body": "European Union",
+  "kind": "binding (EU primary law)",
+  "adopted": null,
+  "inForce": 2009,
+  "articles": [
+   {
+    "n": "17",
+    "topic": "property",
+    "summary": "Right to own, use, dispose of and bequeath lawfully acquired possessions; use may be regulated by law as necessary for the general interest."
+   },
+   {
+    "n": "37",
+    "topic": "environment",
+    "summary": "A high level of environmental protection must be integrated into Union policies (a principle, not a subjective right)."
+   }
+  ],
+  "url": "https://fra.europa.eu/en/eu-charter/article/17-right-property",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "legally binding from",
+    "value": 2009,
+    "source": "FRA: binding with the Treaty of Lisbon, 1 December 2009"
+   }
+  ],
+  "qualifications": "Binds EU institutions, and Member States only when implementing EU law (art. 51). Art. 37 is a principle. Proclamation year (2000) not re-read, so adopted=null.",
+  "page_url_37": "https://fra.europa.eu/en/eu-charter/article/37-environmental-protection",
+  "evidence": [
+   {
+    "anchor": "lawfully acquired possessions"
+   }
+  ]
+ },
+ {
+  "id": "se_rf",
+  "title": "Regeringsformen (Instrument of Government), SFS 1974:152",
+  "body": "Sveriges riksdag",
+  "kind": "constitution",
+  "adopted": 1974,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "2 kap. 15 § (last para.)",
+    "topic": "access",
+    "summary": "Everyone shall have access to nature under allemansrätten, notwithstanding the property protections earlier in the section. The wording carries the marker Lag (2010:1408)."
+   },
+   {
+    "n": "2 kap. 15 § (paras 1-3)",
+    "topic": "property",
+    "summary": "Property protection: expropriation or land-use restriction only for pressing public interests, with compensation."
+   }
+  ],
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/kungorelse-1974152-om-beslutad-ny-regeringsform_sfs-1974-152/",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "SFS year",
+    "value": 1974,
+    "source": "SFS 1974:152"
+   },
+   {
+    "fact": "chapter",
+    "value": 2,
+    "source": "RF"
+   },
+   {
+    "fact": "section",
+    "value": 15,
+    "source": "RF"
+   }
+  ],
+  "qualifications": "The constitution names the right but does not define it: allemansrätten is customary, with limits set by other law (criminal code, Environmental Code ch. 7). Official English translation not fetched (URL 404).",
+  "evidence": [
+   {
+    "anchor": "Alla ska ha tillgång till naturen enligt allemansrätten"
+   }
+  ]
+ },
+ {
+  "id": "se_mb",
+  "title": "Miljöbalken (Environmental Code), SFS 1998:808",
+  "body": "Sveriges riksdag",
+  "kind": "national statute",
+  "adopted": 1998,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "7 kap. 1 §",
+    "topic": "access",
+    "summary": "Anyone using allemansrätten or otherwise in nature must show consideration and care."
+   },
+   {
+    "n": "7 kap. 13 §",
+    "topic": "access",
+    "summary": "Shore protection (strandskydd) applies at sea, lakes and watercourses; its first purpose is to secure access to shore areas under allemansrätten (text as amended by Lag 2025:512)."
+   }
+  ],
+  "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/miljobalk-1998808_sfs-1998-808/",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "SFS year",
+    "value": 1998,
+    "source": "SFS 1998:808"
+   },
+   {
+    "fact": "chapter",
+    "value": 7,
+    "source": "MB"
+   },
+   {
+    "fact": "small-lake threshold, hectares",
+    "value": 1,
+    "source": "7 kap. 13 a §: no strandskydd at lakes of one hectare or less"
+   }
+  ],
+  "qualifications": "A duty of care, not a codified list of rights. Strandskydd exceptions (13 a-c §§) apply.",
+  "evidence": [
+   {
+    "anchor": "utnyttjar allemansrätten"
+   },
+   {
+    "anchor": "allemansrättslig tillgång"
+   }
+  ]
+ },
+ {
+  "id": "fi_const",
+  "title": "Constitution of Finland (Suomen perustuslaki), 731/1999",
+  "body": "Eduskunta (Parliament of Finland)",
+  "kind": "constitution",
+  "adopted": 1999,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "15",
+    "topic": "property",
+    "summary": "The property of everyone is protected; expropriation only by Act, for public need, with full compensation."
+   },
+   {
+    "n": "20",
+    "topic": "environment",
+    "summary": "Nature, biodiversity, the environment and national heritage are everyone's responsibility; authorities endeavour to secure a healthy environment and a say in decisions."
+   }
+  ],
+  "url": "https://www.finlex.fi/en/legislation/translations/1999/eng/731",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "statute number",
+    "value": 731,
+    "source": "731/1999"
+   },
+   {
+    "fact": "year",
+    "value": 1999,
+    "source": "731/1999"
+   }
+  ],
+  "qualifications": "Everyman's rights (jokamiehenoikeudet) are not written in the constitution; they rest on custom and scattered statutes (not re-read). The text was read from FAOLEX's copy of the Finlex translation, https://faolex.fao.org/docs/pdf/fin134323.pdf, because Finlex renders client-side. Ministry of the Environment page ym.fi/en/-/194055633: a 2006 survey sent 362 questionnaires with a 68% response rate.",
+  "evidence": [
+   {
+    "anchor": "Section 20 - Responsibility for the environment"
+   }
+  ]
+ },
+ {
+  "id": "no_friluft",
+  "title": "Lov om friluftslivet (friluftsloven), LOV-1957-06-28-16",
+  "body": "Stortinget",
+  "kind": "national statute",
+  "adopted": 1957,
+  "inForce": 1957,
+  "articles": [
+   {
+    "n": "2",
+    "topic": "access",
+    "summary": "In uncultivated land (utmark) anyone may walk on foot all year, \"hensynsfullt og med tilbørlig varsomhet\" (considerately and with due care)."
+   },
+   {
+    "n": "3",
+    "topic": "access",
+    "summary": "In cultivated land (innmark) walking is allowed only while the ground is frozen or snow-covered, and never 30 April–14 October. Yards, house plots and fenced gardens are excluded."
+   },
+   {
+    "n": "9",
+    "topic": "access",
+    "summary": "Resting and camping (heading read; text not summarised)."
+   },
+   {
+    "n": "11",
+    "topic": "access",
+    "summary": "Conduct and the owner's right to send people away (heading read)."
+   }
+  ],
+  "url": "https://lovdata.no/dokument/NL/lov/1957-06-28-16",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "enactment year",
+    "value": 1957,
+    "source": "Lovdata: LOV-1957-06-28-16"
+   },
+   {
+    "fact": "in force year",
+    "value": 1957,
+    "source": "Lovdata: Ikrafttredelse 01.07.1957"
+   },
+   {
+    "fact": "innmark closed-season start (April day)",
+    "value": 30,
+    "source": "§ 3"
+   },
+   {
+    "fact": "innmark closed-season end (October day)",
+    "value": 14,
+    "source": "§ 3"
+   }
+  ],
+  "qualifications": "Access must be considerate. Innmark is protected; the Statsforvalter may shorten or lengthen the closed season.",
+  "evidence": [
+   {
+    "anchor": "I utmark kan enhver ferdes til fots hele året"
+   },
+   {
+    "anchor": "30. april til 14. oktober"
+   }
+  ]
+ },
+ {
+  "id": "scot_lra",
+  "title": "Land Reform (Scotland) Act 2003 (asp 2), Part 1",
+  "body": "Scottish Parliament",
+  "kind": "national statute",
+  "adopted": 2003,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "1",
+    "topic": "access",
+    "summary": "Everyone has statutory access rights: to be on land for recreational, educational and certain commercial purposes, and to cross land."
+   },
+   {
+    "n": "2",
+    "topic": "access",
+    "summary": "Access rights exist only if exercised responsibly, judged against the Scottish Outdoor Access Code."
+   },
+   {
+    "n": "6",
+    "topic": "access",
+    "summary": "Excluded land includes houses and their curtilage, land giving reasonable privacy, private gardens, and land where crops are sown or growing."
+   }
+  ],
+  "url": "https://www.legislation.gov.uk/asp/2003/2/part/1",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "year",
+    "value": 2003,
+    "source": "asp 2003/2"
+   },
+   {
+    "fact": "asp number",
+    "value": 2,
+    "source": "same"
+   },
+   {
+    "fact": "Royal Assent year",
+    "value": 2003,
+    "source": "introduction: passed 23 January 2003, Royal Assent 25 February 2003"
+   }
+  ],
+  "qualifications": "This is the widest statutory roaming right in the UK, but it applies only when exercised responsibly and never on s. 6 excluded land.",
+  "evidence": [
+   {
+    "anchor": "Everyone has the statutory rights"
+   },
+   {
+    "anchor": "only if they are exercised responsibly"
+   },
+   {
+    "anchor": "crops have been sown"
+   },
+   {
+    "anchor": "25th February 2003"
+   }
+  ]
+ },
+ {
+  "id": "crow",
+  "title": "Countryside and Rights of Way Act 2000 (c. 37), Part I",
+  "body": "Parliament of the United Kingdom (England and Wales)",
+  "kind": "national statute",
+  "adopted": 2000,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "1",
+    "topic": "access",
+    "summary": "\"Access land\": mapped open country, registered common land, and dedicated or coastal margin land, excluding \"excepted land\" (Sch. 1)."
+   },
+   {
+    "n": "2",
+    "topic": "access",
+    "summary": "Any person may enter and remain on access land for open-air recreation, without damaging walls, fences or gates and subject to the Sch. 2 restrictions."
+   }
+  ],
+  "url": "https://www.legislation.gov.uk/ukpga/2000/37/section/2",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "year",
+    "value": 2000,
+    "source": "c. 37"
+   },
+   {
+    "fact": "chapter number",
+    "value": 37,
+    "source": "same"
+   },
+   {
+    "fact": "Royal Assent year",
+    "value": 2000,
+    "source": "introduction: 30th November 2000"
+   }
+  ],
+  "qualifications": "Limited to mapped categories of land, not a general right to roam. Sch. 2 restrictions apply, and breaching them makes the person a trespasser.",
+  "evidence": [
+   {
+    "anchor": "open-air recreation"
+   },
+   {
+    "anchor": "30th November 2000"
+   }
+  ]
+ },
+ {
+  "id": "at_forstg",
+  "title": "Forstgesetz 1975 (Austrian Forest Act), § 33",
+  "body": "Nationalrat (Austria)",
+  "kind": "national statute",
+  "adopted": 1975,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "33",
+    "topic": "access",
+    "summary": "UNVERIFIED: reported to allow everyone onto forest land for recreation. Not re-read, because RIS answered 503 to curl and a human-verification check in the browser, which was not bypassed."
+   }
+  ],
+  "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10010371&Paragraf=33",
+  "verified": false,
+  "integerFacts": [],
+  "qualifications": "unverified — could not fetch (RIS bot check). Do not seal until re-read.",
+  "evidence": []
+ },
+ {
+  "id": "ee_nca",
+  "title": "Nature Conservation Act (Looduskaitseseadus)",
+  "body": "Riigikogu (Estonia)",
+  "kind": "national statute",
+  "adopted": 2004,
+  "inForce": 2004,
+  "articles": [
+   {
+    "n": "15(1)",
+    "topic": "access",
+    "summary": "Roads and paths in protected conservation and limited-management zones, or leading to protected natural monuments, are open to the public from sunrise to sunset."
+   },
+   {
+    "n": "35",
+    "topic": "access",
+    "summary": "Shore and bank zones (limited-management and building-exclusion zones)."
+   }
+  ],
+  "url": "https://www.riigiteataja.ee/en/eli/ee/515112018002/consolide/current",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "passed year",
+    "value": 2004,
+    "source": "Riigi Teataja: Passed 21.04.2004"
+   },
+   {
+    "fact": "entry into force year",
+    "value": 2004,
+    "source": "Riigi Teataja: 10.05.2004"
+   }
+  ],
+  "qualifications": "GAP: the general Estonian shore-path rule was not found in its current home. Water Act 1994 § 10(1)–(3) was repealed on 01.08.2014 (§ 10(4) exceptions remain in that version). The current Water Act (passed 30.01.2019, in force 01.10.2019) mentions the shore path only in § 169 and has no shore-path section. § 23 there makes public water bodies state property, not in commercial use. The rule is probably in the Law of Property Act Implementation Act or the Planning Act; not verified.",
+  "text_source": "browser-rendered 2026-09-15 (page is JS/challenge-gated to curl; read in the Browser pane)",
+  "water_act_url": "https://www.riigiteataja.ee/en/eli/ee/530062022002/consolide/current",
+  "evidence": []
+ },
+ {
+  "id": "is_nca",
+  "title": "Lög um náttúruvernd nr. 60/2013 (Nature Conservation Act)",
+  "body": "Alþingi (Iceland)",
+  "kind": "national statute",
+  "adopted": 2013,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "17",
+    "topic": "access",
+    "summary": "The public may travel through the country and stay there for a lawful purpose, with a duty to treat nature well and to respect landowners, livestock and cultivation."
+   },
+   {
+    "n": "18",
+    "topic": "access",
+    "summary": "Walking, skiing and similar movement on uncultivated land needs no permission. Cultivated land needs consent (forestry land excepted). Owners in settled areas may restrict fenced uncultivated land by signage."
+   },
+   {
+    "n": "19",
+    "topic": "access",
+    "summary": "Cyclists keep to roads and paths where possible."
+   }
+  ],
+  "url": "https://www.althingi.is/lagas/nuna/2013060.html",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "law number",
+    "value": 60,
+    "source": "nr. 60/2013"
+   },
+   {
+    "fact": "year",
+    "value": 2013,
+    "source": "same"
+   },
+   {
+    "fact": "chapter holding public right (IV)",
+    "value": 4,
+    "source": "Althingi text: IV. kafli Almannaréttur, útivist og umgengni"
+   }
+  ],
+  "qualifications": "CORRECTION to the brief: the public right of access (almannaréttur) is in Chapter IV (arts. 17 ff.), not Chapter III; Chapter III is administration. The official text is Icelandic; no official English was fetched.",
+  "evidence": [
+   {
+    "anchor": "Almannaréttur, útivist og umgengni"
+   },
+   {
+    "anchor": "Almenningi er heimil för um landið"
+   }
+  ]
+ },
+ {
+  "id": "charter_forest",
+  "title": "Charter of the Forest (Carta de Foresta)",
+  "body": "English Crown (Henry III); first issued 1217, definitive reissue 1225",
+  "kind": "historic charter",
+  "adopted": 1217,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "1",
+    "topic": "land",
+    "summary": "Lands afforested by Henry II to be reviewed and disafforested where they hurt owners, saving the common of herbage for those accustomed to it."
+   },
+   {
+    "n": "9",
+    "topic": "access",
+    "summary": "Every freeman may agist his own wood in the forest and drive his swine freely through royal demesne woods (1225 text)."
+   }
+  ],
+  "url": "https://www.nationalarchives.gov.uk/education/resources/magna-carta/charter-forest-1225-westminster/",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "first issue year",
+    "value": 1217,
+    "source": "The National Archives page"
+   },
+   {
+    "fact": "definitive reissue year",
+    "value": 1225,
+    "source": "same (C 71/1)"
+   }
+  ],
+  "qualifications": "Historic; its current legal status was not re-read. The text read is the 1225 reissue in translation, not the 1217 original.",
+  "evidence": [
+   {
+    "anchor": "In 1217"
+   },
+   {
+    "anchor": "drive his swine freely"
+   }
+  ]
+ },
+ {
+  "id": "bg_const",
+  "title": "Конституция на Република България (Constitution of the Republic of Bulgaria)",
+  "body": "Grand National Assembly",
+  "kind": "constitution",
+  "adopted": 1991,
+  "inForce": 1991,
+  "articles": [
+   {
+    "n": "18(1)",
+    "topic": "land",
+    "summary": "Exclusive state property: subsoil resources, \"крайбрежната плажна ивица\" (the coastal beach strip), national roads, waters, forests and parks of national importance, and reserves as defined by law."
+   },
+   {
+    "n": "18(6)",
+    "topic": "access",
+    "summary": "State property is managed in the interest of citizens and society."
+   }
+  ],
+  "url": "https://lex.bg/laws/ldoc/521957377",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "year",
+    "value": 1991,
+    "source": "lex.bg header: Обн. ДВ бр. 56 от 13 Юли 1991"
+   },
+   {
+    "fact": "State Gazette issue",
+    "value": 56,
+    "source": "same"
+   },
+   {
+    "fact": "article",
+    "value": 18,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Art. 18 makes the beach strip exclusive state property; it grants no access right itself (that is in the Black Sea Coast Act, art. 4). It names the coastal beach strip, not the whole coastal zone. Read from lex.bg because parliament.bg renders client-side.",
+  "evidence": [
+   {
+    "anchor": "крайбрежната плажна ивица"
+   },
+   {
+    "anchor": "в интерес на гражданите и на обществото"
+   }
+  ]
+ },
+ {
+  "id": "bg_zuchk",
+  "title": "Закон за устройството на Черноморското крайбрежие (Black Sea Coast Spatial Development Act)",
+  "body": "Народно събрание (National Assembly of Bulgaria)",
+  "kind": "national statute",
+  "adopted": 2007,
+  "inForce": 2008,
+  "articles": [
+   {
+    "n": "4(1)",
+    "topic": "access",
+    "summary": "Citizens have the right of \"свободен и безплатен достъп до морските плажове\" (free and gratuitous access to sea beaches), as amended ДВ 27/2013."
+   },
+   {
+    "n": "4(2)",
+    "topic": "access",
+    "summary": "Beach access is secured through spatial plans, including plot plans for technical infrastructure."
+   },
+   {
+    "n": "4(3)",
+    "topic": "access",
+    "summary": "For parts of art. 6(4)–(5) sites, access may be limited only for national security and defence, border control, protected areas, danger to health or life, or other cases set by law."
+   }
+  ],
+  "url": "https://www.tourism.government.bg/sites/tourism.government.bg/files/documents/2021-07/zakon_za_ustroystvoto_na_chernomorskoto_kraybrezhi_27.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "published year",
+    "value": 2007,
+    "source": "ДВ бр. 48 от 15 Юни 2007"
+   },
+   {
+    "fact": "State Gazette issue",
+    "value": 48,
+    "source": "same"
+   },
+   {
+    "fact": "in force year",
+    "value": 2008,
+    "source": "В сила от 01.01.2008"
+   },
+   {
+    "fact": "article",
+    "value": 4,
+    "source": "same"
+   }
+  ],
+  "qualifications": "Exceptions are closed-listed in art. 4(3). Text read ONLY from the Ministry of Tourism consolidated PDF (2021 consolidation); amendments after 2021 not checked. lex.bg id 2135577924 turned out to be a directory page with no statute text, so it cross-checks nothing.",
+  "evidence": [
+   {
+    "anchor": "свободен и"
+   },
+   {
+    "anchor": "Чл. 4."
+   },
+   {
+    "anchor": "В сила от 01.01.2008"
+   }
+  ]
+ },
+ {
+  "id": "bg_forest",
+  "title": "Закон за горите (Forests Act)",
+  "body": "Народно събрание (National Assembly of Bulgaria)",
+  "kind": "national statute",
+  "adopted": 2011,
+  "inForce": 2011,
+  "articles": [
+   {
+    "n": "144(1)",
+    "topic": "access",
+    "summary": "Access to forest territories is free, at own risk, following forest-administration and owner instructions, save as the Act provides."
+   },
+   {
+    "n": "144(2)-(4)",
+    "topic": "access",
+    "summary": "Exceptions: defence and security lands, protected areas under their own regime, and permit-based access to active logging sites."
+   },
+   {
+    "n": "145",
+    "topic": "access",
+    "summary": "No fencing or other acts in forest properties that restrict the free movement of people, wild animals and waters, unless a normative or administrative act provides for it."
+   },
+   {
+    "n": "146(1)",
+    "topic": "access",
+    "summary": "The regional forest director may restrict or ban access for up to three months, for forest protection or public safety."
+   },
+   {
+    "n": "148(7), 148(10)",
+    "topic": "access",
+    "summary": "Cycling and riding access is free unless lawfully restricted; owners may not restrict access to forest roads, including by fencing."
+   }
+  ],
+  "url": "https://www.lex.bg/bg/laws/ldoc/2135721295",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "published year",
+    "value": 2011,
+    "source": "ДВ бр. 19 от 8 Март 2011"
+   },
+   {
+    "fact": "State Gazette issue",
+    "value": 19,
+    "source": "same"
+   },
+   {
+    "fact": "in force year",
+    "value": 2011,
+    "source": "lex.bg: В сила от 09.04.2011"
+   },
+   {
+    "fact": "max temporary closure, months",
+    "value": 3,
+    "source": "art. 146(1)"
+   }
+  ],
+  "qualifications": "Access is at own risk and follows instructions. Temporary closures of up to three months are allowed. The anti-fencing rule has exceptions set by act.",
+  "evidence": [
+   {
+    "anchor": "Достъпът до горските територии е свободен"
+   },
+   {
+    "anchor": "Чл. 145. В имотите в горските територии не може да се извършва ограждане"
+   },
+   {
+    "anchor": "В сила от 09.04.2011"
+   }
+  ]
+ },
+ {
+  "id": "bg_waters",
+  "title": "Закон за водите (Waters Act)",
+  "body": "Народно събрание (National Assembly of Bulgaria)",
+  "kind": "national statute",
+  "adopted": 1999,
+  "inForce": 2000,
+  "articles": [
+   {
+    "n": "8(1)",
+    "topic": "access",
+    "summary": "General water abstraction, use of water bodies, and abstraction for own needs are free of charge."
+   },
+   {
+    "n": "11",
+    "topic": "land",
+    "summary": "Lists waters and water bodies that are public state property, including rivers and their lands and certain lakes and lagoons."
+   },
+   {
+    "n": "104(2)",
+    "topic": "access",
+    "summary": "Statutory easements in the public interest secure access for general use of publicly owned water bodies."
+   }
+  ],
+  "url": "https://lex.bg/laws/ldoc/2134673412",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "published year",
+    "value": 1999,
+    "source": "ДВ бр. 67 от 27 Юли 1999"
+   },
+   {
+    "fact": "State Gazette issue",
+    "value": 67,
+    "source": "same"
+   },
+   {
+    "fact": "in force year",
+    "value": 2000,
+    "source": "В сила от 28.01.2000"
+   }
+  ],
+  "qualifications": "Commercial use is charged under art. 8(2). \"General use\" is defined elsewhere in the Act and was not re-read.",
+  "evidence": [
+   {
+    "anchor": "ЗАКОН ЗА ВОДИТЕ"
+   },
+   {
+    "anchor": "безвъзмездно"
+   },
+   {
+    "anchor": "достъп за общо ползване на водните обекти"
+   }
+  ]
+ },
+ {
+  "id": "illinois_central",
+  "title": "Illinois Central Railroad Co. v. Illinois, 146 U.S. 387 (1892)",
+  "body": "Supreme Court of the United States",
+  "kind": "case law",
+  "adopted": 1892,
+  "inForce": null,
+  "articles": [
+   {
+    "n": "holding",
+    "topic": "access",
+    "summary": "Title to lands under navigable waters is held by the State in trust for the people, for navigation, commerce and fishing. A legislature cannot abdicate that trust by granting the bed to a private company (public trust doctrine)."
+   }
+  ],
+  "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep146/usrep146387/usrep146387.pdf",
+  "verified": true,
+  "integerFacts": [
+   {
+    "fact": "decided year",
+    "value": 1892,
+    "source": "US Reports: Decided December 5, 1892"
+   },
+   {
+    "fact": "US Reports volume",
+    "value": 146,
+    "source": "usrep146387"
+   },
+   {
+    "fact": "first page",
+    "value": 387,
+    "source": "same"
+   }
+  ],
+  "qualifications": "CASE LAW, US only. The doctrine covers navigable waters and their beds; its reach to dry land varies by State.",
+  "evidence": [
+   {
+    "anchor": "Decided December 5, 1892"
+   },
+   {
+    "anchor": "abdicate"
+   }
+  ]
+ }
+]

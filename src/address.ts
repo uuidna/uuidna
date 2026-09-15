@@ -52,42 +52,55 @@ const BYTE_MASK = 0xff
  *  That intrinsic is named in WORDS above and never written literally. The scan reads raw source and cannot tell
  *  use from mention, so spelling it here trips the very law the sentence explains — which is what the first draft
  *  did, reddening the suite for every session sharing this tree. */
+//  THE DECADE STILL HOLDS. With two products and one pass (below) the capacity report's fresh sweep measured 2,111 ns
+//  per verify on 2026-09-15 (gen-quantum-capacity over the whole ledger) — decade 10^3 as before, 2.1× above the 1,000 edge
+//  and 4.7× below the 10,000 one, against the few-percent spread between launches recorded above.
+//
+//  TWO PRODUCTS, NOT THREE. Only `a` needs splitting: (a & 0xffff)·b and (a >>> 16)·b are each under 2^48, exact in
+//  a double; the high product is masked to its low 16 bits before being shifted up, so the result keeps exactly the
+//  low 32 bits the three-product form kept (verified identical over 200,018 pairs including the sign bit, and over
+//  every string the ledger addresses).
 function mul32(a: number, b: number): number {
-  const al = a & 0xffff, ah = (a >>> 16) & 0xffff
-  const bl = b & 0xffff, bh = (b >>> 16) & 0xffff
-  return ((al * bl) + ((((al * bh) + (ah * bl)) & 0xffff) * 65536)) >>> 0
-}
-
-/** FNV-1a hash — 32-bit seed-based (exact integer arithmetic, no Math.*). */
-function hash32(input: string, seed: number): number {
-  let h = (0x811c9dc5 ^ seed) >>> 0
-  for (let i = 0; i < input.length; i++) {
-    h ^= input.charCodeAt(i)
-    h = mul32(h, 0x01000193) >>> 0
-    h ^= h >>> 13
-  }
-  h = mul32(h ^ (h >>> 16), 0x85ebca6b) >>> 0
-  h = mul32(h ^ (h >>> 13), 0xc2b2ae35) >>> 0
-  return (h ^ (h >>> 16)) >>> 0
+  a >>>= 0
+  b >>>= 0
+  return (((a & 0xffff) * b) + ((((a >>> 16) * b) & 0xffff) * 65536)) >>> 0
 }
 
 function hexByte(value: number): string {
   return value.toString(16).padStart(2, '0')
 }
 
+/** the four seeds; each is one lane of the address */
+const SEEDS = [0, 0x9e3779b9, 0x243f6a88, 0xb7e15162] as const
+const FNV_OFFSET = 0x811c9dc5
+const FNV_PRIME = 0x01000193
+
+/** the MurmurHash3 finaliser, fmix32 (Austin Appleby; constants 0x85ebca6b and 0xc2b2ae35) — each lane ends here */
+function fmix32(h: number): number {
+  h = mul32(h ^ (h >>> 16), 0x85ebca6b)
+  h = mul32(h ^ (h >>> 13), 0xc2b2ae35)
+  return (h ^ (h >>> 16)) >>> 0
+}
+
+/** bytesFromSeed(seed) → the 16 address bytes. Each lane is an FNV-1a step (Fowler, Noll and Vo) with an extra
+ *  `h ^= h >>> 13` per character, from its own seed, finished by fmix32. ONE PASS, FOUR LANES: the lanes do the same
+ *  work per character from different starting states, so each character is read once and advances all four. */
 function bytesFromSeed(seed: string): number[] {
-  const words = [
-    hash32(seed, 0),
-    hash32(seed, 0x9e3779b9),
-    hash32(seed, 0x243f6a88),
-    hash32(seed, 0xb7e15162),
-  ]
-  return words.flatMap((word) => [
-    (word >>> (8 * 3)) & BYTE_MASK,
-    (word >>> 16) & BYTE_MASK,
-    (word >>> 8) & BYTE_MASK,
-    word & BYTE_MASK,
-  ])
+  let a = (FNV_OFFSET ^ SEEDS[0]) >>> 0
+  let b = (FNV_OFFSET ^ SEEDS[1]) >>> 0
+  let c = (FNV_OFFSET ^ SEEDS[2]) >>> 0
+  let d = (FNV_OFFSET ^ SEEDS[3]) >>> 0
+  for (let i = 0; i < seed.length; i++) {
+    const x = seed.charCodeAt(i)
+    a = mul32(a ^ x, FNV_PRIME); a = (a ^ (a >>> 13)) >>> 0
+    b = mul32(b ^ x, FNV_PRIME); b = (b ^ (b >>> 13)) >>> 0
+    c = mul32(c ^ x, FNV_PRIME); c = (c ^ (c >>> 13)) >>> 0
+    d = mul32(d ^ x, FNV_PRIME); d = (d ^ (d >>> 13)) >>> 0
+  }
+  const out: number[] = []
+  for (const w of [fmix32(a), fmix32(b), fmix32(c), fmix32(d)])
+    out.push((w >>> 24) & BYTE_MASK, (w >>> 16) & BYTE_MASK, (w >>> 8) & BYTE_MASK, w & BYTE_MASK)
+  return out
 }
 
 const _uuidCache = new Map<string, string>()

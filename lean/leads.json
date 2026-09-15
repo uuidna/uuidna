@@ -13,7 +13,15 @@
       "note": "Rathbun's odd-cylinder gcd(2,n)=1 stands on the engine side alone; it does not witness the vortex/firing-order merge.",
       "developed": "2026-09-01 — THE ARITHMETIC HALF IS NOW MEASURED, which is exactly what the boundary permits keeping. Walked forward (x→2x mod 9, y→y+2 mod 7) against inverse (x→5x mod 9, y→y-2 mod 7) from (1,1): 42 DISTINCT states in 42 steps, return to (1,1) at 42, and the forward and inverse walks coincide at exactly two points — step 21 at (8,1) and step 42 at (1,1). Every figure the lead asserted holds.",
       "derived": "and the TWO is not an observation, it is forced. Forward is (2^n mod 9, 2n mod 7) and inverse is (5^n mod 9, -2n mod 7), so they meet iff 4^n ≡ 1 (mod 9) and 4n ≡ 0 (mod 7). The order of 4 mod 9 is 3, and gcd(4,7)=1 gives n ≡ 0 (mod 7), so n ≡ 0 (mod 21) — and one 42-period contains exactly 42/21 = 2 such n. The contact count is lcm(3,7) dividing 42, nothing more. Sealable as closed integer arithmetic: (4^3 % 9 = 1) ∧ (21 = 3*7) ∧ (42 / 21 = 2).",
-      "boundaryStands": "THE REFUSAL IS UNCHANGED AND THIS DOES NOT WEAKEN IT. Measuring the walk says nothing about whether the Z/9 vortex and a rotary firing order are the SAME argument; it supplies the witness for the ARITHMETIC the boundary explicitly said to keep, and leaves the identification refused for want of the independent witness it still lacks. Developing a refusal means answering the part that can be answered — never quietly promoting the part that cannot."
+      "boundaryStands": "THE REFUSAL IS UNCHANGED AND THIS DOES NOT WEAKEN IT. Measuring the walk says nothing about whether the Z/9 vortex and a rotary firing order are the SAME argument; it supplies the witness for the ARITHMETIC the boundary explicitly said to keep, and leaves the identification refused for want of the independent witness it still lacks. Developing a refusal means answering the part that can be answered — never quietly promoting the part that cannot.",
+      "lean": "-- The walk's two rings: doubling in Z/9 and stepping by two in Z/7, with their inverses (5 is the inverse of 2\n-- mod 9, and adding 5 is subtracting 2 mod 7), each a bijection of its ring.\ndef dbl (x : Nat) : Nat := 2 * x % 9\ndef half (x : Nat) : Nat := 5 * x % 9\ndef up2 (y : Nat) : Nat := (y + 2) % 7\ndef down2 (y : Nat) : Nat := (y + 5) % 7\ndef iter (f : Nat → Nat) : Nat → Nat → Nat\n  | 0, x => x\n  | n + 1, x => f (iter f n x)\n-- the forward and the inverse paired walk, both from (1, 1)\ndef fwd (k : Nat) : Nat × Nat := (iter dbl k 1, iter up2 k 1)\ndef inv (k : Nat) : Nat × Nat := (iter half k 1, iter down2 k 1)\ndef lead_de5612a2 : Prop :=\n  (iter dbl 6 1 = 1 ∧ (List.range 5).all (fun j => iter dbl (j + 1) 1 != 1) = true) ∧\n  (iter up2 7 1 = 1 ∧ (List.range 6).all (fun j => iter up2 (j + 1) 1 != 1) = true) ∧\n  Nat.gcd 6 7 = 1 ∧\n  (List.range 9).all (fun x => half (dbl x) == x && dbl (half x) == x) = true ∧\n  (List.range 7).all (fun y => down2 (up2 y) == y && up2 (down2 y) == y) = true ∧\n  (fwd 42 = fwd 0 ∧ (List.range 41).all (fun j => fwd (j + 1) != fwd 0) = true) ∧\n  ((List.range 42).map fwd).eraseDups.length = 42 ∧\n  fwd 21 = inv 21 ∧ fwd 21 = (8, 1) ∧ fwd 42 = inv 42 ∧ fwd 42 = (1, 1) ∧\n  ((List.range 42).map (· + 1)).filter (fun k => fwd k == inv k) = [21, 42]\ntheorem proof_de5612a2 : lead_de5612a2 := by unfold lead_de5612a2; decide",
+      "kernel": {
+        "verdict": "accepted",
+        "by": "kernel",
+        "theorem": "proof_de5612a2",
+        "receipt": "5c293fc3-79ab-8789-8f76-24255a17230b",
+        "axioms": []
+      }
     },
     {
       "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
@@ -177,7 +185,15 @@
     },
     {
       "lead": "HANDLE_BITS % HEXAGRAM_BITS = 2 (the eight-hex handle does not tile as hexagrams). HEXBIT_STATES % HEXAGRAM_BITS = 4. Those remainders are different cuts.",
-      "killed_by": "PAID. HANDLE_HEXAGRAM_REMAINDER and HEXBIT_STATE_HEXAGRAM_REMAINDER are named constructors; the test asserts they are not equal."
+      "killed_by": "PAID. HANDLE_HEXAGRAM_REMAINDER and HEXBIT_STATE_HEXAGRAM_REMAINDER are named constructors; the test asserts they are not equal.",
+      "lean": "-- constants as derived in uuidna lean/src/hologram.ts and uuidna/src/hexagram.ts\ndef COINS : Nat := 2\ndef HEXBIT_BITS : Nat := 4\ndef HEXBIT_STATES : Nat := 2 ^ HEXBIT_BITS\ndef UUID_HEXBITS : Nat := HEXBIT_STATES * COINS\ndef HANDLE_HEXBITS : Nat := UUID_HEXBITS / HEXBIT_BITS\ndef HANDLE_BITS : Nat := HANDLE_HEXBITS * HEXBIT_BITS\ndef HEXAGRAM_BITS : Nat := HEXBIT_BITS + 2\ndef lead_f59dbc3d : Prop :=\n  HANDLE_HEXBITS = 8 ∧\n  HANDLE_BITS % HEXAGRAM_BITS = 2 ∧ HANDLE_BITS % HEXAGRAM_BITS ≠ 0 ∧\n  HEXBIT_STATES % HEXAGRAM_BITS = 4 ∧ HANDLE_BITS % HEXAGRAM_BITS ≠ HEXBIT_STATES % HEXAGRAM_BITS\ntheorem proof_f59dbc3d : lead_f59dbc3d := by unfold lead_f59dbc3d; decide\n",
+      "kernel": {
+        "verdict": "accepted",
+        "by": "kernel",
+        "theorem": "proof_f59dbc3d",
+        "receipt": "ce486ef0-0d47-87df-b3c2-bce7276a4b3f",
+        "axioms": []
+      }
     },
     {
       "lead": "MCP tools/list wire grew to 168373 bytes, over the sealed ceiling 167794 (+579) — uuidna_skill / uuidna_theorem / uuidna_reason descriptions carried school-lab and paper-blueprint derivation onto the wire.",
@@ -209,7 +225,15 @@
     },
     {
       "lead": "An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses.",
-      "killed_by": "PAID / SEALED. Phase.lean seals dz_loses_nothing (bijection → reversible → barren alone), doubling_collapses_nine (ten→nine, 0 and 9 share an image), and maps_differ_in_reach (10 ≠ 9). Thermodynamics.lean seals reversible_erases_nothing beside Landauer. src/separation.ts + 12 tests hold the same structure as checks (involutes / separatesNothingAlone / isReversible / reach by alternation). No further sealing owed — the doctrine is decided."
+      "killed_by": "PAID / SEALED. Phase.lean seals dz_loses_nothing (bijection → reversible → barren alone), doubling_collapses_nine (ten→nine, 0 and 9 share an image), and maps_differ_in_reach (10 ≠ 9). Thermodynamics.lean seals reversible_erases_nothing beside Landauer. src/separation.ts + 12 tests hold the same structure as checks (involutes / separatesNothingAlone / isReversible / reach by alternation). No further sealing owed — the doctrine is decided.",
+      "lean": "def dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\ndef dbl (d : Nat) : Nat := (2 * d) % 9\n/-- the alternation: step i applies dz on even i when `dzFirst`, doubling otherwise -/\ndef altStep (dzFirst : Bool) (i s : Nat) : Nat :=\n  if (i % 2 == 0) == dzFirst then dz s else dbl s\ndef altWalk (dzFirst : Bool) : Nat → Nat → Nat\n  | 0, s => s\n  | n + 1, s => altStep dzFirst n (altWalk dzFirst n s)\ndef lead_ef58b583 : Prop :=\n  -- an involution alone is barren: dz reaches exactly two states from any seed\n  (List.range 10).all (fun s => ([s, dz s]).eraseDups.length == 2) = true ∧\n  -- alternating with doubling reaches all ten (from any seed, in either order of alternation)\n  (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t) ∧\n  -- dz is reversible\n  (List.range 10).all (fun s => dz (dz s) == s) = true ∧\n  -- doubling collapses (is not injective on the ten digits)\n  ((List.range 10).map dbl).eraseDups.length < 10\n-- second failing conjunct, universally: seed 0 is fixed by both maps, so no alternation leaves it\ntheorem altWalk_zero : ∀ (d : Bool) (n : Nat), altWalk d n 0 = 0 := by\n  intro d n\n  induction n with\n  | zero => rfl\n  | succ n ih =>\n    show altStep d n (altWalk d n 0) = 0\n    rw [ih]\n    unfold altStep\n    cases (n % 2 == 0) == d <;> rfl\ntheorem alternation_misses_from_zero : ¬ (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t) := by\n  exact fun h => match h 0 (by decide) with\n  | ⟨d, hd⟩ => match hd 1 (by decide) with\n    | ⟨n, hn⟩ => absurd ((altWalk_zero d n).symm.trans hn) (by decide)\ntheorem involution_ef58b583 : ¬ lead_ef58b583 := by\n  intro ⟨h, _⟩; exact absurd h (by decide)\n",
+      "kernel": {
+        "verdict": "accepted",
+        "by": "kernel",
+        "theorem": "involution_ef58b583",
+        "receipt": "e0ba48ac-d52f-8171-b981-9b8f129c466e",
+        "axioms": []
+      }
     },
     {
       "lead": "refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.",

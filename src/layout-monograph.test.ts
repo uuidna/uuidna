@@ -67,7 +67,38 @@ test('axisForRelativePath attaches only the URL that is that axis', () => {
   assert.deepEqual(other, {})
 })
 
-test('home hero is SITE + census — index.md YAML has no typed hero bag', () => {
+type Hero = ReturnType<typeof homeHeroOf>
+type Census = NonNullable<ReturnType<typeof axisForRelativePath>['census']>
+
+// VitePress's heading slug: specials become '-', runs of '-' collapse, ends trimmed.
+const slugOf = (h: string): string => h.trim().toLowerCase()
+  .replace(/<[^>]*>/g, '').replace(/[\s~`!@#$%^&*()\-_+=[\]{}|\\;:"'“”‘’<>,.?/]+/g, '-').replace(/^-+|-+$/g, '')
+
+/** Every digit run the hero shows must be a census figure, and every link a built docs route with a real heading. */
+function homeHeroGaps(hero: Hero, census: Census): string[] {
+  const gaps: string[] = []
+  const figures = new Set(Object.values(census).filter((v): v is number => typeof v === 'number').map(String))
+  const shown = [hero.text, hero.tagline, ...hero.actions.map((a) => a.text), ...hero.features.flatMap((f) => [f.title, f.details])]
+  for (const s of shown) {
+    for (const m of s.matchAll(/\d[\d,]*/g)) {
+      const digits = m[0].replace(/,+$/, '').replace(/,/g, '')
+      if (!figures.has(digits)) gaps.push(`typed figure ${m[0]} in "${s}"`)
+    }
+  }
+  const keys = new Set(theorems().map((t) => t.key))
+  for (const link of [...hero.actions.map((a) => a.link), ...hero.features.map((f) => f.link)]) {
+    const [path, hash] = link.split('#')
+    const theorem = /^\/theorem\/([a-z0-9_]+)$/.exec(path)
+    if (theorem) { if (!keys.has(theorem[1])) gaps.push(`dead link ${link}`); continue }
+    const file = join(DOCS, path === '/' ? 'index.md' : `${path.slice(1)}.md`)
+    let md = ''
+    try { md = readFileSync(file, 'utf8') } catch { gaps.push(`dead link ${link}`); continue }
+    if (hash && ![...md.matchAll(/^#{1,6}\s+(.+?)\s*$/gm)].some((h) => slugOf(h[1]) === hash)) gaps.push(`dead anchor ${link}`)
+  }
+  return gaps
+}
+
+test('home hero speaks to a newcomer — every figure from the census, every link a built page', () => {
   const src = readFileSync(join(DOCS, 'index.md'), 'utf8')
   const fmEnd = src.indexOf('\n---\n', 4)
   const fm = src.slice(0, fmEnd)
@@ -79,14 +110,24 @@ test('home hero is SITE + census — index.md YAML has no typed hero bag', () =>
   assert.ok(census)
   const hero = homeHeroOf(census)
   assert.equal(hero.name, SITE.name)
-  assert.equal(hero.text, SITE.tagline)
-  assert.equal(hero.tagline, SITE.description)
-  assert.equal(hero.actions[0]?.link, SITE.origin)
-  assert.equal(hero.actions[1]?.link, SITE.repo)
-  assert.equal(hero.features.length, 3)
-  assert.equal(hero.features[1]?.title, String(census.theorems))
-  assert.equal(hero.features[2]?.link, '/quantum')
+  assert.ok(hero.text.includes(census.theorems.toLocaleString('en-US')), 'the hero sentence carries the live count')
+  assert.equal(census.decided + census.otherTactics, census.theorems)
+  assert.deepEqual(hero.actions.map((a) => a.link.split('#')[0]), ['/school', '/trials', '/guides'])
+  assert.equal(hero.actions[0]?.theme, 'brand')
+  assert.ok(hero.features.length >= 4 && hero.features.length <= 6)
+  assert.deepEqual(homeHeroGaps(hero, census), [])
+  // raw Lean keys and statements stay off the cards
+  for (const f of hero.features) assert.doesNotMatch(`${f.title} ${f.details}`, /[a-z]+_[a-z0-9_]+|∧|\s=\s/)
   assert.doesNotMatch(JSON.stringify(hero.features), /Test POC|Rosette · Glagolitic/)
+  // controls: the instrument fails a typed figure, a dead route and a dead anchor
+  const withCard = (card: Hero['features'][number]): Hero => ({ ...hero, features: [...hero.features, card] })
+  assert.ok(homeHeroGaps(withCard({ title: 'Proofs', details: '71000 proofs', link: '/school' }), census).some((g) => g.includes('71000')))
+  assert.ok(homeHeroGaps(withCard({ title: 'Gone', details: 'x', link: '/no-such-page' }), census).some((g) => g.includes('/no-such-page')))
+  assert.ok(homeHeroGaps(withCard({ title: 'Gone', details: 'x', link: '/guides#no-such-heading' }), census).some((g) => g.includes('no-such-heading')))
+  assert.ok(homeHeroGaps(withCard({ title: 'Gone', details: 'x', link: '/theorem/no_such_key' }), census).some((g) => g.includes('no_such_key')))
+  // the axiom-free sentence narrows when the audit does not cover every statement
+  const partial = homeHeroOf({ ...census, axiomFree: census.theorems - 1 })
+  assert.ok(partial.text.includes(' of '), partial.text)
 })
 
 test('transformPageData bakes walkNext; ReferrerNav reads it', () => {

@@ -1,0 +1,12 @@
+{
+  "handle": "9e9b9819",
+  "address": "9e9b9819-3322-86d7-90ae-cdd71ff6d1c6",
+  "kind": "chunk",
+  "keys": [
+    "the_environment_right_drew_no_vote_against"
+  ],
+  "statement": "([0, 0].length > 0) ∧ ([0, 0].all (fun n => n == 0))",
+  "files": [
+    "LandRights.lean"
+  ]
+}

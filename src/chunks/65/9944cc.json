@@ -1,0 +1,12 @@
+{
+  "handle": "659944cc",
+  "address": "659944cc-e64e-8c98-89ab-d63977ddefe6",
+  "statement": "∀ x y : Nat, (x + y) * (x + y) = (x * x + y * y) + (x * y + x * y)",
+  "tactic": "intro x y rw [Nat.left_distrib, right_distrib_by_comm, right_distrib_by_comm, Nat.mul_comm y x, Nat.add_add_add_comm, Nat.add_comm (x * y) (y * y), Nat.add_add_add_comm (x * x) (y * y)]",
+  "keys": [
+    "square_of_sum_expands"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

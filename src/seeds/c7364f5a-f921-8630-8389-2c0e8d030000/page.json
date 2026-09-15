@@ -1,0 +1,141 @@
+{
+  "file": "Involutionef58b583.lean",
+  "slug": "involutionef58b583",
+  "status": "usable",
+  "address": "f45bbdb6-b53e-8554-8790-217c3f945f10",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involutionef58b583.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involutionef58b583.lean — GENERATED. INVOLUTION ef58b583: lead ef58b583 of lean/leads.json (refuted), stated in the row's own lean field as lead_ef58b583, and involution_ef58b583, the kernel's proof of its negation, accepted at the door for the text addressed e0ba48ac-d52f-8171-b981-9b8f129c466e. Every proof checked by the kernel (by decide, by exact, by intro), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\ndef dbl (d : Nat) : Nat := (2 * d) % 9\n/-- the alternation: step i applies dz on even i when `dzFirst`, doubling otherwise -/\ndef altStep (dzFirst : Bool) (i s : Nat) : Nat :=\n  if (i % 2 == 0) == dzFirst then dz s else dbl s\ndef altWalk (dzFirst : Bool) : Nat → Nat → Nat\n  | 0, s => s\n  | n + 1, s => altStep dzFirst n (altWalk dzFirst n s)\n\n/-- An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling\n    reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling\n    collapses. -/\ndef lead_ef58b583 : Prop :=\n  -- an involution alone is barren: dz reaches exactly two states from any seed\n  (List.range 10).all (fun s => ([s, dz s]).eraseDups.length == 2) = true ∧\n  -- alternating with doubling reaches all ten (from any seed, in either order of alternation)\n  (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t) ∧\n  -- dz is reversible\n  (List.range 10).all (fun s => dz (dz s) == s) = true ∧\n  -- doubling collapses (is not injective on the ten digits)\n  ((List.range 10).map dbl).eraseDups.length < 10\n-- second failing conjunct, universally: seed 0 is fixed by both maps, so no alternation leaves it\n\n/-- a supporting theorem the row states for lead ef58b583, decided by the kernel with its verdict -/\ntheorem altWalk_zero : ∀ (d : Bool) (n : Nat), altWalk d n 0 = 0 := by\n  intro d n\n  induction n with\n  | zero => rfl\n  | succ n ih =>\n    show altStep d n (altWalk d n 0) = 0\n    rw [ih]\n    unfold altStep\n    cases (n % 2 == 0) == d <;> rfl\n\n/-- a supporting theorem the row states for lead ef58b583, decided by the kernel with its verdict -/\ntheorem alternation_misses_from_zero : ¬ (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t) := by\n  exact fun h => match h 0 (by decide) with\n  | ⟨d, hd⟩ => match hd 1 (by decide) with\n    | ⟨n, hn⟩ => absurd ((altWalk_zero d n).symm.trans hn) (by decide)\n\n/-- The kernel refutes lead ef58b583: An involution alone is barren: dz reaches exactly two states from any\n    seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is\n    reversible and free, doubling collapses. -/\ntheorem involution_ef58b583 : ¬ lead_ef58b583 := by\n  intro ⟨h, _⟩; exact absurd h (by decide)\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-altWalk_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a supporting theorem the row states for lead ef58b583, decided by the kernel with its verdict"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ (d : Bool) (n : Nat), altWalk d n 0 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem altWalk_zero : ∀ (d : Bool) (n : Nat), altWalk d n 0 = 0 := by intro d n induction n with | zero => rfl | succ n ih => show altStep d n (altWalk d n 0) = 0 rw [ih] unfold altStep cases (n % 2 == 0) == d <;> rfl"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-alternation_misses_from_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a supporting theorem the row states for lead ef58b583, decided by the kernel with its verdict"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem alternation_misses_from_zero : ¬ (∀ s, s < 10 → ∃ dzFirst : Bool, ∀ t, t < 10 → ∃ n, altWalk dzFirst n s = t) := by exact fun h => match h 0 (by decide) with | ⟨d, hd⟩ => match hd 1 (by decide) with | ⟨n, hn⟩ => absurd ((altWalk_zero d n).symm.trans hn) (by decide)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_ef58b583",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead ef58b583: An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_ef58b583"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_ef58b583 : ¬ lead_ef58b583 := by intro ⟨h, _⟩; exact absurd h (by decide)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

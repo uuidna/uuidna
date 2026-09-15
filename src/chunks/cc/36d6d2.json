@@ -1,0 +1,12 @@
+{
+  "handle": "cc36d6d2",
+  "address": "cc36d6d2-1096-8132-8593-d9daf8512e41",
+  "statement": "∀ x y : Nat, (x + y) * (x + y) ≤ (x * x + y * y) + (x * x + y * y)",
+  "tactic": "intro x y rw [square_of_sum_expands] exact Nat.add_le_add_left (two_products_le_sum_of_squares x y) _",
+  "keys": [
+    "square_of_sum_le_twice_sum_of_squares"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

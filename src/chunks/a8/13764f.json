@@ -1,0 +1,12 @@
+{
+  "handle": "a813764f",
+  "address": "a813764f-eb54-8df5-8975-349a10fa5d6c",
+  "statement": "∀ a b c : Nat, (a + b + b + c) * (a + b + b + c) ≤ (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c)",
+  "tactic": "intro a b c have split : a + b + b + c = (a + b) + (b + c) := Nat.add_assoc (a + b) b c have h1 := square_of_sum_le_twice_sum_of_squares a b have h2 := square_of_sum_le_twice_sum_of_squares b c have h12 := Nat.add_le_add h1 h2 have outer := square_of_sum_le_twice_sum_of_squares (a + b) (b + c) have chain := Nat.le_trans outer (Nat.add_le_add h12 h12) rw [split] have hE : (a * a + b * b) + (b * b + c * c) = a * a + b * b + b * b + c * c := (Nat.add_assoc (a * a + b * b) (b * b) (c * c)).symm rw [Nat.add_add_add_comm (a * a + b * b) (a * a + b * b) (b * b + c * c) (b * b + c * c), hE, ← Nat.add_assoc (a * a + b * b + b * b + c * c + (a * a + b * b + b * b + c * c))] at chain exact chain",
+  "keys": [
+    "diffusion_stencil_square_le_weighted_energy"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

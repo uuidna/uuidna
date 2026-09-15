@@ -38,9 +38,41 @@ test('CONTROL: a sealed citation still verifies, and a declaration beside it doe
   assert.equal(slimGate(`theorem brand_new_x : 1 = 1 := rfl\n-- backed by theorem nonexistent_xyz_123`).verdict, 'UNVERIFIED')
 })
 
+test('a declaration opening a string literal is not a citation', () => {
+  for (const code of [
+    "lean: 'theorem mul_add_by_induction : ∀ n : Nat, n * 1 = n := by decide'",
+    'lean = "theorem mul_add_by_induction (n : Nat) : n = n := rfl"',
+    '{ key: "k", lean: "theorem mul_add_by_induction : 1 = 1 := by decide" }',
+    'const src = `theorem mul_add_by_induction : 1 = 1 := by decide`',
+    "assert.equal(gate('theorem refused_key : 1 = 1 := by decide').ok, false)",
+    "'theorem refused_key : 1 = 1 := by decide'",
+    "['theorem refused_key : 1 = 1 := by decide', 'theorem other_key {n : Nat} : n = n := rfl']",
+    '{\\"lean\\":\\"theorem refused_key : 1 = 1 := by decide\\"}',
+    "`@[simp] private theorem refused_key : 1 = 1 := rfl`",
+  ]) assert.deepEqual(slimGate(code).fabricated, [], code)
+})
+
+test('CONTROL: prose inside a string, or a quoted name without a binder, still cites', () => {
+  assert.deepEqual(slimGate("note('the proof is theorem nonexistent_xyz_123 backs it')").fabricated, ['nonexistent_xyz_123'])
+  assert.deepEqual(slimGate("'theorem nonexistent_xyz_123 backs it'").fabricated, ['nonexistent_xyz_123'])
+  assert.deepEqual(slimGate('lean: "see theorem nonexistent_xyz_123 : it is sealed"').fabricated, ['nonexistent_xyz_123'])
+  // a quote that CLOSES a string before `theorem` opens nothing: `word' theorem x :` is prose after a literal
+  assert.deepEqual(slimGate("said 'hi' theorem nonexistent_xyz_123 : proves it").fabricated, ['nonexistent_xyz_123'])
+  assert.equal(slimGate(`note('the proof is theorem ${sealedKey} backs it')`).verdict, 'VERIFIED')
+})
+
+test('a key ending in _ is a cut prefix, not a citation — and no sealed key ends in _', () => {
+  assert.deepEqual(THEOREMS.filter((t) => t.key.replace(/'+$/, '').endsWith('_')).map((t) => t.key), [])
+  assert.deepEqual(slimGate("grep -o '/theorem/enumeration_hex4_' dist/index.html").cited, [])
+  assert.deepEqual(slimGate('keys start with theorem enumeration_hex4_ and a nibble').cited, [])
+  // CONTROL: the whole key after the same prefix is still cited, sealed or not
+  assert.deepEqual(slimGate("grep -o '/theorem/enumeration_hex4_zzzz'").fabricated, ['enumeration_hex4_zzzz'])
+  assert.deepEqual(slimGate(`grep -o '/theorem/${sealedKey}'`).real, [sealedKey])
+})
+
 test('a one-line answer carrying thousands of theorem lines is read in one pass', () => {
   // an MCP answer is ONE line of JSON; the declaration test once read the whole line for every match and never finished
-  const row = (i: number): string => `{"key":"k${i}","lean":"theorem ${sealedKey} : 1 = 1 := by decide"}`
+  const row = (i: number): string => `{"key":"k${i}","lean":"theorem ${sealedKey} : 1 = 1 := by decide","why":"backed by theorem ${sealedKey}"}`
   const line = '[' + Array.from({ length: 20000 }, (_, i) => row(i)).join(',') + ']'
   const v = slimGate(line)
   assert.deepEqual(v.real, [sealedKey])

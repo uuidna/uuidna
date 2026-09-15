@@ -1,0 +1,12 @@
+{
+  "handle": "5d28d3dd",
+  "address": "5d28d3dd-2955-8794-b239-3f92a1097bb6",
+  "statement": "∀ (d : Bool) (n : Nat), altWalk d n 0 = 0",
+  "tactic": "intro d n induction n with | zero => rfl | succ n ih => show altStep d n (altWalk d n 0) = 0 rw [ih] unfold altStep cases (n % 2 == 0) == d <;> rfl",
+  "keys": [
+    "altWalk_zero"
+  ],
+  "files": [
+    "Involutionef58b583.lean"
+  ]
+}

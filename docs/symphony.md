@@ -3,7 +3,7 @@ title: The ledger symphony
 description: Four movements from four sealed sources, minted in your browser — a432 symphonies are theorems.
 ---
 
-# The ledger symphony <Badge type="tip" text="opus 6943ab1c" />
+# The ledger symphony <Badge type="tip" text="opus bed532f3" />
 
 > **A432 symphonies are theorems.** Four movements, four sealed sources, no audio file anywhere on earth — each
 > movement is a state sequence your browser mints at the moment you press play. The form itself is sealed:
@@ -22,16 +22,16 @@ description: Four movements from four sealed sources, minted in your browser —
 
 <HexbitPlayer :states="[15,5,13,10,5,14,8,4,5,7,14,6,8,13,6,3,11,14,9,9,0,2,8,10,2,6,13,6,13,5,2,1]" :ms="504" />
 
-## III. Scherzo — the walk <small>(67 chapters dancing · 126 ms)</small>
+## III. Scherzo — the walk <small>(69 chapters dancing · 126 ms)</small>
 
-<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,6,11,3,15,9,6,10,13,15,0,5,3,14,7,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,12,11,9,12,0,5,5,2,14,5,11,6,13,1,11,6,6,10,5,5,4,4,15,13,6,9,10]" :ms="126" />
+<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,6,11,3,15,9,6,10,13,15,0,5,3,14,7,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,12,11,9,12,0,5,5,2,14,5,11,6,13,1,11,6,6,10,5,5,4,4,15,6,15,13,6,9,10]" :ms="126" />
 
 ## IV. Finale — the whole <small>(every sealed theorem, one address · 252 ms)</small>
 
-<HexbitPlayer :states="[2,13,4,12,5,1,12,7,4,11,8,1,8,15,7,14,10,10,3,13,4,12,9,2,3,8,9,6,15,10,3,15]" :ms="252" />
+<HexbitPlayer :states="[15,2,13,10,13,13,12,10,7,15,0,7,8,5,13,12,9,0,13,15,11,9,9,1,11,14,0,2,2,3,11,13]" :ms="252" />
 
-The finale's thirty-two states are the fold of the entire ledger — 70938 theorems in one
-address, `2d4c51c7` — the work of the whole tree in nine seconds. When the ledger grows, the
+The finale's thirty-two states are the fold of the entire ledger — 70998 theorems in one
+address, `f2daddca` — the work of the whole tree in nine seconds. When the ledger grows, the
 finale changes: **this symphony is alive**, regenerated with every seal, and yesterday's performance is
 yesterday's ledger, addressable forever.
 

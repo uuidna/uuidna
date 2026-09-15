@@ -1,0 +1,12 @@
+{
+  "handle": "9fd82b8d",
+  "address": "9fd82b8d-3ca3-8aba-b7ff-725bbfa8ed53",
+  "statement": "∀ k a : Nat, a <<< k = 2 ^ k * a",
+  "tactic": "intro k induction k with | zero => intro a; exact (Nat.one_mul a).symm | succ k ih => intro a show (2 * a) <<< k = 2 ^ k * 2 * a rw [ih (2 * a), mul_assoc_by_induction]",
+  "keys": [
+    "shl_pow"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

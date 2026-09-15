@@ -1,5 +1,7 @@
 // @non-harmonic: uuidnaOS shared network fetch — one cache, one HTML refusal rule, every port pays once per URL.
-export type DataKind = 'json' | 'csv' | 'text'
+// 'page' is the one kind that ASKS for a web page — a reader handed a link wants the page it names, so the HTML refusal
+// that keeps every data door honest does not apply to it; every other kind still refuses a page served for data.
+export type DataKind = 'json' | 'csv' | 'text' | 'page'
 
 export interface Fetched<T> { data: T | null; declined: boolean; note: string }
 
@@ -49,7 +51,7 @@ export async function fetchData<T>(url: string, kind: DataKind, init?: RequestIn
     }
     return { data: cached.data as unknown as T, declined: false, note: 'ok (cached)' }
   }
-  const accept = kind === 'json' ? 'application/json' : kind === 'csv' ? 'text/csv' : 'text/plain,*/*'
+  const accept = kind === 'json' ? 'application/json' : kind === 'csv' ? 'text/csv' : kind === 'page' ? 'text/html,text/plain;q=0.9,*/*;q=0.1' : 'text/plain,*/*'
   let r: Response
   try {
     r = await fetch(url, {
@@ -71,10 +73,10 @@ export async function fetchData<T>(url: string, kind: DataKind, init?: RequestIn
     return { data: null, declined: true, note: declineNote(r.status, body, retry) }
   }
   const text = await r.text()
-  if (isHtml(r.headers.get('content-type') ?? '', text))
+  if (kind !== 'page' && isHtml(r.headers.get('content-type') ?? '', text))
     return { data: null, declined: true, note: 'served a WEB PAGE (text/html), not data — answering is not the same as answering with data' }
   _live.set(cacheKey, { data: text, declined: false, note: 'ok' })
-  if (kind === 'csv' || kind === 'text') return { data: text as unknown as T, declined: false, note: 'ok' }
+  if (kind === 'csv' || kind === 'text' || kind === 'page') return { data: text as unknown as T, declined: false, note: 'ok' }
   try { return { data: JSON.parse(text) as T, declined: false, note: 'ok' } }
   catch { return { data: null, declined: true, note: 'payload did not parse as JSON' } }
 }

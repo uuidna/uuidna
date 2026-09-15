@@ -1,0 +1,12 @@
+{
+  "handle": "bb6d62e8",
+  "address": "bb6d62e8-e58c-8402-9edf-f83faf513575",
+  "statement": "(0 < 70947) ∧ (0 + 70947 = 70947)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

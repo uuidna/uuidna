@@ -2,6 +2,28 @@
 
 The crypto surface of uuidna, as one package: pure-TypeScript SHA-256 / HMAC / PBKDF2, ChaCha20-Poly1305 (RFC 8439), the uuidna 7d-fold envelope, onion-sealed uuid streams, contract-bound seals, and the quantum-cube challenge.
 
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Quick start
+
+```js
+import { sha256, encrypt, decrypt } from '@uuidna/uuidna/crypto'
+
+const hex = (bytes) => Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('')
+console.log(hex(sha256(new TextEncoder().encode('abc'))))
+// → ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+const sealed = encrypt('hello', 'correct horse battery staple')
+console.log(decrypt(sealed, 'correct horse battery staple'))
+// → hello
+```
+
+The first line is the FIPS 180-4 test vector for `"abc"`. `@uuidna/uuidna/crypto` is this surface inside the umbrella
+package, and `@uuidna/crypto` re-exports the same bindings, so the import reads the same either way. The rest of it:
+
 ```ts
 import { sha256, pbkdf2Sha256, aeadEncrypt, aeadDecrypt, encrypt, decrypt, sealStream, openStream } from '@uuidna/crypto'
 ```

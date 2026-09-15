@@ -55,7 +55,9 @@ const contentHandles = (): string[] => {
   const keys = [...gen.matchAll(/key: "([a-z_0-9]+)"/g)].map((m) => m[1]!)
   assert.ok(keys.length > 1000, `only ${keys.length} theorem keys parsed — the probe missed the shape, not the ledger`)
   const wings = readdirSync('lean').filter((f) => f.endsWith('.lean')).map((f) => f.slice(0, -5).toLowerCase())
-  return [...keys, ...wings].map(handleOfText).concat(leads().leads.map((l) => l.handle))
+  const found = leads()
+  if ('unmeasured' in found) assert.fail(found.unmeasured)
+  return [...keys, ...wings].map(handleOfText).concat(found.leads.map((l) => l.handle))
 }
 
 test('content-addressed handles: below the birthday point they do not collide; past it the bound is named', () => {

@@ -22,8 +22,10 @@ import { commitChange, renderPlan } from '../quantum/os/installer/index.js'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { leadCensus, renderCensus, read, unread, type Lead, type SourceReading } from '../leads.js'
-import { sealedKeysIn } from '../refusal-trials.js'
-import { buildTrialRecord, reopenedBecause } from './trial-refusals.js'
+import { sealedKeysIn, involutionOf, leadVerdictOf, type KernelOk, type SealedStatement } from '../refusal-trials.js'
+import { buildTrialRecord, reopenedBecause, kernelCheckOf } from './trial-refusals.js'
+import { handleOf } from '../handle.js'
+import { toUuid } from '../address.js'
 import { coverage } from '../publish.js'
 import { gridGaps, pairsGaps } from '../grid.js'
 import { theorems, theoremNeighbours } from '../theorems/index.js'
@@ -135,24 +137,100 @@ export function gatherLeads(): SourceReading[] {
 // steps downstream. There is no refusal to settle into: a lead is proved, refuted by a measurement, or in trial
 // (2026-09-14). And it never deletes: a settled lead moves, keeping what was tried, because the record of a dead end
 // is the only thing that stops it being walked again.
+type LeadRowShape = Record<string, unknown>
+/** lean/leads.json as the settle pass reads it: trial and refuted always, proved only if the record carries one */
+export interface LeadsFile { trial: LeadRowShape[]; refuted: LeadRowShape[]; proved?: LeadRowShape[]; [k: string]: unknown }
+/** a lead's handle, computed as the court computes it: from its trimmed text */
+const handleOfLead = (row: LeadRowShape): string => handleOf(toUuid(String(row.lead ?? '').trim()))
+const leadCount = (r: LeadsFile): number => r.trial.length + r.refuted.length + (Array.isArray(r.proved) ? r.proved.length : 0)
+const sealedStatements = (): SealedStatement[] => theorems().map((t) => ({ key: t.key, statement: String(t.statement) }))
+
+export interface SettledMove { lead: string; handle: string; key: string; to: 'refuted' | 'proved' | 'trial' }
+export interface AutoSettleResult { record: LeadsFile; moved: SettledMove[]; before: number; after: number }
+
+/** autoSettle(record, sealed, kernelOk) → the record with every lead the kernel has decided moved, and nothing else
+ *  changed. A trial lead whose `involution_<h> : ¬ lead_<h>` is sealed moves to refuted; a lead whose `lead_<h>` is
+ *  proved moves to proved when the record has that list, and otherwise stays in trial carrying `proved: <key>`. A
+ *  refuted lead the kernel proves moves to proved only when that list exists; without it the row stays, and the court
+ *  reopens it (trial-refusals settlementOf). Each deciding theorem must pass kernelOk. Leads are only moved: the total
+ *  is counted before and after, and a difference throws with nothing returned. Pure. */
+export function autoSettle(record: LeadsFile, sealed: readonly SealedStatement[], kernelOk: KernelOk): AutoSettleResult {
+  const before = leadCount(record)
+  const hasProved = Array.isArray(record.proved)
+  const proved: LeadRowShape[] = hasProved ? [...record.proved!] : []
+  const trial: LeadRowShape[] = []
+  const refutedIn: LeadRowShape[] = [...record.refuted]
+  const moved: SettledMove[] = []
+  const decided = (row: LeadRowShape) => {
+    const handle = handleOfLead(row)
+    const v = leadVerdictOf(handle, sealed)
+    return v.key !== null && v.disposition !== 'open' && kernelOk(v.key) ? { handle, key: v.key, disposition: v.disposition } : { handle, key: null, disposition: 'open' as const }
+  }
+  for (const row of record.trial) {
+    const d = decided(row)
+    const lead = String(row.lead ?? '')
+    if (d.key !== null && d.disposition === 'refuted') {
+      refutedIn.push({ ...row, killed_by: typeof row.killed_by === 'string' && row.killed_by ? row.killed_by : `theorem ${d.key} : ¬ lead_${d.handle}`, evidence: [d.key] })
+      moved.push({ lead, handle: d.handle, key: d.key, to: 'refuted' })
+    } else if (d.key !== null && d.disposition === 'verified' && hasProved) {
+      proved.push({ ...row, proved_by: d.key })
+      moved.push({ lead, handle: d.handle, key: d.key, to: 'proved' })
+    } else if (d.key !== null && d.disposition === 'verified' && row.proved !== d.key) {
+      trial.push({ ...row, proved: d.key })
+      moved.push({ lead, handle: d.handle, key: d.key, to: 'trial' })
+    } else trial.push(row)
+  }
+  const refuted: LeadRowShape[] = []
+  for (const row of refutedIn) {
+    const d = hasProved ? decided(row) : null
+    if (d && d.key !== null && d.disposition === 'verified') {
+      proved.push({ ...row, proved_by: d.key })
+      moved.push({ lead: String(row.lead ?? ''), handle: d.handle, key: d.key, to: 'proved' })
+    } else refuted.push(row)
+  }
+  const out: LeadsFile = { ...record, trial, refuted, ...(hasProved ? { proved } : {}) }
+  const after = leadCount(out)
+  if (after !== before) throw new Error(`autoSettle — CONTENT WOULD BE LOST: ${before} leads before, ${after} after. A settled lead MOVES; nothing is returned.`)
+  return { record: out, moved, before, after }
+}
+
+/** autoSettleLeads() → run autoSettle over lean/leads.json against the served ledger and the kernel's fresh,
+ *  axiom-free receipts, writing the record only when a lead moved */
+export function autoSettleLeads(): Omit<AutoSettleResult, 'record'> {
+  const path = join(ROOT, 'lean/leads.json')
+  const record = JSON.parse(readFileSync(path, 'utf8')) as LeadsFile
+  const { record: next, moved, before, after } = autoSettle(record, sealedStatements(), kernelCheckOf().ok)
+  if (moved.length) writeFileSync(path, JSON.stringify(next, null, 2) + '\n')
+  return { moved, before, after }
+}
+
+/** leads.json is the source for generated pages; each is regenerated after the record moves */
+const regenerateSurfaces = (): boolean => {
+  for (const gen of ['trial-refusals.js', 'gen-leads.js', 'gen-school.js', 'gen-open-questions.js']) {
+    try {
+      execFileSync(process.execPath, [join(ROOT, 'dist/scripts', gen)], { cwd: ROOT, stdio: 'pipe' })
+      console.log(`  ✓ ${gen}`)
+    } catch (e) {
+      console.error(`  ✗ ${gen} failed — the record moved but its surfaces did not: ${e instanceof Error ? e.message.slice(0, 120) : String(e)}`)
+      return false
+    }
+  }
+  return true
+}
+
 const settleLead = (argv: readonly string[]): number => {
   const arg = (flag: string): string | null => {
     const i = argv.indexOf(flag)
     return i >= 0 && argv[i + 1] !== undefined ? String(argv[i + 1]) : null
   }
   const match = arg('--refute')
+  // --because is evidence text recorded beside the refutation; the kernel's involution is the refutation
   const because = arg('--because')
 
   if (!match) {
-    console.error('✗ settle — name the lead: --refute "<prefix>" --because "<the measurement that killed it>"')
+    console.error('✗ settle — name the lead: --refute "<prefix>" [--because "<evidence>"]')
     return 1
   }
-  if (!because) { console.error('✗ settle — a refutation REQUIRES --because: what measurement killed it? An unexplained refutation is a deletion with extra steps.'); return 1 }
-
-  // LEAN DECIDES THE REFUTATION: the measurement must name a sealed theorem as a whole identifier — prose alone
-  // settles nothing (the captain, 2026-09-14). The trial reruns after the move, so no old verdict stays on file.
-  const evidence = sealedKeysIn(because)
-  if (evidence.length === 0) { console.error('✗ settle — --because names no sealed theorem. A lead is refuted by the kernel: cite the `by decide` theorem that decides it.'); return 1 }
 
   const path = join(ROOT, 'lean/leads.json')
   const record = JSON.parse(readFileSync(path, 'utf8')) as { trial: Record<string, unknown>[]; refuted: Record<string, unknown>[] }
@@ -165,6 +243,22 @@ const settleLead = (argv: readonly string[]): number => {
     return 1
   }
   const idx = hits[0]!
+  // LEAN DECIDES THE REFUTATION: the lead's own claim stated as `lead_<h> : Prop` and the kernel's proof of
+  // `involution_<h> : ¬ lead_<h>`, with a fresh, axiom-free receipt. A theorem named in --because states some other
+  // proposition, so it is recorded as evidence and never accepted as the refutation.
+  const handle = handleOfLead(record.trial[idx]!)
+  const inv = involutionOf(handle, sealedStatements())
+  if (!inv || !inv.refutes) {
+    console.error(inv
+      ? `✗ settle — the kernel PROVES lead_${handle} (${inv.key}): the lead holds, so it is not refuted.`
+      : `✗ settle — the kernel has not refuted this lead: state its claim as def lead_${handle} : Prop and seal theorem involution_${handle} : ¬ lead_${handle}. A theorem named in --because is evidence, never the refutation.`)
+    return 1
+  }
+  if (!kernelCheckOf().ok(inv.key)) {
+    console.error(`✗ settle — ${inv.key} has no fresh, axiom-free kernel receipt in lean/axioms.json: its wing changed since the audit, or the kernel named an axiom. Re-run the axiom audit, then settle.`)
+    return 1
+  }
+  const evidence = [...new Set([inv.key, ...sealedKeysIn(because ?? '')])]
   // THE PLAN IS SHOWN BEFORE THE WRITE, apk-style, because settling REMOVES a lead from trial[] and a removal
   // that nobody sees is how content is lost (a `git checkout` on the conveyor discarded thirty accepted claims
   // the same session, and the ledger dropped 30 theorems with nothing reporting it). Here the removal is the
@@ -176,7 +270,7 @@ const settleLead = (argv: readonly string[]): number => {
   const commit = commitChange(trial0, trial1, { allowRemovals: true, reason: 'refuted with evidence' })
   for (const line of renderPlan(commit.plan, 'lead in trial')) console.log('  ' + line)
 
-  record.refuted.push({ ...lead, killed_by: because, evidence })
+  record.refuted.push({ ...lead, killed_by: because ?? `theorem ${inv.key} : ¬ lead_${handle}`, evidence })
 
   // AND THE TOTAL MUST NOT DROP. A lead moves between arrays; it is never destroyed, so the two lengths must sum to
   // what they summed to BEFORE anything moved — counted before the splice, not re-derived after it.
@@ -194,30 +288,35 @@ const settleLead = (argv: readonly string[]): number => {
   // AND THE SURFACES FOLLOW IN THE SAME BREATH, which is the half that kept being forgotten. leads.json is the
   // source for three generated pages; settling without regenerating leaves a tree that is correct in its record
   // and red in its tests, which reads as a broken suite rather than as an unfinished act.
-  for (const gen of ['trial-refusals.js', 'gen-leads.js', 'gen-school.js', 'gen-open-questions.js']) {
-    try {
-      execFileSync(process.execPath, [join(ROOT, 'dist/scripts', gen)], { cwd: ROOT, stdio: 'pipe' })
-      console.log(`  ✓ ${gen}`)
-    } catch (e) {
-      console.error(`  ✗ ${gen} failed — the record moved but its surfaces did not: ${e instanceof Error ? e.message.slice(0, 120) : String(e)}`)
-      return 1
-    }
-  }
-  return 0
+  return regenerateSurfaces() ? 0 : 1
 }
 
 // THE ARC RUNS ONLY WHEN IT IS THE COMMAND — importing this module gives you the sources, running it renders the
 // verdict and exits. Same guard every runner in this tree carries.
 if (process.argv[1]?.endsWith('leads-gate.js')) {
   if (process.argv.includes('--settle')) process.exit(settleLead(process.argv.slice(2)))
+  // THE KERNEL'S VERDICTS MOVE FIRST, so the census reads a record in which every decided lead already sits where the
+  // kernel put it
+  try {
+    const auto = autoSettleLeads()
+    if (auto.moved.length) {
+      for (const m of auto.moved) console.log(`✓ settle — ${m.to === 'trial' ? 'PROVED (kept in trial, no proved list)' : m.to.toUpperCase()} by ${m.key}: ${m.lead.slice(0, 72)}`)
+      console.log(`  leads ${auto.before} before · ${auto.after} after`)
+      if (!regenerateSurfaces()) process.exit(1)
+    }
+  } catch (e) {
+    console.error(`✗ settle — ${e instanceof Error ? e.message : String(e)}`)
+    process.exit(1)
+  }
   const census = leadCensus(gatherLeads())
   console.log('leads — A LEAD IS ANYTHING NOT VERIFIED. No release ships while one is open.\n')
   for (const line of renderCensus(census)) console.log(line)
   console.log(`\n  receipt ${census.receipt}`)
   if (!census.ready) {
     console.log('\n  Settle a lead only by the kernel\'s evidence:')
-    console.log('    · seal it: a `by decide` theorem, after which it is not a lead at all')
-    console.log('    · or refute it: npm run x -- leads-gate --settle --refute "<exact lead>" --because "<the sealed theorem that decides it>"')
+    console.log('    · prove it: state it as def lead_<handle> : Prop and seal a theorem whose statement is lead_<handle>')
+    console.log('    · or refute it: seal theorem involution_<handle> : ¬ lead_<handle>; this gate then moves it, or run')
+    console.log('      npm run x -- leads-gate --settle --refute "<exact lead>" [--because "<evidence>"]')
     console.log('  A lead is never settled by deletion or by wording — the record keeps what was tried.')
   }
   process.exit(census.ready ? 0 : 1)

@@ -17,26 +17,11 @@ import { execFileSync } from 'node:child_process'
 import { ROOT } from './api.js'
 import type { Gap } from './landing-gaps.js'
 import { buildTrialRecord } from './trial-refusals.js'
+// the pure half lives in src/leads-conservation.ts so laws() reaches it at the edge without this module's node imports
+import { leadsMissingFrom, type LeadsRecordShape } from '../leads-conservation.js'
+export { leadsMissingFrom, type LeadsRecordShape }
 
-type LeadList = { lead?: unknown }[]
-// `held` is the name the trial list carried until 2026-09-14; a HEAD from before the rename still spells it so, and
-// a lead is conserved across the rename only if both spellings are read
-export type LeadsRecordShape = { trial?: LeadList; held?: LeadList; refuted?: LeadList; refused?: LeadList }
 type QueueShape = { refused?: { key?: unknown }[]; accepted?: { key?: unknown }[] }
-
-const leadsOf = (r: LeadsRecordShape | null): string[] =>
-  [...(r?.trial ?? []), ...(r?.held ?? []), ...(r?.refuted ?? []), ...(r?.refused ?? [])]
-    .map((x) => (typeof x?.lead === 'string' ? x.lead : ''))
-    .filter((l) => l.length > 0)
-
-/** leadsMissingFrom(head, now) → one gap per lead at HEAD that the working record no longer holds. Pure. */
-export function leadsMissingFrom(head: LeadsRecordShape, now: LeadsRecordShape | null): Gap[] {
-  const present = new Set(leadsOf(now))
-  return leadsOf(head).filter((l) => !present.has(l)).map((l) => ({
-    what: `lean/leads.json: the lead "${l.slice(0, 90)}" is at HEAD and gone from the record — a lead leaves only by a verdict`,
-    fix: 'restore it from HEAD (git show HEAD:lean/leads.json); to settle it, refute it with the sealed theorem that decides it (npm run x -- leads-gate --settle --refute "<exact lead>" --because "<theorem key>") — never delete it',
-  }))
-}
 
 /** candidatesMissingFrom(head, now) → one gap per candidate the kernel refused at HEAD that is now neither refused
  *  nor accepted — a refused candidate may be re-probed and accepted, never dropped. Pure. */

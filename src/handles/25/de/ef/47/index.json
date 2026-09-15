@@ -1,0 +1,12 @@
+{
+  "handle": "25deef47",
+  "address": "25deef47-6163-8728-827e-ce8f515ddb91",
+  "kind": "chunk",
+  "keys": [
+    "division_by_zero_is_the_abstract_zero_fold"
+  ],
+  "statement": "(5 / 0 = 0) ∧ (2 * 64 = 128)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

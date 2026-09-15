@@ -7,8 +7,9 @@ import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { PROJECTED } from '../grid.js'
 import { theoremByKey } from '../theorems/index.js'
+import { proofsOf } from './lean-gen.js'
 import {
-  INVOLUTION_HANDLES, buildWing, involutionWings, leadOf, wingFileOf,
+  INVOLUTION_HANDLES, buildWing, involutionWings, leadOf, wingFileOf, formalLeads,
   defBlocks, closureOf, generatorFilesOf, reconcileRunsOf, memProof,
 } from './involution-family.js'
 
@@ -32,11 +33,25 @@ test('every involution states its own refuted lead and proves its negation, ever
   }
 })
 
-test('the ledger titles one wing per involution, each file its own', () => {
+test('emit names the tactics its proofs use, and a decide-only wing keeps the standing header', async () => {
+  assert.equal(proofsOf([{ key: 'a', stmt: '1 = 1' }, { key: 'b', lean: 'theorem b : 2 = 2 := by decide' }]), 'Every proof `by decide`')
+  assert.equal(proofsOf([{ key: 'a', stmt: '1 = 1' }, { key: 'b', lean: 'theorem b : ¬ p := by\n  exact fun h => h' }]), 'Every proof checked by the kernel (by decide, by exact)')
+  assert.equal(proofsOf([{ key: 'b', lean: 'theorem b : ¬ p := by unfold p; decide' }]), 'Every proof checked by the kernel (by unfold)')
+  // every involution wing's header is the one its sealed file carries
+  for (const h of INVOLUTION_HANDLES) {
+    const w = await buildWing(h)
+    const onDisk = readFileSync(join(ROOT, 'lean', w.file), 'utf8').split('\n')[0]!
+    assert.ok(onDisk.includes(` ${proofsOf(w.facts)}, sorry-free,`), `${w.file}: ${onDisk.slice(0, 120)}`)
+  }
+})
+
+test('the ledger titles one wing per involution and per accepted formalised lead, each file its own', () => {
   const wings = involutionWings()
-  assert.deepEqual(wings.map((w) => w.handle), [...INVOLUTION_HANDLES])
+  const formal = formalLeads()
+  assert.deepEqual(wings.map((w) => w.handle), [...INVOLUTION_HANDLES, ...formal.map((f) => f.handle)])
   assert.equal(new Set(wings.map((w) => w.file)).size, wings.length)
-  for (const w of wings) assert.ok(w.summary.includes(leadOf(w.handle).lead))
+  for (const w of wings.slice(0, INVOLUTION_HANDLES.length)) assert.ok(w.summary.includes(leadOf(w.handle).lead))
+  for (const [i, f] of formal.entries()) assert.ok(wings[INVOLUTION_HANDLES.length + i]!.summary.includes(f.row.lead))
 })
 
 test('the manifest reader follows its declaration: a moved entry moves, a commented one does not count', () => {

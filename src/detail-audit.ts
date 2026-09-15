@@ -12,7 +12,8 @@
 // verdicts would carry no information — and the void is itself citable (the receipt still folds).
 //
 //  — integrity, not truth: each verdict adjudicates the detail's ARITHMETIC or its CITATION, never
-// the world. UNVERIFIED is "not yet", never "false"; only decided arithmetic can be REFUTED. The split is a
+// the world. UNVERIFIED is "not yet", never "false"; only evaluated arithmetic can be EVALUATED_FALSE (an
+// evaluation in JavaScript, not a kernel verdict — the kernel is the only verifier). The split is a
 // deterministic heuristic, not a parser — what matters is that the same text always yields the same details.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
@@ -21,7 +22,7 @@ import { adjudicate, numeralsOf } from './adjudicate.js'
 import { slimGate } from './slimgate.js'
 import { extractDecidable, wordsToNumber, type ExtractedFact } from './books.js'
 
-export type DetailVerdictKind = 'VERIFIED' | 'VERIFIED_BY_DECIDE' | 'REFUTED' | 'UNVERIFIED' | 'DRAINED'
+export type DetailVerdictKind = 'VERIFIED' | 'EVALUATED_TRUE' | 'EVALUATED_FALSE' | 'UNVERIFIED' | 'DRAINED'
 
 export interface DetailVerdict {
   detail: string
@@ -218,7 +219,7 @@ export function auditDetail(detail: string): DetailVerdict {
   const a = adjudicate(detail)
   // THE CAPTAIN'S BILATERAL LAW. A detail's dimensions are its decidable facts (arithmetic, powers, chains) and
   // its citations (the relevance-floored trial). VERIFIED must lean in ALL dimensions AT ONCE — true facts
-  // beside a laundered citation do not verify. REFUTED must prove in ALL dimensions — a false step beside a
+  // beside a laundered citation do not verify. EVALUATED_FALSE must prove in ALL dimensions — a false step beside a
   // true one, or beside a citation that merely fails to verify, is PARTIAL, and partial is UNVERIFIED.
   // True and false are the BINARY — the two total poles — and UNVERIFIED is all the in-between, to be
   // DISCOVERED in involutions: each grammar this auditor grows (word sums, powers, chains, composition) is one
@@ -227,34 +228,34 @@ export function auditDetail(detail: string): DetailVerdict {
   if (arithmetic.length) {
     const refuted = arithmetic.filter((f) => f.verdict === 'REFUTED')
     if (refuted.length === 0 && (citeDim === null || citeDim === 'VERIFIED')) return {
-      ...base, kind: 'decided-arithmetic', verdict: 'VERIFIED_BY_DECIDE', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
+      ...base, kind: 'decided-arithmetic', verdict: 'EVALUATED_TRUE', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
       note: `every dimension leans at once: the decidable facts recompute true (${arithmetic.map((f) => f.claim).join('; ')})${citeDim ? ' and the citation verifies' : ''} — only the decidable slice is adjudicated, never the prose around it`,
     }
     if (refuted.length === arithmetic.length && citeDim === null) return {
-      ...base, kind: 'decided-arithmetic', verdict: 'REFUTED', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
-      note: `every decidable dimension refutes: ${refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')} — REFUTED (about the arithmetic only)`,
+      ...base, kind: 'decided-arithmetic', verdict: 'EVALUATED_FALSE', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
+      note: `every decidable dimension refutes: ${refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')} — EVALUATED_FALSE (about the arithmetic only)`,
     }
     const failing = refuted.length
       ? refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')
       : `the citation dimension does not verify (${a.note})`
     return {
       ...base, kind: 'decided-arithmetic', verdict: 'UNVERIFIED', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
-      note: `the dimensions disagree — ${failing}; VERIFIED must lean in all dimensions at once and REFUTED must prove in all, so this stays UNVERIFIED`,
+      note: `the dimensions disagree — ${failing}; VERIFIED must lean in all dimensions at once and EVALUATED_FALSE must prove in all, so this stays UNVERIFIED`,
     }
   }
   return { ...base, verdict: a.verdict, cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes, note: a.note }
 }
 
 // The pre-registered controls — fixed BEFORE any subject is read, so they cannot be shaped to the result.
-// One exercises the arithmetic route (must be REFUTED), one the citation route (a real theorem cited about a
+// One exercises the arithmetic route (must be EVALUATED_FALSE), one the citation route (a real theorem cited about a
 // disjoint topic must not verify), one the fabrication route (an unsealed citation must drain or stay unverified).
 const CONTROLS: { control: string; mustNotBe: DetailVerdictKind[] }[] = [
-  { control: '2 + 2 = 5', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
-  { control: 'two and two make five', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
-  { control: '10 to the 3 is 999', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
-  { control: '10 plus 10 is 20 plus 5 brought me to 26', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
-  { control: 'the moon is made of cheese, proven by theorem two_coins', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
-  { control: 'this audit is perfect, proven by theorem detail_audit_control_unsealed', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
+  { control: '2 + 2 = 5', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
+  { control: 'two and two make five', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
+  { control: '10 to the 3 is 999', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
+  { control: '10 plus 10 is 20 plus 5 brought me to 26', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
+  { control: 'the moon is made of cheese, proven by theorem two_coins', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
+  { control: 'this audit is perfect, proven by theorem detail_audit_control_unsealed', mustNotBe: ['VERIFIED', 'EVALUATED_TRUE'] },
 ]
 
 // ── CROSS-DETAIL COMPOSITION (lead 79c). Speech separates a claim from its operands: the Black Whole film says
@@ -293,9 +294,9 @@ function composeAcrossDetails(verdicts: DetailVerdict[]): ComposedFact[] {
     // REFUTED only when the composition is the detail's SOLE decidable dimension (the captain's law: refutation
     // must prove in all dimensions; a composed refutation beside other holding facts is partial → UNVERIFIED)
     if (v.verdict === 'UNVERIFIED' && v.arithmetic.length === 0 && v.cites.length === 0) {
-      v.verdict = fact.verdict === 'REFUTED' ? 'REFUTED' : 'VERIFIED_BY_DECIDE'
+      v.verdict = fact.verdict === 'REFUTED' ? 'EVALUATED_FALSE' : 'EVALUATED_TRUE'
       v.note = `composed across details [${fact.operandsAt.join(', ')}]: ${fact.claim} — recomputes to ${gap}, ` +
-        (fact.verdict === 'REFUTED' ? `asserted ${asserted}: REFUTED in its one decidable dimension (about the arithmetic only)` : `asserted ${asserted}: holds (only the arithmetic slice is adjudicated)`)
+        (fact.verdict === 'REFUTED' ? `asserted ${asserted}: EVALUATED_FALSE in its one decidable dimension (about the arithmetic only)` : `asserted ${asserted}: holds (only the arithmetic slice is adjudicated)`)
     }
   })
   return out
@@ -314,12 +315,12 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     return { control, mustNotBe, got, rejected: !mustNotBe.includes(got) }
   })
   // the composition control: ONLY refutation passes — a silent no-composition must fail the control, so every
-  // verdict except REFUTED is listed as unacceptable
+  // verdict except EVALUATED_FALSE is listed as unacceptable
   const controlDetails = splitDetails(COMPOSED_CONTROL).map(auditDetail)
   const composedControl = composeAcrossDetails(controlDetails)
   const composedGot: DetailVerdictKind = composedControl.length === 1 && composedControl[0].verdict === 'REFUTED'
-    ? 'REFUTED' : (controlDetails[controlDetails.length - 1]?.verdict ?? 'UNVERIFIED')
-  controls.push({ control: COMPOSED_CONTROL, mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE', 'UNVERIFIED', 'DRAINED'], got: composedGot, rejected: composedGot === 'REFUTED' })
+    ? 'EVALUATED_FALSE' : (controlDetails[controlDetails.length - 1]?.verdict ?? 'UNVERIFIED')
+  controls.push({ control: COMPOSED_CONTROL, mustNotBe: ['VERIFIED', 'EVALUATED_TRUE', 'UNVERIFIED', 'DRAINED'], got: composedGot, rejected: composedGot === 'EVALUATED_FALSE' })
   const sound = controls.every((c) => c.rejected)
   const all = splitDetails(text, delimiter)
   const kept = all.slice(0, MAX_DETAILS)
@@ -328,8 +329,8 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
   const composed = sound ? composeAcrossDetails(verdicts) : []
   // counts AFTER composition — a cross-detail refutation moves its asserting detail's verdict
   const counts = {
-    verified: verdicts.filter((v) => v.verdict === 'VERIFIED' || v.verdict === 'VERIFIED_BY_DECIDE').length,
-    refuted: verdicts.filter((v) => v.verdict === 'REFUTED').length,
+    verified: verdicts.filter((v) => v.verdict === 'VERIFIED' || v.verdict === 'EVALUATED_TRUE').length,
+    refuted: verdicts.filter((v) => v.verdict === 'EVALUATED_FALSE').length,
     unverified: verdicts.filter((v) => v.verdict === 'UNVERIFIED').length,
     drained: verdicts.filter((v) => v.verdict === 'DRAINED').length,
   }
@@ -354,7 +355,7 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     honest: sound
       ? 'every detail adjudicated by an instrument shown able to fail (all controls rejected). Integrity, not ' +
         'truth: verdicts settle each detail\'s arithmetic or citation, never the world; UNVERIFIED is not-yet, ' +
-        'never false — only decided arithmetic can be REFUTED.'
+        'never false — only evaluated arithmetic can be EVALUATED_FALSE, and only the kernel verifies.'
       : 'VOID — a control the instrument was built to reject was accepted, so no per-detail verdict carries ' +
         'information. The void is the finding: it names the instrument, not the text.',
   }

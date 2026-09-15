@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**21 open leads** across 12 topics — only leads **in trial** from lean/leads.json, prose develop
+**21 open leads** across 13 topics — only leads **in trial** from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -24,22 +24,17 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 5 open
+## wave — 4 open
 
-- **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
-  <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
-  <br><small>sealed neighbors: [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) · [`four_wire_sorting_needs_five_comparators`](/theorem/four_wire_sorting_needs_five_comparators) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Quantum advantage or speedup claims**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
-  <br><small>sealed neighbors: [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) </small>
+  <br><small>sealed neighbors: [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`quantum_is_the_uuid_doubled`](/theorem/quantum_is_the_uuid_doubled) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) </small>
-  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) </small>
+  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`the_ten_complement_involutes_the_vortex_through_the_axis`](/theorem/the_ten_complement_involutes_the_vortex_through_the_axis) · [`development_is_the_complement`](/theorem/development_is_the_complement) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) · [`closure_is_coprime`](/theorem/closure_is_coprime) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.**
   <br><small>door: the leads in trial</small>
@@ -79,7 +74,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`back_bearing_is_involutive_on_every_bearing`](/theorem/back_bearing_is_involutive_on_every_bearing) </small>
+  <br><small>involutions around: [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`the_vortex_and_the_rosette_are_one_six_cycle`](/theorem/the_vortex_and_the_rosette_are_one_six_cycle) </small>
   <br><small>sealed neighbors: [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) · [`three_wire_sorting_needs_three_comparators`](/theorem/three_wire_sorting_needs_three_comparators) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
@@ -100,7 +95,7 @@ page regrows without it.
 
 - **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`complement_involution_at_every_width`](/theorem/complement_involution_at_every_width) </small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`the_ten_complement_involutes_the_vortex_through_the_axis`](/theorem/the_ten_complement_involutes_the_vortex_through_the_axis) </small>
   <br><small>sealed neighbors: [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) · [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
@@ -110,6 +105,14 @@ page regrows without it.
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: [`nbl_trains_by_the_floor`](/theorem/nbl_trains_by_the_floor) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## involution — 1 open
+
+- **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`the_vortex_and_the_rosette_are_one_six_cycle`](/theorem/the_vortex_and_the_rosette_are_one_six_cycle) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) </small>
+  <br><small>sealed neighbors: [`proof_de5612a2`](/theorem/proof_de5612a2) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## nim — 1 open

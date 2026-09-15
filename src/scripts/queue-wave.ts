@@ -6,40 +6,27 @@
 // with the diagnostic named — a refusal is a RESULT, not an error; the run exits 0 either way and only a
 // malformed queue file exits 1. The model's remaining role is exactly the refusals: tokens only at the
 // frontier, mechanized. Run by the school cron; a quiet run is health.
-import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs'
-import { execSync } from 'node:child_process'
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { theoremByKey } from '../theorems/index.js'
-import { validateCandidate } from '../wave-deposit.js'   // THE ONE DECLARATION of the door laws — shared with the wire's deposit tool
-import { axiomsOf, inadmissibleIn } from '../axiom-report.js'
+import { validateCandidate, assertReason } from '../wave-deposit.js'   // THE ONE DECLARATION of the door laws — shared with the wire's deposit tool
+// the probe and the kernel's presence check live in kernel-probe.ts, where importing them runs nothing
+import { probe, kernelPresent } from './kernel-probe.js'
+export { probe }
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
-// ONE PROBE FILE PER PROCESS. The path was fixed, so two conveyors on this shared tree — or a test calling probe
-// while a wave runs — would write and unlink the SAME file underneath each other, and the loser reads either a
-// truncated file or the other candidate's statement. The pid is the one-writer law's own discriminator, not a
-// clock and not a random: same process, same path, every time.
-const PROBE = join(ROOT, 'lean', `_wave_probe.${process.pid}.lean`)
 
 export interface Candidate { key: string; why: string; lean: string }
 export interface Accepted extends Candidate { receipt: string }
 export interface Refused extends Candidate { reason: string }
 export interface WaveQueue { pending: Candidate[]; accepted: Accepted[]; refused: Refused[] }
 
-// the door laws (key shape, why floor, by-decide court, sorry/axiom refusal, sealed-dupe) live in ONE place —
+// the door laws (key shape, why floor, tactic-proof shape, sorry/admit/axiom/native_decide refusal, sealed-dupe) live in ONE place —
 // src/wave-deposit.ts's validateCandidate — because the wire's deposit tool and this runner must refuse
 // identically or the conveyor has two doors with different locks.
 const validate = validateCandidate
-
-/** probe(c) → null when the kernel accepts the statement alone, else the diagnostic (bounded). */
-/** the instrument must exist before it may judge — an absent kernel VOIDS the wave (candidates stay pending),
- *  it never refuses: a refusal is a verdict and only the kernel may issue one (learned from the first cron
- *  wave, which falsely refused five sound candidates with "lean: not found" — the trial-protocol law applied:
- *  a trial whose instrument is missing carries no information about the subject). */
-function kernelPresent(): boolean {
-  try { execSync('lean --version', { cwd: ROOT, stdio: 'pipe' }); return true } catch { return false }
-}
 
 /** the LIVE wings — a key may be seconds-old in a neighbour's uncommitted wing while the built ledger lags;
  *  the Readings collision (2026-08-23) lived exactly in that gap, so the conveyor checks the lean/ tree too
@@ -48,52 +35,6 @@ function liveWingHolds(key: string): string | null {
   const dir = join(ROOT, 'lean')
   for (const f of readdirSync(dir).filter((x) => x.endsWith('.lean'))) {
     if (readFileSync(join(dir, f), 'utf8').includes('theorem ' + key + ' ')) return f
-  }
-  return null
-}
-
-// AND THE PROBE ASKS THE KERNEL WHAT THE TERM COST, in the SAME invocation. A candidate can pass `by decide` and
-// still drag an axiom: `(i == j) == (l.getD i 0 == l.getD j 0)` needs propext, because an equality of two
-// Bool-valued comparisons at Prop level is propositional extensionality. This ledger's trust base is the bare
-// kernel's axiom-free receipt, so that candidate is refusable — but until now nothing could refuse it, because
-// the axiom audit runs over the SEALED ledger. And that audit will not certify partially ("this run could not
-// cover the ledger, so it has nothing to certify"), so ONE propext row blocks the witness for all 2656.
-// `#print axioms` costs nothing here: the probe already spawns `lean` on a file, and the query goes in that file.
-// A REGEX WOULD BE THE WRONG INSTRUMENT — `^^^` on Nat drags propext too, and so does the next spelling nobody
-// has met yet. The kernel reports on the term it just checked; that is the only answer that stays true.
-export function probe(c: Candidate): string | null {
-  writeFileSync(PROBE, c.lean + '\n#print axioms ' + c.key + '\n')
-  let out: string
-  try { out = String(execSync(`lean ${JSON.stringify(PROBE)}`, { cwd: ROOT, stdio: 'pipe' }) ?? '') }
-  catch (e) {
-    // LEAN WRITES ITS ERRORS TO STDOUT, NOT STDERR. This read `err.stderr ?? err.message`, and on a refusal
-    // `err.stderr` is an EMPTY BUFFER — not null, so `??` never fell through — which stringified to ''. The
-    // caller does `if (bad) refused.push(...) else accepted.push(...)`, and '' is falsy: every candidate the
-    // KERNEL REFUSED was filed as ACCEPTED, with the diagnostic thrown away. Caught 2026-09-05 by a test that
-    // fed the door `2 + 2 = 5` and asserted the refusal was non-empty. Read both streams, and never return a
-    // falsy diagnostic: a refusal that cannot be printed is still a refusal.
-    const err = e as { stdout?: Buffer; stderr?: Buffer; message?: string }
-    const said = (String(err.stdout ?? '') + String(err.stderr ?? '')).trim()
-    // A REFUSAL IS A COMMITTED RECORD. Lean prints the probe's absolute path; leaving `/Users/…` in
-    // wave-queue.json is a leak-scan charge (the queue is source, not a log). Strip this tree's root so the
-    // diagnostic stays the kernel's words and names no host.
-    const hostless = (s: string): string => s.split(ROOT).join('.').replace(/\/(?:Users|home)\/[A-Za-z0-9_.-]+/g, '.')
-    return hostless(said || String(err.message ?? '') || 'the kernel refused the proof and said nothing').slice(0, 300)
-  }
-  finally { try { unlinkSync(PROBE) } catch { /* the probe is disposable */ } }
-  // NULL AND [] ARE DIFFERENT ANSWERS. [] is the kernel vouching for the term; null is NO verdict, and an absent
-  // instrument may never be read as a pass — the same law the wave already obeys for an absent kernel (it VOIDS).
-  const bad = axiomsOf(out, c.key)
-  if (bad === null) return 'the kernel accepted the proof but printed no axiom verdict for ' + c.key + ' — an absent instrument is not a pass'
-  if (bad.length) {
-    // NAME THE CONSTRUCT, not just the axiom. Two sessions hit propext through `.getD` tonight and both cured it
-    // by restating the claim; the cure worked because it stopped INDEXING, which neither of them knew. Measured:
-    // of fourteen List primitives, only .getD and [i]! drag propext.
-    const known = inadmissibleIn(c.lean)
-    const named = known.length
-      ? ` The cause is in your statement: ${known.map((k) => `\`${k.form}\` — ${k.why}; instead ${k.instead}`).join('; ')}.`
-      : ' No known-inadmissible form is present, so the cause is elsewhere in the term — bisect it with `#print axioms` on each conjunct.'
-    return `the proof depends on ${bad.length === 1 ? 'an axiom' : 'axioms'}: [${bad.join(', ')}] — all of it Lean, but outside this ledger's axiom-free receipt; restate it so the kernel needs none.${named}`
   }
   return null
 }
@@ -112,7 +53,8 @@ function main(): void {
   for (const c of q.pending) {
     const wing = liveWingHolds(c.key)
     const bad = (wing ? `key already declared in the live wing ${wing} (the built ledger may lag a neighbour's flight)` : null) ?? validate(c, sealed) ?? probe(c)
-    if (bad) refused.push({ key: c.key, why: c.why, lean: c.lean, reason: bad })
+    // a refusal row is written only with its reason; it blocks this exact (key, text), and a changed proof returns
+    if (bad) refused.push({ key: c.key, why: c.why, lean: c.lean, reason: assertReason(c.key, bad) })
     else accepted.push({ key: c.key, why: c.why, lean: c.lean, receipt: toUuid(c.lean) })
   }
   const next: WaveQueue = { pending: [], accepted: [...q.accepted, ...accepted], refused: [...q.refused, ...refused] }

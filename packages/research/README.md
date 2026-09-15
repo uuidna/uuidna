@@ -2,6 +2,27 @@
 
 Recomputable research: deep research pressed through the reversible imprint codec, corroboration and publication scans, book / movie / record / standard audits, publications composed from sealed theorems and gated before publishing, the reporter's method, prior art, the NIST beacon anchor, CODATA constants, CVE fingerprints, the common vocabulary, the transform-until-verified automation, and the forward-chaining reasoner.
 
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Quick start
+
+```js
+import { corroborate, wordsToNumber } from '@uuidna/uuidna/research'
+
+console.log(wordsToNumber('forty two'))
+// → 42
+console.log(corroborate('water boils at 100 C at sea level').verdict)
+// → UNVERIFIED
+```
+
+With no evidence passed, corroboration stays `UNVERIFIED`: a statement is never promoted by its wording. Pass
+evidence rows (at least two sources) to move it. `@uuidna/uuidna/research` is this surface inside the umbrella package,
+and `@uuidna/research` re-exports the same bindings. The rest of it:
+
 ```ts
 import { deepResearch, corroborate, auditBook, composePublication, fileReport, priorArt, beaconAnchor } from '@uuidna/research'
 ```

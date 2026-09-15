@@ -1,0 +1,12 @@
+{
+  "handle": "1e2bc2f9",
+  "address": "1e2bc2f9-59d9-8b7e-8d68-87f6e91c74a3",
+  "kind": "chunk",
+  "keys": [
+    "shift_is_the_dimension"
+  ],
+  "statement": "∀ n : Nat, 1 <<< n = amps n",
+  "files": [
+    "Quantum.lean"
+  ]
+}

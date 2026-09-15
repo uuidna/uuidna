@@ -22,6 +22,7 @@ import { depositGaps } from '../deposit-records.js'
 import { geometryGaps } from '../three-geometry.js'
 // the pairing recovered from the facts, cross-checked against the index-mirror it cannot see
 import { involutionGaps } from '../mirror.js'
+import { shipAssetGaps, shipLinkGaps, shipEdgeGaps, shipPageReport } from '../ship-preflight.js'
 import { RATCHETS } from './ratchets.js'
 import { sourceGraph } from '../test-paths.js'
 /** the declared debt — files already carrying bare impossibility claims. May only shrink. */
@@ -35,7 +36,8 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
-import { HERE, ROOT, pool, type Gap, rd, judged } from './api.js'
+import { HERE, ROOT, pool, type Gap, rd, has, judged } from './api.js'
+import { memoryHomeGuardGaps } from '../memory-home.js'
 import { capacity } from '../os/host/index.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
@@ -315,15 +317,19 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // NO LEAD VANISHES AND NONE ESCAPES ITS TRIAL — the 2026-09-14 deletion of 21 leads, involuted: every lead at HEAD
   // must still be in the record, and every lead on the docket must have a trial.
   { name: 'leads', run: () => leadsGuardGaps() },
+  // NO MEMORIES OUTSIDE THE PROJECT — the captain, 2026-09-14: AGENTS.md indexes the laws, the leads and the lessons,
+  // CLAUDE.md only points at it, and the lessons are tracked; a missing piece is named, never assumed.
+  { name: 'memory-home', run: () => memoryHomeGuardGaps((p) => (has(p) ? rd(p) : undefined)) },
   // A CLAIM THAT SOMETHING IS OUT OF REACH NAMES ITS REASON — the captain's law. Six false walls were written and corrected in one
   // session, none caught by a test: a negation that dresses a CHOICE as an IMPOSSIBILITY reads as rigour, so
   // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may
   // only shrink; a NEW file claiming impossibility must name a host fact, a theorem, a boundary, or by-construction.
-  // LEAD 223: the finder judges what git would commit — an untracked, unstaged file is a peer's live context, named
-  // below as deferred rather than silently skipped, and judged the moment it is staged.
+  // LEAD 223: the finder judges what git would commit — tracked, staged, and untracked-not-ignored, because a new
+  // file the local guard skipped is refused by the committed-tree certification after the whole heal. A gitignored
+  // file is outside any landing, and is named below as deferred rather than silently skipped.
   { name: 'impossibility', run: () => {
     const { files, deferred } = judged([...sourceGraph().keys()])
-    if (deferred.length) console.log('    · ' + deferred.length + ' in-flight file(s) deferred, untracked and unstaged — judged when staged: ' + deferred.join(', '))
+    if (deferred.length) console.log('    · ' + deferred.length + ' gitignored file(s) deferred — outside what a landing commits: ' + deferred.join(', '))
     // LEAD 234: an UNREADABLE file is not a clean one. The reading separates the two, and a file the finder
     // could not open BLOCKS rather than passing quietly — otherwise this gate cannot tell "nothing is open" from
     // "I could not look", which is the pair no_instrument_narrower_than_its_question forbids collapsing.
@@ -420,6 +426,14 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // shrink, no sentence over the law-phrase bound may repeat across three descriptions, and a description over the
   // wire cap owes its derivation to `detail` (which reaches docs/mcp.md and never the wire).
   { name: 'context', run: () => contextGaps(MCP_CATALOG) },
+  // WHAT THE SHIP REFUSES, ASKED BEFORE THE LANDING. Each of these surfaced only at `npm run ship`, after a full
+  // landing: an asset over Cloudflare's per-asset limit, a dead link the SSG's check refuses, and a module on the
+  // worker's graph importing a Node builtin, which Cloudflare refuses at upload. The page count has no sealed
+  // budget to gate against, so it is printed beside the pin's recorded measurement and blocks nothing.
+  { name: 'ship-assets', run: () => shipAssetGaps() },
+  { name: 'ship-links', run: () => shipLinkGaps() },
+  { name: 'ship-edge', run: () => shipEdgeGaps() },
+  { name: 'ship-pages', run: () => { console.log('    · ship-pages — ' + shipPageReport()); return [] } },
   // EVERY AUTHORED PAGE REDUCES TO A THEOREM COMBINATION, or declares why it does not. 1399 of 1432 pages already
   // come from two templates with a computed sidebar; of the 33 authored ones, 28 fold to a real theorem set and the
   // rest compute from a data loader or are declared indexes/artifacts. A page that asserts while standing on nothing

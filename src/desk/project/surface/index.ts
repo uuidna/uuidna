@@ -8,6 +8,9 @@ import { leadCensus, type SourceReading } from '../../../leads.js'
 import { gatherOpenLeads } from '../../../school/open/questions/springs.js'
 import { openQuestions, type OpenItem } from '../../../school/open/questions/index.js'
 import { theorems } from '../../../theorems/index.js'
+import { verifyProposition } from '../../../verify-statement.js'
+import { leadVerdictOf, ledgerStatements, type SealedStatement } from '../../../refusal-trials.js'
+import { handleOf } from '../../../handle.js'
 
 const posInt = (n: number): number => (n > 0 ? n | 0 : 0)
 
@@ -16,44 +19,68 @@ export interface OpenLeadsInput {
   limit?: number
 }
 
+/** an open claim, with the sealed theorems it cites shown as evidence — a citation never decides it */
+export interface OpenLeadItem extends OpenItem { cites?: string[] }
+export type OpenLeadVerdict = 'VERIFIED' | 'REFUTED' | 'OPEN'
+
 export interface OpenLeadsResult {
   total: number
   open: number
   verified: number
+  refuted: number
   unverified: number
-  items: OpenItem[]
+  items: OpenLeadItem[]
+  /** each claim the ledger decided, with the theorem that decided it */
+  decided: { claim: string; source: string; verdict: Exclude<OpenLeadVerdict, 'OPEN'>; key: string }[]
   receipt: string
   honest: string
   example?: string
 }
 
-/** openLeadsPublic(input) → UNVERIFIED items from YOUR backlog, or the ledger demo when items omitted. */
+/** the statements a lead's handle can be decided by: `involution_<h>` keys and statements naming `lead_<h>` — the only
+ *  shapes leadVerdictOf matches, so the per-claim lookup scans these and not the whole ledger */
+const leadStatements = (): SealedStatement[] =>
+  ledgerStatements().filter((s) => s.key.startsWith('involution_') || /\blead_[0-9a-f]{8}\b/.test(s.statement))
+
+/** openLeadVerdict(claim, sealed?) → VERIFIED only when the claim, normalised, IS a sealed theorem's statement
+ *  (verifyProposition) or the ledger proves `lead_<h>` for its handle; REFUTED only by `involution_<h> : ¬ lead_<h>`;
+ *  OPEN otherwise, with the real sealed theorems it cites returned as evidence. adjudicate is read for those citations
+ *  only, so its own verdict contract is unchanged for its other callers. Pure. */
+export function openLeadVerdict(claim: string, sealed: readonly SealedStatement[] = leadStatements()): { verdict: OpenLeadVerdict; key: string | null; cites: string[] } {
+  const exact = verifyProposition(claim)
+  if (exact.verdict === 'VERIFIED' && exact.key) return { verdict: 'VERIFIED', key: exact.key, cites: [] }
+  const lead = leadVerdictOf(handleOf(toUuid(claim.trim())), sealed)
+  if (lead.disposition !== 'open' && lead.key) return { verdict: lead.disposition === 'refuted' ? 'REFUTED' : 'VERIFIED', key: lead.key, cites: [] }
+  return { verdict: 'OPEN', key: null, cites: (adjudicate(claim).cites ?? []).map((c) => c.key) }
+}
+
+/** openLeadsPublic(input) → the OPEN items from YOUR backlog, or the ledger demo when items omitted. */
 export function openLeadsPublic(input: OpenLeadsInput = {}): OpenLeadsResult {
   const pool: OpenItem[] = input.items?.length
     ? input.items.map((i) => ({ claim: String(i.claim ?? '').trim(), source: String(i.source ?? 'your backlog').trim() || 'your backlog', ...(i.receipt ? { receipt: i.receipt } : {}) })).filter((i) => i.claim)
     : gatherOpenLeads()
-  let verified = 0
-  let unverified = 0
-  const open: OpenItem[] = []
+  const sealed = leadStatements()
+  const decided: OpenLeadsResult['decided'] = []
+  const open: OpenLeadItem[] = []
   for (const item of pool) {
-    const v = adjudicate(item.claim).verdict
-    if (v === 'VERIFIED') verified++
-    else {
-      unverified++
-      open.push(item)
-    }
+    const v = openLeadVerdict(item.claim, sealed)
+    if (v.verdict !== 'OPEN' && v.key) decided.push({ claim: item.claim, source: item.source, verdict: v.verdict, key: v.key })
+    else open.push(v.cites.length ? { ...item, cites: v.cites } : item)
   }
+  const verified = decided.filter((d) => d.verdict === 'VERIFIED').length
   const limit = input.limit != null && input.limit > 0 ? posInt(input.limit) : undefined
   const items = limit ? open.slice(0, limit) : open
   return {
     total: pool.length,
     open: open.length,
     verified,
-    unverified,
+    refuted: decided.length - verified,
+    unverified: pool.length - verified,
     items,
+    decided,
     receipt: hexbitReceipt(open.map((i) => toUuid(`${i.claim}|${i.source}`))).receipt,
     honest: input.items?.length
-      ? 'YOUR project backlog — each claim is adjudicated against the public sealed ledger; UNVERIFIED is not-yet sealed here, never "false".'
+      ? 'YOUR project backlog — VERIFIED only when a claim IS a sealed theorem\'s statement (normalised) or the ledger proves lead_<handle> for it; REFUTED only by involution_<handle> : ¬ lead_<handle>. A citation alone leaves a claim OPEN, the citation shown as evidence (cites); OPEN is not-yet-decided here, never "false".'
       : 'Example: the uuidna ledger\'s own open leads. Pass {items:[{claim,source}]} for your project.',
     ...(!input.items?.length ? { example: 'https://uuidna.com/open-questions' } : {}),
   }

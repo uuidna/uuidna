@@ -15,7 +15,6 @@ import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { SITE } from './site/index.js'
-import { SIDEBAR_CATEGORIES } from './site.js'
 import { quantumAura } from './aura.js'
 import { timeShorFullUse } from './os/host/index.js'
 import { phdProofs } from './phd-proofs.js'
@@ -109,6 +108,11 @@ export type AxiomsAxis = {
 export type HomeCensus = {
   objectKind: 'page'
   theorems: number
+  /** proved by `decide` alone; otherTactics = theorems − decided (exact, intro, unfold …) */
+  decided: number
+  otherTactics: number
+  /** kernel-audited with an empty axiom set (lean/axioms.json via axiomWitness); 0 when the witness is unreadable */
+  axiomFree: number
   principles: number
   skills: number
   shor: {
@@ -186,7 +190,9 @@ export type HomeCensus = {
 export type HomeHeroAction = { theme: 'brand' | 'alt'; text: string; link: string }
 export type HomeHeroFeature = { title: string; details: string; link: string }
 
-/** Stock VP home hero — SITE identity and ledger counts. Typed YAML on index.md is a crack. */
+/** Stock VP home hero for a first-time visitor: what this is, what they can do, the next step. Typed YAML on
+ *  index.md is a crack, so every figure here is read from the census and every link is a built docs route
+ *  (layout-monograph.test.ts checks both: a digit run absent from the census fails, a route with no page fails). */
 export function homeHeroOf(census: HomeCensus): {
   name: string
   text: string
@@ -194,31 +200,48 @@ export function homeHeroOf(census: HomeCensus): {
   actions: HomeHeroAction[]
   features: HomeHeroFeature[]
 } {
-  const origin = new URL(SITE.origin)
-  const repo = new URL(SITE.repo)
-  const clayLead = theorems()
-    .filter((t) => t.key.startsWith('clay_'))
-    .sort((a, b) => a.key.localeCompare(b.key))[0]
-  const features: HomeHeroFeature[] = []
-  if (clayLead) {
-    features.push({ title: clayLead.key, details: clayLead.statement, link: `/theorem/${clayLead.key}` })
-  }
-  const quantumLink = SIDEBAR_CATEGORIES.flatMap(([, rs]) => rs).find((r) => r.split('/').pop() === 'quantum')
-  features.push(
-    { title: String(census.theorems), details: '/theorems', link: '/theorems' },
-    quantumLink
-      ? { title: quantumLink.replace(/^\//, ''), details: quantumLink, link: quantumLink }
-      : { title: String(census.skills), details: '/topics', link: '/topics' },
-  )
+  const n = census.theorems.toLocaleString('en-US')
+  // the axiom-free sentence is said of every statement only when the kernel audit covers every statement
+  const text = census.axiomFree === census.theorems
+    ? `${n} facts, each proved and checked by the Lean kernel with no axiom assumed`
+    : `${census.axiomFree.toLocaleString('en-US')} of ${n} facts proved and checked by the Lean kernel with no axiom assumed`
   return {
     name: SITE.name,
-    text: SITE.tagline,
-    tagline: SITE.description,
+    text,
+    tagline: `Free to read and free to re-check. Learn from ${census.skills} topics, test a claim against the proofs, or let your AI cite them.`,
     actions: [
-      { theme: 'brand', text: origin.host, link: SITE.origin },
-      { theme: 'alt', text: repo.host, link: SITE.repo },
+      { theme: 'brand', text: 'Start learning', link: '/school' },
+      { theme: 'alt', text: 'Check a claim', link: '/trials' },
+      { theme: 'alt', text: 'Use it in your AI', link: '/guides#fuse-the-mcp-into-an-agent' },
     ],
-    features: features.slice(0, 3),
+    features: [
+      {
+        title: 'Learn step by step',
+        details: `The school walks all ${census.principles} subject wings one lesson at a time, and every lesson is a proof you can drill.`,
+        link: '/school',
+      },
+      {
+        title: 'Check a claim',
+        details: 'Any statement gets one answer: VERIFIED when a proof in the ledger backs it, UNVERIFIED when none does.',
+        link: '/trials',
+      },
+      {
+        title: 'Re-check everything yourself',
+        details: `One command line re-runs the Lean kernel over all ${n} proofs on your own machine.`,
+        link: '/guides#verify-every-theorem-yourself',
+      },
+      {
+        title: 'Use it in your AI',
+        details: 'Add one MCP server and your assistant can search, cite and verify the proofs while it answers you.',
+        link: '/mcp',
+      },
+      {
+        title: 'Cite it permanently',
+        details: 'Every release is archived under a DOI, and every page has a short handle link that keeps pointing at the same content.',
+        link: '/succession#what-is-already-permanent-with-or-without-anyone',
+      },
+      { title: 'Support the work', details: SITE.sponsor.message, link: '/captain' },
+    ],
   }
 }
 
@@ -299,7 +322,13 @@ export function axisMonographs(): AxisBundle {
   }
   const roots = LEDGER.map((t) => t.address)
   let axiomHolds = false
-  try { axiomHolds = !!axiomWitness().holds } catch { axiomHolds = false }
+  let axiomFree = 0
+  try {
+    const w = axiomWitness()
+    axiomHolds = !!w.holds
+    axiomFree = w.axiomFree
+  } catch { axiomHolds = false }
+  const decided = LEDGER.filter((t) => t.tactic === 'decide').length
   const unboundCount = LEDGER.filter(isUnbound).length
   const axiomsIdx = axiomIndex()
   const fill = fillLattice()
@@ -370,6 +399,9 @@ export function axisMonographs(): AxisBundle {
     census: {
       objectKind: 'page',
       theorems: LEDGER.length,
+      decided,
+      otherTactics: LEDGER.length - decided,
+      axiomFree,
       principles: order.length,
       skills: skillNames.length,
       shor: {

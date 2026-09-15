@@ -67,7 +67,7 @@ export function evalCourtTool(name: string, raw: unknown): { ok: boolean; detail
 export function evalPlaybookStep(tool: string, raw: unknown): { ok: boolean; detail: string } {
   try {
     const out = asBag(tool, raw)
-    if (tool === 'uuidna_decide') return { ok: String(out.verdict ?? '').includes('VERIFIED'), detail: String(out.verdict ?? '') }
+    if (tool === 'uuidna_decide') return { ok: out.verdict === 'VERIFIED' || out.verdict === 'EVALUATED_TRUE', detail: String(out.verdict ?? '') }
     if (tool === 'uuidna_theorem') return { ok: out.verdict === 'SEALED', detail: String(out.key ?? '') }
     if (tool === 'uuidna_quantum') {
       const bits = Array.isArray(out.hexbits) ? out.hexbits : hexbitDoorOf(String(out.receipt ?? '')).hexbits

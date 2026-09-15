@@ -2,6 +2,29 @@
 
 The sealed theorem ledger and every gate that stands on it: the content-address core (`toUuid`, `merkleFold`), merkle proofs, the honesty gates (`slimGate`, `computes`, `overreachOf`), the trial (`adjudicate`, `dueProcess`, `depositTrial`), commit signing (`signCommit`), the anti-fraud and forensics audits, `conformance`, `catchTraitors`, the ledger fingerprint, `laws`, `credits`, and the billing coins.
 
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Quick start
+
+```js
+import { toUuid, merkleRoot, merkleProof, verifyProof, slimGate } from '@uuidna/uuidna/ledger'
+
+const leaves = ['alpha', 'beta', 'gamma'].map(toUuid)
+console.log(verifyProof(leaves[1], merkleProof(leaves, 1), merkleRoot(leaves)))
+// → true
+console.log(slimGate('as sealed by theorem two_coins').verdict)
+// → VERIFIED
+console.log(slimGate('as sealed by theorem no_such_theorem').verdict)
+// → UNVERIFIED
+```
+
+A citation is `theorem <key>`; the gate answers from the sealed ledger alone. `@uuidna/uuidna/ledger` is this surface
+inside the umbrella package, and `@uuidna/ledger` re-exports the same bindings. The rest of it:
+
 ```ts
 import { THEOREMS, theorems, slimGate, adjudicate, signCommit, merkleRoot, verifyProof, coins } from '@uuidna/ledger'
 ```

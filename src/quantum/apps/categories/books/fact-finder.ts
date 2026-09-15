@@ -29,8 +29,8 @@ export function findFacts(text: string): FactFinding {
     controls: probe.controls,
     instrumentValid: true,
     details,
-    verified: details.filter((d) => /^VERIFIED/.test(d.verdict)).length,
-    refuted: details.filter((d) => d.verdict === 'REFUTED').length,
+    verified: details.filter((d) => d.verdict === 'VERIFIED' || d.verdict === 'EVALUATED_TRUE').length,
+    refuted: details.filter((d) => d.verdict === 'EVALUATED_FALSE').length,
     claims: extractClaims(text),
   }
 }

@@ -11,13 +11,22 @@
     "url": "git+https://github.com/uuidna/uuidna.git",
     "directory": "packages/quantum"
   },
+  "bugs": {
+    "url": "https://github.com/uuidna/uuidna/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",

@@ -1,0 +1,12 @@
+{
+  "handle": "990e6e60",
+  "address": "990e6e60-d4e5-8bdb-b471-162c7d6496a3",
+  "statement": "∀ (g h : Nat → Nat) (n : Nat), (∀ i : Nat, g (i + n) = g i) → (∀ i : Nat, h i ≤ g i + g (i + 1) + g (i + 1) + g (i + 2)) → psum (fun i => sq (h i)) n ≤ 16 * psum (fun i => sq (g i)) n",
+  "tactic": "intro g h n hper hdom let q : Nat → Nat := fun i => sq (g i) have point : ∀ i, sq (h i) ≤ (q i + q (i + 1) + q (i + 1) + q (i + 2)) + (q i + q (i + 1) + q (i + 1) + q (i + 2)) + (q i + q (i + 1) + q (i + 1) + q (i + 2)) + (q i + q (i + 1) + q (i + 1) + q (i + 2)) := by intro i exact Nat.le_trans (Nat.mul_le_mul (hdom i) (hdom i)) (diffusion_stencil_square_le_weighted_energy (g i) (g (i + 1)) (g (i + 2))) have summed := psum_le_of_pointwise _ _ n point let E : Nat → Nat := fun i => q i + q (i + 1) + q (i + 1) + q (i + 2) have hq : ∀ i, q (i + n) = q i := fun i => congrArg sq (hper i) have sumE : psum E n = psum q n + psum q n + psum q n + psum q n := by show psum (fun i => q i + q (i + 1) + q (i + 1) + q (i + 2)) n = _ rw [psum_add4 q (fun i => q (i + 1)) (fun i => q (i + 1)) (fun i => q (i + 2)) n, ring_shift_preserves_sum q n hq, ring_double_shift_preserves_sum q n hq] have sumW : psum (fun i => E i + E i + E i + E i) n = psum E n + psum E n + psum E n + psum E n := psum_add4 E E E E n rw [sumE] at sumW have : psum (fun i => sq (h i)) n ≤ psum (fun i => E i + E i + E i + E i) n := summed rw [sumW] at this show psum (fun i => sq (h i)) n ≤ 16 * psum q n rw [sixteen_mul_is_four_fours] exact this",
+  "keys": [
+    "ring_energy_bound_of_pointwise"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

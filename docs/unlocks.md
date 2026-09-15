@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 70,854 distinct theorems · 70,938 keys · 121 skills · 242 Lean files.
+**Board (computed).** 70,914 distinct theorems · 70,998 keys · 121 skills · 248 Lean files.
 
-Receipt `c9fee521-6497-839f-b49a-9d97d650aea0` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `1c675daa-d4bf-858b-879d-4157cf606d64` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -60,9 +60,10 @@ Receipt `c9fee521-6497-839f-b49a-9d97d650aea0` · structured form <a href="/lean
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
-| `quantum` | 57 |
+| `quantum` | 63 |
+| `cipher` | 38 |
 | `chess` | 37 |
-| `cipher` | 33 |
+| `clay` | 36 |
 | `audit` | 29 |
 | `sequence` | 29 |
 | `coins` | 27 |
@@ -74,7 +75,6 @@ Receipt `c9fee521-6497-839f-b49a-9d97d650aea0` · structured form <a href="/lean
 | `colour` | 19 |
 | `neuro` | 19 |
 | `hardware` | 18 |
-| `topography` | 18 |
 
 ## Lean files (top 20)
 

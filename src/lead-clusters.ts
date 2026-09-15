@@ -26,9 +26,11 @@
 // and run per pair, tens of thousands of scans for a question one scan wide. Inverting the loop — tokenise a
 // lead ONCE, look each token up in the vocabulary — computes every cluster a lead belongs to in the same walk.
 // Linear in the corpus, independent of vocabulary size: the hundred-and-sixty-first name costs nothing new.
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
-import { homedir } from 'node:os'
-import { join } from 'node:path'
+// THE SOURCES ARE THE TREE'S OWN, and nothing outside it: lean/leads.json (the trial docket and the refuted) and
+// lean/wave-queue.json (candidates pending, accepted and refused). A lead held only in a private store is not a
+// lead the tree can check. The pure half (leadsOf, foldOf, aroundOf) computes from source texts it is handed; the
+// host half reads them through boundary.ts, so the module loads at the edge and answers UNMEASURED there by name.
+import { hostFs, unmeasuredHere, type HostFs, type Unmeasured } from './boundary.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
 
@@ -41,69 +43,65 @@ export interface Fold {
   readonly unreadable: readonly string[]
 }
 
-const QUEUE = join(homedir(), '.claude/projects/-Users-ceci-github-uuidna-uuidna/memory/uuidna-next-wave-queue.md')
+/** the two in-repo lead sources, repo-relative */
+export const LEADS_FILE = 'lean/leads.json'
+export const QUEUE_FILE = 'lean/wave-queue.json'
+
+/** the source texts as read: null is a source that could not be read, never an empty one */
+export interface LeadSources { readonly leads: string | null; readonly queue: string | null; readonly wings: readonly string[] | null }
 
 /** The handle of any content — the tree's one derivation, used here so leads carry no invented key. */
 export const handleOfText = (text: string): string => handleOf(toUuid(text))
 
-/** Every lead the tree holds, each addressed by its own content. Sources that could not be read are named
- *  apart and never folded into a count of zero: two probes today read zero from a wrong-shaped regex while the
- *  tree was full, and a zero that might mean "I could not look" is the answer that ends inquiry falsely. */
-export const leads = (root = '.', queue = QUEUE): { leads: Lead[]; unreadable: string[] } => {
+/** Every lead the sources hold, each addressed by its own content. Sources that could not be read are named
+ *  apart and never folded into a count of zero: two probes read zero from a wrong-shaped regex while the
+ *  tree was full, and a zero that might mean "I could not look" is the answer that ends inquiry falsely. Pure. */
+export const leadsOf = (src: LeadSources): { leads: Lead[]; unreadable: string[] } => {
   const out: Lead[] = [], unreadable: string[] = []
   const add = (source: string, status: string, text: string): void => {
     const t = text.trim()
     if (t) out.push({ handle: handleOfText(t), source, status, text: t })
   }
-
-  const sealed = join(root, 'lean/leads.json')
   try {
-    const j = JSON.parse(readFileSync(sealed, 'utf8')) as Record<string, { lead?: string; killed_by?: string; boundary?: string }[]>
+    if (src.leads === null) throw new Error('unread')
+    const j = JSON.parse(src.leads) as Record<string, { lead?: string; killed_by?: string; boundary?: string }[]>
     for (const bin of ['refuted', 'refused', 'trial']) {
-      for (const r of Array.isArray(j[bin]) ? j[bin] : []) {
-        add('lean/leads.json', bin, [r.lead, r.killed_by, r.boundary].filter(Boolean).join(' — '))
-      }
+      for (const r of Array.isArray(j[bin]) ? j[bin] : []) add(LEADS_FILE, bin, [r.lead, r.killed_by, r.boundary].filter(Boolean).join(' — '))
     }
-  } catch { unreadable.push(sealed) }
-
+  } catch { unreadable.push(LEADS_FILE) }
   try {
-    const md = readFileSync(queue, 'utf8')
-    // the two shapes the queue actually uses; both are lead boundaries, and "; " is not
-    const bodies: string[] = []
-    for (const m of md.matchAll(/^[-*] ?\*\*(\d+)\*\*([\s\S]*?)(?=^[-*] ?\*\*\d+\*\*|^#{2,4} |\Z)/gm)) bodies.push(m[2]!)
-    for (const m of md.matchAll(/^#{3,4} .*?\(lead \d+(?:[–-]\d+)?\)([\s\S]*?)(?=^#{2,4} |\Z)/gm)) bodies.push(m[1]!)
-    for (const b of bodies) add('queue', /\bCLOSED\b/.test(b) ? 'closed' : 'open', b)
-  } catch { unreadable.push(queue) }
-
+    if (src.queue === null) throw new Error('unread')
+    const q = JSON.parse(src.queue) as Record<string, { key?: string; why?: string; reason?: string }[]>
+    // a pending candidate is open work; an accepted one was sealed; a refused one carries the reason it stopped
+    for (const [bin, status] of [['pending', 'open'], ['accepted', 'accepted'], ['refused', 'refused']] as const) {
+      for (const r of Array.isArray(q[bin]) ? q[bin] : []) add(QUEUE_FILE, status, [r.key, r.why, r.reason].filter(Boolean).join(' — '))
+    }
+  } catch { unreadable.push(QUEUE_FILE) }
   return { leads: out, unreadable }
 }
 
-/** The cluster vocabulary: this tree's own sealed wing names. Derived, never a hand-typed synonym table. */
-export const wingTerms = (root = '.'): string[] => {
-  const dir = join(root, 'lean')
-  if (!existsSync(dir)) return []
-  return readdirSync(dir).filter((f) => f.endsWith('.lean')).map((f) => f.slice(0, -5).toLowerCase()).sort()
-}
+/** The cluster vocabulary from wing file names: this tree's own sealed wings. Derived, never a hand-typed synonym table. */
+export const wingTermsOf = (files: readonly string[]): string[] =>
+  files.filter((f) => f.endsWith('.lean')).map((f) => f.slice(0, -5).toLowerCase()).sort()
 
 /** Leads standing around one name — the SAME tokenisation `fold` uses, and that shared rule is the point.
  *
  *  The first draft had `fold` tokenise and `around` run `\b<term>\b`, and the two disagreed by nineteen leads
  *  on `uuidna` alone. Neither was broken: `\b` treats an underscore as a word character, so `uuidna_unify` has
  *  no boundary after `uuidna` and the regex declines it, while a maximal-alphanumeric-run tokeniser reads it as
- *  the word it plainly is. Two defensible rules, one instrument — which is a surface that can answer the same
- *  question two ways depending on which door you knock at. The rule is fixed here and the old one survives only
- *  as the test's control, where a disagreement is a failure unless the test can name its cause — word-character
- *  adjacency, which is a property of the two regexes and so is decidable BY CONSTRUCTION from the text itself. */
+ *  the word it plainly is. The rule is fixed here and the old one survives only as the test's control, where a
+ *  disagreement is a failure unless the test can name its cause — word-character adjacency, decidable BY
+ *  CONSTRUCTION from the text itself. */
 export const tokens = (text: string): Set<string> => new Set(text.toLowerCase().match(/[a-z][a-z0-9]+/g) ?? [])
 
-/** EVERY CLUSTER, EVERY EDGE, ONE PASS. Tokenise each lead once; every wing it names falls out together. */
-export const fold = (root = '.', queue = QUEUE): Fold => {
-  const { leads: all, unreadable } = leads(root, queue)
-  const vocab = new Set(wingTerms(root))
+/** EVERY CLUSTER, EVERY EDGE, ONE PASS. Tokenise each lead once; every wing it names falls out together. Pure. */
+export const foldOf = (src: LeadSources): Fold => {
+  const { leads: all, unreadable } = leadsOf(src)
+  if (src.wings === null) unreadable.push('lean/')
+  const vocab = new Set(wingTermsOf(src.wings ?? []))
   const tally = new Map<string, number>()
   const graph: { lead: string; wing: string }[] = []
   const unanchored: Lead[] = []
-
   for (const lead of all) {
     const seen = new Set<string>()
     for (const w of tokens(lead.text)) if (vocab.has(w)) seen.add(w)
@@ -113,15 +111,31 @@ export const fold = (root = '.', queue = QUEUE): Fold => {
       tally.set(term, (tally.get(term) ?? 0) + 1)
     }
   }
-
   const clusters = [...tally].map(([term, n]) => ({ term, handle: handleOfText(term), n }))
     .sort((a, b) => b.n - a.n || a.term.localeCompare(b.term))
   return { clusters, graph, unanchored, leads: all, unreadable }
 }
 
-
-export const around = (term: string, root = '.', queue = QUEUE): { term: string; hits: Lead[]; total: number; unreadable: string[] } => {
-  const { leads: all, unreadable } = leads(root, queue)
+export const aroundOf = (term: string, src: LeadSources): { term: string; hits: Lead[]; total: number; unreadable: string[] } => {
+  const { leads: all, unreadable } = leadsOf(src)
   const t = term.toLowerCase()
   return { term, hits: all.filter((l) => tokens(l.text).has(t)), total: all.length, unreadable }
 }
+
+/** leadSources(root) → the source texts under root, read from the host; Unmeasured where there is no filesystem */
+export const leadSources = (root = '.', fs: HostFs | null = hostFs): LeadSources | Unmeasured => {
+  if (!fs) return unmeasuredHere('the lead clusters')
+  const read = (rel: string): string | null => { try { return fs.readFileSync(fs.path.join(root, rel), 'utf8') } catch { return null } }
+  let wings: string[] | null
+  try { wings = fs.readdirSync(fs.path.join(root, 'lean'), { withFileTypes: true }).map((e) => e.name) } catch { wings = null }
+  return { leads: read(LEADS_FILE), queue: read(QUEUE_FILE), wings }
+}
+
+const onHost = <T,>(root: string, fs: HostFs | null, f: (src: LeadSources) => T): T | Unmeasured => {
+  const src = leadSources(root, fs)
+  return 'unmeasured' in src ? src : f(src)
+}
+export const leads = (root = '.', fs: HostFs | null = hostFs): { leads: Lead[]; unreadable: string[] } | Unmeasured => onHost(root, fs, leadsOf)
+export const wingTerms = (root = '.', fs: HostFs | null = hostFs): string[] | Unmeasured => onHost(root, fs, (s) => wingTermsOf(s.wings ?? []))
+export const fold = (root = '.', fs: HostFs | null = hostFs): Fold | Unmeasured => onHost(root, fs, foldOf)
+export const around = (term: string, root = '.', fs: HostFs | null = hostFs): ReturnType<typeof aroundOf> | Unmeasured => onHost(root, fs, (s) => aroundOf(term, s))

@@ -269,7 +269,7 @@ One command. Enter seats all. Cloudflare is one click — this README and [\`ins
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/uuidna/uuidna)
 
 \`\`\`bash
-npx uuidna-install
+npx -p @uuidna/uuidna uuidna-install
 \`\`\`
 
 \`\`\`bash

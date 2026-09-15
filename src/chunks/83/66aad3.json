@@ -1,0 +1,12 @@
+{
+  "handle": "8366aad3",
+  "address": "8366aad3-b4e2-8469-a199-47b9b49f7113",
+  "statement": "∀ x y : Nat, x * y + x * y ≤ x * x + y * y",
+  "tactic": "have core : ∀ x d : Nat, x * (x + d) + x * (x + d) ≤ x * x + (x + d) * (x + d) := by intro x d rw [square_of_sum_expands, Nat.left_distrib] rw [Nat.add_add_add_comm (x * x) (x * d) (x * x) (x * d), Nat.add_assoc (x * x) (x * x) (x * d + x * d)] apply Nat.add_le_add_left rw [Nat.add_right_comm (x * x) (d * d) (x * d + x * d)] exact Nat.le_add_right _ _ intro x y cases Nat.le_total x y with | inl h => have ⟨d, hd⟩ := Nat.le.dest h rw [← hd]; exact core x d | inr h => have ⟨d, hd⟩ := Nat.le.dest h rw [← hd, Nat.mul_comm (y + d) y, Nat.add_comm ((y + d) * (y + d))]; exact core y d",
+  "keys": [
+    "two_products_le_sum_of_squares"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

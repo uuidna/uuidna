@@ -84,7 +84,7 @@ for (const file of surfaces) {
       // the develop harvest: unverified prose mined for decidable fragments the ledger does not yet hold
       for (const m of prose.replace(/,/g, '').matchAll(ARITH_FRAG)) {
         const d = decide(m[0])
-        if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic')
+        if (d.verdict === 'EVALUATED_TRUE' && d.kind === 'decided-arithmetic')
           develop.push({ surface: rel, fragment: m[0].trim(), receipt: d.receipt })
       }
     }

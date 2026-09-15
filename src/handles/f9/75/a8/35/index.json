@@ -1,0 +1,12 @@
+{
+  "handle": "f975a835",
+  "address": "f975a835-35bb-809c-b481-dc5b25306f9e",
+  "kind": "chunk",
+  "keys": [
+    "free_bits_122"
+  ],
+  "statement": "16 * 8 - ((fixedPositions versionStamp).length + (fixedPositions variantStamp).length) = 122",
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

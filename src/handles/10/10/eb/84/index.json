@@ -1,0 +1,12 @@
+{
+  "handle": "1010eb84",
+  "address": "1010eb84-31e3-8ab0-9783-8204899128ac",
+  "kind": "chunk",
+  "keys": [
+    "variant_stamp"
+  ],
+  "statement": "allBytes (fun b => or8 (and8 b 63) 128 == 128 + b % 64) = true",
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

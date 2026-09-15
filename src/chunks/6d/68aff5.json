@@ -1,0 +1,12 @@
+{
+  "handle": "6d68aff5",
+  "address": "6d68aff5-edde-8205-9042-6b1e47a80232",
+  "statement": "71595 > 2 ^ 16",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

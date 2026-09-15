@@ -1,0 +1,12 @@
+{
+  "handle": "37308476",
+  "address": "37308476-92cd-85f4-b72f-ecd0c60ce3f7",
+  "kind": "chunk",
+  "keys": [
+    "blockchain_is_the_ledger_of_two_coins"
+  ],
+  "statement": "(2 * 64 = 128) ∧ (2 ^ 7 = 128)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

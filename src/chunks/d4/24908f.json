@@ -1,0 +1,12 @@
+{
+  "handle": "d424908f",
+  "address": "d424908f-5587-8ecc-a101-981f0dfd1262",
+  "statement": "allBytes (fun b => versionStamp b / 16 == 8) = true",
+  "tactic": "decide",
+  "keys": [
+    "version_high_nibble_is_eight"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

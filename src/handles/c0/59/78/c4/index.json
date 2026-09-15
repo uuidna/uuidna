@@ -1,0 +1,12 @@
+{
+  "handle": "c05978c4",
+  "address": "c05978c4-99e2-8cda-ba33-b8592381c924",
+  "kind": "chunk",
+  "keys": [
+    "address_never_determines_payload"
+  ],
+  "statement": "∀ (k : Nat) (f : Nat → Nat), (∀ x, f x < 2 ^ k) → ∃ x y, x < y ∧ y ≤ 2 ^ k ∧ f x = f y",
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

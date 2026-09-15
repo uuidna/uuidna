@@ -1,0 +1,12 @@
+{
+  "handle": "41d0d8a3",
+  "address": "41d0d8a3-c10d-8dcb-b125-c482da866f1b",
+  "statement": "∀ a x y : Nat, a * (x + y) = a * x + a * y",
+  "tactic": "intro a x y induction y with | zero => rfl | succ k ih => show a * (x + k) + a = a * x + (a * k + a) rw [ih, Nat.add_assoc]",
+  "keys": [
+    "mul_add_by_induction"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

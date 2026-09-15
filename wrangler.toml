@@ -23,6 +23,14 @@ command = "node dist/scripts/ship-build.js"
 # binding = "TRIALS"
 # id = "REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create"
 
+# Every school record (src/school): learner progress under a pseudonymous handle, proof submissions, and the kernel
+# verdicts recorded on them — never personal data, and stored only with the learner's consent. The owner creates the
+# namespace: `wrangler kv namespace create SCHOOL`, then uncomments below and pastes the returned id. Until it is
+# bound, attempts are still checked and returned, and every /school/ door that stores or reads a record answers 503.
+# [[kv_namespaces]]
+# binding = "SCHOOL"
+# id = "REPLACE_WITH_THE_ID_FROM_wrangler_kv_namespace_create"
+
 # Trial signing key (a secret, NOT stored here). `wrangler secret put TRIAL_KEY` — the worker HMAC-SHA256s each
 # trial verdict with it, so only uuidna.com can sign an authoritative trial (a fork recomputes the same verdict but
 # cannot forge the signature). Until the secret is set, trials return unsigned (valid by recomputation only).

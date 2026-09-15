@@ -1,0 +1,12 @@
+{
+  "handle": "f2b3091a",
+  "address": "f2b3091a-7637-83b1-a12f-6cad345b2add",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_mul_is_four_fours"
+  ],
+  "statement": "∀ S : Nat, 16 * S = (S + S + S + S) + (S + S + S + S) + (S + S + S + S) + (S + S + S + S)",
+  "files": [
+    "Fluid.lean"
+  ]
+}

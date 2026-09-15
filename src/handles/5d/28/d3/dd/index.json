@@ -1,0 +1,12 @@
+{
+  "handle": "5d28d3dd",
+  "address": "5d28d3dd-2955-8794-b239-3f92a1097bb6",
+  "kind": "chunk",
+  "keys": [
+    "altWalk_zero"
+  ],
+  "statement": "∀ (d : Bool) (n : Nat), altWalk d n 0 = 0",
+  "files": [
+    "Involutionef58b583.lean"
+  ]
+}

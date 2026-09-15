@@ -29,11 +29,23 @@ import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { importAbs } from './import-abs.js'
-import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, LFS_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listTracked, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, LFS_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listCommittable, type Gap } from './api.js'
 import { isTestSource, sourceGraph } from '../test-paths.js'
 import { tautologicalAsserts } from '../assert-tautology.js'
 import { UNDERCLAIM_FLOOR, claimBalanceOf } from '../underreach.js'
 import { THEOREMS } from '../theorems/index.js'
+import { LESSONS } from '../memory-home.js'
+
+/** a theorem count as written: a grouped number is read WHOLE ("70,926 theorems" is 70926, never 926) */
+const GROUPED = String.raw`(\d{1,3}(?:,\d{3})+|\d{3,5})`
+/** ledgerCountsIn(text) → every theorem count the text states, commas removed. Pure. */
+export function ledgerCountsIn(text: string): string[] {
+  const rx = [new RegExp(String.raw`(?<![0-9a-fx,.])${GROUPED}\s*(?:sealed\s+|distinct\s+)?theorems?\b`, 'gi'),
+    new RegExp(String.raw`theorems?"?\s*[:=]\s*\**(?<![0-9a-fx,.])${GROUPED}(?![\d,])`, 'gi')]
+  return [...new Set(rx.flatMap((r) => [...text.matchAll(r)].map((m) => m[1]!.replace(/,/g, ''))))]
+}
+/** a file the counts finder holds to the live census — a dated record keeps the numbers of its moments */
+export const isCountSurface = (f: string): boolean => f !== LESSONS
 import { shellOrExit } from '../os/host/index.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
@@ -74,15 +86,17 @@ const fileLines = (abs: string): string[] => {
 }
 
 
-// THE TRACKED-FILE LIST IS AN IMMUTABLE READ within one pass, and it was being re-spawned per finder — three `git
-// ls-files` processes for one answer. Cached once (the cache-immutable-reads law): the finders that walk the tracked
-// tree now share a single spawn. An empty result on failure is preserved so an offline or non-git checkout still seals.
-let _tracked: string[] | null = null
-const trackedFiles = (): string[] => {
-  if (_tracked === null) {
-    try { _tracked = listTracked() } catch { _tracked = [] }
+// THE FILE LIST IS AN IMMUTABLE READ within one pass, and it was being re-spawned per finder — three `git
+// ls-files` processes for one answer. Cached once (the cache-immutable-reads law): the finders that walk the tree
+// share a single spawn. An empty result on failure is preserved so an offline or non-git checkout still seals.
+// THE SET IS WHAT A LANDING COMMITS (2026-09-15): tracked plus untracked-not-ignored. Tracked alone let a guard run
+// before `git add` pass a new file that the committed-tree certification then refused.
+let _committable: string[] | null = null
+const committableFiles = (): string[] => {
+  if (_committable === null) {
+    try { _committable = listCommittable() } catch { _committable = [] }
   }
-  return _tracked
+  return _committable
 }
 
 
@@ -338,7 +352,7 @@ export function pipeGaps(): Gap[] {
   // the shape that works is `String(x.stderr ?? '') || String(x.message ?? '')`. Bare `||` suffices only where
   // the field is already a string, which is exactly the execFileSync-with-encoding sites.
   const COALESCE = /\.(stderr|stdout)\s*\?\?\s*([^\n)]{1,60})/g
-  for (const rel of trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
+  for (const rel of committableFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
     const text = executableSource(fileText(join(ROOT, rel)))   // USE, never MENTION — this arm's own comment quotes the pattern it hunts
     for (const m of text.matchAll(COALESCE)) {
       const fallback = m[2]!.trim()
@@ -465,17 +479,16 @@ export function countsGaps(): Gap[] {
     [...derived].some((d) => d.endsWith('*') ? f.startsWith(d.slice(0, -1)) : f === d || f.startsWith(d + '/'))
   // (?<![0-9a-fx]) — a hex literal beside the word "theorem" is not a count. Measured false positive: the crypto
   // caveats doc illustrates a collision with `Theorem A: … = 0xabcd1234`, and 1234 was read as a ledger claim.
-  const RX_T = [/(?<![0-9a-fx])(\d{3,5})\s*(?:sealed\s+|distinct\s+)?theorems?\b/gi, /theorems?"?\s*[:=]\s*\**(?<![0-9a-fx])(\d{3,5})/gi]
   const RX_P = [/(\d{1,4})\s+principles?\b/gi, /principles?"?\s*[:=]\s*\**(\d{1,4})/gi]
   const stated = (text: string, rx: RegExp[]): string[] =>
     [...new Set(rx.flatMap((r) => [...text.matchAll(r)].map((m) => m[1])))]
   let files: string[] = []
-  files = trackedFiles(); if (files.length === 0) return gaps
+  files = committableFiles(); if (files.length === 0) return gaps
   for (const f of files) {
-    if (!/\.(md|json|txt|ya?ml)$/.test(f) || f.includes('package-lock') || isDerived(f)) continue
+    if (!/\.(md|json|txt|ya?ml)$/.test(f) || f.includes('package-lock') || isDerived(f) || !isCountSurface(f)) continue
     let text = ''
     try { text = rd(f) } catch { continue }
-    const st = stated(text, RX_T), sp = stated(text, RX_P)
+    const st = ledgerCountsIn(text), sp = stated(text, RX_P)
     if (!st.length && !sp.length) continue                       // not a surface that describes the ledger
     for (const n of st) if (!allowed.has(n)) gaps.push({
       what: `${f}: states ${n} theorems, which the ledger does not report anywhere (${keys} keys, ${census.distinct} distinct, and no wing or group of that size)`,
@@ -493,7 +506,7 @@ export function countsGaps(): Gap[] {
     // A uuid is only THE LEDGER'S receipt where it sits in the same sentence as a census claim. Everywhere else a
     // uuid is a page address or a per-claim seal, and holding those to the fold would be a wall.
     for (const sentence of text.split(/(?<=\.)\s|\n/)) {
-      if (!stated(sentence, RX_T).length && !stated(sentence, RX_P).length) continue
+      if (!ledgerCountsIn(sentence).length && !stated(sentence, RX_P).length) continue
       for (const r of stated(sentence, [/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/g]))
         if (r !== receipt) gaps.push({
           what: `${f}: presents receipt ${r} beside a census claim, and it is not the ledger's fold (${receipt})`,
@@ -979,7 +992,12 @@ export function negationGaps(): Gap[] {
   const pointed = (ctx: string): boolean =>
     /\/theorem\/[a-z0-9_]+|theorem\s+[a-z][a-z0-9_]{4,}/i.test(ctx) ||
     [...ctx.matchAll(/\b([a-z][a-z0-9_]{6,})\b/g)].some((m) => keys.has(m[1]))
-  for (const f of readdirSync(join(ROOT, 'docs')).filter((n) => n.endsWith('.md'))) {
+  // the pages a landing commits: tracked or new, never gitignored; a checkout without git reads the directory
+  const pages = ((): string[] => {
+    try { return listCommittable(['docs']).filter((p) => /^docs\/[^/]+\.md$/.test(p) && existsSync(join(ROOT, p))).map((p) => p.slice('docs/'.length)) }
+    catch { return readdirSync(join(ROOT, 'docs')).filter((n) => n.endsWith('.md')) }
+  })()
+  for (const f of pages) {
     // USE VERSUS MENTION, the fence arm (the count-pin finder's precedent): a fenced code block is QUOTED DATA —
     // a boundary phrase inside it is the quoted text's own scope, not this page's claim. The utterances corpus
     // (758 test titles, each with its honest "never a…") taught this finder what the hex-literal taught that one.
@@ -1501,7 +1519,7 @@ export function thresholdGaps(): Gap[] {
   // REGISTRY COMPLETENESS — a new threshold on a reporting path with no sweep can never be audited at all.
   const known = new Set(SWEPT_THRESHOLDS().map((t) => t.name))
   const DECL = /^\s*(?:export\s+)?const\s+([A-Z][A-Z0-9_]*(?:FLOOR|CEILING|THRESHOLD|LIMIT|CAP|BUDGET|_MIN|_MAX))\s*(?::\s*number\s*)?=\s*([0-9_]+)/
-  for (const rel of trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
+  for (const rel of committableFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
     const text = fileText(join(ROOT, rel))
     if (!/export (?:function|const) [a-zA-Z]+Gaps/.test(text)) continue   // not a detector's file
     const lines = text.split('\n')
@@ -1638,7 +1656,7 @@ const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'he
   //
   // trackedFiles() already existed in this file for precisely this purpose and this scan was not asking it. Same
   // cure as spin --seal, which sealed whatever lay in lean/ until it was taught to ask git the same question.
-  const trackedScripts = new Set(trackedFiles()
+  const trackedScripts = new Set(committableFiles()
     .filter((p) => p.startsWith('src/scripts/') && p.endsWith('.ts'))
     .map((p) => p.slice('src/scripts/'.length)))
   for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && !/\.test\.ts$/.test(x) && !PURE_HELPERS.has(x) && trackedScripts.has(x))) {
@@ -1748,12 +1766,12 @@ export function pagesGaps(): Gap[] {
 export function commentsGaps(): Gap[] {
   const gaps: Gap[] = []
   // a ledger COUNT: a 3–5 digit number naming theorems, keys, principles, wings or skills
-  const COUNT = /(?<![0-9a-fx.])(\d{3,5})\s*(?:sealed |distinct )?(theorems?|principles?|wings?|keys|skills)\b/gi
+  const COUNT = /(?<![0-9a-fx.,])(\d{1,3}(?:,\d{3})+|\d{3,5})\s*(?:sealed |distinct )?(theorems?|principles?|wings?|keys|skills)\b/gi
   // past tense, or the naming of a fixed record — the marks of describing something that already happened
   const HISTORY = /\b(sat|was|were|had|held|published|predate|grew|collapsed?|read|stale|record \d+|carries|stated|froze|frozen|for three days|once|previously|until|then|earlier|holding)\b/i
   // a bound the code enforces on the line beside it — a target
   const THRESHOLD = /\b(at least|minimum|milestone|target|aims? at|goal)\b/i
-  const files = trackedFiles().filter((f) => /\.(ts|js)$/.test(f))
+  const files = committableFiles().filter((f) => /\.(ts|js)$/.test(f))
   for (const f of files) {
     let src = ''
     try { src = fileText(join(ROOT, f)) } catch { continue }
@@ -2332,7 +2350,7 @@ export function citationsGaps(): Gap[] {
   // `src/**/*.ts` LOOKS recursive and is not: git's pathspec drops every top-level src/*.ts, which is 98 files —
   // including mcp.ts, mcp-http.ts and gate-engine.ts, the three that carry the citations this finder exists for.
   // Ask for the directory and filter in code, where the extension test is visible.
-  files = trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
+  files = committableFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
   const readable = (f: string): string => { try { return fileText(join(ROOT, f)) } catch { return '' } }
   const isGenerated = (t: string): boolean => /GENERATED by|GENERATED\. DO NOT EDIT|— GENERATED/.test(t.slice(0, 400))
   const blob = files.filter((f) => !f.includes('/tests/') && !isTestSource(f)).map(readable).filter((t) => !isGenerated(t)).join('\n')
@@ -2426,7 +2444,7 @@ export function literalGaps(): Gap[] {
 export function binaryGaps(full = false): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = trackedFiles().filter((f) => f.startsWith('src/') && /\.(ts|json|md)$/.test(f) && (full || !/^src\/(chunks|seeds)\//.test(f))) } catch { return gaps }
+  try { files = committableFiles().filter((f) => f.startsWith('src/') && /\.(ts|json|md)$/.test(f) && (full || !/^src\/(chunks|seeds)\//.test(f))) } catch { return gaps }
   for (const f of files) {
     let buf: Buffer
     try { buf = fileBuf(join(ROOT, f)) } catch { continue }
@@ -2518,7 +2536,7 @@ export function orphanGaps(): Gap[] {
 export function unitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = listTracked(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = listCommittable(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/') || isTestSource(f)) continue
     let src = ''
@@ -2670,7 +2688,7 @@ export function deadkeyGaps(): Gap[] {
 
 export function nameGaps(): Gap[] {
   const gaps: Gap[] = []
-  for (const f of trackedFiles().filter((x) => x.startsWith('src/') && x.endsWith('.ts') && !x.includes('/tests/'))) {
+  for (const f of committableFiles().filter((x) => x.startsWith('src/') && x.endsWith('.ts') && !x.includes('/tests/'))) {
     const lines = fileLines(join(ROOT, f))
     for (let i = 0; i < lines.length; i++) {
       const l = lines[i]!
@@ -2745,7 +2763,7 @@ export function constantGaps(): Gap[] {
     return Number.isSafeInteger(total) ? total : null
   }
   const EXPR = /(\d+(?:\s*[·×*/+\-−–—^]\s*\d+)+)/g
-  for (const f of trackedFiles().filter((x) => x.startsWith('src/') && x.endsWith('.ts'))) {
+  for (const f of committableFiles().filter((x) => x.startsWith('src/') && x.endsWith('.ts'))) {
     if (/^src\/scripts\/(lean-|gen-)/.test(f) || f.includes('/tests/')) continue
     let src = ''
     try { src = fileText(join(ROOT, f)) } catch { continue }
@@ -2780,7 +2798,7 @@ export function constantGaps(): Gap[] {
 export function hexbitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  files = trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
+  files = committableFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts'))
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/') || isTestSource(f)) continue
     let src = ''
@@ -2844,6 +2862,14 @@ export function hexbitGaps(): Gap[] {
  *  AN ENUMERATED LIST COUNTS. A statement decided over `[a, b, c, …]` walks its domain exhaustively and is a
  *  quantification; an earlier version of this finder called those unquantified and flagged eighteen theorems,
  *  most of them sound. The prompt names the domain the key implies, so the fix is stated rather than hinted. */
+/** does a sealed statement quantify? A walk (`.all`, `List.range`, an enumeration) or a Lean ∀ binder does. The
+ *  binder may be one name (`∀ l : Fin 128`), several names sharing a type (`∀ a b c m : Nat`) or parenthesised
+ *  (`∀ (f : Nat → Nat) (n : Nat)`) — each quantifies over the whole type, and a one-name pattern read the second
+ *  and third forms as quantifying over nothing (diffusion_step_never_exceeds_the_maximum, over every Nat). */
+export const quantifiesStatement = (s: string): boolean =>
+  /\.(all|every|filter|map|flatMap)\b|List\.range/.test(s) || /\[[^\]]*,[^\]]*,[^\]]*\]/.test(s)
+  || /∀\s*\(?\s*[\w']+(?:\s+[\w']+)*\s*:/.test(s)
+
 export function incompleteGaps(): Gap[] {
   // VERBS AND ADVERBS ONLY — a universal is a claim about all cases, not a noun that happens to share a stem.
   // `sixteen_connectives` counts sixteen things and proves the count with 2^4 = 16; it claims nothing universal,
@@ -2857,9 +2883,7 @@ export function incompleteGaps(): Gap[] {
   // enumeration flagged as an over-claim teaches the reader to ignore the finder. The genuine over-claim in
   // the same wing (a name saying "every dimension" over four listed dimensions) still fires, which is how this
   // widening was checked rather than assumed.
-  const quantifies = (s: string): boolean =>
-    /\.(all|every|filter|map|flatMap)\b|List\.range/.test(s) || /\[[^\]]*,[^\]]*,[^\]]*\]/.test(s)
-    || /∀\s*\w+\s*:/.test(s)
+  const quantifies = quantifiesStatement
   return theorems()
     .filter((t) => UNIVERSAL.test(t.key) && !quantifies(t.statement))
     .map((t) => ({
@@ -2902,7 +2926,7 @@ export function markupGaps(): Gap[] {
   const CARRY = ['div', 'article', 'section', 'span', 'small', 'p', 'a', 'ul', 'li', 'table', 'tr', 'td', 'h1', 'h2', 'h3']
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = listTracked(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = listCommittable(['src']).filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.includes('/tests/') || isTestSource(f)) continue
     let src = ''

@@ -34,3 +34,12 @@ test('a corrupt receipt file reads as absent, not as a crash', () => {
   writeFileSync(receiptPath('x', root), '{not json')
   assert.equal(readReceipt('x', root, 'd1'), null)
 })
+
+// THE EDGE — no filesystem: a read falls through to the baked receipts, and a mint refuses by name.
+test('with no filesystem a read misses to the baked receipts and a mint refuses by name; on the host both work', () => {
+  const root = world()
+  mintReceipt('x', { a: 1 }, root, 'd1')
+  assert.deepEqual(readReceipt('x', root, 'd1'), { a: 1 }, 'the host reads the file it minted')
+  assert.equal(readReceipt('x', root, 'd1', null), null, 'the edge has no file to read and nothing baked under x')
+  assert.throws(() => mintReceipt('y', 1, root, 'd1', null), /no filesystem/)
+})

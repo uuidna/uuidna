@@ -18,6 +18,8 @@
 import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+// the served list has one declaration, which ship-preflight measures against the asset limit before a landing
+import { LEAN_JSON_SERVE } from '../ship-preflight.js'
 import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue/index.js'
 
 const LEAN = join(ROOT, 'lean')
@@ -37,7 +39,6 @@ for (const f of readdirSync(LEAN)) if (f.endsWith('.lean')) { copyFileSync(join(
 
 // Derived lean JSON the site cites as /lean/<name>.json (e.g. unlocks board). Proofs are .lean; these are
 // structured receipts linked from markdown. Missing source FAILS — same dead-pointer law as llm.txt.
-const LEAN_JSON_SERVE = ['unlocks.json'] as const
 let j = 0
 for (const f of LEAN_JSON_SERVE) {
   const src = join(LEAN, f)

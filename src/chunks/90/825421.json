@@ -1,0 +1,12 @@
+{
+  "handle": "90825421",
+  "address": "90825421-94a5-857d-ae9e-13ae5bd31ee3",
+  "statement": "∀ (f : Nat → Nat) (n : Nat), (∀ i : Nat, f (i + n) = f i) → psum (step f) n = 4 * psum f n",
+  "tactic": "intro f n h show psum (fun i => f i + f (i + 1) + f (i + 1) + f (i + 2)) n = 4 * psum f n rw [psum_add4 f (fun i => f (i + 1)) (fun i => f (i + 1)) (fun i => f (i + 2)) n, ring_shift_preserves_sum f n h, ring_double_shift_preserves_sum f n h, four_mul_is_four_copies]",
+  "keys": [
+    "diffusion_step_conserves_momentum"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

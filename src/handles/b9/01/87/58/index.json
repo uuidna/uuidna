@@ -1,0 +1,12 @@
+{
+  "handle": "b9018758",
+  "address": "b9018758-f6e6-8b2b-bbaa-f0f7b8f0fe1a",
+  "kind": "chunk",
+  "keys": [
+    "mul_assoc_by_induction"
+  ],
+  "statement": "∀ a b c : Nat, a * b * c = a * (b * c)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

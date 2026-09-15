@@ -1,0 +1,12 @@
+{
+  "handle": "b9018758",
+  "address": "b9018758-f6e6-8b2b-bbaa-f0f7b8f0fe1a",
+  "statement": "∀ a b c : Nat, a * b * c = a * (b * c)",
+  "tactic": "intro a b c induction c with | zero => rfl | succ k ih => show a * b * k + a * b = a * (b * k + b) rw [ih, mul_add_by_induction]",
+  "keys": [
+    "mul_assoc_by_induction"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

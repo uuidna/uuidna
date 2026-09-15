@@ -173,7 +173,7 @@ export async function searchTrialFor(file: string): Promise<SearchTrial> {
     // the harvest: every arithmetic fragment in the finding judged totally; true-and-unsealed is novel
     for (const fragment of harvestFragments(row.note)) {
       const d = decide(fragment)
-      if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic')
+      if (d.verdict === 'EVALUATED_TRUE' && d.kind === 'decided-arithmetic')
         novel.push({ from: row.address, fragment, receipt: d.receipt })
     }
     return { address: row.address, source: row.source, note: row.note, handle: row.handle, door: row.door, alone, withBacking }

@@ -82,7 +82,7 @@ import { resources } from './resources.js' // Node-only (reads process/os) — i
 // SECOND, hand-maintained list of tools, and the two drifted: 173 pure tools existed on stdio and nowhere else,
 // none of them declared in lean/mcp-surface-divergence.json. Two imports, for one orchestration tool and one
 // bootstrap, were the reason the deployed UI served a tenth of the surface.
-import { ROOT as LIB_ROOT, rdRoot } from './boundary.js'
+import { ROOT as LIB_ROOT, rdRoot, isUnmeasured } from './boundary.js'
 import { openLeadsPublic, leadsGatePublic, openQuestionsPublic, fillGapsAdvantageSnapshot, hookFillGapsAtScale } from './desk/index.js'
 import { quantumAdvantagePlaybook } from './quantum/advantage/mcp/index.js'
 import type { SourceReading } from './leads.js'
@@ -104,6 +104,7 @@ import { channelAudit, channelSeal, channelOpen } from './hexagram.js'
 import { tamperCosts } from './tamper-cost.js'
 import { payment, coinCensus, whoPaid, enrollCrew, type CoinPayment } from './coin-ledger.js' // the captain-coin account + crew enrollment (licences bound to handles)
 import { legalFacts } from './legal.js'
+import { verifyRightsClaim, natureReport } from './rights/index.js'
 import { license } from './license.js'
 import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
@@ -215,10 +216,12 @@ const TOOLS: Tool[] = ([
     run: (a: { term?: string } = {}) => {
       if (a.term) {
         const c = leadsAround(a.term, ROOT)
+        if (isUnmeasured(c)) return c
         return { term: c.term, leads: c.hits.length, of: c.total, unreadable: c.unreadable.length,
           hits: c.hits.map((l) => ({ handle: l.handle, status: l.status, source: l.source, text: l.text.slice(0, 240) })) }
       }
       const f = leadFold(ROOT)
+      if (isUnmeasured(f)) return f
       return {
         leads: f.leads.length,
         clusters: f.clusters.map((c) => ({ term: c.term, handle: c.handle, leads: c.n })),
@@ -234,6 +237,7 @@ const TOOLS: Tool[] = ([
       if (a.recompute !== true) return { kind: 'contract', tool: 'uuidna_handle_store', recompute: false, why: 'a sweep over the sealed ledger; call with recompute: true' }
 
       const c = handleStoreCensus(ROOT)
+      if (isUnmeasured(c)) return c
       return {
         occupancy: { leaves: c.leaves, keys: c.keys, kinds: c.kinds, keysPerLeaf: c.keysPerLeaf },
         capacity: { leavesAdmitted: 4294967296, pairsAmongPresent: c.pairs },
@@ -459,8 +463,8 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { chain: { type: 'object', description: 'uuidna_contract_chain output' }, terms: { type: 'string', description: 'the terms string the chain was sealed with' } }, required: ['chain', 'terms'] },
     run: (a) => openChainFromContract(a.chain as Parameters<typeof openChainFromContract>[0], String(a.terms)) },
   { name: 'uuidna_audit_details',
-    description: 'AUDIT EVERY SINGLE DETAIL of a text (offline, pure): deterministic split into sentence/line details, EACH adjudicated — sealed statements VERIFY, fresh arithmetic decides (VERIFIED_BY_DECIDE/REFUTED), prose runs the citation trial; a fabricated citation DRAINS. Controls run FIRST; an accepted control VOIDS the audit (an instrument that cannot fail proves nothing). Folds to one order-invariant receipt. HONEST: integrity, not truth — verdicts settle arithmetic/citations, never the world; overflow past 729 details is counted in `dropped`. Returns {address,details,dropped,controls,outcome,counts,verdicts,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.',
-    detail: 'THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passes" while a single sentence inside it overclaims — and a detail-by-detail audit (the movie audit of 2026-08-22) had to be driven by hand, one uuidna_trial call per claim. This tool is that session folded into the surface. THE ROUTES, in order: (1) the quantum calculator (decide) — a detail matching a sealed theorem verbatim is VERIFIED by the kernel\'s prior decision; fresh arithmetic is decided totally under Lean\'s Nat semantics, so truth and falsehood wear different verdicts (VERIFIED_BY_DECIDE / REFUTED — the ONLY route to a negative); terminal punctuation is stripped for the grammar only, the detail keeps its exact address. (2) prose — the citation trial (adjudicate): the relevance floor (a real citation about a disjoint topic verifies nothing) and the numeral-contradiction check; slimGate marks fabricated citations, each of which DRAINS. THE CONTROLS are pre-registered (trial-protocol): "2 + 2 = 5" must be REFUTED, a laundered real citation and a fabricated citation must not verify — controls are evaluated before the subject and returned in the result, so every audit carries the proof its instrument can fail; if any control passes the audit is VOID and adjudicates nothing (a void names the instrument, not the text). THE FOLD binds the text\'s address, every control outcome, and every detail\'s address WITH its verdict, through merkleGravity — order-invariant, so any observer recomputes the same receipt, and moving ONE verdict moves it.',
+    description: 'AUDIT EVERY SINGLE DETAIL of a text (offline, pure): deterministic split into sentence/line details, EACH adjudicated — sealed statements VERIFY, fresh arithmetic is evaluated (EVALUATED_TRUE/EVALUATED_FALSE), prose runs the citation trial; a fabricated citation DRAINS. Controls run FIRST; an accepted control VOIDS the audit (an instrument that cannot fail proves nothing). Folds to one order-invariant receipt. HONEST: integrity, not truth — verdicts settle arithmetic/citations, never the world; overflow past 729 details is counted in `dropped`. Returns {address,details,dropped,controls,outcome,counts,verdicts,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passes" while a single sentence inside it overclaims — and a detail-by-detail audit (the movie audit of 2026-08-22) had to be driven by hand, one uuidna_trial call per claim. This tool is that session folded into the surface. THE ROUTES, in order: (1) the quantum calculator (decide) — a detail matching a sealed theorem verbatim is VERIFIED by the kernel\'s prior decision; fresh arithmetic is decided totally under Lean\'s Nat semantics, so truth and falsehood wear different labels (EVALUATED_TRUE / EVALUATED_FALSE — the ONLY route to a negative; an evaluation, not a kernel verdict); terminal punctuation is stripped for the grammar only, the detail keeps its exact address. (2) prose — the citation trial (adjudicate): the relevance floor (a real citation about a disjoint topic verifies nothing) and the numeral-contradiction check; slimGate marks fabricated citations, each of which DRAINS. THE CONTROLS are pre-registered (trial-protocol): "2 + 2 = 5" must never read VERIFIED or EVALUATED_TRUE, a laundered real citation and a fabricated citation must not verify — controls are evaluated before the subject and returned in the result, so every audit carries the proof its instrument can fail; if any control passes the audit is VOID and adjudicates nothing (a void names the instrument, not the text). THE FOLD binds the text\'s address, every control outcome, and every detail\'s address WITH its verdict, through merkleGravity — order-invariant, so any observer recomputes the same receipt, and moving ONE verdict moves it.',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'the document whose every detail is adjudicated' }, title: { type: 'string' }, delimiter: { type: 'string', description: 'explicit detail boundary (for ASR/caption text, which has no punctuation)' } }, required: ['text'] },
     run: (a) => auditDetails(String(a.text), { title: a.title === undefined ? undefined : String(a.title), delimiter: a.delimiter === undefined ? undefined : String(a.delimiter) }) },
   { name: 'uuidna_grid',
@@ -1253,6 +1257,11 @@ const TOOLS: Tool[] = ([
     description: 'The recomputable legal FACT BASE, in chat — explicitly NOT a legal audit, legal advice, or a compliance opinion, and it must not be presented as one. Gathers the legally-relevant facts a qualified attorney/auditor starts FROM: the licence (CC BY-NC-ND 4.0 + its content-address), the copyright/attribution (Tsvetan Rouschev), the ledger\'s tamper-evident receipt, the compliance STANCE (the project makes no compliance claim and its own forensics refuses a blanket one), and the standards it CITES (not certifies) — folded to one receipt anyone recomputes. The inputs, never the verdict; a real legal audit needs licensed counsel reviewing specific jurisdictions against the actual deployment. uuidna delivers what recomputes; the ruling is a human\'s. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },
     run: () => legalFacts() },
+  { name: 'uuidna_land_rights',
+    description: 'Land & access law: {claim} → sealed-table verdict; {url} → page audit + legal paths. 2×7-signed. Not legal advice.',
+    detail: 'THE PUBLIC\'S DOOR TO THE RIGHT TO LAND AND TO ACCESS (src/rights). {claim}: VERIFIED only when the claim names an instrument in the sealed table (src/rights/land-instruments.json — the Universal Declaration, the Covenants, the declarations on indigenous peoples and on peasants, ILO 169, the tenure guidelines, the environment-right resolutions, Aarhus, the regional charters, the Nordic, Scottish, English, Icelandic, Estonian and Bulgarian access laws, the Charter of the Forest and the public trust case, each read from its official source) and every article it cites exists in that instrument; otherwise UNVERIFIED with the nearest rows. {url}: the page is read as a page, every detail audited (uuidna_audit_details), every instrument citation checked, and every table article sharing vocabulary returned as a legislative path with its kind, adopting body, qualifications and official source. Every answer carries a receipt signed by 2×7 theorems (receiptSealed re-verifies it). Integrity of the citation, not legal advice; no instrument in the table grants unrestricted access to all land (theorem every_access_instrument_is_qualified).',
+    inputSchema: { type: 'object', properties: { claim: { type: 'string' }, url: { type: 'string' } } },
+    run: async (a) => (typeof a.url === 'string' ? natureReport(a.url) : verifyRightsClaim(String(a.claim ?? ''))) },
   { name: 'uuidna_reflects',
     description: 'Reveal the sealed theorems a real-world system ALREADY reflects. Describe a system by its devices and concepts (e.g. home security: "keypad code tamper sensor detect alarm zone parity layered defence signature encryption schedule") and it matches those concepts against the ledger, returning the EXISTING `by decide` theorems whose arithmetic the system rests on — folded to one receipt. HONEST: the theorems already exist and were proven for their own domain; this shows the SAME arithmetic recurs — it does NOT claim uuidna is that system, that the theorems were built for it, or that citing them makes the system secure/correct. A resemblance the ledger carries, recomputable by anyone. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'a system described by its devices/concepts' } }, required: ['query'] },
@@ -1407,7 +1416,7 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: {} },
     run: () => coinsJobs() },
   { name: 'uuidna_decide',
-    description: 'THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel\'s prior decision and cited; fresh arithmetic is DECIDED totally by a bounded grammar (never eval) under Lean\'s own Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns VERIFIED_BY_DECIDE and FALSE returns REFUTED (truth and falsehood at last wear different verdicts); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.',
+    description: 'THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any format folds to one lean-green shape {verdict,cites,receipt}: a statement matching a SEALED theorem verbatim is VERIFIED by the kernel\'s prior decision and cited; fresh arithmetic is EVALUATED totally by a bounded grammar (never eval) mirroring Lean\'s Nat semantics — x/0 = 0 is well-defined (DivByZero.lean), subtraction floors at 0, every step exact BigInt — TRUE returns EVALUATED_TRUE and FALSE returns EVALUATED_FALSE (truth and falsehood wear different labels; an evaluation, not a kernel verdict — the kernel is the only verifier); a bare expression computes its exact value; anything else is prose and goes to the gate, language-blind. The same input always folds to the same receipt. Integrity, not truth (theorem provenance_integrity_not_content_truth) — decided about its arithmetic, never about the world.',
     inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'anything: "2+2=4", "(110 - 108 = 2)", "7/0", a Lean statement, a claim in any language' } }, required: ['input'] },
     run: (a: Record<string, unknown>) => decide(String(a.input)) },
   { name: 'uuidna_optimise',

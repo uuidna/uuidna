@@ -1,0 +1,12 @@
+{
+  "handle": "5b2ecb18",
+  "address": "5b2ecb18-8773-8700-a0fc-9346415344b8",
+  "kind": "chunk",
+  "keys": [
+    "ring_shift_preserves_energy"
+  ],
+  "statement": "∀ (f : Nat → Nat) (n : Nat), (∀ i : Nat, f (i + n) = f i) → psum (fun i => sq (f (i + 1))) n = psum (fun i => sq (f i)) n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

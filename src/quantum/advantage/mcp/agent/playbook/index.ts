@@ -70,7 +70,7 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
       tool: 'uuidna_decide',
       arguments: { input: `2^${ghz4}=${pow2(ghz4)}` },
       theorem: 'n_qubit_dimension',
-      reads: 'verdict=VERIFIED_BY_DECIDE — the classical cost is 2^n amplitudes (not a hardware speedup claim)',
+      reads: 'verdict=EVALUATED_TRUE — the classical cost is 2^n amplitudes (not a hardware speedup claim)',
     },
     {
       order: 4,

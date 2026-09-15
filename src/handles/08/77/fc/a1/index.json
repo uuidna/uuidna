@@ -1,0 +1,12 @@
+{
+  "handle": "0877fca1",
+  "address": "0877fca1-698b-80d0-a9c2-b4e7193c9e6e",
+  "kind": "chunk",
+  "keys": [
+    "signed_diffusion_step_never_increases_energy"
+  ],
+  "statement": "∀ (u : Nat → Int) (n : Nat), (∀ i : Nat, u (i + n) = u i) → psum (fun i => sq (stepZ u i).natAbs) n ≤ 16 * psum (fun i => sq (u i).natAbs) n",
+  "files": [
+    "Fluid.lean"
+  ]
+}

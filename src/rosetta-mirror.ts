@@ -259,6 +259,11 @@ xor_fold_is_malleable 27
 transport_leaks_length 27
 codons_four_cubed 27
 uuidna_is_dna_times_the_two_coins 27
+blockchain_is_the_ledger_of_two_coins 27
+intelligence_without_the_artificial_is_lean 27
+quantum_is_the_uuid_doubled 27
+division_by_zero_is_the_abstract_zero_fold 27
+the_skipper_is_paid_two_coins 27
 uuidna_letters_fuse_to_the_hexagram 27
 uuidna_name_handle_is_the_seed 27
 uuidna_name_payload_tiles_sixteen_codons 27
@@ -291,6 +296,9 @@ levi_civita_nonzero_on_six_of_twentyseven 27
 closed_grid_differences_sum_to_zero 27
 torus_betti_alternates_to_zero 27
 clay_gravity_equals_rosette 27
+two_coins_make_a_coil_and_seven_coils_are_one_and_six 27
+the_vortex_and_the_rosette_are_one_six_cycle 27
+the_ten_complement_involutes_the_vortex_through_the_axis 27
 #Clock.lean
 residue_walks_the_orbit 27
 residue_returns_step_does_not 27
@@ -2901,6 +2909,32 @@ fixed_power_multiplicative_9_by_10 26
 fixed_power_multiplicative_9_by_11 26
 fixed_power_multiplicative_10_by_11 26
 fixed_power_law_is_not_vacuous 27
+#Fluid.lean
+discrete_divergence_telescopes 19
+add_right_cancel_by_induction 19
+ring_divergence_is_zero 19
+diffusion_step_never_exceeds_the_maximum 19
+add_left_cancel_by_induction 19
+discrete_curl_of_gradient_vanishes 19
+right_distrib_by_comm 19
+square_of_sum_expands 19
+two_products_le_sum_of_squares 19
+square_of_sum_le_twice_sum_of_squares 19
+diffusion_stencil_square_le_weighted_energy 19
+psum_add4 19
+psum_le_of_pointwise 19
+ring_shift_preserves_sum 19
+ring_double_shift_preserves_sum 19
+ring_shift_preserves_energy 19
+four_mul_is_four_copies 19
+sixteen_mul_is_four_fours 19
+diffusion_step_conserves_momentum 19
+ring_energy_bound_of_pointwise 19
+diffusion_step_never_increases_energy 19
+natAbs_subNatNat_le 19
+natAbs_triangle 19
+sq_natAbs_is_the_square 19
+signed_diffusion_step_never_increases_energy 19
 #Forensics.lean
 forged_address_odds_are_negligible 27
 forged_handle_odds_are_small 27
@@ -68595,6 +68629,10 @@ involution_b13fd37a 26
 not_dvd_of_bound_e92de628 26
 involution_e92de628 26
 anatomy_e92de628 26
+#Involutionef58b583.lean
+altWalk_zero 26
+alternation_misses_from_zero 26
+involution_ef58b583 26
 #Isometry.lean
 xor_preserves_distance 27
 reuse_leaks_by_isometry 27
@@ -68602,6 +68640,14 @@ complement_flips_two 27
 codon_flips_six 27
 distance_is_symmetric 27
 isometry_bounds_correction 27
+#LandRights.lean
+land_rights_enter_force_no_earlier_than_adopted 27
+land_rights_recorded_votes_carry_their_majorities 27
+the_environment_right_drew_no_vote_against 27
+norway_innmark_is_closed_one_hundred_sixty_eight_days 27
+access_laws_stand_centuries_after_the_charter_of_the_forest 27
+bulgarias_access_instruments_follow_its_constitution 27
+every_access_instrument_is_qualified 27
 #Laws.lean
 divisor_count_law_mod_2 26
 divisor_count_law_mod_3 26
@@ -69264,6 +69310,10 @@ nyquist_half_samplerate 27
 midi_is_seven_bit 27
 sixteen_bit_dynamic_range 27
 fifth_cycles_all_twelve 27
+#Proofde5612a2.lean
+proof_de5612a2 18
+#Prooff59dbc3d.lean
+proof_f59dbc3d 18
 #Propulsion.lean
 momentum_conserved 27
 no_reactionless_thrust 27
@@ -69345,6 +69395,12 @@ merkle_sort_invariant 27
 all_signaling_duality 27
 hexbit_slit_visibility 27
 hexbit_slit_cross_is_overlap 27
+mul_add_by_induction 27
+mul_assoc_by_induction 19
+n_qubit_dimension_all 19
+one_more_qubit_doubles 19
+shl_pow 19
+shift_is_the_dimension 19
 #QuantumCube.lean
 the_cube_carries_the_tetrahedron_and_its_own_dual 27
 buying_the_point_that_does_not_bind_buys_nothing 27
@@ -70142,6 +70198,16 @@ poles_on_the_axis_at_the_quadrature 27
 universe_of_handles 27
 tides_two_bulges 27
 market_tides_and_the_strategy_bar 27
+#UuidLaws.lean
+version_stamp 19
+variant_stamp 19
+version_high_nibble_is_eight 19
+variant_high_two_are_one_zero 19
+fixed_positions_exact 19
+free_bits_122 19
+bounded_search_finds_or_refutes 19
+pigeonhole_for_every_size 19
+address_never_determines_payload 19
 #UuidMix.lean
 uuid_mix_census_is_quantum 27
 the_mix_space_is_its_own_mirror 27

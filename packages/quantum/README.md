@@ -2,6 +2,25 @@
 
 The classical, exact quantum surface of uuidna: exact state-vector computation on Gaussian integers over √(2^scale) (the ring the Clifford gates live in — X, Y, Z, S, S†, H, CNOT, CZ, SWAP, Toffoli, CCZ in BigInt, every probability an exact rational), quantum messages / voting / receipts, the sailing fleet (library, weather, cross-book, complete), the news portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura, quantum analytics, and the uuidnaOS provenance boundary.
 
+## Install
+
+```bash
+npm install @uuidna/uuidna
+```
+
+## Quick start
+
+```js
+import { bellState, distribution } from '@uuidna/uuidna/quantum'
+
+console.log(distribution(bellState()).map(({ num, den }) => num + '/' + den).join(' '))
+// → 1/2 0/1 0/1 1/2
+```
+
+The Bell state's four outcome probabilities (|00⟩, |01⟩, |10⟩, |11⟩) as exact rationals, computed in BigInt with no
+floating point. `@uuidna/uuidna/quantum` is this surface inside the umbrella package, and `@uuidna/quantum`
+re-exports the same bindings. The rest of it:
+
 ```ts
 import { ket0, hadamard, cnot, bellState, distribution, merkleGravity, quantumAura, encodeMessage } from '@uuidna/quantum'
 ```

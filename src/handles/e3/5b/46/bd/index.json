@@ -1,0 +1,12 @@
+{
+  "handle": "e35b46bd",
+  "address": "e35b46bd-b659-8b03-bede-b502e200b4c7",
+  "kind": "chunk",
+  "keys": [
+    "bulgarias_access_instruments_follow_its_constitution"
+  ],
+  "statement": "([1991, 1999, 2007, 2011].length > 1) ∧ (([1991, 1999, 2007, 2011].zip [1991, 1999, 2007, 2011].tail).all (fun p => p.1 < p.2))",
+  "files": [
+    "LandRights.lean"
+  ]
+}

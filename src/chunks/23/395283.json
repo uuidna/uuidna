@@ -1,0 +1,12 @@
+{
+  "handle": "23395283",
+  "address": "23395283-be46-84b0-93d7-dde38f92f9db",
+  "statement": "∀ p q r s dx dy dx' dy' : Nat, q = p + dx → s = q + dy' → r = p + dy → s = r + dx' → dx + dy' = dy + dx'",
+  "tactic": "intro p q r s dx dy dx' dy' hq hs hr hs' apply add_left_cancel_by_induction p rw [← Nat.add_assoc, ← Nat.add_assoc, ← hq, ← hr, ← hs, ← hs']",
+  "keys": [
+    "discrete_curl_of_gradient_vanishes"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "56e4f735",
+  "address": "56e4f735-5361-8f4b-8cb3-60ac26f482a1",
+  "statement": "∀ S : Nat, 4 * S = S + S + S + S",
+  "tactic": "intro S rw [Nat.mul_comm] show S * 0 + S + S + S + S = S + S + S + S rw [Nat.mul_zero, Nat.zero_add]",
+  "keys": [
+    "four_mul_is_four_copies"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

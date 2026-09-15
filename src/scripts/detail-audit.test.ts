@@ -14,8 +14,8 @@ test('the controls are pre-registered, run first, and all rejected — the instr
 })
 
 test('every route gets a detail and every detail lands on its route', () => {
-  assert.equal(auditDetail('2 + 2 = 4').verdict, 'VERIFIED_BY_DECIDE', 'true arithmetic decides true')
-  assert.equal(auditDetail('2 + 2 = 5').verdict, 'REFUTED', 'false arithmetic is the one thing this can refute')
+  assert.equal(auditDetail('2 + 2 = 4').verdict, 'EVALUATED_TRUE', 'true arithmetic decides true')
+  assert.equal(auditDetail('2 + 2 = 5').verdict, 'EVALUATED_FALSE', 'false arithmetic is the one thing this can refute')
   const relevant = auditDetail('the reflection has fixed points 0 and 5, proven by theorem dz_fixed_points')
   assert.equal(relevant.verdict, 'VERIFIED', 'a relevant sealed citation verifies')
   assert.deepEqual(relevant.cites, ['dz_fixed_points'])
@@ -53,13 +53,13 @@ test('a verdict moved is a receipt moved — altering one detail is visible in t
 // ── lead 76's two cracks, folded. (a) the word-arithmetic deafness: the Black Whole audit heard 668 details and
 // could not refute one, because prose states sums in words. (b) ASR text has no punctuation, so the sentence law
 // never fires — the caller now names the boundary explicitly.
-test('the tool hears word arithmetic — a false spoken sum is REFUTED, a true one decides', () => {
+test('the tool hears word arithmetic — a false spoken sum evaluates false, a true one evaluates true', () => {
   const wrong = auditDetail('two and two make five')
-  assert.equal(wrong.verdict, 'REFUTED', 'the deafness crack: a spoken falsehood must no longer pass as UNVERIFIED')
+  assert.equal(wrong.verdict, 'EVALUATED_FALSE', 'the deafness crack: a spoken falsehood must no longer pass as UNVERIFIED')
   assert.equal(wrong.arithmetic.length, 1)
   assert.equal(wrong.arithmetic[0].actual, 4)
   const right = auditDetail('twenty plus twenty is forty')
-  assert.equal(right.verdict, 'VERIFIED_BY_DECIDE')
+  assert.equal(right.verdict, 'EVALUATED_TRUE')
   assert.match(right.note, /only the decidable slice/, 'the honest scope must ride the verdict')
 })
 
@@ -69,18 +69,18 @@ test('the tool hears word arithmetic — a false spoken sum is REFUTED, a true o
 // ones is a partial refutation, and a partial refutation stays UNVERIFIED.
 test('the chained sum parses whole — the film\'s sentence finally decides', () => {
   const film = auditDetail('the edge of the metric 20 plus 20 is 40 plus 24 brought me to 64 tetrahedron')
-  assert.equal(film.verdict, 'VERIFIED_BY_DECIDE', 'both steps recompute: 20+20=40, then 40+24=64')
+  assert.equal(film.verdict, 'EVALUATED_TRUE', 'both steps recompute: 20+20=40, then 40+24=64')
   assert.equal(film.arithmetic.length, 2)
   assert.deepEqual(film.arithmetic.map((f) => f.actual), [40, 64])
   const allFalse = auditDetail('10 plus 10 is 21 plus 5 brought me to 27')
-  assert.equal(allFalse.verdict, 'REFUTED', 'every step false (10+10=20≠21, 21+5=26≠27) — refuted in all dimensions')
+  assert.equal(allFalse.verdict, 'EVALUATED_FALSE', 'every step false (10+10=20≠21, 21+5=26≠27) — refuted in all dimensions')
 })
 
 test('the captain\'s bilateral law: both stamps are earned in all dimensions or not at all', () => {
   const mixed = auditDetail('10 plus 10 is 20 plus 5 brought me to 26')
   assert.equal(mixed.verdict, 'UNVERIFIED', 'step one holds (10+10=20), step two fails (20+5=25≠26) — a partial refutation stays UNVERIFIED')
   assert.match(mixed.note, /dimensions disagree/)
-  assert.equal(auditDetail('two and two make five').verdict, 'REFUTED', 'a sole false fact IS total — its one dimension refutes')
+  assert.equal(auditDetail('two and two make five').verdict, 'EVALUATED_FALSE', 'a sole false fact IS total — its one dimension refutes')
   const laundered = auditDetail('the moon is cheese and 2 plus 2 is 4, proven by theorem two_coins')
   assert.equal(laundered.verdict, 'UNVERIFIED', 'true arithmetic beside a laundered citation — VERIFIED must lean in all dimensions at once')
   const falseBesideCite = auditDetail('the moon is cheese and 2 plus 2 is 5, proven by theorem two_coins')
@@ -96,11 +96,11 @@ test('a fabricated citation outranks true arithmetic — draining is the gate\'s
 // unhearable. Now: an equation decides, an orders-of-magnitude relation decides, a bare magnitude is RECORDED
 // but never verdicted (a value is not a claim), a negative exponent is recorded and refused (not a Nat).
 test('the powers-of-ten grammar: equations and orders decide, magnitudes only speak', () => {
-  assert.equal(auditDetail('10 to the 3 is 1000').verdict, 'VERIFIED_BY_DECIDE')
-  assert.equal(auditDetail('10 to the 3 is 999').verdict, 'REFUTED')
+  assert.equal(auditDetail('10 to the 3 is 1000').verdict, 'EVALUATED_TRUE')
+  assert.equal(auditDetail('10 to the 3 is 999').verdict, 'EVALUATED_FALSE')
   const orders = auditDetail('10 to the 93 is 38 orders of magnitude larger than 10 to the 55')
-  assert.equal(orders.verdict, 'VERIFIED_BY_DECIDE', 'the film\'s own claim shape: |93 − 55| = 38 decides')
-  assert.equal(auditDetail('10 to the 93 is 39 orders of magnitude larger than 10 to the 55').verdict, 'REFUTED')
+  assert.equal(orders.verdict, 'EVALUATED_TRUE', 'the film\'s own claim shape: |93 − 55| = 38 decides')
+  assert.equal(auditDetail('10 to the 93 is 39 orders of magnitude larger than 10 to the 55').verdict, 'EVALUATED_FALSE')
   const bare = auditDetail('the result is 10 to the 93 grams per centimeter cube that is an enormous number')
   assert.equal(bare.verdict, 'UNVERIFIED', 'a magnitude is a VALUE, not a claim — recorded, never verdicted')
   assert.deepEqual(bare.magnitudes, [{ base: 10, exp: 93, negative: false }])
@@ -119,11 +119,11 @@ test('cross-detail composition reaches the film\'s distant-operand claim', () =>
   assert.equal(a.composed[0].verdict, 'REFUTED', '93 − 55 = 38, the film says 39 — the composition refutes it')
   assert.equal(a.composed[0].actual, 38)
   assert.deepEqual(a.composed[0].operandsAt, [0, 2], 'provenance: which details supplied the operands')
-  assert.equal(a.verdicts[3].verdict, 'REFUTED', 'the asserting detail carries the composed verdict')
+  assert.equal(a.verdicts[3].verdict, 'EVALUATED_FALSE', 'the asserting detail carries the composed verdict')
   assert.equal(a.counts.refuted, 1)
   const trueVersion = auditDetails(filmShaped.replace('39 orders', '38 orders'))
   assert.equal(trueVersion.composed[0].verdict, 'VERIFIED')
-  assert.equal(trueVersion.verdicts[3].verdict, 'VERIFIED_BY_DECIDE')
+  assert.equal(trueVersion.verdicts[3].verdict, 'EVALUATED_TRUE')
 })
 
 test('ambiguous operands are refused, not guessed', () => {

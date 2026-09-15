@@ -1,0 +1,12 @@
+{
+  "handle": "acf433db",
+  "address": "acf433db-7b64-843f-bbca-3e6ea8f2a4a1",
+  "kind": "chunk",
+  "keys": [
+    "quantum_is_the_uuid_doubled"
+  ],
+  "statement": "(64 + 64 = 128) ∧ (2 ^ 6 * 2 = 2 ^ 7)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

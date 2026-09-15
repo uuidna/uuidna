@@ -83,6 +83,15 @@ export function realComponentChecks(): ContrastCheck[] {
       // author ships without ever seeing it. The colour is now the brand var, and the pair is checked here so
       // reverting it turns this test red instead of turning the link grey.
       { name: `SponsorCard link (${theme})`, fg: c.brand1, bg: c.bgSoft, threshold: WCAG_AA_TEXT, theme },
+      // SchoolLearn and PracticeLoop (the school's checked flow): panel text, hints, buttons, the current lesson and
+      // hover (brand on both grounds), and the two non-text UI pairs — the input and button borders and the focus ring
+      { name: `SchoolLearn panel text (${theme})`, fg: c.text1, bg: c.bg, threshold: WCAG_AA_TEXT, theme },
+      { name: `SchoolLearn hint text (${theme})`, fg: c.text2, bg: c.bg, threshold: WCAG_AA_TEXT, theme },
+      { name: `SchoolLearn button text (${theme})`, fg: c.text1, bg: c.bgSoft, threshold: WCAG_AA_TEXT, theme },
+      { name: `SchoolLearn current lesson / hover (${theme})`, fg: c.brand1, bg: c.bgSoft, threshold: WCAG_AA_TEXT, theme },
+      { name: `SchoolLearn link (${theme})`, fg: c.brand1, bg: c.bg, threshold: WCAG_AA_TEXT, theme },
+      { name: `SchoolLearn input border, non-text UI (${theme})`, fg: c.text2, bg: c.bg, threshold: WCAG_AA_UI, theme },
+      { name: `SchoolLearn focus ring, non-text UI (${theme})`, fg: c.brand1, bg: c.bg, threshold: WCAG_AA_UI, theme },
     )
   }
   return checks

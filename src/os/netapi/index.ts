@@ -97,3 +97,22 @@ export function netApi(): NetApiCensus {
       'valid-looking receipt. The fetch is impure and stays at this boundary; only the verdict is sealed.',
   }
 }
+
+/** pageText(html) → the words a reader sees on a web page: script, style and noscript blocks dropped, block tags
+ *  turned into line breaks so sentences stay apart, every other tag into a space, the common entities decoded and
+ *  runs of spacing collapsed. Pure — the fetch is impure, this is not — so the same bytes always give the same text
+ *  and the same content-address. It reads markup only; it runs nothing the page carries. */
+export function pageText(html: string): string {
+  const named: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ndash: '–', mdash: '—', hellip: '…', laquo: '«', raquo: '»', rsquo: '’', lsquo: '‘', rdquo: '”', ldquo: '“', sect: '§' }
+  return html
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<(script|style|noscript|template|svg)\b[\s\S]*?<\/\1\s*>/gi, ' ')
+    .replace(/<\/?(p|div|br|li|ul|ol|h[1-6]|tr|td|th|section|article|header|footer|blockquote|pre|table|dd|dt|figcaption)\b[^>]*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&#x([0-9a-f]+);/gi, (_, h: string) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, d: string) => String.fromCodePoint(Number(d)))
+    .replace(/&([a-z]+);/gi, (m, n: string) => named[n.toLowerCase()] ?? m)
+    .replace(/[ \t\f\v\r]+/g, ' ')
+    .replace(/ *\n[ \n]*/g, '\n')
+    .trim()
+}

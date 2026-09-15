@@ -1,0 +1,12 @@
+{
+  "handle": "3de67cdc",
+  "address": "3de67cdc-582f-846c-914f-387c542bcebe",
+  "statement": "∀ n : Nat, amps (n + 1) = 2 * amps n",
+  "tactic": "intro n rfl",
+  "keys": [
+    "one_more_qubit_doubles"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

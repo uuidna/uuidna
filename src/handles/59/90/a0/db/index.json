@@ -1,0 +1,12 @@
+{
+  "handle": "5990a0db",
+  "address": "5990a0db-30b7-8d21-9bac-fc3f204dc7fb",
+  "kind": "chunk",
+  "keys": [
+    "sq_natAbs_is_the_square"
+  ],
+  "statement": "∀ x : Int, ((sq x.natAbs : Nat) : Int) = x * x",
+  "files": [
+    "Fluid.lean"
+  ]
+}

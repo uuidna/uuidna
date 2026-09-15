@@ -1,0 +1,12 @@
+{
+  "handle": "6c41c980",
+  "address": "6c41c980-b1ee-8b31-87bd-0f8bbcac8f51",
+  "statement": "allBytes (fun b => variantStamp b / 64 == 2) = true",
+  "tactic": "decide",
+  "keys": [
+    "variant_high_two_are_one_zero"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

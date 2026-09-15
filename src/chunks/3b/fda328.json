@@ -1,0 +1,12 @@
+{
+  "handle": "3bfda328",
+  "address": "3bfda328-49f2-8fe7-b2f5-83c858da465b",
+  "statement": "∀ (n : Nat) (f : Nat → Nat), (∀ x, x ≤ n → f x < n) → ∃ x y, x < y ∧ y ≤ n ∧ f x = f y",
+  "tactic": "intro n induction n with | zero => intro f hf; exact absurd (hf 0 (Nat.le_refl 0)) (Nat.not_lt_zero _) | succ n ih => intro f hf exact match bounded_search_finds_or_refutes f (f (n + 1)) n with | Or.inl ⟨x, hx, h⟩ => ⟨x, n + 1, Nat.lt_succ_of_le hx, Nat.le_refl _, h⟩ | Or.inr hne => let g : Nat → Nat := fun x => if f x = n then f (n + 1) else f x have hg : ∀ x, x ≤ n → g x < n := fun x hx => by show (if f x = n then f (n + 1) else f x) < n match Nat.decEq (f x) n with | isTrue e => rw [if_pos e] match Nat.eq_or_lt_of_le (Nat.le_of_lt_succ (hf (n + 1) (Nat.le_refl _))) with | Or.inl e' => exact absurd (e.trans e'.symm) (hne x hx) | Or.inr l => exact l | isFalse e => rw [if_neg e] match Nat.eq_or_lt_of_le (Nat.le_of_lt_succ (hf x (Nat.le_succ_of_le hx))) with | Or.inl e' => exact absurd e' e | Or.inr l => exact l match ih g hg with | ⟨x, y, hxy, hy, he⟩ => have hx : x ≤ n := Nat.le_of_lt (Nat.lt_of_lt_of_le hxy hy) ⟨x, y, hxy, Nat.le_succ_of_le hy, by match Nat.decEq (f x) n, Nat.decEq (f y) n with | isTrue a, isTrue b => exact a.trans b.symm | isTrue a, isFalse b => have : g x = g y := he simp only [g, if_pos a, if_neg b] at this exact absurd this.symm (hne y hy) | isFalse a, isTrue b => have : g x = g y := he simp only [g, if_neg a, if_pos b] at this exact absurd this (hne x hx) | isFalse a, isFalse b => have : g x = g y := he simp only [g, if_neg a, if_neg b] at this exact this⟩",
+  "keys": [
+    "pigeonhole_for_every_size"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

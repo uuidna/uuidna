@@ -1,0 +1,12 @@
+{
+  "handle": "6ca40550",
+  "address": "6ca40550-0284-867d-b3a1-41e085bcb741",
+  "statement": "fixedPositions versionStamp = [4, 5, 6, 7] ∧ fixedPositions variantStamp = [6, 7]",
+  "tactic": "decide",
+  "keys": [
+    "fixed_positions_exact"
+  ],
+  "files": [
+    "UuidLaws.lean"
+  ]
+}

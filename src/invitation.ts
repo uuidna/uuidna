@@ -15,17 +15,19 @@
 // obligations is a sales page, and this ledger refuses those on its own surfaces.
 import { theorems } from './theorems/index.js'
 import { handleStoreCensus } from './handle-store-census.js'
+import { isUnmeasured } from './boundary.js'
 import { capacity } from './os/host/index.js'
 
 export interface Invitation {
   /** what the ledger holds right now — never typed */
   theorems: number
   wings: number
-  /** the handle store as it stands */
-  leaves: number
+  /** the handle store as it stands — null with storeUnmeasured naming why, where there is no store to read */
+  leaves: number | null
   /** links the store's own leaves admit, against the links it uses */
-  pairsAdmitted: number
-  treeLinks: number
+  pairsAdmitted: number | null
+  treeLinks: number | null
+  storeUnmeasured?: string
   /** the host, as the binding point sees it */
   lanes: number
   binds: string
@@ -44,9 +46,9 @@ export function invitation(root: string): Invitation {
   return {
     theorems: T.length,
     wings: new Set(T.map((t) => t.file)).size,
-    leaves: store.leaves,
-    pairsAdmitted: store.pairs,
-    treeLinks: store.treeLinks,
+    ...(isUnmeasured(store)
+      ? { leaves: null, pairsAdmitted: null, treeLinks: null, storeUnmeasured: store.unmeasured }
+      : { leaves: store.leaves, pairsAdmitted: store.pairs, treeLinks: store.treeLinks }),
     lanes: cap.lanes,
     binds: cap.binds,
     offers: [
@@ -71,9 +73,8 @@ export function invitation(root: string): Invitation {
 
 /** the invitation as a page — every figure interpolated from the reading above, none typed */
 export function invitationText(i: Invitation): string {
-  const share = i.pairsAdmitted > 0
-    ? ((n) => (n - (n % i.pairsAdmitted)) / i.pairsAdmitted)(i.treeLinks * 1000000)
-    : 0
+  const pairs = i.pairsAdmitted ?? 0
+  const share = pairs > 0 ? ((n) => (n - (n % pairs)) / pairs)((i.treeLinks ?? 0) * 1000000) : 0
   return [
     '# Join the quantum development',
     '',
@@ -82,7 +83,9 @@ export function invitationText(i: Invitation): string {
     '## What the tree holds now',
     '',
     `- **${i.theorems.toLocaleString('en-US')} theorems** across **${i.wings} wings**, each decided by the Lean kernel, sorry-free and axiom-free`,
-    `- **${i.leaves.toLocaleString('en-US')} handle folders**, whose own leaves admit **${i.pairsAdmitted.toLocaleString('en-US')} links** while the tree uses **${i.treeLinks.toLocaleString('en-US')}** — ${share} millionths of what already exists`,
+    i.leaves === null || i.pairsAdmitted === null || i.treeLinks === null
+      ? `- the handle store: ${i.storeUnmeasured ?? 'UNMEASURED'}`
+      : `- **${i.leaves.toLocaleString('en-US')} handle folders**, whose own leaves admit **${i.pairsAdmitted.toLocaleString('en-US')} links** while the tree uses **${i.treeLinks.toLocaleString('en-US')}** — ${share} millionths of what already exists`,
     `- this host offers **${i.lanes} lanes**, bound by: ${i.binds}`,
     '',
     '## What is offered',

@@ -1,0 +1,12 @@
+{
+  "handle": "36352217",
+  "address": "36352217-ade7-83d2-8f51-94e0c1009622",
+  "statement": "∀ x y z : Nat, (x + y) * z = x * z + y * z",
+  "tactic": "intro x y z rw [Nat.mul_comm, Nat.left_distrib, Nat.mul_comm z x, Nat.mul_comm z y]",
+  "keys": [
+    "right_distrib_by_comm"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

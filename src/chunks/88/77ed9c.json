@@ -1,0 +1,12 @@
+{
+  "handle": "8877ed9c",
+  "address": "8877ed9c-a7dd-874a-b9cb-84ae26ef5eea",
+  "statement": "∀ m k : Nat, (Int.subNatNat m k).natAbs ≤ m + k",
+  "tactic": "intro m k unfold Int.subNatNat cases hk : k - m with | zero => exact Nat.le_trans (Nat.sub_le m k) (Nat.le_add_right m k) | succ j => show j + 1 ≤ m + k have hj : j + 1 ≤ k := hk ▸ Nat.sub_le k m exact Nat.le_trans hj (Nat.le_add_left k m)",
+  "keys": [
+    "natAbs_subNatNat_le"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

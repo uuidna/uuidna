@@ -1,0 +1,12 @@
+{
+  "handle": "66e7c566",
+  "address": "66e7c566-1868-802f-aa66-909328dd955b",
+  "kind": "chunk",
+  "keys": [
+    "add_left_cancel_by_induction"
+  ],
+  "statement": "∀ k a b : Nat, k + a = k + b → a = b",
+  "files": [
+    "Fluid.lean"
+  ]
+}

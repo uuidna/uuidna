@@ -21,7 +21,7 @@ const rawOpenItems = (): OpenItem[] => {
     develop?: { surface: string; fragment: string; receipt: string }[]
   } | null
   for (const d of prose?.develop ?? []) {
-    if (decide(d.fragment).verdict === 'VERIFIED_BY_DECIDE') continue
+    if (decide(d.fragment).verdict === 'EVALUATED_TRUE') continue
     items.push({ claim: d.fragment, source: `the prose trials · ${d.surface}`, receipt: d.receipt })
   }
   const support = readRepoJson('research-leads.json') as { leads?: { what?: string; fix?: string }[] } | null

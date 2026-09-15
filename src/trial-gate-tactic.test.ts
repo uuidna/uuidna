@@ -22,6 +22,26 @@ test('CONTROL: a candidate claiming a proof the kernel did not seal is refused',
   assert.equal(a.kind, 'seal-integrity')
 })
 
+// A NEW CANDIDATE (no sealed row) IS READ BY ITS OWN RECORDED TACTIC. Passing the proof-shape check lands it on
+// `unverified` (no row admits it yet); failing it lands on `seal-integrity`.
+const induction = 'intro n; induction n with | zero => rfl | succ k ih => exact congrArg Nat.succ ih'
+const fresh = (tactic: string | undefined, proof: string) =>
+  ({ key: 'probe_zero_add_left', statement: '∀ n : Nat, 0 + n = n', lean: `theorem probe_zero_add_left : ∀ n : Nat, 0 + n = n := by ${proof}`, file: 'Probe.lean', ...(tactic === undefined ? {} : { tactic }) })
+
+test('a new candidate carrying its recorded non-decide tactic passes the proof-shape check', () => {
+  const a = trialAdmit(fresh(induction, induction), [] as never)
+  assert.equal(a.kind, 'unverified', a.detail)
+})
+
+test('CONTROL: a new candidate whose lean does not carry its recorded tactic is refused', () => {
+  const a = trialAdmit(fresh(induction, 'decide'), [] as never)
+  assert.equal(a.kind, 'seal-integrity')
+  assert.match(a.detail, /not a `by intro n;/)
+  // with no recorded tactic the candidate reads as decide, as a sealed row does
+  assert.equal(trialAdmit(fresh(undefined, 'decide'), [] as never).kind, 'unverified')
+  assert.equal(trialAdmit(fresh(undefined, induction), [] as never).kind, 'seal-integrity')
+})
+
 test('CONTROL: a decide row still needs its decide', () => {
   const r = row('probe_decide_z', '1 + 1 = 2', 'decide')
   assert.equal(trialAdmit({ key: r.key, statement: r.statement, lean: r.lean, file: r.file }, [r] as never).admitted, true)

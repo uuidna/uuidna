@@ -6,6 +6,7 @@
 // PROSE claims by citation); this judges whether a STATEMENT is itself sealed. Integrity, not truth.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
+import { normaliseProposition } from './proposition-address.js'
 
 export interface StatementVerdict {
   verdict: 'VERIFIED' | 'UNVERIFIED'
@@ -25,6 +26,37 @@ const index = (): Map<string, { key: string; address: string; tactic: string; fi
   INDEX = new Map()
   for (const t of theorems()) INDEX.set(t.statement.trim(), { key: t.key, address: t.address, tactic: t.tactic, file: t.file, lean: t.lean })
   return INDEX
+}
+
+// the same index keyed by normaliseProposition — the cross-repo merge key, which collapses only spacing and ==/!= spelling
+let NORMAL: Map<string, { key: string; address: string; tactic: string; file: string; lean: string; statement: string }> | null = null
+const normalIndex = (): NonNullable<typeof NORMAL> => {
+  if (NORMAL) return NORMAL
+  NORMAL = new Map()
+  for (const t of theorems()) {
+    const n = normaliseProposition(t.statement)
+    if (!NORMAL.has(n)) NORMAL.set(n, { key: t.key, address: t.address, tactic: t.tactic, file: t.file, lean: t.lean, statement: t.statement.trim() })
+  }
+  return NORMAL
+}
+
+/** verifyProposition(statement) → VERIFIED iff the statement, normalised by normaliseProposition, equals a sealed
+ *  theorem's normalised statement and that theorem's content-address recomputes; UNVERIFIED otherwise. The exact
+ *  byte match (verifyStatement) answers first. A prose sentence that cites a theorem is not its statement. */
+export function verifyProposition(statement: string): StatementVerdict {
+  const exact = verifyStatement(statement)
+  if (exact.verdict === 'VERIFIED') return exact
+  const n = normaliseProposition(statement)
+  const hit = n ? normalIndex().get(n) : undefined
+  if (!hit) return exact
+  const intact = toUuid(hit.key + ':' + hit.statement) === hit.address
+  return {
+    verdict: intact ? 'VERIFIED' : 'UNVERIFIED',
+    key: hit.key, address: hit.address, tactic: hit.tactic, file: hit.file, lean: hit.lean,
+    note: intact
+      ? `VERIFIED: this statement, normalised, IS the sealed theorem ${hit.key} (${hit.tactic}, ${hit.file}); its content-address recomputes to ${hit.address}`
+      : 'address mismatch on recompute — the ledger entry does not verify (tamper or drift)',
+  }
 }
 
 /** Verify a STATEMENT against the sealed ledger in O(1): VERIFIED iff it is byte-identical to a sealed theorem

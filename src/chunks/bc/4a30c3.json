@@ -1,0 +1,12 @@
+{
+  "handle": "bc4a30c3",
+  "address": "bc4a30c3-92be-86ba-8535-137480b40ef9",
+  "statement": "(128 / 64 = 2) ∧ (128 % 64 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "intelligence_without_the_artificial_is_lean"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

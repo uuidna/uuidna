@@ -67,9 +67,9 @@ export function studyOf(input: string, seenAddresses: readonly string[] = [], qu
     seenFrag.add(k)
     if (d.kind === 'sealed-theorem' && d.cites[0]) {
       settled.push({ fragment, key: d.cites[0]!, lean: d.lean[0] ?? '' })
-    } else if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic') {
+    } else if (d.verdict === 'EVALUATED_TRUE' && d.kind === 'decided-arithmetic') {
       open.push({ fragment, verdict: d.verdict, receipt: d.receipt })
-    } else if (d.verdict === 'REFUTED' && d.kind === 'decided-arithmetic') {
+    } else if (d.verdict === 'EVALUATED_FALSE' && d.kind === 'decided-arithmetic') {
       errors.push({ claim: fragment, asserted: 0, actual: 0 })
     }
   }

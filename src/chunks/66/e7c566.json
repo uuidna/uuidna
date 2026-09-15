@@ -1,0 +1,12 @@
+{
+  "handle": "66e7c566",
+  "address": "66e7c566-1868-802f-aa66-909328dd955b",
+  "statement": "∀ k a b : Nat, k + a = k + b → a = b",
+  "tactic": "intro k induction k with | zero => intro a b h; rw [Nat.zero_add, Nat.zero_add] at h; exact h | succ k ih => intro a b h; rw [Nat.succ_add, Nat.succ_add] at h; exact ih a b (Nat.succ.inj h)",
+  "keys": [
+    "add_left_cancel_by_induction"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

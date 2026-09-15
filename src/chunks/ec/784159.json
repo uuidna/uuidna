@@ -1,0 +1,12 @@
+{
+  "handle": "ec784159",
+  "address": "ec784159-7693-8ead-a923-168f7376d254",
+  "statement": "∀ (f : Nat → Nat) (n : Nat), (∀ i : Nat, f (i + n) = f i) → psum (fun i => sq (step f i)) n ≤ 16 * psum (fun i => sq (f i)) n",
+  "tactic": "intro f n h exact ring_energy_bound_of_pointwise f (step f) n h (fun i => Nat.le_refl _)",
+  "keys": [
+    "diffusion_step_never_increases_energy"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

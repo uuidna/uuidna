@@ -1,0 +1,12 @@
+{
+  "handle": "f6d38b03",
+  "address": "f6d38b03-f01e-8878-8cd2-1246c66e4709",
+  "statement": "∀ (g : Nat → Nat) (n : Nat), (∀ i : Nat, g (i + n) = g i) → psum (fun i => g (i + 1)) n = psum g n",
+  "tactic": "intro g n h apply ring_divergence_is_zero g n have h0 := h 0 rw [Nat.zero_add] at h0 exact h0",
+  "keys": [
+    "ring_shift_preserves_sum"
+  ],
+  "files": [
+    "Fluid.lean"
+  ]
+}

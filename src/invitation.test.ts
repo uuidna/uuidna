@@ -11,13 +11,16 @@ import { invitation, invitationText } from './invitation.js'
 import { theorems } from './theorems/index.js'
 import { handleStoreCensus } from './handle-store-census.js'
 import { callTool } from './mcp.js'
+import { isUnmeasured } from './boundary.js'
+
+const census = (root: string) => { const c = handleStoreCensus(root); if (isUnmeasured(c)) assert.fail(c.unmeasured); return c }
 
 const ROOT = new URL('..', import.meta.url).pathname
 
 test('every figure is read from the live tree, not carried in the module', () => {
   const i = invitation(ROOT)
   const T = theorems()
-  const store = handleStoreCensus(ROOT)
+  const store = census(ROOT)
   assert.equal(i.theorems, T.length, 'the theorem count IS the ledger length, read at the moment of asking')
   assert.equal(i.wings, new Set(T.map((t) => t.file)).size, 'and the wing count is its own distinct files')
   assert.equal(i.leaves, store.leaves, 'the leaf count IS the store census')
@@ -30,14 +33,14 @@ test('the doors return their contract on an empty call and the sweep only when r
     assert.equal((callTool(tool, { recompute: false }) as { kind: string }).kind, 'contract', `${tool} computes nothing unless asked`)
   assert.equal((callTool('uuidna_invitation', { recompute: true }) as { theorems: number }).theorems, theorems().length)
   assert.equal((callTool('uuidna_handle_store', { recompute: true }) as { occupancy: { leaves: number } }).occupancy.leaves,
-    handleStoreCensus(ROOT).leaves)
+    census(ROOT).leaves)
 })
 
 test('THE CONTROL — the figures move when the tree does, so none is a frozen constant', () => {
   // Without this, every assertion above passes against a module that hard-codes today's numbers and re-reads
   // nothing. A fixture store with a different population must produce a different invitation.
   const real = invitation(ROOT)
-  const fake = handleStoreCensus('/nonexistent-root-for-this-control')
+  const fake = census('/nonexistent-root-for-this-control')
   assert.equal(fake.leaves, 0, 'a root with no store reads zero leaves')
   assert.notEqual(real.leaves, fake.leaves,
     'the census answers differently for a different root — so the invitation reads, and does not recite')

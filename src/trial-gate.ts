@@ -24,6 +24,8 @@ export interface TrialCandidate {
   statement: string
   lean: string
   file: string
+  /** the tactic the candidate's proof runs after `by`; absent reads as `decide`, as a sealed row's does */
+  tactic?: string
 }
 
 export interface TrialAdmission {
@@ -114,11 +116,14 @@ export function trialAdmit(
     }
   }
 
-  if (!(c.lean.startsWith('theorem ' + c.key + ' ') || c.lean.startsWith('theorem ' + c.key + ':')) || !c.lean.includes(':= by decide')) {
+  // A NEW CANDIDATE IS READ BY ITS OWN RECORDED TACTIC, as a sealed row is above: the kernel judges the proof, so
+  // the gate asks only that the lean carries the tactic the candidate records and binds to its key.
+  const ownTactic = c.tactic ?? 'decide'
+  if (!(c.lean.startsWith('theorem ' + c.key + ' ') || c.lean.startsWith('theorem ' + c.key + ':')) || !c.lean.includes(':= by ' + ownTactic)) {
     return {
       admitted: false,
       kind: 'seal-integrity',
-      detail: `${c.key} — not a by-decide proof bound to its key`,
+      detail: `${c.key} — not a \`by ${ownTactic}\` proof bound to its key`,
     }
   }
 

@@ -1,0 +1,12 @@
+{
+  "handle": "a813764f",
+  "address": "a813764f-eb54-8df5-8975-349a10fa5d6c",
+  "kind": "chunk",
+  "keys": [
+    "diffusion_stencil_square_le_weighted_energy"
+  ],
+  "statement": "∀ a b c : Nat, (a + b + b + c) * (a + b + b + c) ≤ (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c) + (a * a + b * b + b * b + c * c)",
+  "files": [
+    "Fluid.lean"
+  ]
+}

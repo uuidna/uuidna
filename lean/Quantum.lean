@@ -1,4 +1,4 @@
--- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Quantum.lean — GENERATED. The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. Every proof checked by the kernel (by decide, by intro), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded
 -- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it
@@ -8,6 +8,12 @@ def lxorAux : Nat → Nat → Nat → Nat
   | 0, _, _ => 0
   | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
 def lxor (a b : Nat) : Nat := lxorAux 8 a b
+
+/-- the amplitudes an n-qubit register carries: none added means one (the empty product), and each qubit
+    doubles the space it joins -/
+def amps : Nat → Nat
+  | 0 => 1
+  | n + 1 => 2 * amps n
 
 /-- the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever
     observed, |01⟩ and |10⟩ never (probability 0) -/
@@ -302,3 +308,58 @@ theorem hexbit_slit_visibility : ((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : 
     each subensemble — nothing is undone, the bookkeeping is re-partitioned. Exact integer inner products, the
     bell_basis_orthogonal method applied to the slit. -/
 theorem hexbit_slit_cross_is_overlap : (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1) := by decide
+
+/-- a·(x + y) = a·x + a·y for EVERY a, x, y — by induction on y, because Nat.mul recurses on its second
+    argument. This wing proves the step itself rather than reusing core's distributivity, so the kernel sees
+    every case. -/
+theorem mul_add_by_induction : ∀ a x y : Nat, a * (x + y) = a * x + a * y := by
+  intro a x y
+  induction y with
+  | zero => rfl
+  | succ k ih =>
+    show a * (x + k) + a = a * x + (a * k + a)
+    rw [ih, Nat.add_assoc]
+
+/-- a·b·c = a·(b·c) for EVERY a, b, c — by induction on c, through mul_add_by_induction. Core's Nat.mul_assoc
+    depends on propext; this proof depends on no axiom. -/
+theorem mul_assoc_by_induction : ∀ a b c : Nat, a * b * c = a * (b * c) := by
+  intro a b c
+  induction c with
+  | zero => rfl
+  | succ k ih =>
+    show a * b * k + a * b = a * (b * k + b)
+    rw [ih, mul_add_by_induction]
+
+/-- n qubits span 2ⁿ amplitudes for EVERY n, by induction — n_qubit_dimension checks n = 1..5 by enumeration,
+    this proves the universal. It counts the classical state-vector cost; it is not a speedup
+    (n_qubit_dimension). -/
+theorem n_qubit_dimension_all : ∀ n : Nat, amps n = 2 ^ n := by
+  intro n
+  induction n with
+  | zero => rfl
+  | succ k ih =>
+    show 2 * amps k = 2 ^ k * 2
+    rw [ih]
+    exact Nat.mul_comm 2 (2 ^ k)
+
+/-- adding one qubit doubles the dimension, for EVERY n — the step the induction walks, true by the definition
+    of amps. -/
+theorem one_more_qubit_doubles : ∀ n : Nat, amps (n + 1) = 2 * amps n := by
+  intro n
+  rfl
+
+/-- shifting left by k multiplies by 2ᵏ, for EVERY k and a — by induction on k through mul_assoc_by_induction. -/
+theorem shl_pow : ∀ k a : Nat, a <<< k = 2 ^ k * a := by
+  intro k
+  induction k with
+  | zero => intro a; exact (Nat.one_mul a).symm
+  | succ k ih =>
+    intro a
+    show (2 * a) <<< k = 2 ^ k * 2 * a
+    rw [ih (2 * a), mul_assoc_by_induction]
+
+/-- the state vector the exact computation allocates (1 << n in src/quantum/index.ts) has exactly amps n
+    entries, for EVERY n — shl_pow at a = 1, then n_qubit_dimension_all. -/
+theorem shift_is_the_dimension : ∀ n : Nat, 1 <<< n = amps n := by
+  intro n
+  rw [shl_pow n 1, Nat.mul_one, n_qubit_dimension_all n]
