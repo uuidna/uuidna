@@ -10,8 +10,9 @@
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { THEOREMS } from '../theorems/index.js'
+import { THEOREMS, isPagelessFile } from '../theorems/index.js'
 import { ledgerLatex, checkLatex } from '../latex.js'
+import { spanOf } from '../edge-served.js'
 
 const OUT_DIR = join(ROOT, 'docs', 'public')
 const OUT = join(OUT_DIR, 'uuidna-ledger.tex')
@@ -22,7 +23,11 @@ const REFS_PATH = join(ROOT, 'lean', 'references.json')
 const REFS: { references: { doi: string; cite?: string; resolved: boolean }[] } =
   existsSync(REFS_PATH) ? JSON.parse(readFileSync(REFS_PATH, 'utf8')) : { references: [] }
 
-const doc = ledgerLatex(THEOREMS, {
+// the span is stated once — its stations are one statement at every n, and 65,536 entries made the manuscript 51 MiB,
+// over the 25 MiB a Worker asset may be; when spanOf finds no one statement for them, every entry stays
+const SPAN = spanOf(THEOREMS.filter((t) => isPagelessFile(t.file)))
+const doc = ledgerLatex(SPAN ? THEOREMS.filter((t) => !isPagelessFile(t.file)) : THEOREMS, {
+  span: SPAN ?? undefined,
   references: REFS.references.filter((r) => r.resolved),
   title: 'The uuidna ledger',
   author: 'uuidna --- every statement decided by the Lean 4 kernel',

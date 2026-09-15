@@ -11,7 +11,7 @@
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { theorems } from '../theorems/index.js'
+import { theorems, isPagelessFile } from '../theorems/index.js'
 import { buildLeanPageSeed, toPayloadDocs, toPayloadBlocksDoc } from '../payload-seed.js'
 import { PAYLOAD } from '../site/index.js'
 import { ROOT } from './api.js'
@@ -27,7 +27,9 @@ for (const t of theorems()) {
   byFile.set(t.file, list)
 }
 
-const leanFiles = readdirSync(LEAN).filter((f) => f.endsWith('.lean'))
+// a Payload seed is a PAGE per wing, and a pageless wing (isPagelessFile — the span) has no page to seed: its
+// 65,536 near-identical rows as blocks made the served seed 108 MiB, over the 25 MiB a Worker asset may be
+const leanFiles = readdirSync(LEAN).filter((f) => f.endsWith('.lean') && !isPagelessFile(f))
 const seeds = leanFiles.map((f) => {
   const stem = f.replace(/\.lean$/, '')
   const contents = readFileSync(join(LEAN, f), 'utf8')

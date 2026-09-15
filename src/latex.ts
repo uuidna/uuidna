@@ -173,7 +173,11 @@ export function latexPreamble(title: string, subtitle: string, keywords: readonl
 /** ledgerLatex(theorems, opts) → one compilable article. Deterministic: same ledger, same bytes. */
 export function ledgerLatex(
   theorems: readonly TheoremLike[],
-  opts: { title?: string; author?: string; abstract?: string; references?: readonly { doi: string; cite?: string }[] } = {},
+  opts: {
+    title?: string; author?: string; abstract?: string; references?: readonly { doi: string; cite?: string }[]
+    /** pageless rows stated once (spanOf): the one statement every station is at its own n */
+    span?: { count: number; template: string; first: string; last: string; route: string }
+  } = {},
 ): LatexDocument {
   const title = opts.title ?? 'The uuidna ledger'
   const refused: string[] = []
@@ -196,6 +200,13 @@ export function ledgerLatex(
       chunks.push(e.tex + '\n')
       entries++
     }
+  }
+  // THE SPAN, stated once: its stations are one statement at every n, so the manuscript sets the schema and its
+  // count rather than 65,536 near-identical entries
+  if (opts.span) {
+    const s = opts.span
+    chunks.push(`\\section{The span}\n${latexProse(`${s.count.toLocaleString('en-US')} stations, each decided by the kernel: every one is the statement below at its own station n, the number its key ends in, read as hex. They run from ${s.first} to ${s.last}, and each is served at ${s.route}.`)}\n\\begin{verbatim}\n${s.template}\n\\end{verbatim}\n`)
+    entries += s.count
   }
   // THE BIBLIOGRAPHY. A manuscript that cites nobody is not a manuscript, and until now this one cited nobody:
   // every reference in the ledger was internal (theorem cites theorem), so the external work the wings actually

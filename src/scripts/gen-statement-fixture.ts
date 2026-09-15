@@ -21,14 +21,19 @@
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { THEOREMS } from '../theorems/index.js'
+import { THEOREMS, isPagelessFile } from '../theorems/index.js'
+import { spanOf } from '../edge-served.js'
 import { normaliseProposition, propositionAddress, propositionCensus } from '../proposition-address.js'
 import { sha256 } from '../sha256.js'
 
 const hex = (b: Uint8Array): string => [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
 const utf8 = (s: string): Uint8Array => new TextEncoder().encode(s)
 
-const rows = THEOREMS.map((t) => {
+// the span is stated once: its stations are one statement at every n, so each station's row is recomputable from the
+// template — its normalised statement at its own n, and the address and sha256 of that — and 65,536 rows made this
+// manifest 29 MiB, over the 25 MiB a Worker asset may be; when spanOf finds no one statement for them, every row stays
+const SPAN = spanOf(THEOREMS.filter((t) => isPagelessFile(t.file)))
+const rows = (SPAN ? THEOREMS.filter((t) => !isPagelessFile(t.file)) : THEOREMS).map((t) => {
   const normalised = normaliseProposition(t.statement)
   return {
     key: t.key,
@@ -55,7 +60,9 @@ const out = {
     + 'case-load-bearing, so Nat and nat must not merge.',
   addressForm: 'address = toUuid("proposition:" + normalised); sha256 = sha256(utf8(normalised)) — both emitted '
     + 'so a peer can join on whichever framing it already computes, without either side adopting the other\'s untested.',
-  theorems: rows.length,
+  theorems: THEOREMS.length,
+  listed: rows.length,
+  ...(SPAN ? { span: { ...SPAN, rule: 'each station\'s row is this template at its own n (the number its key ends in, read as hex), normalised and addressed by the same rule as every row' } } : {}),
   distinctStatements: census.statements,
   distinctPropositions: census.propositions,
   mergedGroups: census.merged.length,
