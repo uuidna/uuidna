@@ -11090,19 +11090,19 @@ community	netatalk-doc	4.5.0-r0	Q1bGiMsWAd4vGtUuDIYeQ9I0Cc/7Q=	Open Source AFP f
 community	netatalk-openrc	4.5.0-r0	Q1pgdOyi4KDWsZ01srxLxoYuMhJZA=	Open Source AFP fileserver (OpenRC init scripts)		
 community	netavark	1.17.2-r0	Q1aLYDXPwasHIbO87QXX2m4UQsmyE=	Container network stack	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	
 community	netavark-doc	1.17.2-r0	Q1MLnN9Bii+bTNDwveqaOY/m3DV+U=	Container network stack (documentation)		
-community	netbird	0.76.1-r1	Q11kOq6d8ZzmTaoiEuPIOzLOUk8Fw=	WireGuard-based overlay network and mesh VPN	openresolv /bin/sh so:libc.musl-x86_64.so.1	cmd:netbird=0.76.1-r1
-community	netbird-bash-completion	0.76.1-r1	Q1yoBInw4CtLTahXdx8Swk03ocENo=	Bash completions for netbird		
-community	netbird-doc	0.76.1-r1	Q1ru5Vfw6IcykX3aB3LOvAP+E1Quo=	WireGuard-based overlay network and mesh VPN (documentation)		
-community	netbird-fish-completion	0.76.1-r1	Q1h8SR3gpGKbQChUQI+7AdbL9Y3GI=	Fish completions for netbird		
-community	netbird-mgmt	0.76.1-r1	Q1osb1NYl7fLe5JtAOuHq1reEbB3c=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-mgmt=0.76.1-r1
-community	netbird-mgmt-openrc	0.76.1-r1	Q1bEPYnO00m3PxxZIeanXkANnGRro=	WireGuard-based overlay network and mesh VPN		
-community	netbird-openrc	0.76.1-r1	Q1GLxXcfYnZ+XLOof+3d3zFkE1vlA=	WireGuard-based overlay network and mesh VPN		
-community	netbird-relay	0.76.1-r1	Q1uPIoXx6YJq2BZ/FuiZ+j12h0oWA=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-relay=0.76.1-r1
-community	netbird-relay-openrc	0.76.1-r1	Q1EGIER0H/+bOueO2ItMllpeYkqQw=	WireGuard-based overlay network and mesh VPN		
-community	netbird-signal	0.76.1-r1	Q1dkZbuJtCID3CITCTU4MYRh9bkVE=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-signal=0.76.1-r1
-community	netbird-signal-openrc	0.76.1-r1	Q1VAtBqFghldqRNV5XPIibXAP21ok=	WireGuard-based overlay network and mesh VPN		
-community	netbird-ui	0.76.1-r1	Q1fOuKWDV2slSTlpKSEQG8Us2E4Ls=	Graphical user interface for NetBird	openresolv so:libX11.so.6 so:libc.musl-x86_64.so.1 so:libcairo.so.2 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgtk-4.so.1 so:libjavascriptcoregtk-6.0.so.1 so:libsoup-3.0.so.0 so:libwebkitgtk-6.0.so.4	cmd:netbird-ui=0.76.1-r1
-community	netbird-zsh-completion	0.76.1-r1	Q1hLGxa7vhsg0MOwouaKPWRSgMBNE=	Zsh completions for netbird		
+community	netbird	0.78.2-r0	Q1RuPeBtSEXtCD96eZSILnyb601UE=	WireGuard-based overlay network and mesh VPN	openresolv /bin/sh so:libc.musl-x86_64.so.1	cmd:netbird=0.78.2-r0
+community	netbird-bash-completion	0.78.2-r0	Q14Zg3Cfa00uxFtbJbLRRdNK63xzE=	Bash completions for netbird		
+community	netbird-doc	0.78.2-r0	Q1e7Vndv2q71jhXVdTq5D/LQu9rPw=	WireGuard-based overlay network and mesh VPN (documentation)		
+community	netbird-fish-completion	0.78.2-r0	Q14lxnihiDpsxvKe9at0yAfKzBcqk=	Fish completions for netbird		
+community	netbird-mgmt	0.78.2-r0	Q1LTbV0qWhT4PguW01GaL1htZA73M=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-mgmt=0.78.2-r0
+community	netbird-mgmt-openrc	0.78.2-r0	Q1JVRcyuKRE4ubrIt5lu7vGod3G/U=	WireGuard-based overlay network and mesh VPN		
+community	netbird-openrc	0.78.2-r0	Q1ZmOiPOGe4nBhMRms/ta8LdhCD4E=	WireGuard-based overlay network and mesh VPN		
+community	netbird-relay	0.78.2-r0	Q1f6ROajbxLi16cnFOT0lZ8JEKdeM=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-relay=0.78.2-r0
+community	netbird-relay-openrc	0.78.2-r0	Q196xpTep7j/Ws4vFPnYLpIJoA6xY=	WireGuard-based overlay network and mesh VPN		
+community	netbird-signal	0.78.2-r0	Q1Tce4zDBiG0qGqj2oTtQu0mT5ye0=	WireGuard-based overlay network and mesh VPN	/bin/sh so:libc.musl-x86_64.so.1	cmd:netbird-signal=0.78.2-r0
+community	netbird-signal-openrc	0.78.2-r0	Q1rPrxoRB16xvMzVU5JjpJwAJapYo=	WireGuard-based overlay network and mesh VPN		
+community	netbird-ui	0.78.2-r0	Q1aD7zwmHydUFd1u2qI6k1wB4naZM=	Graphical user interface for NetBird	openresolv so:libX11.so.6 so:libc.musl-x86_64.so.1 so:libcairo.so.2 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgtk-4.so.1 so:libjavascriptcoregtk-6.0.so.1 so:libsoup-3.0.so.0 so:libwebkitgtk-6.0.so.4	cmd:netbird-ui=0.78.2-r0
+community	netbird-zsh-completion	0.78.2-r0	Q1cVAhSlUV59umGJkq/1gkA3inQsg=	Zsh completions for netbird		
 community	netcdf	4.10.0-r0	Q1wbQq9jP8jdfdo4fbOYj8oOvlwfw=	Libraries for the Unidata network Common Data Format	so:libc.musl-x86_64.so.1 so:libcurl.so.4 so:libhdf5.so.311 so:libhdf5_hl.so.310 so:libxml2.so.2	so:libnetcdf.so.22=22
 community	netcdf-cxx4	4.3.1-r2	Q1CR79REhFoNw2TLWyTUq/sQBXdCM=	NetCDF C++ bindings	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libh5bzip2.so=0 so:libnetcdf_c++4.so.1=1.1.0
 community	netcdf-cxx4-dev	4.3.1-r2	Q1AnxOiWAQ6vVJjDXXJUEoog+fb0M=	NetCDF C++ bindings (development files)	netcdf-dev netcdf-cxx4=4.3.1-r2 pkgconfig	cmd:ncxx4-config=4.3.1-r2 pc:netcdf-cxx4=4.3.1
