@@ -4,7 +4,9 @@
 // the ROOT that reaches src/mcp-http.ts (worker.js is not in the TS import graph), so the module earns its place.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from '../../../mcp-http.js'
+import { handleMcpRpc, mcpHttpToolNames, mcpHttpListedNames, MCP_HTTP_PROTOCOL } from '../../../mcp-http.js'
+import { DOOR_NAME, LIST_NAME } from '../../../mcp-door.js'
+import { resolveToolName } from '../../../mcp.js'
 import { coinSupply } from '../../../coin-supply.js'
 import { tamperCosts } from '../../../tamper-cost.js'
 import { hexbitDoorOf, HANDLE_HEXBITS } from '../../../hexbit/index.js'
@@ -17,12 +19,17 @@ test('initialize announces the protocol and server', () => {
   assert.ok(r.result.capabilities.tools)
 })
 
-test('tools/list enumerates the Workers-safe subset (every tool named, described, schema-typed)', () => {
+// THE LISTING IS THE DOOR AND WHAT THE INSTRUCTIONS NAME (src/mcp-door.ts, 2026-09-15). This pinned the listing to
+// every served name; that is exactly the per-request toll the door lifts, so it now pins the derived listing, each
+// entry served, while mcp-door.test.ts holds that every served tool is reached through the door.
+test('tools/list carries the door and the tools the instructions name (each served, named, described, schema-typed)', () => {
   const r = handleMcpRpc({ jsonrpc: '2.0', id: 2, method: 'tools/list' }) as { result: { tools: { name: string; description: string; inputSchema: { type: string } }[] } }
   const tools = r.result.tools
-  assert.ok(tools.length >= 9, 'at least the 9 pure tools')
-  assert.deepEqual([...tools].map((t) => t.name), mcpHttpToolNames())
+  assert.ok(mcpHttpToolNames().length >= 9, 'at least the 9 pure tools are served')
+  assert.deepEqual([...tools].map((t) => t.name), mcpHttpListedNames())
+  assert.deepEqual(tools.slice(0, 2).map((t) => t.name), [LIST_NAME, DOOR_NAME], 'list_tools and call_tool lead the listing')
   for (const t of tools) {
+    assert.ok(mcpHttpToolNames().includes(resolveToolName(t.name) ?? t.name), `${t.name} is listed but not served`)
     assert.equal(typeof t.description, 'string')
     assert.ok(t.description.length > 0)
     assert.equal(t.inputSchema.type, 'object')

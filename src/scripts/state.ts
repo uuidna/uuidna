@@ -37,7 +37,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps, odometerNext, runSequence } from '../index.js'
-import { MCP_CATALOG } from '../mcp.js'
+import { MCP_CATALOG, MCP_LISTED } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { contextGaps } from './context-budget.js'   // the per-request toll of being connected — reported here, blocked in the guard
 import { legalGaps, lonelyGaps, incompleteGaps, proseGaps, tautologyGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, leanNegationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, importGaps, blocksGaps, countsGaps, expectedGaps, censusGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, nameGaps, deadkeyGaps, staleGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
@@ -61,7 +61,7 @@ const finders: [string, number][] = [
   ['folders', foldersGaps().length], ['imports', importGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['landing', landingGaps([...sourceGraph().keys()]).length], ['leads', leadsGuardGaps().length],['impossibility', impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()).length], ['stamp', stampGaps().length], ['attestation', attestationGaps([...sourceGraph().keys()]).length], ['accounting', accountingGaps().length], ['prose-provenance', proseProvenanceGaps().length], ['mcpcite', mcpCitationGaps().length], ['ratchet', ratchetGaps(RATCHETS).length], ['mirror', mirrorGaps().length], ['involution', involutionGaps().length], ['threshold', thresholdGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
   ['counts', countsGaps().length], ['expected', expectedGaps().length], ['census', censusGaps().length], ['lines', linesGaps().length],
   ['pairs', pairsGaps().length],
-  ['context', contextGaps(MCP_CATALOG).length],
+  ['context', contextGaps(MCP_CATALOG, MCP_LISTED).length],
 ]
 const dirtyFinders = finders.filter(([, n]) => n > 0)
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }

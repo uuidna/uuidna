@@ -12,7 +12,8 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 import { MCP_CATALOG, callTool } from './mcp.js'
-import { handleMcpRpc, mcpHttpToolNames, edgeAbsentNames } from './mcp-http.js'
+import { handleMcpRpc, mcpHttpToolNames, mcpHttpCatalogue, edgeAbsentNames } from './mcp-http.js'
+import { idOf } from './mcp-door.js'
 import { coinSupply } from './index.js'
 import { tamperCosts } from './index.js'
 
@@ -22,8 +23,11 @@ interface Declared {
 }
 const declared = JSON.parse(readFileSync(join(ROOT, 'lean', 'mcp-surface-divergence.json'), 'utf8')) as Declared
 
+// every tool the edge SERVES, with its contract. tools/list carries only the door and the tools the instructions name
+// since 2026-09-15 (src/mcp-door.ts); the served contracts are what an agent reaches, through the door or by name,
+// so they are what the two surfaces must agree on.
 const edgeTools = (): { name: string; description: string; inputSchema: { required?: string[] } }[] =>
-  (handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/list' }) as { result: { tools: { name: string; description: string; inputSchema: { required?: string[] } }[] } }).result.tools
+  mcpHttpCatalogue().map((t) => ({ ...t, name: idOf(t) })) as { name: string; description: string; inputSchema: { required?: string[] } }[]   // keyed by catalogue id, as the stdio side is
 const required = (s?: { required?: string[] }): string[] => [...(s?.required ?? [])].sort()
 const localSchemas = new Map(MCP_CATALOG.map((t) => [t.name, required(t.inputSchema)]))
 

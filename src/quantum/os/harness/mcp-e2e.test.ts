@@ -14,6 +14,7 @@ import { test, before, after } from 'node:test'
 import assert from 'node:assert/strict'
 import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'
 import { createInterface } from 'node:readline'
+import { DOOR, DOOR_NAME, LIST_NAME, idOf, namedIn } from '../../../mcp-door.js'
 
 interface Rpc { id?: number; result?: unknown; error?: { code?: number; message?: string } }
 
@@ -59,10 +60,24 @@ test('e2e: initialize returns a protocol version and names the server', async ()
 })
 
 // ── THE CATALOGUE, ON THE WIRE. mcp-coverage checks the in-process array; this checks what is actually serialised.
-test('e2e: tools/list serves every tool with a usable schema', async () => {
+// Since the door (src/mcp-door.ts, 2026-09-15) tools/list carries the door and the tools the instructions name, and
+// the whole catalogue travels in the door's {} answer — so the full-catalogue checks now read that answer.
+type Row = { name?: string; aliases?: string[]; description?: string; inputSchema?: { type?: string } }
+test('e2e: tools/list serves the door, and the door serves every tool with a usable schema', async () => {
   const r = await rpc('tools/list')
-  const tools = (r.result as { tools?: { name?: string; description?: string; inputSchema?: { type?: string } }[] }).tools ?? []
-  assert.ok(tools.length > 100, `expected the full catalogue, saw ${tools.length}`)
+  const listing = r.result as { tools?: Row[]; _meta?: { door?: string } }
+  const door = listing._meta?.door
+  assert.ok(door && (listing.tools ?? []).some((t) => t.name === door), 'the listing names its door and carries it')
+  for (const t of listing.tools ?? []) assert.equal(t.inputSchema?.type, 'object', `${t.name}: a listed schema must be an object schema`)
+  const tools = (JSON.parse(callText(await rpc('tools/call', { name: door, arguments: {} }))) as { tools?: Row[] }).tools ?? []
+  assert.ok(tools.length > 100, `expected the full catalogue through the door, saw ${tools.length}`)
+  // the instructions a client hands the model name only tools that exist
+  const init = await rpc('initialize', { protocolVersion: '2024-11-05', capabilities: {}, clientInfo: { name: 'e2e', version: '0' } })
+  // the instructions name tools by their standard names; every name they carry — old or standard — is a served tool
+  const text = String((init.result as { instructions?: string }).instructions)
+  const oldNamed = [...new Set(text.match(/\buuidna_[a-z0-9_]+/g) ?? [])]
+  assert.deepEqual(oldNamed.filter((n) => !tools.some((t) => (t.aliases ?? []).includes(n) || t.name === n)), [], 'the instructions name a tool the server does not have')
+  assert.ok(namedIn(text, tools.map((t) => String(t.name))).length > 3, 'the instructions name the tools they point a model at')
   for (const t of tools) {
     assert.ok(t.name, 'a nameless tool cannot be called')
     assert.ok(t.description && t.description.length > 20, `${t.name}: a client shows this to a model — it must say something`)
@@ -71,7 +86,40 @@ test('e2e: tools/list serves every tool with a usable schema', async () => {
   assert.equal(new Set(tools.map((t) => t.name)).size, tools.length, 'a duplicate name shadows a tool')
   // the tools added this session must survive the trip
   for (const n of ['uuidna_school_apis', 'uuidna_education_jobs', 'uuidna_oeapi'])
-    assert.ok(tools.some((t) => t.name === n), `${n} is in the catalogue but not on the wire`)
+    assert.ok(tools.some((t) => idOf({ name: String(t.name), aliases: t.aliases }) === n), `${n} is in the catalogue but not on the wire`)
+})
+
+// ── THE DOOR IS TRANSPARENT, over the real stdio framing: the same answer, the same gate verdict, the same deposit,
+// and a receipt that names the tool itself — the door is unwrapped before any of them is computed.
+test('e2e: a call through the door answers exactly as the direct call', async () => {
+  const sample: [string, Record<string, unknown>][] = [['uuidna_theorem', { key: 'two_coins' }], ['uuidna_address', { text: 'hello' }], ['uuidna_coins', {}]]
+  const meta = (m: Rpc) => (m.result as { _meta?: { tool?: string; gate?: { receipt?: string }; deposit?: { id?: string } } })._meta
+  for (const [name, args] of sample) {
+    const direct = await rpc('tools/call', { name, arguments: args })
+    // call_tool in tools/call's own keys, and the first door's {op, args}: both the direct call
+    for (const [form, door] of [
+      ['call_tool {name, arguments}', await rpc('tools/call', { name: DOOR_NAME, arguments: { name, arguments: args } })],
+      ['uuidna_call {op, args}', await rpc('tools/call', { name: DOOR, arguments: { op: name, args } })],
+    ] as [string, Rpc][]) {
+      assert.equal(callText(door), callText(direct), `${name}: ${form} answered differently`)
+      assert.equal(meta(door)?.gate?.receipt, meta(direct)?.gate?.receipt, `${name}: ${form} — the gate judged a different call`)
+      assert.equal(meta(door)?.deposit?.id, meta(direct)?.deposit?.id, `${name}: ${form} — the deposit names a different op`)
+      assert.equal(meta(door)?.tool, name, 'the receipt names the tool, not the door')
+    }
+  }
+  // an unknown name is the same JSON-RPC error directly, through either door, and asked of list_tools
+  const direct = await rpc('tools/call', { name: 'uuidna_not_a_tool', arguments: {} })
+  assert.equal(direct.error?.code, -32602)
+  for (const r of [
+    await rpc('tools/call', { name: DOOR, arguments: { op: 'uuidna_not_a_tool' } }),
+    await rpc('tools/call', { name: DOOR_NAME, arguments: { name: 'uuidna_not_a_tool', arguments: {} } }),
+    await rpc('tools/call', { name: LIST_NAME, arguments: { name: 'uuidna_not_a_tool' } }),
+  ]) assert.deepEqual(r.error, direct.error, 'an unknown name is refused exactly as an unknown tools/call name')
+  // list_tools {name} over the real framing: the contract tools/list would serve, with its answer's shape
+  const got = JSON.parse(callText(await rpc('tools/call', { name: LIST_NAME, arguments: { name: 'get_theorem' } }))) as { name?: string; inputSchema?: unknown; annotations?: unknown; outputSchema?: unknown; aliases?: string[] }
+  assert.equal(got.name, 'get_theorem')
+  assert.ok(got.inputSchema && got.annotations && got.outputSchema, 'list_tools {name} returns the full contract')
+  assert.deepEqual(got.aliases, ['uuidna_theorem'])
 })
 
 // ── USE IT. An offline tool, called the way a client calls it, returning a payload that parses.
@@ -129,8 +177,9 @@ test('e2e: an unknown tool is refused by name, and the server survives it', asyn
   const r = await rpc('tools/call', { name: 'uuidna_not_a_tool', arguments: {} })
   const said = JSON.stringify(r.error ?? callText(r))
   assert.match(said, /unknown tool|not_a_tool/i, `the refusal must name what was refused, said: ${said.slice(0, 160)}`)
+  // the listing is the door and the named tools since src/mcp-door.ts, so any listing at all is the server serving
   const after = await rpc('tools/list')
-  assert.ok(((after.result as { tools?: unknown[] }).tools ?? []).length > 100, 'the server must keep serving after a refusal')
+  assert.ok(((after.result as { tools?: unknown[] }).tools ?? []).length > 0, 'the server must keep serving after a refusal')
 })
 
 test('e2e: a missing required argument is refused, and the refusal NAMES the argument', async () => {
@@ -143,7 +192,7 @@ test('e2e: an unknown METHOD is an error', async () => {
   const r = await rpc('no/such/method', {})
   assert.ok(r.error !== undefined || callText(r) === '', 'an unknown method must not be answered as though it worked')
   const after = await rpc('tools/list')
-  assert.ok(((after.result as { tools?: unknown[] }).tools ?? []).length > 100, 'and the server keeps serving')
+  assert.ok(((after.result as { tools?: unknown[] }).tools ?? []).length > 0, 'and the server keeps serving')
 })
 
 // ── THE CONNECTION IS A SESSION. A client makes many calls down one pipe; nothing may leak between them.

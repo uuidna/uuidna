@@ -27,7 +27,8 @@ import {
   type SkillSurface,
 } from './skills.js'
 import { MCP_CATALOG, callTool } from './mcp.js'
-import { handleMcpRpc } from './mcp-http.js'
+import { handleMcpRpc, mcpHttpCatalogue } from './mcp-http.js'
+import { idOf } from './mcp-door.js'
 import { skillsGaps } from './scripts/one-receipt.js'
 
 const stdioOpen = (skill: string): unknown => callTool('uuidna_skill', { skill })
@@ -39,9 +40,10 @@ const edgeCall = (name: string, args: Record<string, unknown>): unknown => {
   return JSON.parse(String(r.content?.[0]?.text))
 }
 const edgeOpen = (skill: string): unknown => edgeCall('uuidna_skill', { skill })
+// every contract the edge SERVES — tools/list carries only the door and the tools the instructions name since
+// 2026-09-15 (src/mcp-door.ts), so the skill tools are reached through the door and read from the served catalogue
 const edgeSchemas = (): Map<string, string> => new Map(
-  (handleMcpRpc({ jsonrpc: '2.0', id: 2, method: 'tools/list' }) as { result: { tools: { name: string; inputSchema?: { required?: string[] } }[] } }).result.tools
-    .map((t) => [t.name, [...(t.inputSchema?.required ?? [])].sort().join(',')]))
+  mcpHttpCatalogue().map((t) => [idOf(t), [...((t.inputSchema as { required?: string[] } | undefined)?.required ?? [])].sort().join(',')]))
 
 /** a surface that answers correctly except for the one thing `break` changes — the falsifier's raw material */
 const brokenSurface = (mutate: (s: SkillSurface) => unknown) => (skill: string): unknown => mutate(skillSurface(skill))

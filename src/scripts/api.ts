@@ -475,6 +475,8 @@ export const LFS_PATHS: readonly string[] = [
  *  Staging explicit paths keeps the drain to what it computed. Anything else left dirty is somebody's work: the drain
  *  NAMES it and leaves it alone (see stageDerived). Add a path here only if a generator writes it. */
 export const DRAIN_PATHS: readonly string[] = [
+  // every tool's computed documentation (gen-mcp-docs): the module both MCP surfaces serve names, titles and shapes from
+  'src/mcp-docs.generated.ts',
   // the openly-licensed funding drafts — composed from the ledger by gen-funding-drafts, so they are staged
   // like any other derived surface rather than left to rot while git reports the tree clean
   'funding/drafts/nlnet-ngi-zero.md',
@@ -633,6 +635,7 @@ export const DRAIN_WRITERS: Readonly<Record<string, string>> = {
  *  against DRAIN_PATHS, so adding a generator to the chain without declaring its output fails at guard speed. */
 export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'lean-axioms': ['lean/axioms.json'],
+  'gen-mcp-docs': ['src/mcp-docs.generated.ts'],
   'gen-mcp': ['docs/mcp.md'],
   'gen-apis': ['docs/apis.md'],
   'gen-latex': ['docs/public/uuidna-ledger.tex'],

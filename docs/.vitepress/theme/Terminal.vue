@@ -1,7 +1,7 @@
 <!-- Terminal — uuidnaOS on the MCP wire: Layer 1 exec + full toolbox, one door (/mcp). -->
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import { parseLine, rpcCall, rpcList, helpText, resultText, transcriptReceipt, routeUtterance, type WireTool } from '../../../src/quantum/apps/terminal.js'
+import { parseLine, rpcCall, rpcList, rpcToolbox, toolboxOf, helpText, resultText, transcriptReceipt, routeUtterance, type WireTool } from '../../../src/quantum/apps/terminal.js'
 import { hostedMcpUrl, advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 import { formatCourtFuseHint } from '../../../src/quantum/os/browser/court/index.js'
 
@@ -55,7 +55,11 @@ onMounted(async () => {
   }
   try {
     const listed = await rpc(rpcList(++id)) as { result?: { tools?: WireTool[] } }
-    toolbox.value = listed.result?.tools ?? []
+    // the listing names its door (_meta.door); the door's {} answer is the whole toolbox, so the router still
+    // matches every tool the surface serves, not only the few the listing carries
+    const open = rpcToolbox(listed, ++id)
+    const whole = open ? toolboxOf(await rpc(open)) : []
+    toolbox.value = whole.length ? whole : listed.result?.tools ?? []
     toolCount.value = toolbox.value.length
     await print(`\ntoolbox — ${toolbox.value.length} tools on ${endpoint}`)
   } catch {

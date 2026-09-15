@@ -33,10 +33,17 @@ const REPEATS = 3
 export { wireBytes, sealedBudget, type WireTool }
 export type Budget = import('../mcp-wire.js').WireBudget
 
-/** contextGaps(tools) → every way the served surface is charging an agent more than it must. */
-export function contextGaps(tools: readonly WireTool[]): Gap[] {
+/** contextGaps(tools, listed) → every way the served surface is charging an agent more than it must.
+ *
+ *  `tools` is the catalogue, whose descriptions the dry and split laws read (every one still reaches a model, through
+ *  the door's index). `listed` is what tools/list actually carries — since 2026-09-15 the door and the tools the
+ *  server's instructions name (src/mcp-door.ts), not the catalogue. THE CEILING IS ITS BYTES PER CATALOGUE TOOL:
+ *  every tool is reachable from that listing, so a tool added to the catalogue adds reach at no wire cost, and
+ *  a padded listed description still raises the rate. Absent, the listing is the catalogue, the rule this finder
+ *  ran under before the door. */
+export function contextGaps(tools: readonly WireTool[], listed: readonly WireTool[] = tools): Gap[] {
   const gaps: Gap[] = []
-  const bytes = wireBytes(tools)
+  const bytes = wireBytes(listed)
 
   // 1) THE CEILING
   const sealed = sealedBudget()
@@ -94,11 +101,11 @@ export function contextGaps(tools: readonly WireTool[]): Gap[] {
 // being overpaid. The guard runs the same contextGaps in-process; this lane is the standalone reading, so the
 // number is inspectable without running the whole gate.
 if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href) {
-  const { MCP_CATALOG } = await import('../mcp.js')
-  const bytes = wireBytes(MCP_CATALOG)
+  const { MCP_CATALOG, MCP_LISTED } = await import('../mcp.js')
+  const bytes = wireBytes(MCP_LISTED)
   const sealed = sealedBudget()
   const detailed = MCP_CATALOG.filter((t) => t.detail)
-  console.log(`context-budget — the tools/list payload every request carries: ${bytes} bytes across ${MCP_CATALOG.length} tools`)
-  console.log(`  ceiling ${sealed ? sealed.wireBytes : '(unsealed)'} · ${detailed.length} tool(s) keep their derivation in detail (${detailed.reduce((s, t) => s + (t.detail?.length ?? 0), 0)} bytes that never reach the wire)`)
-  report('context-budget', contextGaps(MCP_CATALOG), `under the sealed ceiling, no sentence repeated across ${REPEATS} descriptions, no description over ${WIRE_CAP} bytes`)
+  console.log(`context-budget — the tools/list payload every request carries: ${bytes} bytes, ${MCP_LISTED.length} listed tools reaching ${MCP_CATALOG.length} (${Number((BigInt(bytes) * 100n) / BigInt(MCP_CATALOG.length))} hundredths per tool; the whole catalogue as rows would be ${wireBytes(MCP_CATALOG)} bytes)`)
+  console.log(`  ceiling ${sealed ? `${sealed.perToolHundredths ?? '-'} hundredths per tool` : '(unsealed)'} · ${detailed.length} tool(s) keep their derivation in detail (${detailed.reduce((s, t) => s + (t.detail?.length ?? 0), 0)} bytes that never reach the wire)`)
+  report('context-budget', contextGaps(MCP_CATALOG, MCP_LISTED), `under the sealed ceiling, no sentence repeated across ${REPEATS} descriptions, no description over ${WIRE_CAP} bytes`)
 }

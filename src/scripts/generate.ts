@@ -30,6 +30,7 @@ interface Gen { file: string; args: string[]; note: string }
 // THE MANIFEST — dependency order, the shell chain's order preserved where it existed, orphans folded in at the
 // point their inputs are ready. This list is the ONE place generation order is stated.
 const GENERATORS: Gen[] = [
+  { file: 'gen-mcp-docs.js', args: [], note: 'every tool run once in a sandbox: standard name, annotations from what it reaches, the shape of its actual answer — src/mcp-docs.generated.ts, which both MCP surfaces serve and gen-mcp renders' },
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
   { file: 'gen-apis.js', args: [], note: 'the public API catalog — drained from publicApiRegistry(), no hand-typed /apis' },
   { file: 'gen-latex.js', args: [], note: 'the ledger as one XeLaTeX article — derived from the seals, so a wing that lands today is in the paper today' },

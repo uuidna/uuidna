@@ -41,7 +41,7 @@ import { memoryHomeGuardGaps } from '../memory-home.js'
 import { capacity } from '../os/host/index.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
-import { MCP_CATALOG } from '../mcp.js'
+import { MCP_CATALOG, MCP_LISTED } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
 
@@ -425,7 +425,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // sentence copied verbatim into 87 descriptions. Three classes, each blocking — the sealed ceiling may only
   // shrink, no sentence over the law-phrase bound may repeat across three descriptions, and a description over the
   // wire cap owes its derivation to `detail` (which reaches docs/mcp.md and never the wire).
-  { name: 'context', run: () => contextGaps(MCP_CATALOG) },
+  { name: 'context', run: () => contextGaps(MCP_CATALOG, MCP_LISTED) },
   // WHAT THE SHIP REFUSES, ASKED BEFORE THE LANDING. Each of these surfaced only at `npm run ship`, after a full
   // landing: an asset over Cloudflare's per-asset limit, a dead link the SSG's check refuses, and a module on the
   // worker's graph importing a Node builtin, which Cloudflare refuses at upload. The page count has no sealed

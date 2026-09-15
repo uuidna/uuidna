@@ -59,6 +59,24 @@ export const rpcCall = (cmd: TermCommand, id: number): object =>
 /** rpcList(id) → the tools/list message — how the terminal LEARNS the toolbox (the one source; no local copy). */
 export const rpcList = (id: number): object => ({ jsonrpc: '2.0', id, method: 'tools/list' })
 
+/** rpcToolbox(listed, id) → the call that opens the WHOLE toolbox, or null when the listing already is the toolbox.
+ *  Since the door (src/mcp-door.ts) tools/list carries the door and a few named tools; the listing names its door in
+ *  `_meta.door`, so the terminal learns that name from the wire too and still carries no tool name of its own. */
+export const rpcToolbox = (listed: unknown, id: number): object | null => {
+  const door = (listed as { result?: { _meta?: { door?: unknown } } } | null)?.result?._meta?.door
+  return typeof door === 'string' && door ? rpcCall({ kind: 'call', name: door, args: {} }, id) : null
+}
+
+/** toolboxOf(answer) → the tools a door's {} answer carries, in the tools/list row shape; [] when it carries none. */
+export function toolboxOf(answer: unknown): WireTool[] {
+  const text = (answer as { result?: { content?: { text?: unknown }[] } } | null)?.result?.content?.[0]?.text
+  if (typeof text !== 'string') return []
+  try {
+    const v = JSON.parse(text) as { tools?: unknown }
+    return Array.isArray(v?.tools) ? (v.tools as WireTool[]).filter((t) => typeof t?.name === 'string') : []
+  } catch { return [] }
+}
+
 /** helpText() → the terminal's own words. NOTE WHAT IS ABSENT: no tool list — the toolbox is fetched from the
  *  wire at mount, because a help text that named tools would be the second copy the singularity forbids. */
 export const helpText = (): string => [
