@@ -22,8 +22,10 @@ import { toUuid } from './address.js'
 import { auditCall } from './legal-audit.js'
 import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
 import { sealToolWire } from './mcp-wire.js'
+import { DOOR, DOOR_NAME, DOOR_SCHEMA, DOOR_DESCRIPTION, LIST, LIST_SCHEMA, LIST_DESCRIPTION, LIST_DETAIL, CONNECT, doorDetail, doorRun, listTools, listedOf, openDoor, unknownLookup, isDoorTool, type DoorRow } from './mcp-door.js' // the same door as stdio, opening what THIS surface serves
+import { renderNames } from './mcp-names.js'
 import { conformance } from './conformance.js'
-import { MCP_CATALOG, callTool, argsGateOf, mcpBenchmark, toolHandleOf, apiHandleOf, recordPayment, messagingSession } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
+import { MCP_CATALOG, callTool, argsGateOf, mcpBenchmark, apiHandleOf, recordPayment, messagingSession, resolveToolName, wireRowOf, indexRowOf, STANDARD_NAMES } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { billUuidna } from './captain/billing/index.js'
 import { coinSupply } from './coin-supply.js'
@@ -139,7 +141,7 @@ const TOOLS: HttpTool[] = ([
     run: (a) => {
       if (!a.messaging) return gateSelfTest(served().map((t) => t.name))
       const s = messagingSession()
-      return gateStatus(served().map((t) => t.name), { surface: 'edge', wireTools: served(), payments: s.payments, agent: s.agent })
+      return gateStatus(served().map((t) => t.name), { surface: 'edge', wireTools: listing(), covers: served().length, payments: s.payments, agent: s.agent })
     } },
 ] as HttpTool[]).map(sealToolWire)
 /** THE DECLARED ABSENCES, and the reason each one cannot serve here. This list MAY ONLY SHRINK.
@@ -186,19 +188,39 @@ const served = (): HttpTool[] => {
   const inherited = MCP_CATALOG
     .filter((t) => !(t.name in EDGE_ABSENT))
     .filter((t) => !TOOLS.some((own) => own.name === t.name))
+    .filter((t) => !isDoorTool(t.name))   // the stdio doors open the stdio catalogue; this surface builds its own below
     // dispatched through callTool — the STDIO SERVER'S OWN DOOR, so an inherited tool is answered by exactly the
     // code the stdio surface answers with, schema enforcement included. Two lists were the drift; two dispatches
     // would be the next one.
     .map((t): HttpTool => ({ name: t.name, description: t.description, inputSchema: t.inputSchema as Record<string, unknown>,
                    run: (a: Record<string, unknown>, ctx?: Parameters<HttpTool['run']>[1]) => callTool(t.name, a, ctx) as unknown }))
-  _served = [...TOOLS, ...inherited] as HttpTool[]
+  const own = [...TOOLS, ...inherited] as HttpTool[]
+  // THE DOOR OPENS WHAT THIS SURFACE SERVES — the edge's own implementations (uuidna_address takes {value} here)
+  // and the inherited ones, never an EDGE_ABSENT name, so a call through it is exactly a direct call at this door
+  _served = [...own, sealToolWire({ name: LIST, description: LIST_DESCRIPTION, detail: LIST_DETAIL, inputSchema: LIST_SCHEMA as unknown as Record<string, unknown>,
+    run: (a: Record<string, unknown>) => listTools(indexRows(), a) }), sealToolWire({ name: DOOR, description: DOOR_DESCRIPTION, detail: doorDetail(own), inputSchema: DOOR_SCHEMA as unknown as Record<string, unknown>,
+    run: (a: Record<string, unknown>, ctx?: Parameters<HttpTool['run']>[1]) => doorRun(indexRows(), (n, x) => {
+      const id = resolveToolName(n) ?? n
+      const t = served().find((s) => s.name === id)
+      if (!t) throw new Error(`unknown tool: ${n}`)
+      argsGateOf(id, t.inputSchema, x)
+      return t.run(x, ctx)
+    }, a) })]
   return _served
 }
 
 // the edge's listing is sealed the same way the stdio listing is: per-tool contract handles from THE one fold
 // (toolHandleOf in mcp.ts) — this surface serves a different subset, so its api fold DIFFERS from stdio's by
 // construction, and each surface's listing names exactly what that surface promises
-const listing = (): unknown[] => served().map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema, handle: toolHandleOf(t) }))
+// Each row is the standard one (wireRowOf in mcp.ts): standard name, title, computed line, annotations, old name as alias.
+const rows = (): DoorRow[] => served().map((t) => wireRowOf(t, 'edge'))
+const indexRows = (): DoorRow[] => served().map((t) => indexRowOf(t, 'edge'))
+/** the words a client hands the model on connect — and the one source of what this surface lists (src/mcp-door.ts) */
+const EDGE_INSTRUCTIONS = 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. After your first deposit: uuidna_quantum_advantage (compute path + magnitudes over classical re-run — verify_beats_recompute_by_magnitudes, not hardware supremacy). Alpine apps: uuidna_exec. Multi-agent: declare clientInfo.name at initialize; poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. ' + CONNECT + ' Integrity.'
+/** the instructions as served: every tool named by its standard name. Lazy — STANDARD_NAMES lives in mcp.ts, which may
+ *  still be initialising when this module loads. */
+const edgeInstructions = (): string => renderNames(EDGE_INSTRUCTIONS, STANDARD_NAMES)
+const listing = (): DoorRow[] => listedOf(rows(), edgeInstructions())
 const rpc = (id: unknown, result: unknown) => ({ jsonrpc: '2.0', id, result })
 const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0', id, error: { code, message } })
 
@@ -212,14 +234,24 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const method = msg?.method
   const params = msg?.params ?? {}
   if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
-    instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. After your first deposit: uuidna_quantum_advantage (compute path + magnitudes over classical re-run — verify_beats_recompute_by_magnitudes, not hardware supremacy). Alpine apps: uuidna_exec. Multi-agent: declare clientInfo.name at initialize; poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Integrity.' })
+    instructions: edgeInstructions() })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
-  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(served()), useCases: 'dist/**/*.test.js' } })
+  // `api` folds the listing, `covers` every contract the door opens here, `door` names the door (see mcp.ts)
+  if (method === 'tools/list') { const listed = listing(); return rpc(id, { tools: listed, _meta: { api: apiHandleOf(listed), covers: apiHandleOf(served()), door: DOOR_NAME, useCases: 'dist/**/*.test.js' } }) }
   if (method === 'tools/call') {
-    const name = String(params.name ?? '')
+    // THROUGH THE DOOR, THE CALL IT NAMES — unwrapped before the lookup, the argument gate, the audit and the deposit,
+    // so every one of them sees the tool itself; `params` is rebound so the dispatch below reads the opened call
+    const opened = openDoor(params.name, params.arguments as Record<string, unknown> | undefined)
+    if (opened) return handleMcpRpc({ ...msg, params: { ...params, name: opened.name, arguments: opened.args } }, ctx)
+    // a standard name and its old alias are one tool — resolved to the catalogue id before the gate, audit and deposit
+    const asked = String(params.name ?? '')
+    const name = resolveToolName(asked) ?? asked
     const tool = served().find((t) => t.name === name)
-    if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + name)
+    if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + asked)
+    // list_tools asked about a tool this surface does not serve: the same error an unknown tools/call name gets
+    const missing = unknownLookup(indexRows(), tool.name, params.arguments as Record<string, unknown> | undefined)
+    if (missing !== null) return rpcErr(id, -32602, 'unknown tool: ' + missing)
     const dispatch = (): object | null | Promise<object | null> => {
     // THE EDGE RUNS FROM uuidnaOS TOO: first call boots the verified world (cached), a drifted world refuses
     // to serve — one floor under stdio, worker, and tests alike.
@@ -301,6 +333,13 @@ export const edgeAbsentNames = (): string[] =>
 export const edgeAbsentWhy = (): { name: string; why: string }[] =>
   edgeAbsentNames().map((name) => ({ name, why: EDGE_ABSENT[name]! }))
 
-/** The tool names the hosted endpoint serves — for a GET /mcp discovery page. */
+/** The tool names the hosted endpoint serves — for a GET /mcp discovery page. Every one is callable by name. */
 export const mcpHttpToolNames = (): string[] => served().map((t) => t.name)
+/** Every contract the hosted endpoint serves, as the door's index row (listing row + actual answer shape + example). */
+export const mcpHttpCatalogue = (): DoorRow[] => indexRows()
+/** The tools this edge answers with its OWN implementation rather than the stdio one — gen-mcp-docs documents their
+ *  answers separately, since uuidna_address here takes {value} and returns an object. */
+export const edgeOwnTools = (): { name: string; inputSchema: Record<string, unknown> }[] => TOOLS.map((t) => ({ name: t.name, inputSchema: t.inputSchema }))
+/** The names tools/list carries here: the door and the tools EDGE_INSTRUCTIONS name. */
+export const mcpHttpListedNames = (): string[] => listing().map((t) => t.name)
 export const MCP_HTTP_PROTOCOL = PROTOCOL_VERSION

@@ -25,8 +25,9 @@ import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus, FREE_KEYS } from '../index.js'
 import { A432_HZ } from '../tts/synth.js'
-import { MCP_CATALOG, callTool } from '../mcp.js'
-import { handleMcpRpc } from '../mcp-http.js'
+import { MCP_CATALOG, STANDARD_NAMES, callTool } from '../mcp.js'
+import { handleMcpRpc, mcpHttpCatalogue } from '../mcp-http.js'
+import { idOf } from '../mcp-door.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { importAbs } from './import-abs.js'
 import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, LFS_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, listTracked, type Gap } from './api.js'
@@ -1827,8 +1828,9 @@ export function skillsGaps(): Gap[] {
 
   // 3) ONE CONTRACT, TWO DOORS: the axis must be registered on both surfaces, taking the same required arguments —
   //    an agent that learns a tool against uuidna.com and then runs it over stdio must not get an error.
-  const edgeSchemas = new Map((handleMcpRpc({ jsonrpc: '2.0', id: 2, method: 'tools/list' }) as { result: { tools: { name: string; inputSchema?: { required?: string[] } }[] } }).result.tools
-    .map((t) => [t.name, [...(t.inputSchema?.required ?? [])].sort().join(',')]))
+  //    Read from every tool the edge SERVES: since the door (src/mcp-door.ts) tools/list carries only the door and
+  //    the tools the edge's instructions name, so the listing is no longer the served surface.
+  const edgeSchemas = new Map(mcpHttpCatalogue().map((t) => [idOf(t), [...((t.inputSchema as { required?: string[] } | undefined)?.required ?? [])].sort().join(',')]))
   const localSchemas = new Map(MCP_CATALOG.map((t) => [t.name, [...(t.inputSchema?.required ?? [])].sort().join(',')]))
   for (const tool of SKILL_TOOLS) {
     if (!localSchemas.has(tool)) gaps.push({ what: `${tool} is not in the stdio catalogue`, fix: `register ${tool} in src/mcp.ts's TOOLS, running the computed surface in src/skills.ts` })
@@ -2636,7 +2638,8 @@ export function deadKeysInLine(line: string, sealed: ReadonlySet<string>, tools:
 export function deadkeyGaps(): Gap[] {
   const gaps: Gap[] = []
   const sealed = new Set((theorems() as { key: string }[]).map((t) => t.key))
-  const tools = new Set((MCP_CATALOG as { name: string }[]).map((t) => t.name))
+  // every name a tool answers to — its catalogue id and its standard name (src/mcp-names.ts) — is a tool, not a citation
+  const tools = new Set((MCP_CATALOG as { name: string }[]).flatMap((t) => [t.name, STANDARD_NAMES[t.name] ?? t.name]))
   // EVERY SURFACE A READER TRUSTS, not just the site. A dead key in a source comment or a package doc reads exactly
   // as authoritative as one on a page — the same violation, one layer over. TESTS ARE IN SCOPE NOW: exempting the
   // whole tree to spare a handful of negative fixtures hid two purged keys for as long as the exemption existed,

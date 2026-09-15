@@ -6,12 +6,17 @@
 import { rdRoot } from './boundary.js'
 import { ADDRESS_BYTES, KEY_BYTES, COINS } from './hexbit/index.js'
 
-/** tools/list row — name + description + schema; never detail. */
-export interface WireTool { name: string; description: string; detail?: string; inputSchema?: unknown }
+/** tools/list row — name, title, description, schema, annotations, aliases; never detail. */
+export interface WireTool { name: string; description: string; detail?: string; inputSchema?: unknown; title?: string; annotations?: unknown; aliases?: readonly string[] }
 
-/** The exact bytes an MCP client puts in the model's context for tools/list. */
+/** The exact bytes an MCP client puts in the model's context for tools/list. Every field a row carries to the model
+ *  is counted — the title, annotations and aliases the standard names added (src/mcp-names.ts) included — so a
+ *  field that rides the listing is paid for in this reading. `handle` is the listing's seal and stays uncounted, as before. */
 export const wireBytes = (tools: readonly WireTool[]): number =>
-  JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))).length
+  JSON.stringify(tools.map((t) => ({
+    name: t.name, ...(t.title ? { title: t.title } : {}), description: t.description, inputSchema: t.inputSchema,
+    ...(t.annotations ? { annotations: t.annotations } : {}), ...(t.aliases?.length ? { aliases: t.aliases } : {}),
+  }))).length
 
 export interface WireBudget {
   wireBytes: number

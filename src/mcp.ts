@@ -61,7 +61,10 @@ export type ToolCtx = {
   /** the hosted door's write to qpu storage over the QpuDeposit service binding — absent on a surface with no binding */
   deposit?: (key: string, value: unknown) => Promise<unknown>
 }
-import { sealToolWire } from './mcp-wire.js'
+import { sealToolWire, type WireTool } from './mcp-wire.js'
+import { DOOR, DOOR_NAME, DOOR_SCHEMA, DOOR_DESCRIPTION, LIST, LIST_SCHEMA, LIST_DESCRIPTION, LIST_DETAIL, CONNECT, doorDetail, doorRun, listTools, listedOf, openDoor, unknownLookup, isDoorTool, type DoorRow } from './mcp-door.js' // list_tools + call_tool open every tool; tools/call still takes every name
+import { MCP_DOCS } from './mcp-docs.generated.js' // every tool's computed documentation: standard name, title, annotations, actual answer shape
+import { renderNames, wireHintsOf } from './mcp-names.js'
 
 import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
 import { apiMintHarvest, apiMintDeposit } from './api-mint.js'
@@ -178,6 +181,8 @@ let LEG_ROWS: Rosetta[] | null = null
 // mirror are different witnesses, and one cache holding either would let a test poison the other.
 const hostHasNode = (): boolean => typeof (globalThis as { process?: { getBuiltinModule?: unknown } }).process?.getBuiltinModule === 'function'
 const liveLegRows = (): Rosetta[] => (hostHasNode() ? (LEG_ROWS ??= legCensusRows()) : mirrorRows())
+/** the likelihoods uuidna_predict answers — one list, read by its schema's enum and by its own check */
+const LIKELIHOODS = ['high', 'medium', 'low', 'all'] as const
 
 const TOOLS: Tool[] = ([
   { name: 'uuidna_address',
@@ -547,6 +552,7 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { url: { type: 'string', description: 'a YouTube watch URL or bare 11-character video id' }, captions: { type: 'string', description: 'caption/transcript text to adjudicate detail by detail' }, delimiter: { type: 'string', description: 'detail boundary for the captions (default: newline)' } }, required: ['url'] },
     run: (a) => auditVideo(String(a.url), { captions: a.captions === undefined ? undefined : String(a.captions), delimiter: a.delimiter === undefined ? undefined : String(a.delimiter) }) },
   { name: 'uuidna_expose',
+    detail: 'A coordinate is integrity, not truth (theorem provenance_integrity_not_content_truth): the tool says where the ledger has open structure, and only a kernel seal makes a candidate a theorem.',
     description: 'THE COORDINATES WHERE UNSEALED STRUCTURE EXPOSES ITSELF (lead 131, the discovery half of the one-call loop): walk the ledger\'s own coordinate surfaces and return where clusters point at missing seals — LONELY theorems (a computing principle with no neighbour: the cluster of one, asking for its second), GRID gaps (the 432 grid\'s own report of broken seats), PAIR gaps. Pure and offline — the coordinates compute from the sealed ledger alone, folded to one receipt. HONEST: a coordinate is WHERE to dig, never a theorem — what it exposes becomes real only when a candidate rides uuidna_wave_deposit and the KERNEL seals it. Returns {lonely,gridGaps,pairsGaps,counts,receipt,honest}.',
     inputSchema: { type: 'object', properties: {} },
     run: () => {
@@ -1078,7 +1084,7 @@ const TOOLS: Tool[] = ([
     run: async (a = {}) => {
       const { predictGaps } = await import('./scripts/predict-and-fill.js')
       const want = String(a.likelihood)
-      if (!['high', 'medium', 'low', 'all'].includes(want))
+      if (!(LIKELIHOODS as readonly string[]).includes(want))
         throw new Error(`uuidna_predict: likelihood must be one of high, medium, low, all — got "${want}"`)
       const r = predictGaps()
       return want === 'all' ? r : { ...r, gaps: r.gaps.filter((g) => g.likelihood === want) }
@@ -1486,7 +1492,7 @@ const TOOLS: Tool[] = ([
     run: (a) => {
       if (!a.messaging) return gateSelfTest(TOOLS.map((t) => t.name))
       const s = messagingSession()
-      return gateStatus(TOOLS.map((t) => t.name), { surface: 'stdio', wireTools: TOOLS, payments: s.payments, receiptSeq: s.receiptSeq, receiptTip: s.receiptTip, agent: s.agent })
+      return gateStatus(TOOLS.map((t) => t.name), { surface: 'stdio', wireTools: MCP_LISTED, covers: TOOLS.length, payments: s.payments, receiptSeq: s.receiptSeq, receiptTip: s.receiptTip, agent: s.agent })
     } },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
@@ -1914,6 +1920,13 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { of: { type: 'string', enum: ['monitor', 'compilers', 'arch'] } }, required: ['of'] },
     run: (a) => { if (a.of === 'compilers') return compilerCensus(); if (a.of === 'arch') return archMatrix(); primeMonitor(MONITOR_INVENTORY); return monitorCensus() } },
 ] as Tool[]).map(sealToolWire)
+// THE TWO DOORS (src/mcp-door.ts) — appended after the catalogue: list_tools reads every row, call_tool's detail names
+// every tool it opens, itself excepted. call_tool's run is reached through callTool; tools/call unwraps
+// {name, arguments} (and the first door's {op, args}) before the gate, so the envelope names the tool.
+TOOLS.push(sealToolWire({ name: LIST, description: LIST_DESCRIPTION, detail: LIST_DETAIL, inputSchema: LIST_SCHEMA,
+  run: (a: Record<string, unknown>) => listTools(catalogueRows(), a) }))
+TOOLS.push(sealToolWire({ name: DOOR, description: DOOR_DESCRIPTION, detail: doorDetail(TOOLS), inputSchema: DOOR_SCHEMA,
+  run: (a: Record<string, unknown>, ctx?: ToolCtx) => doorRun(catalogueRows(), (n, x) => callTool(n, x, ctx), a) }))
 
 // JSON-RPC 2.0 message shape over stdio. Ids may be string | number | null; params is method-specific.
 type JsonId = string | number | null | undefined
@@ -1923,7 +1936,8 @@ type JsonId = string | number | null | undefined
 const INSTRUCTIONS = [
   'uuidna — content-addressed identity, honest by construction. A ledger of Lean theorems (every one proven `by decide`, sorry-free, no Mathlib) folded to ONE recomputable receipt, plus pure-TS crypto and a measured billing model.',
   'Every tool call returns a CHAINED receipt (receipt · seq · referer): you always hold tamper-evident provenance for your command, and the whole session folds to one tip you can recompute yourself. Nothing to trust — everything to recheck.',
-  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_uuid_channel (slice handle+trinities+tail — automation without payload store), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
+  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_uuid_channel (slice handle+trinities+tail — automation without payload store), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_unify (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
+  CONNECT,
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical state-vector arithmetic (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
   'EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS — contribute first, then take, enforced by the protocol. Each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) (input sanitized, output sanitized, no fabricated theorem citation; one violation drains the verdict, named) and mints its deterministic two-coin deposit, the id the content-address of its own deposit statement, always citing theorem captain_commission_two_coins and theorem two_coins. Your first call has already contributed.',
   'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta.messaging (gate, deposit, hexbits, channel, ledger, receipt chain). Multi-agent coordination: declare clientInfo.name at initialize, hold the receipt chain, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Recompute the gate: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
@@ -1993,7 +2007,7 @@ let DISPATCH: Promise<void> = Promise.resolve()
 // The machine's identity is read once per process; the sensors are read on every call that asks.
 const HOST_READER = ['.', 'scripts', 'device-readings.js'].join('/')
 let hostIdentity: Record<string, unknown> | null = null
-const hostHardware = async (): Promise<Record<string, unknown>> => {
+export const hostHardware = async (): Promise<Record<string, unknown>> => {
   const r = await import(HOST_READER) as typeof import('./scripts/device-readings.js')
   if (!hostIdentity) {
     const d = r.deviceReadings()
@@ -2040,20 +2054,33 @@ function handle(msg: RpcMessage) {
   if (method === 'initialize') {
     const protocolVersion = params?.protocolVersion || '2024-11-05'
     PAYING_AGENT = String((params?.clientInfo as { name?: unknown } | undefined)?.name ?? 'anonymous') || 'anonymous'
-    return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: INSTRUCTIONS })
+    return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: SERVED_INSTRUCTIONS })
   }
   if (method === 'notifications/initialized' || method === 'initialized') return // notification — no reply
   if (method === 'ping') return ok(id, {})
   // every listed tool carries the handle of its own contract, and the listing carries the fold of them all —
   // the API sealed in hexbit handles, so a drifted description is a changed address, visible from either side
-  if (method === 'tools/list') return ok(id, { tools: TOOLS.map(({ name, description, inputSchema }) => ({ name, description, inputSchema, handle: toolHandleOf({ name, description }) })), _meta: { api: apiHandleOf(TOOLS), useCases: 'dist/**/*.test.js' } })
+  // THE LISTING IS THE DOOR AND WHAT THE INSTRUCTIONS NAME (src/mcp-door.ts), each row carrying the handle of its
+  // own contract. `api` folds the listing, `covers` folds every contract the door opens, `door` names the door so
+  // a client that learned its toolbox from this list (the terminal) can open the rest without naming a tool itself.
+  if (method === 'tools/list') return ok(id, { tools: MCP_LISTED, _meta: { api: apiHandleOf(MCP_LISTED), covers: apiHandleOf(TOOLS), door: DOOR_NAME, useCases: 'dist/**/*.test.js' } })
   if (method === 'tools/call') {
     // THE SERVER RUNS FROM uuidnaOS: the first call boots the verified world (~4 ms, cached) and a DRIFTED
     // world refuses to serve at all, fault named with the receipt — the same floor the tests stand on.
     try { bootOS() } catch (e) { return err(id, -32000, String((e as Error).message)) }
-    const t = TOOLS.find((x) => x.name === params?.name)
-    if (!t) return err(id, -32602, 'unknown tool: ' + params?.name)
-    const args = params?.arguments || {}
+    // THROUGH THE DOOR, THE CALL IT NAMES: unwrapped before the lookup, so an unknown op is refused exactly as an
+    // unknown name is, and the gate, audit, deposit and receipt below see the tool itself, never the door
+    // A STANDARD NAME AND ITS OLD ALIAS ARE ONE TOOL: resolved to the catalogue id before the lookup, so the gate,
+    // audit, deposit and receipt below read the same name whichever of the two the client called
+    const opened = openDoor(params?.name, params?.arguments)
+    const asked = opened ? opened.name : params?.name
+    const name = resolveToolName(asked)
+    const t = TOOLS.find((x) => x.name === name)
+    if (!t) return err(id, -32602, 'unknown tool: ' + asked)
+    const args = opened ? opened.args : params?.arguments || {}
+    // list_tools asked about a tool no row carries: the same JSON-RPC error an unknown tools/call name gets
+    const missing = unknownLookup(catalogueRows(), t.name, args)
+    if (missing !== null) return err(id, -32602, 'unknown tool: ' + missing)
     // THE GATED DISPATCH — the host (this named non-harmonic boundary) awaits the tool, then the PURE gate judges
     // the settled run: cleanAudit(f,d,v), one flag drains, the verdict travels IN the response (_meta.gate + a
     // visible verdict line) so an agent realises the enforcement per call, not by reading docs. A drained verdict
@@ -2243,6 +2270,56 @@ export const TOOL_NAMES: readonly string[] = TOOLS.map((t) => t.name)
 export const toolHandleOf = (t: { name: string; description: string }): string =>
   handleOf(toUuid('tool:' + t.name + ':' + t.description))
 
+/** THE STANDARD NAMES — catalogue id → the verb_object name the computed docs carry (src/mcp-names.ts derives it,
+ *  scripts/gen-mcp-docs records it). A tool the docs have not reached yet keeps its id, and the docs test names it. */
+export const STANDARD_NAMES: Readonly<Record<string, string>> = Object.fromEntries(Object.entries(MCP_DOCS).map(([id, d]) => [id, d.name]))
+let BY_NAME: Map<string, string> | null = null
+/** resolveToolName(name) → the catalogue id a standard name or an old alias calls; undefined for no tool. Every old
+ *  name stays callable, on every surface and through the door. */
+export const resolveToolName = (name: unknown): string | undefined => {
+  if (typeof name !== 'string') return undefined
+  if (!BY_NAME) {
+    BY_NAME = new Map()
+    for (const t of TOOLS) { BY_NAME.set(t.name, t.name); BY_NAME.set(STANDARD_NAMES[t.name] ?? t.name, t.name) }
+  }
+  return BY_NAME.get(name)
+}
+
+/** wireRowOf(t, surface) → the row tools/list serves: the standard name, the plain title, the ONE computed line
+ *  ("Verb object. Returns X."), the input schema and the annotations derived from what the run reaches. The old
+ *  name rides the door's index (indexRowOf), not the listing, which is paid for on every request. The door keeps its own line: which answer it gives depends on the key it is handed. An edge
+ *  implementation that answers in another shape serves the line computed from its own answer. */
+export const wireRowOf = (t: { name: string; description: string; inputSchema?: unknown }, surface: 'stdio' | 'edge' = 'stdio'): DoorRow => {
+  const d = MCP_DOCS[t.name]
+  if (!d) return { name: t.name, description: t.description, inputSchema: t.inputSchema, handle: toolHandleOf(t) }
+  const description = isDoorTool(t.name) ? t.description : surface === 'edge' && d.edge ? d.edge.description : d.description
+  return {
+    name: d.name, title: d.title, description, inputSchema: t.inputSchema, annotations: wireHintsOf(d.annotations),
+    handle: toolHandleOf({ name: d.name, description }),
+  }
+}
+/** indexRowOf(t, surface) → the door's row: the listing row, the shape of the actual answer, and the example that
+ *  produced it. outputSchema stays off tools/list: MCP requires structuredContent conforming to a listed
+ *  outputSchema on every call, and a shape read from one example cannot promise every call. */
+export const indexRowOf = (t: { name: string; description: string; inputSchema?: unknown }, surface: 'stdio' | 'edge' = 'stdio'): DoorRow => {
+  const d = MCP_DOCS[t.name]
+  const row = wireRowOf(t, surface)
+  if (!d) return row
+  const own = surface === 'edge' && d.edge
+  const outputSchema = own ? d.edge!.outputSchema : d.outputSchema
+  return { ...row, ...(d.name !== t.name ? { aliases: [t.name] } : {}), ...(outputSchema ? { outputSchema } : {}), ...(d.example && !own ? { example: d.example } : {}) }
+}
+
+/** catalogueRows() → every tool as the door's index serves it. */
+const catalogueRows = (): DoorRow[] => TOOLS.map((t) => indexRowOf(t))
+
+/** the words a client is handed on connect, every tool named by its standard name */
+const SERVED_INSTRUCTIONS = renderNames(INSTRUCTIONS, STANDARD_NAMES)
+
+/** THE WIRE — what tools/list carries: the door and the tools INSTRUCTIONS name, derived by src/mcp-door.ts. The
+ *  context finder measures these bytes per catalogue tool, since every tool in MCP_CATALOG is reachable from them. */
+export const MCP_LISTED: readonly (DoorRow & WireTool)[] = listedOf(TOOLS.map((t) => wireRowOf(t)), SERVED_INSTRUCTIONS)
+
 export interface ApiSeal { count: number; root: string; handle: string }
 export const apiHandleOf = (tools: readonly { name: string; description: string }[]): ApiSeal => {
   const root = merkleFold(tools.map((t) => toUuid('tool:' + t.name + ':' + t.description)))
@@ -2295,9 +2372,10 @@ export function argsGateOf(name: string, schema: unknown, args: Record<string, u
 // hardware state a message must bind never arrived (found 2026-09-14, when uuidna_quantum_message refused a context
 // it had been handed). A caller with no context behaves exactly as before.
 export function callTool(name: string, args: Record<string, unknown> = {}, ctx?: ToolCtx): unknown {
-  const tool = TOOLS.find((t) => t.name === name)
+  const id = resolveToolName(name) ?? name
+  const tool = TOOLS.find((t) => t.name === id)
   if (!tool) throw new Error(`unknown tool: ${name}`)
-  argsGateOf(name, tool.inputSchema, args)
+  argsGateOf(tool.name, tool.inputSchema, args)   // refused under the catalogue id, so an alias and its standard name refuse alike
   return tool.run(args, ctx)
 }
 

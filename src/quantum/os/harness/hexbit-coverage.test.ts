@@ -19,10 +19,16 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { handleMcpRpc } from '../../../mcp-http.js'
+import { DOOR, idOf } from '../../../mcp-door.js'
 import { UUID_HEXBITS } from '../../../hexbit/index.js'
 
 const rpc = (method: string, params: Record<string, unknown>): { result?: Record<string, unknown> } =>
   handleMcpRpc({ jsonrpc: '2.0', id: 1, method, params }) as { result?: Record<string, unknown> }
+
+/** EVERY SERVED TOOL, read through the door's {} answer over the protocol. tools/list carries only the door and the
+ *  tools the instructions name since 2026-09-15 (src/mcp-door.ts), so the listing is no longer the whole catalogue. */
+const servedTools = (): { name: string; inputSchema?: Record<string, unknown> }[] =>
+  ((JSON.parse(((rpc('tools/call', { name: DOOR, arguments: {} }).result?.content ?? []) as { text: string }[])[0]?.text ?? '{}') as { tools?: { name: string; aliases?: string[]; inputSchema?: Record<string, unknown> }[] }).tools ?? []).map((t) => ({ ...t, name: idOf(t) }))   // keyed by catalogue id
 
 /** arguments derived from the tool's OWN schema. A generic string for every field is a probe defect that reads
  *  as a coverage gap — it cost a wrong 74.7% before the types were honoured. */
@@ -43,7 +49,7 @@ const isStates = (h: unknown): boolean =>
 interface Sweep { tools: number; delivered: number; withoutHexbits: string[]; errored: string[] }
 
 const sweep = (): Sweep => {
-  const list = (rpc('tools/list', {}).result?.tools ?? []) as { name: string; inputSchema?: Record<string, unknown> }[]
+  const list = servedTools()
   const out: Sweep = { tools: list.length, delivered: 0, withoutHexbits: [], errored: [] }
   for (const t of list) {
     const r = rpc('tools/call', { name: t.name, arguments: argsFor(t.inputSchema) })
@@ -76,7 +82,7 @@ test('ONE UNIT, BOTH DOORS — a tool served by both surfaces answers identicall
   // The intersection is found, not hardcoded: the edge serves its own tools PLUS what it inherits, and picking a
   // name by hand picked an edge-only one first time. A shared tool with no required arguments is the honest
   // subject for a cross-surface comparison.
-  const edgeNames = new Set(((rpc('tools/list', {}).result?.tools ?? []) as { name: string }[]).map((t) => t.name))
+  const edgeNames = new Set(servedTools().map((t) => t.name))
   const shared = MCP_CATALOG.filter((t) => edgeNames.has(t.name) && !((t.inputSchema as { required?: string[] })?.required?.length))
   assert.ok(shared.length > 0, 'the two surfaces must share at least one argument-free tool, or they have diverged entirely')
 

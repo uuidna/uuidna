@@ -239,6 +239,9 @@ export function gateSelfTest(toolNames: readonly string[]): GateSelfTest {
 export interface GateMessagingOpts {
   surface: 'stdio' | 'edge'
   wireTools: readonly WireTool[]
+  /** how many tools the listing reaches — the door (src/mcp-door.ts) opens the whole catalogue, so the rate is the
+   *  listing's bytes per tool REACHED; absent, the listing is taken to reach only itself */
+  covers?: number
   payments?: readonly CoinPayment[]
   receiptSeq?: number
   receiptTip?: string
@@ -262,7 +265,7 @@ export function gateStatus(toolNames: readonly string[], messaging?: GateMessagi
   // reader wants to know what the wire actually costs — it is simply no longer the thing being judged.
   const bytes = wireBytes(messaging.wireTools)
   const sealed = sealedBudget()
-  const tools = messaging.wireTools.length
+  const tools = messaging.covers ?? messaging.wireTools.length
   const rate = tools > 0 ? Number((BigInt(bytes) * 100n) / BigInt(tools)) : 0
   const rateCeiling = sealed?.perToolHundredths ?? null
   const ceiling = sealed?.wireBytes ?? null

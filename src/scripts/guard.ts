@@ -39,7 +39,7 @@ import { HERE, ROOT, pool, type Gap, rd, judged } from './api.js'
 import { capacity } from '../os/host/index.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
-import { MCP_CATALOG } from '../mcp.js'
+import { MCP_CATALOG, MCP_LISTED } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
 
@@ -419,7 +419,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // sentence copied verbatim into 87 descriptions. Three classes, each blocking — the sealed ceiling may only
   // shrink, no sentence over the law-phrase bound may repeat across three descriptions, and a description over the
   // wire cap owes its derivation to `detail` (which reaches docs/mcp.md and never the wire).
-  { name: 'context', run: () => contextGaps(MCP_CATALOG) },
+  { name: 'context', run: () => contextGaps(MCP_CATALOG, MCP_LISTED) },
   // EVERY AUTHORED PAGE REDUCES TO A THEOREM COMBINATION, or declares why it does not. 1399 of 1432 pages already
   // come from two templates with a computed sidebar; of the 33 authored ones, 28 fold to a real theorem set and the
   // rest compute from a data loader or are declared indexes/artifacts. A page that asserts while standing on nothing

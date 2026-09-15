@@ -7,6 +7,8 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MCP_CATALOG } from '../mcp.js'
+import { MCP_DOCS } from '../mcp-docs.generated.js'   // each tool's standard name, annotations and actual answer (gen-mcp-docs)
+import type { Annotations } from '../mcp-names.js'
 import { edgeAbsentWhy } from '../mcp-http.js'
 import { adjudicate, theorems, toUuid } from '../index.js'
 import { gateVerdict, gateSelfTest } from '../gate-engine.js'
@@ -41,10 +43,25 @@ const params = (schema?: { properties?: Record<string, { type?: string; descript
   return ['**Parameters**', '', '| param | type | required | description |', '| --- | --- | --- | --- |', ...rows].join('\n')
 }
 
+// WHAT THE TOOL DOES AND HOW TO CALL IT, COMPUTED: the standard name, the old name it still answers to, the hints
+// derived from what its run reaches, and a real call with an excerpt of its real answer (src/mcp-docs.generated.ts).
+// The prose that follows is the author's note; the computed block above it is the contract.
+const hintsOf = (a: Annotations): string =>
+  [a.readOnlyHint ? 'read-only' : 'changes state', a.idempotentHint ? 'idempotent' : '', a.openWorldHint ? 'reaches outside' : '', a.destructiveHint ? 'destructive' : ''].filter(Boolean).join(' · ')
+const fenced = (s: string): string => s.replace(/`/g, '\'')
+const computed = (name: string): string => {
+  const d = MCP_DOCS[name]
+  if (!d) return ''
+  const lines = [`**${d.title}.** ${pageSafe(d.description.replace(/^[^.]*\.\s*/, ''))}`, '',
+    `Call \`${d.name}\`${d.name !== name ? ` — the old name \`${name}\` still answers` : ''} · ${hintsOf(d.annotations)}${d.status === 'documented' ? '' : ` · ${d.status}`}`]
+  if (d.example) lines.push('', '```json', `// arguments\n${fenced(JSON.stringify(d.example.args))}\n// answer${d.status === 'documented' ? ' (excerpt)' : ''}\n${fenced(d.example.excerpt)}`, '```')
+  return lines.join('\n')
+}
 const sections = order.map((cat) => {
   const tools = byCat.get(cat)!
   const skills = [...new Set(tools.map((t) => t.skill))].join(', ')
-  const rows = tools.map((t) => `### \`${t.name}\`\n\n${pageSafe(t.detail ?? t.description)}\n\n${params(t.inputSchema)}\n`).join('\n')
+  // the heading is the standard name; the anchor stays the old one, so every existing /mcp#uuidna-… link still lands
+  const rows = tools.map((t) => `### \`${MCP_DOCS[t.name]?.name ?? t.name}\` {#${t.name.replace(/_/g, '-')}}\n\n${computed(t.name)}\n\n${params(t.inputSchema)}\n\n${pageSafe(t.detail ?? t.description)}\n`).join('\n')
   return `## ${cat} <Badge type="tip" :text="'${tools.length}'" />\n\n*skill: ${skills}*\n\n${rows}`
 }).join('\n')
 
@@ -115,7 +132,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \\
 ${MCP_CATALOG.length} tools, **ranked by usability — the reusable at the top** (fewest required keys first; the ${zeroArg} zero-arg tools lead). The order EMERGES from \`uuidna_mcp_benchmark\`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
-${byUsability.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}
+${byUsability.map((t) => `<a href="#${t.name.replace(/_/g, '-')}"><code>${MCP_DOCS[t.name]?.name ?? t.name.replace(/^uuidna_/, '')}</code></a>`).join('\n')}
 </div>
 
 ## Getting started
