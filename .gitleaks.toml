@@ -9,7 +9,7 @@
 [extend]
 useDefault = true
 
-[allowlist]
+[[allowlists]]
 description = "generated public artifacts and the uuid/receipt medium — recomputable, never credentials"
 paths = [
   '''trials-receipts\.json''',
@@ -70,3 +70,22 @@ regexes = [
   # a uuid is an address, not a secret — the whole system's unit of speech
   '''[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}''',
 ]
+
+# A THEOREM KEY IS A SENTENCE, NOT A SECRET. generic-api-key scores the value after a `key` field on entropy, and the
+# ledger's keys are compressed sentences — `"key": "s4_fixed_point_and_cycle_census"` in the generated school missions
+# (485b9304, 2026-09-07) and 80 more across history, the medium the domains-deposit and vacuity entries above exempt
+# file by file. Stated once as the medium's shape, and scoped to generic-api-key alone: the token rules (github, aws,
+# stripe, …) still read every value, so a real credential of this shape is still caught by the rule that knows it.
+[[allowlists]]
+description = "sealed theorem keys — lowercase words joined by underscores — are public names, never credentials"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+regexes = ['''^[a-z][a-z0-9]*(?:_[a-z0-9]+)+$''']
+
+# the legal audit's control holds a credential-shaped SAMPLE ('sk-never-in-the-record-7f3a', 2026-09-14) to prove the
+# audit never records a raw secret — the leak-scan.test.ts reason above; renamed at HEAD, it stays in written history,
+# which only an allowlist reaches
+[[allowlists]]
+description = "the legal audit's credential-shaped control sample"
+targetRules = ["generic-api-key"]
+paths = ['''^src/legal-audit\.test\.ts$''']
