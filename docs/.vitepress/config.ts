@@ -6,6 +6,7 @@ import { SITE, urlOf, OG_IMAGE } from '../../src/site/index.js'
 import { computeSidebar, discoverStaticPages, canonicalOrder, nextOf } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
 import { theorems } from '../../src/theorems/index.js'
+import { edgeServes } from '../../src/edge-served.js'
 import { handleOf } from '../../src/handle.js'
 import { monographFaceOf } from '../../src/hexagram.js'
 
@@ -47,7 +48,10 @@ export default defineConfig({
   // captain's standing instruction is that dead links stay strict, so the exception went instead of the check:
   // the six generators that emitted those links now emit HTML anchors, which state the same truth in the form
   // the checker reads correctly. A fully strict build is the proof, and it is the same fix the .tex asset needed.
-  ignoreDeadLinks: false,
+  // A LINK THE EDGE SERVES IS NOT DEAD. The span's 65,536 stations are sealed but never built (isPagelessFile);
+  // the Worker renders /theorem/enumeration_hex4_<hex> from the ledger. edgeServes answers from the ledger, so a
+  // sealed pageless key resolves and a typo, an unheld key or any other missing page still fails the build.
+  ignoreDeadLinks: [(link: string) => edgeServes(link)],
   title: SITE.name,
   titleTemplate: ':title · uuidna',
   description: SITE.description,
