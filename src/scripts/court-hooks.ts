@@ -27,8 +27,10 @@ import { depositEvidence } from './receipt-deposit.js'
 import { courtOrders } from './trial-refusals.js'
 import { currentWriter, LOCK_PATH } from './one-writer.js'
 import { laws } from '../laws.js'
+import { toUuid } from '../address.js'
+import { judge, recordGap } from './mcp-bypass.js'
 
-interface HookInput { hook_event_name?: string; session_id?: string; stop_hook_active?: boolean; tool_name?: string; tool_input?: unknown; tool_response?: unknown }
+interface HookInput { hook_event_name?: string; session_id?: string; cwd?: string; stop_hook_active?: boolean; tool_name?: string; tool_input?: unknown; tool_response?: unknown }
 
 /** the statement an action makes: every string the tool was handed, each on its own line — the command, the path, the
  *  text written. A line apiece keeps a Lean declaration that opens a written text at the start of its line, where the
@@ -110,11 +112,33 @@ const guardLanding = (call: HookInput): void => {
     permissionDecisionReason: `The tree is held by a live ${holder.purpose} (pid ${holder.pid}). An edit now moves the tree after it was proven green, so the pre-push court refuses the push and the certification runs again. Queue this edit until the landing pushes, or stop the landing first and certify once with the edit in.` } }))
 }
 
+// EASIER NOT TO BYPASS (the captain, 2026-09-15: "make sure it is easier not to bypass"). PreToolUse (Bash): an ad-hoc
+// node -e / -p / --eval / tsx -e whose code imports this repository's dist/ or src/ is refused, and the refusal hands
+// the session the exact `npm run mcp -- <tool> '<json>'` lines that replace it, found by the door's own search over
+// the words of what the code imported (mcp-bypass.ts). The one escape states the gap — UUIDNA_MCP_GAP="…" — and the
+// command then runs with the gap appended to dist/evidence/mcp-gaps.jsonl as a door request. The door is asked
+// in-process (dist/scripts/mcp-call.js localDoor, the same callTool the hosted door runs), so a refusal needs no network.
+const guardBypass = async (call: HookInput): Promise<void> => {
+  const command = String((call.tool_input as { command?: unknown } | undefined)?.command ?? '')
+  const verdict = await judge({
+    command, cwd: call.cwd ?? ROOT, root: ROOT,
+    readFile: (p) => { try { return readFileSync(p, 'utf8') } catch { return null } },
+    address: toUuid,
+    suggest: async (words, tools) => {
+      const { localDoor, suggestTools } = await import('./mcp-call.js')
+      return suggestTools(await localDoor(), words, tools)
+    },
+  })
+  if (verdict.kind === 'gap') { recordGap(ROOT, { ...verdict.record, ...(call.session_id ? { session: call.session_id } : {}) }); return }
+  if (verdict.kind === 'refuse') console.log(JSON.stringify({ hookSpecificOutput: { hookEventName: 'PreToolUse', permissionDecision: 'deny', permissionDecisionReason: verdict.reason } }))
+}
+
 const main = async (): Promise<void> => {
   const call = ((): HookInput => { try { return JSON.parse(readFileSync(0, 'utf8')) as HookInput } catch { return {} } })()
   if (call.hook_event_name === 'PostToolUse') await audit(call)
   else if (call.hook_event_name === 'Stop') court(call)
   else if (call.hook_event_name === 'SessionStart') brief()
+  else if (call.hook_event_name === 'PreToolUse' && call.tool_name === 'Bash') await guardBypass(call)
   else if (call.hook_event_name === 'PreToolUse') guardLanding(call)
 }
 

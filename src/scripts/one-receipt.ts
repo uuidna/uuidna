@@ -1276,6 +1276,8 @@ export function scriptsGaps(root: string = ROOT): Gap[] {
   readDir('hooks', () => true)
   readDir('docs', (f) => f.endsWith('.md'))
   if (existsSync(join(ROOT, 'README.md'))) surfaces.push(fileText(join(ROOT, 'README.md')))
+  // AGENTS.md is the contract with every agent session (CLAUDE.md includes it): a command it tells them to run is called
+  if (existsSync(join(ROOT, 'AGENTS.md'))) surfaces.push(fileText(join(ROOT, 'AGENTS.md')))
   // package.json's OWN composites count as callers: `next` invoking `npm run audit` is a real reference
   surfaces.push(Object.entries(pkg.scripts).filter(([k]) => !thin.some(([t]) => t === k)).map(([, v]) => v).join('\n'))
   const haystack = surfaces.join('\n')

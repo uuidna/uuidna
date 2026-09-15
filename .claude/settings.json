@@ -14,13 +14,13 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
         "hooks": [
           {
             "type": "command",
             "command": "node \"$CLAUDE_PROJECT_DIR/dist/scripts/court-hooks.js\"",
             "timeout": 30,
-            "statusMessage": "Is the tree held by a landing?"
+            "statusMessage": "Is the tree held? Does this bypass the door?"
           }
         ]
       }
