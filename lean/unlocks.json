@@ -27,7 +27,7 @@
   },
   {
    "name": "quantum",
-   "n": 63
+   "n": 57
   },
   {
    "name": "cipher",
@@ -39,7 +39,7 @@
   },
   {
    "name": "clay",
-   "n": 36
+   "n": 33
   },
   {
    "name": "audit",
@@ -74,7 +74,15 @@
    "n": 21
   },
   {
+   "name": "waves",
+   "n": 21
+  },
+  {
    "name": "colour",
+   "n": 19
+  },
+  {
+   "name": "infinity",
    "n": 19
   },
   {
@@ -91,10 +99,6 @@
   },
   {
    "name": "vector-equilibrium",
-   "n": 18
-  },
-  {
-   "name": "waves",
    "n": 18
   },
   {
@@ -147,10 +151,6 @@
   },
   {
    "name": "glagolitic",
-   "n": 13
-  },
-  {
-   "name": "infinity",
    "n": 13
   },
   {

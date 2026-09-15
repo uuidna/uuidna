@@ -98,6 +98,17 @@ test('supporting theorems a row states before its verdict become facts, never ro
   for (const x of w.facts) assert.match(x.lean ?? '', new RegExp(`^theorem ${x.key} :[^]*?:= by`))
 })
 
+test('the accepted proofs stand on their verdicts, and a moved text loses them (proof_de5612a2, proof_f59dbc3d)', () => {
+  for (const [h, thm] of [['de5612a2', 'proof_de5612a2'], ['f59dbc3d', 'proof_f59dbc3d']] as const) {
+    const f = formalLeads().find((x) => x.handle === h)
+    assert.ok(f, `lead ${h} carries a text the kernel accepted`)
+    assert.equal(f.row.kernel?.theorem, thm, `the kernel's verdict on lead ${h} is ${thm}`)
+    assert.ok(buildFormalWing(f).facts.some((x) => x.key === thm), `${thm} closes lead ${h}'s wing`)
+    // the mutation that must fail: the same row with one character more is not the text the kernel judged
+    assert.equal(verdictCurrent({ ...f.row, lean: (f.row.lean ?? '') + '\n' }), false, `a moved text loses ${thm}`)
+  }
+})
+
 test('the door only adds verdicts: no lead text changes, no row moves, and a current verdict is not re-asked', () => {
   const book = readBook()
   const stripped: LeadBook = { ...book, trial: book.trial.map((r) => { const { kernel: _k, ...rest } = r; return rest as LeadRow }) }

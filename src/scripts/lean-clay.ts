@@ -99,30 +99,6 @@ const FACTS = [
     js: () => R(7).length === 7 && 7 * 6 === 42 && (7 * 6) / 2 === 21 && 7 + 7 + 7 === 21 && 3 * 7 === 21
       && 2 * 21 === 42 && 2 * 64 === 128 && 110 - 108 === 2,
     lean: 'theorem clay_gravity_equals_rosette : (List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 = 21) ∧ (2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2) := by decide' },
-
-  { key: 'two_coins_make_a_coil_and_seven_coils_are_one_and_six',
-    why: 'TWO COINS MAKE A COIL, AND SEVEN COILS ARE ONE AND SIX. The 2×7 witness faces (VE_FACES = 8 + 6 = 14) are fourteen coins, and two coins to a coil makes seven coils; seven equal coils pack as one centre and six around — the centred hexagonal number 3·1·2 + 1 = 7 — and the reflection i ↦ 6 − i fixes exactly one of the seven (mass_coord_clay_seven_has_centre). The seven Clay problems stand the same way today: one resolved (Poincaré, Perelman; Clay\'s prize, 2010) and six open. A count shared by the witnesses, the coils and the problems — a correspondence of numbers, not a proof of any problem.',
-    js: () => 2 * 7 === 14 && 14 / 2 === 7 && 8 + 6 === 14 && 7 === 1 + 6 && 3 * 1 * (1 + 1) + 1 === 7 && R(7).filter((i) => i === 6 - i).length === 1,
-    lean: 'theorem two_coins_make_a_coil_and_seven_coils_are_one_and_six : (2 * 7 = 14) ∧ (14 / 2 = 7) ∧ (8 + 6 = 14) ∧ (7 = 1 + 6) ∧ (3 * 1 * (1 + 1) + 1 = 7) ∧ ((List.range 7).filter (fun i => i == 6 - i)).length = 1 := by decide' },
-
-  { key: 'the_vortex_and_the_rosette_are_one_six_cycle',
-    why: 'THE VORTEX AND THE ROSETTE ARE ONE SIX-CYCLE. Doubling walks the units of ℤ/9 as 1→2→4→8→7→5 and returns at the sixth step; tripling walks the units of ℤ/7 as 1→3→2→6→4→5 and returns at the sixth step. Indexed by the exponent, both turn the sum of two exponents (mod 6) into the product of their values — checked over all 36 exponent pairs — so pairing 2ᵏ mod 9 with 3ᵏ mod 7 carries one ring\'s multiplication onto the other\'s. ℤ/7 is the 1 + 6 — the centre 0 and six units — and two sevens are the fourteen witness faces, 2·7 = 14 = 8 + 6; nine by seven is the 63-cell grid the addresses fill (rosette_and_vortex_are_coprime). Inside the groups this is the general fact that two cyclic groups of one order are isomorphic; the step beyond it is an involution that is not a group map at all — the_ten_complement_involutes_the_vortex_through_the_axis.',
-    js: () => R(6).map((k) => (2 ** k) % 9).join() === '1,2,4,8,7,5' && (2 ** 6) % 9 === 1
-      && R(6).map((k) => (3 ** k) % 7).join() === '1,3,2,6,4,5' && (3 ** 6) % 7 === 1
-      && R(6).every((i) => R(6).every((j) => (2 ** ((i + j) % 6)) % 9 === ((2 ** i) * (2 ** j)) % 9 && (3 ** ((i + j) % 6)) % 7 === ((3 ** i) * (3 ** j)) % 7))
-      && 7 === 1 + 6 && 2 * 7 === 14 && 8 + 6 === 14 && 9 * 7 === 63,
-    lean: 'theorem the_vortex_and_the_rosette_are_one_six_cycle : ((List.range 6).map (fun k => 2 ^ k % 9) = [1, 2, 4, 8, 7, 5]) ∧ (2 ^ 6 % 9 = 1) ∧ ((List.range 6).map (fun k => 3 ^ k % 7) = [1, 3, 2, 6, 4, 5]) ∧ (3 ^ 6 % 7 = 1) ∧ ((List.range 6).all (fun i => (List.range 6).all (fun j => (2 ^ ((i + j) % 6) % 9 == (2 ^ i * 2 ^ j) % 9) && (3 ^ ((i + j) % 6) % 7 == (3 ^ i * 3 ^ j) % 7)))) ∧ (7 = 1 + 6) ∧ (2 * 7 = 14) ∧ (8 + 6 = 14) ∧ (9 * 7 = 63) := by decide' },
-
-  { key: 'the_ten_complement_involutes_the_vortex_through_the_axis',
-    why: 'THE TEN-COMPLEMENT INVOLUTES THE VORTEX THROUGH THE AXIS — the captain: "1248 instead of 16, 1→9, 6→4". The digit map x ↦ 10 − x pairs 1↔9, 2↔8, 3↔7, 4↔6 and fixes 5, and applied twice it returns every digit. The pairs themselves are already sealed as captains_columns_sum_to_ten and the lone fixed digit as five_is_the_developing_center (the compass mandala); what this theorem adds is what the map is on ℤ/9, and where it carries the vortex. Modulo 9 it is x ↦ 1 − x, which is affine, not multiplicative: it sends 2·4 = 8 to 2, but 8·6 = 48 ≡ 3, so it is no isomorphism of the vortex group and leaves the domain of the cyclic-group fact. What it does instead is cross: the vortex\'s 1, 4, 7 land on the axis 9, 6, 3, while 2, 8, 5 stay in the vortex, so the one six-cycle 1,2,4,8,7,5 involutes to 9,8,6,2,3,5. In binary the vortex\'s first four steps 1, 2, 4, 8 are the four coins of a hex digit: their 16 subsets sum to 0 through 15 once each, so 1248 carries what 16 counts, and 16 itself reads 1 + 6 = 7 = 2⁴ mod 9, the next vortex step. On two digits the complement conserves the captain\'s 110: every n from 11 to 99 with no zero digit plus its complement is 110, as 16 + 94 = 110.',
-    js: () => R(9).every((i) => 10 - (10 - (i + 1)) === i + 1) && 10 - 1 === 9 && 10 - 6 === 4 && 10 - 5 === 5
-      && [1, 2, 4, 8, 7, 5].map((x) => 10 - x).join() === '9,8,6,2,3,5'
-      && R(9).every((i) => (10 - (i + 1)) % 9 === (1 + 81 - (i + 1)) % 9)
-      && (10 - (2 * 4) % 9) % 9 !== ((10 - 2) * (10 - 4)) % 9
-      && R(16).map((k) => (k % 2) + 2 * ((k >> 1) % 2) + 4 * ((k >> 2) % 2) + 8 * ((k >> 3) % 2)).join() === R(16).join()
-      && R(9).every((a) => R(9).every((b) => (10 * (a + 1) + (b + 1)) + (10 * (10 - (a + 1)) + (10 - (b + 1))) === 110))
-      && 16 + 94 === 110 && 1 + 6 === 7 && (2 ** 4) % 9 === 7,
-    lean: 'theorem the_ten_complement_involutes_the_vortex_through_the_axis : ((List.range 9).all (fun i => 10 - (10 - (i + 1)) == i + 1)) ∧ ((10 - 1 = 9) ∧ (10 - 6 = 4) ∧ (10 - 5 = 5)) ∧ ([1, 2, 4, 8, 7, 5].map (fun x => 10 - x) = [9, 8, 6, 2, 3, 5]) ∧ ((List.range 9).all (fun i => (10 - (i + 1)) % 9 == (1 + 81 - (i + 1)) % 9)) ∧ ((10 - 2 * 4 % 9) % 9 ≠ ((10 - 2) * (10 - 4)) % 9) ∧ ((List.range 16).map (fun k => (if k % 2 = 1 then 1 else 0) + (if k / 2 % 2 = 1 then 2 else 0) + (if k / 4 % 2 = 1 then 4 else 0) + (if k / 8 % 2 = 1 then 8 else 0)) = List.range 16) ∧ ((List.range 9).all (fun a => (List.range 9).all (fun b => (10 * (a + 1) + (b + 1)) + (10 * (10 - (a + 1)) + (10 - (b + 1))) == 110))) ∧ (16 + 94 = 110) ∧ (1 + 6 = 7) ∧ (2 ^ 4 % 9 = 7) := by decide' },
 ]
 
 emit({ file: 'Clay.lean', skill: 'clay',

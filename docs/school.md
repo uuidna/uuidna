@@ -856,13 +856,13 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The rules of inference | `Reasoning.lean` | reasoning | 25 | [`absorbed_evidence_idles`](/theorem/absorbed_evidence_idles) |
 | The chess horizon | `Chessgames.lean` | chess | 24 | [`after_one_move_four_hundred`](/theorem/after_one_move_four_hundred) |
 | The hexbit | `Hexbit.lean` | hexbit | 23 | [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) |
+| The waves | `Waves.lean` | waves | 21 | [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) |
 | The colour wheel | `Colour.lean` | colour | 19 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
 | The detectors, proven | `Audit.lean` | audit | 18 | [`backing_clears`](/theorem/backing_clears) |
 | The hardware-verifiable binary algebra | `Hardware.lean` | hardware | 18 | [`and_gate_truth_table`](/theorem/and_gate_truth_table) |
 | The algebra of the neuron | `Neuro.lean` | neuro | 18 | [`action_potential_swing`](/theorem/action_potential_swing) |
 | The lay of the land | `Topography.lean` | topography | 18 | [`back_bearing_is_involutive_on_every_bearing`](/theorem/back_bearing_is_involutive_on_every_bearing) |
 | The vector equilibrium | `VectorEquilibrium.lean` | vector-equilibrium | 18 | [`dz_involution_digits`](/theorem/dz_involution_digits) |
-| The waves | `Waves.lean` | waves | 18 | [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) |
 | Applied structure — the science pairs | `BioPhysics.lean` | science-pairs | 17 | [`abo_klein_four`](/theorem/abo_klein_four) |
 | The seven readings | `Readings.lean` | readings | 17 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) |
 | Self-discovered | `Discover.lean` | vortex | 16 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) |
@@ -886,7 +886,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The installs | `Installs.lean` | installs | 12 | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | The fixed stars | `Astronomy.lean` | astronomy | 11 | [`arcminutes_equator_to_pole`](/theorem/arcminutes_equator_to_pole) |
 | The audit game | `AuditGame.lean` | audit | 11 | [`audit_is_a_finite_game`](/theorem/audit_is_a_finite_game) |
-| The seven reflected | `Clay.lean` | clay | 11 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | The fused ring | `Crt.lean` | crt | 11 | [`axes_stride_coprime`](/theorem/axes_stride_coprime) |
 | The paper on trial | `MoMBHStar1.lean` | paper-trial | 11 | [`mombh_balmer_break_exceeds_stellar_ceiling`](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) |
 | The depth of a walk, and the involution that shortens it | `Recursion.lean` | wave | 11 | [`blocked_walk_depth_is_bounded_by_twice_the_root_1_to_20`](/theorem/blocked_walk_depth_is_bounded_by_twice_the_root_1_to_20) |
@@ -909,6 +908,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The structures domain | `Statics.lean` | statics | 9 | [`beam_reactions`](/theorem/beam_reactions) |
 | The uuid laws | `UuidLaws.lean` | identifiers | 9 | [`address_never_determines_payload`](/theorem/address_never_determines_payload) |
 | The geared computer of Rhodes | `Antikythera.lean` | antikythera | 8 | [`callippic_corrects_by_four`](/theorem/callippic_corrects_by_four) |
+| The seven reflected | `Clay.lean` | clay | 8 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | Diving — trimix gas laws | `Diving.lean` | diving | 8 | [`absolute_pressure_at_depth`](/theorem/absolute_pressure_at_depth) |
 | The time coordinate | `Ephemeris.lean` | ephemeris | 8 | [`gregorian_cycle_is_ninety_seven_leaps`](/theorem/gregorian_cycle_is_ninety_seven_leaps) |
 | The harmony of pairs | `Harmony.lean` | science-pairs | 8 | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) |
@@ -1323,8 +1323,8 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 5,836,025 | 6 | 972,670× | `theorems().length` |
-| what does the tree hold right now? | 5,857,972 | 225 | 26,035× | `npm run state` |
+| how many theorems are sealed? | 5,836,016 | 6 | 972,669× | `theorems().length` |
+| what does the tree hold right now? | 5,857,962 | 225 | 26,035× | `npm run state` |
 | which Alpine domains are ported? | 1,822,417 | 350 | 5,206× | `portsCensus()` |
 | is the tree green to release? | 1,152,442 | 65 | 17,729× | `leads-gate + gate-receipt --verify` |
 
@@ -1342,7 +1342,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,671 | 16 | 455,604× |
-| the sealed ledger | 23,344,103 | 16 | 1,459,006× |
+| the sealed ledger | 23,344,066 | 16 | 1,459,004× |
 | the leads record | 76,091 | 16 | 4,755× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

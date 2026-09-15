@@ -47,7 +47,7 @@
 10. **The quantum computer** — `lean/Quantum.lean` · **64** theorems
    the exact facts the classical state-vector computation yields — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; exact classical arithmetic, not hardware
 
-11. **The seven reflected** — `lean/Clay.lean` · **11** theorems
+11. **The seven reflected** — `lean/Clay.lean` · **8** theorems
    the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. PRIOR ART (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603, "All Seven Clay Millennium Problems Sealed via Universal σ-Involution") — credited first; captain next. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
 
 12. **The legal vocabulary** — `lean/Legal.lean` · **10** theorems
@@ -680,7 +680,7 @@
 221. **The uuid laws** — `lean/UuidLaws.lean` · **9** theorems
    what the version-8 stamp keeps and what it fixes — the low nibble and the low six bits kept for every one of the 256 bytes, the high nibble 8 and the variant bits 10, exactly 4 + 2 positions fixed as measured, so 122 of 128 bits stay free — and why an address never determines its payload: bounded search and the pigeonhole, proved for every size and every map by constructive induction, not on a window. Proved by ceccec (the millennium session) and re-judged on this host
 
-222. **The waves** — `lean/Waves.lean` · **18** theorems
+222. **The waves** — `lean/Waves.lean` · **21** theorems
    THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as f
 
 223. **The fixed points of x to the m, as a law** — `lean/FixedPower.lean` · **567** theorems

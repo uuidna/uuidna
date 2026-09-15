@@ -64,13 +64,13 @@
     "cites": [
      "n_qubit_dimension"
     ],
-    "claim": "The witness battery ran on this host — 61 witnesses, 490609 decisions, 0 disagreements with the Lean-sealed values — over registers whose amplitude count is theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict EXACT: better than one disagreement per 490609 executions on this host, across 57 of the wing's 63 theorems — a bound from the count, not a proof of zero, and not a claim about the 6 this battery does not decide.",
+    "claim": "The witness battery ran on this host — 61 witnesses, 490609 decisions, 0 disagreements with the Lean-sealed values — over registers whose amplitude count is theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict EXACT: better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.",
     "fabricated": [],
     "message": {
-     "aura": "#51d6ba",
-     "fold": "3ff79087-740d-8aab-8ecc-ace062865878",
+     "aura": "#d651ba",
+     "fold": "82cf5152-8d11-8f30-a973-4a10ecda3701",
      "hexbits": 4,
-     "id": "fe15ff8c-0cdb-836e-92ca-5737478d8216",
+     "id": "d6e047e6-3247-8651-861a-12e8631d2968",
      "qubits": 16,
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276"
     },
@@ -100,7 +100,7 @@
    }
   ],
   "passed": 5,
-  "receipt": "65728566-d9c7-88c1-9dec-458b9b7de377",
+  "receipt": "21133acd-14d1-8282-95db-bc6171972742",
   "refused": []
  },
  "host": {
@@ -109,7 +109,7 @@
   "why": "Every cost here is a decade, which survives a change of machine; naming the CPU beside it would claim a precision the decade does not have and would make these committed bytes reproducible only on that CPU. The running host is reported live by uuidna_quantum_advantage."
  },
  "proof": {
-  "bound": "better than one disagreement per 490609 executions on this host, across 57 of the wing's 63 theorems — a bound from the count, not a proof of zero, and not a claim about the 6 this battery does not decide",
+  "bound": "better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide",
   "coverage": {
    "beyondWing": [
     "born_field_mass_gap_on_bell",
@@ -117,15 +117,8 @@
     "store_fold_change_moves_receipt",
     "store_fold_order_invariant"
    ],
-   "unwitnessed": [
-    "mul_add_by_induction",
-    "mul_assoc_by_induction",
-    "n_qubit_dimension_all",
-    "one_more_qubit_doubles",
-    "shift_is_the_dimension",
-    "shl_pow"
-   ],
-   "wing": 63,
+   "unwitnessed": [],
+   "wing": 57,
    "witnessed": 57
   },
   "disagreements": 0,

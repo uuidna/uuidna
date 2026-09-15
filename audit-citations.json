@@ -1,5 +1,5 @@
 {
-  "key": "c0842aae-3497-8235-8412-4b2d5b9f6fd6",
+  "key": "6bc12ece-a60a-8054-91ef-7c78d5183b1c",
   "publications": 248,
   "sealedTheorems": 70998,
   "fabricated": 0,
@@ -99,8 +99,8 @@
     },
     {
       "slug": "clay",
-      "claims": 11,
-      "cited": 11,
+      "claims": 8,
+      "cited": 8,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1787,8 +1787,8 @@
     },
     {
       "slug": "waves",
-      "claims": 18,
-      "cited": 18,
+      "claims": 21,
+      "cited": 21,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

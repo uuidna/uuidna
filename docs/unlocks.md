@@ -60,10 +60,10 @@ Receipt `1c675daa-d4bf-858b-879d-4157cf606d64` · structured form <a href="/lean
 | `z9-ring` | 305 |
 | `z7-rosette` | 150 |
 | `nim` | 93 |
-| `quantum` | 63 |
+| `quantum` | 57 |
 | `cipher` | 38 |
 | `chess` | 37 |
-| `clay` | 36 |
+| `clay` | 33 |
 | `audit` | 29 |
 | `sequence` | 29 |
 | `coins` | 27 |
@@ -72,9 +72,9 @@ Receipt `1c675daa-d4bf-858b-879d-4157cf606d64` · structured form <a href="/lean
 | `vortex` | 24 |
 | `hexbit` | 23 |
 | `reflection` | 21 |
+| `waves` | 21 |
 | `colour` | 19 |
-| `neuro` | 19 |
-| `hardware` | 18 |
+| `infinity` | 19 |
 
 ## Lean files (top 20)
 

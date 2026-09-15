@@ -353,6 +353,11 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // later correct run would match the cache, skip the write, and leave the bad file standing. Compare content.
   const onDisk = existsSync(leanPath) ? readFileSync(leanPath, 'utf8') : ''
   if (proofEntryValid(cache[file], file, address) && onDisk === lean && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
+    // THE MANIFEST IS NOT THE PROOF. A fact's skill or name lives only in the manifest, never in the Lean text, so a
+    // skill-only change left the text — and the receipt — unchanged and the old manifest standing: six universals kept
+    // skill quantum after their facts said infinity (2026-09-15). The kernel's work is still skipped; the manifest is
+    // rewritten whenever it says something different.
+    if (readFileSync(manifestPath, 'utf8') !== manifest) writeFileSync(manifestPath, manifest)
     console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + handleOf(address) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
     return facts.length
   }

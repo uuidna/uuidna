@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "529ef6ba-2cfa-8191-b063-eafc6352032e"
+        "ledgerReceipt": "c63770ca-49aa-8420-b332-ab7613fd3962"
       },
-      "address": "84f7140e-2852-842a-9638-0224c7254a45"
+      "address": "80ada4a3-ad40-8786-a65e-565b407aa66b"
     },
     {
       "title": "Heartbeat coverage",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1327,
-        "roots": 821,
-        "supported": 1325,
+        "modules": 1329,
+        "roots": 823,
+        "supported": 1327,
         "dead": 2,
-        "receipt": "5749750f-ab7b-8c38-aadb-e21c4ec05fca"
+        "receipt": "1767eef2-7b80-8431-96f0-faa27f8cf718"
       },
-      "address": "6d56bbec-f64c-8a49-94cc-7dd9ff3afad1"
+      "address": "a27b1952-3fb0-8ba0-b2b3-19f927fb865a"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "e11402a5717b8c34",
-        "unifiedFold": "46497b961633f96e",
+        "foldReceipt": "1392139a0302fb8c",
+        "unifiedFold": "a5c7bd1b21658ec8",
         "zeroEntropy": "true"
       },
-      "address": "e626902e-8e8e-8f20-a055-5bf3d096e5f1"
+      "address": "248d4e21-4d0b-8015-bd90-38b0eb00ba71"
     },
     {
       "title": "Gate receipt",
@@ -102,66 +102,66 @@
       "address": "41c4f1e7-1007-80fc-ae7e-89f0c3980a87"
     }
   ],
-  "receipt": "028a9213-9a52-8b4d-9864-a3ba8efbe5b5",
-  "handle": "028a9213",
+  "receipt": "00e2bad6-0650-8e38-9a98-7b4d4f4d7677",
+  "handle": "00e2bad6",
   "hexbits": [
     0,
+    0,
+    14,
     2,
-    8,
+    11,
     10,
-    9,
-    2,
-    1,
-    3,
-    9,
-    10,
+    13,
+    6,
+    0,
+    6,
     5,
-    2,
+    0,
     8,
+    14,
+    3,
+    8,
+    9,
+    10,
+    9,
+    8,
+    7,
     11,
     4,
     13,
-    9,
-    8,
-    6,
     4,
-    10,
-    3,
-    11,
-    10,
-    8,
-    14,
     15,
-    11,
-    14,
-    5,
-    11,
-    5
+    4,
+    13,
+    7,
+    6,
+    7,
+    7
   ],
-  "door": "https://uuidna.com/028a9213",
+  "door": "https://uuidna.com/00e2bad6",
   "coin": [
     0,
+    0,
+    14,
     2,
-    8,
-    10,
-    9,
-    2,
-    1,
-    3,
-    9,
-    10,
-    5,
-    2,
-    8,
     11,
-    4,
-    13
+    10,
+    13,
+    6,
+    0,
+    6,
+    5,
+    0,
+    8,
+    14,
+    3,
+    8
   ],
   "place": {
-    "handle": "028a9213",
-    "value": 42635795,
+    "handle": "00e2bad6",
+    "value": 14858966,
     "span": 4294967296,
-    "residue": 5,
+    "residue": 2,
     "nilpotent": false,
     "hexbits": 8
   },

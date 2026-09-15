@@ -3,21 +3,21 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'289 open'" />
+# Missions <Badge type="tip" :text="'288 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**289 missions** — 28 seal-finding · 135 decide-bound · 126 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`8a2bbea1378286b2`) and the research ledger. The captain of every mission
+**288 missions** — 28 seal-finding · 134 decide-bound · 126 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`c96b8ce98c3feaf0`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [`uuidna_missions`](/mcp#uuidna-missions).
 
-## From skill to open work — 74 skills lead to a mission
+## From skill to open work — 73 skills lead to a mission
 
 _Practise a skill at [the school](/school), then take a mission in a wing that skill lives in: that is how a learner
 becomes a contributor. Each row is derived from the ledger by skill and from this board, meeting at the wing. The
@@ -37,10 +37,11 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | reflection | 21 | 3 | 4 | `c5c25997` |
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
 | neuro | 19 | 2 | 3 | `c912e182` |
-| quantum | 63 | 2 | 3 | `2efc2c84` |
+| quantum | 57 | 2 | 3 | `2efc2c84` |
 | audit | 29 | 2 | 2 | `15f4bed8` |
 | chess | 37 | 2 | 2 | `ec90748c` |
 | clay-reflection | 1 | 1 | 2 | `fdb12218` |
+| infinity | 19 | 2 | 2 | `09650336` |
 | nim | 93 | 1 | 2 | `9bfe08ef` |
 | affine | 6 | 1 | 1 | `116f528b` |
 | anthem | 9 | 1 | 1 | `e8f9c065` |
@@ -48,7 +49,6 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | boolean | 6 | 1 | 1 | `202bf46d` |
 | calendar | 15 | 1 | 1 | `dd85bce4` |
 | cipher | 38 | 1 | 1 | `7cc74f21` |
-| clay | 36 | 2 | 1 | `e7060873` |
 | clock | 6 | 1 | 1 | `1a614db7` |
 | codes | 9 | 1 | 1 | `68c9498b` |
 | command | 7 | 1 | 1 | `e28643c9` |
@@ -64,7 +64,6 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | grid | 6 | 1 | 1 | `fa9ec7f3` |
 | hardware | 18 | 1 | 1 | `a762709f` |
 | hexbit | 23 | 1 | 1 | `045ab792` |
-| infinity | 13 | 1 | 1 | `09650336` |
 | installs | 12 | 1 | 1 | `e781411a` |
 | isometry | 6 | 1 | 1 | `60f75693` |
 | legal | 17 | 2 | 1 | `a2b039ba` |
@@ -99,7 +98,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | trinities | 6 | 1 | 1 | `0026ddec` |
 | typesetting | 15 | 2 | 1 | `8ab4210a` |
 | vector-equilibrium | 18 | 1 | 1 | `761c08a1` |
-| waves | 18 | 1 | 1 | `bd04570b` |
+| waves | 21 | 1 | 1 | `d750e008` |
 
 ## Seal a finding — 28 open
 
@@ -190,7 +189,7 @@ _a read primary source whose value no theorem seals yet — the theorem is the d
   <br><small>deliverable: seal 47.3% vs 36.7% correct (10.6 percentage points) percentage points (measured, read source: Cepeda, Pashler, Vul, Wixted & Rohrer 2006, Psychological Bulletin 132(3):354, Discussion/Limitations) as a theorem, and point the finding at it</small>
   <br><small>door: uuidna_trial the claim, then a Lean line in the wing that owns the value; set the finding's theorem field to close it</small>
 
-## Decide a bound — 135 open
+## Decide a bound — 134 open
 
 _a finite domain that survived one widening step — a person decides whether it is the real domain (name it) or decorative (drop it); the instrument cannot._
 
@@ -233,10 +232,6 @@ _a finite domain that survived one widening step — a person decides whether it
 - **`7cc74f21`** decide 7 surviving bounds in Cipher.lean
   <br><small>deliverable: 7 statements in Cipher.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`dna_complement_fixed_point_free`](/theorem/dna_complement_fixed_point_free) · [`otp_self_inverse`](/theorem/otp_self_inverse) · [`otp_key_reuse_leaks_xor`](/theorem/otp_key_reuse_leaks_xor) · [`xor_fold_is_malleable`](/theorem/xor_fold_is_malleable) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`adversarial_privacy_is_unanimous`](/theorem/adversarial_privacy_is_unanimous) · [`byte_xor_hexbit_involution`](/theorem/byte_xor_hexbit_involution)</small>
-  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`e7060873`** decide 1 surviving bound in Clay.lean
-  <br><small>deliverable: 1 statement in Clay.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`two_coins_make_a_coil_and_seven_coils_are_one_and_six`](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`1a614db7`** decide 4 surviving bounds in Clock.lean
   <br><small>deliverable: 4 statements in Clock.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -730,9 +725,9 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 297 statements in Wave.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`pilgrims_walk_must_cycle`](/theorem/pilgrims_walk_must_cycle) · [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) · [`the_second_voice_is_the_variant`](/theorem/the_second_voice_is_the_variant) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`units_mod_5_number_4`](/theorem/units_mod_5_number_4) · [`idempotents_mod_5_number_2`](/theorem/idempotents_mod_5_number_2) · [`self_inverse_mod_5_number_2`](/theorem/self_inverse_mod_5_number_2) · [`squares_mod_5_number_3`](/theorem/squares_mod_5_number_3) · [`units_mod_6_number_2`](/theorem/units_mod_6_number_2) · [`idempotents_mod_6_number_4`](/theorem/idempotents_mod_6_number_4) · +285 more in the wing</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`bd04570b`** decide 4 surviving bounds in Waves.lean
-  <br><small>deliverable: 4 statements in Waves.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture)</small>
+- **`d750e008`** decide 5 surviving bounds in Waves.lean
+  <br><small>deliverable: 5 statements in Waves.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture) · [`two_coins_make_a_coil_and_seven_coils_are_one_and_six`](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
 ## Give a theorem its symbol leg — 126 open

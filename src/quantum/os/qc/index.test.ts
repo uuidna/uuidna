@@ -151,13 +151,17 @@ test('the audit is audited BACK: the circuit-menu finding is REFINED by the meas
   assert.equal(EXPOSED_GATE_SET.includes('rz'), false, 'the phase/rotation family is what period finding needs')
 })
 
-test('uuidna_qc census — every quantum-flavoured seal is counted and every one is decidable arithmetic', () => {
+test('uuidna_qc census — every quantum-flavoured seal is counted and every one is kernel-proved arithmetic', () => {
   const c = quantumClaimCensus()
   assert.ok(c.quantumFlavoured > 100, `the quantum vocabulary is a real population, got ${c.quantumFlavoured}`)
   assert.ok(c.quantumFlavoured < c.ledger, 'and it is a SUBSET of the ledger, not the whole of it')
-  assert.equal(c.decidable, c.quantumFlavoured,
-    'every seal speaking the quantum vocabulary is proven by decide — that IS the scope the audit assigned')
+  // the audit assigned decidable finite arithmetic; a universal proved by induction is arithmetic over every n — the
+  // two classes are read from the tactic the kernel checked and together they must be the whole population
+  assert.equal(c.decidable + c.provedForEvery, c.quantumFlavoured,
+    'every seal speaking the quantum vocabulary is kernel-proved arithmetic: decided on finite cases, or proved for every n')
+  assert.ok(c.decidable > c.provedForEvery, 'the decided finite scope the audit assigned is still the body of the vocabulary')
   assert.equal(c.metrics.decidable, `${c.decidable}/${c.quantumFlavoured}`)
+  assert.equal(c.metrics.provedForEvery, `${c.provedForEvery}/${c.quantumFlavoured}`)
   assert.ok(c.auditNamed.length >= 6, 'the audit names the load-bearing capacity and dimension seals')
   assert.equal(c.metrics.skillsTouched, c.bySkill.length)
   assert.equal(c.bySkill.reduce((n, s) => n + s.count, 0), c.quantumFlavoured, 'the per-skill split partitions the population')

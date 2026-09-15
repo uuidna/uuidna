@@ -7,7 +7,7 @@
 **Discovery claimed:** 70616 — the other 382 restate a fact a named source found first
 
 *The 382 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 331 of 365 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `9f04bb2f-a578-84ad-b2f6-0dba9541742a`
+**Claim receipt:** `6b2fc07e-a0f1-8f96-b85d-a53df7f684bb`
 
 ### Facts the captain does not claim to have discovered
 
@@ -138,12 +138,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The seven reflected
 
-- **Theorems:** 11
+- **Theorems:** 8
 - **Sample lineAddress:** `c5f5ee90-beed-843f-a076-da8ab7d9aed6`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) · [mertens_squared_under_n_on_the_first_twenty](/theorem/mertens_squared_under_n_on_the_first_twenty) · [hasse_bound_holds_at_four_primes](/theorem/hasse_bound_holds_at_four_primes) · [four_simplex_boundary_euler_is_zero](/theorem/four_simplex_boundary_euler_is_zero) · [levi_civita_nonzero_on_six_of_twentyseven](/theorem/levi_civita_nonzero_on_six_of_twentyseven) · [closed_grid_differences_sum_to_zero](/theorem/closed_grid_differences_sum_to_zero) · [torus_betti_alternates_to_zero](/theorem/torus_betti_alternates_to_zero) · [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette) · [two_coins_make_a_coil_and_seven_coils_are_one_and_six](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six) · [the_vortex_and_the_rosette_are_one_six_cycle](/theorem/the_vortex_and_the_rosette_are_one_six_cycle) · [the_ten_complement_involutes_the_vortex_through_the_axis](/theorem/the_ten_complement_involutes_the_vortex_through_the_axis)
+[two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) · [mertens_squared_under_n_on_the_first_twenty](/theorem/mertens_squared_under_n_on_the_first_twenty) · [hasse_bound_holds_at_four_primes](/theorem/hasse_bound_holds_at_four_primes) · [four_simplex_boundary_euler_is_zero](/theorem/four_simplex_boundary_euler_is_zero) · [levi_civita_nonzero_on_six_of_twentyseven](/theorem/levi_civita_nonzero_on_six_of_twentyseven) · [closed_grid_differences_sum_to_zero](/theorem/closed_grid_differences_sum_to_zero) · [torus_betti_alternates_to_zero](/theorem/torus_betti_alternates_to_zero) · [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette)
 
 ### The legal vocabulary
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `2b0a38c5-6f96-8047-99f8-161083f43dfb`
+- **Sample lineAddress:** `3031971e-7b39-82fd-846f-8f6f09a2a99d`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2037,12 +2037,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The waves
 
-- **Theorems:** 18
+- **Theorems:** 21
 - **Sample lineAddress:** `9bd83494-39d0-86aa-a607-6e020ab2e5e0`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) · [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit) · [five_is_the_developing_center](/theorem/five_is_the_developing_center) · [the_hex_center_is_empty](/theorem/the_hex_center_is_empty) · [gas_volume_walks_the_harmonic_series](/theorem/gas_volume_walks_the_harmonic_series) · [pressure_doubles_down_the_octave](/theorem/pressure_doubles_down_the_octave) · [haldane_bound_is_two_to_one](/theorem/haldane_bound_is_two_to_one) · [buddy_pair_squares_the_failure](/theorem/buddy_pair_squares_the_failure) · [thirds_rule_sums_whole](/theorem/thirds_rule_sums_whole) · [divers_and_astronauts_share_the_ladder](/theorem/divers_and_astronauts_share_the_ladder) · [one_image_every_architecture](/theorem/one_image_every_architecture) · [states_are_the_swap_fixed_bytes](/theorem/states_are_the_swap_fixed_bytes) · [the_page_admits_sixteen](/theorem/the_page_admits_sixteen) · [the_coin_compass_closes](/theorem/the_coin_compass_closes) · [chi_crystallises_three_genera](/theorem/chi_crystallises_three_genera) · [imaginings_meet_at_sixtyfour](/theorem/imaginings_meet_at_sixtyfour) · [rounding_fee_closes_the_cube](/theorem/rounding_fee_closes_the_cube) · [the_promotion_chain_doubles_home](/theorem/the_promotion_chain_doubles_home)
+[captains_columns_sum_to_ten](/theorem/captains_columns_sum_to_ten) · [nine_complement_half_turns_the_orbit](/theorem/nine_complement_half_turns_the_orbit) · [five_is_the_developing_center](/theorem/five_is_the_developing_center) · [the_hex_center_is_empty](/theorem/the_hex_center_is_empty) · [gas_volume_walks_the_harmonic_series](/theorem/gas_volume_walks_the_harmonic_series) · [pressure_doubles_down_the_octave](/theorem/pressure_doubles_down_the_octave) · [haldane_bound_is_two_to_one](/theorem/haldane_bound_is_two_to_one) · [buddy_pair_squares_the_failure](/theorem/buddy_pair_squares_the_failure) · [thirds_rule_sums_whole](/theorem/thirds_rule_sums_whole) · [divers_and_astronauts_share_the_ladder](/theorem/divers_and_astronauts_share_the_ladder) · [one_image_every_architecture](/theorem/one_image_every_architecture) · [states_are_the_swap_fixed_bytes](/theorem/states_are_the_swap_fixed_bytes) · [the_page_admits_sixteen](/theorem/the_page_admits_sixteen) · [the_coin_compass_closes](/theorem/the_coin_compass_closes) · [chi_crystallises_three_genera](/theorem/chi_crystallises_three_genera) · [imaginings_meet_at_sixtyfour](/theorem/imaginings_meet_at_sixtyfour) · [rounding_fee_closes_the_cube](/theorem/rounding_fee_closes_the_cube) · [the_promotion_chain_doubles_home](/theorem/the_promotion_chain_doubles_home) · [two_coins_make_a_coil_and_seven_coils_are_one_and_six](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six) · [the_vortex_and_the_rosette_are_one_six_cycle](/theorem/the_vortex_and_the_rosette_are_one_six_cycle) · [the_ten_complement_involutes_the_vortex_through_the_axis](/theorem/the_ten_complement_involutes_the_vortex_through_the_axis)
 
 ### The fixed points of x to the m, as a law
 

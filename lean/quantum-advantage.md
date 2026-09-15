@@ -40,14 +40,14 @@ in exact Gaussian integers, with no floating point at any step; each result is c
 kernel sealed. **61 witnesses · 109 sweeps ·
 490609 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 57 of the quantum wing's 63 theorems**, and the 6 this battery
-does not decide are named rather than counted: `mul_add_by_induction`, `mul_assoc_by_induction`, `n_qubit_dimension_all`, `one_more_qubit_doubles`, `shift_is_the_dimension`, `shl_pow`. The battery is a
+**Coverage: 57 of the quantum wing's 57 theorems**, and the 0 this battery
+does not decide are named rather than counted: ``. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 490609 executions on this host, across 57 of the wing's 63 theorems — a bound from the count, not a proof of zero, and not a claim about the 6 this battery does not decide.
+Better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -159,7 +159,7 @@ seals that n qubits span 2^n amplitudes.
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `65728566-d9c7-88c1-9dec-458b9b7de377`.
+*exist* cannot see. Dispatch receipt: `21133acd-14d1-8282-95db-bc6171972742`.
 
 Report receipt: `738c2453-8568-8894-b500-b5d5a7f1c9aa` · measured-when as its own handle: `738c2453`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point

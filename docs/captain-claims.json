@@ -7091,27 +7091,6 @@
       "held": "discovery+formalisation"
     },
     {
-      "key": "two_coins_make_a_coil_and_seven_coils_are_one_and_six",
-      "lineAddress": "ad07cd29-ef57-8694-afd2-6a67b9a87249",
-      "address": "ce071661-a2af-8cee-96c8-9fa0cb41d137",
-      "principle": "The seven reflected",
-      "held": "discovery+formalisation"
-    },
-    {
-      "key": "the_vortex_and_the_rosette_are_one_six_cycle",
-      "lineAddress": "7d5e0a46-7896-86d6-9662-88b30af743ad",
-      "address": "55a519a2-5967-8fbe-8b25-476c2cf1eafc",
-      "principle": "The seven reflected",
-      "held": "discovery+formalisation"
-    },
-    {
-      "key": "the_ten_complement_involutes_the_vortex_through_the_axis",
-      "lineAddress": "bc44ecad-a69b-88ee-a0a1-14bba91937b9",
-      "address": "8ae145a4-4d8f-8f8f-9ad4-1d47117132d7",
-      "principle": "The seven reflected",
-      "held": "discovery+formalisation"
-    },
-    {
       "key": "solutions_not_skipped",
       "lineAddress": "1035231d-27eb-80a8-84a6-91f6f2e58a40",
       "address": "666b7adb-02e3-8e81-a000-a1d948245aa4",
@@ -7246,8 +7225,8 @@
     },
     {
       "key": "reach_tactics_census",
-      "lineAddress": "8a5eeb11-2336-82cc-80b4-13d69917af6c",
-      "address": "61a06d5a-accc-875e-8f02-5134d0b4cca2",
+      "lineAddress": "2dfa3941-735b-81c5-a7eb-ef3f6713321f",
+      "address": "9393f2e6-8268-8098-9708-ce0828a5f75c",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7624,8 +7603,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "1b5d3903-9dc2-8120-aa8e-24975367c579",
-      "address": "4d81f6fc-9a3f-8ff9-8079-1ecf33b3f340",
+      "lineAddress": "3e11f929-c826-81cc-ba08-21087b2d5c4b",
+      "address": "9de4287d-5274-8410-a358-71ee346a0335",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7652,8 +7631,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "6a9dedec-b647-852b-9fbe-11ad3159ca8a",
-      "address": "576f89cb-d8f0-8ce3-8314-ea05bea59566",
+      "lineAddress": "44d22ce0-e4a0-82ff-8eaf-927793c9278b",
+      "address": "22da1555-39fb-8ee5-a9b2-0ee414639d08",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -8121,15 +8100,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "94719852-83c8-847c-8c4d-499c31fcdf7b",
-      "address": "7b2a991d-3666-8e3a-ba47-641d29cc324f",
+      "lineAddress": "e2a0062b-1207-89d9-9597-62cfb8302ac1",
+      "address": "f1baee4b-4246-8cda-a2dc-f1e8388da5d0",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "0dac3346-e005-8ecc-81cf-42e7093ded31",
-      "address": "3307ae45-761e-86b1-8abc-d7f572907cb6",
+      "lineAddress": "620bdc87-0ac4-8c2e-861c-0c6d819176a5",
+      "address": "cf6dcc53-c24d-8b9e-a8a2-7a58402aaf07",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9472,8 +9451,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "34b2fd54-c81e-866c-8db6-660398808722",
-      "address": "7652a9dc-cfa4-8dfb-80b7-42acec7abffb",
+      "lineAddress": "f5f8f14c-8242-8216-9245-b80975209584",
+      "address": "a431c713-231c-828b-9a1a-7181fcd3b8c4",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9929,15 +9908,15 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "2b0a38c5-6f96-8047-99f8-161083f43dfb",
-      "address": "5676585a-8563-8eac-8bcc-f412ca0e0461",
+      "lineAddress": "3031971e-7b39-82fd-846f-8f6f09a2a99d",
+      "address": "5c732525-31c8-857b-ae48-44f2afa33769",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "cf2056c5-baf4-80f1-b8ec-38f0192800d8",
-      "address": "7efd4246-ae06-8865-8977-1238557bf3cd",
+      "lineAddress": "cba3634d-26ea-8f41-8447-43d0dabf598c",
+      "address": "48ff7427-a19f-8d75-b4f7-ec98fc291213",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -480193,8 +480172,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "84887c03-fe08-893a-8591-acd1fa534e80",
-      "address": "04ed0e75-c136-8778-b27c-d6e27c112771",
+      "lineAddress": "a8e7242b-92b1-869b-a7b4-1fd97e561401",
+      "address": "0ec824a3-e272-852d-94e5-4e03d6ef146f",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -482470,6 +482449,27 @@
       "key": "the_promotion_chain_doubles_home",
       "lineAddress": "9af699e6-899f-8ae4-99a5-9a6c78484b82",
       "address": "ce52945b-3c3c-8847-a66e-74c95d6e08a7",
+      "principle": "The waves",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "two_coins_make_a_coil_and_seven_coils_are_one_and_six",
+      "lineAddress": "ad07cd29-ef57-8694-afd2-6a67b9a87249",
+      "address": "ce071661-a2af-8cee-96c8-9fa0cb41d137",
+      "principle": "The waves",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_vortex_and_the_rosette_are_one_six_cycle",
+      "lineAddress": "7d5e0a46-7896-86d6-9662-88b30af743ad",
+      "address": "55a519a2-5967-8fbe-8b25-476c2cf1eafc",
+      "principle": "The waves",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_ten_complement_involutes_the_vortex_through_the_axis",
+      "lineAddress": "bc44ecad-a69b-88ee-a0a1-14bba91937b9",
+      "address": "8ae145a4-4d8f-8f8f-9ad4-1d47117132d7",
       "principle": "The waves",
       "held": "discovery+formalisation"
     },
@@ -499694,7 +499694,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "9f04bb2f-a578-84ad-b2f6-0dba9541742a",
+  "claim_receipt": "6b2fc07e-a0f1-8f96-b85d-a53df7f684bb",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

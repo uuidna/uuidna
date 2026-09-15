@@ -296,9 +296,6 @@ levi_civita_nonzero_on_six_of_twentyseven 27
 closed_grid_differences_sum_to_zero 27
 torus_betti_alternates_to_zero 27
 clay_gravity_equals_rosette 27
-two_coins_make_a_coil_and_seven_coils_are_one_and_six 27
-the_vortex_and_the_rosette_are_one_six_cycle 27
-the_ten_complement_involutes_the_vortex_through_the_axis 27
 #Clock.lean
 residue_walks_the_orbit 27
 residue_returns_step_does_not 27
@@ -2910,31 +2907,31 @@ fixed_power_multiplicative_9_by_11 26
 fixed_power_multiplicative_10_by_11 26
 fixed_power_law_is_not_vacuous 27
 #Fluid.lean
-discrete_divergence_telescopes 19
-add_right_cancel_by_induction 19
-ring_divergence_is_zero 19
-diffusion_step_never_exceeds_the_maximum 19
-add_left_cancel_by_induction 19
-discrete_curl_of_gradient_vanishes 19
-right_distrib_by_comm 19
-square_of_sum_expands 19
-two_products_le_sum_of_squares 19
-square_of_sum_le_twice_sum_of_squares 19
-diffusion_stencil_square_le_weighted_energy 19
-psum_add4 19
-psum_le_of_pointwise 19
-ring_shift_preserves_sum 19
-ring_double_shift_preserves_sum 19
-ring_shift_preserves_energy 19
-four_mul_is_four_copies 19
-sixteen_mul_is_four_fours 19
-diffusion_step_conserves_momentum 19
-ring_energy_bound_of_pointwise 19
-diffusion_step_never_increases_energy 19
-natAbs_subNatNat_le 19
-natAbs_triangle 19
-sq_natAbs_is_the_square 19
-signed_diffusion_step_never_increases_energy 19
+discrete_divergence_telescopes 27
+add_right_cancel_by_induction 27
+ring_divergence_is_zero 27
+diffusion_step_never_exceeds_the_maximum 27
+add_left_cancel_by_induction 27
+discrete_curl_of_gradient_vanishes 27
+right_distrib_by_comm 27
+square_of_sum_expands 27
+two_products_le_sum_of_squares 27
+square_of_sum_le_twice_sum_of_squares 27
+diffusion_stencil_square_le_weighted_energy 27
+psum_add4 27
+psum_le_of_pointwise 27
+ring_shift_preserves_sum 27
+ring_double_shift_preserves_sum 27
+ring_shift_preserves_energy 27
+four_mul_is_four_copies 27
+sixteen_mul_is_four_fours 27
+diffusion_step_conserves_momentum 27
+ring_energy_bound_of_pointwise 27
+diffusion_step_never_increases_energy 27
+natAbs_subNatNat_le 27
+natAbs_triangle 27
+sq_natAbs_is_the_square 27
+signed_diffusion_step_never_increases_energy 27
 #Forensics.lean
 forged_address_odds_are_negligible 27
 forged_handle_odds_are_small 27
@@ -69311,9 +69308,9 @@ midi_is_seven_bit 27
 sixteen_bit_dynamic_range 27
 fifth_cycles_all_twelve 27
 #Proofde5612a2.lean
-proof_de5612a2 18
+proof_de5612a2 26
 #Prooff59dbc3d.lean
-proof_f59dbc3d 18
+proof_f59dbc3d 26
 #Propulsion.lean
 momentum_conserved 27
 no_reactionless_thrust 27
@@ -69396,11 +69393,11 @@ all_signaling_duality 27
 hexbit_slit_visibility 27
 hexbit_slit_cross_is_overlap 27
 mul_add_by_induction 27
-mul_assoc_by_induction 19
-n_qubit_dimension_all 19
-one_more_qubit_doubles 19
-shl_pow 19
-shift_is_the_dimension 19
+mul_assoc_by_induction 27
+n_qubit_dimension_all 27
+one_more_qubit_doubles 27
+shl_pow 27
+shift_is_the_dimension 27
 #QuantumCube.lean
 the_cube_carries_the_tetrahedron_and_its_own_dual 27
 buying_the_point_that_does_not_bind_buys_nothing 27
@@ -70199,15 +70196,15 @@ universe_of_handles 27
 tides_two_bulges 27
 market_tides_and_the_strategy_bar 27
 #UuidLaws.lean
-version_stamp 19
-variant_stamp 19
-version_high_nibble_is_eight 19
-variant_high_two_are_one_zero 19
-fixed_positions_exact 19
-free_bits_122 19
-bounded_search_finds_or_refutes 19
-pigeonhole_for_every_size 19
-address_never_determines_payload 19
+version_stamp 27
+variant_stamp 27
+version_high_nibble_is_eight 27
+variant_high_two_are_one_zero 27
+fixed_positions_exact 27
+free_bits_122 27
+bounded_search_finds_or_refutes 27
+pigeonhole_for_every_size 27
+address_never_determines_payload 27
 #UuidMix.lean
 uuid_mix_census_is_quantum 27
 the_mix_space_is_its_own_mirror 27
@@ -71250,7 +71247,10 @@ the_coin_compass_closes 27
 chi_crystallises_three_genera 27
 imaginings_meet_at_sixtyfour 27
 rounding_fee_closes_the_cube 27
-the_promotion_chain_doubles_home 27`
+the_promotion_chain_doubles_home 27
+two_coins_make_a_coil_and_seven_coils_are_one_and_six 27
+the_vortex_and_the_rosette_are_one_six_cycle 27
+the_ten_complement_involutes_the_vortex_through_the_axis 27`
 
 export const CLAIMS = `abo_klein_four 10.1038/345229a0
 blood_types_eight 10.3181/00379727-43-11151

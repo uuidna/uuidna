@@ -41,7 +41,10 @@ test('the falsifier ceiling is COMPLETE: every sealed statement carries a decida
     if (src.includes(t.key)) return false
     let wing = ''
     try { wing = readFileSync(join(ROOT, 'lean', t.file), 'utf8') } catch { wing = '' }
-    return evaluable(t.statement, wing)
+    // ONE RULE, THE GENERATOR'S: gen-falsifiers grants a leg only when the statement is evaluable AND holds decides it
+    // true; an evaluable shape that holds leaves undecided — a universal over every n, a wing's own recursion — gets
+    // no leg there, so counting it as legless here was two surfaces disagreeing about what "decidable" means.
+    return evaluable(t.statement, wing) && holds(t.statement, wing) === true
   })
   assert.deepEqual(legless.map((t) => t.key), [],
     'a shortfall means the evaluator lost a grammar it once decided — regenerate with `npm run x -- gen-falsifiers` and, if it stays, the grammar is the gap')

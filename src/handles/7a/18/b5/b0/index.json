@@ -7,6 +7,6 @@
   ],
   "statement": "((List.range 9).all (fun i => 10 - (10 - (i + 1)) == i + 1)) ∧ ((10 - 1 = 9) ∧ (10 - 6 = 4) ∧ (10 - 5 = 5)) ∧ ([1, 2, 4, 8, 7, 5].map (fun x => 10 - x) = [9, 8, 6, 2, 3, 5]) ∧ ((List.range 9).all (fun i => (10 - (i + 1)) % 9 == (1 + 81 - (i + 1)) % 9)) ∧ ((10 - 2 * 4 % 9) % 9 ≠ ((10 - 2) * (10 - 4)) % 9) ∧ ((List.range 16).map (fun k => (if k % 2 = 1 then 1 else 0) + (if k / 2 % 2 = 1 then 2 else 0) + (if k / 4 % 2 = 1 then 4 else 0) + (if k / 8 % 2 = 1 then 8 else 0)) = List.range 16) ∧ ((List.range 9).all (fun a => (List.range 9).all (fun b => (10 * (a + 1) + (b + 1)) + (10 * (10 - (a + 1)) + (10 - (b + 1))) == 110))) ∧ (16 + 94 = 110) ∧ (1 + 6 = 7) ∧ (2 ^ 4 % 9 = 7)",
   "files": [
-    "Clay.lean"
+    "Waves.lean"
   ]
 }

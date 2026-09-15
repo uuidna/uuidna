@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 445,
+ "count": 446,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -2965,6 +2965,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1048576,
    "promptPrice": "0.0000007",
    "completionPrice": "0.0000022"
+  },
+  {
+   "id": "z-ai/glm-5.2:free",
+   "name": "Z.ai: GLM 5.2 (free)",
+   "contextTokens": 32768,
+   "promptPrice": "0",
+   "completionPrice": "0"
   },
   {
    "id": "z-ai/glm-5.3",

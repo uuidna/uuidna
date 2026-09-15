@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "8a2bbea1378286b2",
+ "digest": "c96b8ce98c3feaf0",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -467,21 +467,6 @@ export const BOUND_SLICE: BoundSlice = {
   },
   {
    "key": "clay_gravity_equals_rosette",
-   "wing": "Clay.lean",
-   "verdict": "load-bearing"
-  },
-  {
-   "key": "two_coins_make_a_coil_and_seven_coils_are_one_and_six",
-   "wing": "Clay.lean",
-   "verdict": "survived-widening"
-  },
-  {
-   "key": "the_vortex_and_the_rosette_are_one_six_cycle",
-   "wing": "Clay.lean",
-   "verdict": "load-bearing"
-  },
-  {
-   "key": "the_ten_complement_involutes_the_vortex_through_the_axis",
    "wing": "Clay.lean",
    "verdict": "load-bearing"
   },
@@ -4712,6 +4697,21 @@ export const BOUND_SLICE: BoundSlice = {
   },
   {
    "key": "the_coin_compass_closes",
+   "wing": "Waves.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "two_coins_make_a_coil_and_seven_coils_are_one_and_six",
+   "wing": "Waves.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "the_vortex_and_the_rosette_are_one_six_cycle",
+   "wing": "Waves.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "the_ten_complement_involutes_the_vortex_through_the_axis",
    "wing": "Waves.lean",
    "verdict": "load-bearing"
   },

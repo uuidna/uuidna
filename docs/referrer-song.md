@@ -50,18 +50,18 @@ cancels from every interval ([`tuning_cancels_from_every_interval`](/theorem/tun
 so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exactly 432 Hz
 ([`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning)).
 
-**The census of this walk's 6142 steps**: 382 unisons, 397 pure octaves,
-3804 coprime (irreducible) tensions. The most common reduced intervals:
+**The census of this walk's 6142 steps**: 382 unisons, 398 pure octaves,
+3803 coprime (irreducible) tensions. The most common reduced intervals:
 
 | interval | steps |
 |---|---|
 | 1:1 | 382 |
-| 2:1 | 200 |
+| 2:1 | 201 |
 | 1:2 | 197 |
 | 3:2 | 142 |
 | 3:1 | 138 |
 | 2:3 | 122 |
-| 1:3 | 115 |
+| 1:3 | 116 |
 | 4:1 | 101 |
 
 ## The walk, sounded — in your browser, from nothing served

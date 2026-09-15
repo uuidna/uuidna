@@ -570,8 +570,11 @@ export interface QuantumClaimCensus {
   auditNamed: string[]
   /** those whose own SEALED STATEMENT is decidable arithmetic — the scope every one of them actually has */
   decidable: number
+  /** those the kernel PROVED FOR EVERY n (a tactic other than decide: induction, rewriting) — arithmetic still, over
+   *  all naturals rather than a window; read from the tactic the kernel checked, never from a list */
+  provedForEvery: number
   bySkill: { skill: string; count: number }[]
-  metrics: { auditNamed: string; decidable: string; skillsTouched: number }
+  metrics: { auditNamed: string; decidable: string; provedForEvery: string; skillsTouched: number }
   receipt: string
   handle: string
   hexbits: number[]
@@ -593,6 +596,7 @@ export function quantumClaimCensus(): QuantumClaimCensus {
   const bySkill = [...bySkillMap].map(([skill, count]) => ({ skill, count }))
     .sort((a, b) => b.count - a.count || a.skill.localeCompare(b.skill))
   const decidable = q.filter((t) => t.tactic === 'decide').length
+  const provedForEvery = q.filter((t) => t.tactic !== 'decide').length
   const receipt = merkleGravity([toUuid('qc-census'), ...q.map((t) => toUuid('qc-q:' + t.key))])
   const door = hexbitDoorOf(receipt)
   return {
@@ -601,10 +605,12 @@ export function quantumClaimCensus(): QuantumClaimCensus {
     ledger: T.length,
     auditNamed,
     decidable,
+    provedForEvery,
     bySkill,
     metrics: {
       auditNamed: `${auditNamed.length}/${q.length}`,
       decidable: `${decidable}/${q.length}`,
+      provedForEvery: `${provedForEvery}/${q.length}`,
       skillsTouched: bySkill.length,
     },
     receipt,
@@ -612,9 +618,10 @@ export function quantumClaimCensus(): QuantumClaimCensus {
     hexbits: door.hexbits,
     door: door.door,
     honest: `${q.length} of ${T.length} sealed statements speak the quantum vocabulary, across ${bySkill.length} `
-      + `skills, and ${decidable} of them are proven \`by decide\` — decidable finite arithmetic, which is exactly `
-      + `the scope the external audit assigned them. ${auditNamed.length} are named by an audit directly; the rest `
-      + `inherit the same scope from the same tactic, and the census reports both numbers rather than one.`,
+      + `skills: ${decidable} are proven \`by decide\` — decidable finite arithmetic, the scope the external audit `
+      + `assigned them — and ${provedForEvery} are proven for EVERY n by induction or rewriting, still arithmetic but `
+      + `over all naturals rather than a window. ${auditNamed.length} are named by an audit directly; the rest inherit `
+      + `their scope from the tactic the kernel checked, and the census reports every number rather than one.`,
   }
 }
 
