@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000007476",
-   "completionPrice": "0.00000014952"
+   "promptPrice": "0.000000088606",
+   "completionPrice": "0.000000177212"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000057948",
-   "completionPrice": "0.00000173844"
+   "promptPrice": "0.00000066",
+   "completionPrice": "0.00000198"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -2452,8 +2452,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-35b-a3b",
    "name": "Qwen: Qwen3.5-35B-A3B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000003125",
-   "completionPrice": "0.00000125"
+   "promptPrice": "0.0000001625",
+   "completionPrice": "0.0000013"
   },
   {
    "id": "qwen/qwen3.5-397b-a17b",
@@ -2711,8 +2711,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2956,8 +2956,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.2",
    "name": "Z.ai: GLM 5.2",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000006832",
-   "completionPrice": "0.0000021472"
+   "promptPrice": "0.0000014",
+   "completionPrice": "0.0000044"
   },
   {
    "id": "z-ai/glm-5.2:batch",
@@ -3040,8 +3040,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000057948",
-   "completionPrice": "0.00000173844"
+   "promptPrice": "0.00000066",
+   "completionPrice": "0.00000198"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
@@ -3068,8 +3068,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000001975",
-   "completionPrice": "0.00001106"
+   "promptPrice": "0.0000021",
+   "completionPrice": "0.00001095"
   },
   {
    "id": "~openai/gpt-astra-latest",
@@ -3125,7 +3125,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.0000009",
-   "completionPrice": "0.000003069"
+   "completionPrice": "0.000003"
   }
  ]
 }
