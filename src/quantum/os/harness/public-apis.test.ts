@@ -20,7 +20,8 @@ test('publicApiRegistry catalogues every research sweep source', () => {
 test('publicApiRegistry includes weather, news, and EU education', () => {
   const reg = publicApiRegistry()
   assert.ok(reg.weather.length >= 2, 'open-meteo and NOAA tides')
-  assert.ok(reg.news.length >= 1, 'wikinews')
+  assert.ok(reg.news.length >= 2, 'wikinews + hn-algolia')
+  assert.ok(reg.news.some((n) => n.id === 'hn-algolia'), 'hn-algolia door')
   assert.ok(reg.euEducation.length >= 6, 'school APIs')
   assert.ok(reg.count > reg.sweepCount, 'not everything is a text sweep')
 })
@@ -50,6 +51,8 @@ test('collectApiEvidence wires weather and news beside EU education', () => {
   assert.ok(src.includes('fetchOpenMeteoForecast'), 'weather: Open-Meteo')
   assert.ok(src.includes('fetchNoaaTideHeight'), 'weather: NOAA tides')
   assert.ok(src.includes('fetchWikinewsFeatured'), 'news: Wikinews')
+  assert.ok(src.includes('searchHnAlgolia'), 'news: HN Algolia')
+  assert.ok(src.includes('searchWikinews'), 'news: Wikinews search')
   assert.ok(src.includes('unansweredMath'), 'unanswered math: MathOverflow')
   assert.ok(src.includes('collectMintExtras'), 'mint extras are a named function, not inlined forever')
 })

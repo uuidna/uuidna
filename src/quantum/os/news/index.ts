@@ -1,4 +1,4 @@
-// @non-harmonic: uuidnaOS news port — Wikinews RSS and search (network). Articles are evidence, never auto-sealed.
+// @non-harmonic: uuidnaOS news port — Wikinews RSS/search and HN Algolia (network). Articles are evidence, never auto-sealed.
 import { toUuid } from '../../../address.js'
 import { fetchData } from '../fetch/index.js'
 
@@ -44,4 +44,43 @@ export async function searchWikinews(query: string, limit = 8): Promise<{ title:
     pageid: p.pageid ?? 0,
     address: toUuid('wikinews:' + p.pageid),
   }))
+}
+
+export interface HnAlgoliaHit {
+  objectID?: string
+  title?: string | null
+  url?: string | null
+  author?: string | null
+  created_at?: string
+  story_text?: string | null
+  points?: number | null
+}
+
+/** hnHitsToArticles(hits, limit) → NewsArticleStub rows from an HN Algolia payload. Pure. */
+export function hnHitsToArticles(hits: readonly HnAlgoliaHit[], limit = 8): NewsArticleStub[] {
+  const articles: NewsArticleStub[] = []
+  for (const h of hits) {
+    if (articles.length >= limit) break
+    const title = (h.title ?? '').trim()
+    if (!title) continue
+    const body = [h.url, h.story_text, h.author ? `by ${h.author}` : '', h.points != null ? `${h.points} points` : '']
+      .filter(Boolean).join('\n')
+    articles.push({
+      title,
+      body,
+      source: 'hn.algolia.com',
+      domain: 'tech',
+      date: (h.created_at ?? '').slice(0, 10),
+    })
+  }
+  return articles
+}
+
+/** searchHnAlgolia(query, limit) → story hits from HN Algolia search (keyless). */
+export async function searchHnAlgolia(query: string, limit = 8): Promise<NewsArticleStub[]> {
+  const url = 'https://hn.algolia.com/api/v1/search?tags=story&hitsPerPage=' + limit
+    + '&query=' + encodeURIComponent(query)
+  const got = await fetchData<{ hits?: HnAlgoliaHit[] }>(url, 'json')
+  if (got.data === null) throw new Error(`hn algolia declined: ${got.note}`)
+  return hnHitsToArticles(got.data.hits ?? [], limit)
 }

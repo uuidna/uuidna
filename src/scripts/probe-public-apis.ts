@@ -6,7 +6,7 @@ import { join } from 'node:path'
 import { researchSweep, RESEARCH_SOURCE_NAMES } from '../quantum/os/research/index.js'
 import { probeSchoolApis } from '../quantum/os/school/index.js'
 import { fetchOpenMeteoForecast, fetchNoaaTideHeight } from '../quantum/os/weather/index.js'
-import { fetchWikinewsFeatured } from '../quantum/os/news/index.js'
+import { fetchWikinewsFeatured, searchHnAlgolia } from '../quantum/os/news/index.js'
 import { publicApiRegistry } from '../quantum/os/public/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
@@ -46,20 +46,30 @@ try {
 console.log(`${weatherOk === 2 ? '✓' : '·'} weather — ${weatherOk}/2 answering`)
 
 let newsRows = 0
+let newsDoors = 0
 try {
   const articles = await fetchWikinewsFeatured(3)
-  newsRows = articles.length
-  console.log(`  ✓ wikinews-rss          ${String(newsRows).padStart(3)} articles  featured feed`)
+  newsRows += articles.length
+  if (articles.length) newsDoors++
+  console.log(`  ✓ wikinews-rss          ${String(articles.length).padStart(3)} articles  featured feed`)
 } catch (e) {
   console.log(`  · wikinews-rss            0 articles  ${(e as Error).message.slice(0, 50)}`)
 }
-console.log(`${newsRows ? '✓' : '·'} news — ${newsRows ? '1' : '0'}/1 answering`)
+try {
+  const hn = await searchHnAlgolia(query, 3)
+  newsRows += hn.length
+  if (hn.length) newsDoors++
+  console.log(`  ✓ hn-algolia            ${String(hn.length).padStart(3)} articles  query "${query}"`)
+} catch (e) {
+  console.log(`  · hn-algolia              0 articles  ${(e as Error).message.slice(0, 50)}`)
+}
+console.log(`${newsDoors ? '✓' : '·'} news — ${newsDoors}/2 answering`)
 
 const reg = publicApiRegistry()
 const receipt = merkleGravity([reg.receipt, eu.receipt, toUuid(`${researchAnswering}:${weatherOk}:${newsRows}`)])
 console.log(`\n✓ public-apis — ${reg.count} catalogued · ${reg.sweepCount} in research sweep · receipt ${receipt}`)
 
-const dark = RESEARCH_SOURCE_NAMES.length - researchAnswering + eu.dark.length + (weatherOk < 2 ? 1 : 0) + (newsRows ? 0 : 1)
+const dark = RESEARCH_SOURCE_NAMES.length - researchAnswering + eu.dark.length + (weatherOk < 2 ? 1 : 0) + (newsDoors < 2 ? 1 : 0)
 // Named on-demand CLIs — spawn so they are not dormant (reachable ≠ exercised).
 spawnSync(process.execPath, [join(HERE, 'probe-school-apis.js')], { stdio: 'inherit' })
 spawnSync(process.execPath, [join(HERE, 'api-mint.js'), query], { stdio: 'inherit' })

@@ -156,7 +156,7 @@ export { signCommit, type CommitSignature } from './sign.js'
 
 // gravity — decidable contractions (a set of addresses falls to one root; an integer to ℤ/9). merkleGravity is
 // ORDER-INVARIANT: the quantum receipt, the same for any observer ordering. NOT physics, nothing faster than light.
-export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity/index.js'
+export { merkleGravity, rosettaMoveOf, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from './gravity/index.js'
 
 // the diamond involution r(d)=10−d and its lift to a list (involute): self-inverse, closed, no islands, one centre.
 export { diamond, DIAMOND_FIXED, involute, involutionFixed } from './diamond.js'
@@ -237,7 +237,7 @@ export {
 
 // captain/ — the captain's own section: the coins (billing + the valuation law: one coin per direction per boundary),
 // the rights, the credit law, the repo bindings, and the trial deposit — consolidated where the captain lives.
-export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from './captain/billing/index.js'
+export { coins, commission, GROSS, NET, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from './captain/billing/index.js'
 export { coinSupply, type CoinSupply, type CoinSupplyCrypto, type CoinSupplyWitness } from './coin-supply.js'
 export { tamperCosts, type TamperCosts, type TamperWidth } from './tamper-cost.js'
 export { phdProofs, type PhdProofs, type PhdConcept, type PhdWork, type PhdThesis } from './phd-proofs.js'
@@ -566,7 +566,7 @@ export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumS
 // anti-fraud MCP (provable | open | overclaimed | narrative gap) → coin-backed reader judgment. Every
 // extraction and audit is recomputable; narrative gaps (true statement, false story) stay with the court.
 export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from './desk/news/portal/index.js'
-export { fetchWikinewsFeatured, searchWikinews } from './desk/news/fetch.js'
+export { fetchWikinewsFeatured, searchWikinews, searchHnAlgolia, hnHitsToArticles } from './desk/news/fetch.js'
 
 // domain-specific news portals: politics, medicine, climate, history, economics
 export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extractMedicineFacts, buildClimatePortal, extractClimateFacts, buildHistoryPortal, extractHistoryFacts, buildEconomicsPortal, extractEconomicsFacts, processMultiDomainJudgment, type PoliticsArticle, type MedicineArticle, type ClimateArticle, type HistoryArticle, type EconomicsArticle } from './desk/news/domains/index.js'
@@ -743,7 +743,7 @@ export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, H
 export { DATAPATH, UNITS, spec as hardwareSpec, LANES, trinity, gpuEligiblePpm, gpuCapacity, gpuBreakEvenAddresses, kernelPercent, CPU_NS_PER_ADDRESS, GPU_POSTAGE_ADDRESSES, cpuFoldNs, type Unit, type Lane, type DeviceCost, type GpuCapacity } from './hardware/index.js'
 export {
   QPU_HOST, QPU_HREF, QPU_LEAN, QPU_POINTS,
-  qpuSeatOf, qpuWidthOf, qpuHologramOf, qpuFacesOf, qpuCircuitOf, qpuReverseHrefOf, qpuMachineOf,
+  qpuSeatOf, qpuWidthOf, qpuHologramOf, qpuFacesOf, qpuCircuitOf, qpuReverseHrefOf, qpuMachineOf, qpuHopOf,
 } from './qpu-hologram.js'
 export { qpuDiscoveryOf, handleQpuFetch, qpuEdgeOf } from './qpu-edge.js'
 // ONE SHAPE FOR EVERY PUBLISHED FIGURE, so a surface can filter by HOW a number was determined rather than by

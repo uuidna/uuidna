@@ -43,6 +43,9 @@ const NEWS_APIS: PublicApiEntry[] = [
   { id: 'wikinews-rss', host: 'en.wikinews.org', base: 'https://en.wikinews.org/w/api.php?action=feedrecentchanges&feedformat=rss',
     kind: 'news', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: true,
     honest: 'Featured RSS feed — articles are AUDITED by the news portal, not auto-sealed.' },
+  { id: 'hn-algolia', host: 'hn.algolia.com', base: 'https://hn.algolia.com/api/v1/search',
+    kind: 'news', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: true,
+    probe: { query: 'quantum' } },
 ]
 
 /** Doors whose REST base is not the host root, or whose scope must be said in its own words rather than the

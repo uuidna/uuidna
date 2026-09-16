@@ -5,7 +5,7 @@ import { researchSweep } from './quantum/os/research/index.js'
 import { unansweredMath } from './research-sources.js'
 import { escoSearch, eurostatEducation, dataEuropaSearch, giscoSchools, cordisSearch, tedNotices } from './quantum/os/school/index.js'
 import { fetchOpenMeteoForecast, fetchNoaaTideHeight } from './quantum/os/weather/index.js'
-import { fetchWikinewsFeatured } from './quantum/os/news/index.js'
+import { fetchWikinewsFeatured, searchWikinews, searchHnAlgolia } from './quantum/os/news/index.js'
 import { extractFactsFromArticle, type NewsArticle } from './desk/news/portal/index.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
@@ -68,6 +68,19 @@ export async function collectMintExtras(query: string): Promise<ApiEvidence[]> {
     for (const a of articles) {
       const facts = extractFactsFromArticle(a as NewsArticle)
       out.push(apiRow('en.wikinews.org', toUuid(a.title + a.date), [a.title, a.body, ...facts.map((f) => f.text)].join('\n')))
+    }
+  } catch { /* optional */ }
+
+  try {
+    for (const hit of await searchWikinews(query, 8))
+      out.push(apiRow('en.wikinews.org', hit.address, `Wikinews: ${hit.title}`))
+  } catch { /* optional */ }
+
+  try {
+    const hn = await searchHnAlgolia(query, 8)
+    for (const a of hn) {
+      const facts = extractFactsFromArticle(a as NewsArticle)
+      out.push(apiRow('hn.algolia.com', toUuid(a.title + a.date), [a.title, a.body, ...facts.map((f) => f.text)].join('\n')))
     }
   } catch { /* optional */ }
 
