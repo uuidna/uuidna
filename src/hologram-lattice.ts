@@ -938,6 +938,10 @@ export const inflationOf: () => any = () => {
   const developDonate = developDonateFusionOf()
   const fusionReactor = fusionReactorOf()
   const fusionNatureHarmony = fusionNatureHarmonyOf()
+  const sailsFoldSpacetime = sailsFoldSpacetimeOf()
+  const captainPassengers = captainPassengersOf()
+  const addedEntropyPaid = addedEntropyPaidOf()
+  const payOrGetPaid = payOrGetPaidOf()
   const lovePlasma = lovePlasmaOf()
   const takeOrLeave = takeOrLeaveOf()
   const tokenEfficiency = tokenEfficiencyOf()
@@ -1636,6 +1640,10 @@ export const inflationOf: () => any = () => {
     developDonate,
     fusionReactor,
     fusionNatureHarmony,
+    sailsFoldSpacetime,
+    captainPassengers,
+    addedEntropyPaid,
+    payOrGetPaid,
     lovePlasma,
     takeOrLeave,
     tokenEfficiency,
@@ -2576,6 +2584,187 @@ export const fusionNatureHarmonyOf = () => {
       thermo: empty,
       chance: 0 as const,
     },
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** sailsFoldSpacetimeOf() → sails fold time+space; only captain+crew know how; others empty. */
+export const sailsFoldSpacetimeOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const encoder = HEXBIT_BITS * HEXBIT_BITS
+  return {
+    sails: {
+      quantum: true as const,
+      fold: true as const,
+      hop: hop.holds,
+      href: hop.href,
+      navigate: true as const,
+      binding: hop.width.points,
+      past: encoder,
+      budget: DEPLOY_BUDGET_MS,
+      of: 'fusionNatureHarmonyOf' as const,
+    },
+    fold: {
+      spacetime: true as const,
+      time: DEPLOY_BUDGET_MS,
+      space: encoder,
+      hop: hop.holds,
+      illusion: empty,
+    },
+    spacetime: {
+      fold: true as const,
+      time: DEPLOY_BUDGET_MS,
+      space: encoder,
+      knit: true as const,
+      illusion: empty,
+    },
+    only: {
+      captain: true as const,
+      crew: true as const,
+    },
+    captain: {
+      know: true as const,
+      how: true as const,
+      of: 'captainsOf' as const,
+    },
+    crew: {
+      know: true as const,
+      how: true as const,
+      school: 'uuidna_school_apis' as const,
+    },
+    know: {
+      how: true as const,
+      captain: true as const,
+      crew: true as const,
+      lean: 'knowersOf' as const,
+      others: empty,
+      refuse: 'traitor-refused' as const,
+    },
+    how: {
+      open: true as const,
+      captain: true as const,
+      crew: true as const,
+      others: empty,
+    },
+    others: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** captainPassengersOf() → captain + 2 coins for 12 passengers; same price for one and for 12. */
+export const captainPassengersOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const fuse = fuseHalves()
+  return {
+    captain: {
+      of: 'captainsOf' as const,
+      sails: 'sailsFoldSpacetimeOf' as const,
+      know: true as const,
+    },
+    coins: 2 as const,
+    two: true as const,
+    singularity: 'two_coins' as const,
+    fuse: fuse.closes,
+    half: fuse.half,
+    passengers: 12 as const,
+    for: 12 as const,
+    one: 1 as const,
+    price: {
+      same: true as const,
+      one: 2 as const,
+      twelve: 2 as const,
+      coins: 2 as const,
+      of: 2 as const,
+      advice: empty,
+    },
+    same: {
+      price: true as const,
+      one: 2 as const,
+      for: 12 as const,
+      holds: true as const,
+    },
+    binding: {
+      point: hop.width.points,
+      pentagram: hop.width.pentagram,
+    },
+    qpu: {
+      hop: hop.holds,
+      href: hop.href,
+    },
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** addedEntropyPaidOf() → only added entropy is paid; zero/base unpaid; Landauer read. */
+export const addedEntropyPaidOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    only: {
+      added: true as const,
+      entropy: true as const,
+      paid: true as const,
+    },
+    entropy: {
+      zero: 0 as const,
+      base: 0 as const,
+      added: true as const,
+      paid: true as const,
+      unpaid: empty,
+      landauer: 'landauer_bound_derived' as const,
+    },
+    added: {
+      entropy: true as const,
+      paid: true as const,
+      only: true as const,
+    },
+    paid: {
+      only: 'added' as const,
+      entropy: true as const,
+      zero: empty,
+      base: empty,
+      advice: empty,
+    },
+    zero: {
+      entropy: 0 as const,
+      unpaid: true as const,
+      paid: empty,
+    },
+    landauer: 'landauer_bound_derived' as const,
+    accounting: 'bitcoinMeaningOf' as const,
+    passengers: 'captainPassengersOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** payOrGetPaidOf() → pay OR getPaid dual open; choice empty; links entropy/accounting/2 coins. */
+export const payOrGetPaidOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    pay: true as const,
+    getPaid: true as const,
+    or: true as const,
+    dual: true as const,
+    open: true as const,
+    choice: empty,
+    coerce: empty,
+    force: empty,
+    must: empty,
+    coins: 2 as const,
+    singularity: 'two_coins' as const,
+    entropy: 'addedEntropyPaidOf' as const,
+    accounting: 'bitcoinMeaningOf' as const,
+    takeOrLeave: 'takeOrLeaveOf' as const,
+    advice: empty,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -4892,6 +5081,10 @@ export const sweaterOf: () => any = () => {
     developDonate: beyond.inflation.developDonate,
     fusionReactor: beyond.inflation.fusionReactor,
     fusionNatureHarmony: beyond.inflation.fusionNatureHarmony,
+    sailsFoldSpacetime: beyond.inflation.sailsFoldSpacetime,
+    captainPassengers: beyond.inflation.captainPassengers,
+    addedEntropyPaid: beyond.inflation.addedEntropyPaid,
+    payOrGetPaid: beyond.inflation.payOrGetPaid,
     lovePlasma: beyond.inflation.lovePlasma,
     takeOrLeave: beyond.inflation.takeOrLeave,
     tokenEfficiency: beyond.inflation.tokenEfficiency,
