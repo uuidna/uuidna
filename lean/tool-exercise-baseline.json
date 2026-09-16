@@ -1,5 +1,5 @@
 {
-  "note": "MCP tools covered only by aggregate folds (mcp-coverage walks all at once), never a dedicated test that names them and checks their answer. This is an under-coverage DEBT list: it may only SHRINK \u2014 a tool gaining a dedicated test drops off, a new tool with no test must be added deliberately. audit-tool-exercise holds it; it never claims these are untested, only under-tested. Shrunk 2026-09-01: 19 zero-argument tools earned dedicated tests that name them and check a property which could be wrong \u2014 a shape, an invariant, a relation between two of the tool own fields. An assertion that only checked \"it returned an object\" would move a tool off this list while proving nothing, which is the aggregate fold wearing a dedicated test clothes.",
+  "note": "MCP tools covered only by aggregate folds (mcp-coverage walks all at once), never a dedicated test that names them and checks their answer. This is an under-coverage DEBT list: it may only SHRINK — a tool gaining a dedicated test drops off, a new tool with no test must be added deliberately. audit-tool-exercise holds it; it never claims these are untested, only under-tested. Shrunk 2026-09-01: 19 zero-argument tools earned dedicated tests that name them and check a property which could be wrong — a shape, an invariant, a relation between two of the tool own fields. An assertion that only checked \"it returned an object\" would move a tool off this list while proving nothing, which is the aggregate fold wearing a dedicated test clothes.",
   "aggregateOnly": [
     "uuidna",
     "uuidna_agent_contribute",
@@ -10,8 +10,8 @@
     "uuidna_audit_ledger_fingerprint",
     "uuidna_audit_video",
     "uuidna_audit_voting",
-    "uuidna_axiom_index",
     "uuidna_aura",
+    "uuidna_axiom_index",
     "uuidna_bill",
     "uuidna_by_lean",
     "uuidna_chacha20",
@@ -23,9 +23,9 @@
     "uuidna_crew",
     "uuidna_detect_double_spends",
     "uuidna_detect_forgery",
-    "uuidna_discovery_train",
     "uuidna_diamond",
     "uuidna_dictionary",
+    "uuidna_discovery_train",
     "uuidna_double_torus",
     "uuidna_due_process",
     "uuidna_forensics",

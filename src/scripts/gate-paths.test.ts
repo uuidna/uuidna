@@ -230,7 +230,7 @@ test('land commits the drain, mints over a clean worktree of HEAD, commits the r
   const land = readFileSync(join(ROOT, 'src', 'scripts', 'land.ts'), 'utf8')
   const stage = land.indexOf('stage()')
   const commitDrain = land.indexOf("run('git commit -m ' + JSON.stringify(msg) + pathspec())")
-  const verify = land.indexOf("gate-receipt.js --verify'")
+  const verify = land.indexOf("gate-receipt.js --verify'", commitDrain)
   const worktree = land.indexOf("git worktree add --detach")
   const mint = land.indexOf('--verified guard,tests --root')
   const commitReceipt = land.indexOf("' -- gate-receipt.json'")

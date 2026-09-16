@@ -124,7 +124,11 @@ export async function walkHostedAlpineApis(
 ): Promise<AlpineAgentCoverage> {
   const endpoint = opts?.endpoint ?? hostedMcpUrl()
   const listedRaw = await rpc(rpcList(1))
-  const doorPresent = listedTools(listedRaw).includes(MCP_ALPINE_DOOR)
+  const listed = listedTools(listedRaw)
+  // tools/list serves STANDARD_NAMES (run_app); old uuidna_exec still resolves on tools/call
+  const { STANDARD_NAMES } = await import('../../../mcp.js')
+  const doorNames = new Set([MCP_ALPINE_DOOR, STANDARD_NAMES[MCP_ALPINE_DOOR] ?? MCP_ALPINE_DOOR])
+  const doorPresent = listed.some((n) => doorNames.has(n))
   if (!doorPresent) return foldAlpineAgentCoverage(endpoint, false, mans.map((m) => ({
     man: m.name, app: null, covered: false, detail: `${MCP_ALPINE_DOOR} absent from hosted tools/list`,
   })))

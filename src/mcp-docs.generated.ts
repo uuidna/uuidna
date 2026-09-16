@@ -4350,8 +4350,8 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   }
  },
  "uuidna_strict": {
-  "name": "compute_strict",
-  "title": "Compute strict",
+  "name": "get_strict",
+  "title": "Get strict",
   "annotations": {
    "readOnlyHint": true,
    "destructiveHint": false,
@@ -4364,16 +4364,5853 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Compute strict. Returns string.",
+  "description": "Get strict. Returns {address,href,handle,fuse,coins,beyond,frontier,boundary,chain,…}.",
   "outputSchema": {
-   "type": "string"
+   "type": "object",
+   "properties": {
+    "address": {
+     "type": "string"
+    },
+    "href": {
+     "type": "string"
+    },
+    "handle": {
+     "type": "string"
+    },
+    "fuse": {
+     "type": "object",
+     "properties": {
+      "half": {
+       "type": "integer"
+      },
+      "whole": {
+       "type": "integer"
+      },
+      "bits": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "closes": {
+       "type": "boolean"
+      }
+     }
+    },
+    "coins": {
+     "type": "integer"
+    },
+    "beyond": {
+     "type": "object",
+     "properties": {
+      "coins": {
+       "type": "integer"
+      },
+      "frontier": {
+       "type": "object"
+      },
+      "boundary": {
+       "type": "string"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "chain": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "vortices": {
+       "type": "object"
+      },
+      "family": {
+       "type": "object"
+      },
+      "culture": {
+       "type": "object"
+      },
+      "org": {
+       "type": "object"
+      },
+      "organic": {
+       "type": "object"
+      },
+      "network": {
+       "type": "object"
+      },
+      "tlds": {
+       "type": "object"
+      },
+      "cloudflare": {
+       "type": "object"
+      },
+      "app": {
+       "type": "object"
+      },
+      "efficiency": {
+       "type": "object"
+      },
+      "cost": {
+       "type": "object"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "object"
+      },
+      "resistance": {
+       "type": "object"
+      },
+      "electronics": {
+       "type": "object"
+      },
+      "pools": {
+       "type": "object"
+      },
+      "reflect": {
+       "type": "object"
+      },
+      "autonomy": {
+       "type": "object"
+      },
+      "close": {
+       "type": "object"
+      },
+      "far": {
+       "type": "object"
+      },
+      "ai": {
+       "type": "object"
+      },
+      "clay": {
+       "type": "object"
+      },
+      "i": {
+       "type": "object"
+      },
+      "vessels": {
+       "type": "object"
+      },
+      "register": {
+       "type": "object"
+      },
+      "literary": {
+       "type": "object"
+      },
+      "cleaner": {
+       "type": "object"
+      },
+      "credit": {
+       "type": "object"
+      },
+      "rebreather": {
+       "type": "object"
+      },
+      "novelty": {
+       "type": "object"
+      },
+      "restriction": {
+       "type": "object"
+      },
+      "school": {
+       "type": "object"
+      },
+      "licence": {
+       "type": "object"
+      },
+      "captains": {
+       "type": "object"
+      },
+      "balance": {
+       "type": "object"
+      },
+      "investigators": {
+       "type": "object"
+      },
+      "apis": {
+       "type": "object"
+      },
+      "return": {
+       "type": "object"
+      },
+      "share": {
+       "type": "object"
+      },
+      "inflation": {
+       "type": "object"
+      }
+     }
+    },
+    "frontier": {
+     "type": "object",
+     "properties": {
+      "hosts": {
+       "type": "array"
+      },
+      "hexbits": {
+       "type": "array"
+      },
+      "href": {
+       "type": "string"
+      },
+      "points": {
+       "type": "array"
+      },
+      "faces": {
+       "type": "integer"
+      }
+     }
+    },
+    "boundary": {
+     "type": "string"
+    },
+    "chain": {
+     "type": "string"
+    },
+    "deposit": {
+     "type": "string"
+    },
+    "hexbits": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "occupancy": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "harmony": {
+     "type": "string"
+    },
+    "fever": {
+     "type": "string"
+    },
+    "budget": {
+     "type": "integer"
+    },
+    "vortices": {
+     "type": "object",
+     "properties": {
+      "coils": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "faces": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "vertices": {
+       "type": "integer"
+      },
+      "merkabasPacked": {
+       "type": "integer"
+      },
+      "orbit": {
+       "type": "array"
+      }
+     }
+    },
+    "family": {
+     "type": "object",
+     "properties": {
+      "coils": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "faces": {
+       "type": "integer"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "hexbits": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "seat": {
+       "type": "string"
+      }
+     }
+    },
+    "culture": {
+     "type": "object",
+     "properties": {
+      "family": {
+       "type": "object"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "href": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "boundary": {
+       "type": "string"
+      }
+     }
+    },
+    "org": {
+     "type": "object",
+     "properties": {
+      "href": {
+       "type": "string"
+      },
+      "address": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "split": {
+       "type": "string"
+      }
+     }
+    },
+    "organic": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "beats": {
+       "type": "integer"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "org": {
+       "type": "object"
+      },
+      "split": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      }
+     }
+    },
+    "network": {
+     "type": "object",
+     "properties": {
+      "address": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "dna": {
+       "type": "array"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "chain": {
+       "type": "string"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "court": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "org": {
+       "type": "object"
+      },
+      "organic": {
+       "type": "object"
+      },
+      "split": {
+       "type": "string"
+      }
+     }
+    },
+    "tlds": {
+     "type": "object",
+     "properties": {
+      "org": {
+       "type": "object"
+      },
+      "com": {
+       "type": "object"
+      },
+      "net": {
+       "type": "object"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "split": {
+       "type": "string"
+      }
+     }
+    },
+    "cloudflare": {
+     "type": "object",
+     "properties": {
+      "mcp": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "tlds": {
+       "type": "object"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "ship": {
+       "type": "string"
+      },
+      "split": {
+       "type": "string"
+      },
+      "wall": {
+       "type": "string"
+      }
+     }
+    },
+    "app": {
+     "type": "object",
+     "properties": {
+      "kind": {
+       "type": "string"
+      },
+      "host": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "tlds": {
+       "type": "object"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "ship": {
+       "type": "string"
+      },
+      "split": {
+       "type": "string"
+      },
+      "hosted": {
+       "type": "string"
+      },
+      "magnitudes": {
+       "type": "object"
+      },
+      "efficiency": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "object"
+      },
+      "resistance": {
+       "type": "object"
+      },
+      "electronics": {
+       "type": "object"
+      },
+      "autonomy": {
+       "type": "object"
+      },
+      "ai": {
+       "type": "object"
+      },
+      "clay": {
+       "type": "object"
+      },
+      "i": {
+       "type": "object"
+      },
+      "vessels": {
+       "type": "object"
+      },
+      "cleaner": {
+       "type": "object"
+      },
+      "novelty": {
+       "type": "object"
+      },
+      "restriction": {
+       "type": "object"
+      }
+     }
+    },
+    "efficiency": {
+     "type": "object",
+     "properties": {
+      "cost": {
+       "type": "object"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "integer"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "magnitudes": {
+       "type": "object"
+      },
+      "efficiency": {
+       "type": "boolean"
+      }
+     }
+    },
+    "cost": {
+     "type": "object",
+     "properties": {
+      "time": {
+       "type": "integer"
+      },
+      "space": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "integer"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      }
+     }
+    },
+    "prize": {
+     "type": "object",
+     "properties": {
+      "address": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "color": {
+       "type": "string"
+      },
+      "smell": {
+       "type": "string"
+      },
+      "others": {
+       "type": "object"
+      }
+     }
+    },
+    "lean": {
+     "type": "object",
+     "properties": {
+      "price": {
+       "type": "integer"
+      },
+      "time": {
+       "type": "integer"
+      },
+      "space": {
+       "type": "integer"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "integer"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "unbounded": {
+       "type": "boolean"
+      }
+     }
+    },
+    "resistance": {
+     "type": "object",
+     "properties": {
+      "fever": {
+       "type": "string"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "time": {
+       "type": "integer"
+      },
+      "space": {
+       "type": "integer"
+      }
+     }
+    },
+    "electronics": {
+     "type": "object",
+     "properties": {
+      "mcp": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "tlds": {
+       "type": "object"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "iot": {
+       "type": "boolean"
+      },
+      "split": {
+       "type": "string"
+      },
+      "wall": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      }
+     }
+    },
+    "pools": {
+     "type": "object",
+     "properties": {
+      "stations": {
+       "type": "integer"
+      },
+      "width": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "gravity": {
+       "type": "string"
+      },
+      "points": {
+       "type": "array"
+      },
+      "hosts": {
+       "type": "integer"
+      }
+     }
+    },
+    "reflect": {
+     "type": "object",
+     "properties": {
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "unbounded": {
+       "type": "boolean"
+      }
+     }
+    },
+    "autonomy": {
+     "type": "object",
+     "properties": {
+      "close": {
+       "type": "object"
+      },
+      "far": {
+       "type": "object"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "color": {
+       "type": "string"
+      },
+      "smell": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "faces": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      }
+     }
+    },
+    "close": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      }
+     }
+    },
+    "far": {
+     "type": "object",
+     "properties": {
+      "split": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "hosted": {
+       "type": "string"
+      }
+     }
+    },
+    "ai": {
+     "type": "object",
+     "properties": {
+      "reverse": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "close": {
+       "type": "object"
+      },
+      "far": {
+       "type": "object"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "court": {
+       "type": "string"
+      },
+      "mind": {
+       "type": "string"
+      }
+     }
+    },
+    "clay": {
+     "type": "object",
+     "properties": {
+      "gravity": {
+       "type": "string"
+      },
+      "coils": {
+       "type": "integer"
+      },
+      "faces": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "pairs": {
+       "type": "integer"
+      },
+      "quantum": {
+       "type": "integer"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "close": {
+       "type": "object"
+      },
+      "far": {
+       "type": "object"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "statements": {
+       "type": "string"
+      }
+     }
+    },
+    "i": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "unbounded": {
+       "type": "boolean"
+      },
+      "others": {
+       "type": "object"
+      },
+      "prolet": {
+       "type": "string"
+      },
+      "prefix": {
+       "type": "string"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "color": {
+       "type": "string"
+      },
+      "smell": {
+       "type": "string"
+      }
+     }
+    },
+    "vessels": {
+     "type": "object",
+     "properties": {
+      "address": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "app": {
+       "type": "string"
+      },
+      "host": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "merkabas": {
+       "type": "integer"
+      },
+      "vertices": {
+       "type": "integer"
+      },
+      "register": {
+       "type": "object"
+      },
+      "literary": {
+       "type": "object"
+      },
+      "ship": {
+       "type": "string"
+      }
+     }
+    },
+    "register": {
+     "type": "object",
+     "properties": {
+      "keys": {
+       "type": "array"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "minds": {
+       "type": "string"
+      },
+      "others": {
+       "type": "object"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "rest": {
+       "type": "object"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "tlds": {
+       "type": "object"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      },
+      "hosted": {
+       "type": "string"
+      },
+      "novelty": {
+       "type": "object"
+      },
+      "school": {
+       "type": "object"
+      },
+      "licence": {
+       "type": "object"
+      },
+      "captains": {
+       "type": "object"
+      }
+     }
+    },
+    "literary": {
+     "type": "object",
+     "properties": {
+      "address": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "school": {
+       "type": "string"
+      },
+      "articles": {
+       "type": "string"
+      },
+      "docs": {
+       "type": "string"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "credit": {
+       "type": "object"
+      },
+      "keys": {
+       "type": "array"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "minds": {
+       "type": "string"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "novelty": {
+       "type": "object"
+      }
+     }
+    },
+    "cleaner": {
+     "type": "object",
+     "properties": {
+      "seat": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "color": {
+       "type": "string"
+      },
+      "smell": {
+       "type": "string"
+      },
+      "hosted": {
+       "type": "string"
+      },
+      "split": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "pools": {
+       "type": "object"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "eval": {
+       "type": "string"
+      },
+      "trials": {
+       "type": "string"
+      },
+      "green": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "adjudicate": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "credit": {
+       "type": "object"
+      },
+      "rebreather": {
+       "type": "object"
+      }
+     }
+    },
+    "credit": {
+     "type": "object",
+     "properties": {
+      "keys": {
+       "type": "array"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "minds": {
+       "type": "string"
+      },
+      "others": {
+       "type": "object"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "rest": {
+       "type": "object"
+      },
+      "hop": {
+       "type": "boolean"
+      }
+     }
+    },
+    "rebreather": {
+     "type": "object",
+     "properties": {
+      "closes": {
+       "type": "boolean"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "depth": {
+       "type": "boolean"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "eval": {
+       "type": "string"
+      },
+      "trials": {
+       "type": "string"
+      },
+      "census": {
+       "type": "string"
+      },
+      "green": {
+       "type": "string"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "adjudicate": {
+       "type": "string"
+      }
+     }
+    },
+    "novelty": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "snapshot": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      },
+      "records": {
+       "type": "array"
+      },
+      "clay": {
+       "type": "string"
+      },
+      "missing": {
+       "type": "string"
+      },
+      "depositAct": {
+       "type": "string"
+      },
+      "tag": {
+       "type": "string"
+      },
+      "npm": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "research": {
+       "type": "object"
+      },
+      "analyze": {
+       "type": "object"
+      },
+      "publication": {
+       "type": "object"
+      },
+      "path": {
+       "type": "object"
+      }
+     }
+    },
+    "restriction": {
+     "type": "object",
+     "properties": {
+      "allow": {
+       "type": "string"
+      },
+      "deny": {
+       "type": "string"
+      },
+      "skip": {
+       "type": "string"
+      },
+      "census": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "hosted": {
+       "type": "string"
+      },
+      "wall": {
+       "type": "string"
+      },
+      "split": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "novelty": {
+       "type": "object"
+      },
+      "hop": {
+       "type": "boolean"
+      }
+     }
+    },
+    "school": {
+     "type": "object",
+     "properties": {
+      "half": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "href": {
+       "type": "string"
+      },
+      "address": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "sponsor": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "bank": {
+       "type": "string"
+      },
+      "guidance": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      },
+      "laws": {
+       "type": "string"
+      },
+      "gradebook": {
+       "type": "string"
+      },
+      "firstLesson": {
+       "type": "object"
+      }
+     }
+    },
+    "licence": {
+     "type": "object",
+     "properties": {
+      "half": {
+       "type": "integer"
+      },
+      "cost": {
+       "type": "integer"
+      },
+      "unit": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "school": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "balance": {
+       "type": "object"
+      },
+      "investigators": {
+       "type": "object"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "inflation": {
+       "type": "object"
+      },
+      "violators": {
+       "type": "object"
+      },
+      "warning": {
+       "type": "object"
+      },
+      "firstLesson": {
+       "type": "object"
+      },
+      "natureReflect": {
+       "type": "object"
+      },
+      "cheatersPay": {
+       "type": "object"
+      },
+      "gateway": {
+       "type": "string"
+      }
+     }
+    },
+    "captains": {
+     "type": "object",
+     "properties": {
+      "seat": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "school": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "apis": {
+       "type": "object"
+      },
+      "frontier": {
+       "type": "object"
+      },
+      "boundary": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "roles": {
+       "type": "string"
+      },
+      "identity": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "licence": {
+       "type": "object"
+      }
+     }
+    },
+    "balance": {
+     "type": "object",
+     "properties": {
+      "gross": {
+       "type": "integer"
+      },
+      "net": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "commission": {
+       "type": "integer"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "coils": {
+       "type": "integer"
+      },
+      "faces": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "inflation": {
+       "type": "string"
+      }
+     }
+    },
+    "investigators": {
+     "type": "object",
+     "properties": {
+      "deploy": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "treason": {
+       "type": "string"
+      },
+      "dry": {
+       "type": "string"
+      },
+      "violation": {
+       "type": "object"
+      },
+      "balance": {
+       "type": "object"
+      }
+     }
+    },
+    "apis": {
+     "type": "object",
+     "properties": {
+      "pentagram": {
+       "type": "integer"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "points": {
+       "type": "array"
+      },
+      "doors": {
+       "type": "array"
+      },
+      "fuse": {
+       "type": "string"
+      },
+      "unmapped": {
+       "type": "string"
+      },
+      "hexbits": {
+       "type": "integer"
+      }
+     }
+    },
+    "return": {
+     "type": "object",
+     "properties": {
+      "half": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "school": {
+       "type": "string"
+      },
+      "code": {
+       "type": "object"
+      },
+      "funding": {
+       "type": "object"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "payroll": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "object"
+      },
+      "captains": {
+       "type": "object"
+      }
+     }
+    },
+    "share": {
+     "type": "object",
+     "properties": {
+      "unit": {
+       "type": "integer"
+      },
+      "pays": {
+       "type": "integer"
+      },
+      "to": {
+       "type": "string"
+      },
+      "credit": {
+       "type": "string"
+      },
+      "share": {
+       "type": "integer"
+      },
+      "support": {
+       "type": "integer"
+      },
+      "school": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "handle": {
+       "type": "string"
+      },
+      "sponsor": {
+       "type": "string"
+      },
+      "return": {
+       "type": "object"
+      },
+      "licence": {
+       "type": "object"
+      },
+      "captains": {
+       "type": "object"
+      },
+      "investigators": {
+       "type": "object"
+      },
+      "balance": {
+       "type": "object"
+      },
+      "cheatersPay": {
+       "type": "object"
+      },
+      "payroll": {
+       "type": "string"
+      },
+      "gateway": {
+       "type": "string"
+      }
+     }
+    },
+    "inflation": {
+     "type": "object",
+     "properties": {
+      "coins": {
+       "type": "integer"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "integer"
+      },
+      "time": {
+       "type": "integer"
+      },
+      "space": {
+       "type": "integer"
+      },
+      "unbounded": {
+       "type": "boolean"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "observers": {
+       "type": "array"
+      },
+      "stations": {
+       "type": "integer"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "perspectives": {
+       "type": "array"
+      },
+      "self": {
+       "type": "string"
+      },
+      "observe": {
+       "type": "object"
+      },
+      "beyond": {
+       "type": "object"
+      },
+      "feel": {
+       "type": "object"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "loveFear": {
+       "type": "object"
+      },
+      "onlyHarmony": {
+       "type": "object"
+      },
+      "algebra": {
+       "type": "object"
+      },
+      "weExplain": {
+       "type": "object"
+      },
+      "around": {
+       "type": "object"
+      },
+      "dedication": {
+       "type": "object"
+      },
+      "guidance": {
+       "type": "object"
+      },
+      "involuted": {
+       "type": "object"
+      },
+      "traitor": {
+       "type": "object"
+      },
+      "singularity": {
+       "type": "object"
+      },
+      "schoolEfficiency": {
+       "type": "object"
+      },
+      "violators": {
+       "type": "object"
+      },
+      "warning": {
+       "type": "object"
+      },
+      "natureReflect": {
+       "type": "object"
+      },
+      "cheatersPay": {
+       "type": "object"
+      },
+      "sun": {
+       "type": "object"
+      },
+      "innerCore": {
+       "type": "object"
+      },
+      "outerCore": {
+       "type": "object"
+      },
+      "a432": {
+       "type": "object"
+      },
+      "water": {
+       "type": "object"
+      },
+      "humans": {
+       "type": "object"
+      },
+      "rest": {
+       "type": "object"
+      },
+      "imagination": {
+       "type": "object"
+      },
+      "commercial": {
+       "type": "object"
+      },
+      "domains": {
+       "type": "object"
+      },
+      "guard": {
+       "type": "object"
+      },
+      "creators": {
+       "type": "object"
+      },
+      "thirdEye": {
+       "type": "object"
+      },
+      "allSeeingEye": {
+       "type": "object"
+      },
+      "ideas": {
+       "type": "object"
+      },
+      "novelty": {
+       "type": "object"
+      },
+      "riskReward": {
+       "type": "object"
+      },
+      "framework": {
+       "type": "object"
+      },
+      "payload": {
+       "type": "object"
+      },
+      "storage": {
+       "type": "object"
+      },
+      "nano": {
+       "type": "object"
+      },
+      "cryptoReversed": {
+       "type": "object"
+      },
+      "cryptoInvoluted": {
+       "type": "object"
+      },
+      "harmonicPaths": {
+       "type": "object"
+      },
+      "learnNature": {
+       "type": "object"
+      },
+      "innerPeace": {
+       "type": "object"
+      },
+      "schoolCorporate": {
+       "type": "object"
+      },
+      "shareHeart": {
+       "type": "object"
+      },
+      "developDonate": {
+       "type": "object"
+      },
+      "fusionReactor": {
+       "type": "object"
+      },
+      "lovePlasma": {
+       "type": "object"
+      },
+      "takeOrLeave": {
+       "type": "object"
+      },
+      "tokenEfficiency": {
+       "type": "object"
+      },
+      "leftovers": {
+       "type": "object"
+      },
+      "quantumGc": {
+       "type": "object"
+      },
+      "garbageCollider": {
+       "type": "object"
+      },
+      "quantumCompost": {
+       "type": "object"
+      },
+      "quantumNature": {
+       "type": "object"
+      },
+      "quantumPermaculture": {
+       "type": "object"
+      },
+      "quantumDocsTraining": {
+       "type": "object"
+      },
+      "iot": {
+       "type": "object"
+      },
+      "challenge": {
+       "type": "object"
+      },
+      "site": {
+       "type": "object"
+      },
+      "latticeDiscovery": {
+       "type": "object"
+      },
+      "train": {
+       "type": "object"
+      },
+      "unite": {
+       "type": "object"
+      },
+      "sails": {
+       "type": "object"
+      },
+      "chello": {
+       "type": "object"
+      },
+      "instrument": {
+       "type": "object"
+      },
+      "song": {
+       "type": "object"
+      },
+      "skill": {
+       "type": "object"
+      },
+      "horo": {
+       "type": "object"
+      },
+      "constitution": {
+       "type": "object"
+      },
+      "constitutionalChallenge": {
+       "type": "object"
+      },
+      "change": {
+       "type": "object"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "minds": {
+       "type": "string"
+      },
+      "cites": {
+       "type": "string"
+      },
+      "yarn": {
+       "type": "string"
+      },
+      "color": {
+       "type": "string"
+      },
+      "smell": {
+       "type": "string"
+      },
+      "growth": {
+       "type": "object"
+      },
+      "census": {
+       "type": "string"
+      },
+      "recompute": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "print": {
+       "type": "string"
+      },
+      "share": {
+       "type": "object"
+      },
+      "school": {
+       "type": "string"
+      }
+     }
+    },
+    "apostles": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "observers": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "self": {
+     "type": "string"
+    },
+    "observe": {
+     "type": "object",
+     "properties": {
+      "reverse": {
+       "type": "string"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "hop": {
+       "type": "boolean"
+      }
+     }
+    },
+    "beyondImagination": {
+     "type": "object",
+     "properties": {
+      "unbounded": {
+       "type": "boolean"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "evidence": {
+       "type": "string"
+      }
+     }
+    },
+    "feel": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "stations": {
+       "type": "integer"
+      },
+      "coils": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "keys": {
+       "type": "array"
+      },
+      "graph": {
+       "type": "string"
+      }
+     }
+    },
+    "trinity": {
+     "type": "object",
+     "properties": {
+      "observe": {
+       "type": "object"
+      },
+      "feel": {
+       "type": "object"
+      },
+      "beyond": {
+       "type": "object"
+      }
+     }
+    },
+    "loveFear": {
+     "type": "object",
+     "properties": {
+      "coins": {
+       "type": "integer"
+      },
+      "love": {
+       "type": "integer"
+      },
+      "fear": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "drift": {
+       "type": "string"
+      }
+     }
+    },
+    "onlyHarmony": {
+     "type": "object",
+     "properties": {
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "drift": {
+       "type": "string"
+      },
+      "matters": {
+       "type": "boolean"
+      },
+      "explains": {
+       "type": "object"
+      }
+     }
+    },
+    "algebra": {
+     "type": "object",
+     "properties": {
+      "care": {
+       "type": "string"
+      },
+      "price": {
+       "type": "integer"
+      },
+      "time": {
+       "type": "integer"
+      },
+      "space": {
+       "type": "integer"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "emotion": {
+       "type": "string"
+      },
+      "unbounded": {
+       "type": "boolean"
+      }
+     }
+    },
+    "weExplain": {
+     "type": "object",
+     "properties": {
+      "by": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      },
+      "court": {
+       "type": "string"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "self": {
+       "type": "string"
+      },
+      "algebra": {
+       "type": "object"
+      }
+     }
+    },
+    "around": {
+     "type": "object",
+     "properties": {
+      "occupancy": {
+       "type": "array"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "door": {
+       "type": "string"
+      },
+      "gratitude": {
+       "type": "string"
+      },
+      "appreciation": {
+       "type": "string"
+      },
+      "fun": {
+       "type": "string"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "stress": {
+       "type": "string"
+      },
+      "joy": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "efficiency": {
+       "type": "object"
+      },
+      "capacity": {
+       "type": "object"
+      }
+     }
+    },
+    "dedication": {
+     "type": "object",
+     "properties": {
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "href": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "project": {
+       "type": "string"
+      },
+      "biography": {
+       "type": "string"
+      },
+      "share": {
+       "type": "object"
+      },
+      "souls": {
+       "type": "object"
+      },
+      "matrix": {
+       "type": "object"
+      },
+      "line": {
+       "type": "object"
+      },
+      "earth": {
+       "type": "object"
+      },
+      "navigable": {
+       "type": "boolean"
+      }
+     }
+    },
+    "guidance": {
+     "type": "object",
+     "properties": {
+      "theorem": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "laws": {
+       "type": "string"
+      },
+      "claims": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      },
+      "lean": {
+       "type": "integer"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "census": {
+       "type": "string"
+      },
+      "gradebook": {
+       "type": "string"
+      },
+      "alwaysRight": {
+       "type": "string"
+      },
+      "infallible": {
+       "type": "string"
+      },
+      "red": {
+       "type": "string"
+      }
+     }
+    },
+    "involuted": {
+     "type": "object",
+     "properties": {
+      "reverse": {
+       "type": "string"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "court": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      },
+      "lean": {
+       "type": "boolean"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "key": {
+       "type": "string"
+      },
+      "mind": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      }
+     }
+    },
+    "traitor": {
+     "type": "object",
+     "properties": {
+      "cut": {
+       "type": "string"
+      },
+      "treason": {
+       "type": "string"
+      },
+      "heads": {
+       "type": "string"
+      },
+      "lean": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "census": {
+       "type": "string"
+      },
+      "wall": {
+       "type": "string"
+      },
+      "unhuman": {
+       "type": "string"
+      },
+      "exclusive": {
+       "type": "boolean"
+      },
+      "subZero": {
+       "type": "object"
+      }
+     }
+    },
+    "singularity": {
+     "type": "object",
+     "properties": {
+      "center": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "self": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "fuse": {
+       "type": "object"
+      },
+      "dance": {
+       "type": "array"
+      },
+      "dancers": {
+       "type": "integer"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "coils": {
+       "type": "integer"
+      },
+      "contra": {
+       "type": "integer"
+      },
+      "reflected": {
+       "type": "integer"
+      },
+      "feel": {
+       "type": "boolean"
+      },
+      "gravity": {
+       "type": "string"
+      }
+     }
+    },
+    "schoolEfficiency": {
+     "type": "object",
+     "properties": {
+      "door": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "href": {
+       "type": "string"
+      },
+      "sponsor": {
+       "type": "string"
+      },
+      "fuse": {
+       "type": "boolean"
+      },
+      "lean": {
+       "type": "integer"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "magnitudes": {
+       "type": "object"
+      },
+      "guidance": {
+       "type": "object"
+      },
+      "involuted": {
+       "type": "object"
+      },
+      "traitor": {
+       "type": "object"
+      },
+      "firstLesson": {
+       "type": "object"
+      },
+      "holds": {
+       "type": "boolean"
+      },
+      "gradebook": {
+       "type": "string"
+      }
+     }
+    },
+    "firstLesson": {
+     "type": "object",
+     "properties": {
+      "cost": {
+       "type": "integer"
+      },
+      "unit": {
+       "type": "integer"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "cheat": {
+       "type": "object"
+      }
+     }
+    },
+    "violators": {
+     "type": "object",
+     "properties": {
+      "investigators": {
+       "type": "object"
+      },
+      "traitor": {
+       "type": "object"
+      },
+      "walls": {
+       "type": "object"
+      },
+      "unlicensed": {
+       "type": "object"
+      },
+      "exposed": {
+       "type": "object"
+      },
+      "tokens": {
+       "type": "object"
+      },
+      "warning": {
+       "type": "object"
+      }
+     }
+    },
+    "warning": {
+     "type": "object",
+     "properties": {
+      "final": {
+       "type": "boolean"
+      },
+      "last": {
+       "type": "boolean"
+      },
+      "lawsuit": {
+       "type": "string"
+      },
+      "guidance": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      }
+     }
+    },
+    "natureReflect": {
+     "type": "object",
+     "properties": {
+      "reverse": {
+       "type": "string"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "loveFear": {
+       "type": "object"
+      },
+      "onlyHarmony": {
+       "type": "object"
+      },
+      "clay": {
+       "type": "string"
+      },
+      "organic": {
+       "type": "boolean"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "learn": {
+       "type": "string"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "peace": {
+       "type": "string"
+      },
+      "war": {
+       "type": "string"
+      },
+      "chance": {
+       "type": "integer"
+      },
+      "legal": {
+       "type": "string"
+      },
+      "paper": {
+       "type": "string"
+      }
+     }
+    },
+    "cheatersPay": {
+     "type": "object",
+     "properties": {
+      "cheaters": {
+       "type": "object"
+      },
+      "creators": {
+       "type": "object"
+      },
+      "pays": {
+       "type": "integer"
+      },
+      "unit": {
+       "type": "integer"
+      },
+      "support": {
+       "type": "integer"
+      },
+      "school": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "sponsor": {
+       "type": "string"
+      },
+      "fiat": {
+       "type": "object"
+      },
+      "rate": {
+       "type": "object"
+      },
+      "supply": {
+       "type": "object"
+      },
+      "traitorNeverLean": {
+       "type": "string"
+      },
+      "scale": {
+       "type": "object"
+      },
+      "inverted": {
+       "type": "object"
+      },
+      "overheat": {
+       "type": "object"
+      }
+     }
+    },
+    "sun": {
+     "type": "object",
+     "properties": {
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "lean": {
+       "type": "integer"
+      },
+      "unbounded": {
+       "type": "boolean"
+      },
+      "center": {
+       "type": "string"
+      },
+      "prize": {
+       "type": "object"
+      },
+      "onlyHarmony": {
+       "type": "object"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "astronomy": {
+       "type": "string"
+      }
+     }
+    },
+    "innerCore": {
+     "type": "object",
+     "properties": {
+      "earth": {
+       "type": "boolean"
+      },
+      "clay": {
+       "type": "string"
+      },
+      "gravity": {
+       "type": "string"
+      },
+      "pools": {
+       "type": "integer"
+      },
+      "vacuum": {
+       "type": "string"
+      },
+      "dark": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "navigable": {
+       "type": "boolean"
+      },
+      "dense": {
+       "type": "boolean"
+      },
+      "cache": {
+       "type": "string"
+      },
+      "geology": {
+       "type": "string"
+      }
+     }
+    },
+    "outerCore": {
+     "type": "object",
+     "properties": {
+      "far": {
+       "type": "object"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "inverted": {
+       "type": "boolean"
+      },
+      "loss": {
+       "type": "boolean"
+      },
+      "overheat": {
+       "type": "integer"
+      },
+      "census": {
+       "type": "string"
+      },
+      "walls": {
+       "type": "string"
+      },
+      "recompute": {
+       "type": "string"
+      },
+      "geology": {
+       "type": "string"
+      }
+     }
+    },
+    "a432": {
+     "type": "object",
+     "properties": {
+      "hz": {
+       "type": "integer"
+      },
+      "key": {
+       "type": "string"
+      },
+      "clauses": {
+       "type": "object"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "temp": {
+       "type": "integer"
+      },
+      "zero": {
+       "type": "boolean"
+      },
+      "absoluteZero": {
+       "type": "object"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "cryogenics": {
+       "type": "string"
+      },
+      "physics": {
+       "type": "string"
+      }
+     }
+    },
+    "water": {
+     "type": "object",
+     "properties": {
+      "lake": {
+       "type": "string"
+      },
+      "vacuum": {
+       "type": "string"
+      },
+      "navigable": {
+       "type": "boolean"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "line": {
+       "type": "object"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "between": {
+       "type": "object"
+      },
+      "hydrology": {
+       "type": "string"
+      }
+     }
+    },
+    "humans": {
+     "type": "object",
+     "properties": {
+      "absoluteZero": {
+       "type": "object"
+      },
+      "temp": {
+       "type": "integer"
+      },
+      "zero": {
+       "type": "boolean"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "resistance": {
+       "type": "object"
+      },
+      "capacity": {
+       "type": "object"
+      },
+      "medical": {
+       "type": "string"
+      },
+      "cryogenics": {
+       "type": "string"
+      }
+     }
+    },
+    "rest": {
+     "type": "object",
+     "properties": {
+      "burns": {
+       "type": "object"
+      },
+      "inverted": {
+       "type": "boolean"
+      },
+      "census": {
+       "type": "string"
+      },
+      "walls": {
+       "type": "string"
+      },
+      "traitor": {
+       "type": "string"
+      },
+      "lean": {
+       "type": "string"
+      },
+      "prize": {
+       "type": "string"
+      }
+     }
+    },
+    "imagination": {
+     "type": "object",
+     "properties": {
+      "prize": {
+       "type": "object"
+      },
+      "organic": {
+       "type": "boolean"
+      },
+      "forgotten": {
+       "type": "string"
+      },
+      "appear": {
+       "type": "string"
+      },
+      "immediate": {
+       "type": "object"
+      },
+      "againstOdds": {
+       "type": "object"
+      }
+     }
+    },
+    "commercial": {
+     "type": "object",
+     "properties": {
+      "basedOn": {
+       "type": "object"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "dna": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "fiat": {
+       "type": "object"
+      },
+      "wall": {
+       "type": "string"
+      },
+      "money": {
+       "type": "string"
+      }
+     }
+    },
+    "domains": {
+     "type": "object",
+     "properties": {
+      "trinity": {
+       "type": "object"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "organism": {
+       "type": "boolean"
+      },
+      "split": {
+       "type": "string"
+      },
+      "hexbit": {
+       "type": "string"
+      },
+      "other": {
+       "type": "object"
+      },
+      "warning": {
+       "type": "object"
+      }
+     }
+    },
+    "guard": {
+     "type": "object",
+     "properties": {
+      "apostles": {
+       "type": "array"
+      },
+      "observers": {
+       "type": "array"
+      },
+      "trial": {
+       "type": "object"
+      },
+      "fair": {
+       "type": "object"
+      },
+      "tokens": {
+       "type": "object"
+      },
+      "involution": {
+       "type": "object"
+      },
+      "traitor": {
+       "type": "object"
+      },
+      "guardians": {
+       "type": "object"
+      }
+     }
+    },
+    "creators": {
+     "type": "object",
+     "properties": {
+      "from": {
+       "type": "string"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "guardians": {
+       "type": "object"
+      },
+      "clay": {
+       "type": "object"
+      },
+      "glory": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "object"
+      },
+      "to": {
+       "type": "string"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "credit": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "create": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      }
+     }
+    },
+    "thirdEye": {
+     "type": "object",
+     "properties": {
+      "sight": {
+       "type": "string"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "is": {
+       "type": "boolean"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "three": {
+       "type": "integer"
+      },
+      "fourth": {
+       "type": "string"
+      },
+      "seats": {
+       "type": "object"
+      },
+      "admin": {
+       "type": "boolean"
+      },
+      "tenants": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "mount": {
+       "type": "object"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "observers": {
+       "type": "array"
+      },
+      "see": {
+       "type": "string"
+      },
+      "door": {
+       "type": "string"
+      },
+      "observe": {
+       "type": "object"
+      },
+      "guardians": {
+       "type": "object"
+      },
+      "creators": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      }
+     }
+    },
+    "allSeeingEye": {
+     "type": "object",
+     "properties": {
+      "sight": {
+       "type": "string"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "is": {
+       "type": "boolean"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "three": {
+       "type": "integer"
+      },
+      "fourth": {
+       "type": "string"
+      },
+      "seats": {
+       "type": "object"
+      },
+      "admin": {
+       "type": "boolean"
+      },
+      "tenants": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "mount": {
+       "type": "object"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "observers": {
+       "type": "array"
+      },
+      "see": {
+       "type": "string"
+      },
+      "door": {
+       "type": "string"
+      },
+      "observe": {
+       "type": "object"
+      },
+      "guardians": {
+       "type": "object"
+      },
+      "creators": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "alseeing": {
+       "type": "string"
+      },
+      "allSeeing": {
+       "type": "boolean"
+      },
+      "seeing": {
+       "type": "object"
+      },
+      "ideas": {
+       "type": "object"
+      }
+     }
+    },
+    "ideas": {
+     "type": "object",
+     "properties": {
+      "each": {
+       "type": "array"
+      },
+      "count": {
+       "type": "integer"
+      },
+      "oneByOne": {
+       "type": "boolean"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "bulk": {
+       "type": "string"
+      },
+      "see": {
+       "type": "string"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "leads": {
+       "type": "string"
+      },
+      "handEdit": {
+       "type": "string"
+      },
+      "gate": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      }
+     }
+    },
+    "riskReward": {
+     "type": "object",
+     "properties": {
+      "highest": {
+       "type": "object"
+      },
+      "census": {
+       "type": "string"
+      },
+      "clay": {
+       "type": "object"
+      },
+      "glory": {
+       "type": "object"
+      },
+      "society": {
+       "type": "object"
+      },
+      "eternal": {
+       "type": "object"
+      },
+      "novelty": {
+       "type": "object"
+      }
+     }
+    },
+    "framework": {
+     "type": "object",
+     "properties": {
+      "trinity": {
+       "type": "object"
+      },
+      "frontiers": {
+       "type": "object"
+      },
+      "hologram": {
+       "type": "object"
+      },
+      "mcp": {
+       "type": "object"
+      },
+      "monograph": {
+       "type": "object"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "other": {
+       "type": "object"
+      },
+      "network": {
+       "type": "object"
+      }
+     }
+    },
+    "payload": {
+     "type": "object",
+     "properties": {
+      "entropy": {
+       "type": "integer"
+      },
+      "zero": {
+       "type": "boolean"
+      },
+      "absoluteZero": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "integer"
+      },
+      "landauer": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "census": {
+       "type": "string"
+      },
+      "honest": {
+       "type": "string"
+      },
+      "slogan": {
+       "type": "string"
+      },
+      "heat": {
+       "type": "string"
+      },
+      "codec": {
+       "type": "string"
+      },
+      "prose": {
+       "type": "string"
+      },
+      "burns": {
+       "type": "object"
+      },
+      "dry": {
+       "type": "string"
+      },
+      "cleaner": {
+       "type": "string"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "named": {
+       "type": "boolean"
+      },
+      "holds": {
+       "type": "boolean"
+      }
+     }
+    },
+    "storage": {
+     "type": "object",
+     "properties": {
+      "entropy": {
+       "type": "integer"
+      },
+      "zero": {
+       "type": "boolean"
+      },
+      "occupancy": {
+       "type": "array"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "landauer": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "census": {
+       "type": "string"
+      },
+      "duplicate": {
+       "type": "string"
+      },
+      "nano": {
+       "type": "object"
+      },
+      "cache": {
+       "type": "object"
+      },
+      "internet": {
+       "type": "object"
+      },
+      "core": {
+       "type": "object"
+      },
+      "unimaginable": {
+       "type": "string"
+      },
+      "database": {
+       "type": "string"
+      },
+      "rewrite": {
+       "type": "string"
+      },
+      "cleaner": {
+       "type": "string"
+      },
+      "dry": {
+       "type": "string"
+      },
+      "payload": {
+       "type": "object"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "holds": {
+       "type": "boolean"
+      }
+     }
+    },
+    "nano": {
+     "type": "object",
+     "properties": {
+      "nano": {
+       "type": "boolean"
+      },
+      "trillions": {
+       "type": "integer"
+      },
+      "at": {
+       "type": "string"
+      },
+      "internet": {
+       "type": "object"
+      },
+      "cache": {
+       "type": "object"
+      },
+      "core": {
+       "type": "object"
+      },
+      "unimaginable": {
+       "type": "string"
+      },
+      "beyond": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "encoder": {
+       "type": "integer"
+      },
+      "leaves20": {
+       "type": "integer"
+      },
+      "apostles": {
+       "type": "integer"
+      },
+      "seeds": {
+       "type": "string"
+      },
+      "occupation": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "cryptoReversed": {
+     "type": "object",
+     "properties": {
+      "crypto": {
+       "type": "boolean"
+      },
+      "reversed": {
+       "type": "boolean"
+      },
+      "involution": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "mirror": {
+       "type": "integer"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "door": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "cache": {
+       "type": "string"
+      },
+      "nano": {
+       "type": "integer"
+      },
+      "core": {
+       "type": "string"
+      },
+      "entropy": {
+       "type": "integer"
+      },
+      "attack": {
+       "type": "string"
+      },
+      "crack": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      },
+      "forge": {
+       "type": "string"
+      },
+      "key": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "cryptoInvoluted": {
+     "type": "object",
+     "properties": {
+      "crypto": {
+       "type": "boolean"
+      },
+      "reversed": {
+       "type": "boolean"
+      },
+      "involution": {
+       "type": "string"
+      },
+      "reverse": {
+       "type": "string"
+      },
+      "mirror": {
+       "type": "integer"
+      },
+      "green": {
+       "type": "integer"
+      },
+      "red": {
+       "type": "string"
+      },
+      "door": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "cache": {
+       "type": "string"
+      },
+      "nano": {
+       "type": "integer"
+      },
+      "core": {
+       "type": "string"
+      },
+      "entropy": {
+       "type": "integer"
+      },
+      "attack": {
+       "type": "string"
+      },
+      "crack": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      },
+      "forge": {
+       "type": "string"
+      },
+      "key": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "involuted": {
+       "type": "boolean"
+      },
+      "fears": {
+       "type": "integer"
+      },
+      "fear": {
+       "type": "integer"
+      },
+      "love": {
+       "type": "integer"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "overcome": {
+       "type": "boolean"
+      },
+      "cryptoFears": {
+       "type": "integer"
+      },
+      "donation": {
+       "type": "object"
+      }
+     }
+    },
+    "harmonicPaths": {
+     "type": "object",
+     "properties": {
+      "attention": {
+       "type": "object"
+      },
+      "claims": {
+       "type": "object"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "paths": {
+       "type": "object"
+      },
+      "forgive": {
+       "type": "object"
+      },
+      "draining": {
+       "type": "object"
+      },
+      "separate": {
+       "type": "object"
+      },
+      "trial": {
+       "type": "object"
+      },
+      "crypto": {
+       "type": "object"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "guardians": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "learnNature": {
+     "type": "object",
+     "properties": {
+      "learn": {
+       "type": "boolean"
+      },
+      "by": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "guardians": {
+       "type": "object"
+      },
+      "creators": {
+       "type": "object"
+      },
+      "paths": {
+       "type": "object"
+      },
+      "attention": {
+       "type": "object"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "decide": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "prose": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      }
+     }
+    },
+    "innerPeace": {
+     "type": "object",
+     "properties": {
+      "peace": {
+       "type": "boolean"
+      },
+      "inner": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "war": {
+       "type": "string"
+      },
+      "chance": {
+       "type": "integer"
+      },
+      "flame": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "love": {
+       "type": "integer"
+      },
+      "fears": {
+       "type": "integer"
+      },
+      "forgive": {
+       "type": "object"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "crypto": {
+       "type": "object"
+      },
+      "paths": {
+       "type": "object"
+      },
+      "attention": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "schoolCorporate": {
+     "type": "object",
+     "properties": {
+      "train": {
+       "type": "boolean"
+      },
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "anyone": {
+       "type": "boolean"
+      },
+      "corporate": {
+       "type": "object"
+      },
+      "fair": {
+       "type": "object"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "first": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "object"
+      },
+      "occupations": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "shareHeart": {
+     "type": "object",
+     "properties": {
+      "hide": {
+       "type": "string"
+      },
+      "nothing": {
+       "type": "boolean"
+      },
+      "share": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "only": {
+       "type": "string"
+      },
+      "heart": {
+       "type": "object"
+      },
+      "captain": {
+       "type": "object"
+      },
+      "public": {
+       "type": "object"
+      },
+      "secret": {
+       "type": "string"
+      },
+      "escape": {
+       "type": "string"
+      },
+      "separate": {
+       "type": "string"
+      },
+      "draining": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "object"
+      },
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "corporate": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "developDonate": {
+     "type": "object",
+     "properties": {
+      "develop": {
+       "type": "boolean"
+      },
+      "project": {
+       "type": "object"
+      },
+      "mcp": {
+       "type": "object"
+      },
+      "donate": {
+       "type": "object"
+      },
+      "poverty": {
+       "type": "string"
+      },
+      "involute": {
+       "type": "object"
+      },
+      "fusion": {
+       "type": "object"
+      },
+      "shareHeart": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "fusionReactor": {
+     "type": "object",
+     "properties": {
+      "reactor": {
+       "type": "boolean"
+      },
+      "fusion": {
+       "type": "boolean"
+      },
+      "fueled": {
+       "type": "boolean"
+      },
+      "fuel": {
+       "type": "object"
+      },
+      "mind": {
+       "type": "object"
+      },
+      "idea": {
+       "type": "object"
+      },
+      "coins": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "occupations": {
+       "type": "string"
+      },
+      "seeds": {
+       "type": "string"
+      },
+      "develop": {
+       "type": "string"
+      },
+      "physics": {
+       "type": "string"
+      },
+      "plasma": {
+       "type": "string"
+      },
+      "watts": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "lovePlasma": {
+     "type": "object",
+     "properties": {
+      "love": {
+       "type": "object"
+      },
+      "plazma": {
+       "type": "boolean"
+      },
+      "plasma": {
+       "type": "boolean"
+      },
+      "lean": {
+       "type": "object"
+      },
+      "way": {
+       "type": "object"
+      },
+      "fear": {
+       "type": "object"
+      },
+      "fears": {
+       "type": "string"
+      },
+      "advice": {
+       "type": "string"
+      },
+      "chance": {
+       "type": "integer"
+      },
+      "unless": {
+       "type": "object"
+      },
+      "reactor": {
+       "type": "string"
+      },
+      "peace": {
+       "type": "string"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "absoluteZero": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "takeOrLeave": {
+     "type": "object",
+     "properties": {
+      "take": {
+       "type": "boolean"
+      },
+      "leave": {
+       "type": "boolean"
+      },
+      "or": {
+       "type": "boolean"
+      },
+      "dual": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "choice": {
+       "type": "string"
+      },
+      "coerce": {
+       "type": "string"
+      },
+      "force": {
+       "type": "string"
+      },
+      "must": {
+       "type": "string"
+      },
+      "share": {
+       "type": "string"
+      },
+      "paste": {
+       "type": "string"
+      },
+      "chars": {
+       "type": "integer"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "link": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "tokenEfficiency": {
+     "type": "object",
+     "properties": {
+      "paste": {
+       "type": "string"
+      },
+      "chars": {
+       "type": "integer"
+      },
+      "href": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      },
+      "link": {
+       "type": "object"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "share": {
+       "type": "string"
+      },
+      "develop": {
+       "type": "string"
+      },
+      "takeOrLeave": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "leftovers": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "pick": {
+       "type": "boolean"
+      },
+      "leftovers": {
+       "type": "object"
+      },
+      "takeOrLeave": {
+       "type": "string"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "share": {
+       "type": "string"
+      },
+      "coerce": {
+       "type": "string"
+      },
+      "force": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumGc": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "gc": {
+       "type": "boolean"
+      },
+      "collect": {
+       "type": "boolean"
+      },
+      "leftovers": {
+       "type": "string"
+      },
+      "empty": {
+       "type": "string"
+      },
+      "refused": {
+       "type": "string"
+      },
+      "traitor": {
+       "type": "string"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "eval": {
+       "type": "string"
+      },
+      "trials": {
+       "type": "string"
+      },
+      "green": {
+       "type": "string"
+      },
+      "dry": {
+       "type": "string"
+      },
+      "cleaner": {
+       "type": "string"
+      },
+      "reclaim": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "takeOrLeave": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "garbageCollider": {
+     "type": "object",
+     "properties": {
+      "garbage": {
+       "type": "boolean"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "collider": {
+       "type": "boolean"
+      },
+      "collide": {
+       "type": "string"
+      },
+      "meet": {
+       "type": "boolean"
+      },
+      "gc": {
+       "type": "string"
+      },
+      "leftovers": {
+       "type": "string"
+      },
+      "refused": {
+       "type": "string"
+      },
+      "empty": {
+       "type": "string"
+      },
+      "lend": {
+       "type": "string"
+      },
+      "physics": {
+       "type": "string"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumCompost": {
+     "type": "object",
+     "properties": {
+      "compost": {
+       "type": "boolean"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "fertile": {
+       "type": "boolean"
+      },
+      "waste": {
+       "type": "string"
+      },
+      "leftovers": {
+       "type": "string"
+      },
+      "gc": {
+       "type": "string"
+      },
+      "collider": {
+       "type": "string"
+      },
+      "reclaim": {
+       "type": "boolean"
+      },
+      "capacity": {
+       "type": "array"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumNature": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "nature": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "learn": {
+       "type": "string"
+      },
+      "experience": {
+       "type": "boolean"
+      },
+      "paths": {
+       "type": "string"
+      },
+      "compost": {
+       "type": "string"
+      },
+      "fertile": {
+       "type": "boolean"
+      },
+      "gc": {
+       "type": "string"
+      },
+      "plazma": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "physics": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumPermaculture": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "perma": {
+       "type": "boolean"
+      },
+      "culture": {
+       "type": "boolean"
+      },
+      "lasting": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "closes": {
+       "type": "boolean"
+      },
+      "nature": {
+       "type": "string"
+      },
+      "learn": {
+       "type": "string"
+      },
+      "compost": {
+       "type": "string"
+      },
+      "fertile": {
+       "type": "boolean"
+      },
+      "loop": {
+       "type": "object"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "annual": {
+       "type": "string"
+      },
+      "extract": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumDocsTraining": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "documentation": {
+       "type": "boolean"
+      },
+      "training": {
+       "type": "boolean"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "docs": {
+       "type": "object"
+      },
+      "mcp": {
+       "type": "object"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "nature": {
+       "type": "string"
+      },
+      "permaculture": {
+       "type": "string"
+      },
+      "share": {
+       "type": "string"
+      },
+      "tokens": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "iot": {
+     "type": "object",
+     "properties": {
+      "electronics": {
+       "type": "object"
+      },
+      "app": {
+       "type": "string"
+      },
+      "cloudflare": {
+       "type": "string"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "apis": {
+       "type": "object"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "tenants": {
+       "type": "boolean"
+      },
+      "mount": {
+       "type": "object"
+      },
+      "payload": {
+       "type": "object"
+      },
+      "storage": {
+       "type": "object"
+      },
+      "wall": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      },
+      "attack": {
+       "type": "string"
+      },
+      "split": {
+       "type": "string"
+      }
+     }
+    },
+    "challenge": {
+     "type": "object",
+     "properties": {
+      "captain": {
+       "type": "object"
+      },
+      "all": {
+       "type": "object"
+      },
+      "mutual": {
+       "type": "object"
+      },
+      "everyone": {
+       "type": "object"
+      },
+      "singularity": {
+       "type": "object"
+      },
+      "site": {
+       "type": "object"
+      }
+     }
+    },
+    "site": {
+     "type": "object",
+     "properties": {
+      "wild": {
+       "type": "string"
+      },
+      "origin": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hosts": {
+       "type": "array"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "edge": {
+       "type": "string"
+      },
+      "landing": {
+       "type": "string"
+      },
+      "deploy": {
+       "type": "string"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "challenge": {
+       "type": "object"
+      },
+      "see": {
+       "type": "string"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "ideas": {
+       "type": "integer"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "latticeDiscovery": {
+     "type": "object",
+     "properties": {
+      "discovery": {
+       "type": "object"
+      },
+      "involuted": {
+       "type": "object"
+      },
+      "reflection": {
+       "type": "object"
+      },
+      "cleaner": {
+       "type": "string"
+      },
+      "theorem": {
+       "type": "string"
+      }
+     }
+    },
+    "train": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "everyone": {
+       "type": "object"
+      },
+      "trial": {
+       "type": "object"
+      },
+      "merkaba": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "object"
+      },
+      "realise": {
+       "type": "object"
+      },
+      "iot": {
+       "type": "object"
+      },
+      "electronics": {
+       "type": "object"
+      },
+      "dedication": {
+       "type": "object"
+      },
+      "observed": {
+       "type": "object"
+      },
+      "web": {
+       "type": "object"
+      },
+      "designers": {
+       "type": "object"
+      },
+      "quantumWeb": {
+       "type": "object"
+      },
+      "architects": {
+       "type": "object"
+      },
+      "quantumArchitects": {
+       "type": "object"
+      },
+      "occupations": {
+       "type": "object"
+      },
+      "corporate": {
+       "type": "object"
+      },
+      "fairValue": {
+       "type": "object"
+      },
+      "firstRelease": {
+       "type": "object"
+      },
+      "leftovers": {
+       "type": "object"
+      },
+      "docsTraining": {
+       "type": "object"
+      },
+      "vr": {
+       "type": "string"
+      },
+      "product": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "webDesigners": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "designers": {
+       "type": "boolean"
+      },
+      "web": {
+       "type": "boolean"
+      },
+      "ui": {
+       "type": "boolean"
+      },
+      "edge": {
+       "type": "string"
+      },
+      "site": {
+       "type": "object"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumWebDesigners": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "occupation": {
+       "type": "string"
+      },
+      "roles": {
+       "type": "string"
+      },
+      "list": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "site": {
+       "type": "object"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "classical": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "binding": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "sails": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "see": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "designers": {
+       "type": "boolean"
+      },
+      "web": {
+       "type": "boolean"
+      },
+      "ui": {
+       "type": "boolean"
+      },
+      "edge": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumArchitects": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "occupation": {
+       "type": "string"
+      },
+      "roles": {
+       "type": "string"
+      },
+      "list": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "site": {
+       "type": "object"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "classical": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "binding": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "sails": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "see": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "architects": {
+       "type": "boolean"
+      },
+      "apostles": {
+       "type": "array"
+      },
+      "observers": {
+       "type": "array"
+      },
+      "network": {
+       "type": "object"
+      },
+      "framework": {
+       "type": "object"
+      },
+      "deposit": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "proven": {
+       "type": "string"
+      },
+      "mint": {
+       "type": "string"
+      }
+     }
+    },
+    "occupations": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "occupation": {
+       "type": "string"
+      },
+      "roles": {
+       "type": "string"
+      },
+      "list": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "site": {
+       "type": "object"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "classical": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "binding": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "pentagram": {
+       "type": "integer"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "sails": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "see": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "human": {
+       "type": "boolean"
+      },
+      "architects": {
+       "type": "boolean"
+      },
+      "designers": {
+       "type": "boolean"
+      },
+      "web": {
+       "type": "boolean"
+      },
+      "seeds": {
+       "type": "object"
+      },
+      "executable": {
+       "type": "boolean"
+      },
+      "seed": {
+       "type": "string"
+      }
+     }
+    },
+    "unite": {
+     "type": "object",
+     "properties": {
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "challenge": {
+       "type": "object"
+      },
+      "societies": {
+       "type": "object"
+      },
+      "worlds": {
+       "type": "object"
+      },
+      "thrive": {
+       "type": "object"
+      },
+      "involution": {
+       "type": "object"
+      },
+      "infinite": {
+       "type": "object"
+      }
+     }
+    },
+    "sails": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "href": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "binding": {
+       "type": "array"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "navigate": {
+       "type": "object"
+      },
+      "allow": {
+       "type": "string"
+      }
+     }
+    },
+    "chello": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "hail": {
+       "type": "boolean"
+      },
+      "hello": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "anyone": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "href": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "door": {
+       "type": "string"
+      },
+      "fanout": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "binding": {
+       "type": "integer"
+      },
+      "binds": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "sails": {
+       "type": "boolean"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "instrument": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "chello": {
+       "type": "object"
+      },
+      "a432": {
+       "type": "object"
+      },
+      "rebreather": {
+       "type": "object"
+      },
+      "anthem": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "song": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "instrument": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "object"
+      },
+      "a432": {
+       "type": "object"
+      },
+      "anthem": {
+       "type": "object"
+      },
+      "sails": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "skill": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "song": {
+       "type": "boolean"
+      },
+      "instrument": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "object"
+      },
+      "fuse": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      },
+      "past": {
+       "type": "integer"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "horo": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "circle": {
+       "type": "boolean"
+      },
+      "song": {
+       "type": "boolean"
+      },
+      "instrument": {
+       "type": "boolean"
+      },
+      "skill": {
+       "type": "boolean"
+      },
+      "chello": {
+       "type": "object"
+      },
+      "dance": {
+       "type": "array"
+      },
+      "dancers": {
+       "type": "integer"
+      },
+      "apostles": {
+       "type": "integer"
+      },
+      "center": {
+       "type": "string"
+      },
+      "a432": {
+       "type": "object"
+      },
+      "anthem": {
+       "type": "object"
+      },
+      "hop": {
+       "type": "boolean"
+      },
+      "qpu": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "constitution": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "laws": {
+       "type": "string"
+      },
+      "gate": {
+       "type": "string"
+      },
+      "holds": {
+       "type": "string"
+      },
+      "school": {
+       "type": "string"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "trial": {
+       "type": "object"
+      },
+      "challenge": {
+       "type": "object"
+      },
+      "horo": {
+       "type": "object"
+      },
+      "skill": {
+       "type": "boolean"
+      },
+      "song": {
+       "type": "boolean"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "treason": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "constitutionalChallenge": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "anyone": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "constitution": {
+       "type": "object"
+      },
+      "challenge": {
+       "type": "object"
+      },
+      "trial": {
+       "type": "object"
+      },
+      "societies": {
+       "type": "object"
+      },
+      "involution": {
+       "type": "object"
+      },
+      "infinite": {
+       "type": "object"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "ceiling": {
+       "type": "integer"
+      },
+      "site": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "change": {
+     "type": "object",
+     "properties": {
+      "open": {
+       "type": "boolean"
+      },
+      "mutable": {
+       "type": "boolean"
+      },
+      "anyone": {
+       "type": "boolean"
+      },
+      "allow": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "walls": {
+       "type": "string"
+      },
+      "path": {
+       "type": "string"
+      },
+      "key": {
+       "type": "string"
+      },
+      "keys": {
+       "type": "array"
+      },
+      "vessel": {
+       "type": "object"
+      },
+      "retrain": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "object"
+      },
+      "freedom": {
+       "type": "object"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "coils": {
+     "type": "integer"
+    },
+    "faces": {
+     "type": "integer"
+    },
+    "hosts": {
+     "type": "integer"
+    },
+    "cites": {
+     "type": "string"
+    },
+    "yarn": {
+     "type": "string"
+    },
+    "color": {
+     "type": "string"
+    },
+    "smell": {
+     "type": "string"
+    },
+    "pentagram": {
+     "type": "integer"
+    },
+    "binds": {
+     "type": "string"
+    },
+    "points": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "hop": {
+     "type": "boolean"
+    },
+    "seat": {
+     "type": "string"
+    },
+    "split": {
+     "type": "string"
+    },
+    "local": {
+     "type": "string"
+    },
+    "hosted": {
+     "type": "string"
+    }
+   }
   },
   "status": "documented",
   "example": {
-   "args": {
-    "text": "theorem"
-   },
-   "excerpt": "034c74fe-b738-81f2-a45d-fa3ee05f15cf"
+   "args": {},
+   "excerpt": "{\"address\":\"645beed1-9c10-8c00-8fc1-f6a9ac7d21e9\",\"href\":\"https://qpu.uuidna.com\",\"handle\":\"645beed1\",\"fuse\":{\"half\":16,\"whole\":32,\"bits\":128,\"coins\":2,\"closes…"
   }
  },
  "uuidna_units": {
@@ -11605,7 +17442,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":435,\"paragraphs_tried\":12487,\"usable\":7302,\"unverified\":5185,\"drained\":0,\"receipt\":\"61ffa6eb-82ba-85ed-b728-32db17d55a16\"}"
+   "excerpt": "{\"surfaces\":435,\"paragraphs_tried\":12487,\"usable\":7302,\"unverified\":5185,\"drained\":0,\"receipt\":\"bfac13d2-f07f-859a-a72b-d694f96a6a0f\"}"
   }
  },
  "uuidna_publication": {
@@ -11827,7 +17664,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":245,\"zeroArgReusable\":115,\"totalRequiredKeys\":192,\"reusablePerKey\":1.276,\"avgRequiredKeys\":0.784,\"avgRating\":4.216,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":245,\"zeroArgReusable\":116,\"totalRequiredKeys\":191,\"reusablePerKey\":1.283,\"avgRequiredKeys\":0.78,\"avgRating\":4.22,\"hardest\":[{\"name\":\"uuidna_crt\",\"requ…"
   }
  },
  "uuidna_unify": {
@@ -11905,7 +17742,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"5d768d17\",\"theorems\":{\"count\":70998,\"verified\":70998,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\"},\"domains\":{\"count\":121,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"f9923938\",\"theorems\":{\"count\":70998,\"verified\":70998,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\"},\"domains\":{\"count\":121,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
