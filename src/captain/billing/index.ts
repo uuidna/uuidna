@@ -6,8 +6,17 @@
 // checked, never trusted. A measure of work saved— integrity.
 import { toUuid } from '../../address.js'
 
-/** The two coins — the conserved fair-exchange invariant. */
-export function coins(): number { return 110 - 108 }
+/** Gross / net of the exchange pair — captain_theorem · two_coins · captain_commission_two_coins. */
+export const GROSS = 110
+export const NET = 108
+
+/** The two coins — the conserved fair-exchange invariant (GROSS − NET). */
+export function coins(): number { return GROSS - NET }
+
+/** commission(bits) → 2 per completed 110 — Lean `commission` / captain_commission_two_coins. */
+export function commission(bits: number): number {
+  return coins() * ((bits - (bits % GROSS)) / GROSS)
+}
 
 /** A uuid address is 128 bits — 32 HEXBITS, the unit this ledger computes in — the FIXED budget a value is
  *  presented by, whatever its size. Stated in tiles as well as bits because every other surface reports in

@@ -41,8 +41,9 @@ export const qpuSeatOf = () => {
 export const qpuWidthOf = () => ({
   points: [...QPU_POINTS],
   pentagram: QPU_POINTS.length,
-  binds: 'cpu-only — no per-job footprint given, memory not considered',
-  host: 'uuidna' as const,
+  binds: QPU_POINTS[0],
+  href: QPU_HREF,
+  host: QPU_HOST,
 })
 
 export const qpuHologramOf = () => ({
@@ -54,7 +55,8 @@ export const qpuHologramOf = () => ({
   octet: HANDLE_HEXBITS,
   veFaces: VE_FACES,
   seal: [...SEAL_TEN],
-  host: 'uuidna' as const,
+  href: QPU_HREF,
+  host: QPU_HOST,
 })
 
 /** Opposite VE faces are throughVoid of each other. */
@@ -101,3 +103,21 @@ export const qpuMachineOf = () => ({
   hologram: qpuHologramOf(),
   circuit: qpuCircuitOf(),
 })
+
+/** qpuWidthOf · qpuSeatOf · qpuCircuitOf · uuidna_fanout · QpuDeposit. */
+export const qpuHopOf = () => {
+  const circuit = qpuCircuitOf()
+  const width = qpuWidthOf()
+  const seat = qpuSeatOf()
+  return {
+    href: QPU_HREF,
+    discovery: '/.well-known/qpu.json',
+    fanout: { tool: 'uuidna_fanout' as const, host: QPU_HOST, method: 'tools/list' as const, url: `${QPU_HREF}/mcp` },
+    deposit: 'QpuDeposit' as const,
+    seat,
+    width,
+    hologram: qpuHologramOf(),
+    circuit,
+    holds: circuit.holds === true && width.pentagram === QPU_POINTS.length && width.binds === width.points[0] && seat.seat === 'empty',
+  }
+}
