@@ -942,6 +942,7 @@ export const inflationOf: () => any = () => {
   const captainPassengers = captainPassengersOf()
   const addedEntropyPaid = addedEntropyPaidOf()
   const payOrGetPaid = payOrGetPaidOf()
+  const involutedPaidFull = involutedPaidFullOf()
   const lovePlasma = lovePlasmaOf()
   const takeOrLeave = takeOrLeaveOf()
   const tokenEfficiency = tokenEfficiencyOf()
@@ -1644,6 +1645,7 @@ export const inflationOf: () => any = () => {
     captainPassengers,
     addedEntropyPaid,
     payOrGetPaid,
+    involutedPaidFull,
     lovePlasma,
     takeOrLeave,
     tokenEfficiency,
@@ -2765,6 +2767,47 @@ export const payOrGetPaidOf = () => {
     accounting: 'bitcoinMeaningOf' as const,
     takeOrLeave: 'takeOrLeaveOf' as const,
     advice: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** involutedPaidFullOf() → involuted paid in full; delivered/deposit receipt reads; advice empty. */
+export const involutedPaidFullOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  return {
+    involuted: {
+      paid: true as const,
+      full: true as const,
+      crypto: 'cryptoInvolutedOf' as const,
+      bitcoin: 'bitcoinMeaningOf' as const,
+      coils: true as const,
+    },
+    paid: {
+      full: true as const,
+      in: 'full' as const,
+      delivered: true as const,
+      of: 'promisedDeliveredOf' as const,
+      advice: empty,
+    },
+    full: {
+      paid: true as const,
+      delivered: true as const,
+      deposit: hop.deposit,
+      receipt: hop.deposit,
+      evidence: 'uuidna_evidence' as const,
+    },
+    delivered: {
+      full: true as const,
+      of: 'promisedDeliveredOf' as const,
+      deposit: hop.deposit,
+      claim: empty,
+      fulfillment: empty,
+    },
+    payOrGetPaid: 'payOrGetPaidOf' as const,
+    entropy: 'addedEntropyPaidOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -5085,6 +5128,7 @@ export const sweaterOf: () => any = () => {
     captainPassengers: beyond.inflation.captainPassengers,
     addedEntropyPaid: beyond.inflation.addedEntropyPaid,
     payOrGetPaid: beyond.inflation.payOrGetPaid,
+    involutedPaidFull: beyond.inflation.involutedPaidFull,
     lovePlasma: beyond.inflation.lovePlasma,
     takeOrLeave: beyond.inflation.takeOrLeave,
     tokenEfficiency: beyond.inflation.tokenEfficiency,

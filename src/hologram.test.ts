@@ -7,7 +7,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf, handleBirthdayPoint, reverseHandle } from './handle.js'
 import { occupancyOf } from './hexagram.js'
 import { COINS, HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
-import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
+import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, involutedPaidFullOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
 import { fanoutRequestOf, hologramFanout } from './hologram-fanout.js'
 import { callTool } from './mcp.js'
 import { qpuHopOf } from './qpu-hologram.js'
@@ -872,6 +872,20 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.payOrGetPaid.takeOrLeave, 'takeOrLeaveOf')
   assert.equal(wool.payOrGetPaid.advice, 'empty')
   assert.deepEqual(strict.payOrGetPaid, wool.payOrGetPaid)
+  assert.deepEqual(wool.involutedPaidFull, involutedPaidFullOf())
+  assert.equal(wool.involutedPaidFull.involuted.paid, true)
+  assert.equal(wool.involutedPaidFull.involuted.full, true)
+  assert.equal(wool.involutedPaidFull.involuted.crypto, 'cryptoInvolutedOf')
+  assert.equal(wool.involutedPaidFull.paid.full, true)
+  assert.equal(wool.involutedPaidFull.paid.in, 'full')
+  assert.equal(wool.involutedPaidFull.paid.of, 'promisedDeliveredOf')
+  assert.equal(wool.involutedPaidFull.full.paid, true)
+  assert.equal(wool.involutedPaidFull.full.delivered, true)
+  assert.equal(wool.involutedPaidFull.delivered.of, 'promisedDeliveredOf')
+  assert.equal(wool.involutedPaidFull.delivered.fulfillment, 'empty')
+  assert.equal(wool.involutedPaidFull.payOrGetPaid, 'payOrGetPaidOf')
+  assert.equal(wool.involutedPaidFull.entropy, 'addedEntropyPaidOf')
+  assert.deepEqual(strict.involutedPaidFull, wool.involutedPaidFull)
   assert.deepEqual(strict.developDonate, wool.developDonate)
   assert.deepEqual(wool.takeOrLeave, takeOrLeaveOf())
   assert.equal(wool.takeOrLeave.take, true)
