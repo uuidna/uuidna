@@ -6219,6 +6219,9 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "fusionReactor": {
        "type": "object"
       },
+      "fusionNatureHarmony": {
+       "type": "object"
+      },
       "lovePlasma": {
        "type": "object"
       },
@@ -8455,6 +8458,38 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       },
       "watts": {
        "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "fusionNatureHarmony": {
+     "type": "object",
+     "properties": {
+      "fusion": {
+       "type": "object"
+      },
+      "thermonuclear": {
+       "type": "string"
+      },
+      "thermo": {
+       "type": "object"
+      },
+      "nature": {
+       "type": "object"
+      },
+      "harmony": {
+       "type": "object"
+      },
+      "why": {
+       "type": "object"
       },
       "seal": {
        "type": "string"
