@@ -716,6 +716,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'support': ['support-audit.json', 'research-leads.json'],
   'audit-citations': ['audit-citations.json'],
   'sync-changelog': ['CHANGELOG.md'],
+  'trial-refusals': ['lean/refusal-trials.json'],
   'spin': ['spin-manifest.json'],
   'account': [],       // reports only — aborts the run when the ledger does not reconcile, writes nothing
   'one-receipt': [],   // invoked as the `coherent` probe here; the finders report, they do not write

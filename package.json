@@ -141,7 +141,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "node --stack-size=65536 ./node_modules/typescript/lib/tsc.js -p tsconfig.json",
     "test": "npm run build && node --max-old-space-size=8192 --test --test-isolation=none --test-reporter=./dist/scripts/test-receipt.js 'dist/**/*.test.js'",
     "test:docs": "node --test docs/.vitepress/theme/*.test.ts",
     "site": "npm run docs:build",

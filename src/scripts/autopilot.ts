@@ -81,7 +81,7 @@ const buildStage = async (): Promise<StageResult> => {
   if (!decision.bootstrap) return stop('build', 'the build fails outside the generated-file deadlock', decision.gaps)
   // tsc still exits non-zero on the errors it reports; the EMIT is what the bootstrap is for, so its exit is not the
   // verdict — the normal build after the regeneration is
-  await streamStep('autopilot · build · bootstrap once (--noEmitOnError false)', 'npx tsc -p tsconfig.json --noEmitOnError false')
+  await streamStep('autopilot · build · bootstrap once (--noEmitOnError false)', 'node --stack-size=65536 ./node_modules/typescript/lib/tsc.js -p tsconfig.json --noEmitOnError false')
   for (const owner of decision.owners) {
     if (!existsSync(join(ROOT, 'dist', 'scripts', `${owner}.js`))) {
       return stop('build', `${owner} owns a refused generated file and has no script`, [{ what: `dist/scripts/${owner}.js does not exist after the bootstrap`, fix: 'declare the file under the script that writes it (DRAIN_WRITERS or RECONCILE_OUTPUTS in src/scripts/api.ts)' }])
