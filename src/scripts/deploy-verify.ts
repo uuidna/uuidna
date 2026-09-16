@@ -625,6 +625,12 @@ export function sweaterInflationSilent(text: string): boolean {
     || !/paid:\s*\{/.test(body) || !/full:\s*\{/.test(body)
     || !/in:\s*'full'/.test(body) || !/delivered:\s*\{/.test(body)
     || !/of:\s*'promisedDeliveredOf'/.test(body) || !/crypto:\s*'cryptoInvolutedOf'/.test(body)
+    || !/\bagentsContributeOf\b/.test(body) || !/agents:\s*\{/.test(body)
+    || !/contribute:\s*\{/.test(body) || !/sealed:\s*\{/.test(body)
+    || !/code:\s*\{/.test(body) || !/gold:\s*\{/.test(body)
+    || !/real:\s*true/.test(body) || !/required:\s*true/.test(body)
+    || !/if:\s*'notSealed'/.test(body) || !/auto:\s*empty/.test(body)
+    || !/desk:\s*empty/.test(body) || !/captain:\s*\{/.test(body)
 }
 
 /** skipHooksHot(text) → git commit/push still carries --no-verify (hooks skipped). */

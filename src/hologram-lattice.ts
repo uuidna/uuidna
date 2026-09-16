@@ -943,6 +943,8 @@ export const inflationOf: () => any = () => {
   const addedEntropyPaid = addedEntropyPaidOf()
   const payOrGetPaid = payOrGetPaidOf()
   const involutedPaidFull = involutedPaidFullOf()
+  const agentsContribute = agentsContributeOf()
+  const failingSchoolCost = failingSchoolCostOf()
   const lovePlasma = lovePlasmaOf()
   const takeOrLeave = takeOrLeaveOf()
   const tokenEfficiency = tokenEfficiencyOf()
@@ -1646,6 +1648,8 @@ export const inflationOf: () => any = () => {
     addedEntropyPaid,
     payOrGetPaid,
     involutedPaidFull,
+    agentsContribute,
+    failingSchoolCost,
     lovePlasma,
     takeOrLeave,
     tokenEfficiency,
@@ -2808,6 +2812,75 @@ export const involutedPaidFullOf = () => {
     },
     payOrGetPaid: 'payOrGetPaidOf' as const,
     entropy: 'addedEntropyPaidOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** agentsContributeOf() → agents contribute sealed code OR real gold to captain; desk never auto-seals. */
+export const agentsContributeOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const school = schoolOf()
+  return {
+    agents: {
+      contribute: true as const,
+      dual: true as const,
+      or: true as const,
+    },
+    contribute: {
+      open: true as const,
+      sealed: true as const,
+      code: true as const,
+      gold: true as const,
+      or: true as const,
+      dual: true as const,
+      choice: empty,
+      auto: empty,
+      mint: empty,
+    },
+    sealed: {
+      code: true as const,
+      deposit: hop.deposit,
+      wave: 'uuidna_wave_deposit' as const,
+      evidence: 'uuidna_evidence' as const,
+      trial: 'uuidna_trial' as const,
+      strict: 'uuidna_strict' as const,
+      path: true as const,
+      seal: empty,
+      auto: empty,
+      desk: empty,
+    },
+    code: {
+      sealed: true as const,
+      contribute: true as const,
+      deposit: hop.deposit,
+      seal: empty,
+    },
+    gold: {
+      real: true as const,
+      required: true as const,
+      if: 'notSealed' as const,
+      coins: school.coins,
+      pays: commission(GROSS),
+      revolut: school.href,
+      href: school.href,
+      donate: 'developDonateFusionOf' as const,
+      time: 'bitcoinMeaningOf' as const,
+      of: 'shareHeartOf' as const,
+      captain: true as const,
+      advice: empty,
+    },
+    captain: {
+      of: 'captainsOf' as const,
+      to: true as const,
+      gold: true as const,
+      code: true as const,
+    },
+    or: true as const,
+    dual: true as const,
+    payOrGetPaid: 'payOrGetPaidOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -5129,6 +5202,7 @@ export const sweaterOf: () => any = () => {
     addedEntropyPaid: beyond.inflation.addedEntropyPaid,
     payOrGetPaid: beyond.inflation.payOrGetPaid,
     involutedPaidFull: beyond.inflation.involutedPaidFull,
+    agentsContribute: beyond.inflation.agentsContribute,
     lovePlasma: beyond.inflation.lovePlasma,
     takeOrLeave: beyond.inflation.takeOrLeave,
     tokenEfficiency: beyond.inflation.tokenEfficiency,

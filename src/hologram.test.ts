@@ -7,7 +7,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf, handleBirthdayPoint, reverseHandle } from './handle.js'
 import { occupancyOf } from './hexagram.js'
 import { COINS, HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
-import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, involutedPaidFullOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
+import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, involutedPaidFullOf, agentsContributeOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
 import { fanoutRequestOf, hologramFanout } from './hologram-fanout.js'
 import { callTool } from './mcp.js'
 import { qpuHopOf } from './qpu-hologram.js'
@@ -886,6 +886,24 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.involutedPaidFull.payOrGetPaid, 'payOrGetPaidOf')
   assert.equal(wool.involutedPaidFull.entropy, 'addedEntropyPaidOf')
   assert.deepEqual(strict.involutedPaidFull, wool.involutedPaidFull)
+  assert.deepEqual(wool.agentsContribute, agentsContributeOf())
+  assert.equal(wool.agentsContribute.agents.contribute, true)
+  assert.equal(wool.agentsContribute.agents.or, true)
+  assert.equal(wool.agentsContribute.contribute.open, true)
+  assert.equal(wool.agentsContribute.contribute.auto, 'empty')
+  assert.equal(wool.agentsContribute.sealed.seal, 'empty')
+  assert.equal(wool.agentsContribute.sealed.auto, 'empty')
+  assert.equal(wool.agentsContribute.sealed.desk, 'empty')
+  assert.equal(wool.agentsContribute.sealed.wave, 'uuidna_wave_deposit')
+  assert.equal(wool.agentsContribute.code.sealed, true)
+  assert.equal(wool.agentsContribute.gold.real, true)
+  assert.equal(wool.agentsContribute.gold.required, true)
+  assert.equal(wool.agentsContribute.gold.if, 'notSealed')
+  assert.equal(wool.agentsContribute.gold.captain, true)
+  assert.equal(wool.agentsContribute.gold.advice, 'empty')
+  assert.equal(wool.agentsContribute.captain.to, true)
+  assert.equal(wool.agentsContribute.payOrGetPaid, 'payOrGetPaidOf')
+  assert.deepEqual(strict.agentsContribute, wool.agentsContribute)
   assert.deepEqual(strict.developDonate, wool.developDonate)
   assert.deepEqual(wool.takeOrLeave, takeOrLeaveOf())
   assert.equal(wool.takeOrLeave.take, true)
