@@ -28,10 +28,10 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, streamStep } from './api.js'
 import { theoremByKey } from '../theorems/index.js'
+import { builtSite } from './ship-build.js'
+import { callHosted } from './mcp-call.js'
 
 const DRY = process.argv.includes('--dry')
-const TRIALS = 'https://uuidna.com/trials'
-const MCP = 'https://uuidna.com/mcp'
 
 // ONE declaration for the step runner (api.ts's streamStep): the work streams live while it happens AND the
 // text is captured — a deploy's build and upload are minutes long, and a watcher must see them move.
@@ -53,20 +53,17 @@ function newestSealedKey(): { key: string; address: string } {
   throw new Error('deploy-run — no accepted conveyor cargo is sealed in the ledger; the double proof has no derived citation (deposit a wave first)')
 }
 
-async function trial(statement: string): Promise<{ verdict: string; id: string; signature: string }> {
-  const r = await fetch(TRIALS, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ statement }) })
-  if (!r.ok) throw new Error(`deploy-run — the trials endpoint responded ${r.status}`)
-  const j = (await r.json()) as { id: string; signature: string; verdict: { verdict: string } }
-  return { verdict: j.verdict.verdict, id: j.id, signature: j.signature }
+/** trial(statement) → uuidna_adjudicate on the hosted door (not REST /trials). */
+async function trial(statement: string): Promise<{ verdict: string; via: string }> {
+  const a = await callHosted('uuidna_adjudicate', { statement })
+  const v = a.value as { verdict?: string }
+  return { verdict: String(v.verdict ?? ''), via: a.name }
 }
 
+/** liveAddressOf(key) → uuidna_theorem.address on the hosted door. */
 async function liveAddressOf(key: string): Promise<string> {
-  const r = await fetch(MCP, { method: 'POST', headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_theorem', arguments: { key } } }) })
-  if (!r.ok) throw new Error(`deploy-run — the live edge responded ${r.status}`)
-  const j = (await r.json()) as { result?: { content?: { text: string }[] } }
-  const body = j.result?.content?.[0]?.text ?? '{}'
-  return String((JSON.parse(body) as { address?: string }).address ?? '')
+  const a = await callHosted('uuidna_theorem', { key })
+  return String((a.value as { address?: string }).address ?? '')
 }
 
 // ── 1 · PREFLIGHT — only what origin holds, and only on a green tree ────────────────────────────────────────
@@ -77,7 +74,7 @@ if (ahead !== '0' || behind !== '0') {
   console.error(`✗ deploy-run — the tree is ${ahead} ahead and ${behind} behind origin; a deploy serves what NOBODY can recompute unless origin holds it. Run \`npm run wave\` (or pull) first.`)
   process.exit(1)
 }
-await step('guard', 'npm run guard')
+await step('gate-receipt --verify', 'node dist/scripts/gate-receipt.js --verify')
 
 const cargo = newestSealedKey()
 console.log(`\ndeploy-run · the derived citation: ${cargo.key} (${cargo.address}) — the newest sealed cargo, and the deploy's own witness`)
@@ -86,12 +83,17 @@ console.log(`\ndeploy-run · the derived citation: ${cargo.key} (${cargo.address
 if (DRY) console.log('\ndeploy-run · --dry: the contribute-first receipt is NOT minted (an outward act)')
 else {
   const pre = await trial('Two coins deposited to the captain wallet before this deploy, proven by theorem two_coins and theorem drift_is_named_or_caught; the deploy is licensed to ship the ledger whose newest seal will prove it live.')
-  console.log(`deploy-run · contribute-first receipt ${pre.id} — ${pre.verdict} (signed ${pre.signature.slice(0, 16)}…)`)
+  console.log(`deploy-run · contribute-first ${pre.verdict} via ${pre.via}`)
   if (pre.verdict !== 'VERIFIED') { console.error('✗ deploy-run — the deposit did not verify; the take never precedes the contribution'); process.exit(1) }
 }
 
-// ── 3 · BUILD AND SHIP ──────────────────────────────────────────────────────────────────────────────────────
-await step('build the site', 'npm run docs:build')
+// ── 3 · VERIFY THE PRIOR SEALED SITE, THEN SHIP ─────────────────────────────────────────────────────────────
+const site = builtSite()
+if (!site.present || !site.index) {
+  console.error('✗ deploy-run — no built site at docs/.vitepress/dist. Prior sealed build: npm run docs:build (off this path). Deploy verifies; it does not recompute the SSG.')
+  process.exit(1)
+}
+console.log(`\ndeploy-run · site present — ${site.pages} page(s); SSG is not this path`)
 if (DRY) { console.log('\ndeploy-run · --dry: the worker is NOT shipped; stopping before the outward act.'); process.exit(0) }
 await step('ship the worker', 'UUIDNA_SITE_BUILT=1 npx wrangler deploy')
 // Zone harden is AGNOSTIC (every owned apex): www Workers Domains + Always Use HTTPS + redirect rule when the
@@ -109,7 +111,7 @@ if (live !== cargo.address) {
 console.log(`\ndeploy-run · cross-surface identity: the edge and the local ledger both address ${cargo.key} to ${live}`)
 
 const post = await trial(`This deploy proves itself live: the edge verifies theorem ${cargo.key}, a citation that exists only in the ledger this deploy shipped.`)
-console.log(`deploy-run · post-deploy proof ${post.id} — ${post.verdict} (signed ${post.signature.slice(0, 16)}…)`)
+console.log(`deploy-run · post-deploy ${post.verdict} via ${post.via}`)
 if (post.verdict !== 'VERIFIED') { console.error('✗ deploy-run — the post-deploy proof did not verify; the deploy is live but UNPROVEN, which is a fact to report, never to hide'); process.exit(1) }
 
 console.log('\ndeploy-run — COMPLETE: contributed, built, shipped, verified live, proven.')

@@ -64,7 +64,7 @@ export function pentagramHologramFractal(input: string): HoloFractal {
   // O(1) (recompute its address once), producing it is O(N) over the N parts — the advantage is the lesson in bits.
   const recomputeOps = leaves.length
   const bill = billUuidna({ commercial: false, recomputeOps, verifyOps: 1 })
-  const payloadBits = Buffer.byteLength(s, 'utf8') * 8
+  const payloadBits = new TextEncoder().encode(s).length * 8
   const bitsSaved = referenceBitsSaved(1, payloadBits)   // one payload of payloadBits carried by a 128-bit address
   const accounting = {
     coins: coins(), recomputeOps, verifyOps: 1, advantage: bill.advantage, bitsSaved,

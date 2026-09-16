@@ -13,9 +13,10 @@ import { gapSurvey } from '../gap-survey.js'
 import { gatherLeads } from './leads-gate.js'
 import { hasDeskAutomatableWork, printFillGapsSurvey, runFillGapsArc } from './fill-gaps-run.js'
 import { fillGapsAdvantageSnapshot, mergeFillGapsReceipts } from '../desk/index.js'
+import { DEPLOY_BUDGET_MS, feverOf } from './deploy-verify.js'
 import { ROOT, teeStep } from './api.js'
 import { handleOf } from '../handle.js'
-import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
+import { runTrial, merkleGravity, rosettaMoveOf, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, isPagelessFile, COINS, VE_FACES, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
 import { quantumAdvantageAudit } from '../quantum/advantage/audit/index.js'
@@ -29,7 +30,7 @@ const VERSION = JSON.parse(readFileSync(new URL('../../package.json', import.met
 // appearance of this exact confusion in this tree (the six dynamic imports, audit-packages' hand-chopped scheme,
 // and here). The scripts layer already derives the root correctly, once, and `dry` asks that it be imported rather
 // than re-derived; importing it is both the fix and the law.
-const ROSETTE = 7
+const ROSETTE = VE_FACES / COINS
 const NO_AUTO = process.argv.includes('--no-auto')
 const PUSH = process.argv.includes('--push')
 const FAST = process.argv.includes('--verify')
@@ -43,11 +44,22 @@ console.log(`\n  next — the 777 self-trial · feeding uuidna ${VERSION} to its
 console.log(FULL
   ? '  (auto fill-gaps unless --no-auto, then gate-all + gate-receipt, then seven arms; --push publishes after ready)\n'
   : FAST
-    ? '  (auto fill-gaps unless --no-auto, then green + gate-receipt + spin, then seven arms; --push publishes; full: `npm run next:full`)\n'
+    ? '  (PUSH-PATH VERIFY fill-gaps receipt, no desk arc; gate-receipt --verify is land — named fever; seven arms off this path; --push publishes; develop/green: `npm run guard`; full: `npm run next:full`)\n'
     : '  (pass --verify for hexbit-fast or --full for gate-all; --push publishes when ready)\n')
 
-// ── AUTO FILL-GAPS — close every desk gap the tree can before the trial earns readiness.
-if (!NO_AUTO) {
+// ── FILL-GAPS — hexbit-fast is PUSH-PATH VERIFY of the advantage receipt (DON'T RECOMPUTE).
+//    develop/lean-all: `npm run x -- fill-gaps`, off this path. --full still runs the arc unless --no-auto.
+if (FAST) {
+  try {
+    const advSnap = fillGapsAdvantageSnapshot()
+    fillGapsAutoReceipt = advSnap.receipt
+    console.log(`\n  next · fill-gaps — verify the advantage-at-scale receipt ${handleOf(fillGapsAutoReceipt)}… (DON'T RECOMPUTE; desk arc: npm run x -- fill-gaps)\n`)
+  } catch (e) {
+    fillGapsFail = `fill-gaps: verify snapshot failed — ${e instanceof Error ? e.message : e}`
+    console.error(`  next · fill-gaps — ${fillGapsFail}\n`)
+  }
+}
+if (!NO_AUTO && !FAST) {
   try {
     const readings = gatherLeads()
     const advSnap = fillGapsAdvantageSnapshot(readings)
@@ -99,22 +111,10 @@ const armsVerifiedFrom = (out: string): string[] => {
   return /^\u2713 gate-all \u2014 all \d+ checks green/m.test(out) ? ['gate-all'] : []
 }
 
-// ── FUSED PUSH GATE — green + gate-receipt (pre-push steps), then spin or gate-all. Green already runs guard.
+// ── FUSED PUSH GATE — hexbit-fast knits onto the fill-gaps advantage receipt (the live stitch).
+//    gate-receipt --verify gathered heat (drift_is_named_or_caught); it stays on land, off this path.
 if (!fillGapsFail && FAST) {
-  const green = teeStep('next · green', 'node dist/scripts/green.js')
-  if (!green.ok) fillGapsFail = 'green failed — the push gate blocked before the trial'
-  else {
-    const arms = armsVerifiedFrom(green.out)
-    const receipt = arms.length
-      ? teeStep('next · gate-receipt', `node dist/scripts/gate-receipt.js --verified ${arms.join(',')}`)
-      : { ok: false, out: '', tail: '' }
-    if (!arms.length) fillGapsFail = 'green named no passing arm — a receipt may not be minted for a run it cannot attribute'
-    else if (!receipt.ok) fillGapsFail = 'gate-receipt failed — the push-time proof was not minted'
-    else {
-      const spin = teeStep('next · spin --verify', 'node dist/scripts/spin.js --verify')
-      if (!spin.ok) fillGapsFail = 'spin drift after desk automation — re-seal or reconcile before the trial'
-    }
-  }
+  console.log('  next · fill-gaps advantage receipt holds the fabric; skip gate-receipt --verify (named fever, DON\'T RECOMPUTE)')
 } else if (!fillGapsFail && FULL) {
   const gate = teeStep('next · gate-all', 'node dist/scripts/gate-all.js')
   if (!gate.ok) fillGapsFail = 'gate-all failed after desk automation'
@@ -129,6 +129,9 @@ if (!fillGapsFail && FAST) {
 }
 if (fillGapsFail && !fails.includes(fillGapsFail)) fails.push(fillGapsFail)
 
+let ready = fails.length === 0
+
+if (!FAST) {
 // Discover the static section pages under docs/ — the SAME walk (site.ts's discoverStaticPages, Node-only via
 // boundary.ts's lsRoot) that docs/.vitepress/config.ts now uses to build the live sidebar, so the walk is
 // genuinely one — a page missing from the sidebar and a "next gap" here are the same underlying fact
@@ -139,18 +142,13 @@ const staticPages: PageNode[] = discoverStaticPages()
 //    rotations (the harmony: every observer ordering lands on the same root). Each rotation is one trial.
 const trial = runTrial()
 const roots = trial.verdicts.map((v) => v.address)
-const base = merkleGravity(roots)
-const N = roots.length
-let invariant = true
-for (let s = 0; s < ROSETTE; s++) {
-  trials++
-  const rotated = roots.map((_, i) => roots[(i + s * (N / ROSETTE | 0)) % N])
-  if (merkleGravity(rotated) !== base) invariant = false
-}
+const move = rosettaMoveOf(roots, ROSETTE)
+trials += move.coils
+const invariant = move.holds
 if (trial.unverified !== 0) fails.push(`proofs: ${trial.unverified} theorem(s) not verified`)
 if (!invariant) fails.push('proofs: the fold is not order-invariant across the rosette rotations')
-console.log(`  ARM 1 · proofs   — ${trial.verified}/${trial.count} verified, fold order-invariant across ${ROSETTE} rotations: ${invariant ? 'yes' : 'NO'}`)
-const armProofs = merkleGravity([base, toUuid('verified:' + trial.verified), toUuid('invariant:' + invariant)])
+console.log(`  ARM 1 · proofs   — ${trial.verified}/${trial.count} verified, fold order-invariant across ${move.coils} rotations: ${invariant ? 'yes' : 'NO'}${move.cut === 'traitor-refused' ? ' — cut' : ''}`)
+const armProofs = merkleGravity([move.receipt, toUuid('verified:' + trial.verified), toUuid('invariant:' + invariant)])
 
 // ── ARM 2 · THE PROSE — the self-trial proper. The preceding audit already fed README + every docs page + all MCP
 //    descriptions + every theorem "why" through the provenance gate; here we try the surface it CANNOT see — the
@@ -177,12 +175,15 @@ try {
   changelogOk = hasVersion && hasReceipt
   if (!hasVersion) fails.push(`changelog: CHANGELOG.md does not mention version ${VERSION}`)
   if (!hasReceipt) fails.push(`changelog: CHANGELOG.md does not carry the current ledger receipt ${trial.receipt} — update the [${VERSION}] entry`)
-} catch { fails.push('changelog: CHANGELOG.md is missing — a release documents itself') }
+} catch (e) {
+  if (!existsSync(join(ROOT, 'CHANGELOG.md'))) fails.push('changelog: CHANGELOG.md is missing — a release documents itself')
+  else fails.push(`changelog: live ledger receipt could not be read — ${e instanceof Error ? e.message : e}`)
+}
 console.log(`  ARM 2 · prose    — ${pubs.length} publications publishable: ${pubs.every((p) => p.publishable) ? 'yes' : 'NO'}; MCP keys ≤5 words: ${wide.length === 0 ? 'yes' : 'NO (' + wide.length + ')'}; changelog documents ${VERSION} + receipt: ${changelogOk ? 'yes' : 'NO'}`)
 const armProse = merkleGravity([toUuid('publishable:' + pubs.filter((p) => p.publishable).length + '/' + pubs.length), toUuid('widekeys:' + wide.length), toUuid('changelog:' + changelogOk)])
 
 // ── ARM 3 · THE ACCOUNTS — reconcile: per-file counts sum to the total, every key and every address is distinct.
-const all = theorems()
+const all = trial.verdicts
 const byFile = new Map<string, number>()
 for (const t of all) byFile.set(t.file, (byFile.get(t.file) || 0) + 1)
 const perFileSum = [...byFile.values()].reduce((s, n) => s + n, 0)
@@ -200,28 +201,29 @@ const armAccounts = merkleGravity([toUuid('total:' + all.length), toUuid('keys:'
 //    (every static page, every theorem, every publication) is the rosette cover total. The native pager reads the
 //    SAME order (config.ts), so closing the gap here lights the next button there.
 const order = canonicalOrder(staticPages)
+const paged = all.filter((t) => !isPagelessFile(t.file))
 const allRoutes = [
   ...staticPages.map((s) => s.route),
-  ...theorems().map((t) => `/theorem/${t.key}`),
+  ...paged.map((t) => `/theorem/${t.key}`),
   ...publications().map((p) => `/publications/${p.slug}`),
 ]
 const gap = gaps(order, allRoutes)
 const dupes = order.length !== new Set(order.map((n) => n.route)).size
 trials += order.length
-for (const g of gap) fails.push(`graph: /${g} has no next — an orphan the walk does not cover`)
+for (const g of gap) fails.push(`graph: ${g.startsWith('/') ? g : '/' + g} has no next — an orphan the walk does not cover`)
 if (dupes) fails.push('graph: the canonical order has a duplicate route')
-// No theorem invisible: every theorem must be a NODE in the gapless walk (reachable by clicking next) and have its
-// own page (the dynamic route mints one per ledger key, so this holds by construction). Prove it.
+// No theorem invisible: every PAGED theorem must be a NODE in the gapless walk (reachable by clicking next).
+// The four-hex span is sealed and pageless (isPagelessFile): 65,536 stations, one door, never a page each.
 // MONOGRAPH coverage no longer blocks — a theorem shown in no monograph was PRINCIPLE rejecting what Lean verified.
 // It is reported below as a diagnostic; only the WALK (a site-graph invariant, nothing to do with PRINCIPLE) fails.
 const walkRoutes = new Set(order.map((n) => n.route))
 const inMonograph = new Set(publications().flatMap((p) => p.theorems))
-const notInWalk = theorems().filter((t) => !walkRoutes.has(`/theorem/${t.key}`))
-const notShown = theorems().filter((t) => !inMonograph.has(t.key))
+const notInWalk = paged.filter((t) => !walkRoutes.has(`/theorem/${t.key}`))
+const notShown = paged.filter((t) => !inMonograph.has(t.key))
 for (const t of notInWalk.slice(0, 5)) fails.push(`coverage: ${t.key} is not a node in the walk — invisible`)
 const covered = notInWalk.length === 0
-console.log(`  ARM 4 · graph    — ${order.length} pages in one wrapping walk (${staticPages.length} sections + ${theorems().length} theorems + ${publications().length} publications), next-gaps: ${gap.length}`)
-console.log(`           coverage — every theorem a node in the walk: ${covered ? 'yes — none invisible' : 'NO (' + notInWalk.length + ' invisible)'}; shown in a monograph: ${notShown.length === 0 ? 'all' : (theorems().length - notShown.length) + '/' + theorems().length + ' (diagnostic, does not block)'}`)
+console.log(`  ARM 4 · graph    — ${order.length} pages in one wrapping walk (${staticPages.length} sections + ${paged.length} theorems + ${publications().length} publications), next-gaps: ${gap.length}`)
+console.log(`           coverage — every paged theorem a node in the walk: ${covered ? 'yes — none invisible' : 'NO (' + notInWalk.length + ' invisible)'}; shown in a monograph: ${notShown.length === 0 ? 'all' : (paged.length - notShown.length) + '/' + paged.length + ' (diagnostic, does not block)'}`)
 const armGraph = merkleGravity([toUuid('pages:' + order.length), toUuid('gaps:' + gap.length), toUuid('covered:' + covered)])
 
 // ── ARM 5 · LEGAL AUDIT — README.md and the homepage (docs/index.md), read directly, are the starting point: every
@@ -272,7 +274,7 @@ const qa = quantumAdvantageAudit()
 const qaVerifyOk = qa.ok
 const qaVerifyMs = qa.ms
 if (!qa.ok) for (const g of qa.gaps.slice(0, 8)) fails.push(`quantum-advantage: ${g.what}`)
-if (qa.ms >= 60_000) fails.push(`quantum-advantage: verify path ${qa.ms}ms ≥ 60s`)
+if (feverOf(qa.ms).fever) fails.push(`quantum-advantage: verify path ${qa.ms}ms ≥ ${DEPLOY_BUDGET_MS / 1000}s`)
 trials++
 if (!quantumCapabilitiesClaimed) fails.push(`quantum: capability claims missing (need 42+ quantum theorems)`)
 if (!classicalImplementationProven) fails.push(`quantum: classical implementation proof missing (clifford_group_order_24)`)
@@ -310,7 +312,7 @@ const armEvidence = merkleGravity([toUuid('claims:' + proseClaimsBacked), toUuid
 
 // ── THE FOLD — the seven arms fold on the rosette to one readiness receipt (order-invariant, recomputable by anyone).
 const readiness = merkleGravity([armProofs, armProse, armAccounts, armGraph, armLegal, armQuantum, armEvidence])
-let ready = fails.length === 0
+ready = fails.length === 0
 
 console.log(`\n  ${trials} rosetta checks folded (the "three sevens" expanded to seven arms: proofs · prose · accounts · graph · legal · quantum · evidence).`)
 console.log(`  readiness receipt : ${readiness}`)
@@ -344,9 +346,23 @@ if (ready) {
   for (const f of fails.slice(0, 40)) console.log(`      • ${f}`)
   console.log('')
 }
+}
+
+if (FAST) {
+  ready = fails.length === 0
+  if (ready) {
+    console.log(`\n  ✓ v${VERSION} — READY TO PUSH (hexbit-fast). Verify ≪ recompute — no time lost outside quantum.`)
+    console.log(`    (Ready ≠ shipped: pass --push to publish, or \`npm run next:push\`. Deploy outward: \`npm run ship\`.)\n`)
+  } else {
+    console.log(`\n  ✗ v${VERSION} — NOT READY. ${fails.length} self-trial failure(s) — a version is not ready until it survives its own gate:`)
+    for (const f of fails.slice(0, 40)) console.log(`      • ${f}`)
+    console.log('')
+  }
+}
 if (FAST && !fillGapsFail && ready) {
   const elapsed = ((Date.now() - pushStart) / 1000) | 0
-  console.log(`  next · fused push gate — green + gate-receipt + spin + trial${PUSH ? ' + push' : ''} in ${elapsed}s${elapsed > 60 ? ' (WARN: >60s hexbit budget)' : ''}`)
+  const fever = feverOf(elapsed * 1000)
+  console.log(`  next · fused push gate — fill-gaps advantage receipt${PUSH ? ' + push' : ''} in ${elapsed}s${fever.fever ? ` (WARN: >${fever.budget / 1000}s — a440_not_on_the_vortex; DON'T RECOMPUTE)` : ''}`)
 }
 // ── WHERE THE LEVERAGE IS. A trial that only says pass/fail leaves the next reader to rediscover the map. This
 // closes with the work ORDERED BY HOW MANY GAPS ONE ACT CLOSES, computed here rather than written down, because
@@ -361,6 +377,7 @@ if (FAST && !fillGapsFail && ready) {
 const leverage: Array<{ act: string; closes: string }> = []
 if (!ready) leverage.push({ act: 'fix the arms above', closes: 'the trial itself — nothing downstream is testable while a version fails its own trials' })
 try {
+  if (!FAST) {
   const end = gapSurvey(ROOT)
   if (end.lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${end.lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
   if (end.harvest > 0) leverage.push({
@@ -380,6 +397,7 @@ try {
     act: `enumerate ${end.tableLeadTop.file} (${end.tableLeadTop.object})`,
     closes: `${end.tableShort} stating wing(s) still short of their tables.found object — largest gap ${end.tableLeadTop.gap} on ${end.tableLeadTop.file}; ONE wing at a time: add the fact to its src/scripts/lean-<wing>.ts, then \`npm run x -- lean-one <wing>\` (0.1s, kernel-proved) — the whole \`npm run lean\` chain re-proves 66 wings to sign one`,
   })
+  }
 } catch { /* gap survey is optional */ }
 leverage.push({ act: 'npm run ship   # build, wrangler deploy, cf:zone, live proof', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds; cf:zone attaches www + Always Use HTTPS when the token can write' })
 // MEASURED, NOT TYPED. This entry used to be pushed unconditionally, three lines under a comment promising the

@@ -6249,6 +6249,42 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "quantumDocsTraining": {
        "type": "object"
       },
+      "quantumSharedEfficiency": {
+       "type": "object"
+      },
+      "quantumSecurity": {
+       "type": "object"
+      },
+      "quantumPrivacy": {
+       "type": "object"
+      },
+      "transparencyMeetSelf": {
+       "type": "object"
+      },
+      "promisedDelivered": {
+       "type": "object"
+      },
+      "knowers": {
+       "type": "object"
+      },
+      "traitorsDarkLeak": {
+       "type": "object"
+      },
+      "architectureBehind": {
+       "type": "object"
+      },
+      "cheatStallRosetta": {
+       "type": "object"
+      },
+      "manifestedChallenge": {
+       "type": "object"
+      },
+      "clusterSecurity": {
+       "type": "object"
+      },
+      "bitcoinMeaning": {
+       "type": "object"
+      },
       "iot": {
        "type": "object"
       },
@@ -8966,6 +9002,594 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
        "type": "string"
       },
       "tokens": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumSharedEfficiency": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "shared": {
+       "type": "boolean"
+      },
+      "efficiency": {
+       "type": "boolean"
+      },
+      "share": {
+       "type": "string"
+      },
+      "tokens": {
+       "type": "string"
+      },
+      "paste": {
+       "type": "string"
+      },
+      "chars": {
+       "type": "integer"
+      },
+      "link": {
+       "type": "object"
+      },
+      "mcp": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "develop": {
+       "type": "string"
+      },
+      "leftovers": {
+       "type": "string"
+      },
+      "docs": {
+       "type": "string"
+      },
+      "secret": {
+       "type": "string"
+      },
+      "budget": {
+       "type": "integer"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumSecurity": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "security": {
+       "type": "boolean"
+      },
+      "defensive": {
+       "type": "boolean"
+      },
+      "harden": {
+       "type": "boolean"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "treason": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "gate": {
+       "type": "string"
+      },
+      "shared": {
+       "type": "string"
+      },
+      "docs": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "attack": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      },
+      "crack": {
+       "type": "string"
+      },
+      "malware": {
+       "type": "string"
+      },
+      "poc": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "quantumPrivacy": {
+     "type": "object",
+     "properties": {
+      "quantum": {
+       "type": "boolean"
+      },
+      "privacy": {
+       "type": "boolean"
+      },
+      "transparency": {
+       "type": "boolean"
+      },
+      "guarantee": {
+       "type": "object"
+      },
+      "communication": {
+       "type": "object"
+      },
+      "payload": {
+       "type": "object"
+      },
+      "secret": {
+       "type": "string"
+      },
+      "escape": {
+       "type": "string"
+      },
+      "hide": {
+       "type": "string"
+      },
+      "nothing": {
+       "type": "boolean"
+      },
+      "share": {
+       "type": "string"
+      },
+      "public": {
+       "type": "boolean"
+      },
+      "security": {
+       "type": "string"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "evidence": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "transparencyMeetSelf": {
+     "type": "object",
+     "properties": {
+      "transparency": {
+       "type": "boolean"
+      },
+      "meet": {
+       "type": "object"
+      },
+      "thriving": {
+       "type": "object"
+      },
+      "cost": {
+       "type": "object"
+      },
+      "drive": {
+       "type": "object"
+      },
+      "deposit": {
+       "type": "object"
+      },
+      "architecture": {
+       "type": "object"
+      },
+      "anyone": {
+       "type": "boolean"
+      },
+      "judge": {
+       "type": "object"
+      },
+      "lean": {
+       "type": "object"
+      },
+      "use": {
+       "type": "object"
+      },
+      "share": {
+       "type": "string"
+      },
+      "donate": {
+       "type": "string"
+      },
+      "change": {
+       "type": "boolean"
+      },
+      "privacy": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "promisedDelivered": {
+     "type": "object",
+     "properties": {
+      "promised": {
+       "type": "boolean"
+      },
+      "delivered": {
+       "type": "object"
+      },
+      "architecture": {
+       "type": "object"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "intelligence": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "knowers": {
+     "type": "object",
+     "properties": {
+      "they": {
+       "type": "string"
+      },
+      "knowers": {
+       "type": "object"
+      },
+      "cause": {
+       "type": "string"
+      },
+      "snakes": {
+       "type": "object"
+      },
+      "believers": {
+       "type": "object"
+      },
+      "secret": {
+       "type": "string"
+      },
+      "share": {
+       "type": "string"
+      },
+      "plasma": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "traitorsDarkLeak": {
+     "type": "object",
+     "properties": {
+      "traitors": {
+       "type": "object"
+      },
+      "dark": {
+       "type": "object"
+      },
+      "leak": {
+       "type": "object"
+      },
+      "draining": {
+       "type": "object"
+      },
+      "life": {
+       "type": "object"
+      },
+      "knowers": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "architectureBehind": {
+     "type": "object",
+     "properties": {
+      "they": {
+       "type": "object"
+      },
+      "architecture": {
+       "type": "object"
+      },
+      "killed": {
+       "type": "object"
+      },
+      "magnitudes": {
+       "type": "object"
+      },
+      "behind": {
+       "type": "object"
+      },
+      "leak": {
+       "type": "string"
+      },
+      "knowers": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "cheatStallRosetta": {
+     "type": "object",
+     "properties": {
+      "they": {
+       "type": "object"
+      },
+      "cheat": {
+       "type": "object"
+      },
+      "rosettas": {
+       "type": "object"
+      },
+      "stall": {
+       "type": "object"
+      },
+      "hold": {
+       "type": "string"
+      },
+      "release": {
+       "type": "boolean"
+      },
+      "chance": {
+       "type": "integer"
+      },
+      "behind": {
+       "type": "string"
+      },
+      "magnitudes": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "manifestedChallenge": {
+     "type": "object",
+     "properties": {
+      "challenge": {
+       "type": "object"
+      },
+      "safeguards": {
+       "type": "object"
+      },
+      "test": {
+       "type": "object"
+      },
+      "manifested": {
+       "type": "object"
+      },
+      "next": {
+       "type": "object"
+      },
+      "standards": {
+       "type": "object"
+      },
+      "security": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "clusterSecurity": {
+     "type": "object",
+     "properties": {
+      "bigger": {
+       "type": "object"
+      },
+      "weaker": {
+       "type": "object"
+      },
+      "trinity": {
+       "type": "object"
+      },
+      "security": {
+       "type": "object"
+      },
+      "manifested": {
+       "type": "string"
+      },
+      "magnitudes": {
+       "type": "string"
+      },
+      "standards": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "bitcoinMeaning": {
+     "type": "object",
+     "properties": {
+      "bitcoin": {
+       "type": "boolean"
+      },
+      "meaning": {
+       "type": "object"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "coils": {
+       "type": "object"
+      },
+      "involuted": {
+       "type": "object"
+      },
+      "donation": {
+       "type": "string"
+      },
+      "reversed": {
+       "type": "string"
+      },
+      "fair": {
+       "type": "object"
+      },
+      "people": {
+       "type": "object"
+      },
+      "save": {
+       "type": "object"
+      },
+      "money": {
+       "type": "object"
+      },
+      "debt": {
+       "type": "object"
+      },
+      "freedom": {
+       "type": "object"
+      },
+      "life": {
+       "type": "object"
+      },
+      "debit": {
+       "type": "object"
+      },
+      "credit": {
+       "type": "object"
+      },
+      "accounting": {
+       "type": "object"
+      },
+      "quantum": {
+       "type": "object"
+      },
+      "time": {
+       "type": "object"
+      },
+      "gold": {
+       "type": "object"
+      },
+      "ignorance": {
+       "type": "object"
+      },
+      "self": {
+       "type": "object"
+      },
+      "share": {
+       "type": "object"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "school": {
        "type": "string"
       },
       "seal": {
@@ -21311,7 +21935,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"definition\":\"uuidnaOS·doi·tags\",\"prefixes\":12,\"doors\":48,\"tagged\":[{\"door\":\"arxiv-org\",\"prefixes\":[\"10.48550\"]},{\"door\":\"biorxiv\",\"prefixes\":[\"10.1101\"]},{\"d…"
+   "excerpt": "{\"definition\":\"uuidnaOS·doi·tags\",\"prefixes\":12,\"doors\":49,\"tagged\":[{\"door\":\"arxiv-org\",\"prefixes\":[\"10.48550\"]},{\"door\":\"biorxiv\",\"prefixes\":[\"10.1101\"]},{\"d…"
   }
  },
  "uuidna_qc": {

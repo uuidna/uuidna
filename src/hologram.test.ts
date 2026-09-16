@@ -33,7 +33,7 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.deepEqual(callTool('uuidna_hologram', {}), h)
   const hopAddr = toUuid(qpuHopOf().href)
   const wool = sweaterOf()
-  const strict = callTool('uuidna_strict', {}) as ReturnType<typeof sweaterOf>
+  const strict = callTool('uuidna_strict', { text: 'theorem' }) as ReturnType<typeof sweaterOf>
   assert.equal(wool.address, hopAddr)
   assert.equal(wool.href, qpuHopOf().href)
   assert.equal(wool.handle, handleOf(hopAddr))
