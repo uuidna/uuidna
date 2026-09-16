@@ -595,6 +595,11 @@ export function sweaterInflationSilent(text: string): boolean {
     || !/with:\s*'self'/.test(body) || !/for:\s*'ignorance'/.test(body)
     || !/share:\s*\{/.test(body) || !/of:\s*'shareHeartOf'/.test(body)
     || !/them:\s*true/.test(body)
+    || !/\bfusionNatureHarmonyOf\b/.test(body) || !/thermonuclear:\s*empty/.test(body)
+    || !/thermo:\s*\{/.test(body) || !/nuclear:\s*empty/.test(body)
+    || !/vs:\s*'nature'/.test(body) || !/with:\s*'nature'/.test(body)
+    || !/of:\s*'fusionReactorOf'/.test(body) || !/of:\s*'quantumNatureOf'/.test(body)
+    || !/why:\s*\{/.test(body) || !/not:\s*0/.test(body)
 }
 
 /** skipHooksHot(text) → git commit/push still carries --no-verify (hooks skipped). */

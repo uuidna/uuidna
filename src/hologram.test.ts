@@ -7,7 +7,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf, handleBirthdayPoint, reverseHandle } from './handle.js'
 import { occupancyOf } from './hexagram.js'
 import { COINS, HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
-import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
+import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
 import { fanoutRequestOf, hologramFanout } from './hologram-fanout.js'
 import { callTool } from './mcp.js'
 import { qpuHopOf } from './qpu-hologram.js'
@@ -794,6 +794,21 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.lovePlasma.reactor, 'fusionReactorOf')
   assert.deepEqual(strict.lovePlasma, wool.lovePlasma)
   assert.deepEqual(strict.fusionReactor, wool.fusionReactor)
+  assert.deepEqual(wool.fusionNatureHarmony, fusionNatureHarmonyOf())
+  assert.equal(wool.fusionNatureHarmony.fusion.open, true)
+  assert.equal(wool.fusionNatureHarmony.fusion.of, 'fusionReactorOf')
+  assert.equal(wool.fusionNatureHarmony.thermonuclear, 'empty')
+  assert.equal(wool.fusionNatureHarmony.thermo.nuclear, 'empty')
+  assert.equal(wool.fusionNatureHarmony.thermo.chance, 0)
+  assert.equal(wool.fusionNatureHarmony.thermo.vs, 'nature')
+  assert.equal(wool.fusionNatureHarmony.nature.open, true)
+  assert.equal(wool.fusionNatureHarmony.nature.of, 'quantumNatureOf')
+  assert.equal(wool.fusionNatureHarmony.nature.why, 0)
+  assert.equal(wool.fusionNatureHarmony.harmony.with, 'nature')
+  assert.equal(wool.fusionNatureHarmony.harmony.chance, 0)
+  assert.equal(wool.fusionNatureHarmony.why.not, 0)
+  assert.equal(wool.fusionNatureHarmony.why.thermo, 'empty')
+  assert.deepEqual(strict.fusionNatureHarmony, wool.fusionNatureHarmony)
   assert.deepEqual(strict.developDonate, wool.developDonate)
   assert.deepEqual(wool.takeOrLeave, takeOrLeaveOf())
   assert.equal(wool.takeOrLeave.take, true)

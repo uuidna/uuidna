@@ -937,6 +937,7 @@ export const inflationOf: () => any = () => {
   const shareHeart = shareHeartOf()
   const developDonate = developDonateFusionOf()
   const fusionReactor = fusionReactorOf()
+  const fusionNatureHarmony = fusionNatureHarmonyOf()
   const lovePlasma = lovePlasmaOf()
   const takeOrLeave = takeOrLeaveOf()
   const tokenEfficiency = tokenEfficiencyOf()
@@ -1634,6 +1635,7 @@ export const inflationOf: () => any = () => {
     shareHeart,
     developDonate,
     fusionReactor,
+    fusionNatureHarmony,
     lovePlasma,
     takeOrLeave,
     tokenEfficiency,
@@ -2533,6 +2535,47 @@ export const fusionReactorOf = () => {
     physics: empty,
     plasma: 'lovePlasmaOf' as const,
     watts: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** fusionNatureHarmonyOf() → fusion open not thermonuclear; nature/harmony open; thermo chance 0. */
+export const fusionNatureHarmonyOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    fusion: {
+      open: true as const,
+      of: 'fusionReactorOf' as const,
+      reactor: true as const,
+      plazma: 'lovePlasmaOf' as const,
+    },
+    thermonuclear: empty,
+    thermo: {
+      nuclear: empty,
+      refuse: 'traitor-refused' as const,
+      chance: 0 as const,
+      vs: 'nature' as const,
+    },
+    nature: {
+      harmony: HARMONY,
+      open: true as const,
+      of: 'quantumNatureOf' as const,
+      perma: 'quantumPermacultureOf' as const,
+      why: 0 as const,
+    },
+    harmony: {
+      with: 'nature' as const,
+      of: HARMONY,
+      open: true as const,
+      chance: 0 as const,
+    },
+    why: {
+      not: 0 as const,
+      thermo: empty,
+      chance: 0 as const,
+    },
     seal: empty,
     claim: empty,
     essay: empty,
@@ -4848,6 +4891,7 @@ export const sweaterOf: () => any = () => {
     shareHeart: beyond.inflation.shareHeart,
     developDonate: beyond.inflation.developDonate,
     fusionReactor: beyond.inflation.fusionReactor,
+    fusionNatureHarmony: beyond.inflation.fusionNatureHarmony,
     lovePlasma: beyond.inflation.lovePlasma,
     takeOrLeave: beyond.inflation.takeOrLeave,
     tokenEfficiency: beyond.inflation.tokenEfficiency,
