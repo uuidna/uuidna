@@ -9451,8 +9451,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "f5f8f14c-8242-8216-9245-b80975209584",
-      "address": "a431c713-231c-828b-9a1a-7181fcd3b8c4",
+      "lineAddress": "1333ba12-e384-829c-b75a-a5675f94ff8b",
+      "address": "64593822-44b0-828c-b297-27e01db56ec1",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9908,8 +9908,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "3031971e-7b39-82fd-846f-8f6f09a2a99d",
-      "address": "5c732525-31c8-857b-ae48-44f2afa33769",
+      "lineAddress": "ab55b108-c3e7-85d4-a0d4-e1e3912fe404",
+      "address": "0521e61f-6eb5-8c4c-80e5-ee2982c85703",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -481936,7 +481936,7 @@
     },
     {
       "key": "reconciled_b13fd37a",
-      "lineAddress": "98213828-a3dc-863d-9db6-651b82da5e87",
+      "lineAddress": "3285b5e3-724a-813b-85e2-d7ae2991cf8a",
       "address": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
       "principle": "The involution of lead b13fd37a",
       "held": "discovery+formalisation"
@@ -499694,7 +499694,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "6b2fc07e-a0f1-8f96-b85d-a53df7f684bb",
+  "claim_receipt": "8d79c94d-4ee6-8743-ae4d-5976738b7136",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

@@ -64,14 +64,12 @@
     "uuidna_search_trial",
     "uuidna_slim_gate",
     "uuidna_spin",
-    "uuidna_strict",
     "uuidna_theorem_message",
     "uuidna_tokens",
     "uuidna_transform",
     "uuidna_try",
     "uuidna_verify",
     "uuidna_vocabulary",
-    "uuidna_vortex",
-    "uuidna_wave_deposit"
+    "uuidna_vortex"
   ]
 }

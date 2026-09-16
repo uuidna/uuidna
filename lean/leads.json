@@ -21,7 +21,8 @@
         "theorem": "proof_de5612a2",
         "receipt": "5c293fc3-79ab-8789-8f76-24255a17230b",
         "axioms": []
-      }
+      },
+      "proved": "proof_de5612a2"
     },
     {
       "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",

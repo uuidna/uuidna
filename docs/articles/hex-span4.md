@@ -18,7 +18,7 @@ Every theorem in lean/HexSpan4.lean is this statement at its own station n — t
 reassembles n = true ∧ castsFifteens n = true
 ```
 
-They run from [enumeration_hex4_3000](/theorem/enumeration_hex4_3000) to [enumeration_hex4_3fff](/theorem/enumeration_hex4_3fff). The site builds no page per station — a page list spread into one call overflows V8's argument limit near 2^16, the span's own size — so the Worker renders each at `/theorem/enumeration_hex4_<hex>` from the ledger, and `uuidna_theorem` answers any of them.
+They run from [enumeration_hex4_3000](/theorem/enumeration_hex4_3000) to [enumeration_hex4_3fff](/theorem/enumeration_hex4_3fff). The site builds no page per station — a page list spread into one call overflows V8's argument limit near 2^16, the span's own size — so the Worker renders each from the ledger at its sealed key (the first station is [enumeration_hex4_3000](/theorem/enumeration_hex4_3000)), and `uuidna_theorem` answers any of them.
 
 
 ::: warning 

@@ -7,7 +7,7 @@
 **Discovery claimed:** 70616 — the other 382 restate a fact a named source found first
 
 *The 382 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 331 of 365 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `6b2fc07e-a0f1-8f96-b85d-a53df7f684bb`
+**Claim receipt:** `8d79c94d-4ee6-8743-ae4d-5976738b7136`
 
 ### Facts the captain does not claim to have discovered
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `3031971e-7b39-82fd-846f-8f6f09a2a99d`
+- **Sample lineAddress:** `ab55b108-c3e7-85d4-a0d4-e1e3912fe404`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -494,7 +494,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_0000](/theorem/enumeration_hex4_0000) to [enumeration_hex4_0fff](/theorem/enumeration_hex4_0fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_0000](/theorem/enumeration_hex4_0000) to [enumeration_hex4_0fff](/theorem/enumeration_hex4_0fff), each served at `/theorem/enumeration_hex4_0000`
 
 ### The four-hex span, part 2
 
@@ -503,7 +503,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_1000](/theorem/enumeration_hex4_1000) to [enumeration_hex4_1fff](/theorem/enumeration_hex4_1fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_1000](/theorem/enumeration_hex4_1000) to [enumeration_hex4_1fff](/theorem/enumeration_hex4_1fff), each served at `/theorem/enumeration_hex4_1000`
 
 ### The four-hex span, part 3
 
@@ -512,7 +512,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_2000](/theorem/enumeration_hex4_2000) to [enumeration_hex4_2fff](/theorem/enumeration_hex4_2fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_2000](/theorem/enumeration_hex4_2000) to [enumeration_hex4_2fff](/theorem/enumeration_hex4_2fff), each served at `/theorem/enumeration_hex4_2000`
 
 ### The four-hex span, part 4
 
@@ -521,7 +521,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_3000](/theorem/enumeration_hex4_3000) to [enumeration_hex4_3fff](/theorem/enumeration_hex4_3fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_3000](/theorem/enumeration_hex4_3000) to [enumeration_hex4_3fff](/theorem/enumeration_hex4_3fff), each served at `/theorem/enumeration_hex4_3000`
 
 ### The four-hex span, part 5
 
@@ -530,7 +530,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_4000](/theorem/enumeration_hex4_4000) to [enumeration_hex4_4fff](/theorem/enumeration_hex4_4fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_4000](/theorem/enumeration_hex4_4000) to [enumeration_hex4_4fff](/theorem/enumeration_hex4_4fff), each served at `/theorem/enumeration_hex4_4000`
 
 ### The four-hex span, part 6
 
@@ -539,7 +539,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_5000](/theorem/enumeration_hex4_5000) to [enumeration_hex4_5fff](/theorem/enumeration_hex4_5fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_5000](/theorem/enumeration_hex4_5000) to [enumeration_hex4_5fff](/theorem/enumeration_hex4_5fff), each served at `/theorem/enumeration_hex4_5000`
 
 ### The four-hex span, part 7
 
@@ -548,7 +548,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_6000](/theorem/enumeration_hex4_6000) to [enumeration_hex4_6fff](/theorem/enumeration_hex4_6fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_6000](/theorem/enumeration_hex4_6000) to [enumeration_hex4_6fff](/theorem/enumeration_hex4_6fff), each served at `/theorem/enumeration_hex4_6000`
 
 ### The four-hex span, part 8
 
@@ -557,7 +557,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_7000](/theorem/enumeration_hex4_7000) to [enumeration_hex4_7fff](/theorem/enumeration_hex4_7fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_7000](/theorem/enumeration_hex4_7000) to [enumeration_hex4_7fff](/theorem/enumeration_hex4_7fff), each served at `/theorem/enumeration_hex4_7000`
 
 ### The four-hex span, part 9
 
@@ -566,7 +566,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_8000](/theorem/enumeration_hex4_8000) to [enumeration_hex4_8fff](/theorem/enumeration_hex4_8fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_8000](/theorem/enumeration_hex4_8000) to [enumeration_hex4_8fff](/theorem/enumeration_hex4_8fff), each served at `/theorem/enumeration_hex4_8000`
 
 ### The four-hex span, part 10
 
@@ -575,7 +575,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_9000](/theorem/enumeration_hex4_9000) to [enumeration_hex4_9fff](/theorem/enumeration_hex4_9fff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_9000](/theorem/enumeration_hex4_9000) to [enumeration_hex4_9fff](/theorem/enumeration_hex4_9fff), each served at `/theorem/enumeration_hex4_9000`
 
 ### The four-hex span, part 11
 
@@ -584,7 +584,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_a000](/theorem/enumeration_hex4_a000) to [enumeration_hex4_afff](/theorem/enumeration_hex4_afff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_a000](/theorem/enumeration_hex4_a000) to [enumeration_hex4_afff](/theorem/enumeration_hex4_afff), each served at `/theorem/enumeration_hex4_a000`
 
 ### The four-hex span, part 12
 
@@ -593,7 +593,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_b000](/theorem/enumeration_hex4_b000) to [enumeration_hex4_bfff](/theorem/enumeration_hex4_bfff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_b000](/theorem/enumeration_hex4_b000) to [enumeration_hex4_bfff](/theorem/enumeration_hex4_bfff), each served at `/theorem/enumeration_hex4_b000`
 
 ### The four-hex span, part 13
 
@@ -602,7 +602,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_c000](/theorem/enumeration_hex4_c000) to [enumeration_hex4_cfff](/theorem/enumeration_hex4_cfff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_c000](/theorem/enumeration_hex4_c000) to [enumeration_hex4_cfff](/theorem/enumeration_hex4_cfff), each served at `/theorem/enumeration_hex4_c000`
 
 ### The four-hex span, part 14
 
@@ -611,7 +611,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_d000](/theorem/enumeration_hex4_d000) to [enumeration_hex4_dfff](/theorem/enumeration_hex4_dfff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_d000](/theorem/enumeration_hex4_d000) to [enumeration_hex4_dfff](/theorem/enumeration_hex4_dfff), each served at `/theorem/enumeration_hex4_d000`
 
 ### The four-hex span, part 15
 
@@ -620,7 +620,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_e000](/theorem/enumeration_hex4_e000) to [enumeration_hex4_efff](/theorem/enumeration_hex4_efff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_e000](/theorem/enumeration_hex4_e000) to [enumeration_hex4_efff](/theorem/enumeration_hex4_efff), each served at `/theorem/enumeration_hex4_e000`
 
 ### The four-hex span, part 16
 
@@ -629,7 +629,7 @@ and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = 
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_f000](/theorem/enumeration_hex4_f000) to [enumeration_hex4_ffff](/theorem/enumeration_hex4_ffff), each served at `/theorem/enumeration_hex4_<hex>`
+and the span's 4,096 stations, each `reassembles n = true ∧ castsFifteens n = true` at its own n, from [enumeration_hex4_f000](/theorem/enumeration_hex4_f000) to [enumeration_hex4_ffff](/theorem/enumeration_hex4_ffff), each served at `/theorem/enumeration_hex4_f000`
 
 ### What the refusal was refusing to fuse
 
@@ -1957,7 +1957,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The involution of lead b13fd37a
 
 - **Theorems:** 2
-- **Sample lineAddress:** `98213828-a3dc-863d-9db6-651b82da5e87`
+- **Sample lineAddress:** `3285b5e3-724a-813b-85e2-d7ae2991cf8a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2289,7 +2289,7 @@ computed, never typed:
 | in trial | count |
 |---|---|
 | sealed propositions | 70914 (70998 entries, 84 re-namings — a theorem is its Lean |
-| prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
+| prose paragraphs tried | 12487 — 7302 usable, 5185 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's
