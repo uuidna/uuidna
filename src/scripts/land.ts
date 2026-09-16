@@ -92,14 +92,16 @@ const stage = (): void => { if (drainOnly) run('git add -- ' + drainPaths().map(
 const pathspec = (): string => (drainOnly ? ' -- gate-receipt.json ' + drainPaths().map((p) => JSON.stringify(p)).join(' ') : '')
 
 for (let round = 1; round <= ROUNDS; round++) {
-  console.log(`\nland — round ${round}/${ROUNDS}: heal, commit, push …`)
-  const heal = run('node dist/scripts/develop.js')          // taught cures only; prints its own receipts
-  if (!heal.ok) {
-    console.error('✗ land — develop met an objection with NO taught cure. Its GAP+FIX, verbatim — a human decides here (that is the design, not a failure of it):\n')
-    console.error(heal.out.split('\n').filter((l) => /^(✗|GAP|FIX)/.test(l.trim())).join('\n') || heal.out.slice(-1500))
-    process.exit(1)
+  console.log(`\nland — round ${round}/${ROUNDS}: verify the seal, then push …`)
+  const coveredAtStart = run('node dist/scripts/gate-receipt.js --verify')
+  if (!coveredAtStart.ok) {
+    // PUSH-PATH VERIFY (verify_beats_recompute_by_magnitudes; fuse-two-coins): seal moved means remint over a
+    // clean worktree of HEAD after the drain commit below — not develop+reconcile first. Develop before verify
+    // was the heat that blew DEPLOY_BUDGET_MS; remint already runs guard+tests and names GAP+FIX on refuse.
+    console.log('land — seal moved; skip develop/reconcile — remint after drain commit (PUSH-PATH VERIFY)')
+  } else {
+    console.log('land — gate-receipt covers this tree; skip develop/lean (verify_beats_recompute_by_magnitudes)')
   }
-  run('node dist/scripts/reconcile.js --derive-only')        // derived layer freshly sealed, spin LAST, no publish
 
   // ── THE RECEIPT IS MINTED FOR THE TREE THIS ROUND HEALED, BEFORE THE PUSH (found 2026-09-02, by measuring) ──
   //
