@@ -32,6 +32,33 @@ export function merkleGravity(addresses: readonly string[]): string {
   return merkleFold(addresses)
 }
 
+/** rosettaMoveOf(heads, coils[, claimed]) → ℤ/coils rotation of the fold. Holds iff merkleGravity is order-invariant
+ *  and claimed (when given) is that root. A privileged-order cheat is cut (traitor-refused — trial-gate yin). */
+export function rosettaMoveOf(heads: readonly string[], coils: number, claimed?: string): {
+  coils: number
+  receipt: string
+  holds: boolean
+  cut: 'move' | 'traitor-refused'
+  kind: 'verified' | 'forged-dna'
+} {
+  const n = heads.length
+  const receipt = merkleGravity(heads)
+  const step = n === 0 ? 0 : (n / coils | 0) || 1
+  let holds = Number.isInteger(coils) && coils > 0 && (claimed === undefined || claimed === receipt)
+  for (let s = 0; s < coils && holds; s++) {
+    if (n === 0) break
+    const rotated = heads.map((_, i) => heads[(i + s * step) % n]!)
+    if (merkleGravity(rotated) !== receipt) holds = false
+  }
+  return {
+    coils,
+    receipt,
+    holds,
+    cut: holds ? 'move' : 'traitor-refused',
+    kind: holds ? 'verified' : 'forged-dna',
+  }
+}
+
 /** Gravity 3 — the DOUBLE TORUS over the whole 7D space. Two interlocked orbits — the doubling vortex
  *  [1,2,4,8,7,5] and its reverse (the halving torus) — rotate the address set; at EACH of the 7 dimensions the
  *  two tori combine (a merkle fold of the two rotations), and the 7 dimension-roots fold to ONE gravity root.
