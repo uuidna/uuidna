@@ -30,6 +30,7 @@ export interface Gap { what: string; fix: string }
 const EXEMPT: Record<string, string> = {
   'src/scripts/land.test.ts': 'a test ABOUT landing quotes the commands it checks; quoting is not performing',
   'src/scripts/landing-gaps.ts': 'this file names the commands in order to look for them — the finder is not the act',
+  'src/scripts/deploy-verify.test.ts': 'a test ABOUT landing quotes git push as a probe to landOffMcpDoor — quoting is not performing',
   'src/reconcile-covers.test.ts': 'lists git commands as FORBIDDEN — it asserts the same law from the other side, and its list is quoted by construction',
   'src/scripts/impossibility-gaps.ts': 'discusses THIS finder in prose and quotes its example in backticks — a sibling finder describing a sibling finder is the mention case twice over',
 }
@@ -41,9 +42,11 @@ const EXEMPT: Record<string, string> = {
 // about git; none of them touched a repository.
 //
 // A command that is actually RUN is handed to a runner as a string, so it begins one: run('git push …'),
-// execSync(`git commit …`). Requiring the opening quote separates the act from the account of it, and it is not
-// a heuristic about English — it is the shape of a call site.
-const PUSH = /['"`]git push\b/
+// execSync(`git commit …`). Requiring the runner AND the opening quote separates the act from a detector that
+// only SEARCHES for the command (landOffMcpDoor("git push origin main") is a probe, not a landing). A quoted
+// mention without a runner is the same use/mention collision the first cut already named.
+const RUNNER = /(?:execSync|spawnSync|execFileSync|execFile|spawn|\brun)\s*\(\s*/
+const PUSH = new RegExp(RUNNER.source + '["\'`]git push\\b')
 const COMMIT = /['"`]git commit\b/
 // reading a ref back, in any of the spellings this tree actually uses
 const VERIFIES_REF = /rev-parse|rev-list|ls-remote|git log -1|%H/

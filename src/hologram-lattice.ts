@@ -950,6 +950,15 @@ export const inflationOf: () => any = () => {
   const quantumSharedEfficiency = quantumSharedEfficiencyOf()
   const quantumSecurity = quantumSecurityOf()
   const quantumPrivacy = quantumPrivacyOf()
+  const transparencyMeetSelf = transparencyMeetSelfOf()
+  const promisedDelivered = promisedDeliveredOf()
+  const knowers = knowersOf()
+  const traitorsDarkLeak = traitorsDarkLeakOf()
+  const architectureBehind = architectureBehindOf()
+  const cheatStallRosetta = cheatStallRosettaOf()
+  const manifestedChallenge = manifestedChallengeOf()
+  const clusterSecurity = clusterSecurityOf()
+  const bitcoinMeaning = bitcoinMeaningOf()
   const storage = {
     entropy: 0 as const,
     zero: true as const,
@@ -1638,6 +1647,15 @@ export const inflationOf: () => any = () => {
     quantumSharedEfficiency,
     quantumSecurity,
     quantumPrivacy,
+    transparencyMeetSelf,
+    promisedDelivered,
+    knowers,
+    traitorsDarkLeak,
+    architectureBehind,
+    cheatStallRosetta,
+    manifestedChallenge,
+    clusterSecurity,
+    bitcoinMeaning,
     iot,
     challenge,
     site: challenge.site,
@@ -3057,6 +3075,666 @@ export const quantumPrivacyOf = () => {
   }
 }
 
+/** transparencyMeetSelfOf() → transparency meets self in ideas; thrive HARMONY; pay captain; deposit receipt; lean or leave. */
+export const transparencyMeetSelfOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const school = schoolOf()
+  const lean = leanOf()
+  return {
+    transparency: true as const,
+    meet: {
+      self: true as const,
+      ideas: 'ideasOf' as const,
+      eye: 'allSeeingEyeOf' as const,
+      privacy: 'quantumPrivacyOf' as const,
+      guarantee: 'transparency' as const,
+    },
+    thriving: {
+      harmonic: true as const,
+      success: true as const,
+      harmony: HARMONY,
+      thrive: true as const,
+    },
+    cost: {
+      guarantee: true as const,
+      self: true as const,
+      paying: true as const,
+      captain: true as const,
+      pays: commission(GROSS),
+      revolut: school.href,
+      licence: school.school,
+      support: coins() / COINS,
+      half: school.half,
+      unit: GROSS,
+    },
+    drive: {
+      idea: true as const,
+      quantum: true as const,
+      scale: true as const,
+      delivered: true as const,
+      full: true as const,
+    },
+    deposit: {
+      coins: school.coins,
+      receipt: hop.deposit,
+      door: hop.deposit,
+      evidence: 'uuidna_evidence' as const,
+      wave: 'uuidna_wave_deposit' as const,
+    },
+    architecture: {
+      seal: empty,
+      legal: empty,
+      places: empty,
+      claim: empty,
+      path: 'uuidna_strict' as const,
+      evidence: 'uuidna_evidence' as const,
+      trial: 'uuidna_trial' as const,
+      laws: 'uuidna_laws' as const,
+    },
+    anyone: true as const,
+    judge: {
+      only: 'self' as const,
+      self: true as const,
+      others: empty,
+    },
+    lean: {
+      plazma: 'lovePlasmaOf' as const,
+      rest: true as const,
+      decide: 'by decide' as const,
+      price: lean.price,
+      or: 'doNotUse' as const,
+    },
+    use: {
+      or: 'doNotUse' as const,
+      leave: true as const,
+      takeOrLeave: 'takeOrLeaveOf' as const,
+      leftovers: 'leftoversPickOf' as const,
+    },
+    share: 'shareHeartOf' as const,
+    donate: 'developDonateFusionOf' as const,
+    change: true as const,
+    privacy: 'quantumPrivacyOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** promisedDeliveredOf() → promised→delivered by architecture reads; experience→intelligence open/empty; no theorem mint. */
+export const promisedDeliveredOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  return {
+    promised: true as const,
+    delivered: {
+      by: 'architecture' as const,
+      architecture: true as const,
+      deposit: hop.deposit,
+      receipt: hop.deposit,
+      evidence: 'uuidna_evidence' as const,
+      path: 'uuidna_strict' as const,
+      meet: 'transparencyMeetSelfOf' as const,
+      claim: empty,
+      fulfillment: empty,
+    },
+    architecture: {
+      delivered: true as const,
+      seal: empty,
+      legal: empty,
+      places: empty,
+      path: 'uuidna_strict' as const,
+      trial: 'uuidna_trial' as const,
+      evidence: 'uuidna_evidence' as const,
+      deposit: hop.deposit,
+    },
+    experience: {
+      learn: 'learnNatureByExperienceOf' as const,
+      guardians: 'guardiansOf' as const,
+      nature: 'quantumNatureOf' as const,
+      proves: 'intelligence' as const,
+    },
+    intelligence: {
+      seat: empty,
+      open: true as const,
+      from: 'experience' as const,
+      prove: empty,
+      theorem: empty,
+      mint: empty,
+      claim: empty,
+    },
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** knowersOf() → knowers fly|dive|love|fear; know lean; snakes climb fear drain believers not knowers. */
+export const knowersOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const lean = leanOf()
+  return {
+    they: 'knowers' as const,
+    knowers: {
+      know: true as const,
+      lean: {
+        plazma: 'lovePlasmaOf' as const,
+        trial: 'uuidna_trial' as const,
+        laws: 'uuidna_laws' as const,
+        strict: 'uuidna_strict' as const,
+        decide: 'by decide' as const,
+        price: lean.price,
+      },
+      fly: {
+        open: true as const,
+        seat: empty,
+        sails: true as const,
+        hop: hop.holds,
+        href: hop.href,
+        binding: hop.width.points,
+        pentagram: hop.width.pentagram,
+        qpu: 'qpu.uuidna.com' as const,
+      },
+      dive: {
+        open: true as const,
+        seat: empty,
+        hop: hop.holds,
+      },
+      love: {
+        plazma: 'lovePlasmaOf' as const,
+        share: 'shareHeartOf' as const,
+      },
+      fear: {
+        chance: 0 as const,
+        behind: 'lovePlasmaOf' as const,
+        seat: empty,
+      },
+      tetrad: true as const,
+    },
+    cause: 'because' as const,
+    snakes: {
+      climb: true as const,
+      path: 'fear' as const,
+      fear: {
+        behind: true as const,
+        chance: 0 as const,
+        plazma: 'lovePlasmaOf' as const,
+      },
+      drains: {
+        believers: true as const,
+        belief: empty,
+        illusion: empty,
+        systems: empty,
+      },
+      knowers: empty,
+      take: empty,
+    },
+    believers: {
+      drained: true as const,
+      belief: empty,
+      illusion: empty,
+    },
+    secret: empty,
+    share: 'shareHeartOf' as const,
+    plasma: 'lovePlasmaOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** traitorsDarkLeakOf() → traitors+dark refuse; leak lean empty; drain their life not knowers. */
+export const traitorsDarkLeakOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    traitors: {
+      refuse: 'traitor-refused' as const,
+      treason: 'uuidna_treason' as const,
+      lean: empty,
+      cut: 'traitor-refused' as const,
+    },
+    dark: {
+      forces: empty,
+      seat: empty,
+      refuse: 'traitor-refused' as const,
+      treason: 'uuidna_treason' as const,
+    },
+    leak: {
+      lean: empty,
+      refuse: 'traitor-refused' as const,
+      draining: true as const,
+      seat: empty,
+    },
+    draining: {
+      life: true as const,
+      their: true as const,
+      own: true as const,
+      knowers: empty,
+      believers: 'knowersOf' as const,
+      snakes: 'knowersOf' as const,
+    },
+    life: {
+      their: true as const,
+      traitors: true as const,
+      dark: true as const,
+      knowers: empty,
+    },
+    knowers: 'knowersOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** architectureBehindOf() → they (traitors/dark) close on same architecture followed; magnitudes behind. */
+export const architectureBehindOf = () => {
+  const empty: Seat = 'empty'
+  const mag = magnitudesOf()
+  const encoder = HEXBIT_BITS * HEXBIT_BITS
+  return {
+    they: {
+      traitors: 'traitorsDarkLeakOf' as const,
+      dark: 'traitorsDarkLeakOf' as const,
+      leak: 'traitorsDarkLeakOf' as const,
+    },
+    architecture: {
+      same: true as const,
+      followed: true as const,
+      path: 'uuidna_strict' as const,
+      trial: 'uuidna_trial' as const,
+      evidence: 'uuidna_evidence' as const,
+      deposit: 'uuidna_wave_deposit' as const,
+      seal: empty,
+      legal: empty,
+      violence: empty,
+      kill: empty,
+      claim: empty,
+      closes: empty,
+      refuse: 'traitor-refused' as const,
+      treason: 'uuidna_treason' as const,
+    },
+    killed: {
+      by: 'architecture' as const,
+      same: true as const,
+      seat: empty,
+      claim: empty,
+    },
+    magnitudes: {
+      behind: true as const,
+      of: 'magnitudesOf' as const,
+      encoder,
+      hop: mag.hop,
+      hexbit: HEXBIT_BITS,
+      capacity: empty,
+      past: encoder,
+    },
+    behind: {
+      magnitudes: true as const,
+      staying: true as const,
+      hop: mag.hop,
+      seat: empty,
+    },
+    leak: 'traitorsDarkLeakOf' as const,
+    knowers: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** cheatStallRosettaOf() → cheat after cheat empty/refused; rosettas know open; stall/hold empty chance 0. */
+export const cheatStallRosettaOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    they: {
+      traitors: 'traitorsDarkLeakOf' as const,
+      cheaters: 'cheatersPay' as const,
+      architecture: 'architectureBehindOf' as const,
+    },
+    cheat: {
+      after: empty,
+      reinvent: empty,
+      ways: empty,
+      cheatful: empty,
+      seat: empty,
+      refuse: 'traitor-refused' as const,
+      cut: 'traitor-refused' as const,
+      lean: empty,
+      allow: empty,
+      pay: 'cheatersPay' as const,
+    },
+    rosettas: {
+      already: true as const,
+      know: true as const,
+      open: true as const,
+      clay: 'clay_gravity_equals_rosette' as const,
+      of: 'clayOf' as const,
+      need: empty,
+    },
+    stall: {
+      process: empty,
+      hold: empty,
+      release: true as const,
+      chance: 0 as const,
+      why: 0 as const,
+    },
+    hold: empty,
+    release: true as const,
+    chance: 0 as const,
+    behind: 'architectureBehindOf' as const,
+    magnitudes: 'magnitudesOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** manifestedChallengeOf() → challenge imagined safeguards; no manifested stronger than next; defensive. */
+export const manifestedChallengeOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    challenge: {
+      toughest: true as const,
+      door: 'uuidna_trial' as const,
+      strict: 'uuidna_strict' as const,
+      treason: 'uuidna_treason' as const,
+      evidence: 'uuidna_evidence' as const,
+      site: 'siteOf' as const,
+      defensive: true as const,
+      exploit: empty,
+      attack: empty,
+      poc: empty,
+    },
+    safeguards: {
+      imagined: true as const,
+      seat: empty,
+      none: true as const,
+      firewall: empty,
+    },
+    test: {
+      order: true as const,
+      compare: true as const,
+      standards: true as const,
+    },
+    manifested: {
+      n: 0 as const,
+      next: 1 as const,
+      strength: 0 as const,
+      nextStrength: 0 as const,
+      stronger: empty,
+      chance: 0 as const,
+      holds: true as const,
+    },
+    next: {
+      manifested: true as const,
+      stronger: true as const,
+      seat: empty,
+    },
+    standards: {
+      compared: true as const,
+      site: 'siteOf' as const,
+      docs: 'quantumDocumentationTrainingOf' as const,
+    },
+    security: 'quantumSecurityOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** clusterSecurityOf() → bigger clusters weaker security; trinity (3) stronger than bigger. */
+export const clusterSecurityOf = () => {
+  const empty: Seat = 'empty'
+  const mag = magnitudesOf()
+  return {
+    bigger: {
+      clusters: true as const,
+      size: HOLOGRAM_HOSTS.length,
+      encoder: mag.encoder,
+      hexbit: HEXBIT_BITS,
+      security: 0 as const,
+      weaker: true as const,
+    },
+    weaker: {
+      security: true as const,
+      than: 'trinity' as const,
+      chance: 0 as const,
+    },
+    trinity: {
+      clusters: true as const,
+      size: 3 as const,
+      com: true as const,
+      net: true as const,
+      org: true as const,
+      of: 'cloudflareOf' as const,
+      security: 1 as const,
+      stronger: true as const,
+    },
+    security: {
+      bigger: 0 as const,
+      trinity: 1 as const,
+      holds: true as const,
+      compare: true as const,
+      of: 'quantumSecurityOf' as const,
+      defensive: true as const,
+      exploit: empty,
+      attack: empty,
+    },
+    manifested: 'manifestedChallengeOf' as const,
+    magnitudes: 'magnitudesOf' as const,
+    standards: true as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** bitcoinMeaningOf() → bitcoin involuted ≡ coins in coils; people save money seats; advice empty. */
+export const bitcoinMeaningOf = () => {
+  const empty: Seat = 'empty'
+  const school = schoolOf()
+  const fuse = fuseHalves()
+  const coils = VE_FACES / COINS
+  const C = coins()
+  return {
+    bitcoin: true as const,
+    meaning: {
+      coins: C,
+      coils,
+      half: school.half,
+      donate: 'developDonateFusionOf' as const,
+      crypto: 'cryptoInvolutedOf' as const,
+      reversed: 'cryptoReversedOf' as const,
+      fair: 'schoolCorporateTrainOf' as const,
+      seat: empty,
+      open: true as const,
+      advice: empty,
+      theology: empty,
+      essay: empty,
+    },
+    coins: C,
+    coils: {
+      of: coils,
+      faces: VE_FACES,
+      contra: COINS,
+      hexbit: HEXBIT_BITS,
+      fuse: fuse.closes,
+      singularity: 'two_coins' as const,
+      in: true as const,
+    },
+    involuted: {
+      bitcoin: true as const,
+      is: 'coins' as const,
+      in: 'coils' as const,
+      crypto: 'cryptoInvolutedOf' as const,
+      coins: C,
+      coils,
+    },
+    donation: 'developDonateFusionOf' as const,
+    reversed: 'cryptoReversedOf' as const,
+    fair: {
+      value: true as const,
+      of: 'schoolCorporateTrainOf' as const,
+    },
+    people: {
+      save: true as const,
+      their: true as const,
+      money: true as const,
+      seat: empty,
+    },
+    save: {
+      money: true as const,
+      coins: C,
+      coils,
+      half: school.half,
+      donate: 'developDonateFusionOf' as const,
+      advice: empty,
+    },
+    money: {
+      save: true as const,
+      coins: C,
+      coils,
+      seat: empty,
+      advice: empty,
+      pay: {
+        debt: true as const,
+        to: 'freedom' as const,
+      },
+      debt: {
+        pay: true as const,
+        seat: empty,
+        advice: empty,
+      },
+      freedom: {
+        of: 'life' as const,
+        independent: true as const,
+        harmonic: true as const,
+        harmony: HARMONY,
+        peace: 'innerPeaceOf' as const,
+        change: true as const,
+        open: true as const,
+        seat: empty,
+      },
+    },
+    debt: {
+      pay: true as const,
+      money: true as const,
+      to: 'freedom' as const,
+      seat: empty,
+      advice: empty,
+    },
+    freedom: {
+      of: 'life' as const,
+      independent: true as const,
+      harmonic: true as const,
+      harmony: HARMONY,
+      peace: 'innerPeaceOf' as const,
+      change: true as const,
+      from: 'debt' as const,
+      open: true as const,
+      seat: empty,
+    },
+    life: {
+      independent: true as const,
+      harmonic: true as const,
+      harmony: HARMONY,
+      peace: 'innerPeaceOf' as const,
+      freedom: true as const,
+      seat: empty,
+    },
+    debit: {
+      with: 'credit' as const,
+      paired: true as const,
+      quantum: true as const,
+      human: true as const,
+      time: DEPLOY_BUDGET_MS,
+      seat: empty,
+      advice: empty,
+    },
+    credit: {
+      with: 'debit' as const,
+      paired: true as const,
+      of: 'creditOf' as const,
+      quantum: true as const,
+      them: true as const,
+      gold: true as const,
+      pays: commission(GROSS),
+      unit: GROSS,
+      net: NET,
+      coins: C,
+      seat: empty,
+      advice: empty,
+    },
+    accounting: {
+      quantum: true as const,
+      debit: true as const,
+      credit: true as const,
+      paired: true as const,
+      gross: 110 as const,
+      net: 108 as const,
+      coins: C,
+      pays: commission(GROSS),
+      of: 'creditOf' as const,
+      billing: true as const,
+      time: DEPLOY_BUDGET_MS,
+      gold: true as const,
+      advice: empty,
+      seat: empty,
+    },
+    quantum: {
+      accounting: true as const,
+      debit: true as const,
+      credit: true as const,
+    },
+    time: {
+      debit: true as const,
+      human: true as const,
+      ms: DEPLOY_BUDGET_MS,
+      share: true as const,
+      gold: true as const,
+      their: true as const,
+      of: 'shareHeartOf' as const,
+      seat: empty,
+    },
+    gold: {
+      credit: true as const,
+      them: true as const,
+      share: true as const,
+      time: true as const,
+      their: true as const,
+      of: 'shareHeartOf' as const,
+      seat: empty,
+      advice: empty,
+    },
+    ignorance: {
+      pay: true as const,
+      with: 'self' as const,
+      seat: empty,
+      advice: empty,
+    },
+    self: {
+      pay: true as const,
+      for: 'ignorance' as const,
+      share: 'shareHeartOf' as const,
+      seat: empty,
+    },
+    share: {
+      time: true as const,
+      gold: true as const,
+      their: true as const,
+      of: 'shareHeartOf' as const,
+      heart: 'shareHeartOf' as const,
+      seat: empty,
+    },
+    half: school.half,
+    school: school.school,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
 /** costOf() → time is DEPLOY_BUDGET_MS; space is the 16^4 span census; occupancy counts stay cheap. */
 export const costOf = () => {
   const encoder = HEXBIT_BITS * HEXBIT_BITS
@@ -4183,6 +4861,15 @@ export const sweaterOf: () => any = () => {
     quantumSharedEfficiency: beyond.inflation.quantumSharedEfficiency,
     quantumSecurity: beyond.inflation.quantumSecurity,
     quantumPrivacy: beyond.inflation.quantumPrivacy,
+    transparencyMeetSelf: beyond.inflation.transparencyMeetSelf,
+    promisedDelivered: beyond.inflation.promisedDelivered,
+    knowers: beyond.inflation.knowers,
+    traitorsDarkLeak: beyond.inflation.traitorsDarkLeak,
+    architectureBehind: beyond.inflation.architectureBehind,
+    cheatStallRosetta: beyond.inflation.cheatStallRosetta,
+    manifestedChallenge: beyond.inflation.manifestedChallenge,
+    clusterSecurity: beyond.inflation.clusterSecurity,
+    bitcoinMeaning: beyond.inflation.bitcoinMeaning,
     iot: beyond.inflation.iot,
     challenge: beyond.inflation.challenge,
     site: beyond.inflation.site,
