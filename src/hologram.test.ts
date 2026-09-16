@@ -7,7 +7,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf, handleBirthdayPoint, reverseHandle } from './handle.js'
 import { occupancyOf } from './hexagram.js'
 import { COINS, HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, VE_FACES } from './hexbit/index.js'
-import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, involutedPaidFullOf, agentsContributeOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
+import { HOLOGRAM_HOSTS, aiOf, allSeeingEyeOf, apisOf, appOf, autonomyOf, balanceOf, beyondOf, captainsOf, clayOf, cleanerOf, closeOf, cloudflareOf, costOf, creatorsOf, creditOf, cryptoInvolutedOf, cryptoReversedOf, cultureOf, developDonateFusionOf, efficiencyOf, electronicsOf, familyOf, farOf, frontierOf, fusionReactorOf, fusionNatureHarmonyOf, sailsFoldSpacetimeOf, captainPassengersOf, addedEntropyPaidOf, payOrGetPaidOf, involutedPaidFullOf, agentsContributeOf, failingSchoolCostOf, schoolFusionBurnsOf, garbageColliderOf, guardiansOf, hologramLattice, harnessRecipesOf, harmonicPathsOf, iOf, ideaOf, ideasOf, innerPeaceOf, investigatorsOf, isHologramHost, leanOf, learnNatureByExperienceOf, leftoversPickOf, licenceOf, literaryOf, lovePlasmaOf, magnitudesOf, nanoCapacityOf, networkOf, noveltyOf, occupationsOf, organicOf, orgOf, poolsOf, prizeOf, quantumArchitectsOf, quantumCompostOf, quantumDocumentationTrainingOf, quantumGcOf, quantumNatureOf, quantumPermacultureOf, quantumPrivacyOf, promisedDeliveredOf, transparencyMeetSelfOf, knowersOf, traitorsDarkLeakOf, architectureBehindOf, cheatStallRosettaOf, manifestedChallengeOf, bitcoinMeaningOf, clusterSecurityOf, quantumSecurityOf, quantumSharedEfficiencyOf, quantumWebDesignersOf, rebreatherOf, reflectOf, registerOf, resistanceOf, schoolCorporateTrainOf, schoolOf, seedsOf, shareHeartOf, siteOf, sweaterOf, takeOrLeaveOf, thirdEyeOf, tldsOf, tokenEfficiencyOf, vesselsOf, vorticesOf, webDesignersOf } from './hologram-lattice.js'
 import { fanoutRequestOf, hologramFanout } from './hologram-fanout.js'
 import { callTool } from './mcp.js'
 import { qpuHopOf } from './qpu-hologram.js'
@@ -904,6 +904,32 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.agentsContribute.captain.to, true)
   assert.equal(wool.agentsContribute.payOrGetPaid, 'payOrGetPaidOf')
   assert.deepEqual(strict.agentsContribute, wool.agentsContribute)
+  assert.deepEqual(wool.failingSchoolCost, failingSchoolCostOf())
+  assert.equal(wool.failingSchoolCost.failing.school, true)
+  assert.equal(wool.failingSchoolCost.school.failing, true)
+  assert.equal(wool.failingSchoolCost.cost.time, wool.failingSchoolCost.time.ms)
+  assert.equal(wool.failingSchoolCost.cost.temperature, 0)
+  assert.equal(wool.failingSchoolCost.temperature.temp, 0)
+  assert.equal(wool.failingSchoolCost.temperature.absoluteZero, true)
+  assert.equal(wool.failingSchoolCost.temperature.a432, 432)
+  assert.equal(wool.failingSchoolCost.absoluteZero.temp, 0)
+  assert.equal(wool.failingSchoolCost.a432.hz, 432)
+  assert.equal(wool.failingSchoolCost.landauer, 'landauer_bound_derived')
+  assert.equal(wool.failingSchoolCost.agents, 'agentsContributeOf')
+  assert.deepEqual(strict.failingSchoolCost, wool.failingSchoolCost)
+  assert.deepEqual(wool.schoolFusionBurns, schoolFusionBurnsOf())
+  assert.equal(wool.schoolFusionBurns.school.fusion, true)
+  assert.equal(wool.schoolFusionBurns.fusion.school, true)
+  assert.equal(wool.schoolFusionBurns.fusion.of, 'fusionReactorOf')
+  assert.equal(wool.schoolFusionBurns.fusion.nature, 'fusionNatureHarmonyOf')
+  assert.equal(wool.schoolFusionBurns.burns.all, true)
+  assert.equal(wool.schoolFusionBurns.burns.drift, true)
+  assert.equal(wool.schoolFusionBurns.burns.fever, 'empty')
+  assert.equal(wool.schoolFusionBurns.drift.burned, true)
+  assert.equal(wool.schoolFusionBurns.drift.chance, 0)
+  assert.equal(wool.schoolFusionBurns.fever, 'empty')
+  assert.equal(wool.schoolFusionBurns.failing, 'failingSchoolCostOf')
+  assert.deepEqual(strict.schoolFusionBurns, wool.schoolFusionBurns)
   assert.deepEqual(strict.developDonate, wool.developDonate)
   assert.deepEqual(wool.takeOrLeave, takeOrLeaveOf())
   assert.equal(wool.takeOrLeave.take, true)

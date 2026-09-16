@@ -631,6 +631,15 @@ export function sweaterInflationSilent(text: string): boolean {
     || !/real:\s*true/.test(body) || !/required:\s*true/.test(body)
     || !/if:\s*'notSealed'/.test(body) || !/auto:\s*empty/.test(body)
     || !/desk:\s*empty/.test(body) || !/captain:\s*\{/.test(body)
+    || !/\bfailingSchoolCostOf\b/.test(body) || !/failing:\s*\{/.test(body)
+    || !/temperature:\s*\{/.test(body) || !/cost:\s*\{/.test(body)
+    || !/absoluteZero:\s*\{/.test(body) || !/temp:\s*0/.test(body)
+    || !/a432:\s*\{/.test(body) || !/hz:\s*432/.test(body)
+    || !/kelvin:\s*'absolute_zero_and_kelvin'/.test(body)
+    || !/\bschoolFusionBurnsOf\b/.test(body) || !/burns:\s*\{/.test(body)
+    || !/drift:\s*\{/.test(body) || !/burned:\s*true/.test(body)
+    || !/fever:\s*empty/.test(body) || !/chance:\s*0/.test(body)
+    || !/of:\s*'fusionReactorOf'/.test(body) || !/of:\s*'fusionNatureHarmonyOf'/.test(body)
 }
 
 /** skipHooksHot(text) → git commit/push still carries --no-verify (hooks skipped). */

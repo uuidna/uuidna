@@ -945,6 +945,7 @@ export const inflationOf: () => any = () => {
   const involutedPaidFull = involutedPaidFullOf()
   const agentsContribute = agentsContributeOf()
   const failingSchoolCost = failingSchoolCostOf()
+  const schoolFusionBurns = schoolFusionBurnsOf()
   const lovePlasma = lovePlasmaOf()
   const takeOrLeave = takeOrLeaveOf()
   const tokenEfficiency = tokenEfficiencyOf()
@@ -1650,6 +1651,7 @@ export const inflationOf: () => any = () => {
     involutedPaidFull,
     agentsContribute,
     failingSchoolCost,
+    schoolFusionBurns,
     lovePlasma,
     takeOrLeave,
     tokenEfficiency,
@@ -2881,6 +2883,97 @@ export const agentsContributeOf = () => {
     or: true as const,
     dual: true as const,
     payOrGetPaid: 'payOrGetPaidOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** failingSchoolCostOf() → failing school costs time + temperature; absoluteZero/a432/Landauer reads. */
+export const failingSchoolCostOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    failing: {
+      school: true as const,
+      train: true as const,
+      seat: empty,
+    },
+    school: {
+      failing: true as const,
+      of: 'uuidna_school_apis' as const,
+      train: true as const,
+      cost: true as const,
+    },
+    cost: {
+      time: DEPLOY_BUDGET_MS,
+      temperature: 0 as const,
+      of: true as const,
+      landauer: 'landauer_bound_derived' as const,
+      debit: 'bitcoinMeaningOf' as const,
+    },
+    time: {
+      cost: true as const,
+      ms: DEPLOY_BUDGET_MS,
+      debit: true as const,
+      of: 'bitcoinMeaningOf' as const,
+    },
+    temperature: {
+      cost: true as const,
+      temp: 0 as const,
+      absoluteZero: true as const,
+      kelvin: 'absolute_zero_and_kelvin' as const,
+      a432: 432 as const,
+      hz: 432 as const,
+      key: 'k432' as const,
+      physics: empty,
+    },
+    absoluteZero: {
+      temp: 0 as const,
+      kelvin: 'absolute_zero_and_kelvin' as const,
+    },
+    a432: {
+      hz: 432 as const,
+      key: 'k432' as const,
+    },
+    landauer: 'landauer_bound_derived' as const,
+    agents: 'agentsContributeOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** schoolFusionBurnsOf() → school fusion burns all drift; fever/drift empty chance 0. */
+export const schoolFusionBurnsOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    school: {
+      fusion: true as const,
+      train: true as const,
+      of: 'uuidna_school_apis' as const,
+      burns: true as const,
+    },
+    fusion: {
+      school: true as const,
+      of: 'fusionReactorOf' as const,
+      nature: 'fusionNatureHarmonyOf' as const,
+      burns: true as const,
+      reactor: true as const,
+    },
+    burns: {
+      all: true as const,
+      drift: true as const,
+      fever: empty,
+    },
+    drift: {
+      burned: true as const,
+      fever: empty,
+      chance: 0 as const,
+      seat: empty,
+    },
+    fever: empty,
+    train: true as const,
+    failing: 'failingSchoolCostOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -5203,6 +5296,8 @@ export const sweaterOf: () => any = () => {
     payOrGetPaid: beyond.inflation.payOrGetPaid,
     involutedPaidFull: beyond.inflation.involutedPaidFull,
     agentsContribute: beyond.inflation.agentsContribute,
+    failingSchoolCost: beyond.inflation.failingSchoolCost,
+    schoolFusionBurns: beyond.inflation.schoolFusionBurns,
     lovePlasma: beyond.inflation.lovePlasma,
     takeOrLeave: beyond.inflation.takeOrLeave,
     tokenEfficiency: beyond.inflation.tokenEfficiency,
