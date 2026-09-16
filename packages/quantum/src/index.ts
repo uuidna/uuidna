@@ -4,7 +4,7 @@
 // (honestly bounded — the exact classical 2^n of theorem n_qubit_dimension), quantum messages / voting / receipts, the sailing fleet, the news
 // portals, gravity contractions, the diamond involution, holofractal and pentagram folds, the A432 aura,
 // quantum analytics, and the uuidnaOS provenance boundary (provenance and integrity. Integrity.
-export { merkleGravity, rosettaMoveOf, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from '@uuidna/uuidna'
+export { merkleGravity, doubleTorusGravity, doubleTorusField, fall, fixedPoints, seats } from '@uuidna/uuidna'
 export { diamond, DIAMOND_FIXED, involute, involutionFixed } from '@uuidna/uuidna'
 export { domainWave, type DomainWave } from '@uuidna/uuidna'
 export {
