@@ -1,0 +1,69 @@
+{
+  "file": "Involution90c4f258.lean",
+  "slug": "involution90c4f258",
+  "status": "retired",
+  "address": "8313877e-b90b-8bcd-91ca-1dcfc8769084",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involution90c4f258.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involution90c4f258.lean — GENERATED. INVOLUTION 90c4f258: lead 90c4f258 of lean/leads.json (refuted), stated in the row's own lean field as lead_90c4f258, and involution_90c4f258, the kernel's proof of its negation, accepted at the door for the text addressed 38a1614a-fc42-8389-94ab-d2d2f9b81369. Every proof checked by the kernel (by unfold), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- Lead 90c4f258 (lean/leads.json refuted#47), stated in its own numbers.\n-- The lead asserts, in one breath, all three of:\n--   (a) the newest Cloudflare deployment is 2026-08-31T17:45:18Z\n--   (b) the newest landed commit ff427884 is at 2026-09-01T10:47:39+03:00\n--   (c) production is therefore 17 HOURS behind that green main.\n-- Seconds are counted from 2026-08-31T00:00:00Z. 2026-09-01 begins at 86400.\n\ndef deployUtcSec : Nat := 17 * 3600 + 45 * 60 + 18          -- 2026-08-31T17:45:18Z\n\ndef commitLocalSec : Nat := 86400 + (10 * 3600 + 47 * 60 + 39)  -- 2026-09-01T10:47:39 local\n\ndef commitOffsetSec : Nat := 3 * 3600                        -- the stated +03:00\n\ndef commitUtcSec : Nat := commitLocalSec - commitOffsetSec\n\ndef gapSec : Nat := commitUtcSec - deployUtcSec\n\n-- The lead's own claim: the interval between the two instants it names is\n-- seventeen hours or more (\"PRODUCTION IS 17 HOURS BEHIND\").\n\n/-- PRODUCTION IS 17 HOURS BEHIND A GREEN MAIN, measured 2026-09-01: newest Cloudflare deployment\n    2026-08-31T17:45:18Z, newest landed commit ff427884 at 2026-09-01T10:47:39+03:00, origin/main == HEAD.\n    deploy.yml states Workers Builds ships on push from Cloudflare's side and holds no credential; the\n    instrument it names (wrangler deployments list) says that path did NOT fire for the landings after 17:45.\n    This is the SECOND time this exact claim has been folklore — 228a63b3 deleted the wrangler step on the same\n    belief and production went stale for a year -/\ndef lead_90c4f258 : Prop := 17 * 3600 ≤ gapSec\n\n/-- The kernel refutes lead 90c4f258: PRODUCTION IS 17 HOURS BEHIND A GREEN MAIN, measured 2026-09-01: newest\n    Cloudflare deployment 2026-08-31T17:45:18Z, newest landed commit ff427884 at 2026-09-01T10:47:39+03:00,\n    origin/main == HEAD. deploy.yml states Workers Builds ships on push from Cloudflare's side and holds no\n    credential; the instrument it names (wrangler deployments list) says that path did NOT fire for the landings\n    after 17:45. This is the SECOND time this exact claim has been folklore — 228a63b3 deleted the wrangler step\n    on the same belief and production went stale for a year. -/\ntheorem involution_90c4f258 : ¬ lead_90c4f258 := by\n  unfold lead_90c4f258\n  decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_90c4f258",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead 90c4f258: PRODUCTION IS 17 HOURS BEHIND A GREEN MAIN, measured 2026-09-01: newest Cloudflare deployment 2026-08-31T17:45:18Z, newest landed commit ff427884 at 2026-09-01T10:47:39+03:00, origin/main == HEAD. deploy.yml states Workers Builds ships on push from Cloudflare's side and holds no credential; the instrument it names (wrangler deployments list) says that path did NOT fire for the landings after 17:45. This is the SECOND time this exact claim has been folklore — 228a63b3 deleted the wrangler step on the same belief and production went stale for a year."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_90c4f258"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_90c4f258 : ¬ lead_90c4f258 := by unfold lead_90c4f258 decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

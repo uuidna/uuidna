@@ -1,0 +1,141 @@
+{
+  "file": "Involutione92de628.lean",
+  "slug": "involutione92de628",
+  "status": "retired",
+  "address": "e8264057-3b0e-86f6-a3b1-39578a21e9a0",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involutione92de628.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involutione92de628.lean — GENERATED. INVOLUTION e92de628: lead e92de628 of lean/leads.json (refuted), stated as lead_e92de628 over the objects its source derives, and involution_e92de628, the kernel's proof of its negation. Every proof checked by the kernel (by decide, by exact, by intro), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- DIMENSIONS, src/dimensions.ts: the seven locale rays. -/\ndef dimensions : List String := [\"en\", \"bg\", \"de\", \"fr\", \"es\", \"ru\", \"zh\"]\n\n/-- PROJECTED, src/grid.ts: DIMENSIONS.slice(1), the rays a wing is projected into, the identity ray removed. -/\ndef projected : List String := dimensions.drop 1\n\n/-- The pair grid as pairsGaps (src/grid.ts) and PAIR_SEATS (src/pairs.ts) count it: every ordered pair of\n    distinct dimensions, n × (n − 1). -/\ndef pairGrid : Nat := dimensions.length * (dimensions.length - 1)\n\n/-- The full grid at a wing count as gridSeats (src/grid.ts) counts it: projected rays × wings. -/\ndef fullGrid (wings : Nat) : Nat := projected.length * wings\n\n/-- The claim's wing count: the lead's own full grid, 432, read back through the 6 projected rays. It is the\n    historical count src/grid.ts records (the grid measured 6 × 72 = 432 when the ledger held 72 wings), kept\n    because it is the lead's number; the live grid is the projected rays times the live wings. -/\ndef historicalWings : Nat := 72\n\n/-- 42 tiles 432 (the pair grid divides the full grid) -/\ndef lead_e92de628 : Prop := pairGrid ∣ fullGrid historicalWings\n\n/-- Non-divisibility from a bounded search: if no multiplier below n / d + 1 reaches n, and that bound already\n    overshoots n, then d does not divide n. Core's decision for ∣ borrows propext, so the bound is argued here\n    instead. -/\ntheorem not_dvd_of_bound_e92de628 : ∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n := by\n  intro d n hsmall hover ⟨k, hk⟩\n  cases Nat.lt_or_ge k (n / d + 1) with\n  | inl hlt => exact hsmall k hlt hk.symm\n  | inr hge =>\n    have h1 : d * (n / d + 1) ≤ d * k := Nat.mul_le_mul_left d hge\n    exact hover (hk ▸ h1)\n\n/-- The kernel refutes lead e92de628: the pair grid does not divide the full grid at the claim's 72 wings. -/\ntheorem involution_e92de628 : ¬ lead_e92de628 := by\n  exact not_dvd_of_bound_e92de628 pairGrid (fullGrid historicalWings) (by decide) (by decide)\n\n/-- Where the two widths part: the pair grid is 42 and the full grid 432, their greatest common divisor is the 6\n    projected rays, and the 7 dimensions do not divide the 72 wings. -/\ntheorem anatomy_e92de628 : pairGrid = 42 ∧ fullGrid historicalWings = 432 ∧ Nat.gcd pairGrid (fullGrid historicalWings) = projected.length ∧ ¬ (dimensions.length ∣ historicalWings) := by\n  exact ⟨by decide, by decide, by decide, not_dvd_of_bound_e92de628 dimensions.length historicalWings (by decide) (by decide)⟩\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-not_dvd_of_bound_e92de628",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Non-divisibility from a bounded search: if no multiplier below n / d + 1 reaches n, and that bound already overshoots n, then d does not divide n. Core's decision for ∣ borrows propext, so the bound is argued here instead."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem not_dvd_of_bound_e92de628 : ∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n := by intro d n hsmall hover ⟨k, hk⟩ cases Nat.lt_or_ge k (n / d + 1) with | inl hlt => exact hsmall k hlt hk.symm | inr hge => have h1 : d * (n / d + 1) ≤ d * k := Nat.mul_le_mul_left d hge exact hover (hk ▸ h1)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_e92de628",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead e92de628: the pair grid does not divide the full grid at the claim's 72 wings."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_e92de628"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_e92de628 : ¬ lead_e92de628 := by exact not_dvd_of_bound_e92de628 pairGrid (fullGrid historicalWings) (by decide) (by decide)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-anatomy_e92de628",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Where the two widths part: the pair grid is 42 and the full grid 432, their greatest common divisor is the 6 projected rays, and the 7 dimensions do not divide the 72 wings."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "pairGrid = 42 ∧ fullGrid historicalWings = 432 ∧ Nat.gcd pairGrid (fullGrid historicalWings) = projected.length ∧ ¬ (dimensions.length ∣ historicalWings)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem anatomy_e92de628 : pairGrid = 42 ∧ fullGrid historicalWings = 432 ∧ Nat.gcd pairGrid (fullGrid historicalWings) = projected.length ∧ ¬ (dimensions.length ∣ historicalWings) := by exact ⟨by decide, by decide, by decide, not_dvd_of_bound_e92de628 dimensions.length historicalWings (by decide) (by decide)⟩"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

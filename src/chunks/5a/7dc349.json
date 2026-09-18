@@ -4,9 +4,11 @@
   "statement": "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n",
   "tactic": "intro d n hsmall hover ⟨k, hk⟩ cases Nat.lt_or_ge k (n / d + 1) with | inl hlt => exact hsmall k hlt hk.symm | inr hge => have h1 : d * (n / d + 1) ≤ d * k := Nat.mul_le_mul_left d hge exact hover (hk ▸ h1)",
   "keys": [
+    "not_dvd_of_bound",
     "not_dvd_of_bound_e92de628"
   ],
   "files": [
-    "Involutione92de628.lean"
+    "Involutione92de628.lean",
+    "Links.lean"
   ]
 }

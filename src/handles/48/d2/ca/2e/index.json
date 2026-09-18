@@ -1,0 +1,12 @@
+{
+  "handle": "48d2ca2e",
+  "address": "48d2ca2e-7355-8d49-a66e-b8bc63c4fa93",
+  "kind": "chunk",
+  "keys": [
+    "the_budget_census_exhausts_the_affine_group"
+  ],
+  "statement": "famTally (fun a b => budget (arow a b) == (4, 5)) = 18 ∧ famTally (fun a b => budget (arow a b) == (5, 4)) = 30 ∧ famTally (fun a b => budget (arow a b) == (6, 3)) = 6 ∧ famTally (fun a b => !((budget (arow a b) == (4, 5)) || (budget (arow a b) == (5, 4)) || (budget (arow a b) == (6, 3)))) = 0 ∧ 18 + 30 + 6 = aglOrder ∧ famTally (fun a b => budget ((arow a b).map dz) == budget (arow a b)) = 30 ∧ 30 + 24 = aglOrder ∧ ((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a * e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => !(List.range 9).any (fun e => a * e % 9 == 1))).length = 3",
+  "files": [
+    "Links.lean"
+  ]
+}

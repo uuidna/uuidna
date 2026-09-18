@@ -1,0 +1,12 @@
+{
+  "handle": "426840e4",
+  "address": "426840e4-567b-8580-8423-eca2873af9ca",
+  "kind": "chunk",
+  "keys": [
+    "the_beam_energies_are_coprime_multiples_of_their_own_step"
+  ],
+  "statement": "(Nat.gcd 3500 4000 = 500) ∧ (4000 - 3500 = 500) ∧ (3500 = 7 * 500) ∧ (4000 = 8 * 500) ∧ (Nat.gcd 7 8 = 1)",
+  "files": [
+    "CernLinks.lean"
+  ]
+}

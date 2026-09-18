@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-15
+**Generated:** 2026-09-18
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 70998/70998 theorems — every one, by construction
-**Discovery claimed:** 70616 — the other 382 restate a fact a named source found first
+**Formalisation claimed:** 71017/71017 theorems — every one, by construction
+**Discovery claimed:** 70633 — the other 384 restate a fact a named source found first
 
-*The 382 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 331 of 365 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `8d79c94d-4ee6-8743-ae4d-5976738b7136`
+*The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `6f71b359-1430-87fa-8464-c2e8c86a1291`
 
 ### Facts the captain does not claim to have discovered
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `ab55b108-c3e7-85d4-a0d4-e1e3912fe404`
+- **Sample lineAddress:** `9c39b5ce-5bbf-8eb8-91b1-2d822182eb54`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -463,7 +463,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `a7f28707-a3e3-8d8b-9a8f-fe630ebe1726`
+- **Sample lineAddress:** `c4ce3f1b-c7ec-840c-901a-99f93317b04b`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1360,6 +1360,24 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_tree_uses_one_link_per_leaf_and_no_more) · [the_measured_store_uses_a_vanishing_share](/theorem/the_measured_store_uses_a_vanishing_share) · [crosslinking_outgrows_the_address_space](/theorem/crosslinking_outgrows_the_address_space) · [seventeen_leaves_already_pass_the_whole_uuid](/theorem/seventeen_leaves_already_pass_the_whole_uuid) · [the_leaf_is_not_one_uuid_but_a_folder](/theorem/the_leaf_is_not_one_uuid_but_a_folder) · [three_kinds_partition_the_store](/theorem/three_kinds_partition_the_store)
 
+### The links between lonely theorems
+
+- **Theorems:** 12
+- **Sample lineAddress:** `d4ff42d1-7b01-87f6-a16e-fd94b1826b60`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[not_dvd_of_bound](/theorem/not_dvd_of_bound) · [the_untested_hundred_pay_a_third_of_the_wire](/theorem/the_untested_hundred_pay_a_third_of_the_wire) · [the_budget_census_exhausts_the_affine_group](/theorem/the_budget_census_exhausts_the_affine_group) · [the_mirror_is_a_member_of_the_family_whose_budget_it_moves](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) · [the_aura_pair_the_wheel_cannot_separate](/theorem/the_aura_pair_the_wheel_cannot_separate) · [the_barren_claim_fails_exactly_at_the_dz_fixed_points](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [reconciled_generator_sat_inside_the_truncated_run](/theorem/reconciled_generator_sat_inside_the_truncated_run) · [lead_b13fd37a_is_flagged_by_every_single_refuter](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [the_grid_widths_are_the_sealed_fortytwo_and_k432](/theorem/the_grid_widths_are_the_sealed_fortytwo_and_k432) · [the_bounded_search_returns_the_sealed_gcd_verdict](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) · [the_pair_grid_misses_the_seventh_factor_of_k432](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) · [origin_surplus_class_by_class_is_the_catalogue_surplus](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus)
+
+### The CERN crossings
+
+- **Theorems:** 5
+- **Sample lineAddress:** `02682253-293e-8e38-a97d-9f0a387688b0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[the_cern_division_survives_casting_out_nines](/theorem/the_cern_division_survives_casting_out_nines) · [the_cern_totals_close_under_the_ledger_own_reduction](/theorem/the_cern_totals_close_under_the_ledger_own_reduction) · [the_embargo_totals_match_across_the_two_energy_labels](/theorem/the_embargo_totals_match_across_the_two_energy_labels) · [the_beam_energies_are_coprime_multiples_of_their_own_step](/theorem/the_beam_energies_are_coprime_multiples_of_their_own_step) · [the_cern_file_total_is_twice_a_prime](/theorem/the_cern_file_total_is_twice_a_prime)
+
 ### Five open problems, and what this ledger can honestly say
 
 - **Theorems:** 6
@@ -1972,6 +1990,24 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [not_dvd_of_bound_e92de628](/theorem/not_dvd_of_bound_e92de628) · [involution_e92de628](/theorem/involution_e92de628) · [anatomy_e92de628](/theorem/anatomy_e92de628)
 
+### The involution of lead 83b7cc65
+
+- **Theorems:** 1
+- **Sample lineAddress:** `ad792b4f-2178-89d2-ac21-c92451b6a98f`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[involution_83b7cc65](/theorem/involution_83b7cc65)
+
+### The involution of lead 90c4f258
+
+- **Theorems:** 1
+- **Sample lineAddress:** `f9e86403-d25b-8f95-96b5-e8eb18e89b58`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[involution_90c4f258](/theorem/involution_90c4f258)
+
 ### The proof of lead de5612a2
 
 - **Theorems:** 1
@@ -2288,7 +2324,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70914 (70998 entries, 84 re-namings — a theorem is its Lean |
+| sealed propositions | 70932 (71017 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 12487 — 7302 usable, 5185 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2306,7 +2342,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 70998 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71017 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2318,7 +2354,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 70998; he claims discovery of 70616 and credits the other 382 facts to their named sources
+- ✓ The captain formalised all 71017; he claims discovery of 70633 and credits the other 384 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2327,14 +2363,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 382 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 384 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 70998; of these I claim discovery of 70616, and the remaining 382 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71017; of these I claim discovery of 70633, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

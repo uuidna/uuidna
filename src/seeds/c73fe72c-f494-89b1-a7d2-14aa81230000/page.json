@@ -1,0 +1,33 @@
+{
+  "file": "EquilibriumXor57.lean",
+  "slug": "equilibriumxor57",
+  "status": "retired",
+  "address": "fd7b1f5c-21e6-898e-971d-92435b78e5a1",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "EquilibriumXor57.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/EquilibriumXor57.lean — GENERATED. THE XOR TRANSLATION BY 56 IS AN AUTOMORPHISM, FILE 57 OF 64 — one theorem to a file, the smallest wing that changes no statement: a file is the unit the kernel compiles and saves, so each translation compiles alone, is saved as its own result, and every later step imports it instead of re-computing it. Same 64 claims as before the split; the claim is not narrowed. Backed by the chunk law this tree already seals for walk depth (Recursion.lean), applied to walk work. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded\n-- recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it\n-- is NOT kernel-only. This structural recursion over an 6-bit fuel (covers 0..63, exactly the 6 bits every cell of the six-cube\n-- needs) folds the SAME value with NO axiom; scripts/lean-axioms proves it. `lxor a b` = a XOR b.\ndef lxorAux : Nat → Nat → Nat → Nat\n  | 0, _, _ => 0\n  | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)\ndef lxor (a b : Nat) : Nat := lxorAux 6 a b\n\n/-- AND THE TRANSLATION IS AN AUTOMORPHISM, for the translation by 56: translating both ends of a pair by the\n    same cell leaves their difference unchanged, so an edge stays an edge and a non-edge stays a non-edge, over\n    all 4096 ordered pairs. This is the second symmetry the peer's suite claimed for the double, and it holds on\n    the undoubled graph already. -/\ntheorem xor_translation_preserves_adjacency_56 : (List.range 64).all (fun c => (List.range 64).all (fun d => lxor (lxor c 56) (lxor d 56) == lxor c d)) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

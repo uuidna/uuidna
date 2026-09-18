@@ -1,0 +1,249 @@
+{
+  "file": "Fluid.lean",
+  "slug": "fluid",
+  "status": "retired",
+  "address": "0c54f6f4-444e-84cb-9ad7-bcf09fb24568",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Fluid.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Fluid.lean — GENERATED. THE FLUID GRID — the discrete divergence telescopes and sums to zero on every periodic ring, the discrete curl of a gradient vanishes on every cell, and one explicit diffusion step stays within its neighbourhood's maximum, each for every length, field and value. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems. Every proof checked by the kernel (by intro), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- the partial sum f 0 + … + f (n-1) -/\ndef psum (f : Nat → Nat) : Nat → Nat\n  | 0 => 0\n  | n + 1 => psum f n + f n\n\n/-- DISCRETE DIVERGENCE TELESCOPES, for every field and every length: the shifted sum plus the first value\n    equals the sum plus the last — by induction on the length. What flows in at one end and out at the other is\n    all the interior differences add up to. Scope: the discrete grid and the explicit scheme only; the\n    continuous equations are a different statement, and their existence and smoothness is decided by none of\n    these theorems. -/\ntheorem discrete_divergence_telescopes : ∀ (f : Nat → Nat) (n : Nat), psum (fun i => f (i + 1)) n + f 0 = psum f n + f n := by\n  intro f n\n  induction n with\n  | zero => rfl\n  | succ k ih =>\n    show psum (fun i => f (i + 1)) k + f (k + 1) + f 0 = psum f k + f k + f (k + 1)\n    rw [Nat.add_right_comm, ih]\n\n/-- a + k = b + k gives a = b, for every a, b, k — by induction on k through the successor's injectivity. Core's\n    Nat.add_right_cancel depends on propext; this proof depends on no axiom. Scope: the discrete grid and the\n    explicit scheme only; the continuous equations are a different statement, and their existence and smoothness\n    is decided by none of these theorems. -/\ntheorem add_right_cancel_by_induction : ∀ a b k : Nat, a + k = b + k → a = b := by\n  intro a b k\n  induction k with\n  | zero => intro h; exact h\n  | succ k ih => intro h; exact ih (Nat.succ.inj h)\n\n/-- ON A PERIODIC RING THE DISCRETE DIVERGENCE SUMS TO ZERO, for every ring size and every field — the universal\n    of which closed_grid_differences_sum_to_zero decides one 4×4 instance. Discrete incompressibility on a\n    closed grid is exact. Scope: the discrete grid and the explicit scheme only; the continuous equations are a\n    different statement, and their existence and smoothness is decided by none of these theorems. -/\ntheorem ring_divergence_is_zero : ∀ (f : Nat → Nat) (n : Nat), f n = f 0 → psum (fun i => f (i + 1)) n = psum f n := by\n  intro f n h\n  have t : psum (fun i => f (i + 1)) n + f 0 = psum f n + f 0 := h ▸ discrete_divergence_telescopes f n\n  exact add_right_cancel_by_induction _ _ _ t\n\n/-- ONE EXPLICIT DIFFUSION STEP STAYS WITHIN ITS NEIGHBOURHOOD'S MAXIMUM, for every value: with weights 1, 2, 1\n    the weighted sum a + b + b + c is at most four times the maximum m — the discrete maximum principle that\n    keeps the explicit heat scheme stable at its CFL limit. Scope: the discrete grid and the explicit scheme\n    only; the continuous equations are a different statement, and their existence and smoothness is decided by\n    none of these theorems. -/\ntheorem diffusion_step_never_exceeds_the_maximum : ∀ a b c m : Nat, a ≤ m → b ≤ m → c ≤ m → a + b + b + c ≤ m + m + m + m := by\n  intro a b c m ha hb hc\n  exact Nat.add_le_add (Nat.add_le_add (Nat.add_le_add ha hb) hb) hc\n\n/-- k + a = k + b gives a = b, for every k, a, b — by induction on k through the successor's injectivity, the\n    left twin of add_right_cancel_by_induction. Scope: the discrete grid and the explicit scheme only; the\n    continuous equations are a different statement, and their existence and smoothness is decided by none of\n    these theorems. -/\ntheorem add_left_cancel_by_induction : ∀ k a b : Nat, k + a = k + b → a = b := by\n  intro k\n  induction k with\n  | zero => intro a b h; rw [Nat.zero_add, Nat.zero_add] at h; exact h\n  | succ k ih => intro a b h; rw [Nat.succ_add, Nat.succ_add] at h; exact ih a b (Nat.succ.inj h)\n\n/-- THE DISCRETE CURL OF A GRADIENT VANISHES on every grid cell: when the four corners are a potential's values\n    (q = p + dx, r = p + dy, and s reached both ways), right-then-up gains exactly what up-then-right gains, dx\n    + dy' = dy + dx'. A gradient flow has no circulation. Stated over Nat on purpose: core's Int.add_comm and\n    Int.add_assoc depend on propext, so the Int form cannot be axiom-free on core alone. Scope: the discrete\n    grid and the explicit scheme only; the continuous equations are a different statement, and their existence\n    and smoothness is decided by none of these theorems. -/\ntheorem discrete_curl_of_gradient_vanishes : ∀ p q r s dx dy dx' dy' : Nat, q = p + dx → s = q + dy' → r = p + dy → s = r + dx' → dx + dy' = dy + dx' := by\n  intro p q r s dx dy dx' dy' hq hs hr hs'\n  apply add_left_cancel_by_induction p\n  rw [← Nat.add_assoc, ← Nat.add_assoc, ← hq, ← hr, ← hs, ← hs']\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-discrete_divergence_telescopes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "DISCRETE DIVERGENCE TELESCOPES, for every field and every length: the shifted sum plus the first value equals the sum plus the last — by induction on the length. What flows in at one end and out at the other is all the interior differences add up to. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ (f : Nat → Nat) (n : Nat), psum (fun i => f (i + 1)) n + f 0 = psum f n + f n"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem discrete_divergence_telescopes : ∀ (f : Nat → Nat) (n : Nat), psum (fun i => f (i + 1)) n + f 0 = psum f n + f n := by intro f n induction n with | zero => rfl | succ k ih => show psum (fun i => f (i + 1)) k + f (k + 1) + f 0 = psum f k + f k + f (k + 1) rw [Nat.add_right_comm, ih]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-add_right_cancel_by_induction",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "a + k = b + k gives a = b, for every a, b, k — by induction on k through the successor's injectivity. Core's Nat.add_right_cancel depends on propext; this proof depends on no axiom. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ a b k : Nat, a + k = b + k → a = b"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem add_right_cancel_by_induction : ∀ a b k : Nat, a + k = b + k → a = b := by intro a b k induction k with | zero => intro h; exact h | succ k ih => intro h; exact ih (Nat.succ.inj h)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-ring_divergence_is_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ON A PERIODIC RING THE DISCRETE DIVERGENCE SUMS TO ZERO, for every ring size and every field — the universal of which closed_grid_differences_sum_to_zero decides one 4×4 instance. Discrete incompressibility on a closed grid is exact. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ (f : Nat → Nat) (n : Nat), f n = f 0 → psum (fun i => f (i + 1)) n = psum f n"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem ring_divergence_is_zero : ∀ (f : Nat → Nat) (n : Nat), f n = f 0 → psum (fun i => f (i + 1)) n = psum f n := by intro f n h have t : psum (fun i => f (i + 1)) n + f 0 = psum f n + f 0 := h ▸ discrete_divergence_telescopes f n exact add_right_cancel_by_induction _ _ _ t"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-diffusion_step_never_exceeds_the_maximum",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ONE EXPLICIT DIFFUSION STEP STAYS WITHIN ITS NEIGHBOURHOOD'S MAXIMUM, for every value: with weights 1, 2, 1 the weighted sum a + b + b + c is at most four times the maximum m — the discrete maximum principle that keeps the explicit heat scheme stable at its CFL limit. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ a b c m : Nat, a ≤ m → b ≤ m → c ≤ m → a + b + b + c ≤ m + m + m + m"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem diffusion_step_never_exceeds_the_maximum : ∀ a b c m : Nat, a ≤ m → b ≤ m → c ≤ m → a + b + b + c ≤ m + m + m + m := by intro a b c m ha hb hc exact Nat.add_le_add (Nat.add_le_add (Nat.add_le_add ha hb) hb) hc"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-add_left_cancel_by_induction",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "k + a = k + b gives a = b, for every k, a, b — by induction on k through the successor's injectivity, the left twin of add_right_cancel_by_induction. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ k a b : Nat, k + a = k + b → a = b"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem add_left_cancel_by_induction : ∀ k a b : Nat, k + a = k + b → a = b := by intro k induction k with | zero => intro a b h; rw [Nat.zero_add, Nat.zero_add] at h; exact h | succ k ih => intro a b h; rw [Nat.succ_add, Nat.succ_add] at h; exact ih a b (Nat.succ.inj h)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-discrete_curl_of_gradient_vanishes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE DISCRETE CURL OF A GRADIENT VANISHES on every grid cell: when the four corners are a potential's values (q = p + dx, r = p + dy, and s reached both ways), right-then-up gains exactly what up-then-right gains, dx + dy' = dy + dx'. A gradient flow has no circulation. Stated over Nat on purpose: core's Int.add_comm and Int.add_assoc depend on propext, so the Int form cannot be axiom-free on core alone. Scope: the discrete grid and the explicit scheme only; the continuous equations are a different statement, and their existence and smoothness is decided by none of these theorems."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ p q r s dx dy dx' dy' : Nat, q = p + dx → s = q + dy' → r = p + dy → s = r + dx' → dx + dy' = dy + dx'"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem discrete_curl_of_gradient_vanishes : ∀ p q r s dx dy dx' dy' : Nat, q = p + dx → s = q + dy' → r = p + dy → s = r + dx' → dx + dy' = dy + dx' := by intro p q r s dx dy dx' dy' hq hs hr hs' apply add_left_cancel_by_induction p rw [← Nat.add_assoc, ← Nat.add_assoc, ← hq, ← hr, ← hs, ← hs']"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

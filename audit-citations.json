@@ -1,18 +1,18 @@
 {
-  "key": "be771c98-47b3-8bd3-91f0-d4f2d26699c7",
-  "publications": 248,
-  "sealedTheorems": 70998,
+  "key": "ef41a83f-214f-8a29-8e88-ca978b8f5a94",
+  "publications": 252,
+  "sealedTheorems": 71017,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2674,
-    "theorems": 70998,
+    "claims": 2693,
+    "theorems": 71017,
     "bijection": false,
     "digitalRoots": {
-      "claims": 1,
-      "theorems": 6,
-      "publications": 5
+      "claims": 2,
+      "theorems": 7,
+      "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -1186,6 +1186,22 @@
       "fabricated": []
     },
     {
+      "slug": "links",
+      "claims": 12,
+      "cited": 12,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "cern-links",
+      "claims": 5,
+      "cited": 5,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "open-problems",
       "claims": 6,
       "cited": 6,
@@ -1725,6 +1741,22 @@
       "slug": "involutione92de628",
       "claims": 3,
       "cited": 3,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "involution83b7cc65",
+      "claims": 1,
+      "cited": 1,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "involution90c4f258",
+      "claims": 1,
+      "cited": 1,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

@@ -1,4 +1,4 @@
--- lean/Crosslink.lean — GENERATED. CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. MEASURED, NOT QUOTED: the store holds 71,595 leaves with 71,594 parent links against 2,562,886,215 pairs available — the tree uses one link for every 35,797 pairs its own leaves permit. Its leaves are folders and not single uuids (681 with 0 keys, 70,835 with 1 key, 74 with 2 keys, 5 with 3 keys) across 3 kinds (70,914 chunks, 433 pages, 248 publications), each partition summing exactly. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Crosslink.lean — GENERATED. CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. MEASURED, NOT QUOTED: the store holds 71,621 leaves with 71,620 parent links against 2,564,748,010 pairs available — the tree uses one link for every 35,810 pairs its own leaves permit. Its leaves are folders and not single uuids (689 with 0 keys, 70,852 with 1 key, 75 with 2 keys, 5 with 3 keys) across 3 kinds (70,932 chunks, 437 pages, 252 publications), each partition summing exactly. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE SPARSEST CONNECTED SHAPE THERE IS. A tree over n leaves carries exactly n − 1 links — one per child,
     none spare — while the same n leaves admit n(n − 1)/2 pairs. Decided across leaf counts from 4 to 1024: the
@@ -6,11 +6,11 @@
     tree is not a small graph, it is the smallest one that still connects. -/
 theorem a_tree_uses_one_link_per_leaf_and_no_more : [4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2))) := by decide
 
-/-- THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,595 leaves, 71,594 parent links, 2,562,886,215 pairs
-    available — the tree uses one link for every 35,797 pairs its own leaves already permit. Stated as an
+/-- THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,621 leaves, 71,620 parent links, 2,564,748,010 pairs
+    available — the tree uses one link for every 35,810 pairs its own leaves already permit. Stated as an
     inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the
     available pairs exceed the tree's links by more than two thousand times. -/
-theorem the_measured_store_uses_a_vanishing_share : (2562886215 = (71595 * (71595 - 1)) / 2) ∧ (2562886215 > 2000 * 71594) := by decide
+theorem the_measured_store_uses_a_vanishing_share : (2564748010 = (71621 * (71621 - 1)) / 2) ∧ (2564748010 > 2000 * 71620) := by decide
 
 /-- THE CLAIM THE CAPTAIN NAMED, DECIDED AS A COMPARISON OF EXPONENTS. E possible edges admit 2^E graphs, and
     the address space is 2^128. So the graph space exceeds the address space exactly when E > 128, and E = n(n −
@@ -26,14 +26,14 @@ theorem crosslinking_outgrows_the_address_space : ([17,20,32,64,128,256,1024].al
     eighteen entries. -/
 theorem seventeen_leaves_already_pass_the_whole_uuid : ((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128) := by decide
 
-/-- AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,595 leaves, 681 carry no theorem key, 70,835 carry 1 key,
-    74 carry 2 keys, 5 carry 3 keys — 79 carry more than one, so a handle folder is a folder and not a synonym
+/-- AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,621 leaves, 689 carry no theorem key, 70,852 carry 1 key,
+    75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym
     for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one
     thing would have no interior to crosslink; this one does. -/
-theorem the_leaf_is_not_one_uuid_but_a_folder : (681 + 70835 + 74 + 5 = 71595) ∧ (79 > 0) := by decide
+theorem the_leaf_is_not_one_uuid_but_a_folder : (689 + 70852 + 75 + 5 = 71621) ∧ (80 > 0) := by decide
 
-/-- THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70914 chunk, 433 page, 248 publication, summing to 71,595
+/-- THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70932 chunk, 437 page, 252 publication, summing to 71,621
     exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with
     typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first
     is what makes that statement meaningful rather than decorative. -/
-theorem three_kinds_partition_the_store : 70914 + 433 + 248 = 71595 := by decide
+theorem three_kinds_partition_the_store : 70932 + 437 + 252 = 71621 := by decide

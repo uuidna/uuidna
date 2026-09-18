@@ -1,0 +1,69 @@
+{
+  "file": "Involution83b7cc65.lean",
+  "slug": "involution83b7cc65",
+  "status": "usable",
+  "address": "429329d5-0efa-8ac2-bdad-1b24127949de",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involution83b7cc65.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involution83b7cc65.lean — GENERATED. INVOLUTION 83b7cc65: lead 83b7cc65 of lean/leads.json (refuted), stated in the row's own lean field as lead_83b7cc65, and involution_83b7cc65, the kernel's proof of its negation, accepted at the door for the text addressed 32f8f877-738a-84e7-8ab6-5c616f847d70. Every proof checked by the kernel (by unfold), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- lean/leads.json refuted#33 · handle 83b7cc65\n-- LEAD: \"6x7 and 7x6 counter-rotate (the ORDER is the rotation)\"\n-- The lead asserts that swapping the order of the two coordinates changes the result:\n-- either the plain product differs, or the two rotations x |-> 6*x and x |-> 7*x on the\n-- nine-residue clock fail to commute at some point of that clock.\n\n/-- 6x7 and 7x6 counter-rotate (the ORDER is the rotation) -/\ndef lead_83b7cc65 : Prop :=\n  6 * 7 ≠ 7 * 6 ∨\n  ((List.range 9).any (fun x => decide ((6 * (7 * x)) % 9 ≠ (7 * (6 * x)) % 9)) = true)\n\n/-- The kernel refutes lead 83b7cc65: 6x7 and 7x6 counter-rotate (the ORDER is the rotation). -/\ntheorem involution_83b7cc65 : ¬ lead_83b7cc65 := by\n  unfold lead_83b7cc65\n  decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_83b7cc65",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead 83b7cc65: 6x7 and 7x6 counter-rotate (the ORDER is the rotation)."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_83b7cc65"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_83b7cc65 : ¬ lead_83b7cc65 := by unfold lead_83b7cc65 decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

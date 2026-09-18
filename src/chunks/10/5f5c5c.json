@@ -1,0 +1,12 @@
+{
+  "handle": "105f5c5c",
+  "address": "105f5c5c-3260-8eca-bad3-7c10ce570ffa",
+  "statement": "(71618 + 256 + 43531 + 71460 + 71618 + 1 = 258484) ∧ (258484 > 3 * 71618)",
+  "tactic": "decide",
+  "keys": [
+    "the_store_footprint_is_its_folders"
+  ],
+  "files": [
+    "Cyber.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a2516995",
+  "address": "a2516995-f8b3-8bd5-b4f0-b1bdcf5d5bcf",
+  "kind": "chunk",
+  "keys": [
+    "lead_b13fd37a_is_flagged_by_every_single_refuter"
+  ],
+  "statement": "refutersJs = [1, 1, 1] ∧ refutersTs = [1, 1, 1] ∧ flagAll refutersJs = 1 ∧ flagAll refutersTs = 1 ∧ flagAll (refutersJs ++ refutersTs) = 1 ∧ flagAll [1, 0, 0] = 1 ∧ flagAll [0, 0, 1] = 1 ∧ flagAll [0, 0, 0] = 0",
+  "files": [
+    "Links.lean"
+  ]
+}

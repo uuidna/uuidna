@@ -1,0 +1,12 @@
+{
+  "handle": "9773d883",
+  "address": "9773d883-0118-84cd-820a-378658d16b1e",
+  "statement": "((List.range' 1 9).all (fun d => (10 - d) % 9 == (8 * d + 1) % 9) = true) ∧ (units9.contains 8 = true) ∧ ((List.range 9).any (fun e => 8 * e % 9 == 1) = true) ∧ (units9.all (fun a => (List.range 9).all (fun b => ((arow a b).map dz) == arow ((9 - a) % 9) ((10 - b) % 9))) = true) ∧ (budget ((arow 1 3).map dz) == budget (arow 1 3)) = false ∧ famTally (fun a b => !(budget ((arow a b).map dz) == budget (arow a b))) = 24",
+  "tactic": "decide",
+  "keys": [
+    "the_mirror_is_a_member_of_the_family_whose_budget_it_moves"
+  ],
+  "files": [
+    "Links.lean"
+  ]
+}

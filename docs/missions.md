@@ -3,21 +3,21 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'288 open'" />
+# Missions <Badge type="tip" :text="'293 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**288 missions** — 28 seal-finding · 134 decide-bound · 126 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`c96b8ce98c3feaf0`) and the research ledger. The captain of every mission
+**293 missions** — 28 seal-finding · 136 decide-bound · 129 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`48ddaf61d809b056`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [`uuidna_missions`](/mcp#uuidna-missions).
 
-## From skill to open work — 73 skills lead to a mission
+## From skill to open work — 74 skills lead to a mission
 
 _Practise a skill at [the school](/school), then take a mission in a wing that skill lives in: that is how a learner
 becomes a contributor. Each row is derived from the ledger by skill and from this board, meeting at the wing. The
@@ -28,14 +28,15 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | --- | ---: | ---: | ---: | --- |
 | wave | 67076 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
-| involution | 16 | 8 | 10 | `fdb12218` |
+| involution | 18 | 10 | 12 | `fdb12218` |
+| foundational | 4 | 3 | 6 | `d7779f36` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | vortex | 24 | 4 | 6 | `fa48a04a` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
 | coins | 27 | 3 | 5 | `1b48b046` |
-| foundational | 3 | 2 | 4 | `fdb12218` |
 | reflection | 21 | 3 | 4 | `c5c25997` |
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
+| links | 16 | 2 | 3 | `e872009a` |
 | neuro | 19 | 2 | 3 | `c912e182` |
 | quantum | 57 | 2 | 3 | `2efc2c84` |
 | audit | 29 | 2 | 2 | `15f4bed8` |
@@ -189,7 +190,7 @@ _a read primary source whose value no theorem seals yet — the theorem is the d
   <br><small>deliverable: seal 47.3% vs 36.7% correct (10.6 percentage points) percentage points (measured, read source: Cepeda, Pashler, Vul, Wixted & Rohrer 2006, Psychological Bulletin 132(3):354, Discussion/Limitations) as a theorem, and point the finding at it</small>
   <br><small>door: uuidna_trial the claim, then a Lean line in the wing that owns the value; set the finding's theorem field to close it</small>
 
-## Decide a bound — 134 open
+## Decide a bound — 136 open
 
 _a finite domain that survived one widening step — a person decides whether it is the real domain (name it) or decorative (drop it); the instrument cannot._
 
@@ -224,6 +225,10 @@ _a finite domain that survived one widening step — a person decides whether it
 - **`dd85bce4`** decide 1 surviving bound in Calendar.lean
   <br><small>deliverable: 1 statement in Calendar.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`e872009a`** decide 1 surviving bound in CernLinks.lean
+  <br><small>deliverable: 1 statement in CernLinks.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`the_cern_file_total_is_twice_a_prime`](/theorem/the_cern_file_total_is_twice_a_prime)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`ec90748c`** decide 1 surviving bound in Chessgames.lean
   <br><small>deliverable: 1 statement in Chessgames.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -585,6 +590,10 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 7 statements in Legal.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`solutions_not_skipped`](/theorem/solutions_not_skipped) · [`legal_verdict_is_exactly_one`](/theorem/legal_verdict_is_exactly_one) · [`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted) · [`legal_non_justiciable_is_never_refuted`](/theorem/legal_non_justiciable_is_never_refuted) · [`legal_refuted_iff_test_fails_uncited`](/theorem/legal_refuted_iff_test_fails_uncited) · [`legal_remand_is_total_nothing_discarded`](/theorem/legal_remand_is_total_nothing_discarded) · [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
+- **`d7779f36`** decide 1 surviving bound in Links.lean
+  <br><small>deliverable: 1 statement in Links.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points)</small>
+  <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`ed4a64c7`** decide 1 surviving bound in Looms.lean
   <br><small>deliverable: 1 statement in Looms.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`the_punched_card_is_the_bit`](/theorem/the_punched_card_is_the_bit)</small>
@@ -730,7 +739,7 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture) · [`two_coins_make_a_coil_and_seven_coils_are_one_and_six`](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 126 open
+## Give a theorem its symbol leg — 129 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
@@ -1166,6 +1175,14 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
   <br><small>deliverable: 2 theorems in Involution2d552f1f.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`involution_2d552f1f`](/theorem/involution_2d552f1f) · [`budget_census_2d552f1f`](/theorem/budget_census_2d552f1f)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`ecd0c1f0`** give 1 theorem in Involution83b7cc65.lean the symbol leg
+  <br><small>deliverable: 1 theorem in Involution83b7cc65.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`involution_83b7cc65`](/theorem/involution_83b7cc65)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`172278d5`** give 1 theorem in Involution90c4f258.lean the symbol leg
+  <br><small>deliverable: 1 theorem in Involution90c4f258.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`involution_90c4f258`](/theorem/involution_90c4f258)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`2755c4b3`** give 2 theorems in Involutionb13fd37a.lean the symbol leg
   <br><small>deliverable: 2 theorems in Involutionb13fd37a.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`reconciled_b13fd37a`](/theorem/reconciled_b13fd37a) · [`involution_b13fd37a`](/theorem/involution_b13fd37a)</small>
@@ -1181,6 +1198,10 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
 - **`5f0e226f`** give 353 theorems in Laws.lean the symbol leg
   <br><small>deliverable: 353 theorems in Laws.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`divisor_count_law_mod_2`](/theorem/divisor_count_law_mod_2) · [`divisor_count_law_mod_3`](/theorem/divisor_count_law_mod_3) · [`divisor_count_law_mod_4`](/theorem/divisor_count_law_mod_4) · [`divisor_count_law_mod_5`](/theorem/divisor_count_law_mod_5) · [`divisor_count_law_mod_6`](/theorem/divisor_count_law_mod_6) · [`divisor_count_law_mod_7`](/theorem/divisor_count_law_mod_7) · [`divisor_count_law_mod_8`](/theorem/divisor_count_law_mod_8) · [`divisor_count_law_mod_9`](/theorem/divisor_count_law_mod_9) · [`divisor_count_law_mod_10`](/theorem/divisor_count_law_mod_10) · [`divisor_count_law_mod_11`](/theorem/divisor_count_law_mod_11) · [`divisor_count_law_mod_12`](/theorem/divisor_count_law_mod_12) · [`divisor_count_law_mod_13`](/theorem/divisor_count_law_mod_13) · +341 more in the wing</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`3c5970b2`** give 1 theorem in Links.lean the symbol leg
+  <br><small>deliverable: 1 theorem in Links.lean has no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`not_dvd_of_bound`](/theorem/not_dvd_of_bound)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`63029a40`** give 81 theorems in Nim.lean the symbol leg
   <br><small>deliverable: 81 theorems in Nim.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

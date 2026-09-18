@@ -1,0 +1,12 @@
+{
+  "handle": "c27f0b70",
+  "address": "c27f0b70-976f-8155-a8e3-2e208ba260ce",
+  "statement": "¬ lead_90c4f258",
+  "tactic": "unfold lead_90c4f258 decide",
+  "keys": [
+    "involution_90c4f258"
+  ],
+  "files": [
+    "Involution90c4f258.lean"
+  ]
+}

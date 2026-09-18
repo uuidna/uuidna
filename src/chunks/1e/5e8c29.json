@@ -1,0 +1,12 @@
+{
+  "handle": "1e5e8c29",
+  "address": "1e5e8c29-1a43-803b-aafa-23150edddbaa",
+  "statement": "¬ lead_83b7cc65",
+  "tactic": "unfold lead_83b7cc65 decide",
+  "keys": [
+    "involution_83b7cc65"
+  ],
+  "files": [
+    "Involution83b7cc65.lean"
+  ]
+}

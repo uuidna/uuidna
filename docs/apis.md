@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="48 doors" />
+# Public APIs <Badge type="tip" text="49 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**48 APIs** · sweep 19 · door [`458ee8cf`](https://uuidna.com/458ee8cf) · receipt `458ee8cf-c14c-823b-9310-8428f82e5bef`
+**49 APIs** · sweep 19 · door [`980c9d60`](https://uuidna.com/980c9d60) · receipt `980c9d60-00c0-8027-aeed-e7f37a8f5881`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -67,6 +67,7 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | id | host | kind | access | direction | sweep | heartbeat |
 | --- | --- | --- | --- | --- | --- | --- |
 | `wikinews-rss` | en.wikinews.org | news | keyless | fetched | no | yes |
+| `hn-algolia` | hn.algolia.com | news | keyless | fetched | no | yes |
 
 ## Scholarly journals
 
@@ -98,4 +99,4 @@ never summed.
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/458ee8cf`.
+Cite handle `https://uuidna.com/980c9d60`.

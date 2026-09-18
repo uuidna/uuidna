@@ -1,0 +1,105 @@
+{
+  "file": "Involutionb13fd37a.lean",
+  "slug": "involutionb13fd37a",
+  "status": "usable",
+  "address": "45bc07b0-18b1-8325-9fef-8b4f0b902e24",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involutionb13fd37a.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involutionb13fd37a.lean — GENERATED. INVOLUTION b13fd37a: lead b13fd37a of lean/leads.json (refuted), stated as lead_b13fd37a over the objects its source derives, and involution_b13fd37a, the kernel's proof of its negation. Every proof checked by the kernel (by exact), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- The generators the lead names, read from its text, as generate.ts spells them (dist/scripts/<name>.js). -/\ndef namedGeneratorsJs : List String := [\"gen-prose-evidence.js\", \"gen-handles.js\", \"gen-captain-claims-complete.js\"]\n\n/-- The same generators as lean/dormant-scripts.json spells them (src/scripts/<name>.ts). -/\ndef namedGeneratorsTs : List String := [\"gen-prose-evidence.ts\", \"gen-handles.ts\", \"gen-captain-claims-complete.ts\"]\n\n/-- GENERATORS (src/scripts/generate.ts): the file of every entry, in manifest order, which is the list\n    generate.js runs. -/\ndef generateManifest : List String :=\n  [\"gen-mcp-docs.js\", \"gen-mcp.js\", \"gen-apis.js\", \"gen-latex.js\", \"gen-packages.js\", \"gen-zenodo.js\", \"gen-zenodo-seals.js\", \"gen-lines.js\", \"gen-search-feed.js\", \"gen-seo-freeze.js\", \"gen-handles.js\", \"gen-handle-store.js\", \"gen-handle-chunks.js\", \"gen-captain-claims.js\", \"gen-captain-claims-complete.js\", \"gen-reports.js\", \"gen-quantum-capacity.js\", \"gen-quantum-advantage.js\", \"gen-expose.js\", \"gen-waves.js\", \"gen-unlocks.js\", \"gen-readme.js\", \"gen-funding-drafts.js\", \"gen-llm.js\", \"gen-cloudflare-templates.js\", \"gen-statement-fixture.js\", \"gen-leads.js\", \"gen-refusals.js\", \"gen-terminology.js\", \"gen-feed.js\", \"gen-articles.js\", \"gen-references.js\", \"gen-prose-evidence.js\", \"gen-gitattributes.js\", \"gen-school.js\", \"gen-school-lessons.js\", \"gen-analytics.js\", \"gen-song.js\", \"gen-anthem.js\", \"gen-utterances.js\", \"gen-symphony.js\", \"gen-evasion.js\", \"gen-apps.js\", \"gen-open-questions.js\", \"gen-bound-census.js\", \"gen-missions.js\", \"gen-sequence-field.js\", \"gen-referrer-song.js\", \"gen-store.js\", \"gen-os.js\", \"gen-alpine-overlay.js\", \"gen-alpine-testing-leads.js\", \"gen-remaining-alpine.js\", \"gen-rights-page.js\", \"browser-apps-usable.js\", \"alpine-discovery.js\", \"gen-models.js\", \"gen-falsifiers.js\", \"gen-receipts.js\", \"gen-edge-slices.js\", \"ledger-deposit.js\", \"gen-witness-seals.js\", \"rosetta.js\", \"gen-seo-freeze.js\"]\n\n/-- Every dist script src/scripts/reconcile.ts runs directly, in the order its run() calls name them. -/\ndef reconcileDirect : List String :=\n  [\"guard.js\", \"one-receipt.js\", \"generate.js\", \"sync-changelog.js\", \"lean-axioms.js\", \"lean-heartbeats.js\", \"support.js\", \"audit-citations.js\", \"account.js\", \"trial-refusals.js\", \"spin.js\", \"gate-receipt.js\"]\n\n/-- What reconcile runs: its direct scripts and then, because generate.js is among them, every entry of the\n    manifest. -/\ndef reconcileRuns : List String := reconcileDirect ++ generateManifest\n\n/-- lean/dormant-scripts.json, scripts. -/\ndef dormantScripts : List String :=\n  [\"audit-mcp-native.ts\", \"audit-prose-entropy.ts\", \"audit-video.ts\", \"auto-fill-gaps.ts\", \"auto-harmonise.ts\", \"aws-analytics.ts\", \"azure-analytics.ts\", \"captain-claim-algebra.ts\", \"captain-discovers-novelty.ts\", \"close-all-open.ts\", \"cloudflare-analytics.ts\", \"crypto-measure.ts\", \"entanglement-games.ts\", \"gcp-analytics.ts\", \"legal-quantum-accounting.ts\", \"live-cloud-metrics.ts\", \"machine.ts\", \"migrate-skills.ts\", \"multi-cloud-analytics.ts\", \"org-fit.ts\", \"outward.ts\", \"quantum-alpine.ts\", \"quantum-dimension-scan.ts\", \"quantum-external-fusion.ts\", \"quantum-games-from-leads.ts\", \"quantum-guards-teach.ts\", \"quantum-launch.ts\", \"quantum-messaging-demo.ts\", \"quantum-messaging-hybrid.ts\", \"quantum-operations-live.ts\", \"quantum-rosetta-apis.ts\", \"refactor.ts\", \"reserve.ts\", \"scout.ts\"]\n\n/-- Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in\n    neither reconcile nor audit (all three already sit in lean/dormant-scripts.json). Stated without the \"nor\n    audit\" clause: the Prop is implied by the lead, so refuting it refutes the lead. -/\ndef lead_b13fd37a : Prop :=\n  (∀ g ∈ namedGeneratorsJs, g ∉ reconcileRuns) ∧\n  (∀ g ∈ namedGeneratorsTs, g ∈ dormantScripts)\n\n/-- reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 12 direct scripts. -/\ntheorem reconciled_b13fd37a : \"gen-prose-evidence.js\" ∈ reconcileRuns := by\n  exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _))))))))))))))))))))))))))))))))))))))))))))\n\n/-- The kernel refutes lead b13fd37a: reconcile runs gen-prose-evidence.js, one of the generators the lead says\n    reconcile does not run. -/\ntheorem involution_b13fd37a : ¬ lead_b13fd37a := by\n  exact fun hl => hl.1 \"gen-prose-evidence.js\" (List.Mem.head _) reconciled_b13fd37a\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-reconciled_b13fd37a",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 12 direct scripts."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "\"gen-prose-evidence.js\" ∈ reconcileRuns"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem reconciled_b13fd37a : \"gen-prose-evidence.js\" ∈ reconcileRuns := by exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _))))))))))))))))))))))))))))))))))))))))))))"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_b13fd37a",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead b13fd37a: reconcile runs gen-prose-evidence.js, one of the generators the lead says reconcile does not run."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_b13fd37a"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_b13fd37a : ¬ lead_b13fd37a := by exact fun hl => hl.1 \"gen-prose-evidence.js\" (List.Mem.head _) reconciled_b13fd37a"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

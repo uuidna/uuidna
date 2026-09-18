@@ -1,0 +1,12 @@
+{
+  "handle": "2ccaf50b",
+  "address": "2ccaf50b-5369-8a48-9680-26f3e3894a6e",
+  "kind": "chunk",
+  "keys": [
+    "the_bounded_search_returns_the_sealed_gcd_verdict"
+  ],
+  "statement": "(((List.range (9 / 7 + 1)).any (fun j => 7 * j == 9)) = (Nat.gcd 7 9 == 7)) ∧ (((List.range (14 / 7 + 1)).any (fun j => 7 * j == 14)) = (Nat.gcd 7 14 == 7)) ∧ (((List.range (6 / 9 + 1)).any (fun j => 9 * j == 6)) = (Nat.gcd 9 6 == 9)) ∧ (Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3) ∧ (¬ (7 ∣ 9)) ∧ (7 ∣ 14) ∧ (¬ (9 ∣ 6))",
+  "files": [
+    "Links.lean"
+  ]
+}

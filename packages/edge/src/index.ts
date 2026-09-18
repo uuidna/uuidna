@@ -9,7 +9,7 @@ export {
   type HeroAt, type HeroAtOpts, type HeroCoinColor, type HeroGate,
 } from '@uuidna/uuidna'
 export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from '@uuidna/uuidna'
-export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from '@uuidna/uuidna'
+export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, retiredUuid, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from '@uuidna/uuidna'
 export { canonicalOrder, nextOf, gaps, discoverStaticPages, computeSidebar, SIDEBAR_CATEGORIES, type PageNode, type SidebarGroup } from '@uuidna/uuidna'
 export { quantumProfile, type QuantumProfile } from '@uuidna/uuidna'
 export { socialProfile, type SocialProfile } from '@uuidna/uuidna'

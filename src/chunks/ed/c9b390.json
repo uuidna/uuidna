@@ -1,0 +1,12 @@
+{
+  "handle": "edc9b390",
+  "address": "edc9b390-c918-8c3e-8c99-1038d25b1e22",
+  "statement": "(502 = 2 * 251) ∧ ((List.range 16).all (fun d => d < 2 || 251 % d != 0) = true) ∧ (16 * 16 > 251) ∧ (Nat.gcd (Nat.gcd 116 184) (Nat.gcd 72 130) = 2)",
+  "tactic": "decide",
+  "keys": [
+    "the_cern_file_total_is_twice_a_prime"
+  ],
+  "files": [
+    "CernLinks.lean"
+  ]
+}

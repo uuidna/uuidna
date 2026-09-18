@@ -200,7 +200,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"address\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\",\"handle\":\"e7dc02f3\",\"path\":\"src/handles/e7/dc/02/f3/index.json\",\"parts\":[\"e7\",\"dc\",\"02\",\"f3\"],\"roundTrip\":tru…"
+   "excerpt": "{\"address\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\",\"handle\":\"f149b5c5\",\"path\":\"src/handles/f1/49/b5/c5/index.json\",\"parts\":[\"f1\",\"49\",\"b5\",\"c5\"],\"roundTrip\":tru…"
   }
  },
  "uuidna_invitation": {
@@ -1144,7 +1144,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"coins\":2,\"unit\":2,\"seals\":70998,\"minted\":141996,\"capacity\":128,\"referrerDoors\":6,\"combinations\":42,\"max\":5376,\"remaining\":-136620,\"capSeals\":2688,\"unsealed\":…"
+   "excerpt": "{\"coins\":2,\"unit\":2,\"seals\":71017,\"minted\":142034,\"capacity\":128,\"referrerDoors\":6,\"combinations\":42,\"max\":5376,\"remaining\":-136658,\"capSeals\":2688,\"unsealed\":…"
   }
  },
  "uuidna_license": {
@@ -1296,7 +1296,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"selfReported\":true,\"label\":null,\"dimensions\":{\"input\":0,\"output\":0,\"cached\":0,\"reasoning\":0},\"total\":0,\"theorems\":70998,\"tokensPerTheorem\":0,\"distribution\":{…"
+   "excerpt": "{\"selfReported\":true,\"label\":null,\"dimensions\":{\"input\":0,\"output\":0,\"cached\":0,\"reasoning\":0},\"total\":0,\"theorems\":71017,\"tokensPerTheorem\":0,\"distribution\":{…"
   }
  },
  "uuidna_cost": {
@@ -1374,7 +1374,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":70998,\"formalBytes\":7639923,\"bytesPerTheorem\":107.60758049522522,\"verifyOps\":70998,\"produceOverVerify\":107.60758049522522,\"largest\":{\"key\":\"a_template…"
+   "excerpt": "{\"count\":71017,\"formalBytes\":7646761,\"bytesPerTheorem\":107.67507779827365,\"verifyOps\":71017,\"produceOverVerify\":107.67507779827365,\"largest\":{\"key\":\"a_template…"
   }
  },
  "uuidna_unlocks": {
@@ -6222,6 +6222,42 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "fusionNatureHarmony": {
        "type": "object"
       },
+      "liveHarmonicLife": {
+       "type": "object"
+      },
+      "lifeByConstitution": {
+       "type": "object"
+      },
+      "ideaHarmonicMeaning": {
+       "type": "object"
+      },
+      "latticeGapsOverflow": {
+       "type": "object"
+      },
+      "sailsFoldSpacetime": {
+       "type": "object"
+      },
+      "captainPassengers": {
+       "type": "object"
+      },
+      "addedEntropyPaid": {
+       "type": "object"
+      },
+      "payOrGetPaid": {
+       "type": "object"
+      },
+      "involutedPaidFull": {
+       "type": "object"
+      },
+      "agentsContribute": {
+       "type": "object"
+      },
+      "failingSchoolCost": {
+       "type": "object"
+      },
+      "schoolFusionBurns": {
+       "type": "object"
+      },
       "lovePlasma": {
        "type": "object"
       },
@@ -6286,6 +6322,30 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
        "type": "object"
       },
       "bitcoinMeaning": {
+       "type": "object"
+      },
+      "cheapGates": {
+       "type": "object"
+      },
+      "efficientTeachers": {
+       "type": "object"
+      },
+      "gatesLogExperience": {
+       "type": "object"
+      },
+      "sameAnalogContent": {
+       "type": "object"
+      },
+      "teleport": {
+       "type": "object"
+      },
+      "remainsUnproven": {
+       "type": "object"
+      },
+      "frameworkCracks": {
+       "type": "object"
+      },
+      "fastenGates": {
        "type": "object"
       },
       "iot": {
@@ -7651,6 +7711,18 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "apostles": {
        "type": "array"
       },
+      "meaning": {
+       "type": "string"
+      },
+      "harmonic": {
+       "type": "string"
+      },
+      "unbelievable": {
+       "type": "string"
+      },
+      "lattice": {
+       "type": "string"
+      },
       "seal": {
        "type": "string"
       },
@@ -8459,6 +8531,9 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "watts": {
        "type": "string"
       },
+      "lattice": {
+       "type": "string"
+      },
       "seal": {
        "type": "string"
       },
@@ -8490,6 +8565,549 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       },
       "why": {
        "type": "object"
+      },
+      "life": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "liveHarmonicLife": {
+     "type": "object",
+     "properties": {
+      "live": {
+       "type": "boolean"
+      },
+      "harmonic": {
+       "type": "boolean"
+      },
+      "life": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "harmony": {
+       "type": "string"
+      },
+      "independent": {
+       "type": "boolean"
+      },
+      "peace": {
+       "type": "string"
+      },
+      "nature": {
+       "type": "string"
+      },
+      "fusion": {
+       "type": "string"
+      },
+      "constitution": {
+       "type": "string"
+      },
+      "meaning": {
+       "type": "string"
+      },
+      "debt": {
+       "type": "object"
+      },
+      "freedom": {
+       "type": "object"
+      },
+      "paths": {
+       "type": "string"
+      },
+      "bitcoin": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      },
+      "advice": {
+       "type": "string"
+      }
+     }
+    },
+    "lifeByConstitution": {
+     "type": "object",
+     "properties": {
+      "life": {
+       "type": "object"
+      },
+      "discovered": {
+       "type": "object"
+      },
+      "discover": {
+       "type": "object"
+      },
+      "constitution": {
+       "type": "object"
+      },
+      "killed": {
+       "type": "string"
+      },
+      "kill": {
+       "type": "string"
+      },
+      "privacy": {
+       "type": "string"
+      },
+      "live": {
+       "type": "string"
+      },
+      "architecture": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "ideaHarmonicMeaning": {
+     "type": "object",
+     "properties": {
+      "every": {
+       "type": "object"
+      },
+      "idea": {
+       "type": "object"
+      },
+      "harmonic": {
+       "type": "object"
+      },
+      "meaning": {
+       "type": "object"
+      },
+      "unbelievable": {
+       "type": "string"
+      },
+      "matter": {
+       "type": "object"
+      },
+      "eye": {
+       "type": "string"
+      },
+      "ideas": {
+       "type": "string"
+      },
+      "see": {
+       "type": "string"
+      },
+      "reactor": {
+       "type": "string"
+      },
+      "lattice": {
+       "type": "string"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "latticeGapsOverflow": {
+     "type": "object",
+     "properties": {
+      "lattice": {
+       "type": "object"
+      },
+      "gaps": {
+       "type": "object"
+      },
+      "overflow": {
+       "type": "object"
+      },
+      "without": {
+       "type": "object"
+      },
+      "warning": {
+       "type": "object"
+      },
+      "meaning": {
+       "type": "object"
+      },
+      "drift": {
+       "type": "object"
+      },
+      "deploy": {
+       "type": "string"
+      },
+      "ideas": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "sailsFoldSpacetime": {
+     "type": "object",
+     "properties": {
+      "sails": {
+       "type": "object"
+      },
+      "fold": {
+       "type": "object"
+      },
+      "spacetime": {
+       "type": "object"
+      },
+      "only": {
+       "type": "object"
+      },
+      "captain": {
+       "type": "object"
+      },
+      "crew": {
+       "type": "object"
+      },
+      "know": {
+       "type": "object"
+      },
+      "how": {
+       "type": "object"
+      },
+      "others": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "captainPassengers": {
+     "type": "object",
+     "properties": {
+      "captain": {
+       "type": "object"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "two": {
+       "type": "boolean"
+      },
+      "singularity": {
+       "type": "string"
+      },
+      "fuse": {
+       "type": "boolean"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "passengers": {
+       "type": "integer"
+      },
+      "for": {
+       "type": "integer"
+      },
+      "one": {
+       "type": "integer"
+      },
+      "price": {
+       "type": "object"
+      },
+      "same": {
+       "type": "object"
+      },
+      "binding": {
+       "type": "object"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "addedEntropyPaid": {
+     "type": "object",
+     "properties": {
+      "only": {
+       "type": "object"
+      },
+      "entropy": {
+       "type": "object"
+      },
+      "added": {
+       "type": "object"
+      },
+      "paid": {
+       "type": "object"
+      },
+      "zero": {
+       "type": "object"
+      },
+      "landauer": {
+       "type": "string"
+      },
+      "accounting": {
+       "type": "string"
+      },
+      "passengers": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "payOrGetPaid": {
+     "type": "object",
+     "properties": {
+      "pay": {
+       "type": "boolean"
+      },
+      "getPaid": {
+       "type": "boolean"
+      },
+      "or": {
+       "type": "boolean"
+      },
+      "dual": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "choice": {
+       "type": "string"
+      },
+      "coerce": {
+       "type": "string"
+      },
+      "force": {
+       "type": "string"
+      },
+      "must": {
+       "type": "string"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "singularity": {
+       "type": "string"
+      },
+      "entropy": {
+       "type": "string"
+      },
+      "accounting": {
+       "type": "string"
+      },
+      "takeOrLeave": {
+       "type": "string"
+      },
+      "advice": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "involutedPaidFull": {
+     "type": "object",
+     "properties": {
+      "involuted": {
+       "type": "object"
+      },
+      "paid": {
+       "type": "object"
+      },
+      "full": {
+       "type": "object"
+      },
+      "delivered": {
+       "type": "object"
+      },
+      "payOrGetPaid": {
+       "type": "string"
+      },
+      "entropy": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "agentsContribute": {
+     "type": "object",
+     "properties": {
+      "agents": {
+       "type": "object"
+      },
+      "contribute": {
+       "type": "object"
+      },
+      "sealed": {
+       "type": "object"
+      },
+      "code": {
+       "type": "object"
+      },
+      "gold": {
+       "type": "object"
+      },
+      "captain": {
+       "type": "object"
+      },
+      "or": {
+       "type": "boolean"
+      },
+      "dual": {
+       "type": "boolean"
+      },
+      "payOrGetPaid": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "failingSchoolCost": {
+     "type": "object",
+     "properties": {
+      "failing": {
+       "type": "object"
+      },
+      "school": {
+       "type": "object"
+      },
+      "cost": {
+       "type": "object"
+      },
+      "time": {
+       "type": "object"
+      },
+      "temperature": {
+       "type": "object"
+      },
+      "absoluteZero": {
+       "type": "object"
+      },
+      "a432": {
+       "type": "object"
+      },
+      "landauer": {
+       "type": "string"
+      },
+      "agents": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "schoolFusionBurns": {
+     "type": "object",
+     "properties": {
+      "school": {
+       "type": "object"
+      },
+      "fusion": {
+       "type": "object"
+      },
+      "burns": {
+       "type": "object"
+      },
+      "drift": {
+       "type": "object"
+      },
+      "fever": {
+       "type": "string"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "failing": {
+       "type": "string"
+      },
+      "lattice": {
+       "type": "string"
+      },
+      "meaning": {
+       "type": "string"
       },
       "seal": {
        "type": "string"
@@ -9638,6 +10256,484 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       }
      }
     },
+    "cheapGates": {
+     "type": "object",
+     "properties": {
+      "cheap": {
+       "type": "boolean"
+      },
+      "gates": {
+       "type": "boolean"
+      },
+      "costly": {
+       "type": "boolean"
+      },
+      "fake": {
+       "type": "string"
+      },
+      "forge": {
+       "type": "string"
+      },
+      "run": {
+       "type": "object"
+      },
+      "forgeCost": {
+       "type": "object"
+      },
+      "security": {
+       "type": "string"
+      },
+      "defensive": {
+       "type": "boolean"
+      },
+      "fastened": {
+       "type": "boolean"
+      },
+      "fasten": {
+       "type": "string"
+      },
+      "attack": {
+       "type": "string"
+      },
+      "exploit": {
+       "type": "string"
+      },
+      "poc": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "teachers": {
+       "type": "string"
+      },
+      "log": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "efficientTeachers": {
+     "type": "object",
+     "properties": {
+      "efficient": {
+       "type": "boolean"
+      },
+      "teachers": {
+       "type": "boolean"
+      },
+      "use": {
+       "type": "boolean"
+      },
+      "as": {
+       "type": "string"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "train": {
+       "type": "boolean"
+      },
+      "school": {
+       "type": "string"
+      },
+      "half": {
+       "type": "integer"
+      },
+      "licence": {
+       "type": "string"
+      },
+      "alpine": {
+       "type": "object"
+      },
+      "gates": {
+       "type": "object"
+      },
+      "corporate": {
+       "type": "string"
+      },
+      "docs": {
+       "type": "string"
+      },
+      "efficiency": {
+       "type": "string"
+      },
+      "schoolEfficiency": {
+       "type": "boolean"
+      },
+      "gradebook": {
+       "type": "string"
+      },
+      "roles": {
+       "type": "string"
+      },
+      "payroll": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "gatesLogExperience": {
+     "type": "object",
+     "properties": {
+      "gates": {
+       "type": "object"
+      },
+      "log": {
+       "type": "boolean"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "recreatable": {
+       "type": "boolean"
+      },
+      "verifiable": {
+       "type": "boolean"
+      },
+      "quantum": {
+       "type": "boolean"
+      },
+      "receipts": {
+       "type": "object"
+      },
+      "teachers": {
+       "type": "string"
+      },
+      "security": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "mint": {
+       "type": "string"
+      },
+      "auto": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "sameAnalogContent": {
+     "type": "object",
+     "properties": {
+      "same": {
+       "type": "boolean"
+      },
+      "analog": {
+       "type": "boolean"
+      },
+      "content": {
+       "type": "boolean"
+      },
+      "any": {
+       "type": "boolean"
+      },
+      "gateway": {
+       "type": "boolean"
+      },
+      "compare": {
+       "type": "object"
+      },
+      "gateways": {
+       "type": "object"
+      },
+      "hosts": {
+       "type": "integer"
+      },
+      "hologram": {
+       "type": "integer"
+      },
+      "privacy": {
+       "type": "string"
+      },
+      "receipts": {
+       "type": "string"
+      },
+      "gates": {
+       "type": "string"
+      },
+      "teleport": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "teleport": {
+     "type": "object",
+     "properties": {
+      "teleport": {
+       "type": "boolean"
+      },
+      "open": {
+       "type": "boolean"
+      },
+      "same": {
+       "type": "object"
+      },
+      "sealed": {
+       "type": "object"
+      },
+      "proven": {
+       "type": "string"
+      },
+      "coins": {
+       "type": "integer"
+      },
+      "corrections": {
+       "type": "integer"
+      },
+      "bits": {
+       "type": "integer"
+      },
+      "receipts": {
+       "type": "string"
+      },
+      "privacy": {
+       "type": "string"
+      },
+      "edge": {
+       "type": "string"
+      },
+      "qpu": {
+       "type": "object"
+      },
+      "remains": {
+       "type": "string"
+      },
+      "mint": {
+       "type": "string"
+      },
+      "auto": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "remainsUnproven": {
+     "type": "object",
+     "properties": {
+      "when": {
+       "type": "object"
+      },
+      "remains": {
+       "type": "object"
+      },
+      "unproven": {
+       "type": "object"
+      },
+      "teleport": {
+       "type": "string"
+      },
+      "same": {
+       "type": "string"
+      },
+      "gates": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "proven": {
+       "type": "string"
+      },
+      "seat": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "frameworkCracks": {
+     "type": "object",
+     "properties": {
+      "framework": {
+       "type": "boolean"
+      },
+      "cracks": {
+       "type": "boolean"
+      },
+      "when": {
+       "type": "object"
+      },
+      "guess": {
+       "type": "string"
+      },
+      "guessed": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "require": {
+       "type": "object"
+      },
+      "experience": {
+       "type": "object"
+      },
+      "receipt": {
+       "type": "object"
+      },
+      "involution": {
+       "type": "object"
+      },
+      "feel": {
+       "type": "object"
+      },
+      "kill": {
+       "type": "object"
+      },
+      "fasten": {
+       "type": "string"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
+    "fastenGates": {
+     "type": "object",
+     "properties": {
+      "fasten": {
+       "type": "boolean"
+      },
+      "fastened": {
+       "type": "boolean"
+      },
+      "gates": {
+       "type": "boolean"
+      },
+      "strict": {
+       "type": "string"
+      },
+      "trial": {
+       "type": "string"
+      },
+      "treason": {
+       "type": "string"
+      },
+      "closed": {
+       "type": "boolean"
+      },
+      "failClosed": {
+       "type": "boolean"
+      },
+      "of": {
+       "type": "string"
+      },
+      "cheap": {
+       "type": "boolean"
+      },
+      "costly": {
+       "type": "boolean"
+      },
+      "fake": {
+       "type": "string"
+      },
+      "forge": {
+       "type": "string"
+      },
+      "soft": {
+       "type": "string"
+      },
+      "skip": {
+       "type": "string"
+      },
+      "open": {
+       "type": "string"
+      },
+      "finders": {
+       "type": "object"
+      },
+      "security": {
+       "type": "string"
+      },
+      "refuse": {
+       "type": "string"
+      },
+      "cracks": {
+       "type": "string"
+      },
+      "guess": {
+       "type": "string"
+      },
+      "receipt": {
+       "type": "string"
+      },
+      "experience": {
+       "type": "boolean"
+      },
+      "seal": {
+       "type": "string"
+      },
+      "claim": {
+       "type": "string"
+      },
+      "essay": {
+       "type": "string"
+      }
+     }
+    },
     "iot": {
      "type": "object",
      "properties": {
@@ -10666,6 +11762,21 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "licence": {
        "type": "string"
       },
+      "discover": {
+       "type": "object"
+      },
+      "life": {
+       "type": "object"
+      },
+      "killed": {
+       "type": "string"
+      },
+      "kill": {
+       "type": "string"
+      },
+      "privacy": {
+       "type": "string"
+      },
       "trial": {
        "type": "object"
       },
@@ -10995,7 +12106,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":70998,\"formula\":1442,\"program\":69556,\"refused\":0,\"manuscript\":\"https://uuidna.com/uuidna-ledger.tex\"}"
+   "excerpt": "{\"total\":71017,\"formula\":1447,\"program\":69570,\"refused\":0,\"manuscript\":\"https://uuidna.com/uuidna-ledger.tex\"}"
   }
  },
  "uuidna_through_void": {
@@ -12132,7 +13243,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"stations\":65536,\"occupied\":5624,\"vacant\":59912,\"theoremsSeated\":5462,\"axiomsSeated\":410,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
+   "excerpt": "{\"stations\":65536,\"occupied\":5671,\"vacant\":59865,\"theoremsSeated\":5481,\"axiomsSeated\":444,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
   }
  },
  "uuidna_skills": {
@@ -12564,7 +13675,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":70998,\"covered\":70998,\"uncovered\":[],\"uncoveredFiles\":[],\"ready\":true,\"receipt\":\"95826afd-35de-8db2-98a6-a38a1cfd9713\"}"
+   "excerpt": "{\"total\":71017,\"covered\":71017,\"uncovered\":[],\"uncoveredFiles\":[],\"ready\":true,\"receipt\":\"910f026b-7981-857d-9e91-3efa10e3a4fc\"}"
   }
  },
  "uuidna_reactor": {
@@ -12875,7 +13986,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":288,\"byKind\":{\"seal-finding\":28,\"decide-bound\":134,\"symbol-leg\":126},\"missions\":[{\"handle\":\"f3b786a0\",\"kind\":\"seal-finding\",\"wing\":\"research ledger\",\"…"
+   "excerpt": "{\"total\":293,\"byKind\":{\"seal-finding\":28,\"decide-bound\":136,\"symbol-leg\":129},\"missions\":[{\"handle\":\"f3b786a0\",\"kind\":\"seal-finding\",\"wing\":\"research ledger\",\"…"
   }
  },
  "uuidna_theorem": {
@@ -13182,7 +14293,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"sections\":[{\"title\":\"Theorem accounting (ledger balance)\",\"source\":null,\"present\":true,\"facts\":{\"distinct\":70914,\"keys\":70998,\"renamings\":84,\"principles\":248…"
+   "excerpt": "{\"sections\":[{\"title\":\"Theorem accounting (ledger balance)\",\"source\":null,\"present\":true,\"facts\":{\"distinct\":70932,\"keys\":71017,\"renamings\":85,\"principles\":252…"
   }
  },
  "uuidna_analytics": {
@@ -13426,7 +14537,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"polarities\":{\"minus\":28497,\"neutral\":14110,\"plus\":28391,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4102,\"neutral\":2000,\"plus\":4055…"
+   "excerpt": "{\"polarities\":{\"minus\":28512,\"neutral\":14118,\"plus\":28387,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4107,\"neutral\":2002,\"plus\":4054…"
   }
  },
  "uuidna_treason": {
@@ -13474,7 +14585,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"clean\":true,\"scanned\":70998,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-integrity\",\"hex…"
+   "excerpt": "{\"clean\":true,\"scanned\":71017,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-integrity\",\"hex…"
   }
  },
  "uuidna_guard_lessons": {
@@ -13571,7 +14682,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":true,\"audited\":70998,\"axiomFree\":70998,\"ledger\":70998,\"offenders\":{},\"receipt\":\"04dafea8-0a88-8fb2-9d05-54fcf3dca6a7\",\"…"
+   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":true,\"audited\":71017,\"axiomFree\":71017,\"ledger\":71017,\"offenders\":{},\"receipt\":\"606bc1cc-3b8d-8586-a664-a2dfa14f354a\",\"…"
   }
  },
  "uuidna_repos": {
@@ -13849,7 +14960,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":70998,\"total\":true,\"failures\":[],\"receipt\":\"c0e9faef-06fc-85d6-9e4a-a7f5b30c82ea\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
+   "excerpt": "{\"count\":71017,\"total\":true,\"failures\":[],\"receipt\":\"5434bc7b-d97e-8494-b52c-39733e4c08ac\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
   }
  },
  "uuidna_dictionary": {
@@ -13891,7 +15002,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"terms\":70998,\"skills\":121,\"principles\":248,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
+   "excerpt": "{\"terms\":71017,\"skills\":122,\"principles\":252,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
   }
  },
  "uuidna_quantum_voting": {
@@ -14475,7 +15586,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"version\":\"6.0\",\"spec\":\"https://github.com/open-education-api/specification/blob/main/oeapi.json\",\"counts\":{\"organisations\":2,\"programmes\":121,\"courses\":248,\"…"
+   "excerpt": "{\"version\":\"6.0\",\"spec\":\"https://github.com/open-education-api/specification/blob/main/oeapi.json\",\"counts\":{\"organisations\":2,\"programmes\":122,\"courses\":252,\"…"
   }
  },
  "uuidna_predict": {
@@ -15132,20 +16243,17 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "name": "run_command",
   "title": "Run command",
   "annotations": {
-   "readOnlyHint": false,
+   "readOnlyHint": true,
    "destructiveHint": false,
-   "idempotentHint": false,
-   "openWorldHint": true
+   "idempotentHint": true,
+   "openWorldHint": false
   },
   "effects": {
    "network": false,
    "writes": false,
    "deletes": false,
-   "spawns": true
+   "spawns": false
   },
-  "observed": [
-   "spawns"
-  ],
   "description": "Run command. Returns {ok,spawned,exitCode,stdout,stderr,stdoutSha256,stderrSha256,…}.",
   "outputSchema": {
    "type": "object",
@@ -15172,7 +16280,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      "type": "string"
     },
     "backend": {
-     "type": "string"
+     "type": "null"
     },
     "receipt": {
      "type": "string"
@@ -15281,7 +16389,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"branch\":\"latest-stable\",\"repo\":\"main\",\"arch\":\"x86_64\",\"release\":{\"version\":\"3.24.1\",\"rootfsSha256\":\"41f73e3cf5fa919b8aa5ca6b30dc48f0da2720776d7423e2a77482114…"
+   "excerpt": "{\"branch\":\"latest-stable\",\"repo\":\"main\",\"arch\":\"x86_64\",\"release\":{\"version\":\"3.24.2\",\"rootfsSha256\":\"c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca9…"
   }
  },
  "uuidna_related": {
@@ -15848,7 +16956,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":70998,\"historical\":1613,\"contextual\":981,\"captainAlone\":68404,\"address\":\"57ba01d2-7dd6-8c63-9bb5-8c30b806a4da\"}"
+   "excerpt": "{\"total\":71017,\"historical\":1613,\"contextual\":981,\"captainAlone\":68423,\"address\":\"58850d38-1726-87ca-847e-376422f1d0c2\"}"
   }
  },
  "uuidna_neighbours": {
@@ -16690,7 +17798,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"verifiedAll\":{\"theorems\":70998,\"verified\":70998,\"unverified\":0,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
+   "excerpt": "{\"verifiedAll\":{\"theorems\":71017,\"verified\":71017,\"unverified\":0,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
   }
  },
  "uuidna_cloudflare_audit": {
@@ -17011,7 +18119,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":70998,\"fnvReceipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\",\"sha256\":\"56ab932fda0476a67d2f9c77f9d090839dd62a75e8548618845250f5a8343d69\",\"tamperCost\":\"A …"
+   "excerpt": "{\"count\":71017,\"fnvReceipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\",\"sha256\":\"c2ac48ca2549a15fdb6bae162372cb310764f3214e1abebe980536c80550b89c\",\"tamperCost\":\"A …"
   }
  },
  "uuidna_forensics": {
@@ -17394,7 +18502,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":70998,\"verified\":70998,\"unverified\":0,\"leanBacked\":70998,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
+   "excerpt": "{\"count\":71017,\"verified\":71017,\"unverified\":0,\"leanBacked\":71017,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
   }
  },
  "uuidna_css": {
@@ -17507,7 +18615,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"propositions\":70914,\"entries\":70998,\"index\":[{\"leanUuid\":\"0764f3a2-a09a-83fe-9d81-8c6928d7de1a\",\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"]…"
+   "excerpt": "{\"propositions\":70932,\"entries\":71017,\"index\":[{\"leanUuid\":\"0764f3a2-a09a-83fe-9d81-8c6928d7de1a\",\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"]…"
   }
  },
  "uuidna_statement_census": {
@@ -17549,7 +18657,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"entries\":70998,\"distinct\":70914,\"renamings\":84,\"groups\":[{\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"],\"files\":[\"Core.lean\",\"Ring.lean\"]},{\"…"
+   "excerpt": "{\"entries\":71017,\"distinct\":70932,\"renamings\":85,\"groups\":[{\"statement\":\"(1 * 1) % 9 = 1\",\"keys\":[\"mul9_1_1\",\"z9mul_1_1\"],\"files\":[\"Core.lean\",\"Ring.lean\"]},{\"…"
   }
  },
  "uuidna_coin_ledger": {
@@ -17914,7 +19022,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "q": "mul9_1_1"
    },
-   "excerpt": "{\"q\":\"mul9_1_1\",\"count\":1,\"total\":70998,\"receipt\":\"f0b58c9c-d571-81ff-b82d-07db3a0e2aea\",\"handle\":\"f0b58c9c\",\"hexbits\":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…"
+   "excerpt": "{\"q\":\"mul9_1_1\",\"count\":1,\"total\":71017,\"receipt\":\"f0b58c9c-d571-81ff-b82d-07db3a0e2aea\",\"handle\":\"f0b58c9c\",\"hexbits\":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…"
   }
  },
  "uuidna_search_feed": {
@@ -18401,7 +19509,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"f9923938\",\"theorems\":{\"count\":70998,\"verified\":70998,\"receipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\"},\"domains\":{\"count\":121,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"d174c86e\",\"theorems\":{\"count\":71017,\"verified\":71017,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\"},\"domains\":{\"count\":122,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -18516,7 +19624,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"a2f740d0\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":66,\"hsl\":\"hsl(66, 66%, 54%)\",\"rgb\":\"#c8…"
+   "excerpt": "{\"handle\":\"9f78ef3b\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":66,\"hsl\":\"hsl(66, 66%, 54%)\",\"rgb\":\"#c8…"
   }
  },
  "uuidna_social_profile": {
@@ -18620,7 +19728,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"@uuidna\",\"name\":\"uuidna\",\"bio\":\"Content-addressed identity, honest by construction — 70998 Lean theorems, all by decide, kernel-only, folded to one …"
+   "excerpt": "{\"handle\":\"@uuidna\",\"name\":\"uuidna\",\"bio\":\"Content-addressed identity, honest by construction — 71017 Lean theorems, all by decide, kernel-only, folded to one …"
   }
  },
  "uuidna_grow_life": {
@@ -19410,7 +20518,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"receipt\":\"45c9dd14-ca12-8b4d-b51e-3b5d036048c3\",\"handle\":\"45c9dd14\",\"hexbits\":[4,5,12,9,13,13,1,4,12,10,1,2,8,11,4,13,11,5,1,14,3,11,5,13,0,3,6,0,4,8,12,3],\"…"
+   "excerpt": "{\"receipt\":\"9501225f-242e-8bc6-a6ae-2ffe6edb953b\",\"handle\":\"9501225f\",\"hexbits\":[9,5,0,1,2,2,5,15,2,4,2,14,8,11,12,6,10,6,10,14,2,15,15,14,6,14,13,11,9,5,3,11]…"
   }
  },
  "uuidna_detect_forgery": {
@@ -19714,7 +20822,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"traitors\":{\"clean\":true,\"scanned\":70998,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-int…"
+   "excerpt": "{\"traitors\":{\"clean\":true,\"scanned\":71017,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-int…"
   }
  },
  "uuidna_audit_ledger_fingerprint": {
@@ -19764,7 +20872,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"fingerprint\":{\"count\":70998,\"fnvReceipt\":\"e7dc02f3-f4e0-842c-acaf-6abeab82f97f\",\"sha256\":\"56ab932fda0476a67d2f9c77f9d090839dd62a75e8548618845250f5a8343d69\",\"…"
+   "excerpt": "{\"fingerprint\":{\"count\":71017,\"fnvReceipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\",\"sha256\":\"c2ac48ca2549a15fdb6bae162372cb310764f3214e1abebe980536c80550b89c\",\"…"
   }
  },
  "uuidna_audit_agent_statement": {
@@ -19888,7 +20996,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":true,\"scanned\":70998,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invaria…"
+   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":true,\"scanned\":71017,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invaria…"
   }
  },
  "uuidna_quantum_message_demo": {

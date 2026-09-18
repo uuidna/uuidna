@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "c96b8ce98c3feaf0",
+ "digest": "48ddaf61d809b056",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -4329,6 +4329,26 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "the_nobles_are_the_running_totals",
    "wing": "Periodic.lean",
    "verdict": "undecidable-widened"
+  },
+  {
+   "key": "the_budget_census_exhausts_the_affine_group",
+   "wing": "Links.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "the_mirror_is_a_member_of_the_family_whose_budget_it_moves",
+   "wing": "Links.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "the_barren_claim_fails_exactly_at_the_dz_fixed_points",
+   "wing": "Links.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "the_cern_file_total_is_twice_a_prime",
+   "wing": "CernLinks.lean",
+   "verdict": "survived-widening"
   },
   {
    "key": "xor_translation_preserves_adjacency_0",

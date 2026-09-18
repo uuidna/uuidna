@@ -1,0 +1,12 @@
+{
+  "handle": "f2bd32bb",
+  "address": "f2bd32bb-0b1f-84f1-9c3e-648b34bf9bf2",
+  "kind": "chunk",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "statement": "71621 < 2 ^ 32",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

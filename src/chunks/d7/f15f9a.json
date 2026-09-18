@@ -1,0 +1,12 @@
+{
+  "handle": "d7f15f9a",
+  "address": "d7f15f9a-20e2-82ec-98ff-8e94be4aadd9",
+  "statement": "(6 * 72 = 2 ^ 4 * 3 ^ 3) ∧ (2 ^ 4 * 3 ^ 3 = 16 * 27) ∧ (7 * 6 = 42) ∧ ((2 ^ 4 * 3 ^ 3) % 7 = 5) ∧ (6 ∣ 2 ^ 4 * 3 ^ 3) ∧ (¬ (42 ∣ 2 ^ 4 * 3 ^ 3))",
+  "tactic": "refine ⟨by decide, by decide, by decide, by decide, ⟨72, by decide⟩, ?_⟩ exact not_dvd_of_bound 42 (2 ^ 4 * 3 ^ 3) (by decide) (by decide)",
+  "keys": [
+    "the_pair_grid_misses_the_seventh_factor_of_k432"
+  ],
+  "files": [
+    "Links.lean"
+  ]
+}

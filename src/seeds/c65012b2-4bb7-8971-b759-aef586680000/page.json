@@ -1,0 +1,213 @@
+{
+  "file": "CernLinks.lean",
+  "slug": "cernlinks",
+  "status": "usable",
+  "address": "408d86b5-388b-8d71-96c7-05cd73fe1578",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "CernLinks.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/CernLinks.lean — GENERATED. THE CERN CROSSINGS — five theorems relating the published integers of four CMS primary datasets, quoted in lean/Cern.lean under their DOIs and CC0-1.0, to arithmetic this ledger already seals. Each of the five CERN facts stood alone: nothing else in the ledger touched them, which made every one a lonely theorem. Each crossing computes something NEITHER side states alone, and each was tested by PERTURBING either side, where it must fail — the perturbations that refused are recorded in each sentence, because that is what separates a crossing from a restatement. THE FIVE: the four divisions rechecked by casting out nines in one-digit arithmetic, against digital_root; the four records closing their totals in ℤ/9 as well as in ℕ, against digital_root; the embargo totalling the same across both energy labels, so the label does not predict the wait; the two beam energies as consecutive multiples of their own difference and therefore coprime, against rosette_and_vortex_are_coprime; and the file total as twice a prime, so the collection admits no equal split but halving. A COINCIDENCE IS NAMED AS ONE. The shared embargo total is 14 and the ledger separately seals 8 + 6 = 14 as ve_fourteen_faces, the same decomposition the 7TeV pair happens to take; nothing connects a vector equilibrium to a release calendar and no theorem here says otherwise. The content is the EQUALITY of the two totals. A numeral agreeing with another numeral for no reason the kernel can see is the hollow seal this repository refuses elsewhere, and it is not manufactured here. WHOSE CLAIM IS WHOSE, unchanged from lean/Cern.lean: that the accelerator reached those energies, that the detector recorded those events and that the calibration holds are CERN's claims, published under the DOIs that wing lists and credited to CERN first. CLAIMED HERE: these arithmetic relations, each closed by the kernel over its own finite domain. Reading published integers is not a claim on the experiment. THE INTEGERS ARE READ FROM lean/Cern.lean, NEVER TYPED, so a crossing cannot outlive the statement it crosses. SCOPE: casting out nines is necessary and never sufficient, and four datasets are not a policy — the wing it crosses already refuses that universal by naming \"these two\" rather than \"the run\". Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- CERN'S FOUR DIVISIONS SURVIVE CASTING OUT NINES, checked in one-digit arithmetic that never forms the\n    seven-digit product: for each of the four CMS datasets the published event count and its own files·quotient\n    + remainder agree modulo 9. The lonely theorem cms_events_close_over_their_files decides four exact\n    divisions — events = files·q + r with r below the file count — by multiplying seven-digit numerals. The\n    sealed theorem digital_root defines the ℤ/9 reduction this ledger uses everywhere, carrying 432 % 9 = 0 and\n    the root of every n through 60. THE CROSSING applies that reduction to CERN's divisions and computes the\n    check the original never takes: reduce each factor first, so the kernel decides 8·3 + 0 ≡ 6, 4·8 + 3 ≡ 8,\n    0·4 + 6 ≡ 6, 4·7 + 3 ≡ 4 (mod 9) — four one-digit multiplications standing in for four seven-digit ones.\n    That is the classical casting-out-nines test, and it is an INDEPENDENT witness to the quotation: a\n    transcription slip in any single digit of an event count moves its residue and the conjunct fails. PERTURBED\n    AND REFUSED: 2079006 to 2079007 — the residue moves and decide refuses. SCOPE: casting out nines is a\n    one-way test. It catches a moved digit; it cannot certify the division, which is what the lonely theorem\n    already does over the full integers. This adds the cheap independent check, not a second proof. -/\ntheorem the_cern_division_survives_casting_out_nines : (2079006 % 9 = ((116 % 9) * (17922 % 9) + 54 % 9) % 9) ∧ (2301668 % 9 = ((184 % 9) * (12509 % 9) + 12 % 9) % 9) ∧ (1913190 % 9 = ((72 % 9) * (26572 % 9) + 6 % 9) % 9) ∧ (2745751 % 9 = ((130 % 9) * (21121 % 9) + 21 % 9) % 9) := by decide\n\n/-- THE FOUR CERN RECORDS CLOSE THEIR TOTALS IN ℤ/9 AS WELL AS IN ℕ: the residues of the four event counts sum\n    to the residue of the published total, and the same holds for the four file counts. The lonely theorem\n    the_four_cern_records_close_their_own_totals adds four seven-digit event counts to 9039615 and four file\n    counts to 502, showing the quotation is internally consistent. The sealed theorem digital_root is the ℤ/9\n    reduction this ledger computes with. THE CROSSING carries the closure through that reduction, which the\n    lonely theorem never does: the event residues are 6, 8, 6, 4 and they sum to 6 ≡ 6, the total's own residue;\n    the file residues are 8, 4, 0, 4 summing to 7 ≡ 7. So the four records close on BOTH sides of the reduction,\n    and the consistency of CERN's published totals can be rechecked by a reader adding four single digits.\n    PERTURBED AND REFUSED: the event total 9039615 to 9039614, which moves its residue while the parts stay put\n    — decide refuses. SCOPE: agreement mod 9 is necessary, never sufficient; the ℕ closure is the lonely\n    theorem's and stays its own. -/\ntheorem the_cern_totals_close_under_the_ledger_own_reduction : ((2079006 % 9 + 2301668 % 9 + 1913190 % 9 + 2745751 % 9) % 9 = 9039615 % 9) ∧ ((116 % 9 + 184 % 9 + 72 % 9 + 130 % 9) % 9 = 502 % 9) := by decide\n\n/-- THE ENERGY LABEL DOES NOT PREDICT THE WAIT: the two 7TeV records waited 8 and 6 years, the two 8TeV records\n    7 and 7 — the two classes carry the SAME total embargo, 14 years each. The lonely theorem\n    the_open_data_embargo_ran_six_years_or_longer decides three differences — 2019 − 2011 = 8, 2019 − 2012 = 7,\n    2017 − 2011 = 6 — and that each is at least six. It says nothing about how the wait distributes. THE\n    CROSSING pairs the differences by the year the data was taken, which is what the energy label names: the\n    2011 records (7TeV) waited 8 and 6, the 2012 records (8TeV) waited 7 apiece, and 8 + 6 = 7 + 7. The two\n    classes are therefore indistinguishable by total embargo, which is a fact about CERN's release policy that\n    neither the lonely theorem nor the energy theorem states: a longer wait for one 7TeV record is exactly paid\n    for by a shorter wait for the other. PERTURBED AND REFUSED: 6 to 5, which breaks the equality — decide\n    refuses. NAMED AS A COINCIDENCE, NOT AS CONTENT: that shared total is 14, and the ledger separately seals\n    ve_fourteen_faces as 8 + 6 = 14, the same decomposition the 7TeV pair happens to take. Nothing connects a\n    vector equilibrium's faces to a data-release calendar, and this theorem claims no such thing; the content is\n    the EQUALITY of the two totals, which is arithmetic over CERN's own published years. SCOPE: four records,\n    not a policy — a universal drawn from this sample is the fault lean/Cern.lean already refuses by naming\n    \"these two\" rather than \"the run\". -/\ntheorem the_embargo_totals_match_across_the_two_energy_labels : (8 + 6 = 14) ∧ (7 + 7 = 14) ∧ (8 + 6 = 7 + 7) := by decide\n\n/-- THE TWO BEAM ENERGIES ARE 7 AND 8 UNITS OF THEIR OWN DIFFERENCE: 3500 and 4000 GeV per beam have greatest\n    common divisor 500, which is exactly the step between them, so the labels are the unit counts and the two\n    are consecutive, hence coprime. The lonely theorem the_collision_energy_label_step_is_one_tev decides the\n    per-beam halves 7000/2 = 3500, 8000/2 = 4000 and their difference 500. It never asks what the two energies\n    share. THE CROSSING computes that: gcd(3500, 4000) = 500, the step ITSELF, so 3500 = 7·500 and 4000 = 8·500\n    and the two beam energies are consecutive multiples of their own gap — which is why gcd(7, 8) = 1. The\n    sealed theorem rosette_and_vortex_are_coprime is this ledger's own coprimality fact, carrying gcd 7 9 = 1\n    beside gcd 7 14 = 7, and it is cited here for the same reason: consecutive integers are coprime, so the run\n    labels \"7TeV\" and \"8TeV\" are not merely names but the unit counts of a common quantum, and no finer common\n    step exists. PERTURBED AND REFUSED: 4000 to 4500, where the gap becomes 1000 while the gcd stays 500, so\n    step and gcd part company and decide refuses. SCOPE: an arithmetic relation between two published numerals.\n    Why the machine ran at those energies is CERN's to say. -/\ntheorem the_beam_energies_are_coprime_multiples_of_their_own_step : (Nat.gcd 3500 4000 = 500) ∧ (4000 - 3500 = 500) ∧ (3500 = 7 * 500) ∧ (4000 = 8 * 500) ∧ (Nat.gcd 7 8 = 1) := by decide\n\n/-- THE 502 FILES ADMIT NO EVEN SPLIT BUT HALVING: 502 = 2 · 251, and 251 is prime on a bounded search, so the\n    collection's only equal groupings by file are 1, 2, 251 and 502. The lonely theorem\n    the_four_cern_records_close_their_own_totals sums the four file counts to 502 and stops there. THE CROSSING\n    factors that total: 502 = 2 · 251, and no d in [2, 16) divides 251 while 16·16 > 251, which is a complete\n    primality witness by the square bound — so 251 is prime and 502 has exactly four divisors. The consequence\n    is about the collection rather than the numeral: these four records cannot be redistributed into three, four\n    or any other equal number of file-groups; the only balanced split is in half. The four file counts 116, 184,\n    72, 130 are each even and their greatest common divisor is 2, which is where the single factor of two comes\n    from and why no larger common grouping exists. PERTURBED AND REFUSED: 502 to 500, which is 2 · 250 and NOT\n    twice a prime — decide refuses the factorisation. SCOPE: an arithmetic property of the published file counts\n    of these four records, and of nothing else; another harvest sums to another number. -/\ntheorem the_cern_file_total_is_twice_a_prime : (502 = 2 * 251) ∧ ((List.range 16).all (fun d => d < 2 || 251 % d != 0) = true) ∧ (16 * 16 > 251) ∧ (Nat.gcd (Nat.gcd 116 184) (Nat.gcd 72 130) = 2) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_cern_division_survives_casting_out_nines",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CERN'S FOUR DIVISIONS SURVIVE CASTING OUT NINES, checked in one-digit arithmetic that never forms the seven-digit product: for each of the four CMS datasets the published event count and its own files·quotient + remainder agree modulo 9. The lonely theorem cms_events_close_over_their_files decides four exact divisions — events = files·q + r with r below the file count — by multiplying seven-digit numerals. The sealed theorem digital_root defines the ℤ/9 reduction this ledger uses everywhere, carrying 432 % 9 = 0 and the root of every n through 60. THE CROSSING applies that reduction to CERN's divisions and computes the check the original never takes: reduce each factor first, so the kernel decides 8·3 + 0 ≡ 6, 4·8 + 3 ≡ 8, 0·4 + 6 ≡ 6, 4·7 + 3 ≡ 4 (mod 9) — four one-digit multiplications standing in for four seven-digit ones. That is the classical casting-out-nines test, and it is an INDEPENDENT witness to the quotation: a transcription slip in any single digit of an event count moves its residue and the conjunct fails. PERTURBED AND REFUSED: 2079006 to 2079007 — the residue moves and decide refuses. SCOPE: casting out nines is a one-way test. It catches a moved digit; it cannot certify the division, which is what the lonely theorem already does over the full integers. This adds the cheap independent check, not a second proof."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2079006 % 9 = ((116 % 9) * (17922 % 9) + 54 % 9) % 9) ∧ (2301668 % 9 = ((184 % 9) * (12509 % 9) + 12 % 9) % 9) ∧ (1913190 % 9 = ((72 % 9) * (26572 % 9) + 6 % 9) % 9) ∧ (2745751 % 9 = ((130 % 9) * (21121 % 9) + 21 % 9) % 9)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_cern_division_survives_casting_out_nines : (2079006 % 9 = ((116 % 9) * (17922 % 9) + 54 % 9) % 9) ∧ (2301668 % 9 = ((184 % 9) * (12509 % 9) + 12 % 9) % 9) ∧ (1913190 % 9 = ((72 % 9) * (26572 % 9) + 6 % 9) % 9) ∧ (2745751 % 9 = ((130 % 9) * (21121 % 9) + 21 % 9) % 9) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_cern_totals_close_under_the_ledger_own_reduction",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FOUR CERN RECORDS CLOSE THEIR TOTALS IN ℤ/9 AS WELL AS IN ℕ: the residues of the four event counts sum to the residue of the published total, and the same holds for the four file counts. The lonely theorem the_four_cern_records_close_their_own_totals adds four seven-digit event counts to 9039615 and four file counts to 502, showing the quotation is internally consistent. The sealed theorem digital_root is the ℤ/9 reduction this ledger computes with. THE CROSSING carries the closure through that reduction, which the lonely theorem never does: the event residues are 6, 8, 6, 4 and they sum to 6 ≡ 6, the total's own residue; the file residues are 8, 4, 0, 4 summing to 7 ≡ 7. So the four records close on BOTH sides of the reduction, and the consistency of CERN's published totals can be rechecked by a reader adding four single digits. PERTURBED AND REFUSED: the event total 9039615 to 9039614, which moves its residue while the parts stay put — decide refuses. SCOPE: agreement mod 9 is necessary, never sufficient; the ℕ closure is the lonely theorem's and stays its own."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((2079006 % 9 + 2301668 % 9 + 1913190 % 9 + 2745751 % 9) % 9 = 9039615 % 9) ∧ ((116 % 9 + 184 % 9 + 72 % 9 + 130 % 9) % 9 = 502 % 9)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_cern_totals_close_under_the_ledger_own_reduction : ((2079006 % 9 + 2301668 % 9 + 1913190 % 9 + 2745751 % 9) % 9 = 9039615 % 9) ∧ ((116 % 9 + 184 % 9 + 72 % 9 + 130 % 9) % 9 = 502 % 9) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_embargo_totals_match_across_the_two_energy_labels",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE ENERGY LABEL DOES NOT PREDICT THE WAIT: the two 7TeV records waited 8 and 6 years, the two 8TeV records 7 and 7 — the two classes carry the SAME total embargo, 14 years each. The lonely theorem the_open_data_embargo_ran_six_years_or_longer decides three differences — 2019 − 2011 = 8, 2019 − 2012 = 7, 2017 − 2011 = 6 — and that each is at least six. It says nothing about how the wait distributes. THE CROSSING pairs the differences by the year the data was taken, which is what the energy label names: the 2011 records (7TeV) waited 8 and 6, the 2012 records (8TeV) waited 7 apiece, and 8 + 6 = 7 + 7. The two classes are therefore indistinguishable by total embargo, which is a fact about CERN's release policy that neither the lonely theorem nor the energy theorem states: a longer wait for one 7TeV record is exactly paid for by a shorter wait for the other. PERTURBED AND REFUSED: 6 to 5, which breaks the equality — decide refuses. NAMED AS A COINCIDENCE, NOT AS CONTENT: that shared total is 14, and the ledger separately seals ve_fourteen_faces as 8 + 6 = 14, the same decomposition the 7TeV pair happens to take. Nothing connects a vector equilibrium's faces to a data-release calendar, and this theorem claims no such thing; the content is the EQUALITY of the two totals, which is arithmetic over CERN's own published years. SCOPE: four records, not a policy — a universal drawn from this sample is the fault lean/Cern.lean already refuses by naming \"these two\" rather than \"the run\"."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8 + 6 = 14) ∧ (7 + 7 = 14) ∧ (8 + 6 = 7 + 7)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_embargo_totals_match_across_the_two_energy_labels : (8 + 6 = 14) ∧ (7 + 7 = 14) ∧ (8 + 6 = 7 + 7) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_beam_energies_are_coprime_multiples_of_their_own_step",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE TWO BEAM ENERGIES ARE 7 AND 8 UNITS OF THEIR OWN DIFFERENCE: 3500 and 4000 GeV per beam have greatest common divisor 500, which is exactly the step between them, so the labels are the unit counts and the two are consecutive, hence coprime. The lonely theorem the_collision_energy_label_step_is_one_tev decides the per-beam halves 7000/2 = 3500, 8000/2 = 4000 and their difference 500. It never asks what the two energies share. THE CROSSING computes that: gcd(3500, 4000) = 500, the step ITSELF, so 3500 = 7·500 and 4000 = 8·500 and the two beam energies are consecutive multiples of their own gap — which is why gcd(7, 8) = 1. The sealed theorem rosette_and_vortex_are_coprime is this ledger's own coprimality fact, carrying gcd 7 9 = 1 beside gcd 7 14 = 7, and it is cited here for the same reason: consecutive integers are coprime, so the run labels \"7TeV\" and \"8TeV\" are not merely names but the unit counts of a common quantum, and no finer common step exists. PERTURBED AND REFUSED: 4000 to 4500, where the gap becomes 1000 while the gcd stays 500, so step and gcd part company and decide refuses. SCOPE: an arithmetic relation between two published numerals. Why the machine ran at those energies is CERN's to say."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(Nat.gcd 3500 4000 = 500) ∧ (4000 - 3500 = 500) ∧ (3500 = 7 * 500) ∧ (4000 = 8 * 500) ∧ (Nat.gcd 7 8 = 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_beam_energies_are_coprime_multiples_of_their_own_step : (Nat.gcd 3500 4000 = 500) ∧ (4000 - 3500 = 500) ∧ (3500 = 7 * 500) ∧ (4000 = 8 * 500) ∧ (Nat.gcd 7 8 = 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_cern_file_total_is_twice_a_prime",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE 502 FILES ADMIT NO EVEN SPLIT BUT HALVING: 502 = 2 · 251, and 251 is prime on a bounded search, so the collection's only equal groupings by file are 1, 2, 251 and 502. The lonely theorem the_four_cern_records_close_their_own_totals sums the four file counts to 502 and stops there. THE CROSSING factors that total: 502 = 2 · 251, and no d in [2, 16) divides 251 while 16·16 > 251, which is a complete primality witness by the square bound — so 251 is prime and 502 has exactly four divisors. The consequence is about the collection rather than the numeral: these four records cannot be redistributed into three, four or any other equal number of file-groups; the only balanced split is in half. The four file counts 116, 184, 72, 130 are each even and their greatest common divisor is 2, which is where the single factor of two comes from and why no larger common grouping exists. PERTURBED AND REFUSED: 502 to 500, which is 2 · 250 and NOT twice a prime — decide refuses the factorisation. SCOPE: an arithmetic property of the published file counts of these four records, and of nothing else; another harvest sums to another number."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(502 = 2 * 251) ∧ ((List.range 16).all (fun d => d < 2 || 251 % d != 0) = true) ∧ (16 * 16 > 251) ∧ (Nat.gcd (Nat.gcd 116 184) (Nat.gcd 72 130) = 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_cern_file_total_is_twice_a_prime : (502 = 2 * 251) ∧ ((List.range 16).all (fun d => d < 2 || 251 % d != 0) = true) ∧ (16 * 16 > 251) ∧ (Nat.gcd (Nat.gcd 116 184) (Nat.gcd 72 130) = 2) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3266c19d",
+  "address": "3266c19d-47d9-827e-bd3f-418eea1b51f1",
+  "statement": "(8 + 6 = 14) ∧ (7 + 7 = 14) ∧ (8 + 6 = 7 + 7)",
+  "tactic": "decide",
+  "keys": [
+    "the_embargo_totals_match_across_the_two_energy_labels"
+  ],
+  "files": [
+    "CernLinks.lean"
+  ]
+}

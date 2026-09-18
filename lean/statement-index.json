@@ -1,8 +1,8 @@
 {
   "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
-  "distinct": 70914,
-  "keys": 70998,
-  "renamings": 84,
+  "distinct": 70932,
+  "keys": 71017,
+  "renamings": 85,
   "reuse": {
     "(1 * 1) % 9 = 1": [
       "mul9_1_1",
@@ -324,6 +324,10 @@
     "10 ^ 14 = 100000000000000": [
       "literature_sonnet_volume",
       "queneau_poems_are_ten_to_the_fourteen"
+    ],
+    "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n": [
+      "not_dvd_of_bound",
+      "not_dvd_of_bound_e92de628"
     ]
   },
   "wings": {
@@ -647,6 +651,10 @@
     "10 ^ 14 = 100000000000000": [
       "Queneau.lean",
       "Wave.lean"
+    ],
+    "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n": [
+      "Involutione92de628.lean",
+      "Links.lean"
     ]
   }
 }

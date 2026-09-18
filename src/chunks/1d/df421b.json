@@ -1,0 +1,12 @@
+{
+  "handle": "1ddf421b",
+  "address": "1ddf421b-e7d9-8c96-9dea-00caf78ce884",
+  "statement": "((2079006 % 9 + 2301668 % 9 + 1913190 % 9 + 2745751 % 9) % 9 = 9039615 % 9) ∧ ((116 % 9 + 184 % 9 + 72 % 9 + 130 % 9) % 9 = 502 % 9)",
+  "tactic": "decide",
+  "keys": [
+    "the_cern_totals_close_under_the_ledger_own_reduction"
+  ],
+  "files": [
+    "CernLinks.lean"
+  ]
+}

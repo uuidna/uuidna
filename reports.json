@@ -5,54 +5,54 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 70914,
-        "keys": 70998,
-        "renamings": 84,
-        "principles": 248,
-        "skills": 121,
+        "distinct": 70932,
+        "keys": 71017,
+        "renamings": 85,
+        "principles": 252,
+        "skills": 122,
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "e7dc02f3-f4e0-842c-acaf-6abeab82f97f"
+        "ledgerReceipt": "f149b5c5-d4b3-80b4-98d6-de810001716a"
       },
-      "address": "560917c7-a255-8110-a2f9-ce397af2c2f0"
+      "address": "f8a14f28-91d9-8495-8b75-1c7eefe5a9e7"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 70998,
-        "ledgerKeys": 70998,
+        "theoremsMeasured": 71017,
+        "ledgerKeys": 71017,
         "unmeasured": 0,
         "decideStepsHexbits": 6,
         "decideStepsBits": 27
       },
-      "address": "e116eb2f-bc54-8efc-b1eb-90b02673432c"
+      "address": "40da5e72-9abf-8c4a-b708-5f4675c14e43"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 248,
-        "sealedTheorems": 70998,
+        "publications": 252,
+        "sealedTheorems": 71017,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "277c130b-e546-8500-b26d-c7479b88f32a"
+      "address": "1a67e353-e600-8ae0-b3d3-d7f573f0cae3"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1346,
-        "roots": 837,
-        "supported": 1344,
+        "modules": 1353,
+        "roots": 844,
+        "supported": 1351,
         "dead": 2,
-        "receipt": "297a99fb-9242-87a1-b5c4-f26b593f6b9d"
+        "receipt": "8d0b4c59-6ee9-8797-89dd-8cd3266bf9ac"
       },
-      "address": "9eddde1d-a79a-8b4c-8e00-250cde8f7c00"
+      "address": "0e1bbaa9-436c-8cba-983f-eb25a4bd0fd2"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "308e328a56490e91",
-        "unifiedFold": "5ab9864309403b07",
+        "foldReceipt": "4ff2228b29325faf",
+        "unifiedFold": "062c85bee22751cc",
         "zeroEntropy": "true"
       },
-      "address": "5c7cf314-ff54-8e67-b352-0ed1f03685ab"
+      "address": "261721c7-a912-8219-8134-d5f287114953"
     },
     {
       "title": "Gate receipt",
@@ -94,74 +94,74 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 70998,
+        "captainClaimsTheorems": 71017,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 2,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "41c4f1e7-1007-80fc-ae7e-89f0c3980a87"
+      "address": "b7578f1c-0652-8415-988d-f075b21d6e40"
     }
   ],
-  "receipt": "d3702b1c-9904-87ba-a361-307c5a39b1ff",
-  "handle": "d3702b1c",
+  "receipt": "845e6366-7ebe-8c11-a24c-99f6c8299ec5",
+  "handle": "845e6366",
   "hexbits": [
-    13,
-    3,
-    7,
-    0,
-    2,
-    11,
-    1,
-    12,
-    9,
-    9,
-    0,
-    4,
     8,
-    7,
-    11,
-    10,
-    10,
+    4,
+    5,
+    14,
+    6,
     3,
     6,
-    1,
-    3,
-    0,
+    6,
     7,
-    12,
-    5,
-    10,
-    3,
-    9,
+    14,
     11,
-    1,
-    15,
-    15
-  ],
-  "door": "https://uuidna.com/d3702b1c",
-  "coin": [
-    13,
-    3,
-    7,
-    0,
-    2,
-    11,
-    1,
-    12,
-    9,
-    9,
-    0,
-    4,
+    14,
     8,
+    12,
+    1,
+    1,
+    10,
+    2,
+    4,
+    12,
+    9,
+    9,
+    15,
+    6,
+    12,
+    8,
+    2,
+    9,
+    9,
+    14,
+    12,
+    5
+  ],
+  "door": "https://uuidna.com/845e6366",
+  "coin": [
+    8,
+    4,
+    5,
+    14,
+    6,
+    3,
+    6,
+    6,
     7,
+    14,
     11,
-    10
+    14,
+    8,
+    12,
+    1,
+    1
   ],
   "place": {
-    "handle": "d3702b1c",
-    "value": 3547343644,
+    "handle": "845e6366",
+    "value": 2220778342,
     "span": 4294967296,
-    "residue": 7,
+    "residue": 1,
     "nilpotent": false,
     "hexbits": 8
   },

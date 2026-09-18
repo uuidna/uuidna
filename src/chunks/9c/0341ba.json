@@ -1,0 +1,12 @@
+{
+  "handle": "9c0341ba",
+  "address": "9c0341ba-0c4d-8f10-bfbb-7d285f94fd79",
+  "statement": "pairGrid = 7 * 7 - 7 ∧ pairGrid = 7 * 6 ∧ fullGrid historicalWings = 2 ^ 4 * 3 ^ 3 ∧ fullGrid historicalWings = 16 * 27 ∧ Nat.gcd (7 * 7 - 7) (2 ^ 4 * 3 ^ 3) = projected.length ∧ Nat.gcd (7 * 6) (16 * 27) = projected.length",
+  "tactic": "decide",
+  "keys": [
+    "the_grid_widths_are_the_sealed_fortytwo_and_k432"
+  ],
+  "files": [
+    "Links.lean"
+  ]
+}

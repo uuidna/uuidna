@@ -1,0 +1,12 @@
+{
+  "handle": "16f92991",
+  "address": "16f92991-3268-8a94-a8fc-ba107f4fc548",
+  "statement": "((List.range 10).filter (fun s => ([s, dz s]).eraseDups.length != 2) = [0, 5]) ∧ ((List.range 10).filter (fun s => dz s == s) = [0, 5]) ∧ ((List.range 10).filter (fun s => (dz s == s) && (dbl s == s)) = [0]) ∧ (dz 0 = 0) ∧ (dbl 0 = 0) ∧ (dz 5 = 5) ∧ (dbl 5 = 1) ∧ (((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9)",
+  "tactic": "decide",
+  "keys": [
+    "the_barren_claim_fails_exactly_at_the_dz_fixed_points"
+  ],
+  "files": [
+    "Links.lean"
+  ]
+}
