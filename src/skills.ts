@@ -40,6 +40,17 @@ const HONEST =
 
 /** The tool names that must serve the capability axis, on BOTH surfaces (the stdio catalogue and the hosted edge).
  *  Named here rather than in either server, so the finder holds one list against two registrations. */
+/** INLINE_SKILL — the one reading of a wing's `-- @skill:` marker, shared by the ledger that consumes it and the
+ *  gate that enforces it. It was written twice, and the two drifted the moment the marker had to move: a theorem
+ *  needs its `/-- … -/` adjacent or the prose census reads it as undocumented, so the marker sits ABOVE the doc
+ *  comment and the ledger learned to look past it while the gate did not, and reported a skill it had just read
+ *  (2026-09-18). One definition, imported by both. */
+export const INLINE_SKILL = /--\s*@skill:\s*([\w-]+)\s*\n(?:\s*\/--[\s\S]*?-\/\s*\n)?\s*theorem\s+(\w+)/g
+
+/** inlineSkillsOf(text) → every [theoremKey, skill] a wing authors inline. */
+export const inlineSkillsOf = (text: string): [string, string][] =>
+  [...text.matchAll(INLINE_SKILL)].map((m) => [m[2]!, m[1]!])
+
 export const SKILL_TOOLS: readonly string[] = ['uuidna_skill', 'uuidna_skills']
 
 /** The searchable phrase for a skill key — the cluster names are hyphenated (`z9-ring`, `science-pairs`), and a

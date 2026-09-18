@@ -8,6 +8,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems } from './index.js'
+import { inlineSkillsOf } from './skills.js'
 import { ROOT } from './boundary.js'
 
 const LEAN = join(ROOT, 'lean')
@@ -20,7 +21,7 @@ test('every theorem carries an INLINE-authored skill — skillOf is retired (0 f
         if (e.skill) authored.add(e.key)
       }
     } else if (f.endsWith('.lean')) {
-      for (const mm of readFileSync(join(LEAN, f), 'utf8').matchAll(/--\s*@skill:\s*([\w-]+)\s*\n\s*theorem\s+(\w+)/g)) authored.add(mm[2])
+      for (const [key] of inlineSkillsOf(readFileSync(join(LEAN, f), 'utf8'))) authored.add(key)
     }
   }
   const fallback = theorems().filter((t) => !authored.has(t.key))

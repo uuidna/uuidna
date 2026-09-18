@@ -19509,7 +19509,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"d174c86e\",\"theorems\":{\"count\":71017,\"verified\":71017,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\"},\"domains\":{\"count\":122,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"a592ac3b\",\"theorems\":{\"count\":71017,\"verified\":71017,\"receipt\":\"f149b5c5-d4b3-80b4-98d6-de810001716a\"},\"domains\":{\"count\":122,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {

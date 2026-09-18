@@ -226,6 +226,22 @@ export const returnsOf = (s: Shape | undefined, cap = 64): string => {
 }
 
 /** One tool's computed documentation, as scripts/gen-mcp-docs records it (src/mcp-docs.generated.ts). */
+/** excerptOf(answer) → the short mention of a tool's answer that gets recorded and later replayed.
+ *
+ *  ONE DEFINITION, BECAUSE IT IS COMPARED AGAINST ITSELF. gen-mcp-docs clipped AND stripped markup here; the gate
+ *  that replays it clipped only. So every tool whose answer carries markup was recorded as one thing and checked
+ *  as another and could never reproduce: uuidna_render answers a <article…> card, which stripped to '' — recorded
+ *  as answering nothing — and uuidna_hero_animation answers {"svg":"<svg …>…}, whose whole first clip is one
+ *  opening tag, leaving the 8 characters `{"svg":"`. Both sat red in the suite against tools that were working
+ *  perfectly (2026-09-18). The stripping is kept — an excerpt is a mention, and a clip through markup leaves open
+ *  tags this module does not emit — but it now happens in exactly one place, so the two sides cannot drift again. */
+export const excerptOf = (v: unknown): string => {
+  const canon = (x: unknown): string => { try { return JSON.stringify(x) ?? String(x) } catch { return String(x) } }
+  const s = typeof v === 'string' ? v : canon(v)
+  const clipped = s.length > 160 ? s.slice(0, 159) + '…' : s
+  return clipped.replace(/<[^>]*>/g, '').replace(/<[^>]*$/g, '')
+}
+
 export interface ToolDoc {
   name: string
   title: string

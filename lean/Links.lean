@@ -94,6 +94,7 @@ def fullGrid (wings : Nat) : Nat := projected.length * wings
 /-- The lead's own wing count. -/
 def historicalWings : Nat := 72
 
+-- @skill: links
 /-- THE BOUNDED SEARCH FOR NON-DIVISIBILITY, restated from Involutione92de628.lean so the two facts that use it
     share one copy. It is stated here and not inside a fact because a proof written twice is a proof that drifts
     once. The kernel's own decision procedure for the divides relation borrows propext (measured: every by-decide

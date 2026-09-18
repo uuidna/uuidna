@@ -90,12 +90,20 @@ test('a SEED handle is content-derived — one version, one address', () => {
   // share a handle only when their full names differ in exactly one character, by exactly one bit.
   const byPrefix = new Map<string, string[]>()
   for (const d of seeds) byPrefix.set(d.slice(0, 8), [...(byPrefix.get(d.slice(0, 8)) ?? []), d])
-  const notPairs = [...byPrefix.values()].filter((g) => g.length === 2).filter(([a, b]) => {
-    const at = [...a!].map((c, i) => (c === b![i] ? -1 : i)).filter((i) => i >= 0)
-    return at.length !== 1 || (parseInt(a![at[0]!]!, 16) ^ parseInt(b![at[0]!]!, 16)) !== 1
+  // THE LAW IS THE PROPERTY, NOT ITS PROXY. This asked whether two shared names differ by exactly one BIT, which
+  // was equivalent while only draft (000) and usable (001) existed. Retiring a superseded version writes the third
+  // status (010), so usable→retired differs by two bits and read as a defect — while being exactly the thing the
+  // allowance exists for: identical content under a different status (2026-09-18). So the check now decodes both
+  // and asserts what the proxy stood for. It is not a loosening: a shared handle must carry the SAME content and
+  // the SAME wing, and each version in the group must hold a DISTINCT status, which the bit test never verified.
+  const notPairs = [...byPrefix.values()].filter((g) => g.length > 1).filter((g) => {
+    const ids = g.map((d) => readSeed(d))
+    const sameContent = ids.every((i) => i.content64 === ids[0]!.content64 && i.stem32 === ids[0]!.stem32)
+    return !sameContent || new Set(ids.map((i) => i.status)).size !== g.length
   }).map((g) => g.join(' | '))
-  assert.deepEqual(notPairs, [], `${distinct} handles for ${seeds.length} seeds: a shared handle that is not a draft/usable pair`)
-  assert.ok(worst <= 2, `worst bucket ${worst}: a handle addressing more than a draft/usable pair is a stem bucket again`)
+  assert.deepEqual(notPairs, [], `${distinct} handles for ${seeds.length} seeds: a shared handle whose versions are not one content under distinct statuses`)
+  // at most one version per status, so the ceiling is the number of statuses — never a stem bucket again
+  assert.ok(worst <= 3, `worst bucket ${worst}: a handle addressing more than one version per status is a stem bucket again`)
   // and every seed still decodes to a full identity, which is what makes the reordering free
   for (const d of seeds.slice(0, 50)) {
     const id = readSeed(d)

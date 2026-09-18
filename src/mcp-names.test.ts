@@ -13,7 +13,7 @@ import { join } from 'node:path'
 import { MCP_CATALOG, MCP_LISTED, STANDARD_NAMES, callTool, resolveToolName, hostHardware } from './mcp.js'
 import { handleMcpRpc, mcpHttpToolNames } from './mcp-http.js'
 import { MCP_DOCS, MCP_DOCS_BROKEN } from './mcp-docs.generated.js'
-import { RENAMES, VERBS, annotationsOf, derivedName, standardNames, wireLineOf, wordsOf, type NameInput } from './mcp-names.js'
+import { RENAMES, VERBS, annotationsOf, derivedName, standardNames, wireLineOf, wordsOf, type NameInput, excerptOf } from './mcp-names.js'
 import { DOOR, DOOR_NAME, isDoorTool } from './mcp-door.js'
 import { effectReader, toolRunsOf } from './scripts/mcp-effects.js'
 import { ROOT } from './scripts/api.js'
@@ -142,8 +142,8 @@ test('THE DOCS REPRODUCE: each documented example answers today what was recorde
     let v = callTool(c.name, structuredClone(d.example.args), { hardware: hostHardware })   // the context the stdio server hands every call, as the generator did
     if (v && typeof (v as { then?: unknown }).then === 'function') v = await v
     const s = typeof v === 'string' ? v : JSON.stringify(v)
-    const excerpt = s.length > 160 ? s.slice(0, 159) + '…' : s
-    assert.equal(excerpt, d.example.excerpt, `${c.name}: the recorded example no longer reproduces — run gen-mcp-docs`)
+    // the SAME excerpt the generator recorded — one definition, imported, never a second clip written here
+    assert.equal(excerptOf(v), d.example.excerpt, `${c.name}: the recorded example no longer reproduces — run gen-mcp-docs`)
     checked++
   }
   assert.ok(checked > 150, `only ${checked} examples reproduced`)

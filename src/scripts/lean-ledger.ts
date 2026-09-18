@@ -12,6 +12,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { LeanTheorem } from '../theorems/generated.js'
 import { ROOT } from './api.js'
+import { inlineSkillsOf } from '../skills.js'
 
 const LEAN_DIR = join(ROOT, 'lean')
 
@@ -213,7 +214,10 @@ for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('-manifest.json')
 // generated files. Same single-source principle; the annotation is a comment, so the proof is untouched.
 const inlineSkill: Record<string, string> = {}
 for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')))
-  for (const mm of readFileSync(join(LEAN_DIR, f), 'utf8').matchAll(/--\s*@skill:\s*([\w-]+)\s*\n\s*theorem\s+(\w+)/g)) inlineSkill[mm[2]] = mm[1]
+  // ONE READING, shared with the gate that enforces it (src/skills.ts). It was written twice and the copies drifted
+  // the moment the marker had to move above a doc comment — the ledger learned to look past it, the gate did not,
+  // and a skill the ledger had just recorded was reported missing (2026-09-18).
+  for (const [key, skill] of inlineSkillsOf(readFileSync(join(LEAN_DIR, f), 'utf8'))) inlineSkill[key] = skill
 
 // THE STOP MUST KNOW A DOC COMMENT WHEN IT SEES ONE. This lookahead ended a theorem at a line opening with
 // `--`, but Lean doc comments open with `/--`, so 1320 of 1440 tactics swallowed the NEXT theorem's doc comment

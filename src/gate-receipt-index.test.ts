@@ -41,7 +41,14 @@ test('planTestRun — absent receipt plans full suite', () => {
 test('every caller of gate-receipt passes --verified, and derives the list from the run', () => {
   const src = readFileSync(join(ROOT, 'src', 'scripts', 'next.ts'), 'utf8')
   const calls = [...src.matchAll(/gate-receipt\.js([^`'"]*)/g)].map((m) => m[1] ?? '')
-  assert.ok(calls.length >= 2, 'next has a fast path and a full path; both mint')
+  // THE LAW IS "EVERY CALLER PASSES --verified", NOT "THERE ARE TWO CALLERS". This asserted both paths mint, which
+  // was true when the hardening landed; the fast path has since been taught NOT to recompute — `gate-receipt
+  // --verify gathered heat (drift_is_named_or_caught); it stays on land, off this path` — so it is no longer a
+  // caller at all and the count read as a regression while the actual defect (a caller invoking the minter bare)
+  // was absent. The count is replaced by the two things that matter: something mints, and the skip stays NAMED,
+  // so a silent removal of the minting call still fails here (2026-09-18).
+  assert.ok(calls.length >= 1, 'the minting path must still call gate-receipt')
+  assert.match(src, /skip gate-receipt --verify/, 'the fast path may decline to mint only while it says so in the open')
   for (const args of calls)
     assert.match(args, /--verified/, 'a bare gate-receipt write is refused by the minter — pass what ran')
   // AND THE LIST IS PARSED, NEVER TYPED. A literal here rebuilds the exact defect the hardening removed, by

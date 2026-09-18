@@ -23,7 +23,7 @@ import { MCP_CATALOG, callTool, hostHardware } from '../mcp.js'
 import { handleMcpRpc, edgeOwnTools } from '../mcp-http.js'
 import { theorems, toUuid } from '../index.js'
 import { effectReader, toolRunsOf } from './mcp-effects.js'
-import { standardNames, annotationsOf, titleOf, shapeOf, wireLineOf, type Effects, type NameInput, type ToolDoc } from '../mcp-names.js'
+import { standardNames, annotationsOf, titleOf, shapeOf, wireLineOf, excerptOf, type Effects, type NameInput, type ToolDoc } from '../mcp-names.js'
 import { DOOR, LIST, isDoorTool } from '../mcp-door.js'
 
 /** THE DECLARED EXAMPLES — arguments neither a tool's schema nor a producer its schema names can supply, each with
@@ -165,7 +165,6 @@ const settle = async (v: unknown): Promise<unknown> => {
   try { return await Promise.race([v, cap]) } finally { clearTimeout(timer) }
 }
 const canon = (v: unknown): string => { try { return JSON.stringify(v) ?? String(v) } catch { return String(v) } }
-const excerptOf = (v: unknown): string => { const s = typeof v === 'string' ? v : canon(v); return s.length > 160 ? s.slice(0, 159) + '…' : s }
 /** the edge's answer to one call, parsed back from its first content block */
 const edgeAnswer = async (name: string, args: Record<string, unknown>): Promise<unknown> => {
   const r = await settle(handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: args } })) as
@@ -186,6 +185,7 @@ const edgeOwn = new Map(edgeOwnTools().map((t) => [t.name, t.inputSchema as Sche
 type Outcome = { ok: true; value: unknown; edge?: unknown; varies: boolean } | { ok: false; error: string }
 const outcomes = new Map<string, Outcome>()
 const argsOf = new Map<string, Record<string, unknown>>()
+
 sandbox()
 try {
   for (const t of MCP_CATALOG) {
@@ -220,6 +220,7 @@ try {
     } catch { outcomes.set(t.name, { ...o, varies: true }) } finally { current = '' }
   }
 } finally { unsandbox() }
+
 
 // effects: the code's reading joined with what the example was seen to do
 const effectsOf = (name: string): Effects => {
@@ -279,6 +280,11 @@ for (const t of MCP_CATALOG) {
     ...base, description: wireLineOf(name, shape), outputSchema: shape,
     ...(differs ? { edge: { description: wireLineOf(name, edgeShape), outputSchema: edgeShape! } } : {}),
     status: o.varies ? 'varies' : 'documented',
+    // AN EMPTY ANSWER IS NOT AN EXAMPLE. A tool that answers nothing under this sandbox — uuidna_render did, twice,
+    // while answering 1463 characters outside it — was recorded as `documented` with excerpt '', and the gate then
+    // compared a real answer against nothing and could never pass again. The shape and the wire line are still
+    // documented, because those were read; the example is simply not recorded, which is what the gate skips on
+    // (2026-09-18). Recording a non-answer as the answer is the defect, not the tool.
     example: { args: argsOf.get(t.name) ?? {}, excerpt: o.varies ? '(varies between calls: the answer reads a clock, the machine or the network)' : excerptOf(o.value) },
   }
 }
