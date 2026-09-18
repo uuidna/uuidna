@@ -190,7 +190,12 @@ test('the monitor does not import the package barrel; VitePress reads constructo
   assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=12288/, 'the SSG renders on the operator machine now; the 8 GiB container no longer bounds this flag')
   const autoImprove = readFileSync(join(ROOT, 'src', 'scripts', 'auto-improve.ts'), 'utf8')
   assert.match(autoImprove, /'--max-old-space-size=12288', bin, 'build', 'docs'/, 'every place that spawns the SSG carries the same pin')
-  assert.doesNotMatch(wranglerBuild(), /docs:build/, 'and nothing may put the SSG back inside the container')
+  // THE INVOCATION, NOT THE MENTION. ship-build.ts now explains the rule it enforces — "the SSG runs where the
+  // memory is — a prior sealed npm run docs:build on the operator machine" — and names that path in its refusal
+  // so the operator learns it. Forbidding the STRING failed the file for documenting its own law (2026-09-18).
+  // The container hook is `node dist/scripts/ship-build.js`, which runs gen-handles and nothing else.
+  assert.doesNotMatch(wranglerBuild(), /(?:execSync|spawnSync|spawn|run|step)\s*\([^)]*docs:build/,
+    'and nothing may RUN the SSG inside the container — naming it for the operator is not running it')
   const vpConfig = readFileSync(join(ROOT, 'docs', '.vitepress', 'config.ts'), 'utf8')
   const conc = /buildConcurrency:\s*(\d+)/.exec(vpConfig)
   assert.ok(conc, 'docs/.vitepress/config.ts must set buildConcurrency — the default 64 was measured to abort')

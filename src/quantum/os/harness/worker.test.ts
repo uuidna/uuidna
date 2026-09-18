@@ -123,14 +123,27 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
 // serving links VitePress could not resolve, and dead links are not ignored here.
 test('the [build] hook verifies the site and never pays the SSG inside the container', () => {
   const ship = readFileSync(join(ROOT, 'src', 'scripts', 'ship-build.ts'), 'utf8')
-  assert.doesNotMatch(ship, /docs:build/, 'the container cannot afford the SSG; a hook that runs it can only OOM')
+  // THE LAW IS "THE HOOK MAY NOT RUN IT", NOT "THE FILE MAY NOT SAY IT". This forbade the STRING, so the file
+  // could not explain the rule it enforces: ship-build now carries the comment "the SSG runs where the memory is —
+  // a prior sealed npm run docs:build on the operator machine" and the refusal message "IF YOU ARE THE OPERATOR:
+  // npm run docs:build …, then npm run ship". Both are prose telling a human what to do ELSEWHERE, and forbidding
+  // them made the guard fire on its own documentation (2026-09-18). What may never appear is an INVOCATION.
+  assert.doesNotMatch(ship, /(?:execSync|spawnSync|spawn|run)\s*\([^)]*docs:build/,
+    'the container cannot afford the SSG; a hook that RUNS it can only OOM — naming it for the operator is not running it')
+  // CONTROL: the shape this forbids must actually be caught
+  assert.match("execSync('npm run docs:build')", /(?:execSync|spawnSync|spawn|run)\s*\([^)]*docs:build/)
+  assert.doesNotMatch("console.error('run npm run docs:build first')", /(?:execSync|spawnSync|spawn|run)\s*\([^)]*docs:build/)
   assert.match(ship, /existsSync/, '"built" must be a READING of the dist, never an assumption from an env flag')
   assert.match(ship, /process\.exit\(1\)/, 'an absent dist is a named refusal in milliseconds, not a 20-minute OOM')
   assert.match(ship, /npm run ship/, 'the refusal must name the path that works')
   assert.match(ship, /gen-handles/, 'a verified site still seals its handles')
   // PUSH-PATH VERIFY of a prior SSG; docs:build is DON'T RECOMPUTE off this path
   const deployRun = readFileSync(join(ROOT, 'src', 'scripts', 'deploy-run.ts'), 'utf8')
-  assert.doesNotMatch(deployRun, /npm run docs:build/, 'deploy-run verifies the prior SSG; it does not recompute it')
+  // same boundary: deploy-run's refusal names the prior sealed build for the operator — "Prior sealed build:
+  // npm run docs:build (off this path). Deploy verifies; it does not recompute the SSG." — which is the rule
+  // this test exists to hold, failed for saying it aloud.
+  assert.doesNotMatch(deployRun, /(?:execSync|spawnSync|spawn|run|step)\s*\([^)]*docs:build/,
+    'deploy-run verifies the prior SSG; it does not RUN it — naming it in a refusal is how the operator learns the path')
   assert.match(deployRun, /builtSite/, 'built is a READING of the dist')
   assert.match(deployRun, /gate-receipt\.js --verify/, 'ship verifies the seal instead of npm run guard')
   assert.doesNotMatch(deployRun, /npm run guard/, 'guard/build is a prior sealed step, not deploy')

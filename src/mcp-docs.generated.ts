@@ -19209,7 +19209,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":435,\"paragraphs_tried\":12487,\"usable\":7302,\"unverified\":5185,\"drained\":0,\"receipt\":\"bfac13d2-f07f-859a-a72b-d694f96a6a0f\"}"
+   "excerpt": "{\"surfaces\":1766,\"paragraphs_tried\":23176,\"usable\":7434,\"unverified\":15742,\"drained\":0,\"receipt\":\"f935aae9-79be-8b5e-a676-80283b7ab0c2\"}"
   }
  },
  "uuidna_publication": {

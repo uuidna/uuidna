@@ -11,6 +11,7 @@ import { fresh, exec, APPLETS } from './index.js'
 import { UUID_HEXBITS, UUID_BITS, hexbitDoorOf } from '../../../hexbit/index.js'
 import { theoremByKey } from '../../../index.js'
 import { LEVELS } from '../../advantage/index.js'
+import { INSTALLS_MIRROR } from '../mirror/index.js'
 
 test.beforeEach(fresh)
 
@@ -190,7 +191,14 @@ test('driver and device applets — provenance and host quantum executor', () =>
   const drv = exec('driver')
   assert.ok(drv.ok)
   assert.match(drv.output[0]!, /alpine-netboot/)
-  assert.match(drv.output.join('\n'), /9a7769ea8fa1737b1b49d82f1bdd53d0a17338d6d3b7cfc6f2c3ec5158596d8b/)
+  // DERIVED, NOT FROZEN. This pinned the 3.24.1 digest as a literal, so a deliberate bump to 3.24.2 — filename and
+  // sha256 moved together, coherently — read as a failure. A frozen expectation fails whenever the thing it watches
+  // moves, which is the opposite of what a pin is for. What must hold is that the applet reports THE DIGEST THE
+  // MIRROR DECLARES: a mismatch between the two is the tamper this guards, and it still fails here (2026-09-18).
+  assert.match(drv.output.join('\n'), new RegExp(INSTALLS_MIRROR.driver.sha256),
+    'the driver applet must report the sha256 the installs mirror declares, whatever the version')
+  assert.equal(INSTALLS_MIRROR.driver.sha256.length, 64, 'and that digest must be a sha256')
+  assert.ok(drv.output.join('\n').includes(INSTALLS_MIRROR.driver.file), 'and the file it names')
   const dev = exec('device')
   assert.ok(dev.ok)
   assert.match(dev.output[0]!, /logical cores/)
