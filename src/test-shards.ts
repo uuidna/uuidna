@@ -18,10 +18,17 @@
  *  so the same theorem lands in the same slice on every machine and every run), and balanced by construction
  *  rather than by tuning — addresses are content-derived, so they spread. Nothing is listed and nothing is chosen.
  */
+export const LATTICE_SLICE_STATIONS = 0x10000
 export const shardOfAddress = (address: string, n: number): number => {
   if (!Number.isInteger(n) || n < 1) throw new Error(`test-shards: ${n} slices is not a partition`)
-  const station = address.replace(/-/g, '').slice(0, 4)
-  return parseInt(station, 16) % n
+  const station = parseInt(address.replace(/-/g, '').slice(0, 4), 16)
+  // CONTIGUOUS REGIONS, NOT EVERY n-TH STATION. The first cut was `station % n`, which spreads evenly and is
+  // wrong: a theorem has a SPECIFIC place on this lattice and its neighbours are part of what that place means.
+  // meaningOf resolves an empty station through nearestOccupied — it SEARCHES NEARBY — so a modulus slice hands
+  // each runner every n-th station and puts the neighbour it must consult in another process. A contiguous range
+  // keeps a station's cargo and its neighbourhood in one slice, and stays balanced for the same reason the
+  // modulus did: content-addresses spread, so equal spans of the lattice carry equal weight (2026-09-18).
+  return Math.min(n - 1, Math.floor((station * n) / LATTICE_SLICE_STATIONS))
 }
 
 /** a file's receipt line from test-receipt: [file, receipt, tests, seconds] */

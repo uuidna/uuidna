@@ -54,6 +54,12 @@ test('the LEDGER slice is total, stable and balanced — the lattice decides it,
   // STABLE: the address decides, so the same theorem lands in the same slice every time and on every machine
   const t0 = all[0]!
   assert.equal(shardOfAddress(t0.address, 3), shardOfAddress(t0.address, 3))
+  // NEIGHBOURS STAY TOGETHER: a place on this lattice includes its neighbourhood, because an empty station reads
+  // its meaning from the nearest occupied one. Adjacent stations must therefore share a slice except at a boundary.
+  const slicesOf = (st: number, n: number): number => shardOfAddress(st.toString(16).padStart(4, '0') + '0'.repeat(28), n)
+  let breaks = 0
+  for (let st = 1; st < 0x10000; st++) if (slicesOf(st, 4) !== slicesOf(st - 1, 4)) breaks++
+  assert.equal(breaks, 3, 'four contiguous regions have exactly three boundaries — not 65535 of them')
   // CONTROL: a partition must actually partition — a different address may land elsewhere, and n must be a count
   assert.notEqual(new Set(all.slice(0, 500).map((t) => shardOfAddress(t.address, 4))).size, 1, 'a slice that swallows everything is not a partition')
   assert.throws(() => shardOfAddress(t0.address, 0), /not a partition/)
