@@ -278,13 +278,17 @@ export const involutionWings = (rows?: readonly LeadRow[], book?: LeadBook): Inv
     handle,
     file: wingFileOf(handle),
     title: `The involution of lead ${handle}`,
-    summary: `lead_${handle} states the refuted lead "${leadOf(handle, rows).lead}" over the objects its source derives, and involution_${handle} is the kernel's proof of its negation`,
+    summary: ((scope) => scope
+      ? `lead_${handle} states, in the row's own Lean, ${scope} — and involution_${handle} is the kernel's proof of its negation`
+      : `lead_${handle} states the refuted lead "${leadOf(handle, rows).lead}" over the objects its source derives, and involution_${handle} is the kernel's proof of its negation`)(leadScopeOf(handle, leadOf(handle, rows).lean)),
   })),
   ...formalLeads(book).map((f) => ({
     handle: f.handle,
     file: formalFileOf(f),
     title: f.kind === 'involution' ? `The involution of lead ${f.handle}` : `The proof of lead ${f.handle}`,
-    summary: `lead_${f.handle} states the ${f.section} lead "${f.row.lead}" in the row's own Lean, and ${f.kind}_${f.handle} is the kernel's proof of ${f.kind === 'involution' ? 'its negation' : 'it'}`,
+    summary: ((scope) => scope
+      ? `lead_${f.handle} states, in the row's own Lean, ${scope} — and ${f.kind}_${f.handle} is the kernel's proof of ${f.kind === 'involution' ? 'its negation' : 'it'}`
+      : `lead_${f.handle} states the ${f.section} lead "${f.row.lead}" in the row's own Lean, and ${f.kind}_${f.handle} is the kernel's proof of ${f.kind === 'involution' ? 'its negation' : 'it'}`)(leadScopeOf(f.handle, f.row.lean)),
   })),
 ]
 
@@ -406,6 +410,23 @@ export function formalLeads(book: LeadBook = readJson<LeadBook>('lean/leads.json
 }
 export const formalFileOf = (f: Pick<FormalLead, 'handle' | 'kind'>): string => (f.kind === 'involution' ? wingFileOf(f.handle) : `Proof${f.handle}.lean`)
 
+/** leadScopeOf(handle, lean) → the doc comment the row wrote on its own `def lead_<handle>`, flattened, or null.
+ *
+ *  A ROW THAT NARROWS ITS LEAD SAYS SO IN ITS OWN LEAN, AND EVERY DERIVED SURFACE MUST REPEAT THAT, NOT THE LEAD.
+ *  The summary below used to quote `row.lead` unconditionally. For a Prop that states the WHOLE lead that is
+ *  accurate; for one that states a single clause it is an over-read, and it travelled: lean/PRINCIPLE.md §217 and
+ *  the ledger's own principle row both published "lead_90c4f258 states the refuted lead \"…origin/main == HEAD…
+ *  that path did NOT fire…\"" while the kernel had decided one inequality about two timestamps. Three of seven
+ *  witnesses dissented on exactly that, and it was NOT staleness — the file regenerated 32 seconds after the wing
+ *  was cured and said it again, because the template, not the copy, was wrong (2026-09-18). */
+export function leadScopeOf(handle: string, lean: string | undefined): string | null {
+  if (!lean) return null
+  const at = lean.search(new RegExp(`^def lead_${handle} : Prop :=`, 'm'))
+  if (at < 0) return null
+  const doc = /\/--((?:(?!\/--)[\s\S])*?)-\/\s*$/.exec(lean.slice(0, at))
+  return doc ? doc[1]!.trim().replace(/\s+/g, ' ') : null
+}
+
 /** buildFormalWing(f) → the wing of a formalised lead: the row's Lean before its verdict as defs, the lead's own text
  *  documenting lead_<handle>, and the verdict as the one fact. The js leg is the recorded acceptance of this exact
  *  text — the kernel is the judge, and emit's compile asks it again. */
@@ -413,9 +434,10 @@ export function buildFormalWing(f: FormalLead): WingText {
   const shape = formalShapeOf(f.handle, f.row.lean ?? '')
   if ('refused' in shape) throw new Error(`lead ${f.handle}: ${shape.refused}`)
   // a doc comment the row wrote on its verdict moves onto the fact, because emit documents every theorem itself
-  const trailingDoc = /\/--([\s\S]*?)-\/\s*$/.exec(shape.defs)
+  const trailingDoc = /\/--((?:(?!\/--)[\s\S])*?)-\/\s*$/.exec(shape.defs)   // the LAST doc comment, not a lazy span from the first: a row that documents its own `def lead_` too used to make this swallow both, and the -1 `at` below then spliced the lead's prose into the middle of a numeral (measured on 90c4f258, 2026-09-18)
   const before = trailingDoc ? shape.defs.slice(0, trailingDoc.index).trimEnd() : shape.defs
   const at = before.search(new RegExp(`^def lead_${f.handle} : Prop :=`, 'm'))
+  if (at < 0) throw new Error(`lead ${f.handle}: \`def lead_${f.handle} : Prop :=\` is not in the wing's definitions — a doc comment has swallowed it; nothing is written rather than written corrupt`)
   const documented = /-\/\s*$/.test(before.slice(0, at))
   const defs = documented ? before : before.slice(0, at).trimEnd() + (at > 0 ? '\n\n' : '') + block(f.row.lead, before.slice(at))
   // SUPPORTING THEOREMS a row states before its verdict are facts too. Left inside the defs they reached the ledger as
@@ -440,7 +462,13 @@ export function buildFormalWing(f: FormalLead): WingText {
     lean: s.text,
   })), {
     key: shape.theorem,
-    name: trailingDoc ? trailingDoc[1]!.trim() : `The kernel ${verb} lead ${f.handle}: ${said(f.row.lead)}`,
+    // ONE FLOWED LINE. A theorem's name is a FIELD, and the surfaces downstream put it in places that are
+    // line-sensitive: the published article makes it a markdown heading, where CommonMark closes the heading at
+    // the first newline and renders four-space-indented continuations as a CODE BLOCK. A row whose docstring is
+    // wrapped across lines therefore published a broken page while claiming nothing false — measured on
+    // 90c4f258 the moment its docstring stopped being the lead's single paragraph (2026-09-18). leadScopeOf
+    // flattens for the same reason; this is the other half of it.
+    name: (trailingDoc ? trailingDoc[1]!.trim() : `The kernel ${verb} lead ${f.handle}: ${said(f.row.lead)}`).replace(/\s+/g, ' '),
     js: () => verdictCurrent(f.row) && f.row.kernel?.verdict === 'accepted' && f.row.kernel.theorem === shape.theorem,
     lean: shape.verdict,
   }]
@@ -464,7 +492,14 @@ export interface SealWitness { face: number; statement: string }
  *  cites its subject as "theorem involution_<handle>" and binds the witness's own report by its content address,
  *  never by quoting it — a report's prose can name other keys, and one name the ledger lacks refuses the signature.
  *  The receipt's own tally must agree with the rows it carries, or nothing is written. Pure. */
+export function isWaveReceipt(value: unknown): value is WaveReceipt {
+  if (!value || typeof value !== 'object') return false
+  const r = value as WaveReceipt
+  return Array.isArray(r.proposals) && Array.isArray(r.witnesses) && Array.isArray(r.sealed)
+}
+
 export function witnessSealsOf(receipt: WaveReceipt, faces: number = VE_FACES): Record<string, SealWitness[]> {
+  if (!isWaveReceipt(receipt)) throw new Error('the wave seats no witnesses; a receipt names proposals, witnesses and sealed')
   const seats = receipt.witnesses.length
   if (seats * 2 !== faces) throw new Error(`the wave seats ${seats} witnesses and the rosettas have ${faces} faces; each witness signs two faces`)
   const out: Record<string, SealWitness[]> = {}

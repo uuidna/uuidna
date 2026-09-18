@@ -49,9 +49,15 @@ const GENERATED = /^-- lean\/\S+ — GENERATED\./
 const isGenerated = (text: string): boolean => GENERATED.test(text)
 
 /** every theorem in a file, paired with the doc comment immediately above it (empty when there is none) */
-function census(text: string): { key: string; statement: string; doc: string }[] {
+export function census(text: string): { key: string; statement: string; doc: string }[] {
   const DOC = /\/--((?:(?!-\/)[\s\S])*?)-\/\s*$/
-  return [...text.matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g)]
+  // A DECLARATION STARTS ITS LINE; PROSE DOES NOT. Unanchored, this read the word "theorem" inside a doc comment
+  // as a declaration: Links.lean's sentence "…the three pairs the sealed theorem names: for all three…" parsed as
+  // a theorem keyed `names`, with no doc above it, and broke prose_coverage_total for the whole tree (2026-09-18).
+  // Every real theorem in lean/ sits at column 0 — `^theorem` counts 71012, the same figure lean-axioms witnesses —
+  // and every indented one is word-wrapped prose. `(?:^|\n)` anchors to a line start without the `m` flag, which
+  // would also re-point the `$` inside the lookahead below at end-of-LINE and silently re-cut every proof body.
+  return [...text.matchAll(/(?:^|\n)theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g)]
     .map((m) => {
       const d = DOC.exec(text.slice(0, m.index))
       return {

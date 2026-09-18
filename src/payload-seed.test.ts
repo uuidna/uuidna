@@ -4,7 +4,7 @@
 // Pure and offline. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs } from './index.js'
+import { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, retiredUuid } from './index.js'
 
 const CONTENTS = 'theorem two_coins : 2 = 2 := by decide\n'
 
@@ -44,8 +44,26 @@ test('the seed is a stamped, verifiable nested page: parent + one nested child p
   assert.equal(seed.slug, 'coins')
   const pages = (seed.page.root.children ?? []).filter((n) => n.type === 'page')
   assert.equal(pages.length, 1, 'one nested child page per theorem')
-  assert.equal(verifySeed(seed, 'Coins', CONTENTS), true, 'folder name and document address both recompute')
-  assert.equal(verifySeed(seed, 'Coins', CONTENTS + 'x'), false, 'a tampered source no longer verifies this version')
+  assert.equal(verifySeed(seed, 'Coins', CONTENTS, entries), true, 'folder name and document address both recompute')
+  assert.equal(verifySeed(seed, 'Coins', CONTENTS + 'x', entries), false, 'a tampered source no longer verifies this version')
+})
+
+test('THE VERSION COVERS THE WHOLE PAGE: a changed theorem name mints a new version, not a silent overwrite', () => {
+  // The page embeds each theorem's name from the ledger, but the uuid used to hash the Lean text alone. A name
+  // that changed without its wing changing therefore produced a DIFFERENT page under the SAME folder name, and
+  // the generator skipped it as already sealed — permanently, since nothing about the identity had moved. It
+  // published a current Lean block under a stale heading (90c4f258, 2026-09-18), and no re-run could cure it.
+  const entries = [{ key: 'two_coins', name: 'the two coins', statement: '2 = 2', lean: CONTENTS.trim() }]
+  const renamed = [{ ...entries[0]!, name: 'the two coins, stated narrowly' }]
+  const a = buildLeanPageSeed('Coins', CONTENTS, entries, true)
+  const b = buildLeanPageSeed('Coins', CONTENTS, renamed, true)
+  assert.notEqual(a.uuid, b.uuid, 'a changed name must move the version — otherwise the new page is skipped forever')
+  assert.notEqual(a.address, b.address, 'and the document address moves with it')
+  // the seed a stale version verifies against is its OWN entries, never the renamed ones
+  assert.equal(verifySeed(a, 'Coins', CONTENTS, renamed), false, 'a version does not verify against content it does not hold')
+  // CONTROL, and the sealed property this must not cost: with no entries the name is exactly what it always was,
+  // so every version already on disk keeps its folder — the change is additive, not a re-address of the store.
+  assert.equal(seedUuid('Coins', CONTENTS, 'usable'), seedUuid('Coins', CONTENTS, 'usable', []), 'an empty entry list hashes the contents alone')
 })
 
 test('payload sync speaks only the standard shapes: pages, nested-docs parent, drafts _status, lexical content', () => {
@@ -61,4 +79,17 @@ test('payload sync speaks only the standard shapes: pages, nested-docs parent, d
   assert.equal(parent.uuidnaVersion, child.uuidnaVersion, 'one version uuid rides every doc — idempotent upsert by equality')
   const draft = toPayloadDocs(buildLeanPageSeed('Draft1', 'x', [], false))
   assert.equal(draft[0]._status, 'draft', 'a lean file with nothing sealed syncs as a draft')
+})
+
+test('RETIRING SUPERSEDES WITHOUT PURGING: only the status bits move, and the no-cost index stops calling it usable', () => {
+  const live = seedUuid('Coins', CONTENTS, 'usable')
+  const gone = retiredUuid(live)
+  const a = readSeed(live), b = readSeed(gone)
+  assert.equal(b.status, 'retired', 'the name now decodes as retired')
+  assert.equal(b.content64, a.content64, 'same content — the bytes are not touched')
+  assert.equal(b.stem32, a.stem32, 'same wing')
+  assert.notEqual(gone, live, 'and it is a different folder name, so the index can tell them apart')
+  assert.deepEqual(filterSeeds([live, gone], 'usable'), [live], 'only the current version reads as usable')
+  assert.deepEqual(filterSeeds([live, gone], 'retired'), [gone], 'the superseded one is still there, still addressable')
+  assert.equal(retiredUuid(gone), gone, 'retiring twice is the same name — the operation settles')
 })

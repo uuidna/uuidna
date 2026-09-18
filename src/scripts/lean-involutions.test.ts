@@ -9,7 +9,7 @@ import { PROJECTED } from '../grid.js'
 import { theoremByKey } from '../theorems/index.js'
 import { proofsOf } from './lean-gen.js'
 import {
-  INVOLUTION_HANDLES, buildWing, involutionWings, leadOf, wingFileOf, formalLeads,
+  INVOLUTION_HANDLES, buildWing, involutionWings, leadOf, wingFileOf, formalLeads, leadScopeOf, buildFormalWing,
   defBlocks, closureOf, generatorFilesOf, reconcileRunsOf, memProof,
 } from './involution-family.js'
 
@@ -50,8 +50,45 @@ test('the ledger titles one wing per involution and per accepted formalised lead
   const formal = formalLeads()
   assert.deepEqual(wings.map((w) => w.handle), [...INVOLUTION_HANDLES, ...formal.map((f) => f.handle)])
   assert.equal(new Set(wings.map((w) => w.file)).size, wings.length)
-  for (const w of wings.slice(0, INVOLUTION_HANDLES.length)) assert.ok(w.summary.includes(leadOf(w.handle).lead))
-  for (const [i, f] of formal.entries()) assert.ok(wings[INVOLUTION_HANDLES.length + i]!.summary.includes(f.row.lead))
+  // A SUMMARY REPEATS WHAT THE PROP STATES, WHICH IS THE LEAD ONLY WHEN THE PROP STATES THE WHOLE LEAD. This used
+  // to assert `summary.includes(row.lead)` unconditionally, which PINNED the over-read three of seven witnesses
+  // dissented on: lead_90c4f258 states one inequality about two timestamps, and PRINCIPLE.md §217 published it as
+  // stating "…origin/main == HEAD… that path did NOT fire…" — claims no kernel decided. A row that narrows says so
+  // in a doc comment on its own `def lead_<handle>`; where there is none, the lead still stands (2026-09-18).
+  const summaryStates = (summary: string, row: { lead: string; lean?: string }, handle: string): void => {
+    const scope = leadScopeOf(handle, row.lean)
+    if (scope) {
+      assert.ok(summary.includes(scope), `${handle}: the summary must repeat the scope the row declares, not the lead`)
+      assert.ok(!summary.includes(row.lead), `${handle}: the summary must NOT republish the whole lead past a narrowing Prop`)
+    } else assert.ok(summary.includes(row.lead), `${handle}: with no declared scope the Prop states the lead, so the summary carries it`)
+  }
+  for (const w of wings.slice(0, INVOLUTION_HANDLES.length)) summaryStates(w.summary, leadOf(w.handle), w.handle)
+  for (const [i, f] of formal.entries()) summaryStates(wings[INVOLUTION_HANDLES.length + i]!.summary, f.row, f.handle)
+})
+
+test('a wing fact name is ONE FLOWED LINE — a markdown heading cannot survive a wrapped docstring', () => {
+  // The published article makes a theorem's name a heading. CommonMark closes a heading at the first newline and
+  // renders four-space-indented continuations as a CODE BLOCK, so a row whose docstring wraps across lines
+  // published a broken page while claiming nothing false — measured on 90c4f258 (2026-09-18), found by a witness
+  // reading the rendered surface rather than the field.
+  for (const f of formalLeads()) {
+    for (const fact of buildFormalWing(f).facts) {
+      assert.ok(!/[\r\n]/.test(fact.name ?? ''), `${fact.key}: a name reaching a heading may not carry a newline`)
+      assert.ok(!/ {2}/.test(fact.name ?? ''), `${fact.key}: a name reaching a heading may not carry run-together indentation`)
+    }
+  }
+})
+
+test('control: leadScopeOf reads a declared scope and refuses to invent one', () => {
+  const lean = (doc: string): string => `def gap : Nat := 5
+${doc}def lead_abcd1234 : Prop := 17 ≤ gap
+theorem involution_abcd1234 : ¬ lead_abcd1234 := by unfold lead_abcd1234; decide
+`
+  assert.equal(leadScopeOf('abcd1234', lean('/-- states one inequality and nothing else -/\n')), 'states one inequality and nothing else')
+  assert.equal(leadScopeOf('abcd1234', lean('')), null, 'an undocumented lead def declares no scope')
+  assert.equal(leadScopeOf('abcd1234', undefined), null, 'a row with no lean declares no scope')
+  // the doc must be the one attached to THIS def, not an earlier one left further up the file
+  assert.equal(leadScopeOf('abcd1234', `/-- an earlier note -/\ndef gap : Nat := 5\n\ndef lead_abcd1234 : Prop := 17 ≤ gap\n`), null)
 })
 
 test('the manifest reader follows its declaration: a moved entry moves, a commented one does not count', () => {

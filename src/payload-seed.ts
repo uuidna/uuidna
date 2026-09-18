@@ -35,7 +35,19 @@ const hexBits = (hex: string, width: number): string => BigInt('0x' + hex).toStr
  *  sit, and `filterSeeds` and `belongsTo` read the decoded identity rather than slicing the name. Moving the
  *  content fingerprint to the front therefore buys a handle that is unique per version and gives up no part of
  *  the no-cost index. Both readings apply at once, which is what a reversible imprint is for. */
-export function seedUuid(fileStem: string, contents: string, status: SeedStatus): string {
+/** seedBody(contents, entries) → the bytes the version is a version OF. The page embeds each theorem's name,
+ *  statement and proof from the ledger, so those bytes belong to the version as much as the Lean file does.
+ *  They were not covered: the uuid hashed the Lean text alone while documentAddress covered the whole page, so a
+ *  theorem whose NAME changed without its wing changing produced a different page under the SAME folder name —
+ *  the generator read `existsSync` and skipped it as already sealed, permanently. Measured on 90c4f258: the seed
+ *  minted 14:12:53 carried a current Lean block under a three-seconds-stale heading and no re-run could cure it,
+ *  because nothing about the identity had moved (2026-09-18, found by a witness reading the published surface).
+ *  An empty entry list hashes to the contents alone, so every version already on disk keeps its name. */
+const seedBody = (contents: string, entries: readonly { key: string; name: string; statement: string; lean: string }[]): string =>
+  entries.length === 0 ? contents
+    : contents + '\u0000' + entries.map((t) => `${t.key}\u0001${t.name}\u0001${t.statement}\u0001${t.lean}`).join('\u0002')
+
+export function seedUuid(fileStem: string, contents: string, status: SeedStatus, entries: readonly { key: string; name: string; statement: string; lean: string }[] = []): string {
   const stem32 = hexBits(coin64('lean-seed-stem|' + fileStem), STEM_W)
   // THE CONTENT FINGERPRINT IS PURE CONTENT, AND STATUS STAYS ORTHOGONAL TO IT. I folded the status into this
   // hash to separate the six draft/usable pairs that share a handle at identical content — and payload-seed's
@@ -43,7 +55,7 @@ export function seedUuid(fileStem: string, contents: string, status: SeedStatus)
   // lets a reader see that a draft and a usable version hold the same bytes. Chasing six collisions is not
   // worth destroying that, and the collisions are correct anyway — a content-address SHOULD collapse identical
   // content. The six are left as they are, named in handle-birthday.test.ts rather than engineered away.
-  const body64 = hexBits(coin64(contents), BODY_W)
+  const body64 = hexBits(coin64(seedBody(contents, entries)), BODY_W)
   return imprint(body64 + STATUS_BITS[status] + stem32)
 }
 
@@ -76,6 +88,23 @@ export function readSeedLegacy(uuid: string): SeedIdentity {
 export function reimprint(uuid: string): string {
   const id = readSeedLegacy(uuid)
   return imprint(id.content64 + STATUS_BITS[id.status] + id.stem32)
+}
+
+/** retiredUuid(uuid) → the same version's name with its status re-encoded as RETIRED: same content, same stem,
+ *  same bytes on disk — only the three status bits move. A superseded version is not deleted (nothing is purged)
+ *  and not rewritten; it stops decoding as `usable`, so filterSeeds and every reader built on the no-cost index
+ *  stop presenting it as current.
+ *
+ *  WHY A SUPERSEDED VERSION COULD NOT SIMPLY BE LEFT. A witness put it better than the question did: an older
+ *  version of one wing holds the SAME Lean bytes as the current one, so it preserves no history — the only thing
+ *  it uniquely carries is the error it was minted with. And its grammar is present tense and undated: its heading
+ *  asserts what the kernel refutes, directly above the theorem, while its status still reads `usable`, which
+ *  affirmatively says NOT superseded. Kept that way the store is not recording an old claim, it is still making
+ *  one (2026-09-18, on 90c4f258). reimprint above is the precedent: a folder may be renamed to re-encode its
+ *  identity without its content changing. */
+export function retiredUuid(uuid: string): string {
+  const id = readSeed(uuid)
+  return imprint(id.content64 + STATUS_BITS.retired + id.stem32)
 }
 
 /** filterSeeds(uuids, status) → the no-cost index in action: filter a folder listing by status decoded from the
@@ -124,13 +153,13 @@ export function buildLeanPageSeed(
       ],
     },
   }
-  return { uuid: seedUuid(fileStem, contents, status), slug: fileStem.toLowerCase(), status, address: documentAddress(page), page }
+  return { uuid: seedUuid(fileStem, contents, status, entries), slug: fileStem.toLowerCase(), status, address: documentAddress(page), page }
 }
 
 /** The seed's own integrity: the folder name recomputes from (stem, contents, status), the page address from the
  *  tree — both verifiable offline, no registry consulted. */
-export function verifySeed(seed: LeanPageSeed, fileStem: string, contents: string): boolean {
-  return seed.uuid === seedUuid(fileStem, contents, seed.status) && seed.address === documentAddress(seed.page)
+export function verifySeed(seed: LeanPageSeed, fileStem: string, contents: string, entries: readonly { key: string; name: string; statement: string; lean: string }[] = []): boolean {
+  return seed.uuid === seedUuid(fileStem, contents, seed.status, entries) && seed.address === documentAddress(seed.page)
 }
 
 // ---- PAYLOAD COLLECTION SYNC — no collections of our own. uuidna emits docs in the STANDARD shapes the Payload

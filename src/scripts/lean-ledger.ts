@@ -5,6 +5,7 @@
 // not a theorem. Names come from the *-manifest.json emitted alongside each proof. Run by `npm run lean`.
 import { STANDING_DOI } from '../handle-permanence.js'
 import { xorWings } from './equilibrium-family.js'
+import { chunkWidth } from './lean-gen.js'
 import { involutionWings } from './involution-family.js'
 import { writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -164,6 +165,8 @@ export const PRINCIPLE = [
   ['Periodic.lean', 'The periodic table\'s shape', 'WHY THE ROWS ARE 2, 8, 8, 18, 18, 32, 32 AND WHERE THE NOBLES FALL. A subshell of angular momentum l holds 2(2l + 1) = 4l + 2 electrons, giving 2, 6, 10, 14 for s, p, d, f; shell n sums those over l < n and reaches 2n²; a period\'s length is the total of the subshells filling in it; and a noble gas closes a period, so its atomic number is the running total — 2, 10, 18, 36, 54, 86, 118. The row widths are not a pattern noticed in a chart, they are those sums, and the nobles are those partial sums. Chemistry.lean seals the REACTIONS; this seals the TABLE. SCOPE, NOT SOFTENED: the combinatorics of shell filling. Nothing here solves a Schrödinger equation, derives the filling order from energies, or accounts for the elements whose configurations depart from the naive order — chromium and copper among them. The order is TAKEN as input and its consequences are sealed; a wing claiming to derive chemistry from arithmetic would be the overreach this ledger refuses.'],
   ['HandleStore.lean', 'The handle store, and why its smallest leaf is complete', 'A FINITE TREE WHOSE SMALLEST LEAF CARRIES THE WHOLE ADDRESS. src/handles/aa/bb/cc/dd/index.json: four levels of two hex digits SPELL the eight-digit handle — the folders are the name, not a route to it — and the leaf holds the full uuid whose prefix those digits are. Measured over the 5,512 leaves present: the path spells the handle in 5,512 of 5,512, and the handle is the address prefix in 5,512 of 5,512. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE: every level branches 256 ways so a subtree at any depth has the shape of the tree; four levels give 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly, with nothing left over and nothing counted twice. The store is a FACTORISATION of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the whole tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. SCOPE: the arithmetic of the addressing plus a measurement of the store as it stands; that the store holds 5,512 of a possible 2³² is sealed as its own theorem so capacity and occupancy can never be quoted as one number.'],
   ['Crosslink.lean', 'Crosslinks: the addressing is the floor', 'HANDLESTORE SEALS THE NAMES; THIS SEALS THE RELATIONS. A tree over n leaves carries only n − 1 links — the sparsest connected shape there is — while the same leaves admit n(n − 1)/2 pairs. Measured on the store as it stands: 5,512 leaves, 5,511 parent links, 15,188,316 pairs available, so the tree occupies about 362 millionths of the links its own leaves already permit. The rest is not missing; it has never been asked for. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available; the addressing is the floor of this structure and not its ceiling. Decided as a comparison of EXPONENTS, because a base-2 power is monotone in its exponent and a theorem stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. Also sealed: the leaves are folders and not single uuids (471 carry no key, 4,963 one, 73 two, 5 three) across three kinds that partition exactly. SCOPE: what the addressing ADMITS in relations. No crosslink graph is built here and none is claimed to exist — this wing seals the room, not the furniture.'],
+  ['Links.lean', 'The links between lonely theorems', 'ONE THEOREM FOR EACH LONELY THEOREM THE LEDGER SEALS. A lonely theorem is one that nothing else in the ledger relates to; loneliness is not a defect in the proof, it is a missing edge. Each of these eleven states, in one decidable sentence, a relation between a lonely theorem OWN objects and a DIFFERENT sealed theorem objects, and each was tested by PERTURBING either side, where the theorem must fail — the perturbations that refused are recorded in each sentence, because that is what separates a link from a restatement. The eleven run from the MCP wire ratchet against the tool coverage partition, through the 54 affine rows of ℤ/9 against AGL(1,ℤ/9) and the mirror congruence, the aura alphabet witness pair against the 360-degree hue wheel and the 24-bit cube, the refuted two-state lead against the dz fixed points and the phase facts, the generator manifest against the silent truncation counted at 47, the refuted b13fd37a against the audit game OR rule, the locale grid widths against the sealed 42 and the sealed 432, the bounded non-divisibility search against the sealed greatest common divisors, and the Alpine origin overcount against the Alpine package partition. THE LISTS ARE WALKED, NEVER TYPED: the generator manifest, the scripts reconcile runs directly and the dormant census are read from the files that declare them, so a position this wing seals is a position that still exists. The wing carries one shared universal, not_dvd_of_bound, restated so the two facts that need it share a copy: the kernel own decision for the divides relation borrows propext and no theorem here may. SCOPE: each theorem is an arithmetic relation between two sealed statements objects and confers nothing on either side beyond what the two already seal; where two censuses were taken at different moments the sentence says so and states only the arithmetic between them. NOT HERE: hardware_coverage_is_not_correctness_coverage, whose numeral is computed from nothing — perturbing either side changes nothing the kernel can see, so no link to it could be more than a numeral copied in, and its cure is upstream in the wing that states it.'],
+  ['CernLinks.lean', 'The CERN crossings', 'FIVE THEOREMS RELATING CERN PUBLISHED INTEGERS TO ARITHMETIC THIS LEDGER ALREADY SEALS. lean/Cern.lean quotes four CMS primary datasets under their DOIs and CC0-1.0 and decides five facts over them; nothing else in the ledger touched those five, which made every one a lonely theorem. Each crossing computes something NEITHER side states alone and was tested by perturbing either side, where it must fail. The five: the four divisions rechecked by casting out nines in one-digit arithmetic, against digital_root; the four records closing their totals in the ledger own reduction as well as in the naturals; the embargo totalling the same across both energy labels, so the label does not predict the wait; the two beam energies as consecutive multiples of their own difference and therefore coprime, against rosette_and_vortex_are_coprime; and the file total as twice a prime, so the collection admits no equal split but halving. A COINCIDENCE IS NAMED AS ONE: the shared embargo total is 14 and the ledger separately seals 8 + 6 = 14, the same decomposition the 7TeV pair happens to take — nothing connects a vector equilibrium to a release calendar and no theorem here says otherwise; the content is the EQUALITY of the two totals. WHOSE CLAIM IS WHOSE, unchanged from lean/Cern.lean: the energies, the recorded events and the calibration are CERN claims, credited to CERN first under the DOIs that wing lists; claimed here are the arithmetic relations, each closed by the kernel over its own finite domain. THE INTEGERS ARE READ FROM lean/Cern.lean, NEVER TYPED, so a crossing cannot outlive the statement it crosses. SCOPE: casting out nines is necessary and never sufficient, and four datasets are not a policy.'],
   ['OpenProblems.lean', 'Five open problems, and what this ledger can honestly say', 'FETCHED FROM prove2.me 2026-09-07: the k-Server Conjecture, the Polynomial Hirsch Conjecture, Smale\'s Ninth, Conway\'s 99-graph, and complete sets of Mutually Unbiased Bases in dimension six. NONE IS SOLVED HERE AND NONE COULD BE — four quantify over infinite families and the fifth asks for a construction nobody has produced. What a by-decide ledger can do is seal the finite arithmetic a problem rests on, and where there is none, say so rather than reach for something adjacent and call it progress. CONWAY\'S 99-GRAPH carries the real content: every standard feasibility condition on srg(99,14,1,2) is finite arithmetic and every one PASSES — the counting identity 14·12 = 84·2, a perfect-square discriminant 49 = 7², integer eigenvalues 3 and −4, integer multiplicities 54 and 44 closing with the principal one to 99. That is NOT evidence the graph exists; it is precisely why the question is open, since the obstructions that kill most parameter sets all decline to fire. The refusal is sealed as its own theorem so it cannot be read past. DIMENSION SIX gets one fact: six is not a prime power, which is why the construction attaining the d+1 bound does not apply. AND THREE OF THE FIVE GET NOTHING — k-Server, Hirsch and Smale\'s Ninth are NAMED as untouched rather than omitted, because an omission reads as an oversight and this is a decision. Nothing is taken from the literature: every number is computed in the generator and checked by the kernel.'],
   ...xorWings().map((w) => [w.file, w.title, w.summary] as [string, string, string]),
   ...involutionWings().map((w) => [w.file, w.title, w.summary] as [string, string, string]),
@@ -228,7 +231,17 @@ const stripLeanLineComments = (s: string): string =>
   }).join('\n')
 const flattenStatement = (s: string): string => stripLeanLineComments(s).trim().replace(/\s+/g, ' ')
 const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(join(LEAN_DIR, file), 'utf8')
-  .matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g)]
+  // A DECLARATION IS AT THE MARGIN; PROSE IS NOT. Unanchored, this matched the words "theorem names:" inside a
+  // doc comment and sealed a theorem called `names` whose statement was the rest of the sentence — invisible in
+  // the ledger and fatal at the axiom gate, which asked the kernel for a name no wing declares and reported the
+  // whole audit as short by one. Lean puts every declaration at column 0 and docComment() indents every wrapped
+  // line by four, so `^` separates the two exactly: measured across the whole lean/ tree, 71,013 `theorem <name> :`
+  // matches, of which precisely one was not at the start of its line, and that one was the prose.
+  .matchAll(/^theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|(?![\s\S])))/gm)]
+  // `(?![\s\S])`, not `$`: the `m` flag the anchor above needs also re-points `$` at end-of-LINE, so the
+  // boundary `\n$` would match a newline before a BLANK line and cut the proof body there. No wing has an
+  // internal blank line in a tactic block today (measured: 0 across lean/), so nothing moved — but the next
+  // one to write a proof that way would have had its `tactic` silently truncated, every count still green.
   .map((m) => ({ key: m[1], statement: flattenStatement(m[2]), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || flattenStatement(m[2]), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]], cases: manifest[m[1]]?.cases }))
 
 const allFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
@@ -256,9 +269,24 @@ const ledger = ordered.flatMap((file) => parseLean(file).map((t) => ({ ...t, fil
 const countOf = (f: string) => ledger.filter((t) => t.file === f).length
 const keptPrinciples = PRINCIPLE.filter((p) => ordered.includes(p[0]) && countOf(p[0]) > 0)
 
-const body = ledger.map((t) =>
+const rows = ledger.map((t) =>
   `  { key: ${JSON.stringify(t.key)}, name: ${JSON.stringify(t.name)}, statement: ${JSON.stringify(t.statement)}, tactic: ${JSON.stringify(t.tactic)}, file: ${JSON.stringify(t.file)}, principle: ${JSON.stringify(t.principle)}${t.skill ? `, skill: ${JSON.stringify(t.skill)}` : ''}${t.cases ? `, cases: ${t.cases}` : ''} },`
-).join('\n')
+)
+
+// THE LEDGER IS EMITTED IN BLOCKS, AND THE BLOCK WIDTH IS THE SEALED ONE. One array literal of every row made
+// the compiler build a union with one constituent per row, and that union has a ceiling: at 71,000 rows the
+// tree compiled and at 71,012 it did not — `error TS2590: Expression produces a union type that is too complex
+// to represent`, raised on the array literal itself, with nothing wrong in the rows. It is the same shape the
+// kernel's recursion depth has (Recursion.lean, chunk_width_is_the_ceiling_root_*): a flat walk over n costs n,
+// and a blocked walk costs the width plus the block count. So the rows go into blocks of chunkWidth(n) = ⌈√n⌉
+// — the width that derivation seals, not a constant anyone picked — and the exported ledger spreads them. The
+// values are identical; only the grouping changes, and the cost now falls behind the ledger's growth instead of
+// racing it. A constant width would have to be re-chosen the next time the ledger doubles.
+const BLOCK = chunkWidth(rows.length)
+const blocks: string[][] = []
+for (let i = 0; i < rows.length; i += BLOCK) blocks.push(rows.slice(i, i + BLOCK))
+const body = blocks.map((b, i) => `const LEDGER_BLOCK_${i}: readonly LeanTheorem[] = [\n${b.join('\n')}\n]`).join('\n\n')
+const blockSpread = blocks.map((_, i) => `...LEDGER_BLOCK_${i}`).join(', ')
 
 // THE DEFS EACH WING DECLARES — sealed here because the package ships no lean/ directory, so independence
 // (gravity) must be recomputable from the ledger alone rather than by reading the proofs at runtime.
@@ -277,9 +305,9 @@ export interface LeanTheorem { key: string; name: string; statement: string; tac
 /** The ${ledger.length} Lean-proven theorems, in computing-principle order. */
 export const WING_DEFS: ReadonlyMap<string, readonly string[]> = new Map(Object.entries(${JSON.stringify(wingDefs)} as Record<string, readonly string[]>))
 
-export const LEAN_LEDGER: readonly LeanTheorem[] = [
 ${body}
-]
+
+export const LEAN_LEDGER: readonly LeanTheorem[] = [${blockSpread}]
 
 /** The principles that carry theorems, in derivation order — [file, title, blurb]. */
 export const PRINCIPLES: readonly [string, string, string][] = [
