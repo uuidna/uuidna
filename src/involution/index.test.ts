@@ -36,11 +36,21 @@ test('small arithmetic is untouched by the promotion — the control', () => {
 
 test('the falsifier ceiling is COMPLETE: every sealed statement carries a decidable denial', () => {
   const src = readFileSync(join(ROOT, 'src', 'falsifiers.test.ts'), 'utf8')
+  // SLOW COMES FROM CRACKS, NOT FROM THE LEDGER'S SIZE. This asked `src.includes(t.key)` once per theorem — a
+  // linear scan of a large file, 71017 times — and read lean/<file> FROM DISK once per theorem, though there are
+  // only ~252 wings, so the same handful of files were re-read tens of thousands of times. The sweep is the same
+  // sweep; the waste is gone (2026-09-18, the shape that took mint-gate from 170 s to 32 s).
+  const named = new Set([...src.matchAll(/[A-Za-z_][A-Za-z0-9_]{3,}/g)].map((m) => m[0]))
+  const wings = new Map<string, string>()
+  const wingOf = (file: string): string => {
+    let w = wings.get(file)
+    if (w === undefined) { try { w = readFileSync(join(ROOT, 'lean', file), 'utf8') } catch { w = '' }; wings.set(file, w) }
+    return w
+  }
   const legless = theorems().filter((t) => {
     if (isPagelessFile(t.file)) return false
-    if (src.includes(t.key)) return false
-    let wing = ''
-    try { wing = readFileSync(join(ROOT, 'lean', t.file), 'utf8') } catch { wing = '' }
+    if (named.has(t.key)) return false
+    const wing = wingOf(t.file)
     // ONE RULE, THE GENERATOR'S: gen-falsifiers grants a leg only when the statement is evaluable AND holds decides it
     // true; an evaluable shape that holds leaves undecided — a universal over every n, a wing's own recursion — gets
     // no leg there, so counting it as legless here was two surfaces disagreeing about what "decidable" means.
