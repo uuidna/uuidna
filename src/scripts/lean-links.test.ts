@@ -18,9 +18,18 @@ test('the_aura_pair_the_wheel_cannot_separate — the two witness colours part i
   // the two colours the lonely theorem carries, read off the statement rather than retyped
   const [a, b] = [...t!.statement.matchAll(/\((\d{7}) \/ 65536 = \d+\)/g)].map((m) => Number(m[1]))
   assert.equal(typeof a, 'number'); assert.equal(typeof b, 'number')
-  const channels = (c: number): [number, number, number] => [Math.floor(c / 65536), Math.floor(c / 256) % 256, c % 256]
+  // INTEGER ONLY. The floating built-ins settle no theorem and the harmonic scan hard-rejects them with no
+  // exemption — in a comment too, which is how this first landed red — so the channel split and the rounding
+  // below use the wing's own integer division: idiv(a,b) = (a − a mod b) / b.
+  const idiv = (a: number, b: number): number => (a - (a % b)) / b
+  const channels = (c: number): [number, number, number] => [idiv(c, 65536), idiv(c, 256) % 256, c % 256]
   // the hue of a colour in the green band, as the crossing states it: 120 + round(60·(b − r)/(g − r))
-  const hue = (c: number): number => { const [r, g, bl] = channels(c); return 120 + Math.round((60 * (bl - r)) / (g - r)) }
+  // nearest integer to n/d without a rounding built-in, for positive n and d: ⌊(2n + d) / 2d⌋
+  const hue = (c: number): number => {
+    const [r, g, bl] = channels(c)
+    const n = 60 * (bl! - r!), d = g! - r!
+    return 120 + idiv(2 * n + d, 2 * d)
+  }
   assert.notDeepEqual(channels(a!), channels(b!), 'three channels separate the pair')
   assert.equal(hue(a!), hue(b!), 'one hue does not — that is the pigeonhole the crossing makes concrete')
   assert.equal(hue(a!), 161)
