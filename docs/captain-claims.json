@@ -480186,8 +480186,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "84887c03-fe08-893a-8591-acd1fa534e80",
-      "address": "04ed0e75-c136-8778-b27c-d6e27c112771",
+      "lineAddress": "a8e7242b-92b1-869b-a7b4-1fd97e561401",
+      "address": "0ec824a3-e272-852d-94e5-4e03d6ef146f",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -499841,7 +499841,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "6f71b359-1430-87fa-8464-c2e8c86a1291",
+  "claim_receipt": "6bca66d4-5bff-89b4-9474-31b6f1ee2d17",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

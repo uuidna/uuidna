@@ -15,7 +15,7 @@
 | **Axiom-free** | 71017/71017 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 252 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 122 | Capability axes across the ledger |
-| **Proof cost** | 101192251 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 101192255 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 71017 addresses | one recomputed per theorem |
 | **Steps per address** | 1424 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
@@ -25,7 +25,7 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 1351/1351 | Every module reachable (no dead code) |
+| **Supported modules** | 1353/1353 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 101192251 kernel decide-steps, measured
+- First push (prove): 101192255 kernel decide-steps, measured
 - Every later push (verify): 71017 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -106,7 +106,7 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 445 models · widest window 2,000,000 tokens · 1,845,773,080 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 446 models · widest window 2,000,000 tokens · 1,847,870,232 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
 | Ledger | 71017 theorems · 252 principles · 122 skills | [/theorems](/theorems) · every wing |
 

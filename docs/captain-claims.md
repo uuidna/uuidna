@@ -7,7 +7,7 @@
 **Discovery claimed:** 70633 — the other 384 restate a fact a named source found first
 
 *The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `6f71b359-1430-87fa-8464-c2e8c86a1291`
+**Claim receipt:** `6bca66d4-5bff-89b4-9474-31b6f1ee2d17`
 
 ### Facts the captain does not claim to have discovered
 

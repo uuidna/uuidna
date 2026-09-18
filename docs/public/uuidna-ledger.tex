@@ -40246,10 +40246,10 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \noindent Content-address \texttt{59ce118e-1587-8dfb-bf58-c959f5739ac7}.
 \end{proof}
 
-\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 445 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 445, not the vendors.]
+\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 446 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 446, not the vendors.]
 \label{thm:context-windows-are-transient-hexbits}
 \begin{lstlisting}[language=lean]
-(((modelContextRows.map (fun r => r.length)).sum) = 445) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
+(((modelContextRows.map (fun r => r.length)).sum) = 446) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -40257,12 +40257,12 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 445) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
+theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 446) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{04ed0e75-c136-8778-b27c-d6e27c112771}.
+\noindent Content-address \texttt{0ec824a3-e272-852d-94e5-4e03d6ef146f}.
 \end{proof}
 
-\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 445 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
+\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 446 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
 \label{thm:speaking-an-address-costs-the-text}
 \begin{lstlisting}[language=lean]
 (36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)
@@ -40292,7 +40292,7 @@ theorem crypto_widths_are_fixed_not_sampled : (32 * 8 = 256) ∧ (16 * 8 = 128) 
 \noindent Content-address \texttt{4daa3c87-c5cd-824e-8b81-10faf473d3a9}.
 \end{proof}
 
-\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 445 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
+\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 446 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
 \label{thm:every-context-is-finite-against-the-lattice}
 \begin{lstlisting}[language=lean]
 (2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))

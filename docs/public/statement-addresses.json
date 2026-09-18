@@ -29421,14 +29421,14 @@
   },
   {
    "key": "context_windows_are_transient_hexbits",
-   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 445) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=445)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
+   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 446) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=446)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
    "rawLength": 138,
    "normalisedLength": 121,
    "rawBytes": 140,
    "normalisedBytes": 123,
-   "address": "28007de5-e54f-822a-a627-0545701b055a",
-   "sha256": "545faff6e1c6a6375bb4ea02769eaab74e445a85730371da66e8e77c3df20b20"
+   "address": "2ba75b88-9364-875b-8732-c34c3726826c",
+   "sha256": "390ead56ca6c3806e3d32fcd74d5cbfb58c7383ca72fd76557bb6d23cea444cf"
   },
   {
    "key": "speaking_an_address_costs_the_text",

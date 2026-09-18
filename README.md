@@ -1,6 +1,6 @@
 # uuidna — 70,932 distinct theorems under 71,017 keys · 2 coins · one receipt
 
-`f149b5c5-d4b3-80b4-98d6-de810001716a`
+`fbd88a92-ab83-830f-b455-15a2bc01231d`
 
 **What every theorem carries, and what most do not.** proof · falsifier · address hold for 71,017 of 71,017; **witness 17 of 71,017** (0.0%), **symbol 1321 of 71,017** (1.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,017 theorems and 172,265,652 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,017 theorems and 172,265,655 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -264,7 +264,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `aef910a4-96cc-8017-923c-ff4021f0825b` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,265,652 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,265,655 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -302,7 +302,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,265,652** superpositions across **252** wings.
+The ledger covers **172,265,655** superpositions across **252** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -346,7 +346,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,265,652** superpositions decided across the ledger
+- **172,265,655** superpositions decided across the ledger
 - **142,034** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **1,212** superpositions per coin
 

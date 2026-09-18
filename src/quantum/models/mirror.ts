@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 445,
+ "count": 446,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000004956",
-   "completionPrice": "0.00000009912"
+   "promptPrice": "0.00000004872",
+   "completionPrice": "0.00000009744"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -1325,8 +1325,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3",
    "name": "MoonshotAI: Kimi K3",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000021",
-   "completionPrice": "0.00001095"
+   "promptPrice": "0.00000195",
+   "completionPrice": "0.00001092"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
@@ -2204,6 +2204,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0"
   },
   {
+   "id": "prism-ml/ternary-bonsai-2-27b",
+   "name": "PrismML: Ternary Bonsai 2 27B",
+   "contextTokens": 262144,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000005"
+  },
+  {
    "id": "qwen/qwen-2.5-72b-instruct",
    "name": "Qwen2.5 72B Instruct",
    "contextTokens": 32768,
@@ -3033,8 +3040,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.00000014",
+   "completionPrice": "0.00000042"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
@@ -3068,8 +3075,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000021",
-   "completionPrice": "0.00001095"
+   "promptPrice": "0.00000195",
+   "completionPrice": "0.00001092"
   },
   {
    "id": "~openai/gpt-astra-latest",
@@ -3124,8 +3131,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000008988",
-   "completionPrice": "0.0000028248"
+   "promptPrice": "0.0000008918",
+   "completionPrice": "0.0000028028"
   }
  ]
 }
