@@ -9465,8 +9465,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "39c09930-0beb-82f6-b158-8dabe2ad5c29",
-      "address": "4fedf46b-bd61-86d1-bc21-0d87842bedff",
+      "lineAddress": "cdc43970-5e0c-884e-bf8d-9fabaeed970b",
+      "address": "42ed9705-22c8-83c6-8862-1f2807e15cf2",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -499841,7 +499841,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "6bca66d4-5bff-89b4-9474-31b6f1ee2d17",
+  "claim_receipt": "bea30973-a53f-8d6b-a45e-4d825a40da2f",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

@@ -414,7 +414,7 @@ Call `get_handle` — the old name `uuidna_handle` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"address":"f149b5c5-d4b3-80b4-98d6-de810001716a","handle":"f149b5c5","path":"src/handles/f1/49/b5/c5/index.json","parts":["f1","49","b5","c5"],"roundTrip":tru…
+{"address":"fbd88a92-ab83-830f-b455-15a2bc01231d","handle":"fbd88a92","path":"src/handles/fb/d8/8a/92/index.json","parts":["fb","d8","8a","92"],"roundTrip":tru…
 ```
 
 **Parameters**
@@ -1419,7 +1419,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"total":true,"failures":[],"receipt":"5434bc7b-d97e-8494-b52c-39733e4c08ac","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":71017,"total":true,"failures":[],"receipt":"1413d10a-cc60-800b-a6d4-857d44d511bb","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1442,7 +1442,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":71017,"skills":122,"principles":252,"receipt":"f149b5c5-d4b3-80b4-98d6-de810001716a","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":71017,"skills":122,"principles":252,"receipt":"fbd88a92-ab83-830f-b455-15a2bc01231d","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -2094,7 +2094,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":71017,"verified":71017,"unverified":0,"receipt":"f149b5c5-d4b3-80b4-98d6-de810001716a"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":71017,"verified":71017,"unverified":0,"receipt":"fbd88a92-ab83-830f-b455-15a2bc01231d"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2587,7 +2587,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":71017,"fnvReceipt":"f149b5c5-d4b3-80b4-98d6-de810001716a","sha256":"c2ac48ca2549a15fdb6bae162372cb310764f3214e1abebe980536c80550b89c","…
+{"fingerprint":{"count":71017,"fnvReceipt":"fbd88a92-ab83-830f-b455-15a2bc01231d","sha256":"2686798fdd5c2ed8af3aa082b52832d14e29352cc24bc51f21186b466d2ffecb","…
 ```
 
 **Parameters**
@@ -3441,7 +3441,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"fnvReceipt":"f149b5c5-d4b3-80b4-98d6-de810001716a","sha256":"c2ac48ca2549a15fdb6bae162372cb310764f3214e1abebe980536c80550b89c","tamperCost":"A …
+{"count":71017,"fnvReceipt":"fbd88a92-ab83-830f-b455-15a2bc01231d","sha256":"2686798fdd5c2ed8af3aa082b52832d14e29352cc24bc51f21186b466d2ffecb","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3458,7 +3458,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"verified":71017,"unverified":0,"leanBacked":71017,"receipt":"f149b5c5-d4b3-80b4-98d6-de810001716a","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":71017,"verified":71017,"unverified":0,"leanBacked":71017,"receipt":"fbd88a92-ab83-830f-b455-15a2bc01231d","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -5160,7 +5160,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":28512,"neutral":14118,"plus":28387,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4107,"neutral":2002,"plus":4054…
+{"polarities":{"minus":28511,"neutral":14118,"plus":28388,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4107,"neutral":2002,"plus":4055…
 ```
 
 **Parameters**
@@ -5462,7 +5462,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"a592ac3b","theorems":{"count":71017,"verified":71017,"receipt":"f149b5c5-d4b3-80b4-98d6-de810001716a"},"domains":{"count":122,"verdict":"VERIFIED","…
+{"handle":"a6b7e6ac","theorems":{"count":71017,"verified":71017,"receipt":"fbd88a92-ab83-830f-b455-15a2bc01231d"},"domains":{"count":122,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5483,7 +5483,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"9f78ef3b","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":66,"hsl":"hsl(66, 66%, 54%)","rgb":"#c8…
+{"handle":"33c0377e","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":66,"hsl":"hsl(66, 66%, 54%)","rgb":"#c8…
 ```
 
 _No parameters._

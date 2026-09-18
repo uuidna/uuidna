@@ -1,6 +1,6 @@
 # uuidna — 70,932 distinct theorems under 71,017 keys · 2 coins · one receipt
 
-`fbd88a92-ab83-830f-b455-15a2bc01231d`
+`96cd78bd-6918-87b3-8db8-393f714492f7`
 
 **What every theorem carries, and what most do not.** proof · falsifier · address hold for 71,017 of 71,017; **witness 17 of 71,017** (0.0%), **symbol 1321 of 71,017** (1.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
