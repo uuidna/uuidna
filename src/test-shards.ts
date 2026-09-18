@@ -10,7 +10,7 @@
  *  FILE SHARDING HAS A FLOOR AND THE FLOOR IS THE SLOWEST FILE. shardsOf below balances files by their measured
  *  seconds, which is already derived rather than assigned — but no partition of FILES can finish sooner than the
  *  longest one, and the longest are the whole-ledger sweeps: rosetta-legs 213 s, mcp-edge-coverage 143 s,
- *  involution 128 s, each walking all 71017 theorems in one process (measured in the landing suite, 2026-09-18).
+ *  involution 128 s, each walking the whole ledger in one process (measured in the landing suite, 2026-09-18).
  *  Splitting the LEDGER removes that floor, and the split must not be a hand-drawn range.
  *
  *  THE LATTICE ALREADY DECIDES IT. Every theorem's content-address seats at a four-hex station, so the station
@@ -28,7 +28,10 @@ export const shardOfAddress = (address: string, n: number): number => {
   // each runner every n-th station and puts the neighbour it must consult in another process. A contiguous range
   // keeps a station's cargo and its neighbourhood in one slice, and stays balanced for the same reason the
   // modulus did: content-addresses spread, so equal spans of the lattice carry equal weight (2026-09-18).
-  return Math.min(n - 1, Math.floor((station * n) / LATTICE_SLICE_STATIONS))
+  // integer only: the floating built-ins settle no theorem and the harmonic scan refuses them with no exemption
+  const scaled = station * n
+  const i = (scaled - (scaled % LATTICE_SLICE_STATIONS)) / LATTICE_SLICE_STATIONS
+  return i > n - 1 ? n - 1 : i
 }
 
 /** a file's receipt line from test-receipt: [file, receipt, tests, seconds] */
