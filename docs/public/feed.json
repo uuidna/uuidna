@@ -88461,7 +88461,7 @@
         "abstract": "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n",
         "identifier": "ee2cc3a3-5369-8e25-ac10-7a4a05178ea7",
         "url": "https://uuidna.com/theorem/not_dvd_of_bound",
-        "keywords": "foundational, The links between lonely theorems",
+        "keywords": "links, The links between lonely theorems",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Links.lean",
         "creativeWorkStatus": "Proven by intro d n hsmall hover ⟨k, hk⟩ cases Nat.lt_or_ge k (n / d + 1) with | inl hlt => exact hsmall k hlt hk.symm | inr hge => have h1 : d * (n / d + 1) ≤ d * k := Nat.mul_le_mul_left d hge exact hover (hk ▸ h1) in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
