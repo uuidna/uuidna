@@ -1,7 +1,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { shardsOf, parseShardOutput, isMergedLine } from './test-shards.js'
+import { shardsOf, parseShardOutput, isMergedLine, shardOfAddress } from './test-shards.js'
 import { totalOf, receiptOf } from './scripts/test-receipt.js'
+import { theorems } from './index.js'
 
 test('every file lands in exactly one shard, and the heaviest are spread first', () => {
   const files = ['a', 'b', 'c', 'd', 'e']
@@ -32,4 +33,28 @@ test('a shard\'s printed receipt parses back to its leaves, peak and counts', ()
   assert.equal(out.peakBytes, 3145728)
   assert.deepEqual([out.passed, out.failed], [15, 1])
   assert.ok(isMergedLine('· 0a1b2c3d     3      1.5s  x.test.js') && !isMergedLine('✗ something failed'), 'failures are forwarded live, never merged away')
+})
+
+test('the LEDGER slice is total, stable and balanced — the lattice decides it, not a hand-drawn range', () => {
+  const all = theorems()
+  for (const n of [2, 3, 4, 8]) {
+    const counts = new Array<number>(n).fill(0)
+    for (const t of all) {
+      const i = shardOfAddress(t.address, n)
+      assert.ok(Number.isInteger(i) && i >= 0 && i < n, `${t.key}: slice ${i} is outside 0..${n - 1}`)
+      counts[i]! += 1
+    }
+    // TOTAL: every theorem landed in exactly one slice
+    assert.equal(counts.reduce((a, b) => a + b, 0), all.length, `${n} slices must cover the ledger exactly once`)
+    // BALANCED BY CONSTRUCTION, not by tuning: content-addresses spread, so no slice may carry half again its share
+    const fair = all.length / n
+    const heaviest = counts.reduce((a, b) => (b > a ? b : a), 0)
+    assert.ok(heaviest <= fair * 1.5, `${n} slices: heaviest ${heaviest} against a fair share of ${fair.toFixed(0)}`)
+  }
+  // STABLE: the address decides, so the same theorem lands in the same slice every time and on every machine
+  const t0 = all[0]!
+  assert.equal(shardOfAddress(t0.address, 3), shardOfAddress(t0.address, 3))
+  // CONTROL: a partition must actually partition — a different address may land elsewhere, and n must be a count
+  assert.notEqual(new Set(all.slice(0, 500).map((t) => shardOfAddress(t.address, 4))).size, 1, 'a slice that swallows everything is not a partition')
+  assert.throws(() => shardOfAddress(t0.address, 0), /not a partition/)
 })

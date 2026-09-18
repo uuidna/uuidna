@@ -291,6 +291,35 @@ const PLACEHOLDER = '<what is missing>'
 
 /** gapOf(command) → the missing capability the command states in UUIDNA_MCP_GAP=…, or null (absent, empty, or the
  *  placeholder copied unfilled) */
+/** readsOf(command, root, scripts) → the derived artefacts a command reads OUTSIDE the tree's declared entry points.
+ *
+ *  THE JUDGE WATCHED A SYNTAX, SO THE LAW HELD FOR ONE SHAPE AND NOTHING ELSE. It refused an ad-hoc `node -e`
+ *  importing this repository and let everything else past — its own header said so — while a session computed the
+ *  ledger all day with python heredocs, grep -c over generated.ts, `lean` on copied wings and `node --test`, none of
+ *  which the door ever saw. "Only mcp use is allowed" was enforced against one way of writing a command rather than
+ *  against touching the ledger (measured 2026-09-18: two recorded gaps against dozens of unwatched computations).
+ *
+ *  NOTHING HERE IS A LIST. The protected set is DRAIN_PATHS, which the drain already declares as every derived
+ *  output — read, never copied. The permitted callers are the scripts package.json declares and the dispatch under
+ *  dist/scripts, which the runner already exposes. A hand-kept set of "ad-hoc readers" would be the allow list the
+ *  captain's law forbids, and it would go stale the first time someone reached for a tool nobody listed.
+ *
+ *  AND THE REFUSAL CANNOT STRAND A PATH, which is not assumed here but already held elsewhere: drain-owners.test
+ *  proves every DRAIN_PATH has a declared writer (it exists because lead b13fd37a found three generators unwired
+ *  while their outputs sat on the list). So for every path this refuses ad-hoc access to, a declared generator
+ *  demonstrably exists to produce it — the door the refusal names is never a door that isn't there. A second copy
+ *  of that check here would be the duplicate this repository keeps finding drifted. */
+export function readsOf(command: string, protectedPaths: readonly string[], scripts: readonly string[]): Bypass[] {
+  const declared = new RegExp(`(?:^|[\\s;&|(])(?:npm|npx|pnpm|yarn)\\s+(?:run\\s+)?(?:${scripts.map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?![\\w:-])`)
+  if (declared.test(command)) return []                       // a declared entry point IS the computation path
+  if (/(?:^|[\s;&|(])node\s+(?:--\S+\s+)*dist\/scripts\//.test(command)) return []   // the runner's own dispatch
+  const named = protectedPaths.filter((p) => command.includes(p))
+  if (!named.length) return []
+  const form = (/(?:^|[\s;&|(])([\w.\/-]+)/.exec(command.trim())?.[1] ?? 'command').split('/').pop()!
+  const words = [...new Set(named.flatMap((p) => p.split(/[\/.\-_]/).filter((w) => w.length > 3)))]
+  return [{ form, imports: named, ids: [], words, tools: [] }]
+}
+
 export function gapOf(command: string): string | null {
   const m = /(?:^|[\s;&|(])(?:export\s+)?UUIDNA_MCP_GAP=(?:"((?:\\.|[^"\\])*)"|'([^']*)'|([^\s;&|]+))/.exec(command)
   if (!m) return null
@@ -314,7 +343,7 @@ const brief = (cmd: string): string => { const one = cmd.replace(/\s+/g, ' ').tr
 /** refusalOf(b, suggestions, searched, command) → the refusal the hook prints: what was refused, the exact door calls
  *  that replace it, and the one escape */
 export function refusalOf(b: Bypass, suggestions: readonly Suggestion[], searched: string, command: string): string {
-  const head = `Refused: ad-hoc computation over this repository — \`${b.form}\` imports ${b.imports.join(', ')}` +
+  const head = `Refused: ad-hoc computation over this repository — \`${b.form}\` reaches ${b.imports.join(', ')}` +
     `${b.ids.length ? ` (${b.ids.slice(0, 6).join(', ')})` : ''}. The laws: "only mcp use is allowed", "let mcp handle all".`
   const escape = `  ${GAP_VAR}="${PLACEHOLDER}" ${brief(command)}`
   if (suggestions.length) {
@@ -337,12 +366,16 @@ export interface JudgeInput {
   command: string; cwd: string; root: string
   readFile?: (p: string) => string | null
   address: (s: string) => string
+  /** every derived output the drain declares — read from DRAIN_PATHS, never listed here */
+  protectedPaths?: readonly string[]
+  /** the entry points package.json declares; a command running one of them is the computation path itself */
+  scripts?: readonly string[]
   suggest: (words: readonly string[], tools: readonly string[]) => Promise<{ via: string; suggestions: readonly Suggestion[] }>
 }
 
 /** judge(o) → allow the command, record its stated gap and allow it, or refuse it with the door calls that replace it */
 export async function judge(o: JudgeInput): Promise<Verdict> {
-  const found = bypassesOf(o.command, o.cwd, o.root, o.readFile)
+  const found = [...bypassesOf(o.command, o.cwd, o.root, o.readFile), ...readsOf(o.command, o.protectedPaths ?? [], o.scripts ?? [])]
   if (!found.length) return { kind: 'allow' }
   const all = <K extends 'imports' | 'ids' | 'words' | 'tools'>(k: K): string[] => [...new Set(found.flatMap((b) => b[k]))]
   const b: Bypass = { form: [...new Set(found.map((f) => f.form))].join('`, `'), imports: all('imports'), ids: all('ids'), words: all('words'), tools: all('tools') }

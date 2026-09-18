@@ -18,7 +18,7 @@
 //    exactly those. A clean court stops and spends nothing; the hook's stop_hook_active field keeps it from blocking twice in a row.
 import { mkdirSync, rmdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, DRAIN_PATHS } from './api.js'
 import { resumeFromLog, auditCall, saveAudit } from '../legal-audit.js'
 import { auditAction } from '../law-audit.js'
 import { sealedKeysIn } from '../refusal-trials.js'
@@ -131,8 +131,14 @@ const guardLanding = (call: HookInput): void => {
 // in-process (dist/scripts/mcp-call.js localDoor, the same callTool the hosted door runs), so a refusal needs no network.
 const guardBypass = async (call: HookInput): Promise<void> => {
   const command = String((call.tool_input as { command?: unknown } | undefined)?.command ?? '')
+  // the two declarations the judge reads instead of a list: what the drain protects, and what package.json declares
+  // as an entry point. Both live in the tree already; copying either here is the allow list the law forbids.
+  const scripts = ((): string[] => {
+    try { return Object.keys((JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts?: Record<string, unknown> }).scripts ?? {}) }
+    catch { return [] }
+  })()
   const verdict = await judge({
-    command, cwd: call.cwd ?? ROOT, root: ROOT,
+    command, cwd: call.cwd ?? ROOT, root: ROOT, protectedPaths: DRAIN_PATHS, scripts,
     readFile: (p) => { try { return readFileSync(p, 'utf8') } catch { return null } },
     address: toUuid,
     suggest: async (words, tools) => {

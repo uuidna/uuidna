@@ -311,7 +311,13 @@ export async function run(argv: readonly string[], env: Readonly<Record<string, 
     const a = await callNamed(door.call, p.tool, p.args)
     io.out(compact(a.value))
     io.err(p.local
-      ? `computed locally — ${a.name} by in-process callTool over dist, not through the hosted door (no gate, no deposit)`
+      // A SILENT FALLBACK IS HOW A LAW BECOMES ADVISORY. This labelled the answer and moved on, so a session could
+      // compute locally all day and leave no trace that anything went unaccounted — and it did, because qpu was
+      // unreachable throughout (CLIENT_HTTP_UNEXPECTED_CONTENT: every POST /mcp reply carries content-type
+      // application/ld+json, so every MCP client aborts). The label now says the computation is UNACCOUNTED and the
+      // fact is recorded where door requests already go, so the fallback reads as a debt rather than a path.
+      ? `computed locally — ${a.name} by in-process callTool over dist: UNACCOUNTED — no gate ran, no receipt was ` +
+        `minted, nothing was deposited. This answer recomputes but nothing attests it.`
       : `via ${door.where} → ${a.name}${a.line ? ` · ${a.line}` : ''}`)
     return 0
   } catch (e) {

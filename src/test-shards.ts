@@ -5,6 +5,25 @@
 // wall-clock, never the verdict. How many shards run at once is memory's decision, not this module's (memory-pool.ts).
 // Pure.
 
+/** shardOfAddress(address, n) → which of n slices a theorem belongs to, decided by where its address seats.
+ *
+ *  FILE SHARDING HAS A FLOOR AND THE FLOOR IS THE SLOWEST FILE. shardsOf below balances files by their measured
+ *  seconds, which is already derived rather than assigned — but no partition of FILES can finish sooner than the
+ *  longest one, and the longest are the whole-ledger sweeps: rosetta-legs 213 s, mcp-edge-coverage 143 s,
+ *  involution 128 s, each walking all 71017 theorems in one process (measured in the landing suite, 2026-09-18).
+ *  Splitting the LEDGER removes that floor, and the split must not be a hand-drawn range.
+ *
+ *  THE LATTICE ALREADY DECIDES IT. Every theorem's content-address seats at a four-hex station, so the station
+ *  modulo n is a partition that is total (every theorem lands in exactly one slice), stable (the address decides,
+ *  so the same theorem lands in the same slice on every machine and every run), and balanced by construction
+ *  rather than by tuning — addresses are content-derived, so they spread. Nothing is listed and nothing is chosen.
+ */
+export const shardOfAddress = (address: string, n: number): number => {
+  if (!Number.isInteger(n) || n < 1) throw new Error(`test-shards: ${n} slices is not a partition`)
+  const station = address.replace(/-/g, '').slice(0, 4)
+  return parseInt(station, 16) % n
+}
+
 /** a file's receipt line from test-receipt: [file, receipt, tests, seconds] */
 export type Leaf = [file: string, receipt: string, tests: number, seconds: number]
 
