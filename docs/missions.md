@@ -29,14 +29,14 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | wave | 67076 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | involution | 18 | 10 | 12 | `fdb12218` |
-| foundational | 4 | 3 | 6 | `d7779f36` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | vortex | 24 | 4 | 6 | `fa48a04a` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
 | coins | 27 | 3 | 5 | `1b48b046` |
+| foundational | 3 | 2 | 4 | `fdb12218` |
 | reflection | 21 | 3 | 4 | `c5c25997` |
 | z7-rosette | 150 | 2 | 4 | `3560147c` |
-| links | 16 | 2 | 3 | `e872009a` |
+| links | 17 | 2 | 3 | `e872009a` |
 | neuro | 19 | 2 | 3 | `c912e182` |
 | quantum | 57 | 2 | 3 | `2efc2c84` |
 | audit | 29 | 2 | 2 | `15f4bed8` |

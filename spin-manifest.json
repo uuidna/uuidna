@@ -1,20 +1,20 @@
 {
   "coins": {
-    "src/theorems/generated.ts": "dc4b59b80c288552",
+    "src/theorems/generated.ts": "1debae57f24e8148",
     "lean/PRINCIPLE.md": "fe1e8df7975a8ecd",
     "CHANGELOG.md": "8cd22675c9868fdf",
-    "lean/axioms.json": "07bac6bbf4a38c45",
-    "docs/mcp.md": "476198b145058e00",
+    "lean/axioms.json": "19f93ef62542808d",
+    "docs/mcp.md": "f67d0a526b99888f",
     "audit-citations.json": "cd335b1594658f7d",
-    "support-audit.json": "702bf20f06798b2e",
-    "research-leads.json": "fbd89dccc475864d",
+    "support-audit.json": "5e93db052e6685a6",
+    "research-leads.json": "d2e9f2cf05868dd5",
     ".zenodo.json": "d2e895567a6a872a",
-    "reports.json": "d086aa5edb7384f3",
+    "reports.json": "827ede0446a98520",
     "lean/statement-index.json": "cb85dc273468888e",
-    "README.md": "6d5cd9db2fa082a9",
+    "README.md": "53fb89f2d87684e2",
     "llm.txt": "7ffccdddcce48f78",
-    "src/chunks": "4f5bc41d6be28d43",
-    "lean": "fb26a4eae74388d3"
+    "src/chunks": "4aef36f37d188c04",
+    "lean": "45137fa95a31853b"
   },
-  "receipt": "fe4713e5-624e-83a8-814f-412349cb0d22"
+  "receipt": "a5c01099-75cc-8bb0-a939-fd1039ecbda4"
 }

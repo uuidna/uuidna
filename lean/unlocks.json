@@ -110,12 +110,12 @@
    "n": 17
   },
   {
-   "name": "readings",
+   "name": "links",
    "n": 17
   },
   {
-   "name": "links",
-   "n": 16
+   "name": "readings",
+   "n": 17
   },
   {
    "name": "software",
@@ -462,15 +462,15 @@
    "n": 4
   },
   {
-   "name": "foundational",
-   "n": 4
-  },
-  {
    "name": "structures",
    "n": 4
   },
   {
    "name": "forensics",
+   "n": 3
+  },
+  {
+   "name": "foundational",
    "n": 3
   },
   {
