@@ -29,6 +29,7 @@ import { toUuid } from '../address.js'
 import { coverage } from '../publish.js'
 import { gridGaps, pairsGaps } from '../grid.js'
 import { theorems, theoremNeighbours } from '../theorems/index.js'
+import { hexbitPortCoverage, CATALOGUE_FILE } from '../quantum/os/catalogue/index.js'
 
 /** A LEAD IS OPEN UNTIL IT IS TRIED (the captain, 2026-09-14: "no version ships while a lead is held — exactly for this
  *  reason all leads go to trial before entering any list"). A lead that has had its trial is not waiting on one, whatever its
@@ -112,9 +113,35 @@ function researchLeads(): SourceReading {
   }
 }
 
+/** Alpine community — majority of the published catalogue. Gaps are open leads; a full port settles them.
+ *  Derived from hexbitPortCoverage('community') over mirror/alpine-catalogue.tsv, never hand-edited into leads.json. */
+function alpineCommunityLeads(): SourceReading {
+  try {
+    const cat = join(ROOT, CATALOGUE_FILE)
+    if (!existsSync(cat)) return unread('alpine-community', `${CATALOGUE_FILE} is absent — restore the Alpine catalogue mirror`)
+    const cov = hexbitPortCoverage('community')
+    if (cov.total === 0) return unread('alpine-community', 'community census is empty — catalogue present but no community rows')
+    const open: Lead[] = cov.missing.map((name) => ({
+      source: 'alpine-community',
+      what: `alpine community package ${name} does not compile to hexbits`,
+      owes: 'catalogueCompile over mirror/alpine-catalogue.tsv community rows — regenerate via gen-alpine-catalogue / gen-os when the mirror moves',
+    }))
+    if (cov.ported < cov.total && open.length === 0) {
+      open.push({
+        source: 'alpine-community',
+        what: `alpine community hexbit port ${cov.ported}/${cov.total} without named gaps`,
+        owes: 'name the failing community packages in hexbitPortCoverage missing[]',
+      })
+    }
+    return read('alpine-community', open, cov.ported)
+  } catch (e) {
+    return unread('alpine-community', `community census threw (${e instanceof Error ? e.message : String(e)})`)
+  }
+}
+
 /** THE DECLARED SOURCES. Adding one is a line here; the census does the rest, and a source that throws blocks
  *  rather than disappears. */
-export const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads]
+export const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads]
 
 export function gatherLeads(): SourceReading[] {
   return LEAD_SOURCES.map((s) => {

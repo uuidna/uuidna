@@ -22,7 +22,7 @@ export function spanOf(rows: readonly { key: string; statement: string }[]): Spa
   if (!rows.every((r) => Number.isInteger(station(r.key)) && templateOf(r) === template)) return null
   const sorted = [...rows].sort((a, b) => station(a.key) - station(b.key))
   const first = sorted[0]!.key
-  return { count: rows.length, template, first, last: sorted[sorted.length - 1]!.key, route: `/theorem/${first.slice(0, first.lastIndexOf('_') + 1)}<hex>` }
+  return { count: rows.length, template, first, last: sorted[sorted.length - 1]!.key, route: `/theorem/${first}` }
 }
 
 /** edgeServes(link) → the link is /theorem/<key> for a sealed theorem the Worker renders because the site has no page

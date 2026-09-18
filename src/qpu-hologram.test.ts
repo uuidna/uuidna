@@ -1,7 +1,9 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { QPU_HOST, QPU_HREF, qpuCircuitOf, qpuMachineOf, qpuReverseHrefOf, qpuSeatOf } from './qpu-hologram.js'
+import { QPU_HOST, QPU_HREF, QPU_POINTS, qpuCircuitOf, qpuHopOf, qpuMachineOf, qpuReverseHrefOf, qpuSeatOf, qpuWidthOf } from './qpu-hologram.js'
 import { handleQpuFetch, qpuDiscoveryOf, qpuEdgeOf } from './qpu-edge.js'
+import { callTool } from './mcp.js'
+import { HEXBIT_BITS } from './hexbit/index.js'
 
 test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () => {
   const circuit = qpuCircuitOf()
@@ -29,7 +31,34 @@ test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () =>
   assert.equal(edge.reverse, true)
   assert.equal(edge.holds, true)
   assert.equal(machine.reverse, true)
-  assert.equal(qpuDiscoveryOf('https://uuidna.com').href, QPU_HREF)
+  const width = qpuWidthOf()
+  const hop = qpuHopOf()
+  const discovery = qpuDiscoveryOf('https://uuidna.com')
+  assert.equal(width.host, QPU_HOST)
+  assert.deepEqual(width.points, [...QPU_POINTS])
+  assert.equal(width.binds, QPU_POINTS[0])
+  assert.equal(width.pentagram, QPU_POINTS.length)
+  assert.equal(hop.width.binds, hop.width.points[0])
+  assert.equal(hop.deposit, 'QpuDeposit')
+  assert.equal(hop.fanout.tool, 'uuidna_fanout')
+  assert.equal(hop.fanout.host, QPU_HOST)
+  assert.equal(hop.holds, true)
+  assert.equal(hop.seat.seat, 'empty')
+  assert.equal(discovery.href, QPU_HREF)
+  assert.equal(discovery.deposit, 'QpuDeposit')
+  assert.equal(discovery.fanout.tool, 'uuidna_fanout')
+  assert.equal(discovery.width.host, QPU_HOST)
+  assert.equal(discovery.seat.seat, 'empty')
+})
+
+test('uuidna_quantum past HEXBIT_BITS × HEXBIT_BITS is qpuHopOf', () => {
+  const n = HEXBIT_BITS * HEXBIT_BITS + 1
+  const r = callTool('uuidna_quantum', { circuit: 'ghz', qubits: n }) as ReturnType<typeof qpuHopOf> & { circuit: string; qubits: number }
+  assert.equal(r.qubits, n)
+  assert.equal(r.href, QPU_HREF)
+  assert.equal(r.deposit, 'QpuDeposit')
+  assert.equal(r.fanout.tool, 'uuidna_fanout')
+  assert.equal(r.fanout.host, QPU_HOST)
 })
 
 test('reverse discovery names qpu.uuidna.com', async () => {

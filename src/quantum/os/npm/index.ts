@@ -49,8 +49,8 @@ export {
   type WeatherFact, type QuantumSailingWeatherCorrelation,
 } from '../weather/index.js'
 export {
-  fetchWikinewsFeatured, searchWikinews,
-  type NewsArticleStub,
+  fetchWikinewsFeatured, searchWikinews, searchHnAlgolia, hnHitsToArticles,
+  type NewsArticleStub, type HnAlgoliaHit,
 } from '../news/index.js'
 export {
   deepColourFromAddress, channelLayout,

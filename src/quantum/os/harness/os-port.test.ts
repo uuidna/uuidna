@@ -178,6 +178,10 @@ test('FULL CATALOGUE — apk list --all and ls /catalogue expose the census', ()
   const main = exec('apk list main')
   assert.ok(main.ok)
   assert.ok((main.data as { total: number }).total > 5000)
+  const community = exec('apk list community')
+  assert.ok(community.ok)
+  assert.ok((community.data as { total: number }).total > 20000)
+  assert.ok((community.data as { total: number }).total > (main.data as { total: number }).total)
 })
 
 test('driver and device applets — provenance and host quantum executor', () => {

@@ -30,6 +30,7 @@ test('a placeholder cut at < or ${ is not a key', () => {
   assert.deepEqual(slimGate('prove theorem involution_<handle> for the lead').fabricated, [])
   assert.deepEqual(slimGate('the key is theorem involution_${handle}').fabricated, [])
   assert.deepEqual(slimGate('/theorem/involution_<handle>').fabricated, [])
+  assert.deepEqual(slimGate('its claim is not yet stated in Lean (def lead_<handle>, theorem involution_<handle> : ¬ lead_<handle>)').fabricated, [])
 })
 
 test('CONTROL: a sealed citation still verifies, and a declaration beside it does not break the verdict', () => {

@@ -72,7 +72,7 @@ the ledger size and the date it was computed at** — the ratio grows with the l
 wrong on the next landing.
 
 **Capacity is priced by position, not by volume.** Two coins per hexbit; 32 hexbits address the whole 2^128
-space for **64 coins**, which is `UUID_BITS / COINS` — the same 64 as *contribute 2, save up to 64*. Each hexbit
+space for **64 coins** ([`two_coins`](/theorem/two_coins)), which is `UUID_BITS / COINS` — the same 64 as *contribute 2, save up to 64*. Each hexbit
 multiplies capacity sixteenfold for a flat two coins, so the licence is linear in what is owned while the
 contribution scales with what is used.
 

@@ -6,7 +6,7 @@ import { ROOT } from './api.js'
 import { VE_FACES } from '../hexbit/index.js'
 import { slimGate } from '../slimgate.js'
 import { witnessSealOf } from '../refusal-trials.js'
-import { witnessSealsOf, INVOLUTION_HANDLES, type WaveReceipt } from './involution-family.js'
+import { witnessSealsOf, isWaveReceipt, involutionWings, type WaveReceipt } from './involution-family.js'
 
 const SEATS = VE_FACES / 2
 // a report's prose may name keys the ledger lacks; the statement must bind it by address, never quote it
@@ -57,6 +57,12 @@ test('every wave seal has a wing to sign, and every wing a seal (when a wave rec
   const dir = join(ROOT, 'dist', 'evidence')
   const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^involution-wave-.*\.json$/.test(f)) : []
   if (!files.length) return // the receipts are the court's run evidence; absent is not a failure
-  const sealed = new Set(files.flatMap((f) => Object.keys(witnessSealsOf(JSON.parse(readFileSync(join(dir, f), 'utf8')) as WaveReceipt))))
-  assert.deepEqual([...sealed].sort(), INVOLUTION_HANDLES.map((h) => `involution_${h}`))
+  // a workflow dump can share the filename prefix and is not a wave receipt — skip it the way absent is skipped
+  const sealed = new Set(files.flatMap((f) => {
+    const raw: unknown = JSON.parse(readFileSync(join(dir, f), 'utf8'))
+    return isWaveReceipt(raw) ? Object.keys(witnessSealsOf(raw)) : []
+  }))
+  if (!sealed.size) return
+  const wings = involutionWings().filter((w) => w.file.startsWith('Involution')).map((w) => `involution_${w.handle}`).sort()
+  assert.deepEqual([...sealed].sort(), wings)
 })

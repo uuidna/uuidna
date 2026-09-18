@@ -18,20 +18,20 @@ export const INSTALLS_MIRROR: InstallsMirror = {
  "repo": "main",
  "arch": "x86_64",
  "release": {
-  "version": "3.24.1",
-  "rootfsSha256": "41f73e3cf5fa919b8aa5ca6b30dc48f0da2720776d7423e2a7748211456fe081"
+  "version": "3.24.2",
+  "rootfsSha256": "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677"
  },
  "driver": {
   "flavor": "alpine-netboot",
-  "file": "alpine-netboot-3.24.1-x86_64.tar.gz",
-  "sha256": "9a7769ea8fa1737b1b49d82f1bdd53d0a17338d6d3b7cfc6f2c3ec5158596d8b"
+  "file": "alpine-netboot-3.24.2-x86_64.tar.gz",
+  "sha256": "bbdd643360fac384a7933d8bebc7132eb720002e58d1321edcde4a5a3c3b83c6"
  },
  "count": 25,
  "packages": [
   {
    "name": "alpine-base",
-   "version": "3.24.1-r0",
-   "checksum": "Q1FVD1ypez9RDWd52MokUzPbtTaj8=",
+   "version": "3.24.2-r0",
+   "checksum": "Q1dRnSKKSmlyRK/Hntx/BWTdTsP0U=",
    "desc": "Meta package for minimal alpine base",
    "deps": [
     "alpine-baselayout",
@@ -83,8 +83,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "alpine-release",
-   "version": "3.24.1-r0",
-   "checksum": "Q1vGkSolzcdzPgA17VCezqpAJpRuM=",
+   "version": "3.24.2-r0",
+   "checksum": "Q1b9G+RpyiNenGLxtz+j5b/6/etrU=",
    "desc": "Alpine release data",
    "deps": [
     "alpine-keys"
@@ -159,8 +159,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "ca-certificates-bundle",
-   "version": "20260611-r0",
-   "checksum": "Q1yVNKA3UL3640HxCWkBYJD8Ef670=",
+   "version": "20260909-r0",
+   "checksum": "Q1eRI3zuh3mIiTo1S19snETzXU7bk=",
    "desc": "Pre generated bundle of Mozilla certificates",
    "deps": []
   },

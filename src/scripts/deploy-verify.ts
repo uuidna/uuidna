@@ -55,11 +55,12 @@ export function feverOf(ms: number, millikelvin?: number): {
   }
 }
 
-/** Production path: next, land, deploy-run (ship). Sweater grain is the same fabric. */
+/** Production path: next, land, deploy-run (ship), cloudflare-zone (harden). Sweater grain is the same fabric. */
 export const DEPLOY_PATH_FILES = [
   'src/scripts/next.ts',
   'src/scripts/land.ts',
   'src/scripts/deploy-run.ts',
+  'src/scripts/cloudflare-zone.ts',
 ] as const
 
 export const SWEATER_FILES = [
@@ -640,11 +641,71 @@ export function sweaterInflationSilent(text: string): boolean {
     || !/drift:\s*\{/.test(body) || !/burned:\s*true/.test(body)
     || !/fever:\s*empty/.test(body) || !/chance:\s*0/.test(body)
     || !/of:\s*'fusionReactorOf'/.test(body) || !/of:\s*'fusionNatureHarmonyOf'/.test(body)
+    || !/\bliveHarmonicLifeOf\b/.test(body) || !/\blifeByConstitutionOf\b/.test(body)
+    || !/\bideaHarmonicMeaningOf\b/.test(body) || !/unbelievable:\s*empty/.test(body)
+    || !/meaning:\s*\{/.test(body) || !/holds:\s*true/.test(body)
+    || !/\blatticeGapsOverflowOf\b/.test(body) || !/overflow:\s*\{/.test(body)
+    || !/gaps:\s*\{/.test(body) || !/warning:\s*\{/.test(body)
+    || !/deploy:\s*'deployPathRecomputeGaps'/.test(body)
+    || !/\bcheapGatesCostlyToFakeOf\b/.test(body) || !/cheap:\s*true/.test(body)
+    || !/costly:\s*true/.test(body) || !/fake:\s*empty/.test(body)
+    || !/forge:\s*empty/.test(body) || !/closed:\s*true/.test(body)
+    || !/\befficientTeachersOf\b/.test(body) || !/teachers:\s*true/.test(body)
+    || !/efficient:\s*true/.test(body) || !/as:\s*'teachers'/.test(body)
+    || !/alpine:\s*\{/.test(body) || !/repo:\s*'community'/.test(body)
+    || !/\bgatesLogExperienceReceiptsOf\b/.test(body) || !/log:\s*true/.test(body)
+    || !/recreatable:\s*true/.test(body) || !/verifiable:\s*true/.test(body)
+    || !/receipts:\s*\{/.test(body) || !/qpu:\s*'QpuDeposit'/.test(body)
+    || !/land:\s*'receipt-deposit'/.test(body) || !/landauer:\s*'landauer_bound_derived'/.test(body)
+    || !/\bsameAnalogContentAtAnyGatewayOf\b/.test(body) || !/same:\s*true/.test(body)
+    || !/analog:\s*true/.test(body) || !/gateway:\s*true/.test(body)
+    || !/compare:\s*\{/.test(body) || !/equal:\s*true/.test(body)
+    || !/\bteleportOf\b/.test(body) || !/teleport:\s*true/.test(body)
+    || !/teleportation_four_corrections/.test(body) || !/proven:\s*empty/.test(body)
+    || !/\bremainsUnprovenOf\b/.test(body) || !/remains:\s*\{/.test(body)
+    || !/unproven:\s*\{/.test(body) || !/unproven:\s*true/.test(body)
+    || !/\bframeworkCracksGuessedInvolutionOf\b/.test(body) || !/cracks:\s*true/.test(body)
+    || !/guess:\s*empty/.test(body) || !/guessed:\s*empty/.test(body)
+    || !/feel:\s*\{/.test(body) || !/before:\s*true/.test(body)
+    || !/kill:\s*\{/.test(body) || !/before:\s*'feel'/.test(body)
+    || !/\bfastenTheGatesOf\b/.test(body) || !/fasten:\s*true/.test(body)
+    || !/fastened:\s*true/.test(body) || !/failClosed:\s*true/.test(body)
+    || !/zoneFailsOpen/.test(body) || !/landDepositSoft/.test(body)
 }
 
 /** skipHooksHot(text) → git commit/push still carries --no-verify (hooks skipped). */
 export function skipHooksHot(text: string): boolean {
   return /git\s+(?:push|commit)\b[^\n]*--no-verify/.test(codeOf(text))
+}
+
+/** shipZoneSoft(text) → deploy-run hardens with cloudflare-zone --soft (COMPLETE over refused zone). */
+export function shipZoneSoft(text: string): boolean {
+  return /cloudflare-zone\.js[^\n]*--soft|--soft[^\n]*cloudflare-zone/.test(codeOf(text))
+}
+
+/** zoneFailsOpen(text) → cloudflare-zone still exits 0 on refused harden without --soft. */
+export function zoneFailsOpen(text: string): boolean {
+  const body = codeOf(text)
+  if (!/needScope|unenforced|Always Use HTTPS/.test(body) && !/failed\s*>\s*0/.test(body)) return false
+  return !(
+    /includes\(['"]--soft['"]\)/.test(body)
+    && /broken\s*&&\s*!DRY\s*&&\s*!soft/.test(body)
+    && /exitCode\s*=\s*1|process\.exit\(1\)/.test(body)
+  )
+}
+
+/** landDepositSoft(text) → receipt-deposit after push ignores .ok (silent success). */
+export function landDepositSoft(text: string): boolean {
+  const body = codeOf(text)
+  if (!/receipt-deposit\.js/.test(body)) return false
+  return !/receipt-deposit[\s\S]{0,500}!\w+\.ok/.test(body)
+}
+
+/** landForgeSoft(text) → post-push forge refuse does not exit 1 (landing reports green). */
+export function landForgeSoft(text: string): boolean {
+  const body = codeOf(text)
+  if (!/post-push\.js/.test(body)) return false
+  return !/post-push[\s\S]{0,500}!\w+\.ok[\s\S]{0,400}exit\(1\)/.test(body)
 }
 
 /** sweaterRestrictionSilent(text) → extra allow/deny/skip fences still ride the particle. */
@@ -707,6 +768,36 @@ export function deployPathRecomputeGaps(files: readonly string[] = [...DEPLOY_PA
       gaps.push({
         what: `${rel}: deploy-run POSTs REST /trials or hand-rolls tools/call — join onto the hosted door`,
         fix: 'edit src/scripts/deploy-run.ts: callHosted uuidna_adjudicate / uuidna_theorem (mcp-call.ts)',
+      })
+    }
+    if (name === 'deploy-run.ts' && shipZoneSoft(text)) {
+      gaps.push({
+        what: `${rel}: deploy-run hardens with cloudflare-zone --soft — COMPLETE over refused zone`,
+        fix: 'edit src/scripts/deploy-run.ts: cloudflare-zone.js with no --soft; deployments must succeed',
+      })
+    }
+    if (name === 'cloudflare-zone.ts' && zoneFailsOpen(text)) {
+      gaps.push({
+        what: `${rel}: cloudflare-zone exits 0 on refused harden without --soft — deployments must succeed`,
+        fix: 'edit src/scripts/cloudflare-zone.ts: broken && !DRY && !soft → exitCode 1; --soft opt-in only',
+      })
+    }
+    if (name === 'land.ts' && landDepositSoft(text)) {
+      gaps.push({
+        what: `${rel}: receipt-deposit after push ignores .ok — silent success on failed deposit`,
+        fix: 'edit src/scripts/land.ts: if (!deposited.ok) process.exit(1); deployments must succeed',
+      })
+    }
+    if (name === 'land.ts' && landForgeSoft(text)) {
+      gaps.push({
+        what: `${rel}: post-push forge refuse does not exit 1 — green landing over refused forge`,
+        fix: 'edit src/scripts/land.ts: if (!forge.ok) process.exit(1); deployments must succeed',
+      })
+    }
+    if ((name === 'next.ts' || name === 'land.ts' || name === 'deploy-run.ts') && skipHooksHot(text)) {
+      gaps.push({
+        what: `${rel}: git commit/push carries --no-verify — hooks skipped`,
+        fix: `edit ${rel}: drop --no-verify; hooks stay on the path`,
       })
     }
     if (name === 'hologram-lattice.ts' && sweaterCensusHot(text)) {

@@ -226,25 +226,27 @@ for (let round = 1; round <= ROUNDS; round++) {
     // AND THE FORGE IS ASKED, because the court that just passed ran BEFORE the push and is structurally unable
     // to see what happens after it. Measured 2026-09-05: `security` failed on 44 consecutive pushes across three
     // sessions and a full day, every one of them under a green local gate, and nobody was blocked. A landing is
-    // not complete because the remote moved; it is complete when the forge agrees.
-    // NOT FATAL, and that is deliberate: the commit is already public, so exiting non-zero here would report a
-    // landing that happened as one that did not. The arm REPORTS and names the cure — the push cannot be recalled.
+    // not complete because the remote moved; it is complete when the forge agrees. DEPLOYMENTS MUST SUCCEED:
+    // forge refuse exits non-zero (incomplete landing, even though the commit is public).
     console.log(`✓ land — pushed on round ${round}: origin/main is now ${before.slice(0, 8)}.`)
-    // THE PROOF GOES WHERE PROOFS LIVE: deposit the receipt's covers on qpu.uuidna.com under this commit, so a verifier
-    // proves the landing by one fetch (receipt-deposit; no token, no deposit, said so — never fatal after a push).
-    console.log(run(`node dist/scripts/receipt-deposit.js ${before}`).out.trim())
+    // THE PROOF GOES WHERE PROOFS LIVE: deposit the receipt's covers on qpu.uuidna.com under this commit.
+    const deposited = run(`node dist/scripts/receipt-deposit.js ${before}`)
+    console.log(deposited.out.trim())
+    if (!deposited.ok) {
+      console.error('✗ land — receipt-deposit failed after push; deployments must succeed — cure the deposit.')
+      process.exit(1)
+    }
     const forge = run(`node dist/scripts/post-push.js ${before} --wait`)
     console.log(forge.out.trim() || forge.out)
     if (!forge.ok) {
-      console.error('✗ land — THE PUSH LANDED AND THE FORGE REFUSED IT. The commit is public; this needs a cure on top, not a retry.')
+      console.error('✗ land — THE PUSH LANDED AND THE FORGE REFUSED IT. Deployments must succeed; cure on top, not a green exit.')
       process.exit(1)
     }
     console.log('✓ land — the forge agrees. Landing complete.')
     // AND THE RELEASE FOLLOWS THE PUSH (the captain, 2026-09-14: "immediately when pushed release must be made so doi is
     // minted"). release.js skips its own land (HEAD is no longer ahead), asks the forge, and cuts the release only when
     // its gates pass: release-cut runs the leads gate first, so an open lead refuses here and nothing is tagged or
-    // minted. Its verdict is printed on its own line and does not change this exit, for the reason the forge arm above
-    // gives: the landing is public, so a refused release must never read as a failed landing, nor a landing as a release.
+    // minted. Its verdict is printed; a refused release does not rewrite the landing (DOI ≠ deploy).
     const released = run('node dist/scripts/release.js')
     console.log(released.out.trim())
     console.log(released.ok

@@ -31,4 +31,6 @@ test('the ownership map covers every concrete drain file exactly once', () => {
     'the file whose frozen census motivated the lead must still be a drain path')
   assert.equal(RECONCILE_OUTPUTS['gen-captain-claims-complete']?.[0], 'docs/captain-claims-complete.json',
     'and its writer must ride the reconcile declaration, not only DRAIN_WRITERS')
+  assert.equal(RECONCILE_OUTPUTS['trial-refusals']?.[0], 'lean/refusal-trials.json',
+    'reconcile invokes trial-refusals; the court record it writes must be declared')
 })

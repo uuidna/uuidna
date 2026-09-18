@@ -37,13 +37,15 @@ const refuted = refutedAll.filter((r) => r.s?.stands === true).map((r) => r.l)
 const reopened = refutedAll.filter((r) => r.s?.stands !== true)
 const ask = (text: string): string => `${ASSIST}?q=${encodeURIComponent(text.slice(0, 300))}`
 const further = (l: Lead): string => `\n  <br><small><a href="${ask(l.lead)}" target="_blank" rel="noopener">take this one further \u2192</a></small>`
+const PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/i
+const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension))' : ''
 const line = (l: Lead): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}${bound(l.lead)}` +
   (l.owes ? `\n  <br><small>owes: ${l.owes}</small>` : '') +
   (l.killed_by ? `\n  <br><small>killed_by: ${l.killed_by}</small>` : '') +
   further(l)
 const reopenedLine = ({ l, s }: { l: Lead; s: Settlement | null }): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}${bound(l.lead)}` +
   (l.killed_by ? `\n  <br><small>claimed: <q>${l.killed_by}</q></small>` : '') +
   `\n  <br><small>owes: the sealed theorem that proves what this settlement meant \u2014 ${s ? reopenedBecause(s) : 'the court has not tried it yet'}</small>` +
   further(l)

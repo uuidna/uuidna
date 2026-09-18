@@ -299,24 +299,21 @@ if (needScope) {
   console.log('Worker-side 301 (http→https, www→apex) still applies after `npx wrangler deploy` — zone toggles are defense in depth.')
 }
 
-// HARD FAIL only when a www Workers Domain could not be attached — that is the 522 class. Zone Settings /
-// Redirect Rule refusals are SCOPE GAPS: printed above, exit 0 so `npm run ship` still completes (the worker
-// enforces the same redirects). Pass --assert to make any refused write non-zero for CI that has a full token.
-// THE HARD SET GREW A SECOND MEMBER, and it is the one the lead was actually about. A www attach failure is the
-// 522 class. An apex whose http does NOT redirect is the plain-text class: the API refused the write and the
-// zone demonstrably is not doing it, which is no longer a scope gap — it is an unencrypted front door, and a
-// deploy must never report COMPLETE over it.
+// DEPLOYMENTS MUST SUCCEED (captain): refused zone writes, www attach failures, and unenforced http→https
+// exit non-zero so `npm run ship` never prints COMPLETE over a failed harden. Pass --soft only when a desk
+// deliberately accepts a scope gap (cf:zone local probe); the ship path never passes --soft.
+// A www attach failure is the 522 class. An apex whose http does NOT redirect is the plain-text class.
 const hard = lines.filter((l) => l.startsWith('✗ ') && l.includes('attach ')).concat(unenforced.map((a) => `unenforced https: ${a}`))
 if (unenforced.length) {
   console.error(`\n✗ cloudflare-zone — ${unenforced.length} apex(es) serve http WITHOUT a redirect to https: ${unenforced.join(', ')}`)
   console.error('  This is not the scope gap; a scope gap still shows a 301. Fix the zone setting or the worker route.')
 }
-if (process.argv.includes('--assert') && (failed || needScope) && !DRY) {
-  console.error('✗ cloudflare-zone — --assert: one or more zone writes refused (see scopes above)')
-  process.exitCode = 1
-} else if (hard.length && !DRY) {
-  console.error('✗ cloudflare-zone — www attach failed; the 522 class is still open')
+const soft = process.argv.includes('--soft')
+const broken = failed > 0 || needScope || hard.length > 0
+if (broken && !DRY && !soft) {
+  if (hard.length) console.error('✗ cloudflare-zone — www attach / unenforced https; deployments must succeed')
+  if (failed || needScope) console.error('✗ cloudflare-zone — one or more zone writes refused (see scopes above); deployments must succeed')
   process.exitCode = 1
 } else {
-  console.log(`\ncloudflare-zone — ${DRY ? 'dry complete' : needScope ? 'complete (zone writes need a broader token — see scopes)' : 'complete'}`)
+  console.log(`\ncloudflare-zone — ${DRY ? 'dry complete' : soft && (failed || needScope) ? 'complete (--soft: scope gaps allowed)' : needScope ? 'complete (zone writes need a broader token — see scopes)' : 'complete'}`)
 }

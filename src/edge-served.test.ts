@@ -26,6 +26,7 @@ test('the span is one statement at every station, checked on every row, and anyt
   const s = spanOf(rows)!
   assert.ok(s, 'the live span states itself')
   assert.equal(s.count, rows.length)
+  assert.equal(s.route, `/theorem/${s.first}`, 'the span names the first sealed station, never a prefix cut')
   assert.ok(s.template.includes('n') && !/\b\d{2,}\b/.test(s.template), s.template)
   assert.equal(spanOf([{ key: 'x_000a', statement: 'f 10 = true' }, { key: 'x_000b', statement: 'f 11 = true' }])!.template, 'f n = true')
   // CONTROLS: one row that is not the statement at its own n, a key with no station, and no rows are not a span

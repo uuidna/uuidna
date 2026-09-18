@@ -67,11 +67,11 @@ test('docHasMount sees ClientOnly wrappers', () => {
 test('lazy browse returns exactly what the materialised browse returns', async (t) => {
   primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
   t.after(() => resetCatalogue())   // priming replaces the world for the whole process: forget it as this test ends
-  const lazy = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['zzzz', 40, undefined]]
-    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | undefined))
+  const lazy = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['ssl', 25, 'community'], ['zzzz', 40, undefined]]
+    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | 'community' | undefined))
   catalogue()   // force full materialisation — subsequent browses take the eager path
-  const eager = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['zzzz', 40, undefined]]
-    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | undefined))
+  const eager = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['ssl', 25, 'community'], ['zzzz', 40, undefined]]
+    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | 'community' | undefined))
   for (let i = 0; i < lazy.length; i++) {
     assert.equal(lazy[i]!.total, eager[i]!.total, 'the totals must match')
     assert.deepEqual(lazy[i]!.hits.map((h) => h.name), eager[i]!.hits.map((h) => h.name), 'same rows, same order')

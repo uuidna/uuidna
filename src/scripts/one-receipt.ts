@@ -3,7 +3,7 @@
 //   node one-receipt.js legal   → the legal-surface audit (license drift, terms, overclaims, deposit recompute)
 //   node one-receipt.js prose   → the prose audit (every page walks to the ledger; every taught path exists)
 //   node one-receipt.js fold    → seal quantum-fold.json (the one receipt)
-//   node one-receipt.js mint "<statement>" → mint a signed uuidna.com deposit AND record it, one act
+//   node one-receipt.js mint "<statement>" → uuidna_adjudicate on the hosted door AND record it, one act
 //
 // THE SHAPE — PENTAGRAM TRINITIES: fifteen leaves in five trinities (15 = 5·3, the pentagram's five points each
 // carrying a trinity), each trinity folded order-invariantly, and the five trinity-folds walked BY 2 in the sealed
@@ -26,6 +26,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus, FREE_KEYS } from '../index.js'
 import { A432_HZ } from '../tts/synth.js'
 import { MCP_CATALOG, STANDARD_NAMES, callTool } from '../mcp.js'
+import { callHosted } from './mcp-call.js'
 import { handleMcpRpc, mcpHttpCatalogue } from '../mcp-http.js'
 import { idOf } from '../mcp-door.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
@@ -139,7 +140,7 @@ export function legalGaps(): { gaps: Gap[]; facts: string } {
   for (const r of depositRecord().receipts) {
     const recomputed = toUuid(r.statement)
     if (recomputed !== r.id)
-      gaps.push({ what: `trials-receipts.json: deposit ${r.id} does not recompute from its statement (toUuid gives ${recomputed})`, fix: `edit trials-receipts.json: correct the statement to the exact text that was trialed (re-POST it to uuidna.com/trials and copy the returned id), or correct the id to ${recomputed}` })
+      gaps.push({ what: `trials-receipts.json: deposit ${r.id} does not recompute from its statement (toUuid gives ${recomputed})`, fix: `edit trials-receipts.json: correct the statement to the exact text that was trialed (npm run mcp -- uuidna_adjudicate '{"statement":"…"}' and copy toUuid of that statement), or correct the id to ${recomputed}` })
     receiptLines.push(`${r.id}|${recomputed === r.id ? 'recomputes' : 'DRIFTED'}`)
   }
   // 8) LEGAL COMPLETENESS — the elements a complete terms-record must contain, each PRESENT in the terms surface
@@ -2261,18 +2262,18 @@ export function fold() {
 
 async function mint(statement: string) {
   if (!statement) { console.error('✗ one-receipt mint — usage: one-receipt mint "<statement citing a sealed theorem>"'); process.exit(1) }
-  const res = await fetch('https://uuidna.com/trials', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ statement }) })
-  const trial = (await res.json()) as { id: string; verdict: { verdict: string }; signedBy: string | null }
-  if (trial.verdict.verdict !== 'VERIFIED') { console.error(`✗ one-receipt mint — verdict ${trial.verdict.verdict}: the deposit is refused, nothing recorded. Cite a sealed theorem ("proven by theorem <key>") and mint again.`); process.exit(1) }
-  if (trial.signedBy !== 'uuidna.com') { console.error('✗ one-receipt mint — the verdict returned UNSIGNED; only a uuidna.com-signed trial is an authoritative deposit. Nothing recorded.'); process.exit(1) }
-  const record = existsSync(join(ROOT, 'trials-receipts.json')) ? JSON.parse(rd('trials-receipts.json')) : { note: 'signed uuidna.com /trials deposits', signedBy: 'uuidna.com', receipts: [] }
-  if (!record.receipts.some((r: { id: string }) => r.id === trial.id)) {
+  const a = await callHosted('uuidna_adjudicate', { statement })
+  const verdict = String((a.value as { verdict?: string }).verdict ?? '')
+  if (verdict !== 'VERIFIED') { console.error(`✗ one-receipt mint — verdict ${verdict}: the deposit is refused, nothing recorded. Cite a sealed theorem ("proven by theorem <key>") and mint again.`); process.exit(1) }
+  const id = toUuid(statement)
+  const record = existsSync(join(ROOT, 'trials-receipts.json')) ? JSON.parse(rd('trials-receipts.json')) : { note: 'hosted uuidna_adjudicate deposits', signedBy: 'uuidna.com', receipts: [] }
+  if (!record.receipts.some((r: { id: string }) => r.id === id)) {
     let prevImprint = 'genesis'
     for (const r of record.receipts as { id: string; imprint?: string }[]) prevImprint = h16(`${prevImprint}|${r.id}`)
-    record.receipts.push({ id: trial.id, statement, imprint: h16(`${prevImprint}|${trial.id}`) })
+    record.receipts.push({ id, statement, imprint: h16(`${prevImprint}|${id}`), via: a.name })
     writeFileSync(join(ROOT, 'trials-receipts.json'), JSON.stringify(record, null, 2) + '\n')
   }
-  console.log(`✓ one-receipt mint — ${trial.id} VERIFIED, signed by uuidna.com, recorded in trials-receipts.json (deterministic: re-POST the same statement, the same id returns)`)
+  console.log(`✓ one-receipt mint — ${id} VERIFIED via ${a.name}, recorded in trials-receipts.json (deterministic: the same statement, the same id)`)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
@@ -2936,6 +2937,11 @@ export function markupGaps(): Gap[] {
     if (f.includes('/tests/') || isTestSource(f)) continue
     let src = ''
     try { src = readFileSync(join(ROOT, f), 'utf8') } catch { continue }
+    // GENERATED FILES ARE MENTIONS, NOT EMISSIONS. unitGaps already skips them. mcp-docs.generated.ts stores a
+    // clipped excerpt of each tool's actual answer; uuidna_render's answer is HTML, and a 160-character clip
+    // leaves <article> and <div> open. That is a citation of the answer, not a template emitting markup. The
+    // finder hunts render.ts-class templates — the class that compiled, typed, and then broke every theorem page.
+    if (/GENERATED by|GENERATED\. DO NOT EDIT|— GENERATED/.test(src.slice(0, 400))) continue
     // COMMENTS ARE MENTIONS, NOT EMISSIONS. The first version counted tags inside prose and flagged four files,
     // one of them this very finder — whose doc comment names `</div>` while explaining the defect it hunts. The
     // same use-versus-mention trap the determinism scan, the sources finder and the comments finder each sprang.

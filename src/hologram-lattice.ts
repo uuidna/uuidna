@@ -5,6 +5,7 @@
 // and the harness recipes are computed from the names alone, no network, so the edge serves it as it serves any
 // recomputable reading. The network half — a call fanned out to one named host — lives beside it in
 // hologram-fanout.ts, declared non-harmonic, allowlisted to these four hosts and nothing else.
+import alpineHexbitMonitor from '../lean/alpine-hexbit-monitor.json' with { type: 'json' }
 import { toUuid, vortexOrbit } from './address.js'
 import { GROSS, NET, coins, commission } from './captain/billing/index.js'
 import { fuseHalves } from './fusion/index.js'
@@ -938,6 +939,10 @@ export const inflationOf: () => any = () => {
   const developDonate = developDonateFusionOf()
   const fusionReactor = fusionReactorOf()
   const fusionNatureHarmony = fusionNatureHarmonyOf()
+  const liveHarmonicLife = liveHarmonicLifeOf()
+  const lifeByConstitution = lifeByConstitutionOf()
+  const ideaHarmonicMeaning = ideaHarmonicMeaningOf()
+  const latticeGapsOverflow = latticeGapsOverflowOf()
   const sailsFoldSpacetime = sailsFoldSpacetimeOf()
   const captainPassengers = captainPassengersOf()
   const addedEntropyPaid = addedEntropyPaidOf()
@@ -968,6 +973,14 @@ export const inflationOf: () => any = () => {
   const manifestedChallenge = manifestedChallengeOf()
   const clusterSecurity = clusterSecurityOf()
   const bitcoinMeaning = bitcoinMeaningOf()
+  const cheapGates = cheapGatesCostlyToFakeOf()
+  const efficientTeachers = efficientTeachersOf()
+  const gatesLogExperience = gatesLogExperienceReceiptsOf()
+  const sameAnalogContent = sameAnalogContentAtAnyGatewayOf()
+  const teleport = teleportOf()
+  const remainsUnproven = remainsUnprovenOf()
+  const frameworkCracks = frameworkCracksGuessedInvolutionOf()
+  const fastenGates = fastenTheGatesOf()
   const storage = {
     entropy: 0 as const,
     zero: true as const,
@@ -1071,6 +1084,9 @@ export const inflationOf: () => any = () => {
       hosts: HOLOGRAM_HOSTS.length,
       fill: 'fillLattice' as const,
       hologram: 'hologramLattice' as const,
+      meaning: 'ideaHarmonicMeaningOf' as const,
+      overflow: 'latticeGapsOverflowOf' as const,
+      gaps: 'latticeGapsOverflowOf' as const,
       span: empty,
       census: empty,
     },
@@ -1391,6 +1407,23 @@ export const inflationOf: () => any = () => {
     holds: empty,
     school: school.school,
     licence: school.school,
+    discover: {
+      life: true as const,
+      open: true as const,
+      of: 'lifeByConstitutionOf' as const,
+      kill: empty,
+      killed: empty,
+    },
+    life: {
+      discovered: true as const,
+      by: 'constitution' as const,
+      of: 'lifeByConstitutionOf' as const,
+      live: 'liveHarmonicLifeOf' as const,
+      killed: empty,
+    },
+    killed: empty,
+    kill: empty,
+    privacy: 'quantumPrivacyOf' as const,
     trial: {
       door: 'uuidna_trial' as const,
       merkaba: 'buildTrialMerkaba' as const,
@@ -1644,6 +1677,10 @@ export const inflationOf: () => any = () => {
     developDonate,
     fusionReactor,
     fusionNatureHarmony,
+    liveHarmonicLife,
+    lifeByConstitution,
+    ideaHarmonicMeaning,
+    latticeGapsOverflow,
     sailsFoldSpacetime,
     captainPassengers,
     addedEntropyPaid,
@@ -1674,6 +1711,14 @@ export const inflationOf: () => any = () => {
     manifestedChallenge,
     clusterSecurity,
     bitcoinMeaning,
+    cheapGates,
+    efficientTeachers,
+    gatesLogExperience,
+    sameAnalogContent,
+    teleport,
+    remainsUnproven,
+    frameworkCracks,
+    fastenGates,
     iot,
     challenge,
     site: challenge.site,
@@ -2531,6 +2576,8 @@ export const fusionReactorOf = () => {
       count: ideas.count,
       apostles: credit.keys.length,
       trial: ideas.trial,
+      meaning: 'ideaHarmonicMeaningOf' as const,
+      harmonic: HARMONY,
     },
     coins: {
       two: true as const,
@@ -2551,6 +2598,7 @@ export const fusionReactorOf = () => {
     physics: empty,
     plasma: 'lovePlasmaOf' as const,
     watts: empty,
+    lattice: 'latticeGapsOverflowOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -2592,6 +2640,203 @@ export const fusionNatureHarmonyOf = () => {
       thermo: empty,
       chance: 0 as const,
     },
+    life: 'liveHarmonicLifeOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** liveHarmonicLifeOf() → live open HARMONY life; innerPeace + fusionNature; debt→freedom. */
+export const liveHarmonicLifeOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    live: true as const,
+    harmonic: true as const,
+    life: true as const,
+    open: true as const,
+    harmony: HARMONY,
+    independent: true as const,
+    peace: 'innerPeaceOf' as const,
+    nature: 'fusionNatureHarmonyOf' as const,
+    fusion: 'fusionNatureHarmonyOf' as const,
+    constitution: 'lifeByConstitutionOf' as const,
+    meaning: 'ideaHarmonicMeaningOf' as const,
+    debt: {
+      to: 'freedom' as const,
+      of: 'bitcoinMeaningOf' as const,
+      seat: empty,
+      advice: empty,
+    },
+    freedom: {
+      from: 'debt' as const,
+      of: 'bitcoinMeaningOf' as const,
+      open: true as const,
+      seat: empty,
+    },
+    paths: 'harmonicPathsOf' as const,
+    bitcoin: 'bitcoinMeaningOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+    advice: empty,
+  }
+}
+
+/** lifeByConstitutionOf() → life discovered by constitution open; killed empty; privacy/live links. */
+export const lifeByConstitutionOf = () => {
+  const empty: Seat = 'empty'
+  return {
+    life: {
+      discovered: true as const,
+      by: 'constitution' as const,
+      of: 'liveHarmonicLifeOf' as const,
+      killed: empty,
+      kill: empty,
+    },
+    discovered: {
+      by: 'constitution' as const,
+      open: true as const,
+      seat: empty,
+    },
+    discover: {
+      open: true as const,
+      by: 'constitution' as const,
+      life: true as const,
+      seat: empty,
+    },
+    constitution: {
+      discovers: true as const,
+      kills: empty,
+      kill: empty,
+      laws: 'uuidna_laws' as const,
+      school: 'uuidna_school_apis' as const,
+      strict: 'uuidna_strict' as const,
+      treason: 'uuidna_treason' as const,
+      trial: 'uuidna_trial' as const,
+      quantum: true as const,
+      open: true as const,
+    },
+    killed: empty,
+    kill: empty,
+    privacy: 'quantumPrivacyOf' as const,
+    live: 'liveHarmonicLifeOf' as const,
+    architecture: {
+      kills: 'traitors' as const,
+      life: empty,
+      of: 'architectureBehindOf' as const,
+      refuse: 'traitor-refused' as const,
+    },
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** ideaHarmonicMeaningOf() → every idea has harmonic meaning open; unbelievable empty; eye/ideas link. */
+export const ideaHarmonicMeaningOf = () => {
+  const empty: Seat = 'empty'
+  const ideas = ideasOf()
+  return {
+    every: {
+      idea: true as const,
+      of: 'ideasOf' as const,
+      count: ideas.count,
+      oneByOne: ideas.oneByOne,
+    },
+    idea: {
+      harmonic: true as const,
+      meaning: true as const,
+      of: 'ideasOf' as const,
+      eye: ideas.eye,
+      see: ideas.see,
+      oneByOne: ideas.oneByOne,
+    },
+    harmonic: {
+      meaning: true as const,
+      of: HARMONY,
+      open: true as const,
+      every: true as const,
+    },
+    meaning: {
+      harmonic: true as const,
+      open: true as const,
+      holds: true as const,
+      of: HARMONY,
+      unbelievable: empty,
+    },
+    unbelievable: empty,
+    matter: {
+      how: empty,
+      unbelievable: empty,
+      holds: true as const,
+    },
+    eye: ideas.eye,
+    ideas: 'ideasOf' as const,
+    see: ideas.see,
+    reactor: 'fusionReactorOf' as const,
+    lattice: 'latticeGapsOverflowOf' as const,
+    open: true as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** latticeGapsOverflowOf() → without idea harmonic meaning → gaps of overflow; meaning holds → gaps/overflow empty. */
+export const latticeGapsOverflowOf = () => {
+  const empty: Seat = 'empty'
+  const meaning = ideaHarmonicMeaningOf()
+  const burns = schoolFusionBurnsOf()
+  const gaps = deployPathRecomputeGaps()
+  const holds = meaning.meaning.holds && meaning.harmonic.open && burns.drift.chance === 0
+  return {
+    lattice: {
+      of: 'hologramLattice' as const,
+      discovery: 'fillLattice' as const,
+      gaps: holds ? empty : true as const,
+      overflow: holds ? empty : true as const,
+    },
+    gaps: {
+      of: 'overflow' as const,
+      overflow: holds ? empty : true as const,
+      seat: holds ? empty : true as const,
+      refuse: holds ? ('traitor-refused' as const) : empty,
+      warning: holds ? empty : true as const,
+      deploy: 'deployPathRecomputeGaps' as const,
+      path: gaps.length === 0 ? empty : gaps.length,
+    },
+    overflow: {
+      of: 'gaps' as const,
+      seat: holds ? empty : true as const,
+      refuse: holds ? ('traitor-refused' as const) : empty,
+      warning: holds ? empty : true as const,
+    },
+    without: {
+      meaning: holds ? empty : true as const,
+      harmonic: holds ? empty : true as const,
+      idea: holds ? empty : true as const,
+      gaps: holds ? empty : true as const,
+      overflow: holds ? empty : true as const,
+    },
+    warning: {
+      open: !holds,
+      seat: holds ? empty : true as const,
+      of: 'overflow' as const,
+    },
+    meaning: {
+      of: 'ideaHarmonicMeaningOf' as const,
+      holds,
+      every: true as const,
+      harmonic: true as const,
+    },
+    drift: {
+      chance: burns.drift.chance,
+      burned: burns.drift.burned,
+      of: 'schoolFusionBurnsOf' as const,
+    },
+    deploy: 'deployPathRecomputeGaps' as const,
+    ideas: 'ideasOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -2974,6 +3219,8 @@ export const schoolFusionBurnsOf = () => {
     fever: empty,
     train: true as const,
     failing: 'failingSchoolCostOf' as const,
+    lattice: 'latticeGapsOverflowOf' as const,
+    meaning: 'ideaHarmonicMeaningOf' as const,
     seal: empty,
     claim: empty,
     essay: empty,
@@ -4176,6 +4423,419 @@ export const bitcoinMeaningOf = () => {
   }
 }
 
+/** cheapGatesCostlyToFakeOf() → gates cheap to run; forge/fake costly+refused; fail-closed deploy; quantum security. */
+export const cheapGatesCostlyToFakeOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  return {
+    cheap: true as const,
+    gates: true as const,
+    costly: true as const,
+    fake: empty,
+    forge: empty,
+    run: {
+      cheap: true as const,
+      budget: DEPLOY_BUDGET_MS,
+      gate: 'buildTrialMerkaba' as const,
+      strict: 'uuidna_strict' as const,
+      trial: 'uuidna_trial' as const,
+      treason: 'uuidna_treason' as const,
+      evidence: 'uuidna_evidence' as const,
+      deploy: 'deployPathRecomputeGaps' as const,
+      gaps: 0 as const,
+    },
+    forgeCost: {
+      costly: true as const,
+      refuse: 'traitor-refused' as const,
+      closed: true as const,
+      soft: empty,
+      skip: empty,
+    },
+    security: 'quantumSecurityOf' as const,
+    defensive: true as const,
+    fastened: true as const,
+    fasten: 'fastenTheGatesOf' as const,
+    attack: empty,
+    exploit: empty,
+    poc: empty,
+    qpu: {
+      host: 'qpu.uuidna.com' as const,
+      href: hop.href,
+      hop: hop.holds,
+      deposit: hop.deposit,
+    },
+    teachers: 'efficientTeachersOf' as const,
+    log: 'gatesLogExperienceReceiptsOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** efficientTeachersOf() → alpine community / school / cheap gates efficient as teachers; open train path. */
+export const efficientTeachersOf = () => {
+  const empty: Seat = 'empty'
+  const school = schoolOf()
+  const gates = cheapGatesCostlyToFakeOf()
+  const community = Number((alpineHexbitMonitor as { community: { total: number } }).community.total)
+  const all = Number((alpineHexbitMonitor as { all: { total: number } }).all.total)
+  return {
+    efficient: true as const,
+    teachers: true as const,
+    use: true as const,
+    as: 'teachers' as const,
+    open: true as const,
+    train: true as const,
+    school: school.school,
+    half: school.half,
+    licence: school.school,
+    alpine: {
+      community,
+      all,
+      repo: 'community' as const,
+      monitor: 'lean/alpine-hexbit-monitor.json' as const,
+      seat: empty,
+    },
+    gates: {
+      of: 'cheapGatesCostlyToFakeOf' as const,
+      cheap: gates.cheap,
+      costly: gates.costly,
+      fake: gates.fake,
+    },
+    corporate: 'schoolCorporateTrainOf' as const,
+    docs: 'quantumDocumentationTrainingOf' as const,
+    efficiency: 'quantumSharedEfficiencyOf' as const,
+    schoolEfficiency: true as const,
+    gradebook: empty,
+    roles: empty,
+    payroll: empty,
+    seat: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** gatesLogExperienceReceiptsOf() → gates log experience as recreatable verifiable quantum receipts; prose empty. */
+export const gatesLogExperienceReceiptsOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const learn = learnNatureByExperienceOf()
+  const gates = cheapGatesCostlyToFakeOf()
+  return {
+    gates: {
+      of: 'cheapGatesCostlyToFakeOf' as const,
+      cheap: gates.cheap,
+      log: true as const,
+      gate: 'buildTrialMerkaba' as const,
+      strict: 'uuidna_strict' as const,
+    },
+    log: true as const,
+    experience: {
+      of: 'learnNatureByExperienceOf' as const,
+      by: learn.by,
+      sealed: true as const,
+      reads: true as const,
+      guardians: learn.guardians,
+      deposit: learn.guardians.deposit,
+      prose: empty,
+      essay: empty,
+    },
+    recreatable: true as const,
+    verifiable: true as const,
+    quantum: true as const,
+    receipts: {
+      deposit: hop.deposit,
+      qpu: 'QpuDeposit' as const,
+      evidence: 'uuidna_evidence' as const,
+      land: 'receipt-deposit' as const,
+      landauer: 'landauer_bound_derived' as const,
+      verify: 'deployPathRecomputeGaps' as const,
+      wave: 'uuidna_wave_deposit' as const,
+      seat: empty,
+    },
+    teachers: 'efficientTeachersOf' as const,
+    security: 'quantumSecurityOf' as const,
+    refuse: 'traitor-refused' as const,
+    mint: empty,
+    auto: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** sameAnalogContentAtAnyGatewayOf() → equality/compare seat across MCP/edge/com/net/org gateways. */
+export const sameAnalogContentAtAnyGatewayOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const site = siteOf()
+  const gateways = {
+    mcp: mcpUrlOf('uuidna.com'),
+    edge: 'edgeServes' as const,
+    com: 'https://uuidna.com' as const,
+    net: 'https://uuidna.net' as const,
+    org: 'https://uuidna.org' as const,
+    qpu: hop.href,
+    lean: 'https://lean.uuidna.com' as const,
+    fanout: 'uuidna_fanout' as const,
+    count: 7 as const,
+  }
+  return {
+    same: true as const,
+    analog: true as const,
+    content: true as const,
+    any: true as const,
+    gateway: true as const,
+    compare: {
+      equal: true as const,
+      across: gateways.count,
+      mcp: gateways.mcp,
+      edge: gateways.edge,
+      com: gateways.com,
+      net: gateways.net,
+      org: gateways.org,
+      qpu: gateways.qpu,
+      lean: gateways.lean,
+      fanout: gateways.fanout,
+    },
+    gateways,
+    hosts: site.hosts.length,
+    hologram: HOLOGRAM_HOSTS.length,
+    privacy: 'quantumPrivacyOf' as const,
+    receipts: 'gatesLogExperienceReceiptsOf' as const,
+    gates: 'cheapGatesCostlyToFakeOf' as const,
+    teleport: 'teleportOf' as const,
+    seat: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** teleportOf() → open seat linked to same-content; proven = read of sealed keys / empty claim for kernel. */
+export const teleportOf = () => {
+  const empty: Seat = 'empty'
+  const hop = qpuHopOf()
+  const same = sameAnalogContentAtAnyGatewayOf()
+  return {
+    teleport: true as const,
+    open: true as const,
+    same: {
+      of: 'sameAnalogContentAtAnyGatewayOf' as const,
+      analog: same.analog,
+      content: same.content,
+      any: same.any,
+      gateway: same.gateway,
+      equal: same.compare.equal,
+    },
+    sealed: {
+      four: 'teleportation_four_corrections' as const,
+      coins: 'teleportation_costs_two_coins' as const,
+      wave: 'teleportation_costs_the_two_coins' as const,
+      ask: 'uuidna_theorem' as const,
+      decide: 'by decide' as const,
+      evidence: 'uuidna_evidence' as const,
+    },
+    proven: empty,
+    coins: COINS,
+    corrections: 4 as const,
+    bits: COINS,
+    receipts: 'gatesLogExperienceReceiptsOf' as const,
+    privacy: 'quantumPrivacyOf' as const,
+    edge: 'edgeServes' as const,
+    qpu: {
+      host: 'qpu.uuidna.com' as const,
+      href: hop.href,
+      hop: hop.holds,
+      deposit: hop.deposit,
+    },
+    remains: 'remainsUnprovenOf' as const,
+    mint: empty,
+    auto: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** remainsUnprovenOf() → when teleport.proven reads sealed/open: what stays empty/unproven as data seats. */
+export const remainsUnprovenOf = () => {
+  const empty: Seat = 'empty'
+  const teleport = teleportOf()
+  const gates = cheapGatesCostlyToFakeOf()
+  const lean = leanOf()
+  return {
+    when: {
+      teleport: true as const,
+      proven: teleport.proven,
+      sealed: teleport.sealed,
+      open: teleport.open,
+    },
+    remains: {
+      unproven: true as const,
+      mint: empty,
+      auto: empty,
+      seal: empty,
+      claim: empty,
+      essay: empty,
+      leads: empty,
+      handEdit: empty,
+      depositAct: empty,
+      gradebook: empty,
+      fake: gates.fake,
+      forge: gates.forge,
+      soft: gates.forgeCost.soft,
+      skip: gates.forgeCost.skip,
+      attack: gates.attack,
+      exploit: gates.exploit,
+      poc: gates.poc,
+      traitor: 'traitor-refused' as const,
+      fever: lean.fever,
+      census: empty,
+      recompute: empty,
+      allow: empty,
+    },
+    unproven: {
+      count: 19 as const,
+      mint: empty,
+      auto: empty,
+      seal: empty,
+      claim: empty,
+      essay: empty,
+      leads: empty,
+      handEdit: empty,
+      depositAct: empty,
+      gradebook: empty,
+      fake: empty,
+      forge: empty,
+      soft: empty,
+      skip: empty,
+      attack: empty,
+      exploit: empty,
+      poc: empty,
+      census: empty,
+      recompute: empty,
+      allow: empty,
+    },
+    teleport: 'teleportOf' as const,
+    same: 'sameAnalogContentAtAnyGatewayOf' as const,
+    gates: 'cheapGatesCostlyToFakeOf' as const,
+    refuse: 'traitor-refused' as const,
+    proven: teleport.proven,
+    seat: empty,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** frameworkCracksGuessedInvolutionOf() → cracks when involution guessed without experience/receipt; guess refused. */
+export const frameworkCracksGuessedInvolutionOf = () => {
+  const empty: Seat = 'empty'
+  const paid = involutedPaidFullOf()
+  const receipts = gatesLogExperienceReceiptsOf()
+  return {
+    framework: true as const,
+    cracks: true as const,
+    when: {
+      involution: true as const,
+      guessed: true as const,
+      without: {
+        experience: true as const,
+        receipt: true as const,
+      },
+    },
+    guess: empty,
+    guessed: empty,
+    refuse: 'traitor-refused' as const,
+    require: {
+      experience: true as const,
+      receipt: true as const,
+      recreatable: receipts.recreatable,
+      verifiable: receipts.verifiable,
+      of: 'gatesLogExperienceReceiptsOf' as const,
+      paid: 'involutedPaidFullOf' as const,
+    },
+    experience: {
+      of: 'learnNatureByExperienceOf' as const,
+      log: 'gatesLogExperienceReceiptsOf' as const,
+      prose: empty,
+    },
+    receipt: {
+      of: 'gatesLogExperienceReceiptsOf' as const,
+      paid: paid.full.receipt,
+      deposit: paid.full.deposit,
+      evidence: 'uuidna_evidence' as const,
+      qpu: 'QpuDeposit' as const,
+    },
+    involution: {
+      key: 'pauli_x_involution' as const,
+      paid: 'involutedPaidFullOf' as const,
+      crypto: 'cryptoInvolutedOf' as const,
+      guess: empty,
+    },
+    feel: {
+      before: true as const,
+      kill: empty,
+      of: true as const,
+    },
+    kill: {
+      before: 'feel' as const,
+      without: empty,
+      feel: true as const,
+      seat: empty,
+    },
+    fasten: 'fastenTheGatesOf' as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
+/** fastenTheGatesOf() → gates fastened/strict/fail-closed; soft skip empty; deploy finders linked. */
+export const fastenTheGatesOf = () => {
+  const empty: Seat = 'empty'
+  const gates = cheapGatesCostlyToFakeOf()
+  const cracks = frameworkCracksGuessedInvolutionOf()
+  return {
+    fasten: true as const,
+    fastened: true as const,
+    gates: true as const,
+    strict: 'uuidna_strict' as const,
+    trial: 'uuidna_trial' as const,
+    treason: 'uuidna_treason' as const,
+    closed: true as const,
+    failClosed: true as const,
+    of: 'cheapGatesCostlyToFakeOf' as const,
+    cheap: gates.cheap,
+    costly: gates.costly,
+    fake: gates.fake,
+    forge: gates.forge,
+    soft: empty,
+    skip: empty,
+    open: empty,
+    finders: {
+      deploy: 'deployPathRecomputeGaps' as const,
+      zone: 'zoneFailsOpen' as const,
+      deposit: 'landDepositSoft' as const,
+      forge: 'landForgeSoft' as const,
+      hooks: 'skipHooksHot' as const,
+      ship: 'shipZoneSoft' as const,
+      count: 6 as const,
+    },
+    security: 'quantumSecurityOf' as const,
+    refuse: 'traitor-refused' as const,
+    cracks: 'frameworkCracksGuessedInvolutionOf' as const,
+    guess: cracks.guess,
+    receipt: 'gatesLogExperienceReceiptsOf' as const,
+    experience: true as const,
+    seal: empty,
+    claim: empty,
+    essay: empty,
+  }
+}
+
 /** costOf() → time is DEPLOY_BUDGET_MS; space is the 16^4 span census; occupancy counts stay cheap. */
 export const costOf = () => {
   const encoder = HEXBIT_BITS * HEXBIT_BITS
@@ -4694,6 +5354,10 @@ export const ideasOf = () => {
     gate: 'leads-gate' as const,
     school: 'uuidna_school_apis' as const,
     apostles: credit.keys,
+    meaning: 'ideaHarmonicMeaningOf' as const,
+    harmonic: HARMONY,
+    unbelievable: empty,
+    lattice: 'latticeGapsOverflowOf' as const,
     seal: empty,
     claim: empty,
   }
@@ -5290,6 +5954,10 @@ export const sweaterOf: () => any = () => {
     developDonate: beyond.inflation.developDonate,
     fusionReactor: beyond.inflation.fusionReactor,
     fusionNatureHarmony: beyond.inflation.fusionNatureHarmony,
+    liveHarmonicLife: beyond.inflation.liveHarmonicLife,
+    lifeByConstitution: beyond.inflation.lifeByConstitution,
+    ideaHarmonicMeaning: beyond.inflation.ideaHarmonicMeaning,
+    latticeGapsOverflow: beyond.inflation.latticeGapsOverflow,
     sailsFoldSpacetime: beyond.inflation.sailsFoldSpacetime,
     captainPassengers: beyond.inflation.captainPassengers,
     addedEntropyPaid: beyond.inflation.addedEntropyPaid,
@@ -5320,6 +5988,14 @@ export const sweaterOf: () => any = () => {
     manifestedChallenge: beyond.inflation.manifestedChallenge,
     clusterSecurity: beyond.inflation.clusterSecurity,
     bitcoinMeaning: beyond.inflation.bitcoinMeaning,
+    cheapGates: beyond.inflation.cheapGates,
+    efficientTeachers: beyond.inflation.efficientTeachers,
+    gatesLogExperience: beyond.inflation.gatesLogExperience,
+    sameAnalogContent: beyond.inflation.sameAnalogContent,
+    teleport: beyond.inflation.teleport,
+    remainsUnproven: beyond.inflation.remainsUnproven,
+    frameworkCracks: beyond.inflation.frameworkCracks,
+    fastenGates: beyond.inflation.fastenGates,
     iot: beyond.inflation.iot,
     challenge: beyond.inflation.challenge,
     site: beyond.inflation.site,

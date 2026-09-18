@@ -49,10 +49,13 @@ const params = (schema?: { properties?: Record<string, { type?: string; descript
 const hintsOf = (a: Annotations): string =>
   [a.readOnlyHint ? 'read-only' : 'changes state', a.idempotentHint ? 'idempotent' : '', a.openWorldHint ? 'reaches outside' : '', a.destructiveHint ? 'destructive' : ''].filter(Boolean).join(' · ')
 const fenced = (s: string): string => s.replace(/`/g, '\'')
+const PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/i
 const computed = (name: string): string => {
   const d = MCP_DOCS[name]
   if (!d) return ''
-  const lines = [`**${d.title}.** ${pageSafe(d.description.replace(/^[^.]*\.\s*/, ''))}`, '',
+  const head = `**${d.title}.** ${pageSafe(d.description.replace(/^[^.]*\.\s*/, ''))}`
+  const bound = PHYSICS.test(`${d.title} ${d.description}`) ? ' Bound [`n_qubit_dimension`](/theorem/n_qubit_dimension).' : ''
+  const lines = [`${head}${bound}`, '',
     `Call \`${d.name}\`${d.name !== name ? ` — the old name \`${name}\` still answers` : ''} · ${hintsOf(d.annotations)}${d.status === 'documented' ? '' : ` · ${d.status}`}`]
   if (d.example) lines.push('', '```json', `// arguments\n${fenced(JSON.stringify(d.example.args))}\n// answer${d.status === 'documented' ? ' (excerpt)' : ''}\n${fenced(d.example.excerpt)}`, '```')
   return lines.join('\n')

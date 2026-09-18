@@ -2,7 +2,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  argsOf, callNamed, callOnce, candidatesOf, commandFor, hostedDoor, parseArgv, replyOf, run, search, skeletonOf, suggestTools,
+  argsOf, callHosted, callNamed, callOnce, candidatesOf, commandFor, hostedDoor, parseArgv, replyOf, run, search, skeletonOf, suggestTools,
   DoorError, ENDPOINT, type RpcRequest, type RpcReply, type ToolRow, type Transport,
 } from './mcp-call.js'
 
@@ -106,6 +106,13 @@ test('suggestions rank a name hit over a description hit, and a tool the code na
   assert.equal(named.suggestions[0]!.name, 'uuidna_merkle_root')
   const viaDoor = await suggestTools(hostedDoor(doorSurface, 't'), ['handle'])
   assert.equal(viaDoor.suggestions[0]!.command, `npm run mcp -- handle '{"address":"<address>"}'`)
+})
+
+test('callHosted is tools/call on the hosted door, with the first name the surface knows', async () => {
+  const seen: RpcRequest[] = []
+  const a = await callHosted('address', { value: 'hi' }, mainSurface(seen))
+  assert.equal(a.name, 'uuidna_address')
+  assert.ok(seen.some((r) => r.method === 'tools/call' && r.params?.name === 'uuidna_address'))
 })
 
 test('the command prints the tool\'s JSON, says where it came from, and exits non-zero on a JSON-RPC error', async () => {

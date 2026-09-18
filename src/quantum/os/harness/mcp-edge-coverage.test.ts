@@ -233,9 +233,15 @@ test('stdio and edge agree on empty uuidna_api_mint', async () => {
   assert.equal(edge.count, stdio.count)
 })
 
-test('uuidna_school_apis stays named EDGE_ABSENT; in-memory search now serves at the edge', () => {
+test('stdio and edge agree on empty uuidna_school_apis; in-memory search stays served', async () => {
   const absent = new Set(edgeAbsentNames())
-  assert.ok(absent.has('uuidna_school_apis'), 'school APIs stay listed, not dropped')
+  assert.ok(!absent.has('uuidna_school_apis'), 'school catalog joins the hosted door — EDGE_ABSENT may only shrink')
+  assert.ok(mcpHttpToolNames().includes('uuidna_school_apis'))
+  const stdio = await Promise.resolve(callTool('uuidna_school_apis', {})) as { receipt: string; count: number }
+  const rpc = await Promise.resolve(handleMcpRpc({ jsonrpc: '2.0', id: 9, method: 'tools/call', params: { name: 'uuidna_school_apis', arguments: {} } })) as { result: { content: { text: string }[] } }
+  const edge = JSON.parse(rpc.result.content[0]!.text) as { receipt: string; count: number }
+  assert.equal(edge.receipt, stdio.receipt)
+  assert.equal(edge.count, stdio.count)
   assert.ok(!absent.has('uuidna_search'), 'uuidna_search is in-memory — shrink EDGE_ABSENT')
   assert.ok(!absent.has('uuidna_search_feed'), 'search-feed is pure — the mill serves at the edge')
   assert.ok(mcpHttpToolNames().includes('uuidna_search'))

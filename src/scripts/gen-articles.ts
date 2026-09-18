@@ -42,7 +42,7 @@ const spanBody = (file: string, s: Span): string =>
   '```lean\n' + s.template + '\n```\n\n' +
   `They run from [${s.first}](/theorem/${s.first}) to [${s.last}](/theorem/${s.last}). The site builds no page per station — ` +
   `a page list spread into one call overflows V8's argument limit near 2^16, the span's own size — so the Worker renders ` +
-  `each at \`${s.route}\` from the ledger, and \`uuidna_theorem\` answers any of them.\n`
+  `each from the ledger at its sealed key (the first station is [${s.first}](/theorem/${s.first})), and \`uuidna_theorem\` answers any of them.\n`
 
 interface Entry { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string ; cases?: number }
 

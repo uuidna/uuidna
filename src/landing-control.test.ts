@@ -61,6 +61,13 @@ test('landingGaps is SILENT on a push that DOES verify the remote moved — the 
     })
 })
 
+test('landingGaps is SILENT on a quoted git push that is not handed to a runner — a detector quoting the command is mention, not a landing', () => {
+  withFixture('probes-push.ts', 'assert.ok(landOffMcpDoor("git push origin main"))\n', (rel) => {
+    assert.deepEqual(landingGaps([rel]).filter((g) => /git push/.test(g.what)), [],
+      'a test that passes the command to a finder is quoting, not pushing; requiring a runner is the same use/mention cut as the opening quote')
+  })
+})
+
 test('landingGaps is SILENT on a file that lands nothing at all', () => {
   withFixture('no-git.ts', 'export const two = 1 + 1\n', (rel) => assert.deepEqual(landingGaps([rel]), []))
 })

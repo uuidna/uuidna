@@ -12,6 +12,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { ENDPOINT, callHosted, transportOf } from './mcp-call.js'
 
 export const QPU_RECEIPTS = 'https://qpu.uuidna.com/storage/receipts/uuidna'
 
@@ -26,7 +27,7 @@ export const gateDepositOf = (covers: GateReceipt['covers'], commit: string): Re
 }
 
 /** the MCP door every host deposits through — no token on any host (the captain, 2026-09-14: "mcp door, no token on host") */
-export const MCP_DOOR = 'https://uuidna.com/mcp'
+export const MCP_DOOR = ENDPOINT
 
 /** depositEvidence(run, body) → a run's evidence into qpu storage THROUGH THE MCP DOOR: one uuidna_evidence {run, deposit}
  *  call, whose Worker writes over its QpuDeposit service binding at receipts/uuidna/<run>/<content address> — the door
@@ -35,18 +36,11 @@ export const MCP_DOOR = 'https://uuidna.com/mcp'
 export const depositEvidence = async (run: string, body: Record<string, unknown>, fetchImpl: typeof fetch = fetch):
   Promise<{ sent: boolean; href: string; status?: number; why?: string }> => {
   try {
-    const res = await fetchImpl(MCP_DOOR, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' },
-      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } }),
-    })
-    const rpc = (await res.json().catch(() => ({}))) as { result?: { content?: { text?: string }[] } }
-    const text = rpc.result?.content?.[0]?.text ?? ''
-    let reply: { deposited?: boolean; href?: string; why?: string } = {}
-    try { reply = JSON.parse(text) as typeof reply } catch { /* a refusal is plain text */ }
+    const a = await callHosted('uuidna_evidence', { run, deposit: body }, transportOf(fetchImpl, MCP_DOOR))
+    const reply = (a.value && typeof a.value === 'object' ? a.value : {}) as { deposited?: boolean; href?: string; why?: string }
     return reply.deposited === true
-      ? { sent: true, href: reply.href ?? MCP_DOOR, status: res.status }
-      : { sent: false, href: reply.href ?? MCP_DOOR, status: res.status, why: reply.why ?? (text.slice(0, 200) || `the MCP door answered ${res.status}`) }
+      ? { sent: true, href: reply.href ?? MCP_DOOR }
+      : { sent: false, href: reply.href ?? MCP_DOOR, why: reply.why ?? String(a.value).slice(0, 200) }
   } catch (e) { return { sent: false, href: MCP_DOOR, why: String((e as Error)?.message ?? e) } }
 }
 

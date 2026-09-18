@@ -2,12 +2,21 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theoremPage, renderTheoremPage } from './theorem-page.js'
 import { isPagelessFile, theorems, theoremByKey } from './theorems/index.js'
+import { canonicalOrder, gaps, discoverStaticPages } from './site.js'
 
 test('isPagelessFile names only the four-hex span wings', () => {
   assert.equal(isPagelessFile('HexSpan1.lean'), true)
   assert.equal(isPagelessFile('HexSpan16.lean'), true)
   assert.equal(isPagelessFile('Core.lean'), false)
   assert.equal(isPagelessFile('Hexbit.lean'), false)
+})
+
+test('the wrapping walk covers every named theorem and none of the four-hex span', () => {
+  const paged = theorems().filter((t) => !isPagelessFile(t.file))
+  const order = canonicalOrder(discoverStaticPages())
+  const theoremRoutes = paged.map((t) => `/theorem/${t.key}`)
+  assert.equal(gaps(order, theoremRoutes).length, 0)
+  assert.equal(order.some((n) => n.route.includes('enumeration_hex4_')), false)
 })
 
 test('theoremPage computes a HexSpan door and refuses a named theorem', () => {

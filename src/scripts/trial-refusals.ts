@@ -140,7 +140,7 @@ export const settlementOf = (d: DocketRow, ok: KernelOk, files: TreeFiles, seale
 }
 /** reopenedBecause(s) → the computed reason a settlement does not stand */
 export const reopenedBecause = (s: Settlement): string => [
-  !s.involution ? `its claim is not yet stated in Lean and refuted by the kernel (def lead_${s.handle}, theorem involution_${s.handle} : ¬ lead_${s.handle})` : '',
+  !s.involution ? 'its claim is not yet stated in Lean and refuted by the kernel (def lead_<handle>, theorem involution_<handle> : ¬ lead_<handle>)' : '',
   s.involution && !s.involuted ? `the kernel proves lead_${s.handle} — the lead holds, the refutation was wrong` : '',
   s.involution && !s.kernelAccepted ? `the kernel has no fresh receipt for ${s.involution}` : '',
   s.involution && s.involuted && s.witnesses.seal === null ? `not signed and sealed by the 2×7 witness rosettas (${s.witnesses.signed} of ${s.witnesses.of} faces)` : '',

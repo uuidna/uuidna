@@ -128,9 +128,12 @@ test('the [build] hook verifies the site and never pays the SSG inside the conta
   assert.match(ship, /process\.exit\(1\)/, 'an absent dist is a named refusal in milliseconds, not a 20-minute OOM')
   assert.match(ship, /npm run ship/, 'the refusal must name the path that works')
   assert.match(ship, /gen-handles/, 'a verified site still seals its handles')
-  // the local path is the one that pays the SSG, and it must keep doing so before it uploads
+  // PUSH-PATH VERIFY of a prior SSG; docs:build is DON'T RECOMPUTE off this path
   const deployRun = readFileSync(join(ROOT, 'src', 'scripts', 'deploy-run.ts'), 'utf8')
-  assert.match(deployRun, /npm run docs:build/, 'deploy-run builds the site on the machine that has the memory')
+  assert.doesNotMatch(deployRun, /npm run docs:build/, 'deploy-run verifies the prior SSG; it does not recompute it')
+  assert.match(deployRun, /builtSite/, 'built is a READING of the dist')
+  assert.match(deployRun, /gate-receipt\.js --verify/, 'ship verifies the seal instead of npm run guard')
+  assert.doesNotMatch(deployRun, /npm run guard/, 'guard/build is a prior sealed step, not deploy')
   assert.match(deployRun, /UUIDNA_SITE_BUILT/, 'and says so to wrangler')
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
   assert.match(pkg.scripts['docs:build'] ?? '', /vitepress\.js build docs/, 'the SSG is what the local path pays for')

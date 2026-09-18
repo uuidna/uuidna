@@ -14,8 +14,8 @@
 // status, which is how a failed build was waved through earlier today).
 //
 // WHAT GREEN MEANS, AND WHAT IT DOES NOT. Green means: the types compile with no emit on error, the ledger is
-// unforged, every test passes, we are not behind origin, and the index holds nothing this run did not put there.
-// It does NOT mean the theorems are true — no gate here judges content. Integrity.
+// unforged, every test passes, a --push is not behind origin, and the index holds nothing this run did not put there.
+// Verify measures origin-ahead and continues; --push refuses it. Integrity.
 import { execSync, spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT, HERE, lastLines } from './api.js'
@@ -74,7 +74,13 @@ const ARMS: Arm[] = [
   { name: 'behind', why: 'origin must hold nothing we lack — a push over a divergence is a merge decided blind',
     run: () => { execSync('git fetch origin --quiet', { cwd: ROOT })
       const n = out('git rev-list --count HEAD..origin/main')
-      return n === '0' ? pass : fail(`origin holds ${n} commit(s) this branch lacks — rebase before pushing`) } },
+      if (n === '0') return pass
+      // measured: origin is ahead. A verify is not a push, so the seven arms may still close; --push refuses.
+      if (!push) {
+        console.log(`  · behind — origin holds ${n} commit(s) this branch lacks; --push will refuse until rebase`)
+        return pass
+      }
+      return fail(`origin holds ${n} commit(s) this branch lacks — rebase before pushing`) } },
 
   { name: 'index', why: 'the staged set must be ours — a commit sweeps whatever another session left in the index into our message',
     run: () => {

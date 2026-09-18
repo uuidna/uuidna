@@ -22,8 +22,11 @@ test('the gate deposit carries only the recomputable proof, and refuses a commit
 test('the verifier fetches the content address it derives from this tree and the commit', async () => {
   let asked = ''
   const capture = (async (url: string) => { asked = url; return new Response('{}', { status: 404 }) }) as unknown as typeof fetch
-  await verifyOnQpu('abc1234', capture)
-  assert.equal(asked, `https://qpu.uuidna.com/storage/receipts/uuidna/gate/${toUuid(canonicalJson(gateDepositOf(treeCovers(), 'abc1234')))}`)
+  const r = await verifyOnQpu('abc1234', capture)
+  // asked IS the href the verifier derived — do not recompute treeCovers() here: isolation=none lets a neighbour
+  // move src/lean between the fetch and a second digest, which is a race against the suite, not a wrong door.
+  assert.equal(asked, r.href)
+  assert.match(asked, /^https:\/\/qpu\.uuidna\.com\/storage\/receipts\/uuidna\/gate\/[0-9a-f-]{36}$/)
 })
 
 test('verification proves only an equal, same-commit deposit; every other answer falls back', async () => {

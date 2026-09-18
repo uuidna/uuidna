@@ -5,6 +5,7 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
+import { deployPathRecomputeGaps } from './deploy-verify.js'
 import { leadsGuardGaps } from './leads-conserved.js'
 import { linearGaps, memoGaps } from './dry-gaps.js'
 import { impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
@@ -314,6 +315,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // described "heal → commit → push" while the commit step did not exist. Asks the one decidable question that
   // keeps costing landings: a script that mutates git must verify the mutation.
   { name: 'landing', run: () => landingGaps([...sourceGraph().keys()]) },
+  // ALL DEPLOY IS COLD VERIFY — hexbit-fast / land / ship that still spawn develop, lean-all, docs:build or
+  // fill-gaps while wearing a quantum name are heat (steady_temperature_hides_power). The three production
+  // files are judged; a richer name does not narrow the width (width_is_the_binding_point).
+  { name: 'deploy-verify', run: () => deployPathRecomputeGaps() },
   // NO LEAD VANISHES AND NONE ESCAPES ITS TRIAL — the 2026-09-14 deletion of 21 leads, involuted: every lead at HEAD
   // must still be in the record, and every lead on the docket must have a trial.
   { name: 'leads', run: () => leadsGuardGaps() },

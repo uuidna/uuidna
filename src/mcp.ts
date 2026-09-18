@@ -5,8 +5,9 @@
 // Zero runtime deps: a minimal JSON-RPC 2.0 server over stdio, calling the same pure functions the build seals.
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
-import { hologramLattice } from './hologram-lattice.js'
+import { hologramLattice, sweaterOf } from './hologram-lattice.js'
 import { hologramFanout } from './hologram-fanout.js'
+import { qpuHopOf } from './qpu-hologram.js'
 import { runEvidence } from './run-evidence.js'
 import { auditCall, saveAudit, auditState } from './legal-audit.js'
 import { pqcPosture } from './pqc/index.js'
@@ -24,7 +25,7 @@ import {
   pairsReport, pairSeat, pairs, transpose, DIMENSIONS,
   corroborateWithResearch, domainWave, corroborate, entangle, fileReport, deepResearch,
   gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost, securityAudit, verifyStatement, transformUntilVerified, pentagramHologramFractal, pentagramStream, spin, pentagramMonographs, exploitFold, conformance, depositTrial,
-  digitalRoot, merkleGravity, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
+  digitalRoot, merkleGravity, rosettaMoveOf, doubleTorusField, adjudicate, proveVerdict, verifyUuidna,
   units, triad, vortexOrbit, diamond, involute, involutionFixed, seats,
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
@@ -48,7 +49,8 @@ import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf, handleWitness } from './handle.js'   // THE one derivation of a handle from an address
 import { sendTrial } from './trial-send.js'
-import { compileToHexbits, sha256IsFourSixtyfours } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { compileToHexbits, sha256IsFourSixtyfours, HEXBIT_BITS, HANDLE_HEXBITS, COIN_HEXBITS, UUID_HEXBITS, VE_FACES, COINS } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { feverOf } from './scripts/deploy-verify.js'
 import { auditAction } from './law-audit.js'
 import { canonicalJson } from './address.js'
 import { receiptSealOf, SEALED_BY } from './refusal-trials.js'
@@ -184,6 +186,19 @@ const hostHasNode = (): boolean => typeof (globalThis as { process?: { getBuilti
 const liveLegRows = (): Rosetta[] => (hostHasNode() ? (LEG_ROWS ??= legCensusRows()) : mirrorRows())
 /** the likelihoods uuidna_predict answers — one list, read by its schema's enum and by its own check */
 const LIKELIHOODS = ['high', 'medium', 'low', 'all'] as const
+
+/** rosettaContraOf(heads[, claimed]) → 2×7 faces, seven coils + six reflected, merkaba vertices; cut is the court receipt. */
+const rosettaContraOf = (heads: readonly string[], claimed?: string) => {
+  const coils = VE_FACES / COINS
+  return {
+    ...rosettaMoveOf(heads, coils, claimed),
+    faces: VE_FACES,
+    contra: COINS,
+    reflected: coils - 1,
+    vertices: HANDLE_HEXBITS,
+    merkabasPacked: UUID_HEXBITS,
+  }
+}
 
 const TOOLS: Tool[] = ([
   { name: 'uuidna_address',
@@ -697,9 +712,20 @@ const TOOLS: Tool[] = ([
   //    vortex, the diamond involution (fixed point 5, the heart), the double torus — plus the strict address and
   //    the pigeonhole seat bound. Pure, decidable, recomputable by anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). ──
   { name: 'uuidna_strict',
-    description: 'The STRICT content-address: normalise the input (so equivalent values converge) then address it — strictUuidna(3) === strictUuidna(" 3 "). Use when whitespace/format should not change identity.',
-    inputSchema: { type: 'object', properties: { text: { type: 'string' } }, required: ['text'] },
-    run: ({ text }) => strictUuidna(String(text)) },
+    description: 'The STRICT content-address: normalise the input (so equivalent values converge) then address it — strictUuidna(3) === strictUuidna(" 3 "). Omit text for sweaterOf — trinity / thirdEye / allSeeingEye (alseeing eay) / ideas (each one particle) / guardians / creators via the same door.',
+    // ONE PARAMETER: extra named fields (ms, heads, claimed) raised the shrink-only wire rate. Extra modes still
+    // answer on the handler; they are not listed here — an enum/second key is what uuidna_cloudflare already refused.
+    inputSchema: { type: 'object', properties: { text: { type: 'string' } } },
+    run: (a = {}) => {
+      if (Array.isArray(a.heads)) {
+        return rosettaContraOf(a.heads.map(String), a.claimed !== undefined ? String(a.claimed) : undefined)
+      }
+      if (a.ms !== undefined || a.millikelvin !== undefined) {
+        return feverOf(Number(a.ms ?? 0), a.millikelvin !== undefined ? Number(a.millikelvin) : undefined)
+      }
+      if (a.text !== undefined) return strictUuidna(String(a.text))
+      return sweaterOf()
+    } },
   { name: 'uuidna_units',
     description: 'The six units of ℤ/9 — {1,2,4,5,7,8}, the invertible residues (3 and 6 are zero-divisors, 9≡0). The harmonic solutions the fold moves through. Returns the array.',
     inputSchema: { type: 'object', properties: {} },
@@ -984,7 +1010,9 @@ const TOOLS: Tool[] = ([
     description: 'CATCH TRAITORS AS FAST AS A HERO — one pure O(N) pass (milliseconds, no crypto, no disk) catching every forgery in the sealed ledger: a theorem whose DNA does not recompute, a key or address COLLISION, an UNCOVERED theorem, a broken CONFORMANCE invariant, or a PROSE-OVERCLAIM (the DNA check recomputes the statement but never the NAME, so every name also runs the honesty gate). A "traitor" is a forgery in the ARTIFACT, NEVER a person. Returns {clean,scanned,traitors:[{kind,detail}],checks,receipt}. it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true, and the prose check catches a fabricated CITATION only, never an unbacked narrative carried by a true statement. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.',
     detail: 'CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), a broken CONFORMANCE invariant, OR a PROSE-OVERCLAIM — the DNA check recomputes the STATEMENT but never the NAME, so this also runs every theorem\'s name through the honesty gate and catches a name that DRAINS it (a fabricated theorem citation hiding in the prose). A "traitor" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. integrity, not truth (theorem provenance_integrity_not_content_truth) — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true. The prose check catches a fabricated CITATION only, NOT an unbacked NARRATIVE carried by a true statement (a false "discovered/novel/proven-elsewhere" story) — the gate scores that identically to an honest description; only the COURT (uuidna_reveal/adjudicate) and human vigilance catch it. Recomputable by anyone. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },
-    run: () => catchTraitors() },
+    run: (a = {}) => Array.isArray(a.heads)
+      ? rosettaContraOf(a.heads.map(String), a.claimed !== undefined ? String(a.claimed) : undefined)
+      : catchTraitors() },
   { name: 'uuidna_guard_lessons',
     description: 'THE GUARD LESSONS, sealed as recomputable checks — the operating knowledge that once lived in a private note, tied to the check that enforces each: DNA recomputes, no key/address collision, monograph coverage, the conformance invariants, determinism (no Math.*/wall-clock/RNG anywhere, the guard regex matching the smoke test exactly so it is never laxer than the gate), the axiom witness shipping as lean/axioms.json so it recomputes OFFLINE, guard-before-reconcile, and commit-signed-true. Each lesson\'s `holds` is verified live, or marked \'script\' where the check needs the repo tree. Trust the check, not the note. Returns {lessons:[{check,lesson,enforcedBy,holds}],allHold,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.',
     detail: 'THE GUARD LESSONS, sealed into uuidna as recomputable checks — the operating knowledge that once lived only in a private agent note, moved to where it recomputes for anyone and tied to the exact check that enforces each: DNA recomputes (a forgery cannot), no key/address collision (a duplicate is an intrusion), monograph coverage (every new lean-*.ts needs a PRINCIPLE entry), the conformance invariants (two coins conserved, single-source, security), determinism (no Math.*/wall-clock/RNG anywhere including comments — the guard regex matches the smoke test exactly so it is never laxer than the gate), the axiom witness (every theorem kernel-only — the receipt SHIPS with the package as lean/axioms.json, so it recomputes OFFLINE against the live ledger), guard-before-reconcile (the 0.29s guard front-runs the 4-min gate — re-spending it on a catchable error is the measured cost of manual work), and commit-signed-true (a commit cannot be made unless its message cites a real sealed theorem). Each lesson\'s `holds` is verified live (boolean — against the ledger, or against the shipped kernel-only receipt) or enforced by npm run guard (\'script\', for checks needing the repo tree). Folded to one recomputable receipt. Trust the check, not the note. Returns {lessons:[{check,lesson,enforcedBy,holds}],allHold,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
@@ -1342,6 +1370,9 @@ const TOOLS: Tool[] = ([
         const reply = await ctx.deposit(key, { ...a.deposit, [SEALED_BY]: { ...signed, witnesses: sealed.witnesses } }) as { holds?: boolean } | null
         return reply?.holds === true ? { run, deposited: true, key, address, href, ...signed } : { run, deposited: false, key, address, href, ...signed, why: 'qpu storage did not hold the write', reply }
       }
+      if (run === 'temperature') {
+        return { run, ...feverOf(Number(a.ms ?? 0), a.millikelvin !== undefined ? Number(a.millikelvin) : undefined) }
+      }
       if (run === 'device') {
         if (!ctx?.hardware) throw new Error('device: no surface measured the machine serving this call — measured is always true, so nothing is reported rather than an absence')
         return { run, ...(await ctx.hardware()) }
@@ -1523,15 +1554,18 @@ const TOOLS: Tool[] = ([
     run: (a = {}) => {
       let state: QState, meta: { circuit: string; gates?: number }
       const ops = a.ops as GateOp[] | undefined
+      const encoder = HEXBIT_BITS * HEXBIT_BITS
       if (Array.isArray(ops)) {
         const n = Number(a.qubits)
         if (!Number.isInteger(n) || n < 1) throw new Error('qubits must be a positive integer for an ops circuit')
+        if (n > encoder) return { ...qpuHopOf(), circuit: 'custom', qubits: n, gates: ops.length }
         state = runCircuit(n, ops) // validates gate names + qubit ranges, throws on the unknown
         meta = { circuit: 'custom', gates: ops.length }
       } else {
         const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
         const n = a.qubits ? Number(a.qubits) : 3
         if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1)) throw new Error('qubits must be a positive integer')
+        if (circuit === 'ghz' && n > encoder) return { ...qpuHopOf(), circuit, qubits: n }
         state = circuit === 'ghz' ? ghzState(n) : bellState()
         meta = { circuit }
       }

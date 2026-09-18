@@ -1,7 +1,7 @@
 // qpu-edge — REVERSE FETCH OF THE LIVE QPU. uuidna.com names the hop; qpu.uuidna.com is the circuit.
 // GET /.well-known/qpu.json here, GET https://qpu.uuidna.com there. JSON-LD. CORS sits on QPU.
 // @non-harmonic: reverse GET of https://qpu.uuidna.com — the live circuit is another host.
-import { QPU_HOST, QPU_HREF, qpuCircuitOf, qpuMachineOf, qpuReverseHrefOf } from './qpu-hologram.js'
+import { QPU_HOST, QPU_HREF, qpuHopOf, qpuMachineOf, qpuReverseHrefOf } from './qpu-hologram.js'
 
 const cors = {
   'access-control-allow-origin': '*',
@@ -15,21 +15,29 @@ const json = (obj: unknown, status = 200): Response =>
     headers: { 'content-type': 'application/ld+json; charset=utf-8', ...cors },
   })
 
-export const qpuDiscoveryOf = (origin: string) => ({
-  worker: 'uuidna-qpu-reverse',
-  host: QPU_HOST,
-  origin,
-  href: QPU_HREF,
-  reverse: true as const,
-  readings: ['circuit'] as const,
-  endpoints: {
-    '/': QPU_HREF,
-    '/mcp': qpuReverseHrefOf('/mcp'),
-    '/storage': qpuReverseHrefOf('/storage'),
-    '/.well-known/qpu.json': 'this document — the hop to the live circuit',
-  },
-  circuit: qpuCircuitOf(),
-})
+export const qpuDiscoveryOf = (origin: string) => {
+  const hop = qpuHopOf()
+  return {
+    worker: 'uuidna-qpu-reverse',
+    host: QPU_HOST,
+    origin,
+    href: hop.href,
+    reverse: true as const,
+    readings: ['circuit', 'width', 'seat', 'hologram'] as const,
+    endpoints: {
+      '/': QPU_HREF,
+      '/mcp': hop.fanout.url,
+      '/storage': qpuReverseHrefOf('/storage'),
+      '/.well-known/qpu.json': 'this document — the hop to the live circuit',
+    },
+    circuit: hop.circuit,
+    width: hop.width,
+    seat: hop.seat,
+    hologram: hop.hologram,
+    fanout: hop.fanout,
+    deposit: hop.deposit,
+  }
+}
 
 /** handleQpuFetch(request) → reverse GET of https://qpu.uuidna.com. Pure of Node builtins; Workers-safe. */
 export async function handleQpuFetch(request: Request): Promise<Response> {
@@ -50,11 +58,15 @@ export async function handleQpuFetch(request: Request): Promise<Response> {
   return new Response(res.body, { status: res.status, headers: { 'content-type': type, ...cors } })
 }
 
-export const qpuEdgeOf = () => ({
-  kind: 'edge' as const,
-  reverse: true as const,
-  host: QPU_HOST,
-  href: QPU_HREF,
-  machine: qpuMachineOf(),
-  holds: qpuCircuitOf().holds === true,
-})
+export const qpuEdgeOf = () => {
+  const hop = qpuHopOf()
+  return {
+    kind: 'edge' as const,
+    reverse: true as const,
+    host: QPU_HOST,
+    href: QPU_HREF,
+    machine: qpuMachineOf(),
+    hop,
+    holds: hop.holds === true,
+  }
+}
