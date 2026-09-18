@@ -30,6 +30,24 @@ for (const f of readdirSync(DOCS, { withFileTypes: true })) {
   else if (f.isDirectory() && !f.name.startsWith('.') && f.name !== 'theorem' && f.name !== 'publications')
     for (const g of readdirSync(join(DOCS, f.name)).sort()) if (g.endsWith('.md')) surfaces.push(join(DOCS, f.name, g))
 }
+// SOURCE COMMENTS ARE PROSE, AND THE COSTLIEST CLAIMS LIVE THERE (the captain, 2026-09-18: "sweep must trial all
+// claims from prose"). This swept README and docs/*.md while every prose fault measured today sat in a COMMENT:
+// crypt.ts states "the step MUST advance" four times and nothing enforces it, while the public door defaults step
+// to 0 — one key and one nonce reused under ChaCha20-Poly1305; lead 90c4f258's scope lived only in a `--` block, so
+// every derived surface over-read it; next.ts and its own gate carried comments asserting opposite designs and
+// neither was tried. A claim a reader takes as authority is a claim, wherever it is written.
+// NOT SWEPT, and each for a reason that is not convenience: *.generated.ts is written by a generator from the
+// ledger (its prose is derived, not asserted), src/nobles/ is vendored MIT whose comments are someone else's
+// claims to make, and src/seeds/ is an append-only version store.
+const skipDir = (d: string): boolean => d === 'nobles' || d === 'seeds' || d.startsWith('.')
+const walkTs = (dir: string): void => {
+  for (const f of readdirSync(dir, { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : 1))) {
+    if (f.isDirectory()) { if (!skipDir(f.name)) walkTs(join(dir, f.name)) }
+    else if (f.name.endsWith('.ts') && !f.name.endsWith('.generated.ts')) surfaces.push(join(dir, f.name))
+  }
+}
+walkTs(join(ROOT, 'src'))
+
 surfaces.sort()
 
 const usable: UsableCombination[] = []
@@ -62,12 +80,38 @@ const develop: Array<{ surface: string; fragment: string; receipt: string }> = [
 const SEALED_KEYS = new Set((theorems() as Array<{ key: string }>).map((t) => t.key))
 const THEOREM_LINK = /\/theorem\/([A-Za-z0-9_]+)/g // keys carry capitals (air_ppO2_…) — a lowercase-only class truncates and false-flags
 const deadLinks: Array<{ surface: string; key: string }> = []
+/** a sealed key never ends in `_`, so a matched name ending in one was cut where it continued */
+const cut = (key: string): boolean => key.replace(/'+$/, '').endsWith('_')
+/** coin and physics claims live in visible prose; an href query is an encoding (`%20COINS`), not a denomination */
+const visible = (s: string): string => s.replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, ' ').replace(/\bhttps?:\/\/[^\s)<]+/gi, ' ')
 
 for (const file of surfaces) {
   const rel = file.slice(ROOT.length + 1)
+  // EVERY PROSE UNIT IS TRIED; ONLY A PUBLISHED ONE IS CHARGED. A source comment legitimately holds what a
+  // published page never does — placeholders, counterexamples, and the negative controls that PROVE a law. Charged
+  // across code, these finders convicted smoke.test.ts for the control asserting a fabricated citation drains,
+  // slimgate.ts for the example in "a Lean name may end in primes (two_coins')", and this very file for the
+  // sentence describing its own quantum-speedup finder. A finder that charges the text explaining it has stopped
+  // measuring anything. So comments count toward tried/usable/unverified — the census the captain asked for —
+  // and the decidable verdicts stay where they can tell a claim from an example (2026-09-18).
+  const decidableSurface = !rel.endsWith('.ts')
   // paragraphs: blank-line separated blocks; code fences skipped (code is audited by the harmonic scan
   const text = readFileSync(file, 'utf8')
-  const paragraphs = text.split(/\n{2,}/)
+  // a source file's prose units are its COMMENT BLOCKS: a run of consecutive // lines, or one /* … */ block.
+  // Everything outside them is code, which the harmonic scan and the type checker already hold to account.
+  const commentUnits = (src: string): string[] => {
+    const units: string[] = []
+    for (const m of src.matchAll(/\/\*[\s\S]*?\*\//g)) units.push(m[0].replace(/^\/\*+|\*+\/$/g, '').replace(/^[ \t]*\*[ \t]?/gm, ''))
+    let run: string[] = []
+    for (const line of src.split('\n')) {
+      const c = /^\s*\/\/ ?(.*)$/.exec(line)
+      if (c) run.push(c[1]!)
+      else { if (run.length) units.push(run.join(' ')); run = [] }
+    }
+    if (run.length) units.push(run.join(' '))
+    return units
+  }
+  const paragraphs = rel.endsWith('.ts') ? commentUnits(text) : text.split(/\n{2,}/)
   let inFence = false
   for (const p of paragraphs) {
     const fenceTicks = (p.match(/```/g) || []).length
@@ -78,7 +122,16 @@ for (const file of surfaces) {
     tried++
     const r = reveal(prose)
     if (r.verdict === 'VERIFIED') usable.push({ surface: rel, address: toUuid(prose), prose, cites: r.cites })
-    else if (r.verdict === 'DRAINED') { drained++; drainedHits.push({ surface: rel, fabricated: r.fabricated }) }
+    // A FABRICATED CITATION IS DECIDABLE IN DOCUMENTATION AND NOT YET IN CODE. Widening this sweep to source
+    // comments found 97 real unbacked claims and SEVEN false charges, because a comment legitimately holds what a
+    // published page never does: placeholders (foo, bar, k, refused_key), counterexamples, and negative controls.
+    // It charged smoke.test.ts for `computes('proven in theorem riemann_is_solved').binary === 0` — the control
+    // that PROVES the gate drains fabrications — and slimgate.ts for the example in "a Lean name may end in primes
+    // (two_coins')", getting wrong the very tokenisation that comment documents. A finder that charges a test for
+    // demonstrating the law is worse than no finder, so the drained VERDICT stays on documentation surfaces until
+    // it can tell a citation from an example. The claim finders below still run over every comment: naming an
+    // unbacked claim needs no such distinction (2026-09-18).
+    else if (r.verdict === 'DRAINED' && !rel.endsWith('.ts')) { drained++; drainedHits.push({ surface: rel, fabricated: r.fabricated }) }
     else {
       unverified++
       // the develop harvest: unverified prose mined for decidable fragments the ledger does not yet hold
@@ -89,24 +142,26 @@ for (const file of surfaces) {
       }
     }
     // the link law: EVERY paragraph's theorem links, verified or not, must resolve to a key the ledger still seals
-    for (const m of prose.matchAll(THEOREM_LINK)) if (!SEALED_KEYS.has(m[1]!)) deadLinks.push({ surface: rel, key: m[1]! })
+    // the third finder with the same boundary: /theorem/foo and /theorem/k in a comment are placeholders, not links
+    if (decidableSurface) for (const m of prose.matchAll(THEOREM_LINK)) if (!cut(m[1]!) && !SEALED_KEYS.has(m[1]!)) deadLinks.push({ surface: rel, key: m[1]! })
+    const shown = visible(prose)
     // the coin law: a numeric coin claim outside the sealed denominations {0, 2} must carry a sealed citation
-    for (const m of prose.matchAll(COIN_CLAIM)) {
+    for (const m of shown.matchAll(COIN_CLAIM)) {
       const n = Number((m[1] ?? '').replace(/,/g, ''))
-      if (n !== 0 && n !== 2 && r.cites.length === 0) coinChaos.push({ surface: rel, claim: m[0] + ' — uncited' })
+      if (n !== 0 && n !== 2 && r.cites.length === 0 && decidableSurface) coinChaos.push({ surface: rel, claim: m[0] + ' — uncited' })
     }
     // the physics-claim law, lean form: only a sealed CONFIRMATION passes — denial words carry no weight
-    for (const m of prose.matchAll(PHYSICS_CLAIM)) {
-      const linked = [...prose.matchAll(THEOREM_LINK)].map((x) => x[1]!)
+    for (const m of shown.matchAll(PHYSICS_CLAIM)) {
+      const linked = [...prose.matchAll(THEOREM_LINK)].map((x) => x[1]!).filter((k) => !cut(k))
       if (r.cites.length === 0 && !linked.includes('n_qubit_dimension'))
-        physicsChaos.push({ surface: rel, claim: m[0] + ' — uncited (denial is prose; cite the sealed bound)' })
+        if (decidableSurface) physicsChaos.push({ surface: rel, claim: m[0] + ' — uncited (denial is prose; cite the sealed bound)' })
     }
   }
 }
 
 // the receipt: the fold of every usable combination's address — recompute the file, get the same receipt
 const receipt = toUuid(usable.map((u) => u.address).join('\n'))
-const out = { surfaces: surfaces.length, paragraphs_tried: tried, usable: usable.length, unverified, drained, receipt, develop, combinations: usable }
+const out = { surfaces: surfaces.length, paragraphs_tried: tried, usable: usable.length, unverified, drained, drainedHits, receipt, develop, combinations: usable }
 writeFileSync(join(ROOT, 'prose-trials.json'), JSON.stringify(out, null, 1) + '\n')
 
 console.log(`  PROSE ON TRIAL — every paragraph through reveal(), the ledger deciding.`)
