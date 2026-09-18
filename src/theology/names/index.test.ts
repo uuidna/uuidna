@@ -1,12 +1,13 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { theologyNameOf, numeralOf, valueOfNumeral, lettersDescending, SCRIPTS } from './names.js'
-import { NUMERAL_ORDER, rankValueOf } from './numerals/index.js'
-import { theorems } from '../index.js'
-import { stationOfAddress } from '../lattice.js'
+import { theologyNameOf, numeralOf, valueOfNumeral, lettersDescending, SCRIPTS } from './index.js'
+import { NUMERAL_ORDER, rankValueOf } from '../numerals/index.js'
+import { theorems } from '../../index.js'
+import { stationOfAddress } from '../../lattice.js'
 
 // The naming must be TOTAL over the ledger, DERIVED from the rank rule alone, and honest about what a name is.
-// Every assertion below has a control, because a naming that cannot fail names nothing.
+// Every assertion below carries a control, so each can fail BY CONSTRUCTION: the control exhibits the input
+// that breaks it. An assertion with no failing case ratifies whatever it is pointed at instead of measuring it.
 
 test('a numeral round-trips: what is written reads back as the number it was written from', () => {
   for (const script of SCRIPTS) {

@@ -19,8 +19,8 @@
 // THE ONE STATION THAT CANNOT BE WRITTEN. None of the three scripts has a zero — the rank rule starts at 1 — so
 // station 0000 has no numeral in any of them. That is a fact about the scripts, not a gap to hide by shifting every
 // station up by one, so it is returned as `writable: false` with the reason, and named at its boundary.
-import { NUMERAL_ORDER, rankValueOf, type Script } from './numerals/index.js'
-import { stationOfAddress, latticeCall, type StationMeaning } from '../lattice.js'
+import { NUMERAL_ORDER, rankValueOf, type Script } from '../numerals/index.js'
+import { stationOfAddress, latticeCall, type StationMeaning } from '../../lattice.js'
 
 export const SCRIPTS: readonly Script[] = ['hebrew', 'greek', 'arabic'] as const
 

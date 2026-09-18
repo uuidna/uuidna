@@ -12,6 +12,7 @@ import { stationOfAddress, latticeCall, type StationMeaning } from '../lattice.j
 import { lettersOf, numeralValueOf, type Script } from './numerals/index.js'
 
 export { NUMERAL_ORDER, rankValueOf, lettersOf, numeralValueOf, type Script } from './numerals/index.js'
+export { theologyNameOf, numeralOf, valueOfNumeral, lettersDescending, SCRIPTS, type TheologyName } from './names/index.js'
 
 export const THEOLOGY_HONEST =
   'The value is decided arithmetic over the letters in numeral order (alphabetic_three_ranks). A shared value is the ' +
