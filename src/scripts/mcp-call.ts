@@ -164,6 +164,23 @@ export async function callNamed(call: Call, name: string, args: Record<string, u
   throw new DoorError(`unknown tool: ${name}`, 'unknown', tried)
 }
 
+/** callHosted(name, args, t) → tools/call on the hosted door (https://uuidna.com/mcp). Inject t in tests. */
+export async function callHosted(name: string, args: Record<string, unknown> = {}, t: Transport = httpTransport(ENDPOINT)): Promise<Answer> {
+  return callNamed((n, a) => callOnce(t, n, a), name, args)
+}
+
+/** transportOf(fetchImpl) → a Transport over any fetch (tests inject a stub; land/ship use global fetch). */
+export const transportOf = (fetchImpl: typeof fetch, url: string = ENDPOINT): Transport => async (request) => {
+  const res = await fetchImpl(url, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json, text/event-stream' },
+    body: JSON.stringify(request),
+  }) as Response & { json?: () => Promise<unknown>; text?: () => Promise<string> }
+  if (typeof res.text === 'function') return replyOf(await res.text(), res.status)
+  if (typeof res.json === 'function') return (await res.json()) as RpcReply
+  return { error: { code: res.status, message: `HTTP ${res.status}` } }
+}
+
 // ── the door: a surface to call and search ───────────────────────────────────────────────────────────────────────
 export interface ToolRow { name: string; title?: string; description: string; inputSchema?: unknown }
 export interface Door { where: string; call: Call; catalogue: () => Promise<ToolRow[]> }
