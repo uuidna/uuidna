@@ -74,7 +74,9 @@ export function mintGate(): MintGate {
 
   // 4 — every theorem can be denied
   const rows = mirrorRows()
-  const noFalsifier = rows.filter((r) => !legsFor(rows, r.key).legs.includes('falsifier'))
+  // the row already carries its legs; legsFor(rows, r.key).legs IS r.legs, and asking through it once per row
+  // made this the slowest file in the suite. Same answer, one pass.
+  const noFalsifier = rows.filter((r) => !r.legs.includes('falsifier'))
   add('falsifier-ceiling', noFalsifier.length === 0,
     `${rows.length - noFalsifier.length}/${rows.length} carry a decidable denial`,
     'a proof whose denial nobody can state is worth less than one whose denial is checkable — and a deposit is exactly where that matters')

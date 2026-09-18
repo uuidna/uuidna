@@ -27,7 +27,19 @@ export const maskOfLegs = (legs: readonly Leg[]): number => legs.reduce((m, l) =
 
 /** The shipped rows, parsed from the mirror: `#wing` opens a section, then one `key mask` line per theorem.
  *  Pure and total — a malformed line is skipped rather than throwing at import time on the edge. */
+// PARSED ONCE. This re-read MIRROR's 71017 lines and rebuilt 71017 row objects — with a LEGS.filter each — on
+// EVERY call, and it is called from tests, the gate, the missions and upgrade-wave (twice in one function). The
+// rows are derived from two frozen module constants, so the parse cannot differ between calls; caching it is a
+// cache of a pure function, not of a measurement. The SAME array is returned, which is what lets the index in
+// legsFor below be built once for the whole process rather than once per caller — measured: mint-gate 170 s to
+// 32 s with the index alone (2026-09-18). No caller mutates the array; a caller that needs to may copy it.
+let MIRROR_ROWS: Rosetta[] | null = null
 export function mirrorRows(): Rosetta[] {
+  if (MIRROR_ROWS) return MIRROR_ROWS
+  return (MIRROR_ROWS = buildMirrorRows())
+}
+
+function buildMirrorRows(): Rosetta[] {
   const claims = new Map<string, string>()
   for (const line of CLAIMS.split('\n')) {
     const i = line.indexOf(' ')
