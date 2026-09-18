@@ -6,6 +6,7 @@ import { UNREACHED } from '../rosetta-mirror.js'
 import { STANDING_DOI } from '../handle-permanence.js'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { clayBlock } from './gen-clay.js'
 import { ROOT as ROOT_DIR } from './api.js'
 import { injectPorts } from '../quantum/os/ports/index.js'
 import {
@@ -465,5 +466,6 @@ specific expression and record. **One license for every uuidna publication and Z
 // THE PORT ANALYTICS RIDE THE OWNER, not a second writer (the drain law: "two owners is drift waiting to
 // happen"). gen-readme composes README.md, so gen-readme injects the block; the numbers themselves are computed
 // in quantum/os/ports from the committed mirror, so nothing here is written down.
-writeFileSync(join(process.cwd(), 'README.md'), injectPorts(generateReadme()))
+// the Clay block is composed by ./gen-clay and injected HERE, because this file owns README.md
+writeFileSync(join(process.cwd(), 'README.md'), clayBlock(injectPorts(generateReadme())))
 console.log(`✓ Generated README.md (${readFileSync(join(process.cwd(), 'README.md'), 'utf8').length} bytes)`)

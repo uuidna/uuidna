@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-// gen-clay — DISPLAY THE CLAY PROOFS on the README and the home page, derived from the ledger and never authored.
+// clay — THE CLAY PROOFS BLOCK for the README and the home page, derived from the ledger and never authored.
+// It composes; the surfaces' own owners inject it, because a path may have only one writer.
 //
 // THE SCOPE TRAVELS WITH THE CLAIM, OR THIS SURFACE BECOMES THE OVERCLAIM IT DESCRIBES. Every Clay theorem already
 // carries its own limit in its own name — "This decides the instance, never the conjecture", "the key names the
@@ -59,26 +60,18 @@ export function clayFragment(): string {
   return lines.join('\n')
 }
 
-const BEGIN = '<!-- clay:begin -->'
-const END = '<!-- clay:end -->'
+export const CLAY_BEGIN = '<!-- clay:begin -->'
+export const CLAY_END = '<!-- clay:end -->'
 
-/** inject(path) → the file with the block replaced between its markers, or appended once if it has none */
-function inject(path: string): boolean {
-  if (!existsSync(path)) return false
-  const text = readFileSync(path, 'utf8')
-  const block = `${BEGIN}\n${clayFragment()}\n${END}`
-  const next = text.includes(BEGIN) && text.includes(END)
-    ? text.replace(new RegExp(`${BEGIN}[\\s\\S]*?${END}`), block)
+/** clayBlock(text) → the text with the Clay block replaced between its markers, or appended once if it has none.
+ *
+ *  ONE OWNER PER PATH. This used to WRITE README.md and docs/index.md itself, which gave both files two declared
+ *  writers — gen-readme and gen-unlocks already own them — and the drain refuses that: two owners is drift waiting
+ *  to happen, because each will one day overwrite what the other put there. So this composes the block and the
+ *  owners inject it, the way gen-unlocks already injects its own (2026-09-18). */
+export function clayBlock(text: string): string {
+  const block = `${CLAY_BEGIN}\n${clayFragment()}\n${CLAY_END}`
+  return text.includes(CLAY_BEGIN) && text.includes(CLAY_END)
+    ? text.replace(new RegExp(`${CLAY_BEGIN}[\\s\\S]*?${CLAY_END}`), block)
     : text.trimEnd() + `\n\n${block}\n`
-  if (next === text) return false
-  writeFileSync(path, next)
-  return true
-}
-
-if (process.argv[1]?.endsWith('gen-clay.js')) {
-  const rows = clayRows()
-  const home = inject(join(ROOT, 'docs', 'index.md'))
-  const readme = inject(join(ROOT, 'README.md'))
-  console.log(`✓ gen-clay — ${rows.length} Clay theorems displayed${home ? ' · docs/index.md' : ''}${readme ? ' · README.md' : ''}`)
-  console.log(`  every line is the theorem's OWN name, which carries its own scope; this generator adds no claim`)
 }

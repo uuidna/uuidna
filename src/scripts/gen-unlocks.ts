@@ -6,6 +6,7 @@ import { join } from 'node:path'
 import { injectPorts } from '../quantum/os/ports/index.js'
 import { ROOT } from './api.js'
 import { unlockBoard, unlockHomeFragment, UNLOCK_LAW } from '../unlocks.js'
+import { clayBlock } from './gen-clay.js'
 
 const board = unlockBoard()
 if (!board.illustrationsAllPresent) {
@@ -105,7 +106,8 @@ if (existsSync(homePath)) {
   }
   // and the port analytics ride this owner too — gen-unlocks composes docs/index.md, so it injects the block
   // rather than a second script fighting it for the file (the drain law).
-  writeFileSync(homePath, injectPorts(next))
+  // the Clay block rides this owner too, for the same reason the ports do: one writer per path
+  writeFileSync(homePath, clayBlock(injectPorts(next)))
 }
 
 console.log(`✓ gen-unlocks — ${board.keys} keys / ${board.distinct} distinct · ${board.skills} skills · illustrations ${board.illustrations.length}/${board.illustrations.length}`)
