@@ -57,6 +57,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-expose.js', args: [], note: 'the discovery board — the live coordinates where clusters expose unsealed structure, one uuidna_expose call rendered' },
   { file: 'gen-waves.js', args: [], note: 'the conveyor board — pending, accepted with seals, and the law school roster, from the queue\'s own record' },
   { file: 'gen-unlocks.js', args: [], note: 'the unlock board — every sealed by-decide theorem unlocks its statement; census from theorems()' },
+  { file: 'gen-clay.js', args: [], note: 'the Clay proofs block on the README and the home page — one line per Clay theorem carrying its OWN name, so the scope travels with the claim; counts split by how each is proven' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-funding-drafts.js', args: [], note: 'openly-licensed funding drafts, composed from the sealed ledger (undated: no countdown)' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
