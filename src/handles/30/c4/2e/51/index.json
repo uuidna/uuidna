@@ -1,0 +1,12 @@
+{
+  "handle": "30c42e51",
+  "address": "30c42e51-853e-85e3-9a87-7fa38fc9b427",
+  "kind": "chunk",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "statement": "71622 < 2 ^ 32",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "08bacffc",
+  "address": "08bacffc-47f8-8aa2-b560-693c43150238",
+  "statement": "(360 / 10 = 36) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "polarity_angles_are_the_system_counts"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

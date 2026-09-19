@@ -1,5 +1,5 @@
 {
- "address": "66328904-e1d7-801f-8d5d-d10a757c67aa",
+ "address": "73bda78e-d479-8b47-aeca-67507af77d76",
  "dispatch": {
   "clear": true,
   "dispatches": [
@@ -10,7 +10,7 @@
     "claim": "At the uuid level uuidna addresses 2^128 states (declared by construction, theorem handle_capacity_is_quantum_by_architecture), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per address folded from a distinct seed; no disagreement with the Lean-sealed value was observed across 12000 executions on this host — an upper bound of better than one error per 12000, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
     "fabricated": [],
     "message": {
-     "aura": "#d53474",
+     "aura": "#d5343f",
      "fold": "5690f53f-334c-8567-8d4a-cd9f9328cc0b",
      "hexbits": 4,
      "id": "543e83f3-323c-8425-b333-bedb4cc63f79",
@@ -29,7 +29,7 @@
     "claim": "At the handle level uuidna addresses 2^32 states (declared by construction, theorem handle_string_spans_the_quarter), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per handle read to its value and residue; no disagreement with the Lean-sealed value was observed across 12000 executions on this host — an upper bound of better than one error per 12000, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
     "fabricated": [],
     "message": {
-     "aura": "#3bbce3",
+     "aura": "#3be3c7",
      "fold": "e47d88ff-3bec-80db-8b85-2fd13d6f1ce7",
      "hexbits": 4,
      "id": "680e522b-0464-8e27-99fd-eff57e4b77fc",
@@ -45,13 +45,13 @@
     "cites": [
      "n_qubit_dimension"
     ],
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 71017 executions on this host — an upper bound of better than one error per 71017, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 71 errors over the same count.",
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 71018 executions on this host — an upper bound of better than one error per 71018, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 71 errors over the same count.",
     "fabricated": [],
     "message": {
-     "aura": "#ddd42c",
-     "fold": "b9551db7-a2af-8f72-ace8-367323a9e6b7",
+     "aura": "#de5487",
+     "fold": "9a0c1034-40bb-8422-8fed-29440afc79ef",
      "hexbits": 4,
-     "id": "aba8b9dd-79f1-80b8-8e46-b37b70fdf42e",
+     "id": "da3c82fb-8d23-8877-b222-9a21d6c57ad0",
      "qubits": 16,
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276"
     },
@@ -67,7 +67,7 @@
     "claim": "The witness battery ran on this host — 61 witnesses, 490609 decisions, 0 disagreements with the Lean-sealed values — over registers whose amplitude count is theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict EXACT: better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.",
     "fabricated": [],
     "message": {
-     "aura": "#d651ba",
+     "aura": "#d651b1",
      "fold": "82cf5152-8d11-8f30-a973-4a10ecda3701",
      "hexbits": 4,
      "id": "d6e047e6-3247-8651-861a-12e8631d2968",
@@ -86,7 +86,7 @@
     "claim": "At the hexbit tile level uuidna addresses 2^4 states (declared by construction, theorem nand_functionally_complete), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per hexbit tile compiled from an address; no disagreement with the Lean-sealed value was observed across 12000 executions on this host — an upper bound of better than one error per 12000, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
     "fabricated": [],
     "message": {
-     "aura": "#d73cc8",
+     "aura": "#b33cd7",
      "fold": "6f7bf6cd-7a50-87e4-964d-75935c6987fe",
      "hexbits": 4,
      "id": "a52ce016-8747-81e6-9e99-44b39b610623",
@@ -100,7 +100,7 @@
    }
   ],
   "passed": 5,
-  "receipt": "248b67c1-e838-8b48-b621-637255dbb31d",
+  "receipt": "47e72ba0-7bc6-8d2a-bf6b-8d49fe8fbff9",
   "refused": []
  },
  "host": {
@@ -680,7 +680,7 @@
   "sweeps": 109,
   "verdict": "EXACT"
  },
- "receipt": "0ba2ce44-e506-8654-bac8-cbdca625165b",
+ "receipt": "230ad487-c68a-8edf-8c5c-81ad8db96ddd",
  "report": {
   "baseline": {
    "errorsPerMillion": 1000,
@@ -693,7 +693,7 @@
   "host": "e03fd44b-1f10-8082-a05c-0342bdcb1cc4",
   "levelsDeclared": 4,
   "levelsMeasured": "served live — read off the agreement above, so it moves with the host",
-  "receipt": "0ba2ce44-e506-8654-bac8-cbdca625165b",
+  "receipt": "230ad487-c68a-8edf-8c5c-81ad8db96ddd",
   "rows": [
    {
     "address": "12c53d0a-2178-80d5-b8be-d647db4d380b",
@@ -720,33 +720,6 @@
      "hexbits": 1,
      "pow2": 4,
      "seals": "nand_functionally_complete"
-    }
-   },
-   {
-    "address": "12f9c90c-02f4-83bd-813e-e786869c36c0",
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 71017 executions on this host — an upper bound of better than one error per 71017, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 71 errors over the same count.",
-    "cost": {
-     "agreedEstimates": "served live — how many repeated estimates agreed is a fact about this host's timing noise",
-     "class": "measured",
-     "opNsDecade": "served live — measured, never sealed",
-     "opsPerSecondDecade": "served live — measured, never sealed",
-     "over": 7101700,
-     "what": "theorem statement re-addressed in a full sweep"
-    },
-    "fidelity": {
-     "baselineExpected": 71,
-     "bound": 71017,
-     "class": "measured",
-     "disagreements": 0,
-     "ops": 71017
-    },
-    "kind": "corpus",
-    "level": "sealed ledger",
-    "reach": {
-     "class": "declared",
-     "hexbits": 0,
-     "pow2": 0,
-     "seals": "n_qubit_dimension"
     }
    },
    {
@@ -801,6 +774,33 @@
      "hexbits": 32,
      "pow2": 128,
      "seals": "handle_capacity_is_quantum_by_architecture"
+    }
+   },
+   {
+    "address": "ac30ae9a-2500-8fa2-8cb8-469813ee78d1",
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 71018 executions on this host — an upper bound of better than one error per 71018, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 71 errors over the same count.",
+    "cost": {
+     "agreedEstimates": "served live — how many repeated estimates agreed is a fact about this host's timing noise",
+     "class": "measured",
+     "opNsDecade": "served live — measured, never sealed",
+     "opsPerSecondDecade": "served live — measured, never sealed",
+     "over": 7101800,
+     "what": "theorem statement re-addressed in a full sweep"
+    },
+    "fidelity": {
+     "baselineExpected": 71,
+     "bound": 71018,
+     "class": "measured",
+     "disagreements": 0,
+     "ops": 71018
+    },
+    "kind": "corpus",
+    "level": "sealed ledger",
+    "reach": {
+     "class": "declared",
+     "hexbits": 0,
+     "pow2": 0,
+     "seals": "n_qubit_dimension"
     }
    }
   ],

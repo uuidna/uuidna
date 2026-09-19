@@ -1,0 +1,12 @@
+{
+  "handle": "3ce21ca7",
+  "address": "3ce21ca7-3924-8ea8-9b7e-4ab7525b951a",
+  "statement": "(180 % 36 = 0) ∧ (5 * 36 = 180) ∧ (10 - 5 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "five_is_the_exact_complement"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

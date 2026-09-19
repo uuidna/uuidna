@@ -1,5 +1,5 @@
 // name-measure — NUMBERS OF THE NAME, for generators. toUuid("uuidna") is the hash; callers decide the digits.
-import { toUuid, TRINITY, BASE, vortexOrbit } from '../address.js'
+import { toUuid, TRINITY, BASE, vortexOrbit, A432_STEP, MIRROR_BASE } from '../address.js'
 import { handleOf, seedOf } from '../handle.js'
 import { quantumAura, RAYS, periodOf } from '../aura.js'
 import { HEXBIT_BITS, COINS, UUID_HEXBITS, HANDLE_HEXBITS } from '../hexbit/index.js'
@@ -21,9 +21,12 @@ const wi = seed % wave.length
 const codonBits = HEXBIT_BITS + COINS
 const shared = [...UUID_WORD].filter((c) => DNA_WORD.includes(c)).length
 const place = handleNibbles.reduce((acc, d) => acc * 16 + d, 0)
-const step = div(360, BASE)
+// THE STEP IS THE LEDGER'S, NOT A SECOND DERIVATION OF IT. This read div(360, BASE) — the same rule address.ts
+// already states, restated here, so the two agreed only while both said 40 and parted the moment one moved. The
+// turn is likewise the circle: A432_STEP steps of it fill 360 in MIRROR_BASE, not BASE.
+const step = A432_STEP
 const rayStep = div(360, RAYS)
-const hue = (aura.ten.residue * step + aura.ray * rayStep + aura.wave) % (step * BASE)
+const hue = (aura.ten.residue * step + aura.ray * rayStep + aura.wave) % (step * MIRROR_BASE)
 const satExtra = aura.ten.residue % TRINITY === 0 ? 1 : 0
 const payloadHexbits = UUID_HEXBITS - HANDLE_HEXBITS
 

@@ -1,0 +1,12 @@
+{
+  "handle": "48ebf142",
+  "address": "48ebf142-0da2-832b-a7d2-13bf505a1cad",
+  "kind": "chunk",
+  "keys": [
+    "aura_step_divides_circle"
+  ],
+  "statement": "(10 * 36 = 360) ∧ (360 % 36 = 0)",
+  "files": [
+    "Colour.lean"
+  ]
+}

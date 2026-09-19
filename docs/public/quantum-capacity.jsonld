@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-71017-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-71018-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-71017-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-71018-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -261,7 +261,7 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — work distributed",
-      "value": 71017,
+      "value": 71018,
       "unitText": "items",
       "measurementTechnique": "measured",
       "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
@@ -272,7 +272,7 @@
       "value": 102,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 7192, quietest held 7016 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 7194, quietest held 7014 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",

@@ -9,6 +9,10 @@
 // "go together" is objective; harmony here means the polygon. Integrity.
 import { emit } from './lean-gen.js'
 import { auraAlphabet } from '../aura.js'
+import { A432_STEP, MIRROR_BASE } from '../address.js'
+/** the ray's sector of the wheel — the circle over the seven rosette rays, floored by integer arithmetic because the
+ *  determinism rule refuses the rounding namespace outright, in a generator as much as anywhere else */
+const RAY_SECTOR = (360 - (360 % 7)) / 7
 import { nameMeasure as N } from './name-measure.js'
 
 // ── THE AURA ALPHABET, ENUMERATED. Derived from auraAlphabet() itself, never typed: the wing states a 378-state
@@ -142,28 +146,38 @@ const FACTS = [
     lean: 'theorem warm_cool_split_six_six : 6 + 6 = 12 := by decide' },
 
   { key: 'aura_step_divides_circle',
-    why: 'The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the ℤ/9 vortex walks the 360° wheel in steps of 40° — 9 · 40 = 360 exactly, so the nine residues tile the circle with no remainder. Artistic arithmetic.',
-    js: () => 9 * 40 === 360 && 360 % 9 === 0,
-    lean: 'theorem aura_step_divides_circle : (9 * 40 = 360) ∧ (360 % 9 = 0) := by decide' },
+    why: 'The aura’s hue step the A432 rendering ASSUMES, sealed (axiom-hunt): the wheel takes TEN steps of 36° — 10 · 36 = 360 exactly, and 36 = 432/12 is A432’s own quantum, which 40 was not (432/40 is 10.8). Ten is the mirror’s modulus, so the nine residues sit at 36°…324° and 0° is left for the void they fold through. Artistic arithmetic.',
+    js: () => MIRROR_BASE * A432_STEP === 360 && 360 % A432_STEP === 0,
+    lean: `theorem aura_step_divides_circle : (${MIRROR_BASE} * ${A432_STEP} = 360) ∧ (360 % ${A432_STEP} = 0) := by decide` },
 
   { key: 'polarity_angles_are_the_system_counts',
-    why: 'THE POLARITY ANGLES ARE NOT CHOSEN — each is 360 divided by a count the system already holds: 360/9 = 40° is the A432 digit step (BASE), 360/6 = 60° is the colour sector AND the vortex orbit\'s length (2 has order 6 in ℤ/9*), 360/4 = 90° is QUADRATURE — the four basis states the two coins deliver (2² = 4) — and 360/3 = 120° is the trinity, which is also two sectors (2·60), the anchor the palette hangs the heart on. Four angles, four counts, no aesthetics.',
-    js: () => (360 / 9 === 40) && (360 / 6 === 60) && (360 / 4 === 90) && (360 / 3 === 120) && (2 * 60 === 120) && (2 ** 2 === 4),
-    lean: 'theorem polarity_angles_are_the_system_counts : (360 / 9 = 40) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2 = 4) := by decide' },
+    why: 'THE POLARITY ANGLES ARE NOT CHOSEN — each is 360 divided by a count the system already holds: 360/10 = 36° is the A432 digit step (MIRROR_BASE, and 432/12), 360/6 = 60° is the colour sector AND the vortex orbit\'s length (2 has order 6 in ℤ/9*), 360/4 = 90° is QUADRATURE — the four basis states the two coins deliver (2² = 4) — and 360/3 = 120° is the trinity, which is also two sectors (2·60), the anchor the palette hangs the heart on. Four angles, four counts, no aesthetics.',
+    js: () => (360 / MIRROR_BASE === A432_STEP) && (360 / 6 === 60) && (360 / 4 === 90) && (360 / 3 === 120) && (2 * 60 === 120) && (2 ** 2 === 4),
+    lean: `theorem polarity_angles_are_the_system_counts : (360 / ${MIRROR_BASE} = ${A432_STEP}) ∧ (360 / 6 = 60) ∧ (360 / 4 = 90) ∧ (360 / 3 = 120) ∧ (2 * 60 = 120) ∧ (2^2 = 4) := by decide` },
 
+  // THE SUPERSEDED FACT IS KEPT, BECAUSE A CITED KEY IS A CONTRACT. This theorem was sealed of the 40° step and its
+  // arithmetic is still true — 180 % 40 really is 20 — so it is not purged; it is marked as belonging to the wheel
+  // that no longer turns, and the wheel that does turn is sealed beside it. Renaming it would have made every
+  // citation fabricated: docs/articles/colour.md links /theorem/no_digit_is_an_exact_complement, and the guard
+  // refused the rename by name. A theorem leaves the ledger by a verdict, never by an edit.
   { key: 'no_digit_is_an_exact_complement',
-    why: 'THE BOUNDARY BETWEEN THE TWO INVOLUTIONS — the dz mirror (d ↦ 10−d, an involution on DIGITS) is not the colour complement (h ↦ h+180°, an involution on HUES), because no whole number of A432 steps reaches a half turn: 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — the complement of any digit\'s hue falls strictly BETWEEN two digits. The 9-lattice and the 6-lattice meet only at multiples of their common 120°. Two involutions, one wheel, and they do not coincide — stated rather than smoothed over.',
+    why: 'OF THE SUPERSEDED 40° STEP, KEPT AS THE FACT IT WAS. While the A432 step was read as 360/9 = 40°, no whole number of steps reached a half turn — 180 % 40 = 20 ≠ 0, and 4·40 = 160 < 180 < 200 = 5·40 — so the dz mirror (d ↦ 10−d, on DIGITS) and the colour complement (h ↦ h+180°, on HUES) could not coincide, and the two lattices met only at multiples of their common 120°. The arithmetic here is exact and stays sealed. What changed is the step, not this line: at A432’s own 36° the two involutions DO meet, and five_is_the_exact_complement seals where. Read this one as the reason the question was asked.',
     js: () => (180 % 40 === 20) && (4 * 40 === 160) && (160 < 180) && (180 < 200) && (5 * 40 === 200),
     lean: 'theorem no_digit_is_an_exact_complement : (180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200) := by decide' },
 
+  { key: 'five_is_the_exact_complement',
+    why: 'THE TWO INVOLUTIONS MEET, AND THEY MEET AT FIVE. The dz mirror (d ↦ 10−d, on DIGITS) and the colour complement (h ↦ h+180°, on HUES) were sealed as unable to coincide, because at a 40° step no whole number of steps reached a half turn (180 % 40 = 20). That was an artefact of the step, not of the wheel: at A432’s own 36°, 180 % 36 = 0 and 5 · 36 = 180 exactly, so digit 5 IS its own complement — and 10 − 5 = 5, so it is also the one digit the mirror fixes. One digit, both involutions, the same fixed point. The line kept beside this one states the opposite and was true only of the wrong step; both are sealed, and the step is what tells them apart.',
+    js: () => (180 % A432_STEP === 0) && (5 * A432_STEP === 180) && (MIRROR_BASE - 5 === 5),
+    lean: `theorem five_is_the_exact_complement : (180 % ${A432_STEP} = 0) ∧ (5 * ${A432_STEP} = 180) ∧ (${MIRROR_BASE} - 5 = 5) := by decide` },
+
   { key: 'uuidna_name_aura_is_the_seed',
-    why: 'THE NAME\'S AURA IS THE SEED ON THE A432 WHEEL. Residue is the seed of toUuid("uuidna") mod 9, ray is that seed mod 7, wave index is the seed mod 6. Hue is residue·40 + ray·51 + wave, wrapping 360°. Period is two coins times (hexbit + coins + ray). Saturation and lightness are the ray and wave channels.',
+    why: 'THE NAME\'S AURA IS THE SEED ON THE A432 WHEEL. Residue is the seed of toUuid("uuidna") mod 9, ray is that seed mod 7, wave index is the seed mod 6. Hue is residue·36 + ray·51 + wave, wrapping 360° — the step is A432’s own (432/12), not 360/9. Period is two coins times (hexbit + coins + ray). Saturation and lightness are the ray and wave channels.',
     js: () => N.aura.ten.residue === N.seed % N.base && N.aura.ray === N.seed % N.rays
       && N.aura.wave === N.wave[N.wi] && N.aura.hue === N.hue
       && N.aura.ten.period === N.period
       && N.aura.ten.sat === 62 + 2 * N.aura.ray + N.satExtra
       && N.aura.ten.light === 50 + N.coins * N.wi,
-    lean: `theorem uuidna_name_aura_is_the_seed : (${N.seed} % 9 = ${N.aura.ten.residue}) ∧ (${N.seed} % 7 = ${N.aura.ray}) ∧ (${N.seed} % 6 = ${N.wi}) ∧ ((${N.aura.ten.residue} * 40 + ${N.aura.ray} * 51 + ${N.aura.wave}) % 360 = ${N.hue}) ∧ (${N.coins} * (${N.hexbit} + ${N.coins} + ${N.aura.ray}) = ${N.period}) ∧ (62 + 2 * ${N.aura.ray} + ${N.satExtra} = ${N.aura.ten.sat}) ∧ (50 + ${N.coins} * ${N.wi} = ${N.aura.ten.light}) := by decide` },
+    lean: `theorem uuidna_name_aura_is_the_seed : (${N.seed} % 9 = ${N.aura.ten.residue}) ∧ (${N.seed} % 7 = ${N.aura.ray}) ∧ (${N.seed} % 6 = ${N.wi}) ∧ ((${N.aura.ten.residue} * ${A432_STEP} + ${N.aura.ray} * ${RAY_SECTOR} + ${N.aura.wave}) % 360 = ${N.hue}) ∧ (${N.coins} * (${N.hexbit} + ${N.coins} + ${N.aura.ray}) = ${N.period}) ∧ (62 + 2 * ${N.aura.ray} + ${N.satExtra} = ${N.aura.ten.sat}) ∧ (50 + ${N.coins} * ${N.wi} = ${N.aura.ten.light}) := by decide` },
 ]
 
 emit({

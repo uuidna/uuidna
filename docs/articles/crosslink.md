@@ -5,7 +5,7 @@ description: "Computed from lean/Crosslink.lean — 6 sealed theorems, every cla
 
 # Crosslinks: the addressing is the floor
 
-> CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. MEASURED, NOT QUOTED: the store holds 71,621 leaves with 71,620 parent links against 2,564,748,010 pairs available — the tree uses one link for every 35,810 pairs its own leaves permit. Its leaves are folders and not single uuids (689 with 0 keys, 70,852 with 1 key, 75 with 2 keys, 5 with 3 keys) across 3 kinds (70,932 chunks, 437 pages, 252 publications), each partition summing exactly. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture. — held by [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_tree_uses_one_link_per_leaf_and_no_more) and its 5 siblings below.
+> CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. MEASURED, NOT QUOTED: the store holds 71,622 leaves with 71,621 parent links against 2,564,819,631 pairs available — the tree uses one link for every 35,811 pairs its own leaves permit. Its leaves are folders and not single uuids (689 with 0 keys, 70,853 with 1 key, 75 with 2 keys, 5 with 3 keys) across 3 kinds (70,933 chunks, 437 pages, 252 publications), each partition summing exactly. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture. — held by [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_tree_uses_one_link_per_leaf_and_no_more) and its 5 siblings below.
 
 **6 theorems** and **56 decided cases**, from [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_tree_uses_one_link_per_leaf_and_no_more) onward, each proven `by decide` in <a href="/lean/Crosslink.lean">lean/Crosslink.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 6 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_tree_uses_one_link_per_leaf_and_no_more). A boundary stated here is decided.
 
@@ -18,11 +18,11 @@ The ledger holds this as [a_tree_uses_one_link_per_leaf_and_no_more](/theorem/a_
 [4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2)))
 ```
 
-### THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,621 leaves, 71,620 parent links, 2,564,748,010 pairs available — the tree uses one link for every 35,810 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.
+### THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,622 leaves, 71,621 parent links, 2,564,819,631 pairs available — the tree uses one link for every 35,811 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.
 The ledger holds this as [the_measured_store_uses_a_vanishing_share](/theorem/the_measured_store_uses_a_vanishing_share) — proven `by decide`, sorry-free:
 
 ```lean
-(2564748010 = (71621 * (71621 - 1)) / 2) ∧ (2564748010 > 2000 * 71620)
+(2564819631 = (71622 * (71622 - 1)) / 2) ∧ (2564819631 > 2000 * 71621)
 ```
 
 ### THE CLAIM THE CAPTAIN NAMED, DECIDED AS A COMPARISON OF EXPONENTS. E possible edges admit 2^E graphs, and the address space is 2^128. So the graph space exceeds the address space exactly when E > 128, and E = n(n − 1)/2 passes 128 at n = 17 — seventeen leaves. Decided for every tabulated n from 17 upward. A base-2 power is monotone in its exponent, so comparing exponents settles the powers; stating 2^(2^63) directly would be a number no kernel can check, which is a claim wearing arithmetic rather than doing it.
@@ -39,18 +39,18 @@ The ledger holds this as [seventeen_leaves_already_pass_the_whole_uuid](/theorem
 ((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128)
 ```
 
-### AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,621 leaves, 689 carry no theorem key, 70,852 carry 1 key, 75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.
+### AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,622 leaves, 689 carry no theorem key, 70,853 carry 1 key, 75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.
 The ledger holds this as [the_leaf_is_not_one_uuid_but_a_folder](/theorem/the_leaf_is_not_one_uuid_but_a_folder) — proven `by decide`, sorry-free:
 
 ```lean
-(689 + 70852 + 75 + 5 = 71621) ∧ (80 > 0)
+(689 + 70853 + 75 + 5 = 71622) ∧ (80 > 0)
 ```
 
-### THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70932 chunk, 437 page, 252 publication, summing to 71,621 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative.
+### THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70933 chunk, 437 page, 252 publication, summing to 71,622 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative.
 The ledger holds this as [three_kinds_partition_the_store](/theorem/three_kinds_partition_the_store) — proven `by decide`, sorry-free:
 
 ```lean
-70932 + 437 + 252 = 71621
+70933 + 437 + 252 = 71622
 ```
 
 

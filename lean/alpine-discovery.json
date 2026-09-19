@@ -115,9 +115,9 @@
   "harvestTotal": 2,
   "exposedAxioms": [],
   "axiomHunt": {
-    "proven": 44,
+    "proven": 43,
     "exposed": 0,
-    "refuted": 0
+    "refuted": 1
   },
   "receipt": "919ba752-7439-89da-98ff-27541353d078",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."

@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-18
+**Generated:** 2026-09-19
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71017/71017 theorems — every one, by construction
-**Discovery claimed:** 70633 — the other 384 restate a fact a named source found first
+**Formalisation claimed:** 71018/71018 theorems — every one, by construction
+**Discovery claimed:** 70634 — the other 384 restate a fact a named source found first
 
 *The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `bea30973-a53f-8d6b-a45e-4d825a40da2f`
+**Claim receipt:** `9ebfa858-06d0-8c9f-873f-a3585c47aab8`
 
 ### Facts the captain does not claim to have discovered
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `9c39b5ce-5bbf-8eb8-91b1-2d822182eb54`
+- **Sample lineAddress:** `7c295cfb-e81d-84d8-9454-9739950cf8b7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -463,7 +463,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `c4ce3f1b-c7ec-840c-901a-99f93317b04b`
+- **Sample lineAddress:** `3e51905c-b351-86a6-a127-c195e016b014`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -831,12 +831,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The colour wheel
 
-- **Theorems:** 19
-- **Sample lineAddress:** `3beec3b5-7726-8ffc-b088-08b61acf4499`
+- **Theorems:** 20
+- **Sample lineAddress:** `80b882c3-11f8-8012-af5a-88ccf76c4d76`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) · [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) · [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) · [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) · [hue_mirror_meeting](/theorem/hue_mirror_meeting) · [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) · [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) · [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) · [complementary_hues_oppose](/theorem/complementary_hues_oppose) · [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) · [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) · [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) · [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) · [tint_and_shade_complement](/theorem/tint_and_shade_complement) · [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) · [aura_step_divides_circle](/theorem/aura_step_divides_circle) · [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) · [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) · [uuidna_name_aura_is_the_seed](/theorem/uuidna_name_aura_is_the_seed)
+[aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) · [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) · [alphabet_digital_root_is_nine](/theorem/alphabet_digital_root_is_nine) · [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) · [hue_mirror_meeting](/theorem/hue_mirror_meeting) · [scattering_tiebreak_separates](/theorem/scattering_tiebreak_separates) · [alphabet_exceeds_wheel](/theorem/alphabet_exceeds_wheel) · [twelve_hue_wheel_wraps](/theorem/twelve_hue_wheel_wraps) · [complementary_hues_oppose](/theorem/complementary_hues_oppose) · [primaries_and_secondaries_make_six](/theorem/primaries_and_secondaries_make_six) · [triadic_harmony_is_thirds](/theorem/triadic_harmony_is_thirds) · [square_harmony_is_fourths](/theorem/square_harmony_is_fourths) · [true_colour_is_24_bit](/theorem/true_colour_is_24_bit) · [tint_and_shade_complement](/theorem/tint_and_shade_complement) · [warm_cool_split_six_six](/theorem/warm_cool_split_six_six) · [aura_step_divides_circle](/theorem/aura_step_divides_circle) · [polarity_angles_are_the_system_counts](/theorem/polarity_angles_are_the_system_counts) · [no_digit_is_an_exact_complement](/theorem/no_digit_is_an_exact_complement) · [five_is_the_exact_complement](/theorem/five_is_the_exact_complement) · [uuidna_name_aura_is_the_seed](/theorem/uuidna_name_aura_is_the_seed)
 
 ### The harmony of pairs
 
@@ -2324,7 +2324,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70932 (71017 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70933 (71018 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2342,7 +2342,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71017 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71018 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2354,7 +2354,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71017; he claims discovery of 70633 and credits the other 384 facts to their named sources
+- ✓ The captain formalised all 71018; he claims discovery of 70634 and credits the other 384 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2370,7 +2370,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71017; of these I claim discovery of 70633, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71018; of these I claim discovery of 70634, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

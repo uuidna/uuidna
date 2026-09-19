@@ -364,6 +364,7 @@ warm_cool_split_six_six 27
 aura_step_divides_circle 27
 polarity_angles_are_the_system_counts 27
 no_digit_is_an_exact_complement 27
+five_is_the_exact_complement 27
 uuidna_name_aura_is_the_seed 27
 #Command.lean
 accept_truth_table 27

@@ -1,0 +1,12 @@
+{
+  "handle": "041f4290",
+  "address": "041f4290-43b2-848b-a4f2-9f061b5d0e0b",
+  "statement": "(689 + 70853 + 75 + 5 = 71622) ∧ (80 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

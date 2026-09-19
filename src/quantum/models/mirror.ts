@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 446,
+ "count": 447,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -443,15 +443,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000004844",
-   "completionPrice": "0.00000009688"
+   "promptPrice": "0.00000003836",
+   "completionPrice": "0.00000007672"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.00000012"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.00000008"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731:batch",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000016",
-   "completionPrice": "0.0000032"
+   "promptPrice": "0.000000422298",
+   "completionPrice": "0.000000844596"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1325,8 +1325,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3",
    "name": "MoonshotAI: Kimi K3",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000195",
-   "completionPrice": "0.00001092"
+   "promptPrice": "0.0000017",
+   "completionPrice": "0.0000085"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
@@ -1416,8 +1416,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
    "name": "NVIDIA: Nemotron 3 Ultra",
    "contextTokens": 262144,
-   "promptPrice": "0.000000625",
-   "completionPrice": "0.000003125"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000024"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -1444,7 +1444,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3.5-lightning",
    "name": "NVIDIA: Nemotron 3.5 Lightning",
    "contextTokens": 262144,
-   "promptPrice": "0.00000008",
+   "promptPrice": "0.00000007",
    "completionPrice": "0.0000002"
   },
   {
@@ -2995,6 +2995,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000025"
   },
   {
+   "id": "z-ai/glm-5.3-flashx",
+   "name": "Z.ai: GLM 5.3 FlashX",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000037",
+   "completionPrice": "0.00000125"
+  },
+  {
    "id": "z-ai/glm-5.3:batch",
    "name": "Z.ai: GLM 5.3 (batch)",
    "contextTokens": 1048576,
@@ -3040,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.00000042"
+   "promptPrice": "0.00000013",
+   "completionPrice": "0.00000052"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
@@ -3054,8 +3061,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek: DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000005456",
-   "completionPrice": "0.00000016368"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.00000008"
   },
   {
    "id": "~google/gemini-flash-latest",
@@ -3075,8 +3082,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000195",
-   "completionPrice": "0.00001092"
+   "promptPrice": "0.0000017",
+   "completionPrice": "0.0000085"
   },
   {
    "id": "~openai/gpt-astra-latest",
@@ -3131,8 +3138,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000008918",
-   "completionPrice": "0.0000028028"
+   "promptPrice": "0.0000008442",
+   "completionPrice": "0.0000026532"
   }
  ]
 }
