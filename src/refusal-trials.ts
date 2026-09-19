@@ -6,7 +6,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { adjudicate, contentWords, type VerdictKind } from './adjudicate.js'
 import { testClaim } from './quantum/apps/categories/coding/claim-tester.js'
-import { theoremByKey, axiomIndex, THEOREMS, sealedKeys, type WingDefEntry } from './theorems/index.js'
+import { theoremByKey, axiomIndex, THEOREMS, sealedKeys, sealedCount, sealedKeyAt, type WingDefEntry } from './theorems/index.js'
 import { axiomHunt } from './scripts/axiom-hunt.js'
 import { type LeadsRecord, type LeadRow } from './school/leads/index.js'
 import { readRepoJson } from './desk/repo/json/index.js'
@@ -48,15 +48,18 @@ export function receiptSealOf(body: Readonly<Record<string, unknown>>): { addres
   const address = toUuidOnce(canonicalJson(body))
   // the witnesses are picked by position from the sealed keys — at the edge the baked root, so the door signs before
   // (and without) the ledger's rows being read from storage
-  const keys = sealedKeys()
-  const size = BigInt(keys.length)
+  // BY POSITION, NOT BY LIST. The fold needs fourteen keys; asking for all of them materialised 71,017 strings in the
+  // edge isolate and it died there (exceededMemory, measured on the live tail), so it asks the count and each key it
+  // actually picks. The keys chosen are the same keys — the positions are unchanged.
+  const count = sealedCount()
+  const size = BigInt(count)
   const taken = new Set<number>()
-  const faces = keys.length < VE_FACES ? keys.length : VE_FACES
+  const faces = count < VE_FACES ? count : VE_FACES
   const witnesses = Array.from({ length: faces }, (_, face) => {
     let i = Number(BigInt('0x' + toUuid(`${address}:${face}`).replace(/-/g, '')) % size)
-    while (taken.has(i)) i = (i + 1) % keys.length
+    while (taken.has(i)) i = (i + 1) % count
     taken.add(i)
-    const by = keys[i]!
+    const by = sealedKeyAt(i)!
     return { face, by, statement: `face ${face} signs receipt ${address}: recomputed theorem ${by}` }
   })
   return { address, witnesses, ...witnessSealOf(address, witnesses) }

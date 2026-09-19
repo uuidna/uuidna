@@ -14,8 +14,15 @@ export interface EdgeRoot { root: string; count: number; keys: string; addresses
 /** the edge's ledger state; `null` on a host, whose ledger is the bundled literal */
 export interface EdgeLedger {
   readonly root: EdgeRoot | null
-  /** the sealed keys in ledger order, from the baked root — no rows needed */
+  /** the sealed keys in ledger order, from the baked root — no rows needed. MATERIALISES the whole list: at the edge
+   *  that is 71,017 strings, so a caller that wants one key by position asks keyAt, and one count asks count. */
   keys(): readonly string[]
+  /** how many keys the ledger seals, without building the list */
+  count(): number
+  /** the key at a position, without building the list */
+  keyAt(i: number): string | undefined
+  /** the address at a position, without building the list or the index — the baked addresses are fixed width */
+  addressAt(i: number): string | undefined
   /** a sealed key's position in the ledger, from the baked root */
   indexOf(key: string): number | undefined
   /** a sealed key's address, from the baked root */

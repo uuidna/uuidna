@@ -147,6 +147,12 @@ export const THEOREMS: readonly Theorem[] = lazyList(() => LEAN_LEDGER.map(withD
 let _sealedKeys: readonly string[] | null = null
 export const sealedKeys = (): readonly string[] => LEDGER_EDGE ? LEDGER_EDGE.keys() : (_sealedKeys ??= THEOREMS.map((t) => t.key))
 
+/** how many keys the ledger seals, and the key at a position — asked WITHOUT materialising the list. A caller that
+ *  wants a handful by position (the 2×7 witness fold picks fourteen) pays for fourteen strings instead of 71,017;
+ *  at the edge that is the difference between a deposit and `Worker exceeded memory limit`. */
+export const sealedCount = (): number => (LEDGER_EDGE ? LEDGER_EDGE.count() : THEOREMS.length)
+export const sealedKeyAt = (i: number): string | undefined => (LEDGER_EDGE ? LEDGER_EDGE.keyAt(i) : THEOREMS[i]?.key)
+
 /** sealedAddressOf(key) → a sealed key's address, or undefined for a key the ledger does not hold — what the honesty
  *  gate asks. The edge answers from its baked root without the rows; a host answers from THEOREMS. */
 export const sealedAddressOf = (key: string): string | undefined =>
