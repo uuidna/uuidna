@@ -15,3 +15,9 @@ generator-metrics.json
 docs/public/alpine-catalogue.tsv
 mirror/alpine-minirootfs-*.tar.gz
 mirror/.rootfs/
+
+# editor tooling, not repository content
+.cursor/
+# a scratch note left in a SERVED directory by another session — ignored so it is never published,
+# and left on disk because it is not this session's to delete
+docs/public/paste.txt
