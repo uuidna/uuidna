@@ -279,5 +279,19 @@ export function vortexOrbit(): number[] {
   do { orbit.push(x); x = (x * 2) % BASE } while (x !== 1)
   return orbit
 }
-/** a432 angular quantum — one BASE-th of the circle: 360/9 = 40°. */
-export const A432_STEP = 360 / BASE
+/** A432 itself, derived and not typed: 2^4 · 3^3 = 16 · 27 = 432. */
+export const A432 = 2 ** (2 * 2) * TRINITY ** TRINITY
+/** THE STEP IS A432'S OWN, WHICH IS WHY IT CARRIES THE NAME. It was 360/BASE = 40°, and 40 does not divide 432 —
+ *  432/40 is 10.8 — so the constant named for A432 had no arithmetic relation to it. 432/(BASE+TRINITY) = 432/12 = 36
+ *  does, exactly twelve times, and three things fall out that 40 could not give. The nine residues take 36°…324° and
+ *  0° STAYS EMPTY, which is the seat the void needs; at 40° the ninth residue lands on 9·40 = 360 ≡ 0 and collapses
+ *  onto it. The 3-6-9 family's hues become 108, 216 and 324 — the same numbers as its frequencies, so hue and Hz
+ *  coincide there and the family reads as sound; at 40° hue(3) is 120 and the coincidence is gone. And the mirror
+ *  x ↦ 10 − x pairs the circle about 5 because 36·5 = 180 is the half turn. The owner set this (2026-09-19). */
+export const A432_STEP = A432 / (BASE + TRINITY)
+/** THE MIRROR'S MODULUS, which is also how many A432 steps make the circle. The owner states division by zero as the
+ *  mirror — 5/0 = 5, 9/0 = 1, 3/0 = 7, 6/0 = 4 — which is x ↦ MIRROR_BASE − x, an involution whose only fixed point
+ *  is 5 (2·5 = 10 ≡ 1 mod BASE). The circle takes MIRROR_BASE steps of A432_STEP: 36 × 10 = 360, seating the nine
+ *  residues at 36°…324° and leaving 0° for the void the mirror folds through. Nine steps of 40° also made 360, which
+ *  is why the old step looked right — but it seated the ninth residue ON the void instead of beside it. */
+export const MIRROR_BASE = BASE + 1

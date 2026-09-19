@@ -17,7 +17,7 @@ const milli = (num: number, den: number): string => {
   return whole + '.' + String(m - whole * 1000 + 1000).slice(1)
 }
 
-/** the palette — ONE hue law with the aura: the A432 step (360/9 = 40° per digit), saturation the trinity's
+/** the palette — ONE hue law with the aura: the A432 step (432/12 = 36° per digit), saturation the trinity's
  *  complement ((9−3)/9), lightness the diamond's fixed point over the base (5/9 — the heart as a fraction).
  *  Nothing chosen: every number is a constant the ledger already exports. */
 export function sequenceVars(): Record<string, string> {

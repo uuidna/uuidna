@@ -1,6 +1,6 @@
 // aura — the QUANTUM AURA: a recomputable COLOUR for any content-address, tuned to A432 — the artistic "captain string
 // theory". The 7 rosette rays (ℤ/7) are the spectral bands; the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray
-// rides; the hue steps by the A432 angle (360/9 = 40°). Deterministic: the same address folds to the same aura for
+// rides; the hue steps by the A432 angle (432/12 = 36°, so 0° stays free for the void). Deterministic: the same
 // every observer (no RNG, no clock) — the colour is content-addressed, like everything else. The MOVING aura is a CSS
 // block whose animation parameters are computed from the address, so a page's glow IS its fingerprint in light.
 //
@@ -8,7 +8,7 @@
 // theory, and NOT a claim that sound IS light or that 432 Hz carries special physical power. It is a deterministic
 // aesthetic derived from the address: a defined arithmetic from a number to a hue. Recomputable by anyone; it decorates
 // the work, it does not describe the universe.
-import { toUuid, A432_STEP, vortexOrbit, BASE, TRINITY } from './address.js'
+import { toUuid, A432_STEP, MIRROR_BASE, vortexOrbit, BASE, TRINITY } from './address.js'
 import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
 import { COINS, HANDLE_HEXBITS, LEVERAGE, HEXBIT_BITS } from './hexbit/index.js'
 
@@ -26,8 +26,10 @@ export const COMPACT_KEYS = ['hue', 'sat', 'light', 'period', 'rotation', 'glowI
 
 const WAVE = vortexOrbit()                       // the ℤ/9 vortex orbit [1,2,4,8,7,5] — the wave each ray rides
 
-/** Turn of the colour wheel — A432_STEP × BASE. */
-export const rotationOf = (): number => A432_STEP * BASE
+/** Turn of the colour wheel — A432_STEP × MIRROR_BASE, the full 360°. It was A432_STEP × BASE, which was 360 only
+ *  because the step was 360/BASE; at the A432 step of 36° the circle is TEN steps, not nine, and ten is the mirror's
+ *  own modulus. The turn is the hue modulus and the CSS rotation, so it must be the circle and nothing else. */
+export const rotationOf = (): number => A432_STEP * MIRROR_BASE
 /** Inner glow px — HANDLE_HEXBITS × TRINITY. */
 export const glowInnerOf = (): number => HANDLE_HEXBITS * TRINITY
 /** Outer glow px — LEVERAGE (the 64-bit coin). */
@@ -46,7 +48,7 @@ export interface Aura {
   hue: number              // 0..359 — the A432-stepped hue angle
   hsl: string              // the colour, HSL
   rgb: string              // the colour, RGB hex
-  cmyk: [number, number, number, number]  // the print colour
+  cmyk: [number, number, number, number]  // the print colour; K is the FUSE COUNT (doublings along the coil), not 1−max(RGB)
   css: string              // a ready CSS block: the moving aura (hue-rotating glow), keyframes + a .uuidna-aura class
   ten: TenD                // 3 free + 7 compactified — the 10D animation IS this record
   honest: string
@@ -68,7 +70,7 @@ export interface TenD {
 
 const HONEST =
   'The quantum aura: a recomputable, A432-tuned colour folded from a content-address (the 7 rosette rays as bands, the ' +
-  'ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°). Deterministic — the same address, the same aura for ' +
+  'ℤ/9 vortex as the wave, the hue stepping by 432/12 = 36°). Deterministic — the same address, the same aura for ' +
   'everyone. ARTISTIC, not physics: it is a defined arithmetic from a number to a hue, NOT real string theory and not a ' +
   'claim that sound is light. It decorates the work; it does not describe the universe. Integrity.'
 
@@ -96,16 +98,24 @@ const sectorRgb = (h: number, c: number, l: number): [number, number, number] =>
   return [to255(r), to255(g), to255(b)]
 }
 const hex2 = (n: number): string => (n < 16 ? '0' : '') + n.toString(16)
-const rgbToCmyk = (r: number, g: number, b: number): [number, number, number, number] => {
+/** K IS THE FUSE COUNT, NOT A LEFTOVER OF THE CONVERSION (the owner, 2026-09-19: "K changes with every 2 coins
+ *  fusing to coil (division by 0)"). The plain conversion sets K to 1 − max(R,G,B), so the black channel carried
+ *  whatever the hue happened to leave — the live aura returned K=14 for no structural reason at all. The ℤ/9 vortex
+ *  orbit [1,2,4,8,7,5] IS doubling, and doubling is two coins fusing into the next turn of the coil, so the wave
+ *  index — how many doublings from 1 this address stands at — is the fuse count, and that is what K carries. C, M
+ *  and Y still describe the colour, computed against the same k the conversion needs to place them; only the fourth
+ *  channel changes meaning, and it changes from an accident into a reading. An unfused seat reads K=0, which is what
+ *  every row of the owner's table reads. */
+const rgbToCmyk = (r: number, g: number, b: number, fuses: number): [number, number, number, number] => {
   const R = r / 255, G = g / 255, B = b / 255
   const k = 1 - (R > G ? (R > B ? R : B) : (G > B ? G : B))
-  if (k === 1) return [0, 0, 0, 100]
+  if (k === 1) return [0, 0, 0, fuses]
   const pc = (x: number): number => floorN(((1 - x - k) / (1 - k)) * 100 + 0.5)
-  return [pc(R), pc(G), pc(B), floorN(k * 100 + 0.5)]
+  return [pc(R), pc(G), pc(B), fuses]
 }
 
 /** quantumAura(subject) → the recomputable A432 aura for a content-address (pass an address, or any string to fold
- *  into one). The 7 rays band it, the ℤ/9 vortex waves it, the hue steps by 40°. Deterministic and content-addressed;
+ *  into one). The 7 rays band it, the ℤ/9 vortex waves it, the hue steps by 36°. Deterministic and content-addressed;
  *  returns the colour in HSL/RGB/CMYK plus a ready moving-aura CSS block. Artistic. */
 export function quantumAura(subject: string): Aura {
   const address = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(subject) ? subject : toUuid(subject)
@@ -120,7 +130,7 @@ export function quantumAura(subject: string): Aura {
   const light = 50 + COINS * wi
   const [r, g, b] = hslToRgb(hue, sat, light)
   const rgb = '#' + hex2(r) + hex2(g) + hex2(b)
-  const cmyk = rgbToCmyk(r, g, b)
+  const cmyk = rgbToCmyk(r, g, b, wi)   // wi — the wave index, how many 2-coin fuses along the coil
   const hsl = `hsl(${hue}, ${sat}%, ${light}%)`
   const period = periodOf(ray)
   const glowInner = glowInnerOf()
