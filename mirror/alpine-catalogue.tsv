@@ -2508,11 +2508,11 @@ community	cwm-doc	7.9-r0	Q1dIZnZpbTNzfw5GpE9Jr8cx7MfvY=	A lightweight and effici
 community	cyanrip	0.9.3.1_git20240709-r2	Q1LYB3YFHN/cQteRS0T9IPwAT6KOc=	Bule-ish CD ripper	so:libavcodec.so.62 so:libavfilter.so.11 so:libavformat.so.62 so:libavutil.so.60 so:libc.musl-x86_64.so.1 so:libcdio.so.19 so:libcdio_cdda.so.2 so:libcdio_paranoia.so.2 so:libcurl.so.4 so:libmusicbrainz5.so.1 so:libswresample.so.6	cmd:cyanrip=0.9.3.1_git20240709-r2
 community	cyclone	0.36.0-r3	Q1Kf04blQFTPGpt7P1rv85v20VvEg=	A compiler for application development with R7RS Scheme	so:libc.musl-x86_64.so.1 so:libck.so.0	cyclone-bootstrap=0.36.0 cmd:cyclone=0.36.0-r3 cmd:icyc=0.36.0-r3
 community	cyclone-stage0	0.36.0-r2	Q1EcAUSDWSpAp8PZWztkmqDr4fWmQ=	Cyclone version used to initially bootstrap the Cyclone compiler	!cyclone so:libc.musl-x86_64.so.1 so:libck.so.0	cyclone-bootstrap=0.36.0 cmd:cyclone=0.36.0-r2 cmd:icyc=0.36.0-r2 cmd:winds=0.36.0-r2
-community	cyme	3.0.1-r0	Q17KE/uQfM62/HT+FoLUiNJWjs4DA=	modern lsusb that attempts to maintain compatibility, but also adds new features	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libudev.so.1	cmd:cyme=3.0.1-r0
-community	cyme-bash-completion	3.0.1-r0	Q1+7d3ZwpZLbjn2Cnf+5AMecnCew4=	Bash completions for cyme		
-community	cyme-doc	3.0.1-r0	Q1eznXdfLJ6U6bItwRCXa2r+X3wzo=	modern lsusb that attempts to maintain compatibility, but also adds new features (documentation)		
-community	cyme-fish-completion	3.0.1-r0	Q1XrZcwNDbjpQ7COm9nXkK1RfAC1E=	Fish completions for cyme		
-community	cyme-zsh-completion	3.0.1-r0	Q1f4ezOu9A/kWoLX8K5jMohVI0jE0=	Zsh completions for cyme		
+community	cyme	3.0.2-r0	Q1Tv4raBR+cM08sGN+k60tbmQgC5M=	modern lsusb that attempts to maintain compatibility, but also adds new features	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libudev.so.1	cmd:cyme=3.0.2-r0
+community	cyme-bash-completion	3.0.2-r0	Q1wS87mNea5V1HbfazCeE8e1OInA8=	Bash completions for cyme		
+community	cyme-doc	3.0.2-r0	Q1pC31xknNCQ2Zw8z3e01rsSVR37I=	modern lsusb that attempts to maintain compatibility, but also adds new features (documentation)		
+community	cyme-fish-completion	3.0.2-r0	Q1wLporwEkplYoFRlo6TFcR/xNRIg=	Fish completions for cyme		
+community	cyme-zsh-completion	3.0.2-r0	Q1gOxKW9BDeMRXrn5cAF+q9bnCLkg=	Zsh completions for cyme		
 community	cypher-lint	0.6.2-r1	Q1rAQWM413p03+HUrIbyRmnPvY+Nk=	Lint tool for the Cypher query language	so:libc.musl-x86_64.so.1 so:libcypher-parser.so.8	cmd:cypher-lint=0.6.2-r1
 community	cypher-lint-doc	0.6.2-r1	Q12pn1anvdby+gvMcwdLterKtxiwE=	Parsing library for the Cypher query language (documentation)		
 community	cypher-shell	4.4.41-r0	Q1FxTZebWYLa7A8n7Az2JuofEBGnI=	Cypher Shell - CLI for Neo4j	java-jna java-netty-transport-native java-jre-headless	cmd:cypher-shell=4.4.41-r0
@@ -27584,7 +27584,7 @@ main	py3-typing-extensions	4.15.0-r1	Q1A+yPMTLhZBwxJBBQv3ushwu4nqs=	Backported a
 main	py3-typing-extensions-pyc	4.15.0-r1	Q1Ep9zysRv/pnjMH/kgzpHuFVa4Ak=	Precompiled Python bytecode for py3-typing-extensions	python3~3.14	
 main	py3-tz	2026.2-r0	Q16bzThRxXMVX1kcYQKzZ+fqdPSF4=	Python3 definitions of world timezone	python3 python3~3.14	py-tz=2026.2-r0 py3.14:pytz=2026.2-r0
 main	py3-tz-pyc	2026.2-r0	Q1wq6TvOzILeiwnyP++26/txcPJJk=	Precompiled Python bytecode for py3-tz	python3~3.14	
-main	py3-unbound	1.25.2-r1	Q1ZjumtRjVsOHpi/sz0sYeT84Ewes=	Python bindings to libunbound	python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0 so:libunbound.so.8	py-unbound=1.25.2-r1 py3.14:unbound=1.25.2-r1
+main	py3-unbound	1.25.2-r2	Q1d+vKp+useRfzpzcM6f1N3gNM/4k=	Python bindings to libunbound	python3~3.14 so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0 so:libunbound.so.8	py-unbound=1.25.2-r2 py3.14:unbound=1.25.2-r2
 main	py3-urllib3	2.7.0-r0	Q1vwh0TlLQkfThHI9DyvC7OXJNyTE=	HTTP library with thread-safe connection pooling, file post, and more	python3 python3~3.14	py-urllib3=2.7.0-r0 py3.14:urllib3=2.7.0-r0
 main	py3-urllib3-pyc	2.7.0-r0	Q1g/Fc0631P1uR6CiNurPGPUdZiqs=	Precompiled Python bytecode for py3-urllib3	python3~3.14	
 main	py3-vici	6.0.7-r1	Q1tZup3/j5joc5b2Bm/cCgv7DRSN8=	Native Python interface for strongSwan's VICI protocol	iproute2 python3~3.14	py3.14:vici=6.0.7-r1
@@ -28316,13 +28316,13 @@ main	ulogd-xml	2.0.9-r0	Q1QewR5rSgvVCu44Ul8QhromWa658=	xml output for ulogd	ulog
 main	umix	1.0.2-r10	Q1Pk2qVZDv0Ihlbvu6x5OMwFqf9ek=	Program for adjusting soundcard volumes	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:umix=1.0.2-r10
 main	umix-doc	1.0.2-r10	Q1qrTIpL0ClWGjX3c1e51ZntUqThQ=	Program for adjusting soundcard volumes (documentation)		
 main	umount	2.42.3-r1	Q1yoN2SES/JREwqjCV15EpSVJGsyI=	umount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:umount=2.42.3-r1
-main	unbound	1.25.2-r1	Q1CjzN9i8WShCMeFuC/LHUJZDbVVM=	Unbound is a validating, recursive, and caching DNS resolver	dnssec-root /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libexpat.so.1 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3 so:libunbound.so.8	cmd:unbound-anchor=1.25.2-r1 cmd:unbound-checkconf=1.25.2-r1 cmd:unbound-control-setup=1.25.2-r1 cmd:unbound-control=1.25.2-r1 cmd:unbound-host=1.25.2-r1 cmd:unbound=1.25.2-r1
-main	unbound-dbg	1.25.2-r1	Q1jE3gtJ3EqwufNPfsn0KnNBNFajY=	Unbound is a validating, recursive, and caching DNS resolver (debug symbols)	!py3-unbound<1.25.2-r1 !py3-unbound>1.25.2-r1 !unbound-libs<1.25.2-r1 !unbound-libs>1.25.2-r1 !unbound<1.25.2-r1 !unbound>1.25.2-r1	
-main	unbound-dev	1.25.2-r1	Q1RKiToQDGd+wmjrKuKGBbQFk5MSY=	Unbound is a validating, recursive, and caching DNS resolver (development files)	expat-dev unbound-libs=1.25.2-r1 pc:libevent pc:python3 pkgconfig	pc:libunbound=1.25.2
-main	unbound-doc	1.25.2-r1	Q1IxJZWX1mlSEepkZ3uZ1sNy/C7AY=	Unbound is a validating, recursive, and caching DNS resolver (documentation)		
-main	unbound-libs	1.25.2-r1	Q1V+t801aJxivN2mzacn0US0V/zGc=	Unbound is a validating, recursive, and caching DNS resolver (libraries)	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3	so:libunbound.so.8=8.1.38
-main	unbound-migrate	1.25.2-r1	Q1dSZGAiZRkYPdDVSYDWXf81cLxqw=	Simple tool to migrate from dnscache to unbound	/bin/sh apk-tools openrc	cmd:migrate-dnscache-to-unbound=1.25.2-r1
-main	unbound-openrc	1.25.2-r1	Q1GSYaVfGKX1APYHGUIVvRNMEB9zo=	Unbound is a validating, recursive, and caching DNS resolver (OpenRC init scripts)		
+main	unbound	1.25.2-r2	Q1sZ3xypijQEr/2a5E+pt5oELkwU0=	Unbound is a validating, recursive, and caching DNS resolver	dnssec-root /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libexpat.so.1 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3 so:libunbound.so.8	cmd:unbound-anchor=1.25.2-r2 cmd:unbound-checkconf=1.25.2-r2 cmd:unbound-control-setup=1.25.2-r2 cmd:unbound-control=1.25.2-r2 cmd:unbound-host=1.25.2-r2 cmd:unbound=1.25.2-r2
+main	unbound-dbg	1.25.2-r2	Q1iTW1y39cMPbPuFQw11JVUKWNvqU=	Unbound is a validating, recursive, and caching DNS resolver (debug symbols)	!py3-unbound<1.25.2-r2 !py3-unbound>1.25.2-r2 !unbound-libs<1.25.2-r2 !unbound-libs>1.25.2-r2 !unbound<1.25.2-r2 !unbound>1.25.2-r2	
+main	unbound-dev	1.25.2-r2	Q1OtwD6FfhdSaAZOlo+6NkVPDYVFM=	Unbound is a validating, recursive, and caching DNS resolver (development files)	expat-dev unbound-libs=1.25.2-r2 pc:libevent pc:python3 pkgconfig	pc:libunbound=1.25.2
+main	unbound-doc	1.25.2-r2	Q1ibIeZE2yOE+n0Go5tjwlJFJshbE=	Unbound is a validating, recursive, and caching DNS resolver (documentation)		
+main	unbound-libs	1.25.2-r2	Q1JeDuZf65ypfIWHq88/vbAEe+3RY=	Unbound is a validating, recursive, and caching DNS resolver (libraries)	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3	so:libunbound.so.8=8.1.38
+main	unbound-migrate	1.25.2-r2	Q1huyZgbBtxAl1PGzckazpDW8JxVs=	Simple tool to migrate from dnscache to unbound	/bin/sh apk-tools openrc	cmd:migrate-dnscache-to-unbound=1.25.2-r2
+main	unbound-openrc	1.25.2-r2	Q1CJ3Zwp0HVYizXiJxcazNVd/U6oQ=	Unbound is a validating, recursive, and caching DNS resolver (OpenRC init scripts)		
 main	unfs3	0.10.0-r2	Q1xnsHaYItEGgpyN5Hphg9YB7wjio=	user-space implementation of the NFSv3 server specification	rpcbind so:libc.musl-x86_64.so.1 so:libtirpc.so.3	cmd:unfsd=0.10.0-r2
 main	unfs3-doc	0.10.0-r2	Q1DiMl0013wZPdLeQKWns+FL4PkT4=	user-space implementation of the NFSv3 server specification (documentation)		
 main	unfs3-openrc	0.10.0-r2	Q1c7r60BG4wzlP3wY0ebV7eJ/l31E=	user-space implementation of the NFSv3 server specification (OpenRC init scripts)		
