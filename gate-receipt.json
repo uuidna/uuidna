@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "d98bdc37a9907b71e66b0bdaab1e57a1",
+    "src": "4d828f7a7ea5e630f16c53b69b7a6c8c",
     "lean": "c78ac7202618085c2bfc27f9ce739018"
   },
   "files": {
@@ -710,7 +710,7 @@
     "src/drivers/quantum/index.ts": "f1b04e1071161ea9",
     "src/due-process.test.ts": "b516ec7d88275ac8",
     "src/due-process.ts": "7bb9c9de51c131ff",
-    "src/edge-ledger.ts": "0b2bc75592624420",
+    "src/edge-ledger.ts": "bd4bccd54b697312",
     "src/edge-served.test.ts": "4e82d3f3965dc933",
     "src/edge-served.ts": "369fdb7e8537415b",
     "src/edge-slices/generated.ts": "328f482b9b5c6a23",
@@ -73332,7 +73332,7 @@
     "src/scripts/lean-vectorequilibrium.ts": "6a26768cfe661673",
     "src/scripts/lean-wave.ts": "0ecd14f2b7635422",
     "src/scripts/lean-waves.ts": "6203a2aa42a7fb26",
-    "src/scripts/ledger-deposit.ts": "f186783af0d1f9da",
+    "src/scripts/ledger-deposit.ts": "d28ef917e2430fe2",
     "src/scripts/legal-quantum-accounting.ts": "c9f6a9cfeee746d3",
     "src/scripts/live-cloud-metrics.ts": "02f23138677e3fca",
     "src/scripts/machine.ts": "c7b17b9c41bbbc70",
@@ -73454,7 +73454,7 @@
     "src/skills.ts": "8d25c409c8d76f6c",
     "src/slimgate-primed.test.ts": "4f030f4ce251110f",
     "src/slimgate.test.ts": "c3fd2309740be41f",
-    "src/slimgate.ts": "06c13f6fdc881734",
+    "src/slimgate.ts": "e56987f84bc7ac91",
     "src/smoke.test.ts": "9c01845fa7613422",
     "src/social.ts": "3508b1a7fb77fa64",
     "src/solution-involution.test.ts": "77ca6bdd018d7c3f",
