@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "4d828f7a7ea5e630f16c53b69b7a6c8c",
+    "src": "4bfc7fb1e667b66b4b814a96bab7cda3",
     "lean": "c78ac7202618085c2bfc27f9ce739018"
   },
   "files": {
@@ -72808,6 +72808,7 @@
     "src/quantum/os/fsapi/index.ts": "3d61ce5668b73648",
     "src/quantum/os/harness/agent-coverage.test.ts": "9fe9bde549149329",
     "src/quantum/os/harness/alpine-agent-wave.test.ts": "09ee8849f14613f2",
+    "src/quantum/os/harness/alpine-community.test.ts": "2ba7c88a45d4d321",
     "src/quantum/os/harness/anthem-stream.test.ts": "2197748da6c16381",
     "src/quantum/os/harness/await-live.test.ts": "13b1c1d014e30e21",
     "src/quantum/os/harness/constant-gaps.test.ts": "14d86d3baeaefaa1",
