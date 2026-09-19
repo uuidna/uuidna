@@ -18,10 +18,23 @@ function evaluate(n: Node): bigint | boolean {
   const b = R as bigint
   switch (n.op) {
     case '+': return a + b
-    case '-': return a - b
+    // LEAN'S Nat IS TOTAL, AND BIGINT IS NOT. The kernel is the referee here, so the arithmetic must be the
+    // kernel's: Nat subtraction truncates at zero, and division and modulo by zero are DEFINED — n / 0 = 0 and
+    // n % 0 = n (Nat.div, Nat.mod; Isabelle and Coq agree, and Suppes stated it in 1957). BigInt instead returns
+    // a negative and THROWS on a zero divisor, which is how the sealed statement
+    // `division_by_zero_is_the_abstract_zero_fold : (5 / 0 = 0) ∧ (2 * 64 = 128)` crashed this test rather than
+    // disagreeing with it. Measured over the ledger: the two arithmetics agree on all 1,446 statements that
+    // evaluate under both, so this decides nothing except the one the kernel had already decided.
+    //
+    // THIS IS Nat.div, NOT uuidna's abstract-0 fold. The two are named as one — in src/index.ts, src/mcp.ts,
+    // src/sign.ts, src/treason.ts and in that theorem's own name — and the owner states the fold as the MIRROR,
+    // x / 0 = 10 - x (5→5, 9→1, 3→7, 6→4), which is the involution R of the vortex table and the only reading
+    // under which the repository's own phrase "folding to 1 through 0" has a referent. No code implements either
+    // rule; the fold is a slogan. Lean's convention governs a Lean statement and is all this evaluator claims.
+    case '-': return a < b ? 0n : a - b
     case '*': return a * b
-    case '/': return a / b
-    case '%': return a % b
+    case '/': return b === 0n ? 0n : a / b
+    case '%': return b === 0n ? a : a % b
     case '^': return a ** b
     case '=': return a === b
     case '≠': return a !== b
