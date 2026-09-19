@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "b71bef4ac28f9d16a450eaa3e7dacce5",
+    "src": "d98bdc37a9907b71e66b0bdaab1e57a1",
     "lean": "c78ac7202618085c2bfc27f9ce739018"
   },
   "files": {
@@ -758,7 +758,7 @@
     "src/forge-verdict.test.ts": "c1bce4b05bf982c9",
     "src/forge-verdict.ts": "fd2604bdb224c2d4",
     "src/forged-wings.test.ts": "3aaf51c6fbbd4e05",
-    "src/formula.test.ts": "97f38a61cd7c1414",
+    "src/formula.test.ts": "4972572cb886dbd3",
     "src/formula.ts": "b6489814d3767d25",
     "src/funding.test.ts": "5d3a35efad66a222",
     "src/funding.ts": "62ffcedc29a65cbe",
@@ -72926,7 +72926,7 @@
     "src/referrer-song.ts": "3299eb2a404d9279",
     "src/reflects.ts": "87a08a7fa3669d45",
     "src/refusal-trials.test.ts": "3051297dac94da36",
-    "src/refusal-trials.ts": "c6bd7aa0a74a8ff1",
+    "src/refusal-trials.ts": "39250a6a7a3049ea",
     "src/refused-claims.test.ts": "648ce8637f5dd3c0",
     "src/release.test.ts": "f2b9c669014ec1bd",
     "src/render.ts": "1907b07fccb45acd",
@@ -73489,10 +73489,10 @@
     "src/theorem-page.ts": "78c8993ef9e70dd8",
     "src/theorems/edge-root.ts": "441a28d80ab62eb1",
     "src/theorems/generated.ts": "cc0e4c078766ec2e",
-    "src/theorems/index.ts": "2e4b51bcea1acf07",
-    "src/theorems/ledger-edge.ts": "8a305a1e64489d18",
+    "src/theorems/index.ts": "f8b376676c8e51d2",
+    "src/theorems/ledger-edge.ts": "b2cc533e85f13dde",
     "src/theorems/ledger-node.ts": "475a0c5c5a275b8f",
-    "src/theorems/ledger-shape.ts": "5162dd83f6ad47df",
+    "src/theorems/ledger-shape.ts": "69fbe1c79918211e",
     "src/three-geometry.test.ts": "5bccfe8450e6bdae",
     "src/three-geometry.ts": "28b948f10d7e61d0",
     "src/thresholds.test.ts": "616ba409353671e8",
