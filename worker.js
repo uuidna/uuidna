@@ -64,11 +64,19 @@ const depositOf = (env) => env.QPU_DEPOSIT ? async (key, value) => {
   // state, never minted in the core — inverted against the platform's own largest safe integer and padded to its
   // length, so an ascending listing is newest first. The door still chose the content key; so does this.
   const parts = key.split('/')
-  if (stored && stored.holds === true && parts.length === 4 && parts[0] === 'receipts' && parts[1] === 'uuidna') {
+  // THE LEDGER IS NOT AN EVENT. Its pieces are read by address through the manifest, never off the feed, so linking
+  // them would write 984 links nobody reads and push every other run off uuidna.com/live behind 492 rows of ledger.
+  // It is also what makes depositing it possible at all: one store.put is the slot plus 2x7 RAID shares across two
+  // layers, measured at eleven seconds of wall for fifteen milliseconds of CPU, so three of them in a row spent the
+  // caller's entire budget and the third came back `canceled`. The links are a view; the two are independent of
+  // each other and go out together.
+  if (stored && stored.holds === true && parts.length === 4 && parts[0] === 'receipts' && parts[1] === 'uuidna' && parts[2] !== 'ledger') {
     const width = String(Number.MAX_SAFE_INTEGER).length
     const t = String(Number.MAX_SAFE_INTEGER - Date.now()).padStart(width, '0')
-    await env.QPU_DEPOSIT.deposit(`feed/${t}-${parts[2]}-${parts[3]}`, value)
-    await env.QPU_DEPOSIT.deposit(`live/${parts[2]}/${t}-${parts[3]}`, value)
+    await Promise.all([
+      env.QPU_DEPOSIT.deposit(`feed/${t}-${parts[2]}-${parts[3]}`, value),
+      env.QPU_DEPOSIT.deposit(`live/${parts[2]}/${t}-${parts[3]}`, value),
+    ])
   }
   return stored
 } : undefined
@@ -80,7 +88,7 @@ const schoolCtxOf = (url, env) => ({
   now: Date.now(),
   deposit: async (run, body) => {
     const qpuFetch = qpuFetchOf(env)
-    await primeEdgeLedger(qpuFetch ?? fetch)
+    // no prime: a deposit reads no row, and waiting on rows here is the same bootstrap circularity as on /mcp above
     const res = await handleMcpRpc({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_evidence', arguments: { run, deposit: body } } },
       { origin: url.origin, fetch: qpuFetch, deposit: depositOf(env) })
     const text = (res && res.result && res.result.content && res.result.content[0] && res.result.content[0].text) || ''
@@ -341,8 +349,26 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
       const qpuFetch = qpuFetchOf(env)
-      // a tool call may read the ledger, so its rows are primed first; initialize, tools/list and ping never wait on them
-      if ((Array.isArray(msg) ? msg : [msg]).some((m) => m && m.method === 'tools/call')) await primeEdgeLedger(qpuFetch ?? fetch)
+      // A tool call may read the ledger, so its rows are primed first; initialize, tools/list and ping never wait on them.
+      //
+      // THE DEPOSIT DOOR IS THE ONE THAT MUST NOT WAIT. It is how the rows GET into storage, so requiring them first is a
+      // bootstrap circularity: on an empty store the deposit primed nothing, kept fetching, and the isolate died —
+      // `outcome: exceededMemory` at 61 ms of CPU and 36 s of wall, every second of it spent waiting on pieces that were
+      // not there, for a two-byte body. The ledger could not be filled because it was empty. Nothing in the deposit path
+      // reads a row: the 2x7 witness fold and the honesty gate both answer from the baked root, which is what
+      // gate-engine's own comment already promises ("every gated call — the deposit door that fills storage included").
+      // This makes the code keep that promise.
+      // AND PRIMING IS NOT FREE EITHER, SO IT IS NOT DONE FOR EVERY CALL. Priming reads all 492 pieces, materialises
+      // 71,017 key strings and holds 71,017 row objects for the life of the isolate — 25.4 MB of JSON is far more than
+      // that as objects, and a 128 MB isolate does not hold it. Paying that on every tools/call killed doors that
+      // never read a row: uuidna_laws answered `exceededMemory` for laws it reads from src/laws.ts. So it is primed
+      // only where it is asked for, and a door that needs rows and does not get them says so — a stated reason beats
+      // a crashed isolate, which is what the shim's `fail` reason exists for. The standing fix is to serve a query
+      // from the ONE piece that holds its key, which the manifest already names; this stops paying for all of them.
+      const readsRows = (m) =>
+        m && m.method === 'tools/call' &&
+        !(m.params?.name === 'uuidna_evidence' && m.params?.arguments?.deposit !== undefined)
+      if ((Array.isArray(msg) ? msg : [msg]).some(readsRows)) await primeEdgeLedger(qpuFetch ?? fetch)
       const mcpCtx = {
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),

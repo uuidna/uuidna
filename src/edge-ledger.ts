@@ -100,6 +100,24 @@ export interface LedgerRead { root: string; manifest: LedgerManifest; rows: Lean
 // EVERY VERIFIED PIECE IS KEPT, across calls. One request may reach only so many storage reads — the runtime's
 // per-request budget, which this code does not know and does not type — so a read that stops part-way keeps what it
 // verified, and the next call reads only the pieces still missing. The budget is measured by where the runtime stops.
+// FOUR FIELDS, 680 VALUES, 284,068 STRINGS. file, principle, skill and tactic repeat across the ledger — counted over
+// the whole of it, those four columns hold 680 distinct values between them — but a parse builds a separate string for
+// every row, four per row over 71,017 rows. Pointing the repeats at one string each costs a Map of 680 entries and
+// gives the isolate back what 283,388 redundant string headers were holding. The rows are unchanged as values: every
+// field still reads equal to what storage sent, because only identical strings are shared.
+const POOL = new Map<string, string>()
+const intern = (rows: LeanTheorem[]): void => {
+  for (const r of rows) {
+    for (const f of ['file', 'principle', 'skill', 'tactic'] as const) {
+      const v = (r as unknown as Record<string, unknown>)[f]
+      if (typeof v !== 'string') continue
+      const held = POOL.get(v)
+      if (held === undefined) POOL.set(v, v)
+      else (r as unknown as Record<string, unknown>)[f] = held
+    }
+  }
+}
+
 const pieceAt = new Map<string, LedgerPiece>()
 const manifestAt = new Map<string, LedgerManifest>()
 const readLedger = async (root: string, fetchImpl: typeof fetch): Promise<LedgerRead> => {
@@ -107,12 +125,21 @@ const readLedger = async (root: string, fetchImpl: typeof fetch): Promise<Ledger
   if (manifest.kind !== 'ledger-manifest' || !Array.isArray(manifest.wings)) throw new Error(`${root} is not a ledger manifest`)
   manifestAt.set(root, manifest)
   const missing = manifest.wings.filter((w) => !pieceAt.has(w.address))
-  const settled = await Promise.allSettled(missing.map(async (w) => {
+  // READ IN LANES, BECAUSE THE TEXTS AND THE OBJECTS ARE RESIDENT AT THE SAME TIME. Asking for all 492 pieces at once
+  // held about 25 MB of response text beside the 83.7 MB the parsed rows occupy — measured — and the isolate has 128.
+  // The peak is what matters, not the total: a bounded number of texts alive at once keeps the parse from meeting the
+  // whole ledger. The pieces still land in pieceAt exactly as before, so a part-read still keeps what it verified.
+  const LANES = 8
+  const settled: PromiseSettledResult<void>[] = []
+  const one = async (w: LedgerManifest['wings'][number]): Promise<void> => {
     const p = (await storedAt(w.address, fetchImpl)) as unknown as LedgerPiece
     if (p.kind !== 'ledger-piece' || p.file !== w.file || p.part !== w.part || p.rows.length !== w.count || p.lines.length !== w.count)
       throw new Error(`piece ${w.address} does not match its manifest entry (${w.file}${w.part === null ? '' : ' ' + w.part}, ${w.count} rows)`)
+    intern(p.rows)
     pieceAt.set(w.address, p)
-  }))
+  }
+  for (let at = 0; at < missing.length; at += LANES)
+    settled.push(...(await Promise.allSettled(missing.slice(at, at + LANES).map(one))))
   const failed = settled.flatMap((s) => (s.status === 'rejected' ? [String((s.reason as Error)?.message ?? s.reason)] : []))
   if (failed.length) throw new Error(`${manifest.wings.length - failed.length} of ${manifest.wings.length} ledger pieces are read and verified; ${failed.length} continue on the next call (first: ${failed[0]})`)
   const pieces = manifest.wings.map((w) => pieceAt.get(w.address)!)
@@ -143,10 +170,12 @@ export const primeEdgeLedger = (fetchImpl: typeof fetch): Promise<void> => {
   if (!edge || edge.primed()) return Promise.resolve()
   return (priming ??= (edge.root ? ledgerAt(edge.root.root, fetchImpl) : Promise.reject(new Error('no edge root is baked')))
     .then((read) => {
-      const keys = edge.keys()
-      if (read.rows.length !== keys.length) throw new Error(`storage holds ${read.rows.length} rows and the baked root ${keys.length}`)
-      const drift = read.rows.findIndex((t, i) => t.key !== keys[i])
-      if (drift >= 0) throw new Error(`row ${drift} is ${read.rows[drift]!.key} in storage and ${keys[drift]} in the baked root`)
+      // BY POSITION, NOT BY LIST — the same reason the 2x7 fold asks keyAt: edge.keys() materialises 71,017 strings
+      // to compare 71,017 keys one at a time, in an isolate already holding 83.7 MB of rows.
+      const count = edge.count()
+      if (read.rows.length !== count) throw new Error(`storage holds ${read.rows.length} rows and the baked root ${count}`)
+      const drift = read.rows.findIndex((t, i) => t.key !== edge.keyAt(i))
+      if (drift >= 0) throw new Error(`row ${drift} is ${read.rows[drift]!.key} in storage and ${edge.keyAt(drift)} in the baked root`)
       edge.prime(read.rows, read.lines)
     })
     .catch((e: unknown) => {

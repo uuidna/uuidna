@@ -103,7 +103,15 @@ export function slimGate(claim: string): SlimVerdict {
   }
   for (const m of claim.matchAll(/\btheorem\s+([a-z][a-z0-9_]{3,}(?:'+(?![A-Za-z0-9_]))?)/gi)) {
     const key = m[1]!.endsWith("'") && inLiteral(m.index ?? 0) ? m[1]!.replace(/'+$/, '') : m[1]!
-    if (/[_0-9]/.test(key) && !cut(key) && !placeholder(claim, m) && !declared(claim, m)) keys.add(key)
+    // THE LEDGER DECIDES WHAT IS A KEY, NOT ITS SPELLING. An underscore or a digit is what a key USUALLY has, and
+    // requiring one is a hand rule standing in for the ledger — it kept "theorem proving" out of the citations and it
+    // kept three real ones out with it: magnification (Optics.lean), neutralization (Chemistry.lean) and
+    // contrapositive (Reasoning.lean) are sealed and were uncitable by anyone, so an honest claim naming them read
+    // UNVERIFIED. It surfaced in the 2x7 fold, which picks its witnesses from the ledger by position and so can pick
+    // a key the gate cannot read back: one face of 14 failed to sign and the receipt would not seal — about one
+    // receipt in 1691, which is why 492 ledger pieces found it. A bare word that the ledger does NOT seal is still
+    // ignored exactly as before, so prose is unaffected; what changes is that a word the ledger DOES seal counts.
+    if ((/[_0-9]/.test(key) || SEALED.has(key)) && !cut(key) && !placeholder(claim, m) && !declared(claim, m)) keys.add(key)
   }
   const cited = [...keys]
   const real = cited.filter((k) => SEALED.has(k))

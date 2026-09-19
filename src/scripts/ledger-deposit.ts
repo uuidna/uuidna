@@ -60,13 +60,38 @@ export const depositLedger = async (fetchImpl: typeof fetch = fetch): Promise<{ 
     ...pieces.map((p, i) => ({ address: manifest.wings[i]!.address, body: p as unknown as Record<string, unknown>, name: `${p.file}${p.part === null ? '' : ' ' + p.part}` })),
     { address: root, body: manifest as unknown as Record<string, unknown>, name: 'manifest' },
   ]
-  for (const { address, body, name } of bodies) {
-    if (await held(address, fetchImpl)) { already++; continue }
-    const r = await depositEvidence(LEDGER_RUN, body, fetchImpl)
-    if (!r.sent) return { ok: false, root, deposited, held: already, why: `${name} (${address}) was not deposited: ${r.why ?? r.status}` }
-    if (!r.href.endsWith('/' + address)) return { ok: false, root, deposited, held: already, why: `${name} landed at ${r.href}, not at its address ${address}` }
-    deposited++
+  // THE PIECES DO NOT WAIT ON EACH OTHER, AND THE MANIFEST WAITS ON ALL OF THEM. By construction the door derives each
+  // key from the deposit's own content address, so a piece lands only at its own key and the order they finish in
+  // leaves the same bytes at the same addresses — the concurrency is safe for that reason and no other.
+  // What the order DID change was the wall-clock: one deposit is one store.put of the slot plus 2x7 RAID shares
+  // across two layers, measured at about seventeen seconds, so 492 pieces in a row is over two hours of a run that
+  // holds nothing between steps. Batching them into one call does not help — ten pieces in a call is ten of those
+  // writes inside ONE request, which spends the Worker's budget instead of the clock's. Separate requests are
+  // separate isolates, so a LANE is the thing to widen. The manifest is deposited last and alone, because it is the
+  // root: it names the pieces, and a reader that finds it must find them.
+  const LANES = 8
+  const failures: string[] = []
+  const lane = async (rows: typeof bodies): Promise<void> => {
+    for (const { address, body, name } of rows) {
+      if (failures.length) return
+      if (await held(address, fetchImpl)) { already++; continue }
+      const r = await depositEvidence(LEDGER_RUN, body, fetchImpl)
+      if (!r.sent) { failures.push(`${name} (${address}) was not deposited: ${r.why ?? r.status}`); return }
+      if (!r.href.endsWith('/' + address)) { failures.push(`${name} landed at ${r.href}, not at its address ${address}`); return }
+      deposited++
+    }
   }
+  const wings = bodies.slice(0, bodies.length - 1)
+  const lanes = Array.from({ length: LANES }, (_, i) => lane(wings.filter((_, j) => j % LANES === i)))
+  await Promise.all(lanes)
+  if (failures.length) return { ok: false, root, deposited, held: already, why: failures[0]! }
+  const last = bodies[bodies.length - 1]!
+  if (!(await held(last.address, fetchImpl))) {
+    const r = await depositEvidence(LEDGER_RUN, last.body, fetchImpl)
+    if (!r.sent) return { ok: false, root, deposited, held: already, why: `${last.name} (${last.address}) was not deposited: ${r.why ?? r.status}` }
+    if (!r.href.endsWith('/' + last.address)) return { ok: false, root, deposited, held: already, why: `${last.name} landed at ${r.href}, not at its address ${last.address}` }
+    deposited++
+  } else already++
   // THE READ-BACK IS THE PROOF: the same reader the edge runs, over the public storage door, every address recomputed
   const read = await ledgerAt(root, fetchImpl)
   const drift = read.rows.findIndex((t, i) => t.key !== LEAN_LEDGER[i]?.key || read.lines[i] !== THEOREMS[i]?.lineAddress)
