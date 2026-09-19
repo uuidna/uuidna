@@ -35,7 +35,7 @@
     "walks": "7d4c52e213491a2f54954958a0c36b71"
   },
   "unified_fold": "caff0b7cd1f3eedf",
-  "receipt": "80a9e969b115043f",
+  "receipt": "db600bfd00e5c713",
   "rosette_receipt": {
     "rays": [
       "32bac439915ee499",
@@ -49,10 +49,10 @@
     "concurrence": "143d64e2d1f952d21396d5724bf02bcf"
   },
   "aura": {
-    "rgb": "#dcab41",
-    "hsl": "hsl(41, 69%, 56%)",
-    "alphabet": "b6819334641853db",
-    "movie": "23e60659dc8c419e",
+    "rgb": "#dc416d",
+    "hsl": "hsl(17, 69%, 56%)",
+    "alphabet": "4c12110e5c171d38",
+    "movie": "c2e610214b900005",
     "lessons": "c1919378fcd20447",
     "report": "940001b6ff9bd2fc",
     "session": "ba09fa60e3ab59b3",
@@ -74,7 +74,7 @@
       "residue": 6,
       "ray": 3,
       "wave": 8,
-      "hue": 41,
+      "hue": 17,
       "sat": 69,
       "light": 56,
       "period": 18,
