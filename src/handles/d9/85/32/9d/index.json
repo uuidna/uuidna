@@ -1,0 +1,12 @@
+{
+  "handle": "d985329d",
+  "address": "d985329d-f058-8386-add2-f47fd6498e8c",
+  "kind": "chunk",
+  "keys": [
+    "the_store_footprint_is_its_folders"
+  ],
+  "statement": "(71627 + 256 + 43532 + 71467 + 71627 + 1 = 258510) ∧ (258510 > 3 * 71627)",
+  "files": [
+    "Cyber.lean"
+  ]
+}

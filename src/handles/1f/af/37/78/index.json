@@ -1,0 +1,12 @@
+{
+  "handle": "1faf3778",
+  "address": "1faf3778-7c99-82e1-8683-f45e1cbb0e83",
+  "kind": "chunk",
+  "keys": [
+    "cuts_break_successors"
+  ],
+  "statement": "((List.range 8).filter (fun i => chain (dropAt addrs i) != dropAt stored i)).length = 7",
+  "files": [
+    "Audit.lean"
+  ]
+}

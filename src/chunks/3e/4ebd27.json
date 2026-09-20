@@ -1,0 +1,12 @@
+{
+  "handle": "3e4ebd27",
+  "address": "3e4ebd27-226f-8d95-8997-dce7fbaf7903",
+  "statement": "((List.range 8).filter (fun i => chain (addrs.set i 999) != stored)).length = 8",
+  "tactic": "decide",
+  "keys": [
+    "edits_break_recompute"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

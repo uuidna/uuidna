@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:de77b44a-8dcb-88b0-9db0-fdb9e5cc8651",
+  "@id": "urn:uuid:f412ea6c-8e53-86b3-946a-bae3b8b54b09",
   "@type": "Dataset",
   "name": "uuidna per-level report — reach, cost and fidelity",
   "description": "Every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction, citing the level's sealed theorem), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Sealed keys cited: usable_gap_is_two_to_eighty (128 - 48 = 80), n_qubit_dimension (n qubits span 2^n amplitudes), gate_error_baseline_class (1000 = 10^3 per million).",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "3793da0c-b630-8515-a211-afcaeae0189e",
+  "identifier": "1113d87e-eee4-8a79-9be2-1dc8d0148125",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 7102200 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 7102600 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,15 +98,15 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "71022 decisions executed; a bound of better than one in 71022, never a proof of zero"
+      "citation": "71026 decisions executed; a bound of better than one in 71026, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
       "name": "sealed quantum algebra — decisions executed on this host",
-      "value": 490609,
+      "value": 491372,
       "unitText": "decisions",
       "measurementTechnique": "measured",
-      "citation": "61 witnesses over 109 sweeps; each decides a proposition sealed in the Lean ledger"
+      "citation": "62 witnesses over 109 sweeps; each decides a proposition sealed in the Lean ledger"
     },
     {
       "@type": "PropertyValue",
@@ -114,7 +114,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 490609 executions on this host, across 57 of the wing's 58 theorems — a bound from the count, not a proof of zero, and not a claim about the 1 this battery does not decide"
+      "citation": "better than one disagreement per 491372 executions on this host, across 58 of the wing's 58 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide"
     },
     {
       "@type": "PropertyValue",

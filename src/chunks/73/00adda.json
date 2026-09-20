@@ -1,0 +1,12 @@
+{
+  "handle": "7300adda",
+  "address": "7300adda-395c-8dd3-a586-7787596d56e1",
+  "statement": "71630 > 2 ^ 16",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

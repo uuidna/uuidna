@@ -1,0 +1,12 @@
+{
+  "handle": "1faf3778",
+  "address": "1faf3778-7c99-82e1-8683-f45e1cbb0e83",
+  "statement": "((List.range 8).filter (fun i => chain (dropAt addrs i) != dropAt stored i)).length = 7",
+  "tactic": "decide",
+  "keys": [
+    "cuts_break_successors"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7a1f782c",
+  "address": "7a1f782c-5cb2-870c-9afd-64a1491f49ff",
+  "statement": "chain (dropAt addrs 7) = dropAt stored 7",
+  "tactic": "decide",
+  "keys": [
+    "tail_cut_survives"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

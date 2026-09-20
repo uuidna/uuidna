@@ -1,0 +1,12 @@
+{
+  "handle": "e0598d4f",
+  "address": "e0598d4f-5c1e-84dd-8a54-90aff83f48c2",
+  "statement": "(((List.range 7).filter (fun k => chain (addrs.take (k + 1)) != stored.take (k + 1))).length = 0) ∧ (((List.range 7).filter (fun k => (addrs.take (k + 1)).length < 8)).length = 7)",
+  "tactic": "decide",
+  "keys": [
+    "checkpoints_catch_truncation"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

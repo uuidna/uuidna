@@ -1,0 +1,12 @@
+{
+  "handle": "6a4580c1",
+  "address": "6a4580c1-1542-895e-801d-791ad7586199",
+  "kind": "chunk",
+  "keys": [
+    "reconciled_generator_sat_inside_the_truncated_run"
+  ],
+  "statement": "idxOf \"gen-prose-evidence.js\" reconcileRuns = reconcileDirect.length + 33 ∧ idxOf \"gen-prose-evidence.js\" generateManifest + 14 = 47 ∧ idxOf \"gen-prose-evidence.js\" generateManifest - 6 = 27 ∧ idxOf \"gen-readme.js\" generateManifest + 25 = 47 ∧ idxOf \"gen-llm.js\" generateManifest + 23 = 47 ∧ generateManifest.length - 47 = 18",
+  "files": [
+    "Links.lean"
+  ]
+}

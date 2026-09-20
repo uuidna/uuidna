@@ -30,30 +30,31 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 | hexbit tile | 2^4 | declared | 10^0 ns per hexbit tile compiled from an address | 10^9 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71022 | 0 | better than 1 in 71022 | 71 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 71026 | 0 | better than 1 in 71026 | 71 errors |
 
 ### The witness battery
 
 Each witness cites a sealed theorem key — the Pauli group, the Clifford count, the CNOT and Toffoli
 permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa amplitudes — and decides the same proposition here
 in exact Gaussian integers, with no floating point at any step; each result is compared to the value the Lean
-kernel sealed. **61 witnesses · 109 sweeps ·
-490609 decisions · 0 disagreements · verdict EXACT.**
+kernel sealed. **62 witnesses · 109 sweeps ·
+491372 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 57 of the quantum wing's 58 theorems**, and the 1 this battery
-does not decide are named rather than counted: `bell_agreement_carries_no_command`. The battery is a
+**Coverage: 58 of the quantum wing's 58 theorems**, and the 0 this battery
+does not decide are named rather than counted: ``. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 490609 executions on this host, across 57 of the wing's 58 theorems — a bound from the count, not a proof of zero, and not a claim about the 1 this battery does not decide.
+Better than one disagreement per 491372 executions on this host, across 58 of the wing's 58 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
 
 | theorem | cases | executed | disagreements | what this host decided |
 |---------|-------|----------|---------------|------------------------|
+| [bell_agreement_carries_no_command](https://uuidna.com/theorem/bell_agreement_carries_no_command) | 7 | 763 | 0 | the concurring outcomes of the 2x2 joint measurement, the exchange invariance of its marginals, the palindromic correlation vector, the integer gap between the squared classical and quantum CHSH bounds, and the pentagon interior angle the step lands on — each derived from the enumeration or the polygon, none restated |
 | [chsh_beats_classical](https://uuidna.com/theorem/chsh_beats_classical) | 16 | 1744 | 0 | the classical CHSH bound is 2 by exhaustive search over all 16 local deterministic strategies, and 2² < (2√2)² as integers |
 | [majority_vote_is_floor_half](https://uuidna.com/theorem/majority_vote_is_floor_half) | 8 | 872 | 0 | over all 2³ three-cell states, the 2-of-3 majority equals floor(sum/2) — every corner, not the four sums |
 | [teleportation_costs_two_coins](https://uuidna.com/theorem/teleportation_costs_two_coins) | 4 | 436 | 0 | the Pauli correction set {I, X, Z, XZ} has exactly 4 members, so the classical channel is 2 bits and one EPR pair (2 states) is strictly smaller |
@@ -159,9 +160,9 @@ seals that n qubits span 2^n amplitudes.
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `6e1e244e-8af3-839f-be03-3eee5e6936bc`.
+*exist* cannot see. Dispatch receipt: `586b4a7b-e6bc-86ab-b498-8a3537b8b86c`.
 
-Report receipt: `3793da0c-b630-8515-a211-afcaeae0189e` · measured-when as its own handle: `3793da0c`.
+Report receipt: `1113d87e-eee4-8a79-9be2-1dc8d0148125` · measured-when as its own handle: `1113d87e`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->
