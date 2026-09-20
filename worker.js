@@ -206,9 +206,67 @@ async function handleTrials(request, url, env) {
   return null // GET /trials (the page) or anything else → fall through to the assets
 }
 
+/** THE POLICY EVERY ANSWER LEAVES WITH — and CSS is most of why it exists.
+ *
+ *  A STYLESHEET IS AN EXFILTRATION CHANNEL, not only a decoration. Injected CSS needs no JavaScript to steal:
+ *  an attribute selector plus `background-image: url(https://elsewhere/?k=...)` sends a value out on the strength
+ *  of the browser matching a rule. This site was already immune to that by CONSTRUCTION — measured on the live
+ *  stylesheet 2026-09-20, all 32 url() are same-origin self-hosted fonts, there is no @import, there is no
+ *  :visited rule, and the served HTML carries no inline <style> at all — and immune by nothing at ALL that a
+ *  browser enforces, because not one security header was set on any route. A posture held by convention is a
+ *  posture one careless render loses. style-src 'self' with img-src limited to self, data: and blob: closes the
+ *  channel outright: an injected <style> never parses and an injected url() never leaves.
+ *
+ *  WHAT IS HONEST ABOUT script-src. Three inline <script> blocks ship on every SSG page and their content
+ *  differs per page, so they cannot be hashed centrally and a static asset cannot carry a nonce. script-src
+ *  therefore still admits 'unsafe-inline' and is the one weak leg of this policy; every other directive binds.
+ *  It is named here rather than left for a reader to discover.
+ *
+ *  THE REST IS MEASURED, NOT COPIED. style-src-attr admits 'unsafe-inline' because the pages render 39 style
+ *  attributes; img-src and media-src admit blob: because five components mint object URLs; connect-src is
+ *  'self' because no component fetches an off-origin target. HSTS is deliberately NOT set: it is a commitment a
+ *  browser remembers and this tree does not get to make it on the owner's behalf. */
+const POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "style-src 'self'",
+  "style-src-attr 'unsafe-inline'",
+  "font-src 'self'",
+  "img-src 'self' data: blob:",
+  "media-src 'self' data: blob:",
+  "connect-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+].join('; ')
+
+/** every answer this worker gives, wearing the same policy — one place, so no route can be served without it */
+const secured = (h) => {
+  h.set('content-security-policy', POLICY)
+  // the browser must not sniff past a declared type — the media type IS the contract, which this tree spent a
+  // day proving at its own MCP doors, and sniffing is exactly what unmakes it
+  h.set('x-content-type-options', 'nosniff')
+  h.set('x-frame-options', 'SAMEORIGIN')
+  // a theorem URL is a content address; a full-URL referrer hands it to every outbound link's host
+  h.set('referrer-policy', 'strict-origin-when-cross-origin')
+  h.set('permissions-policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()')
+  return h
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url)
+    /** ONE WAY TO SERVE A BUILT FILE. The theorem route below and the tail of this handler both answer with a static
+     *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
+     *  that decides the headers a built page leaves with. */
+    const servedAsset = (asset, forPath) => {
+      const built = secured(new Headers(asset.headers))
+      built.set('link', `<${url.origin}/mcp>; rel="mcp"`)
+      built.set('cache-control', assetCacheControl(forPath))
+      return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers: built })
+    }
+
     const host = url.hostname.toLowerCase()
     // CANONICAL EDGE — HTTPS + apex. Zone "Always Use HTTPS" and dashboard Redirect Rules need Zone Settings
     // Write (wrangler OAuth is zone:read only). The worker enforces the same law for every host that reaches it:
@@ -268,7 +326,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
 .t,.a,.m{font-variant-numeric:tabular-nums;white-space:nowrap}.m{color:var(--dim)}a{color:var(--acc)}.empty{color:var(--dim);padding:18px 10px}</style></head>
 <body><main><h1>uuidna, live</h1><p>Every receipt uuidna deposits through its MCP door, newest first, refreshed every 10 seconds. receiptSealOf folds each receipt's content address to one sealed theorem per face, 8 + 6 = 14 faces (theorem ve_fourteen_faces); the faces column counts the faces whose witness signed. Each address links to the stored document in qpu storage.</p>
 <div class="wrap"><table><thead><tr><th>arrived (UTC)</th><th>run</th><th>what</th><th>recorded on</th><th>faces signed</th><th>address</th></tr></thead><tbody>${body}</tbody></table></div></main></body></html>`
-      return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } })
+      return new Response(html, { headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' })) })
     }
 
     // The school's learner doors; any other /school/ path (the learn page, a served course file) falls through to the assets.
@@ -343,7 +401,10 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', ...cors } })
       if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
       if (request.method === 'GET') {
-        if ((request.headers.get('accept') || '').includes('text/html')) return env.ASSETS.fetch(request)
+        // SERVED THROUGH THE ONE PATH. This returned the asset raw, so the page came out with no policy, no
+        // rel=mcp link and no cache rule — a second way to answer a built file, which is the thing servedAsset
+        // exists to prevent.
+        if ((request.headers.get('accept') || '').includes('text/html')) return servedAsset(await env.ASSETS.fetch(request), url.pathname)
         return mjson(discovery())
       }
       if (request.method !== 'POST')
@@ -448,7 +509,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const page = packagePage(pkgMatch[1])
       if (page) {
         return new Response(renderPackagePage(page, mcpHttpToolNames().map((n) => ({ name: n }))), {
-          headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' },
+          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' })),
         })
       }
       // a name the catalogue does not publish falls through to the asset handler, which answers the site's own
@@ -460,64 +521,6 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // every /theorem/enumeration_hex4_<hex> door; this looks the key up and renders, the same lookup the
     // catalogue already pays for packages. Named theorems stay VitePress assets — theoremPage returns null
     // for them, so a rebuilt SSG page is never shadowed.
-    /** THE POLICY EVERY ANSWER LEAVES WITH — and CSS is most of why it exists.
-     *
-     *  A STYLESHEET IS AN EXFILTRATION CHANNEL, not only a decoration. Injected CSS needs no JavaScript to steal:
-     *  an attribute selector plus `background-image: url(https://elsewhere/?k=...)` sends a value out on the strength
-     *  of the browser matching a rule. This site was already immune to that by CONSTRUCTION — measured on the live
-     *  stylesheet 2026-09-20, all 32 url() are same-origin self-hosted fonts, there is no @import, there is no
-     *  :visited rule, and the served HTML carries no inline <style> at all — and immune by nothing at ALL that a
-     *  browser enforces, because not one security header was set on any route. A posture held by convention is a
-     *  posture one careless render loses. style-src 'self' with img-src limited to self, data: and blob: closes the
-     *  channel outright: an injected <style> never parses and an injected url() never leaves.
-     *
-     *  WHAT IS HONEST ABOUT script-src. Three inline <script> blocks ship on every SSG page and their content
-     *  differs per page, so they cannot be hashed centrally and a static asset cannot carry a nonce. script-src
-     *  therefore still admits 'unsafe-inline' and is the one weak leg of this policy; every other directive binds.
-     *  It is named here rather than left for a reader to discover.
-     *
-     *  THE REST IS MEASURED, NOT COPIED. style-src-attr admits 'unsafe-inline' because the pages render 39 style
-     *  attributes; img-src and media-src admit blob: because five components mint object URLs; connect-src is
-     *  'self' because no component fetches an off-origin target. HSTS is deliberately NOT set: it is a commitment a
-     *  browser remembers and this tree does not get to make it on the owner's behalf. */
-    const POLICY = [
-      "default-src 'self'",
-      "base-uri 'self'",
-      "object-src 'none'",
-      "frame-ancestors 'self'",
-      "form-action 'self'",
-      "style-src 'self'",
-      "style-src-attr 'unsafe-inline'",
-      "font-src 'self'",
-      "img-src 'self' data: blob:",
-      "media-src 'self' data: blob:",
-      "connect-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
-    ].join('; ')
-
-    /** every answer this worker gives, wearing the same policy — one place, so no route can be served without it */
-    const secured = (h) => {
-      h.set('content-security-policy', POLICY)
-      // the browser must not sniff past a declared type — the media type IS the contract, which this tree spent a
-      // day proving at its own MCP doors, and sniffing is exactly what unmakes it
-      h.set('x-content-type-options', 'nosniff')
-      h.set('x-frame-options', 'SAMEORIGIN')
-      // a theorem URL is a content address; a full-URL referrer hands it to every outbound link's host
-      h.set('referrer-policy', 'strict-origin-when-cross-origin')
-      h.set('permissions-policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()')
-      return h
-    }
-
-    /** ONE WAY TO SERVE A BUILT FILE. The theorem route below and the tail of this handler both answer with a static
-     *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
-     *  that decides the headers a built page leaves with. */
-    const servedAsset = (asset, forPath) => {
-      const built = secured(new Headers(asset.headers))
-      built.set('link', `<${url.origin}/mcp>; rel="mcp"`)
-      built.set('cache-control', assetCacheControl(forPath))
-      return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers: built })
-    }
-
     const thMatch = url.pathname.match(/^\/theorem\/([A-Za-z0-9_]+)$/)
     if (thMatch && request.method === 'GET') {
       // THE BUILT PAGE IS ASKED FOR FIRST, BECAUSE IT IS THE ONE THAT COSTS NOTHING. This route exists only for the

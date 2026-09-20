@@ -187,6 +187,9 @@ test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently c
 // which is a falsifier and never an external anchor. The `Witness` type in drivers/quantum uses the word in the
 // looser sense and the two meanings sit in one repository; this note is where they are told apart.
 const FALSIFIED: readonly string[] = [
+  // named here the moment the battery gained its witness — the census greps THIS literal, and the test beside it
+  // refuses the list that lags, which is how this entry came to be written rather than noticed later
+  'bell_agreement_carries_no_command',
   'superposition_h0',
   'bell_born_weights',
   'bell_normalized',

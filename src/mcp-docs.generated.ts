@@ -22331,7 +22331,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"definition\":\"alpine-driver-port·one-device-api\",\"device\":{\"platform\":\"darwin\",\"arch\":\"arm64\",\"logical\":10,\"memoryGiB\":32,\"cpu\":\"Apple M1 Max\",\"address\":\"2fc0…"
+   "excerpt": "{\"definition\":\"alpine-driver-port·one-device-api\",\"device\":{\"platform\":\"darwin\",\"arch\":\"arm64\",\"logical\":10,\"memoryGiB\":32,\"cpu\":\"Apple M1 Max\",\"address\":\"08f5…"
   }
  },
  "uuidna_security_plan": {
