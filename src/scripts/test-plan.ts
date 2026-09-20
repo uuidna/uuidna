@@ -30,7 +30,13 @@ import { totalOf } from './test-receipt.js'
 import { freeMemoryBytes } from './device-readings.js'
 
 const FLAGS = ['--max-old-space-size=8192', '--test', '--test-isolation=none', '--test-reporter=./dist/scripts/test-receipt.js']
-interface Readings { peakBytes: number; secondsByFile: Record<string, number> }
+interface Readings {
+  /** the heaviest runner of the last run — kept as the fallback for a file never yet measured */
+  peakBytes: number
+  secondsByFile: Record<string, number>
+  /** per file, an UPPER BOUND on what it needs: the peak of the lightest shard it was ever seen in */
+  bytesByFile?: Record<string, number>
+}
 
 const readingsPath = ((): string => {
   const common = execFileSync('git', ['rev-parse', '--git-common-dir'], { cwd: ROOT, encoding: 'utf8' }).trim()
@@ -44,8 +50,35 @@ const plan = planTestRun()
 const files = plan.mode === 'delta' ? plan.files : plan.mode === 'full' ? listTestSources(ROOT).map(testDistForSource).filter((f): f is string => !!f && f.endsWith('.test.js')) : []
 const free = freeMemoryBytes()
 const cores = cpus().length
-// how many shards: what the memory measured free now holds at the measured peak, never more than the cores
-const lanes = readings && free !== null ? Number(BigInt(free) / BigInt(readings.peakBytes)) : 1
+/** the smallest upper bound actually recorded — the file the machine can most easily hold */
+const lightestBytes = (r: Readings | null): number => {
+  const all = Object.values(r?.bytesByFile ?? {}).filter((b) => b > 0)
+  const floor = r?.peakBytes ?? 0
+  return all.length ? all.reduce((m, b) => (b < m ? b : m), all[0]!) : (floor > 0 ? floor : 1)
+}
+/** what one shard needs: the heaviest file IN IT, and only when every file in it has been measured */
+const estimateOf = (shard: readonly string[]): number => {
+  const known = shard.map((f) => readings?.bytesByFile?.[f]).filter((b): b is number => typeof b === 'number' && b > 0)
+  return known.length > 0 && known.length === shard.length
+    ? known.reduce((m, b) => (b > m ? b : m), 0)
+    : (readings?.peakBytes ?? 0)
+}
+// HOW MANY SHARDS TO CUT, and the old answer was one number for every one of them. peakBytes is a single scalar —
+// the maximum over every shard of the last run — and using it as the estimate for EVERY shard is the hand-typed
+// constant this tree rejects, wearing a measurement's clothes: a file finishing in 0.0s reserved the same 6.0 GiB
+// as rosetta-legs.test.js at 250.6s. Measured on this host 2026-09-20: 305 files, 1926s of test work, completed in
+// 1710s of wall clock on 10 logical cores — 1.13x parallelism, nine cores idle for the duration. The same collapse
+// wedged two landings outright: when a neighbouring session left less free than that one estimate, nothing could be
+// admitted, and memoryPool waits without a deadline, so a stall was indistinguishable from work for 29 minutes.
+// Cutting by the LIGHTEST measured file gives the pool small pieces to pack; each is still admitted on its own
+// measured need, so nothing is admitted that the memory cannot hold.
+// CUTTING IS NOT ADMITTING, and conflating them is what pinned this at one lane. How many shards to CUT is a
+// question about granularity and costs nothing; how many to RUN AT ONCE is a question about memory and is already
+// answered, per shard and on live measurement, by memoryPool below. Sizing the cut by memory made both answers the
+// same number, and that had a fixed point: one shard means every file records that one shard's peak, so the next
+// run reads the same single bound and cuts one shard again, forever. Cut by the cores the machine has, measure each
+// piece, and let admission stay the pool's job — it still starts nothing the memory cannot hold.
+const lanes = cores
 const shards = shardsOf(files, readings?.secondsByFile ?? {}, lanes < 1 ? 1 : lanes > cores ? cores : lanes)
 console.log(`· test-plan — ${plan.mode}: ${plan.why}` + (plan.mode === 'delta' ? `\n  ${plan.files.join('\n  ')}` : ''))
 console.log(`· test-plan — ${shards.length} shard(s) over ${cores} cores · ` + (readings
@@ -66,7 +99,7 @@ const runShard = (shard: string[]): Promise<Ran> => new Promise((done) => {
   child.on('close', (code) => { if (partial) text += partial; done({ ...parseShardOutput(text), status: code ?? 1 }) })
 })
 
-const ran = await memoryPool(shards, () => readings?.peakBytes ?? 0, () => readings !== null, freeMemoryBytes, cores, runShard)
+const ran = await memoryPool(shards, estimateOf, () => readings !== null, freeMemoryBytes, cores, runShard)
 const leaves: Leaf[] = ran.flatMap((r) => r.leaves).sort(([a], [b]) => a.localeCompare(b))
 for (const [file, r, n, secs] of leaves) console.log(`· ${r}  ${String(n).padStart(4)}  ${`${secs.toFixed(1)}s`.padStart(8)}  ${file}`)
 const slowest = [...leaves].sort((a, b) => b[3] - a[3] || (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0)).slice(0, 5)
@@ -80,9 +113,22 @@ console.log(failed === 0 && ran.every((r) => r.status === 0)
   ? `✓ tests — ${passed}/${passed} pass in ${leaves.length} superpositions, receipt ${root} (root = fold of the ${leaves.length} file receipts above)`
   : `✗ tests — ${failed} of ${passed + failed} FAILED, ${passed} pass, receipt ${root}`)
 
-// the readings the next run is sized by: the heaviest runner's peak, and every file's seconds as measured now
+// THE READINGS THE NEXT RUN IS SIZED BY, and the per-shard measurement is no longer thrown away. A shard's peak is
+// an UPPER BOUND for every file in it — the shard never used less than any one member did — so keeping the MINIMUM
+// across observations converges on each file's true need from above and can never under-estimate it. That is why a
+// file measured alone in a light shard gets a small bound, and why a file only ever seen beside rosetta-legs keeps
+// a large one until it is seen elsewhere: the number only ever improves with evidence, never with assumption.
 if (peak > 0) {
   const seconds = { ...(readings?.secondsByFile ?? {}), ...Object.fromEntries(leaves.map(([f, , , s]) => [`dist/${f}`, s])) }
-  writeFileSync(readingsPath, JSON.stringify({ peakBytes: peak, secondsByFile: seconds }, null, 1) + '\n')
+  const bytes: Record<string, number> = { ...(readings?.bytesByFile ?? {}) }
+  ran.forEach((r, i) => {
+    const seen = r.peakBytes
+    if (seen === null || seen <= 0) return
+    for (const f of shards[i] ?? []) {
+      const prev = bytes[f]
+      bytes[f] = prev === undefined || seen < prev ? seen : prev
+    }
+  })
+  writeFileSync(readingsPath, JSON.stringify({ peakBytes: peak, secondsByFile: seconds, bytesByFile: bytes }, null, 1) + '\n')
 }
 process.exit(ran.every((r) => r.status === 0) && failed === 0 ? 0 : 1)
