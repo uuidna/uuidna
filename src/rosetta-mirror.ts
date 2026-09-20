@@ -84,6 +84,10 @@ witnesses_locate_faults 27
 handle_splits_four 27
 drift_is_named_or_caught 27
 the_axiom_index_partitions_without_remainder 27
+edits_break_recompute 19
+cuts_break_successors 27
+tail_cut_survives 27
+checkpoints_catch_truncation 27
 prose_coverage_total 27
 prose_round_trips 27
 prose_terminator_escaped 27

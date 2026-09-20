@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:ab25b5e2-82f2-8617-98a2-da64a627cd67",
+  "@id": "urn:uuid:ebf6c321-8fec-8845-b779-3ce5b0a7974c",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each paged theorem the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy), and the pageless span as one collection. Integrity, not truth.",
@@ -20100,11 +20100,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:945d335e-0e4a-89aa-9733-40e01f226ed4",
+        "@id": "urn:uuid:983c34ab-5b41-88f7-b5b2-6f4bd5b66932",
         "@type": "ScholarlyArticle",
-        "headline": "EVERY THEOREM IN THE LEDGER IS CHECKED BY THE KERNEL — 70958 by `decide`, which runs the proposition as a program so a finite computation settles it, and 51 by other tactics the kernel checks (exact, have, intro, refine, rw, unfold), across every wing but this one (self-excluded: it is written after the census it states). Per wing the two kinds add up to the wing's theorems, and lean-axioms audits every theorem axiom-free, so the trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,0,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,1,0,0,0,0,0,6,7,353,10,9,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,0,0,5,6,8,59,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,5,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 70958) ∧ (([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,1,1,2,3,3,0,0,0,0,3,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1,0,0,0,6,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,4,0,0,0,0,0,0]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 51) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,1,1,5,6,8,65,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 71009)",
-        "identifier": "54aeefd7-5276-81f7-b0b1-9c0e12efaa89",
+        "headline": "EVERY THEOREM IN THE LEDGER IS CHECKED BY THE KERNEL — 70962 by `decide`, which runs the proposition as a program so a finite computation settles it, and 51 by other tactics the kernel checks (exact, have, intro, refine, rw, unfold), across every wing but this one (self-excluded: it is written after the census it states). Per wing the two kinds add up to the wing's theorems, and lean-axioms audits every theorem axiom-free, so the trust base is the leanprover/lean4 kernel and nothing else",
+        "abstract": "(([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,0,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,1,0,0,0,0,0,6,7,353,10,9,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,0,0,5,6,8,59,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,5,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 70962) ∧ (([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,1,1,2,3,3,0,0,0,0,3,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1,0,0,0,6,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,4,0,0,0,0,0,0]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 51) ∧ (([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,1,1,5,6,8,65,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 71013)",
+        "identifier": "6ea3d600-afaf-845c-a501-3cb21b02eb37",
         "url": "https://uuidna.com/theorem/reach_tactics_census",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -20122,7 +20122,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/54aeefd7"
+          "https://uuidna.com/6ea3d600"
         ]
       }
     },
@@ -21766,6 +21766,130 @@
         },
         "sameAs": [
           "https://uuidna.com/0e7a232a"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:09387a9e-faef-8204-9571-4b3140fb0a32",
+        "@type": "ScholarlyArticle",
+        "headline": "AN EDITED ENTRY STOPS RECOMPUTING, AT EVERY POSITION. Each link commits to the one before it, so changing a single content address anywhere in the trail makes the recomputed chain differ from the stored one — walked over all eight positions and caught at eight of eight. The count is the claim: a detector that caught seven of eight would leave one seat where a receipt could be rewritten, and nothing in the prose would say which. This is the property an append-only log is usually ASSERTED to have by the database it sits in; here it is a consequence of the shape, and it survives a database that lets a row be updated.",
+        "abstract": "((List.range 8).filter (fun i => chain (addrs.set i 999) != stored)).length = 8",
+        "identifier": "8c70918e-6a62-8da5-8191-81ee27718339",
+        "url": "https://uuidna.com/theorem/edits_break_recompute",
+        "keywords": "audit, The detectors, proven",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/8c70918e"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:d19e44a4-6616-8236-a7b2-f3d6e103e606",
+        "@type": "ScholarlyArticle",
+        "headline": "REMOVING AN ENTRY BREAKS EVERY LINK AFTER IT — SEVEN TIMES OUT OF EIGHT. Delete a receipt from the middle and the entries that followed it still carry the prev-hash of a predecessor that is no longer there, so the recomputation and the record part company. Walked over all eight positions, seven are caught. The number is not eight, and the gap is the whole point: one position in this trail can be removed without the links noticing, and it is the position a draw somebody disliked would occupy.",
+        "abstract": "((List.range 8).filter (fun i => chain (dropAt addrs i) != dropAt stored i)).length = 7",
+        "identifier": "c2e9764d-0b71-8be8-a50f-86d6fe4751c6",
+        "url": "https://uuidna.com/theorem/cuts_break_successors",
+        "keywords": "audit, The detectors, proven",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/c2e9764d"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:334008c1-4c14-8f3a-9bd0-0feeec67273b",
+        "@type": "ScholarlyArticle",
+        "headline": "AND THE ONE THAT IS NOT CAUGHT IS THE LAST, NAMED RATHER THAN LEFT AS A GAP IN A COUNT. Deleting the final entry breaks nothing, because nothing follows it to break: the shortened trail recomputes exactly, and every link in it is honest. A chain proves that what remains has not been reordered or rewritten; it cannot prove that nothing was removed from the end, and no choice of hash changes that. Sealed as its own theorem so the seven above can never be read as eight by a reader who does not stop to ask which one is missing.",
+        "abstract": "chain (dropAt addrs 7) = dropAt stored 7",
+        "identifier": "3ad68f6a-2aa5-84e8-8499-7a310a104033",
+        "url": "https://uuidna.com/theorem/tail_cut_survives",
+        "keywords": "audit, The detectors, proven",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/3ad68f6a"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:a5a641e0-2767-8954-8195-ea75b9407a05",
+        "@type": "ScholarlyArticle",
+        "headline": "WHAT CLOSES IT IS A COUNT SOMEBODY SEALED, NOT A STRONGER LINK. Of the seven ways to cut this trail short from the end, the links catch ZERO — every truncated trail recomputes perfectly, which is what makes truncation the attack a chain invites. A checkpoint that recorded the length catches seven of seven, by arithmetic no forger can argue with: a shortened trail is shorter than the number sealed. Both halves are decided here together, because the first alone reads as a weakness and the second alone reads as a promise, and the pair is what is actually true. The residue is honest and stays: between two seals, a truncation is detectable only once the next seal exists.",
+        "abstract": "(((List.range 7).filter (fun k => chain (addrs.take (k + 1)) != stored.take (k + 1))).length = 0) ∧ (((List.range 7).filter (fun k => (addrs.take (k + 1)).length < 8)).length = 7)",
+        "identifier": "64f0cd4c-fef4-88a2-a8bf-48ac700c6572",
+        "url": "https://uuidna.com/theorem/checkpoints_catch_truncation",
+        "keywords": "audit, The detectors, proven",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/64f0cd4c"
         ]
       }
     },
@@ -23975,11 +24099,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:03fc4bd9-6f11-82f7-a136-5f45bd329039",
+        "@id": "urn:uuid:e515a703-e706-88f8-bf75-8ab6f269b277",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 252 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 251 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 71006, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
-        "abstract": "(((List.range 252).filter (fun k => k == 251)).length = 1) ∧ (((List.range 251).filter (fun k => k == 251)).length = 0) ∧ ([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71006)",
-        "identifier": "eb0d53f3-1979-814e-928b-4cc647f60463",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 252 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 251 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 71010, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
+        "abstract": "(((List.range 252).filter (fun k => k == 251)).length = 1) ∧ (((List.range 251).filter (fun k => k == 251)).length = 0) ∧ ([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71010)",
+        "identifier": "c5cea58e-e460-8646-ab2a-6d0d24cf80ef",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23997,7 +24121,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/eb0d53f3"
+          "https://uuidna.com/c5cea58e"
         ]
       }
     },
@@ -24006,11 +24130,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:00d3ce5a-e8eb-87c7-9d40-8f4530ce3b9f",
+        "@id": "urn:uuid:b6851e66-3a78-854b-84d5-6e21441afce4",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 251 measured wing counts and lands on 71006 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71006) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.length)).foldl (· + ·) 0 = 251) ∧ (251 < 71006)",
-        "identifier": "eb47db27-6472-88aa-ae07-3235d6ccbc51",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 251 measured wing counts and lands on 71010 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "((([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71010) ∧ (([[6,6,6,9,13,8,11,22,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.length)).foldl (· + ·) 0 = 251) ∧ (251 < 71010)",
+        "identifier": "eee811a6-2e16-8810-91df-48dfc11121b3",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -24028,7 +24152,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/eb47db27"
+          "https://uuidna.com/eee811a6"
         ]
       }
     },
@@ -29927,11 +30051,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:5aaa5f30-90ed-8d4c-ac9d-3ce9bbf519cd",
+        "@id": "urn:uuid:9e0fa4dc-de5f-8dd1-82bf-d6516d9c4cb5",
         "@type": "ScholarlyArticle",
         "headline": "every one of 252 monographs now carries a DISTINCT abstract — 252 distinct, 0 duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template",
-        "abstract": "([[18699480,26730808,39641198,42133168,52785107,64347757,85577298,115070928,118078743,122641341,129628802,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,784861259,790261834,798885290,811508052,817108158],[823880620,831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732],[1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243],[1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640],[1472140607,1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970],[1744425347,1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297],[2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865],[2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2433083138,2482308877,2541337980,2546876301,2610773422],[2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895],[2959037321,2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485],[3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].all (fun c => c.eraseDups.length == c.length)) ∧ (([[18699480,26730808,39641198,42133168,52785107,64347757,85577298,115070928,118078743,122641341,129628802,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,784861259,790261834,798885290,811508052,817108158],[823880620,831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732],[1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243],[1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640],[1472140607,1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970],[1744425347,1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297],[2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865],[2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2433083138,2482308877,2541337980,2546876301,2610773422],[2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895],[2959037321,2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485],[3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].map (fun c => c.length)).foldl (· + ·) 0 = 252) ∧ ((203566132 < 214893959) ∧ (462931543 < 462975435) ∧ (817108158 < 823880620) ∧ (1046432732 < 1059844443) ∧ (1254555243 < 1292854804) ∧ (1462238640 < 1472140607) ∧ (1734652970 < 1744425347) ∧ (2017246297 < 2021905029) ∧ (2301685865 < 2307115289) ∧ (2610773422 < 2627128296) ∧ (2953682895 < 2959037321) ∧ (3225142892 < 3225271771) ∧ (3515663538 < 3515886160) ∧ (3785608485 < 3788796472) ∧ (4089654535 < 4090070943))",
-        "identifier": "bf0f0815-8552-895c-a638-2f27b26169ef",
+        "abstract": "([[18699480,26730808,39641198,42133168,52785107,64347757,85577298,115070928,118078743,122641341,129628802,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,784861259,790261834,798885290,811508052,817108158],[823880620,831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732],[1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243],[1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640],[1472140607,1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970],[1744425347,1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297],[2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865],[2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2433083138,2482308877,2541337980,2546876301,2610773422],[2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895],[2959037321,2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485,3788796472],[3841182065,3875150051,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].all (fun c => c.eraseDups.length == c.length)) ∧ (([[18699480,26730808,39641198,42133168,52785107,64347757,85577298,115070928,118078743,122641341,129628802,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,784861259,790261834,798885290,811508052,817108158],[823880620,831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732],[1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243],[1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640],[1472140607,1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970],[1744425347,1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297],[2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865],[2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2433083138,2482308877,2541337980,2546876301,2610773422],[2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895],[2959037321,2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485,3788796472],[3841182065,3875150051,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].map (fun c => c.length)).foldl (· + ·) 0 = 252) ∧ ((203566132 < 214893959) ∧ (462931543 < 462975435) ∧ (817108158 < 823880620) ∧ (1046432732 < 1059844443) ∧ (1254555243 < 1292854804) ∧ (1462238640 < 1472140607) ∧ (1734652970 < 1744425347) ∧ (2017246297 < 2021905029) ∧ (2301685865 < 2307115289) ∧ (2610773422 < 2627128296) ∧ (2953682895 < 2959037321) ∧ (3225142892 < 3225271771) ∧ (3515663538 < 3515886160) ∧ (3788796472 < 3841182065) ∧ (4089654535 < 4090070943))",
+        "identifier": "83df7a07-e831-8874-8efe-dd6d2871c374",
         "url": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29949,7 +30073,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/bf0f0815"
+          "https://uuidna.com/83df7a07"
         ]
       }
     },
@@ -88796,11 +88920,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6ab583b6-4ce0-8330-b3aa-0c2a1b2f42a4",
+        "@id": "urn:uuid:8459f4bd-224e-8691-a27c-21de1995262e",
         "@type": "ScholarlyArticle",
-        "headline": "RECONCILED GENERATOR SAT INSIDE THE TRUNCATED RUN. Six positions read off the two lists themselves — all 64 manifest entries and all 12 direct scripts — placing three named generators inside the sealed window of 47 listed generators cut at 6. The lonely theorem reconciled_b13fd37a says only that the string gen-prose-evidence.js is a member of the list reconcile runs — it is the ledger ONLY membership theorem over strings, which is why nothing relates to it. The sealed theorem truncated_run_counted_47 seals the arithmetic of a silent truncation over that SAME list: of 47 listed generators the shared runner ended at 6 and silently skipped 41, including gen-readme and gen-llm, two names that are literal entries of the manifest. THE LINK places the lonely membership inside the sealed window over the list itself: gen-prose-evidence.js sits at manifest slot 32, which is 15 short of the sealed 47 and 26 past the sealed cut of 6; gen-readme.js and gen-llm.js, the two the sealed theorem names by hand, sit at 21 and 23, likewise inside it; the position in the full run is the direct-script count plus 32; and the list the sealed theorem counted at 47 now carries exactly 17 more. Every left side is read off the actual lists, every right side is a literal of the sealed theorem, so the two move together. PERTURBED AND REFUSED: deleting one earlier entry from the manifest, which moves gen-prose-evidence.js one slot and the length by one; the sealed count 47 lowered to 46 — each failed to decide. THE ONE ASSUMPTION, STATED PLAINLY: the 47 the sealed theorem counted is this same manifest at an earlier size.",
-        "abstract": "idxOf \"gen-prose-evidence.js\" reconcileRuns = reconcileDirect.length + 32 ∧ idxOf \"gen-prose-evidence.js\" generateManifest + 15 = 47 ∧ idxOf \"gen-prose-evidence.js\" generateManifest - 6 = 26 ∧ idxOf \"gen-readme.js\" generateManifest + 26 = 47 ∧ idxOf \"gen-llm.js\" generateManifest + 24 = 47 ∧ generateManifest.length - 47 = 17",
-        "identifier": "ad4e3472-742f-8b7d-b51d-6a7f0cea6244",
+        "headline": "RECONCILED GENERATOR SAT INSIDE THE TRUNCATED RUN. Six positions read off the two lists themselves — all 65 manifest entries and all 12 direct scripts — placing three named generators inside the sealed window of 47 listed generators cut at 6. The lonely theorem reconciled_b13fd37a says only that the string gen-prose-evidence.js is a member of the list reconcile runs — it is the ledger ONLY membership theorem over strings, which is why nothing relates to it. The sealed theorem truncated_run_counted_47 seals the arithmetic of a silent truncation over that SAME list: of 47 listed generators the shared runner ended at 6 and silently skipped 41, including gen-readme and gen-llm, two names that are literal entries of the manifest. THE LINK places the lonely membership inside the sealed window over the list itself: gen-prose-evidence.js sits at manifest slot 33, which is 14 short of the sealed 47 and 27 past the sealed cut of 6; gen-readme.js and gen-llm.js, the two the sealed theorem names by hand, sit at 22 and 24, likewise inside it; the position in the full run is the direct-script count plus 33; and the list the sealed theorem counted at 47 now carries exactly 18 more. Every left side is read off the actual lists, every right side is a literal of the sealed theorem, so the two move together. PERTURBED AND REFUSED: deleting one earlier entry from the manifest, which moves gen-prose-evidence.js one slot and the length by one; the sealed count 47 lowered to 46 — each failed to decide. THE ONE ASSUMPTION, STATED PLAINLY: the 47 the sealed theorem counted is this same manifest at an earlier size.",
+        "abstract": "idxOf \"gen-prose-evidence.js\" reconcileRuns = reconcileDirect.length + 33 ∧ idxOf \"gen-prose-evidence.js\" generateManifest + 14 = 47 ∧ idxOf \"gen-prose-evidence.js\" generateManifest - 6 = 27 ∧ idxOf \"gen-readme.js\" generateManifest + 25 = 47 ∧ idxOf \"gen-llm.js\" generateManifest + 23 = 47 ∧ generateManifest.length - 47 = 18",
+        "identifier": "d310d85c-6676-8cba-8fbd-c8f0007056ca",
         "url": "https://uuidna.com/theorem/reconciled_generator_sat_inside_the_truncated_run",
         "keywords": "links, The links between lonely theorems",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Links.lean",
@@ -88818,7 +88942,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/ad4e3472"
+          "https://uuidna.com/d310d85c"
         ]
       }
     },
@@ -91369,15 +91493,15 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0a0120a4-d711-868b-9aa0-6909da51e62b",
+        "@id": "urn:uuid:3a713b3d-c77d-8181-98e6-f4d62bfd601e",
         "@type": "ScholarlyArticle",
-        "headline": "reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 13 direct scripts.",
+        "headline": "reconcile runs gen-prose-evidence.js: it is entry 33 of the manifest, after reconcile's 13 direct scripts.",
         "abstract": "\"gen-prose-evidence.js\" ∈ reconcileRuns",
         "identifier": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
         "url": "https://uuidna.com/theorem/reconciled_b13fd37a",
         "keywords": "involution, The involution of lead b13fd37a",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Involutionb13fd37a.lean",
-        "creativeWorkStatus": "Proven by exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _))))))))))))))))))))))))))))))))))))))))))))) in Lean 4, sorry-free, axiom-free",
+        "creativeWorkStatus": "Proven by exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _)))))))))))))))))))))))))))))))))))))))))))))) in Lean 4, sorry-free, axiom-free",
         "isPartOf": {
           "@type": "Dataset",
           "name": "uuidna theorem ledger",

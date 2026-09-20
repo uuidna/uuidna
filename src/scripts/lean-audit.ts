@@ -12,6 +12,19 @@ const flag = (h: number, d: number, b: number) => h * (1 - d) * (1 - b) // the p
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i)
 const bits = (n: number): [number, number, number] => [n & 1, (n >> 1) & 1, (n >> 2) & 1] // h, d, b
 
+// THE TRAIL ITSELF, as arithmetic. A receipt chain links each entry to the one before it —
+// chainHash = H(seq ‖ prevHash ‖ contentAddress) — and the question this wing decides is not whether the hash
+// is strong but what the SHAPE detects. `lh` stands in for H: a mixer, injective over the small domain walked
+// here, and nothing below claims anything about SHA-256. What is claimed is the structure's reach, which is
+// the same for any H worth using and is exactly where the honest limit lives.
+const lh = (seq: number, prev: number, addr: number) => (seq * 7919 + prev * 65537 + addr * 31 + 13) % 999983
+const step = (acc: number[], a: number) => [lh(acc.length + 1, acc.length ? acc[0]! : 0, a), ...acc]
+const chain = (as: number[]) => as.reduce(step, [] as number[]).reverse()
+const dropAt = (xs: number[], i: number) => [...xs.slice(0, i), ...xs.slice(i + 1)]
+const ADDRS = [11, 22, 33, 44, 55, 66, 77, 88]
+const STORED = chain(ADDRS)
+const same = (a: number[], b: number[]) => a.length === b.length && a.every((x, i) => x === b[i])
+
 import { proseFacts } from './lean-prose.js'
 
 const FACTS = [
@@ -96,13 +109,41 @@ const FACTS = [
         blocks.push('[' + xs.join(',') + ']')
       }
       return `theorem the_axiom_index_partitions_without_remainder : [${blocks.join(',')}].all (fun c => c.all (fun i => (${'[' + D.join(',') + ']'}.contains i) != (${'[' + R.join(',') + ']'}.contains i))) := by decide` })() },
+  { key: 'edits_break_recompute', skill: 'audit',
+    why: 'AN EDITED ENTRY STOPS RECOMPUTING, AT EVERY POSITION. Each link commits to the one before it, so changing a single content address anywhere in the trail makes the recomputed chain differ from the stored one — walked over all eight positions and caught at eight of eight. The count is the claim: a detector that caught seven of eight would leave one seat where a receipt could be rewritten, and nothing in the prose would say which. This is the property an append-only log is usually ASSERTED to have by the database it sits in; here it is a consequence of the shape, and it survives a database that lets a row be updated.',
+    js: () => R(0, 8).filter((i) => !same(chain(ADDRS.map((x, j) => (j === i ? 999 : x))), STORED)).length === 8,
+    lean: 'theorem edits_break_recompute : ((List.range 8).filter (fun i => chain (addrs.set i 999) != stored)).length = 8 := by decide' },
+
+  { key: 'cuts_break_successors', skill: 'audit',
+    why: 'REMOVING AN ENTRY BREAKS EVERY LINK AFTER IT — SEVEN TIMES OUT OF EIGHT. Delete a receipt from the middle and the entries that followed it still carry the prev-hash of a predecessor that is no longer there, so the recomputation and the record part company. Walked over all eight positions, seven are caught. The number is not eight, and the gap is the whole point: one position in this trail can be removed without the links noticing, and it is the position a draw somebody disliked would occupy.',
+    js: () => R(0, 8).filter((i) => !same(chain(dropAt(ADDRS, i)), dropAt(STORED, i))).length === 7,
+    lean: 'theorem cuts_break_successors : ((List.range 8).filter (fun i => chain (dropAt addrs i) != dropAt stored i)).length = 7 := by decide' },
+
+  { key: 'tail_cut_survives', skill: 'audit',
+    why: 'AND THE ONE THAT IS NOT CAUGHT IS THE LAST, NAMED RATHER THAN LEFT AS A GAP IN A COUNT. Deleting the final entry breaks nothing, because nothing follows it to break: the shortened trail recomputes exactly, and every link in it is honest. A chain proves that what remains has not been reordered or rewritten; it cannot prove that nothing was removed from the end, and no choice of hash changes that. Sealed as its own theorem so the seven above can never be read as eight by a reader who does not stop to ask which one is missing.',
+    js: () => same(chain(dropAt(ADDRS, 7)), dropAt(STORED, 7)),
+    lean: 'theorem tail_cut_survives : chain (dropAt addrs 7) = dropAt stored 7 := by decide' },
+
+  { key: 'checkpoints_catch_truncation', skill: 'audit',
+    why: 'WHAT CLOSES IT IS A COUNT SOMEBODY SEALED, NOT A STRONGER LINK. Of the seven ways to cut this trail short from the end, the links catch ZERO — every truncated trail recomputes perfectly, which is what makes truncation the attack a chain invites. A checkpoint that recorded the length catches seven of seven, by arithmetic no forger can argue with: a shortened trail is shorter than the number sealed. Both halves are decided here together, because the first alone reads as a weakness and the second alone reads as a promise, and the pair is what is actually true. The residue is honest and stays: between two seals, a truncation is detectable only once the next seal exists.',
+    js: () => R(0, 7).filter((k) => !same(chain(ADDRS.slice(0, k + 1)), STORED.slice(0, k + 1))).length === 0
+      && R(0, 7).filter((k) => ADDRS.slice(0, k + 1).length < 8).length === 7,
+    lean: 'theorem checkpoints_catch_truncation : (((List.range 7).filter (fun k => chain (addrs.take (k + 1)) != stored.take (k + 1))).length = 0) \u2227 (((List.range 7).filter (fun k => (addrs.take (k + 1)).length < 8)).length = 7) := by decide' },
 ]
 
 // compute → generate → verify. The provenance gate (scripts/provenance.ts) is not just code — its decision logic
 // is these six proofs: it flags only hollow prose, a demarcation or a backing clears it, and exactly one state fires.
 emit({ file: 'Audit.lean', skill: 'audit',
-  header: 'THE DETECTORS — the provenance audit\'s decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise.',
-  defs: 'def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)',
+  header: 'THE DETECTORS, AND WHAT THE TRAIL ITSELF DETECTS. First the provenance audit\'s decision logic, proven. flag(h,d,b)=h·(1−d)·(1−b) over {0,1}³ (h=hollow superlative, d=demarcated, b=backed by a sealed theorem): it flags ONLY hollow prose, a demarcation clears it, a backing clears it, and of the eight states EXACTLY ONE fires — precise.',
+  defs: [
+    'def flag (h d b : Nat) : Nat := h * (1 - d) * (1 - b)',
+    'def lh (seq prev addr : Nat) : Nat := (seq * 7919 + prev * 65537 + addr * 31 + 13) % 999983',
+    'def step (acc : List Nat) (a : Nat) : List Nat := lh (acc.length + 1) (acc.headD 0) a :: acc',
+    'def chain (addrs : List Nat) : List Nat := (addrs.foldl step []).reverse',
+    'def dropAt (xs : List Nat) (i : Nat) : List Nat := xs.take i ++ xs.drop (i + 1)',
+    `def addrs : List Nat := [${ADDRS.join(',')}]`,
+    `def stored : List Nat := [${STORED.join(',')}]`,
+  ].join('\n'),
   // The detectors, and then the detectors turned on the ledger's OWN PROSE. proseFacts() censuses every generated
   // wing's `/-- … -/` doc comments — that each theorem has one, that it round-trips through the emitter unchanged,
   // that no unescaped terminator can silently swallow the theorem beneath it, that the prose says more than the
