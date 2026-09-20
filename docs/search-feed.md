@@ -13,7 +13,7 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `7d5d6cf8-1608-80a4-b2cc-fb8ec369ed7e` · hexbit door [`7d5d6cf8`](https://uuidna.com/7d5d6cf8) ·
+Fold receipt `94e5df71-613a-8121-bf70-d35cd2560562` · hexbit door [`94e5df71`](https://uuidna.com/94e5df71) ·
 33 door(s) · 8 lead(s) · 7 silent
 .
 
@@ -21,7 +21,7 @@ Fold receipt `7d5d6cf8-1608-80a4-b2cc-fb8ec369ed7e` · hexbit door [`7d5d6cf8`](
 
 | query | theorem | wing | resonance |
 |-------|---------|------|-----------|
-| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 142016 |
+| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 142015 |
 | quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical state-vector cost) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 141920 |
 | quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical state-vector cost) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 141920 |
 | quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical state-vector cost) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 141920 |

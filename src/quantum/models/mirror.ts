@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000056496",
-   "completionPrice": "0.00000169488"
+   "promptPrice": "0.00000056232",
+   "completionPrice": "0.00000168696"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",

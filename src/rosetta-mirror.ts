@@ -2959,7 +2959,7 @@ sefer_yetzirah_231_gates 27
 abjad_four_ranks 27
 genesis_1_1_is_2701 27
 theology_counts_in_the_mirror_base 27
-four_traditions_count_by_one_rank_rule 27
+the_rank_rule_climbs_by_ten 27
 #Grid.lean
 decimal_asks_three 27
 hexadecimal_asks_five 27

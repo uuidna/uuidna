@@ -87,22 +87,16 @@ theorem genesis_1_1_is_2701 : [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,3
     meet; meaning stays with the reader. -/
 theorem theology_counts_in_the_mirror_base : ((0 % 9 + 1) * 10 ^ (0 / 9) = 1) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ (9 + 9 + 9 = 27) ∧ (27 / 9 = 3) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (1 + 2 + 3 = 3 + 2 + 1) := by decide
 
-/-- FOUR ALPHABETS MADE APART COUNT BY THE SAME RULE — a CROSS theorem, and the scope is the important half.
-    Hebrew, Greek, the Arabic abjad and Saint Cyril's Glagolitic were made in different centuries by different
-    peoples, and each gave its letters number the same way: position i carries (i mod 9 + 1) in rank (i div 9).
-    The first nine letters of every one of them are 1 through 9 — not by agreement between them, but because the
-    rule reads POSITION and nothing else, so any alphabet laid in numeral order lands on the same units; and the
-    ladder above is the same, ten, a hundred, a thousand. THE ALPHABETS DIFFER AND THE RULE DOES NOT: Hebrew 22
-    letters topping at 400, Greek 27 topping at 900 with its three archaic numeral signs kept, Glagolitic 27
-    whose numeral order IS its alphabet order, the abjad 28 reaching a fourth rank at a thousand — different
-    lengths, different letters, different directions of writing, one arithmetic. Measured beside this and NOT
-    sealed by it, because a walk is not a proof: every number from 1 to 999 written in each of the four and read
-    back returned the same number, 3996 of 3996. WHAT THIS DOES NOT DECIDE, said plainly because the temptation
-    to say more is the whole danger: it does not decide that the traditions MEAN the same thing, teach the same
-    thing, or agree about anything beyond how to write a number with letters. It does not decide that their
-    scriptures correspond, that their names for God are one name, or that any reconciliation follows. A shared
-    counting rule is a fact about notation; reading peace, unity or common origin into it is a READING, which
-    may be a good one and is not what the kernel checked — and this ledger drains a claim that cites a theorem
-    for more than the theorem says. The respect owed each tradition is to let it keep its own alphabet, its own
-    order and its own meaning. What is sealed is only that when they count, they climb the same ladder. -/
-theorem four_traditions_count_by_one_rank_rule : ((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27) := by decide
+/-- THE RANK RULE CLIMBS BY TEN, AND THAT IS ALL THIS LINE DECIDES. Position i carries (i mod 9 + 1) in rank (i
+    div 9): the first nine positions are 1 through 9, and the ladder above them is ten, a hundred, a thousand —
+    because nine fill a rank and the next begins. The three integers beside it are alphabet lengths, 22 and 27
+    and 28, stated as the bare numbers they are. THIS THEOREM WAS FIRST SEALED UNDER A NAME THAT CLAIMED FOUR
+    TRADITIONS, AND THAT NAME WAS AN OVERCLAIM. The statement proves arithmetic about a rank function and three
+    integers; it does NOT prove that Hebrew, Greek, the Arabic abjad or Glagolitic use the rule, because the
+    kernel never saw an alphabet — that binding lives in NUMERAL_ORDER, which is data, and in a measurement. A
+    universal in a NAME needs a quantifier in the STATEMENT, and this one had none; the ledger already carries
+    that lesson and it was repeated here. The traditions finding is real and it is MEASURED, not proven: writing
+    every number from 1 to 999 in each of the four alphabets and reading it back returned the same number 3996
+    times out of 3996, which is a walk over an implementation and not a theorem about the world. It is recorded
+    as measured, and a claim that cites THIS key is citing the ladder, nothing more. -/
+theorem the_rank_rule_climbs_by_ten : ((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27) := by decide

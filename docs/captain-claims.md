@@ -7,7 +7,7 @@
 **Discovery claimed:** 70638 — the other 384 restate a fact a named source found first
 
 *The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `0101f3c6-2719-8b8e-893f-60b91d23f59a`
+**Claim receipt:** `57b0f687-d5bf-8521-8847-54cca756173b`
 
 ### Facts the captain does not claim to have discovered
 
@@ -440,7 +440,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions) · [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) · [abjad_four_ranks](/theorem/abjad_four_ranks) · [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701) · [theology_counts_in_the_mirror_base](/theorem/theology_counts_in_the_mirror_base) · [four_traditions_count_by_one_rank_rule](/theorem/four_traditions_count_by_one_rank_rule)
+[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions) · [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) · [abjad_four_ranks](/theorem/abjad_four_ranks) · [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701) · [theology_counts_in_the_mirror_base](/theorem/theology_counts_in_the_mirror_base) · [the_rank_rule_climbs_by_ten](/theorem/the_rank_rule_climbs_by_ten)
 
 ### The arithmetic of scripture
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `84d99dd4-e9fb-84e2-b082-59dbf44931af`
+- **Sample lineAddress:** `d6f93afc-f4df-8db3-b46f-cdcb063fee01`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1975,7 +1975,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The involution of lead b13fd37a
 
 - **Theorems:** 2
-- **Sample lineAddress:** `3285b5e3-724a-813b-85e2-d7ae2991cf8a`
+- **Sample lineAddress:** `0a0120a4-d711-868b-9aa0-6909da51e62b`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 

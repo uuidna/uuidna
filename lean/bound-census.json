@@ -1,6 +1,6 @@
 {
  "why": "Every bounded statement (List.range) widened by one element and re-decided: load-bearing = the bound carries the theorem; survived-widening = ONE step survived, a lower bound and never a verdict that the bound is decorative. Written by scripts/gen-bound-census, incrementally: a row keeps its verdict while its statement and the instrument are unchanged.",
- "digest": "c998f325f14c01ba",
+ "digest": "6046fdfb1c6ef094",
  "instrument": "25a72de7a87d2fce",
  "census": {
   "bounded": 952,
@@ -1307,7 +1307,7 @@
    "statement": "(List.range 22).foldl (fun a i => a + i) 0 = 231 ∧ 22 * 21 / 2 = 231 ∧ 2 * 231 = 22 * 21 ∧ 3 + 7 + 12 = 22"
   },
   {
-   "key": "four_traditions_count_by_one_rank_rule",
+   "key": "the_rank_rule_climbs_by_ten",
    "wing": "Glagolitic.lean",
    "verdict": "load-bearing",
    "statement": "((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27)"

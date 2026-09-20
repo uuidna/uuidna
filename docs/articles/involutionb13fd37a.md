@@ -11,7 +11,7 @@ description: "Computed from lean/Involutionb13fd37a.lean — 2 sealed theorems, 
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FInvolutionb13fd37a.lean)** — nothing to install. The editor fetches `lean/Involutionb13fd37a.lean` from the repository and re-decides all 2 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 12 direct scripts.
+### reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 13 direct scripts.
 The ledger holds this as [reconciled_b13fd37a](/theorem/reconciled_b13fd37a) — proven `by exact`, sorry-free:
 
 ```lean

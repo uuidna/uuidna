@@ -7652,8 +7652,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "b2ae7007-176e-8c4b-8ed4-fdff776bde7b",
-      "address": "d438e893-94e6-8549-8a43-2452ccd447c8",
+      "lineAddress": "ee65076c-d0a6-8dff-bc0a-bb064c010c4d",
+      "address": "fd5a9a0b-6b54-8de5-a6f4-a4a7e80f3c37",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -9472,8 +9472,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "c1b5f7a4-7671-8c0b-8e5e-b92fe611f164",
-      "address": "f41abab4-3719-84dd-a1c4-2a5b9f02f17a",
+      "lineAddress": "5aaa5f30-90ed-8d4c-ac9d-3ce9bbf519cd",
+      "address": "bf0f0815-8552-895c-a638-2f27b26169ef",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -9893,9 +9893,9 @@
       "held": "discovery+formalisation"
     },
     {
-      "key": "four_traditions_count_by_one_rank_rule",
-      "lineAddress": "6f2582ce-61f2-82e7-9e1c-c564f28df3e2",
-      "address": "beb9126c-472e-892e-a1e4-4f784d479305",
+      "key": "the_rank_rule_climbs_by_ten",
+      "lineAddress": "c947938c-346e-84cd-94f3-3288740b5247",
+      "address": "9e4d3d5c-9d6f-81ce-b19c-557e0dd82fd4",
       "principle": "The Glagolitic numerals & Pliska rosette",
       "held": "discovery+formalisation"
     },
@@ -9943,8 +9943,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "84d99dd4-e9fb-84e2-b082-59dbf44931af",
-      "address": "54ea769f-a184-8d7e-8883-33e7d3b1573a",
+      "lineAddress": "d6f93afc-f4df-8db3-b46f-cdcb063fee01",
+      "address": "d924d188-df81-8a21-9c02-019ef2c63082",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -482104,7 +482104,7 @@
     },
     {
       "key": "reconciled_b13fd37a",
-      "lineAddress": "3285b5e3-724a-813b-85e2-d7ae2991cf8a",
+      "lineAddress": "0a0120a4-d711-868b-9aa0-6909da51e62b",
       "address": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
       "principle": "The involution of lead b13fd37a",
       "held": "discovery+formalisation"
@@ -499876,7 +499876,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "0101f3c6-2719-8b8e-893f-60b91d23f59a",
+  "claim_receipt": "57b0f687-d5bf-8521-8847-54cca756173b",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

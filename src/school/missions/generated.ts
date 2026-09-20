@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "c998f325f14c01ba",
+ "digest": "6046fdfb1c6ef094",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -1086,7 +1086,7 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "load-bearing"
   },
   {
-   "key": "four_traditions_count_by_one_rank_rule",
+   "key": "the_rank_rule_climbs_by_ten",
    "wing": "Glagolitic.lean",
    "verdict": "load-bearing"
   },

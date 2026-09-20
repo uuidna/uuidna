@@ -13,7 +13,7 @@ def generateManifest : List String :=
 
 /-- Every dist script src/scripts/reconcile.ts runs directly, in the order its run() calls name them. -/
 def reconcileDirect : List String :=
-  ["guard.js", "one-receipt.js", "generate.js", "sync-changelog.js", "lean-axioms.js", "lean-heartbeats.js", "support.js", "audit-citations.js", "account.js", "trial-refusals.js", "spin.js", "gate-receipt.js"]
+  ["guard.js", "one-receipt.js", "generate.js", "sync-changelog.js", "lean-axioms.js", "lean-heartbeats.js", "support.js", "audit-citations.js", "account.js", "trial-refusals.js", "spin.js", "guard.js", "gate-receipt.js"]
 
 /-- What reconcile runs: its direct scripts and then, because generate.js is among them, every entry of the
     manifest. -/
@@ -30,9 +30,9 @@ def lead_b13fd37a : Prop :=
   (∀ g ∈ namedGeneratorsJs, g ∉ reconcileRuns) ∧
   (∀ g ∈ namedGeneratorsTs, g ∈ dormantScripts)
 
-/-- reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 12 direct scripts. -/
+/-- reconcile runs gen-prose-evidence.js: it is entry 32 of the manifest, after reconcile's 13 direct scripts. -/
 theorem reconciled_b13fd37a : "gen-prose-evidence.js" ∈ reconcileRuns := by
-  exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _))))))))))))))))))))))))))))))))))))))))))))
+  exact List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.tail _ (List.Mem.head _)))))))))))))))))))))))))))))))))))))))))))))
 
 /-- The kernel refutes lead b13fd37a: reconcile runs gen-prose-evidence.js, one of the generators the lead says
     reconcile does not run. -/
