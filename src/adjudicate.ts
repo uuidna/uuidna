@@ -5,7 +5,8 @@
 //                so "not verified" is the whole of the negative. Absence of proof is not proof of falsity.
 // Integrity — the record recomputes for anyone. Everything content-addressed.
 import { slimGate } from './slimgate.js'
-import { THEOREMS, theoremByKey, type LeanTheorem } from './theorems/index.js'
+// theoremFor, not theoremByKey: ONE cited row, from the piece the pre-pass fetched — never a map over the ledger
+import { THEOREMS, theoremFor, type LeanTheorem } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { imprint, readImprint } from './imprint.js'
@@ -133,7 +134,7 @@ const decidesAList = (statement: string): boolean => /=\s*\[/.test(statement)
 /** contradictsNumerically(claim, key) → the claim asserts a number that a list-deciding theorem's own arithmetic
  *  does not contain. Silent when the claim asserts no number, and silent unless the theorem decided a list. */
 function contradictsNumerically(claim: string, key: string): number[] {
-  const t = theoremByKey().get(key)
+  const t = theoremFor(key)
   if (!t || !decidesAList(t.statement)) return []
   const claimed = numeralsOf(claim)
   if (!claimed.length) return []
@@ -146,7 +147,7 @@ function contradictsNumerically(claim: string, key: string): number[] {
  *  Unknown/unsealed keys are handled upstream (slimGate already marks them fabricated); this only judges real
  *  citations. Returns true (relevant) on any shared word — the floor. */
 function relevantCitation(claimWords: string[], key: string): boolean {
-  const t = theoremByKey().get(key)
+  const t = theoremFor(key)
   if (!t) return false
   const vocab = theoremVocabulary(t)
   return claimWords.some((w) => vocab.some((v) => related(w, v)))
@@ -235,7 +236,7 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
   }
   // the cited seals ride WITH the verdict — key, Lean line, address — so any caller rechecks instead of trusting
   const cites = slim.real
-    .map((k) => theoremByKey().get(k))
+    .map((k) => theoremFor(k))
     .filter((t): t is NonNullable<typeof t> => t !== undefined)
     .map((t) => ({ key: t.key, lean: t.lean, address: t.address }))
   return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []), ...(cites.length ? { cites } : {}) }

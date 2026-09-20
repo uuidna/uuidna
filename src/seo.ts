@@ -11,7 +11,7 @@ import { RESOLVED_REFERENCES, REFERENCES_BY_WING } from './references-resolved.j
 // stuffs, or claims a position; the description is the theorem's real statement, the JSON-LD cites the real proof and
 // address, and rel=canonical folds every serving host (.net/.org/CNAME) to the one recomputable home. Recomputable by
 // anyone from the same ledger. It optimises for HONEST discovery.
-import { theorems, theoremByKey } from './theorems/index.js'
+import { theorems, theoremByKey, theoremFor } from './theorems/index.js'
 import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
 import { toUuid, merkleFold } from './address.js'
@@ -87,7 +87,7 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
   if (subject.key) {
     // one SEO surface per theorem per process: deterministic from the ledger, so the fifth build of the feed costs a map read
     const hit = _seoByKey.get(subject.key); if (hit) return hit
-    const t = theoremByKey().get(subject.key)
+    const t = theoremFor(subject.key)
     if (!t) throw new Error('unknown theorem: ' + subject.key + ' (see uuidna_theorems)')
     const route = `/theorem/${t.key}`, canonical = `${HOST}${route}`
     const description = `${t.statement} — proven by ${t.tactic ?? 'decide'} in Lean 4, sorry-free (no Mathlib); part of ${t.principle}.`

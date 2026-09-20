@@ -29,7 +29,7 @@ import { REPORTED_BASELINE } from '../../quantum/advantage/index.js'
 import { toUuid, toUuidOnce } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { merkleGravity } from '../../gravity/index.js'
-import { theoremByKey, theorems, THEOREMS } from '../../theorems/index.js'
+import { theoremByKey, theoremFor, theorems, THEOREMS } from '../../theorems/index.js'
 import { hostProfile, type HostProfile } from '../../os/host/index.js'
 
 // ── THE DEVICE ───────────────────────────────────────────────────────────────────────────────────────────────
@@ -349,7 +349,7 @@ export const WITNESSES: readonly Witness[] = [
   // hold; this host allocates a different number of amplitudes than the theorem decided.
   { theorem: 'message_qubit_cap_states', cases: 3, what: "the encoder and this host's allocation both match the sealed 2^n = N",
     run: () => {
-      const sealed = theoremByKey().get('message_qubit_cap_states')?.statement ?? ''
+      const sealed = theoremFor('message_qubit_cap_states')?.statement ?? ''
       const m = /2\^(\d+)\s*=\s*(\d+)/.exec(sealed)
       if (!m) return 3          // the statement no longer says what this witness reads — a refusal, not a pass
       const n = Number(m[1]), states = Number(m[2])
@@ -456,7 +456,7 @@ export const WITNESSES: readonly Witness[] = [
   // A constructor that moved off the seal disagrees; a tautology that only restates 2^n would not.
   { theorem: 'served_qubit_ceiling', cases: 4, what: 'served nest IS handle+hexbit, at or below the encoder, and this host allocates 2^n',
     run: () => {
-      const sealed = theoremByKey().get('served_qubit_ceiling')?.statement ?? ''
+      const sealed = theoremFor('served_qubit_ceiling')?.statement ?? ''
       const m = /\(\((\d+):Nat\)\s*≤\s*(\d+)\)/.exec(sealed)
       const statesM = /2:Nat\)\^(\d+)\s*=\s*(\d+)/.exec(sealed)
       if (!m || !statesM) return 4
@@ -473,7 +473,7 @@ export const WITNESSES: readonly Witness[] = [
 
   { theorem: 'gate_error_baseline_class', cases: 3, what: 'advantage baseline errors/M and gate-ns ARE the sealed decade class',
     run: () => {
-      const sealed = theoremByKey().get('gate_error_baseline_class')?.statement ?? ''
+      const sealed = theoremFor('gate_error_baseline_class')?.statement ?? ''
       const m = /\(\((\d+):Nat\)\s*=\s*10\^3\)/.exec(sealed)
       const nsM = /\(\((\d+):Nat\)\s*=\s*10\^2\)/.exec(sealed)
       if (!m || !nsM) return 3
@@ -490,7 +490,7 @@ export const WITNESSES: readonly Witness[] = [
 
   { theorem: 'usable_gap_eighty_bits', cases: 3, what: 'UUID_BITS minus the reported 48 logical is the sealed 80-bit usable-column gap',
     run: () => {
-      const sealed = theoremByKey().get('usable_gap_eighty_bits')?.statement ?? ''
+      const sealed = theoremFor('usable_gap_eighty_bits')?.statement ?? ''
       const m = /(\d+)\s*-\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
       if (!m) return 3
       const bits = Number(m[1]), logical = Number(m[2]), gap = Number(m[3])
@@ -503,7 +503,7 @@ export const WITNESSES: readonly Witness[] = [
 
   { theorem: 'register_exceeds_served', cases: 3, what: 'encoder minus served nest is four qubits and a factor of sixteen amplitudes',
     run: () => {
-      const sealed = theoremByKey().get('register_exceeds_served')?.statement ?? ''
+      const sealed = theoremFor('register_exceeds_served')?.statement ?? ''
       const m = /(\d+)\s*-\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
       const f = /2\s*\^\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
       if (!m || !f) return 3
@@ -573,7 +573,7 @@ export const WITNESSES: readonly Witness[] = [
   // message_qubit_cap_states), then this host re-runs hexbitRingMassGap / computeMassGap and must agree.
   { theorem: 'hexbit_ring_mass_gap', cases: 4, what: 'live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window',
     run: () => {
-      const sealed = theoremByKey().get('hexbit_ring_mass_gap')?.statement ?? ''
+      const sealed = theoremFor('hexbit_ring_mass_gap')?.statement ?? ''
       const deltaM = /\(\((\d+):Nat\)\s*>\s*0\)/.exec(sealed)
       const statesM = /List\.range\s+(\d+)/.exec(sealed)
       if (!deltaM || !statesM) return 4
@@ -592,7 +592,7 @@ export const WITNESSES: readonly Witness[] = [
   // bellBornWeights / massGapOnBellBornField / computeMassGap must reproduce them on this silicon.
   { theorem: 'born_field_mass_gap_on_bell', cases: 4, what: 'live massGapOnBellBornField/bellBornWeights match the sealed Born Δ and weights',
     run: () => {
-      const sealed = theoremByKey().get('born_field_mass_gap_on_bell')?.statement ?? ''
+      const sealed = theoremFor('born_field_mass_gap_on_bell')?.statement ?? ''
       const listM = /\[(\d+(?:,\d+)*)\]\s*:\s*List Nat/.exec(sealed)
       const deltaM = /\((\d+)\s*>\s*0\)\s*$/.exec(sealed) ?? /(\d+)\s*≤\s*a/.exec(sealed)
       if (!listM || !deltaM) return 4

@@ -4,7 +4,7 @@
 // and the captain comes NEXT in place (never erased, never first when prior art is named, never unclaimed).
 // uuidna reflects history; it claims only the unclaimed. A Clay theorem credits the mathematician who proved the
 // PROBLEM (Perelman for Poincaré); uuidna seals only the REFLECTION.
-import { THEOREMS, theoremByKey, PRINCIPLES, ledgerFacts } from '../../theorems/index.js'
+import { THEOREMS, theoremFor, PRINCIPLES, ledgerFacts } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { doisIn } from '../../crossref.js'
 import { doiPriorArtForLeanFile } from '../../zenodo-seals.js'
@@ -100,7 +100,7 @@ function principleCredits(principle: string): readonly Credit[] {
 }
 export function credits(key: string): Credits {
   const cached = _cache.get(String(key)); if (cached) return cached
-  const t = theoremByKey().get(String(key))
+  const t = theoremFor(String(key))
   if (!t) throw new Error('unknown theorem: ' + key)
   const prinBlurb = PRINCIPLES.find((p) => p[0] === t.file)?.[2] ?? ''
   const hay = t.name + ' ' + t.principle + ' ' + prinBlurb

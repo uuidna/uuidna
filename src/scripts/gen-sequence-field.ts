@@ -205,7 +205,7 @@ npm run lean   # re-decide lean/Sequence.lean
 
 ## Colour note
 
-uuidna \`sequenceVars()\` uses **40°** per digit (360/9, [\`A432_STEP\`](/theorem/billing_arith)). zeropoint-node spectrum tables use **36°** (decagon partition) — a defined convention there, not the same column as Lean. Do not conflate [articles/spectrum](/articles/spectrum) (EM bands) with the digit sequence.
+uuidna \`sequenceVars()\` uses **36°** per digit ([\`A432_STEP\`](/theorem/billing_arith) = 432/12), which IS the decagon partition zeropoint-node spectrum tables use — the two agreed the moment the step became A432's own, where before this note existed to say they did not. Ten steps of 36° close the circle and leave 0° for the void; nine steps of 40° closed it by seating the ninth digit ON the void. Still do not conflate [articles/spectrum](/articles/spectrum) (EM bands) with the digit sequence: the step is shared, the columns are not.
 `
 
 const out = join(ROOT, 'docs', 'sequence-field.md')

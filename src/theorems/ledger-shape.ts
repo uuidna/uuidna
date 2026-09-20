@@ -60,6 +60,12 @@ export interface EdgeLedger {
   fail(why: string): void
   /** the line address carried with row i */
   lineAt(i: number): string | undefined
+  /** THE ROWS A CALL ACTUALLY NEEDS, held without priming the rest. A claim cites a handful of keys and the door
+   *  needs their FULL rows — statement, lean, address — which no aggregate can stand in for. The pre-pass fetches
+   *  the one piece each cited key sits in and hands the rows here; rowFor answers from them. Nothing else is
+   *  fetched, and a key that was not fetched reads as absent rather than as missing from the ledger. */
+  holdRows(rows: readonly LeanTheorem[]): void
+  rowFor(key: string): LeanTheorem | undefined
 }
 
 /** lazyList(make) → an array that is not built until something reads it, then is exactly `make()`'s array: methods are

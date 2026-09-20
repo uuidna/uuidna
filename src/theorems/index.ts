@@ -199,6 +199,17 @@ export const isSealedAddress = (uuid: string): boolean => {
 /** how many addresses the ledger seals — the count, without the set */
 export const sealedAddressCount = (): number => sealedCount()
 
+/** theoremFor(key) → ONE theorem, by key, without a map over the ledger. A host answers from the index it already
+ *  builds; the edge answers from the rows the pre-pass fetched for this call, and returns undefined for a key it was
+ *  not asked to fetch — which is a fact about THIS call, not about the ledger, and the caller treats it as it treats
+ *  any key it cannot read. This is the lookup adjudicate needs: the cited row in full, never the whole index. */
+export const theoremFor = (key: string): Theorem | undefined => {
+  if (!LEDGER_EDGE) return theoremByKey().get(key)
+  const row = LEDGER_EDGE.rowFor(key)
+  const i = LEDGER_EDGE.indexOf(key)
+  return row && i !== undefined ? withDerived(row, i) : undefined
+}
+
 export interface SkillSummary { skill: string; count: number; domains: number; fold: string }
 /** skillSummary() → each skill with its theorem count, the number of lean files it spans and its fold — WITHOUT the
  *  rows. A host groups its own ledger; the edge reads what the bake grouped. Built from skillGroups on a host, so

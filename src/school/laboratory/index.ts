@@ -15,7 +15,7 @@
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { hexbitDoorOf, UUID_HEXBITS } from '../../hexbit/index.js'
-import { theoremByKey, skillGroups, reviewDomains, type Theorem } from '../../theorems/index.js'
+import { theoremByKey, theoremFor, skillGroups, reviewDomains, type Theorem } from '../../theorems/index.js'
 import { defaultInstalls, type InstallSpec } from '../../quantum/os/index.js'
 import { shelfForSkill } from '../../quantum/apps/skill-shelf.js'
 
@@ -136,7 +136,7 @@ const member = (kind: LabKind, id: string, route: string, address: string, state
 
 /** labOf(key) → one theorem's lab, entangled with related resources. Unknown key: not sufficient, not entangled. */
 export function labOf(key: string): Lab {
-  const t = theoremByKey().get(key)
+  const t = theoremFor(key)
   const empty: Lab = {
     theorem: key, skill: '', members: [], verified: 0, receipt: toUuid('lab|unknown|' + key),
     handle: '', hexbits: [], entangled: false, cites: LAB_CITES, honest: HONEST,

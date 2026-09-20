@@ -3,7 +3,7 @@
 // Theorems that stump students get guides added. Paths with low completion get restructured.
 // The school learns by doing.
 
-import { theoremByKey } from '../../../../theorems/index.js'
+import { theoremFor } from '../../../../theorems/index.js'
 import { toUuid } from '../../../../address.js'
 import { handleOf } from '../../../../handle.js'
 import { merkleGravity } from '../../../../gravity/index.js'
@@ -26,7 +26,7 @@ export function recordPracticeTrial(
 ): PracticeTrial {
   // The verdict is the ledger's, not an estimate: a practice claim on a sealed key is VERIFIED,
   // on an unsealed key it stays UNVERIFIED — never false, only not-yet (the trial's own law).
-  const verdict = theoremByKey().has(theoremKey) ? 'VERIFIED' as const : 'UNVERIFIED' as const
+  const verdict = theoremFor(theoremKey) !== undefined ? 'VERIFIED' as const : 'UNVERIFIED' as const
   return foldPracticeTrial(studentId, theoremKey, attemptCount, timeSpent, hintCount, verdict)
 }
 

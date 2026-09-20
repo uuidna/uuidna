@@ -12,7 +12,7 @@
 //  (integrity
 // recomputable address; the recycle plan is the honest NEXT. Nothing
 // here decides truth — the ledger and the develop plan are recomputable by anyone. Integrity.
-import { theoremByKey } from './theorems/index.js'
+import { theoremFor } from './theorems/index.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { adjudicate } from './adjudicate.js'
 import { merkleGravity } from './gravity/index.js'
@@ -20,7 +20,7 @@ import { toUuid } from './address.js'
 import { involuteToVerified, type InvoluteRun } from './solution-involution.js'
 
 // the ledger by key, asked on use (theoremByKey builds it once) — never at import, which the edge cannot afford
-const BY_KEY = { has: (k: string) => theoremByKey().has(k), get: (k: string) => theoremByKey().get(k) }
+const BY_KEY = { has: (k: string) => theoremFor(k) !== undefined, get: (k: string) => theoremFor(k) }
 
 export interface Viewpoint { axis: 'principle' | 'skill'; name: string; count: number; fold: string }
 export interface Snapshot {

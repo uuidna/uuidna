@@ -25,7 +25,7 @@ import { toUuid } from '../../../address.js'
 import { handleOf } from '../../../handle.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { merkleGravity } from '../../../gravity/index.js'
-import { theoremByKey, theorems } from '../../../theorems/index.js'
+import { theoremByKey, theoremFor, theorems } from '../../../theorems/index.js'
 import { QA_REQUIRED_THEOREMS } from '../../advantage/audit/index.js'
 
 /** How much of a document's claim this tree carries, as a graded stance: zero, an exact-arithmetic analogue on
@@ -303,7 +303,7 @@ export function qcVerdict(): QcVerdict {
     { claim: 'an instrument whose range is narrower than its question cannot be sound',
       theorem: 'no_instrument_narrower_than_its_question' },
   ].map((c) => {
-    const t = theoremByKey().get(c.theorem)
+    const t = theoremFor(c.theorem)
     return { ...c, statement: t ? t.statement : 'NOT IN LEDGER — citation refused' }
   })
   const arithmetic = qcArithmetic()

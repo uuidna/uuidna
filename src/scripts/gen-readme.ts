@@ -286,7 +286,7 @@ import { handleOf, toUuid, encrypt, theoremByKey } from '@uuidna/uuidna'
 
 const address = toUuid('two_coins')
 handleOf(address)
-theoremByKey().get('two_coins')
+theoremFor('two_coins')
 encrypt('text', 'passphrase')
 \`\`\`
 
@@ -298,7 +298,7 @@ encrypt('text', 'passphrase')
 | --- | --- |
 | Address from text | \`toUuid('…')\` · door \`handleOf(addr)\` |
 | Encrypt / seal | \`encrypt(text, passphrase)\` · \`sealStream\` |
-| Theorem lookup | \`theoremByKey().get('two_coins')\` |
+| Theorem lookup | \`theoremFor('two_coins')\` |
 | UUID wire slice | \`uuidChannel(addr)\` · [layout_groups_thirtytwo](https://uuidna.com/theorem/layout_groups_thirtytwo) |
 | MCP (stdio) | \`npx @uuidna/uuidna\` |
 | Hosted MCP | [uuidna.com/mcp](https://uuidna.com/mcp) |

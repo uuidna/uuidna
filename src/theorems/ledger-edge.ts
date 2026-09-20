@@ -36,6 +36,9 @@ const keysOf = (): readonly string[] => (keys ??= baked().keys.split('\n'))
 // from one Int32Array of line offsets and one open-addressed Int32Array of positions — about 1.3 MB — and builds no
 // key string except the one a caller asks for. Addresses are fixed width in the baked root, so a position reads one
 // slice and needs no index at all.
+/** rows the pre-pass fetched for the keys a call cites — a handful, not the ledger */
+const heldRows = new Map<string, LeanTheorem>()
+
 let offsets: Int32Array | null = null
 let table: Int32Array | null = null
 let mask = 0
@@ -114,6 +117,8 @@ export const LEDGER_EDGE: EdgeLedger | null = {
     const i = positionOf(key)
     return i === undefined ? undefined : addressAt(i)
   },
+  holdRows: (held) => { for (const r of held) heldRows.set(r.key, r) },
+  rowFor: (key) => { const held = heldRows.get(key); if (held) return held; const i = positionOf(key); return i === undefined || !rows ? undefined : rows[i] },
   primed: () => rows !== null,
   prime: (r, l) => { rows = r; lines = l },
   fail: (w) => { why = w },

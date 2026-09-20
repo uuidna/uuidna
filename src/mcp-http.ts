@@ -104,7 +104,7 @@ const TOOLS: HttpTool[] = ([
   { name: 'uuidna_bill', description: 'The MEASURED billing model: pass {commercial, recomputeOps, verifyOps} — returns the bits saved (recompute − verify), the two coins, and whether it is free (public interest is free; commercial is billed on the measured advantage).',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'integer' }, verifyOps: { type: 'integer' } } },
     run: (a) => billUuidna({ commercial: Boolean(a.commercial), recomputeOps: Number(a.recomputeOps ?? 0), verifyOps: Number(a.verifyOps ?? 1) }) },
-  { name: 'uuidna_aura', description: 'THE QUANTUM AURA — a recomputable A432 COLOUR folded from any {subject} (a content-address or string): the 7 rosette rays, the ℤ/9 vortex wave, the hue stepping by 360/9. Deterministic. HONEST: this is ART, a defined arithmetic from a number to a hue — NOT physics.',
+  { name: 'uuidna_aura', description: 'THE QUANTUM AURA — a recomputable A432 COLOUR folded from any {subject} (a content-address or string): the 7 rosette rays, the ℤ/9 vortex wave, the hue stepping by 432/12 = 36°. Deterministic. HONEST: this is ART, a defined arithmetic from a number to a hue — NOT physics.',
     inputSchema: { type: 'object', properties: { subject: { type: 'string' } }, required: ['subject'] },
     run: (a) => quantumAura(String(a.subject)) },
   { name: 'uuidna_image_provenance', description: 'BYTE-LEVEL provenance of a file: pass the bytes as {hex} or {base64} → the SHA-256 exact-copy + tamper-evidence fingerprint, a uuidna handle, and the container format. Pass {sha256} to VERIFY. HONEST: proves BYTE-IDENTITY— never that an image is a truthful depiction.',

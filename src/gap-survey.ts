@@ -2,7 +2,7 @@
 // Desk-automatable gaps carry an act; kernel-only gaps cite sealed theorems — no boundary prose.
 import { readRepoJson } from './desk/repo/json/index.js'
 import { leadCensus, type SourceReading } from './leads.js'
-import { theoremCountByFile, theoremCasesByFile, theoremByKey, theorems } from './theorems/index.js'
+import { theoremCountByFile, theoremCasesByFile, theoremByKey, theoremFor, theorems } from './theorems/index.js'
 import { pendingHarvestLeads } from './search-feed.js'
 import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
@@ -33,7 +33,7 @@ export function boundaryCitation(key: BoundaryTheoremKey): string {
 }
 
 export function isSealedBoundaryTheorem(key: string): boolean {
-  return theoremByKey().has(key)
+  return theoremFor(key) !== undefined
 }
 
 export function allBoundaryTheoremsSealed(): string[] {

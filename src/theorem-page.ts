@@ -7,7 +7,7 @@
 //
 // Named theorems stay VitePress assets. This module answers only isPagelessFile keys, so a rebuilt
 // named page is never shadowed.
-import { theoremByKey, isPagelessFile, type Theorem } from './theorems/index.js'
+import { theoremFor, isPagelessFile, type Theorem } from './theorems/index.js'
 import { handleOf } from './handle.js'
 import { latticeCall, parseStation, type LatticeCall } from './lattice.js'
 
@@ -36,7 +36,8 @@ const esc = (s: string): string =>
 
 /** theoremPage(key) → the pageless theorem, or null when the key is named (SSG) or unsealed. */
 export function theoremPage(key: string): TheoremPage | null {
-  const t: Theorem | undefined = theoremByKey().get(key)
+  // ONE key, ONE row — the page never needed a map over the ledger, and at the edge that map was the page
+  const t: Theorem | undefined = theoremFor(key)
   if (!t || !isPagelessFile(t.file)) return null
   const handle = handleOf(t.address)
   return {

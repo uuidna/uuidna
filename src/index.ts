@@ -515,7 +515,7 @@ export { schoolApiRegistry, schoolApiFetch, escoSearch, eurostatEducation, gisco
 export { captainRights, readImprintedRights, draftContract, type CaptainRights, type RightsContract } from './captain/rights/index.js'
 
 // aura — the QUANTUM AURA: a recomputable, A432-tuned colour folded from any content-address ("captain string theory":
-// the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°), returned as HSL/RGB/CMYK
+// the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 432/12 = 36°), returned as HSL/RGB/CMYK
 // plus a ready moving-aura CSS block. Deterministic — the same address, the same aura for everyone. Artistic, not
 // physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
 export {
@@ -663,7 +663,7 @@ export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
-export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, isPagelessFile, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
+export { THEOREMS, theorems, theoremByKey, theoremFor, ledgerFacts, skillSummary, isSealedAddress, sealedAddressCount, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, isPagelessFile, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
 export {
   LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,
   parseStation, hex4Of, stationIndex, involuteStation, stationOfAddress, stationOfProblem,

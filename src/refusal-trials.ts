@@ -6,7 +6,7 @@ import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { adjudicate, contentWords, type VerdictKind } from './adjudicate.js'
 import { testClaim } from './quantum/apps/categories/coding/claim-tester.js'
-import { theoremByKey, axiomIndex, THEOREMS, sealedKeys, sealedCount, sealedKeyAt, type WingDefEntry } from './theorems/index.js'
+import { theoremFor, axiomIndex, THEOREMS, sealedKeys, sealedCount, sealedKeyAt, type WingDefEntry } from './theorems/index.js'
 import { axiomHunt } from './scripts/axiom-hunt.js'
 import { type LeadsRecord, type LeadRow } from './school/leads/index.js'
 import { readRepoJson } from './desk/repo/json/index.js'
@@ -200,7 +200,7 @@ export function bookHitsFor(lead: string, boundary: string, corpus: readonly Boo
 
 /** theoremTrialStatement(key) → adjudicate-ready sentence with vocabulary from the sealed name. */
 export function theoremTrialStatement(key: string): string {
-  const th = theoremByKey().get(key)
+  const th = theoremFor(key)
   if (!th) return `proven by theorem ${key}`
   const gloss = contentWords(th.name).slice(0, 12).join(' ')
   return gloss ? `${gloss}, proven by theorem ${key}` : `proven by theorem ${key}`
@@ -609,7 +609,7 @@ export function discoveryHints(query: string, rows?: readonly TrainingRow[]): Di
 
   for (const { row, score } of ranked.slice(0, 12)) {
     for (const key of row.citedKeys) {
-      if (!theoremByKey().has(key)) continue
+      if (!theoremFor(key) !== undefined) continue
       push({
         kind: row.kind === 'refuted' ? 'prior-refutation' : 'boundary-theorem',
         score: score + 2,
@@ -621,7 +621,7 @@ export function discoveryHints(query: string, rows?: readonly TrainingRow[]): Di
       })
     }
     for (const key of row.witnessKeys) {
-      if (!theoremByKey().has(key)) continue
+      if (!theoremFor(key) !== undefined) continue
       push({
         kind: 'witness-theorem',
         score: score + 1,

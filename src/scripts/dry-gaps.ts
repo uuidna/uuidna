@@ -158,7 +158,7 @@ export function linearGaps(): Gap[] {
       if (e.isDirectory()) { if (!DATA_DIRS.has(rel)) walk(rel); continue }
       if (!e.name.endsWith('.ts') || e.name.endsWith('.test.ts') || e.name.endsWith('.d.ts')) continue
       for (const line of linearScansIn(rd(rel)))
-        gaps.push({ what: `${rel}:${line}: a ledger scan for a key (or a per-call key map) — linear per call, quadratic under any loop over the ledger`, fix: `edit ${rel}:${line}: theoremByKey().get(key) (import theoremByKey from the theorems index)` })
+        gaps.push({ what: `${rel}:${line}: a ledger scan for a key (or a per-call key map) — linear per call, quadratic under any loop over the ledger`, fix: `edit ${rel}:${line}: theoremFor(key) (import theoremByKey from the theorems index)` })
     }
   }
   walk('src')

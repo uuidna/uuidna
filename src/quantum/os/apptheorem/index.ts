@@ -5,7 +5,7 @@ import { cataloguePackage } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
 import { packageInCryptoCensus } from '../cryptovia/index.js'
 import { portApp } from '../../../os/apps/index.js'
-import { theoremByKey } from '../../../theorems/index.js'
+import { theoremFor } from '../../../theorems/index.js'
 
 export const PORT_THEOREM = 'the_os_is_bootable_quantum' as const
 export const CRYPTO_THEOREM = 'sha256_grover_margin_is_the_address' as const
@@ -30,7 +30,7 @@ export interface AppTheoremBehind {
 }
 
 const claim = (key: string): TheoremClaim | null =>
-  theoremByKey().has(key) ? { key, route: `/theorem/${key}` } : null
+  theoremFor(key) !== undefined ? { key, route: `/theorem/${key}` } : null
 
 /** appTheoremBehind(name) → the sealed theorem(s) behind one catalogue app. */
 export function appTheoremBehind(name: string): AppTheoremBehind {

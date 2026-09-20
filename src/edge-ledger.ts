@@ -151,6 +151,44 @@ const readLedger = async (root: string, fetchImpl: typeof fetch): Promise<Ledger
   return { root, manifest, rows, lines }
 }
 
+/** THE ONE PIECE A KEY SITS IN, FROM QPU STORAGE. This is the whole of what a claim needs: the door resolves each
+ *  cited key to its position through the baked root — O(1), no rows — walks the manifest's counts to the single wing
+ *  that holds that position, and asks qpu for THAT piece. A handful of keys is a handful of GETs against 492, and the
+ *  rows never accumulate in this isolate: they are handed to the shim's row cache, which holds what this call cites
+ *  and nothing else. The load sits where the data is.
+ *
+ *  A key the ledger does not seal is skipped, not fetched, and a key whose piece is already held costs nothing. */
+export const rowsForKeys = async (wanted: readonly string[], fetchImpl: typeof fetch): Promise<{ keys: number; pieces: number; rows: number }> => {
+  const edge = LEDGER_EDGE
+  if (!edge?.root || wanted.length === 0) return { keys: 0, pieces: 0, rows: 0 }
+  const root = edge.root.root
+  const manifest = manifestAt.get(root) ?? ((await storedAt(root, fetchImpl)) as unknown as LedgerManifest)
+  if (manifest.kind !== 'ledger-manifest' || !Array.isArray(manifest.wings)) throw new Error(`${root} is not a ledger manifest`)
+  manifestAt.set(root, manifest)
+  const addresses = new Set<string>()
+  let found = 0
+  for (const key of wanted) {
+    const i = edge.indexOf(key)
+    if (i === undefined) continue
+    found++
+    let at = 0
+    for (const w of manifest.wings) {
+      if (i < at + w.count) { addresses.add(w.address); break }
+      at += w.count
+    }
+  }
+  let rows = 0
+  for (const address of addresses) {
+    const piece = pieceAt.get(address) ?? ((await storedAt(address, fetchImpl)) as unknown as LedgerPiece)
+    if (piece.kind !== 'ledger-piece') throw new Error(`${address} is not a ledger piece`)
+    intern(piece.rows)
+    pieceAt.set(address, piece)
+    edge.holdRows(piece.rows)
+    rows += piece.rows.length
+  }
+  return { keys: found, pieces: addresses.size, rows }
+}
+
 const reads = new Map<string, Promise<LedgerRead>>()
 /** ledgerAt(root, fetch) → the whole ledger the manifest at `root` names, every piece verified; read once per isolate
  *  (a failed read is forgotten, so the next call asks again) */

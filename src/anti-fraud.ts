@@ -8,7 +8,7 @@
 // integrity. A forged theorem is a fact (the address does not recompute); a traitor is
 // a forgery in the artifact, never a person.
 
-import { theoremByKey, type Theorem } from './theorems/index.js'
+import { theoremFor, type Theorem } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
@@ -68,7 +68,7 @@ export interface DoubleSpendsAudit {
 /** detectForgery(theoremKey, citedAddress) — detect if a cited theorem is forged
  *  by checking against the sealed ledger. */
 export function detectForgery(theoremKey: string, citedAddress?: string): ForgeryDetection {
-  const theorem = theoremByKey().get(theoremKey)
+  const theorem = theoremFor(theoremKey)
 
   if (!theorem) {
     return {
@@ -95,7 +95,7 @@ export function detectForgery(theoremKey: string, citedAddress?: string): Forger
 /** auditCoinClaim(theoremKey, claimedCoins) — verify coin claim against theorem.
  *  The theorem itself proves the coin cost; a mismatch is fraud. */
 export function auditCoinClaim(theoremKey: string, claimedCoins: number): CoinAudit {
-  const theorem = theoremByKey().get(theoremKey)
+  const theorem = theoremFor(theoremKey)
 
   if (!theorem) {
     return {

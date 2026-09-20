@@ -6,7 +6,7 @@
 // key sealed), EXPOSED AXIOM (predicate true, no sealing theorem — the research lead to seal next), REFUTED
 // (predicate false — the code disagrees with its own assumption: a traitor, exit 1). Integrity.
 import {
-  theoremByKey, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, MAX_LAYERS, ADDRESS_BITS, A432_STEP, CAPACITY,
+  theoremByKey, theoremFor, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, MAX_LAYERS, ADDRESS_BITS, A432_STEP, CAPACITY,
   MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, coins, COINS, UUID_BITS, LEVERAGE, HANDLE_HEXBITS, HEXBIT_BITS,
   vortexOrbit, TRINITY, BASE, fuseHalves, twoBoardsOf, nextCoinOf, flipCoin, toUuid, A432_HZ, SAMPLE_RATE, PRICE,
   fuseLadder, fuseWidth, capacityAt, SAFE_HEXBITS, UUID_HEXBITS, metatronOf, RING, hexPiOf, HEX_PI, HEXAGRAM_BITS,
@@ -74,7 +74,7 @@ export const CANDIDATES: HuntCandidate[] = [
   { theorem: 'imprint_capacity_within_address', assumes: 'CAPACITY = 115 < 128 — the imprint fits strictly inside its address, 13 bits of seam', where: 'src/imprint.ts', live: () => CAPACITY === 115 && CAPACITY < ADDRESS_BITS },
   { theorem: 'message_cap_is_four_hexbits', assumes: 'Hilbert 4×4 is HEXBIT_BITS × HEXBIT_BITS; crypto occupancy is sha256IsFourSixtyfours (four 64s)', where: 'src/hexbit/index.ts',
     live: () => {
-      const t = theoremByKey().get('message_cap_is_four_hexbits')
+      const t = theoremFor('message_cap_is_four_hexbits')
       const qubits = HEXBIT_BITS * HEXBIT_BITS
       const states = HEXBIT_STATES ** HEXBIT_BITS
       return !!t && t.file === 'Hexbit.lean'

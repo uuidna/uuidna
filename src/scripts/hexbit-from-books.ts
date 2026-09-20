@@ -11,7 +11,7 @@
 import { UUID_HEXBITS } from '../hexbit/index.js'
 import { wordsToNumber, type TextClaim } from '../books.js'
 import type { WaveCandidate } from '../wave-deposit.js'
-import { theoremByKey } from '../theorems/index.js'
+import { theoremFor } from '../theorems/index.js'
 
 const POINTS_DEGREES = /\b(\d{1,2}|[a-z]+(?:[\s-][a-z]+){0,4})\s+points?\b[^.]{0,40}?\bor\b[^.]{0,40}?\b(\d{1,3}|[a-z]+(?:[\s-][a-z]+){0,4})\s+degrees?\b/i
 const DEGREES_POINTS = /\b(\d{1,3}|[a-z]+(?:[\s-][a-z]+){0,4})\s+degrees?\b[^.]{0,40}?\bor\b[^.]{0,40}?\b(\d{1,2}|[a-z]+(?:[\s-][a-z]+){0,4})\s+points?\b/i
@@ -58,7 +58,7 @@ export function hexbitTheoremFromPointsDegrees(
   if (points * 360 !== rose * degrees) return null // book arithmetic fails — do not queue
   const key = pointsDegreesKey(points, degrees)
   if (!/^[a-z][a-z0-9_]{3,60}$/.test(key)) return null
-  if (theoremByKey().has(key)) return null // already sealed (e.g. four_points_is_45)
+  if (theoremFor(key) !== undefined) return null // already sealed (e.g. four_points_is_45)
   const product = points * 360
   const lean =
     `theorem ${key} : (${points} * 360 = ${rose} * ${degrees}) ∧ (${points} * 360 = ${product}) := by decide`

@@ -39,7 +39,9 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { primeEdgeLedger } from './dist/edge-ledger.js'
+import { rowsForKeys } from './dist/edge-ledger.js'
+import { slimGate } from './dist/slimgate.js'
+import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
 // OIDC-signed verdict post (src/school/routes delegates those two to src/school/grade). Every learner verdict is the
 // pure evaluator's, recomputed here from the served course file pinned to the bundled seal; all school records live in
@@ -349,26 +351,30 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
       const qpuFetch = qpuFetchOf(env)
-      // A tool call may read the ledger, so its rows are primed first; initialize, tools/list and ping never wait on them.
+      // THE CALL'S OWN KEYS, AND NOTHING ELSE. Priming read all 492 pieces and held every row for the life of the
+      // isolate — measured at 40 MB parsed against a 128 MB ceiling — so a door that needed one cited row paid for
+      // the whole ledger, and the ones that needed none paid for it too. Every aggregate a door reports is baked
+      // into the root now; what is left is the rows a CLAIM CITES, which is a handful, and the manifest already
+      // names the single piece each of them sits in.
       //
-      // THE DEPOSIT DOOR IS THE ONE THAT MUST NOT WAIT. It is how the rows GET into storage, so requiring them first is a
-      // bootstrap circularity: on an empty store the deposit primed nothing, kept fetching, and the isolate died —
-      // `outcome: exceededMemory` at 61 ms of CPU and 36 s of wall, every second of it spent waiting on pieces that were
-      // not there, for a two-byte body. The ledger could not be filled because it was empty. Nothing in the deposit path
-      // reads a row: the 2x7 witness fold and the honesty gate both answer from the baked root, which is what
-      // gate-engine's own comment already promises ("every gated call — the deposit door that fills storage included").
-      // This makes the code keep that promise.
-      // AND PRIMING IS NOT FREE EITHER, SO IT IS NOT DONE FOR EVERY CALL. Priming reads all 492 pieces, materialises
-      // 71,017 key strings and holds 71,017 row objects for the life of the isolate — 25.4 MB of JSON is far more than
-      // that as objects, and a 128 MB isolate does not hold it. Paying that on every tools/call killed doors that
-      // never read a row: uuidna_laws answered `exceededMemory` for laws it reads from src/laws.ts. So it is primed
-      // only where it is asked for, and a door that needs rows and does not get them says so — a stated reason beats
-      // a crashed isolate, which is what the shim's `fail` reason exists for. The standing fix is to serve a query
-      // from the ONE piece that holds its key, which the manifest already names; this stops paying for all of them.
-      const readsRows = (m) =>
-        m && m.method === 'tools/call' &&
-        !(m.params?.name === 'uuidna_evidence' && m.params?.arguments?.deposit !== undefined)
-      if ((Array.isArray(msg) ? msg : [msg]).some(readsRows)) await primeEdgeLedger(qpuFetch ?? fetch)
+      // WHICH KEYS ARE WANTED IS READ, NOT LISTED. Two derived sources, no table of tool names: a string argument
+      // that IS a sealed key (uuidna_theorem {key}), and the keys a string argument CITES, decided by the same
+      // honesty gate the tool will decide with — both answered from the baked root without a row. Anything else is
+      // not fetched, and a door that wants a row it did not cite reads it as absent, which is a fact about the call.
+      const wantedKeys = (m) => {
+        if (!m || m.method !== 'tools/call') return []
+        const args = m.params?.arguments ?? {}
+        if (m.params?.name === 'uuidna_evidence' && args.deposit !== undefined) return []   // a deposit reads no row
+        const keys = new Set()
+        for (const v of Object.values(args)) {
+          if (typeof v !== 'string' || !v) continue
+          if (sealedAddressOf(v) !== undefined) keys.add(v)
+          for (const k of slimGate(v).real) keys.add(k)
+        }
+        return [...keys]
+      }
+      const wanted = [...new Set((Array.isArray(msg) ? msg : [msg]).flatMap(wantedKeys))]
+      if (wanted.length) await rowsForKeys(wanted, qpuFetch ?? fetch)
       const mcpCtx = {
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
@@ -456,7 +462,8 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // for them, so a rebuilt SSG page is never shadowed.
     const thMatch = url.pathname.match(/^\/theorem\/([A-Za-z0-9_]+)$/)
     if (thMatch && request.method === 'GET') {
-      await primeEdgeLedger(qpuFetchOf(env) ?? fetch)
+      // one key, one piece — the page read the whole ledger to render a single theorem
+      await rowsForKeys([thMatch[1]], qpuFetchOf(env) ?? fetch)
       const page = theoremPage(thMatch[1])
       if (page) {
         return new Response(renderTheoremPage(page), {
