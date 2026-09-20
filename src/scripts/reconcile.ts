@@ -47,8 +47,26 @@ if (!gate.ok) {
 }
 process.on('exit', () => release(process.pid))   // the holder lets go however the chain ends; a crash is stale by pid
 
-console.log('reconcile — the guard first, because a reconcile on an unforged ledger is the only kind worth paying for …')
-run('node dist/scripts/guard.js')
+// AND THE PRE-FLIGHT ADVISES WHERE IT USED TO ABORT, BECAUSE IT WAS BLOCKING ITS OWN CURE. The guard first was
+// right about forgery and wrong about staleness: most of what it catches here — a refusal record behind its
+// inputs, a link to a key that was just renamed, a citation the regeneration is about to rewrite — is cured by
+// the very steps below it, so aborting at step one meant the chain could never heal itself and a human ran
+// `lean && axioms && trial-refusals && reconcile` by hand instead. That hand-run loop is the crack this file
+// exists to close, and the pre-flight was making it.
+//
+// NOTHING IS WEAKENED: the guard now runs at the END of the chain as well, where it is AUTHORITATIVE and the
+// chain fails on it — protection this file did not have before, since the only gate was the pre-push hook. The
+// cost of a genuinely forged ledger is the regeneration time the pre-flight used to save; the benefit is that a
+// stale derived layer heals without a person sequencing the steps. `--strict` restores the old abort for a
+// caller who would rather pay nothing on a forged tree.
+console.log('reconcile — pre-flight guard (advisory: what it catches here, the chain below mostly cures) …')
+const STRICT = process.argv.includes('--strict')
+try {
+  run('node dist/scripts/guard.js')
+} catch (e) {
+  if (STRICT) throw e
+  console.error('· reconcile — the pre-flight guard is not clean; continuing, because the chain regenerates what it reads. The guard at the END decides.')
+}
 
 console.log('reconcile — regenerating the derived layer to match the Lean source …')
 // UUIDNA_TRACK_LATEST: reconcile is THE deliberate upstream-tracking act — its lean step refreshes the
@@ -70,7 +88,11 @@ run('node dist/scripts/support.js')                   // support-audit.json + re
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
 run('node dist/scripts/trial-refusals.js')           // lean/refusal-trials.json — the COURT RECORD, computed LAST among the derivations: it reads the ledger, lean/axioms.json (rewritten above by lean-axioms) and the witness seals, and spin seals it, so it must come after every derivation and before the seal (PATCHES §46: computed before this chain, the record went stale and the heal alternated court ↔ spin six rounds, twice)
-run('node dist/scripts/spin.js --seal')               // spin-manifest.json — SEAL the coins of the freshly-rotated derived layer LAST (after every generator); once sealed, the gate re-spins them by itself (verify O(1))
+run('node dist/scripts/spin.js --seal')
+// THE GUARD AT THE END IS THE ONE THAT DECIDES. Everything above has regenerated the derived layer; this reads
+// what the chain wrote, and the chain fails here if the tree is not clean. A reconcile that ends green means the
+// tree is green — which is what a caller actually needs to know, and what the advisory pre-flight cannot say.
+run('node dist/scripts/guard.js')               // spin-manifest.json — SEAL the coins of the freshly-rotated derived layer LAST (after every generator); once sealed, the gate re-spins them by itself (verify O(1))
 
 
 // THE SPLIT. Everything above re-derives the layer from the ledger and re-seals it — local, reversible, and the
