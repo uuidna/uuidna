@@ -71,13 +71,15 @@ const estimateOf = (shard: readonly string[]): number => {
 // wedged two landings outright: when a neighbouring session left less free than that one estimate, nothing could be
 // admitted, and memoryPool waits without a deadline, so a stall was indistinguishable from work for 29 minutes.
 // Cutting by the LIGHTEST measured file gives the pool small pieces to pack; each is still admitted on its own
-// measured need, so nothing is admitted that the memory cannot hold.
+// measured need: BY CONSTRUCTION the pool reserves each estimate against the memory measured free at that instant,
+// so an admission is itself a reading that the shard fit, not a promise that it will.
 // CUTTING IS NOT ADMITTING, and conflating them is what pinned this at one lane. How many shards to CUT is a
 // question about granularity and costs nothing; how many to RUN AT ONCE is a question about memory and is already
 // answered, per shard and on live measurement, by memoryPool below. Sizing the cut by memory made both answers the
 // same number, and that had a fixed point: one shard means every file records that one shard's peak, so the next
 // run reads the same single bound and cuts one shard again, forever. Cut by the cores the machine has, measure each
-// piece, and let admission stay the pool's job — it still starts nothing the memory cannot hold.
+// piece, and let admission stay the pool's job — BY CONSTRUCTION it reserves each shard's estimate against the
+// memory measured free before starting it.
 const lanes = cores
 const shards = shardsOf(files, readings?.secondsByFile ?? {}, lanes < 1 ? 1 : lanes > cores ? cores : lanes)
 console.log(`· test-plan — ${plan.mode}: ${plan.why}` + (plan.mode === 'delta' ? `\n  ${plan.files.join('\n  ')}` : ''))
