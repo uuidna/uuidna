@@ -48,6 +48,19 @@ binding = "QPU_DEPOSIT"
 service = "uuidna-qpu"
 entrypoint = "QpuDeposit"
 
+# EMAIL — the send_email binding (Cloudflare Email Workers). Declared in the array-of-tables form this file uses;
+# the JSONC equivalent is "send_email": [{ "name": "EMAIL", "remote": true }]. `remote = true` is the remote-bindings
+# flag: local dev reaches the real resource instead of a stub, so what runs here is what runs in production.
+#
+# WHAT THIS DOES AND DOES NOT DO. It declares the CAPABILITY and nothing more — no code in this worker sends mail,
+# and adding the binding sends nothing by itself. Cloudflare only delivers to a destination address VERIFIED in
+# Email Routing for the zone, so an unverified recipient is refused at send time, not at deploy; with no
+# destination_address and no allowed_destination_addresses the binding is unrestricted across those verified
+# destinations, which is the widest form and is why the restriction lives with the verification rather than here.
+[[send_email]]
+name = "EMAIL"
+remote = true
+
 [assets]
 directory = "./docs/.vitepress/dist"
 binding = "ASSETS" # worker.js delegates the serve path to env.ASSETS.fetch

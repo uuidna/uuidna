@@ -40,6 +40,17 @@ export function declineNote(status: number, body: string, retryAfter: string | n
   return `responded ${status}${why ? ' — ' + why : ''}${tail}`
 }
 
+/** WHO IS CALLING, SAID TRUTHFULLY — and it is not decoration. Node sends `User-Agent: node` by default and
+ *  Zenodo answers 403 to it, so uuidna_zenodo_communities read as a broken door when what was refused was the
+ *  runtime's own default. Measured 2026-09-21 against zenodo.org/api/communities: `node` 403, no agent at all 200,
+ *  `uuidna/1 (+https://uuidna.com)` 200. Every reader in this tree that already worked says who it is
+ *  (uuidna-zenodo-oai/1, uuidna-references/1.0, uuidna-doi-harvest/1); this is that same courtesy in the one place
+ *  every OS fetch passes through, so no door has to remember it. A caller may still override it.
+ *
+ *  It carries NO version: a version here would drift from package.json the moment either moved, and a host reads
+ *  this to know who to contact, never to decide what to send back. */
+const UA = 'uuidna/1 (+https://uuidna.com)'
+
 export async function fetchData<T>(url: string, kind: DataKind, init?: RequestInit): Promise<Fetched<T>> {
   const cacheKey = kind + '|' + url + '|' + (init?.method ?? 'GET') + '|' + (typeof init?.body === 'string' ? init.body : '')
   const cached = _live.get(cacheKey)
@@ -56,7 +67,7 @@ export async function fetchData<T>(url: string, kind: DataKind, init?: RequestIn
   try {
     r = await fetch(url, {
       ...init,
-      headers: { accept, ...(init?.headers ?? {}) },
+      headers: { accept, 'user-agent': UA, ...(init?.headers ?? {}) },
       // A DOOR THAT NEVER ANSWERS IS NOT A DOOR THAT SAYS NO. Without a deadline one unresponsive host held the
       // whole fan-out open for as long as the socket stayed alive, so a sweep's cost was the SLOWEST host rather
       // than the deadline — and a hung port read as "still working" instead of declining. The bound is the same

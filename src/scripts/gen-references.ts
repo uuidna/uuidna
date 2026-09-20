@@ -18,7 +18,7 @@ import { referenceDois, type Reference } from '../references.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 
-const UA = { 'User-Agent': 'uuidna-references/1.0 (https://uuidna.com; mailto:ceci@psg.bg)' }
+const UA = { 'User-Agent': 'uuidna-references/1.0 (https://uuidna.com; mailto:captain@uuidna.com)' }
 
 const fromCrossref = (m: Record<string, unknown>): Partial<Reference> => {
   const authors = ((m.author as { family?: string; given?: string; name?: string }[]) ?? [])

@@ -371,7 +371,31 @@ jobs:
           # would still be a fault: any THIRD chain, which neither party minted.
           sleep 10
           STRAYS=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25" | jq -r --arg c "$CONCEPT_CHAIN" --arg t "$TWIN_CHAIN" '[.hits.hits[] | select(.metadata.title | startswith("uuidna")) | .conceptrecid | tostring] | unique | map(select(. != $c and . != $t)) | join(" ")' || true)
-          test -z "$STRAYS" || echo "::warning::unknown uuidna concept chain(s) on Zenodo: $STRAYS — neither the standing chain ($CONCEPT_CHAIN) nor the sync twin ($TWIN_CHAIN) minted these; investigate"
+          test -z "$STRAYS" || echo "::warning::unknown uuidna concept chain(s) on Zenodo: $STRAYS — neither the standing chain ($CONCEPT_CHAIN) nor the sync twin ($TWIN_CHAIN) minted these; investigate
+
+          # AND THE TWIN JOINS THE COMMUNITY TOO — it is not this job's deposit, so nothing was ever asking for it.
+          # The block above requests inclusion for $REC, the record THIS workflow published. The twin is minted
+          # independently by the GitHub-Zenodo sync on $TWIN_CHAIN, and that path has no community step at all, so
+          # it lands outside the portal every time. Measured 2026-09-21: the uuidna community held 3 records while
+          # a global search found 4 — the missing one was 22256731, the twin of the 2026-09-02 release. Half of
+          # every release has been arriving unpublished to the portal, which matters because a release IS the news:
+          # each carries the novelties and discoveries of its era, and a reader browsing the community saw one coin
+          # of the two. Non-fatal for the same reason as above: inclusion is curator-mediated and a pending review
+          # must never unpublish a DOI that already landed.
+          TWIN_REC=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25&sort=newest" \
+            | jq -r --arg t "$TWIN_CHAIN" '[.hits.hits[] | select((.conceptrecid|tostring) == $t)] | sort_by(.metadata.publication_date) | last | .id // empty' || true)
+          if [ -z "$TWIN_REC" ]; then
+            echo "::warning::the sync twin on chain $TWIN_CHAIN has not appeared yet — its community membership is UNREQUESTED, not refused; re-run this step or request it once the sync lands"
+          else
+            for C in $(jq -r '.communities[]?.identifier' .zenodo.json); do
+              RESP=$(curl -s -o /tmp/tc.json -w '%{http_code}' -X POST -H "$AUTH" -H "Content-Type: application/json" \
+                -d "{\"communities\":[{\"id\":\"$C\"}]}" "https://zenodo.org/api/records/$TWIN_REC/communities" || echo 000)
+              case "$RESP" in
+                20*) echo "::notice::community '$C' — inclusion requested for the TWIN record $TWIN_REC (HTTP $RESP)" ;;
+                *)   echo "::warning::community '$C' — twin inclusion returned HTTP $RESP for record $TWIN_REC: $(head -c 300 /tmp/tc.json). The twin DOI stands; its membership does not." ;;
+              esac
+            done
+          fi"
 
   # Agnostic Zenodo publication seals — loops zenodo/manifest.json (clay-involution is one instance).
   # Metadata: zenodo/seals/<id>.json from gen-zenodo-seals (rich schema + canonical CC-BY-NC-ND-4.0).
