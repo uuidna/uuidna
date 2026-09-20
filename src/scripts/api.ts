@@ -477,6 +477,11 @@ export const LFS_PATHS: readonly string[] = [
 export const DRAIN_PATHS: readonly string[] = [
   // every tool's computed documentation (gen-mcp-docs): the module both MCP surfaces serve names, titles and shapes from
   'src/mcp-docs.generated.ts',
+  // THE ONE DESIGN MATRIX as the stylesheet the site loads (gen-matrix-css from src/css.ts). Staged because
+  // reconcile rewrites it every run, and because an unstaged matrix is exactly how the last drift hid: the browser
+  // painted --seq-1: hsl(320 66% 55%) while this tree and the hosted door both computed hsl(336 66% 55%), and
+  // nothing compared the two receipts. Staged, a stale matrix is a diff instead of a colour nobody checked.
+  'docs/.vitepress/theme/computed.css',
   // the openly-licensed funding drafts — composed from the ledger by gen-funding-drafts, so they are staged
   // like any other derived surface rather than left to rot while git reports the tree clean
   'funding/drafts/nlnet-ngi-zero.md',
@@ -689,6 +694,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'guard': ['quantum-fold.json'],
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
+  'gen-matrix-css': ['docs/.vitepress/theme/computed.css'],
   'gen-handle-chunks': ['src/chunks'],
   'gen-handle-store': ['src/handles'],
   'gen-analytics': ['docs/analytics.md'],

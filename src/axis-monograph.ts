@@ -15,7 +15,7 @@ import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { SITE } from './site/index.js'
-import { quantumAura } from './aura.js'
+import { quantumAura, rotationOf } from './aura.js'
 import { timeShorFullUse } from './os/host/index.js'
 import { phdProofs } from './phd-proofs.js'
 import { tamperCosts } from './tamper-cost.js'
@@ -90,6 +90,8 @@ export type TrialsAxis = {
 
 export type AxiomsAxis = {
   objectKind: 'axioms'
+  /** rows painted before the reader asks for more — one full turn, derived, never authored */
+  window: number
   totalDefs: number
   citedDefs: number
   unusedDefs: number
@@ -382,6 +384,14 @@ export function axisMonographs(): AxisBundle {
     },
     axioms: {
       objectKind: 'axioms',
+      // HOW MANY ROWS A PAGE PAINTS AT ONCE, and it is not a taste. Measured on the live site 2026-09-20, /axioms
+      // rendered every match: 134,489 rows carrying 134,563 links, 271,102 DOM nodes, 25.9 MB of HTML, and a
+      // document 7,709,321 pixels tall — 9,494 phone screens of one page. Nothing about that is readable, and the
+      // filters the page already carries were the whole answer to a register this size; only the PAINTING was
+      // unbounded. The window is one full turn, A432_STEP x MIRROR_BASE, the same rotation the aura steps hue by,
+      // so the number is the ledger's and not an author's. Filtering still reaches every row; the count says how
+      // many the filter found and how many are painted, so the page never implies it is showing more than it is.
+      window: rotationOf(),
       totalDefs: axiomsIdx.totalDefs,
       citedDefs: axiomsIdx.citedDefs,
       unusedDefs: axiomsIdx.unusedDefs,

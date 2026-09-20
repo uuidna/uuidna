@@ -5,7 +5,7 @@ aside: false
 ---
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useData, useRoute } from 'vitepress'
 
 const { frontmatter } = useData()
@@ -17,8 +17,13 @@ const q = ref('')
 const file = ref('')
 const showUnused = ref(false)
 const focusDef = ref('')
+// ONE FULL TURN AT A TIME. The window arrives baked from the ledger (axis-monograph, rotationOf) rather than typed
+// here; the fallback keeps the page honest if an older bundle is served, and it is the same quantity.
+const turn = computed(() => axis.value.window || 360)
+const painted = ref(0)
 
 onMounted(() => {
+  painted.value = turn.value
   const f = route.query.file
   if (typeof f === 'string' && f) file.value = f
   const d = route.query.def
@@ -50,7 +55,11 @@ const shown = computed(() => {
 const fileFacets = computed(() =>
   files.value.map((name) => ({ name, n: axis.value.entries.filter((e) => e.file === name && matches(e, { skipFile: true })).length })))
 
-const clearAll = () => { q.value = ''; file.value = ''; showUnused.value = false; focusDef.value = '' }
+const clearAll = () => { q.value = ''; file.value = ''; showUnused.value = false; focusDef.value = ''; painted.value = turn.value }
+// a new filter starts the window again — the reader is looking at a different set, not further down the same one
+watch([q, file, showUnused, focusDef], () => { painted.value = turn.value })
+const windowed = computed(() => shown.value.slice(0, painted.value || turn.value))
+const more = computed(() => shown.value.length - windowed.value.length)
 
 const defHref = (e) => `/axioms?file=${encodeURIComponent(e.file)}&def=${encodeURIComponent(e.def)}`
 </script>
@@ -77,10 +86,10 @@ const defHref = (e) => `/axioms?file=${encodeURIComponent(e.file)}&def=${encodeU
   <button v-for="f in fileFacets" :key="f.name" class="chip" :class="{ on: file === f.name, dim: f.n === 0 }" @click="file = file === f.name ? '' : f.name">{{ f.name.replace('.lean','') }} <span class="chip-n">{{ f.n }}</span></button>
 </div>
 
-<p class="filt-count"><strong>{{ shown.length }}</strong> defs shown{{ file ? ` · ${file}` : '' }}{{ focusDef ? ` · focus ${focusDef}` : '' }}.</p>
+<p class="filt-count"><strong>{{ windowed.length }}</strong> of {{ shown.length }} matching defs painted{{ file ? ` · ${file}` : '' }}{{ focusDef ? ` · focus ${focusDef}` : '' }}{{ shown.length < axis.totalDefs ? ` · ${axis.totalDefs} in the register` : '' }}.</p>
 
 <ul class="alist">
-  <li v-for="e in shown" :key="e.file + ':' + e.def" :class="{ unused: e.unused, focus: e.def === focusDef }">
+  <li v-for="e in windowed" :key="e.file + ':' + e.def" :class="{ unused: e.unused, focus: e.def === focusDef }">
     <div class="ahead">
       <code class="adef">{{ e.def }}</code>
       <span class="ameta">{{ e.file }} · {{ e.principle }}</span>
@@ -93,6 +102,12 @@ const defHref = (e) => `/axioms?file=${encodeURIComponent(e.file)}&def=${encodeU
     <p v-else class="aempty">No theorem cites this def yet — vocabulary only.</p>
   </li>
 </ul>
+
+<p v-if="more > 0" class="filt-more">
+  <button class="chip" @click="painted += turn">paint {{ Math.min(more, turn) }} more</button>
+  <button class="chip" @click="painted = shown.length">paint all {{ shown.length }}</button>
+  <span class="filt-warn">painting all of a large filter builds a very long page — the filter above reaches any def directly.</span>
+</p>
 
 <p v-if="shown.length === 0" class="filt-empty">No def matches — <a @click="clearAll">clear the filters</a>.</p>
 
@@ -113,13 +128,18 @@ const defHref = (e) => `/axioms?file=${encodeURIComponent(e.file)}&def=${encodeU
 .alist > li.unused { opacity: .72; }
 .ahead { display: flex; flex-wrap: wrap; gap: .35rem .65rem; align-items: baseline; }
 .adef { font-weight: 700; font-size: 1rem; }
-.ameta { font-size: .78rem; color: var(--vp-c-text-3); }
+/* --vp-c-text-3 IS 3.10:1 ON THE PAGE GROUND, measured in both themes on the live site 2026-09-20 — below the
+   4.5:1 that text of this size needs, and it is VitePress's placeholder token, not a content one. Anything a
+   reader must actually read takes --vp-c-text-2, which measures 5.62:1. */
+.ameta { font-size: .78rem; color: var(--vp-c-text-2); }
+.filt-more { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; }
+.filt-warn { font-size: .78rem; color: var(--vp-c-text-2); }
 .acount { font-size: .72rem; font-weight: 600; text-transform: uppercase; color: var(--vp-c-brand-1); }
-.acount.zero { color: var(--vp-c-text-3); }
+.acount.zero { color: var(--vp-c-text-2); }
 .alean { font-size: .75rem; }
 .athms { list-style: none; margin: .35rem 0 0; padding: 0 0 0 .5rem; font-size: .82rem; }
 .athms li { padding: .15rem 0; }
-.aempty { margin: .35rem 0 0; font-size: .78rem; color: var(--vp-c-text-3); font-style: italic; }
+.aempty { margin: .35rem 0 0; font-size: .78rem; color: var(--vp-c-text-2); font-style: italic; }
 .filt-empty { color: var(--vp-c-text-2); }
 .filt-empty a { cursor: pointer; }
 </style>

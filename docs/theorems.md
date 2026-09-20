@@ -169,9 +169,12 @@ The same theorems grouped by skill are on [/topics](/topics); each principle's p
   font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
   background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1); vertical-align: middle;
 }
-.tbind.kernel { background: var(--vp-c-bg-soft); color: var(--vp-c-text-3); }
+.tbind.kernel { background: var(--vp-c-bg-soft); color: var(--vp-c-text-2); }
 .tlist-flat li > a { font-weight: 600; }
-.tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }
+/* MEASURED IN BOTH THEMES ON THE LIVE SITE 2026-09-20: --vp-c-text-3 is 3.10:1 on the page ground in light and
+   3.20:1 in dark, against the 4.5:1 that text this size needs — it is VitePress's placeholder token and was
+   carrying content. --vp-c-text-2 measures 5.62:1. The badge below failed the same way at 2.87 and 2.99. */
+.tmeta { display: block; font-size: .74em; color: var(--vp-c-text-2); margin-top: .1rem; }
 .filt-empty { color: var(--vp-c-text-2); }
 .filt-empty a { cursor: pointer; }
 .span-note { color: var(--vp-c-text-2); font-size: .92rem; }

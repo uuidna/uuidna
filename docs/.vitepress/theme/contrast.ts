@@ -122,6 +122,31 @@ export const SEQ_AS_TEXT = {
   '--seq-center': '#2acb2a',
 } as const
 
+/** tokenAsTextChecks() → every --vp-c-text-* token measured as TEXT on both page grounds, in both themes.
+ *
+ *  WHY THIS IS DERIVED AND NOT A LIST. The checks above name the specific pairs two components render, and that is
+ *  why this defect survived: .tmeta on /theorems and .ameta, .acount.zero and .aempty on /axioms all carry real
+ *  content in --vp-c-text-3, and no pair naming them was ever written down, so nothing was ever measured. Reading
+ *  the tokens out of VP_COLORS instead means a token cannot be missed by not being listed — the list IS the tokens.
+ *
+ *  WHAT IT FINDS, measured live 2026-09-20 in a browser and reproduced here from this module's own arithmetic:
+ *  --vp-c-text-3 is 3.10:1 on the light ground and 3.20:1 on the dark one, against the 4.5:1 that text of that size
+ *  needs. It is VitePress's placeholder token, and 1.4.3 does exempt genuinely incidental text, so this reports
+ *  rather than asserts — the same stance accentTextChecks() takes, and for the same reason: 45 uses across 28 files
+ *  in this tree, most of them other authors', are not something one session should rewrite by ambush. The two
+ *  register pages whose metadata this measurement caught carrying content have been moved to --vp-c-text-2 (5.62:1). */
+export function tokenAsTextChecks(): ContrastCheck[] {
+  const checks: ContrastCheck[] = []
+  for (const theme of ['light', 'dark'] as const) {
+    const c = VP_COLORS[theme]
+    for (const [name, fg] of Object.entries({ '--vp-c-text-1': c.text1, '--vp-c-text-2': c.text2, '--vp-c-text-3': c.text3 })) {
+      checks.push({ name: `${name} as text on bg (${theme})`, fg, bg: c.bg, threshold: WCAG_AA_TEXT, theme })
+      checks.push({ name: `${name} as text on bgSoft (${theme})`, fg, bg: c.bgSoft, threshold: WCAG_AA_TEXT, theme })
+    }
+  }
+  return checks
+}
+
 export function accentTextChecks(): ContrastCheck[] {
   const checks: ContrastCheck[] = []
   for (const theme of ['light', 'dark'] as const) {
