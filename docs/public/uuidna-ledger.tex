@@ -15466,46 +15466,46 @@ theorem the_third_level_already_shares : ([0,0,11,12,4,11,11,14].take 6 = [0,0,1
 
 \section{The forensic odds}
 
-\begin{theorem}[A GUESSED ADDRESS DOES NOT LAND. The ledger holds 71,032 distinct addresses, every one a v8 uuid with 122 free bits, so a forger who invents an address and frames it as sealed hits a real one with odds below 2\textasciicircum{}-105: 71,032 × 2\textasciicircum{}105 < 2\textasciicircum{}122. forensics() flags every miss as a false address — run here on a forged address (flagged) and a sealed one (passed) — so a false trial cannot survive except by that chance, and the chance is sealed. Counted from the ledger at generation, never typed.]
+\begin{theorem}[A GUESSED ADDRESS DOES NOT LAND. The ledger holds 71,035 distinct addresses, every one a v8 uuid with 122 free bits, so a forger who invents an address and frames it as sealed hits a real one with odds below 2\textasciicircum{}-105: 71,035 × 2\textasciicircum{}105 < 2\textasciicircum{}122. forensics() flags every miss as a false address — run here on a forged address (flagged) and a sealed one (passed) — so a false trial cannot survive except by that chance, and the chance is sealed. Counted from the ledger at generation, never typed.]
 \label{thm:forged-address-odds-are-negligible}
 \[
-  71032 \cdot 2^{105} < 2^{122}
+  71035 \cdot 2^{105} < 2^{122}
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem forged_address_odds_are_negligible : 71032 * 2 ^ 105 < 2 ^ 122 := by decide
+theorem forged_address_odds_are_negligible : 71035 * 2 ^ 105 < 2 ^ 122 := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{8084f88c-3e67-84f9-9cbe-5f4a0a00cbdf}.
+\noindent Content-address \texttt{792942e3-3c20-8f19-a75e-328833630035}.
 \end{proof}
 
-\begin{theorem}[A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 71,636 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2\textasciicircum{}-15: 71,636 × 2\textasciicircum{}15 < 2\textasciicircum{}32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks.]
+\begin{theorem}[A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 71,639 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2\textasciicircum{}-15: 71,639 × 2\textasciicircum{}15 < 2\textasciicircum{}32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks.]
 \label{thm:forged-handle-odds-are-small}
 \[
-  71636 \cdot 2^{15} < 2^{32}
+  71639 \cdot 2^{15} < 2^{32}
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem forged_handle_odds_are_small : 71636 * 2 ^ 15 < 2 ^ 32 := by decide
+theorem forged_handle_odds_are_small : 71639 * 2 ^ 15 < 2 ^ 32 := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{64e5864b-c934-8a6a-b04a-ccaeb6e29549}.
+\noindent Content-address \texttt{92334cd2-5a67-8607-88e3-f5478410837a}.
 \end{proof}
 
-\begin{theorem}[THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 71,636 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits.]
+\begin{theorem}[THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 71,639 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits.]
 \label{thm:sixteen-bit-handles-would-collide}
 \[
-  71636 > 2^{16}
+  71639 > 2^{16}
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem sixteen_bit_handles_would_collide : 71636 > 2 ^ 16 := by decide
+theorem sixteen_bit_handles_would_collide : 71639 > 2 ^ 16 := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{3acbf511-f1a4-85ad-9e70-f5693df99652}.
+\noindent Content-address \texttt{d30cf211-585a-8b37-8341-bd2660b94fe5}.
 \end{proof}
 
 \section{The substitution invariants}

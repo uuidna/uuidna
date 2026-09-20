@@ -41,7 +41,7 @@ const receipt = runTrial().receipt
 // WHAT THIS DEPOSIT CLAIMS, AND WHAT IT CREDITS — measured, because novelty
 // asserted is not novelty.
 //
-// A permanent DOI that says "71035 theorems" and nothing else invites the
+// A permanent DOI that states the key count and nothing else invites the
 // reading that all of them are discoveries. They are not: a kernel verdict is
 // a property of the PROOF, and a proof says nothing about who found the fact.
 // This ledger has already been wrong in that direction — it claimed Watson and
