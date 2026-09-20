@@ -246,10 +246,12 @@ test('and the returned form decides as the sealed one does', async () => {
 })
 
 test('the pair can fail — a rendering that lies is caught', async () => {
-  // A hundred per cent that cannot fail is furniture. These are the exact
-  // corruptions a projection suffers, applied to the node rather than the
-  // renderer so the check is exercised without editing it: a dropped
-  // negation, and a comparison loosened by one notch.
+  // A hundred per cent result is worth nothing until the failing branch has
+  // been exercised — BY CONSTRUCTION, since a check whose false case never
+  // runs has no evidence it can produce one. These are the exact corruptions a
+  // projection suffers, applied to the node rather than the renderer so the
+  // check is exercised without editing it: a dropped negation, and a
+  // comparison loosened by one notch.
   const lying: Node = { kind: 'bin', left: { kind: 'num', text: '2' }, op: '<', right: { kind: 'num', text: '2' } }
   const honest: Node = { ...lying, op: '≤' }
 
