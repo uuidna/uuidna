@@ -460,8 +460,28 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // every /theorem/enumeration_hex4_<hex> door; this looks the key up and renders, the same lookup the
     // catalogue already pays for packages. Named theorems stay VitePress assets — theoremPage returns null
     // for them, so a rebuilt SSG page is never shadowed.
+    /** ONE WAY TO SERVE A BUILT FILE. The theorem route below and the tail of this handler both answer with a static
+     *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
+     *  that decides the headers a built page leaves with. */
+    const servedAsset = (asset, forPath) => {
+      const built = new Headers(asset.headers)
+      built.set('link', `<${url.origin}/mcp>; rel="mcp"`)
+      built.set('cache-control', assetCacheControl(forPath))
+      return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers: built })
+    }
+
     const thMatch = url.pathname.match(/^\/theorem\/([A-Za-z0-9_]+)$/)
     if (thMatch && request.method === 'GET') {
+      // THE BUILT PAGE IS ASKED FOR FIRST, BECAUSE IT IS THE ONE THAT COSTS NOTHING. This route exists only for the
+      // pageless span the SSG cannot build, and it charged every other theorem for that span: the ledger fetch below
+      // ran before theoremPage could say it had nothing to render, so all 5,402 named theorems — every page a
+      // citation points at — bought a qpu storage round-trip and then threw the answer away. Measured on the live
+      // site 2026-09-20: 11-20 seconds to first byte for a 15 KB static page, against 1.4-2.1 seconds everywhere
+      // else on the portal, and the same figure for a key that IS prerendered and one that is not, which is what
+      // named the fetch rather than the render. The static site is the authority on what it built, so it is asked
+      // instead of a second list that could drift from it, and a rebuilt SSG page is still never shadowed.
+      const alreadyBuilt = await env.ASSETS.fetch(new Request(url, request))
+      if (alreadyBuilt.status === 200) return servedAsset(alreadyBuilt, url.pathname)
       // one key, one piece — the page read the whole ledger to render a single theorem
       await rowsForKeys([thMatch[1]], qpuFetchOf(env) ?? fetch)
       const page = theoremPage(thMatch[1])
@@ -476,10 +496,6 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     // the bare probe so Cloudflare does not serve a 404 HTML page as an "icon".
     const assetUrl = url.pathname === '/favicon.ico' ? new URL('/icon.svg', url) : url
     const assetReq = assetUrl === url ? request : new Request(assetUrl, request)
-    const asset = await env.ASSETS.fetch(assetReq)
-    const headers = new Headers(asset.headers)
-    headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
-    headers.set('cache-control', assetCacheControl(assetUrl.pathname))
-    return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers })
+    return servedAsset(await env.ASSETS.fetch(assetReq), assetUrl.pathname)
   },
 }

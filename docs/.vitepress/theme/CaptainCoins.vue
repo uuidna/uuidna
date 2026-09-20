@@ -87,7 +87,10 @@ const verified = computed(() => jobs.value.filter((j) => j.verdict === 'VERIFIED
 .cc-verdict { padding: .7rem .9rem; border-radius: 8px; border: 1px solid var(--vp-c-divider); font-size: .9rem; }
 .cc-verdict.ok { border-color: var(--seq-5); }
 .cc-verdict.bad { border-color: var(--seq-2); }
-.cc-jobs, .cc-acct { width: 100%; display: table; margin: 1rem 0; font-size: .88rem; }
+/* display: table WAS AN OPT-OUT OF THE CONTAINER THE THEME ALREADY GIVES A TABLE, and it cost the page: measured
+   2026-09-20, /captain scrolled 285px sideways at a 375px viewport while every other table on the portal sat in its
+   own scroller and measured 0. A table may be wider than the screen; the page may not. */
+.cc-jobs, .cc-acct { width: 100%; display: block; max-width: 100%; overflow-x: auto; margin: 1rem 0; font-size: .88rem; }
 .cc-n { text-align: right; color: var(--vp-c-text-3); }
 .cc-claim { color: var(--vp-c-text-2); }
 .cc-cites a { display: inline-block; margin-right: .4rem; }

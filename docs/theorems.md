@@ -171,7 +171,6 @@ The same theorems grouped by skill are on [/topics](/topics); each principle's p
 }
 .tbind.kernel { background: var(--vp-c-bg-soft); color: var(--vp-c-text-3); }
 .tlist-flat li > a { font-weight: 600; }
-.tstmt { display: inline-block; margin-left: .5rem; font-size: .82em; color: var(--vp-c-text-2); }
 .tmeta { display: block; font-size: .74em; color: var(--vp-c-text-3); margin-top: .1rem; }
 .filt-empty { color: var(--vp-c-text-2); }
 .filt-empty a { cursor: pointer; }

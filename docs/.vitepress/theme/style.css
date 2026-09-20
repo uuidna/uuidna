@@ -169,9 +169,30 @@ code.rcpt {
 .tlist li a {
   font-weight: 600;
 }
+/* NOTHING ON A THEOREM ROW SCROLLS THE PAGE SIDEWAYS. A theorem key is one unbreakable token — there is no space and
+   no hyphen in the_diagnosis_and_the_prescription_are_the_same_point — and a flex item never shrinks below its
+   min-content width, so each row sized itself to the longest key it held and pushed the whole page out. The sheet
+   already set overflow-wrap: break-word, which cannot help: break-word breaks a LINE without reducing the element's
+   min-content contribution, so the box stayed 407px wide inside a 307px row. `anywhere` reduces it and min-width: 0
+   lets the item take the smaller size. Measured against the live site 2026-09-20 at a 375px viewport, each with the
+   rule removed again as a control: /theorems scrolled 6934px sideways, /topics 7418px, /rosetta 1050px; with this
+   rule every one of them measures 0. The three list classes are named together because the defect was in all three
+   and a cure that reaches only the page it was found on is the same drift that caused it. */
+:where(.tlist, .tlist-flat, .tlist-aura) li,
+:where(.tlist, .tlist-flat, .tlist-aura) li > * {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .tstmt {
   color: var(--vp-c-text-3);
   font-size: 0.78rem;
+  /* A STATEMENT IS A CODE SURFACE AND MAY BE WIDER THAN THE READER'S SCREEN; THE PAGE MAY NOT. The widest statement
+     on /theorems lays out at 7263px against a 375px viewport, so it gets its own track to scroll in rather than
+     dragging the document with it. Breaking a Lean statement mid-token would be the wrong cure: it is read, not
+     prose, so it keeps its line and the reader moves along it. */
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 /* /undecided — the open register. */
