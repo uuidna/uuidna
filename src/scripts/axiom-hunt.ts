@@ -6,7 +6,7 @@
 // key sealed), EXPOSED AXIOM (predicate true, no sealing theorem — the research lead to seal next), REFUTED
 // (predicate false — the code disagrees with its own assumption: a traitor, exit 1). Integrity.
 import {
-  theoremByKey, theoremFor, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, MAX_LAYERS, ADDRESS_BITS, A432_STEP, CAPACITY,
+  theoremByKey, theoremFor, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, MAX_LAYERS, ADDRESS_BITS, A432_STEP, A432, MIRROR_BASE, CAPACITY,
   MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS, coins, COINS, UUID_BITS, LEVERAGE, HANDLE_HEXBITS, HEXBIT_BITS,
   vortexOrbit, TRINITY, BASE, fuseHalves, twoBoardsOf, nextCoinOf, flipCoin, toUuid, A432_HZ, SAMPLE_RATE, PRICE,
   fuseLadder, fuseWidth, capacityAt, SAFE_HEXBITS, UUID_HEXBITS, metatronOf, RING, hexPiOf, HEX_PI, HEXAGRAM_BITS,
@@ -84,7 +84,9 @@ export const CANDIDATES: HuntCandidate[] = [
     live: () => { const g = hexbitRingMassGap(); return g.holds && g.delta > 0 && g.states > 0 } },
   { theorem: 'born_field_mass_gap_on_bell', assumes: 'massGapOnBellBornField() = computeMassGap(bellBornWeights()) holds (court on Hexbit.lean)', where: 'src/quantum/index.ts',
     live: () => massGapOnBellBornField().holds },
-  { theorem: 'aura_step_divides_circle', assumes: 'A432_STEP = 40 and 9 · 40 = 360 — the nine residues tile the wheel with no remainder', where: 'src/aura.ts', live: () => A432_STEP === 40 && 9 * A432_STEP === 360 },
+  // the SIXTH copy of the step lived here as a live predicate asserting the NUMBER; it asserts the DEFINITION and the
+  // property instead — A432's own quantum, and MIRROR_BASE of them closing the circle, which is what 40 could not do
+  { theorem: 'aura_step_divides_circle', assumes: 'A432_STEP = A432/(BASE+TRINITY) = 36, and MIRROR_BASE · 36 = 360 — ten steps tile the wheel and 0° is left for the void', where: 'src/aura.ts', live: () => A432_STEP === A432 / (BASE + TRINITY) && MIRROR_BASE * A432_STEP === 360 },
   { theorem: 'sanitize_depth_bounded', assumes: 'MAX_DEPTH = UUID_HEXBITS = 2^5', where: 'src/sanitize.ts', live: () => MAX_DEPTH === UUID_HEXBITS && MAX_DEPTH === 2 ** 5 },
   { theorem: 'sanitize_max_depth_is_two_pow_five', assumes: 'MAX_DEPTH = UUID_HEXBITS = 2^5', where: 'src/sanitize.ts', live: () => MAX_DEPTH === UUID_HEXBITS && MAX_DEPTH === 2 ** 5 },
   { theorem: 'sanitize_max_string_is_ten_pow_six', assumes: 'MAX_STRING = 10^6', where: 'src/sanitize.ts', live: () => MAX_STRING === 10 ** 6 },

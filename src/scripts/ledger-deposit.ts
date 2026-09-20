@@ -26,6 +26,7 @@ import { EDGE_ROOT } from '../theorems/edge-root.js'
 import { ledgerPiecesOf, ledgerManifestOf, contentAddressOf, edgeRootOf, ledgerAt, storedAt, LEDGER_RUN, type LedgerPiece, type LedgerManifest } from '../edge-ledger.js'
 import { depositEvidence } from './receipt-deposit.js'
 import { GATE_THEOREMS } from '../gate-engine.js'
+import { VE_FACES } from '../hexbit/index.js'
 
 /** the ledger as it will be deposited: its pieces, their manifest, and the manifest's address — the root */
 export const ledgerPlan = (): { pieces: LedgerPiece[]; manifest: LedgerManifest; root: string } => {
@@ -76,7 +77,11 @@ export const depositLedger = async (fetchImpl: typeof fetch = fetch): Promise<{ 
   // writes inside ONE request, which spends the Worker's budget instead of the clock's. Separate requests are
   // separate isolates, so a LANE is the thing to widen. The manifest is deposited last and alone, because it is the
   // root: it names the pieces, and a reader that finds it must find them.
-  const LANES = 8
+  // THE CONCURRENT WIDTH IS THE SYSTEM'S OWN COUNT, NOT A NUMBER THAT FELT RIGHT. This read 8, which nothing
+  // decided — and the ledger already carries the answer as an open lead: "concurrent width is 14 VE faces". That is
+  // VE_FACES, the vector equilibrium's 8 + 6, derived from the handle's hexbits, the hexbit's bits and the two
+  // coins, and the same count the 2x7 witness fold signs by. A hand-picked width is a cap no theorem set.
+  const LANES = VE_FACES
   const failures: string[] = []
   const lane = async (rows: typeof bodies): Promise<void> => {
     for (const { address, body, name } of rows) {

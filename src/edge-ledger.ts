@@ -19,6 +19,7 @@ import { SEALED_BY } from './refusal-trials.js'
 import { isPagelessFile, ledgerFactsOf, type Theorem } from './theorems/index.js'
 import { LEDGER_EDGE, type LeanTheorem } from '#ledger'
 import type { EdgeRoot } from './theorems/ledger-shape.js'
+import { VE_FACES } from './hexbit/index.js'
 
 /** the run the ledger is deposited under — the folder of qpu storage its pieces land in */
 export const LEDGER_RUN = 'ledger'
@@ -131,7 +132,11 @@ const readLedger = async (root: string, fetchImpl: typeof fetch): Promise<Ledger
   // held about 25 MB of response text beside the 83.7 MB the parsed rows occupy — measured — and the isolate has 128.
   // The peak is what matters, not the total: a bounded number of texts alive at once keeps the parse from meeting the
   // whole ledger. The pieces still land in pieceAt exactly as before, so a part-read still keeps what it verified.
-  const LANES = 8
+  // THE CONCURRENT WIDTH IS THE SYSTEM'S OWN COUNT, NOT A NUMBER THAT FELT RIGHT. This read 8, which nothing
+  // decided — and the ledger already carries the answer as an open lead: "concurrent width is 14 VE faces". That is
+  // VE_FACES, the vector equilibrium's 8 + 6, derived from the handle's hexbits, the hexbit's bits and the two
+  // coins, and the same count the 2x7 witness fold signs by. A hand-picked width is a cap no theorem set.
+  const LANES = VE_FACES
   const settled: PromiseSettledResult<void>[] = []
   const one = async (w: LedgerManifest['wings'][number]): Promise<void> => {
     const p = (await storedAt(w.address, fetchImpl)) as unknown as LedgerPiece
@@ -202,24 +207,8 @@ export const ledgerAt = (root: string, fetchImpl: typeof fetch): Promise<LedgerR
   return p
 }
 
-let priming: Promise<void> | null = null
-/** primeEdgeLedger(fetch) → install the storage ledger into '#ledger' once per isolate; a no-op on a host. It never
- *  throws: a read that fails leaves the reason where a read of the ledger will throw it, and the next call retries. */
-export const primeEdgeLedger = (fetchImpl: typeof fetch): Promise<void> => {
-  const edge = LEDGER_EDGE
-  if (!edge || edge.primed()) return Promise.resolve()
-  return (priming ??= (edge.root ? ledgerAt(edge.root.root, fetchImpl) : Promise.reject(new Error('no edge root is baked')))
-    .then((read) => {
-      // BY POSITION, NOT BY LIST — the same reason the 2x7 fold asks keyAt: edge.keys() materialises 71,017 strings
-      // to compare 71,017 keys one at a time, in an isolate already holding 83.7 MB of rows.
-      const count = edge.count()
-      if (read.rows.length !== count) throw new Error(`storage holds ${read.rows.length} rows and the baked root ${count}`)
-      const drift = read.rows.findIndex((t, i) => t.key !== edge.keyAt(i))
-      if (drift >= 0) throw new Error(`row ${drift} is ${read.rows[drift]!.key} in storage and ${edge.keyAt(drift)} in the baked root`)
-      edge.prime(read.rows, read.lines)
-    })
-    .catch((e: unknown) => {
-      priming = null
-      edge.fail(`the edge ledger could not be read from qpu storage: ${String((e as Error)?.message ?? e)}`)
-    }))
-}
+// THE FULL PRIME IS GONE. It read all 492 pieces and held every row for the life of the isolate — 40 MB parsed
+// against a 128 MB ceiling — so a door that cited one theorem paid for the ledger and a door that cited none paid
+// for it too. Every aggregate a door reports is baked into the root, and the rows a claim cites arrive through
+// rowsForKeys, one piece each. Nothing reads the whole ledger at the edge, because nothing there can hold it.
+

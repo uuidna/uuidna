@@ -8,6 +8,7 @@
 // 12/12 are all 63 = 9·7 days apart, so they always share a weekday. calendar arithmetic and mod-7
 // congruence — NOT a date library or a proleptic conversion for every locale. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
+import { A432_STEP, MIRROR_BASE } from '../address.js'
 
 const COMMON = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 const LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -92,8 +93,11 @@ const FACTS = [
     why: 'WHAT GAPLESS MEANS, and the ledger already decided it once. A day index is gapless when successive days differ by exactly one and no index lies strictly between them — the same discreteness ym_quantum seals for winding numbers ("no integer strictly between n and n+1"), applied to time instead. Sealed here over a walk rather than asserted: across twenty consecutive indices every step is +1 and no integer hides between a pair. MEASURED BESIDE IT, and this is the part a kernel cannot reach: the implementation was walked over 190,292 days from 1580 to 2100 — every leap year, every century year, the 1900 that is not a leap year, and the epoch — and not one step differed from +1. The theorem holds the SHAPE of gaplessness; the walk holds that this particular index has it, and the two are different claims kept apart on purpose.',
     js: () => [...Array(20).keys()].every((i) => (i + 1) - i === 1) && [...Array(20).keys()].every((i) => ![...Array(20).keys()].some((k) => i < k && k < i + 1)),
     lean: 'theorem a_gapless_index_admits_nothing_between : (List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1))) := by decide' },
+  { key: 'harmonic_year_drifts_by_the_fixed_point',
+    why: 'THE HARMONIC YEAR IS THE CIRCLE, AND THE DRIFT IS THE FIXED POINT. MIRROR_BASE A432 steps close the circle at 360, so the harmonic year is 360 days exactly as the wheel is 360 degrees. The Gregorian common year exceeds it by FIVE — and five is the one digit the mirror fixes (10 - 5 = 5) and the one whose hue is its own complement (5 x 36 = 180, the half turn). The leap year exceeds it by six. THE DRIFT IS NAMED, NOT SMOOTHED: 360 is not a whole number of weeks (360 % 7 = 3) and the Gregorian 400-year cycle is not a whole number of harmonic years (146097 % 360 = 297). Both remainders are stated rather than rounded away — a harmonic calendar does NOT divide the civil one, and saying so is the honest part. What does close is the great year, 72 x 360 = 25920, where 72 is two A432 steps: the precession is the coins times the step times the circle.',
+    js: () => (36*10 === 360) && (365-360 === 5) && (366-360 === 6) && (10-5 === 5) && (5*36 === 180) && (360%7 === 3) && (146097%360 === 297) && (2*36 === 72) && (72*360 === 25920),
+    lean: `theorem harmonic_year_drifts_by_the_fixed_point : (${A432_STEP} * ${MIRROR_BASE} = 360) \u2227 (365 - 360 = 5) \u2227 (366 - 360 = 6) \u2227 (${MIRROR_BASE} - 5 = 5) \u2227 (5 * ${A432_STEP} = 180) \u2227 (360 % 7 = 3) \u2227 (146097 % 360 = 297) \u2227 (2 * ${A432_STEP} = 72) \u2227 (72 * 360 = 25920) := by decide` },
 ]
-
 // the offline audit the other wings run before sealing — every fact decided in JavaScript first, so a false one
 // never reaches the kernel as a claim
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)

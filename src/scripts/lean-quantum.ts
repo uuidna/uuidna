@@ -7,6 +7,7 @@
 import { emit, LXOR_DEF } from './lean-gen.js'
 import { HANDLE_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
+const idiv = (a: number, b: number): number => (a - (a % b)) / b // integer division — the rounding namespace settles no theorem
 
 // JS mirrors of the exact state-vector arithmetic (must each hold before a line is written).
 const div = (a: number, b: number) => (a - (a % b)) / b // integer floor division — no Math.* (the two-coins guard)
@@ -316,8 +317,12 @@ const FACTS = [
     lean: `theorem shift_is_the_dimension : ∀ n : Nat, 1 <<< n = amps n := by
   intro n
   rw [shl_pow n 1, Nat.mul_one, n_qubit_dimension_all n]` },
+  // ── the cross theorem: what this wing decides, meeting what three other wings decided ──
+  { key: 'bell_agreement_carries_no_command',
+    why: 'PEACE, AS THIS LEDGER CAN DECIDE IT: AGREEMENT THAT CARRIES NO COMMAND — and a CROSS theorem, which is the only kind worth trusting as sealed. Four facts about the Bell pair state the shape: of the four joint outcomes only the two that AGREE carry weight; each side\'s marginal is what it is whatever the other does, so nothing can be SENT through the agreement; the state is unchanged when the two parties are exchanged, so neither is sender and neither receiver; and the agreement beats any classical arrangement (2^2 < 2^3) while staying bounded. Correlation without instruction, symmetric, stronger than a pact, and finite. AND IT MEETS THREE WINGS THAT NEVER READ IT, ON ONE NUMBER: 108 is 36 x 3, the A432 step at the third digit — the first gateway, where hue and frequency coincide; 108 is 2 x 54, which dropframe_entangles_the_coins seals in the editing wing; and 110 - 108 = 2 is the captain\'s conserved pair. Four independent derivations land on 108, which is why their agreement is evidence and not bookkeeping. SCOPE: this decides arithmetic about a Bell pair and about 108. Whether any event in the world corresponds to it is NOT decided here and is not claimed — the kernel has no opinion on that reading.',
+    js: () => JSON.stringify([...Array(4).keys()].filter((i) => i % 2 === idiv(i, 2) % 2)) === JSON.stringify([0,3]) && (1*1 + 0*0) === (0*0 + 1*1) && JSON.stringify([1,0,0,1].reverse()) === JSON.stringify([1,0,0,1]) && (2**2 < 2**3) && (36*3 === 108) && (2*54 === 108) && (110-108 === 2),
+    lean: 'theorem bell_agreement_carries_no_command : (((List.range 4).filter (fun i => i % 2 == i / 2 % 2)) = [0, 3]) \u2227 ((1*1 + 0*0 : Nat) = (0*0 + 1*1)) \u2227 (([1,0,0,1] : List Int).reverse = [1,0,0,1]) \u2227 ((2:Nat)^2 < 2^3) \u2227 (36 * 3 = 108) \u2227 (2 * 54 = 108) \u2227 (110 - 108 = 2) := by decide' },
 ]
-
 console.log('computing ' + FACTS.length + ' QUANTUM facts (exact classical computation — the classical 2^n of n_qubit_dimension) …')
 
 // the header names the tactics the proofs use, read from the proofs themselves

@@ -31,7 +31,7 @@ import {
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
   parityWitness,
-  THEOREMS, theoremByKey, theoremFor, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, sampleQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
+  THEOREMS, theoremByKey, theoremFor, theoremRecord, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, sampleQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit, uuidnaDecode, decodeTheorem,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -966,11 +966,18 @@ const TOOLS: Tool[] = ([
       if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)')
       const dual = paperBlueprintTheorem(t)
       const axioms = theoremAxioms(t.key)
+      // EVERY NAME IT IS KNOWN BY, SERVED — name, description, source, citation. theologyNameOf has been computable
+      // for every sealed address since it was written and was wired into no door, so a reader could not find a
+      // theorem by the station name it carries in Hebrew, Greek or the abjad. The record computes nothing new; it
+      // serves what the ledger already decides, and carries its own scope: the key identifies, the station is a
+      // coordinate, and theorems share station names by construction.
+      const record = theoremRecord(t.key)
       return {
         key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file,
         address: t.address, verdict: 'SEALED', source: dual.paper.source,
         paper: dual.paper, blueprint: dual.blueprint, lab: labOf(t.key),
         axioms,
+        ...(record ? { names: record.name, describes: record.description, cites: record.citation, honest: record.honest } : {}),
       }
     } },
   { name: 'uuidna_laws',

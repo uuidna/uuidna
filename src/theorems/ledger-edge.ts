@@ -17,9 +17,9 @@ keepAddresses(false)
 /** the address's own width — every address in the baked root takes exactly this many characters */
 const WIDTH = toUuid('').length
 
-let rows: LeanTheorem[] | null = null
-let lines: readonly string[] | null = null
-let why = 'the edge ledger is not primed: the Worker reads it from qpu storage (primeEdgeLedger in src/edge-ledger.ts) before a call that needs it'
+// THE WHOLE LEDGER IS NEVER RESIDENT HERE. It was installed by a prime that read all 492 pieces; that prime is gone,
+// so the rows a call needs arrive one piece at a time in heldRows and nothing else is ever held.
+const why = 'the edge does not hold the whole ledger: 40 MB of rows does not fit a 128 MB isolate. A door answers from the baked root (ledgerFacts, sealedAddressOf) or from the one piece its cited key sits in (rowsForKeys) — asking for every row asks for what the edge cannot hold.'
 let keys: readonly string[] | null = null
 
 const baked = () => {
@@ -118,15 +118,10 @@ export const LEDGER_EDGE: EdgeLedger | null = {
     return i === undefined ? undefined : addressAt(i)
   },
   holdRows: (held) => { for (const r of held) heldRows.set(r.key, r) },
-  rowFor: (key) => { const held = heldRows.get(key); if (held) return held; const i = positionOf(key); return i === undefined || !rows ? undefined : rows[i] },
-  primed: () => rows !== null,
-  prime: (r, l) => { rows = r; lines = l },
-  fail: (w) => { why = w },
-  lineAt: (i) => lines?.[i],
+  rowFor: (key) => heldRows.get(key),
+  primed: () => false,
+  lineAt: () => undefined,
 }
 
 /** the rows read from storage; reading them before they are primed throws the reason they are not */
-export const LEAN_LEDGER: readonly LeanTheorem[] = lazyList(() => {
-  if (!rows) throw new Error(why)
-  return rows
-})
+export const LEAN_LEDGER: readonly LeanTheorem[] = lazyList(() => { throw new Error(why) })

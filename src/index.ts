@@ -10,7 +10,7 @@
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
-  TRINITY, BASE, A432_STEP, digits, units, triad, vortexOrbit,
+  TRINITY, BASE, A432_STEP, A432, MIRROR_BASE, digits, units, triad, vortexOrbit,
 } from './address.js'
 
 export {
@@ -663,6 +663,7 @@ export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
+export { theoremRecord, type TheoremRecord } from './theorem-record.js'
 export { THEOREMS, theorems, theoremByKey, theoremFor, ledgerFacts, skillSummary, isSealedAddress, sealedAddressCount, theoremCountByFile, theoremCasesByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, isPagelessFile, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
 export {
   LATTICE_STATIONS, STATION_HEXBITS, HUMAN_PROBLEMS,

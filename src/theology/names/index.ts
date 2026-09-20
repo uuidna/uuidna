@@ -22,7 +22,7 @@
 import { NUMERAL_ORDER, rankValueOf, type Script } from '../numerals/index.js'
 import { stationOfAddress, latticeCall, type StationMeaning } from '../../lattice.js'
 
-export const SCRIPTS: readonly Script[] = ['hebrew', 'greek', 'arabic'] as const
+export const SCRIPTS: readonly Script[] = ['hebrew', 'greek', 'arabic', 'glagolitic'] as const
 
 /** the letters of a script with their rank values, descending — derived from the rank rule, never typed */
 export const lettersDescending = (script: Script): { letter: string; value: number }[] =>

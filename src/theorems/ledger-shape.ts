@@ -53,12 +53,11 @@ export interface EdgeLedger {
   indexOf(key: string): number | undefined
   /** a sealed key's address, from the baked root */
   addressOf(key: string): string | undefined
+  /** whether the WHOLE ledger is resident. It never is at the edge: nothing reads all 492 pieces any more, because
+   *  40 MB of rows does not fit a 128 MB isolate — a door answers from the baked root, or from the one piece its
+   *  cited key sits in. This reports that honestly rather than describing a state the edge can reach. */
   primed(): boolean
-  /** install the rows read from storage, with the line address of each, in ledger order */
-  prime(rows: LeanTheorem[], lines: readonly string[]): void
-  /** why the rows are not there — what a read of the unprimed ledger throws */
-  fail(why: string): void
-  /** the line address carried with row i */
+  /** the line address carried with row i, where the rows are resident */
   lineAt(i: number): string | undefined
   /** THE ROWS A CALL ACTUALLY NEEDS, held without priming the rest. A claim cites a handful of keys and the door
    *  needs their FULL rows — statement, lean, address — which no aggregate can stand in for. The pre-pass fetches
