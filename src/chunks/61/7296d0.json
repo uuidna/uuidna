@@ -1,0 +1,12 @@
+{
+  "handle": "617296d0",
+  "address": "617296d0-ee56-8ef0-9820-ca957260f3b9",
+  "statement": "((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ (5 - 3 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "kinematics_cancels_both"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

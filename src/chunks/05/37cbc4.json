@@ -1,0 +1,12 @@
+{
+  "handle": "0537cbc4",
+  "address": "0537cbc4-ddba-847c-bfa1-bdb928634b2b",
+  "statement": "(0 < 70980) ∧ (0 + 70980 = 70980)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

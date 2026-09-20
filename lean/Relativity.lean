@@ -47,6 +47,29 @@ theorem the_metre_is_defined_by_the_second : (299792458 * 60 = 17987547480) ∧ 
     coincidence in a physics wing is an invitation for someone to mean something by it. -/
 theorem the_defining_constants_are_exact_integers : (2 * 1602176634 = 3204353268) ∧ (299792458 % 9 = 1) ∧ (662607015 % 9 = 6) ∧ (1602176634 % 9 = 0) ∧ (1380649 % 9 = 4) ∧ (602214076 % 9 = 1) := by decide
 
+/-- CHOOSING THE PAIRING CHOOSES WHICH CONSTANT SURVIVES, AND THAT CHOICE IS INTEGER ARITHMETIC. A Planck
+    quantity is a point in the exponent lattice over (h-bar, G, c); doubled so the halves become integers,
+    length is (1,1,-3), mass is (1,-1,1) and time is (1,1,-5). Combining two quantities ADDS their exponent
+    vectors, so which constant survives is decided by whether a coordinate reaches zero — and here the zeros are
+    COMPUTED by the zip rather than asserted beside it. Length plus mass gives (2,0,-2): the G coordinate is
+    zero, so the product is h-bar over c. Length minus mass gives (0,2,-4): the h-bar coordinate is zero, so the
+    quotient is G over c squared. Length minus time gives (0,0,2): both are zero and only c remains. WHY THAT IS
+    WORTH SEALING. Since the 2019 SI redefinition h and c are exact BY DEFINITION
+    (the_defining_constants_are_exact_integers seals their integer mantissas) and G is not — its relative
+    uncertainty is the entire uncertainty of every Planck quantity. So a zero in the G coordinate is not
+    tidiness: it is the difference between a quantity computable to arbitrary precision and one that cannot be
+    known better than G is measured. A length alone always carries G; a length TIMES a mass never does. AND THE
+    LATTICE RIDES THE EXACT PAIRING: under the Bekenstein area law a horizon holding N bits has mass m_P·k and
+    radius 2·l_P·k with k squared equal to N·ln2/4pi, so the product r·m is 2·(l_P·m_P)·k squared and is LINEAR
+    in N while each factor goes as the root of N. The bit counts this ledger addresses by are 32 for a handle
+    and 128 for a uuid, so the product ratio is the bit ratio itself, 128 = 4·32, where the mass ratio is its
+    square root, the same 2 two_coins_in_kilograms already seals as the two coins. SCOPE, FLATLY: what is
+    decided is the exponent arithmetic and those two integer ratios and nothing else. That l_P, m_P and t_P
+    carry these exponents is the DEFINITION of Planck units; the Bekenstein area law is physics that rides
+    outside this tree (Bekenstein 1973, Hawking 1975, as two_coins_in_kilograms names its authorities); the
+    kernel has never confirmed a measurement and confirms none here. No metre, kilogram or second is claimed. -/
+theorem the_pairing_cancels_the_constant : (List.zipWith (· + ·) [1,1,-3] [1,-1,1] = ([2,0,-2] : List Int)) ∧ (List.zipWith (· - ·) [1,1,-3] [1,-1,1] = ([0,2,-4] : List Int)) ∧ (List.zipWith (· - ·) [1,1,-3] [1,1,-5] = ([0,0,2] : List Int)) ∧ (128 = 4 * 32) ∧ (2 * 2 = 4) := by decide
+
 /-- THE LORENTZ TRIANGLE, QUANTIFIED — because one triangle is a sample and this wing already had the sample.
     `lorentz_gamma_triangle` seals 5² + 12² = 13², a single instance of a general fact, and a universal claimed
     from one step is exactly the fault this ledger has paid for before. The general fact: take any Pythagorean

@@ -2992,6 +2992,14 @@ four_levels_index_two_to_the_thirty_two 27
 the_index_factorises_the_whole_space 27
 the_smallest_leaf_outruns_the_whole_index 27
 the_store_holds_far_less_than_it_admits 27
+kinematics_cancels_both 31
+product_isolates_quantum 31
+ratio_isolates_gravity 31
+crossing_sits_inside 27
+mass_selects_cancellation 27
+handle_outreaches_planck 31
+planck_margin_bounded 27
+payload_falls_short 27
 #Hardware.lean
 not_gate_truth_table 27
 and_gate_truth_table 27
@@ -69536,6 +69544,7 @@ rest_energy_mc2 27
 causality_forbids_ftl 27
 the_metre_is_defined_by_the_second 31
 the_defining_constants_are_exact_integers 31
+the_pairing_cancels_the_constant 23
 every_pythagorean_velocity_dilates_exactly 27
 exact_dilation_is_sparse_among_the_rationals 27
 the_null_cone_carries_integer_events_in_three_dimensions 27
@@ -71293,20 +71302,25 @@ cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
 edits_break_recompute 10.1007/BF00196791
 eratosthenes_fiftieth_circle Eratosthenes
+handle_outreaches_planck CODATA
 hardware_above_landauer Landauer
 kelvin_floor_carries_the_hundred SI
+kinematics_cancels_both CODATA
 landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
 light_speed_rounds_to_300000 SI
+product_isolates_quantum CODATA
+ratio_isolates_gravity CODATA
 reversible_erases_nothing Landauer
 tail_cut_survives 10.5555/1855768.1855788
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
+the_pairing_cancels_the_constant SI
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 21, falsifier: 63 }
+export const FLOOR = { witness: 26, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

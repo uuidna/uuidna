@@ -1,6 +1,6 @@
 {
   "total": true,
-  "keys": 71026,
-  "distinct": 70941,
-  "covers": "70941 distinct propositions under 71026 keys (85 deliberate re-namings); the carrier round-trip runs once per key"
+  "keys": 71035,
+  "distinct": 70950,
+  "covers": "70950 distinct propositions under 71035 keys (85 deliberate re-namings); the carrier round-trip runs once per key"
 }

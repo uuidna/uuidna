@@ -1,0 +1,12 @@
+{
+  "handle": "eafa442e",
+  "address": "eafa442e-57e9-8bef-8618-f66d716d037b",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "statement": "71636 > 2 ^ 16",
+  "files": [
+    "Forensics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "37cc1e95",
+  "address": "37cc1e95-176d-8dae-93c1-407806a60377",
+  "kind": "chunk",
+  "keys": [
+    "ratio_isolates_gravity"
+  ],
+  "statement": "((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

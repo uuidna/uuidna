@@ -1,0 +1,12 @@
+{
+  "handle": "62785258",
+  "address": "62785258-aedf-8354-a45c-6deffdc0e5c4",
+  "statement": "(689 + 70867 + 75 + 5 = 71636) ∧ (80 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

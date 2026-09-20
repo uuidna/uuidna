@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002156",
-   "completionPrice": "0.0000006468"
+   "promptPrice": "0.00000022",
+   "completionPrice": "0.00000066"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp:batch",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000053196",
-   "completionPrice": "0.00000159588"
+   "promptPrice": "0.00000052668",
+   "completionPrice": "0.00000158004"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000053196",
-   "completionPrice": "0.00000159588"
+   "promptPrice": "0.00000052668",
+   "completionPrice": "0.00000158004"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",

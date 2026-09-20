@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **71032 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **71035 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -137,7 +137,7 @@
 40. **The points-of-sail domain** — `lean/Sailing.lean` · **10** theorems
    sailing as decidable arithmetic, demarcated — the ~45° no-go zone (45+45=90), points of sail on multiples of 45°, the close-hauled 3-4-5 beating triangle at a distance penalty (5>3), apparent wind exceeding true (5>4), a balanced helm as moment equilibrium (8·3=6·4) so the boat holds course and the captain rests, two tacks cancelling leeway, and precise tacks compounding linearly — sailing geometry and balance, not aero/hydrodynamics
 
-41. **The spacetime domain** — `lean/Relativity.lean` · **10** theorems
+41. **The spacetime domain** — `lean/Relativity.lean` · **11** theorems
    special relativity as decidable arithmetic, demarcated — nothing exceeds c (the cosmic speed limit, no FTL), light rides the null cone (interval 0), the invariant interval classifies events timelike/causal or spacelike (no causal link without FTL), the Lorentz factor rides a Pythagorean triangle (β=5/13→γ=13/12), moving clocks dilate and lengths contract, and rest energy is E=mc² — spacetime arithmetic, not a full tensor or GR derivation
 
 42. **The cryptographic primitives** — `lean/Crypto.lean` · **9** theorems
@@ -449,7 +449,7 @@
 144. **The periodic table's shape** — `lean/Periodic.lean` · **6** theorems
    WHY THE ROWS ARE 2, 8, 8, 18, 18, 32, 32 AND WHERE THE NOBLES FALL. A subshell of angular momentum l holds 2(2l + 1) = 4l + 2 electrons, giving 2, 6, 10, 14 for s, p, d, f; shell n sums those over l < n and reaches 2n²; a period's length is the total of the subshells filling in it; and a noble gas closes a period, so its atomic number is the running total — 2, 10, 18, 36, 54, 86, 118. The row widths are not a pattern noticed in a chart, they are those sums, and the nobles are those partial sums. Chemistry.lean seals the REACTIONS; this seals the TABLE. SCOPE, NOT SOFTENED: the combinatorics of shell filling. Nothing here solves a Schrödinger equation, derives the filling order from energies, or accounts for the elements whose configurations depart from the naive order — chromium and copper among them. The order is TAKEN as input and its consequences are sealed; a wing claiming to derive chemistry from arithmetic would be the overreach this ledger refuses.
 
-145. **The handle store, and why its smallest leaf is complete** — `lean/HandleStore.lean` · **12** theorems
+145. **The handle store, and why its smallest leaf is complete** — `lean/HandleStore.lean` · **14** theorems
    A FINITE TREE WHOSE SMALLEST LEAF CARRIES THE WHOLE ADDRESS. src/handles/aa/bb/cc/dd/index.json: four levels of two hex digits SPELL the eight-digit handle — the folders are the name, not a route to it — and the leaf holds the full uuid whose prefix those digits are. Measured over the 5,512 leaves present: the path spells the handle in 5,512 of 5,512, and the handle is the address prefix in 5,512 of 5,512. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE: every level branches 256 ways so a subtree at any depth has the shape of the tree; four levels give 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly, with nothing left over and nothing counted twice. The store is a FACTORISATION of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the whole tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. SCOPE: the arithmetic of the addressing plus a measurement of the store as it stands; that the store holds 5,512 of a possible 2³² is sealed as its own theorem so capacity and occupancy can never be quoted as one number.
 
 146. **Crosslinks: the addressing is the floor** — `lean/Crosslink.lean` · **6** theorems

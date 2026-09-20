@@ -1,0 +1,12 @@
+{
+  "handle": "1e343e7e",
+  "address": "1e343e7e-3eef-8874-aa74-d6c89a57689f",
+  "kind": "chunk",
+  "keys": [
+    "handle_outreaches_planck"
+  ],
+  "statement": "1616255 * 2 ^ 128 > 10 ^ 41",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

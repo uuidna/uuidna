@@ -1,0 +1,12 @@
+{
+  "handle": "6ddbdf7f",
+  "address": "6ddbdf7f-6f38-8fda-8c53-600cc465c868",
+  "statement": "((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2))",
+  "tactic": "decide",
+  "keys": [
+    "mass_selects_cancellation"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

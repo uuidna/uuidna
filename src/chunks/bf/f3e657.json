@@ -1,0 +1,12 @@
+{
+  "handle": "bff3e657",
+  "address": "bff3e657-daa2-88a1-bbc1-d2e468e0853f",
+  "statement": "71636 * 2 ^ 15 < 2 ^ 32",
+  "tactic": "decide",
+  "keys": [
+    "forged_handle_odds_are_small"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

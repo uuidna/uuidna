@@ -1,0 +1,12 @@
+{
+  "handle": "cdf3663c",
+  "address": "cdf3663c-70c1-8151-92f7-e9d5094bd69b",
+  "statement": "(1616255 * 2 ^ 96 < 10 ^ 41) ∧ (1616255 * 2 ^ 32 < 10 ^ 41)",
+  "tactic": "decide",
+  "keys": [
+    "payload_falls_short"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

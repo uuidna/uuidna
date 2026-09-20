@@ -3,11 +3,11 @@
 **Generated:** 2026-09-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71026/71026 theorems — every one, by construction
-**Discovery claimed:** 70638 — the other 388 restate a fact a named source found first
+**Formalisation claimed:** 71035/71035 theorems — every one, by construction
+**Discovery claimed:** 70638 — the other 397 restate a fact a named source found first
 
-*The 388 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 12/21 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `0816015b-90ad-8710-bc8e-3968bbb3c5d9`
+*The 397 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 371 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 17/26 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `c1256b6c-002b-8225-a891-fda0703d4b97`
 
 ### Facts the captain does not claim to have discovered
 
@@ -37,10 +37,15 @@ that earns an external anchor moves here on the next run.
 - [landauer_floor_falls_with_temperature](/theorem/landauer_floor_falls_with_temperature) — Landauer
 - [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) — SI
 - [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) — SI
+- [the_pairing_cancels_the_constant](/theorem/the_pairing_cancels_the_constant) — SI
 - [van_de_graaf_margins](/theorem/van_de_graaf_margins) — Gutenberg
 - [light_speed_rounds_to_300000](/theorem/light_speed_rounds_to_300000) — SI
 - [kelvin_floor_carries_the_hundred](/theorem/kelvin_floor_carries_the_hundred) — SI
 - [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) — CODATA
+- [kinematics_cancels_both](/theorem/kinematics_cancels_both) — CODATA
+- [product_isolates_quantum](/theorem/product_isolates_quantum) — CODATA
+- [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) — CODATA
+- [handle_outreaches_planck](/theorem/handle_outreaches_planck) — CODATA
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -412,12 +417,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The spacetime domain
 
-- **Theorems:** 10
+- **Theorems:** 11
 - **Sample lineAddress:** `9731bb3b-607f-8b2d-8612-4b187c7e7d81`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl) · [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) · [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) · [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) · [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) · [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions)
+[light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl) · [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) · [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) · [the_pairing_cancels_the_constant](/theorem/the_pairing_cancels_the_constant) · [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) · [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) · [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions)
 
 ### The cryptographic primitives
 
@@ -458,7 +463,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `a7242e4c-e81a-8ef9-9dda-dd4ec3632870`
+- **Sample lineAddress:** `ebc22a1c-bee4-8762-86b8-f1772da7bce2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -467,7 +472,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `5555439c-f9ef-8ef1-9549-f75b0e514e5b`
+- **Sample lineAddress:** `e3bb974c-b52c-8995-84a0-f47574bf1b17`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1348,12 +1353,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The handle store, and why its smallest leaf is complete
 
-- **Theorems:** 6
+- **Theorems:** 14
 - **Sample lineAddress:** `3f532c8c-16f6-87c4-9812-51e96e029992`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[the_path_spells_the_handle](/theorem/the_path_spells_the_handle) · [every_level_branches_the_same_way](/theorem/every_level_branches_the_same_way) · [four_levels_index_two_to_the_thirty_two](/theorem/four_levels_index_two_to_the_thirty_two) · [the_index_factorises_the_whole_space](/theorem/the_index_factorises_the_whole_space) · [the_smallest_leaf_outruns_the_whole_index](/theorem/the_smallest_leaf_outruns_the_whole_index) · [the_store_holds_far_less_than_it_admits](/theorem/the_store_holds_far_less_than_it_admits)
+[the_path_spells_the_handle](/theorem/the_path_spells_the_handle) · [every_level_branches_the_same_way](/theorem/every_level_branches_the_same_way) · [four_levels_index_two_to_the_thirty_two](/theorem/four_levels_index_two_to_the_thirty_two) · [the_index_factorises_the_whole_space](/theorem/the_index_factorises_the_whole_space) · [the_smallest_leaf_outruns_the_whole_index](/theorem/the_smallest_leaf_outruns_the_whole_index) · [the_store_holds_far_less_than_it_admits](/theorem/the_store_holds_far_less_than_it_admits) · [kinematics_cancels_both](/theorem/kinematics_cancels_both) · [product_isolates_quantum](/theorem/product_isolates_quantum) · [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) · [crossing_sits_inside](/theorem/crossing_sits_inside) · [mass_selects_cancellation](/theorem/mass_selects_cancellation) · [handle_outreaches_planck](/theorem/handle_outreaches_planck) · [planck_margin_bounded](/theorem/planck_margin_bounded) · [payload_falls_short](/theorem/payload_falls_short)
 
 ### Crosslinks: the addressing is the floor
 
@@ -2328,7 +2333,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70941 (71026 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70950 (71035 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2346,7 +2351,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71026 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71035 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2358,7 +2363,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71026; he claims discovery of 70638 and credits the other 388 facts to their named sources
+- ✓ The captain formalised all 71035; he claims discovery of 70638 and credits the other 397 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2367,14 +2372,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 388 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71026; of these I claim discovery of 70638, and the remaining 388 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70638, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

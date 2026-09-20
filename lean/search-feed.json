@@ -85,7 +85,7 @@
       "key": "arity_admits_exactly_one_dependent_trinity",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 142022,
+      "resonance": 142040,
       "concepts": [
         "cup",
         "world"
@@ -97,7 +97,7 @@
       "key": "captain_coins_respected_at_scale",
       "principle": "The two coins & the 64",
       "skill": "coins",
-      "resonance": 141928,
+      "resonance": 141942,
       "concepts": [
         "advantage",
         "quantum"
@@ -109,7 +109,7 @@
       "key": "clifford_group_order_24",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 141928,
+      "resonance": 141942,
       "concepts": [
         "advantage",
         "quantum"
@@ -121,7 +121,7 @@
       "key": "dj_balanced_cancels",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 141928,
+      "resonance": 141942,
       "concepts": [
         "advantage",
         "quantum"
@@ -133,7 +133,7 @@
       "key": "drift_is_named_or_caught",
       "principle": "The detectors, proven",
       "skill": "audit",
-      "resonance": 141928,
+      "resonance": 141942,
       "concepts": [
         "advantage",
         "quantum"
@@ -145,7 +145,7 @@
       "key": "gate_error_baseline_class",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 141928,
+      "resonance": 141942,
       "concepts": [
         "advantage",
         "quantum"
@@ -157,7 +157,7 @@
       "key": "naismith_rule_estimate",
       "principle": "The lay of the land",
       "skill": "topography",
-      "resonance": 71025,
+      "resonance": 71034,
       "concepts": [
         "weather"
       ]
@@ -168,7 +168,7 @@
       "key": "cms_events_close_over_their_files",
       "principle": "The CERN open-data records",
       "skill": "cern-open-data",
-      "resonance": 71024,
+      "resonance": 71033,
       "concepts": [
         "cms"
       ]
@@ -179,7 +179,7 @@
       "key": "the_cern_division_survives_casting_out_nines",
       "principle": "The CERN crossings",
       "skill": "links",
-      "resonance": 71024,
+      "resonance": 71033,
       "concepts": [
         "cms"
       ]
@@ -190,7 +190,7 @@
       "key": "code_holds_sixteen_words",
       "principle": "The hamming",
       "skill": "hamming",
-      "resonance": 71014,
+      "resonance": 71023,
       "concepts": [
         "cup"
       ]
@@ -201,7 +201,7 @@
       "key": "combinatorial_book_exceeds_handles",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 71014,
+      "resonance": 71023,
       "concepts": [
         "cup"
       ]
@@ -212,7 +212,7 @@
       "key": "cuts_break_successors",
       "principle": "The detectors, proven",
       "skill": "audit",
-      "resonance": 71014,
+      "resonance": 71023,
       "concepts": [
         "cup"
       ]
@@ -223,7 +223,7 @@
       "key": "depolarisation_blocks_firing",
       "principle": "The algebra of the neuron",
       "skill": "neuro",
-      "resonance": 71014,
+      "resonance": 71023,
       "concepts": [
         "cup"
       ]
@@ -234,7 +234,7 @@
       "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70991,
+      "resonance": 71000,
       "concepts": [
         "maps"
       ]
@@ -245,7 +245,7 @@
       "key": "agl9_fixed_point_census_gives_a_single_orbit",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70991,
+      "resonance": 71000,
       "concepts": [
         "maps"
       ]
@@ -256,7 +256,7 @@
       "key": "agl9_pair_action_is_sharp_on_unit_differences",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70991,
+      "resonance": 71000,
       "concepts": [
         "maps"
       ]
@@ -267,7 +267,7 @@
       "key": "censuses_differ",
       "principle": "The reversal",
       "skill": "reversal",
-      "resonance": 70991,
+      "resonance": 71000,
       "concepts": [
         "maps"
       ]
@@ -278,7 +278,7 @@
       "key": "codons_four_cubed",
       "principle": "The cipher & the strand",
       "skill": "cipher",
-      "resonance": 70991,
+      "resonance": 71000,
       "concepts": [
         "maps"
       ]
@@ -289,7 +289,7 @@
       "key": "alpine_chemistry_tiers_partition_54",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70983,
+      "resonance": 70992,
       "concepts": [
         "chemistry"
       ]
@@ -300,7 +300,7 @@
       "key": "alpine_dom_ar_ch_ie_56",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70983,
+      "resonance": 70992,
       "concepts": [
         "chemistry"
       ]
@@ -311,7 +311,7 @@
       "key": "alpine_dom_bi_ch_ie_5",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70983,
+      "resonance": 70992,
       "concepts": [
         "chemistry"
       ]
@@ -322,7 +322,7 @@
       "key": "alpine_dom_bl_ch_ie_32",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70983,
+      "resonance": 70992,
       "concepts": [
         "chemistry"
       ]
@@ -333,7 +333,7 @@
       "key": "alpine_dom_ch_as_ie_20",
       "principle": "The conveyor's first wave",
       "skill": "wave",
-      "resonance": 70983,
+      "resonance": 70992,
       "concepts": [
         "chemistry"
       ]
@@ -344,7 +344,7 @@
       "key": "a_claim_is_verified_or_unverified",
       "principle": "The report",
       "skill": "reporting",
-      "resonance": 70928,
+      "resonance": 70935,
       "concepts": [
         "uuid"
       ]
@@ -355,7 +355,7 @@
       "key": "a_sha256_digest_is_two_uuids_and_four_boards_at_once",
       "principle": "The cryptographic primitives",
       "skill": "crypto",
-      "resonance": 70928,
+      "resonance": 70935,
       "concepts": [
         "uuid"
       ]
@@ -366,7 +366,7 @@
       "key": "address_and_payload_exchange_at_one_twenty_eight",
       "principle": "The hexbit",
       "skill": "hexbit",
-      "resonance": 70928,
+      "resonance": 70935,
       "concepts": [
         "uuid"
       ]
@@ -377,7 +377,7 @@
       "key": "address_never_determines_payload",
       "principle": "The uuid laws",
       "skill": "identifiers",
-      "resonance": 70928,
+      "resonance": 70935,
       "concepts": [
         "uuid"
       ]
@@ -388,7 +388,7 @@
       "key": "all_signaling_duality",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 70928,
+      "resonance": 70935,
       "concepts": [
         "uuid"
       ]
@@ -399,7 +399,7 @@
       "key": "a_defence_already_standing_precedes_any_pending_attack",
       "principle": "What the refusal was refusing to fuse",
       "skill": "wave",
-      "resonance": 70916,
+      "resonance": 70921,
       "concepts": [
         "quantum"
       ]
@@ -410,7 +410,7 @@
       "key": "a_gapless_index_admits_nothing_between",
       "principle": "The calendar",
       "skill": "calendar",
-      "resonance": 70916,
+      "resonance": 70921,
       "concepts": [
         "quantum"
       ]
@@ -421,7 +421,7 @@
       "key": "a_handle_is_eight_pairs_paid_it_is_sixteen",
       "principle": "The models",
       "skill": "models",
-      "resonance": 70916,
+      "resonance": 70921,
       "concepts": [
         "quantum"
       ]
@@ -432,7 +432,7 @@
       "key": "address_and_payload_exchange_at_one_twenty_eight",
       "principle": "The hexbit",
       "skill": "hexbit",
-      "resonance": 70916,
+      "resonance": 70921,
       "concepts": [
         "quantum"
       ]
@@ -443,7 +443,7 @@
       "key": "all_signaling_duality",
       "principle": "The quantum computer",
       "skill": "quantum",
-      "resonance": 70916,
+      "resonance": 70921,
       "concepts": [
         "quantum"
       ]
@@ -508,8 +508,8 @@
     "cricket",
     "api-data-europa"
   ],
-  "receipt": "babd74bf-8134-8add-9889-cc8d71a05f84",
-  "handle": "babd74bf",
-  "door": "https://uuidna.com/babd74bf",
+  "receipt": "8c29e3b9-58c2-889e-b12d-837aa55a9fb9",
+  "handle": "8c29e3b9",
+  "door": "https://uuidna.com/8c29e3b9",
   "honest": "Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity."
 }

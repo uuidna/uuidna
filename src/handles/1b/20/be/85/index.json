@@ -1,0 +1,12 @@
+{
+  "handle": "1b20be85",
+  "address": "1b20be85-d459-8afa-8dae-9b23ab20366f",
+  "kind": "chunk",
+  "keys": [
+    "planck_margin_bounded"
+  ],
+  "statement": "(1616255 * 2 ^ 128 / 10 ^ 41 > 5000) ∧ (1616255 * 2 ^ 128 / 10 ^ 41 < 6000)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

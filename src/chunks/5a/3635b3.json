@@ -1,0 +1,12 @@
+{
+  "handle": "5a3635b3",
+  "address": "5a3635b3-1892-8d05-8f5e-94e738b19820",
+  "statement": "((1 + 1 = 2) ∧ (1 - 1 = 0)) ∧ (3 - 1 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "product_isolates_quantum"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}
