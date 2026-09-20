@@ -4,7 +4,7 @@
 // and the captain comes NEXT in place (never erased, never first when prior art is named, never unclaimed).
 // uuidna reflects history; it claims only the unclaimed. A Clay theorem credits the mathematician who proved the
 // PROBLEM (Perelman for Poincaré); uuidna seals only the REFLECTION.
-import { THEOREMS, theoremByKey, PRINCIPLES } from '../../theorems/index.js'
+import { THEOREMS, theoremByKey, PRINCIPLES, ledgerFacts } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { doisIn } from '../../crossref.js'
 import { doiPriorArtForLeanFile } from '../../zenodo-seals.js'
@@ -144,6 +144,11 @@ export function credits(key: string): Credits {
 let _summary: { total: number; historical: number; contextual: number; captainAlone: number; address: string } | null = null
 export function creditsSummary(): { total: number; historical: number; contextual: number; captainAlone: number; address: string } {
   if (_summary) return _summary
+  // BAKED WHERE THE WALK FITS. This asks credits(key) of every theorem in the ledger for four counts; at the edge that walk
+  // needs the rows and the isolate does not hold them. A host still walks — the tally is only read where it was
+  // already computed, so the numbers are never asserted without having been counted.
+  const baked = ledgerFacts().credits
+  if (baked) return (_summary = baked)
   let historical = 0, contextual = 0, captainAlone = 0
   for (const t of THEOREMS) { const c = credits(t.key); if (c.claimedBy === 'historical') historical++; else if (c.claimedBy === 'contextual') contextual++; else captainAlone++ }
   return (_summary = { total: THEOREMS.length, historical, contextual, captainAlone, address: toUuid(`credits|${THEOREMS.length}|${historical}|${contextual}`) })

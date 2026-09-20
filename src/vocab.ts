@@ -10,7 +10,7 @@
 // and folds to one receipt. It maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO
 // 2108, SMPTE, Nyquist–Shannon …) — a citation
 // content-address can settle. Efficiency here is MEASURED and recomputable"maximum".
-import { theorems, theoremCountByFile, PRINCIPLES, skillGroups } from './theorems/index.js'
+import { theorems, theoremCountByFile, PRINCIPLES, skillSummary } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
 
@@ -66,8 +66,9 @@ export function vocabulary(): Vocabulary {
       address: toUuid(term + ':' + definition), audit: overreachOf(definition) }
   })
   // capability terms — one per skill, defined factually from its own theorems (no hand-prose to overreach).
-  const capabilityTerms: Term[] = skillGroups().map((g) => {
-    const domains = new Set(g.theorems.map((t) => t.file)).size
+  // the three numbers per skill, from wherever they were counted — see skillSummary
+  const capabilityTerms: Term[] = skillSummary().map((g) => {
+    const domains = g.domains
     const definition = `the ${g.skill} capability — ${g.count} sealed theorems across ${domains} domain(s), each proven by decide`
     return { term: g.skill, kind: 'capability', definition, theorems: g.count,
       address: toUuid(g.skill + ':' + definition), audit: overreachOf(definition) }

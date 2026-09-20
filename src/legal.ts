@@ -6,6 +6,7 @@
 // evidence() pattern applied to the legal surface: uuidna delivers what recomputes; the ruling is a human's, and a
 // court's, never a fold's. Integrity.
 import { runTrial } from './trial-run.js'
+import { ledgerFacts } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { vocabulary } from './vocab.js'
 import { forensics } from './forensics.js'
@@ -34,7 +35,8 @@ export function legalFacts(): LegalFacts {
   // object. Three of the callers are one-line licence readers that a deposit record calls per record: 178 records
   // paid 1.5 s each, and the deposit test held that at 322 s.
   if (_facts) return _facts
-  const trial = runTrial()
+  // the ledger line keeps the trial's COUNT and RECEIPT — see due-process: a host walks, the edge reads the tally
+  const trial = ledgerFacts().trial ?? runTrial()
   const standardsCited = vocabulary().standards
   // demonstrate, in the fact base itself, that the project's own gate REFUSES a blanket compliance claim
   const overclaim = 'uuidna is fully legally compliant with all international laws and standards'

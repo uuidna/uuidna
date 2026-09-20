@@ -8,7 +8,7 @@
 // are theorems anyone rechecks — NOT a court of law. "Due legal process"
 // here means the process is DUE (fair and recomputable by its sealed guarantees)
 // jurisdiction would enforce. The ruling that binds stays a human court's; this verifies by a fair process, no more.
-import { theorems } from './theorems/index.js'
+import { sealedAddressOf, ledgerFacts } from './theorems/index.js'
 import { runTrial } from './trial-run.js'
 import { adjudicate } from './adjudicate.js'
 // the one trial fuses the machinery that already exists — the honesty gate and the calculator — rather than
@@ -82,11 +82,13 @@ export interface CourtProcedure {
  *  makes its recomputable analogue hold, and any submitted claim walked through that same order. A court uses
  *  uuidna by recomputing the record at every stage; uuidna carries the ORDER and the guarantees. */
 export function courtProcedure(claims: readonly string[] = []): CourtProcedure {
-  const T = theorems()
-  const byKey = new Map(T.map((t) => [t.key, t]))
+  // THE ADDRESS AND WHETHER IT IS SEALED — WHICH IS NOT A ROW. This built a Map over every theorem in the ledger to look up
+  // the handful of keys STAGES names, and then read exactly two things off each: the address, and whether the row
+  // existed. Both are in the baked root, where sealedAddressOf answers them in O(1) with no rows read — so at the
+  // edge this door no longer carries the ledger, and it was carrying it to learn nothing the root did not hold.
   const stages: CourtStage[] = STAGES.map((s, i) => {
-    const t = byKey.get(s.key)
-    return { order: i + 1, stage: s.stage, court: s.court, uuidna: s.uuidna, theoremKey: s.key, theoremAddress: t?.address ?? toUuid('missing:' + s.key), sealed: !!t }
+    const address = sealedAddressOf(s.key)
+    return { order: i + 1, stage: s.stage, court: s.court, uuidna: s.uuidna, theoremKey: s.key, theoremAddress: address ?? toUuid('missing:' + s.key), sealed: address !== undefined }
   })
   // the deposit gate (trial_computes_only_with_two_coins): a trial BEGINS only when the sides have deposited —
   // the two coins (a decidable test that runs) or the theorems supporting their claims (a sealed citation). A claim
@@ -150,13 +152,16 @@ export function verifyFiling(message: SealedQuantumMessage): { valid: boolean; g
  *  trial, the six due-process guarantees confirmed sealed, and any submitted claim adjudicated by that process — folded
  *  to one recomputable docket receipt. A fair process whose rules are theorems; NOT a court. */
 export function dueProcess(claims: readonly string[] = []): DueProcess {
-  const T = theorems()
-  const byKey = new Map(T.map((t) => [t.key, t]))
-  const trial = runTrial()
+  // THE TALLY, FROM WHEREVER IT IS AFFORDABLE. Only four numbers are kept off the trial below, and the trial walks
+  // every theorem to produce one verdict each, none of which this door returns. A host walks it; the edge reads the tally the
+  // bake already walked for. Where no tally is baked the walk still happens, so nothing is assumed that was not run.
+  const baked = ledgerFacts().trial
+  const trial = baked ?? runTrial()
 
+  // the same two facts, from the same root — see courtProcedure above
   const guarantees: Guarantee[] = GUARANTEES.map((g) => {
-    const t = byKey.get(g.key)
-    return { key: g.key, right: g.right, address: t?.address ?? toUuid('missing:' + g.key), sealed: !!t }
+    const address = sealedAddressOf(g.key)
+    return { key: g.key, right: g.right, address: address ?? toUuid('missing:' + g.key), sealed: address !== undefined }
   })
   const allGuaranteesSealed = guarantees.every((g) => g.sealed)
 

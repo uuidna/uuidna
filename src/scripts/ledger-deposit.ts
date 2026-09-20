@@ -18,7 +18,9 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
-import { THEOREMS } from '../theorems/index.js'
+import { THEOREMS, ledgerFactsOf, skillSummaryOf, theoremCountByFile } from '../theorems/index.js'
+import { runTrial } from '../trial-run.js'
+import { creditsSummary } from '../captain/credits/index.js'
 import type { EdgeRoot } from '../theorems/ledger-shape.js'
 import { EDGE_ROOT } from '../theorems/edge-root.js'
 import { ledgerPiecesOf, ledgerManifestOf, contentAddressOf, edgeRootOf, ledgerAt, storedAt, LEDGER_RUN, type LedgerPiece, type LedgerManifest } from '../edge-ledger.js'
@@ -42,7 +44,12 @@ export const edgeRootSourceOf = (root: EdgeRoot): string =>
 /** bake() → write src/theorems/edge-root.ts for the current ledger; offline */
 export const bake = (): { root: string; count: number; pieces: number } => {
   const { pieces, root } = ledgerPlan()
-  writeFileSync(join(ROOT, 'src', 'theorems', 'edge-root.ts'), edgeRootSourceOf(edgeRootOf(THEOREMS, root, GATE_THEOREMS)))
+  // THE TRIAL RUNS HERE, WHERE IT FITS. dueProcess needs four numbers off a trial that walks every theorem; running
+  // that walk in a 128 MB isolate is what it could not do. The bake already holds the whole ledger, so it walks once
+  // and the tally rides in the root — the verdicts themselves are never carried, only what the door reports.
+  const t = runTrial()
+  const facts = { ...ledgerFactsOf(THEOREMS), trial: { count: t.count, verified: t.verified, unverified: t.unverified, receipt: t.receipt }, credits: creditsSummary(), skills: skillSummaryOf(), countByFile: Object.fromEntries(theoremCountByFile()) }
+  writeFileSync(join(ROOT, 'src', 'theorems', 'edge-root.ts'), edgeRootSourceOf({ ...edgeRootOf(THEOREMS, root, GATE_THEOREMS), facts }))
   return { root, count: THEOREMS.length, pieces: pieces.length }
 }
 

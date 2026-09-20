@@ -10,7 +10,7 @@
 //   · false-address       — it presents a uuid AS a ledger/theorem address that is not one of the real ones.
 //   · address-mismatch    — an explicit {text → address} claim that does not recompute (a tamper or a forgery).
 // the sealed keys and addresses are asked on use, not collected at import: the edge answers them from its baked root
-import { sealedAddressOf, sealedAddresses } from './theorems/index.js'
+import { sealedAddressOf, isSealedAddress, sealedAddressCount } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
 import { adjudicate, type VerdictKind } from './adjudicate.js'
@@ -52,7 +52,7 @@ export function forensics(statement: string, opts: { claims?: { text: string; ad
     const uuid = m[0].toLowerCase()
     const at = m.index ?? 0
     const before = statement.slice(at < 32 ? 0 : at - 32, at)
-    if (FRAME.test(before) && !sealedAddresses().has(uuid)) add('false-address', `presents ${uuid} as a sealed address — not among the ledger's ${sealedAddresses().size} addresses`)
+    if (FRAME.test(before) && !isSealedAddress(uuid)) add('false-address', `presents ${uuid} as a sealed address — not among the ledger's ${sealedAddressCount()} addresses`)
   }
 
   // 4) explicit {text → address} claims — recompute and compare (a keyless tamper/forgery check).

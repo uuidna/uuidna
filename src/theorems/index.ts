@@ -179,6 +179,34 @@ let _sealedAddresses: ReadonlySet<string> | null = null
 export const sealedAddresses = (): ReadonlySet<string> =>
   (_sealedAddresses ??= new Set(sealedKeys().map((k) => sealedAddressOf(k) as string)))
 
+/** isSealedAddress(uuid) → whether the ledger holds a theorem at this address, WITHOUT building the set. The baked
+ *  root already carries every address concatenated at the address's own width, so membership is a search in one
+ *  string at an aligned offset — no key list, no address list, no Set. Asking the Set instead built three structures
+ *  of one entry per theorem to answer a yes-or-no, which at the edge is the difference between answering and
+ *  `exceededMemory`. A host, whose rows are already in hand, still answers from the Set. */
+export const isSealedAddress = (uuid: string): boolean => {
+  const root = LEDGER_EDGE?.root
+  if (!root) return sealedAddresses().has(uuid)
+  const width = uuid.length
+  let at = root.addresses.indexOf(uuid)
+  while (at >= 0) {
+    if (at % width === 0) return true              // a hit starting on an address boundary IS an address
+    at = root.addresses.indexOf(uuid, at + 1)      // one that straddles two addresses is not one
+  }
+  return false
+}
+
+/** how many addresses the ledger seals — the count, without the set */
+export const sealedAddressCount = (): number => sealedCount()
+
+export interface SkillSummary { skill: string; count: number; domains: number; fold: string }
+/** skillSummary() → each skill with its theorem count, the number of lean files it spans and its fold — WITHOUT the
+ *  rows. A host groups its own ledger; the edge reads what the bake grouped. Built from skillGroups on a host, so
+ *  the two can only ever say the same thing. */
+export const skillSummaryOf = (): SkillSummary[] =>
+  skillGroups().map((g) => ({ skill: g.skill, count: g.count, domains: new Set(g.theorems.map((t) => t.file)).size, fold: g.fold }))
+export const skillSummary = (): readonly SkillSummary[] => LEDGER_EDGE?.root?.facts?.skills ?? skillSummaryOf()
+
 /** SEALED BUT NOT A PAGE EACH. The four-hex span is one property over 2^16 addresses — counted in the ledger,
  *  served on demand at `/theorem/enumeration_hex4_<hex>`, never listed or SSG'd as 65,536 near-identical rows.
  *  compose-object, the axis listing, and the edge share this predicate so a surface cannot quietly disagree. */
@@ -260,8 +288,14 @@ let _byKey: Map<string, Theorem> | null = null
 export const theoremByKey = (): ReadonlyMap<string, Theorem> => (_byKey ??= new Map(THEOREMS.map((t) => [t.key, t])))
 let _countByFile: Map<string, number> | null = null
 /** theoremCountByFile() → count of theorems per lean file (O(1) lookup), built once. Replaces per-file `filter().length`. */
-export const theoremCountByFile = (): ReadonlyMap<string, number> =>
-  (_countByFile ??= THEOREMS.reduce((m, t) => (m.set(t.file, (m.get(t.file) ?? 0) + 1), m), new Map<string, number>()))
+export const theoremCountByFile = (): ReadonlyMap<string, number> => {
+  if (_countByFile) return _countByFile
+  // ABOUT A HUNDRED NUMBERS, counted by a walk over every row. The bake carries the counts, so the edge reads them;
+  // a host counts its own. Either way the map is the same map.
+  const baked = LEDGER_EDGE?.root?.facts?.countByFile
+  if (baked) return (_countByFile = new Map(Object.entries(baked)))
+  return (_countByFile = THEOREMS.reduce((m, t) => (m.set(t.file, (m.get(t.file) ?? 0) + 1), m), new Map<string, number>()))
+}
 
 let _casesByFile: Map<string, number> | null = null
 /** theoremCasesByFile() → ENUMERATED ROWS per lean file: the sum of each theorem's `cases`, built once.

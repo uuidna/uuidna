@@ -22,6 +22,17 @@ export interface LedgerFacts {
   orphans: readonly string[]
   /** whether the ledger seals `110 - 108 = 2`, the conserved two-coin invariant */
   twoCoins: boolean
+  /** THE TRIAL'S TALLY, not its verdicts. dueProcess runs the whole trial — one verdict per theorem — and keeps
+   *  four numbers off it. The verdicts are 71,018 objects the door never returns; the tally is what it reports. */
+  trial?: { count: number; verified: number; unverified: number; receipt: string }
+  /** THE CREDIT TALLY, for the same reason: creditsSummary asks credits(key) of every theorem to report four counts. */
+  credits?: { total: number; historical: number; contextual: number; captainAlone: number; address: string }
+  /** ONE ROW PER SKILL, not one per theorem. The vocabulary describes each capability by its name, how many theorems
+   *  carry it and how many lean files they span; skillGroups() answers that by grouping the WHOLE ledger and keeping
+   *  every row in every group. These are the three numbers the description is built from. */
+  skills?: readonly { skill: string; count: number; domains: number; fold: string }[]
+  /** how many theorems each lean file seals — about a hundred entries, built by a walk over every row */
+  countByFile?: Readonly<Record<string, number>>
 }
 
 export interface EdgeRoot { root: string; count: number; keys: string; addresses: string; gate: readonly string[]; facts?: LedgerFacts }
