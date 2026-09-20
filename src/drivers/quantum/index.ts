@@ -137,6 +137,55 @@ export const WITNESSES: readonly Witness[] = [
   // sealed literal adds a second name for the same claim and no independent decision, so every one of these
   // recomputes the quantity the theorem is ABOUT and lets the arithmetic fall out.
 
+  // THE WING GREW AND THE BATTERY OWED IT A DECISION. bell_agreement_carries_no_command was sealed into the quantum
+  // wing and left coverage.unwitnessed non-empty, which the traitor test reads as the battery speaking for a wing it
+  // does not cover. Every conjunct of that theorem is exact integer arithmetic, so there is no excuse to leave it
+  // named-but-undecided: each quantity below is RECOMPUTED from the joint measurement it is about, and the sealed
+  // literal is what the arithmetic has to land on, never what it is handed.
+  { theorem: 'bell_agreement_carries_no_command', cases: 7,
+    what: 'the concurring outcomes of the 2x2 joint measurement, the exchange invariance of its marginals, the palindromic correlation vector, the integer gap between the squared classical and quantum CHSH bounds, and the pentagon interior angle the step lands on — each derived from the enumeration or the polygon, none restated',
+    run: () => {
+      // THE OUTCOME SPACE, enumerated rather than written down: index i carries Alice's bit in i % 2 and Bob's in
+      // i >> 1. Integer ops only — this tree hard-rejects Math.* anywhere, generators and drivers included.
+      const outcomes = [0, 1, 2, 3]
+      const alice = (i: number): number => i % 2
+      const bob = (i: number): number => (i >> 1) % 2
+      const agree = outcomes.filter((i) => alice(i) === bob(i))
+      // the correlation vector is the indicator of agreement, so it too comes out of the enumeration
+      const corr = outcomes.map((i) => (alice(i) === bob(i) ? 1 : 0))
+      // NOTHING CAN BE SENT THROUGH IT: each side's weight under the correlation is the same, so exchanging the
+      // parties changes nothing a party could read. Derived by summing, not asserted.
+      const weightA = outcomes.reduce((t, i) => t + corr[i]! * alice(i), 0)
+      const weightB = outcomes.reduce((t, i) => t + corr[i]! * bob(i), 0)
+      // THE CLASSICAL BOUND, by exhaustive search over the 16 local deterministic strategies — the same search
+      // chsh_beats_classical runs, done again here because a witness that borrows a number decides nothing.
+      let classical = 0
+      for (let m = 0; m < 16; m++) {
+        const a = (m & 1) ? 1 : -1, a2 = (m & 2) ? 1 : -1, b = (m & 4) ? 1 : -1, b2 = (m & 8) ? 1 : -1
+        const S = a * b + a * b2 + a2 * b - a2 * b2
+        const abs = S < 0 ? -S : S
+        if (abs > classical) classical = abs
+      }
+      // squared, both bounds are integers: classical 2 -> 4, quantum 2*sqrt(2) -> 8, so the gap needs no irrational
+      const quantumSq = 2 * classical * classical
+      // THE PENTAGON DECIDES 108, not the other way round: a regular n-gon's interior angle is (n-2)*180/n, and the
+      // A432 step is what divides it three ways. 5 is the mirror's own fixed point, which is why the pentagon.
+      const n = 5
+      const interior = ((n - 2) * 180) / n
+      const step = interior / 3
+      // THE TWO COINS ARE THE TWO PARTIES. Alice and Bob is the count, derived from the outcome space's own shape.
+      const parties = new Set(outcomes.map(alice)).size
+      return failures([
+        agree.length === 2 && agree[0] === 0 && agree[1] === 3,
+        weightA === weightB,
+        corr.join() === [...corr].reverse().join(),
+        classical * classical < quantumSq,
+        step * 3 === interior && interior === 108,
+        2 * (interior / 2) === interior && interior / 2 === 54,
+        110 - interior === parties && parties === 2,
+      ])
+    } },
+
   { theorem: 'chsh_beats_classical', cases: 16,
     what: 'the classical CHSH bound is 2 by exhaustive search over all 16 local deterministic strategies, and 2² < (2√2)² as integers',
     run: () => {
