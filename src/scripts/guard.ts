@@ -39,6 +39,7 @@ import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, pool, type Gap, rd, has, judged } from './api.js'
 import { memoryHomeGuardGaps } from '../memory-home.js'
+import { latexCrosscheck } from '../latex-crosscheck.js'
 import { capacity } from '../os/host/index.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
@@ -322,6 +323,17 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // NO LEAD VANISHES AND NONE ESCAPES ITS TRIAL — the 2026-09-14 deletion of 21 leads, involuted: every lead at HEAD
   // must still be in the record, and every lead on the docket must have a trial.
   { name: 'leads', run: () => leadsGuardGaps() },
+  // THE PAPER AND THE WINGS PROVE EACH OTHER — folded in here rather than run by hand, because a finder a person has
+  // to remember is a finder that reports nothing. Three surfaces derived along different paths (the kernel-verified
+  // wings, the ledger every door serves, the published paper carrying its own recomputable address) and every place
+  // they part company is named. It caught its own author first: a theorem proved into a wing and invisible to the
+  // ledger, while the axiom witness read holds:true because the ledger and the audit agreed with each other whilst
+  // both were missing it. Two surfaces sharing an input cannot witness each other.
+  { name: 'latex-crosscheck', run: (): Gap[] => {
+    const c = latexCrosscheck(ROOT)
+    if (c.unmeasured !== undefined) return [{ what: `the paper and the wings could not be compared — ${c.unmeasured}`, fix: 'run the guard inside the repository, where lean/*.lean and docs/public/uuidna-ledger.tex are both readable' }]
+    return c.leads.map((l) => ({ what: `${l.kind} — ${l.key}: ${l.why}`, fix: 'this is a LEAD, not a fix: put it to the trial door (uuidna_trial). A wing proved and unpublished wants gen-latex; a paper entry with no wing wants the wing or the retraction; an address that does not recompute wants neither until a trial says which side moved.' }))
+  } },
   // NO MEMORIES OUTSIDE THE PROJECT — the captain, 2026-09-14: AGENTS.md indexes the laws, the leads and the lessons,
   // CLAUDE.md only points at it, and the lessons are tracked; a missing piece is named, never assumed.
   { name: 'memory-home', run: () => memoryHomeGuardGaps((p) => (has(p) ? rd(p) : undefined)) },
