@@ -100,7 +100,9 @@ const expectedSeconds = (shard: readonly string[]): number =>
 const slowestRecorded = Object.values(readings?.secondsByFile ?? {}).reduce((m, v) => (v > m ? v : m), 0)
 
 /** HOW LONG TO WAIT BEFORE A SILENCE IS CALLED WHAT IT IS. A shard that never closes leaves memoryPool waiting on a
- *  promise that will not settle, and the pool is right to wait — it cannot tell a hung child from a working one.
+ *  promise that will not settle, and the pool is right to wait: BY CONSTRUCTION an unsettled promise carries no
+ *  information at all about whether the work behind it continues, so a hung child and a working one present the
+ *  same evidence to it — which is why the deadline has to come from outside the promise.
  *  Nothing else could tell either: three landings this session sat for 23, 29 and 35 minutes with the land process
  *  at 0.1s of CPU, no output and no worker, and each looked exactly like progress until it was killed by hand. The
  *  heaviest files here are network-bound (research-sources, mcp-edge-coverage, rosetta-legs), and a fetch with no
