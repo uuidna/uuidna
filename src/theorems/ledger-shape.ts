@@ -9,7 +9,22 @@ import type { LeanTheorem } from './generated.js'
  *  neither waits for the rows. `gate` is the gate's spec as gate-engine selects it from the statements (gateTheoremsOf),
  *  so a gated call — the deposit door's own included — never waits for the rows either. Written by
  *  scripts/ledger-deposit --bake from the ledger lean-ledger wrote. */
-export interface EdgeRoot { root: string; count: number; keys: string; addresses: string; gate: readonly string[] }
+/** THE AGGREGATES, COMPUTED WHERE THE WHOLE LEDGER ALREADY IS. laws() and conformance() walk every theorem for a
+ *  handful of numbers — the count, whether the two-coin statement is sealed, and two lists that are empty unless
+ *  something is wrong — and at the edge that walk means holding 71,018 rows in a 128 MB isolate to learn four facts.
+ *  The bake already walks the ledger on a host with memory, so it answers them there and the edge reads the answers.
+ *  The lists are carried in FULL, not as counts: a forged address is the one thing these checks exist to name, and a
+ *  number would say a theorem is wrong without saying which. */
+export interface LedgerFacts {
+  /** keys whose content-address does not recompute from key + statement — empty in a sound ledger */
+  forged: readonly string[]
+  /** keys with no lean/*.lean source — empty in a sound ledger */
+  orphans: readonly string[]
+  /** whether the ledger seals `110 - 108 = 2`, the conserved two-coin invariant */
+  twoCoins: boolean
+}
+
+export interface EdgeRoot { root: string; count: number; keys: string; addresses: string; gate: readonly string[]; facts?: LedgerFacts }
 
 /** the edge's ledger state; `null` on a host, whose ledger is the bundled literal */
 export interface EdgeLedger {

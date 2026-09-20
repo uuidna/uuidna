@@ -2,7 +2,7 @@
 // asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it, so a reader
 // verifies the law rather than trusting the prose. A law with `holds:false` is a red gate. Folds to
 // one receipt anyone recomputes from the ledger. Integrity— a law here is only as true as its computed check.
-import { theorems } from './theorems/index.js'
+import { ledgerFacts, sealedCount } from './theorems/index.js'
 import { conformance } from './conformance.js'
 import { computes } from './gate.js'
 import { toUuid, toUuidOnce } from './address.js'
@@ -28,22 +28,23 @@ export interface Laws { laws: Law[]; allHold: boolean; unmeasured: string[]; rec
 /** laws() → the standing development invariants, each with its ENFORCING gate and its recomputed `holds`. Demonstrated,
  *  not claimed; recomputable by anyone. The rules live here, in uuidna — never hand-written into a side note. */
 export function laws(): Laws {
-  const T = theorems()
+  const F = ledgerFacts()
+  const total = sealedCount()
   const conf = conformance()
   const check = (id: string): boolean => conf.checks.find((c) => c.id === id)?.pass ?? false
   const unmeasuredOf = (id: string): { unmeasured: string } | Record<string, never> => {
     const why = conf.checks.find((c) => c.id === id)?.unmeasured
     return why ? { unmeasured: why } : {}
   }
-  const forged = T.filter((t) => toUuidOnce(t.key + ':' + t.statement) !== t.address).length
+  const forged = F.forged.length
 
   const L: Law[] = [
     { law: 'Generate all only from Lean — the sealed theorems are the single source; the derived layer is computed and diff-gated.',
       enforcedBy: 'conformance:single-source-ledger + the pre-push git-diff', holds: check('single-source-ledger'),
-      detail: `every one of ${T.length} theorems is sourced from a lean/*.lean file` },
+      detail: `every one of ${total} theorems is sourced from a lean/*.lean file` },
     { law: 'Any manual fails — every theorem recomputes its content-address; a hand-tampered theorem turns the recompute test red.',
       enforcedBy: 'conformance:ledger-dna-recomputes + recompute.test', holds: forged === 0,
-      detail: forged === 0 ? `all ${T.length} addresses recompute; ${forged} forged` : `${forged} theorem(s) do not recompute` },
+      detail: forged === 0 ? `all ${total} addresses recompute; ${forged} forged` : `${forged} theorem(s) do not recompute` },
     { law: 'Honesty is DEMONSTRATED by the gate— a claim citing a theorem that is not sealed drains to 0.',
       enforcedBy: 'the honesty gate (computes/slimGate)', holds: computes('proven in theorem nonexistent_xyz').binary === 0,
       detail: 'a fabricated theorem citation drains; an honest floor signs' },

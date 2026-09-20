@@ -5,9 +5,9 @@
 import { hexbitsOf as hexbitUnit, UUID_HEXBITS as HEXBIT_UUID } from '../hexbit/index.js'
 // '#ledger' (package.json "imports"): the bundled literal on a host, the storage ledger at the edge (src/edge-ledger.ts)
 import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, LEDGER_EDGE, type LeanTheorem } from '#ledger'
-import { lazyList } from './ledger-shape.js'
+import { lazyList, type LedgerFacts } from './ledger-shape.js'
 import { merkleGravity } from '../gravity/index.js'
-import { toUuid } from '../address.js'
+import { toUuid, toUuidOnce, A432_STEP } from '../address.js'
 import { coins } from '../captain/billing/index.js'
 import { runSequence, type DigitPolarity } from '../sequence-run.js'
 import { decodeVortexDashAngles, VORTEX_DASH_ANGLE_DEG } from '../sequence-field.js'
@@ -19,8 +19,9 @@ export const trialRayOf = (address: string): number =>
 /** Integer degrees per ray — 360/7. */
 export const trialRayDegrees = (ray: number): number => (ray * (360 / 7)) | 0
 
-/** A432 digit step — polarity_angles_are_the_system_counts: 360/9 = 40. */
-export const TRIAL_DIGIT_ANGLE = (360 / 9) | 0
+/** A432 digit step — polarity_angles_are_the_system_counts. A FOURTH copy of the step lived here as (360/9)|0 and
+ *  cited that theorem while disagreeing with it the moment the step became A432's own 36°; it reads the constant. */
+export const TRIAL_DIGIT_ANGLE = A432_STEP
 
 /** One theorem walked through the living sequence: polarity, spin (period), angle (digit step × seed), ray. */
 export interface TrialSequence {
@@ -150,6 +151,21 @@ export const sealedKeys = (): readonly string[] => LEDGER_EDGE ? LEDGER_EDGE.key
 /** how many keys the ledger seals, and the key at a position — asked WITHOUT materialising the list. A caller that
  *  wants a handful by position (the 2×7 witness fold picks fourteen) pays for fourteen strings instead of 71,017;
  *  at the edge that is the difference between a deposit and `Worker exceeded memory limit`. */
+/** ledgerFactsOf(theorems) → the aggregates laws() and conformance() would otherwise walk every row to learn: which
+ *  addresses fail to recompute, which theorems carry no lean source, and whether the two-coin statement is sealed.
+ *  ONE definition, and ledgerFacts() below decides where it runs. */
+export const ledgerFactsOf = (rows: readonly Theorem[]): LedgerFacts => ({
+  forged: rows.filter((t) => toUuidOnce(t.key + ':' + t.statement) !== t.address).map((t) => t.key),
+  orphans: rows.filter((t) => !t.file || !t.file.endsWith('.lean')).map((t) => t.key),
+  twoCoins: rows.some((t) => t.statement.trim() === '110 - 108 = 2'),
+})
+
+/** ledgerFacts() → those aggregates, WITHOUT the rows where the rows are not affordable. A host walks its own ledger;
+ *  the edge reads what the bake already computed, because holding 71,018 rows in a 128 MB isolate to learn four facts
+ *  is what made laws() and conformance() answer `exceededMemory` instead of answering. A root baked before this
+ *  existed carries no facts, and then the edge falls through to the walk and fails honestly rather than guessing. */
+export const ledgerFacts = (): LedgerFacts => LEDGER_EDGE?.root?.facts ?? ledgerFactsOf(THEOREMS)
+
 export const sealedCount = (): number => (LEDGER_EDGE ? LEDGER_EDGE.count() : THEOREMS.length)
 export const sealedKeyAt = (i: number): string | undefined => (LEDGER_EDGE ? LEDGER_EDGE.keyAt(i) : THEOREMS[i]?.key)
 

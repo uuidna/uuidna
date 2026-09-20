@@ -4,7 +4,7 @@
 // caught — its DNA no longer matches), the security posture is clean (zero runtime deps, defences + collision-
 // resistance sealed, the honesty gate bites, Clay solves none), and the ledger is non-empty and axiom-shaped. Run in
 // the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity, not truth.
-import { theorems } from './theorems/index.js'
+import { ledgerFacts, sealedCount } from './theorems/index.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, toUuidOnce } from './address.js'
 import { merkleGravity } from './gravity/index.js'
@@ -20,23 +20,28 @@ export interface ConformanceReport { checks: ConformanceCheck[]; conforms: boole
 let CACHED: ConformanceReport | null = null
 export function conformance(): ConformanceReport {
   if (CACHED) return CACHED
-  const T = theorems()
+  // THE FACTS, NOT THE ROWS. These six reads were a walk over every theorem for four aggregates, which at the edge
+  // meant holding 71,018 rows in a 128 MB isolate and answering `exceededMemory` instead of answering. ledgerFacts()
+  // is the same computation — a host runs it, the edge reads what the bake already ran — so nothing is trusted that
+  // was not computed, and the count comes from the baked root the same way.
+  const F = ledgerFacts()
+  const total = sealedCount()
   const checks: ConformanceCheck[] = []
   const mk = (id: string, pass: boolean, detail: string, unmeasured?: string): void => { checks.push({ id, pass, detail, ...(unmeasured ? { unmeasured } : {}) }) }
 
   // 1) the captain coins are conserved — the anchor of every fold (coins() = 2 = 110 − 108, −χ of the double torus)
-  mk('captain-coins-conserved', coins() === 2 && T.some((t) => t.statement.trim() === '110 - 108 = 2'),
+  mk('captain-coins-conserved', coins() === 2 && F.twoCoins,
     `coins() = ${coins()} and two_coins is sealed — the conserved fair-exchange invariant holds`)
 
   // 2) EVERY theorem's DNA recomputes — a forged/tampered theorem is incompatible DNA and is caught here
-  const forged = T.filter((t) => toUuidOnce(t.key + ':' + t.statement) !== t.address).map((t) => t.key)
+  const forged = F.forged
   mk('ledger-dna-recomputes', forged.length === 0,
-    forged.length === 0 ? `all ${T.length} theorem content-addresses recompute — no forged/incompatible DNA` : `INCOMPATIBLE DNA: ${forged.length} theorem(s) whose address does not recompute: ${forged.slice(0, 5).join(', ')}`)
+    forged.length === 0 ? `all ${total} theorem content-addresses recompute — no forged/incompatible DNA` : `INCOMPATIBLE DNA: ${forged.length} theorem(s) whose address does not recompute: ${forged.slice(0, 5).join(', ')}`)
 
   // 3) the ledger is non-empty and single-sourced (every theorem carries a lean source file)
-  const orphanTheorems = T.filter((t) => !t.file || !t.file.endsWith('.lean')).map((t) => t.key)
-  mk('single-source-ledger', T.length > 0 && orphanTheorems.length === 0,
-    orphanTheorems.length === 0 ? `${T.length} theorems, every one sourced from a lean/*.lean file` : `${orphanTheorems.length} theorem(s) with no lean source`)
+  const orphanTheorems = F.orphans
+  mk('single-source-ledger', total > 0 && orphanTheorems.length === 0,
+    orphanTheorems.length === 0 ? `${total} theorems, every one sourced from a lean/*.lean file` : `${orphanTheorems.length} theorem(s) with no lean source`)
 
   // 4) the security posture is clean — fold in the whole security audit (zero deps, defences + collision sealed, gate bites, Clay)
   // The audit folds in the kernel-only witness, which reads a file. Where the surface has no filesystem the witness

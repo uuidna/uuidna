@@ -16,7 +16,7 @@
 // storage: `denied: 'heap'`); a piece that ever meets it is refused at the door by name, not truncated.
 import { canonicalJson, toUuidOnce } from './address.js'
 import { SEALED_BY } from './refusal-trials.js'
-import { isPagelessFile, type Theorem } from './theorems/index.js'
+import { isPagelessFile, ledgerFactsOf, type Theorem } from './theorems/index.js'
 import { LEDGER_EDGE, type LeanTheorem } from '#ledger'
 import type { EdgeRoot } from './theorems/ledger-shape.js'
 
@@ -78,7 +78,9 @@ export const edgeRootOf = (theorems: readonly Theorem[], root: string, gate: rea
   keys: theorems.map((t) => t.key).join('\n'),
   addresses: theorems.map((t) => t.address).join(''),
   gate: [...gate],
+  facts: ledgerFactsOf(theorems),
 })
+
 
 /** storedAt(address, fetch) → the deposit stored at that address, without the seal the door added — REFUSED unless its
  *  bytes recompute the address it was asked for */
