@@ -84,10 +84,10 @@ witnesses_locate_faults 27
 handle_splits_four 27
 drift_is_named_or_caught 27
 the_axiom_index_partitions_without_remainder 27
-edits_break_recompute 19
-cuts_break_successors 27
-tail_cut_survives 27
-checkpoints_catch_truncation 27
+edits_break_recompute 23
+cuts_break_successors 31
+tail_cut_survives 31
+checkpoints_catch_truncation 31
 prose_coverage_total 27
 prose_round_trips 27
 prose_terminator_escaped 27
@@ -71287,8 +71287,11 @@ the_ten_complement_involutes_the_vortex_through_the_axis 27`
 export const CLAIMS = `abo_klein_four 10.1038/345229a0
 blood_types_eight 10.3181/00379727-43-11151
 bulge_exceeds_relief WGS 84
+checkpoints_catch_truncation 10.5555/1855768.1855788
 codons_sixty_four 10.1073/pnas.47.10.1588
+cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
+edits_break_recompute 10.1007/BF00196791
 eratosthenes_fiftieth_circle Eratosthenes
 hardware_above_landauer Landauer
 kelvin_floor_carries_the_hundred SI
@@ -71296,13 +71299,14 @@ landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
+tail_cut_survives 10.5555/1855768.1855788
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 17, falsifier: 63 }
+export const FLOOR = { witness: 21, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
@@ -71314,10 +71318,10 @@ export const UNREACHED: readonly string[] = []
 // DECLARED (rosetta --declare-rule-change "<reason>") rather than permitted as a side effect. Without this the
 // refusal is walk-past-able by editing the pattern it consults, which is the absolute refusal wearing a quieter
 // coat: a gate whose verdict the author controls by editing the thing it reads.
-export const RULE = "fd06d2cb"
-export const RULE_DECLARED = "The bare tokens doi|DOI matched this repository's own SUBJECT MATTER rather than a citation: DOI minting is what much of this tree is about, so the word appears 22x across the emitters against 23x for an actual 10.xxxx/ identifier. It matched sentences that say there is NO DOI - gate_error_baseline_class reads 'does not hold the wing empty waiting for a DOI' and earned the witness leg for saying so. A witness must be something a stranger can consult; the word naming the class of thing is not one. The rule now requires a real identifier, 10.[0-9]{4,9}/. Two legs fall: gate_error_baseline_class, which never had an external anchor, and the_collision_energy_label_step_is_one_tev, whose own note says 'the DOI it came from' while the CMS identifiers sit in a neighbouring note - the anchor exists in the file and not in the note rosetta reads, which is a real gap and not a false one."
+export const RULE = "fd3b387a"
+export const RULE_DECLARED = ""
 // …and the digest it was declared FOR. A declaration is spent on ONE rule: honouring a standing one for the
 // next change lets a single declaration bless every future edit, which is the same walk-past hole one level up.
 // Measured: with the declaration for the `measured` removal on the record, deleting `Gutenberg` — an unrelated
 // alternative — was permitted and printed that reason beside a fall it had nothing to do with.
-export const RULE_DECLARED_FOR = "fd06d2cb"
+export const RULE_DECLARED_FOR = ""

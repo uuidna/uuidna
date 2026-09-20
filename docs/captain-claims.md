@@ -3,11 +3,11 @@
 **Generated:** 2026-09-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71022/71022 theorems — every one, by construction
-**Discovery claimed:** 70638 — the other 384 restate a fact a named source found first
+**Formalisation claimed:** 71026/71026 theorems — every one, by construction
+**Discovery claimed:** 70638 — the other 388 restate a fact a named source found first
 
-*The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `57b0f687-d5bf-8521-8847-54cca756173b`
+*The 388 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 12/21 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `0816015b-90ad-8710-bc8e-3968bbb3c5d9`
 
 ### Facts the captain does not claim to have discovered
 
@@ -24,6 +24,10 @@ that earns an external anchor moves here on the next run.
 - [blood_types_eight](/theorem/blood_types_eight) — 10.3181/00379727-43-11151
 - [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) — 10.1038/171737a0
 - [codons_sixty_four](/theorem/codons_sixty_four) — 10.1073/pnas.47.10.1588
+- [edits_break_recompute](/theorem/edits_break_recompute) — 10.1007/BF00196791
+- [cuts_break_successors](/theorem/cuts_break_successors) — 10.1007/BF00196791
+- [tail_cut_survives](/theorem/tail_cut_survives) — 10.5555/1855768.1855788
+- [checkpoints_catch_truncation](/theorem/checkpoints_catch_truncation) — 10.5555/1855768.1855788
 - [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) — WGS 84
 - [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) — Eratosthenes
 - [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) — WGS 84
@@ -174,12 +178,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The detectors, proven
 
-- **Theorems:** 18
+- **Theorems:** 22
 - **Sample lineAddress:** `dbb130ad-3a9a-83ab-8dd4-9de755d6f4ca`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) · [the_axiom_index_partitions_without_remainder](/theorem/the_axiom_index_partitions_without_remainder) · [prose_coverage_total](/theorem/prose_coverage_total) · [prose_round_trips](/theorem/prose_round_trips) · [prose_terminator_escaped](/theorem/prose_terminator_escaped) · [prose_beats_restatement](/theorem/prose_beats_restatement) · [prose_folds_receipt](/theorem/prose_folds_receipt) · [prose_audit_total](/theorem/prose_audit_total)
+[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) · [the_axiom_index_partitions_without_remainder](/theorem/the_axiom_index_partitions_without_remainder) · [edits_break_recompute](/theorem/edits_break_recompute) · [cuts_break_successors](/theorem/cuts_break_successors) · [tail_cut_survives](/theorem/tail_cut_survives) · [checkpoints_catch_truncation](/theorem/checkpoints_catch_truncation) · [prose_coverage_total](/theorem/prose_coverage_total) · [prose_round_trips](/theorem/prose_round_trips) · [prose_terminator_escaped](/theorem/prose_terminator_escaped) · [prose_beats_restatement](/theorem/prose_beats_restatement) · [prose_folds_receipt](/theorem/prose_folds_receipt) · [prose_audit_total](/theorem/prose_audit_total)
 
 ### The audit game
 
@@ -454,7 +458,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `d6f93afc-f4df-8db3-b46f-cdcb063fee01`
+- **Sample lineAddress:** `a7242e4c-e81a-8ef9-9dda-dd4ec3632870`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -463,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `e3f20cb7-5002-8574-8b27-9798eb809b4c`
+- **Sample lineAddress:** `5555439c-f9ef-8ef1-9549-f75b0e514e5b`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1975,7 +1979,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The involution of lead b13fd37a
 
 - **Theorems:** 2
-- **Sample lineAddress:** `0a0120a4-d711-868b-9aa0-6909da51e62b`
+- **Sample lineAddress:** `3a713b3d-c77d-8181-98e6-f4d62bfd601e`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2324,7 +2328,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70937 (71022 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70941 (71026 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2342,7 +2346,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71022 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71026 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2354,7 +2358,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71022; he claims discovery of 70638 and credits the other 384 facts to their named sources
+- ✓ The captain formalised all 71026; he claims discovery of 70638 and credits the other 388 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2363,14 +2367,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 384 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 388 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71022; of these I claim discovery of 70638, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71026; of these I claim discovery of 70638, and the remaining 388 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 
