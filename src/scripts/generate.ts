@@ -33,7 +33,6 @@ const GENERATORS: Gen[] = [
   { file: 'gen-mcp-docs.js', args: [], note: 'every tool run once in a sandbox: standard name, annotations from what it reaches, the shape of its actual answer — src/mcp-docs.generated.ts, which both MCP surfaces serve and gen-mcp renders' },
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
   { file: 'gen-apis.js', args: [], note: 'the public API catalog — drained from publicApiRegistry(), no hand-typed /apis' },
-  { file: 'gen-latex.js', args: [], note: 'the ledger as one XeLaTeX article — derived from the seals, so a wing that lands today is in the paper today' },
   { file: 'gen-packages.js', args: [], note: 'the six workspace surfaces, computed from src/index.ts (guard step 3 rejects drift)' },
   { file: 'gen-zenodo.js', args: [], note: 'the archival record' },
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
@@ -113,6 +112,17 @@ const GENERATORS: Gen[] = [
   // the edge reads the ledger's rows from qpu storage and carries only its root: re-baked from the ledger this run built,
   // so a Worker can never ship a root that lags its ledger (a null or stale root refuses every edge tool call)
   { file: 'ledger-deposit.js', args: ['--bake'], note: 'src/theorems/edge-root.ts — the manifest root, the sealed keys and their addresses, the only part of the ledger the Worker bundles' },
+  // THE PAPER IS WRITTEN LAST, FOR THE REASON THE COURT RECORD ALREADY LEARNED. It sat at position 36 of 61, so
+  // twenty-five generators ran after it and any of them that moves the ledger left the paper speaking for a count
+  // that no longer held. Measured 2026-09-21, immediately after a FULL reconcile: the paper was three seals behind
+  // the wings on the only three theorems whose statements embed a live count —
+  // forged_address_odds_are_negligible, forged_handle_odds_are_small and sixteen_bit_handles_would_collide — which
+  // makes those three the ledger canary and made the drift visible at all. trial-refusals carries this same note
+  // and the same cure a few lines below: computed LAST among the derivations, because a record derived before its
+  // inputs settle is a record that is stale the moment it is written. Running gen-latex by hand afterwards clears
+  // the symptom and leaves the cause, which is how the crosscheck in the guard would have become a trap rather
+  // than a finder: green only for whoever remembered to run the generator first.
+  { file: 'gen-latex.js', args: [], note: 'the ledger as one XeLaTeX article — derived from the seals, LAST among the emitters so no later generator can move the ledger out from under it' },
   { file: 'gen-witness-seals.js', args: [], note: 'lean/witness-seals.json — each involution a wave sealed on all VE_FACES faces, signed only once the ledger holds its subject; with no wave receipt the committed seals stand' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
   // THE FREEZE RUNS LAST. It seals every navigable route, and gen-articles (below it once) writes a page per wing —
