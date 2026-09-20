@@ -28,6 +28,7 @@ import { memoryPool } from '../memory-pool.js'
 import { shardsOf, parseShardOutput, isMergedLine, type Leaf, type ShardOutput } from '../test-shards.js'
 import { totalOf } from './test-receipt.js'
 import { freeMemoryBytes } from './device-readings.js'
+import { MIRROR_BASE } from '../address.js'   // the deadline's multiplier is the mirror's own modulus, never a typed number
 
 const FLAGS = ['--max-old-space-size=8192', '--test', '--test-isolation=none', '--test-reporter=./dist/scripts/test-receipt.js']
 interface Readings {
@@ -90,15 +91,46 @@ if (process.argv.includes('--plan')) process.exit(0)
 if (plan.mode === 'skip' || files.length === 0) process.exit(0)
 
 type Ran = ShardOutput & { status: number }
+
+/** what this shard took last time, summed from the per-file seconds already recorded */
+const expectedSeconds = (shard: readonly string[]): number =>
+  shard.reduce((t, f) => t + (readings?.secondsByFile?.[f] ?? 0), 0)
+
+/** THE SLOWEST THING EVER RECORDED, so an unmeasured shard is still given a deadline rather than none */
+const slowestRecorded = Object.values(readings?.secondsByFile ?? {}).reduce((m, v) => (v > m ? v : m), 0)
+
+/** HOW LONG TO WAIT BEFORE A SILENCE IS CALLED WHAT IT IS. A shard that never closes leaves memoryPool waiting on a
+ *  promise that will not settle, and the pool is right to wait — it cannot tell a hung child from a working one.
+ *  Nothing else could tell either: three landings this session sat for 23, 29 and 35 minutes with the land process
+ *  at 0.1s of CPU, no output and no worker, and each looked exactly like progress until it was killed by hand. The
+ *  heaviest files here are network-bound (research-sources, mcp-edge-coverage, rosetta-legs), and a fetch with no
+ *  timeout hangs for as long as the socket stays open.
+ *
+ *  The deadline is DERIVED, not chosen: ten times what the shard itself took last time — ten being the mirror's own
+ *  modulus, the same MIRROR_BASE the ledger counts ranks by — with the slowest file ever recorded standing in for a
+ *  shard nothing has measured yet. A tenfold margin over a real measurement is not a guess about how long work
+ *  should take; it is a statement that a run an order of magnitude past its own history has stopped being work. */
+const patienceMs = (shard: readonly string[]): number => {
+  const seen = expectedSeconds(shard)
+  return (seen > 0 ? seen : slowestRecorded > 0 ? slowestRecorded : 1) * MIRROR_BASE * 1000
+}
+
 const runShard = (shard: string[]): Promise<Ran> => new Promise((done) => {
   const child = spawn(process.execPath, [...FLAGS, ...shard], { cwd: ROOT, stdio: ['ignore', 'pipe', 'inherit'], env: { ...process.env, UUIDNA_TEST_SHARD: '1' } })
-  let text = '', partial = ''
+  let text = '', partial = '', closed = false
+  const deadline = patienceMs(shard)
+  const watchdog = setTimeout(() => {
+    if (closed) return
+    // NAMED, NOT GUESSED AT: the reader gets the files that were open when the silence began.
+    console.log(`⏱ shard did not close within ${(deadline / 1000).toFixed(0)}s (its own history says ${expectedSeconds(shard).toFixed(1)}s) — killing it so the silence is a failure and not a wait. Files: ${shard.join(' ')}`)
+    child.kill('SIGKILL')
+  }, deadline)
   child.stdout.on('data', (chunk: Buffer) => {
     const s = partial + chunk.toString('utf8')
     const lines = s.split('\n'); partial = lines.pop() ?? ''
     for (const line of lines) { text += line + '\n'; if (!isMergedLine(line)) process.stdout.write(line + '\n') }   // failures reach the reader live
   })
-  child.on('close', (code) => { if (partial) text += partial; done({ ...parseShardOutput(text), status: code ?? 1 }) })
+  child.on('close', (code) => { closed = true; clearTimeout(watchdog); if (partial) text += partial; done({ ...parseShardOutput(text), status: code ?? 1 }) })
 })
 
 const ran = await memoryPool(shards, estimateOf, () => readings !== null, freeMemoryBytes, cores, runShard)
