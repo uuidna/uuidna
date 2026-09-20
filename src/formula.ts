@@ -233,6 +233,67 @@ export function formulaTex(n: Node): string {
   return `${wrap(n.left, 'left')} ${TEX[n.op]} ${wrap(n.right, 'right')}`
 }
 
+/**
+ * THE WAY BACK, so the Lean and the LaTeX prove each other instead of one
+ * projecting onto the other.
+ *
+ * `formulaTex` renders a parsed statement as mathematics and nothing returns.
+ * A projection cannot be wrong in any way its reader can see: drop a ¬, turn
+ * a ≤ into a <, lose a bracket around a modulus, and the page still typesets
+ * beautifully and says something else. The document check in latex.ts is
+ * explicit that it tests STRUCTURE and not meaning, so nothing in this tree
+ * compared the two readings of a theorem.
+ *
+ * This renders the SAME node back to Lean. The pair then decides the question
+ * for each other: if the parse lost or invented anything, the returned Lean
+ * decides differently from the statement the kernel sealed — and the TeX,
+ * rendered from that same node, is condemned with it. One node, two
+ * renderings, and a third party that can tell them apart.
+ *
+ * Fully bracketed on purpose. The point is not to reproduce the original
+ * spelling — precedence would make that a second parser to get wrong — but to
+ * produce a form whose MEANING is unambiguous, which is exactly what an
+ * evaluator needs and what a rendering must preserve.
+ */
+const LEAN: Record<BinOp, string> = {
+  '∧': '∧', '=': '=', '≠': '≠', '≤': '≤', '≥': '≥', '<': '<', '>': '>',
+  '+': '+', '-': '-', '*': '*', '/': '/', '%': '%', '^': '^',
+}
+
+export function formulaLean(n: Node): string {
+  if (n.kind === 'num') return n.text
+  if (n.kind === 'neg') return `(-${formulaLean(n.of)})`
+  if (n.kind === 'not') return `¬(${formulaLean(n.of)})`
+  return `(${formulaLean(n.left)} ${LEAN[n.op]} ${formulaLean(n.right)})`
+}
+
+/**
+ * Does a statement survive the round trip with its meaning intact?
+ *
+ * Lean in, node out, Lean back. `agrees` is whether the returned form parses
+ * to the SAME node — structural identity, not string identity, since the
+ * return is fully bracketed and the original need not be.
+ */
+export function roundTrip(statement: string): {
+  agrees: boolean
+  back: null | string
+  tex: null | string
+  why?: string
+} {
+  const first = parseFormula(statement)
+  if (!first.ok) return { agrees: false, back: null, tex: null, why: first.why }
+
+  const back = formulaLean(first.node)
+  const second = parseFormula(back)
+  if (!second.ok) return { agrees: false, back, tex: formulaTex(first.node), why: second.why }
+
+  return {
+    agrees: JSON.stringify(first.node) === JSON.stringify(second.node),
+    back,
+    tex: formulaTex(first.node),
+  }
+}
+
 // ---- MathML ----
 const ML: Record<BinOp, string> = {
   '∧': '∧', '=': '=', '≠': '≠', '≤': '≤', '≥': '≥', '<': '&lt;', '>': '&gt;',

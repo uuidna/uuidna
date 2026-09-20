@@ -85,6 +85,19 @@ const FACTS = [
   // when its exponent comes out zero, which is a decidable fact about
   // integers and not an appeal to anybody's algebra.
   //
+  // WRITTEN AS MAGNITUDES, AND THE SIGNS LIVE HERE RATHER THAN IN THE
+  // LITERALS. The first version stated the c-exponents as -3 - -5 = 2 and
+  // -3 - 1 = -4, which Lean elaborates over the integers and decides true —
+  // and the tree's independent evaluator, which reads subtraction as ℕ does,
+  // decided the same statement FALSE. That disagreement was caught by the
+  // falsifier leg on a theorem sealed an hour earlier, and it was the
+  // STATEMENT that was ambiguous, not either engine: 0 - 1 is -1 in ℤ and 0
+  // in ℕ, and nothing in the text said which was meant. So the exponent
+  // arithmetic is now written in magnitudes, where both domains agree — the
+  // c-exponents of l and t are -3 and -5, and their difference is 5 - 3 — and
+  // the direction is carried by these sentences, which is where a convention
+  // belongs.
+  //
   // PRIOR ART, AND IT IS IN TWO PARTS. The units and therefore these
   // cancellations are Max Planck's, from "Ueber irreversible Strahlungsvorgänge"
   // (Sitzungsberichte der Preussischen Akademie der Wissenschaften, 1899) —
@@ -99,18 +112,30 @@ const FACTS = [
   // uncertainty in l and t themselves since c is exact by SI definition.
   { key: 'kinematics_cancels_both', skill: 'wave',
     why: 'LENGTH OVER TIME LEAVES NEITHER QUANTUM NOR GRAVITY. Subtracting the Planck time\'s exponents from the Planck length\'s gives (0, 0, 2) doubled — hbar zero, G zero, c squared — so l/t is c and nothing else. Both constants cancel, which is why the ratio of the two smallest scales this tree ever names is a quantity every schoolchild is taught: 299,792,458 m/s, exact by definition. Measured, the CODATA values give 299,792,422, agreeing to 1 ppm — the residue is the uncertainty in l and t, since c has none.',
-    js: () => { const l=[1,1,-3], t=[1,1,-5]; const d=l.map((x,i)=>x-t[i]); return d[0]===0 && d[1]===0 && d[2]===2 },
-    lean: 'theorem kinematics_cancels_both : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ (-3 - -5 = 2) := by decide' },
+    js: () => { const l=[1,1,-3], t=[1,1,-5]; const d=l.map((x,i)=>x-t[i]); return d[0]===0 && d[1]===0 && d[2]===2 && 5-3===2 },
+    lean: 'theorem kinematics_cancels_both : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ (5 - 3 = 2) := by decide' },
 
   { key: 'product_isolates_quantum', skill: 'wave',
     why: 'LENGTH TIMES MASS CANCELS GRAVITY AND LEAVES THE QUANTUM. Adding the Planck mass\'s exponents to the length\'s gives (2, 0, -2) doubled — G exactly zero — so l·m is hbar/c, a pure quantum of action over a speed with no gravitational constant in it at all. The product of the smallest length and the smallest mass knows nothing about gravity. CODATA agrees to six significant figures: 3.51767 x 10^-43 either way.',
     js: () => { const l=[1,1,-3], m=[1,-1,1]; const d=l.map((x,i)=>x+m[i]); return d[0]===2 && d[1]===0 && d[2]===-2 },
-    lean: 'theorem product_isolates_quantum : ((1 + 1 = 2) ∧ (1 + -1 = 0)) ∧ (-3 + 1 = -2) := by decide' },
+    lean: 'theorem product_isolates_quantum : ((1 + 1 = 2) ∧ (1 - 1 = 0)) ∧ (3 - 1 = 2) := by decide' },
 
   { key: 'ratio_isolates_gravity', skill: 'wave',
     why: 'AND LENGTH OVER MASS CANCELS THE QUANTUM AND LEAVES GRAVITY — the mirror of the one above, which is why the pair is sealed together. Subtracting gives (0, 2, -4) doubled: hbar exactly zero, so l/m is G/c^2 with no Planck constant in it. The same two quantities, multiplied, forget gravity; divided, forget the quantum. CODATA agrees to six figures: 7.42616 x 10^-28. THE THREE PAIRINGS EXHAUST IT — c alone, hbar alone, G alone — and each is a cancellation somebody can check rather than a coincidence somebody noticed.',
     js: () => { const l=[1,1,-3], m=[1,-1,1]; const d=l.map((x,i)=>x-m[i]); return d[0]===0 && d[1]===2 && d[2]===-4 },
-    lean: 'theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 - -1 = 2)) ∧ (-3 - 1 = -4) := by decide' },
+    lean: 'theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4) := by decide' },
+
+  { key: 'crossing_sits_inside', skill: 'wave',
+    why: 'AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck resolution on a metre and 2^96 does not; between them sits a width where it first happens, and walking it gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41. So the frontier is not at either end of this tree\'s arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so both sides are decided rather than the crossing being quoted from one.',
+    js: () => 1616255n * 2n ** 115n < 10n ** 41n && 1616255n * 2n ** 116n > 10n ** 41n && 96 < 116 && 116 < 128,
+    lean: 'theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^ 116 > 10 ^ 41)) ∧ ((96 < 116) ∧ (116 < 128)) := by decide' },
+
+  { key: 'mass_selects_cancellation', skill: 'wave',
+    why: 'WHAT CANCELS IS CHOSEN BY THE MASS, NOT BY ITS PARTNER — the generalisation the three pairings above do not state. Pair the Planck TIME with the mass instead of the length: t·m gives (2, 0, -4) doubled, G zero again; t/m gives (0, 2, -6), hbar zero again. The same two constants are isolated, and all that changed is a power of c — hbar/c^2 where length gave hbar/c, G/c^3 where length gave G/c^2. So multiplying by the mass kills gravity and dividing by it kills the quantum WHATEVER it is paired with, and the partner only selects which power of c is left standing. That makes the three pairings above instances rather than a coincidence of three.',
+    js: () => { const t=[1,1,-5], m=[1,-1,1];
+      const prod=t.map((x,i)=>x+m[i]), quot=t.map((x,i)=>x-m[i]);
+      return prod[1]===0 && quot[0]===0 && prod[0]===2 && quot[1]===2 },
+    lean: 'theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide' },
 
   // THE WIDTHS AGAINST A PHYSICAL FLOOR, which is the one comparison that can
   // say whether 128 bits is large in any sense but its own. The Planck length

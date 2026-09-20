@@ -1,3 +1,4 @@
+import { formulaLean, roundTrip } from './formula.js'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { typeset, parseFormula, classify, congruenceOf, formulaTex, type Node } from './formula.js'
@@ -189,4 +190,73 @@ test('`%` binds with `*` and `/` above `+`, as the kernel reads it', () => {
   // CONTROL: the old reading is a different number, and says so when written out with its own brackets
   const old = parseFormula('(3 + 7) % 5 = 5')
   assert.ok(old.ok && evaluate(old.node) === false, '(3 + 7) % 5 is 0, so the old grouping is not what Lean decided')
+})
+
+// LEAN AND LATEX PROVE EACH OTHER, which until now only one of them could do.
+//
+// formulaTex renders a parsed statement as mathematics and nothing returns, so
+// the projection could not be wrong in any way its reader could see: drop a ¬,
+// turn a ≤ into a <, and the page still typesets beautifully and says
+// something else. latex.ts is explicit that its document check tests STRUCTURE
+// and not meaning. Nothing compared the two readings of a theorem.
+//
+// formulaLean renders the SAME node back, and the pair then decides for each
+// other — with the independent evaluator as the third party neither rendering
+// controls.
+
+test('every formula-shaped statement survives the round trip', async () => {
+  const { theorems } = await import('./index.js')
+  const sealed = theorems().filter((t) => classify(t.statement) === 'formula')
+
+  assert.ok(sealed.length > 1000, `expected the formula-shaped ledger, found ${sealed.length}`)
+
+  const broken = sealed
+    .map((t) => ({ key: t.key, trip: roundTrip(t.statement) }))
+    .filter((r) => !r.trip.agrees)
+    .map((r) => `${r.key}: ${r.trip.why ?? 'the returned node differs'}`)
+
+  assert.deepEqual(broken, [], 'these parse to a node that does not render back to themselves')
+})
+
+test('and the returned form decides as the sealed one does', async () => {
+  // The leg that matters. A round trip agreeing with itself only proves the
+  // parser is self-consistent; this asks a DIFFERENT engine whether the two
+  // readings are the same proposition.
+  const { theorems } = await import('./index.js')
+  const { holds } = await import('./involution/index.js')
+
+  const disagreed: string[] = []
+  let decided = 0
+
+  for (const t of theorems()) {
+    if (classify(t.statement) !== 'formula') continue
+    const trip = roundTrip(t.statement)
+    if (!trip.agrees || !trip.back) continue
+
+    const sealed = holds(t.statement)
+    const returned = holds(trip.back)
+    if (sealed === null || returned === null) continue
+
+    decided++
+    if (sealed !== returned) disagreed.push(`${t.key}: sealed ${sealed}, returned ${returned}`)
+  }
+
+  assert.ok(decided > 1000, `the evaluator decided only ${decided}`)
+  assert.deepEqual(disagreed, [], 'the two readings of these are not the same proposition')
+})
+
+test('the pair can fail — a rendering that lies is caught', async () => {
+  // A hundred per cent that cannot fail is furniture. These are the exact
+  // corruptions a projection suffers, applied to the node rather than the
+  // renderer so the check is exercised without editing it: a dropped
+  // negation, and a comparison loosened by one notch.
+  const lying: Node = { kind: 'bin', left: { kind: 'num', text: '2' }, op: '<', right: { kind: 'num', text: '2' } }
+  const honest: Node = { ...lying, op: '≤' }
+
+  assert.notEqual(formulaLean(lying), formulaLean(honest))
+  assert.notEqual(formulaTex(lying), formulaTex(honest))
+
+  const dropped: Node = { kind: 'num', text: '0' }
+  const negated: Node = { kind: 'not', of: dropped }
+  assert.notEqual(formulaLean(negated), formulaLean(dropped))
 })

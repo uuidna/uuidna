@@ -19,6 +19,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { theorems, statementCensus, runTrial, PRINCIPLES } from '../index.js'
 import { softwareArchiveRelatedIdentifiers } from '../zenodo-seals.js'
+import { attributions } from '../claim-attribution.js'
 
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as {
   name: string; license: string; author: string; homepage: string
@@ -36,6 +37,25 @@ const census = statementCensus()
 const keys = theorems().length
 const principles = (PRINCIPLES as unknown[]).length
 const receipt = runTrial().receipt
+
+// WHAT THIS DEPOSIT CLAIMS, AND WHAT IT CREDITS — measured, because novelty
+// asserted is not novelty.
+//
+// A permanent DOI that says "71035 theorems" and nothing else invites the
+// reading that all of them are discoveries. They are not: a kernel verdict is
+// a property of the PROOF, and a proof says nothing about who found the fact.
+// This ledger has already been wrong in that direction — it claimed Watson and
+// Crick's base pairing until claim-attribution.ts was written — so the record
+// states the split rather than leaving a reader to assume it.
+//
+// The rows are the mirror's own, which stores attribution ONLY where it is not
+// the captain. So the complement is computed and never typed: what is novel
+// here is exactly what nobody else is credited for, which is a measurement and
+// not a boast.
+const credited = attributions()
+const creditedSources = [...new Set(credited.map((row) => row.source))].sort()
+const creditedDois = creditedSources.filter((source) => source.startsWith('10.'))
+const formalisationOnly = keys - credited.length
 
 // THE TITLE IS STABLE; THE CENSUS IS IN THE DESCRIPTION. Measured 2026-09-12 on the live records: 17 versions of
 // this archive carried 9 different titles, because the census was appended to the title. A citation names a work
@@ -58,6 +78,13 @@ const description = [
   'A content-address proves integrity, not truth; a verified theorem proves its exact statement and never a grander',
   'claim. The proofs recompute from source with `npm run lean`; this metadata is generated from the ledger it',
   'describes, so the archive states the ledger that exists rather than one that has moved on.',
+  `WHAT IS CLAIMED AND WHAT IS CREDITED: ${credited.length} of these theorems formalise facts established`,
+  `elsewhere and are credited to ${creditedSources.length} named sources (${creditedDois.length} by DOI:`,
+  `${creditedDois.join(', ')}; the rest by standard: ${creditedSources.filter((s) => !s.startsWith('10.')).join(', ')}).`,
+  `The remaining ${formalisationOnly} are claimed as formalisation only. A kernel verdict is a property of the`,
+  'proof and says nothing about who found the fact, so a discovery claim is answered by priority date and not by',
+  'anything this tree can recompute. The split is measured from the attribution census at generation, never typed —',
+  'what is novel here is exactly the complement of what somebody else is credited for.',
 ].join(' ')
 
 // THE TWO CHAINS CROSS-DECLARE, AND THIS FILE IS READ BY THE SYNC CHAIN. The committed .zenodo.json is what the
