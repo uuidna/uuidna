@@ -1,0 +1,12 @@
+{
+  "handle": "4b7801fb",
+  "address": "4b7801fb-3571-82b4-95d2-be4165721622",
+  "statement": "((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27)",
+  "tactic": "decide",
+  "keys": [
+    "four_traditions_count_by_one_rank_rule"
+  ],
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

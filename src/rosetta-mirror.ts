@@ -186,6 +186,7 @@ the_gregorian_cycle_counted_in_weeks 27
 the_reform_is_exactly_three_days_in_four_hundred 27
 the_record_has_holes_the_rule_does_not 27
 a_gapless_index_admits_nothing_between 27
+harmonic_year_drifts_by_the_fixed_point 27
 #Cern.lean
 cms_events_close_over_their_files 27
 the_collision_energy_label_step_is_one_tev 27
@@ -2957,6 +2958,8 @@ gematria_forces_collisions 27
 sefer_yetzirah_231_gates 27
 abjad_four_ranks 27
 genesis_1_1_is_2701 27
+theology_counts_in_the_mirror_base 27
+four_traditions_count_by_one_rank_rule 27
 #Grid.lean
 decimal_asks_three 27
 hexadecimal_asks_five 27
@@ -69422,6 +69425,7 @@ n_qubit_dimension_all 27
 one_more_qubit_doubles 27
 shl_pow 27
 shift_is_the_dimension 27
+bell_agreement_carries_no_command 27
 #QuantumCube.lean
 the_cube_carries_the_tetrahedron_and_its_own_dual 27
 buying_the_point_that_does_not_bind_buys_nothing 27

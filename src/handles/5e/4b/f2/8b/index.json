@@ -1,0 +1,12 @@
+{
+  "handle": "5e4bf28b",
+  "address": "5e4bf28b-ae1e-81f8-858a-e1ff9af59ace",
+  "kind": "chunk",
+  "keys": [
+    "harmonic_year_drifts_by_the_fixed_point"
+  ],
+  "statement": "(36 * 10 = 360) ∧ (365 - 360 = 5) ∧ (366 - 360 = 6) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (360 % 7 = 3) ∧ (146097 % 360 = 297) ∧ (2 * 36 = 72) ∧ (72 * 360 = 25920)",
+  "files": [
+    "Calendar.lean"
+  ]
+}

@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "1173b54695c63ce1",
+ "digest": "c998f325f14c01ba",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -449,6 +449,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "all_signaling_duality",
    "wing": "Quantum.lean",
    "verdict": "survived-widening"
+  },
+  {
+   "key": "bell_agreement_carries_no_command",
+   "wing": "Quantum.lean",
+   "verdict": "load-bearing"
   },
   {
    "key": "two_bit_conjunctions_are_four_of_sixteen",
@@ -1077,6 +1082,11 @@ export const BOUND_SLICE: BoundSlice = {
   },
   {
    "key": "sefer_yetzirah_231_gates",
+   "wing": "Glagolitic.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "four_traditions_count_by_one_rank_rule",
    "wing": "Glagolitic.lean",
    "verdict": "load-bearing"
   },

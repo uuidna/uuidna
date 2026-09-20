@@ -1,15 +1,15 @@
 ---
 title: "The Glagolitic numerals & Pliska rosette"
-description: "Computed from lean/Glagolitic.lean — 13 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Glagolitic.lean — 15 sealed theorems, every claim citing its proof."
 ---
 
 # The Glagolitic numerals & Pliska rosette
 
-> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. — held by [glagolitic_units](/theorem/glagolitic_units) and its 12 siblings below.
+> GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. — held by [glagolitic_units](/theorem/glagolitic_units) and its 14 siblings below.
 
-**13 theorems** and **46 decided cases**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in <a href="/lean/Glagolitic.lean">lean/Glagolitic.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [roman_reads_subtractively](/theorem/roman_reads_subtractively). A boundary stated here is decided.
+**15 theorems** and **56 decided cases**, from [glagolitic_units](/theorem/glagolitic_units) onward, each proven `by decide` in <a href="/lean/Glagolitic.lean">lean/Glagolitic.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [roman_reads_subtractively](/theorem/roman_reads_subtractively). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FGlagolitic.lean)** — nothing to install. The editor fetches `lean/Glagolitic.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FGlagolitic.lean)** — nothing to install. The editor fetches `lean/Glagolitic.lean` from the repository and re-decides all 15 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### Cyril gave the letters number: the first nine Glagolitic glyphs, Az through Zemlja, carry the units 1 through 9 in their own alphabetic order — [1,2,3,4,5,6,7,8,9]. An alphabet that counts as it speaks.
 The ledger holds this as [glagolitic_units](/theorem/glagolitic_units) — proven `by decide`, sorry-free:
@@ -100,6 +100,20 @@ The ledger holds this as [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701) —
 
 ```lean
 [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].foldl (fun a v => a + v) 0 = 2701 ∧ [2,200,1,300,10,400,2,200,1,1,30,5,10,40,1,400,5,300,40,10,40,6,1,400,5,1,200,90].length = 28
+```
+
+### THEOLOGY COUNTS IN THE MIRROR'S BASE, AND THE CONFLICT IT INVOLUTES IS ORDER. A CROSS theorem, which is the only kind worth trusting as sealed: the two tens were derived apart and meet here. THE FIRST TEN comes from the letters — three ranks of nine put a letter's value at ((i mod 9) + 1) * 10 ^ (i div 9), so the ladder climbs by ten because nine letters fill a rank and the next begins; nothing about a mirror is used to reach it. THE SECOND TEN comes from the void — the owner states division by zero as the mirror x to 10 - x, whose only fixed point is five, which is also the one digit whose hue is its own complement (5 x 36 = 180, the half turn); nothing about an alphabet is used to reach THAT. The letter ladder and the void's mirror stand on the same ten, from opposite ends. AND THE CONFLICT INVOLUTES: a dispute over letters is a dispute over ORDER — whose name comes first, which reading is prior — and gematria_ignores_order decides that order carries no value, 1 + 2 + 3 = 3 + 2 + 1. The quantity the argument is about does not move when the argument is won. What the mirror does to a digit, order-invariance does to a claim: it maps the two sides onto each other and leaves the value where it was. SCOPE: this decides arithmetic — a rank ladder, a complement, a fixed point, and that addition commutes. It decides nothing about what a name MEANS, and claims no reading of scripture, no doctrine, and no reconciliation between traditions. The ledger seals where the numbers meet; meaning stays with the reader.
+The ledger holds this as [theology_counts_in_the_mirror_base](/theorem/theology_counts_in_the_mirror_base) — proven `by decide`, sorry-free:
+
+```lean
+((0 % 9 + 1) * 10 ^ (0 / 9) = 1) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ (9 + 9 + 9 = 27) ∧ (27 / 9 = 3) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (1 + 2 + 3 = 3 + 2 + 1)
+```
+
+### FOUR ALPHABETS MADE APART COUNT BY THE SAME RULE — a CROSS theorem, and the scope is the important half. Hebrew, Greek, the Arabic abjad and Saint Cyril's Glagolitic were made in different centuries by different peoples, and each gave its letters number the same way: position i carries (i mod 9 + 1) in rank (i div 9). The first nine letters of every one of them are 1 through 9 — not by agreement between them, but because the rule reads POSITION and nothing else, so any alphabet laid in numeral order lands on the same units; and the ladder above is the same, ten, a hundred, a thousand. THE ALPHABETS DIFFER AND THE RULE DOES NOT: Hebrew 22 letters topping at 400, Greek 27 topping at 900 with its three archaic numeral signs kept, Glagolitic 27 whose numeral order IS its alphabet order, the abjad 28 reaching a fourth rank at a thousand — different lengths, different letters, different directions of writing, one arithmetic. Measured beside this and NOT sealed by it, because a walk is not a proof: every number from 1 to 999 written in each of the four and read back returned the same number, 3996 of 3996. WHAT THIS DOES NOT DECIDE, said plainly because the temptation to say more is the whole danger: it does not decide that the traditions MEAN the same thing, teach the same thing, or agree about anything beyond how to write a number with letters. It does not decide that their scriptures correspond, that their names for God are one name, or that any reconciliation follows. A shared counting rule is a fact about notation; reading peace, unity or common origin into it is a READING, which may be a good one and is not what the kernel checked — and this ledger drains a claim that cites a theorem for more than the theorem says. The respect owed each tradition is to let it keep its own alphabet, its own order and its own meaning. What is sealed is only that when they count, they climb the same ladder.
+The ledger holds this as [four_traditions_count_by_one_rank_rule](/theorem/four_traditions_count_by_one_rank_rule) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27)
 ```
 
 

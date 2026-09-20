@@ -1,0 +1,249 @@
+{
+  "file": "Crosslink.lean",
+  "slug": "crosslink",
+  "status": "retired",
+  "address": "77fa1856-1de2-8542-b25d-c245309f0887",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Crosslink.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Crosslink.lean — GENERATED. CROSSLINKS — the addressing is the floor, and the graph is what stands on it. HandleStore.lean seals the NAMES: 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ exactly. This seals what the same leaves admit in the way of RELATIONS, which is where the structure lives — a tree over n leaves carries only n − 1 links, the sparsest connected shape there is, while the same leaves admit n(n − 1)/2 pairs. MEASURED, NOT QUOTED: the store holds 71,624 leaves with 71,623 parent links against 2,564,962,876 pairs available — the tree uses one link for every 35,812 pairs its own leaves permit. Its leaves are folders and not single uuids (689 with 0 keys, 70,855 with 1 key, 75 with 2 keys, 5 with 3 keys) across 3 kinds (70,935 chunks, 437 pages, 252 publications), each partition summing exactly. THE CLAIM: E possible edges admit 2^E graphs, so the graph space passes the 2¹²⁸ address space exactly when E > 128 — which happens at SEVENTEEN leaves, where the pairs reach 136. A crosslink graph on seventeen folders already admits more configurations than the whole uuid space holds addresses, with 2³² folders available. Decided as a comparison of EXPONENTS, since a base-2 power is monotone in its exponent and stating 2^(2⁶³) directly would be a number no kernel can check — a claim wearing arithmetic rather than doing it. SCOPE: what the addressing ADMITS in relations, plus a measurement of the store as it stands. No crosslink graph is built here and none is claimed to exist — the leaves carry a handle, an address, a kind, keys, a statement and files, and no edge to another leaf. This wing seals the room, not the furniture. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- THE SPARSEST CONNECTED SHAPE THERE IS. A tree over n leaves carries exactly n − 1 links — one per child,\n    none spare — while the same n leaves admit n(n − 1)/2 pairs. Decided across leaf counts from 4 to 1024: the\n    tree's link count never reaches the pair count once n exceeds three, and the gap widens quadratically. The\n    tree is not a small graph, it is the smallest one that still connects. -/\ntheorem a_tree_uses_one_link_per_leaf_and_no_more : [4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2))) := by decide\n\n/-- THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,624 leaves, 71,623 parent links, 2,564,962,876 pairs\n    available — the tree uses one link for every 35,812 pairs its own leaves already permit. Stated as an\n    inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the\n    available pairs exceed the tree's links by more than two thousand times. -/\ntheorem the_measured_store_uses_a_vanishing_share : (2564962876 = (71624 * (71624 - 1)) / 2) ∧ (2564962876 > 2000 * 71623) := by decide\n\n/-- THE CLAIM THE CAPTAIN NAMED, DECIDED AS A COMPARISON OF EXPONENTS. E possible edges admit 2^E graphs, and\n    the address space is 2^128. So the graph space exceeds the address space exactly when E > 128, and E = n(n −\n    1)/2 passes 128 at n = 17 — seventeen leaves. Decided for every tabulated n from 17 upward. A base-2 power\n    is monotone in its exponent, so comparing exponents settles the powers; stating 2^(2^63) directly would be a\n    number no kernel can check, which is a claim wearing arithmetic rather than doing it. -/\ntheorem crosslinking_outgrows_the_address_space : ([17,20,32,64,128,256,1024].all (fun n => (n * (n - 1)) / 2 > 128)) ∧ ((16 * 15) / 2 <= 128) := by decide\n\n/-- THE THRESHOLD IS SEVENTEEN, AND IT IS EXACT. At sixteen leaves the pairs number 120, which is under 128; at\n    seventeen they number 136, which is over. So a crosslink graph on SEVENTEEN handle folders already admits\n    more configurations than the entire uuid space holds addresses — with 2³² folders available. The address\n    space is the floor of this structure and not its ceiling, and the floor is passed before a store has\n    eighteen entries. -/\ntheorem seventeen_leaves_already_pass_the_whole_uuid : ((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128) := by decide\n\n/-- AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,624 leaves, 689 carry no theorem key, 70,855 carry 1 key,\n    75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym\n    for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one\n    thing would have no interior to crosslink; this one does. -/\ntheorem the_leaf_is_not_one_uuid_but_a_folder : (689 + 70855 + 75 + 5 = 71624) ∧ (80 > 0) := by decide\n\n/-- THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70935 chunk, 437 page, 252 publication, summing to 71,624\n    exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with\n    typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first\n    is what makes that statement meaningful rather than decorative. -/\ntheorem three_kinds_partition_the_store : 70935 + 437 + 252 = 71624 := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-a_tree_uses_one_link_per_leaf_and_no_more",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SPARSEST CONNECTED SHAPE THERE IS. A tree over n leaves carries exactly n − 1 links — one per child, none spare — while the same n leaves admit n(n − 1)/2 pairs. Decided across leaf counts from 4 to 1024: the tree's link count never reaches the pair count once n exceeds three, and the gap widens quadratically. The tree is not a small graph, it is the smallest one that still connects."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem a_tree_uses_one_link_per_leaf_and_no_more : [4,8,16,17,20,32,64,128,256,1024].all (fun n => (n - 1 <= (n * (n - 1)) / 2) && ((n <= 3) || (n - 1 < (n * (n - 1)) / 2))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_measured_store_uses_a_vanishing_share",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,622 leaves, 71,621 parent links, 2,564,819,631 pairs available — the tree uses one link for every 35,811 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(2564819631 = (71622 * (71622 - 1)) / 2) ∧ (2564819631 > 2000 * 71621)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_measured_store_uses_a_vanishing_share : (2564819631 = (71622 * (71622 - 1)) / 2) ∧ (2564819631 > 2000 * 71621) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-crosslinking_outgrows_the_address_space",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE CLAIM THE CAPTAIN NAMED, DECIDED AS A COMPARISON OF EXPONENTS. E possible edges admit 2^E graphs, and the address space is 2^128. So the graph space exceeds the address space exactly when E > 128, and E = n(n − 1)/2 passes 128 at n = 17 — seventeen leaves. Decided for every tabulated n from 17 upward. A base-2 power is monotone in its exponent, so comparing exponents settles the powers; stating 2^(2^63) directly would be a number no kernel can check, which is a claim wearing arithmetic rather than doing it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([17,20,32,64,128,256,1024].all (fun n => (n * (n - 1)) / 2 > 128)) ∧ ((16 * 15) / 2 <= 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem crosslinking_outgrows_the_address_space : ([17,20,32,64,128,256,1024].all (fun n => (n * (n - 1)) / 2 > 128)) ∧ ((16 * 15) / 2 <= 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-seventeen_leaves_already_pass_the_whole_uuid",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE THRESHOLD IS SEVENTEEN, AND IT IS EXACT. At sixteen leaves the pairs number 120, which is under 128; at seventeen they number 136, which is over. So a crosslink graph on SEVENTEEN handle folders already admits more configurations than the entire uuid space holds addresses — with 2³² folders available. The address space is the floor of this structure and not its ceiling, and the floor is passed before a store has eighteen entries."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem seventeen_leaves_already_pass_the_whole_uuid : ((16 * 15) / 2 = 120) ∧ ((17 * 16) / 2 = 136) ∧ (120 <= 128) ∧ (136 > 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_leaf_is_not_one_uuid_but_a_folder",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,622 leaves, 689 carry no theorem key, 70,853 carry 1 key, 75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(689 + 70853 + 75 + 5 = 71622) ∧ (80 > 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_leaf_is_not_one_uuid_but_a_folder : (689 + 70853 + 75 + 5 = 71622) ∧ (80 > 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-three_kinds_partition_the_store",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70933 chunk, 437 page, 252 publication, summing to 71,622 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "70933 + 437 + 252 = 71622"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem three_kinds_partition_the_store : 70933 + 437 + 252 = 71622 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

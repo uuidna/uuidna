@@ -1,15 +1,15 @@
 ---
 title: "The calendar"
-description: "Computed from lean/Calendar.lean — 15 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Calendar.lean — 16 sealed theorems, every claim citing its proof."
 ---
 
 # The calendar
 
-> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 14 siblings below.
+> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 15 siblings below.
 
-**15 theorems** and **515 decided cases**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in <a href="/lean/Calendar.lean">lean/Calendar.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
+**16 theorems** and **516 decided cases**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in <a href="/lean/Calendar.lean">lean/Calendar.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 15 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The calendar counts in the same ring uuidna turns on.
 The ledger holds this as [week_is_z7](/theorem/week_is_z7) — proven `by decide`, sorry-free:
@@ -114,6 +114,13 @@ The ledger holds this as [a_gapless_index_admits_nothing_between](/theorem/a_gap
 
 ```lean
 (List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1)))
+```
+
+### THE HARMONIC YEAR IS THE CIRCLE, AND THE DRIFT IS THE FIXED POINT. MIRROR_BASE A432 steps close the circle at 360, so the harmonic year is 360 days exactly as the wheel is 360 degrees. The Gregorian common year exceeds it by FIVE — and five is the one digit the mirror fixes (10 - 5 = 5) and the one whose hue is its own complement (5 x 36 = 180, the half turn). The leap year exceeds it by six. THE DRIFT IS NAMED, NOT SMOOTHED: 360 is not a whole number of weeks (360 % 7 = 3) and the Gregorian 400-year cycle is not a whole number of harmonic years (146097 % 360 = 297). Both remainders are stated rather than rounded away — a harmonic calendar does NOT divide the civil one, and saying so is the honest part. What does close is the great year, 72 x 360 = 25920, where 72 is two A432 steps: the precession is the coins times the step times the circle.
+The ledger holds this as [harmonic_year_drifts_by_the_fixed_point](/theorem/harmonic_year_drifts_by_the_fixed_point) — proven `by decide`, sorry-free:
+
+```lean
+(36 * 10 = 360) ∧ (365 - 360 = 5) ∧ (366 - 360 = 6) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (360 % 7 = 3) ∧ (146097 % 360 = 297) ∧ (2 * 36 = 72) ∧ (72 * 360 = 25920)
 ```
 
 

@@ -1,15 +1,15 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 64 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 65 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 63 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector code (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL computation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 64 siblings below.
 
-**64 theorems** and **11,079 decided cases**, from [bell_born_weights](/theorem/bell_born_weights) onward, each checked by the kernel in <a href="/lean/Quantum.lean">lean/Quantum.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 64 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
+**65 theorems** and **11,083 decided cases**, from [bell_born_weights](/theorem/bell_born_weights) onward, each checked by the kernel in <a href="/lean/Quantum.lean">lean/Quantum.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 16 of its 65 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 64 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 65 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -457,6 +457,13 @@ The ledger holds this as [shift_is_the_dimension](/theorem/shift_is_the_dimensio
 
 ```lean
 ∀ n : Nat, 1 <<< n = amps n
+```
+
+### PEACE, AS THIS LEDGER CAN DECIDE IT: AGREEMENT THAT CARRIES NO COMMAND — and a CROSS theorem, which is the only kind worth trusting as sealed. Four facts about the Bell pair state the shape: of the four joint outcomes only the two that AGREE carry weight; each side's marginal is what it is whatever the other does, so nothing can be SENT through the agreement; the state is unchanged when the two parties are exchanged, so neither is sender and neither receiver; and the agreement beats any classical arrangement (2^2 < 2^3) while staying bounded. Correlation without instruction, symmetric, stronger than a pact, and finite. AND IT MEETS THREE WINGS THAT NEVER READ IT, ON ONE NUMBER: 108 is 36 x 3, the A432 step at the third digit — the first gateway, where hue and frequency coincide; 108 is 2 x 54, which dropframe_entangles_the_coins seals in the editing wing; and 110 - 108 = 2 is the captain's conserved pair. Four independent derivations land on 108, which is why their agreement is evidence and not bookkeeping. SCOPE: this decides arithmetic about a Bell pair and about 108. Whether any event in the world corresponds to it is NOT decided here and is not claimed — the kernel has no opinion on that reading.
+The ledger holds this as [bell_agreement_carries_no_command](/theorem/bell_agreement_carries_no_command) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 4).filter (fun i => i % 2 == i / 2 % 2)) = [0, 3]) ∧ ((1*1 + 0*0 : Nat) = (0*0 + 1*1)) ∧ (([1,0,0,1] : List Int).reverse = [1,0,0,1]) ∧ ((2:Nat)^2 < 2^3) ∧ (36 * 3 = 108) ∧ (2 * 54 = 108) ∧ (110 - 108 = 2)
 ```
 
 

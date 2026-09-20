@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-19
+**Generated:** 2026-09-20
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71018/71018 theorems — every one, by construction
-**Discovery claimed:** 70634 — the other 384 restate a fact a named source found first
+**Formalisation claimed:** 71022/71022 theorems — every one, by construction
+**Discovery claimed:** 70638 — the other 384 restate a fact a named source found first
 
 *The 384 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 333 of 367 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 11/17 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `9ebfa858-06d0-8c9f-873f-a3585c47aab8`
+**Claim receipt:** `0101f3c6-2719-8b8e-893f-60b91d23f59a`
 
 ### Facts the captain does not claim to have discovered
 
@@ -129,12 +129,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The quantum computer
 
-- **Theorems:** 64
+- **Theorems:** 65
 - **Sample lineAddress:** `191a2aea-fc25-85cc-8c2f-af14baa3aa3f`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[bell_born_weights](/theorem/bell_born_weights) · [bell_normalized](/theorem/bell_normalized) · [bell_perfect_correlation](/theorem/bell_perfect_correlation) · [bell_no_signaling](/theorem/bell_no_signaling) · [superposition_h0](/theorem/superposition_h0) · [ghz3_two_outcomes](/theorem/ghz3_two_outcomes) · [ghz3_normalized](/theorem/ghz3_normalized) · [cnot_truth_table](/theorem/cnot_truth_table) · [cnot_involution](/theorem/cnot_involution) · [toffoli_truth_table](/theorem/toffoli_truth_table) · [swap_truth_table](/theorem/swap_truth_table) · [s_squared_is_z](/theorem/s_squared_is_z) · [z_involution](/theorem/z_involution) · [s_dagger_inverse](/theorem/s_dagger_inverse) · [pauli_x_involution](/theorem/pauli_x_involution) · [swap_involution](/theorem/swap_involution) · [toffoli_involution](/theorem/toffoli_involution) · [cz_involution](/theorem/cz_involution) · [h_involution_on_zero](/theorem/h_involution_on_zero) · [s_fourth_is_identity](/theorem/s_fourth_is_identity) · [dj_balanced_cancels](/theorem/dj_balanced_cancels) · [dj_constant_reinforces](/theorem/dj_constant_reinforces) · [entanglement_determinant](/theorem/entanglement_determinant) · [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) · [w_state_three_outcomes](/theorem/w_state_three_outcomes) · [w_state_normalized](/theorem/w_state_normalized) · [bell_basis_orthogonal](/theorem/bell_basis_orthogonal) · [n_qubit_dimension](/theorem/n_qubit_dimension) · [served_qubit_ceiling](/theorem/served_qubit_ceiling) · [gate_error_baseline_class](/theorem/gate_error_baseline_class) · [tensor_dimension_multiplies](/theorem/tensor_dimension_multiplies) · [pauli_group_order_16](/theorem/pauli_group_order_16) · [closure_is_coprime](/theorem/closure_is_coprime) · [types_count_as_arithmetic](/theorem/types_count_as_arithmetic) · [sixteen_connectives](/theorem/sixteen_connectives) · [real_pauli_group_order_8](/theorem/real_pauli_group_order_8) · [four_messages_two_bits](/theorem/four_messages_two_bits) · [clifford_group_order_24](/theorem/clifford_group_order_24) · [phase_gate_order_ladder](/theorem/phase_gate_order_ladder) · [chsh_beats_classical](/theorem/chsh_beats_classical) · [no_cloning_dimension](/theorem/no_cloning_dimension) · [hadamard_conjugates_x_to_z](/theorem/hadamard_conjugates_x_to_z) · [bell_stabilized_by_xx](/theorem/bell_stabilized_by_xx) · [bell_zz_even_parity](/theorem/bell_zz_even_parity) · [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) · [superdense_two_bits](/theorem/superdense_two_bits) · [teleportation_four_corrections](/theorem/teleportation_four_corrections) · [usable_gap_eighty_bits](/theorem/usable_gap_eighty_bits) · [teleportation_costs_two_coins](/theorem/teleportation_costs_two_coins) · [majority_vote_is_floor_half](/theorem/majority_vote_is_floor_half) · [register_exceeds_served](/theorem/register_exceeds_served) · [store_fold_order_invariant](/theorem/store_fold_order_invariant) · [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) · [message_qubit_cap_states](/theorem/message_qubit_cap_states) · [merkle_sort_invariant](/theorem/merkle_sort_invariant) · [all_signaling_duality](/theorem/all_signaling_duality) · [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) · [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cross_is_overlap) · [mul_add_by_induction](/theorem/mul_add_by_induction) · [mul_assoc_by_induction](/theorem/mul_assoc_by_induction) · [n_qubit_dimension_all](/theorem/n_qubit_dimension_all) · [one_more_qubit_doubles](/theorem/one_more_qubit_doubles) · [shl_pow](/theorem/shl_pow) · [shift_is_the_dimension](/theorem/shift_is_the_dimension)
+[bell_born_weights](/theorem/bell_born_weights) · [bell_normalized](/theorem/bell_normalized) · [bell_perfect_correlation](/theorem/bell_perfect_correlation) · [bell_no_signaling](/theorem/bell_no_signaling) · [superposition_h0](/theorem/superposition_h0) · [ghz3_two_outcomes](/theorem/ghz3_two_outcomes) · [ghz3_normalized](/theorem/ghz3_normalized) · [cnot_truth_table](/theorem/cnot_truth_table) · [cnot_involution](/theorem/cnot_involution) · [toffoli_truth_table](/theorem/toffoli_truth_table) · [swap_truth_table](/theorem/swap_truth_table) · [s_squared_is_z](/theorem/s_squared_is_z) · [z_involution](/theorem/z_involution) · [s_dagger_inverse](/theorem/s_dagger_inverse) · [pauli_x_involution](/theorem/pauli_x_involution) · [swap_involution](/theorem/swap_involution) · [toffoli_involution](/theorem/toffoli_involution) · [cz_involution](/theorem/cz_involution) · [h_involution_on_zero](/theorem/h_involution_on_zero) · [s_fourth_is_identity](/theorem/s_fourth_is_identity) · [dj_balanced_cancels](/theorem/dj_balanced_cancels) · [dj_constant_reinforces](/theorem/dj_constant_reinforces) · [entanglement_determinant](/theorem/entanglement_determinant) · [pauli_x_z_anticommute](/theorem/pauli_x_z_anticommute) · [w_state_three_outcomes](/theorem/w_state_three_outcomes) · [w_state_normalized](/theorem/w_state_normalized) · [bell_basis_orthogonal](/theorem/bell_basis_orthogonal) · [n_qubit_dimension](/theorem/n_qubit_dimension) · [served_qubit_ceiling](/theorem/served_qubit_ceiling) · [gate_error_baseline_class](/theorem/gate_error_baseline_class) · [tensor_dimension_multiplies](/theorem/tensor_dimension_multiplies) · [pauli_group_order_16](/theorem/pauli_group_order_16) · [closure_is_coprime](/theorem/closure_is_coprime) · [types_count_as_arithmetic](/theorem/types_count_as_arithmetic) · [sixteen_connectives](/theorem/sixteen_connectives) · [real_pauli_group_order_8](/theorem/real_pauli_group_order_8) · [four_messages_two_bits](/theorem/four_messages_two_bits) · [clifford_group_order_24](/theorem/clifford_group_order_24) · [phase_gate_order_ladder](/theorem/phase_gate_order_ladder) · [chsh_beats_classical](/theorem/chsh_beats_classical) · [no_cloning_dimension](/theorem/no_cloning_dimension) · [hadamard_conjugates_x_to_z](/theorem/hadamard_conjugates_x_to_z) · [bell_stabilized_by_xx](/theorem/bell_stabilized_by_xx) · [bell_zz_even_parity](/theorem/bell_zz_even_parity) · [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) · [superdense_two_bits](/theorem/superdense_two_bits) · [teleportation_four_corrections](/theorem/teleportation_four_corrections) · [usable_gap_eighty_bits](/theorem/usable_gap_eighty_bits) · [teleportation_costs_two_coins](/theorem/teleportation_costs_two_coins) · [majority_vote_is_floor_half](/theorem/majority_vote_is_floor_half) · [register_exceeds_served](/theorem/register_exceeds_served) · [store_fold_order_invariant](/theorem/store_fold_order_invariant) · [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) · [message_qubit_cap_states](/theorem/message_qubit_cap_states) · [merkle_sort_invariant](/theorem/merkle_sort_invariant) · [all_signaling_duality](/theorem/all_signaling_duality) · [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) · [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cross_is_overlap) · [mul_add_by_induction](/theorem/mul_add_by_induction) · [mul_assoc_by_induction](/theorem/mul_assoc_by_induction) · [n_qubit_dimension_all](/theorem/n_qubit_dimension_all) · [one_more_qubit_doubles](/theorem/one_more_qubit_doubles) · [shl_pow](/theorem/shl_pow) · [shift_is_the_dimension](/theorem/shift_is_the_dimension) · [bell_agreement_carries_no_command](/theorem/bell_agreement_carries_no_command)
 
 ### The seven reflected
 
@@ -435,12 +435,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The Glagolitic numerals & Pliska rosette
 
-- **Theorems:** 13
+- **Theorems:** 15
 - **Sample lineAddress:** `cff015b0-3b61-851c-8422-33e6c484a1f2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions) · [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) · [abjad_four_ranks](/theorem/abjad_four_ranks) · [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701)
+[glagolitic_units](/theorem/glagolitic_units) · [glagolitic_units_sum](/theorem/glagolitic_units_sum) · [glagolitic_additive](/theorem/glagolitic_additive) · [glagolitic_teens_reversed](/theorem/glagolitic_teens_reversed) · [pliska_seven_rays](/theorem/pliska_seven_rays) · [pliska_seven_is_prime](/theorem/pliska_seven_is_prime) · [alphabetic_three_ranks](/theorem/alphabetic_three_ranks) · [roman_reads_subtractively](/theorem/roman_reads_subtractively) · [gematria_ignores_order](/theorem/gematria_ignores_order) · [gematria_forces_collisions](/theorem/gematria_forces_collisions) · [sefer_yetzirah_231_gates](/theorem/sefer_yetzirah_231_gates) · [abjad_four_ranks](/theorem/abjad_four_ranks) · [genesis_1_1_is_2701](/theorem/genesis_1_1_is_2701) · [theology_counts_in_the_mirror_base](/theorem/theology_counts_in_the_mirror_base) · [four_traditions_count_by_one_rank_rule](/theorem/four_traditions_count_by_one_rank_rule)
 
 ### The arithmetic of scripture
 
@@ -454,7 +454,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `7c295cfb-e81d-84d8-9454-9739950cf8b7`
+- **Sample lineAddress:** `84d99dd4-e9fb-84e2-b082-59dbf44931af`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -463,7 +463,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `3e51905c-b351-86a6-a127-c195e016b014`
+- **Sample lineAddress:** `e3f20cb7-5002-8574-8b27-9798eb809b4c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -732,12 +732,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The calendar
 
-- **Theorems:** 15
+- **Theorems:** 16
 - **Sample lineAddress:** `decc7999-1a76-8924-b421-65d267280902`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[week_is_z7](/theorem/week_is_z7) · [common_year_shifts_one](/theorem/common_year_shifts_one) · [leap_year_shifts_two](/theorem/leap_year_shifts_two) · [leap_years_per_400](/theorem/leap_years_per_400) · [gregorian_cycle_400_years](/theorem/gregorian_cycle_400_years) · [century_leap_rule](/theorem/century_leap_rule) · [doomsday_even_months](/theorem/doomsday_even_months) · [months_sum_common_365](/theorem/months_sum_common_365) · [months_sum_leap_366](/theorem/months_sum_leap_366) · [february_is_the_only_month_of_whole_weeks](/theorem/february_is_the_only_month_of_whole_weeks) · [julian_cycle_closes_at_twenty_eight](/theorem/julian_cycle_closes_at_twenty_eight) · [the_gregorian_cycle_counted_in_weeks](/theorem/the_gregorian_cycle_counted_in_weeks) · [the_reform_is_exactly_three_days_in_four_hundred](/theorem/the_reform_is_exactly_three_days_in_four_hundred) · [the_record_has_holes_the_rule_does_not](/theorem/the_record_has_holes_the_rule_does_not) · [a_gapless_index_admits_nothing_between](/theorem/a_gapless_index_admits_nothing_between)
+[week_is_z7](/theorem/week_is_z7) · [common_year_shifts_one](/theorem/common_year_shifts_one) · [leap_year_shifts_two](/theorem/leap_year_shifts_two) · [leap_years_per_400](/theorem/leap_years_per_400) · [gregorian_cycle_400_years](/theorem/gregorian_cycle_400_years) · [century_leap_rule](/theorem/century_leap_rule) · [doomsday_even_months](/theorem/doomsday_even_months) · [months_sum_common_365](/theorem/months_sum_common_365) · [months_sum_leap_366](/theorem/months_sum_leap_366) · [february_is_the_only_month_of_whole_weeks](/theorem/february_is_the_only_month_of_whole_weeks) · [julian_cycle_closes_at_twenty_eight](/theorem/julian_cycle_closes_at_twenty_eight) · [the_gregorian_cycle_counted_in_weeks](/theorem/the_gregorian_cycle_counted_in_weeks) · [the_reform_is_exactly_three_days_in_four_hundred](/theorem/the_reform_is_exactly_three_days_in_four_hundred) · [the_record_has_holes_the_rule_does_not](/theorem/the_record_has_holes_the_rule_does_not) · [a_gapless_index_admits_nothing_between](/theorem/a_gapless_index_admits_nothing_between) · [harmonic_year_drifts_by_the_fixed_point](/theorem/harmonic_year_drifts_by_the_fixed_point)
 
 ### The measures of type
 
@@ -2324,7 +2324,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70933 (71018 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70937 (71022 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2342,7 +2342,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71018 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71022 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2354,7 +2354,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71018; he claims discovery of 70634 and credits the other 384 facts to their named sources
+- ✓ The captain formalised all 71022; he claims discovery of 70638 and credits the other 384 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2370,7 +2370,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71018; of these I claim discovery of 70634, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71022; of these I claim discovery of 70638, and the remaining 384 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

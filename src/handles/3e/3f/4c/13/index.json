@@ -1,0 +1,12 @@
+{
+  "handle": "3e3f4c13",
+  "address": "3e3f4c13-e720-8f35-bb4f-e5508d442d87",
+  "kind": "chunk",
+  "keys": [
+    "bell_agreement_carries_no_command"
+  ],
+  "statement": "(((List.range 4).filter (fun i => i % 2 == i / 2 % 2)) = [0, 3]) ∧ ((1*1 + 0*0 : Nat) = (0*0 + 1*1)) ∧ (([1,0,0,1] : List Int).reverse = [1,0,0,1]) ∧ ((2:Nat)^2 < 2^3) ∧ (36 * 3 = 108) ∧ (2 * 54 = 108) ∧ (110 - 108 = 2)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

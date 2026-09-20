@@ -1,17 +1,17 @@
 {
-  "key": "a9ffda42-1613-8c6b-a192-02513a3151cd",
+  "key": "8a439bf3-066d-8548-b5e5-39b7dd7493c4",
   "publications": 252,
-  "sealedTheorems": 71017,
+  "sealedTheorems": 71022,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2693,
-    "theorems": 71017,
+    "claims": 2698,
+    "theorems": 71022,
     "bijection": false,
     "digitalRoots": {
-      "claims": 2,
-      "theorems": 7,
+      "claims": 7,
+      "theorems": 3,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -91,8 +91,8 @@
     },
     {
       "slug": "quantum",
-      "claims": 64,
-      "cited": 64,
+      "claims": 65,
+      "cited": 65,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -363,8 +363,8 @@
     },
     {
       "slug": "glagolitic",
-      "claims": 13,
-      "cited": 13,
+      "claims": 15,
+      "cited": 15,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -627,8 +627,8 @@
     },
     {
       "slug": "calendar",
-      "claims": 15,
-      "cited": 15,
+      "claims": 16,
+      "cited": 16,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -715,8 +715,8 @@
     },
     {
       "slug": "colour",
-      "claims": 19,
-      "cited": 19,
+      "claims": 20,
+      "cited": 20,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

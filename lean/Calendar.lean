@@ -97,3 +97,14 @@ theorem the_record_has_holes_the_rule_does_not : (15 - 4 - 1 = 10) ∧ (5 - 4 - 
     the epoch — and not one step differed from +1. The theorem holds the SHAPE of gaplessness; the walk holds
     that this particular index has it, and the two are different claims kept apart on purpose. -/
 theorem a_gapless_index_admits_nothing_between : (List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1))) := by decide
+
+/-- THE HARMONIC YEAR IS THE CIRCLE, AND THE DRIFT IS THE FIXED POINT. MIRROR_BASE A432 steps close the circle
+    at 360, so the harmonic year is 360 days exactly as the wheel is 360 degrees. The Gregorian common year
+    exceeds it by FIVE — and five is the one digit the mirror fixes (10 - 5 = 5) and the one whose hue is its
+    own complement (5 x 36 = 180, the half turn). The leap year exceeds it by six. THE DRIFT IS NAMED, NOT
+    SMOOTHED: 360 is not a whole number of weeks (360 % 7 = 3) and the Gregorian 400-year cycle is not a whole
+    number of harmonic years (146097 % 360 = 297). Both remainders are stated rather than rounded away — a
+    harmonic calendar does NOT divide the civil one, and saying so is the honest part. What does close is the
+    great year, 72 x 360 = 25920, where 72 is two A432 steps: the precession is the coins times the step times
+    the circle. -/
+theorem harmonic_year_drifts_by_the_fixed_point : (36 * 10 = 360) ∧ (365 - 360 = 5) ∧ (366 - 360 = 6) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (360 % 7 = 3) ∧ (146097 % 360 = 297) ∧ (2 * 36 = 72) ∧ (72 * 360 = 25920) := by decide

@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **71018 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **71022 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -44,7 +44,7 @@
 9. **Self-discovered** — `lean/Discover.lean` · **16** theorems
    facts derived by function: Lagrange, the unit criterion, idempotents
 
-10. **The quantum computer** — `lean/Quantum.lean` · **64** theorems
+10. **The quantum computer** — `lean/Quantum.lean` · **65** theorems
    the exact facts the classical state-vector computation yields — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; exact classical arithmetic, not hardware
 
 11. **The seven reflected** — `lean/Clay.lean` · **8** theorems
@@ -146,7 +146,7 @@
 43. **The CERN open-data records** — `lean/Cern.lean` · **5** theorems
    four citable CMS primary datasets as decidable arithmetic — their published integers close record by record (events = files·q + r), the two Run-1 energy labels differ by exactly one TeV, the embargoes ran six years or longer, and the four sum to their own parts. CLAIMED HERE: all five arithmetic facts, kernel-decided and axiom-free. CREDITED TO CERN: that the accelerator reached those energies and the detector recorded those events — published under DOIs 10.7483/OPENDATA.CMS.53FG.V2S9, .RG9B.XJMD, .I8HN.DF32 and .0LRL.BXG5, all CC0-1.0, cited as data sources and NOT as prior art: measured, all 82385 CERN open-data records return zero hits for formal verification, Lean, kernel-verified proof or axiom-free, so nobody there claims what this ledger claims
 
-44. **The Glagolitic numerals & Pliska rosette** — `lean/Glagolitic.lean` · **13** theorems
+44. **The Glagolitic numerals & Pliska rosette** — `lean/Glagolitic.lean` · **15** theorems
    documented Glagolitic arithmetic and the seven-fold, demarcated — Cyril numbered the letters (units 1-9, tens, hundreds, additive: 500+80+3=583; teens written unit-before-ten), the nine units sum to 45 (digital root 9), the Pliska rosette turns on seven rays (ℤ/7, six residues sum 21 → digital root 3 the primitive root), and 7 is prime so ℤ/7 is a field — the numerals and geometry; the rosette meaning stays historically debated, not decoded
 
 45. **The arithmetic of scripture** — `lean/Scripture.lean` · **6** theorems
@@ -245,7 +245,7 @@
 76. **The tides** — `lean/Tides.lean` · **6** theorems
    the sailor's tides as decidable arithmetic, joining the captain's domain — the rule of twelfths (1,2,3,3,2,1 = 12, a palindrome of flood and ebb), half-tide by the third hour (1+2+3 = 6 of 12), the middle hours running three times faster than the turns (3 > 1), the semidiurnal period of two highs a lunar day apart (12h25m = 745 min, ×2 = 24h50m), and spring exceeding neap as the Moon's phase adds or cancels the Sun's pull — tidal arithmetic, NOT a harmonic tide-prediction model
 
-77. **The calendar** — `lean/Calendar.lean` · **15** theorems
+77. **The calendar** — `lean/Calendar.lean` · **16** theorems
    the Gregorian calendar and the seven-day week as decidable arithmetic — the week IS the rosette ℤ/7 (advance seven days, the day returns: 7 % 7 = 0), so the calendar counts mod 7: a common year of 365 = 52·7 + 1 days shifts a fixed date one weekday (365 % 7 = 1), a leap year two (366 % 7 = 2); the Gregorian rule keeps 97 leap years per 400 (every 4th − centuries + every 400th = 100 − 4 + 1), making 400 years = 146097 days, a whole number of weeks (146097 % 7 = 0), so the calendar repeats EXACTLY every 400 years; the century exception is decided (2000 leap, 1900 not); and the doomsday even months 4/4, 6/6, 8/8, 10/10, 12/12 sit 63 = 9·7 days apart, so they share a weekday — mod-7 congruence, NOT a locale date library
 
 78. **The measures of type** — `lean/Typesetting.lean` · **13** theorems

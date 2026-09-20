@@ -33,7 +33,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) </small>
   <br><small>sealed neighbors: [`the_grid_widths_are_the_sealed_fortytwo_and_k432`](/theorem/the_grid_widths_are_the_sealed_fortytwo_and_k432) · [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate**
@@ -116,7 +116,7 @@ page regrows without it.
 
 - **Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`back_bearing_is_involutive_on_every_bearing`](/theorem/back_bearing_is_involutive_on_every_bearing) </small>
+  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
   <br><small>sealed neighbors: [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) · [`hamming_differences_are_the_code`](/theorem/hamming_differences_are_the_code) · [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 

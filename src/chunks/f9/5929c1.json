@@ -1,0 +1,12 @@
+{
+  "handle": "f95929c1",
+  "address": "f95929c1-4f88-8459-ae3f-1f51c3a20216",
+  "statement": "(0 < 70971) ∧ (0 + 70971 = 70971)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

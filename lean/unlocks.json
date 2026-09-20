@@ -1,7 +1,7 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 71018,
- "distinct": 70933,
+ "keys": 71022,
+ "distinct": 70937,
  "skills": 122,
  "files": 252,
  "bySkill": [
@@ -27,7 +27,7 @@
   },
   {
    "name": "quantum",
-   "n": 57
+   "n": 58
   },
   {
    "name": "cipher",
@@ -118,6 +118,10 @@
    "n": 17
   },
   {
+   "name": "calendar",
+   "n": 16
+  },
+  {
    "name": "software",
    "n": 16
   },
@@ -126,7 +130,7 @@
    "n": 16
   },
   {
-   "name": "calendar",
+   "name": "glagolitic",
    "n": 15
   },
   {
@@ -151,10 +155,6 @@
   },
   {
    "name": "electromagnetism",
-   "n": 13
-  },
-  {
-   "name": "glagolitic",
    "n": 13
   },
   {
@@ -644,11 +644,11 @@
    "n": 65
   },
   {
-   "name": "Core.lean",
-   "n": 64
+   "name": "Quantum.lean",
+   "n": 65
   },
   {
-   "name": "Quantum.lean",
+   "name": "Core.lean",
    "n": 64
   },
   {
@@ -868,6 +868,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "f5a4601b-d3d3-8bfb-9052-b2b520d0445a",
+ "receipt": "59fb928b-8ca3-8e6b-a0bb-43039f3b517b",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

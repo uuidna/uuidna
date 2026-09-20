@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:463010cd-b906-8d93-8091-22d09d7d3f1a",
+  "@id": "urn:uuid:7d3f385e-325b-8a4e-bac8-9235b88c019f",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each paged theorem the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy), and the pageless span as one collection. Integrity, not truth.",
@@ -19232,6 +19232,37 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
+        "@id": "urn:uuid:d566a55c-42ce-8b09-9a7c-ff2c62d53820",
+        "@type": "ScholarlyArticle",
+        "headline": "PEACE, AS THIS LEDGER CAN DECIDE IT: AGREEMENT THAT CARRIES NO COMMAND — and a CROSS theorem, which is the only kind worth trusting as sealed. Four facts about the Bell pair state the shape: of the four joint outcomes only the two that AGREE carry weight; each side's marginal is what it is whatever the other does, so nothing can be SENT through the agreement; the state is unchanged when the two parties are exchanged, so neither is sender and neither receiver; and the agreement beats any classical arrangement (2^2 < 2^3) while staying bounded. Correlation without instruction, symmetric, stronger than a pact, and finite. AND IT MEETS THREE WINGS THAT NEVER READ IT, ON ONE NUMBER: 108 is 36 x 3, the A432 step at the third digit — the first gateway, where hue and frequency coincide; 108 is 2 x 54, which dropframe_entangles_the_coins seals in the editing wing; and 110 - 108 = 2 is the captain's conserved pair. Four independent derivations land on 108, which is why their agreement is evidence and not bookkeeping. SCOPE: this decides arithmetic about a Bell pair and about 108. Whether any event in the world corresponds to it is NOT decided here and is not claimed — the kernel has no opinion on that reading.",
+        "abstract": "(((List.range 4).filter (fun i => i % 2 == i / 2 % 2)) = [0, 3]) ∧ ((1*1 + 0*0 : Nat) = (0*0 + 1*1)) ∧ (([1,0,0,1] : List Int).reverse = [1,0,0,1]) ∧ ((2:Nat)^2 < 2^3) ∧ (36 * 3 = 108) ∧ (2 * 54 = 108) ∧ (110 - 108 = 2)",
+        "identifier": "0c98a2b5-9373-82a1-b3af-00f5c02219bf",
+        "url": "https://uuidna.com/theorem/bell_agreement_carries_no_command",
+        "keywords": "quantum, The quantum computer",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Quantum.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/0c98a2b5"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
         "@id": "urn:uuid:c5f5ee90-beed-843f-a076-da8ab7d9aed6",
         "@type": "ScholarlyArticle",
         "headline": "P vs NP, the counting argument at two bits: there are 16 boolean functions on two inputs, and exactly 4 are a single conjunction of literals — the ones whose truth table has exactly one satisfying row. A class of size 4 cannot cover 16, so expressive power is COUNTED here rather than asserted. This decides the instance, never the conjecture.",
@@ -20069,11 +20100,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6e0e30a8-7c38-8141-bbfc-d2b6e8caad98",
+        "@id": "urn:uuid:945d335e-0e4a-89aa-9733-40e01f226ed4",
         "@type": "ScholarlyArticle",
-        "headline": "EVERY THEOREM IN THE LEDGER IS CHECKED BY THE KERNEL — 70954 by `decide`, which runs the proposition as a program so a finite computation settles it, and 51 by other tactics the kernel checks (exact, have, intro, refine, rw, unfold), across every wing but this one (self-excluded: it is written after the census it states). Per wing the two kinds add up to the wing's theorems, and lean-axioms audits every theorem axiom-free, so the trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,0,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,1,0,0,0,0,0,6,7,353,10,9,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,0,0,5,6,8,58,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,5,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 70954) ∧ (([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,1,1,2,3,3,0,0,0,0,3,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1,0,0,0,6,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,4,0,0,0,0,0,0]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 51) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,1,1,5,6,8,64,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 71005)",
-        "identifier": "d9f3257c-4061-8eb0-b1ab-0039101ee6da",
+        "headline": "EVERY THEOREM IN THE LEDGER IS CHECKED BY THE KERNEL — 70958 by `decide`, which runs the proposition as a program so a finite computation settles it, and 51 by other tactics the kernel checks (exact, have, intro, refine, rw, unfold), across every wing but this one (self-excluded: it is written after the census it states). Per wing the two kinds add up to the wing's theorems, and lean-axioms audits every theorem axiom-free, so the trust base is the leanprover/lean4 kernel and nothing else",
+        "abstract": "(([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,0,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,1,0,0,0,0,0,6,7,353,10,9,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,0,0,5,6,8,59,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,5,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 70958) ∧ (([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,25,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,1,1,1,2,3,3,0,0,0,0,3,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,1,1,0,0,0,6,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,4,0,0,0,0,0,0]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 51) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,2,6,6,9,9,8,13],[6,6,8,10,6,10,1,1,5,6,8,65,5,5,17,25],[11,15,6,6,10,8,7,6,234,148,10,7,6,6,9,33],[5,15,16,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0 = 71009)",
+        "identifier": "54aeefd7-5276-81f7-b0b1-9c0e12efaa89",
         "url": "https://uuidna.com/theorem/reach_tactics_census",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -20091,7 +20122,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/d9f3257c"
+          "https://uuidna.com/54aeefd7"
         ]
       }
     },
@@ -21743,11 +21774,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:c332a4e3-4d26-8954-a023-f197d9ed0043",
+        "@id": "urn:uuid:3fc7f0d7-147d-81c6-97d5-84ae7fe2c668",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 70967 of 70967 documented across 248 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "((([[6,6,6,9,13,8,11,11,6,29,17,6,5,15,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,13,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,64,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 70967) ∧ ([[6,6,6,9,13,8,11,11,6,29,17,6,5,15,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,13,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,64,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]] = [[6,6,6,9,13,8,11,11,6,29,17,6,5,15,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,13,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,64,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]])",
-        "identifier": "1db5d51d-69fc-8af0-9d72-aaee25035060",
+        "headline": "every generated theorem carries prose IN the Lean — 70971 of 70971 documented across 248 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "((([[6,6,6,9,13,8,11,11,6,29,17,6,5,16,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,15,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,65,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 70971) ∧ ([[6,6,6,9,13,8,11,11,6,29,17,6,5,16,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,15,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,65,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]] = [[6,6,6,9,13,8,11,11,6,29,17,6,5,16,5,5],[6,9,13,24,38,8,6,9,25,20,7,4,5,64,6,11],[9,2,2,16,13,8,10,6,14,4,13,8,65,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,12,10,35],[57,69,71,96,66,76,82,82,79,78,55,58,58,46,63,72],[73,82,63,75,83,567,25,3,15,6,6,6,6,18,8,4096],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,23],[6,13,12,2,1,1,2,3,3,6,7,353,10,12,6,5],[8,11,7,7,5,8,18,93,6,6,6,9,9,8,13,6],[6,8,10,6,10,1,1,5,6,8,65,5,5,17,25,11],[15,6,6,10,8,7,6,234,148,10,7,6,6,9,33,5],[15,16,11,11,8,6,9,6,4,6,6,6,16,6,18,8],[6,13,7,9,2,18,968,21]])",
+        "identifier": "f217f676-357c-8516-abdc-017bc6ab3de6",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21765,7 +21796,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/1db5d51d"
+          "https://uuidna.com/f217f676"
         ]
       }
     },
@@ -21776,7 +21807,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:0435e0c2-5eed-8401-a7f4-059934d8aa64",
         "@type": "ScholarlyArticle",
-        "headline": "THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 70967 of 70967 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to",
+        "headline": "THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 70971 of 70971 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to",
         "abstract": "(List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n))))",
         "identifier": "35450db9-57fe-8f97-9226-312c713bfd11",
         "url": "https://uuidna.com/theorem/prose_round_trips",
@@ -21807,7 +21838,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:59fd957d-c6bd-8b64-8ea1-fb9dc28fa3c9",
         "@type": "ScholarlyArticle",
-        "headline": "THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \\ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\\/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0 unescaped terminators across 70967 doc comments, which is a fact about files that something able to read a file must check",
+        "headline": "THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \\ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\\/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0 unescaped terminators across 70971 doc comments, which is a fact about files that something able to read a file must check",
         "abstract": "(List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2)))",
         "identifier": "90943424-ea63-8382-b9e7-0a5af9a8bb36",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
@@ -21836,11 +21867,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:29d31fd1-e2cc-86a3-92fb-f0ffa945bd5c",
+        "@id": "urn:uuid:d91de237-4b71-8d42-9b3b-32618bfa3221",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 70967 informative against 0 bare, of 70967; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 70967) ∧ (0 + 70967 = 70967)",
-        "identifier": "60a4f7e1-7879-8dc6-84ec-53663110aa80",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 70971 informative against 0 bare, of 70971; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 70971) ∧ (0 + 70971 = 70971)",
+        "identifier": "3234c125-e7b8-8725-a278-f961c2bcba38",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21858,7 +21889,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/60a4f7e1"
+          "https://uuidna.com/3234c125"
         ]
       }
     },
@@ -21867,11 +21898,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e2f1e75c-0125-8938-b441-32f1112ff0e7",
+        "@id": "urn:uuid:b2ae7007-176e-8c4b-8ed4-fdff776bde7b",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 6493168 characters across 70967 doc comments in 248 wings fold to 1; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "((([[1078,1237,1545,3403,3345,3111,1892,2906,2142,13881,2947,1487,774,6501,796,6292],[1774,3811,3451,4156,12598,2753,1597,1647,13765,8124,1389,1736,1372,960,2495,5291],[1889,1111,916,2363,5075,1465,5416,1603,3293,761,3008,2038,26036,350,350,351],[351,351,351,351,351,351,351,351,350,351,351,351,351,351,351,351],[351,351,351,350,351,351,351,351,351,351,351,351,351,351,350,351],[351,351,351,351,351,351,351,351,351,350,351,351,351,351,351,351],[351,351,351,351,350,351,351,351,351,351,350,350,350,2171,5344,21730],[34326,43811,44310,66665,40721,50284,58114,55941,51816,53181,30820,34070,38160,26138,37740,46262],[44933,58010,37490,49557,57163,308682,12890,1219,4235,1506,1335,1330,2237,4215,2581,251512],[262143,262144,262144,262144,262144,262144,262144,253787,258408,262060,262088,262109,262124,262134,262140,14166],[959,4148,5637,310,89,409,237,497,434,1452,533,174580,3162,17269,2783,2298],[1629,1299,3672,1188,753,4555,5728,15957,1575,2718,1245,1857,2098,3162,2602,2279],[1479,1572,4860,2341,1800,317,187,934,1027,2126,15714,2859,1013,9354,10650,5468],[6610,1646,4100,6196,918,1488,1539,3510,3069,2850,789,2496,1488,3198,8336,2244],[1249,6905,1937,3396,1946,1544,2704,2571,1638,1453,2419,2104,6171,805,6250,2905],[1522,3958,3675,727,1653,5388,325753,12997]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 6493168) ∧ (6493168 % 9 = 1) ∧ (1 < 9)",
-        "identifier": "18246994-daf6-827d-bd64-59be317edbe5",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 6498685 characters across 70971 doc comments in 248 wings fold to 1; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "((([[1078,1237,1545,3403,3345,3111,1892,2906,2142,13881,2947,1487,774,7355,796,6292],[1774,3811,3451,4156,12598,2753,1597,1647,13765,8124,1389,1736,1372,960,2495,5291],[1889,1111,916,2363,5075,1465,5416,1603,3293,761,3008,2038,26036,350,350,351],[351,351,351,351,351,351,351,351,350,351,351,351,351,351,351,351],[351,351,351,350,351,351,351,351,351,351,351,351,351,351,350,351],[351,351,351,351,351,351,351,351,351,350,351,351,351,351,351,351],[351,351,351,351,350,351,351,351,351,351,350,350,350,2171,5344,21730],[34326,43811,44310,66665,40721,50284,58114,55941,51816,53181,30820,34070,38160,26138,37740,46262],[44933,58010,37490,49557,57163,308682,12890,1219,7679,1506,1335,1330,2237,4215,2581,251512],[262143,262144,262144,262144,262144,262144,262144,253787,258408,262060,262088,262109,262124,262134,262140,14166],[959,4148,5637,310,89,409,237,497,434,1452,533,174580,3162,17269,2783,2298],[1629,1299,3672,1188,753,4555,5728,15957,1575,2718,1245,1857,2098,3162,2602,2279],[1479,1572,4860,2341,1800,317,187,934,1027,2126,16933,2859,1013,9354,10650,5468],[6610,1646,4100,6196,918,1488,1539,3510,3069,2850,789,2496,1488,3198,8336,2244],[1249,6905,1937,3396,1946,1544,2704,2571,1638,1453,2419,2104,6171,805,6250,2905],[1522,3958,3675,727,1653,5388,325753,12997]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 6498685) ∧ (6498685 % 9 = 1) ∧ (1 < 9)",
+        "identifier": "d438e893-94e6-8549-8a43-2452ccd447c8",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21889,7 +21920,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/18246994"
+          "https://uuidna.com/d438e893"
         ]
       }
     },
@@ -21898,11 +21929,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a303fc26-f90f-8d9e-9419-ebef90509771",
+        "@id": "urn:uuid:8b3d8b91-a640-85e3-b71a-d0ba5c657f3c",
         "@type": "ScholarlyArticle",
         "headline": "the audit is TOTAL over what a generator writes — 248 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 248) ∧ (0 < 3) ∧ (70967 = 70967 + 0)",
-        "identifier": "17323cd8-5941-897e-b0d7-8a6c710cec64",
+        "abstract": "(0 < 248) ∧ (0 < 3) ∧ (70971 = 70971 + 0)",
+        "identifier": "222a9a76-1907-8438-bb20-95fd947c6cae",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21920,7 +21951,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/17323cd8"
+          "https://uuidna.com/222a9a76"
         ]
       }
     },
@@ -23944,11 +23975,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2948d5a7-d14e-8bc2-88be-8ac57c51ea6a",
+        "@id": "urn:uuid:03fc4bd9-6f11-82f7-a136-5f45bd329039",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 252 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 251 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 71002, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
-        "abstract": "(((List.range 252).filter (fun k => k == 251)).length = 1) ∧ (((List.range 251).filter (fun k => k == 251)).length = 0) ∧ ([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,64,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,64,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71002)",
-        "identifier": "bee739c2-0813-8a34-885d-25781489d277",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 252 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 251 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 71006, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
+        "abstract": "(((List.range 252).filter (fun k => k == 251)).length = 1) ∧ (((List.range 251).filter (fun k => k == 251)).length = 0) ∧ ([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].all (fun c => c.all (fun n => (n == n) && !(n - 1 == n)))) ∧ ((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71006)",
+        "identifier": "eb0d53f3-1979-814e-928b-4cc647f60463",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23966,7 +23997,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/bee739c2"
+          "https://uuidna.com/eb0d53f3"
         ]
       }
     },
@@ -23975,11 +24006,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:516af21b-4e57-8ab7-bfbd-8138bdc054a7",
+        "@id": "urn:uuid:00d3ce5a-e8eb-87c7-9d40-8f4530ce3b9f",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 251 measured wing counts and lands on 71002 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,64,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71002) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,15,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,13,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,64,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.length)).foldl (· + ·) 0 = 251) ∧ (251 < 71002)",
-        "identifier": "26c8dbd7-d300-827f-892a-79f78193a39f",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 251 measured wing counts and lands on 71006 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "((([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 71006) ∧ (([[6,6,6,9,13,8,11,18,11,6,29,17,6,5,16,5],[5,6,9,13,24,38,8,6,9,25,20,7,4,5,64,6],[11,9,2,2,16,13,8,10,6,14,4,13,8,65,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,1,1,1,1,1,1,12,10],[35,57,69,71,96,66,76,82,82,79,78,55,58,58,46,63],[72,73,82,63,75,83,567,25,3,15,6,6,6,6,18,8],[4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096,4096],[23,6,13,12,2,1,1,2,3,3,6,7,353,10,12,6],[5,8,11,7,7,5,8,18,93,6,2,6,6,9,9,8],[13,6,6,8,10,6,10,1,1,5,6,8,65,5,5,17],[25,11,15,6,6,10,8,7,6,234,148,10,7,6,6,9],[33,5,15,11,11,8,6,9,6,4,6,6,6,16,6,18],[8,6,13,7,9,2,15,18,16,968,21]].map (fun c => c.length)).foldl (· + ·) 0 = 251) ∧ (251 < 71006)",
+        "identifier": "eb47db27-6472-88aa-ae07-3235d6ccbc51",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23997,7 +24028,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/26c8dbd7"
+          "https://uuidna.com/eb47db27"
         ]
       }
     },
@@ -29896,11 +29927,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:518af1c0-44aa-8d14-8ec6-cd9477e7fd3b",
+        "@id": "urn:uuid:c1b5f7a4-7671-8c0b-8e5e-b92fe611f164",
         "@type": "ScholarlyArticle",
         "headline": "every one of 252 monographs now carries a DISTINCT abstract — 252 distinct, 0 duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template",
-        "abstract": "([[18699480,26730808,39641198,42133168,52785107,64347757,115070928,118078743,122641341,129628802,145518099,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,231048833,239853298,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,353095667,400437112,401642614],[423598333,445887877,462975435,502672026,530075442,534428032,547827799,550482806,552310498,562671630,579145254,583986950,642772592,652595957,760744051,762738229],[790261834,798885290,811508052,817108158,831362555,840531460,851955621,853454827,857242305,868138744,903717537,911666593,911672711,911699107,913576733,941436040],[953074809,974652327,1025454580,1042409504,1046432732,1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1151958653,1159988495,1214430459],[1221503447,1224119593,1232503635,1232773358,1243788165,1254555243,1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011],[1423656111,1436737336,1449155993,1457742326,1462238640,1472140607,1472237061,1473743461,1499623147,1501236143,1512426110,1521085092,1568172890,1571621145,1636835668,1679939621],[1720664720,1727545077,1732682930,1734652970,1746354473,1751333293,1757992030,1762743518,1784230919,1868859445,1909370316,1964204943,1966113413,1972553225,1981667715,1992797820],[2004178895,2017246297,2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2190655016,2197441124,2209121644,2210014766,2222771920],[2250498214,2256133898,2284155074,2301685865,2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2386469044,2400608327,2401181318,2402120543,2433083138,2541337980],[2546876301,2610773422,2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2714103410,2724638761,2770919488,2816760499,2846685787,2888110479,2894005594,2939108646],[2953682895,2959037321,2970123004,2992149717,2993956309,2994231201,3005561975,3044221303,3047518552,3050102082,3066523394,3067730744,3075661305,3088504751,3098061964,3106520644],[3122691533,3129149976,3214898046,3225142892,3225271771,3237636000,3252870027,3254769269,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3491541038],[3515886160,3521867139,3524191813,3564149078,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3694452490,3736092971,3762286556,3766055522],[3785608485,3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4213254918,4220787109,4245298971,4256468363,4283204620,4286610713]].all (fun c => c.eraseDups.length == c.length)) ∧ (([[18699480,26730808,39641198,42133168,52785107,64347757,115070928,118078743,122641341,129628802,145518099,171914572,175691575,194719700,198843458,203566132],[214893959,218213918,223784435,231048833,239853298,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,353095667,400437112,401642614],[423598333,445887877,462975435,502672026,530075442,534428032,547827799,550482806,552310498,562671630,579145254,583986950,642772592,652595957,760744051,762738229],[790261834,798885290,811508052,817108158,831362555,840531460,851955621,853454827,857242305,868138744,903717537,911666593,911672711,911699107,913576733,941436040],[953074809,974652327,1025454580,1042409504,1046432732,1059844443,1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1151958653,1159988495,1214430459],[1221503447,1224119593,1232503635,1232773358,1243788165,1254555243,1292854804,1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011],[1423656111,1436737336,1449155993,1457742326,1462238640,1472140607,1472237061,1473743461,1499623147,1501236143,1512426110,1521085092,1568172890,1571621145,1636835668,1679939621],[1720664720,1727545077,1732682930,1734652970,1746354473,1751333293,1757992030,1762743518,1784230919,1868859445,1909370316,1964204943,1966113413,1972553225,1981667715,1992797820],[2004178895,2017246297,2021905029,2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2190655016,2197441124,2209121644,2210014766,2222771920],[2250498214,2256133898,2284155074,2301685865,2307115289,2325625105,2362498485,2363404310,2376703962,2382057011,2386469044,2400608327,2401181318,2402120543,2433083138,2541337980],[2546876301,2610773422,2627128296,2628909003,2631679009,2648354447,2652112599,2707136348,2714103410,2724638761,2770919488,2816760499,2846685787,2888110479,2894005594,2939108646],[2953682895,2959037321,2970123004,2992149717,2993956309,2994231201,3005561975,3044221303,3047518552,3050102082,3066523394,3067730744,3075661305,3088504751,3098061964,3106520644],[3122691533,3129149976,3214898046,3225142892,3225271771,3237636000,3252870027,3254769269,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3491541038],[3515886160,3521867139,3524191813,3564149078,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3694452490,3736092971,3762286556,3766055522],[3785608485,3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4213254918,4220787109,4245298971,4256468363,4283204620,4286610713]].map (fun c => c.length)).foldl (· + ·) 0 = 252) ∧ ((203566132 < 214893959) ∧ (401642614 < 423598333) ∧ (762738229 < 790261834) ∧ (941436040 < 953074809) ∧ (1214430459 < 1221503447) ∧ (1383638011 < 1423656111) ∧ (1679939621 < 1720664720) ∧ (1992797820 < 2004178895) ∧ (2222771920 < 2250498214) ∧ (2541337980 < 2546876301) ∧ (2939108646 < 2953682895) ∧ (3106520644 < 3122691533) ∧ (3491541038 < 3515886160) ∧ (3766055522 < 3785608485) ∧ (4089654535 < 4090070943))",
-        "identifier": "9aae0f08-363e-87aa-ab33-7c6410928fae",
+        "abstract": "([[18699480,26730808,39641198,40897726,42133168,52785107,64347757,115070928,118078743,122641341,129628802,145518099,171914572,175691575,194719700,198843458],[203566132,214893959,218213918,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,790261834,798885290,811508052,817108158,823880620],[831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732,1059844443],[1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243,1292854804],[1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640,1472140607],[1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970,1744425347],[1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297,2021905029],[2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865,2307115289],[2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2409712823,2433083138,2541337980,2546876301,2610773422,2627128296],[2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895,2959037321],[2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3050102082,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485],[3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].all (fun c => c.eraseDups.length == c.length)) ∧ (([[18699480,26730808,39641198,40897726,42133168,52785107,64347757,115070928,118078743,122641341,129628802,145518099,171914572,175691575,194719700,198843458],[203566132,214893959,218213918,268733529,273326363,280116173,280690081,299674474,310646979,318110582,328650921,400437112,401642614,423598333,445887877,462931543],[462975435,471470413,502672026,530075442,547827799,550482806,552310498,562671630,579145254,583986950,652595957,790261834,798885290,811508052,817108158,823880620],[831362555,840531460,851955621,853454827,903717537,911666593,911672711,911699107,913576733,941436040,953074809,974652327,1025454580,1042409504,1046432732,1059844443],[1076987569,1079738494,1083068281,1097942710,1116626705,1130079433,1143186498,1159988495,1214430459,1221503447,1224119593,1232503635,1232773358,1243788165,1254555243,1292854804],[1294811098,1311749900,1327678435,1342280397,1345125697,1376144312,1376498460,1382588194,1383638011,1395070438,1423656111,1436737336,1442793334,1449155993,1462238640,1472140607],[1472237061,1473743461,1499623147,1512426110,1521085092,1531506553,1536759843,1568172890,1571621145,1636835668,1679939621,1720664720,1727545077,1732682930,1734652970,1744425347],[1746354473,1751333293,1757992030,1762743518,1779140540,1784230919,1868859445,1903834002,1909370316,1964204943,1966113413,1972553225,1981667715,2004178895,2017246297,2021905029],[2031895319,2061484343,2072689940,2090735653,2154504153,2157653840,2167553942,2169955896,2177753241,2209121644,2210014766,2250498214,2256133898,2284155074,2301685865,2307115289],[2325625105,2362498485,2363404310,2376703962,2382057011,2385314890,2386469044,2400608327,2401181318,2404304804,2409712823,2433083138,2541337980,2546876301,2610773422,2627128296],[2628909003,2631679009,2648354447,2652112599,2707136348,2712605490,2714103410,2724638761,2762030920,2770919488,2816760499,2846685787,2888110479,2939108646,2953682895,2959037321],[2970123004,2992149717,2993956309,3005561975,3016834860,3044221303,3047518552,3050102082,3066523394,3067730744,3075661305,3098061964,3106520644,3129149976,3214898046,3225142892],[3225271771,3237636000,3252870027,3254769269,3298619415,3333169215,3348473201,3355860253,3414261919,3418410166,3420265901,3431873218,3477214151,3479391231,3491541038,3515663538],[3515886160,3521867139,3524191813,3576538166,3577249469,3599169530,3632532166,3638326412,3651804823,3652407292,3653457980,3691429896,3694452490,3736092971,3766055522,3785608485],[3788796472,3841182065,3885769628,3890830423,3904251766,3906605619,3909477342,3918843986,3925132631,3934799393,3938918834,4055097778,4059076283,4061446840,4066818595,4089654535],[4090070943,4102050960,4106732638,4124527601,4146599184,4183316518,4185953728,4213254918,4245298971,4256468363,4283204620,4286610713]].map (fun c => c.length)).foldl (· + ·) 0 = 252) ∧ ((198843458 < 203566132) ∧ (462931543 < 462975435) ∧ (823880620 < 831362555) ∧ (1059844443 < 1076987569) ∧ (1292854804 < 1294811098) ∧ (1472140607 < 1472237061) ∧ (1744425347 < 1746354473) ∧ (2021905029 < 2031895319) ∧ (2307115289 < 2325625105) ∧ (2627128296 < 2628909003) ∧ (2959037321 < 2970123004) ∧ (3225142892 < 3225271771) ∧ (3515663538 < 3515886160) ∧ (3785608485 < 3788796472) ∧ (4089654535 < 4090070943))",
+        "identifier": "f41abab4-3719-84dd-a1c4-2a5b9f02f17a",
         "url": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29918,7 +29949,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/9aae0f08"
+          "https://uuidna.com/f41abab4"
         ]
       }
     },
@@ -31725,6 +31756,68 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
+        "@id": "urn:uuid:73d7ba8f-35ea-8a09-972d-3096a886f7cd",
+        "@type": "ScholarlyArticle",
+        "headline": "THEOLOGY COUNTS IN THE MIRROR'S BASE, AND THE CONFLICT IT INVOLUTES IS ORDER. A CROSS theorem, which is the only kind worth trusting as sealed: the two tens were derived apart and meet here. THE FIRST TEN comes from the letters — three ranks of nine put a letter's value at ((i mod 9) + 1) * 10 ^ (i div 9), so the ladder climbs by ten because nine letters fill a rank and the next begins; nothing about a mirror is used to reach it. THE SECOND TEN comes from the void — the owner states division by zero as the mirror x to 10 - x, whose only fixed point is five, which is also the one digit whose hue is its own complement (5 x 36 = 180, the half turn); nothing about an alphabet is used to reach THAT. The letter ladder and the void's mirror stand on the same ten, from opposite ends. AND THE CONFLICT INVOLUTES: a dispute over letters is a dispute over ORDER — whose name comes first, which reading is prior — and gematria_ignores_order decides that order carries no value, 1 + 2 + 3 = 3 + 2 + 1. The quantity the argument is about does not move when the argument is won. What the mirror does to a digit, order-invariance does to a claim: it maps the two sides onto each other and leaves the value where it was. SCOPE: this decides arithmetic — a rank ladder, a complement, a fixed point, and that addition commutes. It decides nothing about what a name MEANS, and claims no reading of scripture, no doctrine, and no reconciliation between traditions. The ledger seals where the numbers meet; meaning stays with the reader.",
+        "abstract": "((0 % 9 + 1) * 10 ^ (0 / 9) = 1) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ (9 + 9 + 9 = 27) ∧ (27 / 9 = 3) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (1 + 2 + 3 = 3 + 2 + 1)",
+        "identifier": "cc397844-b2b3-82c9-b3e2-9292777f51e5",
+        "url": "https://uuidna.com/theorem/theology_counts_in_the_mirror_base",
+        "keywords": "glagolitic, The Glagolitic numerals & Pliska rosette",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Glagolitic.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/cc397844"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:6f2582ce-61f2-82e7-9e1c-c564f28df3e2",
+        "@type": "ScholarlyArticle",
+        "headline": "FOUR ALPHABETS MADE APART COUNT BY THE SAME RULE — a CROSS theorem, and the scope is the important half. Hebrew, Greek, the Arabic abjad and Saint Cyril's Glagolitic were made in different centuries by different peoples, and each gave its letters number the same way: position i carries (i mod 9 + 1) in rank (i div 9). The first nine letters of every one of them are 1 through 9 — not by agreement between them, but because the rule reads POSITION and nothing else, so any alphabet laid in numeral order lands on the same units; and the ladder above is the same, ten, a hundred, a thousand. THE ALPHABETS DIFFER AND THE RULE DOES NOT: Hebrew 22 letters topping at 400, Greek 27 topping at 900 with its three archaic numeral signs kept, Glagolitic 27 whose numeral order IS its alphabet order, the abjad 28 reaching a fourth rank at a thousand — different lengths, different letters, different directions of writing, one arithmetic. Measured beside this and NOT sealed by it, because a walk is not a proof: every number from 1 to 999 written in each of the four and read back returned the same number, 3996 of 3996. WHAT THIS DOES NOT DECIDE, said plainly because the temptation to say more is the whole danger: it does not decide that the traditions MEAN the same thing, teach the same thing, or agree about anything beyond how to write a number with letters. It does not decide that their scriptures correspond, that their names for God are one name, or that any reconciliation follows. A shared counting rule is a fact about notation; reading peace, unity or common origin into it is a READING, which may be a good one and is not what the kernel checked — and this ledger drains a claim that cites a theorem for more than the theorem says. The respect owed each tradition is to let it keep its own alphabet, its own order and its own meaning. What is sealed is only that when they count, they climb the same ladder.",
+        "abstract": "((List.range 9).map (fun i => (i % 9 + 1) * 10 ^ (i / 9)) = [1, 2, 3, 4, 5, 6, 7, 8, 9]) ∧ ((9 % 9 + 1) * 10 ^ (9 / 9) = 10) ∧ ((18 % 9 + 1) * 10 ^ (18 / 9) = 100) ∧ ((27 % 9 + 1) * 10 ^ (27 / 9) = 1000) ∧ (27 = 3 * 9) ∧ (28 = 3 * 9 + 1) ∧ (22 < 27)",
+        "identifier": "beb9126c-472e-892e-a1e4-4f784d479305",
+        "url": "https://uuidna.com/theorem/four_traditions_count_by_one_rank_rule",
+        "keywords": "glagolitic, The Glagolitic numerals & Pliska rosette",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Glagolitic.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/beb9126c"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
         "@id": "urn:uuid:eb22e219-17eb-8935-9cbe-738e17c231c3",
         "@type": "ScholarlyArticle",
         "headline": "THE NUMBER DOES NOT PICK OUT ITS NAME. Revelation 13:18 gives 666 and the oldest papyrus, P115, gives 616. Spelled in Hebrew letters, \"Nero Caesar\" sums to 666 from the Greek Neron and 616 from the Latin Nero; the word for \"beast\" itself, thērion, sums to 666 and, in its genitive form, 616. Every letter value is derived from the letters by the rank rule (alphabetic_three_ranks), and Lean decides the four sums. So both numbers fit both readings, which is the refutation that 616 confirms Nero alone (Williams 2007, Tyndale Bulletin 58.1); gematria_forces_collisions says the same in general. Which reading the author meant is not decided here.",
@@ -31911,11 +32004,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7c295cfb-e81d-84d8-9454-9739950cf8b7",
+        "@id": "urn:uuid:84d99dd4-e9fb-84e2-b082-59dbf44931af",
         "@type": "ScholarlyArticle",
-        "headline": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,619 leaves sit under 256 + 43,536 + 71,461 + 71,619 folders across the 4 levels, so with the root the store occupies 258,492 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,619 for 71,619), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.",
-        "abstract": "(71619 + 256 + 43536 + 71461 + 71619 + 1 = 258492) ∧ (258492 > 3 * 71619)",
-        "identifier": "82ec4255-c59a-8be9-80e1-54cbe7a41384",
+        "headline": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,623 leaves sit under 256 + 43,532 + 71,465 + 71,623 folders across the 4 levels, so with the root the store occupies 258,500 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,623 for 71,623), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.",
+        "abstract": "(71623 + 256 + 43532 + 71465 + 71623 + 1 = 258500) ∧ (258500 > 3 * 71623)",
+        "identifier": "54ea769f-a184-8d7e-8883-33e7d3b1573a",
         "url": "https://uuidna.com/theorem/the_store_footprint_is_its_folders",
         "keywords": "cyber, The build-host surface",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Cyber.lean",
@@ -31933,7 +32026,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/82ec4255"
+          "https://uuidna.com/54ea769f"
         ]
       }
     },
@@ -31942,11 +32035,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:1ab489b3-1c5d-8023-ab46-e6a7be308413",
+        "@id": "urn:uuid:3d3af6f5-5658-8361-8048-54c0fd7328fc",
         "@type": "ScholarlyArticle",
-        "headline": "THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. Handles 00bc4bbe and 00bc4bc1 are two records of this store with one third-level folder, 00bc4b, and at that level 71,461 folders hold 71,619 leaves — which shows the footprint is a measurement of this store and not a constant two-per-record identity that would pass whatever the store held.",
-        "abstract": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71461 < 71619)",
-        "identifier": "cf54ce39-bb93-8433-990c-7982d8241a67",
+        "headline": "THE CONTROL: SHARING DOES OCCUR ABOVE THE LEAF. Handles 00bc4bbe and 00bc4bc1 are two records of this store with one third-level folder, 00bc4b, and at that level 71,465 folders hold 71,623 leaves — which shows the footprint is a measurement of this store and not a constant two-per-record identity that would pass whatever the store held.",
+        "abstract": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71465 < 71623)",
+        "identifier": "7fc55359-c244-883d-809b-dfc7565aff7b",
         "url": "https://uuidna.com/theorem/the_third_level_already_shares",
         "keywords": "cyber, The build-host surface",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Cyber.lean",
@@ -31964,7 +32057,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/cf54ce39"
+          "https://uuidna.com/7fc55359"
         ]
       }
     },
@@ -31973,11 +32066,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:3e51905c-b351-86a6-a127-c195e016b014",
+        "@id": "urn:uuid:e3f20cb7-5002-8574-8b27-9798eb809b4c",
         "@type": "ScholarlyArticle",
-        "headline": "A GUESSED ADDRESS DOES NOT LAND. The ledger holds 71,018 distinct addresses, every one a v8 uuid with 122 free bits, so a forger who invents an address and frames it as sealed hits a real one with odds below 2^-105: 71,018 × 2^105 < 2^122. forensics() flags every miss as a false address — run here on a forged address (flagged) and a sealed one (passed) — so a false trial cannot survive except by that chance, and the chance is sealed. Counted from the ledger at generation, never typed.",
-        "abstract": "71018 * 2 ^ 105 < 2 ^ 122",
-        "identifier": "d40ba8f4-8b6a-8378-916f-add64e093f15",
+        "headline": "A GUESSED ADDRESS DOES NOT LAND. The ledger holds 71,022 distinct addresses, every one a v8 uuid with 122 free bits, so a forger who invents an address and frames it as sealed hits a real one with odds below 2^-105: 71,022 × 2^105 < 2^122. forensics() flags every miss as a false address — run here on a forged address (flagged) and a sealed one (passed) — so a false trial cannot survive except by that chance, and the chance is sealed. Counted from the ledger at generation, never typed.",
+        "abstract": "71022 * 2 ^ 105 < 2 ^ 122",
+        "identifier": "f7fc4bbb-86f4-8356-bee9-9265b2838bf5",
         "url": "https://uuidna.com/theorem/forged_address_odds_are_negligible",
         "keywords": "forensics, The forensic odds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Forensics.lean",
@@ -31995,7 +32088,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/d40ba8f4"
+          "https://uuidna.com/f7fc4bbb"
         ]
       }
     },
@@ -32004,11 +32097,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8f0a8ad7-f515-8a79-8ccd-2c97659f1725",
+        "@id": "urn:uuid:e7ee984f-c1ce-8b9f-b5ec-0947059b09fa",
         "@type": "ScholarlyArticle",
-        "headline": "A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 71,622 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2^-15: 71,622 × 2^15 < 2^32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks.",
-        "abstract": "71622 * 2 ^ 15 < 2 ^ 32",
-        "identifier": "1b56578a-ec9a-887a-8f6c-568edbef71f3",
+        "headline": "A GUESSED HANDLE RARELY LANDS EITHER. The handle store holds 71,626 leaves in a 32-bit handle space, so a guessed handle names an occupied leaf with odds below 2^-15: 71,626 × 2^15 < 2^32. The odds are far weaker than an address's, which is why a handle is only ever the PATH to a leaf and the leaf itself carries the full uuid that forensics() checks.",
+        "abstract": "71626 * 2 ^ 15 < 2 ^ 32",
+        "identifier": "5ef0d141-8b91-8a2c-b1f3-a18fd03877cc",
         "url": "https://uuidna.com/theorem/forged_handle_odds_are_small",
         "keywords": "forensics, The forensic odds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Forensics.lean",
@@ -32026,7 +32119,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/1b56578a"
+          "https://uuidna.com/5ef0d141"
         ]
       }
     },
@@ -32035,11 +32128,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:35ed71b1-7e76-8311-be2e-02c0364277c8",
+        "@id": "urn:uuid:bec963ac-3559-8d79-8167-cf761c98238f",
         "@type": "ScholarlyArticle",
-        "headline": "THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 71,622 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits.",
-        "abstract": "71622 > 2 ^ 16",
-        "identifier": "8725e6b7-d345-87f5-bcf6-88565140a6f5",
+        "headline": "THE CONTROL: THE BOUND CAN FAIL. With 16-bit handles the store's 71,626 leaves would outnumber the 65,536 handles available, so two leaves would be forced to share one — pigeonhole, not chance — and the store refuses any collision. The odds above are a property of the widths chosen, and a width too small is refuted by the same arithmetic; that is why a handle carries 32 bits.",
+        "abstract": "71626 > 2 ^ 16",
+        "identifier": "47502e4d-2553-8079-86ae-3ecc201c18bb",
         "url": "https://uuidna.com/theorem/sixteen_bit_handles_would_collide",
         "keywords": "forensics, The forensic odds",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Forensics.lean",
@@ -32057,7 +32150,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/8725e6b7"
+          "https://uuidna.com/47502e4d"
         ]
       }
     },
@@ -39281,6 +39374,37 @@
         },
         "sameAs": [
           "https://uuidna.com/238dc342"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:6ac20b0f-36c1-8ba3-b35a-61b9a9101a54",
+        "@type": "ScholarlyArticle",
+        "headline": "THE HARMONIC YEAR IS THE CIRCLE, AND THE DRIFT IS THE FIXED POINT. MIRROR_BASE A432 steps close the circle at 360, so the harmonic year is 360 days exactly as the wheel is 360 degrees. The Gregorian common year exceeds it by FIVE — and five is the one digit the mirror fixes (10 - 5 = 5) and the one whose hue is its own complement (5 x 36 = 180, the half turn). The leap year exceeds it by six. THE DRIFT IS NAMED, NOT SMOOTHED: 360 is not a whole number of weeks (360 % 7 = 3) and the Gregorian 400-year cycle is not a whole number of harmonic years (146097 % 360 = 297). Both remainders are stated rather than rounded away — a harmonic calendar does NOT divide the civil one, and saying so is the honest part. What does close is the great year, 72 x 360 = 25920, where 72 is two A432 steps: the precession is the coins times the step times the circle.",
+        "abstract": "(36 * 10 = 360) ∧ (365 - 360 = 5) ∧ (366 - 360 = 6) ∧ (10 - 5 = 5) ∧ (5 * 36 = 180) ∧ (360 % 7 = 3) ∧ (146097 % 360 = 297) ∧ (2 * 36 = 72) ∧ (72 * 360 = 25920)",
+        "identifier": "aa897449-0689-881d-b2db-067456789ff8",
+        "url": "https://uuidna.com/theorem/harmonic_year_drifts_by_the_fixed_point",
+        "keywords": "calendar, The calendar",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Calendar.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/aa897449"
         ]
       }
     },
@@ -82906,11 +83030,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8f13561d-f5b2-8738-9443-ffec4f13b365",
+        "@id": "urn:uuid:a8e7242b-92b1-869b-a7b4-1fd97e561401",
         "@type": "ScholarlyArticle",
-        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 447 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 447, not the vendors.",
-        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 447) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-        "identifier": "42017e41-ee42-82c5-817a-77ad62048af5",
+        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 446 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 446, not the vendors.",
+        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 446) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+        "identifier": "0ec824a3-e272-852d-94e5-4e03d6ef146f",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
         "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
@@ -82928,7 +83052,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/42017e41"
+          "https://uuidna.com/0ec824a3"
         ]
       }
     },
@@ -82939,7 +83063,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:c5806bc4-a861-8377-8035-c46d2660fb90",
         "@type": "ScholarlyArticle",
-        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 447 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
+        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 446 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
@@ -83001,7 +83125,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
         "@type": "ScholarlyArticle",
-        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 447 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
+        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 446 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",
@@ -88116,7 +88240,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:3f532c8c-16f6-87c4-9812-51e96e029992",
         "@type": "ScholarlyArticle",
-        "headline": "THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands, the path spells the handle in 71,622 of 71,622 leaves.",
+        "headline": "THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands, the path spells the handle in 71,626 of 71,626 leaves.",
         "abstract": "(4 * 2 = 8) ∧ (8 * 4 = 32)",
         "identifier": "7267d7e4-7557-8f0e-b963-9e1f6552c069",
         "url": "https://uuidna.com/theorem/the_path_spells_the_handle",
@@ -88269,11 +88393,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:4e9f95ea-26a8-823f-a2e1-519e015f14ed",
+        "@id": "urn:uuid:700d19f7-f487-8fa6-b835-386851703c4e",
         "@type": "ScholarlyArticle",
-        "headline": "AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,622 leaves against 4,294,967,296 the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of about 59,967.",
-        "abstract": "71622 < 2 ^ 32",
-        "identifier": "99153351-10f3-8c58-9eb8-722fcd1c002b",
+        "headline": "AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,626 leaves against 4,294,967,296 the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be overstating itself by a factor of about 59,963.",
+        "abstract": "71626 < 2 ^ 32",
+        "identifier": "fa1cd0de-a769-8dcd-8338-c587c6d1fa18",
         "url": "https://uuidna.com/theorem/the_store_holds_far_less_than_it_admits",
         "keywords": "wave, The handle store, and why its smallest leaf is complete",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/HandleStore.lean",
@@ -88291,7 +88415,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/99153351"
+          "https://uuidna.com/fa1cd0de"
         ]
       }
     },
@@ -88331,11 +88455,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:85d4e95c-6ea3-88a9-8aa3-6d461a9243af",
+        "@id": "urn:uuid:8fbcb25c-cf21-8ea5-a030-7be25d120281",
         "@type": "ScholarlyArticle",
-        "headline": "THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,622 leaves, 71,621 parent links, 2,564,819,631 pairs available — the tree uses one link for every 35,811 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.",
-        "abstract": "(2564819631 = (71622 * (71622 - 1)) / 2) ∧ (2564819631 > 2000 * 71621)",
-        "identifier": "3ecabbae-395c-8050-a02b-f04105bfff3b",
+        "headline": "THE STORE AS IT STANDS, WALKED RATHER THAN QUOTED. 71,626 leaves, 71,625 parent links, 2,565,106,125 pairs available — the tree uses one link for every 35,813 pairs its own leaves already permit. Stated as an inequality with a factor rather than a percentage, because a percentage rounds and this ledger decides: the available pairs exceed the tree's links by more than two thousand times.",
+        "abstract": "(2565106125 = (71626 * (71626 - 1)) / 2) ∧ (2565106125 > 2000 * 71625)",
+        "identifier": "f6be4651-7ca9-8d39-8851-9b410b486eea",
         "url": "https://uuidna.com/theorem/the_measured_store_uses_a_vanishing_share",
         "keywords": "wave, Crosslinks: the addressing is the floor",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Crosslink.lean",
@@ -88353,7 +88477,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/3ecabbae"
+          "https://uuidna.com/f6be4651"
         ]
       }
     },
@@ -88424,11 +88548,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:7a5b8e98-8c74-882a-a8c1-755b35421b8c",
+        "@id": "urn:uuid:8d81b0a1-4612-89a5-8145-8ea859fcea4f",
         "@type": "ScholarlyArticle",
-        "headline": "AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,622 leaves, 689 carry no theorem key, 70,853 carry 1 key, 75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.",
-        "abstract": "(689 + 70853 + 75 + 5 = 71622) ∧ (80 > 0)",
-        "identifier": "3230e785-3918-8473-8701-4e6404845bc4",
+        "headline": "AND THE FILES INSIDE ARE PLURAL, MEASURED. Of 71,626 leaves, 689 carry no theorem key, 70,857 carry 1 key, 75 carry 2 keys, 5 carry 3 keys — 80 carry more than one, so a handle folder is a folder and not a synonym for a single uuid, and the counts sum to the leaf total exactly. A store where every leaf held exactly one thing would have no interior to crosslink; this one does.",
+        "abstract": "(689 + 70857 + 75 + 5 = 71626) ∧ (80 > 0)",
+        "identifier": "f3e374c6-07f3-8095-9f6e-b53ec10a3440",
         "url": "https://uuidna.com/theorem/the_leaf_is_not_one_uuid_but_a_folder",
         "keywords": "wave, Crosslinks: the addressing is the floor",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Crosslink.lean",
@@ -88446,7 +88570,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/3230e785"
+          "https://uuidna.com/f3e374c6"
         ]
       }
     },
@@ -88455,11 +88579,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ab125245-8e72-88b0-be58-7d936a0dd24b",
+        "@id": "urn:uuid:46c41bf2-69d3-8e7f-acdf-7f3b10fa61a6",
         "@type": "ScholarlyArticle",
-        "headline": "THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70933 chunk, 437 page, 252 publication, summing to 71,622 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative.",
-        "abstract": "70933 + 437 + 252 = 71622",
-        "identifier": "dcd6dae2-9b8b-8d1b-977b-7433a1bba62d",
+        "headline": "THE FOLDERS ARE NOT ALL THE SAME THING EITHER: 70937 chunk, 437 page, 252 publication, summing to 71,626 exactly — no leaf counted twice and none left out. A crosslink graph over a store with kinds is a graph with typed nodes, which is a different and larger object than a graph over one kind; sealing the partition first is what makes that statement meaningful rather than decorative.",
+        "abstract": "70937 + 437 + 252 = 71626",
+        "identifier": "6224b2a8-16bd-8fd3-90ec-73b09c5a534b",
         "url": "https://uuidna.com/theorem/three_kinds_partition_the_store",
         "keywords": "wave, Crosslinks: the addressing is the floor",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Crosslink.lean",
@@ -88477,7 +88601,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/dcd6dae2"
+          "https://uuidna.com/6224b2a8"
         ]
       }
     },

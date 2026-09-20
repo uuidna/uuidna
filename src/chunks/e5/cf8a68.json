@@ -1,0 +1,12 @@
+{
+  "handle": "e5cf8a68",
+  "address": "e5cf8a68-82d0-8abc-9156-45cae20d3b7b",
+  "statement": "(2565106125 = (71626 * (71626 - 1)) / 2) ∧ (2565106125 > 2000 * 71625)",
+  "tactic": "decide",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

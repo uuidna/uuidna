@@ -414,7 +414,7 @@ Call `get_handle` — the old name `uuidna_handle` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"address":"96cd78bd-6918-87b3-8db8-393f714492f7","handle":"96cd78bd","path":"src/handles/96/cd/78/bd/index.json","parts":["96","cd","78","bd"],"roundTrip":tru…
+{"address":"08b07830-c9d8-88d2-bd10-bb46c60b4d67","handle":"08b07830","path":"src/handles/08/b0/78/30/index.json","parts":["08","b0","78","30"],"roundTrip":tru…
 ```
 
 **Parameters**
@@ -656,7 +656,7 @@ Call `get_coins` — the old name `uuidna_coins` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"coins":2,"unit":2,"seals":71017,"minted":142034,"capacity":128,"referrerDoors":6,"combinations":42,"max":5376,"remaining":-136658,"capSeals":2688,"unsealed":…
+{"coins":2,"unit":2,"seals":71018,"minted":142036,"capacity":128,"referrerDoors":6,"combinations":42,"max":5376,"remaining":-136660,"capSeals":2688,"unsealed":…
 ```
 
 _No parameters._
@@ -1058,7 +1058,7 @@ Call `get_latex` — the old name `uuidna_latex` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"total":71017,"formula":1447,"program":69570,"refused":0,"manuscript":"https://uuidna.com/uuidna-ledger.tex"}
+{"total":71018,"formula":1448,"program":69570,"refused":0,"manuscript":"https://uuidna.com/uuidna-ledger.tex"}
 ```
 
 **Parameters**
@@ -1120,7 +1120,7 @@ Call `get_lattice` — the old name `uuidna_lattice` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"stations":65536,"occupied":5671,"vacant":59865,"theoremsSeated":5481,"axiomsSeated":444,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
+{"stations":65536,"occupied":5672,"vacant":59864,"theoremsSeated":5482,"axiomsSeated":444,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
 ```
 
 **Parameters**
@@ -1255,7 +1255,7 @@ Call `get_reports` — the old name `uuidna_reports` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"sections":[{"title":"Theorem accounting (ledger balance)","source":null,"present":true,"facts":{"distinct":70932,"keys":71017,"renamings":85,"principles":252…
+{"sections":[{"title":"Theorem accounting (ledger balance)","source":null,"present":true,"facts":{"distinct":70933,"keys":71018,"renamings":85,"principles":252…
 ```
 
 _No parameters._
@@ -1297,7 +1297,7 @@ Call `detect_traitors` — the old name `uuidna_treason` still answers · read-o
 // arguments
 {}
 // answer (excerpt)
-{"clean":true,"scanned":71017,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-integrity","hex…
+{"clean":true,"scanned":71018,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-integrity","hex…
 ```
 
 _No parameters._
@@ -1335,7 +1335,7 @@ Call `get_axiom_witness` — the old name `uuidna_axiom_witness` still answers �
 // arguments
 {}
 // answer (excerpt)
-{"shipped":true,"measured":true,"holds":true,"audited":71017,"axiomFree":71017,"ledger":71017,"offenders":{},"receipt":"606bc1cc-3b8d-8586-a664-a2dfa14f354a","…
+{"shipped":true,"measured":true,"holds":true,"audited":71018,"axiomFree":71018,"ledger":71018,"offenders":{},"receipt":"bde02416-3c8f-8f00-a982-39ea4fccc4a7","…
 ```
 
 _No parameters._
@@ -1373,7 +1373,7 @@ Call `compute_aura` — the old name `uuidna_aura` still answers · read-only ·
 // arguments
 {"subject":"ec9e6641-989b-85de-aa57-58eedfea0d13"}
 // answer (excerpt)
-{"address":"ec9e6641-989b-85de-aa57-58eedfea0d13","ray":3,"wave":8,"hue":41,"hsl":"hsl(41, 69%, 56%)","rgb":"#dcab41","cmyk":[0,22,70,14],"css":"@keyframes uui…
+{"address":"ec9e6641-989b-85de-aa57-58eedfea0d13","ray":3,"wave":8,"hue":17,"hsl":"hsl(17, 69%, 56%)","rgb":"#dc416d","cmyk":[0,70,50,3],"css":"@keyframes uuid…
 ```
 
 **Parameters**
@@ -1382,9 +1382,9 @@ Call `compute_aura` — the old name `uuidna_aura` still answers · read-only ·
 | --- | --- | --- | --- |
 | `subject` | string | **yes** | a content-address, or any strin… |
 
-THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address: the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (360/9 = 40°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}, the CSS a ready moving-aura glow whose tempo the ray sets. this is ART — a defined arithmetic from a number to a hue, NOT physics, NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It decorates the work; it does not describe the universe. As art it seals no theorem: a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
+THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address: the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (432/12 = 36°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}, the CSS a ready moving-aura glow whose tempo the ray sets. this is ART — a defined arithmetic from a number to a hue, NOT physics, NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It decorates the work; it does not describe the universe. As art it seals no theorem: a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
 
-THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address (the artistic "captain string theory"): the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (360/9 = 40°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns the colour in HSL / RGB / CMYK plus a ready MOVING-aura CSS block (a hue-rotating glow whose tempo the ray sets). this is ART, not truth (theorem provenance_integrity_not_content_truth) — a defined arithmetic from a number to a hue, NOT physics (theorem provenance_integrity_not_content_truth), NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It DECORATES the work; it does not describe the universe. As art it does not seal as a theorem — a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth (theorem provenance_integrity_not_content_truth). Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-address (the artistic "captain string theory"): the 7 rosette rays (ℤ/7) are the spectral bands, the ℤ/9 vortex orbit [1,2,4,8,7,5] is the WAVE each ray rides, and the hue steps by the A432 angle (432/12 = 36°). Pass {subject} — a content-address, or any string folded into one. DETERMINISTIC: the same address folds to the same aura for every observer (no RNG, no clock) — the colour IS content-addressed. Returns the colour in HSL / RGB / CMYK plus a ready MOVING-aura CSS block (a hue-rotating glow whose tempo the ray sets). this is ART, not truth (theorem provenance_integrity_not_content_truth) — a defined arithmetic from a number to a hue, NOT physics (theorem provenance_integrity_not_content_truth), NOT real string theory, and NOT a claim that sound is light or that 432 Hz has special power. It DECORATES the work; it does not describe the universe. As art it does not seal as a theorem — a truth-claim about it fails the trial and inverts into a research idea. Integrity, not truth (theorem provenance_integrity_not_content_truth). Returns {address,ray,wave,hue,hsl,rgb,cmyk,css,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
 ### `run_quantum_message` {#uuidna-quantum-message}
 
@@ -1419,7 +1419,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"total":true,"failures":[],"receipt":"6434ae3f-e460-8797-a0dd-6ff5b19b20e1","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":71018,"total":true,"failures":[],"receipt":"b97ab53e-c338-834a-9e46-d826a22a6048","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1442,7 +1442,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":71017,"skills":122,"principles":252,"receipt":"96cd78bd-6918-87b3-8db8-393f714492f7","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":71018,"skills":122,"principles":252,"receipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -1990,7 +1990,7 @@ Call `get_credits_summary` — the old name `uuidna_credits_summary` still answe
 // arguments
 {}
 // answer (excerpt)
-{"total":71017,"historical":1613,"contextual":981,"captainAlone":68423,"address":"58850d38-1726-87ca-847e-376422f1d0c2"}
+{"total":71018,"historical":1613,"contextual":981,"captainAlone":68424,"address":"468fbc36-cfb4-8345-8e32-18f3cbfa6541"}
 ```
 
 _No parameters._
@@ -2094,7 +2094,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":71017,"verified":71017,"unverified":0,"receipt":"96cd78bd-6918-87b3-8db8-393f714492f7"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":71018,"verified":71018,"unverified":0,"receipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2201,7 +2201,7 @@ Call `get_css` — the old name `uuidna_css` still answers · read-only · idemp
 // arguments
 {}
 // answer (excerpt)
-{"css":":root {\n  --dur-1: 111ms;\n  --dur-2: 222ms;\n  --dur-4: 444ms;\n  --dur-5: 555ms;\n  --dur-7: 777ms;\n  --dur-8: 888ms;\n  --seq-1: hsl(320 66% 55%);…
+{"css":":root {\n  --dur-1: 111ms;\n  --dur-2: 222ms;\n  --dur-4: 444ms;\n  --dur-5: 555ms;\n  --dur-7: 777ms;\n  --dur-8: 888ms;\n  --seq-1: hsl(336 66% 55%);…
 ```
 
 _No parameters._
@@ -2239,7 +2239,7 @@ Call `get_lean_index` — the old name `uuidna_lean_index` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"propositions":70932,"entries":71017,"index":[{"leanUuid":"0764f3a2-a09a-83fe-9d81-8c6928d7de1a","statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"]…
+{"propositions":70933,"entries":71018,"index":[{"leanUuid":"0764f3a2-a09a-83fe-9d81-8c6928d7de1a","statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"]…
 ```
 
 _No parameters._
@@ -2256,7 +2256,7 @@ Call `get_statement_census` — the old name `uuidna_statement_census` still ans
 // arguments
 {}
 // answer (excerpt)
-{"entries":71017,"distinct":70932,"renamings":85,"groups":[{"statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"],"files":["Core.lean","Ring.lean"]},{"…
+{"entries":71018,"distinct":70933,"renamings":85,"groups":[{"statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"],"files":["Core.lean","Ring.lean"]},{"…
 ```
 
 _No parameters._
@@ -2385,7 +2385,7 @@ Call `search_ledger` — the old name `uuidna_search` still answers · read-only
 // arguments
 {"q":"mul9_1_1"}
 // answer (excerpt)
-{"q":"mul9_1_1","count":1,"total":71017,"receipt":"f0b58c9c-d571-81ff-b82d-07db3a0e2aea","handle":"f0b58c9c","hexbits":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…
+{"q":"mul9_1_1","count":1,"total":71018,"receipt":"f0b58c9c-d571-81ff-b82d-07db3a0e2aea","handle":"f0b58c9c","hexbits":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…
 ```
 
 **Parameters**
@@ -2570,7 +2570,7 @@ Call `audit_ledger_intrusions` — the old name `uuidna_audit_ledger_intrusions`
 // arguments
 {}
 // answer (excerpt)
-{"traitors":{"clean":true,"scanned":71017,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-int…
+{"traitors":{"clean":true,"scanned":71018,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-int…
 ```
 
 _No parameters._
@@ -2587,7 +2587,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":71017,"fnvReceipt":"96cd78bd-6918-87b3-8db8-393f714492f7","sha256":"db025167c8da64cb5e763c3937675540e85aba3ca27b6ad9f20d74685d947e8b","…
+{"fingerprint":{"count":71018,"fnvReceipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67","sha256":"1c803ed128399ad1ffb343f9f55e2e8b87e5eceeb2948e374553e885229bec1e","…
 ```
 
 **Parameters**
@@ -2631,7 +2631,7 @@ Call `audit_full_anti_fraud` — the old name `uuidna_full_anti_fraud_audit` sti
 // arguments
 {}
 // answer (excerpt)
-{"intrusions":{"traitors":{"clean":true,"scanned":71017,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invaria…
+{"intrusions":{"traitors":{"clean":true,"scanned":71018,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invaria…
 ```
 
 _No parameters._
@@ -3401,7 +3401,7 @@ Call `get_coverage` — the old name `uuidna_coverage` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"total":71017,"covered":71017,"uncovered":[],"uncoveredFiles":[],"ready":true,"receipt":"910f026b-7981-857d-9e91-3efa10e3a4fc"}
+{"total":71018,"covered":71018,"uncovered":[],"uncoveredFiles":[],"ready":true,"receipt":"38815410-a778-859f-bcca-d19191cac9af"}
 ```
 
 _No parameters._
@@ -3441,7 +3441,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"fnvReceipt":"96cd78bd-6918-87b3-8db8-393f714492f7","sha256":"db025167c8da64cb5e763c3937675540e85aba3ca27b6ad9f20d74685d947e8b","tamperCost":"A …
+{"count":71018,"fnvReceipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67","sha256":"1c803ed128399ad1ffb343f9f55e2e8b87e5eceeb2948e374553e885229bec1e","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3458,7 +3458,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"verified":71017,"unverified":0,"leanBacked":71017,"receipt":"96cd78bd-6918-87b3-8db8-393f714492f7","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":71018,"verified":71018,"unverified":0,"leanBacked":71018,"receipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -3861,7 +3861,7 @@ Call `get_tokens` — the old name `uuidna_tokens` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"selfReported":true,"label":null,"dimensions":{"input":0,"output":0,"cached":0,"reasoning":0},"total":0,"theorems":71017,"tokensPerTheorem":0,"distribution":{…
+{"selfReported":true,"label":null,"dimensions":{"input":0,"output":0,"cached":0,"reasoning":0},"total":0,"theorems":71018,"tokensPerTheorem":0,"distribution":{…
 ```
 
 **Parameters**
@@ -3886,7 +3886,7 @@ Call `get_cost` — the old name `uuidna_cost` still answers · read-only · ide
 // arguments
 {}
 // answer (excerpt)
-{"count":71017,"formalBytes":7646761,"bytesPerTheorem":107.67507779827365,"verifyOps":71017,"produceOverVerify":107.67507779827365,"largest":{"key":"a_template…
+{"count":71018,"formalBytes":7646856,"bytesPerTheorem":107.67489932129882,"verifyOps":71018,"produceOverVerify":107.67489932129882,"largest":{"key":"a_template…
 ```
 
 _No parameters._
@@ -5160,7 +5160,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":28512,"neutral":14118,"plus":28387,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4107,"neutral":2002,"plus":4054…
+{"polarities":{"minus":28512,"neutral":14119,"plus":28387,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4105,"neutral":2001,"plus":4055…
 ```
 
 **Parameters**
@@ -5462,7 +5462,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"c86577da","theorems":{"count":71017,"verified":71017,"receipt":"96cd78bd-6918-87b3-8db8-393f714492f7"},"domains":{"count":122,"verdict":"VERIFIED","…
+{"handle":"fd0b0e77","theorems":{"count":71018,"verified":71018,"receipt":"08b07830-c9d8-88d2-bd10-bb46c60b4d67"},"domains":{"count":122,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5483,7 +5483,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"2c8c992e","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":66,"hsl":"hsl(66, 66%, 54%)","rgb":"#c8…
+{"handle":"3c1fbf4a","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._
@@ -5502,7 +5502,7 @@ Call `get_social_profile` — the old name `uuidna_social_profile` still answers
 // arguments
 {}
 // answer (excerpt)
-{"handle":"@uuidna","name":"uuidna","bio":"Content-addressed identity, honest by construction — 71017 Lean theorems, all by decide, kernel-only, folded to one …
+{"handle":"@uuidna","name":"uuidna","bio":"Content-addressed identity, honest by construction — 71018 Lean theorems, all by decide, kernel-only, folded to one …
 ```
 
 _No parameters._
@@ -5546,7 +5546,7 @@ Call `compute_quantum_cube` — the old name `uuidna_quantum_cube` still answers
 // arguments
 {"secret":"theorem","nonce":"theorem"}
 // answer (excerpt)
-{"nonce":"theorem","response":"68f04cff-bdaf-841a-b51f-78aa3d9b94dd","ray":2,"hue":230,"hsl":"hsl(230, 67%, 56%)","spinDegPerSec":90,"axis":"z","css":".uuidna-…
+{"nonce":"theorem","response":"68f04cff-bdaf-841a-b51f-78aa3d9b94dd","ray":2,"hue":218,"hsl":"hsl(218, 67%, 56%)","spinDegPerSec":90,"axis":"z","css":".uuidna-…
 ```
 
 **Parameters**

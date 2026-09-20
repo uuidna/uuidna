@@ -60645,8 +60645,8 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "9bfd5899-cb69-8ddf-b4a2-67746362eb24",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
-  "src/theorems/generated.ts": "332f95fb-241b-837b-bd9e-8684dededcde",
-  "lean/axioms.json": "732211a0-6a5f-8d49-bd41-d2499adff55a",
+  "src/theorems/generated.ts": "f35f699c-5357-849f-8589-db9505822482",
+  "lean/axioms.json": "5068cec9-2c01-842a-9705-28e0b5b45ec8",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -60688,7 +60688,7 @@
   },
   "gematria_forces_collisions": {
    "wing": "Glagolitic.lean",
-   "asked": "dcad6fa9-a60f-89a3-956b-324a8d5625f1",
+   "asked": "bf0dae59-10be-8989-b16b-368b4e496226",
    "fresh": true,
    "axioms": []
   },
@@ -60712,7 +60712,7 @@
   },
   "n_qubit_dimension": {
    "wing": "Quantum.lean",
-   "asked": "ac138ddf-d629-851b-8562-6f6b9adaab8a",
+   "asked": "96d587b8-3a02-8f2c-abfd-83077cc5209b",
    "fresh": true,
    "axioms": []
   },
@@ -60922,5 +60922,5 @@
   }
  },
  "unreceipted": [],
- "seal": "549ebdaf-33a8-88a8-969e-8e41834b48ac"
+ "seal": "1837d467-53d0-8245-ab4c-ae7367f4786f"
 }

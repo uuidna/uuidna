@@ -1,0 +1,12 @@
+{
+  "handle": "95156b55",
+  "address": "95156b55-767a-8531-8660-28f15b4f6911",
+  "kind": "chunk",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "statement": "71626 < 2 ^ 32",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

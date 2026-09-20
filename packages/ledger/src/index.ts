@@ -7,7 +7,7 @@
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
-  TRINITY, BASE, A432_STEP, digits, units, triad, vortexOrbit,
+  TRINITY, BASE, A432_STEP, A432, MIRROR_BASE, digits, units, triad, vortexOrbit,
 } from '@uuidna/uuidna'
 export { merkleRoot, merkleProof, verifyProof } from '@uuidna/uuidna'
 export { computes, reveal, type Reveal } from '@uuidna/uuidna'
