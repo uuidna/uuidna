@@ -111,7 +111,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl`/`.foldr` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
  *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
@@ -768,13 +768,48 @@ const finishBareFun = (c: Cursor, names: string[], binderSlice: string, bodyStar
   return c.s.slice(bodyStart, end)
 }
 
-/** Parse `(fun x => body)` / multi-binder / a Fun atom — bodyKind selects Bool vs value evaluation. */
+/** Lean's SECTION NOTATION, `(· + ·)`, desugared to the `fun` this evaluator already reads.
+ *
+ *  Found by a gap, not by reading the manual: `the_pairing_cancels_the_constant` — the theorem that the three
+ *  Planck exponent pairings cancel — was one of two rows in 71,035 carrying no decidable denial, and the mint
+ *  gate named it. `evaluable` said true and `holds` said null, which is the evaluator admitting it cannot read
+ *  the statement rather than disputing it. The unreadable part was exactly this: `List.zipWith (· + ·)`, an
+ *  idiom the wing generator emits and the grammar had no rule for. Every such theorem silently lost a leg.
+ *
+ *  The rule Lean states is that each `·` becomes a binder of the NEAREST ENCLOSING parentheses, in
+ *  left-to-right order. Nested parentheses therefore change which section a dot belongs to, so a slice
+ *  containing any is REFUSED here rather than guessed at — an evaluator that returns null is honest, one that
+ *  binds a dot to the wrong lambda would re-decide a theorem against a statement nobody wrote. */
+const sectionAsFun = (slice: string): null | { body: string; names: string[] } => {
+  if (!slice.includes('·')) return null
+  if (slice.includes('(') || slice.includes(')')) return null
+  const names: string[] = []
+  let body = ''
+  for (const ch of slice) {
+    if (ch !== '·') { body += ch; continue }
+    const name = `__s${names.length}`
+    names.push(name)
+    body += name
+  }
+  return { body, names }
+}
+
+/** Parse `(fun x => body)` / a `(· … ·)` section / multi-binder / a Fun atom — bodyKind selects Bool vs value. */
 const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
   ws(c)
   if (c.s[c.i] === '(') {
     const open = c.i
     c.i++
     ws(c)
+    // the section, before `fun`: its slice cannot contain one, having no parentheses at all.
+    {
+      const close = c.s.indexOf(')', c.i)
+      const section = close < 0 ? null : sectionAsFun(c.s.slice(c.i, close))
+      if (section) {
+        c.i = close + 1
+        return mkFun(section.names, section.body, c.env, c.ring, bodyKind)
+      }
+    }
     if (eat(c, 'fun')) {
       const names = parseFunBinders(c)
       if (!eat(c, '=>')) throw new Error('fun =>')
@@ -854,6 +889,18 @@ const postfix = (c: Cursor, v: Val): Val => {
     if (eat(c, '.sum')) { v = listSum(asLst(v)); continue }
     if (eat(c, '.Nodup')) { v = listNodup(asLst(v)); continue }
     if (eat(c, '.take')) { v = lst(asLst(v).slice(0, asNum(atom(c)))); continue }
+    // `xs.set i a` — the one-cell edit. It is here because `edits_break_recompute` was the LAST theorem in
+    // 71,035 carrying no decidable denial: its statement is that changing any one address breaks the chain,
+    // and the evaluator could read `chain`, `addrs` and `stored` from the wing but not the edit itself. A
+    // theorem about editing that nobody could re-decide is the weakest possible place for that gap to sit.
+    if (eat(c, '.set')) {
+      const i = asNum(atom(c))
+      const a = atom(c)
+      const xs = asLst(v).slice()
+      if (i >= 0 && i < xs.length) xs[i] = a
+      v = lst(xs)
+      continue
+    }
     if (eat(c, '.contains')) {
       const needle = atom(c)
       v = asLst(v).some((x) => deepEq(x, needle))

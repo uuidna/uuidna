@@ -1552,10 +1552,10 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
     }
    }
   },
-  "status": "documented",
+  "status": "varies",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":{\"wings\":71035,\"ledger\":71035,\"paper\":5499,\"selfChecked\":5499},\"leads\":[{\"kind\":\"same-key-different-statement\",\"key\":\"prose_folds_receipt\",\"why\":\"t…"
+   "excerpt": "(varies between calls: the answer reads a clock, the machine or the network)"
   }
  },
  "uuidna_verify_statement": {
@@ -19754,7 +19754,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"f6a7d1bf\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"89c2f0ed\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
