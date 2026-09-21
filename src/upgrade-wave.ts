@@ -32,6 +32,10 @@ import { theorems } from './theorems/index.js'
 import { laneOf, handleOf } from './handle.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
+// THE CONCURRENT WIDTH IS DERIVED, NEVER FROZEN. A hand-written 14 here was a plan leftover: this module
+// shards on the same width the rosettas do, and restating it as a numeral let the two drift apart in
+// silence. Lead a5572638 alleged exactly that and seven witnesses found it alive in these defaults.
+import { VE_FACES } from './hexbit/index.js'
 
 /** the two legs that are AUTHORED — the ones an upgrade supplies. symbol, proof and address are minted. */
 export const AUTHORED: readonly Leg[] = ['witness', 'falsifier'] as const
@@ -63,7 +67,7 @@ const HONEST =
   + 'same for every caller forever and needs no lock; taking the work remains an act with an author behind it.'
 
 /** every theorem owing an authored leg, with the lane its own address puts it in */
-export function upgrades(lanes = 14): Upgrade[] {
+export function upgrades(lanes = VE_FACES): Upgrade[] {
   const addr = new Map(theorems().map((t) => [t.key, t.address]))
   const out: Upgrade[] = []
   for (const r of mirrorRows()) {
@@ -79,11 +83,11 @@ export function upgrades(lanes = 14): Upgrade[] {
 
 /** THE LANE'S OWN SHARE. Deterministic and disjoint: every theorem lands in exactly one lane, decided by its
  *  address, so N agents may each take a lane and never collide without ever speaking to one another. */
-export const laneWork = (lane: number, lanes = 14): Upgrade[] =>
+export const laneWork = (lane: number, lanes = VE_FACES): Upgrade[] =>
   upgrades(lanes).filter((u) => u.lane === lane)
 
 /** the whole wave, counted — what is owed, how it splits, and one receipt anyone recomputes */
-export function waveCensus(lanes = 14): WaveCensus {
+export function waveCensus(lanes = VE_FACES): WaveCensus {
   const all = upgrades(lanes)
   const perLane = Array.from({ length: lanes }, (_, i) => all.filter((u) => u.lane === i).length)
   return {
@@ -99,7 +103,7 @@ export function waveCensus(lanes = 14): WaveCensus {
 }
 
 /** render one lane's share for whoever is about to do it — the key, its wing, and exactly what it owes */
-export function renderLane(lane: number, lanes = 14, limit = 20): string[] {
+export function renderLane(lane: number, lanes = VE_FACES, limit = 20): string[] {
   const work = laneWork(lane, lanes)
   const out = [`lane ${lane} of ${lanes} — ${work.length} theorem(s), ${work.reduce((n, u) => n + u.owes.length, 0)} leg(s) owed`]
   for (const u of work.slice(0, limit)) out.push(`  ${u.key.padEnd(44)} ${u.wing.padEnd(18)} owes ${u.owes.join(' + ')}`)

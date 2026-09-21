@@ -16,10 +16,12 @@ import {
 import { laneOf, handleOf, handlePath, handleOfPath, isHandle } from '../../../handle.js'
 import { empty, remember, union, receipt, verify, missing, type Store } from '../../../agent/memory/index.js'
 import { reason } from '../../../reason.js'
-import { HANDLE_HEXBITS } from '../../../hexbit/index.js'
+import { HANDLE_HEXBITS, VE_FACES } from '../../../hexbit/index.js'
 
-/** vector-equilibrium faces — upgrade-wave's default, measured on the live ledger in lanes.test.ts */
-const FACES = 14
+/** vector-equilibrium faces — upgrade-wave's default, measured on the live ledger in lanes.test.ts. DERIVED, never
+ *  frozen: this was a hand-written 14, and lead a5572638 ("plan leftover: concurrent width is 14 VE faces") alleged
+ *  exactly that. Three witness waves hunted it; the third found this line after the first six freezes were healed. */
+const FACES = VE_FACES
 
 interface Share {
   lane: number

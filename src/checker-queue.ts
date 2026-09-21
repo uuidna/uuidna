@@ -21,6 +21,10 @@
 // baseline in a test rather than read off a tree that must first be made to fail.
 import { laneOf } from './handle.js'
 import { toUuid } from './address.js'
+// THE CONCURRENT WIDTH IS DERIVED, NEVER FROZEN. A hand-written 14 here was a plan leftover: this module
+// shards on the same width the rosettas do, and restating it as a numeral let the two drift apart in
+// silence. Lead a5572638 alleged exactly that and seven witnesses found it alive in these defaults.
+import { VE_FACES } from './hexbit/index.js'
 
 /** How a violation reaches this finder. The 39 split 2/37, measured. */
 export type Approach = 'direct' | 'extract'
@@ -43,7 +47,7 @@ const DONE = 'a test names the finder beside a NON-EMPTY assertion on a crafted 
 export function checkerQueue(
   unproven: readonly string[],
   direct: readonly string[] = [],
-  lanes = 14,
+  lanes = VE_FACES,
 ): CheckerTask[] {
   const takesArg = new Set(direct)
   return [...unproven].sort().map((finder) => ({
@@ -55,11 +59,11 @@ export function checkerQueue(
 }
 
 /** laneWork(lane, …) → the share this checker owns. Same answer for every caller, forever. */
-export const laneWork = (lane: number, unproven: readonly string[], direct: readonly string[] = [], lanes = 14): CheckerTask[] =>
+export const laneWork = (lane: number, unproven: readonly string[], direct: readonly string[] = [], lanes = VE_FACES): CheckerTask[] =>
   checkerQueue(unproven, direct, lanes).filter((t) => t.lane === lane)
 
 /** the shape of the work, for deciding how many checkers to point at it */
-export function queueCensus(unproven: readonly string[], direct: readonly string[] = [], lanes = 14): {
+export function queueCensus(unproven: readonly string[], direct: readonly string[] = [], lanes = VE_FACES): {
   total: number; direct: number; extract: number; lanes: number; perLane: number[]
 } {
   const q = checkerQueue(unproven, direct, lanes)

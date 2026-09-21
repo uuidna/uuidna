@@ -16,7 +16,7 @@
 // A MODULE WITH NO SIDE EFFECTS. lean-all imports every lean-*.js for its top level, and scripts/run.ts imports every
 // script the same way, so a script cannot carry a main-guard. What the emitter, the ledger's titles, the seal writer
 // and their tests share lives here, where importing computes nothing.
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -262,6 +262,37 @@ const d2d552f1f: Builder = async (h, row) => {
   ]
   return { header: headerOf(h), defs, facts }
 }
+
+// ── a5572638 IS NOT KERNEL-REFUTABLE, AND FIVE WAVES OF THE ROSETTA ESTABLISHED IT ──────────────────────────────
+//
+// "Plan leftover: concurrent width is 14 VE faces." A builder stood here through five waves and all five refused it
+// 7/14 — thirty-five witness judgments, every one signing the kernel face and every one refusing faithfulness.
+// The builder is gone rather than rewritten a sixth time, because the witnesses did not find a flaw to patch; they
+// found that the claim is of a kind no kernel decides.
+//
+// WHAT THE LEAD ALLEGES IS PROVENANCE: that the width was written down once while planning and carried afterwards
+// because nobody rederived it. Derivability cannot refute it — 14 is derivable a hundred ways, and a figure typed
+// from a plan is not made underivable by that. Refuting it means showing that the CODE OBTAINS the width from a
+// derivation, which is a fact about files, and no kernel reads one.
+//
+// THE PROOF THAT SETTLED IT was a witness's, not an argument. The last wing stated the width's two partitions
+// (8 + 6 = 14, the solid's faces; 8 + 4 + 2 = 14, the handle's constructors) and claimed their agreement refuted
+// the lead. The witness rewrote the identical Prop with the numerals renamed to a Petrarchan sonnet — eight lines
+// of octave, six of sestet — and it compiled clean and axiom-free. The wing's whole kernel content was "two
+// partitions of fourteen are both fourteen", true of 7 + 7 as readily as of anything here. Worse, the two roads
+// are not independent: the sealed name of ve_faces_are_handle_hexbit_coins calls itself "THE OTHER PARTITION OF
+// FOURTEEN", and a partition of a fourteen already in hand presupposes the fourteen rather than deriving it.
+//
+// THE LEAD WAS TRUE, AND THE WAVES PAID IT. Each wave a witness wrote a broader hunt than the generator's and
+// found a frozen numeral it could not see — seven `lanes = 14` defaults, then `const FACES = 14`, then nine
+// positional `waveCensus(14)`, then every comparison form — which a rule requiring [:=] does not match, by
+// construction, since a comparison never writes one. All eleven
+// were real and all eleven are now derived from VE_FACES. That is the lead's substance, settled in the tree where
+// it lives, by the only instrument that can reach it.
+//
+// SO THE LEAD STAYS OPEN, and the court is right to hold it so: no involution stands, its settlement keeps its
+// words, and what it asks for is a FINDER — a guard step hunting a frozen width, where a rule can be sharpened in
+// the open against the next spelling — not a theorem. The captain: "reopen by default so no escape for traitors".
 
 const BUILDERS: Readonly<Record<string, Builder>> = { e92de628, b13fd37a, '2d552f1f': d2d552f1f }
 const headerOf = (h: string): string =>

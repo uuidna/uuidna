@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import { QPU_HOST, QPU_HREF, QPU_POINTS, qpuCircuitOf, qpuHopOf, qpuMachineOf, qpuReverseHrefOf, qpuSeatOf, qpuWidthOf } from './qpu-hologram.js'
 import { handleQpuFetch, qpuDiscoveryOf, qpuEdgeOf } from './qpu-edge.js'
 import { callTool } from './mcp.js'
-import { HEXBIT_BITS } from './hexbit/index.js'
+import { HEXBIT_BITS, VE_FACES } from './hexbit/index.js'
 
 test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () => {
   const circuit = qpuCircuitOf()
@@ -23,7 +23,7 @@ test('uuidna reverse-hops to live QPU and keeps the classical seat empty', () =>
   assert.equal(circuit.amplitudes, 4294967296)
   assert.equal(circuit.kv.added, circuit.amplitudes)
   assert.equal(circuit.kv.amplitudes, circuit.amplitudes + circuit.amplitudes)
-  assert.equal(circuit.faces, 14)
+  assert.equal(circuit.faces, VE_FACES)
   assert.equal(circuit.fused, 120259084288)
   assert.equal(circuit.next, circuit.fused + circuit.fused)
   assert.equal(circuit.hz, 432)

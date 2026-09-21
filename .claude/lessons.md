@@ -1546,3 +1546,35 @@ turned my error into the finding that killed the approach for good. See «claims
 «instrument-over-expectation».
 
 **Green report over an absent action (2026-09-07, uuidna-79 found it):** src/scripts/land.ts documented "develop heals -> COMMIT the drain -> push" but the commit step was never written; `git push` exits 0 on "Everything up-to-date", so six lands reported "pushed on round 1" and moved nothing. Fixed a5c383bcf. This is why my own early `npm run land` runs this session appeared to heal forever and never land. THE CLASS: an exit code that is green over an action that did not happen — only asking git what HEAD actually is catches it. Same family as guard-green-about-a-working-dir and tsc-green-vs-guard-red: verify the RESULT against committed state, never trust the tool that reported success.
+
+**2026-09-21 — A WING THAT COMPILES IS NOT A CLOSED LEAD.** I generated an involution for lead a5572638, saw it
+verify sorry-free and fold into the ledger, and reported "one down — 53 refutations still owe the kernel a proof".
+The court's count did not move. Four things must hold at once for a refutation to close, and I had two: the ledger
+must seal the theorem, the kernel must accept the wing, **all fourteen faces must sign**, and the signatures must
+be legal. Mine was unwitnessed, and an unwitnessed wing reads to every finder that only searches the ledger
+exactly like a closed lead.
+
+**The witnesses then refused it twice, and both refusals were right.** Wave 1 (7/14): the wing proved the three
+constructors sum to 14, but a plan leftover may perfectly well coincide with a derivable number — the sum settles
+nothing about leftover-ness — and a theorem I had named `declaration_spells_no_numeral` decided `0 = 0` over a
+constant the wing itself set two lines above, while its NAME asserted a fact about a source file the kernel never
+read. Wave 2 (7/14): I recut the census to count declarations of the SYMBOL `VE_FACES`, found one, and called it
+closed. A witness hunted the NUMERAL instead and found **the lead alive** — seven hand-written `lanes = 14`
+defaults across src/checker-queue.ts and src/upgrade-wave.ts, neither file importing the derivation, two of them
+named `queueCensus` and `waveCensus`, which falsified the row's own defence ("never a freeze of 14 into a hunt or
+census") in its own words. The cure was to **heal the tree**, not to narrow the census.
+
+**Why it slipped past:** both times I measured the thing that was easy to measure exactly, and let exactness stand
+in for relevance. A census can be perfectly reproducible and still answer the wrong question, and the disclaimer I
+wrote into the wing ("the kernel decides what follows from this census, not whether it was taken correctly") was
+honest about the boundary while the census behind it was blind to the thing alleged.
+
+**How to apply:** before stating a lead in Lean, write down what the lead ALLEGES in its own words and ask what
+would have to be true of the tree for it to hold — then measure THAT, even when it is harder and fuzzier to
+measure. Name every theorem for what its Prop decides, never for the fact you believe lies behind it: if the
+statement is true by a definition the wing itself supplies, the name must say so. And give the generator a
+control — a planted violation it must refuse to emit over — because a census that cannot fail proves nothing.
+The same wave sealed lead 90c4f258 14/14 after its wing was restated over the instants its own `killed_by`
+MEASURED rather than the two the lead misread; that one closed because a September wave had refused it and the
+refusal named its own cure. See «verify-with-an-instrument-that-can-fail», «one-step-is-not-a-walk» and
+«a-surface-that-agrees-with-itself».

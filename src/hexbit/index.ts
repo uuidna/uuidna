@@ -201,7 +201,12 @@ export const HANDLE_SPAN = HEXBIT_STATES ** HANDLE_HEXBITS
  *  hardware/lanes needed a handle's WIDTH, hexbit exported only its SPAN, and so lanes computed the width itself
  *  and then the span from it. A unit with two definitions is not a standard. */
 export const HANDLE_BITS = HANDLE_HEXBITS * HEXBIT_BITS
-/** VE faces: triangular handle tiles plus square hexagram lines (ve_fourteen_faces). Never a freeze of 14. */
+/** VE faces: triangular handle tiles plus square hexagram lines. Never a freeze of 14.
+ *  THE SEAL THIS DECLARATION ANSWERS TO IS ve_faces_are_handle_hexbit_coins (Wave.lean, 8 + 4 + 2 = 14), which is
+ *  this sum. It cited ve_fourteen_faces, and that is a different theorem — VectorEquilibrium.lean's 8 + 6 = 14, the
+ *  solid's eight triangles and six squares. Both reach fourteen and the miscitation was therefore invisible; a
+ *  witness of the fifth wave on lead a5572638 caught it by reading the two sealed statements instead of the two
+ *  names. lean/leads.json refuted#8 carries the same miscitation in its settlement, where it stays word for word. */
 export const VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS
 
 /** the vortex ring the handle sits on — handle tiles plus origin (digit 0). Not imported from address.ts: that

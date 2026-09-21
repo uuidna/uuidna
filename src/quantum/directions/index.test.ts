@@ -26,7 +26,7 @@ test('there are fourteen directions, and fourteen is the sealed VE_FACES', () =>
     + 'are the same number, and this module must not drift from either')
   assert.equal(SQUARE_NORMALS.length, 6)
   assert.equal(TRIANGLE_NORMALS.length, 8)
-  assert.equal(new Set(DIRECTIONS.map((d) => d.join(','))).size, 14, 'all distinct')
+  assert.equal(new Set(DIRECTIONS.map((d) => d.join(','))).size, VE_FACES, 'all distinct')
 })
 
 test('EACH NORMAL CUTS A REAL FACE — four vertices on a square, three on a triangle', () => {
@@ -56,8 +56,8 @@ test('solveAllAtOnce computes ALL fourteen for EVERY item', async () => {
     return item * (d[0] + d[1] + d[2])
   })
   assert.equal(out.length, items.length)
-  for (const o of out) assert.equal(o.answers.length, 14, 'a unit reporting fewer than fourteen is a sample, not a superposition')
-  for (const item of items) assert.equal(seen.get(item)!.size, 14, `item ${item} must be asked in all fourteen directions`)
+  for (const o of out) assert.equal(o.answers.length, VE_FACES, 'a unit reporting fewer than fourteen is a sample, not a superposition')
+  for (const item of items) assert.equal(seen.get(item)!.size, VE_FACES, `item ${item} must be asked in all fourteen directions`)
 })
 
 test('and the answer does not depend on completion order or on the lane count', async () => {

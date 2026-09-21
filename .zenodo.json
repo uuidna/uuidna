@@ -96,6 +96,21 @@
       "resource_type": "publication-article"
     },
     {
+      "identifier": "10.1007/BF01231195",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.1007/BF02684339",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.1016/j.hm.2009.12.002",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
       "identifier": "10.1038/171737a0",
       "relation": "references",
       "resource_type": "publication-article"
@@ -111,7 +126,32 @@
       "resource_type": "publication-article"
     },
     {
+      "identifier": "10.1090/S0273-0979-1981-14936-3",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.1215/S0012-7094-87-05413-5",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.2307/2118559",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.2307/2118560",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
       "identifier": "10.3181/00379727-43-11151",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "10.4310/CDM.1995.v1995.n1.a1",
       "relation": "references",
       "resource_type": "publication-article"
     }

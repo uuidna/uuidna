@@ -1,6 +1,8 @@
 import { STANDING_DOI } from './handle-permanence.js'
 import { attributions } from './claim-attribution.js'
 import { gradeOf } from './external-fact.js'
+// the DOIs the Lean wings themselves cite — the second census of what this ledger draws on
+import { allReferenceDois } from './references.js'
 // zenodo-seals — AGNOSTIC publication↔page↔DOI seal registry (captain, 2026-08-26).
 //
 // ONE loop for ALL owned Zenodo concepts: each seal is parameterized by identity (id, standing record,
@@ -268,7 +270,26 @@ export function softwareArchiveRelatedIdentifiers(): ZenodoRelated[] {
    * proven accepted by this record, and a deposit refused on a vocabulary
    * guess publishes nothing at all.
    */
-  const cited = [...new Set(attributions().map((a) => a.source).filter((src) => gradeOf(src) === 'identifier'))].sort()
+  /**
+   * TWO CENSUSES OF THE SAME THING, AND THEY DISAGREED BY EIGHT. `attributions()` names, per theorem, whose fact
+   * it is. `allReferenceDois()` (src/references.ts, written by gen-references) collects the DOIs the Lean WINGS
+   * themselves cite. Both answer "what does this ledger draw on", so they must agree — and they did not: eight
+   * DOIs the wings cite reached no theorem's attribution and so reached no reader, among them BOTH of Wiles'
+   * Fermat papers (10.2307/2118559 and 10.2307/2118560), which the Fermat wing cites precisely because it
+   * disclaims priority against them. A record that omits the work it defers to is the opposite of the disclaimer
+   * it is trying to make.
+   *
+   * Zenodo cannot be handed a citation: its FAQ says inbound ones are discovered by Crossref, NASA ADS and
+   * Europe PMC, and that manual addition is refused outright for spam reasons. Deposited reference metadata is
+   * therefore the ONLY road by which a uuidna → source link ever reaches DataCite's Event Data and becomes
+   * visible. So a DOI the ledger cites and the deposit omits forms no link at all — not because linking is
+   * hard, but because Zenodo declines the two other routes by policy: manual addition for spam reasons,
+   * and discovery because no indexer reads this repository.
+   */
+  const cited = [...new Set([
+    ...attributions().map((a) => a.source).filter((src) => gradeOf(src) === 'identifier'),
+    ...allReferenceDois(),
+  ])].sort()
   for (const doi of cited) {
     if (ids.some((x) => x.identifier === doi)) continue
     ids.push({ identifier: doi, relation: 'references', resource_type: 'publication-article' })

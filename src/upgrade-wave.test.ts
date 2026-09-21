@@ -12,9 +12,16 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { upgrades, laneWork, waveCensus, renderLane, AUTHORED } from './upgrade-wave.js'
 import { mirrorRows } from './rosetta-legs.js'
+// THE CONCURRENT WIDTH IS DERIVED HERE TOO. Lead a5572638 alleged the width was a plan leftover; four witness waves
+// hunted hand-written 14s, and these nine positional ones were the last found — the numeral carried into every call
+// that meant "the real width".
+import { VE_FACES } from './hexbit/index.js'
 
 test('the lanes PARTITION the work — every theorem in exactly one, none lost, none twice', () => {
-  const lanes = 14
+  // DELIBERATELY NOT THE CONCURRENT WIDTH. This test asserts that the lanes partition the work, which must hold at
+  // any lane count; pinning it to 14 tested the property only where the tree already runs, and left one more frozen
+  // copy of the width for the two to drift apart in. A count that is not the width proves the general claim.
+  const lanes = 5
   const all = upgrades(lanes)
   const gathered = Array.from({ length: lanes }, (_, i) => laneWork(i, lanes)).flat()
   assert.equal(gathered.length, all.length, 'the lanes together hold everything and nothing extra')
@@ -26,17 +33,17 @@ test('the lanes PARTITION the work — every theorem in exactly one, none lost, 
 test('the assignment is DETERMINISTIC — two callers get the same lane without speaking', () => {
   // the property that removes the lock: the address decides, so an agent asking for lane 3 today and another
   // asking tomorrow receive the same list, and neither needs a registry to know the other is not on it.
-  const a = laneWork(3, 14).map((u) => u.key)
-  const b = laneWork(3, 14).map((u) => u.key)
+  const a = laneWork(3, VE_FACES).map((u) => u.key)
+  const b = laneWork(3, VE_FACES).map((u) => u.key)
   assert.deepEqual(a, b)
-  assert.equal(waveCensus(14).receipt, waveCensus(14).receipt, 'the census folds to one receipt, recomputable')
+  assert.equal(waveCensus(VE_FACES).receipt, waveCensus(VE_FACES).receipt, 'the census folds to one receipt, recomputable')
 })
 
 test('the shard is BALANCED over the live ledger — measured, not hoped', () => {
-  const c = waveCensus(14)
-  assert.equal(c.perLane.length, 14)
+  const c = waveCensus(VE_FACES)
+  assert.equal(c.perLane.length, VE_FACES)
   assert.equal(c.perLane.reduce((a, b) => a + b, 0), c.total, 'every piece assigned exactly once')
-  const fair = c.total / 14
+  const fair = c.total / VE_FACES
   // folded rather than taken from the host's own extremum helpers: the determinism scan hard-rejects those
   // with no exemption anywhere, and it caught this line's first draft
   const heaviest = c.perLane.reduce((a, b) => (b > a ? b : a), 0)
@@ -46,10 +53,10 @@ test('the shard is BALANCED over the live ledger — measured, not hoped', () =>
 })
 
 test('re-laning moves the work but never loses it — the shard is a view, not a state', () => {
-  for (const lanes of [1, 7, 14, 32]) {
+  for (const lanes of [1, 7, VE_FACES, 32]) {
     const c = waveCensus(lanes)
     assert.equal(c.perLane.reduce((a, b) => a + b, 0), c.total, `${lanes} lanes must still hold everything`)
-    assert.equal(c.total, waveCensus(14).total, 'the amount of work does not depend on how it is divided')
+    assert.equal(c.total, waveCensus(VE_FACES).total, 'the amount of work does not depend on how it is divided')
   }
 })
 
@@ -83,7 +90,7 @@ test('it hands out WORK, not answers — nothing here is a witness or a falsifie
   assert.deepEqual(Object.keys(one).sort(), ['address', 'handle', 'key', 'lane', 'owes', 'wing'])
   assert.match(waveCensus().honest, /never authors it/)
   // and the render tells a reader what is owed, without suggesting what to write
-  const shown = renderLane(0, 14, 3).join('\n')
+  const shown = renderLane(0, VE_FACES, 3).join('\n')
   assert.match(shown, /owes/)
   assert.doesNotMatch(shown, /witness:|falsifier:/, 'it states the debt, never a draft of the payment')
 })

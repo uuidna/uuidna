@@ -5,7 +5,7 @@
 // ./package.json. manifestGaps names each, and the controls below prove it fires on exactly those shapes.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
 import { manifestGaps } from './scripts/audit-packages.js'
@@ -32,4 +32,42 @@ test('CONTROL — an "import"-only entry, a late "types", a missing ./package.js
 test('the root and every workspace manifest answer the consumer rules', () => {
   assert.deepEqual(manifestGaps(read('package.json')), [])
   for (const p of workspacePackages()) assert.deepEqual(manifestGaps(read(`packages/${p.dir}/package.json`)), [], p.name)
+})
+
+// SHIPPING WHAT IT IMPORTS, which the manifest did not guarantee and a
+// deployment discovered instead. `dist/hologram-lattice.js` imports
+// `../lean/alpine-hexbit-monitor.json`; `files` listed six lean/*.json entries
+// and not that one. So `import('@uuidna/uuidna')` threw ERR_MODULE_NOT_FOUND in
+// every consumer — the school deployment could not even generate its import
+// map — while every test here passed, because nothing in this tree imports the
+// package the way a consumer does.
+//
+// The manifest is a promise about a tarball, and this is the part of it nobody
+// was computing: a data file the code reaches for at import time is as load-
+// bearing as the code, and leaving it out ships a package whose import fails
+// at once — a host fact, not a policy: the file is absent from the tarball, so
+// the module that reads it at import time throws before any code of ours runs.
+test('every lean/*.json that dist imports is a file the package ships', () => {
+  const files: string[] = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { files: string[] }).files
+  const shipped = new Set(files.filter((f) => f.startsWith('lean/')))
+
+  const needed = new Set<string>()
+  const walk = (dir: string): void => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name)
+      if (entry.isDirectory()) { walk(path); continue }
+      if (!path.endsWith('.js')) continue
+      for (const m of readFileSync(path, 'utf8').matchAll(/from\s+['"]\.\.\/(lean\/[A-Za-z0-9._-]+\.json)['"]/g)) {
+        needed.add(m[1]!)
+      }
+    }
+  }
+  walk(join(ROOT, 'dist'))
+
+  const missing = [...needed].filter((n) => !shipped.has(n)).sort()
+  assert.deepEqual(missing, [], 'dist imports a lean/*.json the tarball does not carry — add it to `files`, or the package cannot be imported')
+
+  // CONTROL: the reader must be able to see an import at all, or an empty
+  // `missing` proves only that the scan found nothing.
+  assert.ok(needed.size > 0, 'the scan found no lean/*.json imports in dist — the reader is broken, not the manifest')
 })

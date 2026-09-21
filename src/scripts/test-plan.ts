@@ -26,6 +26,8 @@ import { planTestRun } from '../gate-receipt-index.js'
 import { listTestSources, testDistForSource } from '../test-paths.js'
 import { memoryPool } from '../memory-pool.js'
 import { shardsOf, parseShardOutput, isMergedLine, type Leaf, type ShardOutput } from '../test-shards.js'
+// THE SEALED LANE COUNT — lanes_partition_the_work / lanes_balance_within_one / lanes_even_on_complete_system
+import { VE_FACES } from '../hexbit/index.js'
 import { totalOf } from './test-receipt.js'
 import { freeMemoryBytes } from './device-readings.js'
 import { MIRROR_BASE } from '../address.js'   // the deadline's multiplier is the mirror's own modulus, never a typed number
@@ -78,13 +80,27 @@ const estimateOf = (shard: readonly string[]): number => {
 // question about granularity and costs nothing; how many to RUN AT ONCE is a question about memory and is already
 // answered, per shard and on live measurement, by memoryPool below. Sizing the cut by memory made both answers the
 // same number, and that had a fixed point: one shard means every file records that one shard's peak, so the next
-// run reads the same single bound and cuts one shard again, forever. Cut by the cores the machine has, measure each
-// piece, and let admission stay the pool's job — BY CONSTRUCTION it reserves each shard's estimate against the
-// memory measured free before starting it.
-const lanes = cores
-const shards = shardsOf(files, readings?.secondsByFile ?? {}, lanes < 1 ? 1 : lanes > cores ? cores : lanes)
+// run reads the same single bound and cuts one shard again, forever. Measure each piece, and let admission stay the
+// pool's job — BY CONSTRUCTION it reserves each shard's estimate against the memory measured free before starting it.
+//
+// THE CUT IS THE LEDGER'S, NOT THE HOST'S. Cutting by `cores` read the machine for an answer the ledger already
+// seals. `lanes_partition_the_work` (Hardware.lean): summing what each of VE_FACES lanes receives from 64 items
+// returns 64 — and BY CONSTRUCTION, because the residue map is a partition, no lane need ask another what it holds:
+// the question a scheduler exists to answer does not arise, for the reason the theorem seals rather than by fiat.
+// `lanes_balance_within_one`: those same 64 items give every lane 4 or 5,
+// never fewer and never more, with no coordination and no measurement of load. `lanes_even_on_complete_system`: on
+// a complete residue system the shard is exactly even, so the imbalance is only the remainder, bounded by one item.
+// The balance is a property of the residue map itself — it does not improve or degrade with the host's core count,
+// which is why the cut must not be clamped to it. Cutting finer than cores costs nothing and packs better.
+//
+// AND THE CAP BELONGS TO ADMISSION, NOT TO THE CUT. `the_concurrency_knob_cannot_close_the_gap` (SiteBuild.lean)
+// measured the knob's whole travel at 420 MB against a 750 MB overshoot: turning concurrency cannot close a gap
+// made of mass. So lane count is a TIME decision and must never be used as a memory cure; memoryPool holds the
+// space side, on live readings, and is the only thing that says how many run at once.
+const lanes = VE_FACES
+const shards = shardsOf(files, readings?.secondsByFile ?? {}, lanes < 1 ? 1 : lanes)
 console.log(`· test-plan — ${plan.mode}: ${plan.why}` + (plan.mode === 'delta' ? `\n  ${plan.files.join('\n  ')}` : ''))
-console.log(`· test-plan — ${shards.length} shard(s) over ${cores} cores · ` + (readings
+console.log(`· test-plan — ${shards.length} shard(s) cut on the sealed ${VE_FACES} lanes, over ${cores} cores · ` + (readings
   ? `last measured peak ${(readings.peakBytes / 1073741824).toFixed(1)} GiB per runner · ${free === null ? 'free memory UNMEASURED' : `${(free / 1073741824).toFixed(1)} GiB measured free`}`
   : 'no peak measured on this host yet — one runner, and this run records the reading'))
 if (process.argv.includes('--plan')) process.exit(0)

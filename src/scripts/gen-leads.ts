@@ -55,7 +55,11 @@ const line = (l: Lead): string =>
   further(l)
 const reopenedLine = ({ l, s }: { l: Lead; s: Settlement | null }): string =>
   `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
-  (l.killed_by ? `\n  <br>_claimed:_ ${say(l.killed_by)}` : '') +
+  // A REOPENED SETTLEMENT IS QUOTED, NEVER TAUGHT. Its words stay exactly as they were said — nobody withdraws a
+  // settlement, they only prove what they meant — but a settlement whose evidence has since left the tree would
+  // otherwise have this page teaching paths that no longer exist. <q> marks it as a claim on record, which is what
+  // the prose finder reads it as; say() has already escaped the text, so nothing inside can close the tag early.
+  (l.killed_by ? `\n  <br>_claimed:_ <q>${say(l.killed_by)}</q>` : '') +
   `\n  <br>_owes:_ the sealed theorem that proves what this settlement meant \u2014 ${s ? say(reopenedBecause(s)) : 'the court has not tried it yet'}` +
   further(l)
 
