@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000003556",
-   "completionPrice": "0.00000007112"
+   "promptPrice": "0.000000088606",
+   "completionPrice": "0.000000177212"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,15 +478,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000422298",
-   "completionPrice": "0.000000844596"
+   "promptPrice": "0.00000095526",
+   "completionPrice": "0.00000191052"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000052404",
-   "completionPrice": "0.00000157212"
+   "promptPrice": "0.00000132",
+   "completionPrice": "0.00000396"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -499,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "dots-studio/dots-3-note-preview:free",
@@ -814,8 +814,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "ibm-granite/granite-4.2-8b",
    "name": "IBM: Granite 4.2 8B",
    "contextTokens": 131072,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.00000025"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.00000015"
   },
   {
    "id": "inception/mercury-2",
@@ -926,8 +926,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.1-70b-instruct",
    "name": "Meta: Llama 3.1 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.0000004",
-   "completionPrice": "0.0000004"
+   "promptPrice": "0.00000072",
+   "completionPrice": "0.00000072"
   },
   {
    "id": "meta-llama/llama-3.1-8b-instruct",
@@ -961,8 +961,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-4-maverick",
    "name": "Meta: Llama 4 Maverick",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001875",
-   "completionPrice": "0.0000006525"
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.0000008"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -2558,7 +2558,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Qwen: Qwen3.8 27B",
    "contextTokens": 1000000,
    "promptPrice": "0.0000002",
-   "completionPrice": "0.00000255"
+   "completionPrice": "0.0000025"
   },
   {
    "id": "qwen/qwen3.8-27b:free",
@@ -2704,8 +2704,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",
@@ -3040,15 +3040,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000013",
-   "completionPrice": "0.00000052"
+   "promptPrice": "0.00000012",
+   "completionPrice": "0.00000048"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000052404",
-   "completionPrice": "0.00000157212"
+   "promptPrice": "0.0000007",
+   "completionPrice": "0.00000288"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
@@ -3131,8 +3131,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000007728",
-   "completionPrice": "0.0000024288"
+   "promptPrice": "0.0000007735",
+   "completionPrice": "0.000002431"
   }
  ]
 }

@@ -114,10 +114,14 @@ theorem cuts_break_successors : ((List.range 8).filter (fun i => chain (dropAt a
     link in it is honest. A chain proves that what remains has not been reordered or rewritten; it cannot prove
     that nothing was removed from the end, and no choice of hash changes that. Sealed as its own theorem so the
     seven above can never be read as eight by a reader who does not stop to ask which one is missing. PRIOR ART:
-    the truncation problem is the motivation of Crosby and Wallach, USENIX Security 2009, DOI
-    10.5555/1855768.1855788, whose deletion proofs exist because links alone do not answer it; the attack was
-    named against the Schneier-Kelsey secure-log scheme (USENIX Security 1998) by Ma and Tsudik. Formalisation
-    claimed; discovery credited. -/
+    the truncation problem is the motivation of Crosby and Wallach, USENIX Security 2009, cited by VENUE and not
+    by identifier, deliberately: the ACM proceedings identifier this line once carried resolves nowhere —
+    measured 2026-09-21, a 404 at doi.org itself as well as at Crossref and DataCite — because it sits under the
+    reserved test prefix and was never registered in the handle system. The paper is real and the identifier was
+    not, so the credit stands and the unresolvable string goes; an identifier a reader cannot follow is worse
+    than none, since it reads as checkable and is not. Their deletion proofs exist because links alone do not
+    answer it; the attack was named against the Schneier-Kelsey secure-log scheme (USENIX Security 1998) by Ma
+    and Tsudik. Formalisation claimed; discovery credited. -/
 theorem tail_cut_survives : chain (dropAt addrs 7) = dropAt stored 7 := by decide
 
 /-- WHAT CLOSES IT IS A COUNT SOMEBODY SEALED, NOT A STRONGER LINK. Of the seven ways to cut this trail short
@@ -127,8 +131,9 @@ theorem tail_cut_survives : chain (dropAt addrs 7) = dropAt stored 7 := by decid
     decided here together, because the first alone reads as a weakness and the second alone reads as a promise,
     and the pair is what is actually true. The residue is honest and stays: between two seals, a truncation is
     detectable only once the next seal exists. PRIOR ART: periodic commitments closing truncation is Crosby and
-    Wallach, DOI 10.5555/1855768.1855788, and the same shape carries Certificate Transparency RFC 6962 signed
-    tree heads. Formalisation claimed; discovery credited. -/
+    Wallach, USENIX Security 2009 (cited by venue: the 10.5555 identifier is unregistered and resolves nowhere),
+    and the same shape carries Certificate Transparency RFC 6962 signed tree heads. Formalisation claimed;
+    discovery credited. -/
 theorem checkpoints_catch_truncation : (((List.range 7).filter (fun k => chain (addrs.take (k + 1)) != stored.take (k + 1))).length = 0) ∧ (((List.range 7).filter (fun k => (addrs.take (k + 1)).length < 8)).length = 7) := by decide
 
 /-- every generated theorem carries prose IN the Lean — 70980 of 70980 documented across 248 wings, 0 without;

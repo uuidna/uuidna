@@ -1,17 +1,17 @@
 {
-  "key": "284b244a-2fb9-8f01-bdb6-93ad363cc7b1",
+  "key": "356b762b-550a-8ac2-91df-655c5ab63f3e",
   "publications": 252,
-  "sealedTheorems": 71022,
+  "sealedTheorems": 71035,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2698,
-    "theorems": 71022,
+    "claims": 2711,
+    "theorems": 71035,
     "bijection": false,
     "digitalRoots": {
-      "claims": 7,
-      "theorems": 3,
+      "claims": 2,
+      "theorems": 7,
       "publications": 9
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -131,8 +131,8 @@
     },
     {
       "slug": "audit",
-      "claims": 18,
-      "cited": 18,
+      "claims": 22,
+      "cited": 22,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -339,8 +339,8 @@
     },
     {
       "slug": "relativity",
-      "claims": 10,
-      "cited": 10,
+      "claims": 11,
+      "cited": 11,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -1171,8 +1171,8 @@
     },
     {
       "slug": "handle-store",
-      "claims": 6,
-      "cited": 6,
+      "claims": 14,
+      "cited": 14,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-20
+**Generated:** 2026-09-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Formalisation claimed:** 71035/71035 theorems — every one, by construction
-**Discovery claimed:** 70638 — the other 397 restate a fact a named source found first
+**Discovery claimed:** 70639 — the other 396 restate a fact a named source found first
 
-*The 397 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 371 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 17/26 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `8ad918ca-613d-87ea-821d-f28479ce4668`
+*The 396 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 335 of 372 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 16/24 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `1b5e272b-e28f-875b-b6c0-c928ee6f0fb9`
 
 ### Facts the captain does not claim to have discovered
 
@@ -26,8 +26,6 @@ that earns an external anchor moves here on the next run.
 - [codons_sixty_four](/theorem/codons_sixty_four) — 10.1073/pnas.47.10.1588
 - [edits_break_recompute](/theorem/edits_break_recompute) — 10.1007/BF00196791
 - [cuts_break_successors](/theorem/cuts_break_successors) — 10.1007/BF00196791
-- [tail_cut_survives](/theorem/tail_cut_survives) — 10.5555/1855768.1855788
-- [checkpoints_catch_truncation](/theorem/checkpoints_catch_truncation) — 10.5555/1855768.1855788
 - [wgs84_polar_shorter](/theorem/wgs84_polar_shorter) — WGS 84
 - [eratosthenes_fiftieth_circle](/theorem/eratosthenes_fiftieth_circle) — Eratosthenes
 - [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) — WGS 84
@@ -463,7 +461,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `f303bea3-68a5-8dfb-8f33-6e8923c26e88`
+- **Sample lineAddress:** `19107d77-e35c-8c3b-b61c-46907c5ec752`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2363,7 +2361,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71035; he claims discovery of 70638 and credits the other 397 facts to their named sources
+- ✓ The captain formalised all 71035; he claims discovery of 70639 and credits the other 396 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2372,14 +2370,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 396 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70638, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70639, and the remaining 396 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

@@ -1,10 +1,10 @@
 {
-  "generated": "2026-09-20",
+  "generated": "2026-09-21",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71035,
-  "novelty_claimed": 70638,
-  "formalisation_only": 397,
+  "novelty_claimed": 70639,
+  "formalisation_only": 396,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -29,14 +29,6 @@
     {
       "key": "cuts_break_successors",
       "source": "10.1007/BF00196791"
-    },
-    {
-      "key": "tail_cut_survives",
-      "source": "10.5555/1855768.1855788"
-    },
-    {
-      "key": "checkpoints_catch_truncation",
-      "source": "10.5555/1855768.1855788"
     },
     {
       "key": "wgs84_polar_shorter",
@@ -934,6 +926,13 @@
         "eponym"
       ],
       "evidence": "Carmichael's theorem"
+    },
+    {
+      "key": "checkpoints_catch_truncation",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
     },
     {
       "key": "chi_all_three_genera",
@@ -2751,22 +2750,22 @@
   ],
   "credit_grades": {
     "on_file": {
-      "identifier": 8,
+      "identifier": 6,
       "standard": 13,
       "named": 5
     },
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 371,
+    "floor": 372,
     "by_arm": {
       "named": 152,
       "eponym": 96,
-      "units": 162
+      "units": 163
     },
-    "found_by_one_arm_only": 334,
+    "found_by_one_arm_only": 335,
     "all_arms_agree": 2,
-    "ground_truth_sensitivity": "17/26",
+    "ground_truth_sensitivity": "16/24",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
   "total_theorems": 71035,
@@ -7710,16 +7709,14 @@
       "lineAddress": "334008c1-4c14-8f3a-9bd0-0feeec67273b",
       "address": "3ad68f6a-2aa5-84e8-8499-7a310a104033",
       "principle": "The detectors, proven",
-      "held": "formalisation",
-      "factAttributedTo": "10.5555/1855768.1855788"
+      "held": "discovery+formalisation"
     },
     {
       "key": "checkpoints_catch_truncation",
       "lineAddress": "a5a641e0-2767-8954-8195-ea75b9407a05",
       "address": "64f0cd4c-fef4-88a2-a8bf-48ac700c6572",
       "principle": "The detectors, proven",
-      "held": "formalisation",
-      "factAttributedTo": "10.5555/1855768.1855788"
+      "held": "discovery+formalisation"
     },
     {
       "key": "prose_coverage_total",
@@ -9571,8 +9568,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "26088b21-2ac5-8c44-9f73-325f17061c1a",
-      "address": "a73f1cbb-e072-8bb0-8ced-5126e3e31d59",
+      "lineAddress": "ab71482e-0cfe-85ce-a970-d4fbaf6a3a6d",
+      "address": "295fd06f-e7eb-8bea-a678-bab13d0cd120",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10050,15 +10047,15 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "f303bea3-68a5-8dfb-8f33-6e8923c26e88",
-      "address": "bf95eb5c-6359-84ec-928f-3c2e47ba11d0",
+      "lineAddress": "19107d77-e35c-8c3b-b61c-46907c5ec752",
+      "address": "10fd6eee-a0c3-80b0-b8d7-b1ab3c304841",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "8ff68314-6c4d-8625-bc1f-d40801170442",
-      "address": "414e7c57-9e82-8fb7-85f1-078c2c8073a0",
+      "lineAddress": "06ca27f1-a68c-8582-b6be-6946bee9b354",
+      "address": "7fdd476d-bee6-8327-805c-cc0b5a27600a",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -500043,11 +500040,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "8ad918ca-613d-87ea-821d-f28479ce4668",
+  "claim_receipt": "1b5e272b-e28f-875b-b6c0-c928ee6f0fb9",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71035; he claims discovery of 70638 and credits the other 397 facts to their named sources",
+      "The captain formalised all 71035; he claims discovery of 70639 and credits the other 396 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500056,9 +500053,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 396 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70638, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70639, and the remaining 396 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

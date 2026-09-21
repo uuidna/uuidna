@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "6046fdfb1c6ef094",
+ "digest": "f228eeb4e145005f",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -664,6 +664,21 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "drift_is_named_or_caught",
    "wing": "Audit.lean",
    "verdict": "survived-widening"
+  },
+  {
+   "key": "edits_break_recompute",
+   "wing": "Audit.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "cuts_break_successors",
+   "wing": "Audit.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "checkpoints_catch_truncation",
+   "wing": "Audit.lean",
+   "verdict": "base-undecidable"
   },
   {
    "key": "prose_round_trips",

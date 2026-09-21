@@ -67,7 +67,7 @@ page regrows without it.
 - **KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) </small>
-  <br><small>sealed neighbors: [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) </small>
+  <br><small>sealed neighbors: [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) · [`the_pairing_cancels_the_constant`](/theorem/the_pairing_cancels_the_constant) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.**
   <br><small>door: the leads in trial</small>

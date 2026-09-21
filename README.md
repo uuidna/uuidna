@@ -1,8 +1,8 @@
 # uuidna — 70,950 distinct theorems under 71,035 keys · 2 coins · one receipt
 
-`3a016356-ccdc-8fd8-81c4-f973e72e7553`
+`2e457a2c-3a33-887e-9d45-c68a843bbb14`
 
-**What every theorem carries, and what most do not.** proof · address hold for 71,035 of 71,035; **witness 26 of 71,035** (0.0%), **symbol 1339 of 71,035** (1.8%), **falsifier 71033 of 71,035** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · address hold for 71,035 of 71,035; **witness 24 of 71,035** (0.0%), **symbol 1339 of 71,035** (1.8%), **falsifier 71033 of 71,035** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256708](https://doi.org/10.5281/zenodo.22256708)
 

@@ -86,8 +86,8 @@ drift_is_named_or_caught 27
 the_axiom_index_partitions_without_remainder 27
 edits_break_recompute 23
 cuts_break_successors 31
-tail_cut_survives 31
-checkpoints_catch_truncation 31
+tail_cut_survives 27
+checkpoints_catch_truncation 27
 prose_coverage_total 27
 prose_round_trips 27
 prose_terminator_escaped 27
@@ -71296,7 +71296,6 @@ the_ten_complement_involutes_the_vortex_through_the_axis 27`
 export const CLAIMS = `abo_klein_four 10.1038/345229a0
 blood_types_eight 10.3181/00379727-43-11151
 bulge_exceeds_relief WGS 84
-checkpoints_catch_truncation 10.5555/1855768.1855788
 codons_sixty_four 10.1073/pnas.47.10.1588
 cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
@@ -71312,7 +71311,6 @@ light_speed_rounds_to_300000 SI
 product_isolates_quantum CODATA
 ratio_isolates_gravity CODATA
 reversible_erases_nothing Landauer
-tail_cut_survives 10.5555/1855768.1855788
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 the_pairing_cancels_the_constant SI
@@ -71320,7 +71318,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 26, falsifier: 63 }
+export const FLOOR = { witness: 24, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
