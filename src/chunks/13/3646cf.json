@@ -1,0 +1,12 @@
+{
+  "handle": "133646cf",
+  "address": "133646cf-2da5-81f9-acb7-80cd76dafc7b",
+  "statement": "(689 + 70870 + 75 + 5 = 71639) ∧ (80 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

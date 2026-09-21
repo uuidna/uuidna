@@ -9571,8 +9571,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "8dc9c0bd-c3a6-8fd2-b9eb-33729fbd20c4",
-      "address": "b84d7105-16d6-894d-9e13-197790e57b40",
+      "lineAddress": "26088b21-2ac5-8c44-9f73-325f17061c1a",
+      "address": "a73f1cbb-e072-8bb0-8ced-5126e3e31d59",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10050,36 +10050,36 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "ebc22a1c-bee4-8762-86b8-f1772da7bce2",
-      "address": "d7aa6060-20f9-80f3-afb1-7bbaf78bafd6",
+      "lineAddress": "f303bea3-68a5-8dfb-8f33-6e8923c26e88",
+      "address": "bf95eb5c-6359-84ec-928f-3c2e47ba11d0",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "bfc7ac19-0967-8f08-a5e1-1cfaea50bbe5",
-      "address": "000a196b-2621-8bd2-b3b1-7136e784d088",
+      "lineAddress": "8ff68314-6c4d-8625-bc1f-d40801170442",
+      "address": "414e7c57-9e82-8fb7-85f1-078c2c8073a0",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_address_odds_are_negligible",
-      "lineAddress": "e3bb974c-b52c-8995-84a0-f47574bf1b17",
-      "address": "8084f88c-3e67-84f9-9cbe-5f4a0a00cbdf",
+      "lineAddress": "6d539cf2-9598-8667-b6ab-a66ce25e5a4c",
+      "address": "792942e3-3c20-8f19-a75e-328833630035",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_handle_odds_are_small",
-      "lineAddress": "0a2e30f2-dd71-84cc-a8ed-16b9d7cb6b9a",
-      "address": "64e5864b-c934-8a6a-b04a-ccaeb6e29549",
+      "lineAddress": "3ba6b3c2-898f-8dc1-a4aa-9b62eff666a3",
+      "address": "92334cd2-5a67-8607-88e3-f5478410837a",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "sixteen_bit_handles_would_collide",
-      "lineAddress": "ebeece2c-9249-8749-bb03-c7b9c7e41fc2",
-      "address": "3acbf511-f1a4-85ad-9e70-f5693df99652",
+      "lineAddress": "d79b65e7-29b4-895e-a6c9-96a3376b6fc7",
+      "address": "d30cf211-585a-8b37-8341-bd2660b94fe5",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
@@ -481613,8 +481613,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "94f6c573-5d79-8c8e-b827-c5617d3411e7",
-      "address": "734c3fcd-b45d-8d06-ae9d-91e29b88292b",
+      "lineAddress": "0ea14ca5-61e6-8782-87f5-e98dd1882378",
+      "address": "1709a2b3-ecfd-83db-9f5a-dfb584ce8c5a",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481634,15 +481634,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "f4e457ec-4aa6-8f23-902a-3b884b92571a",
-      "address": "da52f7c2-56ba-8d0c-8056-454805852e56",
+      "lineAddress": "7e029267-5114-8aac-bf4c-868462015076",
+      "address": "6bbeeac7-44bd-8c19-8d8b-889805b1c13e",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "ff978408-e871-877e-a4c1-8fa105063591",
-      "address": "5aa414dd-bc16-8cf2-bdfc-dc911a43583d",
+      "lineAddress": "9043cbf1-b6f1-875d-b637-3103fb9f7a3b",
+      "address": "180a4f10-698c-8019-a0b6-ca0c90851cc0",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481690,8 +481690,8 @@
     },
     {
       "key": "reconciled_generator_sat_inside_the_truncated_run",
-      "lineAddress": "8459f4bd-224e-8691-a27c-21de1995262e",
-      "address": "d310d85c-6676-8cba-8fbd-c8f0007056ca",
+      "lineAddress": "4f1df83b-59f0-8826-9570-2078607cf8f1",
+      "address": "28a097f1-eb70-8ac2-aed3-8c94a5dcfeba",
       "principle": "The links between lonely theorems",
       "held": "discovery+formalisation"
     },
@@ -482271,7 +482271,7 @@
     },
     {
       "key": "reconciled_b13fd37a",
-      "lineAddress": "3a713b3d-c77d-8181-98e6-f4d62bfd601e",
+      "lineAddress": "0a0120a4-d711-868b-9aa0-6909da51e62b",
       "address": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
       "principle": "The involution of lead b13fd37a",
       "held": "discovery+formalisation"
@@ -500043,7 +500043,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "c1256b6c-002b-8225-a891-fda0703d4b97",
+  "claim_receipt": "8ad918ca-613d-87ea-821d-f28479ce4668",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

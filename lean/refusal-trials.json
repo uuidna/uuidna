@@ -1,15 +1,15 @@
 {
  "why": "Each lead decided by the kernel under its own handle: verified = the ledger proves lead_<handle>; refuted = it proves involution_<handle> : ¬ lead_<handle>; each with a fresh, axiom-free kernel receipt; open = still in trial. The sealed theorems a lead's text names are recorded as evidence (citedKeys, theoremTrials), never as the verdict. Lean decides: no lead is judged by its wording, no evidence passes between leads, and no lead is purged.",
- "recorded": "54b31438-0",
+ "recorded": "e1889b9e-d",
  "refused": 110,
  "lean": 28,
  "open": 82,
  "verified": 2,
- "refuted": 6,
+ "refuted": 5,
  "purged": 0,
  "collisionPairs": 1917,
  "rounds": 0,
- "receipt": "54b31438-05dc-8733-bcc8-ccc2432bad99",
+ "receipt": "e1889b9e-de3a-8f31-b6a5-dd01ade90695",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -17792,9 +17792,9 @@
     }
    ],
    "theoremTrials": [],
-   "disposition": "refuted",
-   "receipt": "4f4cc51e-d4eb-82dd-bb0c-53695dc1efec",
-   "verdictKey": "involution_b13fd37a",
+   "disposition": "open",
+   "receipt": "eb432b54-d711-8ee2-a951-a379db5b0724",
+   "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#27",
    "digest": "8189e9fa-5c27-8bb5-8493-ec9e76ab4bed",
@@ -17802,7 +17802,7 @@
     "handle": "b13fd37a",
     "cites": [],
     "involution": "involution_b13fd37a",
-    "kernelAccepted": true,
+    "kernelAccepted": false,
     "involuted": true,
     "witnesses": {
      "signed": 14,
@@ -17810,7 +17810,7 @@
      "seal": "46150015-7ebc-8d76-9fe3-c0e78de249c5"
     },
     "missing": [],
-    "stands": true
+    "stands": false
    }
   },
   {
@@ -60645,7 +60645,7 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "9bfd5899-cb69-8ddf-b4a2-67746362eb24",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
-  "src/theorems/generated.ts": "e04577f3-2463-861a-962f-f145a690ea8b",
+  "src/theorems/generated.ts": "1c9822f4-023f-8674-92a0-0275b24f3182",
   "lean/axioms.json": "4e018625-2ceb-81b7-b185-07bbe68b14a6",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
@@ -60833,7 +60833,7 @@
   "involution_b13fd37a": {
    "wing": "Involutionb13fd37a.lean",
    "asked": "46702d9e-c3fc-8018-9c17-0ef16eb61c4a",
-   "fresh": true,
+   "fresh": false,
    "axioms": []
   },
   "involution_2d552f1f": {
@@ -60921,6 +60921,8 @@
    "axioms": []
   }
  },
- "unreceipted": [],
- "seal": "bc356e8c-bdae-887c-8228-f7e060aa5b48"
+ "unreceipted": [
+  "involution_b13fd37a"
+ ],
+ "seal": "14459d9b-229e-8cad-a16c-1fcdfa70d4c6"
 }

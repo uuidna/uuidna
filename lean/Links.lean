@@ -46,7 +46,7 @@ def hueGreenBand (c : Nat) : Nat :=
 /-- GENERATORS (src/scripts/generate.ts): the file of every entry, in manifest order, which is the list
     generate.js runs. Walked from that file, never typed. -/
 def generateManifest : List String :=
-  ["gen-mcp-docs.js", "gen-mcp.js", "gen-apis.js", "gen-latex.js", "gen-packages.js", "gen-zenodo.js", "gen-zenodo-seals.js", "gen-lines.js", "gen-matrix-css.js", "gen-search-feed.js", "gen-seo-freeze.js", "gen-handles.js", "gen-handle-store.js", "gen-handle-chunks.js", "gen-captain-claims.js", "gen-captain-claims-complete.js", "gen-reports.js", "gen-quantum-capacity.js", "gen-quantum-advantage.js", "gen-expose.js", "gen-waves.js", "gen-unlocks.js", "gen-readme.js", "gen-funding-drafts.js", "gen-llm.js", "gen-cloudflare-templates.js", "gen-statement-fixture.js", "gen-leads.js", "gen-refusals.js", "gen-terminology.js", "gen-feed.js", "gen-articles.js", "gen-references.js", "gen-prose-evidence.js", "gen-gitattributes.js", "gen-school.js", "gen-school-lessons.js", "gen-analytics.js", "gen-song.js", "gen-anthem.js", "gen-utterances.js", "gen-symphony.js", "gen-evasion.js", "gen-apps.js", "gen-open-questions.js", "gen-bound-census.js", "gen-missions.js", "gen-sequence-field.js", "gen-referrer-song.js", "gen-store.js", "gen-os.js", "gen-alpine-overlay.js", "gen-alpine-testing-leads.js", "gen-remaining-alpine.js", "gen-rights-page.js", "browser-apps-usable.js", "alpine-discovery.js", "gen-models.js", "gen-falsifiers.js", "gen-receipts.js", "gen-edge-slices.js", "ledger-deposit.js", "gen-witness-seals.js", "rosetta.js", "gen-seo-freeze.js"]
+  ["gen-mcp-docs.js", "gen-mcp.js", "gen-apis.js", "gen-packages.js", "gen-zenodo.js", "gen-zenodo-seals.js", "gen-lines.js", "gen-matrix-css.js", "gen-search-feed.js", "gen-seo-freeze.js", "gen-handles.js", "gen-handle-store.js", "gen-handle-chunks.js", "gen-captain-claims.js", "gen-captain-claims-complete.js", "gen-reports.js", "gen-quantum-capacity.js", "gen-quantum-advantage.js", "gen-expose.js", "gen-waves.js", "gen-unlocks.js", "gen-readme.js", "gen-funding-drafts.js", "gen-llm.js", "gen-cloudflare-templates.js", "gen-statement-fixture.js", "gen-leads.js", "gen-refusals.js", "gen-terminology.js", "gen-feed.js", "gen-articles.js", "gen-references.js", "gen-prose-evidence.js", "gen-gitattributes.js", "gen-school.js", "gen-school-lessons.js", "gen-analytics.js", "gen-song.js", "gen-anthem.js", "gen-utterances.js", "gen-symphony.js", "gen-evasion.js", "gen-apps.js", "gen-open-questions.js", "gen-bound-census.js", "gen-missions.js", "gen-sequence-field.js", "gen-referrer-song.js", "gen-store.js", "gen-os.js", "gen-alpine-overlay.js", "gen-alpine-testing-leads.js", "gen-remaining-alpine.js", "gen-rights-page.js", "browser-apps-usable.js", "alpine-discovery.js", "gen-models.js", "gen-falsifiers.js", "gen-receipts.js", "gen-edge-slices.js", "ledger-deposit.js", "gen-latex.js", "gen-witness-seals.js", "rosetta.js", "gen-seo-freeze.js"]
 
 /-- Every dist script src/scripts/reconcile.ts runs directly, in the order its run() calls name them. -/
 def reconcileDirect : List String :=
@@ -198,15 +198,15 @@ theorem the_barren_claim_fails_exactly_at_the_dz_fixed_points : ((List.range 10)
     arithmetic of a silent truncation over that SAME list: of 47 listed generators the shared runner ended at 6
     and silently skipped 41, including gen-readme and gen-llm, two names that are literal entries of the
     manifest. THE LINK places the lonely membership inside the sealed window over the list itself:
-    gen-prose-evidence.js sits at manifest slot 33, which is 14 short of the sealed 47 and 27 past the sealed
-    cut of 6; gen-readme.js and gen-llm.js, the two the sealed theorem names by hand, sit at 22 and 24, likewise
-    inside it; the position in the full run is the direct-script count plus 33; and the list the sealed theorem
+    gen-prose-evidence.js sits at manifest slot 32, which is 15 short of the sealed 47 and 26 past the sealed
+    cut of 6; gen-readme.js and gen-llm.js, the two the sealed theorem names by hand, sit at 21 and 23, likewise
+    inside it; the position in the full run is the direct-script count plus 32; and the list the sealed theorem
     counted at 47 now carries exactly 18 more. Every left side is read off the actual lists, every right side is
     a literal of the sealed theorem, so the two move together. PERTURBED AND REFUSED: deleting one earlier entry
     from the manifest, which moves gen-prose-evidence.js one slot and the length by one; the sealed count 47
     lowered to 46 — each failed to decide. THE ONE ASSUMPTION, STATED PLAINLY: the 47 the sealed theorem counted
     is this same manifest at an earlier size. -/
-theorem reconciled_generator_sat_inside_the_truncated_run : idxOf "gen-prose-evidence.js" reconcileRuns = reconcileDirect.length + 33 ∧ idxOf "gen-prose-evidence.js" generateManifest + 14 = 47 ∧ idxOf "gen-prose-evidence.js" generateManifest - 6 = 27 ∧ idxOf "gen-readme.js" generateManifest + 25 = 47 ∧ idxOf "gen-llm.js" generateManifest + 23 = 47 ∧ generateManifest.length - 47 = 18 := by decide
+theorem reconciled_generator_sat_inside_the_truncated_run : idxOf "gen-prose-evidence.js" reconcileRuns = reconcileDirect.length + 32 ∧ idxOf "gen-prose-evidence.js" generateManifest + 15 = 47 ∧ idxOf "gen-prose-evidence.js" generateManifest - 6 = 26 ∧ idxOf "gen-readme.js" generateManifest + 26 = 47 ∧ idxOf "gen-llm.js" generateManifest + 24 = 47 ∧ generateManifest.length - 47 = 18 := by decide
 
 /-- LEAD b13fd37a IS FLAGGED BY EVERY SINGLE REFUTER. All six refuters fire, three on each of the lead two
     conjuncts, and the sealed flagging rule returns 1 on each conjunct alone, on the joined six-refuter panel,
