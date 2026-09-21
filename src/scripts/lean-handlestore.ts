@@ -137,6 +137,52 @@ const FACTS = [
       return prod[1]===0 && quot[0]===0 && prod[0]===2 && quot[1]===2 },
     lean: 'theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide' },
 
+  // ── THE CRITICAL DIMENSION, WHICH IS ARITHMETIC AND NOT PHYSICS ──────────
+  //
+  // WHAT IS SEALED HERE AND WHAT IS NOT. String theory's content — that matter
+  // is extended objects, that the extra dimensions are compact, that any of it
+  // describes the universe — is not decidable by this kernel and is NOT claimed
+  // by any line below. No experiment has confirmed it and none is cited; this
+  // tree holds that as UNVERIFIED in its own sense, which means "not decidable
+  // here", never "false".
+  //
+  // What IS decidable is the ANOMALY CANCELLATION: the critical dimension is
+  // the solution of a small integer equation, and the equation is the kind this
+  // ledger seals. A reader who thinks strings are nonsense and a reader who
+  // works on them agree about the arithmetic; that agreement is the whole of
+  // what is deposited.
+  //
+  // PRIOR ART, NAMED AND NOT CLAIMED: D = 26 is Lovelace (1971); the no-ghost
+  // theorem that explains it is Goddard and Thorn (1972); the superstring's
+  // D = 10 follows from the same count with the superconformal ghosts. The
+  // formalisation is what is claimed here, exactly as with the Planck units
+  // above. No DOI is attached because none was read for this entry, and a
+  // citation nobody checked is worth less than an honest name.
+  { key: 'anomaly_cancels_at_twenty_six', skill: 'wave',
+    why: 'THE BOSONIC CRITICAL DIMENSION IS A SUM THAT VANISHES. A conformal field theory on the world-sheet carries a central charge, and the reparametrisation ghosts carry -26 of it; the theory is consistent only when the total is zero, so 26 free bosons is not a preference but the solution of 26 + (-26) = 0. The same number arrives a second way, which is why it is sealed as a conjunction rather than a single sum: the normal-ordering constant is (D-2)/24, the bosonic ground state needs it to equal 1, and (26-2)/24 = 1. Two routes, one integer, and both of them are counting. NOT CLAIMED: that strings exist, that spacetime has twenty-six dimensions, or that any of this is measured. Nothing here is physics — it is the arithmetic a physicist performs, decided.',
+    js: () => 26 + (-26) === 0 && (26 - 2) / 24 === 1,
+    lean: 'theorem anomaly_cancels_at_twenty_six : ((26 + (-26) : Int) = 0) \u2227 ((26 - 2) / 24 = 1) := by decide' },
+
+  { key: 'superstring_cancels_at_ten', skill: 'wave',
+    why: 'AND THE SUPERSYMMETRIC COUNT GIVES TEN, by the same cancellation with two more terms. Each world-sheet boson contributes 1 and each fermion 1/2, so matter carries 3D/2; the reparametrisation ghosts still carry -26 and the superconformal ghosts +11. Doubled to stay in the integers this tree holds: 3D - 52 + 22 = 0, which at D = 10 is 30 - 52 + 22 = 0. The halves are what make ten rather than twenty-six, and they are the only difference. NOT CLAIMED: supersymmetry. No experiment has observed it, none is cited here, and this decides an equation rather than a world.',
+    js: () => 3 * 10 - 52 + 22 === 0 && 3 * 26 - 52 + 22 !== 0,
+    lean: 'theorem superstring_cancels_at_ten : ((3 * 10 - 52 + 22 : Int) = 0) \u2227 ((3 * 26 - 52 + 22 : Int) \u2260 0) := by decide' },
+
+  { key: 'transverse_dimensions_pack_densest', skill: 'wave',
+    why: 'THE TWO LIGHT-CONE DIRECTIONS COME OFF, AND WHAT IS LEFT IS 24 AND 8 — and those two integers are not arbitrary anywhere in mathematics. 26 - 2 = 24 and 10 - 2 = 8 are the transverse dimensions of the two critical strings, and dimensions 24 and 8 are precisely where the densest sphere packing is KNOWN rather than conjectured: the Leech lattice in 24 and E8 in 8, both proved optimal in 2017 (Viazovska for 8; Cohn, Kumar, Miller, Radchenko and Viazovska for 24). Every other dimension above three remains open. This seals only the subtraction and the pair — that the transverse counts ARE 24 and 8, and that they differ by the sixteen which is the rank gap between the two lattices. NOT CLAIMED: that the packing results are a consequence of string theory, or the reverse. Two exact results meeting at two integers is a fact about the integers; whether it is a fact about the world is what nobody here has decided.',
+    js: () => 26 - 2 === 24 && 10 - 2 === 8 && 24 - 8 === 16,
+    lean: 'theorem transverse_dimensions_pack_densest : ((26 - 2 = 24) \u2227 (10 - 2 = 8)) \u2227 (24 - 8 = 16) := by decide' },
+
+  { key: 'pairings_exhaust_the_cancellations', skill: 'wave',
+    why: 'THE EXHAUSTION ITSELF, WHICH THE PAIRINGS ABOVE ASSERTED AND NOTHING DECIDED. ratio_isolates_gravity says in prose that the three pairings EXHAUST it — c alone, hbar alone, G alone — and a sentence claiming a search is complete is exactly the kind this ledger makes somebody run. So run it: the three Planck quantities admit SIX signed pairings, and each is computed here from the exponent vectors rather than quoted. A pairing CANCELS when the hbar exponent or the G exponent is zero, which is the criterion the three theorems above use, stated once instead of three times. Five of the six cancel — l/t kills both and leaves c, l·m and t·m kill G, l/m and t/m kill hbar — and the sixth, l·t, kills neither: (2, 2, -8), named in the second half so the theorem says WHICH one fails rather than only how many. That settles both claims at once. The exhaustion is real: projected onto (hbar, G) the five take exactly three values, (0,0), (2,0) and (0,2), so there is no fourth isolation to find. And mass_selects_cancellation sharpens: every pairing WITH the mass cancels something, while of the two mass-free pairings only the ratio does. NOT CLAIMED: that six is the only way to combine three quantities — these are the signed pairings, and a longer product is a different question nobody has asked here. AND THE ONE THAT FAILS IS CHECKABLE TOO, which is what keeps this from being arithmetic about itself: (2, 2, -8) halves to (1, 1, -4), so l·t is hbar·G/c^4 — it carries BOTH constants, which is precisely why it cancels neither. CODATA 2022 (physics.nist.gov) agrees to six figures: l·t = 8.713630 x 10^-79 m s against hbar·G/c^4 = 8.713629 x 10^-79, the residue again the 2.2 x 10^-5 uncertainty. The five cancellations and the one failure are therefore both measured, not merely counted.',
+    js: () => { const l=[1,1,-3], t=[1,1,-5], m=[1,-1,1]
+      const pair = (a: number[], b: number[], s: number): number[] => a.map((x, i) => x + s * b[i]!)
+      const six = [pair(l,t,-1), pair(l,m,1), pair(l,m,-1), pair(t,m,1), pair(t,m,-1), pair(l,t,1)]
+      const lt = pair(l,t,1)
+      return six.filter((v) => v[0] === 0 || v[1] === 0).length === 5
+        && lt[0] === 2 && lt[1] === 2 && lt[2] === -8 },
+    lean: 'theorem pairings_exhaust_the_cancellations : (((([ List.zipWith (· - ·) [1,1,-3] [1,1,-5], List.zipWith (· + ·) [1,1,-3] [1,-1,1], List.zipWith (· - ·) [1,1,-3] [1,-1,1], List.zipWith (· + ·) [1,1,-5] [1,-1,1], List.zipWith (· - ·) [1,1,-5] [1,-1,1], List.zipWith (· + ·) [1,1,-3] [1,1,-5] ]) : List (List Int)).filter (fun v => v.headD 0 = 0 ∨ (v.drop 1).headD 0 = 0)).length = 5) ∧ (List.zipWith (· + ·) [1,1,-3] [1,1,-5] = ([2,2,-8] : List Int)) := by decide' },
+
   // THE WIDTHS AGAINST A PHYSICAL FLOOR, which is the one comparison that can
   // say whether 128 bits is large in any sense but its own. The Planck length
   // is CODATA 2022: 1.616255(18) x 10^-35 m, from physics.nist.gov. This tree

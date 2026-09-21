@@ -141,3 +141,37 @@ test('seedHolds never overwrites a verdict already held', () => {
   assert.equal(seedHolds({ [holdsKey('3 + 3 = 6', 'def cacheD := 0')]: false }), 0)
   assert.equal(holds('3 + 3 = 6', 'def cacheD := 0'), true, 'the computed verdict stands')
 })
+
+// ── numerals are read exactly, whatever their size ─────────────────────────
+//
+// The arithmetic was BigInt and the literals were not: every operator narrows a
+// BigInt to a Number only when it fits, and then the numerals themselves were
+// read with Number(...), exact only below 2^53. Above that a literal silently
+// became the nearest double — 100000000000000000000000 read back as
+// 99999999999999991611392 — and the evaluator answered FALSE to true
+// arithmetic. Found by the LEDGER disagreeing with it, on two sealed theorems
+// about the Planck length and proton decay. The kernel was right both times.
+test('a numeral above 2^53 is read exactly, not as the nearest double', () => {
+  assert.equal(holds('10 ^ 23 = 100000000000000000000000'), true)
+  assert.equal(holds('10 ^ 35 = 1' + '0'.repeat(35)), true)
+  assert.equal(holds('52 * 10 ^ 35 = 52' + '0'.repeat(35)), true)
+})
+
+// THE CONTROL THAT MAKES IT A TEST. The value the old reader produced must now
+// be REFUSED — otherwise this passes on an evaluator that simply says true.
+test('the double the old reader produced is refused', () => {
+  assert.equal(holds('10 ^ 23 = 99999999999999991611392'), false)
+  assert.equal(holds('10 ^ 23 = 100000000000000000000001'), false, 'and one away is still one away')
+})
+
+test('a numeral that fits is still a Number, so nothing below changed', () => {
+  assert.equal(holds('2 * 3 + 1 = 7'), true)
+  assert.equal(holds('10 ^ 15 = 1000000000000000'), true)
+  assert.equal(holds('2 ^ 53 = 9007199254740992'), true)
+})
+
+test('the two sealed theorems the ledger disagreed about now agree', () => {
+  // Both are integer identities far above 2^53 — the case the reader broke on.
+  assert.equal(holds('(1616255 * 3217314099569684239182554733009 + 538705 = 52 * 10 ^ 35) ∧ (538705 < 1616255)'), true)
+  assert.equal(holds('(138 * 10 ^ 8 * 1739130434782608695652173 + 12600000000 = 24 * 10 ^ 33) ∧ (12600000000 < 138 * 10 ^ 8)'), true)
+})

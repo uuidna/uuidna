@@ -326,6 +326,34 @@ const emod = (a: number, b: number, ring: Ring): number => {
 }
 /** Lean Nat.sub saturates at 0; Int.sub is true minus. Default ring is Nat. */
 // ADDITION AND SUBTRACTION MUST PROMOTE LIKE MULTIPLICATION DOES, and for a long time only multiplication did.
+/**
+ * A NUMERAL IS READ EXACTLY, whatever its size.
+ *
+ * THE ARITHMETIC WAS BIGINT AND THE LITERALS WERE NOT. Every operator here
+ * narrows a BigInt to a Number only when it fits, precisely so a sealed
+ * mod-power cannot float-corrupt — and then the numerals themselves were read
+ * with `Number(...)`, exact only below 2^53. Above that a literal silently
+ * became the nearest double: the numeral 100000000000000000000000 read back as
+ * 99999999999999991611392, so the evaluator answered FALSE to arithmetic that
+ * is true.
+ *
+ * FOUND BY THE LEDGER DISAGREEING WITH IT, which is the check working exactly as
+ * intended. gen-falsifiers refused to emit and named two sealed theorems —
+ * newtonian_gravity_is_verified_far_above_the_planck_length and
+ * the_proton_outlives_the_universe_many_times_over — as propositions the kernel
+ * and the evaluator decided differently. The kernel was right both times. An
+ * independent check that is wrong above a magnitude is worse than no check
+ * there, because it disagrees confidently; that is why a disagreement is a
+ * FINDING here and not a failing test.
+ *
+ * Parsed as BigInt, narrowed only when it fits — the rule every operation
+ * below already follows.
+ */
+const numeralOf = (digits: string): bigint | number => {
+  const n = BigInt(digits)
+  return n <= BigInt(Number.MAX_SAFE_INTEGER) ? Number(n) : n
+}
+
 // `pow` deliberately returns a BigInt above MAX_SAFE_INTEGER so sealed mod-power filters cannot float-corrupt,
 // and `mulScalar` promotes to match — so `2 ^ 32 * 2 ^ 96 == 2 ^ 128` decided, while
 // `2 ^ 32 + 2 ^ 96 != 2 ^ 128` came back UNDECIDED because `asNum` throws "overflow" on a BigInt. One sealed
@@ -1420,7 +1448,7 @@ const atom = (c: Cursor): Val => {
           if (/[0-9]/.test(c.s[c.i] ?? '')) {
             const numStart = c.i
             while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
-            arg = Number(c.s.slice(numStart, c.i))
+            arg = numeralOf(c.s.slice(numStart, c.i))
           } else arg = atom(c)
           v = asFun(v).run(arg)
         } catch {
@@ -1435,7 +1463,7 @@ const atom = (c: Cursor): Val => {
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')
-  return postfix(c, Number(c.s.slice(start, c.i)))
+  return postfix(c, numeralOf(c.s.slice(start, c.i)))
 }
 
 /** `++` appends lists; `::` cons — sealed Wave census / Editor forms. */
