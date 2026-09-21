@@ -15,7 +15,9 @@ test('worker.js delegates /school/ to the routes module before the trials and th
   const school = src.indexOf("url.pathname.startsWith('/school/')")
   assert.ok(school > 0, 'the school doors are routed')
   assert.ok(school < src.indexOf('// Trial CRUD.'), 'before the trials')
-  assert.ok(school < src.indexOf('const asset = await env.ASSETS.fetch(assetReq)'), 'before the assets')
+  // anchored on the fallthrough CALL, not on the line that once declared it: the declaration was refactored into
+  // servedAsset and indexOf then returned -1, so the assertion passed a check it was no longer making
+  assert.ok(school < src.indexOf('env.ASSETS.fetch(assetReq)'), 'before the assets')
 })
 
 test('the rate limit reads the Worker\'s clock at the boundary, and certificates deposit through the MCP door', () => {

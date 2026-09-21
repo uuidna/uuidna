@@ -5,7 +5,8 @@ import assert from 'node:assert/strict'
 import { NUMERAL_ORDER, rankValueOf, lettersOf, numeralValueOf, readingOf } from './index.js'
 
 test('the rank rule derives every letter value from its numeral position', () => {
-  assert.deepEqual(Object.fromEntries(Object.entries(NUMERAL_ORDER).map(([s, o]) => [s, [...o].length])), { hebrew: 22, greek: 27, arabic: 28 })
+  assert.deepEqual(Object.fromEntries(Object.entries(NUMERAL_ORDER).map(([s, o]) => [s, [...o].length])), { hebrew: 22, greek: 27, arabic: 28, glagolitic: 27 },
+    'a fourth alphabet was seated and the census is stated, not implied: Glagolitic carries 27 numeral letters, the same count as Greek and by the same rule — nine units, nine tens, nine hundreds')
   assert.equal(rankValueOf(0), 1)
   assert.equal(rankValueOf(9), 10)
   assert.equal(rankValueOf(18), 100)

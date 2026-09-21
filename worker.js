@@ -290,10 +290,10 @@ export default {
      *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
      *  that decides the headers a built page leaves with. */
     const servedAsset = (asset, forPath) => {
-      const built = secured(new Headers(asset.headers))
-      built.set('link', `<${url.origin}/mcp>; rel="mcp"`)
-      built.set('cache-control', assetCacheControl(forPath))
-      return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers: built })
+      const headers = secured(new Headers(asset.headers))
+      headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
+      headers.set('cache-control', assetCacheControl(forPath))
+      return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers })
     }
 
     const host = url.hostname.toLowerCase()
@@ -538,7 +538,9 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const page = packagePage(pkgMatch[1])
       if (page) {
         return new Response(renderPackagePage(page, mcpHttpToolNames().map((n) => ({ name: n }))), {
-          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' })),
+          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate',
+            // EVERY page names the endpoint, rendered or built — paste any uuidna.com link and the door is in the header
+            link: `<${url.origin}/mcp>; rel="mcp"` })),
         })
       }
       // a name the catalogue does not publish falls through to the asset handler, which answers the site's own
@@ -567,7 +569,9 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const page = theoremPage(thMatch[1])
       if (page) {
         return new Response(renderTheoremPage(page), {
-          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' })),
+          headers: secured(new Headers({ 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate',
+            // EVERY page names the endpoint, rendered or built — paste any uuidna.com link and the door is in the header
+            link: `<${url.origin}/mcp>; rel="mcp"` })),
         })
       }
     }
