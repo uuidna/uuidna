@@ -254,8 +254,37 @@ const secured = (h) => {
   return h
 }
 
+/** EMAIL ROUTING, INBOUND — the other half of the send_email binding.
+ *
+ *  Cloudflare Email Routing accepts mail for the zone and, where a rule says so, hands the message to this worker
+ *  instead of a mailbox. The handler is the documented `email(message, env, ctx)` export: `message` carries from,
+ *  to, headers and the raw stream, and answers with forward(), reply() or setReject().
+ *
+ *  WHAT THIS DOES: forwards to the destination the environment names, and REJECTS with a reason when it names none.
+ *  It never drops a message silently. A silent drop is the worst outcome available here — the sender is told the
+ *  mail was accepted, the recipient never sees it, and nothing anywhere records that it existed. setReject gives
+ *  the sending server a 5xx it can report back, so a misdelivered message fails where the sender can see it.
+ *
+ *  WHAT IT DELIBERATELY DOES NOT DO: reply. An auto-reply is outbound mail sent on nobody's instruction, from an
+ *  address that carries this project's name, to whoever wrote in — including whoever forged a From header. The
+ *  binding to send is declared and env.EMAIL.send is available to code that a person asked for; nothing here sends
+ *  unbidden.
+ *
+ *  CLOUDFLARE DECIDES THE DESTINATION IS REAL, NOT THIS FILE: forward() only delivers to an address verified in
+ *  Email Routing for the zone, so an unverified EMAIL_DESTINATION fails at delivery with Cloudflare's own error
+ *  rather than being quietly accepted here. */
+const emailHandler = async (message, env) => {
+  const to = String(env?.EMAIL_DESTINATION ?? '').trim()
+  if (!to) {
+    message.setReject('uuidna accepts no mail at this address: no EMAIL_DESTINATION is configured for this worker, so there is nowhere to deliver it. Nothing was stored and nothing was forwarded.')
+    return
+  }
+  await message.forward(to)
+}
+
 export default {
   async fetch(request, env) {
+
     const url = new URL(request.url)
     /** ONE WAY TO SERVE A BUILT FILE. The theorem route below and the tail of this handler both answer with a static
      *  asset, and a file answered twice is a file that can be answered two different ways; this is the single place
@@ -549,4 +578,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
     const assetReq = assetUrl === url ? request : new Request(assetUrl, request)
     return servedAsset(await env.ASSETS.fetch(assetReq), assetUrl.pathname)
   },
+
+  // the inbound half, declared beside fetch so one worker answers both surfaces
+  email: emailHandler,
 }
