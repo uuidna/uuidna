@@ -36,18 +36,27 @@ const refutedAll = (leads.refuted ?? []).map((l, i) => ({ l, s: settlementAt(i) 
 const refuted = refutedAll.filter((r) => r.s?.stands === true).map((r) => r.l)
 const reopened = refutedAll.filter((r) => r.s?.stands !== true)
 const ask = (text: string): string => `${ASSIST}?q=${encodeURIComponent(text.slice(0, 300))}`
-const further = (l: Lead): string => `\n  <br><small><a href="${ask(l.lead)}" target="_blank" rel="noopener">take this one further \u2192</a></small>`
+const further = (l: Lead): string => `\n  <br>[take this one further \u2192](${ask(l.lead)})`
 const PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/i
 const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension))' : ''
+/** DATA IS NOT MARKUP, and this page is compiled as Vue. A lead carries whatever words were deposited, and the
+ *  court phrases the involution law with placeholders — def lead_<handle>, theorem involution_<handle> — which the
+ *  Vue compiler reads as an ELEMENT and then refuses for want of a closing tag. Measured 2026-09-21: 159 of them in
+ *  docs/leads.md failed the site build outright with "Element is missing end tag", so nothing shipped. The angle
+ *  brackets this generator writes itself (<br>, <small>, <q>) are markup and stay markup; everything arriving as
+ *  data is escaped, because a lead may contain any characters at all and none of them are this page structure.
+ *  Only the brackets are touched, so backticks and links in a lead still render as the markdown they are. */
+const say = (text: string): string => text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
 const line = (l: Lead): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}${bound(l.lead)}` +
-  (l.owes ? `\n  <br><small>owes: ${l.owes}</small>` : '') +
-  (l.killed_by ? `\n  <br><small>killed_by: ${l.killed_by}</small>` : '') +
+  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  (l.owes ? `\n  <br>_owes:_ ${say(l.owes)}` : '') +
+  (l.killed_by ? `\n  <br>_killed by:_ ${say(l.killed_by)}` : '') +
   further(l)
 const reopenedLine = ({ l, s }: { l: Lead; s: Settlement | null }): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}${bound(l.lead)}` +
-  (l.killed_by ? `\n  <br><small>claimed: <q>${l.killed_by}</q></small>` : '') +
-  `\n  <br><small>owes: the sealed theorem that proves what this settlement meant \u2014 ${s ? reopenedBecause(s) : 'the court has not tried it yet'}</small>` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +
+  (l.killed_by ? `\n  <br>_claimed:_ ${say(l.killed_by)}` : '') +
+  `\n  <br>_owes:_ the sealed theorem that proves what this settlement meant \u2014 ${s ? say(reopenedBecause(s)) : 'the court has not tried it yet'}` +
   further(l)
 
 const page = `---
