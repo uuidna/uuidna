@@ -88,6 +88,17 @@ run('node dist/scripts/support.js')                   // support-audit.json + re
 run('node dist/scripts/audit-citations.js')           // audit-citations.json — the publication citation audit
 run('node dist/scripts/account.js')                   // ABORTS here (non-zero) if the ledger does NOT reconcile
 run('node dist/scripts/trial-refusals.js')           // lean/refusal-trials.json — the COURT RECORD, computed LAST among the derivations: it reads the ledger, lean/axioms.json (rewritten above by lean-axioms) and the witness seals, and spin seals it, so it must come after every derivation and before the seal (PATCHES §46: computed before this chain, the record went stale and the heal alternated court ↔ spin six rounds, twice)
+// STAGE BEFORE SEALING, because spin seals what git TRACKS and the commit will contain what git has STAGED.
+// Measured on 2026-09-21: `develop` heal-looped on `src/chunks` drift and its cure "did not cure it" twice.
+// The sealed coin recomputed EXACTLY over the PREVIOUS commit's file set (70,949 files) while the tree held
+// 70,951 — a chunk this run generated was untracked at seal time, so the seal covered the set MINUS it, and
+// the commit then carried the set WITH it. Deterministic, not a race: verify re-coined a set the sealer had
+// never seen. spin's tracked-only rule is right (it keeps a shared checkout's debris out of the seal) and its
+// own doc names the remedy — "a newly generated derived file that has been `git add`ed IS listed and so IS
+// sealed, which keeps reconcile's generate-add-seal flow working". This chain had generate-SEAL-add.
+// Staging is not publishing: --derive-only still commits and pushes nothing, and staged output is reviewable
+// with `git diff --cached`. reconcile-order.test.ts holds the order so it cannot invert again.
+stageDerived(ROOT)
 run('node dist/scripts/spin.js --seal')
 // THE GUARD AT THE END IS THE ONE THAT DECIDES. Everything above has regenerated the derived layer; this reads
 // what the chain wrote, and the chain fails here if the tree is not clean. A reconcile that ends green means the

@@ -2,7 +2,7 @@
   "file": "Cyber.lean",
   "slug": "cyber",
   "status": "usable",
-  "address": "15b1ec48-a16a-886f-928f-23ea5e24c8d9",
+  "address": "61ef7689-c7af-8d3d-ba4f-40c1fd9e3766",
   "page": {
     "root": {
       "type": "root",
@@ -37,7 +37,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,636 leaves sit under 256 + 43,540 + 71,478 + 71,636 folders across the 4 levels, so with the root the store occupies 258,547 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,636 for 71,636), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt."
+                  "text": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,636 leaves sit under 256 + 43,541 + 71,478 + 71,636 folders across the 4 levels, so with the root the store occupies 258,548 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,636 for 71,636), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt."
                 }
               ]
             },
@@ -47,7 +47,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "(71636 + 256 + 43540 + 71478 + 71636 + 1 = 258547) ∧ (258547 > 3 * 71636)"
+                  "text": "(71636 + 256 + 43541 + 71478 + 71636 + 1 = 258548) ∧ (258548 > 3 * 71636)"
                 }
               ]
             },
@@ -57,7 +57,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_store_footprint_is_its_folders : (71636 + 256 + 43540 + 71478 + 71636 + 1 = 258547) ∧ (258547 > 3 * 71636) := by decide"
+                  "text": "theorem the_store_footprint_is_its_folders : (71636 + 256 + 43541 + 71478 + 71636 + 1 = 258548) ∧ (258548 > 3 * 71636) := by decide"
                 }
               ]
             }
