@@ -1,6 +1,6 @@
 # uuidna — 70,951 distinct theorems under 71,036 keys · 2 coins · one receipt
 
-`da1fc1c1-dd64-8455-bd9f-6a136d64b907`
+`e6baf71a-4c18-87a6-a7e7-c04b55236c82`
 
 **What every theorem carries, and what most do not.** proof · falsifier · address hold for 71,036 of 71,036; **witness 29 of 71,036** (0.0%), **symbol 1340 of 71,036** (1.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,036 theorems and 172,266,184 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,036 theorems and 172,266,178 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -264,7 +264,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `aef910a4-96cc-8017-923c-ff4021f0825b` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,266,184 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,266,178 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -302,7 +302,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,266,184** superpositions across **252** wings.
+The ledger covers **172,266,178** superpositions across **252** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -346,7 +346,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,266,184** superpositions decided across the ledger
+- **172,266,178** superpositions decided across the ledger
 - **142,072** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **1,212** superpositions per coin
 
@@ -369,13 +369,13 @@ The mathematical facts themselves are free for all — facts are not copyrightab
 specific expression and record. **One license for every uuidna publication and Zenodo deposit** — no per-publication drift.
 
 <!-- ports:begin -->
-**Alpine ported into 9 APIs.** 3497 packages, each domain answering through one door —
+**Alpine ported into 9 APIs.** 3498 packages, each domain answering through one door —
 provenance from Alpine's own published metadata, and one API of uuidna's own beside it.
 
 | domain | packages | origins | the one API offers |
 | --- | ---: | ---: | --- |
 | `shell` | 1279 | 680 | one exec door over uuidnaOS applets |
-| `driver` | 630 | 460 | the machine and the published bundle behind one door |
+| `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
 | `social` | 303 | 164 | a post addressed FOR an audience — attribution, order, no alteration |
@@ -385,7 +385,7 @@ provenance from Alpine's own published metadata, and one API of uuidna's own bes
 | `blockchain` | 29 | 19 | inclusion without disclosure |
 
 Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
-over-count rather than partition. Computed from the committed mirror on every build; receipt `c3d4e4e6-e4ee-8188-94fa-b7d81708ab92`.
+over-count rather than partition. Computed from the committed mirror on every build; receipt `fed53b78-c696-8f5e-8dcb-177646124ef2`.
 <!-- ports:end -->
 
 <!-- clay:begin -->

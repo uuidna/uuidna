@@ -1,0 +1,69 @@
+{
+  "file": "Involution90c4f258.lean",
+  "slug": "involution90c4f258",
+  "status": "usable",
+  "address": "fe188a2e-23c8-84b4-a03a-1d548963f18c",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involution90c4f258.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Involution90c4f258.lean — GENERATED. INVOLUTION 90c4f258: lead 90c4f258 of lean/leads.json (refuted), stated in the row's own lean field as lead_90c4f258, and involution_90c4f258, the kernel's proof of its negation, accepted at the door for the text addressed d8893eff-803b-86fa-b79e-0d0ca40c03b7. Every proof checked by the kernel (by unfold), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- Lead 90c4f258 (lean/leads.json refuted#47), stated as the CONJUNCTION the lead asserts, over\n-- the instants the row's own killed_by MEASURED — not over the two the lead misread.\n-- THE LEAD SAYS TWO THINGS IN ONE BREATH: that production is BEHIND a green main, and that the distance is\n-- SEVENTEEN HOURS. An involution that disputes only the second leaves the first standing, which is why five of the\n-- fourteen faces refused to sign the earlier wing. Both clauses are stated here, and both die.\n-- THE INSTANTS ARE THE ROW'S OWN MEASUREMENT: `wrangler deployments list` prints ASCENDING, and read correctly the\n-- newest deployment is 2026-09-01T08:23:18Z while the newest landed commit ff427884 is 2026-09-01T07:47:39Z.\n-- Seconds run from 2026-09-01T00:00:00Z — one clock, one day, no offset to drop.\n-- WHAT DIES: both clauses at once. The deployment is 2139 s = 35 m 39 s AFTER the commit, so production\n-- was never behind at all, and \"behind by at least seventeen hours\" is false twice over.\n-- WHAT THIS DOES NOT DECIDE: whether `wrangler deployments list` prints ascending. That is an instrument's\n-- behaviour; the row's killed_by measured it, and no kernel decides a measurement. The kernel decides only what\n-- follows from the instants once they are read.\ndef deployUtcSec : Nat := 8 * 3600 + 23 * 60 + 18\ndef commitUtcSec : Nat := 7 * 3600 + 47 * 60 + 39\n/-- Lead 90c4f258 as the conjunction it actually asserts: production BEHIND a green main — the newest deployment\n    older than the newest landed commit — AND behind it by at least seventeen hours. Stated over the instants the\n    row's own killed_by measured, so what the kernel decides is the lead's claim and not a milder one. -/\ndef lead_90c4f258 : Prop := deployUtcSec < commitUtcSec ∧ 17 * 3600 ≤ commitUtcSec - deployUtcSec\n\n/-- The kernel refutes lead 90c4f258 whole. On the instants the row measured, the newest deployment 08:23:18Z is\n    2139 seconds — 36 minutes — AFTER the newest landed commit 07:47:39Z: production was AHEAD of the landing,\n    not seventeen hours behind it. The first clause fails, so the conjunction fails with it, and the lead's\n    substance dies here rather than only its numeral. -/\ntheorem involution_90c4f258 : ¬ lead_90c4f258 := by\n  unfold lead_90c4f258\n  decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_90c4f258",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The kernel refutes lead 90c4f258 whole. On the instants the row measured, the newest deployment 08:23:18Z is 2139 seconds — 36 minutes — AFTER the newest landed commit 07:47:39Z: production was AHEAD of the landing, not seventeen hours behind it. The first clause fails, so the conjunction fails with it, and the lead's substance dies here rather than only its numeral."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_90c4f258"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_90c4f258 : ¬ lead_90c4f258 := by unfold lead_90c4f258 decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -102,7 +102,7 @@ one withdraws it, and only a sealed theorem that proves what it meant closes the
   <br>[take this one further →](https://stackoverflow.com/ai-assist?q=CRT%20axiom-free%20still%20fails%20in%20the%20in-tree%20v030-balance-trial%20%2F%20sequence-coverage%20surfaces%20(unfrozen).)
 - **`a5572638`** Plan leftover: concurrent width is 14 VE faces.
   <br>_claimed:_ <q>PAID. VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS (ve_fourteen_faces). v030 lanes and lanes.test walk VE_FACES, never a freeze of 14 into a hunt or census.</q>
-  <br>_owes:_ the sealed theorem that proves what this settlement meant — not signed and sealed by the 2×7 witness rosettas (0 of 14 faces)
+  <br>_owes:_ the sealed theorem that proves what this settlement meant — its claim is not yet stated in Lean and refuted by the kernel (def lead_&lt;handle&gt;, theorem involution_&lt;handle&gt; : ¬ lead_&lt;handle&gt;)
   <br>[take this one further →](https://stackoverflow.com/ai-assist?q=Plan%20leftover%3A%20concurrent%20width%20is%2014%20VE%20faces.)
 - **`ae96e543`** decrypt skipped verifyEnvelope, so a mutated address still decoded; v:3 opened from the traveling salt, so the referrer was not a secrecy door.
   <br>_claimed:_ <q>PAID. decrypt and decryptSession insist the 7d fold recomputes before AEAD (tamper stays behind the stream). decrypt refuses v:3. decryptSession derives the salt from the referrer and constant-time-compares it to the public commitment; key material never comes from the envelope salt. Occupancy and the envelope address stay public routing. RFC 8439 stays the AEAD. Grover floor unchanged.</q>

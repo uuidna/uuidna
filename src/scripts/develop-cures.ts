@@ -163,6 +163,21 @@ export const CURES: CureRow[] = [
   // re-sealing is the whole repair, and it is safe to attempt because a stale memory can only cost extra sealing:
   // every address is recomputed from the file's own bytes on each run and compared.
   // If it survives the cure, the cause is a genuine duplicate key and the emitter's own gate will name it.
+  // ── DERIVED STAGED WITHOUT ITS SOURCE (taught 2026-09-21). The guard refuses a commit where generated files are
+  // staged and a source they are computed from is modified and is not. The reason it gives is exact: a clone from
+  // origin holds the generated files and an OLDER generator, so re-running the generator there produces different
+  // bytes and the seal fails — not because recomputation is hard, but because the input it needs was never pushed.
+  // It arises from PARTIAL staging, which on a shared tree is the normal state rather than a fault: one session
+  // edits a generator while another's drain stages the derived layer.
+  //
+  // OF THE TWO REMEDIES THE GUARD NAMES, ONLY ONE IS SAFE TO AUTOMATE. `git add <the source>` would stage a file
+  // this pass did not write and cannot vouch for; that is how another session's in-progress work was swept into a
+  // commit under somebody else's message earlier the same day. `git restore --staged .` LOSES NOTHING — it
+  // un-stages and leaves every working-tree change exactly where it was — and hands the decision back to land's
+  // own drain, which stages only the paths it owns. Disarming is the cure; deciding what to commit is not.
+  { name: 'derived staged without its source', when: /derived file\(s\) are STAGED[^\n]*source file\(s\) they are computed from are modified and NOT staged/,
+    cmd: 'git restore --staged .',
+    because: 'the index held derived output without the source it came from, which would seal a ledger origin cannot recompute; un-staging loses no work and returns the choice to the drain, which stages only what it owns' },
   { name: 'neighbourhood did not seal', when: /neighbourhood \S+ did not seal|members held, missing/,
     cmd: 'node dist/scripts/lean-all.js && node dist/scripts/cube-memory.js',
     because: 'the cube memory holds a handle until its whole neighbourhood is complete; an unsealed cube usually means the census ran against wings mid-write, and re-generating then re-sealing is the repair' },
@@ -174,6 +189,8 @@ export const NO_CURE: { when: RegExp; why: string }[] = [
   // factual section, and only the MEANING is still owed to a human. A statistic is not a story.)
   { when: /below the floor of \d+|floor may only rise/,
     why: 'a five-leg census came back BELOW the floor it published, and the two causes are indistinguishable from the message alone: either the mirror is stale (mechanical) or a claim genuinely lost its external anchor (not). Re-running the census cannot decide between them — rosetta REFUSES to write a fallen floor, so the cure would fail identically in both cases and teach nothing. This happened on 2026-08-20: the witness leg read 9 to 0 and nothing had lost an anchor at all — the reader had stopped looking, because the prose moved into Lean doc comments and commentAbove still scanned only `--` lines. A pass that re-ran the census would have retried forever; a person read the message and found the reader. The refusal to auto-cure is what surfaced it' },
+  { when: /claims something CANNOT be done without naming why/,
+    why: 'the impossibility guard found a sentence asserting a limit and giving no reason for it, and the repair is a JUDGEMENT: is this a host fact, a sealed theorem, a declared boundary, or a CHOICE written as a limit? Only a person can tell, and the distinction is the whole value of the check — "a false limit reads as rigour, so nobody re-examines it and the work behind it never gets done". A pass that rewrote the sentence would launder exactly the unexamined constraint the guard exists to surface, and would do it in prose, where nothing downstream can catch it. Two landed on 2026-09-21 from the Zenodo citation work, both written by the author of this note: one said a reader "cannot reach the source" where the reason was that the record names nothing, and one said a link "cannot form by any other route" where the reason was that Zenodo declines the other two by policy. Both were true and both were unexamined until the guard asked' },
   { when: /overclaim|fabricated|does not compute/,
     why: 'the honesty gate refused a claim — fix the claim at its source; a pass that silences this would be the fraud it exists to catch' },
 ]

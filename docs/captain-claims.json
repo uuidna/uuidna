@@ -3,8 +3,8 @@
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71036,
-  "novelty_claimed": 70639,
-  "formalisation_only": 397,
+  "novelty_claimed": 70638,
+  "formalisation_only": 398,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -1202,6 +1202,13 @@
         "named"
       ],
       "evidence": "Euler"
+    },
+    {
+      "key": "involution_90c4f258",
+      "arms": [
+        "units"
+      ],
+      "evidence": "2139 seconds"
     },
     {
       "key": "jump_records_ascend",
@@ -2746,13 +2753,13 @@
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 368,
+    "floor": 369,
     "by_arm": {
       "named": 148,
       "eponym": 96,
-      "units": 160
+      "units": 161
     },
-    "found_by_one_arm_only": 334,
+    "found_by_one_arm_only": 335,
     "all_arms_agree": 2,
     "ground_truth_sensitivity": "21/29",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
@@ -7315,8 +7322,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "ae8d2289-c39e-8536-bd82-757518d676b5",
-      "address": "d3a37293-0059-8fc7-b2df-1fa7ff7bb0fb",
+      "lineAddress": "257aa589-6a33-8e77-bbce-6d8cecc7cc53",
+      "address": "4dc318fa-bafa-8588-90bc-76366b034fa1",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7672,8 +7679,8 @@
     },
     {
       "key": "the_axiom_index_partitions_without_remainder",
-      "lineAddress": "cdf5d8b6-dbf1-894f-9f21-b61819eec283",
-      "address": "cb31ff36-2e0b-81ce-9a7d-8cc110dec9b2",
+      "lineAddress": "82c635d5-503a-89b8-a06d-6e3c02b31635",
+      "address": "edf8b86f-2422-84f5-92ad-18cd43422a61",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7737,8 +7744,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "7b19a0aa-a69c-8d4b-b4aa-92dbf8322da4",
-      "address": "37b17349-9552-870e-ac79-b335e9120537",
+      "lineAddress": "7cb6ee0f-98df-8c9c-ab62-29ab46fe0468",
+      "address": "47219ed8-4777-886d-b74a-093e54f33bfb",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -9557,8 +9564,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "cf439ca9-e79c-8018-b6bf-1d727069059c",
-      "address": "581fd703-540a-8480-b557-e2a7fc89f8d6",
+      "lineAddress": "d3b15432-b579-8a50-b92c-af78cbc7074d",
+      "address": "4cd03cf1-0783-80bf-b293-05a96febe73e",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10036,8 +10043,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "e116e16e-df65-8a17-aa92-dc090fe4fa52",
-      "address": "bbf6fed9-302f-8a77-9307-e539b375503c",
+      "lineAddress": "ff77456a-2c20-83b6-a56b-518a26b0b206",
+      "address": "5074bccf-ae7b-8658-829c-e130f4d91a2a",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -500041,11 +500048,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "2fd20b7d-32c7-85a1-924a-15571fe2c7bc",
+  "claim_receipt": "cc02abf8-0c52-8c68-8d4a-9b3728f9fcab",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71036; he claims discovery of 70639 and credits the other 397 facts to their named sources",
+      "The captain formalised all 71036; he claims discovery of 70638 and credits the other 398 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500054,9 +500061,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 398 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70639, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70638, and the remaining 398 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

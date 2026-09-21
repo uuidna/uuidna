@@ -14,7 +14,9 @@ import { softwareArchiveRelatedIdentifiers } from './zenodo-seals.js'
  * Zenodo's own FAQ says inbound citations are discovered by Crossref, NASA ADS
  * and Europe PMC — not something a depositor arranges. Outbound ones are
  * entirely the depositor's: a record says what it rests on, or a reader who
- * finds the record first cannot reach the source.
+ * finds the record first has nothing to follow — by construction, the record
+ * is the whole of what they hold, and an undeclared source appears in it
+ * nowhere.
  *
  * This ledger computes that set per theorem and, until this was written, the
  * deposit said nothing about it: five papers the theorems depend on, absent

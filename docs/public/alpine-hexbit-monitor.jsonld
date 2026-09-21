@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:65234cf8-3f30-8241-9732-af0542c96217",
+  "@id": "urn:uuid:f5de0c81-41aa-8faa-a677-477408095831",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit monitor",
   "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress displays that witness plus provenance compile coverage and the compile timings measured on the build host.",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "8ddc9d3c-a3de-8c71-ba34-776bfb001445",
+  "identifier": "5e51356e-d5dc-8570-9c6a-82a0bb5f8551",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -75,7 +75,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — packages",
-      "value": 22670,
+      "value": 22679,
       "unitText": "packages",
       "measurementTechnique": "measured",
       "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter"
@@ -83,7 +83,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — ported",
-      "value": 22670,
+      "value": 22679,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness"
@@ -99,7 +99,7 @@
     {
       "@type": "PropertyValue",
       "name": "package self-test — passed",
-      "value": 28635,
+      "value": 28644,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "packageSelfTestCoverage() — every catalogue row tests itself; named gaps closed from published testing"

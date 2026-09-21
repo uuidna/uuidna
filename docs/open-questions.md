@@ -84,7 +84,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`involution_90c4f258`](/theorem/involution_90c4f258) </small>
+  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) </small>
   <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) · [`reconciled_generator_sat_inside_the_truncated_run`](/theorem/reconciled_generator_sat_inside_the_truncated_run) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 

@@ -1,22 +1,22 @@
 {
   "definition": "alpine-port·theorem·axiom·discovery",
-  "packages": 28635,
-  "origins": 16083,
+  "packages": 28644,
+  "origins": 16088,
   "bindings": {
     "harmonised": 2054,
     "crypto": 3084,
-    "port": 23497
+    "port": 23506
   },
   "bindingOrigins": {
     "harmonised": 1288,
     "crypto": 2816,
-    "port": 13833
+    "port": 13838
   },
   "theorems": [
     {
       "key": "the_os_is_bootable_quantum",
-      "packages": 23497,
-      "origins": 13833
+      "packages": 23506,
+      "origins": 13838
     },
     {
       "key": "sha256_grover_margin_is_the_address",
@@ -96,19 +96,19 @@
   ],
   "harvest": [
     {
-      "key": "alpine_bindings_partition_packages_28635",
-      "fragment": "2054+3084+23497=28635",
-      "lean": "theorem alpine_bindings_partition_packages_28635 : (2054 + 3084 + 23497 = 28635) := by decide",
-      "packages": 28635,
-      "origins": 16083,
+      "key": "alpine_bindings_partition_packages_28644",
+      "fragment": "2054+3084+23506=28644",
+      "lean": "theorem alpine_bindings_partition_packages_28644 : (2054 + 3084 + 23506 = 28644) := by decide",
+      "packages": 28644,
+      "origins": 16088,
       "sample": "every package holds exactly one binding — the classes are exhaustive and disjoint"
     },
     {
-      "key": "alpine_binding_origins_overcount_16083",
-      "fragment": "1288+2816+13833=17937",
-      "lean": "theorem alpine_binding_origins_overcount_16083 : (1288 + 2816 + 13833 = 17937) ∧ (17937 - 16083 = 1854) := by decide",
-      "packages": 28635,
-      "origins": 16083,
+      "key": "alpine_binding_origins_overcount_16088",
+      "fragment": "1288+2816+13838=17942",
+      "lean": "theorem alpine_binding_origins_overcount_16088 : (1288 + 2816 + 13838 = 17942) ∧ (17942 - 16088 = 1854) := by decide",
+      "packages": 28644,
+      "origins": 16088,
       "sample": "1854 origins ship into more than one class — origins do NOT partition"
     }
   ],
@@ -119,6 +119,6 @@
     "exposed": 0,
     "refuted": 0
   },
-  "receipt": "919ba752-7439-89da-98ff-27541353d078",
+  "receipt": "427830dd-c32c-81a4-b3b8-c3fe2619997b",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

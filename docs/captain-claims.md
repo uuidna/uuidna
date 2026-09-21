@@ -4,10 +4,10 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Formalisation claimed:** 71036/71036 theorems — every one, by construction
-**Discovery claimed:** 70639 — the other 397 restate a fact a named source found first
+**Discovery claimed:** 70638 — the other 398 restate a fact a named source found first
 
-*The 397 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 368 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 21/29 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `2fd20b7d-32c7-85a1-924a-15571fe2c7bc`
+*The 398 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 335 of 369 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 21/29 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `cc02abf8-0c52-8c68-8d4a-9b3728f9fcab`
 
 ### Facts the captain does not claim to have discovered
 
@@ -466,7 +466,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `e116e16e-df65-8a17-aa92-dc090fe4fa52`
+- **Sample lineAddress:** `ff77456a-2c20-83b6-a56b-518a26b0b206`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2366,7 +2366,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71036; he claims discovery of 70639 and credits the other 397 facts to their named sources
+- ✓ The captain formalised all 71036; he claims discovery of 70638 and credits the other 398 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2375,14 +2375,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 398 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70639, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70638, and the remaining 398 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

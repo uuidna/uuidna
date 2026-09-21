@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="246 keys" />
+# MCP tools <Badge type="tip" text="247 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 246 tools below are read from the server's own tool list and
+is **built from the keys**: the 247 tools below are read from the server's own tool list and
 organised into 37 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 9387b7f5-ae9c-8926-9b70-9bf61c026f8a
+gate CLEAN f0 d0 v0 · 9809d9dd-43c4-8fb8-9694-1e87d5a744de
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 246-tool registry folds to its
-order-invariant identity `6e2beb1e-7dc0-8e90-8e19-5b5cba5663c9` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 247-tool registry folds to its
+order-invariant identity `5ac8ec66-793d-87dc-b5fc-5b8d7ceb2760` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`246`" />
+## The grid <Badge type="tip" :text="`247`" />
 
-246 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 117 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+247 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 118 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>fetch_aas</code></a>
@@ -141,6 +141,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-review-domains"><code>review_domains</code></a>
 <a href="#uuidna-rights"><code>get_rights</code></a>
 <a href="#uuidna-rosetta-legs"><code>get_verification_legs</code></a>
+<a href="#uuidna-rosetta-seals"><code>rosetta_seals</code></a>
 <a href="#uuidna-sanitize"><code>sanitize_value</code></a>
 <a href="#uuidna-school-apis"><code>fetch_school_apis</code></a>
 <a href="#uuidna-search-feed"><code>search_feed</code></a>
@@ -415,7 +416,7 @@ Call `get_handle` — the old name `uuidna_handle` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"address":"0e727c3d-1bdd-8264-8abd-559943a16f6b","handle":"0e727c3d","path":"src/handles/0e/72/7c/3d/index.json","parts":["0e","72","7c","3d"],"roundTrip":tru…
+{"address":"da1fc1c1-dd64-8455-bd9f-6a136d64b907","handle":"da1fc1c1","path":"src/handles/da/1f/c1/c1/index.json","parts":["da","1f","c1","c1"],"roundTrip":tru…
 ```
 
 **Parameters**
@@ -536,7 +537,7 @@ Call `get_strict` — the old name `uuidna_strict` still answers · read-only ·
 
 The STRICT content-address: normalise the input (so equivalent values converge) then address it — strictUuidna(3) === strictUuidna(" 3 "). Omit text for sweaterOf — trinity / thirdEye / allSeeingEye (alseeing eay) / ideas (each one particle) / guardians / creators via the same door.
 
-## Other <Badge type="tip" :text="'124'" />
+## Other <Badge type="tip" :text="'125'" />
 
 *skill: other*
 
@@ -657,7 +658,7 @@ Call `get_coins` — the old name `uuidna_coins` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"coins":2,"unit":2,"seals":71035,"minted":142070,"capacity":128,"referrerDoors":6,"combinations":42,"max":5376,"remaining":-136694,"capSeals":2688,"unsealed":…
+{"coins":2,"unit":2,"seals":71036,"minted":142072,"capacity":128,"referrerDoors":6,"combinations":42,"max":5376,"remaining":-136696,"capSeals":2688,"unsealed":…
 ```
 
 _No parameters._
@@ -709,13 +710,13 @@ Unlock board from theorems(): each sealed by-decide key unlocks its statement. R
 
 **Get latex crosscheck.** Returns {surfaces,leads,byKind,agree,receipt,honest}.
 
-Call `get_latex_crosscheck` — the old name `uuidna_latex_crosscheck` still answers · read-only · idempotent
+Call `get_latex_crosscheck` — the old name `uuidna_latex_crosscheck` still answers · read-only · idempotent · varies
 
 ```json
 // arguments
 {}
-// answer (excerpt)
-{"surfaces":{"wings":71035,"ledger":71035,"paper":5499,"selfChecked":5499},"leads":[],"byKind":{},"agree":true,"receipt":"93929a2d-4810-8ac6-9f32-4ed07d9e016c"…
+// answer
+(varies between calls: the answer reads a clock, the machine or the network)
 ```
 
 _No parameters._
@@ -1076,7 +1077,7 @@ Call `get_latex` — the old name `uuidna_latex` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"total":71035,"formula":1458,"program":69577,"refused":0,"manuscript":"https://uuidna.com/uuidna-ledger.tex"}
+{"total":71036,"formula":1458,"program":69578,"refused":0,"manuscript":"https://uuidna.com/uuidna-ledger.tex"}
 ```
 
 **Parameters**
@@ -1138,7 +1139,7 @@ Call `get_lattice` — the old name `uuidna_lattice` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"stations":65536,"occupied":5692,"vacant":59844,"theoremsSeated":5499,"axiomsSeated":450,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
+{"stations":65536,"occupied":5692,"vacant":59844,"theoremsSeated":5500,"axiomsSeated":450,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
 ```
 
 **Parameters**
@@ -1273,7 +1274,7 @@ Call `get_reports` — the old name `uuidna_reports` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"sections":[{"title":"Theorem accounting (ledger balance)","source":null,"present":true,"facts":{"distinct":70950,"keys":71035,"renamings":85,"principles":252…
+{"sections":[{"title":"Theorem accounting (ledger balance)","source":null,"present":true,"facts":{"distinct":70951,"keys":71036,"renamings":85,"principles":252…
 ```
 
 _No parameters._
@@ -1315,7 +1316,7 @@ Call `detect_traitors` — the old name `uuidna_treason` still answers · read-o
 // arguments
 {}
 // answer (excerpt)
-{"clean":true,"scanned":71035,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-integrity","hex…
+{"clean":true,"scanned":71036,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-integrity","hex…
 ```
 
 _No parameters._
@@ -1353,7 +1354,7 @@ Call `get_axiom_witness` — the old name `uuidna_axiom_witness` still answers �
 // arguments
 {}
 // answer (excerpt)
-{"shipped":true,"measured":true,"holds":true,"audited":71035,"axiomFree":71035,"ledger":71035,"offenders":{},"receipt":"ab0cac15-e259-8253-8c5f-0ea0b74692fa","…
+{"shipped":true,"measured":true,"holds":true,"audited":71036,"axiomFree":71036,"ledger":71036,"offenders":{},"receipt":"9c6dd457-3607-819b-8882-33c078ac060e","…
 ```
 
 _No parameters._
@@ -1361,6 +1362,16 @@ _No parameters._
 THE KERNEL-ONLY WITNESS, verified OFFLINE — the axiom audit receipt (lean/axioms.json, from the toolchain's `#print axioms` sweep) ships beside dist, so the "no borrowed axiom" claim recomputes WITHOUT the repo or the toolchain: the audit must cover the whole live ledger (a new unaudited theorem trips it), every theorem must be kernel-only (no propext, Classical.choice, sorryAx or Lean.ofReduceBool), and no offender may be listed. This ledger borrows ZERO axioms, so none is load-bearing here — not a claim about mathematics at large. Returns {shipped,holds,audited,axiomFree,ledger,offenders,receipt,honest}; shipped:false means no receipt beside dist. it verifies the SEALED receipt against the live ledger count; re-DERIVING it still needs the Lean toolchain. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
 
 THE KERNEL-ONLY WITNESS, verified OFFLINE — the axiom audit receipt (lean/axioms.json, written by the Lean toolchain's `#print axioms` sweep) SHIPS with the package beside dist, so the "no borrowed axiom" claim recomputes WITHOUT the repo or the toolchain: the audit must cover the whole live ledger (audited = ledger — a new, unaudited theorem trips it), every theorem must be kernel-only (no propext, no Classical.choice, no sorryAx, no Lean.ofReduceBool), and no offender may be listed — an offender is the SPY the witness catches (the captain's claim "all axioms are replaceable, the uncovered are spies" demarcated to its backed form: this ledger borrows ZERO axioms, so no axiom is load-bearing here; not a claim about mathematics at large). This is a repo-only check moved INTO the shipped package — offline independence, the knowledge living where it recomputes. integrity, not truth (theorem provenance_integrity_not_content_truth) — it verifies the SEALED receipt against the live ledger count; re-DERIVING the receipt still needs the Lean toolchain (`npm run axioms`, the guard, CI). shipped:false means no receipt is beside dist (defer to the guard). Returns {shipped,holds,audited,axiomFree,ledger,offenders,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
+
+### `uuidna_rosetta_seals` {#uuidna-rosetta-seals}
+
+
+
+_No parameters._
+
+WHICH REFUTATIONS THE 2×7 WITNESS ROSETTAS HAVE SIGNED — and which the court still holds open. A wing that compiles is NOT a closed lead: the kernel proves the statement, and the fourteen faces judge whether the statement is the LEAD. Seven witnesses recompile the wing and read its axioms, seven judge its faithfulness, and a dissent on faithfulness is exactly the overreach these signatures exist to catch (one involution here drew five, for refuting only the numeral in its lead while the lead's substance survived). Every verdict theorem the ledger seals (`involution_&amp;lt;handle&amp;gt;`, `proof_&amp;lt;handle&amp;gt;`) is listed with the faces it carries of VE_FACES, its sealed fold, and the computed reason it is not closed. The seal file does not ship, so the served package reports sealsMeasured:false and every seal column null — UNMEASURED, never a finding that nothing is signed. Returns {faces,sealsMeasured,rows:[{handle,theorem,kind,inLedger,faces,seal,signed,owes}],sealedCount,owingCount,owing,receipt,honest}. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
+
+WHICH REFUTATIONS THE 2×7 WITNESS ROSETTAS HAVE SIGNED (the captain, 2026-09-14: "unless signed and sealed by the 2x7 withness rosettas nothing is legal"). FOUR THINGS MUST HOLD AT ONCE for a refuted lead to be closed, and before this door each had to be computed by hand from a different file: the ledger must SEAL the verdict theorem; the kernel must have ACCEPTED the wing with no axiom; all VE_FACES (8 + 6) faces must SIGN; and the signatures must be LEGAL — distinct faces, each citing a theorem the ledger actually carries. A wing that compiles but is unsigned reads, to any finder that only searches the ledger, exactly like a closed lead; it is not one, and the court reopens it by default. THE FACES ARE NOT A FORMALITY: face i is witness i's own kernel recompile (its own copy, its own `#print axioms`, and a CONTROL the kernel must refuse — an instrument that cannot fail proves nothing), and face VE_FACES/2 + i is the same witness's faithfulness judgment, refused when the Prop states a milder claim than the lead, assumes a premise the row disputes, or carries prose claiming more than it decides. Pure given the tree: no clock, no RNG, every figure recomputed from the ledger and the seal file rather than recorded. The seal file is repo-only and the ledger is not, so a served run answers sealsMeasured:false with every seal column null rather than throwing — the absence of a measurement, never a zero. Returns {definition,faces,sealsMeasured,rows,sealedCount,owingCount,owing,receipt,honest}. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
 ### `fetch_repos` {#uuidna-repos}
 
@@ -1437,7 +1448,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":71035,"total":true,"failures":[],"receipt":"43f09a43-e6ca-80c1-ad94-4bea9afe8e12","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":71036,"total":true,"failures":[],"receipt":"18c1b646-82bc-89a8-b828-854941e905af","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1460,7 +1471,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":71035,"skills":122,"principles":252,"receipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":71036,"skills":122,"principles":252,"receipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -2008,7 +2019,7 @@ Call `get_credits_summary` — the old name `uuidna_credits_summary` still answe
 // arguments
 {}
 // answer (excerpt)
-{"total":71035,"historical":1619,"contextual":981,"captainAlone":68435,"address":"079a4c18-12ca-88de-bc32-923fa3f92275"}
+{"total":71036,"historical":1619,"contextual":981,"captainAlone":68436,"address":"b19f712f-ca4b-8fad-8575-9dc9e01f27fd"}
 ```
 
 _No parameters._
@@ -2112,7 +2123,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":71035,"verified":71035,"unverified":0,"receipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":71036,"verified":71036,"unverified":0,"receipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2257,7 +2268,7 @@ Call `get_lean_index` — the old name `uuidna_lean_index` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"propositions":70950,"entries":71035,"index":[{"leanUuid":"0764f3a2-a09a-83fe-9d81-8c6928d7de1a","statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"]…
+{"propositions":70951,"entries":71036,"index":[{"leanUuid":"0764f3a2-a09a-83fe-9d81-8c6928d7de1a","statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"]…
 ```
 
 _No parameters._
@@ -2274,7 +2285,7 @@ Call `get_statement_census` — the old name `uuidna_statement_census` still ans
 // arguments
 {}
 // answer (excerpt)
-{"entries":71035,"distinct":70950,"renamings":85,"groups":[{"statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"],"files":["Core.lean","Ring.lean"]},{"…
+{"entries":71036,"distinct":70951,"renamings":85,"groups":[{"statement":"(1 * 1) % 9 = 1","keys":["mul9_1_1","z9mul_1_1"],"files":["Core.lean","Ring.lean"]},{"…
 ```
 
 _No parameters._
@@ -2403,7 +2414,7 @@ Call `search_ledger` — the old name `uuidna_search` still answers · read-only
 // arguments
 {"q":"mul9_1_1"}
 // answer (excerpt)
-{"q":"mul9_1_1","count":1,"total":71035,"receipt":"f0b58c9c-d571-81ff-b82d-07db3a0e2aea","handle":"f0b58c9c","hexbits":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…
+{"q":"mul9_1_1","count":1,"total":71036,"receipt":"f0b58c9c-d571-81ff-b82d-07db3a0e2aea","handle":"f0b58c9c","hexbits":[15,0,11,5,8,12,9,12,13,5,7,1,8,1,15,15,…
 ```
 
 **Parameters**
@@ -2588,7 +2599,7 @@ Call `audit_ledger_intrusions` — the old name `uuidna_audit_ledger_intrusions`
 // arguments
 {}
 // answer (excerpt)
-{"traitors":{"clean":true,"scanned":71035,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-int…
+{"traitors":{"clean":true,"scanned":71036,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invariants","seal-int…
 ```
 
 _No parameters._
@@ -2605,7 +2616,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":71035,"fnvReceipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b","sha256":"29f37c676de0aa78c574fbec4a02e994d303d84b713e304fd7213e8c47bf38e6","…
+{"fingerprint":{"count":71036,"fnvReceipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907","sha256":"fb919a1bfa1976dc3d952b5d08510ad8c77e3061fcce0d3812c7a7383b96fbc0","…
 ```
 
 **Parameters**
@@ -2649,7 +2660,7 @@ Call `audit_full_anti_fraud` — the old name `uuidna_full_anti_fraud_audit` sti
 // arguments
 {}
 // answer (excerpt)
-{"intrusions":{"traitors":{"clean":true,"scanned":71035,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invaria…
+{"intrusions":{"traitors":{"clean":true,"scanned":71036,"traitors":[],"checks":["dna-recomputes","no-key-collision","no-address-collision","conformance-invaria…
 ```
 
 _No parameters._
@@ -3228,7 +3239,7 @@ Call `call_tool` — the old name `uuidna_call` still answers · changes state �
 | `name` | string | no | the tool to run |
 | `arguments` | object | no | its arguments |
 
-THE DOOR THAT COVERS THE CATALOGUE, in tools/call's own keys. tools/list carries list_tools, this door and the tools the server's instructions name; call_tool {name, arguments} runs every other tool exactly as tools/call would, and tools/call still accepts every name and alias directly. The first door's keys, {op, args}, {q} and {}, still answer. Opens 245 tools: uuidna_address, uuidna_uuid_channel, uuidna_handle, uuidna_invitation, uuidna_lead_clusters, uuidna_handle_store, uuidna_send_trial, uuidna_seal_channel, uuidna_open_channel, uuidna_merge, uuidna_coin64, uuidna_gate, uuidna_reeducate, uuidna_merkle_root, uuidna_merkle_prove, uuidna_merkle_proof, uuidna_merkle_verify, uuidna_imprint, uuidna_read, uuidna_bill, uuidna_coins, uuidna_license, uuidna_tokens, uuidna_cost, uuidna_unlocks, uuidna_security_audit, uuidna_latex_crosscheck, uuidna_verify_statement, uuidna_trial_deposit, uuidna_conformance, uuidna_exploit_fold, uuidna_sanitize, uuidna_engine, uuidna_pentagram_monographs, uuidna_spin, uuidna_transform, uuidna_holofractal, uuidna_pentagram_stream, uuidna_encrypt, uuidna_seal_stream, uuidna_decrypt, uuidna_verify_envelope, uuidna_seal_onion, uuidna_open_onion, uuidna_seal_chain, uuidna_open_chain, uuidna_contract, uuidna_contract_seal, uuidna_contract_open, uuidna_contract_chain, uuidna_contract_open_chain, uuidna_audit_details, uuidna_grid, uuidna_pairs, uuidna_quantum_sailing_weather, uuidna_quantum_sailing_cross_book, uuidna_report, uuidna_research, uuidna_audit_video, uuidna_expose, uuidna_wave_deposit, uuidna_api_mint, uuidna_domains, uuidna_coprime, uuidna_pentagram, uuidna_fibonacci, uuidna_rotate, uuidna_crt, uuidna_gravity, uuidna_digital_root, uuidna_adjudicate, uuidna_prove_verdict, uuidna_verify, uuidna_harness, uuidna_harness7, uuidna_render, uuidna_sha256, uuidna_hmac, uuidna_pbkdf2, uuidna_chacha20, uuidna_poly1305, uuidna_aead_encrypt, uuidna_aead_decrypt, uuidna_crypto, uuidna_strict, uuidna_units, uuidna_triad, uuidna_vortex, uuidna_latex, uuidna_through_void, uuidna_run_sequence, uuidna_living_field, uuidna_vortex_reflection, uuidna_vortex_dash, uuidna_vortex_tour, uuidna_vortex_invariants, uuidna_development_vortex, uuidna_double_torus, uuidna_diamond, uuidna_involute, uuidna_seats, uuidna_render_list, uuidna_hologram, uuidna_fanout, uuidna_theorems, uuidna_lattice, uuidna_skills, uuidna_skill, uuidna_team, uuidna_cloudflare, uuidna_review_domains, uuidna_document, uuidna_coverage, uuidna_reactor, uuidna_open_leads, uuidna_leads_gate, uuidna_open_questions, uuidna_missions, uuidna_theorem, uuidna_laws, uuidna_reports, uuidna_analytics, uuidna_decode, uuidna_treason, uuidna_guard_lessons, uuidna_axiom_witness, uuidna_repos, uuidna_aura, uuidna_quantum_message, uuidna_theorem_message, uuidna_dictionary, uuidna_quantum_voting, uuidna_agent_contribute, uuidna_rights, uuidna_seo, uuidna_hero_animation, uuidna_try, uuidna_oeapi, uuidna_predict, uuidna_school_apis, uuidna_education_jobs, uuidna_hardware, uuidna_software, uuidna_os, uuidna_exec, uuidna_run, uuidna_port, uuidna_related, uuidna_registry, uuidna_alpine, uuidna_package, uuidna_context, uuidna_machine, uuidna_credits, uuidna_credits_summary, uuidna_neighbours, uuidna_axiom_index, uuidna_discovery_train, uuidna_publish, uuidna_edit, uuidna_vocabulary, uuidna_resources, uuidna_prior_art, uuidna_legal_facts, uuidna_land_rights, uuidna_reflects, uuidna_due_process, uuidna_cloudflare_audit, uuidna_sign, uuidna_reveal, uuidna_slim_gate, uuidna_reason, uuidna_fingerprint, uuidna_forensics, uuidna_evidence, uuidna_compare, uuidna_wave, uuidna_trial, uuidna_css, uuidna_by_lean, uuidna_lean_index, uuidna_statement_census, uuidna_coin_ledger, uuidna_crew, uuidna_coins_jobs, uuidna_decide, uuidna_optimise, uuidna_search, uuidna_search_feed, uuidna_article, uuidna_editorial, uuidna_publication, uuidna_search_trial, uuidna_mcp_benchmark, uuidna_unify, uuidna_quantum_profile, uuidna_social_profile, uuidna_grow_life, uuidna_quantum_cube, uuidna_image_provenance, uuidna_selftest, uuidna_gate_status, uuidna_send, uuidna_receive, uuidna_quantum, uuidna_quantum_advantage, uuidna_fill_gaps, uuidna_detect_forgery, uuidna_audit_coin_claim, uuidna_detect_double_spends, uuidna_audit_voting, uuidna_audit_ledger_intrusions, uuidna_audit_ledger_fingerprint, uuidna_audit_agent_statement, uuidna_full_anti_fraud_audit, uuidna_quantum_message_demo, uuidna_energy_wind, uuidna_energy_biogas, uuidna_energy_mfc, uuidna_energy_photon, uuidna_research_ledger, uuidna_rosetta_legs, uuidna_ports, uuidna_chat, uuidna_shell, uuidna_fs_seal, uuidna_db_query, uuidna_chain_seal, uuidna_net_read, uuidna_driver_state, uuidna_security_plan, uuidna_declare_spend, uuidna_social, uuidna_engineering, uuidna_refusals, uuidna_cern, uuidna_aas, uuidna_zenodo_communities, uuidna_journals, uuidna_doi, uuidna_qc, uuidna_port_all, uuidna_interface, uuidna_os_census, uuidna_list_tools.
+THE DOOR THAT COVERS THE CATALOGUE, in tools/call's own keys. tools/list carries list_tools, this door and the tools the server's instructions name; call_tool {name, arguments} runs every other tool exactly as tools/call would, and tools/call still accepts every name and alias directly. The first door's keys, {op, args}, {q} and {}, still answer. Opens 246 tools: uuidna_address, uuidna_uuid_channel, uuidna_handle, uuidna_invitation, uuidna_lead_clusters, uuidna_handle_store, uuidna_send_trial, uuidna_seal_channel, uuidna_open_channel, uuidna_merge, uuidna_coin64, uuidna_gate, uuidna_reeducate, uuidna_merkle_root, uuidna_merkle_prove, uuidna_merkle_proof, uuidna_merkle_verify, uuidna_imprint, uuidna_read, uuidna_bill, uuidna_coins, uuidna_license, uuidna_tokens, uuidna_cost, uuidna_unlocks, uuidna_security_audit, uuidna_latex_crosscheck, uuidna_verify_statement, uuidna_trial_deposit, uuidna_conformance, uuidna_exploit_fold, uuidna_sanitize, uuidna_engine, uuidna_pentagram_monographs, uuidna_spin, uuidna_transform, uuidna_holofractal, uuidna_pentagram_stream, uuidna_encrypt, uuidna_seal_stream, uuidna_decrypt, uuidna_verify_envelope, uuidna_seal_onion, uuidna_open_onion, uuidna_seal_chain, uuidna_open_chain, uuidna_contract, uuidna_contract_seal, uuidna_contract_open, uuidna_contract_chain, uuidna_contract_open_chain, uuidna_audit_details, uuidna_grid, uuidna_pairs, uuidna_quantum_sailing_weather, uuidna_quantum_sailing_cross_book, uuidna_report, uuidna_research, uuidna_audit_video, uuidna_expose, uuidna_wave_deposit, uuidna_api_mint, uuidna_domains, uuidna_coprime, uuidna_pentagram, uuidna_fibonacci, uuidna_rotate, uuidna_crt, uuidna_gravity, uuidna_digital_root, uuidna_adjudicate, uuidna_prove_verdict, uuidna_verify, uuidna_harness, uuidna_harness7, uuidna_render, uuidna_sha256, uuidna_hmac, uuidna_pbkdf2, uuidna_chacha20, uuidna_poly1305, uuidna_aead_encrypt, uuidna_aead_decrypt, uuidna_crypto, uuidna_strict, uuidna_units, uuidna_triad, uuidna_vortex, uuidna_latex, uuidna_through_void, uuidna_run_sequence, uuidna_living_field, uuidna_vortex_reflection, uuidna_vortex_dash, uuidna_vortex_tour, uuidna_vortex_invariants, uuidna_development_vortex, uuidna_double_torus, uuidna_diamond, uuidna_involute, uuidna_seats, uuidna_render_list, uuidna_hologram, uuidna_fanout, uuidna_theorems, uuidna_lattice, uuidna_skills, uuidna_skill, uuidna_team, uuidna_cloudflare, uuidna_review_domains, uuidna_document, uuidna_coverage, uuidna_reactor, uuidna_open_leads, uuidna_leads_gate, uuidna_open_questions, uuidna_missions, uuidna_theorem, uuidna_laws, uuidna_reports, uuidna_analytics, uuidna_decode, uuidna_treason, uuidna_guard_lessons, uuidna_axiom_witness, uuidna_rosetta_seals, uuidna_repos, uuidna_aura, uuidna_quantum_message, uuidna_theorem_message, uuidna_dictionary, uuidna_quantum_voting, uuidna_agent_contribute, uuidna_rights, uuidna_seo, uuidna_hero_animation, uuidna_try, uuidna_oeapi, uuidna_predict, uuidna_school_apis, uuidna_education_jobs, uuidna_hardware, uuidna_software, uuidna_os, uuidna_exec, uuidna_run, uuidna_port, uuidna_related, uuidna_registry, uuidna_alpine, uuidna_package, uuidna_context, uuidna_machine, uuidna_credits, uuidna_credits_summary, uuidna_neighbours, uuidna_axiom_index, uuidna_discovery_train, uuidna_publish, uuidna_edit, uuidna_vocabulary, uuidna_resources, uuidna_prior_art, uuidna_legal_facts, uuidna_land_rights, uuidna_reflects, uuidna_due_process, uuidna_cloudflare_audit, uuidna_sign, uuidna_reveal, uuidna_slim_gate, uuidna_reason, uuidna_fingerprint, uuidna_forensics, uuidna_evidence, uuidna_compare, uuidna_wave, uuidna_trial, uuidna_css, uuidna_by_lean, uuidna_lean_index, uuidna_statement_census, uuidna_coin_ledger, uuidna_crew, uuidna_coins_jobs, uuidna_decide, uuidna_optimise, uuidna_search, uuidna_search_feed, uuidna_article, uuidna_editorial, uuidna_publication, uuidna_search_trial, uuidna_mcp_benchmark, uuidna_unify, uuidna_quantum_profile, uuidna_social_profile, uuidna_grow_life, uuidna_quantum_cube, uuidna_image_provenance, uuidna_selftest, uuidna_gate_status, uuidna_send, uuidna_receive, uuidna_quantum, uuidna_quantum_advantage, uuidna_fill_gaps, uuidna_detect_forgery, uuidna_audit_coin_claim, uuidna_detect_double_spends, uuidna_audit_voting, uuidna_audit_ledger_intrusions, uuidna_audit_ledger_fingerprint, uuidna_audit_agent_statement, uuidna_full_anti_fraud_audit, uuidna_quantum_message_demo, uuidna_energy_wind, uuidna_energy_biogas, uuidna_energy_mfc, uuidna_energy_photon, uuidna_research_ledger, uuidna_rosetta_legs, uuidna_ports, uuidna_chat, uuidna_shell, uuidna_fs_seal, uuidna_db_query, uuidna_chain_seal, uuidna_net_read, uuidna_driver_state, uuidna_security_plan, uuidna_declare_spend, uuidna_social, uuidna_engineering, uuidna_refusals, uuidna_cern, uuidna_aas, uuidna_zenodo_communities, uuidna_journals, uuidna_doi, uuidna_qc, uuidna_port_all, uuidna_interface, uuidna_os_census, uuidna_list_tools.
 
 ## Theorems & trial <Badge type="tip" :text="'12'" />
 
@@ -3419,7 +3430,7 @@ Call `get_coverage` — the old name `uuidna_coverage` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"total":71035,"covered":71035,"uncovered":[],"uncoveredFiles":[],"ready":true,"receipt":"59f4220a-88b6-8593-8875-71f7f09f759a"}
+{"total":71036,"covered":71036,"uncovered":[],"uncoveredFiles":[],"ready":true,"receipt":"0f7ca68d-272b-803f-a64e-d1bbc4ef2c88"}
 ```
 
 _No parameters._
@@ -3459,7 +3470,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":71035,"fnvReceipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b","sha256":"29f37c676de0aa78c574fbec4a02e994d303d84b713e304fd7213e8c47bf38e6","tamperCost":"A …
+{"count":71036,"fnvReceipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907","sha256":"fb919a1bfa1976dc3d952b5d08510ad8c77e3061fcce0d3812c7a7383b96fbc0","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3476,7 +3487,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":71035,"verified":71035,"unverified":0,"leanBacked":71035,"receipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":71036,"verified":71036,"unverified":0,"leanBacked":71036,"receipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -3879,7 +3890,7 @@ Call `get_tokens` — the old name `uuidna_tokens` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"selfReported":true,"label":null,"dimensions":{"input":0,"output":0,"cached":0,"reasoning":0},"total":0,"theorems":71035,"tokensPerTheorem":0,"distribution":{…
+{"selfReported":true,"label":null,"dimensions":{"input":0,"output":0,"cached":0,"reasoning":0},"total":0,"theorems":71036,"tokensPerTheorem":0,"distribution":{…
 ```
 
 **Parameters**
@@ -3904,7 +3915,7 @@ Call `get_cost` — the old name `uuidna_cost` still answers · read-only · ide
 // arguments
 {}
 // answer (excerpt)
-{"count":71035,"formalBytes":7649663,"bytesPerTheorem":107.68864644189485,"verifyOps":71035,"produceOverVerify":107.68864644189485,"largest":{"key":"a_template…
+{"count":71036,"formalBytes":7650124,"bytesPerTheorem":107.69362013626893,"verifyOps":71036,"produceOverVerify":107.69362013626893,"largest":{"key":"a_template…
 ```
 
 _No parameters._
@@ -5178,7 +5189,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":28515,"neutral":14121,"plus":28399,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4104,"neutral":2001,"plus":4058…
+{"polarities":{"minus":28516,"neutral":14122,"plus":28398,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4104,"neutral":2001,"plus":4056…
 ```
 
 **Parameters**
@@ -5480,7 +5491,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"03ded41a","theorems":{"count":71035,"verified":71035,"receipt":"0e727c3d-1bdd-8264-8abd-559943a16f6b"},"domains":{"count":122,"verdict":"VERIFIED","…
+{"handle":"e00112b6","theorems":{"count":71036,"verified":71036,"receipt":"da1fc1c1-dd64-8455-bd9f-6a136d64b907"},"domains":{"count":122,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5501,7 +5512,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"13d5bb40","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
+{"handle":"336d9000","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._
@@ -5520,7 +5531,7 @@ Call `get_social_profile` — the old name `uuidna_social_profile` still answers
 // arguments
 {}
 // answer (excerpt)
-{"handle":"@uuidna","name":"uuidna","bio":"Content-addressed identity, honest by construction — 71035 Lean theorems, all by decide, kernel-only, folded to one …
+{"handle":"@uuidna","name":"uuidna","bio":"Content-addressed identity, honest by construction — 71036 Lean theorems, all by decide, kernel-only, folded to one …
 ```
 
 _No parameters._

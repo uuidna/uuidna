@@ -34,12 +34,12 @@ distro membership. Provenance meters still recompute below so every published ro
 |---------|------|----------|--------------------|----------|-------|
 | **man → app → hexbit** | **completeness** | 4,757 | **4,757** / 4,757 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | **MCP · `uuidna_exec` · man→app** | **MCP port** | 4,757 | **4,757** / 4,757 | **100%** · 1 wire door (not 4,757) | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) |
-| community (compile) | provenance | 22,670 | 22,670 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| main + community (compile) | provenance | 28,631 | 28,631 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
+| community (compile) | provenance | 22,679 | 22,679 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| main + community (compile) | provenance | 28,640 | 28,640 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
 | man pages (compile) | provenance | 4,757 | 4,757 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | man pages · community | provenance | 3,668 | 3,668 | 100% | — |
 | man pages · main | provenance | 1,089 | 1,089 | 100% | — |
-| **package self-test** | **catalogue closure** | 28,635 | **28,635** / 28,635 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **package self-test** | **catalogue closure** | 28,644 | **28,644** / 28,644 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | 1 | **1** / 1 | **100%** | separate from APKINDEX |
 | overlay (compile) | provenance | 2 | 2 | 100% | repo=overlay |
 | **overlay · MCP · `uuidna_exec`** | **npm/curl MCP** | 1 | **1** / 1 | **100%** | same door, NOT apk |
@@ -52,7 +52,7 @@ distro membership. Provenance meters still recompute below so every published ro
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
-- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128). 22,670 community packages ≪ 2^128.
+- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) decides 16^8 = 2^32, 2^32 · 2^96 = 2^128 and 2^7 = 128). 22,679 community packages ≪ 2^128.
 - **Time:** community compile sweep in the **10,000,000 ns** decade (~**100 ns**/package decade); man-page corpus **1,000,000 ns** (~**100 ns**/doc), measured on the build host.
 - **State-vector cost:** [`n_qubit_dimension`](/theorem/n_qubit_dimension) decides 2^n for n = 1..5.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
@@ -66,7 +66,7 @@ resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each docume
 app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `8ddc9d3c-a3de-8c71-ba34-776bfb001445` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `5e51356e-d5dc-8570-9c6a-82a0bb5f8551` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Port status — pinned release
 
@@ -147,7 +147,7 @@ and a readback cost hundreds of microseconds of fixed overhead. If it does, that
 
 ## Catalogue — every published package, searchable
 
-The default install is **25 paths**; Alpine publishes **28,631** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)). Each package also has an editorial path `/catalogue/<name>` — audited like the install routes.
+The default install is **25 paths**; Alpine publishes **28,640** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)). Each package also has an editorial path `/catalogue/<name>` — audited like the install routes.
 
 ## Ported lowest level first — firmware and up
 

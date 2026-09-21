@@ -344,7 +344,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (21 in trial · 54 reopened · 5 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (21 in trial · 53 reopened · 6 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a lead in trial, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -1163,7 +1163,7 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**80 leads** — 21 in trial · 54 reopened · 5 refuted · 75 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
+**80 leads** — 21 in trial · 53 reopened · 6 refuted · 74 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
 
 - **trial** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
 - **trial** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…
@@ -1288,8 +1288,8 @@ same way, lives on [the leads page](/leads).
   <br><small>claimed: <q>Settled by adding a fourth domain rather than by argument. The driver domain (630 packages, 460 origins) genuinely STRADDLES: 61 packages shared with database and 8 with filesystem, so 438 + 630 - 61 = 1007 is a real set identity and not the addition the first three reduced to. T…</q> · owes the sealed theorem that proves what it meant</small>
 - **reopened** · `c08442a1` — gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it
   <br><small>claimed: <q>MEASURED, on real hardware, through the browser harness at /os — the first time anything in this repository has run on a GPU. The shader AGREED with the CPU reference element for element at every size, so the dispatch is correct. And the CPU won at every size: 1525.88x at 1,024 e…</q> · owes the sealed theorem that proves what it meant</small>
-- **reopened** · `90c4f258` — PRODUCTION IS 17 HOURS BEHIND A GREEN MAIN, measured 2026-09-01: newest Cloudflare deployment 2026-08-31T17:45:18Z, newest landed commit ff427884 at 2026-09-01T10:47:39+03:00, origin/main == HEAD. deploy.yml states Worke…
-  <br><small>claimed: <q>fold the finder: a staleness check that parses the LAST Created and compares it to the newest commit timestamp, so no human has to remember the sort order. Direction-blind reading is the defect, not the deploy. MISREAD INSTRUMENT, not a stale deploy. 'wrangler deployments list' p…</q> · owes the sealed theorem that proves what it meant</small>
+- **refuted** · `90c4f258` — PRODUCTION IS 17 HOURS BEHIND A GREEN MAIN, measured 2026-09-01: newest Cloudflare deployment 2026-08-31T17:45:18Z, newest landed commit ff427884 at 2026-09-01T10:47:39+03:00, origin/main == HEAD. deploy.yml states Worke…
+  <br><small>fold the finder: a staleness check that parses the LAST Created and compares it to the newest commit timestamp, so no human has to remember the sort order. Direction-blind reading is the defect, not the deploy. MISREAD INSTRUMENT, not a stale deploy. 'wrangler deployments list' p…</small>
 - **reopened** · `8b69c3a7` — deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 3…
   <br><small>claimed: <q>THE DILEMMA IT POSED WAS FALSE, and both horns were bad. It owed "a token with zone scope, OR a non-zero exit when a hardening step fails". The second horn is the one that looks principled and it is a trap: the writes fail for want of scope on every workstation run, the redirect …</q> · owes the sealed theorem that proves what it meant</small>
 - **reopened** · `55161239` — the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one
@@ -1318,7 +1318,7 @@ same way, lives on [the leads page](/leads).
 ## The port — 27 domains, 9 of them carrying an API
 
 Alpine publishes; uuidna counts and, where it has something of its own to offer, answers. 27 domains
-are censused from the committed mirror and 9 carry one API each — 3497 packages behind those seven doors.
+are censused from the committed mirror and 9 carry one API each — 3498 packages behind those seven doors.
 Membership is a PATTERN over Alpine's own name and description: a measurement with known failures, not a verdict.
 The arithmetic over the counts is sealed `by decide`; the classification underneath it never is, and no sum promotes
 a match into a fact.
@@ -1327,7 +1327,7 @@ a match into a fact.
 | --- | ---: | ---: | --- |
 | `language` | 7486 | 4421 | — census only |
 | `shell` | 1279 | 680 | one exec door over uuidnaOS applets |
-| `driver` | 630 | 460 | the machine and the published bundle behind one door |
+| `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
 | `social` | 303 | 164 | a post addressed FOR an audience — attribution, order, no alteration |
@@ -1353,7 +1353,7 @@ a match into a fact.
 | `chemistry` | 3 | 1 | — census only |
 | `bio` | 2 | 1 | — census only |
 
-Ported API receipt `c3d4e4e6-e4ee-8188-94fa-b7d81708ab92`. Package counts are per domain and the domains OVERLAP — a chat bridge is
+Ported API receipt `fed53b78-c696-8f5e-8dcb-177646124ef2`. Package counts are per domain and the domains OVERLAP — a chat bridge is
 also network, a font is also media — so the column does not sum to the catalogue and is not meant to.
 <!-- /port -->
 
@@ -1366,10 +1366,10 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 5,857,015 | 6 | 976,169× | `theorems().length` |
-| what does the tree hold right now? | 5,879,862 | 225 | 26,132× | `npm run state` |
-| which Alpine domains are ported? | 1,822,389 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 1,156,542 | 65 | 17,792× | `leads-gate + gate-receipt --verify` |
+| how many theorems are sealed? | 5,856,941 | 6 | 976,156× | `theorems().length` |
+| what does the tree hold right now? | 5,879,775 | 225 | 26,132× | `npm run state` |
+| which Alpine domains are ported? | 1,823,070 | 350 | 5,208× | `portsCensus()` |
+| is the tree green to release? | 1,156,519 | 65 | 17,792× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **26,132×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
@@ -1384,9 +1384,9 @@ fetched only if someone actually wants it.
 
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
-| the whole Alpine catalogue | 7,289,556 | 16 | 455,597× |
-| the sealed ledger | 23,428,060 | 16 | 1,464,253× |
-| the leads record | 79,583 | 16 | 4,973× |
+| the whole Alpine catalogue | 7,292,283 | 16 | 455,767× |
+| the sealed ledger | 23,427,767 | 16 | 1,464,235× |
+| the leads record | 79,491 | 16 | 4,968× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request
 time, still resolving to exactly what the address named. Time is the third axis and is measured at the

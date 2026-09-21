@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000088606",
-   "completionPrice": "0.000000177212"
+   "promptPrice": "0.00000005544",
+   "completionPrice": "0.00000011088"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,15 +478,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000095526",
-   "completionPrice": "0.00000191052"
+   "promptPrice": "0.000000946386",
+   "completionPrice": "0.000001892772"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000066",
-   "completionPrice": "0.00000198"
+   "promptPrice": "0.00000057816",
+   "completionPrice": "0.00000173448"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -926,8 +926,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.1-70b-instruct",
    "name": "Meta: Llama 3.1 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.00000072",
-   "completionPrice": "0.00000072"
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.0000004"
   },
   {
    "id": "meta-llama/llama-3.1-8b-instruct",
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000066",
-   "completionPrice": "0.00000198"
+   "promptPrice": "0.00000057816",
+   "completionPrice": "0.00000173448"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
@@ -3131,8 +3131,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000007735",
-   "completionPrice": "0.000002431"
+   "promptPrice": "0.0000007728",
+   "completionPrice": "0.0000024288"
   }
  ]
 }

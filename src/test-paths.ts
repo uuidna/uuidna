@@ -112,7 +112,36 @@ export function allTestFiles(root: string = ROOT): string[] {
 const IMPORT_RE = /(?:from|import)\s*\(?\s*['"](\.[^'"]+)['"]\)?/g
 
 /** sourceGraph() → { importer → [imported] } over src, as repo-relative .ts paths. */
+/**
+ * THE GRAPH IS BUILT ONCE PER ROOT, per process.
+ *
+ * Measured 2026-09-21: 9,905 ms to walk 1,367 files and parse every import.
+ * guard calls this THREE times — landing, impossibility, attestation — each as
+ * `[...sourceGraph().keys()]`, so a single guard spent about thirty seconds
+ * building the same map three times, and develop runs guard once per round.
+ * Twenty of those thirty seconds were a pure function recomputed over a tree
+ * that had not moved; develop refuses to walk at all while another writer is
+ * active, so within one process it cannot have moved.
+ *
+ * The same argument mirrorRows carries, and for the same reason: this is a
+ * cache of a PURE FUNCTION, not of a measurement. Nothing here samples the
+ * world twice and hopes the answers agree — a second call on an unchanged tree
+ * can only produce the map it already produced.
+ *
+ * NO CALLER MUTATES IT: all three read `.keys()`. One that needs to change the
+ * map copies it, exactly as the mirror rows require.
+ */
+const GRAPHS = new Map<string, Map<string, string[]>>()
+
 export function sourceGraph(root: string = ROOT): Map<string, string[]> {
+  const held = GRAPHS.get(root)
+  if (held) return held
+  const built = buildSourceGraph(root)
+  GRAPHS.set(root, built)
+  return built
+}
+
+function buildSourceGraph(root: string): Map<string, string[]> {
   const files = walkAllSources('src', root)
   const g = new Map<string, string[]>()
   for (const rel of files) {

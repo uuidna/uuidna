@@ -296,7 +296,7 @@
     {
       "topic": "apk list --all",
       "ok": true,
-      "detail": "catalogue 28635 packages"
+      "detail": "catalogue 28644 packages"
     },
     {
       "topic": "ls /catalogue",

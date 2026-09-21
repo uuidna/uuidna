@@ -15,9 +15,9 @@
 | **Axiom-free** | 71036/71036 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 252 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 122 | Capability axes across the ledger |
-| **Proof cost** | 101214244 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 101274616 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 71036 addresses | one recomputed per theorem |
-| **Steps per address** | 1424 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Steps per address** | 1425 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -32,7 +32,7 @@
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 246 | In 37 categories |
+| **MCP tools** | 247 | In 37 categories |
 | **Publications** | 252 | Monographs linked to sealed theorems |
 | **Vocabulary terms** | 374 | `vocabulary()` â€” ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 101214244 kernel decide-steps, measured
+- First push (prove): 101274616 kernel decide-steps, measured
 - Every later push (verify): 71036 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -88,7 +88,7 @@ Total theorems:       71036
 Axiom-free (decide):  71036 (100.0%)
 Principles:           252 domains
 Publications:         252 monographs
-MCP tools:            246 capabilities
+MCP tools:            247 capabilities
 Security checks:      6 automated
 Languages:            374 vocabulary terms
 Runtime deps:         0 (zero)
