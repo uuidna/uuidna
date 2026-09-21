@@ -6,8 +6,8 @@
 **Formalisation claimed:** 71035/71035 theorems — every one, by construction
 **Discovery claimed:** 70639 — the other 396 restate a fact a named source found first
 
-*The 396 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 335 of 372 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 16/24 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `1b5e272b-e28f-875b-b6c0-c928ee6f0fb9`
+*The 396 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 368 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 20/28 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `2095d0af-f7aa-851c-9a30-cc268933c748`
 
 ### Facts the captain does not claim to have discovered
 
@@ -43,7 +43,11 @@ that earns an external anchor moves here on the next run.
 - [kinematics_cancels_both](/theorem/kinematics_cancels_both) — CODATA
 - [product_isolates_quantum](/theorem/product_isolates_quantum) — CODATA
 - [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) — CODATA
+- [crossing_sits_inside](/theorem/crossing_sits_inside) — CODATA
+- [mass_selects_cancellation](/theorem/mass_selects_cancellation) — CODATA
 - [handle_outreaches_planck](/theorem/handle_outreaches_planck) — CODATA
+- [planck_margin_bounded](/theorem/planck_margin_bounded) — CODATA
+- [payload_falls_short](/theorem/payload_falls_short) — CODATA
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -461,7 +465,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `19107d77-e35c-8c3b-b61c-46907c5ec752`
+- **Sample lineAddress:** `056bd949-71c7-8ce7-96cc-8009798c6886`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 

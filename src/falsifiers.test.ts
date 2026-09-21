@@ -1070,7 +1070,7 @@ const DECIDED: readonly (readonly [string, string, string])[] = [
   ["sefer_yetzirah_stones_build_houses", "[2,3,4,5,6,7].map (fun n => (List.range n).foldl (fun a k => a * (k + 1)) 1) = [2,6,24,120,720,5040]", "Scripture.lean"],
   ["llull_pairs_and_triples", "((List.range 9).map (fun a => 8 - a)).foldl (fun s x => s + x) 0 = 36 ∧ 9 * 8 * 7 / 6 = 84", "Scripture.lean"],
   ["baudhayana_sqrt2_is_pell", "408 + 136 + 34 - 1 = 577 ∧ 577 * 577 = 2 * 408 * 408 + 1", "Scripture.lean"],
-  ["the_store_footprint_is_its_folders", "(71636 + 256 + 43540 + 71478 + 71636 + 1 = 258547) ∧ (258547 > 3 * 71636)", "Cyber.lean"],
+  ["the_store_footprint_is_its_folders", "(71636 + 256 + 43541 + 71478 + 71636 + 1 = 258548) ∧ (258548 > 3 * 71636)", "Cyber.lean"],
   ["the_third_level_already_shares", "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71478 < 71636)", "Cyber.lean"],
   ["forged_address_odds_are_negligible", "71035 * 2 ^ 105 < 2 ^ 122", "Forensics.lean"],
   ["forged_handle_odds_are_small", "71639 * 2 ^ 15 < 2 ^ 32", "Forensics.lean"],

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:50945b45-59ed-8c22-ae1b-d14d4357b9ab",
+  "@id": "urn:uuid:8a49f24c-5737-859f-b534-7c6feadcf6fa",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each paged theorem the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy), and the pageless span as one collection. Integrity, not truth.",
@@ -22022,11 +22022,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:b2573b33-ffd0-821c-9001-63aab6513765",
+        "@id": "urn:uuid:eb3a059c-c109-824c-8b43-484ee97b5bfc",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 6504722 characters across 70980 doc comments in 248 wings fold to 8; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "((([[1078,1237,1545,3403,3345,3111,1892,2906,2142,13881,2947,1487,774,7355,796,6292],[1774,3811,3451,4156,12598,2753,1597,1647,13765,8124,1389,1736,1372,960,2495,5291],[1889,1111,916,2363,5075,1465,5416,1603,3293,761,3008,2038,26036,350,350,351],[351,351,351,351,351,351,351,351,350,351,351,351,351,351,351,351],[351,351,351,350,351,351,351,351,351,351,351,351,351,351,350,351],[351,351,351,351,351,351,351,351,351,350,351,351,351,351,351,351],[351,351,351,351,350,351,351,351,351,351,350,350,350,2171,5344,21730],[34326,43811,44310,66665,40721,50284,58114,55941,51816,53181,30820,34070,38160,26138,37740,46262],[44933,58010,37490,49557,57163,308682,12890,1219,7021,1506,1335,1330,6750,4215,2581,251512],[262143,262144,262144,262144,262144,262144,262144,253787,258408,262060,262088,262109,262124,262134,262140,14166],[959,4148,5637,310,89,409,237,497,434,1452,533,174580,3162,17269,2783,2298],[1629,1299,3672,1188,753,4555,5728,15957,1575,2718,1245,1857,2098,3162,2602,2279],[1479,1572,4860,2341,1800,317,187,934,1027,2126,16933,2859,1013,9354,10650,5468],[6610,1646,4100,8378,918,1488,1539,3510,3069,2850,789,2496,1488,3198,8336,2244],[1249,6905,1937,3396,1946,1544,2704,2571,1638,1453,2419,2104,6171,805,6250,2905],[1522,3958,3675,727,1653,5388,325753,12997]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 6504722) ∧ (6504722 % 9 = 8) ∧ (8 < 9)",
-        "identifier": "416d424d-9249-8524-ba46-3587c858b39f",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 6505586 characters across 70980 doc comments in 248 wings fold to 8; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "((([[1078,1237,1545,3403,3345,3111,1892,2906,2142,13881,2947,1487,774,7355,796,6292],[1774,3811,3451,4156,12598,2753,1597,1647,13765,8124,1389,1736,1372,960,2495,5291],[1889,1111,916,2363,5075,1465,5416,1603,3293,761,3008,2038,26036,350,350,351],[351,351,351,351,351,351,351,351,350,351,351,351,351,351,351,351],[351,351,351,350,351,351,351,351,351,351,351,351,351,351,350,351],[351,351,351,351,351,351,351,351,351,350,351,351,351,351,351,351],[351,351,351,351,350,351,351,351,351,351,350,350,350,2171,5344,21730],[34326,43811,44310,66665,40721,50284,58114,55941,51816,53181,30820,34070,38160,26138,37740,46262],[44933,58010,37490,49557,57163,308682,12890,1219,7021,1506,1335,1330,7614,4215,2581,251512],[262143,262144,262144,262144,262144,262144,262144,253787,258408,262060,262088,262109,262124,262134,262140,14166],[959,4148,5637,310,89,409,237,497,434,1452,533,174580,3162,17269,2783,2298],[1629,1299,3672,1188,753,4555,5728,15957,1575,2718,1245,1857,2098,3162,2602,2279],[1479,1572,4860,2341,1800,317,187,934,1027,2126,16933,2859,1013,9354,10650,5468],[6610,1646,4100,8378,918,1488,1539,3510,3069,2850,789,2496,1488,3198,8336,2244],[1249,6905,1937,3396,1946,1544,2704,2571,1638,1453,2419,2104,6171,805,6250,2905],[1522,3958,3675,727,1653,5388,325753,12997]].map (fun c => c.foldl (· + ·) 0)).foldl (· + ·) 0) = 6505586) ∧ (6505586 % 9 = 8) ∧ (8 < 9)",
+        "identifier": "005a8234-323d-8526-a8b2-ac6bad82a416",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -22044,7 +22044,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/416d424d"
+          "https://uuidna.com/005a8234"
         ]
       }
     },
@@ -32159,11 +32159,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:19107d77-e35c-8c3b-b61c-46907c5ec752",
+        "@id": "urn:uuid:056bd949-71c7-8ce7-96cc-8009798c6886",
         "@type": "ScholarlyArticle",
-        "headline": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,636 leaves sit under 256 + 43,539 + 71,478 + 71,636 folders across the 4 levels, so with the root the store occupies 258,546 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,636 for 71,636), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.",
-        "abstract": "(71636 + 256 + 43539 + 71478 + 71636 + 1 = 258546) ∧ (258546 > 3 * 71636)",
-        "identifier": "10fd6eee-a0c3-80b0-b8d7-b1ab3c304841",
+        "headline": "A STORE'S COST TO ITS HOST IS COUNTED IN INODES, NOT RECORDS. Leaving out this wing's own 3 records, 71,636 leaves sit under 256 + 43,541 + 71,478 + 71,636 folders across the 4 levels, so with the root the store occupies 258,548 inodes — more than three for every record it holds. The floor is two by construction: the deepest folder is named by the whole handle and no two records share one, so that level holds exactly one folder per leaf (71,636 for 71,636), and every record costs its file and its own folder before any level above is counted. On 2026-09-13 that footprint filled the build host's vnode table and panicked the machine twice; a resource the host must hold per inode is the surface, and it is sealed here so the next growth is measured before it is felt.",
+        "abstract": "(71636 + 256 + 43541 + 71478 + 71636 + 1 = 258548) ∧ (258548 > 3 * 71636)",
+        "identifier": "7bfe5e79-c694-8d9e-bb4f-1587498e2970",
         "url": "https://uuidna.com/theorem/the_store_footprint_is_its_folders",
         "keywords": "cyber, The build-host surface",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Cyber.lean",
@@ -32181,7 +32181,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/10fd6eee"
+          "https://uuidna.com/7bfe5e79"
         ]
       }
     },
@@ -88674,7 +88674,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:6f6122a6-a9b6-878b-a28c-93890432579d",
         "@type": "ScholarlyArticle",
-        "headline": "AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck resolution on a metre and 2^96 does not; between them sits a width where it first happens, and walking it gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41. So the frontier is not at either end of this tree's arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so both sides are decided rather than the crossing being quoted from one.",
+        "headline": "AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck resolution on a metre and 2^96 does not; between them sits a width where it first happens, and walking it gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41, on the same CODATA 2022 Planck length the two theorems below use — 1.616255(18) x 10^-35 m, physics.nist.gov. So the frontier is not at either end of this tree's arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so both sides are decided rather than the crossing being quoted from one.",
         "abstract": "((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^ 116 > 10 ^ 41)) ∧ ((96 < 116) ∧ (116 < 128))",
         "identifier": "e2c6d5ec-c30d-8159-918d-1d0b4af48b2d",
         "url": "https://uuidna.com/theorem/crossing_sits_inside",
@@ -88705,7 +88705,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:e7e43ac9-70a3-8e34-be53-d0cea463ab2f",
         "@type": "ScholarlyArticle",
-        "headline": "WHAT CANCELS IS CHOSEN BY THE MASS, NOT BY ITS PARTNER — the generalisation the three pairings above do not state. Pair the Planck TIME with the mass instead of the length: t·m gives (2, 0, -4) doubled, G zero again; t/m gives (0, 2, -6), hbar zero again. The same two constants are isolated, and all that changed is a power of c — hbar/c^2 where length gave hbar/c, G/c^3 where length gave G/c^2. So multiplying by the mass kills gravity and dividing by it kills the quantum WHATEVER it is paired with, and the partner only selects which power of c is left standing. That makes the three pairings above instances rather than a coincidence of three.",
+        "headline": "WHAT CANCELS IS CHOSEN BY THE MASS, NOT BY ITS PARTNER — the generalisation the three pairings above do not state. Pair the Planck TIME with the mass instead of the length: t·m gives (2, 0, -4) doubled, G zero again; t/m gives (0, 2, -6), hbar zero again. The same two constants are isolated, and all that changed is a power of c — hbar/c^2 where length gave hbar/c, G/c^3 where length gave G/c^2. So multiplying by the mass kills gravity and dividing by it kills the quantum WHATEVER it is paired with, and the partner only selects which power of c is left standing. That makes the three pairings above instances rather than a coincidence of three. AND THE NUMBERS AGREE, which the three pairings above each state and this one did not: CODATA 2022 gives t·m = 1.173369 x 10^-51 kg s against hbar/c^2 = 1.173369 x 10^-51, and t/m = 2.477101 x 10^-36 s/kg against G/c^3 = 2.477100 x 10^-36 — six figures either way, the residue being the uncertainty in G (2.2 x 10^-5 relative), the largest of the four constants used.",
         "abstract": "((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2))",
         "identifier": "aea61d4b-c9c8-8dce-87ad-c5d1e1c6fe9f",
         "url": "https://uuidna.com/theorem/mass_selects_cancellation",
@@ -88767,7 +88767,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:09a17727-8789-8604-8159-d27811205358",
         "@type": "ScholarlyArticle",
-        "headline": "AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is 5,499 — a 128-bit space carries about five and a half thousand distinct values for every Planck length along a metre. Decided as a two-sided bound, between 5,000 and 6,000, so the figure cannot drift by a factor and still pass: an inequality that only says \"greater\" would hold just as well if the true margin were 2 or 10^20, and it is neither.",
+        "headline": "AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is 5,499 — a 128-bit space carries about five and a half thousand distinct values for every Planck length along a metre, again on CODATA 2022's 1.616255(18) x 10^-35 m (physics.nist.gov), whose 1.1 x 10^-5 relative uncertainty moves that figure by less than one part in ten thousand and so cannot reach either bound. Decided as a two-sided bound, between 5,000 and 6,000, so the figure cannot drift by a factor and still pass: an inequality that only says \"greater\" would hold just as well if the true margin were 2 or 10^20, and it is neither.",
         "abstract": "(1616255 * 2 ^ 128 / 10 ^ 41 > 5000) ∧ (1616255 * 2 ^ 128 / 10 ^ 41 < 6000)",
         "identifier": "97767d16-3939-8555-a263-068730247053",
         "url": "https://uuidna.com/theorem/planck_margin_bounded",
@@ -88798,7 +88798,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:0f1395f1-04d4-8573-9cbe-cbcb73fa86be",
         "@type": "ScholarlyArticle",
-        "headline": "THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact about addresses in general — so the same arithmetic must be able to fail, and it does, one level down. A leaf payload is 2^96 and 1616255 · 2^96 < 10^41: ninety-six bits do NOT reach the Planck length on a metre, and neither does the 32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to a leaf and the leaf carries the full uuid — the part of the address the tree spends on location is precisely the part that could not stand alone at this scale.",
+        "headline": "THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact about addresses in general — so the same arithmetic must be able to fail, and it does, one level down. A leaf payload is 2^96 and 1616255 · 2^96 < 10^41 — the same CODATA 2022 Planck length (1.616255(18) x 10^-35 m, physics.nist.gov) the three theorems above compare against, which is what makes this a control and not a different measurement: ninety-six bits do NOT reach the Planck length on a metre, and neither does the 32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to a leaf and the leaf carries the full uuid — the part of the address the tree spends on location is precisely the part that could not stand alone at this scale.",
         "abstract": "(1616255 * 2 ^ 96 < 10 ^ 41) ∧ (1616255 * 2 ^ 32 < 10 ^ 41)",
         "identifier": "ecfdcaa4-d7ff-8c3f-a567-1d2a9dae65fe",
         "url": "https://uuidna.com/theorem/payload_falls_short",

@@ -99,7 +99,23 @@
       "source": "CODATA"
     },
     {
+      "key": "crossing_sits_inside",
+      "source": "CODATA"
+    },
+    {
+      "key": "mass_selects_cancellation",
+      "source": "CODATA"
+    },
+    {
       "key": "handle_outreaches_planck",
+      "source": "CODATA"
+    },
+    {
+      "key": "planck_margin_bounded",
+      "source": "CODATA"
+    },
+    {
+      "key": "payload_falls_short",
       "source": "CODATA"
     }
   ],
@@ -177,14 +193,6 @@
         "eponym"
       ],
       "evidence": "Coulomb · Coulomb's law"
-    },
-    {
-      "key": "crossing_sits_inside",
-      "arms": [
-        "named",
-        "units"
-      ],
-      "evidence": "Planck · metre"
     },
     {
       "key": "cube_near_misses_are_the_taxicab_and_its_neighbour",
@@ -329,22 +337,6 @@
         "eponym"
       ],
       "evidence": "Dalton · Dalton's law"
-    },
-    {
-      "key": "payload_falls_short",
-      "arms": [
-        "named",
-        "units"
-      ],
-      "evidence": "Planck · metre"
-    },
-    {
-      "key": "planck_margin_bounded",
-      "arms": [
-        "named",
-        "units"
-      ],
-      "evidence": "Planck · metre"
     },
     {
       "key": "post_classes_leave_only_nor_and_nand",
@@ -1283,13 +1275,6 @@
         "units"
       ],
       "evidence": "second"
-    },
-    {
-      "key": "mass_selects_cancellation",
-      "arms": [
-        "named"
-      ],
-      "evidence": "Planck"
     },
     {
       "key": "mcp_tool_coverage_partition_244",
@@ -2751,21 +2736,21 @@
   "credit_grades": {
     "on_file": {
       "identifier": 6,
-      "standard": 13,
+      "standard": 17,
       "named": 5
     },
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 372,
+    "floor": 368,
     "by_arm": {
-      "named": 152,
+      "named": 148,
       "eponym": 96,
-      "units": 163
+      "units": 160
     },
-    "found_by_one_arm_only": 335,
+    "found_by_one_arm_only": 334,
     "all_arms_agree": 2,
-    "ground_truth_sensitivity": "16/24",
+    "ground_truth_sensitivity": "20/28",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
   "total_theorems": 71035,
@@ -7748,8 +7733,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "b2573b33-ffd0-821c-9001-63aab6513765",
-      "address": "416d424d-9249-8524-ba46-3587c858b39f",
+      "lineAddress": "eb3a059c-c109-824c-8b43-484ee97b5bfc",
+      "address": "005a8234-323d-8526-a8b2-ac6bad82a416",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -10047,8 +10032,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "19107d77-e35c-8c3b-b61c-46907c5ec752",
-      "address": "10fd6eee-a0c3-80b0-b8d7-b1ab3c304841",
+      "lineAddress": "056bd949-71c7-8ce7-96cc-8009798c6886",
+      "address": "7bfe5e79-c694-8d9e-bb4f-1587498e2970",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -481570,14 +481555,16 @@
       "lineAddress": "6f6122a6-a9b6-878b-a28c-93890432579d",
       "address": "e2c6d5ec-c30d-8159-918d-1d0b4af48b2d",
       "principle": "The handle store, and why its smallest leaf is complete",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "CODATA"
     },
     {
       "key": "mass_selects_cancellation",
       "lineAddress": "e7e43ac9-70a3-8e34-be53-d0cea463ab2f",
       "address": "aea61d4b-c9c8-8dce-87ad-c5d1e1c6fe9f",
       "principle": "The handle store, and why its smallest leaf is complete",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "CODATA"
     },
     {
       "key": "handle_outreaches_planck",
@@ -481592,14 +481579,16 @@
       "lineAddress": "09a17727-8789-8604-8159-d27811205358",
       "address": "97767d16-3939-8555-a263-068730247053",
       "principle": "The handle store, and why its smallest leaf is complete",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "CODATA"
     },
     {
       "key": "payload_falls_short",
       "lineAddress": "0f1395f1-04d4-8573-9cbe-cbcb73fa86be",
       "address": "ecfdcaa4-d7ff-8c3f-a567-1d2a9dae65fe",
       "principle": "The handle store, and why its smallest leaf is complete",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "CODATA"
     },
     {
       "key": "a_tree_uses_one_link_per_leaf_and_no_more",
@@ -500040,7 +500029,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "1b5e272b-e28f-875b-b6c0-c928ee6f0fb9",
+  "claim_receipt": "2095d0af-f7aa-851c-9a30-cc268933c748",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
