@@ -65,9 +65,17 @@ export const lsRoot = (p: string): Dirent[] => {
   if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call lsRoot')
   return fs.readdirSync(path.join(ROOT, p), { withFileTypes: true })
 }
-/** does a repo-relative path exist — Node-only, same refusal-by-name outside Node. */
+/** does a repo-relative path exist — and where there is no filesystem the answer is FALSE, not a refusal.
+ *
+ *  THIS ONE VERB ANSWERS RATHER THAN REFUSES, and the difference is semantic, not a convenience. rdRoot, wrRoot,
+ *  lsRoot and mkdirRoot refuse outside Node because they have no honest value to return: there is no content to
+ *  read, no directory to list, nowhere to write. A boolean query about existence does have one — a repo-relative
+ *  path genuinely does NOT exist on a surface that has no repository, and saying so is accurate rather than
+ *  evasive. Throwing made every caller of the shape `if (!existsRoot(x)) return <empty>` unreachable at the edge,
+ *  because the guard written to handle absence never ran; measured 2026-09-21, that is why uuidna_decode and
+ *  uuidna_quantum_profile answered the Worker with the boundary refusal instead of their own empty result. */
 export const existsRoot = (p: string): boolean => {
-  if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call existsRoot')
+  if (!fs || !path) return false
   return fs.existsSync(path.join(ROOT, p))
 }
 /** write a repo-relative utf8 file — Node-only, same refusal-by-name outside Node. */
