@@ -2997,6 +2997,9 @@ product_isolates_quantum 31
 ratio_isolates_gravity 31
 crossing_sits_inside 31
 mass_selects_cancellation 31
+anomaly_cancels_at_twenty_six 27
+superstring_cancels_at_ten 27
+transverse_dimensions_pack_densest 27
 pairings_exhaust_the_cancellations 31
 handle_outreaches_planck 31
 planck_margin_bounded 31
@@ -70123,6 +70126,13 @@ beam_reactions 27
 truss_maxwell_rule 27
 stress_is_force_over_area 27
 hookes_law 27
+#StringTheory.lean
+collider_energy_is_below_the_planck_scale 27
+newtonian_gravity_is_verified_far_above_the_planck_length 27
+the_proton_outlives_the_universe_many_times_over 27
+one_probe_reached_the_planck_scale_and_found_nothing 27
+the_cmb_excludes_gut_scale_cosmic_strings 27
+six_searches_report_bounds_and_no_detection 27
 #Strings.lean
 every_string_has_thirty_two_modes 27
 the_spectrum_is_length_blind 27
@@ -71329,7 +71339,7 @@ export const FLOOR = { witness: 29, falsifier: 63 }
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
 // an absence of corroboration.
-export const UNREACHED: readonly string[] = []
+export const UNREACHED: readonly string[] = ["collider_energy_is_below_the_planck_scale","newtonian_gravity_is_verified_far_above_the_planck_length","one_probe_reached_the_planck_scale_and_found_nothing","the_cmb_excludes_gut_scale_cosmic_strings","the_proton_outlives_the_universe_many_times_over"]
 
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be

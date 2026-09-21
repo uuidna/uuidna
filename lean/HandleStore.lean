@@ -77,6 +77,35 @@ theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^
     10^-5 relative), the largest of the four constants used. -/
 theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide
 
+/-- THE BOSONIC CRITICAL DIMENSION IS A SUM THAT VANISHES. A conformal field theory on the world-sheet carries a
+    central charge, and the reparametrisation ghosts carry -26 of it; the theory is consistent only when the
+    total is zero, so 26 free bosons is not a preference but the solution of 26 + (-26) = 0. The same number
+    arrives a second way, which is why it is sealed as a conjunction rather than a single sum: the
+    normal-ordering constant is (D-2)/24, the bosonic ground state needs it to equal 1, and (26-2)/24 = 1. Two
+    routes, one integer, and both of them are counting. NOT CLAIMED: that strings exist, that spacetime has
+    twenty-six dimensions, or that any of this is measured. Nothing here is physics — it is the arithmetic a
+    physicist performs, decided. -/
+theorem anomaly_cancels_at_twenty_six : ((26 + (-26) : Int) = 0) ∧ ((26 - 2) / 24 = 1) := by decide
+
+/-- AND THE SUPERSYMMETRIC COUNT GIVES TEN, by the same cancellation with two more terms. Each world-sheet boson
+    contributes 1 and each fermion 1/2, so matter carries 3D/2; the reparametrisation ghosts still carry -26 and
+    the superconformal ghosts +11. Doubled to stay in the integers this tree holds: 3D - 52 + 22 = 0, which at D
+    = 10 is 30 - 52 + 22 = 0. The halves are what make ten rather than twenty-six, and they are the only
+    difference. NOT CLAIMED: supersymmetry. No experiment has observed it, none is cited here, and this decides
+    an equation rather than a world. -/
+theorem superstring_cancels_at_ten : ((3 * 10 - 52 + 22 : Int) = 0) ∧ ((3 * 26 - 52 + 22 : Int) ≠ 0) := by decide
+
+/-- THE TWO LIGHT-CONE DIRECTIONS COME OFF, AND WHAT IS LEFT IS 24 AND 8 — and those two integers are not
+    arbitrary anywhere in mathematics. 26 - 2 = 24 and 10 - 2 = 8 are the transverse dimensions of the two
+    critical strings, and dimensions 24 and 8 are precisely where the densest sphere packing is KNOWN rather
+    than conjectured: the Leech lattice in 24 and E8 in 8, both proved optimal in 2017 (Viazovska for 8; Cohn,
+    Kumar, Miller, Radchenko and Viazovska for 24). Every other dimension above three remains open. This seals
+    only the subtraction and the pair — that the transverse counts ARE 24 and 8, and that they differ by the
+    sixteen which is the rank gap between the two lattices. NOT CLAIMED: that the packing results are a
+    consequence of string theory, or the reverse. Two exact results meeting at two integers is a fact about the
+    integers; whether it is a fact about the world is what nobody here has decided. -/
+theorem transverse_dimensions_pack_densest : ((26 - 2 = 24) ∧ (10 - 2 = 8)) ∧ (24 - 8 = 16) := by decide
+
 /-- THE EXHAUSTION ITSELF, WHICH THE PAIRINGS ABOVE ASSERTED AND NOTHING DECIDED. ratio_isolates_gravity says in
     prose that the three pairings EXHAUST it — c alone, hbar alone, G alone — and a sentence claiming a search
     is complete is exactly the kind this ledger makes somebody run. So run it: the three Planck quantities admit
