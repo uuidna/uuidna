@@ -78,13 +78,18 @@ test('external-fact — each arm fires on a crafted claim in its own shape', () 
 })
 
 // CREDITED IS NOT ONE THING. A single "228 credited" invites the reader to assume 228 fetchable citations, and
-// the rows on file say otherwise: of the 16 already attributed, FOUR carry a DOI and twelve name a standard or
+// the rows on file say otherwise: of the 24 already attributed, SIX carry a DOI and eighteen name a standard or
 // a person. This test holds that split so no surface can report the total without it.
+//
+// The literal below is a tripwire, not a fact about the world: it moved from 4 to 6 when the Planck relations
+// were sealed and brought two more papers with them. Re-read the census (`attributions()` filtered by
+// `gradeOf(...) === 'identifier'`) before changing it again — the number is only worth having if raising it
+// costs somebody a look at what was actually added.
 test('external-fact — the evidence behind a credit is graded, and the grades do not collapse', () => {
   const sources = attributions().map((a) => a.source)
   const c = gradeCensus(sources)
   assert.equal(c.identifier + c.standard + c.named, sources.length, 'a source fell outside every grade')
-  assert.equal(c.identifier, 4, 'the DOI count moved — re-read the census before changing this number, it is the checkable subset')
+  assert.equal(c.identifier, 6, 'the DOI count moved — re-read the census before changing this number, it is the checkable subset')
   assert.ok(c.identifier < sources.length, 'if every credit had an identifier the grades would be pointless; check the census is real')
   assert.equal(gradeOf('10.1038/171737a0'), 'identifier')
   assert.equal(gradeOf('CODATA'), 'standard')
