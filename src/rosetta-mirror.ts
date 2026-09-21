@@ -84,7 +84,7 @@ witnesses_locate_faults 27
 handle_splits_four 27
 drift_is_named_or_caught 27
 the_axiom_index_partitions_without_remainder 27
-edits_break_recompute 23
+edits_break_recompute 31
 cuts_break_successors 31
 tail_cut_survives 27
 checkpoints_catch_truncation 27
@@ -2995,11 +2995,11 @@ the_store_holds_far_less_than_it_admits 27
 kinematics_cancels_both 31
 product_isolates_quantum 31
 ratio_isolates_gravity 31
-crossing_sits_inside 27
-mass_selects_cancellation 27
+crossing_sits_inside 31
+mass_selects_cancellation 31
 handle_outreaches_planck 31
-planck_margin_bounded 27
-payload_falls_short 27
+planck_margin_bounded 31
+payload_falls_short 31
 #Hardware.lean
 not_gate_truth_table 27
 and_gate_truth_table 27
@@ -69544,7 +69544,7 @@ rest_energy_mc2 27
 causality_forbids_ftl 27
 the_metre_is_defined_by_the_second 31
 the_defining_constants_are_exact_integers 31
-the_pairing_cancels_the_constant 23
+the_pairing_cancels_the_constant 31
 every_pythagorean_velocity_dilates_exactly 27
 exact_dilation_is_sparse_among_the_rationals 27
 the_null_cone_carries_integer_events_in_three_dimensions 27
@@ -71297,6 +71297,7 @@ export const CLAIMS = `abo_klein_four 10.1038/345229a0
 blood_types_eight 10.3181/00379727-43-11151
 bulge_exceeds_relief WGS 84
 codons_sixty_four 10.1073/pnas.47.10.1588
+crossing_sits_inside CODATA
 cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
 edits_break_recompute 10.1007/BF00196791
@@ -71308,6 +71309,9 @@ kinematics_cancels_both CODATA
 landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
 light_speed_rounds_to_300000 SI
+mass_selects_cancellation CODATA
+payload_falls_short CODATA
+planck_margin_bounded CODATA
 product_isolates_quantum CODATA
 ratio_isolates_gravity CODATA
 reversible_erases_nothing Landauer
@@ -71318,7 +71322,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 24, falsifier: 63 }
+export const FLOOR = { witness: 28, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

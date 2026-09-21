@@ -342,7 +342,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (21 in trial · 55 reopened · 4 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (21 in trial · 54 reopened · 5 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a lead in trial, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -1161,7 +1161,7 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**80 leads** — 21 in trial · 55 reopened · 4 refuted · 76 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
+**80 leads** — 21 in trial · 54 reopened · 5 refuted · 75 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
 
 - **trial** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
 - **trial** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…
@@ -1246,8 +1246,8 @@ same way, lives on [the leads page](/leads).
   <br><small>claimed: <q>PAID. src/refused.ts + refused-hosts.ts read hosts from lean/leads.json refused[] (a single source list); refusedReaches fails the gate on fetch("https://…") to a refused host and stays quiet on mention, bare hostname, outbound href, and its own fixtures (e5167a2d + src/quantum/o…</q> · owes the sealed theorem that proves what it meant</small>
 - **reopened** · `8827e107` — The hosted MCP bills a call that is missing a required argument
   <br><small>claimed: <q>PAID. mcp-http.ts validates required arguments before tool.run and before depositCoins — same wording as callTool; a missing arg throws and returns isError with no _meta.deposit (8c5ef39b). src/mcp-surface.test.ts holds every required-argument edge tool refuses an empty call and …</q> · owes the sealed theorem that proves what it meant</small>
-- **reopened** · `b13fd37a` — Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).
-  <br><small>claimed: <q>THREE halves paid. (1) gen-prose-evidence and gen-handles already ride generate.ts's reconcile manifest. (2) gen-captain-claims-complete wired into the same manifest + RECONCILE_OUTPUTS and removed from dormant-scripts — its drain path had frozen total_theorems at 1307 while the …</q> · owes the sealed theorem that proves what it meant</small>
+- **refuted** · `b13fd37a` — Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).
+  <br><small>THREE halves paid. (1) gen-prose-evidence and gen-handles already ride generate.ts's reconcile manifest. (2) gen-captain-claims-complete wired into the same manifest + RECONCILE_OUTPUTS and removed from dormant-scripts — its drain path had frozen total_theorems at 1307 while the …</small>
 - **reopened** · `92f12838` — predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is '&amp;lt;' — so the branch is unreachable and the check fails OPEN. Worse, it counts 'new Set(PRINCIPLES.map(p …
   <br><small>claimed: <q>THREE halves paid. (1) expectedPrinciples = 66 → PRINCIPLES.length — the live figure, so the branch cannot go mute when the ledger grows (was 66, now 115). (2) The self-comparison of titles vs entries off the SAME array was replaced by a real second source: lean/PRINCIPLE.md stru…</q> · owes the sealed theorem that proves what it meant</small>
 - **refuted** · `2d552f1f` — Reflection conserves the stroke budget (four falling, five rising)
@@ -1367,7 +1367,7 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | how many theorems are sealed? | 5,856,186 | 6 | 976,031× | `theorems().length` |
 | what does the tree hold right now? | 5,879,022 | 225 | 26,128× | `npm run state` |
 | which Alpine domains are ported? | 1,822,389 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 1,156,284 | 65 | 17,788× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 1,156,513 | 65 | 17,792× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **26,128×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.

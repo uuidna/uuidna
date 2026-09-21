@@ -58,7 +58,8 @@ theorem ratio_isolates_gravity : ((1 - 1 = 0) ∧ (1 + 1 = 2)) ∧ (3 + 1 = 4) :
 
 /-- AND THE CROSSING IS AT 116 BITS, WHICH IS INSIDE THE ADDRESS. The two theorems below say 2^128 clears Planck
     resolution on a metre and 2^96 does not; between them sits a width where it first happens, and walking it
-    gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41. So the frontier is not at either end of
+    gives 116 — 1616255 · 2^115 < 10^41 and 1616255 · 2^116 > 10^41, on the same CODATA 2022 Planck length the
+    two theorems below use — 1.616255(18) x 10^-35 m, physics.nist.gov. So the frontier is not at either end of
     this tree's arithmetic: the leaf payload falls short by exactly twenty bits, and the full address clears it
     by twelve. A bound established by the same walk that uses it is a shape this ledger has caught before, so
     both sides are decided rather than the crossing being quoted from one. -/
@@ -70,7 +71,10 @@ theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^
     of c — hbar/c^2 where length gave hbar/c, G/c^3 where length gave G/c^2. So multiplying by the mass kills
     gravity and dividing by it kills the quantum WHATEVER it is paired with, and the partner only selects which
     power of c is left standing. That makes the three pairings above instances rather than a coincidence of
-    three. -/
+    three. AND THE NUMBERS AGREE, which the three pairings above each state and this one did not: CODATA 2022
+    gives t·m = 1.173369 x 10^-51 kg s against hbar/c^2 = 1.173369 x 10^-51, and t/m = 2.477101 x 10^-36 s/kg
+    against G/c^3 = 2.477100 x 10^-36 — six figures either way, the residue being the uncertainty in G (2.2 x
+    10^-5 relative), the largest of the four constants used. -/
 theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide
 
 /-- A FULL ADDRESS OUTREACHES THE PLANCK LENGTH ON A METRE, and this is the only comparison in this wing that is
@@ -85,15 +89,19 @@ theorem handle_outreaches_planck : 1616255 * 2 ^ 128 > 10 ^ 41 := by decide
 
 /-- AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is
     5,499 — a 128-bit space carries about five and a half thousand distinct values for every Planck length along
-    a metre. Decided as a two-sided bound, between 5,000 and 6,000, so the figure cannot drift by a factor and
-    still pass: an inequality that only says "greater" would hold just as well if the true margin were 2 or
-    10^20, and it is neither. -/
+    a metre, again on CODATA 2022's 1.616255(18) x 10^-35 m (physics.nist.gov), whose 1.1 x 10^-5 relative
+    uncertainty moves that figure by less than one part in ten thousand and so cannot reach either bound.
+    Decided as a two-sided bound, between 5,000 and 6,000, so the figure cannot drift by a factor and still
+    pass: an inequality that only says "greater" would hold just as well if the true margin were 2 or 10^20, and
+    it is neither. -/
 theorem planck_margin_bounded : (1616255 * 2 ^ 128 / 10 ^ 41 > 5000) ∧ (1616255 * 2 ^ 128 / 10 ^ 41 < 6000) := by decide
 
 /-- THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact
     about addresses in general — so the same arithmetic must be able to fail, and it does, one level down. A
-    leaf payload is 2^96 and 1616255 · 2^96 < 10^41: ninety-six bits do NOT reach the Planck length on a metre,
-    and neither does the 32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to
-    a leaf and the leaf carries the full uuid — the part of the address the tree spends on location is precisely
-    the part that could not stand alone at this scale. -/
+    leaf payload is 2^96 and 1616255 · 2^96 < 10^41 — the same CODATA 2022 Planck length (1.616255(18) x 10^-35
+    m, physics.nist.gov) the three theorems above compare against, which is what makes this a control and not a
+    different measurement: ninety-six bits do NOT reach the Planck length on a metre, and neither does the
+    32-bit handle. Only the whole 128-bit address does. That is why the handle is a PATH to a leaf and the leaf
+    carries the full uuid — the part of the address the tree spends on location is precisely the part that could
+    not stand alone at this scale. -/
 theorem payload_falls_short : (1616255 * 2 ^ 96 < 10 ^ 41) ∧ (1616255 * 2 ^ 32 < 10 ^ 41) := by decide
