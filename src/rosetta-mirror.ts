@@ -2997,6 +2997,7 @@ product_isolates_quantum 31
 ratio_isolates_gravity 31
 crossing_sits_inside 31
 mass_selects_cancellation 31
+pairings_exhaust_the_cancellations 31
 handle_outreaches_planck 31
 planck_margin_bounded 31
 payload_falls_short 31
@@ -71310,6 +71311,7 @@ landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
 light_speed_rounds_to_300000 SI
 mass_selects_cancellation CODATA
+pairings_exhaust_the_cancellations CODATA
 payload_falls_short CODATA
 planck_margin_bounded CODATA
 product_isolates_quantum CODATA
@@ -71322,7 +71324,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 28, falsifier: 63 }
+export const FLOOR = { witness: 29, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

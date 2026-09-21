@@ -3,11 +3,11 @@
 **Generated:** 2026-09-21
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71035/71035 theorems — every one, by construction
-**Discovery claimed:** 70639 — the other 396 restate a fact a named source found first
+**Formalisation claimed:** 71036/71036 theorems — every one, by construction
+**Discovery claimed:** 70639 — the other 397 restate a fact a named source found first
 
-*The 396 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 368 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 20/28 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `2095d0af-f7aa-851c-9a30-cc268933c748`
+*The 397 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 334 of 368 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 21/29 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `2fd20b7d-32c7-85a1-924a-15571fe2c7bc`
 
 ### Facts the captain does not claim to have discovered
 
@@ -45,6 +45,7 @@ that earns an external anchor moves here on the next run.
 - [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) — CODATA
 - [crossing_sits_inside](/theorem/crossing_sits_inside) — CODATA
 - [mass_selects_cancellation](/theorem/mass_selects_cancellation) — CODATA
+- [pairings_exhaust_the_cancellations](/theorem/pairings_exhaust_the_cancellations) — CODATA
 - [handle_outreaches_planck](/theorem/handle_outreaches_planck) — CODATA
 - [planck_margin_bounded](/theorem/planck_margin_bounded) — CODATA
 - [payload_falls_short](/theorem/payload_falls_short) — CODATA
@@ -465,7 +466,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `056bd949-71c7-8ce7-96cc-8009798c6886`
+- **Sample lineAddress:** `e116e16e-df65-8a17-aa92-dc090fe4fa52`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -474,7 +475,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `6d539cf2-9598-8667-b6ab-a66ce25e5a4c`
+- **Sample lineAddress:** `ce4fb65c-92a0-8f85-a301-7df31c552951`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1355,12 +1356,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The handle store, and why its smallest leaf is complete
 
-- **Theorems:** 14
+- **Theorems:** 15
 - **Sample lineAddress:** `3f532c8c-16f6-87c4-9812-51e96e029992`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[the_path_spells_the_handle](/theorem/the_path_spells_the_handle) · [every_level_branches_the_same_way](/theorem/every_level_branches_the_same_way) · [four_levels_index_two_to_the_thirty_two](/theorem/four_levels_index_two_to_the_thirty_two) · [the_index_factorises_the_whole_space](/theorem/the_index_factorises_the_whole_space) · [the_smallest_leaf_outruns_the_whole_index](/theorem/the_smallest_leaf_outruns_the_whole_index) · [the_store_holds_far_less_than_it_admits](/theorem/the_store_holds_far_less_than_it_admits) · [kinematics_cancels_both](/theorem/kinematics_cancels_both) · [product_isolates_quantum](/theorem/product_isolates_quantum) · [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) · [crossing_sits_inside](/theorem/crossing_sits_inside) · [mass_selects_cancellation](/theorem/mass_selects_cancellation) · [handle_outreaches_planck](/theorem/handle_outreaches_planck) · [planck_margin_bounded](/theorem/planck_margin_bounded) · [payload_falls_short](/theorem/payload_falls_short)
+[the_path_spells_the_handle](/theorem/the_path_spells_the_handle) · [every_level_branches_the_same_way](/theorem/every_level_branches_the_same_way) · [four_levels_index_two_to_the_thirty_two](/theorem/four_levels_index_two_to_the_thirty_two) · [the_index_factorises_the_whole_space](/theorem/the_index_factorises_the_whole_space) · [the_smallest_leaf_outruns_the_whole_index](/theorem/the_smallest_leaf_outruns_the_whole_index) · [the_store_holds_far_less_than_it_admits](/theorem/the_store_holds_far_less_than_it_admits) · [kinematics_cancels_both](/theorem/kinematics_cancels_both) · [product_isolates_quantum](/theorem/product_isolates_quantum) · [ratio_isolates_gravity](/theorem/ratio_isolates_gravity) · [crossing_sits_inside](/theorem/crossing_sits_inside) · [mass_selects_cancellation](/theorem/mass_selects_cancellation) · [pairings_exhaust_the_cancellations](/theorem/pairings_exhaust_the_cancellations) · [handle_outreaches_planck](/theorem/handle_outreaches_planck) · [planck_margin_bounded](/theorem/planck_margin_bounded) · [payload_falls_short](/theorem/payload_falls_short)
 
 ### Crosslinks: the addressing is the floor
 
@@ -2335,7 +2336,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70950 (71035 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70951 (71036 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2353,7 +2354,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71035 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71036 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2365,7 +2366,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71035; he claims discovery of 70639 and credits the other 396 facts to their named sources
+- ✓ The captain formalised all 71036; he claims discovery of 70639 and credits the other 397 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2374,14 +2375,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 396 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 397 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71035; of these I claim discovery of 70639, and the remaining 396 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70639, and the remaining 397 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

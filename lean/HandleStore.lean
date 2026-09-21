@@ -1,9 +1,9 @@
--- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 71,639 leaves present, the path spells the handle in 71,639 of 71,639 and the handle is the address prefix in 71,639 of 71,639. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 71,639 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 71,640 leaves present, the path spells the handle in 71,640 of 71,640 and the handle is the address prefix in 71,640 of 71,640. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 71,640 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the
     eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There
     is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands,
-    the path spells the handle in 71,639 of 71,639 leaves. -/
+    the path spells the handle in 71,640 of 71,640 leaves. -/
 theorem the_path_spells_the_handle : (4 * 2 = 8) ∧ (8 * 4 = 32) := by decide
 
 /-- THE FRACTAL CLAIM, AS A CONSTANT RATHER THAN A RESEMBLANCE. Two hex digits branch 256 ways, and every one of
@@ -30,11 +30,11 @@ theorem the_index_factorises_the_whole_space : (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (
     NESTING of finite levels that leaves the bottom unbounded in practice. -/
 theorem the_smallest_leaf_outruns_the_whole_index : (2 ^ 96 > 2 ^ 32) ∧ (2 ^ 96 = 2 ^ 32 * 2 ^ 64) := by decide
 
-/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,639 leaves against 4,294,967,296
+/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,640 leaves against 4,294,967,296
     the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes
     what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be
     overstating itself by a factor of about 59,952. -/
-theorem the_store_holds_far_less_than_it_admits : 71639 < 2 ^ 32 := by decide
+theorem the_store_holds_far_less_than_it_admits : 71640 < 2 ^ 32 := by decide
 
 /-- LENGTH OVER TIME LEAVES NEITHER QUANTUM NOR GRAVITY. Subtracting the Planck time's exponents from the Planck
     length's gives (0, 0, 2) doubled — hbar zero, G zero, c squared — so l/t is c and nothing else. Both
@@ -76,6 +76,25 @@ theorem crossing_sits_inside : ((1616255 * 2 ^ 115 < 10 ^ 41) ∧ (1616255 * 2 ^
     against G/c^3 = 2.477100 x 10^-36 — six figures either way, the residue being the uncertainty in G (2.2 x
     10^-5 relative), the largest of the four constants used. -/
 theorem mass_selects_cancellation : ((1 - 1 = 0) ∧ (1 - 1 = 0)) ∧ ((1 + 1 = 2) ∧ (1 + 1 = 2)) := by decide
+
+/-- THE EXHAUSTION ITSELF, WHICH THE PAIRINGS ABOVE ASSERTED AND NOTHING DECIDED. ratio_isolates_gravity says in
+    prose that the three pairings EXHAUST it — c alone, hbar alone, G alone — and a sentence claiming a search
+    is complete is exactly the kind this ledger makes somebody run. So run it: the three Planck quantities admit
+    SIX signed pairings, and each is computed here from the exponent vectors rather than quoted. A pairing
+    CANCELS when the hbar exponent or the G exponent is zero, which is the criterion the three theorems above
+    use, stated once instead of three times. Five of the six cancel — l/t kills both and leaves c, l·m and t·m
+    kill G, l/m and t/m kill hbar — and the sixth, l·t, kills neither: (2, 2, -8), named in the second half so
+    the theorem says WHICH one fails rather than only how many. That settles both claims at once. The exhaustion
+    is real: projected onto (hbar, G) the five take exactly three values, (0,0), (2,0) and (0,2), so there is no
+    fourth isolation to find. And mass_selects_cancellation sharpens: every pairing WITH the mass cancels
+    something, while of the two mass-free pairings only the ratio does. NOT CLAIMED: that six is the only way to
+    combine three quantities — these are the signed pairings, and a longer product is a different question
+    nobody has asked here. AND THE ONE THAT FAILS IS CHECKABLE TOO, which is what keeps this from being
+    arithmetic about itself: (2, 2, -8) halves to (1, 1, -4), so l·t is hbar·G/c^4 — it carries BOTH constants,
+    which is precisely why it cancels neither. CODATA 2022 (physics.nist.gov) agrees to six figures: l·t =
+    8.713630 x 10^-79 m s against hbar·G/c^4 = 8.713629 x 10^-79, the residue again the 2.2 x 10^-5 uncertainty.
+    The five cancellations and the one failure are therefore both measured, not merely counted. -/
+theorem pairings_exhaust_the_cancellations : (((([ List.zipWith (· - ·) [1,1,-3] [1,1,-5], List.zipWith (· + ·) [1,1,-3] [1,-1,1], List.zipWith (· - ·) [1,1,-3] [1,-1,1], List.zipWith (· + ·) [1,1,-5] [1,-1,1], List.zipWith (· - ·) [1,1,-5] [1,-1,1], List.zipWith (· + ·) [1,1,-3] [1,1,-5] ]) : List (List Int)).filter (fun v => v.headD 0 = 0 ∨ (v.drop 1).headD 0 = 0)).length = 5) ∧ (List.zipWith (· + ·) [1,1,-3] [1,1,-5] = ([2,2,-8] : List Int)) := by decide
 
 /-- A FULL ADDRESS OUTREACHES THE PLANCK LENGTH ON A METRE, and this is the only comparison in this wing that is
     not about itself. One metre holds 10^41/1616255 = 61,871,424,991,724,696,907,356,821,788,641,025 Planck

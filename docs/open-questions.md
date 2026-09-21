@@ -29,7 +29,7 @@ page regrows without it.
 - **Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) </small>
-  <br><small>sealed neighbors: [`the_grid_widths_are_the_sealed_fortytwo_and_k432`](/theorem/the_grid_widths_are_the_sealed_fortytwo_and_k432) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`lp_weak_duality_instance`](/theorem/lp_weak_duality_instance) </small>
+  <br><small>sealed neighbors: [`pairings_exhaust_the_cancellations`](/theorem/pairings_exhaust_the_cancellations) · [`the_grid_widths_are_the_sealed_fortytwo_and_k432`](/theorem/the_grid_widths_are_the_sealed_fortytwo_and_k432) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
   <br><small>door: the leads in trial</small>
@@ -59,7 +59,7 @@ page regrows without it.
 - **shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255…**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
-  <br><small>sealed neighbors: [`the_untested_hundred_pay_a_third_of_the_wire`](/theorem/the_untested_hundred_pay_a_third_of_the_wire) · [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) · [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) </small>
+  <br><small>sealed neighbors: [`the_untested_hundred_pay_a_third_of_the_wire`](/theorem/the_untested_hundred_pay_a_third_of_the_wire) · [`pairings_exhaust_the_cancellations`](/theorem/pairings_exhaust_the_cancellations) · [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## cipher — 2 open

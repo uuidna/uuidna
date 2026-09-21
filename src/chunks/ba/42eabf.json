@@ -1,0 +1,12 @@
+{
+  "handle": "ba42eabf",
+  "address": "ba42eabf-1547-8da9-9fe2-47ae4941839f",
+  "statement": "(((([ List.zipWith (· - ·) [1,1,-3] [1,1,-5], List.zipWith (· + ·) [1,1,-3] [1,-1,1], List.zipWith (· - ·) [1,1,-3] [1,-1,1], List.zipWith (· + ·) [1,1,-5] [1,-1,1], List.zipWith (· - ·) [1,1,-5] [1,-1,1], List.zipWith (· + ·) [1,1,-3] [1,1,-5] ]) : List (List Int)).filter (fun v => v.headD 0 = 0 ∨ (v.drop 1).headD 0 = 0)).length = 5) ∧ (List.zipWith (· + ·) [1,1,-3] [1,1,-5] = ([2,2,-8] : List Int))",
+  "tactic": "decide",
+  "keys": [
+    "pairings_exhaust_the_cancellations"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

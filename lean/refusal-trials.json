@@ -1,6 +1,6 @@
 {
  "why": "Each lead decided by the kernel under its own handle: verified = the ledger proves lead_<handle>; refuted = it proves involution_<handle> : ¬ lead_<handle>; each with a fresh, axiom-free kernel receipt; open = still in trial. The sealed theorems a lead's text names are recorded as evidence (citedKeys, theoremTrials), never as the verdict. Lean decides: no lead is judged by its wording, no evidence passes between leads, and no lead is purged.",
- "recorded": "54b31438-0",
+ "recorded": "91e48913-3",
  "refused": 110,
  "lean": 28,
  "open": 82,
@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 1917,
  "rounds": 0,
- "receipt": "54b31438-05dc-8733-bcc8-ccc2432bad99",
+ "receipt": "91e48913-3223-8408-88bc-74243ef55b2c",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -449,7 +449,18 @@
     "two_order_six"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "points",
+      "points"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -934,7 +945,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "832131a2-bdbe-868e-b87f-5090a566f3fa",
+   "receipt": "21785eff-0a62-8c42-9cc7-6b6bbc40707a",
    "verdictKey": "proof_de5612a2",
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#1",
@@ -1623,7 +1634,26 @@
     "reversal_escapes_arithmetic"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -2102,7 +2132,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "04ab3910-08cd-81ba-8ccd-314a7883c64f",
+   "receipt": "8418d77f-cfa1-8dd7-b0c2-e3af51ba3471",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#4",
@@ -3049,7 +3079,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "fa07226e",
@@ -3210,7 +3250,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "bd6c53cc-15d1-8863-bd1d-09bbf8edaf4a",
+   "receipt": "aba25308-deba-89b2-be54-168208b8db0b",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#10",
@@ -3228,7 +3268,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "their"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -3655,7 +3714,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "53fe289e-4e56-8564-a1f1-2f79b2f95ff7",
+   "receipt": "d537b39b-c9a6-88d7-a890-fa2fcbd1b1e4",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#11",
@@ -3866,7 +3925,38 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "life",
+      "life",
+      "life"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always",
+      "whose"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -4099,7 +4189,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "5e2db966-f902-8f02-a043-6a8caba916fe",
+   "receipt": "baaeb725-3058-8e78-8b96-21fb7bbdc150",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#13",
@@ -4117,7 +4207,27 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "lives",
+      "lives"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "lives"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -4233,7 +4343,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d290cee0-6baf-843d-963e-e84ebcc9f487",
+   "receipt": "c944c29f-dea6-8c6f-96c5-b8c5a76d99cd",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#14",
@@ -4992,7 +5102,26 @@
     "sha256_grover_margin_is_the_address"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "power"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -5446,7 +5575,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "52b479bb-8c26-8da2-9d61-639661605a94",
+   "receipt": "59799252-561b-8c11-91eb-f5098a4f8172",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#19",
@@ -5464,7 +5593,37 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "call",
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "asked",
+      "their"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -6059,7 +6218,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0ca1a3f8-aeae-8f2c-a112-9a2cdf26061f",
+   "receipt": "a77ea620-6b82-860d-9e57-0a0ed20d421b",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#20",
@@ -6387,7 +6546,19 @@
     "metatron_seventyeight_lines"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "life",
+      "life",
+      "life"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -6711,7 +6882,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "c57e78ba-399c-87f8-b030-e31679178c85",
+   "receipt": "45dafdcb-72c7-842b-bbd7-5842d3bc515b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#1",
@@ -8175,7 +8346,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "6726dc46",
@@ -8483,7 +8673,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "fca2d1f0-0399-8fb1-abc1-f00066378601",
+   "receipt": "9b2d66cc-584d-88c6-ac24-baa8365f6edc",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#6",
@@ -11968,7 +12158,26 @@
     "proof_f59dbc3d"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -12309,7 +12518,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "22c59fba-4765-89fc-99b0-376c46525711",
+   "receipt": "32fc3057-286a-87c5-8c25-5e9de859a3ed",
    "verdictKey": "proof_f59dbc3d",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#16",
@@ -12603,7 +12812,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "true"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -12891,7 +13110,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "37d1b87f-7296-860a-9d9f-853266be3359",
+   "receipt": "ad5fb6e8-60d4-871c-8801-8e9b9410e238",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#18",
@@ -13512,7 +13731,17 @@
     "radial_squares_to_two"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -13891,7 +14120,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "b6484679-8c6c-8ddd-85cc-fdf18f2cc670",
+   "receipt": "4072219b-9a74-8dde-8cae-741ad8eeba3d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#20",
@@ -16845,7 +17074,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "call"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -17199,7 +17438,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ecd00749-c1ea-8306-b792-f011a7e423ac",
+   "receipt": "c7c0e1b6-52b7-8a03-b75b-e9157c7dae54",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#26",
@@ -17230,7 +17469,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -17793,7 +18053,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "4f4cc51e-d4eb-82dd-bb0c-53695dc1efec",
+   "receipt": "cd8e46cb-032c-8f2f-8cf3-a0af77f82d6e",
    "verdictKey": "involution_b13fd37a",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#27",
@@ -17824,7 +18084,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -18595,7 +18876,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d86d3680-ce4b-800e-bf9e-02ff75087dd4",
+   "receipt": "f1168051-14cb-85d4-9347-3326eace3dad",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#28",
@@ -18783,7 +19064,18 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "true"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "92f12838",
@@ -18860,7 +19152,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "455adb37-1e0c-8350-b145-52ff6474eea3",
+   "receipt": "58d9ec73-6e12-8d4c-9f96-f52c6188735c",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#30",
@@ -19083,7 +19375,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "1592e26d",
@@ -19151,7 +19462,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "dd31c68b-ba0a-80af-8987-e28bf0271e6c",
+   "receipt": "1ce9ade1-de55-8e11-a11a-2b62bbea7854",
    "verdictKey": "involution_e92de628",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#32",
@@ -19186,7 +19497,17 @@
     "involution_83b7cc65"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -19234,7 +19555,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "f7318a7d-b4c2-8c29-aa17-5333cc4c1a63",
+   "receipt": "5e3fadf5-7360-8fb5-94c0-c72e04b115b1",
    "verdictKey": "involution_83b7cc65",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#33",
@@ -19265,7 +19586,37 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "f43ebebc",
@@ -19438,7 +19789,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1e07ef9b-7479-8942-9a65-8b107371ddf9",
+   "receipt": "506c1e53-c65b-8e2d-a7d5-ee722f647981",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#34",
@@ -19721,7 +20072,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "word"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -19877,7 +20238,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "34d998f6-8a9e-8c88-98d6-38fc01b529a3",
+   "receipt": "563dc8c9-7cfa-86b6-9664-f3034c3f3522",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#36",
@@ -20104,7 +20465,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -20515,7 +20895,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "df96ed42-5763-8d7f-b479-2abb82e3fab5",
+   "receipt": "210e76a2-c977-831a-83cc-7782340e919d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#39",
@@ -20546,7 +20926,37 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "true"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -21092,7 +21502,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "f68d060f-2114-84c9-b351-939bb29ee29b",
+   "receipt": "9fa6a9a1-1a1a-88ad-bebc-28939335cc74",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#40",
@@ -21123,7 +21533,27 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does",
+      "well"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "place"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -21806,7 +22236,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "36bc0d49-702b-8aa2-ad45-44f9352e4d2e",
+   "receipt": "7dd99eb5-15a1-8146-b8df-9ada46b8f6d7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#41",
@@ -21841,7 +22271,17 @@
     "provenance_integrity_not_content_truth"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -22511,7 +22951,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "f7ef0bf0-692e-839b-abe2-ba9b64bd6e97",
+   "receipt": "05b906b9-f940-854f-b9b8-8da30e626d90",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#42",
@@ -23071,7 +23511,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -23433,7 +23883,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7f5699bc-6b41-86c6-8b28-5f696fac8083",
+   "receipt": "2761f7d3-ea15-8f27-9e27-369c7b3b17d4",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#44",
@@ -23464,7 +23914,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -23810,7 +24281,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1072b36a-2348-8ca7-b298-9107b0754ad3",
+   "receipt": "3e2af1b3-0fb1-82dc-bf73-2f5499b3364e",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#45",
@@ -23841,7 +24312,29 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "hundred",
+      "hundred",
+      "thousand"
+     ]
+    },
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "hundred",
+      "hundred"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -24876,7 +25369,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "67a600a5-2560-8242-8096-6523cdde2e41",
+   "receipt": "a94848b5-b94a-8ca7-8356-6aebdd91f758",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#46",
@@ -24911,7 +25404,27 @@
     "involution_90c4f258"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does",
+      "after"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -25259,7 +25772,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "321b75bf-b6d3-8129-9379-6c5477ca3de6",
+   "receipt": "ce8b0f5d-f6fe-80d7-b16a-158404c5e4d8",
    "verdictKey": "involution_90c4f258",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#47",
@@ -25290,7 +25803,37 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "steps",
+      "steps",
+      "always"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -26054,7 +26597,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "062936ec-4db5-834f-970e-911286043dc9",
+   "receipt": "0e621d13-b42e-82b7-958c-e8121fd654cf",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#48",
@@ -26091,7 +26634,26 @@
     "alpine_domain_database_partitions_28635"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -27230,7 +27792,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "109e62f8-2224-8c1f-96ca-a488dfbee290",
+   "receipt": "94f456bb-d8b7-807d-b331-a6eb430fca76",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#49",
@@ -27270,7 +27832,26 @@
     "alpine_domain_database_partitions_28635"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -28386,7 +28967,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "e270d23a-d6a1-8690-98e3-9c7edf0651e5",
+   "receipt": "afdf4549-e84f-81f3-848e-22a4d73235c0",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#50",
@@ -28424,7 +29005,26 @@
     "four_wire_sorting_needs_five_comparators"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -29148,7 +29748,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "f51641b4-1d7c-86f5-860a-e319d2a2ae26",
+   "receipt": "0f07e793-c25c-84ae-b5e9-066b4706108a",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#51",
@@ -29181,7 +29781,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -29767,7 +30377,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7e2aa877-db1c-8537-8b9d-c2f8acd6b1b1",
+   "receipt": "af5f6549-8b90-8c54-bd88-ae8b42b9e599",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#52",
@@ -29798,7 +30408,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -30300,7 +30920,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "64c9d6a9-4e29-87e5-b254-f25d9ffce3f9",
+   "receipt": "02d99bb5-22a5-8b97-be59-a790d6ee4eae",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#53",
@@ -30331,7 +30951,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "true"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -30637,7 +31267,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d76103f4-c91b-8c15-9609-a09204fd76a8",
+   "receipt": "ad883831-2a2a-8e96-802e-3e7972de88ae",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#54",
@@ -30668,7 +31298,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -31518,7 +32167,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0c457ab5-8503-862e-89cb-25697e99b756",
+   "receipt": "a1c2274c-ccfe-8d78-a761-08af522cf823",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#55",
@@ -31549,7 +32198,18 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "give",
+      "place"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -32253,7 +32913,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3cabeea1-5156-8de9-8771-bde2c5d20196",
+   "receipt": "633f6f87-2ea1-8c02-bde8-352475773ead",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#56",
@@ -32284,7 +32944,27 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does",
+      "once"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -33451,7 +34131,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "da522651-a349-846c-90a5-03d7aa373cac",
+   "receipt": "d32182cd-24bc-8953-a635-db68ca974ef0",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#57",
@@ -33482,7 +34162,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "whose"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -34368,7 +35058,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3df2d5cc-069a-84a4-8b8e-d0d8688822c1",
+   "receipt": "240dcd06-2842-8007-bc04-a2ec6ebbc8ae",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#58",
@@ -34608,7 +35298,28 @@
     "minting_is_free_and_forging_is_not"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "true"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does",
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -35030,7 +35741,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "31884a9f-464a-80d5-8ef0-426317ba00d0",
+   "receipt": "b07d14e9-2d79-8640-b6b9-86d58562596f",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#2",
@@ -35052,7 +35763,26 @@
     "minting_is_free_and_forging_is_not"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "true"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "ff24b99e",
@@ -35238,7 +35968,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "4654bdbf-afd9-80ee-b9b7-5d6d5e36e870",
+   "receipt": "27a54ca4-45ea-8c6b-abc5-8de73ccf84da",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#3",
@@ -35256,7 +35986,36 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -36762,7 +37521,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b00e3e0e-fd08-8edf-957b-1cca7f72614b",
+   "receipt": "ac82ad67-a8ad-8eb7-ab19-ed2500f3c664",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#4",
@@ -36780,7 +37539,36 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -38284,7 +39072,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "802162f4-ae66-8cde-b78a-b0b18392d4e8",
+   "receipt": "23fb9e3d-17ce-8dd1-97d1-26b1e00318f4",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#5",
@@ -38302,7 +39090,36 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -39804,7 +40621,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "fcec74db-b660-87c5-90eb-34abf4369f7f",
+   "receipt": "873c39b3-e99f-8398-a742-17fe9d58e671",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#6",
@@ -39822,7 +40639,36 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -41259,7 +42105,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2824141e-fed9-84fa-bd19-0f822425a1d0",
+   "receipt": "2a465140-8177-80bd-ae81-397ba4d9b3cb",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#7",
@@ -41277,7 +42123,36 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -42712,7 +43587,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "021a1805-1f0a-8a26-a954-7a457f960861",
+   "receipt": "2a17894a-9de3-816f-b079-9d7b81631372",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#8",
@@ -42730,7 +43605,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -43561,7 +44457,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "426f4801-934d-8c95-9f3b-945896e48c65",
+   "receipt": "e51b52fb-5778-851d-9934-9a830e3d47a1",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#9",
@@ -43579,7 +44475,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -44410,7 +45327,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "e142cb26-4d7c-815a-811c-613a80c1ba70",
+   "receipt": "b757091c-d295-8b5e-ad24-cdf36c0fc74a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#10",
@@ -44428,7 +45345,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -45259,7 +46197,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b02f040c-3bab-89c3-b4aa-bbc74d5dc0f8",
+   "receipt": "96d1205f-1526-87af-a4b6-7ae3252dcceb",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#11",
@@ -45277,7 +46215,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -46108,7 +47067,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8bdc6ad4-932c-85b0-9f87-683b61499017",
+   "receipt": "699f0572-58ac-832f-aa0a-bbeedd9c1573",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#12",
@@ -46126,7 +47085,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -46957,7 +47937,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ba0ffbad-4fa2-81ce-8852-8bf3d6db7057",
+   "receipt": "cd4884cb-f968-88d1-b831-abc3e6faf64c",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#13",
@@ -46975,7 +47955,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -47806,7 +48807,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7b0aec2c-16bb-89a5-9dfc-82ac2b48035d",
+   "receipt": "c0d4f70c-8c47-86b3-8850-7d92cad35d5a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#14",
@@ -47824,7 +48825,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -48655,7 +49677,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b52f3e13-6962-8e72-8c82-4cb3f7620d61",
+   "receipt": "62f3d4f0-cd62-8691-bbfc-2abcb3219854",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#15",
@@ -48673,7 +49695,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -49504,7 +50547,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "532af0f7-6195-8152-be0b-55c4cce050f1",
+   "receipt": "c5600ffc-df48-8c0d-b928-8d44e548f07b",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#16",
@@ -49522,7 +50565,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -50353,7 +51417,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0b1ce48b-1696-8a95-bac6-2617a6cc9bee",
+   "receipt": "fd328f82-db94-8e93-8a59-59d5f029c4ef",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#17",
@@ -50371,7 +51435,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -51202,7 +52287,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7b171687-a510-864e-bbf7-49fdbb8a79b5",
+   "receipt": "ea6631d9-5a04-850a-bb6d-95f76e3f0db6",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#18",
@@ -51220,7 +52305,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -52051,7 +53157,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d46fe697-c106-8802-a49d-162e8bf5bb49",
+   "receipt": "4653d52f-14e0-8e0f-ac22-3efb8df6e814",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#19",
@@ -52069,7 +53175,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -52900,7 +54027,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "49f3d79d-c3fe-887e-8be8-05a8ad7c0317",
+   "receipt": "f5eb63ad-11d8-8f95-b8fd-d9bf75517eb8",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#20",
@@ -52918,7 +54045,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -53749,7 +54897,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "494838b5-6ff0-873e-8f75-76847d36f660",
+   "receipt": "30742350-4348-87a9-954f-d91c8385c845",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#21",
@@ -53767,7 +54915,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -54598,7 +55767,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "82c634e6-0e60-8d44-a3fc-094a57a793a1",
+   "receipt": "8e579d1a-eac3-820d-8e32-0a644429cf2f",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#22",
@@ -54616,7 +55785,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -55447,7 +56637,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "96257df0-2aad-84e5-8ed0-8c0bc6e83221",
+   "receipt": "0860a86c-2b55-8a1e-8421-81d9a3c8f426",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#23",
@@ -55465,7 +56655,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -56296,7 +57507,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7eee5762-89bd-8557-8675-0566e9d6cf9a",
+   "receipt": "4efb0140-1ca5-8183-9123-1e3d18f7e7b3",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#24",
@@ -56314,7 +57525,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -57145,7 +58377,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "e46d5a72-ebfd-8375-8a49-60e54019cbaf",
+   "receipt": "ed8cf163-97a7-849c-9cdb-24996ef3dfe7",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#25",
@@ -57163,7 +58395,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under",
+      "after"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "once"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -57994,7 +59247,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2f4d6d7f-dc1a-8f94-b10d-27da23cca591",
+   "receipt": "bf40639d-5217-8b8c-935a-afb935da522d",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#26",
@@ -58012,7 +59265,40 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "three",
+      "after"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "three",
+      "asked",
+      "three"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "after",
+      "whose"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -59026,7 +60312,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "77908ddf-ad7f-8072-ab26-5932e195654e",
+   "receipt": "0e1dd5af-aaa4-8ddd-8be9-bee49b58f0ff",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#27",
@@ -59044,7 +60330,26 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "under"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "does"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -59924,7 +61229,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "4e61f616-a028-8def-b6e5-512ac55fc967",
+   "receipt": "1f9330aa-b3cc-85d7-88c5-f0daffae3b8b",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#28",
@@ -59946,7 +61251,37 @@
     "truncated_run_counted_47"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always",
+      "under"
+     ]
+    },
+    {
+     "claim": "three points",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "call",
+      "does"
+     ]
+    },
+    {
+     "claim": "three steps",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -60627,7 +61962,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "19a67823-59f8-84b7-8f66-82730ea394a6",
+   "receipt": "8a24630d-d9c5-8982-98c7-63f6c0274d59",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#29",
@@ -60645,8 +61980,8 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "9bfd5899-cb69-8ddf-b4a2-67746362eb24",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
-  "src/theorems/generated.ts": "a1809ae6-8af9-8a2d-8a2a-345ab69238b9",
-  "lean/axioms.json": "c5f2f046-1b4f-8bda-8f43-961788090d23",
+  "src/theorems/generated.ts": "407347eb-7b53-87b3-94ad-a97f5c837163",
+  "lean/axioms.json": "22955668-d252-835e-a0cb-205270ee0c26",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -60922,5 +62257,5 @@
   }
  },
  "unreceipted": [],
- "seal": "0141ea2d-985b-8000-b66e-3efee37c7c99"
+ "seal": "41f04db7-d0bc-852f-b209-f4039b8d9c97"
 }

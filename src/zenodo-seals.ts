@@ -1,4 +1,6 @@
 import { STANDING_DOI } from './handle-permanence.js'
+import { attributions } from './claim-attribution.js'
+import { gradeOf } from './external-fact.js'
 // zenodo-seals — AGNOSTIC publication↔page↔DOI seal registry (captain, 2026-08-26).
 //
 // ONE loop for ALL owned Zenodo concepts: each seal is parameterized by identity (id, standing record,
@@ -244,5 +246,33 @@ export function softwareArchiveRelatedIdentifiers(): ZenodoRelated[] {
       })
     }
   }
+
+  /**
+   * THE PAPERS THE THEOREMS REST ON, declared to the archive.
+   *
+   * Zenodo's citation FAQ is clear that INBOUND citations are discovered by
+   * Crossref, NASA ADS and Europe PMC and are not a depositor's to arrange.
+   * Outbound ones are: a deposit says what it draws on, and a reader following
+   * the record can reach the source.
+   *
+   * This ledger already computes that set — `attributions()` names, per
+   * theorem, whose fact it is, and a DOI is the checkable grade of source.
+   * Until now the census existed and the archive record said nothing about it:
+   * five papers the theorems depend on, absent from the one document a
+   * stranger finds first. A census computed and not published is the defect
+   * this tree keeps catching in itself.
+   *
+   * DERIVED, so it cannot drift. Adding an attributed DOI to a theorem adds it
+   * here; the deposit cannot cite a paper the ledger does not, or omit one it
+   * does. `references` rather than `cites` because that relation is already
+   * proven accepted by this record, and a deposit refused on a vocabulary
+   * guess publishes nothing at all.
+   */
+  const cited = [...new Set(attributions().map((a) => a.source).filter((src) => gradeOf(src) === 'identifier'))].sort()
+  for (const doi of cited) {
+    if (ids.some((x) => x.identifier === doi)) continue
+    ids.push({ identifier: doi, relation: 'references', resource_type: 'publication-article' })
+  }
+
   return ids
 }
