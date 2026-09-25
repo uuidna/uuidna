@@ -7,6 +7,8 @@
 //
 // A content-address proves INTEGRITY, not truth. It settles Licensed CC BY-NC-ND 4.0 · Tsvetan Rouschev.
 
+export { DISSOLVED, dissolvedGaps, type Dissolved, type DissolvedGap } from './dissolved.js'
+
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
