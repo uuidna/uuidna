@@ -44946,6 +44946,40 @@ theorem involution_b13fd37a : ¬ lead_b13fd37a := by exact fun hl => hl.1 "gen-p
 \noindent Content-address \texttt{2f4c0a89-afca-8146-b25b-1fa9127c0f89}.
 \end{proof}
 
+\section{The involution of lead c0727ef6}
+
+\begin{theorem}[The census the refutation rests on: the tour has 2 seams and its dz-mirror has 9 — every step of the mirror is a seam, so no map can carry two onto nine.]
+\label{thm:seam-census-c0727ef6}
+\begin{lstlisting}[language=lean]
+(seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem seam_census_c0727ef6 : (seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9 := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{502a798b-1405-8195-b0f6-49d3c380233c}.
+\end{proof}
+
+\begin{theorem}[The seams reflect (row1's seams map onto row2's under the mirror) — REFUTED: applying the tour's own law to the mirrored row gives 9 seams where the lead's image gives 2, so the seams do not reflect.]
+\label{thm:involution-c0727ef6}
+\begin{lstlisting}[language=lean]
+¬ lead_c0727ef6
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by unfold lead\_c0727ef6; decide}):
+\begin{lstlisting}[language=lean]
+theorem involution_c0727ef6 : ¬ lead_c0727ef6 := by unfold lead_c0727ef6; decide
+\end{lstlisting}
+\noindent Content-address \texttt{f141c685-74a6-8275-ad72-e210da027544}.
+\end{proof}
+
 \section{The involution of lead e92de628}
 
 \begin{theorem}[Non-divisibility from a bounded search: if no multiplier below n / d + 1 reaches n, and that bound already overshoots n, then d does not divide n. Core's decision for ∣ borrows propext, so the bound is argued here instead.]

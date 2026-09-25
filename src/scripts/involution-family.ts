@@ -294,7 +294,58 @@ const d2d552f1f: Builder = async (h, row) => {
 // words, and what it asks for is a FINDER — a guard step hunting a frozen width, where a rule can be sharpened in
 // the open against the next spelling — not a theorem. The captain: "reopen by default so no escape for traitors".
 
-const BUILDERS: Readonly<Record<string, Builder>> = { e92de628, b13fd37a, '2d552f1f': d2d552f1f }
+/** c0727ef6 — "The seams reflect": the tour's seams do NOT map onto its mirror's under dz.
+ *
+ *  THE SETTLEMENT WAS WRONG IN SUBSTANCE AND THE WAVE CAUGHT IT. It had declared this lead "true by construction /
+ *  unfalsifiable", and that described a VACUOUS FORMALIZATION somebody had written — carries(dz p, dz n), which
+ *  conjugates the law with the involution and so cannot fail — not the claim the lead makes. Applying the SAME law to
+ *  the mirrored row is not trivial and it is false: under lean/Sequence.lean's own carries9, the tour has exactly two
+ *  seams (indices 5 and 8, which is what seams_two seals at line 62) while its dz-mirror has nine — every step is a
+ *  seam. Recomputed in JS and then confirmed by the kernel, axiom-free.
+ *
+ *  EVERY DEF IS QUOTED FROM THE WING, verified line by line against lean/Sequence.lean:4-10, and seamPairs is the
+ *  filter expression inside seams_two itself, factored so the same law can be applied to a second row. Nothing is
+ *  invented — which is the whole condition for this road, because a def written to make the negation decidable is the
+ *  fault the court refuses. */
+const c0727ef6: Builder = async (h, row) => {
+  const units = [1, 2, 4, 5, 7, 8]
+  const carries = (d: number, nx: number): boolean =>
+    units.includes(d) ? nx === (2 * d) % 9 : (d === 3 || d === 6 ? nx === (d + 3) % 9 : false)
+  const dz = (x: number): number => (x === 0 ? 0 : 10 - x)
+  const tour = [1, 2, 4, 8, 7, 5, 3, 6, 0]
+  const seams = (row2: readonly number[]): [number, number][] =>
+    row2.map((d, i) => [d, row2[(i + 1) % row2.length]!] as [number, number]).filter(([d, nx]) => !carries(d, nx))
+  const mine = seams(tour)
+  const mirrored = seams(tour.map(dz))
+  // the lead says the mirror's seams ARE the image of the tour's under dz; recomputed, they are not
+  const claimed = mine.map(([a, b]) => [dz(a), dz(b)] as [number, number])
+  const same = mirrored.length === claimed.length
+    && mirrored.every(([a, b], i) => a === claimed[i]![0] && b === claimed[i]![1])
+  if (same) throw new Error(`involution ${h}: the seams now DO reflect — the lead holds and this road is closed`)
+  const defs = [
+    block('units9, lean/Sequence.lean:5 — the six units of Z/9, quoted unchanged.', 'def units9 : List Nat := [1, 2, 4, 5, 7, 8]'),
+    block('carries9, lean/Sequence.lean:6 — the tour law, quoted unchanged: doubling on the units, +3 on the {3,6} axis, and nothing elsewhere.',
+      'def carries9 (d nx : Nat) : Bool :=\n  if units9.contains d then nx == (2 * d) % 9\n  else if d == 3 || d == 6 then nx == (d + 3) % 9\n  else false'),
+    block('dz, lean/Sequence.lean:10 — the mirror neighbour, quoted unchanged.', 'def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x'),
+    block('tour, lean/Sequence.lean:4 — the vortex tour in Z/9, quoted unchanged.', 'def tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]'),
+    block('The seams as PAIRS. This is the filter expression inside seams_two (lean/Sequence.lean:62) factored into a def, so the identical law can be applied to a second row — which is what the lead asks and what seams_two, stating only a length, cannot express.',
+      'def seamPairs (row : List Nat) : List (Nat × Nat) :=\n  (row.zip (row.drop 1 ++ row.take 1)).filter (fun p => ! carries9 p.1 p.2)'),
+    block(row.lead, `def lead_${h} : Prop :=\n  seamPairs (tour.map dz) = (seamPairs tour).map (fun p => (dz p.1, dz p.2))`),
+  ].join('\n\n')
+  const facts: Fact[] = [
+    { key: `seam_census_${h}`,
+      name: `The census the refutation rests on: the tour has ${mine.length} seams and its dz-mirror has ${mirrored.length} — every step of the mirror is a seam, so no map can carry two onto nine.`,
+      js: () => mine.length === 2 && mirrored.length === 9 && tour.length === 9,
+      lean: `theorem seam_census_${h} :\n    (seamPairs tour).length = ${mine.length} ∧ (seamPairs (tour.map dz)).length = ${mirrored.length} ∧ (tour.map dz).length = ${tour.length} := by decide` },
+    { key: `involution_${h}`,
+      name: `${row.lead} — REFUTED: applying the tour's own law to the mirrored row gives ${mirrored.length} seams where the lead's image gives ${claimed.length}, so the seams do not reflect.`,
+      js: () => !same,
+      lean: `theorem involution_${h} : ¬ lead_${h} := by unfold lead_${h}; decide` },
+  ]
+  return { header: headerOf(h), defs, facts }
+}
+
+const BUILDERS: Readonly<Record<string, Builder>> = { e92de628, b13fd37a, '2d552f1f': d2d552f1f, c0727ef6 }
 const headerOf = (h: string): string =>
   `INVOLUTION ${h}: lead ${h} of lean/leads.json (refuted), stated as lead_${h} over the objects its source derives, and involution_${h}, the kernel's proof of its negation.`
 

@@ -1,0 +1,36 @@
+-- lean/Involutionc0727ef6.lean — GENERATED. INVOLUTION c0727ef6: lead c0727ef6 of lean/leads.json (refuted), stated as lead_c0727ef6 over the objects its source derives, and involution_c0727ef6, the kernel's proof of its negation. Every proof checked by the kernel (by decide, by unfold), sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+
+/-- units9, lean/Sequence.lean:5 — the six units of Z/9, quoted unchanged. -/
+def units9 : List Nat := [1, 2, 4, 5, 7, 8]
+
+/-- carries9, lean/Sequence.lean:6 — the tour law, quoted unchanged: doubling on the units, +3 on the {3,6}
+    axis, and nothing elsewhere. -/
+def carries9 (d nx : Nat) : Bool :=
+  if units9.contains d then nx == (2 * d) % 9
+  else if d == 3 || d == 6 then nx == (d + 3) % 9
+  else false
+
+/-- dz, lean/Sequence.lean:10 — the mirror neighbour, quoted unchanged. -/
+def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x
+
+/-- tour, lean/Sequence.lean:4 — the vortex tour in Z/9, quoted unchanged. -/
+def tour : List Nat := [1, 2, 4, 8, 7, 5, 3, 6, 0]
+
+/-- The seams as PAIRS. This is the filter expression inside seams_two (lean/Sequence.lean:62) factored into a
+    def, so the identical law can be applied to a second row — which is what the lead asks and what seams_two,
+    stating only a length, cannot express. -/
+def seamPairs (row : List Nat) : List (Nat × Nat) :=
+  (row.zip (row.drop 1 ++ row.take 1)).filter (fun p => ! carries9 p.1 p.2)
+
+/-- The seams reflect (row1's seams map onto row2's under the mirror) -/
+def lead_c0727ef6 : Prop :=
+  seamPairs (tour.map dz) = (seamPairs tour).map (fun p => (dz p.1, dz p.2))
+
+/-- The census the refutation rests on: the tour has 2 seams and its dz-mirror has 9 — every step of the mirror
+    is a seam, so no map can carry two onto nine. -/
+theorem seam_census_c0727ef6 :
+    (seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9 := by decide
+
+/-- The seams reflect (row1's seams map onto row2's under the mirror) — REFUTED: applying the tour's own law to
+    the mirrored row gives 9 seams where the lead's image gives 2, so the seams do not reflect. -/
+theorem involution_c0727ef6 : ¬ lead_c0727ef6 := by unfold lead_c0727ef6; decide
