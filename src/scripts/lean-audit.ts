@@ -108,7 +108,20 @@ const FACTS = [
         for (let k = i; k < i + w && k < n; k++) xs.push(k)
         blocks.push('[' + xs.join(',') + ']')
       }
-      return `theorem the_axiom_index_partitions_without_remainder : [${blocks.join(',')}].all (fun c => c.all (fun i => (${'[' + D.join(',') + ']'}.contains i) != (${'[' + R.join(',') + ']'}.contains i))) := by decide` })() },
+      void blocks
+      // MERGED PER BLOCK, WHICH FIXES BOTH COSTS AT ONCE. Both lists ascend, so merging them decides the
+      // partition outright: a merge equalling the block's own index run proves disjoint, exhaustive and ordered
+      // together. Membership asked the same question in O(n^2) and hit the heartbeat ceiling; a single whole-list
+      // merge is O(n) in STEPS but O(n) in DEPTH, and 520 is past the 512 recursion limit. Blocking was already
+      // this fact's design — "so the depth does not track the vocabulary size" — and it is what makes the merge
+      // land: each block is at most the sealed root width deep, and the blocks together still cover every index.
+      const parts: string[] = []
+      for (let i = 0; i < n; i += w) {
+        const hi = i + w < n ? i + w : n
+        const d = D.filter((x) => x >= i && x < hi), r = R.filter((x) => x >= i && x < hi)
+        parts.push(`(mergeIdx ${w + 1} [${d.join(',')}] [${r.join(',')}] = List.range' ${i} ${hi - i})`)
+      }
+      return `theorem the_axiom_index_partitions_without_remainder : ${parts.join(' ∧ ')} := by decide` })() },
   { key: 'edits_break_recompute', skill: 'audit',
     why: 'AN EDITED ENTRY STOPS RECOMPUTING, AT EVERY POSITION. Each link commits to the one before it, so changing a single content address anywhere in the trail makes the recomputed chain differ from the stored one — walked over all eight positions and caught at eight of eight. The count is the claim: a detector that caught seven of eight would leave one seat where a receipt could be rewritten, and nothing in the prose would say which. This is the property an append-only log is usually ASSERTED to have by the database it sits in; here it is a consequence of the shape, and it survives a database that lets a row be updated. PRIOR ART: the fact is Haber and Stornetta, Journal of Cryptology 3:99-111 (1991), DOI 10.1007/BF00196791 — hash-chaining records so that altering one invalidates every later link. The captain claims the FORMALISATION and not the discovery; a priority date of 1991 is answered by no proof this tree can run.',
     js: () => R(0, 8).filter((i) => !same(chain(ADDRS.map((x, j) => (j === i ? 999 : x))), STORED)).length === 8,
@@ -141,6 +154,20 @@ emit({ file: 'Audit.lean', skill: 'audit',
     'def step (acc : List Nat) (a : Nat) : List Nat := lh (acc.length + 1) (acc.headD 0) a :: acc',
     'def chain (addrs : List Nat) : List Nat := (addrs.foldl step []).reverse',
     'def dropAt (xs : List Nat) (i : Nat) : List Nat := xs.take i ++ xs.drop (i + 1)',
+    '-- mergeIdx — merge two ASCENDING index lists, fuel-bounded so the recursion is structural.',
+    '-- THE PARTITION THEOREM USED TO TEST MEMBERSHIP, asking for every index whether it was in the direct list',
+    '-- XOR the reached list. Both scans are linear, so the walk was quadratic in the vocabulary, and at 520',
+    '-- definitions it hit the 200000-heartbeat ceiling of the kernel and the wing stopped elaborating. NO WING BUYS',
+    '-- ITS OWN CEILING (Colour.lean): the answer is the better algorithm. Both lists are already ascending —',
+    '-- they are built by walking the sorted index — so merging them once is O(n) and says MORE, not less:',
+    '-- the merge equalling List.range n proves the parts are disjoint, exhaustive AND ordered in one pass.',
+    'def mergeIdx : Nat -> List Nat -> List Nat -> List Nat',
+    '  | 0, _, _ => []',
+    '  | Nat.succ f, xs, ys =>',
+    '    match xs, ys with',
+    '    | [], bs => bs',
+    '    | as, [] => as',
+    '    | a :: as, b :: bs => if a <= b then a :: mergeIdx f as (b :: bs) else b :: mergeIdx f (a :: as) bs',
     `def addrs : List Nat := [${ADDRS.join(',')}]`,
     `def stored : List Nat := [${STORED.join(',')}]`,
   ].join('\n'),
