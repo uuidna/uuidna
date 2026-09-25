@@ -200,15 +200,25 @@ export const depositableSeals = (): ZenodoSeal[] =>
     (s) => s.owned && s.role === 'publication' && s.standingRecordId && s.conceptId && s.bundlePaths?.length,
   )
 
-/** DOI prior art bound to a Lean file — credit law: these DOIs first, captain next. */
+/**
+ * DOI prior art bound to a Lean file — credit law: these DOIs first, captain next.
+ *
+ * PRIOR ART CITES THE FIRST DEPOSIT, NOT THE CONCEPT, and the two are different claims. A concept DOI says what
+ * the work IS and resolves to whichever version is current — right for a citation, and useless for precedence,
+ * because it carries no date and moves every time a version lands. Priority is the EARLIEST version and nothing
+ * else. So a credit line that means "this came first" must name firstDoi; standingDoi is for "this is the work".
+ * Sealing the concept as standingDoi is what exposed the conflation: the credit silently started claiming
+ * precedence from a DOI that has no date of its own.
+ */
 export function doiPriorArtForLeanFile(file: string): { doi: string; link: string }[] {
   const out: { doi: string; link: string }[] = []
   const seen = new Set<string>()
   for (const s of ZENODO_SEALS) {
     if (!s.leanFiles?.includes(file)) continue
-    if (seen.has(s.standingDoi)) continue
-    seen.add(s.standingDoi)
-    out.push({ doi: s.standingDoi, link: `https://doi.org/${s.standingDoi}` })
+    const doi = s.firstDoi ?? s.standingDoi
+    if (seen.has(doi)) continue
+    seen.add(doi)
+    out.push({ doi, link: `https://doi.org/${doi}` })
   }
   return out
 }

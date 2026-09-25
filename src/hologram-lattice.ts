@@ -5481,7 +5481,10 @@ export const noveltyOf = () => {
   const credit = creditOf()
   const lean = leanOf()
   const school = schoolOf()
-  const doi = clay?.standingDoi ?? empty
+  // NOVELTY IS THE FIRST DEPOSIT. The concept DOI says what the work is and resolves to the current version,
+  // which carries no date; precedence is the earliest version and nothing else. A field called `novelty` that
+  // cited the concept would claim priority from a DOI that moves.
+  const doi = clay?.firstDoi ?? clay?.standingDoi ?? empty
   return {
     occupancy,
     deposit: hop.deposit,

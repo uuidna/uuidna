@@ -145,7 +145,12 @@ test('publicationPriorArtAudit is clean', async () => {
 test('clay-involution is an instance in the registry, not a one-off license', () => {
   const clay = ZENODO_SEALS.find((s) => s.id === 'clay-involution')
   assert.ok(clay)
-  assert.equal(clay!.standingDoi, '10.5281/zenodo.21781603')
+  // THE RELATIONSHIP IS THE POLICY; THE FIRST DEPOSIT IS THE HISTORY. Citing by concept is a decision and can
+  // change, so it is asserted as a relationship rather than pinned to whichever DOI the concept currently is.
+  // The first deposit never moves — it is a date that already happened — so pinning that one cannot rot.
+  assert.equal(clay!.standingDoi, clay!.conceptDoi, 'clay is cited by its concept DOI, which follows the series')
+  assert.equal(clay!.firstDoi, '10.5281/zenodo.21781603')
+  assert.equal(clay!.firstPublished, '2026-08-04')
   assert.equal(Object.prototype.hasOwnProperty.call(clay, 'license'), false)
   const rich = richPublicationMetadata(clay!)
   assert.equal(rich.license.toUpperCase(), 'CC-BY-NC-ND-4.0')

@@ -216,7 +216,11 @@ export function researchPublicationPriorArt(seal: ZenodoSeal): PublicationPriorA
 
   // 1 · DOIs mined from title + description (exclude this seal's own standing/concept DOI)
   const hay = `${seal.title} ${seal.description}`
-  const selfDois = new Set([seal.standingDoi, seal.conceptDoi].filter(Boolean) as string[])
+  // A SEAL'S OWN EARLIER VERSION IS NOT AN EXTERNAL SOURCE. standing, concept and FIRST are all the same work:
+  // the concept names the series, the standing is what this ledger cites, and the first is the deposit that
+  // carries the priority date. Leaving firstDoi out mined it from the description as prior art with no declared
+  // role — the ledger briefly recording itself as something that arrived before itself.
+  const selfDois = new Set([seal.standingDoi, seal.conceptDoi, seal.firstDoi].filter(Boolean) as string[])
   for (const doi of doisIn(hay)) {
     if (selfDois.has(doi)) continue
     pushPrior(
