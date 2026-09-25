@@ -19848,18 +19848,20 @@ theorem lp_optimum_is_eleven : ((List.range 4).all (fun x => (List.range 5).all 
 \noindent Content-address \texttt{a020aaaf-ae35-85ae-9799-b9f3d02e4ad7}.
 \end{proof}
 
-\begin{theorem}[the optimum (3,1) is a VERTEX: both constraints are TIGHT there (x = 3 and x + y = 4) — two tight constraints in two dimensions pin a corner, the geometry of every linear optimum]
+\begin{theorem}[the optimum (3,1) is a VERTEX, reached two independent ways: the tight system x = 3 ∧ x + y = 4 SOLVES to y = 4 - 3 = 1, and the total enumeration finds no other feasible point scoring 11 — algebra and exhaustive search agree on the corner, neither assuming the other]
 \label{thm:lp-optimum-at-a-vertex}
-\[
-  3 = 3 \quad\land\quad 3 + 1 = 4
-\]
+\begin{lstlisting}[language=lean]
+(4 - 3 = 1) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y < 11) || (x == 3 && y == 1))))
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem lp_optimum_at_a_vertex : (3 = 3) ∧ (3 + 1 = 4) := by decide
+theorem lp_optimum_at_a_vertex : (4 - 3 = 1) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y < 11) || (x == 3 && y == 1)))) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{03bb7ef8-a6ab-8514-acb2-13a1ebd5d192}.
+\noindent Content-address \texttt{0bd0f683-1bdf-802f-af33-5374177df8a6}.
 \end{proof}
 
 \begin{theorem}[WEAK DUALITY on the instance: the dual point (u,v) = (2,1) is dual-feasible (u+v ≥ 3, u ≥ 2) and every feasible primal value 3x+2y stays ≤ its dual value 4u+3v = 11 — no primal point ever beats a dual bound]
@@ -19892,18 +19894,20 @@ theorem lp_strong_duality_instance : 3*3 + 2*1 = 4*2 + 3*1 := by decide
 \noindent Content-address \texttt{b801e08b-70be-8277-867a-59f0061156e3}.
 \end{proof}
 
-\begin{theorem}[COMPLEMENTARY SLACKNESS on the instance: both dual prices are positive (2 > 0, 1 > 0) and both primal constraints are tight at the optimum (3+1 = 4, 3 = 3) — a positive price is paid exactly on a binding constraint, both pairs verified]
+\begin{theorem}[COMPLEMENTARY SLACKNESS as a characterisation: across the ENTIRE feasible set, the STRICTLY POSITIVE dual prices (2,1) paired against the primal slacks — 2·(4−(x+y)) + 1·(3−x) — vanish EXACTLY at the optimum (3,1) and nowhere else, walked in both directions; positivity is what singles that corner out, not the particular prices, whose optimality is sealed by weak and strong duality instead]
 \label{thm:lp-complementary-slackness}
-\[
-  2 > 0 \quad\land\quad 1 > 0 \quad\land\quad 3 + 1 = 4 \quad\land\quad 3 = 3
-\]
+\begin{lstlisting}[language=lean]
+((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || ((2 * (4 - (x + y)) + (3 - x) == 0) == (x == 3 && y == 1)))))
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem lp_complementary_slackness : (2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3) := by decide
+theorem lp_complementary_slackness : ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || ((2 * (4 - (x + y)) + (3 - x) == 0) == (x == 3 && y == 1))))) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{80b38ba3-5052-8886-a1ba-4673ba22e78a}.
+\noindent Content-address \texttt{037875b0-cc3c-8918-b74f-2dbca034dfbc}.
 \end{proof}
 
 \begin{theorem}[one simplex pivot strictly improves: from the vertex (3,0) worth 9 to the adjacent vertex (3,1) worth 11 — 9 < 11, the walk along an edge that ends at the optimum]
@@ -85586,18 +85590,18 @@ theorem coprime_sum_open_reduced_2_mod_107 : (pmod 1 2 107 + pmod 3 2 107) % 107
 
 \section{THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25}
 
-\begin{theorem}[CLAIMED: of 597874 crosses the corpus's own integers generate, 501149 are forced by an operator's algebra, 452 are stated, and 96273 remain — and the three account for the whole, 501149 + 452 + 96273 = 597874.]
+\begin{theorem}[CLAIMED: of 605701 crosses the corpus's own integers generate, 508275 are forced by an operator's algebra, 452 are stated, and 96974 remain — and the three account for the whole, 508275 + 452 + 96974 = 605701.]
 \label{thm:the-generated-closure-partitions-into-three-kinds}
 \[
-  501149 + 452 + 96273 = 597874 \quad\land\quad 501149 > 5 \cdot 96273
+  508275 + 452 + 96974 = 605701 \quad\land\quad 508275 > 5 \cdot 96974
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem the_generated_closure_partitions_into_three_kinds : (501149 + 452 + 96273 = 597874) ∧ (501149 > 5 * 96273) := by decide
+theorem the_generated_closure_partitions_into_three_kinds : (508275 + 452 + 96974 = 605701) ∧ (508275 > 5 * 96974) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{b821dd17-cf89-8e8b-b335-c9ed14eefdb5}.
+\noindent Content-address \texttt{86e33b12-b31d-890d-a5b3-90e84987dec4}.
 \end{proof}
 
 \begin{theorem}[CLAIMED: the 6 arithmetic operators the sealed formulas use split by what they do over the corpus's own integers — 2 commutative (* +), 3 forced on their diagonal (\% - /), 1 neither (\textasciicircum{}) — and 2 + 3 + 1 = 6.]
@@ -85614,32 +85618,46 @@ theorem the_arithmetic_alphabet_partitions_by_its_own_algebra : ((2 + 3 + 1 = 6)
 \noindent Content-address \texttt{23ada59a-4cdb-8039-94c3-cdd81827a5c2}.
 \end{proof}
 
-\begin{theorem}[CLAIMED: of 96273 unstated crosses, 41387 join integers no single wing carries all three of — over two fifths and under a half, since 41387 × 5 > 96273 × 2 and 41387 × 2 < 96273.]
+\begin{theorem}[CLAIMED: of 96974 unstated crosses, 42071 join integers no single wing carries all three of — over two fifths and under a half, since 42071 × 5 > 96974 × 2 and 42071 × 2 < 96974.]
 \label{thm:most-of-the-unstated-remainder-stays-inside-one-wing}
 \[
-  41387 \cdot 5 > 96273 \cdot 2 \quad\land\quad 41387 \cdot 2 < 96273 \quad\land\quad 41387 < 96273
+  42071 \cdot 5 > 96974 \cdot 2 \quad\land\quad 42071 \cdot 2 < 96974 \quad\land\quad 42071 < 96974
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((41387 * 5 > 96273 * 2) ∧ (41387 * 2 < 96273)) ∧ (41387 < 96273) := by decide
+theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((42071 * 5 > 96974 * 2) ∧ (42071 * 2 < 96974)) ∧ (42071 < 96974) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{417f0046-aaee-8779-a344-d9b3f52c54ce}.
+\noindent Content-address \texttt{977882c5-79dd-890d-8800-7bfdac55b578}.
 \end{proof}
 
-\begin{theorem}[CLAIMED: the 1527 formula-shaped statements across 114 wings are built from 770 distinct integers and state 452 crosses, against 96273 their own integers generate unstated — fewer than one in a hundred, since 452 × 100 < 96273, at between 13 and 14 formulas per wing.]
+\begin{theorem}[CLAIMED: the 1529 formula-shaped statements across 115 wings are built from 776 distinct integers and state 452 crosses, against 96974 their own integers generate unstated — fewer than one in a hundred, since 452 × 100 < 96974, at between 13 and 14 formulas per wing.]
 \label{thm:the-corpus-has-sealed-under-a-hundredth-of-its-own-closure}
 \[
-  452 \cdot 100 < 96273 \quad\land\quad 770 > 114 \quad\land\quad 114 \cdot 13 < 1527 \quad\land\quad 114 \cdot 14 > 1527
+  452 \cdot 100 < 96974 \quad\land\quad 776 > 115 \quad\land\quad 115 \cdot 13 < 1529 \quad\land\quad 115 \cdot 14 > 1529
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((452 * 100 < 96273) ∧ (770 > 114)) ∧ ((114 * 13 < 1527) ∧ (114 * 14 > 1527)) := by decide
+theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((452 * 100 < 96974) ∧ (776 > 115)) ∧ ((115 * 13 < 1529) ∧ (115 * 14 > 1529)) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{13932277-f697-8018-b0e7-d04dd727f9f8}.
+\noindent Content-address \texttt{0d5d5f06-db47-882e-927f-c18fc36caf7d}.
+\end{proof}
+
+\begin{theorem}[CLAIMED: 1529 formula-shaped statements carry 1457 distinct byte-strings but only 489 distinct cross contents, and 24 of those contents are sealed in more than one wing — the widest in 5. The corpus states fewer facts than statements, and the difference is where its domains meet.]
+\label{thm:the-same-arithmetic-answers-more-than-one-domain}
+\[
+  489 < 1457 \quad\land\quad 1457 < 1529 \quad\land\quad 489 \cdot 3 < 1529 \quad\land\quad 5 > 2
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem the_same_arithmetic_answers_more_than_one_domain : ((489 < 1457) ∧ (1457 < 1529)) ∧ ((489 * 3 < 1529) ∧ (5 > 2)) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{e4b5130a-8c00-8f76-976c-a79e6c8e412a}.
 \end{proof}
 
 \section{THE DIAGONAL RUNS OUT AT NINE}

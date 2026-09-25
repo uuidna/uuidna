@@ -41,8 +41,23 @@ if (dirty) {
 // ── 2 · NO RELEASE OVER AN OPEN LEAD ──────────────────────────────────────────────────────────────────────────
 await step('leads-gate', 'node dist/scripts/leads-gate.js')
 
-// ── 3 · THE PUBLISH GATE — same instrument as prepublishOnly (scripts.audit via gate-all) ────────────────────
+// ── 3 · THE PUBLISH GATE — AND IT MUST BE THE GATE THE TAG ACTUALLY TRIGGERS ─────────────────────────────────
+// THIS STEP USED TO CLAIM IT WAS "the same instrument as prepublishOnly" AND IT WAS NOT. gate-all names neither
+// `editorial` nor `prepublish-seal` — measured, zero occurrences of either — while .github/workflows/publish.yml
+// runs BOTH as its first job and makes `publish` depend on them. So the tag was cut by one gate and then handed to
+// a different, stricter one, which is the whole answer to why a deploy failed after every cut: the publish gate was
+// already red BEFORE the tag existed, and nothing at cut time asked it.
+//
+// MEASURED 2026-09-25: prepublishSeal() reported 41 gaps, and 40 of them were one class — `seo-freeze: URL FREEZE —
+// new route not in sealed map`, for routes added by the waves since the freeze was last regenerated. Every wave that
+// seals a theorem mints a /theorem/<key> route, so the publish gate goes red on ordinary work while gate-all stays
+// green. A cut then guarantees a failed deploy rather than risking one.
+//
+// THE FIX IS SUBTRACTION. There is now ONE gate before a tag, and it is the union of what the tag triggers, so the
+// two can no longer disagree — "cut on green only", where green means the green the tag will be judged by.
 await step('gate-all', 'node dist/scripts/gate-all.js')
+await step('editorial (publish.yml job 1)', 'npm run editorial')
+await step('prepublish-seal (publish.yml job 1)', 'npm run prepublish-seal')
 
 // ── 4 · CHANGELOG CARRIES THIS VERSION + THIS LEDGER RECEIPT ──────────────────────────────────────────────────
 await step('sync changelog ledger line', 'node dist/scripts/sync-changelog.js')

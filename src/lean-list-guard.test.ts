@@ -7,7 +7,8 @@
 // somebody who has no reason to know the other four ever existed.
 //
 // THE CHECK IS OVER THE SOURCE, NOT A REMEMBERED LIST OF FILES. A finder that names the four files it knows about
-// cannot see the fifth, which is the same error that let five copies accumulate in the first place: every one of
+// cannot see the fifth — BY CONSTRUCTION, since a check written against four named copies has the fifth nowhere in
+// its input — which is the same error that let five copies accumulate in the first place: every one of
 // them was locally reasonable. So this walks every generator and asks the structural question instead.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'

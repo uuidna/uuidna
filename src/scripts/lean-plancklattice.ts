@@ -44,7 +44,8 @@ import { emit, leanList } from './lean-gen.js'
 // src/quantum/combinatorics — which was extracted FROM this file's structure for lean-sicross to share, and then
 // this file went on using its own copies. A ratio subtracts vectors and a product adds them; that is the same
 // operation at every rank, and the module refuses a lattice whose points disagree about the basis, which a local
-// two-liner cannot.
+// two-liner cannot, by construction: it holds one rank's arithmetic and the basis disagreement is between ranks, so
+// the contradiction is never inside anything it reads.
 const AXES = ['hbar', 'G', 'c', 'k'] as const
 const L = [1, 1, -3, 0] as const   // length^2      = hbar G / c^3
 const M = [1, -1, 1, 0] as const   // mass^2        = hbar c / G

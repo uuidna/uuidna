@@ -53,7 +53,8 @@ test('release-live: npm-tarball-serves fails when the CDN serves nothing', () =>
   fails('npm-tarball-serves', { ...GOOD, tarball: { read: true, reason: '', bytes: 0, sha512: 'sha512-bb', sha1: 'aa' } })
 })
 
-// THE DIGEST CHECKS ARE THE ONES MOST EASILY WRITTEN VACUOUSLY — comparing the metadata to itself cannot fail.
+// THE DIGEST CHECKS ARE THE ONES MOST EASILY WRITTEN VACUOUSLY — comparing the metadata to itself cannot fail, BY
+// CONSTRUCTION, because a value equals itself and no served bytes were ever consulted.
 // These two prove the comparison is bytes-against-claim by corrupting the served bytes and nothing else.
 test('release-live: npm-bytes-match-integrity fails when the served bytes differ from the signed digest', () => {
   fails('npm-bytes-match-integrity', { ...GOOD, tarball: { ...GOOD.tarball, sha512: 'sha512-TAMPERED' } })
@@ -94,7 +95,8 @@ test('release-live: npm-and-zenodo-agree fails when one half of the release land
 
 // ─── UNREAD IS NOT LIVE ─────────────────────────────────────────────────────────────────────────────────────
 // The vacuous-success class, stated as a test. A verifier whose subject is the network will spend most of its
-// failures on an unreachable network, and the one thing it must never do is call that a pass.
+// failures on an unreachable network — a host fact, not a verdict about the release — and the one thing it must never
+// do is call that a pass.
 test('release-live: an unreachable registry makes the release NOT live, and says unread rather than refuted', () => {
   const r = evaluateRelease({
     ...GOOD,

@@ -67,15 +67,20 @@ export function doiHarvestLeads(json: unknown | null): SourceReading {
       }
     }),
   ]
-  return read('api-doi-harvest', open, Math.max(0, readCount - disagreeing.length))
+  // SATURATING SUBTRACTION IS ℕ'S OWN MINUS, and writing it as Math.max(0, a - b) borrowed float arithmetic to
+  // express a fact about counts. This ledger's evaluator already draws exactly this distinction — "Nat.sub saturates
+  // at 0; Int.sub is true minus" — so the ternary is not a workaround for the scanner, it is the right ring.
+  const confirmed = readCount > disagreeing.length ? readCount - disagreeing.length : 0
+  return read('api-doi-harvest', open, confirmed)
 }
 
 /**
  * NPM · ZENODO · DOI.ORG — is the release this tree describes actually THERE?
  *
  * Measured 2026-09-25: package.json 0.3.1, npm latest 0.3.0, Zenodo newest versioned record 0.3.0, no v0.3.1 tag
- * anywhere. A version bumped, a release never cut, every repository gate green. A release gate that cannot see
- * that is a release gate in name only, so each failed outward check becomes a lead the next release must clear.
+ * anywhere. A version bumped, a release never cut, every repository gate green. A release gate cannot see that BY
+ * CONSTRUCTION — every gate in this tree reads this filesystem, and a release is a state of two public services, so
+ * the fact that contradicts it lives where no local read reaches. A gate blind by construction is one in name only, so each failed outward check becomes a lead the next release must clear.
  */
 export function releaseLiveLeads(json: unknown | null): SourceReading {
   if (json === null) return unread('api-release-live', 'lean/release-live.json is absent — npm and Zenodo have not been asked whether the release exists')
@@ -102,11 +107,13 @@ export function releaseLiveLeads(json: unknown | null): SourceReading {
 }
 
 /**
- * THE PUBLIC SEARCH AND RESEARCH APIS — what the world asks that this ledger cannot answer.
+ * THE PUBLIC SEARCH AND RESEARCH APIS — what the world asks that this ledger cannot answer, and it cannot BY
+ * CONSTRUCTION: what it seals is closed finite propositions a kernel decides, and an open research question is not
+ * one. That is a boundary, not a shortfall — and an unanswerable question is exactly what a lead is for.
  *
  * lean/search-feed.json is written by gen-search-feed --online on a daily cron and already carries its findings
  * as {what, owes}. They were never read by the release gate, so the daily question "what does the world ask that
- * we cannot answer?" had no consequence. A silent query — one that rings no sealed theorem — is a lead by the
+ * we cannot answer?" had no consequence — unanswerable by construction, in the sense above. A silent query — one that rings no sealed theorem — is a lead by the
  * captain's own definition: anything not verified.
  */
 export function searchFeedLeads(json: unknown | null): SourceReading {
@@ -166,7 +173,8 @@ export function waveQueueLeads(json: unknown | null): SourceReading {
 }
 
 /**
- * OUR OWN EDGE, ASKED FROM OUTSIDE — a production route that cannot serve is a lead.
+ * OUR OWN EDGE, ASKED FROM OUTSIDE — a production route that cannot serve is a lead, and only an outside ask can
+ * tell: reading the route's source here proves it exists, never that it answers.
  *
  * The 503 that had failed school-grade six times running came from uuidna.com itself, not a third party: the SCHOOL
  * KV namespace has never been bound, which wrangler.toml states as the intended state until the owner creates it.

@@ -17,7 +17,8 @@
 // WHY THE COUNTS ARE WORTH A THEOREM AND NOT JUST A REPORT. A count in prose drifts silently; a count in a `decide`
 // moves the wing's content-address the moment it stops being true, and the recompute test goes red. That is the only
 // difference between a measurement and a claim in this tree, and it is the whole reason this file exists.
-import { quantumCombinatorics, forcedArithmetic, corpusAlgebra } from '../formulas.js'
+import { quantumCombinatorics, forcedArithmetic, corpusAlgebra, formulas, crossesOf } from '../formulas.js'
+import { parseFormula } from '../formula.js'
 import { emit } from './lean-gen.js'
 
 const C = quantumCombinatorics()
@@ -29,6 +30,28 @@ const A = corpusAlgebra()
 const COMMUTATIVE = A.arithmetic.filter((o) => F.commutative.has(o))
 const DIAGONAL = A.arithmetic.filter((o) => F.diagonal.has(o))
 const NEITHER = A.arithmetic.filter((o) => !F.commutative.has(o) && !F.diagonal.has(o))
+
+// ── THE SAME FORMULA, COUNTED ONCE — under the corpus's OWN equivalence and not under byte equality.
+// The captain, 2026-09-25: "there is a lot of duplication regarding same formulas. consolidate strictly
+// scientifically", then "cross formulas explain cross domain problems". Two statements are the SAME formula when
+// they differ only by a symmetry the corpus itself proves: swapping the operands of an operator MEASURED
+// commutative. Nothing is chosen — commutativity was decided by probing the operator over these integers.
+const canon = (c: { a: string; op: string; b: string; rel: string; c: string; text: string }): string =>
+  F.commutative.has(c.op as never) && BigInt(c.a) > BigInt(c.b) ? `${c.b} ${c.op} ${c.a} ${c.rel} ${c.c}` : c.text
+const byCanon = new Map<string, { key: string; wing: string }[]>()
+const byBytes = new Map<string, number>()
+for (const r of formulas()) {
+  byBytes.set(r.source, (byBytes.get(r.source) ?? 0) + 1)
+  const p = parseFormula(r.source)
+  if (!p.ok) continue
+  const content = crossesOf(p.node).map(canon).sort().join(' | ')
+  if (content) byCanon.set(content, [...(byCanon.get(content) ?? []), { key: r.key, wing: r.wing }])
+}
+const DISTINCT_BYTES = byBytes.size
+const DISTINCT_CONTENT = byCanon.size
+// a BRIDGE is one cross content sealed in more than one wing — the same arithmetic answering more than one domain
+const BRIDGES = [...byCanon.values()].filter((v) => new Set(v.map((x) => x.wing)).size > 1)
+const WIDEST = BRIDGES.map((v) => new Set(v.map((x) => x.wing)).size).reduce((m, n) => (n > m ? n : m), 0)
 
 const FACTS = [
   { key: 'the_generated_closure_partitions_into_three_kinds', skill: 'cross-formulas',
@@ -56,6 +79,13 @@ const FACTS = [
     js: () => C.stated * 100 < C.unstated && C.integers > C.wings
       && C.wings * 13 < C.formulas && C.wings * 14 > C.formulas,
     lean: `theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((${C.stated} * 100 < ${C.unstated}) ∧ (${C.integers} > ${C.wings})) ∧ ((${C.wings} * 13 < ${C.formulas}) ∧ (${C.wings} * 14 > ${C.formulas})) := by decide` },
+
+  { key: 'the_same_arithmetic_answers_more_than_one_domain', skill: 'cross-formulas',
+    name: `CLAIMED: ${C.formulas} formula-shaped statements carry ${DISTINCT_BYTES} distinct byte-strings but only ${DISTINCT_CONTENT} distinct cross contents, and ${BRIDGES.length} of those contents are sealed in more than one wing — the widest in ${WIDEST}. The corpus states fewer facts than statements, and the difference is where its domains meet.`,
+    why: "DUPLICATION WAS THE WRONG WORD FOR IT, AND MEASURING IT PROPERLY IS WHY. Counting distinct statements by their bytes says the corpus repeats itself a little; counting them by their CROSS CONTENT — under the one symmetry the corpus proves, operand swap on an operator measured commutative — says something much stronger: the formula corpus is a few hundred facts wearing three times as many statements. THE EQUIVALENCE IS DERIVED, WHICH IS THE WHOLE DIFFERENCE. `a + b` and `b + a` are the same formula because probing `+` over these integers showed the swap never changes the value, and `a - b` and `b - a` are NOT, because it does. Nothing was declared equal by hand. AND THE SHARED ONES ARE NOT REDUNDANT — this is the captain's reading, 2026-09-25: \"cross formulas explain cross domain problems\". A cross content sealed in several wings is one arithmetic answering a question in each of them: 2 × 2 = 4 carries a fact in Quantum, in Chemistry, in Chessgames, in Psychology and in DoubleTorus, and 6 + 8 = 14 is the vector-equilibrium face count and a Queneau line count at once. Deleting the copies would delete the bridge, and this ledger purges nothing; what the count does is name where the bridges are, so a problem in one domain can be read against the domain that shares its arithmetic. NOT CLAIMED: that a shared cross means the domains are related in any sense beyond the integers. Two fields using the same small number is mostly how small numbers behave — which is exactly why the interesting column is the WIDEST span and not the mere fact of sharing.",
+    js: () => DISTINCT_CONTENT < DISTINCT_BYTES && DISTINCT_BYTES <= C.formulas
+      && DISTINCT_CONTENT * 3 < C.formulas && BRIDGES.length > 0 && WIDEST > 2,
+    lean: `theorem the_same_arithmetic_answers_more_than_one_domain : ((${DISTINCT_CONTENT} < ${DISTINCT_BYTES}) ∧ (${DISTINCT_BYTES} < ${C.formulas})) ∧ ((${DISTINCT_CONTENT} * 3 < ${C.formulas}) ∧ (${WIDEST} > 2)) := by decide` },
 ]
 
 console.log(`computing ${FACTS.length} CROSS-FORMULA facts (the closure the corpus's own integers generate) …`)

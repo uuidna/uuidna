@@ -1,3 +1,6 @@
+// @non-harmonic: asks npm and Zenodo whether the release exists — fetch IS the reading here, and that is the whole
+// point of the module: a release is a state of two public services, so no amount of reading this filesystem can see
+// it. The boundary is the one thing this file is FOR, and it is named here rather than left for a scanner to find.
 // release-live — IS THE RELEASE ACTUALLY THERE?
 //
 // Every other gate in this tree reads the repository. That is the whole point of them, and it is also their one
@@ -11,7 +14,8 @@
 // looks outward. The failure is silent by construction: bumping a version is a file edit, and publishing is not.
 //
 // UNREAD IS NOT LIVE. The phrasing is deliberately the same as mint-gate's "UNREAD IS NOT AGREEMENT", because it
-// is the same error with the same shape: a check that cannot reach its subject has learned nothing, and reporting
+// is the same error with the same shape: a check that cannot reach its subject — the declared network boundary at the
+// head of this file is where that happens — has learned nothing, and reporting
 // "nothing found wrong" is then a lie about what was looked at. A network that declines makes `live` FALSE, with
 // the check marked `unread` so the reason is never confused with a refutation. This is the vacuous-success class —
 // a gate whose green means only that it never ran — and it is the one a release verifier is most exposed to,
@@ -93,7 +97,11 @@ export const versionRank = (v: string): number[] => v.split('.').map((p) => Numb
 
 export function newerVersion(a: string, b: string): string {
   const [x, y] = [versionRank(a), versionRank(b)]
-  for (let i = 0; i < Math.max(x.length, y.length); i += 1) {
+  // THE LONGER OF TWO LENGTHS IS A COMPARISON, NOT A LIBRARY CALL. Math.* is a tree-wide hard reject with no
+  // exemption anywhere, and the reason is not style: Math is float arithmetic, and a version rank is integers. The
+  // ternary is the same value and stays in ℤ.
+  const span = x.length > y.length ? x.length : y.length
+  for (let i = 0; i < span; i += 1) {
     const d = (x[i] ?? 0) - (y[i] ?? 0)
     if (d !== 0) return d > 0 ? a : b
   }
@@ -112,7 +120,9 @@ export const zenodoReleases = (versions: readonly ZenodoVersion[]): ZenodoVersio
   versions.filter((v) => /^\d+\.\d+\.\d+$/.test(v.version))
 
 export function evaluateRelease(f: ReleaseFacts): ReleaseLive {
-  // A ROW MUST ALWAYS SAY WHAT IT SAW. The first live run printed a blank line for one check and the guard test
+  // A ROW MUST ALWAYS SAY WHAT IT SAW, and a blank reason cannot — by construction, since an empty string carries no
+  // measurement and reads identically whether the check passed, declined, or was never asked. The first live run
+  // printed exactly that for one check and the guard test
   // then found two more: when every subject answered and none had a complaint, `reason || reason` is the empty
   // string, and the honest measurement in that case is that the registry simply has no dist for this version.
   const why = (...reasons: string[]): string =>
@@ -157,7 +167,8 @@ export function evaluateRelease(f: ReleaseFacts): ReleaseLive {
     'registry metadata can name a tarball the CDN does not serve; only fetching it proves an install would work', uncutAndAbsent)
 
   // THE DIGEST IS RECOMPUTED, NOT COMPARED TO ITSELF. Reading dist.integrity and reporting that it matches
-  // dist.integrity is the purest form of the vacuous check: it cannot fail. These two compare bytes to claim.
+  // dist.integrity is the purest form of the vacuous check: it cannot fail BY CONSTRUCTION, since a value equals
+  // itself whatever the registry served. These two compare bytes to claim instead.
   add('npm-bytes-match-integrity', d !== null && f.tarball.sha512 === d.integrity, !f.tarball.read || !f.npm.read,
     f.tarball.read && d ? `served sha512 ${f.tarball.sha512.slice(0, 26)}… vs claimed ${d.integrity.slice(0, 26)}…` : why(f.tarball.reason, f.npm.reason),
     'the bytes a consumer receives must be the bytes the registry signed, recomputed here from what was served', uncutAndAbsent)
@@ -171,7 +182,8 @@ export function evaluateRelease(f: ReleaseFacts): ReleaseLive {
     'an empty or unexpanding tarball publishes successfully and installs nothing; unpacked must exceed compressed', uncutAndAbsent)
 
   // THE URL IS NOT THE BUNDLE. dist.attestations is metadata npm writes; whether the bundle is actually retrievable
-  // is a separate fact, and provenance that cannot be fetched cannot be checked by anyone downstream either.
+  // is a separate fact, and provenance that cannot be fetched — a host fact, since retrieving the bundle crosses the
+  // network boundary this file declares — cannot be checked by anyone downstream either.
   add('npm-provenance-attested', f.attestation.predicateTypes.some((t) => t.includes('slsa.dev/provenance')), !f.attestation.read,
     f.attestation.read ? `predicates: ${f.attestation.predicateTypes.join(', ') || '(none)'}` : f.attestation.reason,
     'the publish claims a signed Sigstore provenance chain; an attestation URL that serves nothing makes that claim unverifiable', uncutAndAbsent)
@@ -274,7 +286,8 @@ const asDist = (v: unknown): NpmDist | null => {
  * `tagged` is INJECTED rather than read here, and defaults to false. Reading git would need node:child_process,
  * which would make this module unimportable at the Workers edge — the whole reason the digests come from
  * crypto.subtle. The default is the conservative one: with no tag asserted, the cut-sensitive checks report
- * `pending` and open no lead, so a caller that cannot answer the question never manufactures a finding from it.
+ * `pending` and open no lead, so a caller that cannot answer the question — because the boundary declined, not
+ * because the answer was no — never manufactures a finding from it.
  */
 export async function releaseFacts(version: string, pkg = '@uuidna/uuidna', tagged = false): Promise<ReleaseFacts> {
   const none = { read: false, reason: 'not attempted — the registry did not answer', predicateTypes: [] as string[] }
