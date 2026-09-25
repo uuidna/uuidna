@@ -824,6 +824,8 @@ export { zenodoCommunities, zenodoCommunity, verifyZenodoCommunityClaim, renderZ
 // the school graded in the student's own currency, and the payloadless space argument beside it
 // refusals — every refusal with its boundary, and whether that boundary survived scrutiny
 // an agent declares what it spent, beside what the tree can show it produced
+export { evaluateRelease, releaseLive, releaseFacts, zenodoReleases, newerVersion, versionRank, NPM_REGISTRY, ZENODO_RECORDS, ZENODO_PAGE, type ReleaseLive, type ReleaseFacts, type LiveCheck, type NpmDist, type ZenodoVersion } from './release-live.js'
+export { doiHarvestLeads, releaseLiveLeads, searchFeedLeads, waveQueueLeads, API_LEAD_READERS } from './api-leads.js'
 export { declareSpend, type SpendDeclaration } from './coin-ledger.js'
 export { refusalCensus, involuteRefusals, type RefusalCensus, type RefusalRow, type InvolutedRefusal } from './school/refusals/index.js'
 export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'

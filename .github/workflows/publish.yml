@@ -399,6 +399,56 @@ jobs:
 
   # Agnostic Zenodo publication seals — loops zenodo/manifest.json (clay-involution is one instance).
   # Metadata: zenodo/seals/<id>.json from gen-zenodo-seals (rich schema + canonical CC-BY-NC-ND-4.0).
+  # THE RELEASE IS NOT DONE WHEN THE PUBLISH STEP EXITS — it is done when a stranger can install it and cite it.
+  #
+  # Every job above this one trusts its own exit code, and every gate in the repository reads the repository. That
+  # combination has a blind spot with a measured cost: on 2026-09-25 package.json said 0.3.1 while npm's latest tag
+  # and Zenodo's newest versioned record both said 0.3.0, and no v0.3.1 tag existed anywhere. A version had been
+  # bumped and the release never cut, and not one green gate could see it, because none of them looks outward.
+  #
+  # So this job asks the two services THEMSELVES, unauthenticated, exactly as a reader would: is the version on the
+  # registry, is it `latest`, does the tarball actually serve, do its bytes hash to the digest npm signed, is the
+  # provenance bundle retrievable, is there a Zenodo record for THIS version, does it carry a file, and does
+  # doi.org resolve it to Zenodo. src/release-live.ts computes the verdict; src/release-live.test.ts drives all
+  # eleven checks to failure on fixtures, so the battery is known to be capable of failing.
+  #
+  # IT RETRIES, AND THE REASON IS NOT FLAKINESS. DataCite registration lags the Zenodo deposit by minutes, so a
+  # record can exist while its DOI resolves nowhere — the honest reading of that is "not yet", not "broken". The
+  # loop waits for it rather than failing a correct release, and still fails if it never lands. UNREAD IS NOT LIVE:
+  # release-live exits 2 when a service did not answer at all, which is a held verdict and not a pass, so the loop
+  # treats it as not-yet-live too and the job fails if the network never answers.
+  verify:
+    runs-on: ubuntu-latest
+    needs: [publish, zenodo]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: npm
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+      - name: npm and Zenodo must both carry THIS release, complete and resolvable
+        run: |
+          set -uo pipefail
+          npm run build --silent
+          V="${GITHUB_REF_NAME#v}"
+          for i in $(seq 1 12); do
+            node dist/scripts/release-live.js "$V" && exit 0
+            code=$?
+            echo "::notice::attempt $i — release-live exit $code (1=refuted, 2=unread); DataCite registration lags the deposit, waiting 30s"
+            sleep 30
+          done
+          echo "::error::the release is not live after 6 minutes — npm and/or Zenodo do not carry $V completely. See the check list above; lean/release-live.json holds the verdict."
+          exit 1
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: release-live
+          path: lean/release-live.json
+          retention-days: 7
+
   # WORKFLOW-ONLY — same deposit gate; never curl from a laptop.
   zenodo-seals:
     runs-on: ubuntu-latest
