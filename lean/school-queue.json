@@ -1,0 +1,7 @@
+{
+ "queue": "https://uuidna.com/school/submissions?status=queued",
+ "state": "unprovisioned",
+ "why": "storage unavailable (no SCHOOL KV namespace bound)",
+ "graded": 0,
+ "void": 0
+}

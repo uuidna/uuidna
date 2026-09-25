@@ -63,9 +63,45 @@ jobs:
         env:
           SCHOOL_QUEUE: https://uuidna.com/school/submissions?status=queued
         run: |
+          # EXIT 2 IS "NOT PROVISIONED", AND IT IS NOT A BUILD FAILURE.
+          #
+          # This job had gone red six times in a row, every time on `the queue answered 503`, and that 503 was
+          # uuidna.com reporting that the SCHOOL KV namespace has never been bound — the state wrangler.toml
+          # declares as intended until the owner runs `wrangler kv namespace create SCHOOL`. Reporting an owner
+          # action pending in the same red as a broken grader is how a repository teaches people to stop reading
+          # its CI, and it hid the only question this job exists to answer.
+          #
+          # So the grader's exit code decides: 0 graded, 1 BROKEN (still red, still a failure), 2 UNPROVISIONED —
+          # surfaced as a warning and a job-summary line, and NOT green-washed: school-grade.js writes
+          # lean/school-queue.json, src/api-leads.ts turns that into an OPEN LEAD, and leads-gate — the release
+          # gate — holds the next release on it. The pending state now blocks something that matters instead of
+          # flashing red somewhere nobody looks.
+          set +e
           node dist/scripts/school-grade.js school-verdicts.json
+          code=$?
+          set -e
+          if [ "$code" = "2" ]; then
+            echo "::warning title=school queue unprovisioned::uuidna.com/school/submissions answers 503 (no SCHOOL KV namespace bound). Owner act: wrangler kv namespace create SCHOOL, then uncomment [[kv_namespaces]] SCHOOL in wrangler.toml. Recorded as an open lead — leads-gate holds the next release on it."
+            {
+              echo "### school-grade — UNPROVISIONED"
+              echo ""
+              echo "The public queue answered \`503 storage unavailable (no SCHOOL KV namespace bound)\`."
+              echo "Nothing was graded, so nothing is proven — this run is **not** a pass."
+              echo ""
+              echo "**Owner act:** \`wrangler kv namespace create SCHOOL\`, then uncomment the \`[[kv_namespaces]]\` SCHOOL block in \`wrangler.toml\`."
+              echo ""
+              echo "Held as an open lead in \`lean/school-queue.json\`; \`leads-gate\` blocks the next release while it stands."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "graded=0" >> "$GITHUB_OUTPUT"
+            echo "state=unprovisioned" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$code" != "0" ]; then exit "$code"; fi
           echo "graded=$(jq '.verdicts | length' school-verdicts.json)" >> "$GITHUB_OUTPUT"
+          echo "state=graded" >> "$GITHUB_OUTPUT"
+      # nothing to upload when the store was never provisioned — the grader wrote no verdicts file
       - uses: actions/upload-artifact@v7
+        if: steps.grade.outputs.state == 'graded'
         with:
           name: school-verdicts
           path: school-verdicts.json

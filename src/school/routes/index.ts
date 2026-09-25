@@ -46,6 +46,13 @@ const json = (obj: unknown, status = 200): Response =>
   new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } })
 
 type Refusal = { refused: Response }
+/** THE ONE WORDING OF "the store was never provisioned", named because three copies of it already existed and a
+ *  consumer has to match it. .github/workflows/school-grade.yml goes red every six hours on exactly this refusal,
+ *  and the grader can only tell "not provisioned" from "broken" by reading the text — so the text is a contract now,
+ *  not a message. wrangler.toml keeps the [[kv_namespaces]] SCHOOL block commented out until the owner runs
+ *  `wrangler kv namespace create SCHOOL`, which is an owner act; until then this is the honest answer, not a bug. */
+export const NO_SCHOOL_STORE = 'storage unavailable (no SCHOOL KV namespace bound)'
+
 const refuse = (error: string, status: number, extra: Record<string, unknown> = {}): Refusal => ({ refused: json({ error, ...extra }, status) })
 
 /** courseOf(env, origin, course) → the served course file, or null for an id no wing carries */
@@ -92,7 +99,7 @@ async function unlock(env: SchoolEnv, body: Record<string, unknown>, create: boo
   const handle = str(body.handle), key = str(body.key)
   if (!isHandle(handle)) return refuse('handle must be eight lowercase hex characters — the one your passphrase derives', 400)
   if (!UUID.test(key)) return refuse('key must be the uuid your passphrase derives (learnerKeyOf)', 400)
-  if (!env.SCHOOL) return refuse('storage unavailable (no SCHOOL KV namespace bound)', 503)
+  if (!env.SCHOOL) return refuse(NO_SCHOOL_STORE, 503)
   const raw = await env.SCHOOL.get(progressKey(handle))
   if (!raw && !create) return refuse('no progress is stored under this handle', 404)
   const progress = raw ? JSON.parse(raw) as Progress : emptyProgress(handle, lockOf(key))
@@ -138,7 +145,7 @@ export async function handleSchool(request: Request, url: URL, env: SchoolEnv, c
 
   const prog = path.match(/^\/school\/progress\/([0-9a-f]{8})$/)
   if (prog && method === 'GET') {
-    if (!env.SCHOOL) return json({ error: 'storage unavailable (no SCHOOL KV namespace bound)' }, 503)
+    if (!env.SCHOOL) return json({ error: NO_SCHOOL_STORE }, 503)
     const raw = await env.SCHOOL.get(progressKey(prog[1]!))
     if (!raw) return json({ handle: prog[1], courses: [], note: 'no progress is stored under this handle' }, 404)
     return json(progressView(JSON.parse(raw) as Progress))
@@ -204,7 +211,7 @@ export async function handleSchool(request: Request, url: URL, env: SchoolEnv, c
   if (sub && UUID.test(sub[1]!)) {
     if (sub[2] && method === 'POST') return json({ error: 'verdicts are posted by the kernel grader to POST /school/grade, signed by the school-grade workflow' }, 404)
     if (!sub[2] && method === 'GET') {
-      if (!env.SCHOOL) return json({ error: 'storage unavailable (no SCHOOL KV namespace bound)' }, 503)
+      if (!env.SCHOOL) return json({ error: NO_SCHOOL_STORE }, 503)
       const raw = await env.SCHOOL.get(submissionKey(sub[1]!))
       return raw ? new Response(raw, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' } })
         : json({ error: 'no submission is stored at this address' }, 404)

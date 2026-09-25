@@ -22,6 +22,7 @@ import { commitChange, renderPlan } from '../quantum/os/installer/index.js'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { leadCensus, renderCensus, read, unread, type Lead, type SourceReading } from '../leads.js'
+import { API_LEAD_READERS } from '../api-leads.js'
 import { sealedKeysIn, involutionOf, leadVerdictOf, type KernelOk, type SealedStatement } from '../refusal-trials.js'
 import { buildTrialRecord, reopenedBecause, kernelCheckOf } from './trial-refusals.js'
 import { handleOf } from '../handle.js'
@@ -141,7 +142,24 @@ function alpineCommunityLeads(): SourceReading {
 
 /** THE DECLARED SOURCES. Adding one is a line here; the census does the rest, and a source that throws blocks
  *  rather than disappears. */
-export const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads]
+/** THE OUTSIDE WORLD IS A LEAD SOURCE (the captain, 2026-09-25: "automate so all apis are source of new leads to
+ *  base new releases on"). Every source above reads the repository, which is this gate's blind spot rather than its
+ *  design: the tree asks npm, Zenodo, doi.org, Crossref, DataCite and the public search APIs constantly — on a daily
+ *  cron in research.yml — and wrote every answer to an artefact that the RELEASE gate never opened. So an API could
+ *  contradict this tree every day and no release would notice. These readers open those artefacts; the verdict for
+ *  each is computed in src/api-leads.ts, keeping this file's boundary job separate from the law, as above. An absent
+ *  artefact reads as UNREAD and blocks, because an API that was never asked has cleared nothing. */
+const apiLeadSources: (() => SourceReading)[] = API_LEAD_READERS.map(({ source, path, of }) => () => {
+  const p = join(ROOT, path)
+  try {
+    if (!existsSync(p)) return of(null)
+    return of(JSON.parse(readFileSync(p, 'utf8')))
+  } catch (e) {
+    return unread(source, `${path} could not be parsed (${e instanceof Error ? e.message : String(e)}) — a malformed answer is not an answer`)
+  }
+})
+
+export const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads, ...apiLeadSources]
 
 export function gatherLeads(): SourceReading[] {
   return LEAD_SOURCES.map((s) => {

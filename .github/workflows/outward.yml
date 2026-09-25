@@ -1,0 +1,116 @@
+name: outward
+
+# OUTWARD — ASK THE WORLD WHAT IT ACTUALLY HOLDS, ON A SCHEDULE.
+#
+# Every other workflow here certifies the repository. This one certifies the claims the repository makes ABOUT the
+# outside world, which nothing did. The gap had a measured cost: on 2026-09-25 package.json said 0.3.1, npm's latest
+# tag said 0.3.0, Zenodo's newest versioned record said 0.3.0, and no v0.3.1 tag existed locally or on the remote. A
+# version had been bumped and the release never cut. Every gate was green, because every gate reads files.
+#
+# A SECOND GAP, THE SAME SHAPE: src/scripts/audit-doi-harvest.ts is the only thing in the tree that reads our own
+# permanent records back from Zenodo, Crossref and DataCite — and it was wired to NOTHING. No npm script, no
+# workflow. mint-gate consumes lean/doi-harvest.json and refuses to mint on a stale or absent one, so the artefact
+# that gates the mint was refreshed only when somebody remembered to run it by hand. It found a disagreement the
+# last time it ran. That is the class src/zenodo-seals.ts already paid for once, in its own words: "NOTHING ON THIS
+# FILESYSTEM COULD SEE IT."
+#
+# IT REPORTS AND HOLDS; IT DOES NOT PUSH. The artefacts land as build artifacts and the job's exit code carries the
+# verdict. Nothing here commits, because a scheduled job that writes to main turns a network hiccup into a commit.
+# The consequence is elsewhere and it is real: src/api-leads.ts turns each of these artefacts into lead sources for
+# leads-gate, which is the release gate, so an outward disagreement holds the next release until it is settled.
+#
+# DAILY, OFFSET FROM research.yml (07:07) so the two do not contend for the same API hosts.
+
+on:
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+  push:
+    tags: ['v*']   # and on every release, as the release's own outward audit
+
+concurrency:
+  group: outward-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  outward:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+          cache: npm
+      - name: Install deps
+        run: npm ci --no-audit --no-fund
+      - name: Build
+        run: npm run build --silent
+
+      # EACH HARVEST RUNS EVEN IF THE ONE BEFORE IT FAILED. `&&` would let the first disagreement hide every other
+      # source, and the whole point is the full census: an unread Zenodo must not conceal a missing npm release.
+      - name: Zenodo · Crossref · DataCite — do our own records say what we claim they say?
+        id: harvest
+        run: |
+          set +e
+          node dist/scripts/audit-doi-harvest.js
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      # OUR OWN EDGE, ASKED FROM OUTSIDE. No Lean is installed here and none is needed: the probe records whether the
+      # queue can serve at all, which is the part the release gate reads. Grading itself is school-grade.yml's job.
+      - name: uuidna.com — can the public school queue serve?
+        id: school
+        run: |
+          set +e
+          node dist/scripts/school-grade.js /tmp/school-verdicts.json
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: npm · Zenodo · doi.org — is the released version actually there?
+        id: live
+        run: |
+          set +e
+          node dist/scripts/release-live.js
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      # THE CENSUS IS THE VERDICT. leads-gate now reads every artefact above (src/api-leads.ts), so this is the one
+      # place that says whether the outside world is holding a release — and it fails when it is.
+      - name: The release gate, over the repository AND the APIs
+        run: node dist/scripts/leads-gate.js
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: outward
+          path: |
+            lean/doi-harvest.json
+            lean/release-live.json
+            lean/school-queue.json
+          retention-days: 14
+          if-no-files-found: warn
+
+      # 1 is a REFUTATION and 2 is UNREAD, and the summary says which — the two are never collapsed, because a
+      # service that did not answer has told us nothing and a service that contradicted us has told us a great deal.
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### outward — what the world holds"
+            echo ""
+            echo "| source | exit | meaning |"
+            echo "| --- | --- | --- |"
+            for pair in "doi-harvest:${{ steps.harvest.outputs.code }}" "school-queue:${{ steps.school.outputs.code }}" "release-live:${{ steps.live.outputs.code }}"; do
+              name="${pair%%:*}"; code="${pair##*:}"
+              case "$code" in
+                0) meaning="agrees with this tree" ;;
+                1) meaning="**contradicts this tree** — a refutation, not an outage" ;;
+                2) meaning="unread / not provisioned — nothing was learned" ;;
+                3) meaning="not cut — no tag for this version yet, so nothing can carry it" ;;
+                *) meaning="exit $code" ;;
+              esac
+              echo "| $name | $code | $meaning |"
+            done
+            echo ""
+            echo "An open outward lead holds the next release: \`leads-gate\` reads these artefacts via \`src/api-leads.ts\`."
+          } >> "$GITHUB_STEP_SUMMARY"
