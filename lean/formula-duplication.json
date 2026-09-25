@@ -1,0 +1,4338 @@
+{
+ "statements": 71077,
+ "formulas": 1530,
+ "forms": 1325,
+ "restatements": 205,
+ "groups": [
+  {
+   "address": "240d2289-66be-8fe7-9b0d-785ac61f5c48",
+   "canonical": "(((2*5)%9)=1)",
+   "keys": [
+    {
+     "key": "mul9_2_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 5) % 9 = 1"
+    },
+    {
+     "key": "mul9_5_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 2) % 9 = 1"
+    },
+    {
+     "key": "z9mul_2_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 5) % 9 = 1"
+    },
+    {
+     "key": "z9mul_5_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 2) % 9 = 1"
+    },
+    {
+     "key": "two_mul_five",
+     "file": "Vortex.lean",
+     "skill": "z9-ring",
+     "statement": "(2*5) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "a321a26c-d83c-8b5f-b7a0-d2eab325b3a1",
+   "canonical": "(((4*7)%9)=1)",
+   "keys": [
+    {
+     "key": "mul9_4_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 7) % 9 = 1"
+    },
+    {
+     "key": "mul9_7_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 4) % 9 = 1"
+    },
+    {
+     "key": "z9mul_4_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 7) % 9 = 1"
+    },
+    {
+     "key": "z9mul_7_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 4) % 9 = 1"
+    },
+    {
+     "key": "four_mul_seven",
+     "file": "Vortex.lean",
+     "skill": "z9-ring",
+     "statement": "(4*7) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "05819024-52db-891f-a9a8-688b46259d0f",
+   "canonical": "(((1*2)%9)=2)",
+   "keys": [
+    {
+     "key": "mul9_1_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 2) % 9 = 2"
+    },
+    {
+     "key": "mul9_2_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 1) % 9 = 2"
+    },
+    {
+     "key": "z9mul_1_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 2) % 9 = 2"
+    },
+    {
+     "key": "z9mul_2_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 1) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4e721238-6afb-8ad9-ac23-10125b6c8753",
+   "canonical": "(((1*3)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_1_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 3) % 9 = 3"
+    },
+    {
+     "key": "mul9_3_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 1) % 9 = 3"
+    },
+    {
+     "key": "z9mul_1_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 3) % 9 = 3"
+    },
+    {
+     "key": "z9mul_3_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 1) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "aa67b808-07a4-8cd4-b2df-63c38091c004",
+   "canonical": "(((1*4)%9)=4)",
+   "keys": [
+    {
+     "key": "mul9_1_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 4) % 9 = 4"
+    },
+    {
+     "key": "mul9_4_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 1) % 9 = 4"
+    },
+    {
+     "key": "z9mul_1_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 4) % 9 = 4"
+    },
+    {
+     "key": "z9mul_4_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 1) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9455d9c2-e844-8151-aadb-ecd9954e605d",
+   "canonical": "(((1*5)%9)=5)",
+   "keys": [
+    {
+     "key": "mul9_1_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 5) % 9 = 5"
+    },
+    {
+     "key": "mul9_5_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 1) % 9 = 5"
+    },
+    {
+     "key": "z9mul_1_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 5) % 9 = 5"
+    },
+    {
+     "key": "z9mul_5_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 1) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "bb8dccb4-04a8-8e38-b8b1-19482dd75a31",
+   "canonical": "(((1*6)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_1_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 6) % 9 = 6"
+    },
+    {
+     "key": "mul9_6_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 1) % 9 = 6"
+    },
+    {
+     "key": "z9mul_1_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 6) % 9 = 6"
+    },
+    {
+     "key": "z9mul_6_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 1) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "a53fd7e9-b936-8ce5-b7b8-85d4fe58d005",
+   "canonical": "(((1*7)%9)=7)",
+   "keys": [
+    {
+     "key": "mul9_1_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 7) % 9 = 7"
+    },
+    {
+     "key": "mul9_7_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 1) % 9 = 7"
+    },
+    {
+     "key": "z9mul_1_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 7) % 9 = 7"
+    },
+    {
+     "key": "z9mul_7_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 1) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "24becbd2-4db8-8cbf-8253-cf1be8e5d462",
+   "canonical": "(((1*8)%9)=8)",
+   "keys": [
+    {
+     "key": "mul9_1_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 8) % 9 = 8"
+    },
+    {
+     "key": "mul9_8_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 1) % 9 = 8"
+    },
+    {
+     "key": "z9mul_1_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 8) % 9 = 8"
+    },
+    {
+     "key": "z9mul_8_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 1) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9986b81a-f47b-8b50-9951-b96d602ff7f9",
+   "canonical": "(((2*3)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_2_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 3) % 9 = 6"
+    },
+    {
+     "key": "mul9_3_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 2) % 9 = 6"
+    },
+    {
+     "key": "z9mul_2_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 3) % 9 = 6"
+    },
+    {
+     "key": "z9mul_3_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 2) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e7f204b6-61e9-80ba-a09a-5fa2f7362a5c",
+   "canonical": "(((2*4)%9)=8)",
+   "keys": [
+    {
+     "key": "mul9_2_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 4) % 9 = 8"
+    },
+    {
+     "key": "mul9_4_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 2) % 9 = 8"
+    },
+    {
+     "key": "z9mul_2_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 4) % 9 = 8"
+    },
+    {
+     "key": "z9mul_4_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 2) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6f9b72a6-e262-8b94-8d71-1fb09589acd5",
+   "canonical": "(((2*6)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_2_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 6) % 9 = 3"
+    },
+    {
+     "key": "mul9_6_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 2) % 9 = 3"
+    },
+    {
+     "key": "z9mul_2_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 6) % 9 = 3"
+    },
+    {
+     "key": "z9mul_6_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 2) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e8df3c70-081f-8ad7-bcda-61af16a104cf",
+   "canonical": "(((2*7)%9)=5)",
+   "keys": [
+    {
+     "key": "mul9_2_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 7) % 9 = 5"
+    },
+    {
+     "key": "mul9_7_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 2) % 9 = 5"
+    },
+    {
+     "key": "z9mul_2_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 7) % 9 = 5"
+    },
+    {
+     "key": "z9mul_7_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 2) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "fcb6de64-8494-83d0-90bc-6a2137c23b26",
+   "canonical": "(((2*8)%9)=7)",
+   "keys": [
+    {
+     "key": "mul9_2_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 8) % 9 = 7"
+    },
+    {
+     "key": "mul9_8_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 2) % 9 = 7"
+    },
+    {
+     "key": "z9mul_2_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 8) % 9 = 7"
+    },
+    {
+     "key": "z9mul_8_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 2) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "296ae22c-10c0-8c0f-b9c3-3cfd94e43fb3",
+   "canonical": "(((3*4)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_3_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 4) % 9 = 3"
+    },
+    {
+     "key": "mul9_4_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 3) % 9 = 3"
+    },
+    {
+     "key": "z9mul_3_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 4) % 9 = 3"
+    },
+    {
+     "key": "z9mul_4_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 3) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "5e7f9811-3fb9-840f-ae89-ca038ef51831",
+   "canonical": "(((3*5)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_3_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 5) % 9 = 6"
+    },
+    {
+     "key": "mul9_5_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 3) % 9 = 6"
+    },
+    {
+     "key": "z9mul_3_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 5) % 9 = 6"
+    },
+    {
+     "key": "z9mul_5_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 3) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6da0631f-7238-8cc3-ba8a-abc638bb0b42",
+   "canonical": "(((3*6)%9)=0)",
+   "keys": [
+    {
+     "key": "mul9_3_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 6) % 9 = 0"
+    },
+    {
+     "key": "mul9_6_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 3) % 9 = 0"
+    },
+    {
+     "key": "z9mul_3_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 6) % 9 = 0"
+    },
+    {
+     "key": "z9mul_6_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 3) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "04b3d5c9-30e8-8acd-aab3-af075c9a4e2b",
+   "canonical": "(((3*7)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_3_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 7) % 9 = 3"
+    },
+    {
+     "key": "mul9_7_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 3) % 9 = 3"
+    },
+    {
+     "key": "z9mul_3_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 7) % 9 = 3"
+    },
+    {
+     "key": "z9mul_7_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 3) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "420e26c7-ba9b-8b06-bb00-ba7ba7455073",
+   "canonical": "(((3*8)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_3_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 8) % 9 = 6"
+    },
+    {
+     "key": "mul9_8_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 3) % 9 = 6"
+    },
+    {
+     "key": "z9mul_3_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 8) % 9 = 6"
+    },
+    {
+     "key": "z9mul_8_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 3) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "65e0beb3-ab32-87f2-b909-b738d38cfcd9",
+   "canonical": "(((4*5)%9)=2)",
+   "keys": [
+    {
+     "key": "mul9_4_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 5) % 9 = 2"
+    },
+    {
+     "key": "mul9_5_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 4) % 9 = 2"
+    },
+    {
+     "key": "z9mul_4_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 5) % 9 = 2"
+    },
+    {
+     "key": "z9mul_5_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 4) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "626b7077-43bd-8094-a34e-49a40be39844",
+   "canonical": "(((4*6)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_4_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 6) % 9 = 6"
+    },
+    {
+     "key": "mul9_6_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 4) % 9 = 6"
+    },
+    {
+     "key": "z9mul_4_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 6) % 9 = 6"
+    },
+    {
+     "key": "z9mul_6_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 4) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "29a55755-7ff8-843c-92cf-909efd1b6267",
+   "canonical": "(((4*8)%9)=5)",
+   "keys": [
+    {
+     "key": "mul9_4_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 8) % 9 = 5"
+    },
+    {
+     "key": "mul9_8_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 4) % 9 = 5"
+    },
+    {
+     "key": "z9mul_4_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 8) % 9 = 5"
+    },
+    {
+     "key": "z9mul_8_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 4) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "98d87472-7e77-854a-9f67-f391179d826c",
+   "canonical": "(((5*6)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_5_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 6) % 9 = 3"
+    },
+    {
+     "key": "mul9_6_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 5) % 9 = 3"
+    },
+    {
+     "key": "z9mul_5_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 6) % 9 = 3"
+    },
+    {
+     "key": "z9mul_6_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 5) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "557080f8-0b5a-888d-bdbb-c7a4c60f78f1",
+   "canonical": "(((5*7)%9)=8)",
+   "keys": [
+    {
+     "key": "mul9_5_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 7) % 9 = 8"
+    },
+    {
+     "key": "mul9_7_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 5) % 9 = 8"
+    },
+    {
+     "key": "z9mul_5_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 7) % 9 = 8"
+    },
+    {
+     "key": "z9mul_7_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 5) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "8113c10b-e418-8577-bf49-a799cc872eb0",
+   "canonical": "(((5*8)%9)=4)",
+   "keys": [
+    {
+     "key": "mul9_5_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 8) % 9 = 4"
+    },
+    {
+     "key": "mul9_8_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 5) % 9 = 4"
+    },
+    {
+     "key": "z9mul_5_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 8) % 9 = 4"
+    },
+    {
+     "key": "z9mul_8_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 5) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "a90a68c5-3129-822b-be04-51b833ef120d",
+   "canonical": "(((6*7)%9)=6)",
+   "keys": [
+    {
+     "key": "mul9_6_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 7) % 9 = 6"
+    },
+    {
+     "key": "mul9_7_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 6) % 9 = 6"
+    },
+    {
+     "key": "z9mul_6_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 7) % 9 = 6"
+    },
+    {
+     "key": "z9mul_7_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 6) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "176afd79-92b5-89f3-bf95-c07c10786fc0",
+   "canonical": "(((6*8)%9)=3)",
+   "keys": [
+    {
+     "key": "mul9_6_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 8) % 9 = 3"
+    },
+    {
+     "key": "mul9_8_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 6) % 9 = 3"
+    },
+    {
+     "key": "z9mul_6_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 8) % 9 = 3"
+    },
+    {
+     "key": "z9mul_8_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 6) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "de3b5b53-26e5-8c1b-b662-1d74b284aecb",
+   "canonical": "(((7*8)%9)=2)",
+   "keys": [
+    {
+     "key": "mul9_7_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 8) % 9 = 2"
+    },
+    {
+     "key": "mul9_8_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 7) % 9 = 2"
+    },
+    {
+     "key": "z9mul_7_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 8) % 9 = 2"
+    },
+    {
+     "key": "z9mul_8_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 7) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "96154ff0-3493-8ddb-b76f-3087295f67ba",
+   "canonical": "(((3*3)%9)=0)",
+   "keys": [
+    {
+     "key": "mul9_3_3",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 3) % 9 = 0"
+    },
+    {
+     "key": "z9mul_3_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 3) % 9 = 0"
+    },
+    {
+     "key": "three_sq_zero",
+     "file": "Vortex.lean",
+     "skill": "z9-ring",
+     "statement": "(3*3) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e5d2150b-b717-807e-86d6-ab0612f20bdb",
+   "canonical": "(((6*6)%9)=0)",
+   "keys": [
+    {
+     "key": "mul9_6_6",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 6) % 9 = 0"
+    },
+    {
+     "key": "z9mul_6_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 6) % 9 = 0"
+    },
+    {
+     "key": "six_sq_zero",
+     "file": "Vortex.lean",
+     "skill": "z9-ring",
+     "statement": "(6*6) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4298daf0-e353-8c83-a61a-77a1bb021c8e",
+   "canonical": "(((8*8)%9)=1)",
+   "keys": [
+    {
+     "key": "mul9_8_8",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 8) % 9 = 1"
+    },
+    {
+     "key": "z9mul_8_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 8) % 9 = 1"
+    },
+    {
+     "key": "eight_self_inv",
+     "file": "Vortex.lean",
+     "skill": "z9-ring",
+     "statement": "(8*8) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "d0bf281a-bc6b-8dfc-857f-8541f45b7994",
+   "canonical": "((((0+0+0)/2)=0)∧(((0+0+1)/2)=0)∧(((0+1+1)/2)=1)∧(((1+1+1)/2)=1))",
+   "keys": [
+    {
+     "key": "majority_vote_is_floor_half",
+     "file": "Quantum.lean",
+     "skill": "quantum",
+     "statement": "((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1)"
+    },
+    {
+     "key": "three_cell_vote_majority",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1)"
+    }
+   ],
+   "skills": [
+    "quantum",
+    "wave"
+   ],
+   "files": [
+    "Quantum.lean",
+    "Wave.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.2857142857142857,
+   "cross": true
+  },
+  {
+   "address": "f8a0b10e-eda6-8f4c-a459-ffba88d4d105",
+   "canonical": "((((2^48)*(2^80))=(2^128))∧((128-48)=80)∧(128>48))",
+   "keys": [
+    {
+     "key": "usable_gap_eighty_bits",
+     "file": "Quantum.lean",
+     "skill": "quantum",
+     "statement": "(128 - 48 = 80) ∧ (48 < 128) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)"
+    },
+    {
+     "key": "usable_gap_is_two_to_eighty",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)"
+    }
+   ],
+   "skills": [
+    "quantum",
+    "wave"
+   ],
+   "files": [
+    "Quantum.lean",
+    "Wave.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "97f06a5b-bb7b-8471-ab4e-b6f4ab625dfb",
+   "canonical": "(((0*1)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 1) % 7 = 0"
+    },
+    {
+     "key": "z7mul_1_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "46393387-578d-8be5-bc15-0e425243ba9f",
+   "canonical": "(((0*1)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 1) % 9 = 0"
+    },
+    {
+     "key": "z9mul_1_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "78ce8e95-989b-8c27-b4e6-09d19651dfba",
+   "canonical": "(((0*2)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 2) % 7 = 0"
+    },
+    {
+     "key": "z7mul_2_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "99edc429-ea83-895f-a6e1-9a7583344d8f",
+   "canonical": "(((0*2)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 2) % 9 = 0"
+    },
+    {
+     "key": "z9mul_2_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "b2093a70-7de1-8f9a-ba82-b91b906c88d1",
+   "canonical": "(((0*3)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 3) % 7 = 0"
+    },
+    {
+     "key": "z7mul_3_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "1e61e57d-98c0-80ee-a27e-1f7fee2dd362",
+   "canonical": "(((0*3)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 3) % 9 = 0"
+    },
+    {
+     "key": "z9mul_3_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e14c5d9f-339a-8780-8f64-681e912cf022",
+   "canonical": "(((0*4)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 4) % 7 = 0"
+    },
+    {
+     "key": "z7mul_4_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6324bcc3-c025-81e4-a53e-66983eaec77a",
+   "canonical": "(((0*4)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 4) % 9 = 0"
+    },
+    {
+     "key": "z9mul_4_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "bde2f4cb-c3f9-88b4-977d-f0df550e906a",
+   "canonical": "(((0*5)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 5) % 7 = 0"
+    },
+    {
+     "key": "z7mul_5_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "55c3d198-623e-8c7a-9a7a-85c0b3284568",
+   "canonical": "(((0*5)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 5) % 9 = 0"
+    },
+    {
+     "key": "z9mul_5_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "ce319097-bbed-8586-8754-7f497c2a9996",
+   "canonical": "(((0*6)%7)=0)",
+   "keys": [
+    {
+     "key": "z7mul_0_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 * 6) % 7 = 0"
+    },
+    {
+     "key": "z7mul_6_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 0) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "33fd47f1-46cb-8e7b-80a9-9a888d08c580",
+   "canonical": "(((0*6)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 6) % 9 = 0"
+    },
+    {
+     "key": "z9mul_6_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "7a33f6e8-1d8f-857a-bfa0-d62cdbea4671",
+   "canonical": "(((0*7)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 7) % 9 = 0"
+    },
+    {
+     "key": "z9mul_7_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "258be8c7-f9cc-84c4-b5a4-411bc8764c1c",
+   "canonical": "(((0*8)%9)=0)",
+   "keys": [
+    {
+     "key": "z9mul_0_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 * 8) % 9 = 0"
+    },
+    {
+     "key": "z9mul_8_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 * 0) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6727076b-9301-8485-b4b3-636cc1a1d821",
+   "canonical": "(((0+1)%7)=1)",
+   "keys": [
+    {
+     "key": "z7add_0_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 1) % 7 = 1"
+    },
+    {
+     "key": "z7add_1_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 0) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4abbc945-d239-841f-815e-125aae885ba0",
+   "canonical": "(((0+1)%9)=1)",
+   "keys": [
+    {
+     "key": "z9add_0_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 1) % 9 = 1"
+    },
+    {
+     "key": "z9add_1_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 0) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "b921ff4d-0a1f-847a-a979-31eefcf592aa",
+   "canonical": "(((0+2)%7)=2)",
+   "keys": [
+    {
+     "key": "z7add_0_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 2) % 7 = 2"
+    },
+    {
+     "key": "z7add_2_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 0) % 7 = 2"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "cca15546-9625-8193-a19a-126648aa2543",
+   "canonical": "(((0+2)%9)=2)",
+   "keys": [
+    {
+     "key": "z9add_0_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 2) % 9 = 2"
+    },
+    {
+     "key": "z9add_2_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 0) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "0d5f22af-ee07-82b2-8860-a1a109db48e9",
+   "canonical": "(((0+3)%7)=3)",
+   "keys": [
+    {
+     "key": "z7add_0_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 3) % 7 = 3"
+    },
+    {
+     "key": "z7add_3_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 0) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "cf2d6cba-7819-8c6a-8de4-79ad27fe9dce",
+   "canonical": "(((0+3)%9)=3)",
+   "keys": [
+    {
+     "key": "z9add_0_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 3) % 9 = 3"
+    },
+    {
+     "key": "z9add_3_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 0) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "957eb1b7-5c13-86b7-b647-1d04ac10c468",
+   "canonical": "(((0+4)%7)=4)",
+   "keys": [
+    {
+     "key": "z7add_0_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 4) % 7 = 4"
+    },
+    {
+     "key": "z7add_4_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 0) % 7 = 4"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6933bcbf-efbd-809a-902f-f1b31c16d36c",
+   "canonical": "(((0+4)%9)=4)",
+   "keys": [
+    {
+     "key": "z9add_0_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 4) % 9 = 4"
+    },
+    {
+     "key": "z9add_4_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 0) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "314657d3-2131-8c6b-9126-9044fd55034c",
+   "canonical": "(((0+5)%7)=5)",
+   "keys": [
+    {
+     "key": "z7add_0_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 5) % 7 = 5"
+    },
+    {
+     "key": "z7add_5_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 0) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "43b62150-786a-89b1-9618-60ad5f5361bd",
+   "canonical": "(((0+5)%9)=5)",
+   "keys": [
+    {
+     "key": "z9add_0_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 5) % 9 = 5"
+    },
+    {
+     "key": "z9add_5_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 0) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "954484ff-541e-87c7-adf0-70785b311039",
+   "canonical": "(((0+6)%7)=6)",
+   "keys": [
+    {
+     "key": "z7add_0_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(0 + 6) % 7 = 6"
+    },
+    {
+     "key": "z7add_6_0",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 0) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4685483e-a667-885f-9abc-de49a9509926",
+   "canonical": "(((0+6)%9)=6)",
+   "keys": [
+    {
+     "key": "z9add_0_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 6) % 9 = 6"
+    },
+    {
+     "key": "z9add_6_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 0) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "c81dbd42-3d19-8014-8ada-c8d770ce1f14",
+   "canonical": "(((0+7)%9)=7)",
+   "keys": [
+    {
+     "key": "z9add_0_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 7) % 9 = 7"
+    },
+    {
+     "key": "z9add_7_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 0) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "559af212-7b3d-81a1-9168-305cddadae65",
+   "canonical": "(((0+8)%9)=8)",
+   "keys": [
+    {
+     "key": "z9add_0_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(0 + 8) % 9 = 8"
+    },
+    {
+     "key": "z9add_8_0",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 0) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "d7ce70fb-3d95-8f15-8363-dc297dd2a8c2",
+   "canonical": "(((1*1)%9)=1)",
+   "keys": [
+    {
+     "key": "mul9_1_1",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 1) % 9 = 1"
+    },
+    {
+     "key": "z9mul_1_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 * 1) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "55a82eb1-ee65-8202-8308-b3a27576df77",
+   "canonical": "(((1*2)%7)=2)",
+   "keys": [
+    {
+     "key": "z7mul_1_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 2) % 7 = 2"
+    },
+    {
+     "key": "z7mul_2_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 1) % 7 = 2"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9d3010cc-907f-86f5-a97c-41e3da2a22b2",
+   "canonical": "(((1*3)%7)=3)",
+   "keys": [
+    {
+     "key": "z7mul_1_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 3) % 7 = 3"
+    },
+    {
+     "key": "z7mul_3_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 1) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "baa13fd5-b44b-87e8-b0e6-7ff7077cbf56",
+   "canonical": "(((1*4)%7)=4)",
+   "keys": [
+    {
+     "key": "z7mul_1_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 4) % 7 = 4"
+    },
+    {
+     "key": "z7mul_4_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 1) % 7 = 4"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "f5214646-8a08-8fdc-8353-728bb5e6c612",
+   "canonical": "(((1*5)%7)=5)",
+   "keys": [
+    {
+     "key": "z7mul_1_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 5) % 7 = 5"
+    },
+    {
+     "key": "z7mul_5_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 1) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "bc5c8160-1547-831f-b8cc-eb79f0861ea9",
+   "canonical": "(((1*6)%7)=6)",
+   "keys": [
+    {
+     "key": "z7mul_1_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 * 6) % 7 = 6"
+    },
+    {
+     "key": "z7mul_6_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 1) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "428da798-7d70-8680-8fd8-1413abe2979e",
+   "canonical": "(((1+2)%7)=3)",
+   "keys": [
+    {
+     "key": "z7add_1_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 2) % 7 = 3"
+    },
+    {
+     "key": "z7add_2_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 1) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "87d58721-1e65-84d1-a70f-eaffe1cb6b56",
+   "canonical": "(((1+2)%9)=3)",
+   "keys": [
+    {
+     "key": "z9add_1_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 2) % 9 = 3"
+    },
+    {
+     "key": "z9add_2_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 1) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "57338345-7484-8ffc-9799-38b822d16090",
+   "canonical": "(((1+3)%7)=4)",
+   "keys": [
+    {
+     "key": "z7add_1_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 3) % 7 = 4"
+    },
+    {
+     "key": "z7add_3_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 1) % 7 = 4"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "40060749-bd75-8039-a45e-10719fda86e3",
+   "canonical": "(((1+3)%9)=4)",
+   "keys": [
+    {
+     "key": "z9add_1_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 3) % 9 = 4"
+    },
+    {
+     "key": "z9add_3_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 1) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "f5ddbb41-e99c-8495-8592-76f2a3e42889",
+   "canonical": "(((1+4)%7)=5)",
+   "keys": [
+    {
+     "key": "z7add_1_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 4) % 7 = 5"
+    },
+    {
+     "key": "z7add_4_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 1) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "629a858b-eb7e-844d-b6a3-a890c369aeb5",
+   "canonical": "(((1+4)%9)=5)",
+   "keys": [
+    {
+     "key": "z9add_1_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 4) % 9 = 5"
+    },
+    {
+     "key": "z9add_4_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 1) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "05b7e031-61a1-8d8e-8d61-0558a7d6a8ee",
+   "canonical": "(((1+5)%7)=6)",
+   "keys": [
+    {
+     "key": "z7add_1_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 5) % 7 = 6"
+    },
+    {
+     "key": "z7add_5_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 1) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "2c6c1e12-9a30-8d85-aa13-0c6682da9d74",
+   "canonical": "(((1+5)%9)=6)",
+   "keys": [
+    {
+     "key": "z9add_1_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 5) % 9 = 6"
+    },
+    {
+     "key": "z9add_5_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 1) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "5e2e9a0d-69e6-8c02-b954-86fec53be15d",
+   "canonical": "(((1+6)%7)=0)",
+   "keys": [
+    {
+     "key": "z7add_1_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(1 + 6) % 7 = 0"
+    },
+    {
+     "key": "z7add_6_1",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 1) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "088deed3-ce50-80e1-8909-dbeba6c361b4",
+   "canonical": "(((1+6)%9)=7)",
+   "keys": [
+    {
+     "key": "z9add_1_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 6) % 9 = 7"
+    },
+    {
+     "key": "z9add_6_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 1) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "79328182-fc50-8964-8aca-c92327410491",
+   "canonical": "(((1+7)%9)=8)",
+   "keys": [
+    {
+     "key": "z9add_1_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 7) % 9 = 8"
+    },
+    {
+     "key": "z9add_7_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 1) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4e57351b-6fbb-8b3e-815d-0ef2b35b07e7",
+   "canonical": "(((1+8)%9)=0)",
+   "keys": [
+    {
+     "key": "z9add_1_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(1 + 8) % 9 = 0"
+    },
+    {
+     "key": "z9add_8_1",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 1) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "232d59d8-ad3a-84f9-9a50-ad3e58467a7b",
+   "canonical": "(((12*2)=(3*8))∧((12*2)=(4*6))∧((12+2)=(6+8)))",
+   "keys": [
+    {
+     "key": "cube_cluster_closes",
+     "file": "Platonic.lean",
+     "skill": "wave",
+     "statement": "(8 + 6 = 12 + 2) ∧ (3 * 8 = 2 * 12) ∧ (4 * 6 = 2 * 12)"
+    },
+    {
+     "key": "octahedron_cluster_closes",
+     "file": "Platonic.lean",
+     "skill": "wave",
+     "statement": "(6 + 8 = 12 + 2) ∧ (4 * 6 = 2 * 12) ∧ (3 * 8 = 2 * 12)"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Platonic.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.9487179487179487,
+   "cross": false
+  },
+  {
+   "address": "8d82f080-3797-83e7-ad0d-c422d4f0850d",
+   "canonical": "(((12*5)=(2*30))∧((12+20)=(2+30))∧((2*30)=(20*3)))",
+   "keys": [
+    {
+     "key": "dodecahedron_cluster_closes",
+     "file": "Platonic.lean",
+     "skill": "wave",
+     "statement": "(20 + 12 = 30 + 2) ∧ (3 * 20 = 2 * 30) ∧ (5 * 12 = 2 * 30)"
+    },
+    {
+     "key": "icosahedron_cluster_closes",
+     "file": "Platonic.lean",
+     "skill": "wave",
+     "statement": "(12 + 20 = 30 + 2) ∧ (5 * 12 = 2 * 30) ∧ (3 * 20 = 2 * 30)"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Platonic.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.9487179487179487,
+   "cross": false
+  },
+  {
+   "address": "c71a0fe4-5cab-8c10-87ee-a72975def655",
+   "canonical": "(((2*2)%9)=4)",
+   "keys": [
+    {
+     "key": "mul9_2_2",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 2) % 9 = 4"
+    },
+    {
+     "key": "z9mul_2_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 * 2) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "b9ce58f7-ca3b-84aa-8f3f-78b049da717f",
+   "canonical": "(((2*2)=4)∧((2^1)<(2^2))∧((2^2)=4))",
+   "keys": [
+    {
+     "key": "teleportation_costs_two_coins",
+     "file": "Quantum.lean",
+     "skill": "quantum",
+     "statement": "(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)"
+    },
+    {
+     "key": "teleportation_costs_the_two_coins",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)"
+    }
+   ],
+   "skills": [
+    "quantum",
+    "wave"
+   ],
+   "files": [
+    "Quantum.lean",
+    "Wave.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.08823529411764706,
+   "cross": true
+  },
+  {
+   "address": "672b20db-473f-8dd4-a75a-86de6be1ccf9",
+   "canonical": "(((2*3)%7)=6)",
+   "keys": [
+    {
+     "key": "z7mul_2_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 3) % 7 = 6"
+    },
+    {
+     "key": "z7mul_3_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 2) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "eb520ef8-19aa-8ae6-a465-ccd0811a98ed",
+   "canonical": "(((2*4)%7)=1)",
+   "keys": [
+    {
+     "key": "z7mul_2_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 4) % 7 = 1"
+    },
+    {
+     "key": "z7mul_4_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 2) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "32350bbd-67ac-8efb-97d3-32d57d9c91d8",
+   "canonical": "(((2*5)%7)=3)",
+   "keys": [
+    {
+     "key": "z7mul_2_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 5) % 7 = 3"
+    },
+    {
+     "key": "z7mul_5_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 2) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "485a111b-aa38-8920-b8ec-c39f1ae38271",
+   "canonical": "(((2*6)%7)=5)",
+   "keys": [
+    {
+     "key": "z7mul_2_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 * 6) % 7 = 5"
+    },
+    {
+     "key": "z7mul_6_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 2) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "f214e4a0-b1e1-8091-aeaf-845cc101fbd4",
+   "canonical": "(((2^6)%9)=1)",
+   "keys": [
+    {
+     "key": "z9pow_2_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 ^ 6) % 9 = 1"
+    },
+    {
+     "key": "two_order_six",
+     "file": "Vortex.lean",
+     "skill": "vortex",
+     "statement": "(2^6) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "vortex",
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "0dcd8765-2ea6-847b-be0b-2299a6a28d5b",
+   "canonical": "(((2^7)=128)∧((32*4)=128))",
+   "keys": [
+    {
+     "key": "the_spectra_exhaust_the_address_space",
+     "file": "Strings.lean",
+     "skill": "strings",
+     "statement": "(4 * 32 = 128) ∧ ((2:Nat)^7 = 128)"
+    },
+    {
+     "key": "characters_span_the_address",
+     "file": "Hexbit.lean",
+     "skill": "hexbit",
+     "statement": "(32 * 4 = 128) ∧ ((2:Nat)^7 = 128)"
+    }
+   ],
+   "skills": [
+    "hexbit",
+    "strings"
+   ],
+   "files": [
+    "Hexbit.lean",
+    "Strings.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.06976744186046512,
+   "cross": true
+  },
+  {
+   "address": "3c0c5037-9fe9-804d-9ace-2e8755bb11a9",
+   "canonical": "(((2+3)%7)=5)",
+   "keys": [
+    {
+     "key": "z7add_2_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 3) % 7 = 5"
+    },
+    {
+     "key": "z7add_3_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 2) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "69d06870-a9b3-8024-aac8-0bd6bd52a097",
+   "canonical": "(((2+3)%9)=5)",
+   "keys": [
+    {
+     "key": "z9add_2_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 3) % 9 = 5"
+    },
+    {
+     "key": "z9add_3_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 2) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "97263ce3-6548-8688-8f7e-7e5ddd2a4ee2",
+   "canonical": "(((2+4)%7)=6)",
+   "keys": [
+    {
+     "key": "z7add_2_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 4) % 7 = 6"
+    },
+    {
+     "key": "z7add_4_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 2) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "edb5322d-9be9-83c7-af47-334eba300860",
+   "canonical": "(((2+4)%9)=6)",
+   "keys": [
+    {
+     "key": "z9add_2_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 4) % 9 = 6"
+    },
+    {
+     "key": "z9add_4_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 2) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "affcce96-5a12-88ef-b6d5-45a0d7b1dcdc",
+   "canonical": "(((2+5)%7)=0)",
+   "keys": [
+    {
+     "key": "z7add_2_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 5) % 7 = 0"
+    },
+    {
+     "key": "z7add_5_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 2) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "1a160dbf-240e-8cfe-ae52-34efe77b5b1b",
+   "canonical": "(((2+5)%9)=7)",
+   "keys": [
+    {
+     "key": "z9add_2_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 5) % 9 = 7"
+    },
+    {
+     "key": "z9add_5_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 2) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9a7329e4-8677-83ea-b259-aa2f74b927d0",
+   "canonical": "(((2+6)%7)=1)",
+   "keys": [
+    {
+     "key": "z7add_2_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(2 + 6) % 7 = 1"
+    },
+    {
+     "key": "z7add_6_2",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 2) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "00d6dbd1-c241-8ba4-ba96-0e8870cc04da",
+   "canonical": "(((2+6)%9)=8)",
+   "keys": [
+    {
+     "key": "z9add_2_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 6) % 9 = 8"
+    },
+    {
+     "key": "z9add_6_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 2) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "2a013fa2-74e2-816c-81ca-3b9ede3c1155",
+   "canonical": "(((2+7)%9)=0)",
+   "keys": [
+    {
+     "key": "z9add_2_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 7) % 9 = 0"
+    },
+    {
+     "key": "z9add_7_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 2) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9a382950-0e1d-8647-81d9-8abee1221c79",
+   "canonical": "(((2+8)%9)=1)",
+   "keys": [
+    {
+     "key": "z9add_2_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(2 + 8) % 9 = 1"
+    },
+    {
+     "key": "z9add_8_2",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 2) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4bfc0607-d242-80e4-9913-32e1e2b6bb93",
+   "canonical": "(((232+25)-0)=257)",
+   "keys": [
+    {
+     "key": "alpine_dom_vi_ga_ie_257",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(232 + 25 - 0 = 257)"
+    },
+    {
+     "key": "alpine_dom_as_vi_ie_257",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(25 + 232 - 0 = 257)"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Wave.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.9428571428571428,
+   "cross": false
+  },
+  {
+   "address": "58438938-1765-85b4-9bbd-63525332905b",
+   "canonical": "(((25+62)-0)=87)",
+   "keys": [
+    {
+     "key": "alpine_dom_ge_ga_ie_87",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(62 + 25 - 0 = 87)"
+    },
+    {
+     "key": "alpine_dom_as_ge_ie_87",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(25 + 62 - 0 = 87)"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Wave.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.9411764705882353,
+   "cross": false
+  },
+  {
+   "address": "0beccc20-cfbd-8e6a-bed6-88f0cae511a5",
+   "canonical": "(((25+7)-0)=32)",
+   "keys": [
+    {
+     "key": "alpine_dom_ph_ga_ie_32",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(7 + 25 - 0 = 32)"
+    },
+    {
+     "key": "alpine_dom_as_ph_ie_32",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "(25 + 7 - 0 = 32)"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Wave.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.9428571428571428,
+   "cross": false
+  },
+  {
+   "address": "e973e765-36f4-8b48-ae2f-73d9bb972502",
+   "canonical": "(((3*4)%7)=5)",
+   "keys": [
+    {
+     "key": "z7mul_3_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 4) % 7 = 5"
+    },
+    {
+     "key": "z7mul_4_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 3) % 7 = 5"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "519cd2a9-c6e1-84e0-9ea6-8f25282e268a",
+   "canonical": "(((3*5)%7)=1)",
+   "keys": [
+    {
+     "key": "z7mul_3_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 5) % 7 = 1"
+    },
+    {
+     "key": "z7mul_5_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 3) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "c0b3158e-e911-871c-8fe8-e9fd64218756",
+   "canonical": "(((3*6)%7)=4)",
+   "keys": [
+    {
+     "key": "z7mul_3_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 * 6) % 7 = 4"
+    },
+    {
+     "key": "z7mul_6_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 3) % 7 = 4"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "1a4f8d10-1434-8783-b2f3-3d3bbf5be8bb",
+   "canonical": "(((3^2)+(4^2))=(5^2))",
+   "keys": [
+    {
+     "key": "pythagorean_3_4_5",
+     "file": "Navigation.lean",
+     "skill": "navigation",
+     "statement": "3^2 + 4^2 = 5^2"
+    },
+    {
+     "key": "beating_sailing_triangle",
+     "file": "Sailing.lean",
+     "skill": "sailing",
+     "statement": "3^2 + 4^2 = 5^2"
+    }
+   ],
+   "skills": [
+    "navigation",
+    "sailing"
+   ],
+   "files": [
+    "Navigation.lean",
+    "Sailing.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.03333333333333333,
+   "cross": true
+  },
+  {
+   "address": "8d7da7ba-b6ea-8d36-8a2f-017cd232975b",
+   "canonical": "(((3^6)%7)=1)",
+   "keys": [
+    {
+     "key": "z7pow_3_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 ^ 6) % 7 = 1"
+    },
+    {
+     "key": "rosette_pow_six",
+     "file": "Vortex.lean",
+     "skill": "z7-rosette",
+     "statement": "(3^6) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean",
+    "Vortex.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "545da112-f2c4-802e-8d43-f9a1fa39691b",
+   "canonical": "(((3+4)%7)=0)",
+   "keys": [
+    {
+     "key": "z7add_3_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 4) % 7 = 0"
+    },
+    {
+     "key": "z7add_4_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 3) % 7 = 0"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "be472b04-1a69-807f-a8e9-accc600fc229",
+   "canonical": "(((3+4)%9)=7)",
+   "keys": [
+    {
+     "key": "z9add_3_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 4) % 9 = 7"
+    },
+    {
+     "key": "z9add_4_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 3) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "13483e05-6826-8efc-88a5-e0c3662f7b8d",
+   "canonical": "(((3+5)%7)=1)",
+   "keys": [
+    {
+     "key": "z7add_3_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 5) % 7 = 1"
+    },
+    {
+     "key": "z7add_5_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 3) % 7 = 1"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6883a9ed-df41-8325-9fb3-fcc6aecc001b",
+   "canonical": "(((3+5)%9)=8)",
+   "keys": [
+    {
+     "key": "z9add_3_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 5) % 9 = 8"
+    },
+    {
+     "key": "z9add_5_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 3) % 9 = 8"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "9f7e2ceb-c8fd-8c76-97cc-4aa30afc7b75",
+   "canonical": "(((3+6)%7)=2)",
+   "keys": [
+    {
+     "key": "z7add_3_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(3 + 6) % 7 = 2"
+    },
+    {
+     "key": "z7add_6_3",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 3) % 7 = 2"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "6026802d-68c8-8c87-b412-a8e58323750d",
+   "canonical": "(((3+6)%9)=0)",
+   "keys": [
+    {
+     "key": "z9add_3_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 6) % 9 = 0"
+    },
+    {
+     "key": "z9add_6_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 3) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "0b443834-a114-887f-99e8-dc17a9ae5399",
+   "canonical": "(((3+7)%9)=1)",
+   "keys": [
+    {
+     "key": "z9add_3_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 7) % 9 = 1"
+    },
+    {
+     "key": "z9add_7_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 3) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "175cbf4b-573d-81d8-ad54-7705c0d168bd",
+   "canonical": "(((3+8)%9)=2)",
+   "keys": [
+    {
+     "key": "z9add_3_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(3 + 8) % 9 = 2"
+    },
+    {
+     "key": "z9add_8_3",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 3) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "10947d6c-e2f5-8672-8896-c3db516f3af7",
+   "canonical": "(((4*4)%9)=7)",
+   "keys": [
+    {
+     "key": "mul9_4_4",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 4) % 9 = 7"
+    },
+    {
+     "key": "z9mul_4_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 * 4) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "396426c3-165b-8733-8fc7-53c1c9b5a0ae",
+   "canonical": "(((4*5)%7)=6)",
+   "keys": [
+    {
+     "key": "z7mul_4_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 5) % 7 = 6"
+    },
+    {
+     "key": "z7mul_5_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 4) % 7 = 6"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "a7e76f6b-4a5e-8843-a00e-0a0d4971bd66",
+   "canonical": "(((4*6)%7)=3)",
+   "keys": [
+    {
+     "key": "z7mul_4_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 * 6) % 7 = 3"
+    },
+    {
+     "key": "z7mul_6_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 4) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "833793b6-0573-87f7-acf8-68ace4835f3e",
+   "canonical": "(((4+5)%7)=2)",
+   "keys": [
+    {
+     "key": "z7add_4_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 5) % 7 = 2"
+    },
+    {
+     "key": "z7add_5_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 4) % 7 = 2"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4f1f8ed7-e791-8fb4-96e6-5f659e32e4b5",
+   "canonical": "(((4+5)%9)=0)",
+   "keys": [
+    {
+     "key": "z9add_4_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 5) % 9 = 0"
+    },
+    {
+     "key": "z9add_5_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 4) % 9 = 0"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e7a26676-be74-87c3-91cc-9d673e6bb78e",
+   "canonical": "(((4+6)%7)=3)",
+   "keys": [
+    {
+     "key": "z7add_4_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(4 + 6) % 7 = 3"
+    },
+    {
+     "key": "z7add_6_4",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 4) % 7 = 3"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e7db4859-2468-8bfc-a8df-87fb22df12c6",
+   "canonical": "(((4+6)%9)=1)",
+   "keys": [
+    {
+     "key": "z9add_4_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 6) % 9 = 1"
+    },
+    {
+     "key": "z9add_6_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 4) % 9 = 1"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "1af778c2-d2bf-88c1-a4dd-419ee212a6b7",
+   "canonical": "(((4+7)%9)=2)",
+   "keys": [
+    {
+     "key": "z9add_4_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 7) % 9 = 2"
+    },
+    {
+     "key": "z9add_7_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 4) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "72aa3448-a6d0-81bc-94d5-48fe2223a019",
+   "canonical": "(((4+8)%9)=3)",
+   "keys": [
+    {
+     "key": "z9add_4_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(4 + 8) % 9 = 3"
+    },
+    {
+     "key": "z9add_8_4",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 4) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "75ec8b1e-1e42-87f7-a47a-b64ff38b626c",
+   "canonical": "(((5*5)%9)=7)",
+   "keys": [
+    {
+     "key": "mul9_5_5",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 5) % 9 = 7"
+    },
+    {
+     "key": "z9mul_5_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 * 5) % 9 = 7"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4a491e61-7ce0-84a6-b848-c8ba9e9a5bbb",
+   "canonical": "(((5*6)%7)=2)",
+   "keys": [
+    {
+     "key": "z7mul_5_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 * 6) % 7 = 2"
+    },
+    {
+     "key": "z7mul_6_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 * 5) % 7 = 2"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "d41b4926-b864-8213-a2c0-b48d6b5ae3b6",
+   "canonical": "(((5+6)%7)=4)",
+   "keys": [
+    {
+     "key": "z7add_5_6",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(5 + 6) % 7 = 4"
+    },
+    {
+     "key": "z7add_6_5",
+     "file": "Rosette.lean",
+     "skill": "z7-rosette",
+     "statement": "(6 + 5) % 7 = 4"
+    }
+   ],
+   "skills": [
+    "z7-rosette"
+   ],
+   "files": [
+    "Rosette.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "e109e133-5642-8f74-b191-aedeedc8d4ed",
+   "canonical": "(((5+6)%9)=2)",
+   "keys": [
+    {
+     "key": "z9add_5_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 6) % 9 = 2"
+    },
+    {
+     "key": "z9add_6_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 5) % 9 = 2"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "af19254d-1d4e-8a3c-8500-952c918769c9",
+   "canonical": "(((5+7)%9)=3)",
+   "keys": [
+    {
+     "key": "z9add_5_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 7) % 9 = 3"
+    },
+    {
+     "key": "z9add_7_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 5) % 9 = 3"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "d7b87e8d-7feb-8051-9b18-f0a8256c4743",
+   "canonical": "(((5+8)%9)=4)",
+   "keys": [
+    {
+     "key": "z9add_5_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(5 + 8) % 9 = 4"
+    },
+    {
+     "key": "z9add_8_5",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 5) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "8bdf605f-b174-8d7d-ad6c-a2fddf64c599",
+   "canonical": "(((6+7)%9)=4)",
+   "keys": [
+    {
+     "key": "z9add_6_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 7) % 9 = 4"
+    },
+    {
+     "key": "z9add_7_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 6) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "be9e9304-d3ca-8709-82e4-bb2c4cfdfe84",
+   "canonical": "(((6+8)%9)=5)",
+   "keys": [
+    {
+     "key": "z9add_6_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(6 + 8) % 9 = 5"
+    },
+    {
+     "key": "z9add_8_6",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 6) % 9 = 5"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "2ba76512-dbde-8008-ba01-41de79577f11",
+   "canonical": "(((7*7)%9)=4)",
+   "keys": [
+    {
+     "key": "mul9_7_7",
+     "file": "Core.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 7) % 9 = 4"
+    },
+    {
+     "key": "z9mul_7_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 * 7) % 9 = 4"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Core.lean",
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "4647240d-4e1d-89a7-ae97-e23e5c8687a9",
+   "canonical": "(((7+8)%9)=6)",
+   "keys": [
+    {
+     "key": "z9add_7_8",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(7 + 8) % 9 = 6"
+    },
+    {
+     "key": "z9add_8_7",
+     "file": "Ring.lean",
+     "skill": "z9-ring",
+     "statement": "(8 + 7) % 9 = 6"
+    }
+   ],
+   "skills": [
+    "z9-ring"
+   ],
+   "files": [
+    "Ring.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0,
+   "cross": false
+  },
+  {
+   "address": "92b44875-476d-82e8-953c-bf25fd71d835",
+   "canonical": "((1+1+1)=3)",
+   "keys": [
+    {
+     "key": "sanitize_poison_keys_are_three",
+     "file": "Sanitize.lean",
+     "skill": "sanitize",
+     "statement": "1 + 1 + 1 = 3"
+    },
+    {
+     "key": "trinity_edit_is_three",
+     "file": "Report.lean",
+     "skill": "reporting",
+     "statement": "1 + 1 + 1 = 3"
+    }
+   ],
+   "skills": [
+    "reporting",
+    "sanitize"
+   ],
+   "files": [
+    "Report.lean",
+    "Sanitize.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.034482758620689655,
+   "cross": true
+  },
+  {
+   "address": "45a91f18-bcb4-8562-9276-b2958e15a833",
+   "canonical": "((10^14)=100000000000000)",
+   "keys": [
+    {
+     "key": "literature_sonnet_volume",
+     "file": "Wave.lean",
+     "skill": "wave",
+     "statement": "10 ^ 14 = 100000000000000"
+    },
+    {
+     "key": "queneau_poems_are_ten_to_the_fourteen",
+     "file": "Queneau.lean",
+     "skill": "wave",
+     "statement": "10 ^ 14 = 100000000000000"
+    }
+   ],
+   "skills": [
+    "wave"
+   ],
+   "files": [
+    "Queneau.lean",
+    "Wave.lean"
+   ],
+   "withinOneSkill": true,
+   "glossOverlap": 0.06060606060606061,
+   "cross": false
+  },
+  {
+   "address": "0c666d5e-612f-87d8-ac52-41cd54f90e96",
+   "canonical": "((2*2)=4)",
+   "keys": [
+    {
+     "key": "central_four_squares",
+     "file": "Chessgames.lean",
+     "skill": "chess",
+     "statement": "2 * 2 = 4"
+    },
+    {
+     "key": "signal_detection_two_by_two",
+     "file": "Psychology.lean",
+     "skill": "psychology",
+     "statement": "2 * 2 = 4"
+    }
+   ],
+   "skills": [
+    "chess",
+    "psychology"
+   ],
+   "files": [
+    "Chessgames.lean",
+    "Psychology.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "9b7c277d-2df7-8cc8-9937-5a6e0fc153a8",
+   "canonical": "((2*4)=8)",
+   "keys": [
+    {
+     "key": "developmental_stages_double",
+     "file": "Psychology.lean",
+     "skill": "psychology",
+     "statement": "2 * 4 = 8"
+    },
+    {
+     "key": "n_people_make_n_half_pairs",
+     "file": "Matching.lean",
+     "skill": "matching",
+     "statement": "8 = 2 * 4"
+    }
+   ],
+   "skills": [
+    "matching",
+    "psychology"
+   ],
+   "files": [
+    "Matching.lean",
+    "Psychology.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "33e68a55-5dfb-80a3-bb84-e64da72e9208",
+   "canonical": "((2*6)=(3*4))",
+   "keys": [
+    {
+     "key": "boyles_law",
+     "file": "Chemistry.lean",
+     "skill": "chemistry",
+     "statement": "2*6 = 4*3"
+    },
+    {
+     "key": "moment_balance",
+     "file": "Statics.lean",
+     "skill": "statics",
+     "statement": "6 * 2 = 4 * 3"
+    }
+   ],
+   "skills": [
+    "chemistry",
+    "statics"
+   ],
+   "files": [
+    "Chemistry.lean",
+    "Statics.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "630140ab-c272-885d-82e1-7a7ae794dd08",
+   "canonical": "((2*6)=12)",
+   "keys": [
+    {
+     "key": "ohms_law",
+     "file": "Electromagnetism.lean",
+     "skill": "electromagnetism",
+     "statement": "12 = 2 * 6"
+    },
+    {
+     "key": "hextorus_generators_are_the_jobs",
+     "file": "Torus.lean",
+     "skill": "torus",
+     "statement": "2 * 6 = 12"
+    }
+   ],
+   "skills": [
+    "electromagnetism",
+    "torus"
+   ],
+   "files": [
+    "Electromagnetism.lean",
+    "Torus.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  },
+  {
+   "address": "b944e4a2-eb7e-8e3f-b87d-a5ff53ceafa0",
+   "canonical": "((2^3)=8)",
+   "keys": [
+    {
+     "key": "blood_types_eight",
+     "file": "BioPhysics.lean",
+     "skill": "science-pairs",
+     "statement": "(2:Nat)^3 = 8"
+    },
+    {
+     "key": "hicks_law_three_bits",
+     "file": "Psychology.lean",
+     "skill": "psychology",
+     "statement": "2^3 = 8"
+    }
+   ],
+   "skills": [
+    "psychology",
+    "science-pairs"
+   ],
+   "files": [
+    "BioPhysics.lean",
+    "Psychology.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.03225806451612903,
+   "cross": true
+  },
+  {
+   "address": "02feedc7-c11c-8757-b7c1-436824427d41",
+   "canonical": "((4*4)=16)",
+   "keys": [
+    {
+     "key": "pauli_group_order_16",
+     "file": "Quantum.lean",
+     "skill": "quantum",
+     "statement": "4 * 4 = 16"
+    },
+    {
+     "key": "proposals_bounded_by_n_squared",
+     "file": "Matching.lean",
+     "skill": "matching",
+     "statement": "4 * 4 = 16"
+    }
+   ],
+   "skills": [
+    "matching",
+    "quantum"
+   ],
+   "files": [
+    "Matching.lean",
+    "Quantum.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.02631578947368421,
+   "cross": true
+  },
+  {
+   "address": "4d967323-e485-897d-b9f1-893f8a78efba",
+   "canonical": "((4^3)=64)",
+   "keys": [
+    {
+     "key": "codons_sixty_four",
+     "file": "BioPhysics.lean",
+     "skill": "science-pairs",
+     "statement": "(4:Nat)^3 = 64"
+    },
+    {
+     "key": "codons_four_cubed",
+     "file": "Cipher.lean",
+     "skill": "cipher",
+     "statement": "4^3 = 64"
+    }
+   ],
+   "skills": [
+    "cipher",
+    "science-pairs"
+   ],
+   "files": [
+    "BioPhysics.lean",
+    "Cipher.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0.125,
+   "cross": true
+  },
+  {
+   "address": "163420af-7ad9-8325-b2e5-29cdd10901da",
+   "canonical": "((6+6)=12)",
+   "keys": [
+    {
+     "key": "flood_and_ebb",
+     "file": "Tides.lean",
+     "skill": "tides",
+     "statement": "6 + 6 = 12"
+    },
+    {
+     "key": "warm_cool_split_six_six",
+     "file": "Colour.lean",
+     "skill": "colour",
+     "statement": "6 + 6 = 12"
+    }
+   ],
+   "skills": [
+    "colour",
+    "tides"
+   ],
+   "files": [
+    "Colour.lean",
+    "Tides.lean"
+   ],
+   "withinOneSkill": false,
+   "glossOverlap": 0,
+   "cross": true
+  }
+ ],
+ "copies": 129,
+ "crosses": 15,
+ "receipt": "de935413-316d-83d0-8487-84f17206861a"
+}
