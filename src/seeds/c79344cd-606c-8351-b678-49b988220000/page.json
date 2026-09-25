@@ -1,0 +1,33 @@
+{
+  "file": "SiCross.lean",
+  "slug": "sicross",
+  "status": "draft",
+  "address": "8162bc0c-b2cb-8840-b783-51e68b7a707a",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SiCross.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/SiCross.lean — GENERATED. THE SI EXPONENT LATTICE — cross formulas that prove each other, over the seven base quantities (BIPM, The International System of Units, 9th edition, 2019). Each derived unit is an integer 7-vector over m, kg, s, A, K, mol, cd; product ADDS the exponents and ratio SUBTRACTS them, so the lattice is closed and a unit reached by two routes must agree with itself. THE JOULE IS REACHED 4 WAYS — N·m, W·s, W/Hz, C·V — through mechanics, through time, through the spectrum and through electricity, four different pieces of physics landing on one vector because closure forces it. 7 of the 10 derived units are crossed at all, and the census is computed from engapi's own table by enumerating every product and ratio, never typed. THE SAME ARGUMENT AS PlanckLattice, ONE RANK UP: that wing makes it over four constants, this one over seven base quantities, and neither is independent evidence for the other. CLAIMED: the tabulated vector identities, decided by the kernel over its own finite domain, axiom-free. NOT CLAIMED: that equal dimension means equal quantity — torque and energy share kg·m²·s⁻² and are not interchangeable. The lattice decides what CANNOT be equal, which is the decidable half; it does not decide what is. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n-- The SI seven in engapi's order: m, kg, s, A, K, mol, cd. A unit is an integer 7-vector of exponents.\ndef addD (a b : List Int) : List Int := List.zipWith (· + ·) a b\ndef subD (a b : List Int) : List Int := List.zipWith (· - ·) a b\n\n-- every unit this lattice carries — the 7 base quantities and the 10 named derived ones.\ndef units : List (List Int) := [[1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 1], [0, 0, -1, 0, 0, 0, 0], [1, 1, -2, 0, 0, 0, 0], [-1, 1, -2, 0, 0, 0, 0], [2, 1, -2, 0, 0, 0, 0], [2, 1, -3, 0, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [2, 1, -3, -1, 0, 0, 0], [2, 1, -3, -2, 0, 0, 0], [-2, -1, 4, 2, 0, 0, 0], [0, 1, -2, -1, 0, 0, 0]]\n\n/-- CLAIMED: the joule is reached 4 ways through the SI lattice — N·m, W·s, W/Hz, C·V — every one landing on [2,\n    1, -2, 0, 0, 0, 0], and a pair that is not a route does not. -/\ntheorem energy_is_reachable_by_four_independent_routes : ((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ (addD [1, 0, 0, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] ≠ [2, 1, -2, 0, 0, 0, 0]) := by decide\n\n/-- CLAIMED: 7 derived units are reached by more than one route — C(4), J(4), V(4), W(3), F(2), Hz(2), Ω(2) —\n    and for each, every route lands on the same vector. -/\ntheorem the_crossed_units_agree_on_one_vector_each : ((addD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [0, 0, 0, 1, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (addD [-2, -1, 4, 2, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0])) ∧ ((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (addD [0, 0, -1, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0])) ∧ ((subD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0]) ∧ (subD [2, 1, -3, -1, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0])) := by decide\n\n/-- CLAIMED: adding then subtracting the same vector returns the original, over all 17 units this lattice\n    carries — the closure the routes above stand on. -/\ntheorem the_lattice_is_closed_under_product_and_ratio : ((units.all (fun u => u.length == 7)) = true) ∧ ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = true) := by decide\n"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

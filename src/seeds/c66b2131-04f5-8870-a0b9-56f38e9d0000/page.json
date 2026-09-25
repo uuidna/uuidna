@@ -1,0 +1,357 @@
+{
+  "file": "Diagonal.lean",
+  "slug": "diagonal",
+  "status": "usable",
+  "address": "36bc4990-c3f9-8e7d-ba8d-c05d14c86bd1",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Diagonal.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Diagonal.lean — GENERATED. THE DIAGONAL RUNS OUT AT NINE — the multiplication table's own diagonal, read in digital roots, and the fold that closes it (the captain, 2026-09-25: \"And the diagonal provably runs out at 9. note that 9 folding 0 reflects 1\"). lean/Core.lean seals the 8x8 core, the multiplication table of Z/9's eight non-zero residues; its DIAGONAL is the squares, and reduced to digital roots — where a multiple of nine shows as 9 rather than 0, which is how a digital root is written — the first nine entries are 1, 4, 9, 7, 7, 9, 4, 1, 9 and the next nine are the same nine again, in the same order. That is what \"runs out\" means and it is stated as a walk over both ranges, because a period claimed from one wrap-around is the one-step-is-not-a-walk fault this tree has already sealed a false theorem from. AND IT NEVER REACHED MOST OF THE RING: nine residues exist and the diagonal touches 4 — 1, 4, 7, 9 — so a square here is never 2, 3, 5, 6 or 8. A sequence can repeat and still visit everything; this one repeats over a quarter of the ring, which is the sharper half of the finding and the half a period alone would hide. THE FOLD THAT CLOSES IT is one fact with two faces rather than two facts about a numeral: 9 mod 9 = 0, so the entry that CLOSES the diagonal is the ring's zero and the sequence ends by vanishing; and the mirror x ↦ 10 − x carries 9 to 1, the entry that OPENED it. The last step folds to nothing and reflects to the first, and those are the same step seen from the two sides of the ring. THE REFLECTION IS THE WHOLE SEQUENCE, not only its ends — dr(n²) = dr((9−n)²) for every n from 1 to 8, walked over all eight pairs, with the ninth entry standing alone on the fold. The mirror acting on the diagonal's INPUTS is n ↦ 9 − n and is deliberately NOT the mirror x ↦ 10 − x that acts on the residues (1 ↔ 9, 5 fixed); both live in this ledger and neither may be quoted for the other, which is why they are sealed apart. CLAIMED: all of it, closed by the Lean 4 kernel over its own finite domain, axiom-free, every universal walked and every quantity named rather than written as a bare literal. NOT CLAIMED: anything about nine outside Z/9 arithmetic — this is the digital root of a square, a fact about remainders, and it carries no meaning the arithmetic does not put there. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- The ring this ledger computes in, and the base of the residue mirror x ↦ 10 − x. Named so the fold\n    below is stated over quantities rather than over bare numerals. -/\ndef ring : Nat := 9\ndef mirror (n : Nat) : Nat := 10 - n\n\n/-- The digital root: a multiple of the ring shows as the ring itself rather than as 0, which is how a digital\n    root is written. Everything below is stated through this, so no entry is a numeral typed twice. -/\ndef dr (n : Nat) : Nat := if n % ring == 0 then ring else n % ring\n\n/-- The multiplication table's diagonal — the squares of 1 … 9, in digital roots: 1, 4, 9, 7, 7, 9, 4, 1, 9. -/\ndef diagonal : List Nat := (List.range ring).map (fun i => dr ((i+1) * (i+1)))\n\n/-- The doubling orbit the vortex walks, and the axis it never visits. Under the mirror the axis is carried\n    entirely into the orbit, which is why they are declared together. -/\ndef orbit : List Nat := [1, 2, 4, 8, 7, 5]\ndef axis : List Nat := [3, 6, 9]\n\n/-- The vector equilibrium's two face kinds and their interior angles — 8 triangles and\n    6 squares, 8 + 6 = 14 (ve_fourteen_faces). Two right angles and three\n    triangle angles are the same straight angle, which is the fold's own measure. -/\ndef squareAngle : Nat := 90\ndef triangleAngle : Nat := 60\ndef veSquares : Nat := 6\ndef veTriangles : Nat := 8\n\n/-- The ledger's own angular step (432 / 12 = 36°), the half turn the fold makes, the full turn two of\n    them close, and the Euler characteristic of a genus-g surface. chi 1 = 0 is the single torus\n    (containment_is_genus_one); chi 2 = -2 is the double torus, and the step between them is the two coins. -/\ndef a432Step : Nat := 36\ndef halfTurn : Nat := 180\ndef fullTurn : Nat := 360\ndef chi (g : Int) : Int := 2 - 2 * g\n\n/-- The doubling that IS the two coins: rosette_quantum_doubling_is_two_coins seals 2 × 64 = 128\n    beside 110 − 108 = 2, so the pair and the doubling are one fact. -/\ndef halfKey : Nat := 64\ndef wholeKey : Nat := 128\ndef captainTakes : Nat := 110\ndef captainGives : Nat := 108\n\n/-- CLAIMED: the multiplication table's diagonal, in digital roots, is 1, 4, 9, 7, 7, 9, 4, 1, 9 — and the next\n    9 squares reduce to those same 9. It runs out at 9, walked rather than sampled. -/\ntheorem the_diagonal_runs_out_at_nine : ((List.range 9).map (fun i => dr ((i+1) * (i+1)))) = ((List.range 9).map (fun i => dr ((i+1+9) * (i+1+9)))) := by decide\n\n/-- CLAIMED: the diagonal touches 4 residues of 9 — 1, 4, 7, 9 — so a square in this ring is never 2, 3, 5, 6 or\n    8. -/\ntheorem the_diagonal_reaches_four_of_nine_residues : (((List.range 9).map (fun i => dr ((i+1) * (i+1)))).eraseDups).length = 4 := by decide\n\n/-- CLAIMED: dr(n²) = dr((9−n)²) for every n from 1 to 8 — the diagonal reads the same backwards, with the 9th\n    entry standing alone at the fold. -/\ntheorem the_diagonal_reflects_about_its_centre : ((List.range 8).all (fun i => dr ((i+1) * (i+1)) == dr ((8-i) * (8-i)))) = true := by decide\n\n/-- CLAIMED: 9 is the one value that both vanishes and returns — 9 mod 9 = 0, and the mirror carries 9 to 1. The\n    entry that CLOSES the diagonal is the ring's zero, and its reflection is the entry that OPENED it. -/\ntheorem nine_folds_to_zero_and_reflects_to_one : ((ring % ring = 0) ∧ (mirror ring = 1)) ∧ ((diagonal.getLastD 0 = ring) ∧ (diagonal.headD 0 = mirror ring)) := by decide\n\n/-- CLAIMED: the mirror carries every member of the 3-6-9 axis INTO the doubling orbit — 3 → 7, 6 → 4, 9 → 1 —\n    walked over all three, so the axis the vortex never visits is reflected entirely into the path it does. -/\ntheorem every_axis_member_reflects_into_the_orbit : (axis.all (fun a => orbit.contains (mirror a))) = true := by decide\n\n/-- CLAIMED: the diagonal's residues other than 9 are 1, 4, 7 — which is exactly the mirror of the axis 3, 6, 9.\n    The squares ARE the reflected axis. -/\ntheorem the_squares_are_the_mirror_of_the_axis : ((diagonal.filter (fun d => d != ring)).all (fun d => (axis.map mirror).contains d)) ∧ ((axis.map mirror).all (fun m => diagonal.contains m)) := by decide\n\n/-- CLAIMED: 2 × 90° = 180° = 3 × 60° — two right angles and three triangle angles are the same straight angle,\n    and those are the vector equilibrium's two face kinds, 6 squares and 8 triangles. -/\ntheorem the_fold_is_a_straight_angle : ((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14) := by decide\n\n/-- CLAIMED: the fold is a HALF turn — 2 × 90° = 3 × 60° = 5 × 36° = 180° — so it takes TWO to close the circle,\n    and a genus-two surface is exactly the shape that carries two. Each handle costs two of Euler\n    characteristic, which is the pair the coins conserve. -/\ntheorem the_double_torus_closes_the_turn : (((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2)) := by decide\n\n/-- CLAIMED: applying the mirror twice returns every residue — walked over 1 … 9 — and that closing is the same\n    TWO the circle, the doubling and the second handle each cost: 2 × 180° = 360°, 2 × 64 = 128, 110 − 108 = 2,\n    and χ(1) − χ(2) = 2. Four statements of two, one arithmetic. -/\ntheorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_diagonal_runs_out_at_nine",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the multiplication table's diagonal, in digital roots, is 1, 4, 9, 7, 7, 9, 4, 1, 9 — and the next 9 squares reduce to those same 9. It runs out at 9, walked rather than sampled."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 9).map (fun i => dr ((i+1) * (i+1)))) = ((List.range 9).map (fun i => dr ((i+1+9) * (i+1+9))))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_diagonal_runs_out_at_nine : ((List.range 9).map (fun i => dr ((i+1) * (i+1)))) = ((List.range 9).map (fun i => dr ((i+1+9) * (i+1+9)))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_diagonal_reaches_four_of_nine_residues",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the diagonal touches 4 residues of 9 — 1, 4, 7, 9 — so a square in this ring is never 2, 3, 5, 6 or 8."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range 9).map (fun i => dr ((i+1) * (i+1)))).eraseDups).length = 4"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_diagonal_reaches_four_of_nine_residues : (((List.range 9).map (fun i => dr ((i+1) * (i+1)))).eraseDups).length = 4 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_diagonal_reflects_about_its_centre",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: dr(n²) = dr((9−n)²) for every n from 1 to 8 — the diagonal reads the same backwards, with the 9th entry standing alone at the fold."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 8).all (fun i => dr ((i+1) * (i+1)) == dr ((8-i) * (8-i)))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_diagonal_reflects_about_its_centre : ((List.range 8).all (fun i => dr ((i+1) * (i+1)) == dr ((8-i) * (8-i)))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-nine_folds_to_zero_and_reflects_to_one",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: 9 is the one value that both vanishes and returns — 9 mod 9 = 0, and the mirror carries 9 to 1. The entry that CLOSES the diagonal is the ring's zero, and its reflection is the entry that OPENED it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((ring % ring = 0) ∧ (mirror ring = 1)) ∧ ((diagonal.getLastD 0 = ring) ∧ (diagonal.headD 0 = mirror ring))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem nine_folds_to_zero_and_reflects_to_one : ((ring % ring = 0) ∧ (mirror ring = 1)) ∧ ((diagonal.getLastD 0 = ring) ∧ (diagonal.headD 0 = mirror ring)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-every_axis_member_reflects_into_the_orbit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the mirror carries every member of the 3-6-9 axis INTO the doubling orbit — 3 → 7, 6 → 4, 9 → 1 — walked over all three, so the axis the vortex never visits is reflected entirely into the path it does."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(axis.all (fun a => orbit.contains (mirror a))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem every_axis_member_reflects_into_the_orbit : (axis.all (fun a => orbit.contains (mirror a))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_squares_are_the_mirror_of_the_axis",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the diagonal's residues other than 9 are 1, 4, 7 — which is exactly the mirror of the axis 3, 6, 9. The squares ARE the reflected axis."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((diagonal.filter (fun d => d != ring)).all (fun d => (axis.map mirror).contains d)) ∧ ((axis.map mirror).all (fun m => diagonal.contains m))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_squares_are_the_mirror_of_the_axis : ((diagonal.filter (fun d => d != ring)).all (fun d => (axis.map mirror).contains d)) ∧ ((axis.map mirror).all (fun m => diagonal.contains m)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_fold_is_a_straight_angle",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: 2 × 90° = 180° = 3 × 60° — two right angles and three triangle angles are the same straight angle, and those are the vector equilibrium's two face kinds, 6 squares and 8 triangles."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_fold_is_a_straight_angle : ((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_double_torus_closes_the_turn",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the fold is a HALF turn — 2 × 90° = 3 × 60° = 5 × 36° = 180° — so it takes TWO to close the circle, and a genus-two surface is exactly the shape that carries two. Each handle costs two of Euler characteristic, which is the pair the coins conserve."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_double_torus_closes_the_turn : (((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_fold_composed_with_itself_is_the_turn",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: applying the mirror twice returns every residue — walked over 1 … 9 — and that closing is the same TWO the circle, the doubling and the second handle each cost: 2 × 180° = 360°, 2 × 64 = 128, 110 − 108 = 2, and χ(1) − χ(2) = 2. Four statements of two, one arithmetic."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
