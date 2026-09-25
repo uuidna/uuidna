@@ -1,0 +1,33 @@
+{
+  "file": "Security.lean",
+  "slug": "security",
+  "status": "retired",
+  "address": "950044c0-3a16-8ef6-a22f-e23640352cfa",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Security.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Security.lean\",\n \"url\": \"https://uuidna.com/lean/Security.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 11,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
