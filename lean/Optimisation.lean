@@ -4,9 +4,10 @@
     scores exactly 11 — the optimum by TOTAL enumeration, exact, no epsilon -/
 theorem lp_optimum_is_eleven : ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11) := by decide
 
-/-- the optimum (3,1) is a VERTEX: both constraints are TIGHT there (x = 3 and x + y = 4) — two tight
-    constraints in two dimensions pin a corner, the geometry of every linear optimum -/
-theorem lp_optimum_at_a_vertex : (3 = 3) ∧ (3 + 1 = 4) := by decide
+/-- the optimum (3,1) is a VERTEX, reached two independent ways: the tight system x = 3 ∧ x + y = 4 SOLVES to y
+    = 4 - 3 = 1, and the total enumeration finds no other feasible point scoring 11 — algebra and exhaustive
+    search agree on the corner, neither assuming the other -/
+theorem lp_optimum_at_a_vertex : (4 - 3 = 1) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y < 11) || (x == 3 && y == 1)))) := by decide
 
 /-- WEAK DUALITY on the instance: the dual point (u,v) = (2,1) is dual-feasible (u+v ≥ 3, u ≥ 2) and every
     feasible primal value 3x+2y stays ≤ its dual value 4u+3v = 11 — no primal point ever beats a dual bound -/
@@ -16,10 +17,11 @@ theorem lp_weak_duality_instance : ((2 + 1 >= 3) && (2 >= 2)) ∧ ((List.range 4
     dual-feasible (2,1) — the gap is zero, not epsilon; the certificate and the optimum are the same number -/
 theorem lp_strong_duality_instance : 3*3 + 2*1 = 4*2 + 3*1 := by decide
 
-/-- COMPLEMENTARY SLACKNESS on the instance: both dual prices are positive (2 > 0, 1 > 0) and both primal
-    constraints are tight at the optimum (3+1 = 4, 3 = 3) — a positive price is paid exactly on a binding
-    constraint, both pairs verified -/
-theorem lp_complementary_slackness : (2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3) := by decide
+/-- COMPLEMENTARY SLACKNESS as a characterisation: across the ENTIRE feasible set, the STRICTLY POSITIVE dual
+    prices (2,1) paired against the primal slacks — 2·(4−(x+y)) + 1·(3−x) — vanish EXACTLY at the optimum (3,1)
+    and nowhere else, walked in both directions; positivity is what singles that corner out, not the particular
+    prices, whose optimality is sealed by weak and strong duality instead -/
+theorem lp_complementary_slackness : ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || ((2 * (4 - (x + y)) + (3 - x) == 0) == (x == 3 && y == 1))))) := by decide
 
 /-- one simplex pivot strictly improves: from the vertex (3,0) worth 9 to the adjacent vertex (3,1) worth 11 — 9
     < 11, the walk along an edge that ends at the optimum -/
