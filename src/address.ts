@@ -152,12 +152,19 @@ export function cryptoAddress(seed: string): string {
  *  two for the RFC variant. Measured over 20,000 addresses: the version nibble is always 8 and the variant nibble
  *  is always one of 8,9,a,b. So a uuidna address carries 128 - 6 = 122 BITS OF ENTROPY, whichever mint made it.
  *
- *  APPLY THIS LEDGER'S OWN SEALED LAW TO THAT NUMBER. grover_halves_the_search_exponent states the demarcated
- *  speedup: unstructured search over 2^20 takes 2^20 classical checks and ~2^10 quantum ones — the exponent
- *  halves and never vanishes. Halve 122 and a preimage on ANY uuid in this tree costs 2^61 quantum work, while a
- *  collision already costs 2^61 classically by the birthday bound. Sixty-one bits is not a post-quantum margin.
- *  The theorem was sealed here and never turned on the tree's own address width; doing so is what this function
- *  is for. Nothing about the theorem changes — it is applied, not amended.
+ *  APPLY THIS LEDGER'S OWN SEALED LAW TO THAT NUMBER — and it is now SEALED rather than argued here. The width
+ *  is theorem the_address_is_six_bits_short_of_its_width (4 + 2 = 6, 128 - 6 = 122, 2^128 = 64 · 2^122), and the
+ *  consequence is theorem the_remedy_restores_the_halved_margin (2 · 61 = 122 beside 2 · 128 = 256, buying
+ *  128 - 61 = 67 bits). Both stand on grover_halves_the_search_exponent, which states the demarcated speedup:
+ *  the exponent halves and never vanishes. Halve 122 and a preimage on ANY uuid in this tree costs 2^61 quantum
+ *  work, while a collision already costs 2^61 classically by the birthday bound. Sixty-one bits is not a
+ *  post-quantum margin.
+ *
+ *  THIS PARAGRAPH USED TO BE THE ONLY PLACE THAT KNEW. It measured 122 and drew the consequence, while the
+ *  sealed layer — the one MCP, the site and the trial read — still counted 2^128, and handle_outreaches_planck
+ *  and planck_margin_bounded counted the container with it. A number that lives only in prose is a number
+ *  nobody recomputes, which is the defect this tree refuses everywhere else. Healed 2026-09-25: the prose now
+ *  CITES the keys instead of carrying the claim alone.
  *
  *  So a surface that must survive a quantum adversary needs more than a uuid, and no choice of hash rescues it:
  *  truncating SHA-256 to 122 usable bits throws away the margin before the mint is even asked. This returns all
@@ -212,9 +219,32 @@ export function gcdBigInt(a: bigint, b: bigint): bigint {
   return b === 0n ? a : gcdBigInt(b, a % b)
 }
 
-/** Merkle fold — contract a set of leaves to one root (order-INDEPENDENT: leaves are sorted first). */
+/** A leaf, tagged so it can never be read as an internal node. The ONE definition both folds use. */
+export const leafHash = (leaf: string): string => toUuid('leaf:' + leaf)
+
+/**
+ * Merkle fold — contract a set of leaves to one root (order-INDEPENDENT: leaves are sorted first).
+ *
+ * LEAVES ARE DOMAIN-SEPARATED FROM NODES, and were not until 2026-09-25. An internal node is `merge(a, b)` =
+ * toUuid("a:b"), and an untagged leaf is a bare address — the same shape. So a caller supplying [merge(a,b), c]
+ * produced the IDENTICAL root to [a, b, c], and a commitment that two different leaf sets both satisfy commits
+ * to neither. Witnessed before the fix: merkleFold([a,b,c]) === merkleFold([merge(a,b),c]).
+ *
+ * WHAT MADE IT REACHABLE RATHER THAN THEORETICAL. Of this tree's 84 fold sites, 43 pass existing addresses or
+ * receipts straight in as leaves (`ts.map(t => t.address)`, `docket.map(d => d.receipt)`). There the
+ * substitution needs no preimage at all: both lists are well-formed address strings and either can be offered.
+ * The 27 sites that mint each leaf with toUuid were never exposed — a minted leaf cannot equal a node without
+ * inverting the address — which is why the fault sat in the shared fold and not in any one caller.
+ *
+ * THE TAG IS NOT NEW TO THIS TREE. merkle.ts has always hashed its leaves under `leaf:` before folding, for its
+ * inclusion proofs; this is that same tag, imported from one definition so the two constructions cannot drift
+ * on what a leaf is. RFC 6962 separates leaves from nodes the same way and for this reason.
+ *
+ * THIS MOVES EVERY ROOT. That is the cost of the fix and there is no version of it that does not: a root that
+ * did not move would be a root the tag never entered.
+ */
 export function merkleFold(leaves: readonly string[]): string {
-  let layer = [...leaves].sort()
+  let layer = [...leaves].sort().map(leafHash)
   if (layer.length === 0) return toUuid('empty-mind')
   while (layer.length > 1) {
     const next: string[] = []

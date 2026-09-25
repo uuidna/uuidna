@@ -25,6 +25,35 @@ theorem each_key_bit_doubles : 2^11 = 2 * 2^10 := by decide
     strong as its collision bound. -/
 theorem birthday_halves_the_exponent : 2 * 64 = 128 := by decide
 
+/-- THE WIDTH IS THE CONTAINER; THE ENTROPY IS THE CONTENTS, and this ledger quoted the container. A uuid is 128
+    bits wide, but formatUuid stamps six of them as constants — four for the version nibble, two for the RFC
+    variant — so the space a uuidna address can occupy is 2^122, and 2^128 = 64 · 2^122 makes the six bits and
+    the factor of 64 the same fact. address.ts MEASURED this over 20,000 addresses and wrote it down;
+    falsifiers-quantum-margin carries it too. But prose is not the layer MCP, the site and the trial read, and
+    the sealed layer still said 128 — so the honest number lived in a comment while the ledger served the
+    flattering one. That is the defect this tree refuses everywhere else, and it had it in its own address.
+    APPLY THE BIRTHDAY BOUND TO THE REAL WIDTH: 2 · 61 = 122, so a collision costs about 2^61, not the 2^64 that
+    2 · 64 = 128 suggests — three bits of margin that were never there. The general law above is untouched and
+    stays true for any 128-bit fingerprint; what is added is which width is THIS tree's. NOT CLAIMED: that 2^61
+    is breakable, or that any address here was forged. A content-address is a name and faces no adversary at
+    most of these call sites; quantumAddress exists for the ones that do, and returns all 256 bits precisely
+    because truncating to 122 throws the margin away before the mint is asked. -/
+theorem the_address_is_six_bits_short_of_its_width : ((4 + 2 = 6) ∧ (128 - 6 = 122)) ∧ ((2 * 61 = 122) ∧ (2 * 64 = 128)) ∧ (2 ^ 128 = 64 * 2 ^ 122) := by decide
+
+/-- THE CROSS FORMULA BETWEEN THE DEFECT AND ITS CURE, and it is one law applied at two widths rather than two
+    facts. grover_halves_the_search_exponent seals the demarcated speedup — unstructured search over 2^n costs
+    about 2^(n/2) quantum work, the exponent halves and never vanishes. Turn it on a uuid and 2 · 61 = 122: a
+    preimage on ANY address this tree mints costs about 2^61, and the birthday bound already puts a collision
+    there classically. Turn the SAME law on the full SHA-256 digest and 2 · 128 = 256: 2^128, which is a
+    post-quantum margin. The remedy buys 128 - 61 = 67 bits, and it buys them by NOT truncating —
+    digest_doubles_the_address seals that a digest is two uuids wide, so the margin was thrown away by the
+    container and not by the hash. THIS IS WHY quantumAddress IS NOT A UUID: returning 256 bits in a field that
+    expects 128 would be silently truncated back to 61 bits of margin, so it returns hex and fails loudly
+    instead. NOT CLAIMED: that 2^61 is breakable today, that any address here was forged, or that a quantum
+    computer able to run Grover at this scale exists. What is decided is an exponent comparison between two
+    widths this tree actually mints. -/
+theorem the_remedy_restores_the_halved_margin : ((2 * 61 = 122) ∧ (2 * 128 = 256)) ∧ ((61 < 128) ∧ (128 - 61 = 67)) := by decide
+
 /-- FOURTEEN COINCIDENCES ARE EXACTLY WHAT FOURTEEN EVENTS PREDICT. By linearity of expectation the expected
     number of COLLIDING pairs among G events over P bins is C(G,2)/P — a rational, needing no approximation.
     This ledger has 72 wings, so P = 72·71/2 = 2556 possible wing-pairs; the 14 reuse events outside the

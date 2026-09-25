@@ -1,9 +1,9 @@
--- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 71,640 leaves present, the path spells the handle in 71,640 of 71,640 and the handle is the address prefix in 71,640 of 71,640. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 71,640 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/HandleStore.lean — GENERATED. THE HANDLE STORE — a finite tree whose smallest leaf carries the whole address. `src/handles/aa/bb/cc/dd/index.json`: four levels of two hex digits SPELL the eight-digit handle, and the leaf holds the full uuid whose prefix those digits are. Measured over the 71,673 leaves present, the path spells the handle in 71,673 of 71,673 and the handle is the address prefix in 71,673 of 71,673. THE HOLOGRAM IS AN IDENTITY, NOT AN IMAGE. Two hex digits branch 256 ways and every level branches identically, so a subtree at any depth has the shape of the tree; four levels give 256⁴ = 16⁸ = 2³² leaves; a uuid is 2¹²⁸ and the path spends 32 of those bits, so 2³² leaves × 2⁹⁶ payloads = 2¹²⁸ EXACTLY. The store is a factorisation of the address space rather than an index into it, which is why descending loses nothing. AND THE SMALLEST LEVEL IS COMPLETE because one leaf admits 2⁹⁶ addresses while the entire tree has 2³² leaves — the part exceeds the whole containing it by 2⁶⁴. Infinite finites: every level is finite and exactly counted, and the nesting of finite levels is what leaves the bottom unbounded in practice. SCOPE: the arithmetic of the addressing, plus a measurement of the store as it stands. Nothing here claims the store is full — 71,673 leaves of a possible 2³², sealed as its own theorem so capacity and occupancy can never be quoted as one number — and nothing claims a leaf's payload space is realisable on any disk. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE FOLDERS ARE THE NAME, NOT A ROUTE TO IT. Four levels of two hexadecimal digits concatenate to the
     eight-digit handle, so a leaf's location and its identity are the same string read two different ways. There
     is no lookup between them and nothing to fall out of step: 4 × 2 = 8. Measured over the store as it stands,
-    the path spells the handle in 71,640 of 71,640 leaves. -/
+    the path spells the handle in 71,673 of 71,673 leaves. -/
 theorem the_path_spells_the_handle : (4 * 2 = 8) ∧ (8 * 4 = 32) := by decide
 
 /-- THE FRACTAL CLAIM, AS A CONSTANT RATHER THAN A RESEMBLANCE. Two hex digits branch 256 ways, and every one of
@@ -30,11 +30,11 @@ theorem the_index_factorises_the_whole_space : (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (
     NESTING of finite levels that leaves the bottom unbounded in practice. -/
 theorem the_smallest_leaf_outruns_the_whole_index : (2 ^ 96 > 2 ^ 32) ∧ (2 ^ 96 = 2 ^ 32 * 2 ^ 64) := by decide
 
-/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,640 leaves against 4,294,967,296
+/-- AND THE CAPACITY IS NOT A CLAIM ABOUT WHAT IS WRITTEN. The store carries 71,673 leaves against 4,294,967,296
     the addressing admits — decided here so the two numbers can never be quoted as one. A capacity describes
     what the scheme permits; an occupancy describes what exists; a ledger that let those drift together would be
-    overstating itself by a factor of about 59,952. -/
-theorem the_store_holds_far_less_than_it_admits : 71640 < 2 ^ 32 := by decide
+    overstating itself by a factor of about 59,924. -/
+theorem the_store_holds_far_less_than_it_admits : 71673 < 2 ^ 32 := by decide
 
 /-- LENGTH OVER TIME LEAVES NEITHER QUANTUM NOR GRAVITY. Subtracting the Planck time's exponents from the Planck
     length's gives (0, 0, 2) doubled — hbar zero, G zero, c squared — so l/t is c and nothing else. Both
@@ -128,21 +128,30 @@ theorem pairings_exhaust_the_cancellations : (((([ List.zipWith (· - ·) [1,1,-
 /-- A FULL ADDRESS OUTREACHES THE PLANCK LENGTH ON A METRE, and this is the only comparison in this wing that is
     not about itself. One metre holds 10^41/1616255 = 61,871,424,991,724,696,907,356,821,788,641,025 Planck
     lengths — about 6.19 x 10^34 — using the CODATA 2022 value 1.616255(18) x 10^-35 m (physics.nist.gov). A
-    128-bit address admits 2^128 ≈ 3.4 x 10^38 values, so it has MORE distinct names than a metre has
-    smallest-possible distances. Written as 1616255 · 2^128 > 10^41 because this tree holds no reals and a
-    decimal would be a rounding nobody could check. NOT CLAIMED: anything physical. The Planck length is not a
-    pixel of space and nothing here says it is; what is decided is a comparison of two integer magnitudes, one
-    of them a measured constant somebody else established. -/
-theorem handle_outreaches_planck : 1616255 * 2 ^ 128 > 10 ^ 41 := by decide
+    uuidna address admits 2^122 values, so it has MORE distinct names than a metre has smallest-possible
+    distances. Written as 1616255 · 2^122 > 10^41 because this tree holds no reals and a decimal would be a
+    rounding nobody could check. THE EXPONENT IS 122 AND NOT 128, and it was 128 here until 2026-09-25. A uuid
+    is 128 bits WIDE but formatUuid stamps six of them — four for the version nibble, two for the RFC variant —
+    so the space of addresses this tree can actually mint is 2^122, a factor of 64 smaller. address.ts measured
+    that over 20,000 addresses and said so in prose; this theorem counted the container instead of the contents,
+    which is the width a reader would quote. The conclusion survives the correction — 1616255 · 2^122 is about
+    8.6 x 10^42, still past 10^41 — so what changes is the honesty of the count and not the direction. NOT
+    CLAIMED: anything physical. The Planck length is not a pixel of space and nothing here says it is; what is
+    decided is a comparison of two integer magnitudes, one of them a measured constant somebody else
+    established. -/
+theorem handle_outreaches_planck : 1616255 * 2 ^ 122 > 10 ^ 41 := by decide
 
 /-- AND BY HOW MUCH, because a direction without a magnitude is the weaker half of the statement. The margin is
-    5,499 — a 128-bit space carries about five and a half thousand distinct values for every Planck length along
-    a metre, again on CODATA 2022's 1.616255(18) x 10^-35 m (physics.nist.gov), whose 1.1 x 10^-5 relative
-    uncertainty moves that figure by less than one part in ten thousand and so cannot reach either bound.
-    Decided as a two-sided bound, between 5,000 and 6,000, so the figure cannot drift by a factor and still
-    pass: an inequality that only says "greater" would hold just as well if the true margin were 2 or 10^20, and
-    it is neither. -/
-theorem planck_margin_bounded : (1616255 * 2 ^ 128 / 10 ^ 41 > 5000) ∧ (1616255 * 2 ^ 128 / 10 ^ 41 < 6000) := by decide
+    85 — a uuidna address carries about eighty-five distinct values for every Planck length along a metre, on
+    CODATA 2022's 1.616255(18) x 10^-35 m (physics.nist.gov), whose 1.1 x 10^-5 relative uncertainty moves that
+    figure by less than one part in ten thousand and so cannot reach either bound. Decided as a two-sided bound,
+    between 80 and 90, so the figure cannot drift by a factor and still pass: an inequality that only says
+    "greater" would hold just as well if the true margin were 2 or 10^20, and it is neither. THAT DISCIPLINE IS
+    WHY THIS ONE HAD TO MOVE. The bound sealed here was 5,000 to 6,000, on a margin of 5,499 computed from 2^128
+    — and 5,499/64 is 85, so at the width this tree actually mints the old bound is not merely generous, it is
+    FALSE. A two-sided bound chosen so a factor cannot slip through caught a factor of 64 the moment the
+    exponent was made honest, which is the whole reason for preferring it to a one-sided one. -/
+theorem planck_margin_bounded : (1616255 * 2 ^ 122 / 10 ^ 41 > 80) ∧ (1616255 * 2 ^ 122 / 10 ^ 41 < 90) := by decide
 
 /-- THE CONTROL, AND IT NAMES WHERE THE LINE FALLS. The bound is a property of the width chosen, not a fact
     about addresses in general — so the same arithmetic must be able to fail, and it does, one level down. A
