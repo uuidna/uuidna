@@ -110,16 +110,30 @@ export async function harvestSeal(
     // THE IDENTIFIER TEST. For a Zenodo record the returned record id must be the one we asked for; for any
     // other registrar the returned DOI must be the one we cite. Either way, a swap moves this and nothing else.
     const liveDoi = norm(j.doi ?? '')
+    // A CITATION MAY BE THE CONCEPT DOI, and then the record's OWN doi will never equal it — by design, the
+    // concept resolves to whichever version is current. The version record carries `conceptdoi`, so the cited
+    // DOI must be one of the two the record actually claims. Comparing only `doi` would report every
+    // concept-cited seal as a swapped record, which is a false alarm on the citation that ages best.
+    // ZENODO SPELLS THE CONCEPT TWO WAYS and only one is present per response shape: the legacy record carries
+    // `conceptdoi` (a string), the InvenioRDM record carries `concept`. Reading only one reports the field as
+    // absent and the citation as a swap — which is exactly how this check failed the first concept-cited seal.
+    const conceptField = (j as { concept?: string | { doi?: string } }).concept
+    const liveConceptRaw =
+      (j as { conceptdoi?: string }).conceptdoi
+      ?? (typeof conceptField === 'string' ? conceptField : (conceptField?.doi ?? ''))
+      ?? ''
+    const liveConceptDoi = norm(liveConceptRaw)
     const wantDoi = norm(seal.standingDoi ?? '')
+    const doiAgrees = liveDoi === wantDoi || liveConceptDoi === wantDoi || !liveDoi || !wantDoi
     const idAgrees = resolver.kind === 'zenodo'
-      ? String(j.id ?? '') === String(seal.standingRecordId ?? '') && (liveDoi === wantDoi || !liveDoi || !wantDoi)
+      ? String(j.id ?? '') === String(seal.standingRecordId ?? '') && doiAgrees
       : liveDoi === wantDoi
     // SYMMETRIC overlap, so an annotation on either side is not a failure while a different work still shows.
     const a = norm(liveTitle), b = norm(seal.title)
     const titleOverlaps = a.length > 0 && b.length > 0 && (a.startsWith(b) || b.startsWith(a))
     return {
       ...row, read: true, liveTitle: liveTitle.slice(0, 200),
-      liveRecordId: j.id || undefined, liveConceptDoi: j.concept ?? undefined,
+      liveRecordId: j.id || undefined, liveConceptDoi: liveConceptRaw || undefined,
       agrees: idAgrees, titleOverlaps,
     }
   } catch (e) {

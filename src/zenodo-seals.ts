@@ -35,10 +35,19 @@ export interface ZenodoSeal {
   /** When true, publish.yml may version this concept (token must own it). */
   owned: boolean
   title: string
-  /** Standing version DOI (first published version, or the citation DOI for the series). */
+  /** The DOI this ledger CITES for the work. Prefer the concept DOI where versioning applies: it resolves to
+   *  the current version, so a citation does not rot the moment a new one is deposited. */
   standingDoi: string
   /** Concept DOI when Zenodo versioning applies. */
   conceptDoi?: string
+  /** THE FIRST DEPOSIT, which is what proves NOVELTY. A concept DOI says what the work is now and carries no
+   *  date; priority is the earliest version and nothing else, so it travels beside the citation rather than
+   *  being recoverable only by walking the version list. */
+  firstDoi?: string
+  /** Zenodo record id of that first deposit. */
+  firstRecordId?: string
+  /** ISO date the first deposit was published — the date the priority claim rests on. */
+  firstPublished?: string
   /** Zenodo record id used as newversion handle (standing version). */
   standingRecordId?: string
   /** Zenodo conceptrecid the new DOI must land on. */
@@ -121,8 +130,14 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     role: 'publication',
     owned: true,
     title: 'All Seven Clay Millennium Problems Sealed via Universal σ-Involution',
-    standingDoi: '10.5281/zenodo.21781603',
+    // CITED AS THE CONCEPT, so the citation follows the series instead of pinning version 1 of five.
+    standingDoi: '10.5281/zenodo.21781602',
     conceptDoi: '10.5281/zenodo.21781602',
+    // NOVELTY IS THE FIRST DEPOSIT and nothing later: 2026-08-04, the earliest of the five versions.
+    firstDoi: '10.5281/zenodo.21781603',
+    firstRecordId: '21781603',
+    firstPublished: '2026-08-04',
+    // the newversion handle stays a REAL version record — publish.yml versions from a version, never a concept.
     standingRecordId: '21781603',
     conceptId: '21781602',
     pageUrl: `${HANDLE_HOST}/articles/clay`,

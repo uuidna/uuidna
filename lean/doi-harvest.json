@@ -13,9 +13,22 @@
    "titleOverlaps": true
   },
   {
+   "id": "uuidna-software:twin",
+   "role": "own",
+   "declaredDoi": "10.5281/zenodo.21970356",
+   "declaredTitle": "uuidna — content-addressed identity, honest by construction",
+   "read": true,
+   "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
+   "liveRecordId": "22256731",
+   "liveConceptDoi": "10.5281/zenodo.21970356",
+   "agrees": false,
+   "twinSelfDeclared": true,
+   "titleOverlaps": true
+  },
+  {
    "id": "clay-involution",
    "role": "own",
-   "declaredDoi": "10.5281/zenodo.21781603",
+   "declaredDoi": "10.5281/zenodo.21781602",
    "declaredTitle": "All Seven Clay Millennium Problems Sealed via Universal σ-Involution",
    "read": true,
    "liveTitle": "All Seven Clay Millennium Problems Sealed via Universal σ-Involution",
@@ -35,9 +48,23 @@
    "titleOverlaps": true
   }
  ],
- "owned": 3,
- "readCount": 3,
+ "owned": 4,
+ "readCount": 4,
  "agreeing": 3,
- "disagreeing": [],
- "receipt": "e2db5851-9f72-8ffd-8b95-af925f2eec0a"
+ "disagreeing": [
+  {
+   "id": "uuidna-software:twin",
+   "role": "own",
+   "declaredDoi": "10.5281/zenodo.21970356",
+   "declaredTitle": "uuidna — content-addressed identity, honest by construction",
+   "read": true,
+   "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
+   "liveRecordId": "22256731",
+   "liveConceptDoi": "10.5281/zenodo.21970356",
+   "agrees": false,
+   "twinSelfDeclared": true,
+   "titleOverlaps": true
+  }
+ ],
+ "receipt": "e438c9a4-1dd0-8f60-9762-cbce8d214881"
 }

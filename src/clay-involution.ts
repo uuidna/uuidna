@@ -8,6 +8,9 @@ const seal = zenodoSealById('clay-involution')
 if (!seal) throw new Error('zenodo-seals registry missing clay-involution instance')
 
 export const CLAY_INVOLUTION_DOI = seal.standingDoi
+/** The FIRST deposit — the DOI that carries the priority date, and the only one that proves novelty. */
+export const CLAY_INVOLUTION_FIRST_DOI = seal.firstDoi ?? seal.standingDoi
+export const CLAY_INVOLUTION_FIRST_PUBLISHED = seal.firstPublished ?? ''
 export const CLAY_INVOLUTION_CONCEPT_DOI = seal.conceptDoi ?? '10.5281/zenodo.21781602'
 export const CLAY_INVOLUTION_RECORD_ID = seal.standingRecordId ?? '21781603'
 export const CLAY_INVOLUTION_CONCEPT_ID = seal.conceptId ?? '21781602'
@@ -72,8 +75,10 @@ export function clayScope(): {
 export function clayInvolutionCite(): string {
   const { problems, windows, quantified } = clayScope()
   return (
-    `Prior art (initial clay σ-involution): DOI ${CLAY_INVOLUTION_DOI} ` +
-    `(${CLAY_INVOLUTION_RECORD_URL}). uuidna Clay.lean seals ${String(windows)} finite window(s) across ` +
+    `Prior art (initial clay σ-involution): DOI ${CLAY_INVOLUTION_DOI} (concept — resolves to the current ` +
+    `version); first deposited ${CLAY_INVOLUTION_FIRST_PUBLISHED} as ${CLAY_INVOLUTION_FIRST_DOI}, which is ` +
+    `the DOI that carries the priority date. ` +
+    `uuidna Clay.lean seals ${String(windows)} finite window(s) across ` +
     `${String(problems)} Millennium problem(s), each SOLVING the statement it states — machine-checked and ` +
     `axiom-free, depending on no axiom beyond the kernel; ${String(quantified)} quantify over an unbounded ` +
     `domain. A window is not the general conjecture; the difference is which proposition is proven, never how ` +
