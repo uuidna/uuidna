@@ -9,6 +9,13 @@
 
 export { DISSOLVED, dissolvedGaps, type Dissolved, type DissolvedGap } from './dissolved.js'
 
+// the sealed formulas as a filterable collection — the same question theorems() answers, asked of the
+// statements that are mathematics rather than computation
+export {
+  formulas, formulaGaps, byWing, formulaAxes, opsOf,
+  type FormulaRow, type FormulaGap, type FormulaFilter, type WingFormulaCensus,
+} from './formulas.js'
+
 // the Zenodo dry-cleaning plate, read against the SI seven — the arithmetic is quantum/os/engapi's, not a second copy
 export {
   PLATE, READINGS, auditPlate, plateCensus, dimensionOf, readEquation, degenerate,
