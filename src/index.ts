@@ -10,14 +10,6 @@
 export { DISSOLVED, dissolvedGaps, type Dissolved, type DissolvedGap } from './dissolved.js'
 
 export {
-  BASE_QUANTITIES, DIMENSIONLESS, MASS, LENGTH, AREA, VOLUME, TIME, TEMPERATURE, AMOUNT, CONCENTRATION,
-  quantity, times, per, toThe, same, formatQuantity, dimensionOf, readEquation, degenerate,
-  type Base, type Quantity, type Term, type Reading, type SymbolTable, type Equation,
-} from './si.js'
-
-export { PLATE, READINGS, auditPlate, plateCensus, type Printed, type Audited, type PlateCensus } from './dry-cleaning.js'
-
-export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
   TRINITY, BASE, A432_STEP, A432, MIRROR_BASE, digits, units, triad, vortexOrbit,
