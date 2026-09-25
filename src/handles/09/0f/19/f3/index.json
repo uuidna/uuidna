@@ -1,0 +1,12 @@
+{
+  "handle": "090f19f3",
+  "address": "090f19f3-227f-86f0-a907-d7b39effad11",
+  "kind": "chunk",
+  "keys": [
+    "the_fold_is_a_straight_angle"
+  ],
+  "statement": "((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14)",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

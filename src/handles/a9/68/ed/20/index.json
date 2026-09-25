@@ -1,0 +1,12 @@
+{
+  "handle": "a968ed20",
+  "address": "a968ed20-ed9e-8418-89b7-14f8d5cdd674",
+  "kind": "chunk",
+  "keys": [
+    "anomaly_cancels_at_twenty_six"
+  ],
+  "statement": "((26 + (-26) : Int) = 0) ∧ ((26 - 2) / 24 = 1)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2b109632",
+  "address": "2b109632-c5f0-87a9-aafa-55ab61d93bd7",
+  "statement": "(allQ (fun a b c d => ((symm a b c d) == (symmSwapWithin a b c d)) && ((symm a b c d) == (symmSwapSides a b c d)) && ((symm a b c d) == (symmSwapBoth a b c d))) = true) ∧ (anyQ (fun a b c d => (asym a b c d) != (asymInverted a b c d)) = true)",
+  "tactic": "decide",
+  "keys": [
+    "the_symmetric_cross_is_blind_to_its_spelling"
+  ],
+  "files": [
+    "CrossProof.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "503ba105",
+  "address": "503ba105-a470-8a47-932c-f4e8e089ba1c",
+  "kind": "chunk",
+  "keys": [
+    "the_diagonal_runs_out_at_nine"
+  ],
+  "statement": "((List.range 9).map (fun i => dr ((i+1) * (i+1)))) = ((List.range 9).map (fun i => dr ((i+1+9) * (i+1+9))))",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

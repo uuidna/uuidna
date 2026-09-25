@@ -15,28 +15,28 @@ description: "Computed from lean/PlanckLattice.lean — 10 sealed theorems, ever
 The ledger holds this as [the_quantum_of_action_cancels_on_a_linear_form](/theorem/the_quantum_of_action_cancels_on_a_linear_form) — proven `by decide`, sorry-free:
 
 ```lean
-box.all (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true
+allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true
 ```
 
 ### CLAIMED: over the same 625 combinations, G vanishes EXACTLY when a−b+c−d = 0 — the second form, and the one whose signs are the two gravity classes.
 The ledger holds this as [gravity_cancels_on_a_linear_form](/theorem/gravity_cancels_on_a_linear_form) — proven `by decide`, sorry-free:
 
 ```lean
-box.all (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true
+allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true
 ```
 
 ### CLAIMED: a combination loses BOTH constants exactly when c = −a and d = −b — so it is a(l/t) + b(T/m), a rank-two sublattice whose basis is the two constant-free ratios themselves.
 The ledger holds this as [the_constant_free_combinations_are_a_rank_two_sublattice](/theorem/the_constant_free_combinations_are_a_rank_two_sublattice) — proven `by decide`, sorry-free:
 
 ```lean
-box.all (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true
+allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true
 ```
 
 ### CLAIMED: a Planck combination with prescribed exponents (h, g) on hbar and G EXISTS exactly when h and g share parity — checked over all 25 targets against 81 combinations, both directions.
 The ledger holds this as [a_combination_exists_exactly_when_its_exponents_share_parity](/theorem/a_combination_exists_exactly_when_its_exponents_share_parity) — proven `by decide`, sorry-free:
 
 ```lean
-targets.all (fun t => (smallBox.any (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true
+allTargets (fun t => (anySmallBox (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true
 ```
 
 ### CLAIMED: all four Planck quantities carry the quantum of action to the same power, so hbar vanishes from every one of the 6 pairwise ratios — walked over all six, not sampled.

@@ -101,7 +101,7 @@ page regrows without it.
 - **MFC exhausting pure drinkable water**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
-  <br><small>sealed neighbors: [`nbl_trains_by_the_floor`](/theorem/nbl_trains_by_the_floor) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) </small>
+  <br><small>sealed neighbors: [`nbl_trains_by_the_floor`](/theorem/nbl_trains_by_the_floor) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`the_quantum_and_gravity_clusters_cross_to_the_length`](/theorem/the_quantum_and_gravity_clusters_cross_to_the_length) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## involution — 1 open

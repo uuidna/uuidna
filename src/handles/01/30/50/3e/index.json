@@ -1,0 +1,12 @@
+{
+  "handle": "0130503e",
+  "address": "0130503e-bac4-8a3a-9933-0b55ffdf5607",
+  "kind": "chunk",
+  "keys": [
+    "the_fold_composed_with_itself_is_the_turn"
+  ],
+  "statement": "(((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2)))",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

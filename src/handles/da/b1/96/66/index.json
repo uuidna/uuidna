@@ -1,0 +1,12 @@
+{
+  "handle": "dab19666",
+  "address": "dab19666-25fc-829f-9328-1c228e54b31b",
+  "kind": "chunk",
+  "keys": [
+    "both_routes_to_light_speed_agree"
+  ],
+  "statement": "(ratio (product planckLength planckMass) (product planckTime planckMass) = [0, 0, 2, 0]) ∧ (ratio (ratio planckLength planckMass) (ratio planckTime planckMass) = [0, 0, 2, 0])",
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

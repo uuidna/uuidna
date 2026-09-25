@@ -1,0 +1,12 @@
+{
+  "handle": "b865f4f0",
+  "address": "b865f4f0-8f78-84e6-b623-d26fbec9a9e3",
+  "statement": "((4 + 2 = 6) ∧ (128 - 6 = 122)) ∧ ((2 * 61 = 122) ∧ (2 * 64 = 128)) ∧ (2 ^ 128 = 64 * 2 ^ 122)",
+  "tactic": "decide",
+  "keys": [
+    "the_address_is_six_bits_short_of_its_width"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

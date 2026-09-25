@@ -1,0 +1,12 @@
+{
+  "handle": "6aa3a5ab",
+  "address": "6aa3a5ab-f67d-827e-882f-e22546f5eb49",
+  "statement": "(axis.all (fun a => orbit.contains (mirror a))) = true",
+  "tactic": "decide",
+  "keys": [
+    "every_axis_member_reflects_into_the_orbit"
+  ],
+  "files": [
+    "Diagonal.lean"
+  ]
+}

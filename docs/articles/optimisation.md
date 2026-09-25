@@ -7,7 +7,7 @@ description: "Computed from lean/Optimisation.lean — 9 sealed theorems, every 
 
 > THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical state-vector computation claims no advantage). Exact optima of small named instances — NOT a solver at scale, NOT an NP claim — held by [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) and its 8 siblings below.
 
-**9 theorems** and **35 decided cases**, from [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) onward, each proven `by decide` in <a href="/lean/Optimisation.lean">lean/Optimisation.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [lp_strong_duality_instance](/theorem/lp_strong_duality_instance). A boundary stated here is decided.
+**9 theorems** and **61 decided cases**, from [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) onward, each proven `by decide` in <a href="/lean/Optimisation.lean">lean/Optimisation.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [lp_optimum_at_a_vertex](/theorem/lp_optimum_at_a_vertex). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FOptimisation.lean)** — nothing to install. The editor fetches `lean/Optimisation.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -18,11 +18,11 @@ The ledger holds this as [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) �
 ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11)
 ```
 
-### the optimum (3,1) is a VERTEX: both constraints are TIGHT there (x = 3 and x + y = 4) — two tight constraints in two dimensions pin a corner, the geometry of every linear optimum
+### the optimum (3,1) is a VERTEX, reached two independent ways: the tight system x = 3 ∧ x + y = 4 SOLVES to y = 4 - 3 = 1, and the total enumeration finds no other feasible point scoring 11 — algebra and exhaustive search agree on the corner, neither assuming the other
 The ledger holds this as [lp_optimum_at_a_vertex](/theorem/lp_optimum_at_a_vertex) — proven `by decide`, sorry-free:
 
 ```lean
-(3 = 3) ∧ (3 + 1 = 4)
+(4 - 3 = 1) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y < 11) || (x == 3 && y == 1))))
 ```
 
 ### WEAK DUALITY on the instance: the dual point (u,v) = (2,1) is dual-feasible (u+v ≥ 3, u ≥ 2) and every feasible primal value 3x+2y stays ≤ its dual value 4u+3v = 11 — no primal point ever beats a dual bound
@@ -39,11 +39,11 @@ The ledger holds this as [lp_strong_duality_instance](/theorem/lp_strong_duality
 3*3 + 2*1 = 4*2 + 3*1
 ```
 
-### COMPLEMENTARY SLACKNESS on the instance: both dual prices are positive (2 > 0, 1 > 0) and both primal constraints are tight at the optimum (3+1 = 4, 3 = 3) — a positive price is paid exactly on a binding constraint, both pairs verified
+### COMPLEMENTARY SLACKNESS as a characterisation: across the ENTIRE feasible set, the STRICTLY POSITIVE dual prices (2,1) paired against the primal slacks — 2·(4−(x+y)) + 1·(3−x) — vanish EXACTLY at the optimum (3,1) and nowhere else, walked in both directions; positivity is what singles that corner out, not the particular prices, whose optimality is sealed by weak and strong duality instead
 The ledger holds this as [lp_complementary_slackness](/theorem/lp_complementary_slackness) — proven `by decide`, sorry-free:
 
 ```lean
-(2 > 0) ∧ (1 > 0) ∧ (3 + 1 = 4) ∧ (3 = 3)
+((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || ((2 * (4 - (x + y)) + (3 - x) == 0) == (x == 3 && y == 1)))))
 ```
 
 ### one simplex pivot strictly improves: from the vertex (3,0) worth 9 to the adjacent vertex (3,1) worth 11 — 9 < 11, the walk along an edge that ends at the optimum

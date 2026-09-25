@@ -1,0 +1,12 @@
+{
+  "handle": "909e4fcc",
+  "address": "909e4fcc-cc9e-8944-94d9-82a26f7ae675",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "statement": "71697 > 2 ^ 16",
+  "files": [
+    "Forensics.lean"
+  ]
+}

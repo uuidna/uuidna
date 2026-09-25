@@ -72,6 +72,7 @@ The ledger holds this as [clay_gravity_equals_rosette](/theorem/clay_gravity_equ
 
 The external work this wing stands on. These are not sealed theorems and this ledger claims none of them — each is somebody else's result, cited by the DOI its own prose carries and resolved from the registry of record.
 
+1. Rouschev, Tsvetan. (2026). All Seven Clay Millennium Problems Sealed via Universal σ-Involution. Zenodo. [https://doi.org/10.5281/zenodo.21781602](https://doi.org/10.5281/zenodo.21781602)
 1. Rouschev, Tsvetan. (2026). All Seven Clay Millennium Problems Sealed via Universal σ-Involution. Zenodo. [https://doi.org/10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603)
 
 ::: warning 

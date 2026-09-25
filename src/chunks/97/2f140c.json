@@ -1,0 +1,12 @@
+{
+  "handle": "972f140c",
+  "address": "972f140c-8a98-8f54-846d-2e059c9e60f0",
+  "statement": "((diagonal.filter (fun d => d != ring)).all (fun d => (axis.map mirror).contains d)) ∧ ((axis.map mirror).all (fun m => diagonal.contains m))",
+  "tactic": "decide",
+  "keys": [
+    "the_squares_are_the_mirror_of_the_axis"
+  ],
+  "files": [
+    "Diagonal.lean"
+  ]
+}

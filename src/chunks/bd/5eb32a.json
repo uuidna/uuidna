@@ -1,0 +1,12 @@
+{
+  "handle": "bd5eb32a",
+  "address": "bd5eb32a-1234-81f0-ad7a-37cbba010a79",
+  "statement": "((a432Step * (ring + 1) = fullTurn) ∧ (fullTurn - a432Step * ring = a432Step)) ∧ (2 * halfTurn = fullTurn)",
+  "tactic": "decide",
+  "keys": [
+    "the_nine_step_arc_is_one_step_short_of_the_circle"
+  ],
+  "files": [
+    "Diagonal.lean"
+  ]
+}

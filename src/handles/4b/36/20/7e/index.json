@@ -1,0 +1,12 @@
+{
+  "handle": "4b36207e",
+  "address": "4b36207e-0016-8025-abfb-59c9aa0b618d",
+  "kind": "chunk",
+  "keys": [
+    "the_same_arithmetic_answers_more_than_one_domain"
+  ],
+  "statement": "((490 < 1458) ∧ (1458 < 1530)) ∧ ((490 * 3 < 1530) ∧ (5 > 2))",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

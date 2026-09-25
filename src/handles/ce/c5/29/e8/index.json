@@ -1,0 +1,12 @@
+{
+  "handle": "cec529e8",
+  "address": "cec529e8-e343-8799-8bfd-4f115bcf501b",
+  "kind": "chunk",
+  "keys": [
+    "lp_complementary_slackness"
+  ],
+  "statement": "((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || ((2 * (4 - (x + y)) + (3 - x) == 0) == (x == 3 && y == 1)))))",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

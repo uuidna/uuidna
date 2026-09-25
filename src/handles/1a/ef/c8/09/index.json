@@ -1,0 +1,12 @@
+{
+  "handle": "1aefc809",
+  "address": "1aefc809-192c-8ba7-9cb1-79c82244e642",
+  "kind": "chunk",
+  "keys": [
+    "lp_optimum_at_a_vertex"
+  ],
+  "statement": "(4 - 3 = 1) ∧ ((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y < 11) || (x == 3 && y == 1))))",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

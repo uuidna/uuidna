@@ -1,0 +1,12 @@
+{
+  "handle": "02f6033c",
+  "address": "02f6033c-5b13-8137-8712-252e7036de11",
+  "kind": "chunk",
+  "keys": [
+    "every_planck_ratio_cancels_the_quantum_of_action"
+  ],
+  "statement": "planckPairs.all (fun p => (ratio p.1 p.2).headD 0 == 0) = true",
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

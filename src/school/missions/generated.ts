@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "197f1e7836b89f0d",
+ "digest": "4c924ffb7af82a5d",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -666,6 +666,11 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "survived-widening"
   },
   {
+   "key": "the_axiom_index_partitions_without_remainder",
+   "wing": "Audit.lean",
+   "verdict": "base-undecidable"
+  },
+  {
    "key": "edits_break_recompute",
    "wing": "Audit.lean",
    "verdict": "base-undecidable"
@@ -1281,7 +1286,17 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "load-bearing"
   },
   {
+   "key": "lp_optimum_at_a_vertex",
+   "wing": "Optimisation.lean",
+   "verdict": "load-bearing"
+  },
+  {
    "key": "lp_weak_duality_instance",
+   "wing": "Optimisation.lean",
+   "verdict": "load-bearing"
+  },
+  {
+   "key": "lp_complementary_slackness",
    "wing": "Optimisation.lean",
    "verdict": "load-bearing"
   },
@@ -4779,6 +4794,21 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "fourth_power_residues_mod_sixteen_are_zero_or_one",
    "wing": "Fermat.lean",
    "verdict": "survived-widening"
+  },
+  {
+   "key": "the_diagonal_runs_out_at_nine",
+   "wing": "Diagonal.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "the_diagonal_reaches_four_of_nine_residues",
+   "wing": "Diagonal.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "the_diagonal_reflects_about_its_centre",
+   "wing": "Diagonal.lean",
+   "verdict": "base-undecidable"
   }
  ]
 }

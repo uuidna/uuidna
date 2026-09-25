@@ -1,0 +1,12 @@
+{
+  "handle": "c6b79119",
+  "address": "c6b79119-2425-8d50-a745-5c630d8545d9",
+  "statement": "(planckPairs.filter (fun p => freeOfBoth p.1 p.2)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "both_constants_cancel_exactly_inside_a_gravity_class"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

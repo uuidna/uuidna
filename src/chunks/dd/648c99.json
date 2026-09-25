@@ -1,0 +1,12 @@
+{
+  "handle": "dd648c99",
+  "address": "dd648c99-ee9b-8982-a80e-d8ff4dbfff20",
+  "statement": "allTargets (fun t => (anySmallBox (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true",
+  "tactic": "decide",
+  "keys": [
+    "a_combination_exists_exactly_when_its_exponents_share_parity"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

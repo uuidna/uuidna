@@ -1,0 +1,12 @@
+{
+  "handle": "01b72068",
+  "address": "01b72068-a20f-89e4-b9f7-ffffe98b06a8",
+  "kind": "chunk",
+  "keys": [
+    "defect_sums_to_the_characteristic"
+  ],
+  "statement": "((12 : Int) * (360 - (60 + 60 + 90 + 90)) = 360 * (12 - 24 + 14)) ∧ ((360 : Int) * (2 - 2 * 1) = 0) ∧ ((360 : Int) * (2 - 2 * 2) = -720) ∧ ((360 : Int) * (2 - 2 * 2) = -(360 * (2 - 2 * 0)))",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

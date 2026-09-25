@@ -1,0 +1,12 @@
+{
+  "handle": "fa939724",
+  "address": "fa939724-9968-8973-87b9-94ec800cd656",
+  "statement": "(((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2))",
+  "tactic": "decide",
+  "keys": [
+    "the_double_torus_closes_the_turn"
+  ],
+  "files": [
+    "Diagonal.lean"
+  ]
+}

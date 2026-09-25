@@ -1,0 +1,12 @@
+{
+  "handle": "a2c6ae40",
+  "address": "a2c6ae40-c412-8318-b046-18b66da173d0",
+  "statement": "allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true",
+  "tactic": "decide",
+  "keys": [
+    "gravity_cancels_on_a_linear_form"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

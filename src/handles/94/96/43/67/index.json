@@ -1,0 +1,12 @@
+{
+  "handle": "94964367",
+  "address": "94964367-84a1-803a-8183-d8cf8d273f55",
+  "kind": "chunk",
+  "keys": [
+    "the_arithmetic_alphabet_partitions_by_its_own_algebra"
+  ],
+  "statement": "((2 + 3 + 1 = 6) ∧ (3 > 2)) ∧ (2 > 1)",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

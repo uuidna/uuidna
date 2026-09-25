@@ -1,0 +1,12 @@
+{
+  "handle": "c8271d43",
+  "address": "c8271d43-b93a-8a67-a24a-cb8ba4ae3acd",
+  "statement": "cmbTensionBound < gutStringTension",
+  "tactic": "decide",
+  "keys": [
+    "the_cmb_excludes_gut_scale_cosmic_strings"
+  ],
+  "files": [
+    "StringTheory.lean"
+  ]
+}

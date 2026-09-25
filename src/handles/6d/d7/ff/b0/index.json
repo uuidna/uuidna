@@ -1,0 +1,12 @@
+{
+  "handle": "6dd7ffb0",
+  "address": "6dd7ffb0-771b-8993-a26a-a1d47e8b35e2",
+  "kind": "chunk",
+  "keys": [
+    "collider_energy_is_below_the_planck_scale"
+  ],
+  "statement": "(13600 * 897713235294117 + 8800 = 12208900000000000000) ∧ (8800 < 13600)",
+  "files": [
+    "StringTheory.lean"
+  ]
+}

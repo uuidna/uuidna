@@ -1,0 +1,12 @@
+{
+  "handle": "a77c57ea",
+  "address": "a77c57ea-8dd6-861d-b7d6-7f6463bcd7fb",
+  "statement": "((26 - 2 = 24) ∧ (10 - 2 = 8)) ∧ (24 - 8 = 16)",
+  "tactic": "decide",
+  "keys": [
+    "transverse_dimensions_pack_densest"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

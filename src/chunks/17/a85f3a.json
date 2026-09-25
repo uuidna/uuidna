@@ -1,0 +1,12 @@
+{
+  "handle": "17a85f3a",
+  "address": "17a85f3a-d062-87a5-9036-77351ecd0031",
+  "statement": "(1616255 * 3217314099569684239182554733009 + 538705 = 52 * 10 ^ 35) ∧ (538705 < 1616255)",
+  "tactic": "decide",
+  "keys": [
+    "newtonian_gravity_is_verified_far_above_the_planck_length"
+  ],
+  "files": [
+    "StringTheory.lean"
+  ]
+}

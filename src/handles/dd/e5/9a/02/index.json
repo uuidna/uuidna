@@ -1,0 +1,12 @@
+{
+  "handle": "dde59a02",
+  "address": "dde59a02-5d4d-8677-ad29-6a02eba941f9",
+  "kind": "chunk",
+  "keys": [
+    "the_proton_outlives_the_universe_many_times_over"
+  ],
+  "statement": "(138 * 10 ^ 8 * 1739130434782608695652173 + 12600000000 = 24 * 10 ^ 33) ∧ (12600000000 < 138 * 10 ^ 8)",
+  "files": [
+    "StringTheory.lean"
+  ]
+}

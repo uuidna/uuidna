@@ -1,0 +1,12 @@
+{
+  "handle": "2305c04b",
+  "address": "2305c04b-f6cf-87e6-970a-3f173c884b45",
+  "statement": "(detections.length = 6) ∧ (detections.foldl (· + ·) 0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "six_searches_report_bounds_and_no_detection"
+  ],
+  "files": [
+    "StringTheory.lean"
+  ]
+}

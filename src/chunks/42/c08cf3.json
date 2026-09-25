@@ -1,0 +1,12 @@
+{
+  "handle": "42c08cf3",
+  "address": "42c08cf3-a3c5-807d-9127-bb2d5507f5e6",
+  "statement": "(allQ (fun a b c d => !(exact a b c d) || ((symm a b c d) == (asym a b c d))) = true) ∧ (anyQ (fun a b c d => exact a b c d) = true) ∧ (anyQ (fun a b c d => (exact a b c d) && (symm a b c d)) = true) ∧ (anyQ (fun a b c d => (exact a b c d) && !(symm a b c d)) = true)",
+  "tactic": "decide",
+  "keys": [
+    "exact_division_makes_the_two_crosses_prove_each_other"
+  ],
+  "files": [
+    "CrossProof.lean"
+  ]
+}

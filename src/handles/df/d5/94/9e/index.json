@@ -1,0 +1,12 @@
+{
+  "handle": "dfd5949e",
+  "address": "dfd5949e-dfa5-8eb3-a314-652190899eb0",
+  "kind": "chunk",
+  "keys": [
+    "the_diagonal_reflects_about_its_centre"
+  ],
+  "statement": "((List.range 8).all (fun i => dr ((i+1) * (i+1)) == dr ((8-i) * (8-i)))) = true",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

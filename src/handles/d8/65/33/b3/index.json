@@ -1,0 +1,12 @@
+{
+  "handle": "d86533b3",
+  "address": "d86533b3-88c2-8043-851c-02b2d3b376b9",
+  "kind": "chunk",
+  "keys": [
+    "the_diagonal_reaches_four_of_nine_residues"
+  ],
+  "statement": "(((List.range 9).map (fun i => dr ((i+1) * (i+1)))).eraseDups).length = 4",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

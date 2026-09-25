@@ -1,0 +1,12 @@
+{
+  "handle": "ae46fdfe",
+  "address": "ae46fdfe-9b37-8597-898c-7364a8a04ca9",
+  "statement": "allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true",
+  "tactic": "decide",
+  "keys": [
+    "the_constant_free_combinations_are_a_rank_two_sublattice"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

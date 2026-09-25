@@ -1,0 +1,12 @@
+{
+  "handle": "d83a4845",
+  "address": "d83a4845-ab9a-8c00-bee9-2d628d362322",
+  "statement": "(planckVectors.map (fun v => (v.drop 1).headD 0) = [1, -1, 1, -1]) ∧ (planckVectors.all (fun v => v.length == planckAxes.length) = true)",
+  "tactic": "decide",
+  "keys": [
+    "the_lattice_splits_into_two_gravity_classes"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

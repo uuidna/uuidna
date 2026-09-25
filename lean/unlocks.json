@@ -1,13 +1,13 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 71036,
- "distinct": 70951,
- "skills": 122,
- "files": 252,
+ "keys": 71080,
+ "distinct": 70995,
+ "skills": 128,
+ "files": 258,
  "bySkill": [
   {
    "name": "wave",
-   "n": 67085
+   "n": 67088
   },
   {
    "name": "fermat",
@@ -90,6 +90,10 @@
    "n": 19
   },
   {
+   "name": "vector-equilibrium",
+   "n": 19
+  },
+  {
    "name": "hardware",
    "n": 18
   },
@@ -99,10 +103,6 @@
   },
   {
    "name": "topography",
-   "n": 18
-  },
-  {
-   "name": "vector-equilibrium",
    "n": 18
   },
   {
@@ -174,6 +174,10 @@
    "n": 12
   },
   {
+   "name": "security",
+   "n": 12
+  },
+  {
    "name": "astronomy",
    "n": 11
   },
@@ -198,11 +202,19 @@
    "n": 11
   },
   {
+   "name": "diagonal-fold",
+   "n": 10
+  },
+  {
    "name": "doctrine",
    "n": 10
   },
   {
    "name": "music-production",
+   "n": 10
+  },
+  {
+   "name": "planck-lattice",
    "n": 10
   },
   {
@@ -231,10 +243,6 @@
   },
   {
    "name": "orbits",
-   "n": 9
-  },
-  {
-   "name": "security",
    "n": 9
   },
   {
@@ -398,6 +406,10 @@
    "n": 6
   },
   {
+   "name": "string-theory-searches",
+   "n": 6
+  },
+  {
    "name": "strings",
    "n": 6
   },
@@ -434,6 +446,10 @@
    "n": 5
   },
   {
+   "name": "cross-formulas",
+   "n": 5
+  },
+  {
    "name": "martial-arts",
    "n": 5
   },
@@ -464,6 +480,14 @@
   {
    "name": "structures",
    "n": 4
+  },
+  {
+   "name": "cross-proof",
+   "n": 3
+  },
+  {
+   "name": "engineering",
+   "n": 3
   },
   {
    "name": "forensics",
@@ -868,6 +892,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "77477567-8313-8a44-999c-a148cc984633",
+ "receipt": "415d7e9a-1beb-8fe6-a3a7-61712551ff1b",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

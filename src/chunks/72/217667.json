@@ -1,0 +1,12 @@
+{
+  "handle": "72217667",
+  "address": "72217667-fdb9-88e3-a02e-bb8692c5b216",
+  "statement": "allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true",
+  "tactic": "decide",
+  "keys": [
+    "the_quantum_of_action_cancels_on_a_linear_form"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

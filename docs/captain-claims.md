@@ -3,11 +3,11 @@
 **Generated:** 2026-09-25
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71071/71071 theorems — every one, by construction
-**Discovery claimed:** 70662 — the other 409 restate a fact a named source found first
+**Formalisation claimed:** 71080/71080 theorems — every one, by construction
+**Discovery claimed:** 70671 — the other 409 restate a fact a named source found first
 
 *The 409 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 344 of 379 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `26b0d26b-9007-8ee5-88a0-bf4036ff0e10`
+**Claim receipt:** `0a97d636-56b6-86a6-ba41-dd5fa75e31b0`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `22b1d2c4-6516-8dc6-810b-cb62e3fe61e8`
+- **Sample lineAddress:** `bbbf202e-f954-8084-9ed9-58e9fa3c7d01`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `d192273e-73ee-8571-94af-38b74ec5aaf8`
+- **Sample lineAddress:** `427cddff-14e4-8a33-ae8d-daeed3a342d3`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2327,19 +2327,37 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [unit_group_exponent_mod_23](/theorem/unit_group_exponent_mod_23) · [coprime_sum_open_reduced_1_mod_23](/theorem/coprime_sum_open_reduced_1_mod_23) · [coprime_sum_open_reduced_2_mod_23](/theorem/coprime_sum_open_reduced_2_mod_23) · [power_image_exact_reduced_11_mod_23](/theorem/power_image_exact_reduced_11_mod_23) · [coprime_sum_blocked_reduced_11_mod_23](/theorem/coprime_sum_blocked_reduced_11_mod_23) · [power_image_exact_reduced_22_mod_23](/theorem/power_image_exact_reduced_22_mod_23) · [coprime_sum_blocked_reduced_22_mod_23](/theorem/coprime_sum_blocked_reduced_22_mod_23) · [unit_group_exponent_mod_44](/theorem/unit_group_exponent_mod_44) · [power_image_exact_reduced_1_mod_44](/theorem/power_image_exact_reduced_1_mod_44) · [coprime_sum_blocked_reduced_1_mod_44](/theorem/coprime_sum_blocked_reduced_1_mod_44) · [power_image_exact_reduced_2_mod_44](/theorem/power_image_exact_reduced_2_mod_44) · [coprime_sum_blocked_reduced_2_mod_44](/theorem/coprime_sum_blocked_reduced_2_mod_44) · [power_image_exact_reduced_5_mod_44](/theorem/power_image_exact_reduced_5_mod_44) · [coprime_sum_blocked_reduced_5_mod_44](/theorem/coprime_sum_blocked_reduced_5_mod_44) · [power_image_exact_reduced_10_mod_44](/theorem/power_image_exact_reduced_10_mod_44) · [coprime_sum_blocked_reduced_10_mod_44](/theorem/coprime_sum_blocked_reduced_10_mod_44) · [unit_group_exponent_mod_65](/theorem/unit_group_exponent_mod_65) · [coprime_sum_open_reduced_1_mod_65](/theorem/coprime_sum_open_reduced_1_mod_65) · [power_image_exact_reduced_2_mod_65](/theorem/power_image_exact_reduced_2_mod_65) · [coprime_sum_blocked_reduced_2_mod_65](/theorem/coprime_sum_blocked_reduced_2_mod_65) · [power_image_exact_reduced_3_mod_65](/theorem/power_image_exact_reduced_3_mod_65) · [coprime_sum_blocked_reduced_3_mod_65](/theorem/coprime_sum_blocked_reduced_3_mod_65) · [power_image_exact_reduced_4_mod_65](/theorem/power_image_exact_reduced_4_mod_65) · [coprime_sum_blocked_reduced_4_mod_65](/theorem/coprime_sum_blocked_reduced_4_mod_65) · [power_image_exact_reduced_6_mod_65](/theorem/power_image_exact_reduced_6_mod_65) · [coprime_sum_blocked_reduced_6_mod_65](/theorem/coprime_sum_blocked_reduced_6_mod_65) · [power_image_exact_reduced_12_mod_65](/theorem/power_image_exact_reduced_12_mod_65) · [coprime_sum_blocked_reduced_12_mod_65](/theorem/coprime_sum_blocked_reduced_12_mod_65) · [unit_group_exponent_mod_86](/theorem/unit_group_exponent_mod_86) · [power_image_exact_reduced_1_mod_86](/theorem/power_image_exact_reduced_1_mod_86) · [coprime_sum_blocked_reduced_1_mod_86](/theorem/coprime_sum_blocked_reduced_1_mod_86) · [power_image_exact_reduced_2_mod_86](/theorem/power_image_exact_reduced_2_mod_86) · [coprime_sum_blocked_reduced_2_mod_86](/theorem/coprime_sum_blocked_reduced_2_mod_86) · [power_image_exact_reduced_3_mod_86](/theorem/power_image_exact_reduced_3_mod_86) · [coprime_sum_blocked_reduced_3_mod_86](/theorem/coprime_sum_blocked_reduced_3_mod_86) · [power_image_exact_reduced_6_mod_86](/theorem/power_image_exact_reduced_6_mod_86) · [coprime_sum_blocked_reduced_6_mod_86](/theorem/coprime_sum_blocked_reduced_6_mod_86) · [power_image_exact_reduced_7_mod_86](/theorem/power_image_exact_reduced_7_mod_86) · [coprime_sum_blocked_reduced_7_mod_86](/theorem/coprime_sum_blocked_reduced_7_mod_86) · [power_image_exact_reduced_14_mod_86](/theorem/power_image_exact_reduced_14_mod_86) · [coprime_sum_blocked_reduced_14_mod_86](/theorem/coprime_sum_blocked_reduced_14_mod_86) · [power_image_exact_reduced_21_mod_86](/theorem/power_image_exact_reduced_21_mod_86) · [coprime_sum_blocked_reduced_21_mod_86](/theorem/coprime_sum_blocked_reduced_21_mod_86) · [unit_group_exponent_mod_107](/theorem/unit_group_exponent_mod_107) · [coprime_sum_open_reduced_1_mod_107](/theorem/coprime_sum_open_reduced_1_mod_107) · [coprime_sum_open_reduced_2_mod_107](/theorem/coprime_sum_open_reduced_2_mod_107)
 
+### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
+
+- **Theorems:** 5
+- **Sample lineAddress:** `296069a4-fdb5-84a7-b8a3-baad5c973ef9`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[the_generated_closure_partitions_into_three_kinds](/theorem/the_generated_closure_partitions_into_three_kinds) · [the_arithmetic_alphabet_partitions_by_its_own_algebra](/theorem/the_arithmetic_alphabet_partitions_by_its_own_algebra) · [most_of_the_unstated_remainder_stays_inside_one_wing](/theorem/most_of_the_unstated_remainder_stays_inside_one_wing) · [the_corpus_has_sealed_under_a_hundredth_of_its_own_closure](/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure) · [the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)
+
+### THE SYMMETRIC AND THE ASYMMETRIC CROSS. One proportion between four quantities has two spellings
+
+- **Theorems:** 3
+- **Sample lineAddress:** `9169efe2-9318-8914-9ef1-7ac929d56575`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[the_symmetric_cross_is_blind_to_its_spelling](/theorem/the_symmetric_cross_is_blind_to_its_spelling) · [the_asymmetric_cross_is_strictly_weaker_over_naturals](/theorem/the_asymmetric_cross_is_strictly_weaker_over_naturals) · [exact_division_makes_the_two_crosses_prove_each_other](/theorem/exact_division_makes_the_two_crosses_prove_each_other)
+
 ### THE DIAGONAL RUNS OUT AT NINE
 
-- **Theorems:** 9
+- **Theorems:** 10
 - **Sample lineAddress:** `40877f10-4dcb-8a01-9c43-468eaf150373`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[the_diagonal_runs_out_at_nine](/theorem/the_diagonal_runs_out_at_nine) · [the_diagonal_reaches_four_of_nine_residues](/theorem/the_diagonal_reaches_four_of_nine_residues) · [the_diagonal_reflects_about_its_centre](/theorem/the_diagonal_reflects_about_its_centre) · [nine_folds_to_zero_and_reflects_to_one](/theorem/nine_folds_to_zero_and_reflects_to_one) · [every_axis_member_reflects_into_the_orbit](/theorem/every_axis_member_reflects_into_the_orbit) · [the_squares_are_the_mirror_of_the_axis](/theorem/the_squares_are_the_mirror_of_the_axis) · [the_fold_is_a_straight_angle](/theorem/the_fold_is_a_straight_angle) · [the_double_torus_closes_the_turn](/theorem/the_double_torus_closes_the_turn) · [the_fold_composed_with_itself_is_the_turn](/theorem/the_fold_composed_with_itself_is_the_turn)
+[the_diagonal_runs_out_at_nine](/theorem/the_diagonal_runs_out_at_nine) · [the_diagonal_reaches_four_of_nine_residues](/theorem/the_diagonal_reaches_four_of_nine_residues) · [the_diagonal_reflects_about_its_centre](/theorem/the_diagonal_reflects_about_its_centre) · [nine_folds_to_zero_and_reflects_to_one](/theorem/nine_folds_to_zero_and_reflects_to_one) · [every_axis_member_reflects_into_the_orbit](/theorem/every_axis_member_reflects_into_the_orbit) · [the_squares_are_the_mirror_of_the_axis](/theorem/the_squares_are_the_mirror_of_the_axis) · [the_fold_is_a_straight_angle](/theorem/the_fold_is_a_straight_angle) · [the_double_torus_closes_the_turn](/theorem/the_double_torus_closes_the_turn) · [the_fold_composed_with_itself_is_the_turn](/theorem/the_fold_composed_with_itself_is_the_turn) · [the_nine_step_arc_is_one_step_short_of_the_circle](/theorem/the_nine_step_arc_is_one_step_short_of_the_circle)
 
 ### THE PLANCK EXPONENT LATTICE
 
 - **Theorems:** 10
-- **Sample lineAddress:** `82910357-d9ff-8815-9517-9e9c1a987608`
+- **Sample lineAddress:** `7a9a2e77-4b43-8190-a895-2cfc46053ac2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2373,7 +2391,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70986 (71071 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70995 (71080 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2391,7 +2409,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71071 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71080 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2403,7 +2421,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71071; he claims discovery of 70662 and credits the other 409 facts to their named sources
+- ✓ The captain formalised all 71080; he claims discovery of 70671 and credits the other 409 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2419,7 +2437,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71071; of these I claim discovery of 70662, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71080; of these I claim discovery of 70671, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

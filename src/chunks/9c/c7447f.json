@@ -1,0 +1,12 @@
+{
+  "handle": "9cc7447f",
+  "address": "9cc7447f-5c0e-8dcf-b376-4b2b39186a86",
+  "statement": "((2 * 61 = 122) ∧ (2 * 128 = 256)) ∧ ((61 < 128) ∧ (128 - 61 = 67))",
+  "tactic": "decide",
+  "keys": [
+    "the_remedy_restores_the_halved_margin"
+  ],
+  "files": [
+    "Security.lean"
+  ]
+}

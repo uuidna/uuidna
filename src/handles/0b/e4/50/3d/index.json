@@ -1,0 +1,12 @@
+{
+  "handle": "0be4503d",
+  "address": "0be4503d-0d63-8599-ae57-6ccce56ea01b",
+  "kind": "chunk",
+  "keys": [
+    "one_probe_reached_the_planck_scale_and_found_nothing"
+  ],
+  "statement": "(reached.foldl (· + ·) 0 = 1) ∧ (12 > 10)",
+  "files": [
+    "StringTheory.lean"
+  ]
+}

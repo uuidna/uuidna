@@ -1,0 +1,12 @@
+{
+  "handle": "d1d4a862",
+  "address": "d1d4a862-888a-84cd-aa29-f527f876a9aa",
+  "statement": "product (product planckLength planckMass) (ratio planckLength planckMass) = product planckLength planckLength",
+  "tactic": "decide",
+  "keys": [
+    "the_quantum_and_gravity_clusters_cross_to_the_length"
+  ],
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

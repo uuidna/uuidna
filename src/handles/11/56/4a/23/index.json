@@ -1,0 +1,12 @@
+{
+  "handle": "11564a23",
+  "address": "11564a23-607d-891c-a5e9-35a92ac2b1a8",
+  "kind": "chunk",
+  "keys": [
+    "superstring_cancels_at_ten"
+  ],
+  "statement": "((3 * 10 - 52 + 22 : Int) = 0) ∧ ((3 * 26 - 52 + 22 : Int) ≠ 0)",
+  "files": [
+    "HandleStore.lean"
+  ]
+}

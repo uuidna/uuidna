@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**49 APIs** · sweep 19 · door [`980c9d60`](https://uuidna.com/980c9d60) · receipt `980c9d60-00c0-8027-aeed-e7f37a8f5881`
+**49 APIs** · sweep 19 · door [`97018c20`](https://uuidna.com/97018c20) · receipt `97018c20-b313-8e9b-b0b6-279c8212c2ac`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -99,4 +99,4 @@ never summed.
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/980c9d60`.
+Cite handle `https://uuidna.com/97018c20`.

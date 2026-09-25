@@ -1,0 +1,33 @@
+{
+  "file": "Diagonal.lean",
+  "slug": "diagonal",
+  "status": "retired",
+  "address": "bb79f06e-618a-8b88-83d7-dfb2505157a4",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Diagonal.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Diagonal.lean\",\n \"url\": \"https://uuidna.com/lean/Diagonal.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 9,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

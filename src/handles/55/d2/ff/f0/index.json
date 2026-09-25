@@ -1,0 +1,12 @@
+{
+  "handle": "55d2fff0",
+  "address": "55d2fff0-bbbe-84ce-89e6-0c2eba0016f4",
+  "kind": "chunk",
+  "keys": [
+    "nine_folds_to_zero_and_reflects_to_one"
+  ],
+  "statement": "((ring % ring = 0) ∧ (mirror ring = 1)) ∧ ((diagonal.getLastD 0 = ring) ∧ (diagonal.headD 0 = mirror ring))",
+  "files": [
+    "Diagonal.lean"
+  ]
+}

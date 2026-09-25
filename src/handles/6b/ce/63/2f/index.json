@@ -1,0 +1,12 @@
+{
+  "handle": "6bce632f",
+  "address": "6bce632f-6d17-8348-ad0d-cb4510060392",
+  "kind": "chunk",
+  "keys": [
+    "a_product_cancels_gravity_exactly_across_the_classes"
+  ],
+  "statement": "((planckPairs.filter (fun p => freeOfGravity p.1 p.2)).length = 4) ∧ ((planckPairs.filter (fun p => freeOfGravity p.1 p.2)).length ≠ (planckPairs.filter (fun p => freeOfBoth p.1 p.2)).length)",
+  "files": [
+    "PlanckLattice.lean"
+  ]
+}

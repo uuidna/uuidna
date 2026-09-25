@@ -1,0 +1,12 @@
+{
+  "handle": "423cbb31",
+  "address": "423cbb31-dd29-868a-bfd5-bdf120a899f2",
+  "statement": "((43445 * 5 > 98350 * 2) ∧ (43445 * 2 < 98350)) ∧ (43445 < 98350)",
+  "tactic": "decide",
+  "keys": [
+    "most_of_the_unstated_remainder_stays_inside_one_wing"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}
