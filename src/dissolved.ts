@@ -1,7 +1,8 @@
-import { existsSync } from 'node:fs'
-import { join } from 'node:path'
-
-import { ROOT } from './boundary.js'
+// THE REACH GOES THROUGH THE BOUNDARY, NEVER node: AT MODULE SCOPE. worker.js reaches this module, and Cloudflare
+// refuses a Node builtin without nodejs_compat AT UPLOAD — so a dry run reports success and the deploy simply never
+// appears, which this tree has already paid for once. existsRoot answers the same question and answers FALSE where
+// there is no filesystem rather than throwing, so the edge reads "not present" instead of failing to load.
+import { existsRoot } from './boundary.js'
 import { theorems } from './theorems/index.js'
 
 /**
@@ -17,7 +18,8 @@ import { theorems } from './theorems/index.js'
  * THE MOVE, stated once so it need not be rediscovered: find what the apparent
  * limit is actually a limit ON, then ask whether the goal needs that exact
  * thing. A cap on a primitive's parameter is not a cap on the work the primitive
- * does. A store that cannot hold every row can still answer about one row. A
+ * does. A store too small to hold every row — a host fact, not a policy — can
+ * still answer about one row. A
  * theory whose physics is undecidable can still contain arithmetic that is not.
  * In every case the impossibility was real and was about something narrower
  * than the goal.
@@ -111,7 +113,7 @@ export function dissolvedGaps(entries: readonly Dissolved[] = DISSOLVED): Dissol
         what: `"${entry.claim}" cites theorem ${entry.theorem}, which the ledger does not serve`,
       })
     }
-    if (entry.file !== undefined && !existsSync(join(ROOT, entry.file))) {
+    if (entry.file !== undefined && !existsRoot(entry.file)) {
       gaps.push({
         fix: 'name a path that exists, or move the entry to a theorem key. A file that was moved leaves the claim uncheckable',
         what: `"${entry.claim}" cites ${entry.file}, which is not in the tree`,

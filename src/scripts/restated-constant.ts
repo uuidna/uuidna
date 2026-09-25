@@ -172,6 +172,12 @@ export function matcherFor(value: number, words: readonly string[]): (line: stri
   // trailing `s` joins them; anything cleverer would be a guess about English, which this is not.
   const stems = words.map((w) => (w.length > 3 ? w.replace(/s$/, '') : w))
   const known = (name: string): boolean => { const n = name.toLowerCase(); return stems.some((w) => n.includes(w)) }
+  // A MODULUS BY THE VALUE, OR A RANGE OF IT, IS A RESTATEMENT NO BOUND-OR-COMPARED RULE SEES. `i % 14 === l`
+  // and `Array(14)` carry the width structurally rather than by name, and the identifier beside them (`i`, `l`)
+  // has no stem to learn from — so both escaped, and both were how the lane count sat frozen inside three sealed
+  // theorems. Here the whole LINE supplies the vocabulary: if any identifier on it carries a stem, a modulus or a
+  // range by the value counts. Narrower than matching every `% 14` anywhere, which would fire on every hash.
+  const structural = new RegExp(`(?:%\\s*${bare})|(?:\\b(?:Array|range)\\s*\\(\\s*${bare}\\s*\\))`)
   const bound = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\s*[:=]\\s*${bare}`)
   const compared = [new RegExp(`([\\w$.]+?)\\s*[=!]==?\\s*${bare}`), new RegExp(`${bare}\\s*[=!]==?\\s*([\\w$.]+)`),
                     new RegExp(`\\(\\s*([\\w$.]+?)\\s*,\\s*${bare}\\s*[),]`)]
@@ -182,6 +188,7 @@ export function matcherFor(value: number, words: readonly string[]): (line: stri
     if (!carries.test(line)) return false
     const b = bound.exec(line)
     if (b && known(b[1]!)) return true
+    if (structural.test(line) && (line.match(/[A-Za-z_$][\w$]*/g) ?? []).some(known)) return true
     for (const re of compared) { const m = re.exec(line); if (m && m[1]!.split('.').some(known)) return true }
     return false
   }
@@ -253,14 +260,26 @@ export function restatedConstants(files: readonly string[] = sources(), read: (f
   const out: Restated[] = []
   for (const f of files) {
     const raw = read(f)
-    const mine = names.filter((n) => derived.get(n)!.file !== f && !new RegExp(`\\b${n}\\b`).test(raw))
+    // THE EXEMPTION IS PER LINE, NOT PER FILE, and it was per file until a witness measured what that cost.
+    // The old rule skipped a whole file that named the constant anywhere, on the reasoning that a file reaching
+    // for a constant is not copying it. A file can do BOTH: src/scripts/axiom-hunt.ts writes `VE_FACES === 14` on
+    // one line and `STRIP_LINES === 14` four lines later — one quantity, two forms, one of them bare — and the
+    // file-level exemption made it invisible BY CONSTRUCTION. The finder reported VE_FACES findings: 0 over a tree
+    // that held ten. What is genuinely exempt is a line that names the constant, and the line beside it: that
+    // pairing is the drift ANCHOR this tree uses deliberately (assert x = 14 immediately beside assert x = VE_FACES,
+    // so neither side can go tautological), and a witness judged it defensible. Two lines of distance is not.
+    const mine = names.filter((n) => derived.get(n)!.file !== f)
     if (!mine.length) continue
     const lines = codeOnly(raw).split('\n')
+    const anchors = new Map(mine.map((n) => [n, new RegExp(`\\b${n}\\b`)]))
+    const anchored = (n: string, i: number): boolean =>
+      [i - 1, i, i + 1].some((j) => j >= 0 && j < lines.length && anchors.get(n)!.test(lines[j]!))
     const matchers = mine.map((n) => ({ constant: n, test: matcherFor(derived.get(n)!.value, vocabulary.get(n)!) }))
     for (const [i, line] of lines.entries()) {
       if (!/\d/.test(line)) continue                       // a line with no digit restates no numeral
       for (const { constant, test } of matchers) {
         const { value, file } = derived.get(constant)!
+        if (anchored(constant, i)) continue        // the constant is named here or next door: an anchor, not a copy
         if (test(line)) {
           out.push({ constant, value, declaredIn: file, file: f, line: i + 1, text: line.trim().slice(0, 90) })
         }

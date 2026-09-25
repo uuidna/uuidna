@@ -238,7 +238,6 @@ const cellsOf = (bits) => {
         </div>
       </div>
       <div
-        v-if="false"
         class="hex-merkaba q-superposition"
         data-slot="merkaba"
         :data-vertices="merkaba"
@@ -257,7 +256,6 @@ const cellsOf = (bits) => {
         </svg>
       </div>
       <svg
-        v-if="false"
         class="hex-metatron"
         data-slot="metatron"
         :data-centres="metatron.centres"
@@ -281,7 +279,7 @@ const cellsOf = (bits) => {
           :data-lit="metatron.nodes[i] ? '1' : '0'"
         />
       </svg>
-      <svg v-if="false" class="hex-rosetta" data-slot="rosetta" :data-rosette="rosetteN" viewBox="0 0 200 200" aria-hidden="true">
+      <svg class="hex-rosetta" data-slot="rosetta" :data-rosette="rosetteN" viewBox="0 0 200 200" aria-hidden="true">
         <g class="hex-rays">
           <g v-for="(d, i) in dims" :key="d" :transform="'rotate(' + rayTurn(i) + ' 100 100)'">
             <line x1="100" y1="100" :x2="100" :y2="i === leadRay ? 28 : 42"

@@ -28,11 +28,12 @@ import {
  * disagree and hands back the exact factor that would make it lawful. This file was first written against a
  * second, weaker copy of that (plain numbers, no values), which is the duplication this tree exists to refuse.
  * What is added here is only what engapi has no reason to carry: the SHAPE of a printed equation, and a verdict
- * for a symbol that cannot be read at all.
+ * for a symbol the table does not know — unreadable by construction, since a checker with no entry for a symbol
+ * has nothing to read it as.
  *
  * THREE VERDICTS, AND THE THIRD IS THE POINT. `consistent`, `inconsistent`, and `illegible` — a symbol this
- * table does not know is REFUSED, never read as dimensionless. A checker that silently treats what it cannot
- * read as "1" manufactures agreement, and would report a plate of glyph soup as sound arithmetic.
+ * table does not know is REFUSED, never read as dimensionless. A checker that silently reads an unknown symbol
+ * as "1" manufactures agreement, and would report a plate of glyph soup as sound arithmetic.
  *
  * A DEFINITION IS NOT A DISAGREEMENT. Where the left side is a single symbol this table does not carry, the
  * equation DEFINES that symbol, and only the right side's internal consistency is at issue. Without this rule
@@ -44,7 +45,7 @@ import {
  * THE TRANSCRIPTION IS VERBATIM, INCLUDING THE GARBLE. Symbols that could not be read off the plate are
  * transcribed under the name they appear to carry and left OUT of the symbol table, so the instrument returns
  * `illegible` for them. The refusals are the table's, not the transcriber's — a transcriber who quietly drops
- * what he cannot read decides the census himself and then reports it as a measurement.
+ * he has no entry for decides the census himself and then reports it as a measurement.
  *
  * `T_` IS AMBIGUOUS AND BOTH READINGS ARE RUN. The plate uses `T_dist` beside a distillation column, where it
  * could be the temperature of the stage or the time of the cut. Picking one would put the instrument's thumb on

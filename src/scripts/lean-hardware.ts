@@ -10,6 +10,15 @@
 // the exact decidable arithmetic of the gates — so a gate design can be VERIFIED AGAINST it. It does not, and these
 // theorems do not claim to, fabricate a device, synthesise a netlist, or develop silicon. A sealed spec.
 import { emit, LXOR_DEF } from './lean-gen.js'
+// THE LANE COUNT IS THE CONCURRENT WIDTH, DERIVED. src/hardware/lanes/index.ts — the module these three
+// theorems describe — says so in its own note: "the proof sweep was measured across VE_FACES lanes
+// (VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS)". This generator wrote 14 by hand ten times and
+// called it a host reading, so the theorem ABOUT the lanes and the module that RUNS them disagreed about
+// what the number even means, and either could move without the other. Six of seven witnesses in a
+// payment wave on lead a5572638 found it independently; it is the freeze that lead alleges, in the most
+// load-bearing place available — the scheduler in src/scripts/test-plan.ts cites these very theorems to
+// take its lane count from the ledger rather than from the host, and the ledger was one step short.
+import { VE_FACES } from '../hexbit/index.js'
 
 // bit rows: the four (a,b) input assignments, as the exact list the truth tables enumerate
 const R2: [number, number][] = [[0, 0], [0, 1], [1, 0], [1, 1]]
@@ -95,13 +104,14 @@ const FACTS = [
   // ── THE EXECUTOR LANES. hardware/lanes shards work by the residue of a content-address — no scheduler, no
   // shared queue, no message between lanes — and the report published three claims about that arrangement in
   // PROSE. Prose is not signed true here, so they are stated as algebra and sealed. Sixty-four items over
-  // fourteen lanes is the shape the fan-out actually runs (capacity() yields 14 on a 16-way host); the numerals
-  // are the real ones rather than a convenient pair.
+  // the lane count is VE_FACES — the concurrent width, HANDLE_HEXBITS + HEXBIT_BITS + COINS — which is also the
+  // shape the fan-out runs on a 16-way host. The agreement is why it was mistaken for a host reading and written
+  // out by hand; it is derived here so the two can no longer part company in silence.
 
   { key: 'lanes_partition_the_work',
-    why: 'THE LANES PARTITION THE WORK EXACTLY: summing what each of 14 lanes receives from 64 items returns 64 — nothing is lost between lanes and nothing is counted twice. This is WHY no coordination is needed. Residue routing is a partition of the input, so a lane can never need to ask another what it holds; the question a scheduler exists to answer cannot arise.',
-    js: () => [...Array(14).keys()].reduce((a, l) => a + [...Array(64).keys()].filter((i) => i % 14 === l).length, 0) === 64,
-    lean: 'theorem lanes_partition_the_work : (List.range 14).foldl (fun a l => a + ((List.range 64).filter (fun i => i % 14 == l)).length) 0 = 64 := by decide' },
+    why: `THE LANES PARTITION THE WORK EXACTLY: summing what each of ${VE_FACES} lanes receives from 64 items returns 64 — nothing is lost between lanes and nothing is counted twice. This is WHY no coordination is needed. Residue routing is a partition of the input, so a lane can never need to ask another what it holds; the question a scheduler exists to answer cannot arise.`,
+    js: () => [...Array(VE_FACES).keys()].reduce((a, l) => a + [...Array(64).keys()].filter((i) => i % VE_FACES === l).length, 0) === 64,
+    lean: `theorem lanes_partition_the_work : (List.range ${VE_FACES}).foldl (fun a l => a + ((List.range 64).filter (fun i => i % ${VE_FACES} == l)).length) 0 = 64 := by decide` },
 
   { key: 'seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured',
     why: 'THE SEAT ACCOUNTING, SEALED AFTER A LITERAL WAS FOUND WEARING ITS NAME. upgradeFirmware reported upgraded:true for every seat including the EMPTY one, so skipped was arithmetic on a constant and could not move off zero — an outcome published for an action never attempted. The cure is a three-answer domain, and this is the law it must satisfy: over the three seat kinds, the load outcome is UNMEASURED exactly when the seat is empty and LOADED otherwise, so the two outcomes partition the seats with nothing in a third bucket and nothing counted twice. The partition is walked over all 125 populations of up to four seats of each kind, not asserted at the one population this machine happens to have — a count of THIS host would be a reading on a Tuesday, and the ratchet record already names why that is not a theorem. NOT CLAIMED: that any seat holds hardware. The law is that the report cannot say it does when it does not.',
@@ -119,14 +129,14 @@ const FACTS = [
     lean: 'theorem seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured : ((List.range 3).all (fun k => (decide ((if k == 2 then 1 else 0) == 1) == decide (k == 2)) && ((if k == 2 then 1 else 0) <= 1))) \u2227 ((List.range 5).all (fun m => (List.range 5).all (fun sp => (List.range 5).all (fun e => (m + sp) + e == m + sp + e)))) := by decide' },
 
   { key: 'lanes_balance_within_one',
-    why: 'THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14 lanes give every lane either 4 or 5, never fewer and never more. 64 = 4·14 + 8, so eight lanes take five and six take four. The balance is a property of the residue map itself, which is why it holds without any lane knowing what another is doing.',
-    js: () => [...Array(14).keys()].map((l) => [...Array(64).keys()].filter((i) => i % 14 === l).length).every((c) => c === 4 || c === 5),
-    lean: 'theorem lanes_balance_within_one : ((List.range 14).map (fun l => ((List.range 64).filter (fun i => i % 14 == l)).length)).all (fun c => c == 4 || c == 5) := by decide' },
+    why: `THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over ${VE_FACES} lanes give every lane either 4 or 5, never fewer and never more. 64 = 4·14 + 8, so eight lanes take five and six take four. The balance is a property of the residue map itself, which is why it holds without any lane knowing what another is doing.`,
+    js: () => [...Array(VE_FACES).keys()].map((l) => [...Array(64).keys()].filter((i) => i % VE_FACES === l).length).every((c) => c === 4 || c === 5),
+    lean: `theorem lanes_balance_within_one : ((List.range ${VE_FACES}).map (fun l => ((List.range 64).filter (fun i => i % ${VE_FACES} == l)).length)).all (fun c => c == 4 || c == 5) := by decide` },
 
   { key: 'lanes_even_on_complete_system',
-    why: 'ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: 56 items over 14 lanes give every lane precisely 4, because 56 is a multiple of 14. The imbalance in the general case is therefore never structural — it is only the remainder, bounded by one item per lane, and it vanishes whenever the work divides.',
-    js: () => [...Array(14).keys()].every((l) => [...Array(56).keys()].filter((i) => i % 14 === l).length === 4),
-    lean: 'theorem lanes_even_on_complete_system : (List.range 14).all (fun l => ((List.range 56).filter (fun i => i % 14 == l)).length == 4) := by decide' },
+    why: `ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: 56 items over ${VE_FACES} lanes give every lane precisely 4, because 56 is a multiple of 14. The imbalance in the general case is therefore never structural — it is only the remainder, bounded by one item per lane, and it vanishes whenever the work divides.`,
+    js: () => [...Array(VE_FACES).keys()].every((l) => [...Array(56).keys()].filter((i) => i % VE_FACES === l).length === 4),
+    lean: `theorem lanes_even_on_complete_system : (List.range ${VE_FACES}).all (fun l => ((List.range ${4 * VE_FACES}).filter (fun i => i % ${VE_FACES} == l)).length == 4) := by decide` },
 ]
 
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.

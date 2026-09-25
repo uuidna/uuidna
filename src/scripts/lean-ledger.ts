@@ -265,13 +265,45 @@ if (duplicateRows.length > 0) {
     + 'from. Remove the extra row; do not renumber around it.')
 }
 const ordered = [...new Set([...PRINCIPLE.map((p) => p[0]).filter((f) => allFiles.includes(f)), ...allFiles.filter((f) => !PRINCIPLE.some((p) => p[0] === f))])]
-const titleOf = (f: string) => (PRINCIPLE.find((p) => p[0] === f) || [f, 'lean/' + f])[1]
+
+// ── A WING'S TITLE IS DECLARED ONCE, IN THE WING ───────────────────────────────────────────────────────────────
+//
+// PRINCIPLE above is 252 authored [file, title, blurb] rows, and every one of them is a SECOND COPY of what the
+// wing's own header already says. Core.lean's header opens "The 8×8 CORE: the multiplication table of ℤ/9's eight
+// non-zero residues"; its authored row is ["Core.lean", "The 8×8 core", "the multiplication table of ℤ/9's eight
+// non-zero residues — from these 64 the rest computes"]. The same sentence, typed twice.
+//
+// AND THE TWO COPIES DISAGREED BY CONSTRUCTION FOR EVERY NEW WING. `ordered` admits any wing that carries
+// theorems, giving it the fallback title "lean/<File>"; keptPrinciples kept only wings with an AUTHORED row. So a
+// new wing entered the ledger and the kin graph but never publications(), and the moment that happened
+// the_kin_shortlist_accounts_for_every_edge failed — publicationGraph() counted 253 where publications() counted
+// 252. The wing that exposed it was StringTheory.lean, and the wing's own header had carried its title all along.
+//
+// SO THE TITLE IS DERIVED AND THE AUTHORED ROW IS AN OVERRIDE, not a gate. Every header emit() writes has the one
+// shape `-- lean/<File> — GENERATED. <TITLE> — <blurb>`, so a wing that never gets an authored row still carries a
+// real title and a real blurb. The 252 curated rows keep their exact prose, because an override that changes
+// nothing is the only safe way to remove a duplicate at this scale. A wing can no longer fall out of the
+// publication list by being new.
+const HEADER = /^--\s*lean\/\S+\s+—\s*GENERATED\.\s*([\s\S]*)$/
+/** derivedPrinciple(file) → [file, title, blurb] read from the wing's own header, the single place it is stated */
+const derivedPrinciple = (f: string): [string, string, string] => {
+  const first = (() => { try { return readFileSync(join(ROOT, 'lean', f), 'utf8').split('\n')[0] ?? '' } catch { return '' } })()
+  const said = HEADER.exec(first)?.[1]?.replace(/\s+/g, ' ').trim() ?? ''
+  // the header states the title, then an em dash or a colon, then what the wing is about
+  const cut = said.search(/\s—\s|:\s/)
+  const title = (cut > 0 ? said.slice(0, cut) : said).trim()
+  const blurb = (cut > 0 ? said.slice(cut).replace(/^[\s—:]+/, '') : '').trim()
+  return [f, title || `lean/${f}`, blurb || `the theorems sealed in lean/${f}`]
+}
+const principleOf = (f: string): [string, string, string] =>
+  (PRINCIPLE.find((p) => p[0] === f) as [string, string, string] | undefined) ?? derivedPrinciple(f)
+const titleOf = (f: string) => principleOf(f)[1]
 
 const ledger = ordered.flatMap((file) => parseLean(file).map((t) => ({ ...t, file, principle: titleOf(file) })))
 
 // A principle appears only if it actually carries theorems — remove any with a count of zero (not needed).
 const countOf = (f: string) => ledger.filter((t) => t.file === f).length
-const keptPrinciples = PRINCIPLE.filter((p) => ordered.includes(p[0]) && countOf(p[0]) > 0)
+const keptPrinciples = ordered.filter((f) => countOf(f) > 0).map(principleOf)
 
 const rows = ledger.map((t) =>
   `  { key: ${JSON.stringify(t.key)}, name: ${JSON.stringify(t.name)}, statement: ${JSON.stringify(t.statement)}, tactic: ${JSON.stringify(t.tactic)}, file: ${JSON.stringify(t.file)}, principle: ${JSON.stringify(t.principle)}${t.skill ? `, skill: ${JSON.stringify(t.skill)}` : ''}${t.cases ? `, cases: ${t.cases}` : ''} },`

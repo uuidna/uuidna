@@ -8,8 +8,10 @@ import { handleOf } from '../handle.js'
 import { probe, kernelPresent } from './kernel-probe.js'
 import {
   INVOLUTION_HANDLES, formalShapeOf, judgeRow, formaliseLeads, formalLeads, buildFormalWing, involutionWings,
-  wingFileOf, verdictCurrent, type LeadBook, type LeadRow, type Probe,
+  wingFileOf, verdictCurrent, witnessSealsOf, SEAL_KINDS, type LeadBook, type LeadRow, type Probe, type WaveReceipt,
 } from './involution-family.js'
+import { witnessSealOf } from '../refusal-trials.js'
+import { VE_FACES } from '../hexbit/index.js'
 
 // THE FORMALISED-LEAD DOOR, both directions: what the door refuses before the kernel, what the kernel refuses, what it
 // accepts, and that a verdict is only ever ADDED to a row. The kernel tests skip where no toolchain is installed —
@@ -160,4 +162,79 @@ test('the kernel refuses the walk once one of the lead\'s figures is moved (the 
     const v = judgeRow(WALK, { ...row, lean: row.lean!.replace(from, to) }, probe)
     assert.deepEqual([v.verdict, v.by], ['refused', 'kernel'], `${to}: the kernel refuses a figure the walk does not reach`)
   }
+})
+
+
+// ── THE PAYMENT ROAD, and its control ─────────────────────────────────────────────────────────────────────────
+//
+// A lead that alleges PROVENANCE cannot be refuted by a kernel — five waves and thirty-five witness judgments
+// established that on a5572638, and about twenty-five open leads are that shape. The court's second road closes
+// them as PAID instead: VE_FACES faces that each recomputed the census and signed. These tests hold the line that
+// makes the road narrower than the refutation road rather than wider — a payment must still be SEALED, and a
+// measurement with nothing to cite must still be refused.
+
+test('a wave seals a PAYMENT under its own key, never as an involution', () => {
+  const receipt: WaveReceipt = {
+    proposals: [{ handle: 'abcd1234', status: 'paid' }],
+    witnesses: Array.from({ length: VE_FACES / 2 }, (_, i) => ({
+      witness: `w${i}`, label: `witness ${i + 1} of ${VE_FACES / 2}`,
+      rows: [{ handle: 'abcd1234', recompiled: true, faithful: true, why: `witness ${i} ran its own census` }],
+    })),
+    sealed: [{ handle: 'abcd1234', faces: VE_FACES, dissent: [] }],
+  }
+  const out = witnessSealsOf(receipt)
+  assert.deepEqual(Object.keys(out), ['measurement_abcd1234'], 'a payment is keyed as a measurement, not an involution')
+  const ws = out.measurement_abcd1234!
+  assert.equal(ws.length, VE_FACES, 'all fourteen faces sign')
+  assert.ok(ws.every((w) => w.by === 'provenance_integrity_not_content_truth'),
+    'every payment face cites the sealed theorem that licenses a measurement — there is no theorem of its own to cite')
+  assert.ok(ws.every((w) => w.statement.includes('measurement_abcd1234')),
+    'and names its subject, which the by-branch of witnessSealOf requires')
+})
+
+test('THE CONTROL: a measurement citing nothing is REFUSED, and the same faces citing the theorem seal', () => {
+  // this is the whole reason the road is legitimate. Without a citation a census is prose with fourteen names on
+  // it; witnessSealOf must refuse it. The identical statements, signing BY a sealed theorem, must seal.
+  const subject = 'measurement_abcd1234'
+  const bare = Array.from({ length: VE_FACES }, (_, f) => ({ face: f, statement: `face ${f}: census for ${subject}` }))
+  assert.equal(witnessSealOf(subject, bare).legal, false, 'a measurement with nothing to cite cannot seal')
+  assert.equal(witnessSealOf(subject, bare).signed, 0, 'and not one of its faces counts')
+
+  // `by` alone is not a citation: signCommit reads the cited theorems out of the STATEMENT TEXT, so a face that
+  // claims a licence without naming it still seals nothing. That is the property this half exists to hold.
+  const claimed = bare.map((w) => ({ ...w, by: 'provenance_integrity_not_content_truth' }))
+  assert.equal(witnessSealOf(subject, claimed).legal, false, 'claiming a licence without naming it seals nothing')
+
+  const cited = bare.map((w) => ({ ...w, by: 'provenance_integrity_not_content_truth',
+    statement: `${w.statement}, by theorem provenance_integrity_not_content_truth` }))
+  const seal = witnessSealOf(subject, cited)
+  assert.equal(seal.legal, true, 'the same faces, citing the sealed theorem, do seal')
+  assert.equal(seal.signed, VE_FACES, 'on all fourteen faces')
+  assert.ok(seal.seal, 'and fold to a seal')
+})
+
+test('a payment with any dissent seals NOTHING — the fourteen are not a majority', () => {
+  const receipt: WaveReceipt = {
+    proposals: [{ handle: 'abcd1234', status: 'paid' }],
+    witnesses: Array.from({ length: VE_FACES / 2 }, (_, i) => ({
+      witness: `w${i}`, label: `witness ${i + 1} of ${VE_FACES / 2}`,
+      // one witness found the alleged condition still in the tree, which is the whole point of the census face
+      rows: [{ handle: 'abcd1234', recompiled: i !== 3, faithful: true, why: `witness ${i}` }],
+    })),
+    sealed: [{ handle: 'abcd1234', faces: VE_FACES - 1, dissent: ['witness 4 of 7'] }],
+  }
+  assert.deepEqual(witnessSealsOf(receipt), {}, 'one witness still finding the freeze leaves the lead open')
+})
+
+test('an unknown proposal status seals nothing — the kinds are a closed set', () => {
+  const receipt: WaveReceipt = {
+    proposals: [{ handle: 'abcd1234', status: 'withdrawn' }],
+    witnesses: Array.from({ length: VE_FACES / 2 }, (_, i) => ({
+      witness: `w${i}`, label: `witness ${i + 1} of ${VE_FACES / 2}`,
+      rows: [{ handle: 'abcd1234', recompiled: true, faithful: true, why: `witness ${i}` }],
+    })),
+    sealed: [{ handle: 'abcd1234', faces: VE_FACES, dissent: [] }],
+  }
+  assert.deepEqual(witnessSealsOf(receipt), {}, 'a status the court does not know is not a verdict')
+  assert.deepEqual(Object.keys(SEAL_KINDS).sort(), ['involuted', 'paid'], 'and there are exactly two roads')
 })

@@ -13,7 +13,7 @@ import { handleOf, handleBirthdayPoint, HANDLE_HEXBITS } from './handle.js'
 import { toUuid } from './address.js'
 import { involute, involutionFixed } from './diamond.js'
 import { familyOf, type AxiomFamily } from './axiom-families.js'
-import { CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL } from './clay-involution.js'
+import { CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL, clayScope } from './clay-involution.js'
 import { trialRayOf } from './theorems/index.js'
 import { merkleGravity } from './gravity/index.js'
 
@@ -28,10 +28,36 @@ export const LATTICE_STATIONS = handleBirthdayPoint()
 const HEX4 = /^[0-9a-f]{4}$/
 const SPAN_KEY = /^enumeration_hex4_([0-9a-f]{4})$/
 
-const SOLUTION_HONEST =
-  'The lattice calls the solution involution (negation_involution_solves): denial is the map, a solution is ' +
-  'the denial\'s failure. That is the METHOD. Verified ≠ solved for the named problem. Clay σ-involution ' +
-  `reflects seven and solves none (DOI ${CLAY_INVOLUTION_DOI}).`
+// THE VERDICT IS COUNTED, NEVER TYPED. This sentence used to end "reflects seven and solves none" — five words of
+// hand-typed judgement sitting beside a DOI that is a measurement, so it read as one. Nobody recomputed it and
+// nothing broke when it stopped being true. src/clay-involution.ts had already cured the identical phrase in its
+// own header ("an opinion in a string constant... the manual judgement this tree refuses everywhere else") by
+// measuring it instead; this is the same cure applied to the copy that survived. clayScope() splits Clay.lean's
+// statements the way reach_quantifier_census splits every wing — those that WALK a domain the kernel enumerates
+// against those that QUANTIFY over one it cannot — and recomputes it from the statements themselves. So the line
+// now moves when the wing does: if a Clay theorem ever quantifies over an unbounded domain, this sentence says so
+// without anyone editing it, and if none does it says that instead. The captain, 2026-09-25: "no manual
+// judgement. all are solved and claimed computationally". AND THE DEPOSIT ITSELF SETTLES THE WORDING (DOI
+// 10.5281/zenodo.21781602, concept): "A Lean by-decide proof SOLVES the statement it states, to the standard
+// mathematics uses... What a window is not is the general conjecture — a different statement, and the
+// difference is which proposition is proven, never how strongly." An earlier draft of this sentence said a
+// finite walk settles "its own domain and not the problem", which reads as a weaker proof of the same
+// proposition. It is not: it is a full proof of a different one, and the record says so.
+const solutionHonest = (): string => {
+  const { problems, windows, quantified } = clayScope()
+  return (
+    'The lattice calls the solution involution (negation_involution_solves): denial is the map, a solution is '
+    + "the denial's failure. That is the METHOD. Clay σ-involution reflects seven; its wing seals "
+    + `${String(windows)} finite window(s) across ${String(problems)} Millennium problem(s), each SOLVING the `
+    + `statement it states, and ${String(quantified)} quantified over an unbounded one `
+    + `(DOI ${CLAY_INVOLUTION_DOI}). `
+    + 'EACH OF THOSE STATEMENTS IS SOLVED, and the deposit says so in its own words: a Lean by-decide proof solves '
+    + 'the statement it states, to the standard mathematics uses — the window is settled, machine-checked, and '
+    + 'depends on no axiom beyond the kernel. What a window is not is the general conjecture, which quantifies over '
+    + 'an unbounded domain. THE DIFFERENCE IS WHICH PROPOSITION IS PROVEN, NEVER HOW STRONGLY — and that is why the '
+    + 'count above is walked against quantified rather than dressed as a fraction of something unsolved.'
+  )
+}
 
 export type ProblemKind = 'clay' | 'open' | 'world'
 
@@ -188,11 +214,11 @@ export interface LatticeFill {
 
 const CALL_HONEST =
   'This station is a HexSpan identity. Named theorems, wing axioms and human problems are cargo it CALLS. ' +
-  SOLUTION_HONEST
+  solutionHonest()
 
 const FILL_HONEST =
   'The lattice is 2^16 HexSpan stations. Named cargo seats inside that count. Occupied + vacant = stations. ' +
-  SOLUTION_HONEST
+  solutionHonest()
 
 export function hex4Of(n: number): string {
   if (n < 0 || n >= LATTICE_STATIONS) throw new Error(`hex4Of: ${n} is not a station index`)
@@ -304,7 +330,7 @@ export function callSolutionInvolution(p: HumanProblem): SolutionCall {
     map: 'divZero',
     windowKeys: p.windowKeys,
     solved: false,
-    honest: SOLUTION_HONEST,
+    honest: solutionHonest(),
   }
 }
 
@@ -412,7 +438,7 @@ function solutionInvolution(): LatticeInvolution {
     fixed: involutionFixed(HUMAN_PROBLEMS).map((p) => p.id),
     clay: clayInvolution(),
     solved: false,
-    honest: SOLUTION_HONEST,
+    honest: solutionHonest(),
   }
 }
 

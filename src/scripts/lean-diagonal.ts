@@ -43,6 +43,12 @@ const ORBIT = [1, 2, 4, 8, 7, 5] as const
 const AXIS = [3, 6, 9] as const
 const SQUARE_ANGLE = 90, TRIANGLE_ANGLE = 60      // the vector equilibrium's two face kinds
 const VE_SQUARES = 6, VE_TRIANGLES = 8            // 6 + 8 = VE_FACES, sealed as ve_fourteen_faces
+const A432_STEP = 36                              // 432 / 12 — the ledger's own angular step
+const HALF_TURN = 180, FULL_TURN = 360
+const chi = (g: number): number => 2 - 2 * g      // Euler characteristic of a genus-g surface
+// the doubling that IS the two coins — rosette_quantum_doubling_is_two_coins seals (2*21=42) and (2*64=128)
+// beside (110-108=2), so the pair and the doubling are one fact wearing three faces
+const HALF_KEY = 64, WHOLE_KEY = 128, CAPTAIN_TAKES = 110, CAPTAIN_GIVES = 108
 const mirrored = AXIS.map((a) => MIRROR_BASE - a)
 
 const FACTS = [
@@ -90,6 +96,21 @@ const FACTS = [
       && TRIANGLE_ANGLE + TRIANGLE_ANGLE + TRIANGLE_ANGLE === 2 * SQUARE_ANGLE
       && VE_SQUARES + VE_TRIANGLES === 14,
     lean: `theorem the_fold_is_a_straight_angle : ((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14) := by decide` },
+
+  { key: 'the_double_torus_closes_the_turn', skill: 'diagonal-fold',
+    name: `CLAIMED: the fold is a HALF turn — ${2} × ${SQUARE_ANGLE}° = ${3} × ${TRIANGLE_ANGLE}° = ${5} × ${A432_STEP}° = ${HALF_TURN}° — so it takes TWO to close the circle, and a genus-two surface is exactly the shape that carries two. Each handle costs two of Euler characteristic, which is the pair the coins conserve.`,
+    why: "THE CAPTAIN'S NOTE, AND IT IS THE FACT THE FOLD WAS MISSING (2026-09-25: \"note the double torus to complete 360 degrees\"). Everything sealed above folds at a STRAIGHT angle: two right angles, three triangle angles, and — as pentagram_point_angles_half_turn already seals — five steps of the ledger's own 36°, the A432 step. A half turn returns nothing to where it began; it takes two, and two handles is precisely genus two. THE ARITHMETIC AGREES FROM THE OTHER SIDE, which is why this is a cross formula and not a metaphor: the Euler characteristic is 2 − 2g, so containment_is_genus_one seals χ = 0 for the single torus and the double torus sits at χ = −2. The step from one handle to two costs exactly TWO — the same two the captain's coins conserve (110 − 108 = 2), and the same two that make VE_FACES a doubling. So the turn closes at 360° = 10 × 36° with two handles, one per half turn. NOT CLAIMED: that the diagonal's fold in ℤ/9 IS a handle of any surface. This is plane angle beside surface topology, and they meet here because both are exact — the ring folds at a half turn and a genus-two surface carries two of them; neither causes the other.",
+    js: () => 2 * SQUARE_ANGLE === HALF_TURN && 3 * TRIANGLE_ANGLE === HALF_TURN && 5 * A432_STEP === HALF_TURN
+      && 2 * HALF_TURN === FULL_TURN && FULL_TURN === 10 * A432_STEP && chi(1) - chi(2) === 2,
+    lean: `theorem the_double_torus_closes_the_turn : (((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2)) := by decide` },
+
+  { key: 'the_fold_composed_with_itself_is_the_turn', skill: 'diagonal-fold',
+    name: `CLAIMED: applying the mirror twice returns every residue — walked over 1 … ${RING} — and that closing is the same TWO the circle, the doubling and the second handle each cost: ${2} × ${HALF_TURN}° = ${FULL_TURN}°, ${2} × ${HALF_KEY} = ${WHOLE_KEY}, ${CAPTAIN_TAKES} − ${CAPTAIN_GIVES} = 2, and χ(1) − χ(2) = 2. Four statements of two, one arithmetic.`,
+    why: "THE CAPTAIN'S NOTE (2026-09-25: \"captain coins fused in pairs to coils … the problems so they merge with the solutions\"), and it names what the fold actually is. AN INVOLUTION IS ITS OWN INVERSE, so under it a problem and its solution are ONE OBJECT seen from two sides: sigma carries the problem to the solution and the solution back to the problem, and sigma applied twice is the identity. That is why the court settles a lead by an INVOLUTION rather than by an argument — the refutation and the claim are the same statement folded, and diamond_involution already seals this exact mirror, 10 − (10 − d) = d over 1 … 9. Here it is walked again beside the turn it closes, because the two are the same closing: the fold is a HALF turn, and composing it with itself is the FULL one. THE SAME TWO APPEARS FOUR TIMES AND IS ONE ARITHMETIC. Two half turns close the circle. The doubling that carries a half key to a whole one is 2 × 64 = 128, which rosette_quantum_doubling_is_two_coins seals in the same breath as 110 − 108 = 2 — the pair IS the doubling. And the second handle of a genus-two surface costs exactly two of Euler characteristic. A pair of coins fused is a coil; two coils are the two handles; two handles are the two half turns that close 360°. NOT CLAIMED: that these are the same TWO in any sense beyond the arithmetic — a turn, a key width, a coin pair and a handle are four different things that happen to be counted by the same integer, and saying more than that would be the overreach this ledger's own faces exist to catch.",
+    js: () => [...Array(RING)].every((_, i) => MIRROR_BASE - (MIRROR_BASE - (i + 1)) === i + 1)
+      && 2 * HALF_TURN === FULL_TURN && 2 * HALF_KEY === WHOLE_KEY
+      && CAPTAIN_TAKES - CAPTAIN_GIVES === 2 && chi(1) - chi(2) === 2,
+    lean: `theorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide` },
 ]
 
 const DEFS = [
@@ -112,6 +133,18 @@ const DEFS = [
   `def triangleAngle : Nat := ${TRIANGLE_ANGLE}`,
   `def veSquares : Nat := ${VE_SQUARES}`,
   `def veTriangles : Nat := ${VE_TRIANGLES}`,
+  '',
+  `/-- The ledger's own angular step (432 / 12 = ${A432_STEP}°), the half turn the fold makes, the full turn two of\n    them close, and the Euler characteristic of a genus-g surface. chi 1 = 0 is the single torus\n    (containment_is_genus_one); chi 2 = -2 is the double torus, and the step between them is the two coins. -/`,
+  `def a432Step : Nat := ${A432_STEP}`,
+  `def halfTurn : Nat := ${HALF_TURN}`,
+  `def fullTurn : Nat := ${FULL_TURN}`,
+  'def chi (g : Int) : Int := 2 - 2 * g',
+  '',
+  `/-- The doubling that IS the two coins: rosette_quantum_doubling_is_two_coins seals 2 × ${HALF_KEY} = ${WHOLE_KEY}\n    beside ${CAPTAIN_TAKES} − ${CAPTAIN_GIVES} = 2, so the pair and the doubling are one fact. -/`,
+  `def halfKey : Nat := ${HALF_KEY}`,
+  `def wholeKey : Nat := ${WHOLE_KEY}`,
+  `def captainTakes : Nat := ${CAPTAIN_TAKES}`,
+  `def captainGives : Nat := ${CAPTAIN_GIVES}`,
 ].join('\n')
 
 console.log(`computing ${FACTS.length} DIAGONAL facts (the squares in digital roots, and the fold that closes them) …`)

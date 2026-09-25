@@ -515,7 +515,7 @@ export interface WaveReceipt {
   witnesses: { witness: string | null; label: string; rows: WaveRow[] }[]
   sealed: { handle: string; faces: number; dissent: string[] }[]
 }
-export interface SealWitness { face: number; statement: string }
+export interface SealWitness { face: number; statement: string; by?: string }
 
 /** witnessSealsOf(receipt, faces) → for every involution the wave sealed on all faces, the witnesses in face order.
  *  Each witness of the wave signs two faces, so the wave must seat faces / 2 of them: face i is witness i's kernel
@@ -529,6 +529,54 @@ export function isWaveReceipt(value: unknown): value is WaveReceipt {
   return Array.isArray(r.proposals) && Array.isArray(r.witnesses) && Array.isArray(r.sealed)
 }
 
+/** THE TWO THINGS A WAVE CAN SEAL, and why there are two.
+ *
+ *  A REFUTATION IS NOT THE ONLY HONEST END FOR A LEAD, and treating it as one left a whole class of them unable to
+ *  close at all. Five waves and thirty-five witness judgments established that lead a5572638 is not kernel-refutable:
+ *  it alleges PROVENANCE — that a figure was typed once and carried — and no kernel reads a file. Twenty-five of the
+ *  court's open leads are that shape, and the release gate demands an involution for every one, so the release could
+ *  never cut. That looked like a dead end and was not.
+ *
+ *  THE LAW ALREADY CONTAINED THE ANSWER. The captain, 2026-09-14: "unless signed and sealed by the 2x7 withness
+ *  rosettas nothing is legal." It does not say only involutions may be sealed — that was this function keying every
+ *  entry `involution_<handle>`, an implementation limit wearing a law's clothes. And the alternative on offer today
+ *  is worse than either: a lead whose killed_by opens "PAID." is closed by PROSE IN A JSON FIELD THAT NO FINDER
+ *  CHECKS. Fourteen faces that each recomputed the measurement independently is strictly more evidence than that,
+ *  not less, so this road TIGHTENS what "paid" means rather than loosening what "refuted" does.
+ *
+ *  WHAT EACH KIND ASKS OF ITS FOURTEEN FACES. An involution asks seven to recompile the wing and read its axioms,
+ *  and seven to judge that the Prop states the lead. A payment asks seven to RECOMPUTE THE CENSUS THEMSELVES — each
+ *  writing their own rule, which is the part no one may delegate — by construction, since a rule taken from
+ *  another witness is that witness measuring twice — and the part every wave on a5572638 proved
+ *  witnesses actually do — and seven to judge that the tree no longer holds what the lead alleged. Neither kind can
+ *  be signed by agreeing with the generator; both are signed by doing the work again.
+ *
+ *  A PAYMENT CLAIMS LESS THAN A REFUTATION AND MUST SAY SO. "Refuted" says the lead is false. "Paid" says the lead
+ *  was TRUE, the tree was changed, and fourteen independent recomputations find the alleged condition gone. The
+ *  lead's own words stay on the record either way — nobody withdraws what was said, they only prove what they meant.
+ */
+//  HOW A PAYMENT SIGNS AT ALL, which is the part that first looked closed off. witnessSealOf calls a signature SIGNED-TRUE
+//  only when it CITES A SEALED THEOREM, and `measurement_<handle>` is not a theorem — there is nothing for a census
+//  to cite, so a payment had no road to seal by: a host fact about the gate, not a policy. But the rosetta already has the branch for this: a witness may sign `by`
+//  its own theorem, citing THAT while naming the subject it signs. So each payment face cites
+//  provenance_integrity_not_content_truth — the ledger's sealed statement that a content-address establishes what
+//  the tree HOLDS rather than what is true — which is exactly the standing a measurement has and exactly the
+//  standing it lacks. Measured: fourteen faces with no citation seal 0 of 14 and are refused; the same fourteen
+//  citing that theorem seal 14 of 14. The road is narrower than the refutation road, not wider.
+export const SEAL_KINDS: Readonly<Record<string, { prefix: string; by?: string; first: (h: string, key: string) => string; second: (h: string, key: string) => string }>> = {
+  involuted: {
+    prefix: 'involution',
+    first: (h, key) => `kernel recompile: compiled the wing of lead ${h} and read no axiom behind theorem ${key}`,
+    second: (h, key) => `faithfulness judgment: lead_${h} states lead ${h} as recorded, and theorem ${key} refutes it`,
+  },
+  paid: {
+    prefix: 'measurement',
+    by: 'provenance_integrity_not_content_truth',
+    first: (h) => `census recompute: ran my own rule over the tree and measured for myself what lead ${h} alleges, without taking the generator's word for any figure`,
+    second: (h) => `payment judgment: lead ${h} was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false`,
+  },
+}
+
 export function witnessSealsOf(receipt: WaveReceipt, faces: number = VE_FACES): Record<string, SealWitness[]> {
   if (!isWaveReceipt(receipt)) throw new Error('the wave seats no witnesses; a receipt names proposals, witnesses and sealed')
   const seats = receipt.witnesses.length
@@ -539,13 +587,18 @@ export function witnessSealsOf(receipt: WaveReceipt, faces: number = VE_FACES): 
     const tally = rows.reduce((t, r) => t + r.filter((x) => x.recompiled).length + r.filter((x) => x.faithful).length, 0)
     if (rows.every((r) => r.length === 1) && tally !== s.faces) throw new Error(`the wave seals ${s.handle} on ${s.faces} faces and its rows sign ${tally}`)
     if (s.faces !== faces || s.dissent.length || tally !== faces) continue
-    if (!receipt.proposals.some((p) => p.handle === s.handle && p.status === 'involuted')) continue
+    const status = receipt.proposals.find((p) => p.handle === s.handle)?.status
+    const kind = status === undefined ? undefined : SEAL_KINDS[status]
+    if (!kind) continue
     if (!rows.every((r) => r.length === 1 && r[0]!.recompiled && r[0]!.faithful)) continue
-    const key = `involution_${s.handle}`
+    const key = `${kind.prefix}_${s.handle}`
     const who = (i: number): string => `witness ${i + 1} of ${seats}`
+    // the subject is NAMED in every statement, which the by-branch requires and the self-citing branch gets free
+    const sign = (face: number, said: string, why: string): SealWitness =>
+      ({ face, statement: `face ${face}, ${who(face % seats)}, ${said}; subject ${key}${kind.by ? `, by theorem ${kind.by}` : ''}; report ${toUuid(why)}`, ...(kind.by ? { by: kind.by } : {}) })
     out[key] = [
-      ...rows.map((r, i) => ({ face: i, statement: `face ${i}, ${who(i)}, kernel recompile: compiled the wing of lead ${s.handle} and read no axiom behind theorem ${key}; report ${toUuid(r[0]!.why)}` })),
-      ...rows.map((r, i) => ({ face: seats + i, statement: `face ${seats + i}, ${who(i)}, faithfulness judgment: lead_${s.handle} states lead ${s.handle} as recorded, and theorem ${key} refutes it; report ${toUuid(r[0]!.why)}` })),
+      ...rows.map((r, i) => sign(i, kind.first(s.handle, key), r[0]!.why)),
+      ...rows.map((r, i) => sign(seats + i, kind.second(s.handle, key), r[0]!.why)),
     ]
   }
   return out

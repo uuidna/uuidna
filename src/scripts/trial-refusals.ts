@@ -109,7 +109,17 @@ export const kernelCheckOf = (): { ok: KernelOk; receipts: Record<string, { wing
 // AND IT MUST BE SIGNED AND SEALED BY THE 2×7 WITNESS ROSETTAS (the captain: "unless signed and sealed by the 2x7
 // withness rosettas nothing is legal"): every one of the VE_FACES witnesses recomputed the involution and signed it,
 // read from lean/witness-seals.json and re-signed here (refusal-trials.ts, witnessSealOf).
-export interface Settlement { handle: string; cites: string[]; involution: string | null; kernelAccepted: boolean; involuted: boolean; witnesses: { signed: number; of: number; seal: string | null }; missing: string[]; stands: boolean }
+//
+// AND A REFUTATION IS NOT THE ONLY HONEST END. Five waves and thirty-five witness judgments established that lead
+// a5572638 is NOT kernel-refutable: it alleges PROVENANCE — that a figure was typed once and carried — and no
+// kernel reads a file. Twenty-five of the court's open leads are that shape, so under one road alone they could
+// never close and no release could ever cut. THE SECOND ROAD IS A PAYMENT, and it is stricter than what it
+// replaces rather than looser: today a lead whose killed_by opens "PAID." is closed by prose in a JSON field that
+// no finder checks, while a payment here is VE_FACES faces that each recomputed the census themselves and signed
+// (measurement_<handle>, SEAL_KINDS in involution-family.ts). A payment claims LESS than a refutation and the
+// record says so: refuted means the lead is false; paid means the lead was TRUE, the tree was changed, and
+// fourteen independent recomputations find the alleged condition gone. The lead's own words stay either way.
+export interface Settlement { handle: string; cites: string[]; involution: string | null; kernelAccepted: boolean; involuted: boolean; paid: boolean; payment: { signed: number; of: number; seal: string | null }; witnesses: { signed: number; of: number; seal: string | null }; missing: string[]; stands: boolean }
 type TreeFiles = { paths: Set<string>; names: Set<string> }
 /** every file in the tree as it is now — tracked or not yet tracked, never ignored, and only if it exists on disk */
 export const treeFiles = (): TreeFiles => {
@@ -135,12 +145,21 @@ export const settlementOf = (d: DocketRow, ok: KernelOk, files: TreeFiles, seale
   const kernelAccepted = inv !== null && ok(inv.key)
   const w = inv ? witnessSealOf(inv.key, seals[inv.key] ?? []) : null
   const witnesses = { signed: w?.signed ?? 0, of: w?.of ?? 0, seal: w?.seal ?? null }
+  // THE PAYMENT ROAD, read the same way the refutation road is: a seal the rosettas signed, re-signed here rather
+  // than trusted from the file. No kernel appears on this road, because no kernel reads a file — what stands in
+  // for it is that fourteen faces each did the measuring themselves.
+  const payKey = `measurement_${handle}`
+  const pw = witnessSealOf(payKey, seals[payKey] ?? [])
+  const payment = { signed: pw.signed, of: pw.of, seal: pw.seal }
+  const paid = pw.legal === true
   const missing = missingCited(d.boundary, files)
-  return { handle, cites, involution: inv?.key ?? null, kernelAccepted, involuted, witnesses, missing, stands: involuted && kernelAccepted && w?.legal === true && missing.length === 0 }
+  const refuted = involuted && kernelAccepted && w?.legal === true
+  return { handle, cites, involution: inv?.key ?? null, kernelAccepted, involuted, paid, payment, witnesses, missing, stands: (refuted || paid) && missing.length === 0 }
 }
 /** reopenedBecause(s) → the computed reason a settlement does not stand */
 export const reopenedBecause = (s: Settlement): string => [
-  !s.involution ? 'its claim is not yet stated in Lean and refuted by the kernel (def lead_<handle>, theorem involution_<handle> : ¬ lead_<handle>)' : '',
+  !s.involution && !s.paid ? 'its claim is not yet stated in Lean and refuted by the kernel (def lead_<handle>, theorem involution_<handle> : ¬ lead_<handle>) — or, where the claim is about FILES and no kernel can reach it, paid: VE_FACES faces each recomputing the census and signing measurement_<handle>' : '',
+  !s.involution && s.payment.signed > 0 && !s.paid ? `its payment is signed by ${s.payment.signed} of ${s.payment.of} faces and needs all of them` : '',
   s.involution && !s.involuted ? `the kernel proves lead_${s.handle} — the lead holds, the refutation was wrong` : '',
   s.involution && !s.kernelAccepted ? `the kernel has no fresh receipt for ${s.involution}` : '',
   s.involution && s.involuted && s.witnesses.seal === null ? `not signed and sealed by the 2×7 witness rosettas (${s.witnesses.signed} of ${s.witnesses.of} faces)` : '',
