@@ -1,10 +1,10 @@
 {
-  "generated": "2026-09-21",
+  "generated": "2026-09-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 71036,
-  "novelty_claimed": 70638,
-  "formalisation_only": 398,
+  "total_claimed": 71071,
+  "novelty_claimed": 70662,
+  "formalisation_only": 409,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -121,6 +121,10 @@
     {
       "key": "payload_falls_short",
       "source": "CODATA"
+    },
+    {
+      "key": "energy_is_reachable_by_four_independent_routes",
+      "source": "SI"
     }
   ],
   "external_facts": [
@@ -335,6 +339,14 @@
       "evidence": "Ohm · Ohm's law"
     },
     {
+      "key": "one_probe_reached_the_planck_scale_and_found_nothing",
+      "arms": [
+        "named",
+        "eponym"
+      ],
+      "evidence": "Planck · Planck scale"
+    },
+    {
       "key": "partial_pressures_sum_to_absolute",
       "arms": [
         "named",
@@ -399,6 +411,13 @@
       "evidence": "Fibonacci · Fibonacci number"
     },
     {
+      "key": "a_combination_exists_exactly_when_its_exponents_share_parity",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
+    },
+    {
       "key": "a_series_halving",
       "arms": [
         "units"
@@ -428,6 +447,13 @@
     },
     {
       "key": "alternation_needs_a_second_phase",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
+    },
+    {
+      "key": "anomaly_cancels_at_twenty_six",
       "arms": [
         "units"
       ],
@@ -952,6 +978,13 @@
       "evidence": "Bouton"
     },
     {
+      "key": "collider_energy_is_below_the_planck_scale",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
+    },
+    {
       "key": "compare_swap_orders",
       "arms": [
         "units"
@@ -1006,6 +1039,13 @@
         "units"
       ],
       "evidence": "second"
+    },
+    {
+      "key": "defect_sums_to_the_characteristic",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
     },
     {
       "key": "depolarisation_blocks_firing",
@@ -1078,6 +1118,13 @@
       "evidence": "Euler"
     },
     {
+      "key": "every_planck_ratio_cancels_the_quantum_of_action",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
+    },
+    {
       "key": "fib_pentagram_cycle_20",
       "arms": [
         "named"
@@ -1125,6 +1172,13 @@
         "named"
       ],
       "evidence": "Boyle"
+    },
+    {
+      "key": "gravity_cancels_on_a_linear_form",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
     },
     {
       "key": "gray_code_reflects_across_the_top_bit",
@@ -1384,6 +1438,13 @@
         "units"
       ],
       "evidence": "second"
+    },
+    {
+      "key": "newtonian_gravity_is_verified_far_above_the_planck_length",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Planck"
     },
     {
       "key": "nim_winning_move_exists",
@@ -1937,6 +1998,20 @@
         "units"
       ],
       "evidence": "seconds"
+    },
+    {
+      "key": "the_double_torus_closes_the_turn",
+      "arms": [
+        "named"
+      ],
+      "evidence": "Euler"
+    },
+    {
+      "key": "the_fold_composed_with_itself_is_the_turn",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
     },
     {
       "key": "the_gregorian_cycle_counted_in_weeks",
@@ -2747,24 +2822,24 @@
   "credit_grades": {
     "on_file": {
       "identifier": 6,
-      "standard": 18,
+      "standard": 19,
       "named": 5
     },
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 369,
+    "floor": 379,
     "by_arm": {
-      "named": 148,
-      "eponym": 96,
-      "units": 161
+      "named": 155,
+      "eponym": 97,
+      "units": 164
     },
-    "found_by_one_arm_only": 335,
+    "found_by_one_arm_only": 344,
     "all_arms_agree": 2,
-    "ground_truth_sensitivity": "21/29",
+    "ground_truth_sensitivity": "22/30",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
-  "total_theorems": 71036,
+  "total_theorems": 71071,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -7308,22 +7383,22 @@
     },
     {
       "key": "reach_tactics_census",
-      "lineAddress": "9406f13d-e713-8bd6-8d9b-fc1df59b0bbf",
-      "address": "450cfbe1-b777-830f-af0c-4513ee798b40",
+      "lineAddress": "47f36eec-5cf8-8f2c-8bf0-058849863a69",
+      "address": "7cdc841b-e3c8-81da-bc9a-ef60a78b7885",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_quantifier_census",
-      "lineAddress": "fcb8e2b1-ed29-88eb-a0ba-822826abd005",
-      "address": "c0f28437-9bee-88c5-b82f-3189a9cf8910",
+      "lineAddress": "56858165-80f7-8006-8a6d-2e63d536ba40",
+      "address": "45c64b00-84b4-8749-932d-7556b4d7c55d",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "257aa589-6a33-8e77-bbce-6d8cecc7cc53",
-      "address": "4dc318fa-bafa-8588-90bc-76366b034fa1",
+      "lineAddress": "cc40529f-d91c-81d4-84ad-deb3fc1cf745",
+      "address": "629e87c9-ca6e-8329-bacd-c9108e83712b",
       "principle": "The physics infinities, made finite",
       "held": "discovery+formalisation"
     },
@@ -7679,8 +7754,8 @@
     },
     {
       "key": "the_axiom_index_partitions_without_remainder",
-      "lineAddress": "82c635d5-503a-89b8-a06d-6e3c02b31635",
-      "address": "edf8b86f-2422-84f5-92ad-18cd43422a61",
+      "lineAddress": "949275d3-bbc7-8485-8671-48eaee77ed06",
+      "address": "381aad4f-2a1e-8383-8ebf-1ef5dbdc049f",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7716,8 +7791,8 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "0ec16cd8-921f-8e92-8e6b-8cf8b3107d90",
-      "address": "47dbdc96-b21b-8aee-bab8-2464a4379bbe",
+      "lineAddress": "1bcdf043-2dad-88d1-bef6-a94f5b42db2b",
+      "address": "54ed4712-3156-83a1-888a-0db23098fa0e",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7737,22 +7812,22 @@
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "6dfbaa7f-93dd-8359-b956-c07f040e3dfd",
-      "address": "e3336962-cb3f-8113-ba95-01bb640e46d9",
+      "lineAddress": "dea81319-8ca3-84bd-bbd8-fdf35a041a84",
+      "address": "276f2ea2-45d6-82f5-aa47-1ddae6ff2400",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "7cb6ee0f-98df-8c9c-ab62-29ab46fe0468",
-      "address": "47219ed8-4777-886d-b74a-093e54f33bfb",
+      "lineAddress": "41af27c5-4aef-8f76-9f1e-edbfb6eb66c9",
+      "address": "7db50eef-3207-83ba-80fd-345d2dbdb2ad",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "0746303e-630e-8d76-a9f1-97270bb86d76",
-      "address": "6787693a-0346-8c48-b352-0754387c0f12",
+      "lineAddress": "23c2ca33-7354-8f7e-9dac-e866d9f79d8c",
+      "address": "bd2e00d6-97e3-8af6-8216-6103b704baa2",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -8213,15 +8288,15 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "fdf00736-4537-8242-9c0a-235214b72259",
-      "address": "078f98f0-9ea7-8e06-9fca-9b6db00c8104",
+      "lineAddress": "f8b53a1a-7db5-8843-81cc-3bc3a3725b4f",
+      "address": "0f93c4be-52ba-8c09-9699-1670fc1ee15e",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "27364f53-ddcf-8fc9-bfc3-37b9d2ce0ca9",
-      "address": "2f52b386-7c17-8a79-86cf-91247e10b8e9",
+      "lineAddress": "b53db915-72fa-858f-9600-579669a286d4",
+      "address": "8c557741-7320-89f2-885a-a181fe337419",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -8241,8 +8316,8 @@
     },
     {
       "key": "no_wing_buys_its_own_ceiling",
-      "lineAddress": "6664c49b-965e-8c74-96fe-f68b8f52c62d",
-      "address": "b007dc7e-0d4b-8535-8a9c-e9b7b46611b4",
+      "lineAddress": "ac2934c2-c000-8239-a25e-e1afe11351e3",
+      "address": "1daeec5a-0ddf-8001-bd75-61c8124c13ac",
       "principle": "The software-verifiable algebra",
       "held": "discovery+formalisation"
     },
@@ -9564,15 +9639,15 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "d3b15432-b579-8a50-b92c-af78cbc7074d",
-      "address": "4cd03cf1-0783-80bf-b293-05a96febe73e",
+      "lineAddress": "4dadbe91-0025-8f3a-b221-d82aab2b082d",
+      "address": "cae329ed-9dd1-8097-bfb6-5366466db537",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_kin_shortlist_accounts_for_every_edge",
-      "lineAddress": "b1435a9a-bd00-83d3-9582-73c43e2710e2",
-      "address": "bfef8361-3d1b-8a39-8bac-241e8f02a5d4",
+      "lineAddress": "d34f2fb3-45a7-89a3-98a2-5e8d7774ebfa",
+      "address": "eaf12ea4-6552-8667-b7f4-fdde5b38fe87",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10043,36 +10118,36 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "ff77456a-2c20-83b6-a56b-518a26b0b206",
-      "address": "5074bccf-ae7b-8658-829c-e130f4d91a2a",
+      "lineAddress": "22b1d2c4-6516-8dc6-810b-cb62e3fe61e8",
+      "address": "7f5cc227-e995-8df6-8c98-43a250d1d36b",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "aa43c277-bf76-8841-bace-9fa9d956873f",
-      "address": "60b10690-20b2-8f72-b352-20c67fc6fa1d",
+      "lineAddress": "a368d892-6265-8a2b-83e8-53a755b56582",
+      "address": "553164bc-a21d-8de5-bbd8-080a4a6317e3",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_address_odds_are_negligible",
-      "lineAddress": "ce4fb65c-92a0-8f85-a301-7df31c552951",
-      "address": "e702530f-ab22-804b-af74-ea326547860f",
+      "lineAddress": "d192273e-73ee-8571-94af-38b74ec5aaf8",
+      "address": "d467f473-6be0-8c9c-82fe-7fa6fd021ccb",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_handle_odds_are_small",
-      "lineAddress": "a55b32ca-cf94-8f8e-a82d-764768cbf099",
-      "address": "8fb7895f-2616-8ca0-b073-2ca6cb7020e5",
+      "lineAddress": "7368598c-674a-84af-a404-fb3067ac2e79",
+      "address": "74ca8aa1-bc61-8b84-94ad-cfed3217daf5",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "sixteen_bit_handles_would_collide",
-      "lineAddress": "4aeff4e7-f8e7-8f70-9b3b-647987dab374",
-      "address": "ac935194-481e-8873-8a86-eab6887ba72e",
+      "lineAddress": "5432662d-3906-8c00-864f-2918b4318634",
+      "address": "3ea3a7d4-72fd-84e3-a820-47e45e5dee6b",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
@@ -471617,6 +471692,27 @@
       "held": "discovery+formalisation"
     },
     {
+      "key": "the_stamp_costs_half_itself_in_birthday_margin",
+      "lineAddress": "35660efe-8c69-8b45-9a9f-0a77ae3fa658",
+      "address": "045c948d-4c93-8264-ad03-2ccace1e6f8f",
+      "principle": "The layered defence",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_address_is_six_bits_short_of_its_width",
+      "lineAddress": "d60aea25-418d-80b1-bdd2-a1e2ab6c545a",
+      "address": "985e9d55-cea6-8f2e-a684-2439ad62f7dd",
+      "principle": "The layered defence",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_remedy_restores_the_halved_margin",
+      "lineAddress": "792e48ae-a81d-83e4-8c20-34bd1a5c5aa7",
+      "address": "a7c00379-8ad5-8af2-9b47-4e0af9b786bd",
+      "principle": "The layered defence",
+      "held": "discovery+formalisation"
+    },
+    {
       "key": "collisions_under_one",
       "lineAddress": "83188b94-5dd1-8ea6-a6be-74c2bc8a3745",
       "address": "98795b15-a064-806f-9ce3-090a5e0789fd",
@@ -480859,6 +480955,13 @@
       "held": "discovery+formalisation"
     },
     {
+      "key": "defect_sums_to_the_characteristic",
+      "lineAddress": "0b447dda-4a38-83cd-9426-89714e1a0ef7",
+      "address": "4e561496-fbf1-8b58-87ed-5f52928a128b",
+      "principle": "The vector equilibrium",
+      "held": "discovery+formalisation"
+    },
+    {
       "key": "metatron_seventyeight_lines",
       "lineAddress": "540ac81e-f5b1-8d5b-b755-f041d218c7b6",
       "address": "baa1fce2-9775-80cf-a47a-24b830f74ecb",
@@ -481532,8 +481635,8 @@
     },
     {
       "key": "the_store_holds_far_less_than_it_admits",
-      "lineAddress": "614d7d48-c075-8db0-9fdd-61462a2d0c83",
-      "address": "440d9476-6e4b-851d-a454-e6af95930d81",
+      "lineAddress": "cb43f25f-5f2b-8bdf-a93b-d976d48de14f",
+      "address": "0c54f299-1e66-8787-9fc1-77fbde05bb42",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "discovery+formalisation"
     },
@@ -481578,6 +481681,27 @@
       "factAttributedTo": "CODATA"
     },
     {
+      "key": "anomaly_cancels_at_twenty_six",
+      "lineAddress": "08a08edd-585d-8b22-ab75-75221655176c",
+      "address": "06588582-e4d7-826a-8f9f-21439af997e6",
+      "principle": "The handle store, and why its smallest leaf is complete",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "superstring_cancels_at_ten",
+      "lineAddress": "90fe47c6-a351-89fd-91b5-d7e1c6bbd762",
+      "address": "c4c760f2-e20a-8a0b-8cc5-a17dd29c6617",
+      "principle": "The handle store, and why its smallest leaf is complete",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "transverse_dimensions_pack_densest",
+      "lineAddress": "c2daaf28-59a7-8fc2-8423-95c7acfd0d46",
+      "address": "d1d01290-a759-8d10-bb71-998e18da74b0",
+      "principle": "The handle store, and why its smallest leaf is complete",
+      "held": "discovery+formalisation"
+    },
+    {
       "key": "pairings_exhaust_the_cancellations",
       "lineAddress": "b305ab2c-4e8d-8501-8c1e-6da49bc37f31",
       "address": "7cfcc30d-b1af-87e1-a118-833c0dd5929b",
@@ -481587,16 +481711,16 @@
     },
     {
       "key": "handle_outreaches_planck",
-      "lineAddress": "c06bf99d-5f5c-8628-adcc-cc69744ca3a8",
-      "address": "6d36cb22-483c-831d-8f3f-f101fe334db2",
+      "lineAddress": "ef0113b4-2e7d-8546-bb9c-df5891aa5045",
+      "address": "0c654298-18c6-86f1-9ba4-5e2c1e734334",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "formalisation",
       "factAttributedTo": "CODATA"
     },
     {
       "key": "planck_margin_bounded",
-      "lineAddress": "09a17727-8789-8604-8159-d27811205358",
-      "address": "97767d16-3939-8555-a263-068730247053",
+      "lineAddress": "ee31f2d7-dc96-8e34-912b-f26c064d073f",
+      "address": "f120b65b-0cfb-8d2d-b7ba-5f1bb87d3d8e",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "formalisation",
       "factAttributedTo": "CODATA"
@@ -481618,8 +481742,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "44b77e69-e77c-8b29-ada6-2c38346d16c9",
-      "address": "5c706145-899b-8aaa-a84e-adf30e909cda",
+      "lineAddress": "01b70df5-60f1-8cb5-a781-064f608271ba",
+      "address": "1e3b9b64-037b-804f-ba58-0c0fe4080718",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481639,15 +481763,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "3c9a7de6-4c4d-8be4-a12a-b7c1627faf73",
-      "address": "9faeb720-b804-8be8-8370-70ce643be352",
+      "lineAddress": "4e01a111-ffae-854b-b9f5-b8b9059d7ec3",
+      "address": "d88f95c2-e3fb-819d-beaf-00f5892e9ec4",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "05fcada8-e85e-8350-9d81-6dbd9eee09c4",
-      "address": "8d68a938-b241-8c4c-a5a4-0ad6e92ab8dc",
+      "lineAddress": "ad8233aa-464d-8927-8098-4a47929e4b0b",
+      "address": "19ef0100-85d7-84db-8e0b-9d4af7d3144a",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -500046,13 +500170,210 @@
       "address": "2b8cf36d-9996-8542-aa56-8bff4c37203b",
       "principle": "The congruence survey, ring 21",
       "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_diagonal_runs_out_at_nine",
+      "lineAddress": "40877f10-4dcb-8a01-9c43-468eaf150373",
+      "address": "530d7b17-feda-8e0b-b6b4-086e64b91dc6",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_diagonal_reaches_four_of_nine_residues",
+      "lineAddress": "eb477339-a030-8111-ad32-7aa101fae162",
+      "address": "52ba95cf-2f17-8ab3-a4f4-2f880f311ffc",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_diagonal_reflects_about_its_centre",
+      "lineAddress": "3b249efe-229c-8342-bd7f-c210ee685307",
+      "address": "5bdc553b-4bca-8511-89c9-6f8854a261ce",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "nine_folds_to_zero_and_reflects_to_one",
+      "lineAddress": "715cee22-c9de-85bb-abf5-f3df9309fcba",
+      "address": "52936ba2-3a32-88d4-88d5-1b7179e9c88c",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "every_axis_member_reflects_into_the_orbit",
+      "lineAddress": "9c5e883c-facf-810a-b2bd-0459d209a342",
+      "address": "ea4e7c4d-cd7c-849d-96f6-f64baa0813c2",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_squares_are_the_mirror_of_the_axis",
+      "lineAddress": "a8f6ca94-a79e-8b9d-97bc-82c0223267d4",
+      "address": "7f28055c-e313-89e8-8000-58552d813480",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_fold_is_a_straight_angle",
+      "lineAddress": "960b4e2d-aacd-82f5-969b-6703611b603a",
+      "address": "f9651256-1dd0-8b85-bf6c-13fb02a4f1cb",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_double_torus_closes_the_turn",
+      "lineAddress": "db7011b3-77e7-8747-95da-1ebe1471998c",
+      "address": "dab4a792-d554-87e5-813d-16ab86aaae5e",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_fold_composed_with_itself_is_the_turn",
+      "lineAddress": "3bd774f0-070d-8236-8942-c9ca3c879f8d",
+      "address": "1c4bfefe-ee9a-88e9-a0ec-3f7f4e779d61",
+      "principle": "THE DIAGONAL RUNS OUT AT NINE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_quantum_of_action_cancels_on_a_linear_form",
+      "lineAddress": "82910357-d9ff-8815-9517-9e9c1a987608",
+      "address": "915479b3-6952-8bb1-a435-19b4415bbb13",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "gravity_cancels_on_a_linear_form",
+      "lineAddress": "7610c54d-bb57-858b-a4d6-c013c4d67955",
+      "address": "4b5631f0-f796-812e-93ff-47c978fc492a",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_constant_free_combinations_are_a_rank_two_sublattice",
+      "lineAddress": "4b751f0d-e338-83ed-b9c5-90867814a70f",
+      "address": "8eb0cd6c-ecaa-80a0-a985-fbf19db9026f",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "a_combination_exists_exactly_when_its_exponents_share_parity",
+      "lineAddress": "30220e1c-b213-8aa3-ba39-065b83343844",
+      "address": "e1b78ccb-8f53-834e-abd5-3fc1828fe048",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "every_planck_ratio_cancels_the_quantum_of_action",
+      "lineAddress": "61be2fd1-4b59-82ee-be06-eb35dab2281a",
+      "address": "0bebb0ca-df4e-8040-97d6-3fe32dd399c0",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_lattice_splits_into_two_gravity_classes",
+      "lineAddress": "ca6cf90b-f2f5-8688-9ea5-85bc8baaa91e",
+      "address": "3e351c49-c2f3-825c-bae5-c28e44ba3ccb",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "both_constants_cancel_exactly_inside_a_gravity_class",
+      "lineAddress": "48a5cac9-ede4-80a2-bd9f-f7b947105b7f",
+      "address": "663b0236-361c-8af7-95fc-962c47fc462f",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "a_product_cancels_gravity_exactly_across_the_classes",
+      "lineAddress": "8af5cbb9-b5cd-8485-ab17-911773d0a9bb",
+      "address": "7cfdee81-e078-86c3-ab09-1c4dc3606d6c",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_quantum_and_gravity_clusters_cross_to_the_length",
+      "lineAddress": "6151eb08-bf70-82a3-adcc-4cfa3de0d513",
+      "address": "ca884f9f-7c94-8391-8363-1169f2de11df",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "both_routes_to_light_speed_agree",
+      "lineAddress": "1fffa3f4-a9f7-87cf-8eae-6084dba10f30",
+      "address": "8337df27-0a03-82b1-b339-114041759e3d",
+      "principle": "THE PLANCK EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "energy_is_reachable_by_four_independent_routes",
+      "lineAddress": "d9459e2e-6ec6-8cac-99e0-80289c748d3c",
+      "address": "3aafa440-e1ba-80d7-9c66-6c0375fa8e9a",
+      "principle": "THE SI EXPONENT LATTICE",
+      "held": "formalisation",
+      "factAttributedTo": "SI"
+    },
+    {
+      "key": "the_crossed_units_agree_on_one_vector_each",
+      "lineAddress": "d1abe73f-01f5-8fce-b4c5-add043b817bf",
+      "address": "8cdab663-b13a-8ec9-a372-1659b908baa7",
+      "principle": "THE SI EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_lattice_is_closed_under_product_and_ratio",
+      "lineAddress": "d15a915e-216d-8f2b-80f4-a5a2bf320b5a",
+      "address": "52d671f3-5bd8-83c5-a26e-28e74a1b3bb7",
+      "principle": "THE SI EXPONENT LATTICE",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "collider_energy_is_below_the_planck_scale",
+      "lineAddress": "64bbc99e-10c1-8e6b-b78c-6f18b9dad8e9",
+      "address": "3821a3d2-ba28-8e76-94ee-fd3c308395a9",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "newtonian_gravity_is_verified_far_above_the_planck_length",
+      "lineAddress": "93b525f7-7d4f-8e3d-9016-f4c5cbb8d2f9",
+      "address": "db832f72-2238-8831-811c-9b90a2e47f9f",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_proton_outlives_the_universe_many_times_over",
+      "lineAddress": "24116d15-2d1f-8649-a2a7-5092090a683c",
+      "address": "62efffa6-239a-8ee6-8c5b-9fde921b05cb",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "one_probe_reached_the_planck_scale_and_found_nothing",
+      "lineAddress": "78ce3da7-6932-8587-ac77-7c9ffee2f875",
+      "address": "6a6a6578-706e-8c3a-afaa-ab4ed74df92f",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "the_cmb_excludes_gut_scale_cosmic_strings",
+      "lineAddress": "130759ec-5064-880e-b95a-eab7606d9829",
+      "address": "600eed32-46e4-8baf-a00b-5f43cc78192d",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
+    },
+    {
+      "key": "six_searches_report_bounds_and_no_detection",
+      "lineAddress": "0690f909-ead5-8701-a727-b7b61c8e81a6",
+      "address": "ec25a4ac-ee38-8edc-8f06-3542fe6ee48b",
+      "principle": "STRING THEORY'S EXPERIMENTAL RECORD AS DECIDABLE ARITHMETIC",
+      "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "cc02abf8-0c52-8c68-8d4a-9b3728f9fcab",
+  "claim_receipt": "26b0d26b-9007-8ee5-88a0-bf4036ff0e10",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71036; he claims discovery of 70638 and credits the other 398 facts to their named sources",
+      "The captain formalised all 71071; he claims discovery of 70662 and credits the other 409 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500061,9 +500382,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 398 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 409 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71036; of these I claim discovery of 70638, and the remaining 398 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71071; of these I claim discovery of 70662, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

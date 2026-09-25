@@ -23,7 +23,13 @@
 //
 // ATTRIBUTION: the cost identity is Merkle's (1979; CRYPTO '87). Instantiating it on this tree's hexbit
 // leaves is an application, not a result, and the honest field says so where a reader of the output will see it.
-import { merkleFold, toUuid, merge } from './address.js'
+import { merkleFold, toUuid, merge, leafHash } from './address.js'
+
+// THE TAG TRAVELS WITH THE FOLD. merkleFold sorts the RAW leaves and then hashes each under `leaf:`, so a leaf
+// can never be read as an internal node. This counter is a second implementation of that same fold — it exists
+// to COUNT merges, not to define them — so it must apply the tag in the same place or it counts a different
+// tree. Ordering is taken on the raw leaves, exactly as merkleFold takes it, and the tag is applied after; the
+// test that the counted root equals merkleFold's root is what holds the two together.
 
 /** one layer's parent, pairing exactly as merkleFold does — an odd leaf is carried up UNCHANGED and NOT
  *  counted, because carrying is not a merge and counting it makes 2^n − 1 wrong at every odd width */
@@ -43,16 +49,17 @@ export interface CountedFold { root: string; merges: number }
 /** rebuildCost(leaves) → the root and EVERY merge it cost. The cost of not having a receipt. */
 export function rebuildCost(leaves: readonly string[]): CountedFold {
   const count = { merges: 0 }
-  let layer = [...leaves].sort()
-  if (layer.length === 0) return { root: toUuid('empty-mind'), merges: 0 }
+  if (leaves.length === 0) return { root: toUuid('empty-mind'), merges: 0 }
+  let layer = [...leaves].sort().map(leafHash)
   while (layer.length > 1) layer = layerUp(layer, count)
   return { root: layer[0]!, merges: count.merges }
 }
 
 /** merklePath(leaves, leaf) → the sibling hashes bottom-up: the receipt a verifier is handed. */
 export function merklePath(leaves: readonly string[], leaf: string): string[] {
-  let layer = [...leaves].sort()
-  let idx = layer.indexOf(leaf)
+  const order = [...leaves].sort()
+  let layer = order.map(leafHash)
+  let idx = order.indexOf(leaf)
   const siblings: string[] = []
   while (layer.length > 1) {
     const sib = idx % 2 === 0 ? layer[idx + 1] : layer[idx - 1]
@@ -67,9 +74,10 @@ export function merklePath(leaves: readonly string[], leaf: string): string[] {
  *  THE PARITY LINE IS THE ONE THAT MATTERS: merge(acc, sib) on an even index and merge(sib, acc) on an odd one.
  *  A verifier that always hashed one way passes every ladder tested only at leaf 0, which is always even. */
 export function verifyCost(leaf: string, siblings: readonly string[], leaves: readonly string[]): CountedFold {
-  let layer = [...leaves].sort()
-  let idx = layer.indexOf(leaf)
-  let acc = leaf
+  const order = [...leaves].sort()
+  let layer = order.map(leafHash)
+  let idx = order.indexOf(leaf)
+  let acc = leafHash(leaf)
   let merges = 0
   for (const sib of siblings) {
     acc = idx % 2 === 0 ? merge(acc, sib) : merge(sib, acc)

@@ -490,6 +490,16 @@ the_third_level_already_shares 27
 #Decipher.lean
 relabel3_preserves_bigram_collisions 27
 letter_order_moves_bigram_collisions 27
+#Diagonal.lean
+the_diagonal_runs_out_at_nine 19
+the_diagonal_reaches_four_of_nine_residues 19
+the_diagonal_reflects_about_its_centre 19
+nine_folds_to_zero_and_reflects_to_one 19
+every_axis_member_reflects_into_the_orbit 19
+the_squares_are_the_mirror_of_the_axis 19
+the_fold_is_a_straight_angle 19
+the_double_torus_closes_the_turn 19
+the_fold_composed_with_itself_is_the_turn 19
 #Discover.lean
 involution_census_self_explains 27
 happy_ending_verified_cases 27
@@ -69322,6 +69332,10 @@ iso_full_stops_agree_exactly 27
 equivalent_exposure 27
 stops_fold_mod_nine 27
 #PlanckLattice.lean
+the_quantum_of_action_cancels_on_a_linear_form 19
+gravity_cancels_on_a_linear_form 19
+the_constant_free_combinations_are_a_rank_two_sublattice 19
+a_combination_exists_exactly_when_its_exponents_share_parity 19
 every_planck_ratio_cancels_the_quantum_of_action 27
 the_lattice_splits_into_two_gravity_classes 27
 both_constants_cancel_exactly_inside_a_gravity_class 27
@@ -70006,6 +70020,9 @@ defence_layers_add_bits 27
 two_layers_multiply_space 27
 each_key_bit_doubles 27
 birthday_halves_the_exponent 27
+the_stamp_costs_half_itself_in_birthday_margin 19
+the_address_is_six_bits_short_of_its_width 19
+the_remedy_restores_the_halved_margin 19
 collisions_under_one 27
 verify_cheaper_than_forge 27
 wait_covers_margin 27
@@ -70044,6 +70061,10 @@ digit_polarities_partition_ten 27
 nine_is_plus_not_neutral 27
 polarity_mirror_swaps_sides 27
 polarity_plus_is_trinity_of_minus 27
+#SiCross.lean
+energy_is_reachable_by_four_independent_routes 23
+the_crossed_units_agree_on_one_vector_each 19
+the_lattice_is_closed_under_product_and_ratio 19
 #Singularity.lean
 one_source_is_exactly_one 27
 surfaces_cost_one_fold 27
@@ -70292,6 +70313,7 @@ ve_handshake_crosses 27
 ve_twentyfour_edges 27
 ve_fourteen_faces 27
 euler_characteristic_two 27
+defect_sums_to_the_characteristic 19
 metatron_seventyeight_lines 27
 dz_two_fixedpoints 27
 dz_involution_digits 27
@@ -71319,6 +71341,7 @@ crossing_sits_inside CODATA
 cuts_break_successors 10.1007/BF00196791
 dna_base_pairing_involution 10.1038/171737a0
 edits_break_recompute 10.1007/BF00196791
+energy_is_reachable_by_four_independent_routes SI
 eratosthenes_fiftieth_circle Eratosthenes
 handle_outreaches_planck CODATA
 hardware_above_landauer Landauer
@@ -71341,7 +71364,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 29, falsifier: 63 }
+export const FLOOR = { witness: 30, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
