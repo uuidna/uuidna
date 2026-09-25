@@ -1881,16 +1881,24 @@ function wingEnv(wingSource: string, ring: Ring): Env {
   }
   for (const d of simpleDefs(wingSource)) {
     if (env.has(d.name)) continue
+    // THE BODY IS EVALUATED IN THE RING THE WING DECLARED FOR IT. This read the OUTER statement's ring, so
+    // `def chi (g : Int) : Int := 2 - 2 * g` ran over ℕ, where subtraction saturates: chi 2 came out 0 instead of
+    // −2, and `chi 1 - chi 2 = 2` evaluated FALSE on a theorem the kernel had proved. A false verdict on a sealed
+    // statement is not a missing leg, it is this evaluator accusing the ledger — and gen-falsifiers treats it that
+    // way, refusing to write and blocking the landing. Lean scopes a definition's arithmetic by its own signature;
+    // so does this now. WIDENING ONLY: an Int declaration forces Int, and a Nat declaration inherits the caller's
+    // ring rather than narrowing it, so nothing among the 4,696 already-reachable propositions moves.
+    const bodyRing: Ring = d.ring === 'Int' ? 'Int' : ring
     const evalBody = (src: string, inner: Env): Val => {
       // a Prop body (`∀ g ∈ xs, …`, `a ∣ b`, Bool `||` over `==`) throws as a value and is read as a proposition
       try {
-        const c: Cursor = { s: src, i: 0, env: inner, ring }
+        const c: Cursor = { s: src, i: 0, env: inner, ring: bodyRing }
         const v = junction(c)
         ws(c)
         if (c.i === src.length) return v
       } catch { /* read as a proposition below */ }
       // junction stops before `==`/`=` — Bool defs (`reassembles n := (nibbles n).foldr … == n`) are propositions.
-      return boolProp({ s: src, i: 0, env: inner, ring })
+      return boolProp({ s: src, i: 0, env: inner, ring: bodyRing })
     }
     const build = (got: Val[]): Val => ({ t: 'f', run: (x: Val): Val => {
       const next = [...got, x]

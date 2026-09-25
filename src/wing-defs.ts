@@ -54,7 +54,19 @@ export const KNOWN_DEFS: Record<string, (args: number[]) => number | null> = {
 }
 
 /** one simple definition, as source: its parameter names and its body expression */
-export interface SimpleDef { name: string; params: string[]; body: string }
+export interface SimpleDef {
+  name: string
+  params: string[]
+  body: string
+  /** THE DECLARED RETURN RING, and it was being parsed and thrown away. `def chi (g : Int) : Int := 2 - 2 * g` was
+   *  read for its name, its parameters and its body while `Int` — sitting between them — was dropped, so the
+   *  evaluator ran the body over ℕ, where subtraction saturates at zero. chi 2 is −2 in ℤ and 0 in ℕ, so
+   *  `chi 1 - chi 2 = 2` came out 0 − 0 = 0 and the evaluator reported FALSE on a theorem the kernel had proved.
+   *  That is the worst of the three possible answers: `null` would have said "I cannot decide this", and `false`
+   *  says "the ledger is wrong", which is how one dropped token became a blocked landing. The evaluator already
+   *  HAS both rings (Nat.sub saturates, Int.sub is true minus) — nothing needed inventing, only carrying. */
+  ring: 'Nat' | 'Int'
+}
 
 /** simpleDefs(source) → every `def name (p : T) … : T := body` in a wing whose body is a plain expression.
  *
@@ -85,6 +97,10 @@ export function simpleDefs(source: string): SimpleDef[] {
     const asgn = after.indexOf(':=')
     if (asgn < 0) continue                     // a pattern-matching def: no `:=` on the head line
     const firstLine = after.slice(asgn + 2)
+    // the text between the parameter block's `:` and `:=` IS the declared return type; `Int` anywhere in it means
+    // the body's arithmetic is signed. A type this scan does not recognise stays 'Nat', which is Lean's own default
+    // and the evaluator's, so nothing already reachable moves.
+    const ring: 'Nat' | 'Int' = /\bInt\b/.test(after.slice(0, asgn)) ? 'Int' : 'Nat'
     const params: string[] = []
     for (const p of paramBlock.matchAll(/\(\s*([A-Za-z_][A-Za-z0-9_]*(?:\s+[A-Za-z_][A-Za-z0-9_]*)*)\s*:/g))
       for (const nm of p[1]!.trim().split(/\s+/)) params.push(nm)
@@ -99,7 +115,7 @@ export function simpleDefs(source: string): SimpleDef[] {
     while (j < lines.length && !/^\s*(def |theorem |abbrev |namespace|end |--|\/--)/.test(lines[j]!)) { body.push(lines[j]!); j++ }
     const text = body.join(' ').trim()
     if (!text) continue
-    out.push({ name: name!, params, body: text })
+    out.push({ name: name!, params, body: text, ring })
   }
   return out
 }

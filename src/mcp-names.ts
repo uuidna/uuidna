@@ -79,6 +79,7 @@ export const RENAMES: Readonly<Record<string, { to: string; why: string }>> = {
   uuidna_fanout: { to: 'call_host', why: 'house word "fanout"; it forwards one JSON-RPC call to a named MCP host' },
   uuidna_holofractal: { to: 'compute_pentagram_fractal', why: 'house word "holofractal"; its run target pentagramHologramFractal draws a pentagram fractal' },
   uuidna_rosetta_legs: { to: 'get_verification_legs', why: 'house word "rosetta"; it reports the independent checks (legs) each theorem has' },
+  uuidna_rosetta_seals: { to: 'get_verdict_signatures', why: 'house word "rosetta"; it reports which verdict theorems the fourteen witnesses have signed, and which the court still holds open' },
   uuidna_involute: { to: 'compute_involution', why: 'house verb "involute"; it computes an involution and its fixed points' },
   uuidna_treason: { to: 'detect_traitors', why: 'house word "treason"; its run target catchTraitors flags statements that contradict the ledger' },
   uuidna_reeducate: { to: 'compute_correction', why: 'house verb "reeducate"; it rewrites a refuted claim toward the sealed statement' },

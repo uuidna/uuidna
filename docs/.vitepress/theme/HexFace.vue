@@ -5,7 +5,8 @@
 <script setup>
 import { computed, defineAsyncComponent } from 'vue'
 import { useData, withBase } from 'vitepress'
-import { vortexOrbit, A432_STEP, BASE, TRINITY } from '../../../dist/address.js'
+import { vortexOrbit, BASE, TRINITY } from '../../../dist/address.js'
+import { rotationOf } from '../../../dist/aura.js'
 import { glagoliticOf, glagoliticUnitOf } from '../../../dist/hexbit/index.js'
 import { DIMENSIONS } from '../../../src/dimensions.js'
 import { data as occupancyTable } from '../occupancy.data'
@@ -125,7 +126,14 @@ const leadRay = computed(() => {
   if (!(n > 0)) return 0
   return ((r % n) + n) % n
 })
-const TURN = A432_STEP * BASE
+// THE TURN IS READ, NOT RECOMPUTED, and recomputing it here was wrong by 36 degrees. This line was
+// `A432_STEP * BASE` = 324, while src/aura.ts:32 seals `rotationOf = A432_STEP * MIRROR_BASE` = 360 — and aura.ts
+// states the reason in its own words: "at the A432 step of 36° the circle is TEN steps, not nine, and ten is the
+// mirror's own modulus". The old spelling was 360 only while the step happened to be 360/BASE; when the step became
+// 36 it stopped being a circle, and this component kept dividing a 324° arc among rays, nodes, merkabas and
+// vertices, and handing it to CSS as `--turn` and `--half-turn`. Two surfaces that must agree, off by exactly one
+// A432 step. Nothing here computes it any more: rotationOf is the one declaration, so the next move carries.
+const TURN = rotationOf()
 const rayTurn = (i) => ((i - leadRay.value + dims.length) % dims.length) * (TURN / dims.length)
 const nodeTurn = (i) => ((i - referrerDoor.value + orbit.length) % orbit.length) * (TURN / orbit.length)
 const merkabaTurn = computed(() => referrerDoor.value * (TURN / orbit.length))

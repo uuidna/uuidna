@@ -14809,8 +14809,8 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   }
  },
  "uuidna_rosetta_seals": {
-  "name": "get_rosetta_seals",
-  "title": "Get rosetta seals",
+  "name": "get_verdict_signatures",
+  "title": "Get verdict signatures",
   "annotations": {
    "readOnlyHint": true,
    "destructiveHint": false,
@@ -14823,7 +14823,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Get rosetta seals. Returns {definition,faces,sealsMeasured,rows,sealedCount,owingCount,…}.",
+  "description": "Get verdict signatures. Returns {definition,faces,sealsMeasured,rows,sealedCount,owingCount,…}.",
   "outputSchema": {
    "type": "object",
    "properties": {
@@ -16718,7 +16718,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":272,\"tools\":247,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":273,\"tools\":248,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -17639,6 +17639,50 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
     ]
    },
    "excerpt": "{\"exhibits\":[],\"missing\":[\"theorem\"],\"author\":\"Tsvetan Rouschev (ceccec@psg.bg)\",\"license\":{\"spdx\":\"CC-BY-NC-ND-4.0\",\"address\":\"9ffcda04-5adc-872e-9358-6b831bb…"
+  }
+ },
+ "uuidna_novelty": {
+  "name": "compute_novelty",
+  "title": "Compute novelty",
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": false
+  },
+  "description": "Compute novelty. Returns {subject,wing,anchors,proves,refuses}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "subject": {
+     "type": "string"
+    },
+    "wing": {
+     "type": "string"
+    },
+    "anchors": {
+     "type": "array"
+    },
+    "proves": {
+     "type": "string"
+    },
+    "refuses": {
+     "type": "string"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {
+    "subject": "mul9_1_1"
+   },
+   "excerpt": "{\"subject\":\"mul9_1_1\",\"wing\":\"Core.lean\",\"anchors\":[],\"proves\":\"that this content existed and was archived by an independent party on the stated date, under th…"
   }
  },
  "uuidna_legal_facts": {
@@ -19617,7 +19661,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":247,\"zeroArgReusable\":118,\"totalRequiredKeys\":191,\"reusablePerKey\":1.293,\"avgRequiredKeys\":0.773,\"avgRating\":4.227,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":248,\"zeroArgReusable\":118,\"totalRequiredKeys\":192,\"reusablePerKey\":1.292,\"avgRequiredKeys\":0.774,\"avgRating\":4.226,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -19695,7 +19739,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"6250e439\",\"theorems\":{\"count\":71071,\"verified\":71071,\"receipt\":\"570b2477-0314-834e-abac-7e8380e0ffe9\"},\"domains\":{\"count\":126,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"c6e6b293\",\"theorems\":{\"count\":71071,\"verified\":71071,\"receipt\":\"570b2477-0314-834e-abac-7e8380e0ffe9\"},\"domains\":{\"count\":126,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20218,7 +20262,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":247,\"registry\":\"63710c79-b38a-8d2…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":248,\"registry\":\"be7bdb20-a1fc-89d…"
   }
  },
  "uuidna_send": {
