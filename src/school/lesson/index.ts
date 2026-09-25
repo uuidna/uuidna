@@ -104,7 +104,10 @@ export interface LessonRow { key: string; name: string; statement: string; skill
 export function lessonOf(row: LessonRow, why: string | null): Lesson {
   const ts = typeset(row.statement)
   return {
-    key: row.key, name: row.name, why, statement: row.statement,
+    key: row.key, name: row.name,
+    // omitted when it only repeats the name — see Lesson.why for the measurement
+    ...(why !== null && why !== row.name ? { why } : {}),
+    statement: row.statement,
     address: row.address ?? sealedAddressOfRow(row.key, row.statement),
     skill: row.skill ?? '',
     tex: ts.tex, mathml: ts.mathml,
@@ -115,9 +118,19 @@ export function lessonOf(row: LessonRow, why: string | null): Lesson {
 export interface CourseMeta { wing: string; title: string; principle: string; skills: string[]; level: number; band: string; rank: number }
 
 /** composeCourse(meta, rows, whyOf) → a course file, lessons in the order the course gives them */
+/** The served keys, aliased to schema.org terms this tree already vets. Aliasing keeps every consumer working. */
+export const SCHOOL_JSONLD_CONTEXT: Readonly<Record<string, string>> = {
+  '@vocab': 'https://schema.org/',
+  course: 'identifier', wing: 'isBasedOn', title: 'name', principle: 'abstract', skills: 'keywords',
+  lessons: 'hasPart', key: 'identifier', why: 'description', statement: 'mathExpression', address: 'sameAs',
+  skill: 'keywords',
+}
+
 export function composeCourse(meta: CourseMeta, rows: readonly LessonRow[], whyOf: (key: string) => string | null): CourseFile {
   const lessons = rows.map((r) => lessonOf(r, whyOf(r.key)))
   return {
+    '@context': SCHOOL_JSONLD_CONTEXT,
+    '@type': 'Course',
     kind: 'school-course', course: courseSlugOf(meta.wing), wing: meta.wing, title: meta.title, principle: meta.principle,
     skills: meta.skills, level: meta.level, band: meta.band, rank: meta.rank,
     lessons, exercises: lessons.filter((l) => l.exercise !== null).length,

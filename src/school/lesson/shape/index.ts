@@ -15,8 +15,12 @@ export interface Exercise { kind: 'predict-the-value'; at: number; length: numbe
 export interface Lesson {
   key: string
   name: string
-  /** the doc comment the wing wrote above this theorem, or null where the wing wrote none */
-  why: string | null
+  /** THE DOC COMMENT THE WING WROTE, and OMITTED when it only repeats `name`. Measured over all 71,036 served
+   *  lessons: 70,914 of them (99.8%) carried a `why` byte-identical to their `name`, which is 6.69 MB of the
+   *  29.4 MB the school ships. The page already refused to show it — `v-if="lesson.why && lesson.why !== lesson.name"`
+   *  — so every one of those bytes was downloaded and then thrown away. Absent means "the wing added nothing
+   *  beyond the name", which is what schema.org means by leaving `description` off a thing that has a `name`. */
+  why?: string
   statement: string
   /** the sealed address, toUuid(key + ':' + statement) — what the Worker pins a served statement against */
   address: string
@@ -28,6 +32,12 @@ export interface Lesson {
 
 /** one course = one proof wing, as served at /school/<course>.json */
 export interface CourseFile {
+  /** JSON-LD context: the served keys ALIASED to schema.org terms, so the file is structured data as it stands
+   *  rather than needing a second, parallel copy emitted for search engines. Aliasing rather than renaming is
+   *  what makes this free — every consumer keeps reading the keys it already reads. Every term is one
+   *  schema-org-vocab.ts already vets, so the vocabulary cannot widen here without widening there. */
+  '@context': Readonly<Record<string, string>>
+  '@type': 'Course'
   kind: 'school-course'
   course: string
   wing: string

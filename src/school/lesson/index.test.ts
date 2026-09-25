@@ -119,6 +119,8 @@ test('the served catalogue agrees with its course files and with the composer', 
   assert.equal(lessons, theorems().length, 'every sealed theorem is a lesson')
   const served = JSON.parse(readFileSync(join(dir, 'Core.json'), 'utf8')) as CourseFile
   const rows = served.lessons.map((l) => core.find((t) => t.key === l.key)!)
-  const again = composeCourse(served, rows, (k) => served.lessons.find((l) => l.key === k)!.why)
+  // `why` is absent where it only repeated `name`, so the round-trip feeds back absence as null — and the
+  // deepEqual below is what proves the omission recomposes to the same file rather than losing a field.
+  const again = composeCourse(served, rows, (k) => served.lessons.find((l) => l.key === k)!.why ?? null)
   assert.deepEqual(again.lessons, served.lessons, 'the Core course recomposes byte for byte from the ledger')
 })
