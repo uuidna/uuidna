@@ -119,6 +119,7 @@
     "LICENSE",
     "install.json",
     "reserved.uuidna",
+    "lean/alpine-hexbit-monitor.json",
     "lean/axioms.json",
     "lean/exposed-axioms.json",
     "lean/leads.json",

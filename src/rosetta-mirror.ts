@@ -69321,6 +69321,13 @@ fstop_squared_is_exact_power 27
 iso_full_stops_agree_exactly 27
 equivalent_exposure 27
 stops_fold_mod_nine 27
+#PlanckLattice.lean
+every_planck_ratio_cancels_the_quantum_of_action 27
+the_lattice_splits_into_two_gravity_classes 27
+both_constants_cancel_exactly_inside_a_gravity_class 27
+a_product_cancels_gravity_exactly_across_the_classes 27
+the_quantum_and_gravity_clusters_cross_to_the_length 27
+both_routes_to_light_speed_agree 27
 #Platonic.lean
 tetrahedron_cluster_closes 26
 cube_cluster_closes 26

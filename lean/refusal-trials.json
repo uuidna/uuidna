@@ -1,6 +1,6 @@
 {
  "why": "Each lead decided by the kernel under its own handle: verified = the ledger proves lead_<handle>; refuted = it proves involution_<handle> : ¬ lead_<handle>; each with a fresh, axiom-free kernel receipt; open = still in trial. The sealed theorems a lead's text names are recorded as evidence (citedKeys, theoremTrials), never as the verdict. Lean decides: no lead is judged by its wording, no evidence passes between leads, and no lead is purged.",
- "recorded": "0948e360-1",
+ "recorded": "014b93f3-8",
  "refused": 110,
  "lean": 28,
  "open": 82,
@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 1917,
  "rounds": 0,
- "receipt": "0948e360-1f9c-8068-bee4-7263c9f7cdb5",
+ "receipt": "014b93f3-8849-8d89-8e99-a3f5dc278bc3",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -417,7 +417,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ef3f5479-3606-87e2-9b6d-1db53e9e60e3",
+   "receipt": "36ac3894-97ee-89cc-af6f-6b7b116e2387",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#0",
@@ -945,7 +945,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "21785eff-0a62-8c42-9cc7-6b6bbc40707a",
+   "receipt": "fda19eb1-d644-83d6-8845-b8aeee42db8e",
    "verdictKey": "proof_de5612a2",
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#1",
@@ -1165,7 +1165,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1159412d-5773-8f32-930b-f9c12ca62bc8",
+   "receipt": "60637497-69d8-871d-9b9d-5ebf5cd1fea0",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#2",
@@ -1612,7 +1612,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "25fb5278-41d5-8827-8511-fc3dec6e203f",
+   "receipt": "770f1da6-28e8-8678-9606-e8169c4f8aa6",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#3",
@@ -2132,7 +2132,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "8418d77f-cfa1-8dd7-b0c2-e3af51ba3471",
+   "receipt": "5535e0f6-71eb-8200-8e2a-7cbcad257ab5",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#4",
@@ -2404,7 +2404,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3a96ab03-fd58-8e44-8814-a72f769be8e9",
+   "receipt": "c687aa39-0c24-8914-83fe-80add005ce35",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#5",
@@ -2558,7 +2558,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d82376a8-144f-8073-b6a3-7611193d56ad",
+   "receipt": "0d9128e2-185a-867e-9881-0ace68e0b863",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#6",
@@ -2680,7 +2680,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d08a4199-1710-8e0b-92bf-b9ab2a16e061",
+   "receipt": "6e54da56-ca0c-80da-9805-ff0dae49e816",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#7",
@@ -2762,7 +2762,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d2f70243-d70a-8cc0-ba62-905f4a6be037",
+   "receipt": "b6b5f3f1-338b-8807-bab8-1b1b8892bd16",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#8",
@@ -3061,7 +3061,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "fffb8620-7c84-84b1-969d-bd075d2a7f2d",
+   "receipt": "d5725082-8252-89e8-bab6-76bd8f5b1a11",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#9",
@@ -3250,7 +3250,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "aba25308-deba-89b2-be54-168208b8db0b",
+   "receipt": "c3c258f3-ae06-887f-b8d7-1ceccb294c3f",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#10",
@@ -3714,7 +3714,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d537b39b-c9a6-88d7-a890-fa2fcbd1b1e4",
+   "receipt": "5a5b9ee9-a617-83b0-b802-416b2b08e6e6",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#11",
@@ -3907,7 +3907,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "c7eb5e66-1d8b-8a7e-af4a-9a1de64f8559",
+   "receipt": "28b1a7f6-f34f-8e4c-85d7-3fc7f259408a",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#12",
@@ -4189,7 +4189,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "baaeb725-3058-8e78-8b96-21fb7bbdc150",
+   "receipt": "8626905e-a230-8b0d-962a-c38124047c2a",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#13",
@@ -4343,7 +4343,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c944c29f-dea6-8c6f-96c5-b8c5a76d99cd",
+   "receipt": "2d77888b-5453-8c6b-99b7-122330d53b15",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#14",
@@ -4536,7 +4536,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "48be3e3f-ac11-8a70-9d3a-e8da157541b9",
+   "receipt": "441bbcbe-924f-8ec2-b533-eeeb50f9b44f",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#15",
@@ -4706,7 +4706,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "1e08a2bf-c012-877e-a07a-41129dd52f61",
+   "receipt": "e0c525b3-3fd5-8ba4-90f4-c1220fc78897",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#16",
@@ -4882,7 +4882,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8315d44a-2a69-8e2b-b0ed-987bc527c0bf",
+   "receipt": "1c75e1f2-e4dd-837d-a78e-a5b5f257bdfc",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#17",
@@ -5074,7 +5074,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "70b17186-f03b-856b-ba62-b46c05107399",
+   "receipt": "e58d5101-c015-85de-ac27-5a5fb51f5267",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#18",
@@ -5575,7 +5575,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "59799252-561b-8c11-91eb-f5098a4f8172",
+   "receipt": "f94a7a52-9f20-8445-854f-6128da7b13e7",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#19",
@@ -6218,7 +6218,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "a77ea620-6b82-860d-9e57-0a0ed20d421b",
+   "receipt": "ddf323f5-fbf2-8ab8-82b9-a961d2d53949",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#20",
@@ -6511,7 +6511,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ed442856-34f7-8f99-937e-a03d860b78ac",
+   "receipt": "97e3815c-daf0-825e-b998-6a4c39dddd6e",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#0",
@@ -6522,6 +6522,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -6882,7 +6888,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "45dafdcb-72c7-842b-bbd7-5842d3bc515b",
+   "receipt": "1c82118d-b0ab-8a4b-aa23-f5b41105db7e",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#1",
@@ -6893,6 +6899,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -7257,7 +7269,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "98ea9666-a963-8965-b75b-037e7c0c4479",
+   "receipt": "d9e03c85-66d0-852b-b853-d5a9bb11aa47",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#2",
@@ -7268,6 +7280,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -7632,7 +7650,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "17a53b81-dd12-85d8-acc8-ac4408ac8817",
+   "receipt": "60f5dcd7-e4eb-8b70-877b-329c6e47bbe4",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#3",
@@ -7645,6 +7663,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -7988,7 +8012,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "f9615e63-66e6-884b-86f8-ddf439f4ccc3",
+   "receipt": "977f9c75-f087-8f55-a42b-dff3262f9a92",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#4",
@@ -8001,6 +8025,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -8315,7 +8345,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2c620379-792b-8c96-b5e8-309dd7165a98",
+   "receipt": "a51d6360-8c2a-882c-8c1e-0a29cdf396fd",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#5",
@@ -8326,6 +8356,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -8673,7 +8709,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "9b2d66cc-584d-88c6-ac24-baa8365f6edc",
+   "receipt": "f5e6b09b-bb7f-8a02-a134-e8dfaf39e034",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#6",
@@ -8684,6 +8720,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -9011,7 +9053,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2820d8f5-817e-8fc5-8568-29973b4b5296",
+   "receipt": "59f89aaa-d922-8afe-a92d-4c067a546fee",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#7",
@@ -9022,6 +9064,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -9397,7 +9445,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "f7980e1d-e9d8-8e5b-bfdb-ba162e0aefee",
+   "receipt": "bcc67a65-eca0-8cd1-9bbd-26e34ed5ea8b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#8",
@@ -9410,6 +9458,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -9711,7 +9765,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "12723fc7-b575-8690-b607-f5022f701a0e",
+   "receipt": "7e9cb3b0-e918-8675-885c-dda157b93b96",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#9",
@@ -9722,6 +9776,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -10252,7 +10312,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8a1f487a-fe67-828e-919f-f330a30dd6ce",
+   "receipt": "0b373d93-8356-8ca4-98c3-4d7ee8394551",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#10",
@@ -10263,6 +10323,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -10716,7 +10782,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "a70deeb8-4f22-899a-84d1-4637a0207cbd",
+   "receipt": "bd5f3dc6-30a5-85e6-9e3b-f37c812e12a3",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#11",
@@ -10727,6 +10793,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -11282,7 +11354,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "959e76a8-28ab-8694-8e21-82d9b71138e3",
+   "receipt": "c42f4ad9-8f2a-8c0d-911b-f859b7b9e587",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#12",
@@ -11293,6 +11365,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -11579,7 +11657,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "06cb3e8b-04ea-8b8a-8ce7-92f4d800cf4a",
+   "receipt": "c8162b9a-3bab-87fd-8b72-48094f9f0dce",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#13",
@@ -11590,6 +11668,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -11904,7 +11988,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1ecf6ff6-63a8-8125-94a5-674f7b8f9a23",
+   "receipt": "6692dfa3-d805-8850-93b4-81d87a225652",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#14",
@@ -11915,6 +11999,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -12121,7 +12211,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "5f9a47a2-684e-8906-9f81-d6a221b758cf",
+   "receipt": "27fb8b66-3e88-8330-be11-7cb18dea8568",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#15",
@@ -12134,6 +12224,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -12518,7 +12614,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "32fc3057-286a-87c5-8c25-5e9de859a3ed",
+   "receipt": "51329ed2-5c43-8c56-8d0b-5f488799316b",
    "verdictKey": "proof_f59dbc3d",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#16",
@@ -12529,6 +12625,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -12781,7 +12883,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "40699d26-6dc3-8af6-86d5-7b66259b6b5f",
+   "receipt": "094b5f5c-a100-8b04-acb2-c0ea31918a44",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#17",
@@ -12792,6 +12894,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -13110,7 +13218,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ad5fb6e8-60d4-871c-8801-8e9b9410e238",
+   "receipt": "72fc4d16-3f1a-80af-9e2f-5ca84fb7002d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#18",
@@ -13121,6 +13229,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -13692,7 +13806,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "01e8a267-7e7e-8a61-9731-da0bd60d58bd",
+   "receipt": "bdba9143-216e-8b13-8575-e03c6e210c9a",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#19",
@@ -13705,6 +13819,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -14120,7 +14240,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "4072219b-9a74-8dde-8cae-741ad8eeba3d",
+   "receipt": "08a1d36a-2901-8ae5-89c4-24ddc0fd9ae8",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#20",
@@ -14134,6 +14254,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -14496,7 +14622,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "a7665c01-63a9-866a-9ed3-cab31d7584af",
+   "receipt": "1a46277b-beaa-8e14-b641-7e2f0da4b55f",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#21",
@@ -14507,6 +14633,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -15223,7 +15355,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "77572c22-d7c2-8101-88b4-cf3bf28858cd",
+   "receipt": "3d529e16-c433-86d9-b4a2-b317836872da",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#22",
@@ -15234,6 +15366,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -15887,7 +16025,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2753cc90-39ee-8c9f-bf1c-701df22b6af0",
+   "receipt": "14b64f8a-262d-8339-9a10-3d455b2827a7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#23",
@@ -15898,6 +16036,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -16366,7 +16510,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "71846fd8-e588-81c1-bd6a-bf06bb534fb8",
+   "receipt": "748a05a6-7f7a-8694-bc02-0ad25aea68d9",
    "verdictKey": "involution_ef58b583",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#24",
@@ -16382,10 +16526,16 @@
     "involution": "involution_ef58b583",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "03dbd53e-4a28-8ce4-ba57-a8bf62e23bc0"
+     "seal": "ff2bb5b6-8aa2-8d66-880b-cd09e84f3350"
     },
     "missing": [],
     "stands": true
@@ -17038,7 +17188,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b9eb77b2-16d5-8ca7-9863-20a540ed8a5b",
+   "receipt": "4b78a68a-5c44-8475-b60c-27baa899466a",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#25",
@@ -17049,6 +17199,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -17438,7 +17594,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c7c0e1b6-52b7-8a03-b75b-e9157c7dae54",
+   "receipt": "ae97a4a8-6469-82f1-83fe-85093af449d2",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#26",
@@ -17449,6 +17605,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -18053,7 +18215,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "cd8e46cb-032c-8f2f-8cf3-a0af77f82d6e",
+   "receipt": "9ac32608-1a4c-8283-937c-55d087ca6aa5",
    "verdictKey": "involution_b13fd37a",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#27",
@@ -18064,10 +18226,16 @@
     "involution": "involution_b13fd37a",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "46150015-7ebc-8d76-9fe3-c0e78de249c5"
+     "seal": "aee0cfe6-a42c-8516-b13e-9841b94a37bd"
     },
     "missing": [],
     "stands": true
@@ -18876,7 +19044,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "f1168051-14cb-85d4-9347-3326eace3dad",
+   "receipt": "4cd6d817-5540-8ffe-8722-dc5476cb13ed",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#28",
@@ -18887,6 +19055,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -19033,7 +19207,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "9ab6e7f2-16fb-85c0-ae8c-5bd474d053fd",
+   "receipt": "3e901e83-1a9a-80e8-a5dc-25f606492bf7",
    "verdictKey": "involution_2d552f1f",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#29",
@@ -19044,10 +19218,16 @@
     "involution": "involution_2d552f1f",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "80e651b5-084d-8d92-a451-1dec7c1e04e1"
+     "seal": "855b672a-c826-8d21-9df6-1814fb1095e9"
     },
     "missing": [],
     "stands": true
@@ -19152,7 +19332,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "58d9ec73-6e12-8d4c-9f96-f52c6188735c",
+   "receipt": "4ceca513-a4f0-87eb-bd18-32b7c6e8c368",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#30",
@@ -19163,6 +19343,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -19344,7 +19530,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "96d67663-206f-88c3-8dd4-6d0029e98049",
+   "receipt": "57cd9db7-6978-8d71-97d0-955a02b68cd4",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#31",
@@ -19355,6 +19541,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -19462,7 +19654,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "1ce9ade1-de55-8e11-a11a-2b62bbea7854",
+   "receipt": "0fb15d8f-c3f3-86c1-a9ed-a8ac5384f2a3",
    "verdictKey": "involution_e92de628",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#32",
@@ -19473,10 +19665,16 @@
     "involution": "involution_e92de628",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "3ea6893d-79b6-8051-b668-7037ea1cd0be"
+     "seal": "d01bc769-804d-8ef3-8418-7d23ad155a34"
     },
     "missing": [],
     "stands": true
@@ -19555,7 +19753,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "5e3fadf5-7360-8fb5-94c0-c72e04b115b1",
+   "receipt": "36d8eb8c-a901-8c26-be34-276fa0fd71a7",
    "verdictKey": "involution_83b7cc65",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#33",
@@ -19566,10 +19764,16 @@
     "involution": "involution_83b7cc65",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "f40db431-0aa5-87ae-b94e-e13f2a700a60"
+     "seal": "7b585256-3251-834b-b1aa-ce0e279ea105"
     },
     "missing": [],
     "stands": true
@@ -19789,7 +19993,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "506c1e53-c65b-8e2d-a7d5-ee722f647981",
+   "receipt": "23401297-3772-89c1-8907-560c5fc91758",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#34",
@@ -19800,6 +20004,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -20038,7 +20248,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "a58b1452-2816-893a-81f2-fcefbb620796",
+   "receipt": "81bc242c-a329-88c2-a3a2-fa753d5da87e",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#35",
@@ -20052,6 +20262,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -20238,7 +20454,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "563dc8c9-7cfa-86b6-9664-f3034c3f3522",
+   "receipt": "d27f864a-08d9-8cd1-9d18-3a31cdc4dbd8",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#36",
@@ -20249,6 +20465,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -20343,7 +20565,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c10d6bde-7b19-8609-af5e-03aa278a8b21",
+   "receipt": "fbb873eb-47b1-8e00-b0c0-befc2daedecf",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#37",
@@ -20354,6 +20576,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -20434,7 +20662,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "93268432-ecb2-88e0-b908-12e3f29190c8",
+   "receipt": "1e94ee5d-88ff-8aa9-a838-71f8afcba985",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#38",
@@ -20445,6 +20673,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -20895,7 +21129,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "210e76a2-c977-831a-83cc-7782340e919d",
+   "receipt": "405a5769-edf3-8ddb-b5fa-122fd2c87b33",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#39",
@@ -20906,6 +21140,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -21502,7 +21742,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "9fa6a9a1-1a1a-88ad-bebc-28939335cc74",
+   "receipt": "ba86c981-8c78-8cc3-9965-af46182bce3b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#40",
@@ -21513,6 +21753,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -22236,7 +22482,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7dd99eb5-15a1-8146-b8df-9ada46b8f6d7",
+   "receipt": "8a698e30-147d-8b81-bfd8-76db89637b4d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#41",
@@ -22247,6 +22493,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -22951,7 +23203,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "05b906b9-f940-854f-b9b8-8da30e626d90",
+   "receipt": "0e0ff77a-776b-8d52-9013-07677dd75795",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#42",
@@ -22964,6 +23216,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -23480,7 +23738,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c266d714-f154-89c1-8160-185cb5b42842",
+   "receipt": "1e88945b-91f1-8f1f-86ee-5a595f62e851",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#43",
@@ -23491,6 +23749,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -23883,7 +24147,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2761f7d3-ea15-8f27-9e27-369c7b3b17d4",
+   "receipt": "dd10a806-a553-8034-89ca-eb5e82c5501f",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#44",
@@ -23894,6 +24158,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -24281,7 +24551,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3e2af1b3-0fb1-82dc-bf73-2f5499b3364e",
+   "receipt": "7704ca7d-f202-81e2-a60f-d06860133e84",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#45",
@@ -24292,6 +24562,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -25369,7 +25645,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "a94848b5-b94a-8ca7-8356-6aebdd91f758",
+   "receipt": "9ec9584a-3259-83fa-88ad-40c3544dea4b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#46",
@@ -25380,6 +25656,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -25772,7 +26054,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "76aac0bb-a064-82be-a452-990dc9bd24c2",
+   "receipt": "8c6eeb98-4ea7-8ef2-84ab-04e5e0108101",
    "verdictKey": "involution_90c4f258",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#47",
@@ -25783,10 +26065,16 @@
     "involution": "involution_90c4f258",
     "kernelAccepted": true,
     "involuted": true,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 14,
      "of": 14,
-     "seal": "8c605d5a-a940-8fa2-a624-4ecd42063a14"
+     "seal": "bff46fd8-2425-891f-b30c-35a5187c2fe4"
     },
     "missing": [],
     "stands": true
@@ -26597,7 +26885,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0e621d13-b42e-82b7-958c-e8121fd654cf",
+   "receipt": "290f4c23-3cae-82a9-9dbc-458261cdd3af",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#48",
@@ -26608,6 +26896,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -27792,7 +28086,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "94f456bb-d8b7-807d-b331-a6eb430fca76",
+   "receipt": "2c7288ed-0e09-88ff-b1b0-0852921fb0e7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#49",
@@ -27806,6 +28100,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -28967,7 +29267,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "afdf4549-e84f-81f3-848e-22a4d73235c0",
+   "receipt": "005e25fa-a720-87ac-b432-e11036bf57b2",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#50",
@@ -28981,6 +29281,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -29748,7 +30054,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "0f07e793-c25c-84ae-b5e9-066b4706108a",
+   "receipt": "531abcc0-54da-8a7e-bf23-27de19254fe1",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#51",
@@ -29761,6 +30067,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -30377,7 +30689,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "af5f6549-8b90-8c54-bd88-ae8b42b9e599",
+   "receipt": "10c7c2d9-f5ba-82a5-800b-0c1e80bad5ba",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#52",
@@ -30388,6 +30700,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -30920,7 +31238,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "02d99bb5-22a5-8b97-be59-a790d6ee4eae",
+   "receipt": "0499aa64-bc5f-87c1-97b6-58a275f32f32",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#53",
@@ -30931,6 +31249,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -31267,7 +31591,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ad883831-2a2a-8e96-802e-3e7972de88ae",
+   "receipt": "88c51977-dc75-8335-8d5e-3e1dce20d622",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#54",
@@ -31278,6 +31602,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -32167,7 +32497,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "a1c2274c-ccfe-8d78-a761-08af522cf823",
+   "receipt": "80ce5b00-525e-86fb-900c-3ec163b9d293",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#55",
@@ -32178,6 +32508,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -32913,7 +33249,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "633f6f87-2ea1-8c02-bde8-352475773ead",
+   "receipt": "bfa00bae-960c-8122-ae3c-43af0855c7a1",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#56",
@@ -32924,6 +33260,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -34131,7 +34473,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d32182cd-24bc-8953-a635-db68ca974ef0",
+   "receipt": "7a0769d2-dd65-8df5-acdf-60ab7a905a36",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#57",
@@ -34142,6 +34484,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -35058,7 +35406,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "240dcd06-2842-8007-bc04-a2ec6ebbc8ae",
+   "receipt": "2b3cff06-5bbd-8e3b-9ed0-14840434de21",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#58",
@@ -35069,6 +35417,12 @@
     "involution": null,
     "kernelAccepted": false,
     "involuted": false,
+    "paid": false,
+    "payment": {
+     "signed": 0,
+     "of": 14,
+     "seal": null
+    },
     "witnesses": {
      "signed": 0,
      "of": 0,
@@ -35130,7 +35484,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "6ee699bb-fc7e-868c-be1c-71db22b970d6",
+   "receipt": "399ea42f-ac9c-8f89-a966-c67780fabad2",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#0",
@@ -35276,7 +35630,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "d1d18329-361c-887f-bdb3-6026cde57b71",
+   "receipt": "c5a00a1c-b2bb-8196-ae87-5a7ed7798634",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#1",
@@ -35741,7 +36095,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "b07d14e9-2d79-8640-b6b9-86d58562596f",
+   "receipt": "d4411192-028f-842a-9e57-54dc78ea00ce",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#2",
@@ -35968,7 +36322,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "27a54ca4-45ea-8c6b-abc5-8de73ccf84da",
+   "receipt": "b2e9b2f8-f2d0-85ca-9e06-70d1149651b5",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#3",
@@ -37521,7 +37875,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ac82ad67-a8ad-8eb7-ab19-ed2500f3c664",
+   "receipt": "7dcf834b-893b-85ca-8a61-74ee067fcdc1",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#4",
@@ -39072,7 +39426,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "23fb9e3d-17ce-8dd1-97d1-26b1e00318f4",
+   "receipt": "692c7a10-422d-881c-aa79-097d7853041e",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#5",
@@ -40621,7 +40975,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "873c39b3-e99f-8398-a742-17fe9d58e671",
+   "receipt": "17d1d512-a18b-8276-81e9-87fbf3d6571b",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#6",
@@ -42105,7 +42459,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2a465140-8177-80bd-ae81-397ba4d9b3cb",
+   "receipt": "57269402-e372-8930-9d6d-22dbbd0aac66",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#7",
@@ -43587,7 +43941,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2a17894a-9de3-816f-b079-9d7b81631372",
+   "receipt": "8d540ea9-1c10-89d1-96e0-c6863cbd16ab",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#8",
@@ -44457,7 +44811,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "e51b52fb-5778-851d-9934-9a830e3d47a1",
+   "receipt": "2d4ec12d-e7ed-869b-9be3-53ad0f497fe6",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#9",
@@ -45327,7 +45681,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b757091c-d295-8b5e-ad24-cdf36c0fc74a",
+   "receipt": "80d20240-2e33-8133-9e88-445d095dbf14",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#10",
@@ -46197,7 +46551,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "96d1205f-1526-87af-a4b6-7ae3252dcceb",
+   "receipt": "13358338-24b5-8701-9a30-e46a9f5891fa",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#11",
@@ -47067,7 +47421,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "699f0572-58ac-832f-aa0a-bbeedd9c1573",
+   "receipt": "a1c450da-f6f8-86a7-94a8-d1438b520472",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#12",
@@ -47937,7 +48291,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "cd4884cb-f968-88d1-b831-abc3e6faf64c",
+   "receipt": "6c81b8db-45c3-83c1-9889-8bab9b86ff45",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#13",
@@ -48807,7 +49161,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c0d4f70c-8c47-86b3-8850-7d92cad35d5a",
+   "receipt": "127789a4-6c6d-8da1-a4f8-1c568abb1f83",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#14",
@@ -49677,7 +50031,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "62f3d4f0-cd62-8691-bbfc-2abcb3219854",
+   "receipt": "eb735926-14d7-8cd3-a0a2-3ca6c536d883",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#15",
@@ -50547,7 +50901,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c5600ffc-df48-8c0d-b928-8d44e548f07b",
+   "receipt": "43dd712a-e018-8a5f-bf0f-7dbc5a08e714",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#16",
@@ -51417,7 +51771,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "fd328f82-db94-8e93-8a59-59d5f029c4ef",
+   "receipt": "b575c20a-1e4f-8c3b-ac02-160f8408c413",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#17",
@@ -52287,7 +52641,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ea6631d9-5a04-850a-bb6d-95f76e3f0db6",
+   "receipt": "276ca051-6231-86ff-95bd-e2e7f86cb2d5",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#18",
@@ -53157,7 +53511,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "4653d52f-14e0-8e0f-ac22-3efb8df6e814",
+   "receipt": "b89affb0-56be-89dc-a37a-b8fea2d1054e",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#19",
@@ -54027,7 +54381,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "f5eb63ad-11d8-8f95-b8fd-d9bf75517eb8",
+   "receipt": "7720da29-1db1-8dbd-88c9-fa08c5fb793c",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#20",
@@ -54897,7 +55251,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "30742350-4348-87a9-954f-d91c8385c845",
+   "receipt": "49b74175-0e6b-87a9-96b7-984329bcd771",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#21",
@@ -55767,7 +56121,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8e579d1a-eac3-820d-8e32-0a644429cf2f",
+   "receipt": "2b6956d5-fce6-8c0a-b68c-29760ee0bf6c",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#22",
@@ -56637,7 +56991,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0860a86c-2b55-8a1e-8421-81d9a3c8f426",
+   "receipt": "a0a05af5-4db0-8df6-b2c0-b364deaceedb",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#23",
@@ -57507,7 +57861,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "4efb0140-1ca5-8183-9123-1e3d18f7e7b3",
+   "receipt": "f7cc1937-2c2d-8b8c-9d8f-989862585511",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#24",
@@ -58377,7 +58731,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ed8cf163-97a7-849c-9cdb-24996ef3dfe7",
+   "receipt": "6fef96c7-7c73-85e8-90b8-4f6056b41f61",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#25",
@@ -59247,7 +59601,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "bf40639d-5217-8b8c-935a-afb935da522d",
+   "receipt": "78d21047-cfbe-8dd9-8380-08e84172441f",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#26",
@@ -60312,7 +60666,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0e1dd5af-aaa4-8ddd-8be9-bee49b58f0ff",
+   "receipt": "5a8b99fb-c6c6-8e78-9807-c2d9d252250a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#27",
@@ -61229,7 +61583,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1f9330aa-b3cc-85d7-88c5-f0daffae3b8b",
+   "receipt": "680013b1-a8ae-8302-94c5-9385b0be150e",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#28",
@@ -61962,7 +62316,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "8a24630d-d9c5-8982-98c7-63f6c0274d59",
+   "receipt": "984d8f96-5b0a-8ed0-86e5-9fdf83f4bdd3",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#29",
@@ -61975,13 +62329,13 @@
   "lean/leads.json refuted": 59,
   "lean/wave-queue.json refused": 30
  },
- "docketReceipt": "c44d145e-9371-8b9a-a887-2e7ac4fdd956",
+ "docketReceipt": "d653c1d8-a604-869c-992c-1ffa7c46e1f1",
  "inputs": {
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "20756a29-6b5b-866b-bbf4-ffbbe16724a4",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
-  "src/theorems/generated.ts": "e7065dd8-bb9a-8ccc-ab90-359736ad7645",
-  "lean/axioms.json": "38d8e50a-18b5-80ce-a10a-d305ef2b64c3",
+  "src/theorems/generated.ts": "493def33-b39c-8ee5-9ae8-9bd91711222f",
+  "lean/axioms.json": "8037075b-e7c8-8847-a954-3e79fc59f447",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
  "kernel": {
@@ -62029,7 +62383,7 @@
   },
   "orbits_closed_involution": {
    "wing": "VectorEquilibrium.lean",
-   "asked": "99a7eb94-aad9-85d4-85bd-13865313c3f3",
+   "asked": "d1658e41-05ec-8f5c-98a6-2d7cc8896971",
    "fresh": true,
    "axioms": []
   },
@@ -62083,7 +62437,7 @@
   },
   "metatron_seventyeight_lines": {
    "wing": "VectorEquilibrium.lean",
-   "asked": "99a7eb94-aad9-85d4-85bd-13865313c3f3",
+   "asked": "d1658e41-05ec-8f5c-98a6-2d7cc8896971",
    "fresh": true,
    "axioms": []
   },
@@ -62095,7 +62449,7 @@
   },
   "ve_fourteen_faces": {
    "wing": "VectorEquilibrium.lean",
-   "asked": "99a7eb94-aad9-85d4-85bd-13865313c3f3",
+   "asked": "d1658e41-05ec-8f5c-98a6-2d7cc8896971",
    "fresh": true,
    "axioms": []
   },
@@ -62113,13 +62467,13 @@
   },
   "radial_equals_edge": {
    "wing": "VectorEquilibrium.lean",
-   "asked": "99a7eb94-aad9-85d4-85bd-13865313c3f3",
+   "asked": "d1658e41-05ec-8f5c-98a6-2d7cc8896971",
    "fresh": true,
    "axioms": []
   },
   "radial_squares_to_two": {
    "wing": "VectorEquilibrium.lean",
-   "asked": "99a7eb94-aad9-85d4-85bd-13865313c3f3",
+   "asked": "d1658e41-05ec-8f5c-98a6-2d7cc8896971",
    "fresh": true,
    "axioms": []
   },
@@ -62257,5 +62611,5 @@
   }
  },
  "unreceipted": [],
- "seal": "47a5c551-5be0-8802-b91f-b6d208efc20e"
+ "seal": "073301ed-c63c-8a01-a38e-0eac30a69d40"
 }

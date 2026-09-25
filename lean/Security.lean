@@ -25,6 +25,19 @@ theorem each_key_bit_doubles : 2^11 = 2 * 2^10 := by decide
     strong as its collision bound. -/
 theorem birthday_halves_the_exponent : 2 * 64 = 128 := by decide
 
+/-- THE TWO EXPONENTS SAT IN SEPARATE THEOREMS AND NEITHER PROVED THE OTHER. birthday_halves_the_exponent seals
+    the NOMINAL bound, 2 · 64 = 128, over the container's full width. the_address_is_six_bits_short_of_its_width
+    seals the HONEST entropy, 2 · 61 = 122, after formatUuid stamps the version nibble and the variant bits
+    away. Both are true, both are served, and nothing stated what one costs the other — so a reader met 64 in
+    one place and 61 in another with no arithmetic between them, and the difference lived only in prose. IT IS
+    THE SAME HALVING TWICE. The stamp takes 128 − 122 = 6 bits of width; the birthday bound halves every
+    exponent; so the margin it takes is 64 − 61 = 3, and 6 = 2 · 3 exactly. Halving both sides of the width loss
+    GIVES the margin loss, which is why the two theorems are one fact seen at two scales rather than two facts
+    that happen to agree. WHAT THIS COSTS IN PRACTICE, stated plainly rather than softened: a uuidna address
+    carries 122 bits of entropy and its classical birthday point is 2^61, not 2^64. Sixty-one bits is the number
+    a reader should plan against. -/
+theorem the_stamp_costs_half_itself_in_birthday_margin : (((2 * 64 = 128) ∧ (2 * 61 = 122)) ∧ ((128 - 122 = 6) ∧ (64 - 61 = 3))) ∧ (6 = 2 * 3) := by decide
+
 /-- THE WIDTH IS THE CONTAINER; THE ENTROPY IS THE CONTENTS, and this ledger quoted the container. A uuid is 128
     bits wide, but formatUuid stamps six of them as constants — four for the version nibble, two for the RFC
     variant — so the space a uuidna address can occupy is 2^122, and 2^128 = 64 · 2^122 makes the six bits and

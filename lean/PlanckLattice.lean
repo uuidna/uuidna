@@ -75,7 +75,7 @@ theorem every_planck_ratio_cancels_the_quantum_of_action : planckPairs.all (fun 
 
 /-- CLAIMED: the gravitational exponents are +1 for length and time and -1 for mass and temperature — two
     classes of two, which is the partition every other fact here turns on. -/
-theorem the_lattice_splits_into_two_gravity_classes : planckVectors.map (fun v => (v.drop 1).headD 0) = [1, -1, 1, -1] := by decide
+theorem the_lattice_splits_into_two_gravity_classes : (planckVectors.map (fun v => (v.drop 1).headD 0) = [1, -1, 1, -1]) ∧ (planckVectors.all (fun v => v.length == planckAxes.length) = true) := by decide
 
 /-- CLAIMED: of the 6 pairwise ratios exactly 2 lose BOTH constants — and they are precisely the two pairs
     inside a gravity class: length over time, and temperature over mass. -/

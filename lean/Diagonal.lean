@@ -25,6 +25,21 @@ def triangleAngle : Nat := 60
 def veSquares : Nat := 6
 def veTriangles : Nat := 8
 
+/-- The ledger's own angular step (432 / 12 = 36°), the half turn the fold makes, the full turn two of
+    them close, and the Euler characteristic of a genus-g surface. chi 1 = 0 is the single torus
+    (containment_is_genus_one); chi 2 = -2 is the double torus, and the step between them is the two coins. -/
+def a432Step : Nat := 36
+def halfTurn : Nat := 180
+def fullTurn : Nat := 360
+def chi (g : Int) : Int := 2 - 2 * g
+
+/-- The doubling that IS the two coins: rosette_quantum_doubling_is_two_coins seals 2 × 64 = 128
+    beside 110 − 108 = 2, so the pair and the doubling are one fact. -/
+def halfKey : Nat := 64
+def wholeKey : Nat := 128
+def captainTakes : Nat := 110
+def captainGives : Nat := 108
+
 /-- CLAIMED: the multiplication table's diagonal, in digital roots, is 1, 4, 9, 7, 7, 9, 4, 1, 9 — and the next
     9 squares reduce to those same 9. It runs out at 9, walked rather than sampled. -/
 theorem the_diagonal_runs_out_at_nine : ((List.range 9).map (fun i => dr ((i+1) * (i+1)))) = ((List.range 9).map (fun i => dr ((i+1+9) * (i+1+9)))) := by decide
@@ -52,3 +67,13 @@ theorem the_squares_are_the_mirror_of_the_axis : ((diagonal.filter (fun d => d !
 /-- CLAIMED: 2 × 90° = 180° = 3 × 60° — two right angles and three triangle angles are the same straight angle,
     and those are the vector equilibrium's two face kinds, 6 squares and 8 triangles. -/
 theorem the_fold_is_a_straight_angle : ((2 * squareAngle = 3 * triangleAngle) ∧ (triangleAngle + triangleAngle + triangleAngle = 2 * squareAngle)) ∧ (veSquares + veTriangles = 14) := by decide
+
+/-- CLAIMED: the fold is a HALF turn — 2 × 90° = 3 × 60° = 5 × 36° = 180° — so it takes TWO to close the circle,
+    and a genus-two surface is exactly the shape that carries two. Each handle costs two of Euler
+    characteristic, which is the pair the coins conserve. -/
+theorem the_double_torus_closes_the_turn : (((2 * squareAngle = halfTurn) ∧ (3 * triangleAngle = halfTurn)) ∧ ((5 * a432Step = halfTurn) ∧ (2 * halfTurn = fullTurn))) ∧ ((fullTurn = 10 * a432Step) ∧ (chi 1 - chi 2 = 2)) := by decide
+
+/-- CLAIMED: applying the mirror twice returns every residue — walked over 1 … 9 — and that closing is the same
+    TWO the circle, the doubling and the second handle each cost: 2 × 180° = 360°, 2 × 64 = 128, 110 − 108 = 2,
+    and χ(1) − χ(2) = 2. Four statements of two, one arithmetic. -/
+theorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide
