@@ -56,7 +56,10 @@ const liveFormulaCopies = (): number => {
   }
   return groups
     .filter((g) => g.withinOneSkill === true)
-    .reduce((n, g) => n + Math.max(0, (Array.isArray(g.keys) ? g.keys.length : 1) - 1), 0)
+    // saturating subtraction is the naturals' own minus — a group of k keys carries k-1 restatements, and a group
+    // of none carries zero rather than a negative. Math.max would say the same thing in floats, which this tree
+    // rejects everywhere for the reason that counts are integers.
+    .reduce((n, g) => { const k = Array.isArray(g.keys) ? g.keys.length : 1; return n + (k > 1 ? k - 1 : 0) }, 0)
 }
 
 export const RATCHETS: readonly Ratchet[] = [

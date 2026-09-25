@@ -1,12 +1,13 @@
 // formula-duplication — THE SAME FORMULA, SEALED MORE THAN ONCE, FOUND BY ALGEBRA RATHER THAN BY NAME.
 //
 // src/proposition-address.ts already merges statements that differ only in SPELLING — spacing, `==` for `=` — and
-// folds 71076 keys to 70993 propositions. That is the right key for publication and it is blind to the case the
+// folds the key count to a smaller proposition count (theorems().length against propositionAddress's distinct set). That is the right key for publication and it is blind to the case the
 // captain pointed at: two statements that are the same FORMULA written in a different order. `(2*5) % 9 = 1` and
 // `(5*2) % 9 = 1` are one arithmetic fact and two propositions under that key, because the normaliser compares
 // characters and multiplication does not care about them.
 //
-// MEASURED, BEFORE ANY OF THIS WAS WRITTEN: of 71076 sealed statements, 1529 are pure formulas (the rest are
+// MEASURED, BEFORE ANY OF THIS WAS WRITTEN (HISTORY — the counts below were the reading that day, and the live
+// figures come from theorems() and formulas()): of the sealed statements, about fifteen hundred are pure formulas (the rest are
 // programs — list walks, string literals, decidable predicates). Those 1529 hold 1324 distinct ALGEBRAIC forms, so
 // 144 forms carry 349 statements between them and 205 statements are restatements of a form already sealed.
 //
@@ -25,7 +26,7 @@
 //
 // IT REPORTS AND RANKS; IT DELETES NOTHING. A sealed theorem is a published record, several carry DOIs, and the
 // captain's rule is that no one withdraws a settlement. What a census owes is the truth about how many distinct
-// facts the ledger holds — 71076 keys is not 71076 formulas — and which copies a future wing should cite instead
+// facts the ledger holds — the key count is not the formula count — and which copies a future wing should cite instead
 // of re-sealing.
 import { toUuid, merkleFold } from './address.js'
 import { classify, formulaSource, parseFormula, type Node, type BinOp } from './formula.js'
@@ -168,7 +169,12 @@ export function duplicationCensus(sealed: readonly Sealed[]): DuplicationCensus 
       const glosses = g.keys.map((k) => String(k.name ?? ''))
       let least = 1
       for (let i = 0; i < glosses.length; i += 1) {
-        for (let j = i + 1; j < glosses.length; j += 1) least = Math.min(least, glossOverlap(glosses[i]!, glosses[j]!))
+        for (let j = i + 1; j < glosses.length; j += 1) {
+          // the smaller of two overlaps is a comparison, not a library call — Math.* is float arithmetic and these
+          // are counts, which is why this tree rejects it with no exemption anywhere
+          const o = glossOverlap(glosses[i]!, glosses[j]!)
+          if (o < least) least = o
+        }
       }
       return {
         address: toUuid('formula:' + g.canonical),

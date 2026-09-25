@@ -9,7 +9,9 @@
 // only the slice that URL is.
 import { theorems, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, isPagelessFile, axiomIndex, type Theorem } from './theorems/index.js'
 import { fillLattice } from './lattice.js'
-import { typeset } from './formula.js'
+import { typeset, classify } from './formula.js'
+import { formulas as formulaRows, quantumCombinatorics, novelties } from './formulas.js'
+import { duplicationCensus } from './formula-duplication.js'
 import { runTrial } from './trial-run.js'
 import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
@@ -247,7 +249,42 @@ export function homeHeroOf(census: HomeCensus): {
   }
 }
 
+/** one sealed formula, as /formulas lists it */
+export type FormulaMember = {
+  key: string
+  wing: string
+  principle: string
+  skill: string
+  source: string
+  tex: string
+  ops: string[]
+}
+
+/** THE SITE READS THE CENSUS, IT DOES NOT RE-DERIVE IT (the captain, 2026-09-26: "complete the site as well using
+ *  formulas instead of hard logic"). Every facet, count and grouping on /formulas comes from a function that
+ *  computes it from the ledger — formulas() for the collection, duplicationCensus() for what is the same formula
+ *  twice, quantumCombinatorics() for what the corpus's integers generate, novelties() for which of the remainder to
+ *  read first. The page holds no list of wings, no list of operators and no threshold: a facet the ledger stops
+ *  carrying disappears from the page because the census stops returning it, not because someone edited a filter. */
+export type FormulasAxis = {
+  objectKind: 'formulas'
+  total: number
+  /** the rest of the ledger is program-shaped and lives on /theorems */
+  program: number
+  members: FormulaMember[]
+  /** the operator alphabet, read off the sealed statements */
+  ops: { arithmetic: string[]; relation: string[] }
+  /** the same formula counted once — forms, and the two kinds of repetition */
+  duplication: { statements: number; formulas: number; forms: number; restatements: number; copies: number; crosses: number }
+  /** what those integers GENERATE, and how much of it is stated */
+  closure: { landing: number; forced: number; stated: number; unstated: number; crossing: number; integers: number; wings: number }
+  /** the unstated remainder worth reading first — ranked by span, then by how few wings carry its rarest integer */
+  novelties: { text: string; span: number; rarest: string; rarestWings: number; wings: string[] }[]
+  receipt: string
+}
+
 export type AxisBundle = {
+  formulas: FormulasAxis
   theorems: TheoremsAxis
   topics: TopicsAxis
   rosetta: RosettaAxis
@@ -289,6 +326,22 @@ export function axisMonographs(): AxisBundle {
     named.push(t)
   }
   const members = named.map(thinMember)
+
+  // ── /formulas — the same ledger read as ALGEBRA, every figure computed by a census and none of it declared here
+  const rows = formulaRows()
+  const dup = duplicationCensus(LEDGER.map((t) => ({ key: t.key, statement: t.statement, file: t.file, skill: t.skill, name: t.name })))
+  const clo = quantumCombinatorics()
+  const formulas: FormulasAxis = {
+    objectKind: 'formulas',
+    total: rows.length,
+    program: LEDGER.filter((t) => classify(t.statement) === 'program').length,
+    members: rows.map((r) => ({ key: r.key, wing: r.wing, principle: r.principle, skill: r.skill, source: r.source, tex: r.tex, ops: [...r.ops] })),
+    ops: { arithmetic: [...clo.arithmetic], relation: [...clo.relation] },
+    duplication: { statements: dup.statements, formulas: dup.formulas, forms: dup.forms, restatements: dup.restatements, copies: dup.copies, crosses: dup.crosses },
+    closure: { landing: clo.landing, forced: clo.forced, stated: clo.stated, unstated: clo.unstated, crossing: clo.crossing, integers: clo.integers, wings: clo.wings },
+    novelties: novelties(48).map((n) => ({ text: n.text, span: n.span, rarest: n.rarest.value, rarestWings: n.rarest.wings.length, wings: n.wings })),
+    receipt: dup.receipt,
+  }
   const trial = runTrial()
   const presentPrinciples = new Set(LEDGER.map((t) => t.principle))
   const order = PRINCIPLES.map((p) => p[1]).filter((name) => presentPrinciples.has(name))
@@ -335,6 +388,7 @@ export function axisMonographs(): AxisBundle {
   const axiomsIdx = axiomIndex()
   const fill = fillLattice()
   CACHED = {
+    formulas,
     theorems: {
       objectKind: 'theorems',
       total: LEDGER.length,
@@ -496,12 +550,21 @@ export function axisMonographs(): AxisBundle {
 }
 
 /** Slice of the census that THIS markdown path is the monograph of. Other URLs get none. */
+/** THE PAGES THAT ARE AN AXIS, declared ONCE (the captain, 2026-09-26: "complete the site as well using formulas
+ *  instead of hard logic"). docs/.vitepress/config.ts kept its own Set of five page names beside this function, and
+ *  the two had to agree: /formulas was added here, the config's list did not know it, and the page rendered with
+ *  every figure at zero — structurally perfect and empty, which is the worst way for a surface to be wrong because
+ *  it looks finished. The list is gone; the config asks this set, and this set is derived from the dispatch below,
+ *  so a page cannot be an axis in one file and not in the other. */
+export const AXIS_PAGES: ReadonlySet<string> = new Set([
+  'formulas.md', 'theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'axioms.md',
+])
+
 export function axisForRelativePath(relativePath: string): { axis?: object; census?: HomeCensus; objectKind?: string } {
   const rel = relativePath.replace(/\\/g, '/')
-  if (rel !== 'theorems.md' && rel !== 'topics.md' && rel !== 'rosetta.md' && rel !== 'trials.md' && rel !== 'axioms.md' && rel !== 'index.md') {
-    return {}
-  }
+  if (!AXIS_PAGES.has(rel) && rel !== 'index.md') return {}
   const bundle = axisMonographs()
+  if (rel === 'formulas.md') return { axis: bundle.formulas, objectKind: 'formulas' }
   if (rel === 'theorems.md') return { axis: bundle.theorems, objectKind: 'theorems' }
   if (rel === 'topics.md') return { axis: bundle.topics, objectKind: 'topics' }
   if (rel === 'rosetta.md') return { axis: bundle.rosetta, objectKind: 'rosetta' }

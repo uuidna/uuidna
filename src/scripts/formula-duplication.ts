@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // formula-duplication — how many distinct FORMULAS the ledger holds, and which copies a new wing should cite.
 //
-// 71076 keys is not 71076 formulas. src/proposition-address.ts folds the keys that differ only in spelling (71076 →
-// 70993); this folds the ones that differ only by the order of a commutative operator, which that key cannot see.
+// The key count is not the formula count. src/proposition-address.ts folds the keys that differ only in spelling;
+// this folds the ones that differ only by the order of a commutative operator, which that key cannot see BY
+// CONSTRUCTION — it addresses the statement's normalised TEXT, and `a + b` and `b + a` are different text.
 //
 // THE TWO CLASSES GET OPPOSITE TREATMENT, and separating them is the whole value of the census:
 //   COPIES  — one skill sealing one form repeatedly. `(2*5) % 9 = 1` is sealed five times by `z9-ring` across
@@ -24,7 +25,11 @@ const c = duplicationCensus(theorems().map((t) => ({
 
 console.log('formula-duplication — the ledger by FORMULA rather than by key\n')
 console.log(`  ${c.statements} sealed statements · ${c.formulas} are pure formulas · ${c.forms} distinct algebraic forms`)
-console.log(`  ${c.restatements} restatements (${(100 * c.restatements / Math.max(1, c.formulas)).toFixed(1)}% of the formulas) across ${c.groups.length} groups`)
+// the percentage is reported as two integers rather than a float: Math.* is rejected tree-wide, and a share of a
+// count is exactly a ratio of counts. A zero denominator prints the count alone rather than dividing by a guarded 1.
+console.log(c.formulas > 0
+  ? `  ${c.restatements} restatements (${c.restatements} of ${c.formulas} formulas) across ${c.groups.length} groups`
+  : `  ${c.restatements} restatements across ${c.groups.length} groups (no formulas counted)`)
 console.log(`  ${c.copies} COPIES (one skill, sealed more than once) · ${c.crosses} CROSSES (two skills, two meanings, one identity)\n`)
 
 console.log('  SHARED — two domains needing one identity. These are crosses; read them, do not delete them.')

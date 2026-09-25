@@ -14,7 +14,11 @@ import { monographFaceOf } from '../../src/hexagram.js'
 const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
 
 /** Axis listing monographs — census only; never stamp seoAddress as a hex face. */
-const AXIS_LISTINGS = new Set(['theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'axioms.md'])
+// THE AXIS PAGES ARE THE CENSUS'S OWN DECLARATION, not a second list here. This was a Set of five names that had to
+// stay in step with axisForRelativePath, and it did not: /formulas dispatched there, was absent here, and rendered
+// with every figure at zero — a page that looks finished and carries nothing. Imported lazily inside the hook for
+// the same reason the census is: the bundle must not carry it.
+let AXIS_LISTINGS: ReadonlySet<string> | null = null
 
 /** Wrapping walk next for THIS route — baked into page data so Layout never imports the census. */
 let WALK: Map<string, { text: string; link: string }> | null = null
@@ -265,6 +269,7 @@ export default defineConfig({
     }
     // Hex face for object monographs (theorem/publication params) — not home, not axis listings, not seoAddress alone.
     const listingPath = pageData.relativePath.replace(/\\/g, '/')
+    if (!AXIS_LISTINGS) AXIS_LISTINGS = (await import('../../src/axis-monograph.js')).AXIS_PAGES
     const isAxisListing = AXIS_LISTINGS.has(listingPath)
     if (fm.layout !== 'home' && !isAxisListing) {
       const address = String(p?.address || fm.address || '')
