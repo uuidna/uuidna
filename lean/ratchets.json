@@ -19,6 +19,15 @@
       "measureAddress": "17af0002-cf10-84f2-b31c-c51c8d0cd8e5"
     },
     {
+      "prefix": "formula_copy_debt",
+      "reading": 190,
+      "direction": "shrink",
+      "unit": "restatements",
+      "cause": "First reading, from the first census of the ledger BY FORMULA rather than by key. src/proposition-address.ts folds statements that differ only in spelling (71076 keys to 70993 propositions) and cannot see two statements that are one formula written in a different order. Measured over an algebraic normal form quotienting commutativity, associativity where it holds, and the mirror symmetry of the order relations, and nothing else: 1530 of 71076 sealed statements are pure formulas, they hold 1325 distinct forms, and 205 are restatements. 190 of those sit inside ONE skill and are counted here; the other 15 are forms that two different skills arrive at with different glosses, which are crosses and are deliberately excluded. The largest single copy is the mod-9 multiplication table, sealed five times by z9-ring across Core.lean, Ring.lean and Vortex.lean under three names carrying the same gloss.",
+      "evidence": "the live measure RATCHETS[formula_copy_debt].live(), which reads lean/formula-duplication.json (written by scripts/formula-duplication.ts) and THROWS rather than returning 0 when the census is absent, because zero is what a clean ledger reports and a measure that returns it while knowing nothing satisfies the ratchet at the moment it is blind. Falsified in src/formula-duplication.test.ts, which drives the normal form at the over-merge boundary: 2-3 must not meet 3-2, 8/4 must not meet 4/8, 2^3 must not meet 3^2.",
+      "measureAddress": "f52e0f8c-fa2d-867b-8d63-3da1df925ddd"
+    },
+    {
       "prefix": "mcp_tool_debt",
       "reading": 100,
       "direction": "shrink",

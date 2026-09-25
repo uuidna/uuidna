@@ -32,6 +32,33 @@ const liveToolDebt = (): number => {
   return (declared.aggregateOnly ?? []).filter((n) => TOOL_NAMES.includes(n)).length
 }
 
+/**
+ * FORMULA COPIES — one skill sealing one algebraic form more than once.
+ *
+ * Measured at 129 groups covering 205 restatements of 1530 pure formulas: `(2*5) % 9 = 1` is sealed five times by
+ * `z9-ring` across Core.lean, Ring.lean and Vortex.lean under three names with the same gloss on each. It shrinks by
+ * citing rather than re-sealing, never by deletion — a sealed theorem is a published record.
+ *
+ * AN ABSENT ARTEFACT THROWS RATHER THAN READING ZERO, which is the whole difficulty with a debt measured from a
+ * file. Zero is what a perfect ledger reports, so a measure that returns it when the census was never taken makes
+ * the ratchet look satisfied at exactly the moment it knows nothing — the vacuous-success class, and the one this
+ * tree keeps finding. `liveToolDebt` above reads its baseline the same way and cross-checks against a live list;
+ * this cross-checks the recorded formula count against the ledger it claims to describe.
+ */
+const liveFormulaCopies = (): number => {
+  const c = JSON.parse(rd('lean/formula-duplication.json')) as {
+    formulas?: number
+    groups?: { withinOneSkill?: boolean; keys?: unknown[] }[]
+  }
+  const groups = c.groups
+  if (!Array.isArray(groups) || typeof c.formulas !== 'number' || c.formulas === 0) {
+    throw new Error('ratchets: lean/formula-duplication.json is absent or empty — run `npm run formula-duplication`; an untaken census is not a debt of zero')
+  }
+  return groups
+    .filter((g) => g.withinOneSkill === true)
+    .reduce((n, g) => n + Math.max(0, (Array.isArray(g.keys) ? g.keys.length : 1) - 1), 0)
+}
+
 export const RATCHETS: readonly Ratchet[] = [
   {
     name: 'bare modal claims (the impossibility debt)',
@@ -48,6 +75,14 @@ export const RATCHETS: readonly Ratchet[] = [
     unit: 'hundredths of a byte per tool',
     live: liveWireRate,
     measureAddress: measureAddress(liveWireRate),
+  },
+  {
+    name: 'one skill sealing one formula more than once',
+    prefix: 'formula_copy_debt',
+    direction: 'shrink',
+    unit: 'restatements',
+    live: liveFormulaCopies,
+    measureAddress: measureAddress(liveFormulaCopies),
   },
   {
     name: 'MCP tools with no dedicated test',
