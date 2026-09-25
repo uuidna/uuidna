@@ -18,6 +18,8 @@ import { proseProvenanceGaps } from '../prose-provenance.js'
 import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
+import { API_LEAD_READERS } from '../api-leads.js'
+import { docketOf, kernelCheckOf, treeFiles, settlementOf } from './trial-refusals.js'
 import { leakGaps } from './leak-scan.js'
 import { underreachGaps, claimBalanceGaps } from '../underreach.js'
 import { ledgerDrainGaps } from './audit-ledger-drain.js'
@@ -74,6 +76,48 @@ const originNext =
       ? `npm run search:trial:all   # invert seat runSequence(${seq.seed}).reflection=${seq.reflection}`
       : `npm run develop   # double seat runSequence(${seq.seed}).reflection=${seq.reflection}`
 
+// ── THE TWO QUEUES `next` COULD NOT SEE ──────────────────────────────────────────────────────────────────────────
+// The captain, 2026-09-26: "why next is not fused yet to autonomous coverage of all leads and news?" Because every
+// term in the waterfall below was a GATE, and leads and news are QUEUES. A waterfall names a queue only if something
+// puts the queue in it, and nothing did: the court's settlement orders reached the Stop hook alone, and the API
+// readings reached `npm run outward` alone, which no term named. So a tree could be green, clean, pushed and fully
+// reconciled while 53 orders and every unread API disagreement sat untouched — and `next` would answer with the
+// release seat, which is the one thing that must not happen over an open lead.
+//
+// BOTH COUNTS WERE ALREADY COMPUTABLE, which is what makes this a fuse and not a feature: settlementOf already
+// decides whether an order stands, and API_LEAD_READERS already turns each saved API reading into open leads. They
+// are read here rather than re-derived, and a reading that is absent counts as UNREAD rather than as zero — an
+// absent measurement is not a clean one, which is the same distinction release-live draws about the network.
+const openOrders = ((): number => {
+  try {
+    const ok = kernelCheckOf().ok
+    const files = treeFiles()
+    // the same file trial-refusals reads, read the same way — an absent seal file is {} there and is {} here, so
+    // the two surfaces cannot disagree about whether a verdict is signed
+    let seals: Record<string, never[]> = {}
+    try { seals = JSON.parse(readFileSync(join(ROOT, 'lean', 'witness-seals.json'), 'utf8')) } catch { seals = {} }
+    return docketOf().filter((d) => {
+      const st = settlementOf(d, ok, files, t, seals)
+      return st !== null && !st.stands
+    }).length
+  } catch { return -1 }              // -1 is UNREAD, never 0 — the court could not be asked
+})()
+
+const news = ((): { open: number; unread: number } => {
+  let open = 0, unread = 0
+  for (const r of API_LEAD_READERS) {
+    let json: unknown | null = null
+    try { json = JSON.parse(readFileSync(join(ROOT, r.path), 'utf8')) } catch { json = null }
+    const reading = r.of(json)
+    // SourceReading's field is `reached`, not `read`. src/leads.ts chose that word deliberately — its comment says
+    // `reached: false` "is a fact about the reader, never about the tree" — and the distinction is the whole point
+    // of counting unread separately from open.
+    if (reading.reached === false) unread += 1
+    open += reading.open.length
+  }
+  return { open, unread }
+})()
+
 // THE NEXT COMMAND — the one thing to run, decided by the same order the gate applies, so nobody has to guess
 const next =
   dirtyFinders.length ? `npm run guard   # ${dirtyFinders.map(([n, c]) => `${n}:${c}`).join(' ')} — each finding carries its exact fix`
@@ -87,6 +131,14 @@ const next =
   : behind > 0 && ahead > 0 ? 'git pull --no-rebase   # diverged; the derived layer merges by recomputation (merge=derived)'
   : behind > 0 ? 'git pull --rebase'
   : ahead > 0 ? 'git push origin main'
+  // ── AND ONLY THEN THE QUEUES. A red gate blocks everything, so the gate terms come first; an unpushed commit is
+  // cheap to clear, so sync comes next. What follows is the work itself, and it precedes the release seat because
+  // release-cut's own first gate is "NO RELEASE OVER AN OPEN LEAD" — naming the seat while an order stands would
+  // hand the operator a command that refuses.
+  : openOrders > 0 ? `npm run x -- trial-refusals --orders   # ${openOrders} settlement(s) no wave has investigated — claim, then send the 2x7`
+  : openOrders < 0 ? 'npm run x -- trial-refusals   # the court could not be asked — its record does not recompute'
+  : news.unread > 0 ? `npm run outward   # ${news.unread} of ${API_LEAD_READERS.length} API readings are UNREAD — an absent measurement is not a clean one`
+  : news.open > 0 ? `npm run x -- api-leads   # ${news.open} open lead(s) from the public APIs — the world disagrees with a sealed claim`
   : originNext
 
 // the LAWS the desk used to hand-query in a CI shell with `node -e` — folded here so the same answer serves the
@@ -113,6 +165,8 @@ const state = {
   // asked, how many are clean, and the name-and-number of every one that is not. Nothing is hidden — a gap is
   // named exactly as before, and a reader who wants the roster has `npm run guard`.
   finders: { asked: finders.length, clean: finders.length - dirtyFinders.length, gaps: Object.fromEntries(dirtyFinders) },
+  court: { openOrders, docket: docketOf().length },
+  news: { open: news.open, unread: news.unread, sources: API_LEAD_READERS.length },
   next,
 }
 // --assert makes it a GATE as well as an answer: CI asks the same question the operator does, and a broken law

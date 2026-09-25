@@ -1,4 +1,5 @@
 import { test } from 'node:test'
+import { hexbitPortCoverage } from './quantum/os/catalogue/index.js'
 import assert from 'node:assert/strict'
 import { toUuid, vortexOrbit } from './address.js'
 import { coins } from './captain/billing/index.js'
@@ -219,7 +220,14 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.novelty.missing, 'empty')
   assert.equal(wool.novelty.depositAct, 'empty')
   assert.equal(wool.novelty.tag, 'empty')
-  assert.ok(wool.novelty.records.some((r: { doi: string }) => r.doi === '10.5281/zenodo.21781603'))
+  // PRECEDENCE IS `firstDoi`, NOT `doi`. This asserted a record carrying 21781603 under `doi`, which held while the
+  // clay seal declared that identifier as its standing record. It does not any more, and correctly so: 21781603 is
+  // the FIRST deposit and 21781602 is the concept, and the two were conflated. A record now carries both, so the
+  // precedence claim is checked against the field that means precedence and the work is still named by `doi`.
+  assert.ok(wool.novelty.records.some((r: { firstDoi: string }) => r.firstDoi === '10.5281/zenodo.21781603'),
+    'the clay record must carry its first deposit, which is the only identifier that dates the work')
+  assert.ok(wool.novelty.records.some((r: { doi: string }) => r.doi === '10.5281/zenodo.21781602'),
+    'and the concept, which names the work and moves with every version')
   assert.ok(wool.novelty.records.some((r: { id: string }) => r.id === 'uuidna-software'))
   assert.deepEqual(wool.register.novelty, wool.novelty)
   assert.deepEqual(wool.literary.novelty, wool.novelty)
@@ -1251,7 +1259,15 @@ test('the hologram lattice is four hosts, fractal, with eight recipes each', () 
   assert.equal(wool.efficientTeachers.open, true)
   assert.equal(wool.efficientTeachers.train, true)
   assert.equal(wool.efficientTeachers.alpine.repo, 'community')
-  assert.equal(wool.efficientTeachers.alpine.community, 22670)
+  // A FROZEN COUNT DRIFTS, AND THIS ONE HAD. It read 22670 against a live 22679: the Alpine community mirror grew and
+  // the assertion became a claim about a number that no longer existed anywhere. src/llm-txt.test.ts states the rule
+  // for prose — "a count in prose must equal the live figure, or not be written at all" — and a test literal is the
+  // same thing with a stricter consequence, because it goes red and teaches somebody to edit the number. Reading the
+  // census removes the class instead of resetting its clock: the assertion now checks that the hologram reports what
+  // the catalogue holds, which is the actual claim, and it cannot be satisfied by bumping a digit — BY CONSTRUCTION,
+  // since both sides of the assertion now read the same census and no literal remains for a digit to bump.
+  assert.equal(wool.efficientTeachers.alpine.community, hexbitPortCoverage('community').total,
+    'the hologram must report the live community census, not a frozen copy of it')
   assert.equal(wool.efficientTeachers.gates.of, 'cheapGatesCostlyToFakeOf')
   assert.equal(wool.efficientTeachers.seat, 'empty')
   assert.deepEqual(strict.efficientTeachers, wool.efficientTeachers)

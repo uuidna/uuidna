@@ -5491,9 +5491,14 @@ export const noveltyOf = () => {
     evidence: 'uuidna_evidence' as const,
     snapshot: 'fillGapsAdvantageSnapshot' as const,
     theorem: 'uuidna_theorem' as const,
+    // A RECORD CARRIES BOTH IDENTIFIERS, because they answer different questions and one field cannot. `doi` is the
+    // concept — what the work IS, resolving to whichever version is current — and `firstDoi` is the earliest
+    // version, which is the only one that carries precedence. The comment above says why `clay` reads the first
+    // deposit; collapsing the two here would make every record either undatable or unable to name the work.
     records: ZENODO_SEALS.filter((s) => s.owned).map((s) => ({
       id: s.id,
       doi: s.standingDoi,
+      firstDoi: s.firstDoi ?? s.standingDoi,
       role: s.role,
       receipt: hop.deposit,
       evidence: 'uuidna_evidence' as const,
