@@ -30,14 +30,70 @@
 // of re-sealing.
 import { toUuid, merkleFold } from './address.js'
 import { classify, formulaSource, parseFormula, type Node, type BinOp } from './formula.js'
+import { corpusAlgebra, forcedArithmetic, applyOp, holds } from './formulas.js'
+
+/** the arithmetic operators the corpus USES whose operands may be swapped without changing the value — measured by
+ *  forcedArithmetic, which probes every ordered pair where both directions are defined and excludes the diagonal
+ *  (over ℕ the only pairs where both orders of `−` and `/` are defined have a = b, and a ⊖ a always equals itself,
+ *  so counting the diagonal would certify subtraction as commutative) */
+const measuredCommutative = (): BinOp[] => [...forcedArithmetic().commutative]
+
+/** the RELATIONS the corpus uses that read the same both ways — `a = b` iff `b = a`, `a ≠ b` iff `b ≠ a`. Probed
+ *  over the corpus's own integers rather than named, on the pairs a relation can actually distinguish. */
+function measuredSymmetricRelations(): ReadonlySet<BinOp> {
+  const alg = corpusAlgebra()
+  const probe = alg.integers.map((i) => BigInt(i.value)).filter((v) => v > 1n).slice(0, 8)
+  const out = new Set<BinOp>()
+  if (probe.length < 3) return out
+  for (const rel of alg.relation) {
+    let agreed = true
+    for (const x of probe) for (const y of probe) if (holds(rel, x, y) !== holds(rel, y, x)) agreed = false
+    if (agreed) out.add(rel)
+  }
+  return out
+}
+
+/** the relation pairs that MIRROR: swapping the operands of one gives the other on every probe, so `a < b` and
+ *  `b > a` are one claim written two ways. Derived, so a relation added to the grammar is paired or left alone
+ *  rather than silently un-canonicalised. */
+function measuredMirrors(): Partial<Record<BinOp, BinOp>> {
+  const alg = corpusAlgebra()
+  const probe = alg.integers.map((i) => BigInt(i.value)).filter((v) => v > 1n).slice(0, 8)
+  const out: Partial<Record<BinOp, BinOp>> = {}
+  if (probe.length < 3) return out
+  for (const a of alg.relation) for (const b of alg.relation) {
+    if (a === b) continue
+    let mirrors = true
+    for (const x of probe) for (const y of probe) if (holds(a, x, y) !== holds(b, y, x)) mirrors = false
+    if (mirrors) out[a] = b
+  }
+  return out
+}
 
 /** commutative AND associative: a chain of these may be flattened and sorted whole */
-const FLATTENABLE = new Set<BinOp>(['+', '*', '∧'])
+// ── THE THREE OPERATOR PROPERTIES, DERIVED RATHER THAN DECLARED ─────────────────────────────────────────────────
+// These were three hand-written Sets, and a hand-written Set of operator properties is the exact shape the captain's
+// law refuses (2026-09-14: "remove any allow lists or disallowed or any manual logic whatsoever not coming from lean
+// decisions"; 2026-09-26: "consolidate strictly scientifically"). They were also RIGHT, which is why nobody noticed
+// — and that is the danger: a correct hand list and an incorrect one read identically, so the next operator added to
+// the grammar joins neither and the canonical form silently stops canonicalising it.
+//
+// src/formulas.ts already MEASURES commutativity, by running the operator over the corpus's own integers on every
+// ordered pair where both directions are defined. That measurement is the same property SYMMETRIC and FLATTENABLE
+// were asserting, so it replaces both, and the mirror pairs are derived the same way: two relations mirror when
+// swapping the operands of one gives the other on every probe. Nothing here is a preference any more; the corpus
+// decides, and an operator it has no formula for is simply not offered a property.
+//
+// WHAT STAYS DECLARED, AND WHY IT MUST: `∧` joins PROPOSITIONS rather than numbers, so no numeric probe reaches it,
+// and its associativity is a fact about the logic this ledger is written in rather than about these integers. It is
+// named here with that reason attached, which is what the law asks for — a reason in the same breath, not a list.
+const LOGICAL_JOIN: ReadonlySet<BinOp> = new Set<BinOp>(['∧'])   // associative by the logic, not by the integers
+const FLATTENABLE: ReadonlySet<BinOp> = new Set<BinOp>([...measuredCommutative(), ...LOGICAL_JOIN])
 /** commutative but NOT associative: sort the two operands, never flatten a chain.
  *  `a = b = c` is not a Lean statement and treating `=` as associative would invent a grouping. */
-const SYMMETRIC = new Set<BinOp>(['=', '≠'])
+const SYMMETRIC: ReadonlySet<BinOp> = measuredSymmetricRelations()
 /** mirrored pairs: `a < b` and `b > a` are one relation written from either end */
-const MIRROR: Partial<Record<BinOp, BinOp>> = { '<': '>', '>': '<', '≤': '≥', '≥': '≤' }
+const MIRROR: Partial<Record<BinOp, BinOp>> = measuredMirrors()
 
 /**
  * canonicalFormula(node) → a string equal for two formulas that differ ONLY by
