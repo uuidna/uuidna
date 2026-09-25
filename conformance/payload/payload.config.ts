@@ -53,6 +53,43 @@ export const COLLECTION = PAYLOAD.collection
  *  one through the environment. */
 const derivedSecret = toUuid('uuidna-conformance|' + readFileSync(join(import.meta.dirname, 'package.json'), 'utf8'))
 
+// ── uuid + dna = uuidna, AND BOTH HALVES OF THE NAME RIDE ON THE DOCUMENT ────────────────────────────────────────
+// The captain, 2026-09-25: "uuid + dna = uuidna payload config and ui". The config carried only the uuid half —
+// `uuidnaAddress` — and the name says there are two. The dna half is not decoration and it is not invented here:
+// the ledger seals it, and every number below is read off those seals rather than chosen.
+//
+//   uuidna_is_dna_times_the_two_coins   4³ = 64 = 2⁶ ∧ 128 = 2 × 64 — the genetic code and the coin measure are
+//                                       one number by two routes, so a 128-bit address is TWO 64-codon genomes,
+//                                       one per coin. That equality is why the two words are one word.
+//   uuidna_name_payload_tiles_sixteen_codons   24 hexbits × 4 bits ÷ 6 = 16 — the PAYLOAD tiles codons exactly,
+//                                       which the whole uuid does not, because its version and variant bits are
+//                                       not payload. So the strand is read from PAYLOAD_HEXBITS and not from 32.
+//   dna_complement_involution           comp(x) = 3 − x applied twice is the identity (A↔T, C↔G)
+//   dna_complement_fixed_point_free     3 − x ≠ x for every base — no base pairs with itself
+//
+// The complement is therefore the strand's own involution, which is the same shape this whole court settles leads
+// by: a thing that is its own inverse. Reading it back twice returns the document.
+const { PAYLOAD_HEXBITS } = await import(join(DIST, 'hexagram.js')) as { PAYLOAD_HEXBITS: number }
+const BASES = ['A', 'C', 'G', 'T'] as const          // four, and 4³ = 64 is the seal above
+const BASE_BITS = 2                                   // 2² = 4 bases, so two bits carry one base
+const CODON_BASES = 3                                 // 4³ = 2⁶: three bases to a codon
+
+/** strandOf(address) → the address's PAYLOAD as DNA, in codons. Derived end to end: the payload width is the
+ *  sealed PAYLOAD_HEXBITS, the base count is 2^BASE_BITS, and the codon width is what makes 4³ = 2⁶ true. */
+export function strandOf(address: string): string {
+  const hex = address.replace(/-/g, '').slice(-PAYLOAD_HEXBITS)   // the payload, which is what the seal measures
+  const bits = [...hex].map((c) => parseInt(c, 16).toString(2).padStart(4, '0')).join('')
+  const bases = [...Array(bits.length / BASE_BITS)].map((_, i) =>
+    BASES[parseInt(bits.slice(i * BASE_BITS, i * BASE_BITS + BASE_BITS), 2)]!)
+  return [...Array(bases.length / CODON_BASES)].map((_, i) =>
+    bases.slice(i * CODON_BASES, i * CODON_BASES + CODON_BASES).join('')).join(' ')
+}
+
+/** the complement, which is its own inverse and moves every base — dna_complement_involution and
+ *  dna_complement_fixed_point_free, applied to a strand rather than restated as arithmetic */
+export const complementOf = (strand: string): string =>
+  [...strand].map((c) => (c === ' ' ? ' ' : BASES[(BASES.length - 1) - BASES.indexOf(c as typeof BASES[number])]!)).join('')
+
 // ── SCOPES, STANDARDISED, AND STATED RATHER THAN INHERITED ───────────────────────────────────────────────────────
 // The captain, 2026-09-25: "standardise collections scopes and use". Every collection carries the SAME scope, from
 // one function, and that is the point: the first run of this harness took a 403 because `pages` declared no access
@@ -84,6 +121,16 @@ const pagesShape = {
     { name: 'title', type: 'text' as const, required: true },
     { name: 'slug', type: 'text' as const, index: true, unique: true },
     { name: 'content', type: 'richText' as const },
+    // BOTH HALVES OF THE NAME, side by side in the admin UI because that is where a person reads them. The uuid
+    // half is the address; the dna half is the same payload as codons, and the admin description names the seal it
+    // comes from so a reader can follow it rather than take it on trust.
+    { name: 'uuidna', type: 'group' as const, admin: { description: 'uuid + dna = uuidna — one payload, two readings (uuidna_is_dna_times_the_two_coins)' }, fields: [
+      { name: 'address', type: 'text' as const, index: true, admin: { description: 'the uuid half — the order-sensitive documentAddress of this body' } },
+      { name: 'strand', type: 'text' as const, admin: { description: `the dna half — the ${PAYLOAD_HEXBITS}-hexbit payload as codons (uuidna_name_payload_tiles_sixteen_codons)` } },
+      { name: 'version', type: 'text' as const, admin: { description: 'the imprinted version uuid — decode with readSeed' } },
+    ] },
+    // kept flat as well, because payload-sync has emitted these two names since it was written and a rename would
+    // break the upsert-by-equality it does. The group above is the reading; these are the columns.
     { name: 'uuidnaAddress', type: 'text' as const, index: true },
     { name: 'uuidnaVersion', type: 'text' as const },
     { name: 'parent', type: 'relationship' as const, relationTo: COLLECTION },
