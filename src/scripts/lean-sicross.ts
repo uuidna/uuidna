@@ -25,7 +25,7 @@
 // NOT CLAIMED: that dimensional agreement is physical truth. Two quantities with the same dimension need not be
 // the same quantity — torque and energy are both kg·m²·s⁻² and are not interchangeable. The lattice settles what
 // CANNOT be equal, which is the half that is decidable; it does not settle what is.
-import { emit } from './lean-gen.js'
+import { emit, leanList } from './lean-gen.js'
 import { BASE_DIMENSIONS, DERIVED, type Dim } from '../quantum/os/engapi/index.js'
 // THE ROUTE CENSUS IS quantum/combinatorics', NOT THIS WING'S. PlanckLattice makes the same closure argument at
 // rank four and SiCross at rank seven; enumerating routes inline here would be a second implementation of it,
@@ -38,7 +38,6 @@ const eq = (a: Dim, b: Dim): boolean => a.every((e, i) => e === b[i])
 const add = (a: Dim, b: Dim): Dim => a.map((e, i) => e + b[i]) as unknown as Dim
 const sub = (a: Dim, b: Dim): Dim => a.map((e, i) => e - b[i]) as unknown as Dim
 const dimOf = (u: string): Dim => (ALL.find((x) => x.unit === u) as { dim: Dim }).dim
-const L = (d: Dim): string => `[${d.join(', ')}]`
 
 // THE ROUTE CENSUS, computed by the shared instrument over this wing's own points.
 const POINTS: LatticePoint[] = ALL.map((u) => ({ name: u.unit, vector: [...u.dim] }))
@@ -51,7 +50,7 @@ const ENERGY = CROSSED.find((c) => c.unit === 'J')
 if (!ENERGY) throw new Error('lean-sicross: the joule is not crossed — the DERIVED table changed shape')
 
 const leanRoute = (r: Route): string =>
-  r.kind === 'product' ? `addD ${L(dimOf(r.parts[0]))} ${L(dimOf(r.parts[1]))}` : `subD ${L(dimOf(r.parts[0]))} ${L(dimOf(r.parts[1]))}`
+  r.kind === 'product' ? `addD ${leanList(dimOf(r.parts[0]))} ${leanList(dimOf(r.parts[1]))}` : `subD ${leanList(dimOf(r.parts[0]))} ${leanList(dimOf(r.parts[1]))}`
 const routeWord = (r: Route): string => r.parts.join(r.kind === 'product' ? '·' : '/')
 
 // A NON-ROUTE, computed rather than invented: the first pair that does NOT land on the joule. The control exists
@@ -63,17 +62,17 @@ const NON_ROUTE = (() => {
 
 const FACTS = [
   { key: 'energy_is_reachable_by_four_independent_routes', skill: 'engineering',
-    name: `CLAIMED: the joule is reached ${ENERGY.routes.length} ways through the SI lattice — ${ENERGY.routes.map(routeWord).join(', ')} — every one landing on ${L(ENERGY.dim)}, and a pair that is not a route does not.`,
+    name: `CLAIMED: the joule is reached ${ENERGY.routes.length} ways through the SI lattice — ${ENERGY.routes.map(routeWord).join(', ')} — every one landing on ${leanList(ENERGY.dim)}, and a pair that is not a route does not.`,
     why: `FOUR ROUTES THROUGH FOUR DIFFERENT PIECES OF PHYSICS, ONE INTEGER VECTOR. Force through distance (N·m) is mechanics; power through time (W·s) is the time route; power per unit frequency (W/Hz) is the spectral one; charge through potential (C·V) is electricity. They are not related by anything except the lattice, and the lattice's closure under product and ratio forces them to agree — which is why a joule from a battery and a joule from a falling mass are the same joule before any experiment is run. THE CONTROL IS IN THE STATEMENT, because agreement that cannot fail is not agreement: ${NON_ROUTE.a}·${NON_ROUTE.b} is carried here as a pair that does NOT land on the joule, so the conjunction breaks if the vector arithmetic stops discriminating. NOT CLAIMED: that equal dimension means equal quantity. Torque is also kg·m²·s⁻² and is not energy; the lattice decides what cannot be equal, never what is.`,
     js: () => ENERGY.routes.every((r) => eq(r.kind === 'product' ? add(dimOf(r.parts[0]), dimOf(r.parts[1])) : sub(dimOf(r.parts[0]), dimOf(r.parts[1])), ENERGY.dim))
       && !eq(add(dimOf(NON_ROUTE.a), dimOf(NON_ROUTE.b)), dimOf('J')),
-    lean: `theorem energy_is_reachable_by_four_independent_routes : (${ENERGY.routes.map((r) => `(${leanRoute(r)} = ${L(ENERGY.dim)})`).join(' ∧ ')}) ∧ (addD ${L(dimOf(NON_ROUTE.a))} ${L(dimOf(NON_ROUTE.b))} ≠ ${L(dimOf('J'))}) := by decide` },
+    lean: `theorem energy_is_reachable_by_four_independent_routes : (${ENERGY.routes.map((r) => `(${leanRoute(r)} = ${leanList(ENERGY.dim)})`).join(' ∧ ')}) ∧ (addD ${leanList(dimOf(NON_ROUTE.a))} ${leanList(dimOf(NON_ROUTE.b))} ≠ ${leanList(dimOf('J'))}) := by decide` },
 
   { key: 'the_crossed_units_agree_on_one_vector_each', skill: 'engineering',
     name: `CLAIMED: ${CROSSED.length} derived units are reached by more than one route — ${CROSSED.map((c) => `${c.unit}(${c.routes.length})`).join(', ')} — and for each, every route lands on the same vector.`,
     why: `THE CENSUS IS COMPUTED FROM engapi's OWN TABLE, by enumerating every product and ratio of two units and keeping what lands on the target — no route is typed and none is chosen. ${CROSSED.length} of the ${DERIVED.length} derived units are crossed. The statement walks EVERY route of EVERY crossed unit rather than sampling one, because a lattice claimed from one agreement is the one-step-is-not-a-walk fault this tree has already sealed a false theorem from. What the walk shows is that the crossing is not a property of the joule: it is what closure does, and the joule is only where it is most visible.`,
     js: () => CROSSED.every((c) => c.routes.every((r) => eq(r.kind === 'product' ? add(dimOf(r.parts[0]), dimOf(r.parts[1])) : sub(dimOf(r.parts[0]), dimOf(r.parts[1])), c.dim))),
-    lean: `theorem the_crossed_units_agree_on_one_vector_each : ${CROSSED.map((c) => `(${c.routes.map((r) => `(${leanRoute(r)} = ${L(c.dim)})`).join(' ∧ ')})`).join(' ∧ ')} := by decide` },
+    lean: `theorem the_crossed_units_agree_on_one_vector_each : ${CROSSED.map((c) => `(${c.routes.map((r) => `(${leanRoute(r)} = ${leanList(c.dim)})`).join(' ∧ ')})`).join(' ∧ ')} := by decide` },
 
   { key: 'the_lattice_is_closed_under_product_and_ratio', skill: 'engineering',
     name: `CLAIMED: adding then subtracting the same vector returns the original, over all ${ALL.length} units this lattice carries — the closure the routes above stand on.`,
@@ -89,7 +88,7 @@ const DEFS = [
   'def subD (a b : List Int) : List Int := List.zipWith (· - ·) a b',
   '',
   `-- every unit this lattice carries — the ${BASE.length} base quantities and the ${DERIVED.length} named derived ones.`,
-  `def units : List (List Int) := [${ALL.map((u) => L(u.dim)).join(', ')}]`,
+  `def units : List (List Int) := [${ALL.map((u) => leanList(u.dim)).join(', ')}]`,
 ].join('\n')
 
 console.log(`computing ${FACTS.length} SI LATTICE cross formulas (${CROSSED.length} crossed units, ${ENERGY.routes.length} routes to the joule) …`)

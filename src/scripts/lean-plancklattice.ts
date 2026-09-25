@@ -36,9 +36,15 @@
 // experimental record lives in lean/StringTheory.lean and says plainly that one probe of six has ever reached
 // this scale. The constants' values are CODATA's; only their EXPONENTS appear here, and an exponent is a choice
 // of unit, not a measurement.
-import { emit } from './lean-gen.js'
+import { add, sub } from '../quantum/combinatorics/index.js'
+import { emit, leanList } from './lean-gen.js'
 
 // ── THE FOUR VECTORS, over (hbar, G, c, k), squared so every exponent is an integer ────────────────────────────
+// VECTOR ARITHMETIC COMES FROM THE LATTICE MODULE. `add` and `sub` were defined here and again, identically, in
+// src/quantum/combinatorics — which was extracted FROM this file's structure for lean-sicross to share, and then
+// this file went on using its own copies. A ratio subtracts vectors and a product adds them; that is the same
+// operation at every rank, and the module refuses a lattice whose points disagree about the basis, which a local
+// two-liner cannot.
 const AXES = ['hbar', 'G', 'c', 'k'] as const
 const L = [1, 1, -3, 0] as const   // length^2      = hbar G / c^3
 const M = [1, -1, 1, 0] as const   // mass^2        = hbar c / G
@@ -46,14 +52,11 @@ const T = [1, 1, -5, 0] as const   // time^2        = hbar G / c^5
 const K = [1, -1, 5, -2] as const  // temperature^2 = hbar c^5 / (G k^2)
 
 const NAMED = [['planckLength', L], ['planckMass', M], ['planckTime', T], ['planckTemperature', K]] as const
-const add = (a: readonly number[], b: readonly number[]): number[] => a.map((x, i) => x + b[i]!)
-const sub = (a: readonly number[], b: readonly number[]): number[] => a.map((x, i) => x - b[i]!)
 const PAIRS = [[L, M], [L, T], [L, K], [M, T], [M, K], [T, K]] as const
 
 const HBAR = 0, GRAV = 1
 const bothCancel = PAIRS.filter(([a, b]) => sub(a, b)[HBAR] === 0 && sub(a, b)[GRAV] === 0).length
 const sumsCancelG = PAIRS.filter(([a, b]) => add(a, b)[GRAV] === 0).length
-const vec = (v: readonly number[]): string => `[${v.join(', ')}]`
 // ── THE LATTICE IS COMBINATORIAL, SO THE FORMULAS ARE GENERATED RATHER THAN AUTHORED ──────────────────────────
 //
 // Six cross formulas were written here by hand first, and that was the wrong object. A lattice closed under
@@ -70,8 +73,6 @@ const vec = (v: readonly number[]): string => `[${v.join(', ')}]`
 // immediate. No search, no enumeration, no authoring: state the cancellation, read off the coefficients.
 const COEFFS = [-2, -1, 0, 1, 2]
 const SMALL = [-1, 0, 1]
-// a Lean list literal from a JS array — the local renderer every generator here keeps its own copy of.
-const list = (xs: readonly number[]): string => `[${xs.join(', ')}]`
 const boxOf = (cs: readonly number[]): number[][] => cs.flatMap((a) => cs.flatMap((b) => cs.flatMap((c) => cs.map((d) => [a, b, c, d]))))
 const BOX = boxOf(COEFFS), SMALL_BOX = boxOf(SMALL)
 const BASIS = [L, M, T, K] as const
@@ -143,11 +144,11 @@ const FACTS = [
     lean: 'theorem the_quantum_and_gravity_clusters_cross_to_the_length : product (product planckLength planckMass) (ratio planckLength planckMass) = product planckLength planckLength := by decide' },
 
   { key: 'both_routes_to_light_speed_agree', skill: 'planck-lattice',
-    name: `CLAIMED: the constant-free ratio is reachable through the quantum cluster and through the gravity cluster, and both routes land on ${vec(sub(L, T))} — c^2 — with neither route assumed.`,
+    name: `CLAIMED: the constant-free ratio is reachable through the quantum cluster and through the gravity cluster, and both routes land on ${leanList(sub(L, T))} — c^2 — with neither route assumed.`,
     why: 'THIS IS THE CROSS FORMULA THE WHOLE WING IS FOR. l/t carries no constants, and there are two independent ways to build it out of formulas that DO: divide the two pure-quantum products, (l*m)/(t*m), where gravity has already cancelled; or divide the two pure-gravity ratios, (l/m)/(t/m), where the quantum has. The first route never mentions G and the second never mentions hbar, they pass through different clusters, and they arrive at the same vector. The lattice closure is what forces that, and the kernel is what checks it — so the clusters prove each other rather than being two lists. The mass cancels out of both routes, which is why neither needs to know which class it came from.',
     js: () => sub(add(L, M), add(T, M)).join(',') === sub(sub(L, M), sub(T, M)).join(',')
       && sub(add(L, M), add(T, M)).join(',') === sub(L, T).join(','),
-    lean: `theorem both_routes_to_light_speed_agree : (ratio (product planckLength planckMass) (product planckTime planckMass) = ${vec(sub(L, T))}) ∧ (ratio (ratio planckLength planckMass) (ratio planckTime planckMass) = ${vec(sub(L, T))}) := by decide` },
+    lean: `theorem both_routes_to_light_speed_agree : (ratio (product planckLength planckMass) (product planckTime planckMass) = ${leanList(sub(L, T))}) ∧ (ratio (ratio planckLength planckMass) (ratio planckTime planckMass) = ${leanList(sub(L, T))}) := by decide` },
 ]
 
 const DEFS = [
@@ -161,7 +162,7 @@ const DEFS = [
   `def planckAxes : List String := [${AXES.map((a) => JSON.stringify(a)).join(', ')}]`,
   '',
   `/-- The four Planck quantities as integer exponent vectors over (${AXES.join(', ')}). The SQUARES are used, which\n    is what keeps every exponent an integer: length^2 = hbar G / c^3, mass^2 = hbar c / G, time^2 = hbar G / c^5,\n    temperature^2 = hbar c^5 / (G k^2). -/`,
-  ...NAMED.map(([n, v]) => `def ${n} : List Int := ${vec(v)}`),
+  ...NAMED.map(([n, v]) => `def ${n} : List Int := ${leanList(v)}`),
   `def planckVectors : List (List Int) := [${NAMED.map(([n]) => n).join(', ')}]`,
   '',
   `/-- A product of two quantities ADDS their exponents; a ratio SUBTRACTS them. The lattice is closed under both,\n    which is what lets one combination prove another. -/`,
@@ -169,7 +170,7 @@ const DEFS = [
   'def ratio (a b : List Int) : List Int := List.zipWith (· - ·) a b',
   '',
   `/-- The ${PAIRS.length} unordered pairs, enumerated so every census below WALKS them rather than naming examples. -/`,
-  `def planckPairs : List (List Int × List Int) := [${PAIRS.map(([a, b]) => `(${vec(a)}, ${vec(b)})`).join(', ')}]`,
+  `def planckPairs : List (List Int × List Int) := [${PAIRS.map(([a, b]) => `(${leanList(a)}, ${leanList(b)})`).join(', ')}]`,
   '',
   `/-- freeOfBoth: the ratio keeps neither hbar nor G. freeOfGravity: the PRODUCT keeps no G. The two tests over the\n    same enumeration are what make their counts comparable. -/`,
   'def freeOfBoth (a b : List Int) : Bool := ((ratio a b).headD 0 == 0) && (((ratio a b).drop 1).headD 0 == 0)',
@@ -189,8 +190,8 @@ const DEFS = [
   '  (List.range 4).map (fun j => ((List.zipWith (fun ki v => ki * (nthI v j)) k basis).foldl (· + ·) 0))',
   'def hbarForm (k : List Int) : Int := k.foldl (· + ·) 0',
   'def gravForm (k : List Int) : Int := (List.zipWith (· * ·) k [1, -1, 1, -1]).foldl (· + ·) 0',
-  `def coeffs : List Int := ${list(COEFFS)}`,
-  `def smallCoeffs : List Int := ${list(SMALL)}`,
+  `def coeffs : List Int := ${leanList(COEFFS)}`,
+  `def smallCoeffs : List Int := ${leanList(SMALL)}`,
   'def boxOf (cs : List Int) : List (List Int) :=',
   '  cs.flatMap (fun a => cs.flatMap (fun b => cs.flatMap (fun c => cs.map (fun d => [a, b, c, d]))))',
   'def box : List (List Int) := boxOf coeffs',

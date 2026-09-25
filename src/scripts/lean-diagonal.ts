@@ -29,7 +29,7 @@
 // CLAIMED: all of it, closed by the Lean 4 kernel over its own finite domain, axiom-free, every universal walked.
 // NOT CLAIMED: anything about nine outside Z/9 arithmetic. This is the digital root of a square, which is a fact
 // about remainders, and it carries no meaning the arithmetic does not put there.
-import { emit } from './lean-gen.js'
+import { emit, leanList } from './lean-gen.js'
 
 const RING = 9                                   // Z/9 — the ring this ledger computes in
 const MIRROR_BASE = 10                           // the residue mirror x -> 10 - x, sealed elsewhere as the involution
@@ -37,7 +37,6 @@ const dr = (n: number): number => (n % RING === 0 ? RING : n % RING)
 const DIAGONAL = [...Array(RING)].map((_, i) => dr((i + 1) * (i + 1)))
 const NEXT = [...Array(RING)].map((_, i) => dr((i + 1 + RING) * (i + 1 + RING)))
 const REACHED = [...new Set(DIAGONAL)].sort((a, b) => a - b)
-const list = (xs: readonly number[]): string => `[${xs.join(', ')}]`
 // the doubling orbit the vortex walks, and the axis it never visits — both sealed elsewhere in this ledger
 const ORBIT = [1, 2, 4, 8, 7, 5] as const
 const AXIS = [3, 6, 9] as const
@@ -132,8 +131,8 @@ const DEFS = [
   `def diagonal : List Nat := (List.range ring).map (fun i => dr ((i+1) * (i+1)))`,
   '',
   `/-- The doubling orbit the vortex walks, and the axis it never visits. Under the mirror the axis is carried\n    entirely into the orbit, which is why they are declared together. -/`,
-  `def orbit : List Nat := ${list([...ORBIT])}`,
-  `def axis : List Nat := ${list([...AXIS])}`,
+  `def orbit : List Nat := ${leanList([...ORBIT])}`,
+  `def axis : List Nat := ${leanList([...AXIS])}`,
   '',
   `/-- The vector equilibrium's two face kinds and their interior angles — ${VE_TRIANGLES} triangles and\n    ${VE_SQUARES} squares, ${VE_TRIANGLES} + ${VE_SQUARES} = 14 (ve_fourteen_faces). Two right angles and three\n    triangle angles are the same straight angle, which is the fold's own measure. -/`,
   `def squareAngle : Nat := ${SQUARE_ANGLE}`,

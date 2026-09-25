@@ -209,6 +209,21 @@ export function proofsOf(facts: readonly Fact[]): string {
 //
 // The library forms of min/max/abs/sqrt are absent on purpose: a call that settles no theorem is hard-rejected
 // tree-wide, so the integer versions are written out where a reader can check them.
+/**
+ * leanList — a Nat list literal from a JS array, which is the single most duplicated line in the generators.
+ *
+ * FIVE COPIES ACROSS FOUR FILES when this was written: `list` in lean-diagonal and lean-land-rights, `L` in
+ * lean-sicross, and BOTH `vec` and `list` in lean-plancklattice — two byte-identical functions in one file, each
+ * used for different tables, neither aware of the other. lean-plancklattice's own comment called `list` "the local
+ * renderer every generator here keeps its own copy of", so the duplication was known and simply never collected.
+ *
+ * It is one line, and that is the argument for collecting it rather than against. The emitted text is the INPUT TO
+ * THE KERNEL: five independent spellings of the same literal is five places a separator or a bracket can drift, and
+ * a drifted literal does not fail loudly — it emits a different-but-valid Lean term and proves something adjacent
+ * to what the generator meant. `chunkedList` and `chunkedSum` already live here for the same reason.
+ */
+export const leanList = (xs: readonly number[]): string => `[${xs.join(', ')}]`
+
 export const imin = (a: number, b: number): number => (a < b ? a : b)
 export const imax = (a: number, b: number): number => (a > b ? a : b)
 export const gcdOf = (a: number, b: number): number => (b === 0 ? a : gcdOf(b, a % b))
