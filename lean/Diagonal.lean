@@ -77,3 +77,7 @@ theorem the_double_torus_closes_the_turn : (((2 * squareAngle = halfTurn) ∧ (3
     TWO the circle, the doubling and the second handle each cost: 2 × 180° = 360°, 2 × 64 = 128, 110 − 108 = 2,
     and χ(1) − χ(2) = 2. Four statements of two, one arithmetic. -/
 theorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide
+
+/-- CLAIMED: at the A432 step of 36° the circle is 10 steps and not 9 — 36 × 10 = 360°, while 36 × 9 = 324°, and
+    the difference is exactly one step. Two half turns close the same circle. -/
+theorem the_nine_step_arc_is_one_step_short_of_the_circle : ((a432Step * (ring + 1) = fullTurn) ∧ (fullTurn - a432Step * ring = a432Step)) ∧ (2 * halfTurn = fullTurn) := by decide

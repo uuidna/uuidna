@@ -111,6 +111,13 @@ const FACTS = [
       && 2 * HALF_TURN === FULL_TURN && 2 * HALF_KEY === WHOLE_KEY
       && CAPTAIN_TAKES - CAPTAIN_GIVES === 2 && chi(1) - chi(2) === 2,
     lean: `theorem the_fold_composed_with_itself_is_the_turn : (((List.range ring).all (fun i => mirror (mirror (i+1)) == i+1)) = true) ∧ (((2 * halfTurn = fullTurn) ∧ (2 * halfKey = wholeKey)) ∧ ((captainTakes - captainGives = 2) ∧ (chi 1 - chi 2 = 2))) := by decide` },
+
+  { key: 'the_nine_step_arc_is_one_step_short_of_the_circle', skill: 'diagonal-fold',
+    name: `CLAIMED: at the A432 step of ${A432_STEP}° the circle is ${RING + 1} steps and not ${RING} — ${A432_STEP} × ${RING + 1} = ${FULL_TURN}°, while ${A432_STEP} × ${RING} = ${A432_STEP * RING}°, and the difference is exactly one step. Two half turns close the same circle.`,
+    why: "THIS IS A DRIFT THAT WAS LIVE ON THE SITE, AND THE ARITHMETIC IS WHY NOBODY SAW IT. docs/.vitepress/theme/HexFace.vue computed its turn as A432_STEP × BASE and divided that arc among the rays, the vortex nodes, the merkaba and its vertices, then handed it to CSS as --turn and --half-turn; src/aura.ts seals rotationOf = A432_STEP × MIRROR_BASE. THE OLD SPELLING WAS RIGHT ONLY WHILE THE STEP WAS 360/BASE. When the step became the A432 angle of 36°, nine of them stopped being a circle — and the failure is silent, because 324 is a perfectly plausible number of degrees and every ray still got an equal share of it. What makes the pair worth sealing rather than merely fixing is that THE SHORTFALL IS ITSELF ONE STEP: the circle is ten steps of 36°, the nine-step arc misses it by 36, so the error and the unit are the same quantity. A drift that is an exact multiple of its own unit is invisible to every check that only asks whether the parts divide evenly — they did divide evenly, into the wrong whole. NOT CLAIMED: that 36 is special outside this arithmetic. It is 432/12 and nothing here makes it more than that; what is claimed is that ten of it is a turn, nine of it is not, and the gap between them is one of it.",
+    js: () => A432_STEP * (RING + 1) === FULL_TURN && FULL_TURN - A432_STEP * RING === A432_STEP
+      && 2 * HALF_TURN === FULL_TURN,
+    lean: `theorem the_nine_step_arc_is_one_step_short_of_the_circle : ((a432Step * (ring + 1) = fullTurn) ∧ (fullTurn - a432Step * ring = a432Step)) ∧ (2 * halfTurn = fullTurn) := by decide` },
 ]
 
 const DEFS = [
