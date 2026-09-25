@@ -92,6 +92,14 @@ const FACTS = [
     js: () => 12 - 24 + 14 === 2,
     lean: 'theorem euler_characteristic_two : 12 + 14 = 24 + 2 := by decide' },
 
+  { key: 'defect_sums_to_the_characteristic',
+    why: "THE ANGLES AND THE TOPOLOGY ARE ONE QUANTITY, and this ledger held them apart. It seals the VE's faces (8 + 6 = 14), its Euler characteristic (12 - 24 + 14 = 2), the quadrature that closes a circle (4 x 90 = 360), and the straight angle at which the two face kinds agree (2 x 90 = 3 x 60) - and nothing connecting any of them. Descartes' theorem on the total angular defect does connect them: sum the defect over every vertex and the answer is 360 x chi, the Euler characteristic, and nothing else about the solid. The VE decides it exactly: two triangles and two squares meet at each vertex, 60 + 60 + 90 + 90 = 300, so each of the twelve vertices is 60 short of a full turn and the total is 12 x 60 = 720 - which is 360 x (12 - 24 + 14), with BOTH SIDES COMPUTED rather than the 2 written in. THE DOUBLE TORUS IS WHERE IT LANDS (the captain, 2026-09-25: \"note the double torus to complete 360 degrees\"). chi = 2 - 2g, so the sphere is +720, the torus is 0 - it closes with no defect at all, which is why a torus can be tiled by flat squares and a sphere cannot - and the double torus is -720, exactly the negative of the sphere. Two full turns apart, and the genus-2 surface is the sphere's mirror in defect rather than a further step away from it. NOT CLAIMED: Descartes' theorem in general, which quantifies over every closed polyhedron and is not a finite walk. What is decided here is its arithmetic at this solid and the characteristic at genus 0, 1 and 2 - an instance and a table, and the name carries the scope.",
+    js: () => 12 * (360 - (60 + 60 + 90 + 90)) === 360 * (12 - 24 + 14)
+      && 360 * (2 - 2 * 1) === 0
+      && 360 * (2 - 2 * 2) === -720
+      && 360 * (2 - 2 * 2) === -(360 * (2 - 2 * 0)),
+    lean: 'theorem defect_sums_to_the_characteristic : ((12 : Int) * (360 - (60 + 60 + 90 + 90)) = 360 * (12 - 24 + 14)) \u2227 ((360 : Int) * (2 - 2 * 1) = 0) \u2227 ((360 : Int) * (2 - 2 * 2) = -720) \u2227 ((360 : Int) * (2 - 2 * 2) = -(360 * (2 - 2 * 0))) := by decide' },
+
   { key: 'metatron_seventyeight_lines',
     why: 'Joining all thirteen centres of the figure to each other draws C(13,2) = 13 × 12 / 2 = 78 lines — the edge count of the complete graph on thirteen nodes. SCOPE: the count is what is sealed; no property of the figure beyond it is asserted here.',
     js: () => (13 * 12) / 2 === 78,
