@@ -72,10 +72,15 @@ jobs:
           # its CI, and it hid the only question this job exists to answer.
           #
           # So the grader's exit code decides: 0 graded, 1 BROKEN (still red, still a failure), 2 UNPROVISIONED —
-          # surfaced as a warning and a job-summary line, and NOT green-washed: school-grade.js writes
-          # lean/school-queue.json, src/api-leads.ts turns that into an OPEN LEAD, and leads-gate — the release
+          # surfaced as a warning and a job-summary line, and NOT green-washed: school-grade.js records the state
+          # in lean/school-queue.json, src/api-leads.ts turns that into an OPEN LEAD, and leads-gate — the release
           # gate — holds the next release on it. The pending state now blocks something that matters instead of
           # flashing red somewhere nobody looks.
+          #
+          # The vocabulary in this job is constrained by a guard in src/school/grade/index.test.ts, which forbids the
+          # permission and secret keywords ANYWHERE in the kernel job — prose included — so that none of them can sit
+          # where learner code runs. Hence "records" rather than the obvious verb. The guard is blunt on purpose and
+          # is worth more than the word; do not loosen it to fit a comment.
           set +e
           node dist/scripts/school-grade.js school-verdicts.json
           code=$?
