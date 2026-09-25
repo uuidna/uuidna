@@ -1,8 +1,12 @@
 import { doiPriorArtForLeanFile, ZENODO_SEALS, type ZenodoSeal } from './zenodo-seals.js'
-import { theorems } from './theorems/index.js'
+import { theorems, theoremByKey } from './theorems/index.js'
 
 /**
- * NOVELTY — the question uuidna_prior_art declares it cannot answer, answered where it can be.
+ * NOVELTY — the question uuidna_prior_art leaves to an external anchor, answered where an anchor exists.
+ *
+ * The limit is that tool's DECLARED BOUNDARY and a real one: a self-signed date carries no priority, because
+ * priority is a fact about a registry and not about this repository. So the question is not refused here; it is
+ * asked of the registry's own record, which is the only surface that can answer it.
  *
  * That tool mints a defensive-publication record and states its own limit plainly: "the WHEN is NOT in-house —
  * a self-signed date is worthless for priority; it names the external anchor to cite and fakes nothing." The
@@ -92,7 +96,7 @@ export function noveltyAnchors(): NoveltyAnchor[] {
  */
 export function novelty(subject: string): Novelty {
   const key = subject.trim()
-  const asTheorem = theorems().find((t) => t.key === key)
+  const asTheorem = theoremByKey().get(key)   // the ledger's own index — a per-call scan is linear, and quadratic in a loop
   const wing = asTheorem?.file ?? (key.endsWith('.lean') ? key : undefined)
 
   const wanted = new Set<string>()

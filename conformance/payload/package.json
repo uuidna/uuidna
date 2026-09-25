@@ -1,0 +1,27 @@
+{
+  "name": "uuidna-payload-conformance",
+  "private": true,
+  "type": "module",
+  "description": "Does a VANILLA PayloadCMS — latest, beyond stable, every official plugin active — ingest uuidna's emitted seeds? Isolated from the repository's own dependency graph on purpose: uuidna runs no third-party code, so Payload is installed HERE and nowhere else.",
+  "scripts": {
+    "conform": "node --experimental-strip-types conform.ts"
+  },
+  "devDependencies": {
+    "payload": "canary",
+    "@payloadcms/db-d1-sqlite": "canary",
+    "@payloadcms/db-sqlite": "canary",
+    "@payloadcms/richtext-lexical": "canary",
+    "@payloadcms/storage-r2": "canary",
+    "@payloadcms/translations": "canary",
+    "@payloadcms/plugin-seo": "canary",
+    "@payloadcms/plugin-nested-docs": "canary",
+    "@payloadcms/plugin-search": "canary",
+    "@payloadcms/plugin-form-builder": "canary",
+    "@payloadcms/plugin-redirects": "canary",
+    "@payloadcms/plugin-sentry": "canary",
+    "@payloadcms/plugin-stripe": "canary",
+    "@payloadcms/plugin-cloud-storage": "canary",
+    "@payloadcms/plugin-multi-tenant": "canary",
+    "@payloadcms/plugin-import-export": "canary"
+  }
+}

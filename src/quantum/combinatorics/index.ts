@@ -19,7 +19,9 @@
  *
  * WHAT THIS DECIDES AND WHAT IT DOES NOT. It decides which vectors coincide — pure integer arithmetic, no
  * physics. Two quantities sharing a vector need NOT be the same quantity: torque and energy are both
- * kg·m²·s⁻² and are not interchangeable. The lattice settles what CANNOT be equal, which is the decidable half.
+ * kg·m²·s⁻² and are not interchangeable. What the lattice settles is INEQUALITY, and that is the decidable half
+ * by construction: two different exponent vectors are different integers, which the kernel decides, while
+ * sameness of QUANTITY is a physical question no arithmetic reaches.
  */
 
 export interface LatticePoint {

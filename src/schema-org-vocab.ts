@@ -21,6 +21,10 @@ export const SCHEMA_ORG_TYPES: Readonly<Record<string, string>> = {
   DataFeedItem: 'https://schema.org/DataFeedItem',
   PropertyValue: 'https://schema.org/PropertyValue',
   Collection: 'https://schema.org/Collection',
+  // publication-metadata has emitted this for a software archive since it was written, and payload-seed emits it
+  // for a wing's Lean source — the vetted list was simply missing the type both of them already use, which is the
+  // drift this file exists to end rather than a new term being introduced here.
+  SoftwareSourceCode: 'https://schema.org/SoftwareSourceCode',
 }
 
 export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {

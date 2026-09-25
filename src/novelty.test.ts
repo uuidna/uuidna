@@ -53,8 +53,8 @@ test('a key resolves through its wing, and an unknown subject answers none', () 
 
 /**
  * THE HONESTY CLAUSE TRAVELS ON EVERY ANSWER, including the empty one. A receipt read as a ruling is the
- * failure mode of this whole surface, so the sentence that refuses the reading cannot be dropped when there is
- * nothing to report.
+ * failure mode of this whole surface, so the sentence that refuses the reading is asserted on the empty answer
+ * too — BY CONSTRUCTION of the contract, which returns `honest` on every path rather than only on a full one.
  */
 test('every answer states what it proves and what it refuses', () => {
   for (const subject of ['Clay.lean', 'no_such_theorem_anywhere', '']) {

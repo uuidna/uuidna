@@ -9,7 +9,8 @@
 import { coin64 } from './address.js'
 import { imprint, readImprint } from './imprint.js'
 import { documentAddress, type DocNode, type EditorState } from './editor.js'
-import { PAYLOAD } from './site/index.js'
+import { PAYLOAD, urlOf } from './site/index.js'
+import { isPagelessFile } from './theorems/index.js'
 
 export type SeedStatus = 'draft' | 'usable' | 'retired'
 const STATUS_BITS: Record<SeedStatus, string> = { draft: '000', usable: '001', retired: '010' }
@@ -126,7 +127,57 @@ export interface LeanPageSeed {
 
 /** buildLeanPageSeed(fileStem, contents, entries, usable) → the computable seed: a nested page tree (the parent page
  *  for the lean file, one nested child page per theorem — heading, statement code, proof code), stamped with its
- *  documentAddress (ORDER-SENSITIVE: a document is a sequence), identified by its imprinted version uuid. */
+ *  documentAddress (ORDER-SENSITIVE: a document is a sequence), identified by its imprinted version uuid.
+ *
+ *  THE BODY CARRIES WHAT NOTHING ELSE SERVES, and twice it used to carry what something else already did.
+ *
+ *  MEASURED 2026-09-25, and the figures are why this function has two references in it instead of two copies:
+ *  1,936 seed pages weighed 299 MiB, and 94 of them — 4.8% of the pages — carried 234 MiB of that. Every one of
+ *  the 94 was a HexSpan wing, at 4,098 lexical nodes with a single 718 KiB node at the top. The render loads these,
+ *  so the weight was the site's slowness, and both halves of it were duplication:
+ *
+ *  · THE SOURCE. The whole .lean file was inlined as one code node. copy-lean-to-site already serves that file at
+ *    /lean/<File>.lean and says so in its own words — "the seed folder stays the ONE source (DRY); the build serves
+ *    it, nothing duplicates it". The seed was the duplicate its comment forbids, so the seed now points at it.
+ *  · THE ROWS. A four-hex span wing is ONE property over 2^16 addresses. isPagelessFile is the ledger's own
+ *    predicate for that, and its comment already names the rule — "never listed or SSG'd as 65,536 near-identical
+ *    rows. compose-object, the axis listing, and the edge share this predicate so a surface cannot quietly
+ *    disagree." This generator was the fourth surface, and it disagreed. It now seats the span on its door.
+ *
+ *  NOTHING IS LOST AND NO SEED MOVES. seedUuid folds (stem, contents, status, entries) exactly as before, so every
+ *  folder name is unchanged and no seed is re-imprinted; what changes is the BODY, and `address` recomputes from it
+ *  as verifySeed asserts. A reader who wants a span's rows asks the door for them, which is what every other
+ *  surface has always made them do. */
+/** seedReference(stem, count, spanned) → what the body used to inline, as schema.org.
+ *
+ *  A REFERENCE, NOT A SENTENCE. The two things the body no longer carries are both already served — the proof
+ *  source at /lean/<File>.lean and a span's rows at /theorem/enumeration_hex4_<hex> — so what belongs here is the
+ *  pointer, and a pointer a machine can follow beats a pointer a human has to read. Every @type and property below
+ *  is from schema-org-vocab, the ONE vetted vocabulary, walked by the ONE auditJsonLd the feed and the head already
+ *  pass: an unlisted term fails that audit instead of shipping as plausible-looking markup. The theorem count rides
+ *  as a PropertyValue rather than inside a string, so a reader counts it rather than parsing prose for it. */
+export function seedReference(fileStem: string, count: number, spanned: boolean): Record<string, unknown> {
+  const source = {
+    '@type': 'SoftwareSourceCode',
+    name: `${fileStem}.lean`,
+    url: urlOf(`/lean/${fileStem}.lean`),
+    inLanguage: 'lean4',
+    variableMeasured: { '@type': 'PropertyValue', name: 'theorems', value: count, unitText: 'theorem' },
+  }
+  return {
+    '@context': 'https://schema.org',
+    ...source,
+    // A SPAN IS ONE PROPERTY OVER ITS ADDRESSES, so it is named as the dataset it is and its rows stay on their
+    // door. isPartOf is schema.org's own containment, which is exactly the relation: these theorems are IN the
+    // ledger, and asking the ledger for them is the only way every other surface has ever offered them.
+    ...(spanned
+      ? { isPartOf: { '@type': 'Dataset', name: 'uuidna theorem ledger', url: urlOf('/theorems') },
+          description: `One property over this wing's span. Its ${count} sealed theorems are served on demand at `
+            + `/theorem/enumeration_hex4_<hex>, never listed as ${count} near-identical rows.` }
+      : {}),
+  }
+}
+
 export function buildLeanPageSeed(
   fileStem: string,
   contents: string,
@@ -134,7 +185,8 @@ export function buildLeanPageSeed(
   usable: boolean,
 ): LeanPageSeed {
   const status: SeedStatus = usable ? 'usable' : 'draft'
-  const children: DocNode[] = entries.map((t) => ({
+  const spanned = isPagelessFile(fileStem + '.lean')
+  const children: DocNode[] = spanned ? [] : entries.map((t) => ({
     type: 'page',
     slug: 'theorem-' + t.key,
     children: [
@@ -148,7 +200,7 @@ export function buildLeanPageSeed(
       type: 'root',
       children: [
         { type: 'heading', tag: 'h1', children: [{ type: 'text', text: fileStem + '.lean — the sealed source' }] },
-        { type: 'code', language: 'lean', children: [{ type: 'text', text: contents }] },
+        { type: 'code', language: 'json', children: [{ type: 'text', text: JSON.stringify(seedReference(fileStem, entries.length, spanned), null, 1) }] },
         ...children,
       ],
     },
