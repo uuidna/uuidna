@@ -88,25 +88,25 @@ const FACTS = [
     name: `CLAIMED: over all ${BOX.length} combinations in the box, hbar vanishes from a(l)+b(m)+c(t)+d(T) EXACTLY when a+b+c+d = 0 — cancellation is the kernel of a linear form, not a property found pair by pair.`,
     why: 'THE FORM IS WHY THE FORMULAS ARE GENERATED RATHER THAN AUTHORED. Every Planck quantity carries the quantum of action to the first power, so the hbar exponent of any integer combination is just the sum of its coefficients. The statement WALKS all 625 combinations of coefficients from -2 to 2 and checks the two sides agree in BOTH directions — the exponent is zero exactly when the sum is — so it is a characterisation and not an example. Once this holds, no combination ever needs its hbar exponent computed again: it is read off the coefficients.',
     js: () => BOX.every((k) => (combine(k)[0] === 0) === (hbarForm(k) === 0)),
-    lean: 'theorem the_quantum_of_action_cancels_on_a_linear_form : box.all (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true := by decide' },
+    lean: 'theorem the_quantum_of_action_cancels_on_a_linear_form : allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true := by decide' },
 
   { key: 'gravity_cancels_on_a_linear_form', skill: 'planck-lattice',
     name: `CLAIMED: over the same ${BOX.length} combinations, G vanishes EXACTLY when a−b+c−d = 0 — the second form, and the one whose signs are the two gravity classes.`,
     why: 'THE SECOND FORM IS THE GRAVITY CLASSES WRITTEN AS ARITHMETIC. Length and time carry G as +1, mass and temperature as -1, so the G exponent of a combination is a - b + c - d, and the classes that looked like a partition of six pairs are just the signs in this form. Walked over the same box and in both directions, so it characterises rather than illustrates. Together with the form above, the two of them turn every question about what a combination cancels into arithmetic on its coefficients.',
     js: () => BOX.every((k) => (combine(k)[1] === 0) === (gravForm(k) === 0)),
-    lean: 'theorem gravity_cancels_on_a_linear_form : box.all (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true := by decide' },
+    lean: 'theorem gravity_cancels_on_a_linear_form : allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true := by decide' },
 
   { key: 'the_constant_free_combinations_are_a_rank_two_sublattice', skill: 'planck-lattice',
     name: `CLAIMED: a combination loses BOTH constants exactly when c = −a and d = −b — so it is a(l/t) + b(T/m), a rank-two sublattice whose basis is the two constant-free ratios themselves.`,
     why: 'THIS IS WHY THERE WERE EXACTLY TWO, and it says far more than the count did. Both forms vanish together when a+c = 0 and b+d = 0, which is precisely the condition that the combination is an integer combination of l/t and T/m. So the constant-free formulas are not two lucky pairs among six — they are a RANK-TWO SUBLATTICE, and those two ratios are its basis. Every constant-free formula there will ever be is c^i times (c^2/k)^j, and the enumeration that found two pairs was finding the basis rather than the whole set. Walked over the box in both directions.',
     js: () => BOX.every((k) => ((combine(k)[0] === 0 && combine(k)[1] === 0) === (k[2] === -k[0]! && k[3] === -k[1]!))),
-    lean: 'theorem the_constant_free_combinations_are_a_rank_two_sublattice : box.all (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true := by decide' },
+    lean: 'theorem the_constant_free_combinations_are_a_rank_two_sublattice : allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true := by decide' },
 
   { key: 'a_combination_exists_exactly_when_its_exponents_share_parity', skill: 'planck-lattice',
     name: `CLAIMED: a Planck combination with prescribed exponents (h, g) on hbar and G EXISTS exactly when h and g share parity — checked over all ${TARGETS.length} targets against ${SMALL_BOX.length} combinations, both directions.`,
     why: "THE FORMULATE-ON-THE-SPOT LAW, and the reason this wing stopped authoring formulas. Adding and subtracting the two forms gives h + g = 2(a+c) and h - g = 2(b+d), so both must be even: a combination with the exponents you want exists if and only if those exponents share parity, and when they do the coefficients follow immediately from a+c = (h+g)/2 and b+d = (h-g)/2. Ask for pure gravity (0, 2) — same parity, so it exists, and a+c = 1, b+d = -1 gives l/m = G/c^2 at once. Ask for hbar without G at odd exponent (1, 0) — different parity, so NO combination of these four quantities has it, ever. The statement walks every target in the box and asserts existence agrees with parity in both directions, so it is a decision procedure and not a heuristic: it answers what can be written before anything is written.",
     js: () => TARGETS.every(([h, g]) => SMALL_BOX.some((k) => hbarForm(k) === h && gravForm(k) === g) === ((((h! - g!) % 2) + 2) % 2 === 0)),
-    lean: 'theorem a_combination_exists_exactly_when_its_exponents_share_parity : targets.all (fun t => (smallBox.any (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true := by decide' },
+    lean: 'theorem a_combination_exists_exactly_when_its_exponents_share_parity : allTargets (fun t => (anySmallBox (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true := by decide' },
 
   { key: 'every_planck_ratio_cancels_the_quantum_of_action', skill: 'planck-lattice',
     name: `CLAIMED: all four Planck quantities carry the quantum of action to the same power, so hbar vanishes from every one of the ${PAIRS.length} pairwise ratios — walked over all six, not sampled.`,
@@ -155,9 +155,19 @@ const FACTS = [
 const DEFS = [
   // THE WALKS ARE BIG ON PURPOSE and the kernel needs headroom for them: the characterisations decide over 625
   // coefficient quadruples and the existence law over 81 combinations against 25 targets. `decide` unfolds those
-  // structurally, so the default recursion limit stops it — raised here rather than shrinking the box, because a
-  // characterisation that walks a smaller domain is a weaker claim wearing the same name.
-  'set_option maxRecDepth 100000',
+  // THE CEILING IS NOT BOUGHT ANY MORE, AND THE DOMAIN DID NOT SHRINK.
+  //
+  // This file carried `set_option maxRecDepth 100000` from 79357ab3, where the propext leak was fixed by routing
+  // every index through `nthI` — and the deeper structural recursion that bought was paid for with depth. The note
+  // that stood here defended the raise as better than shrinking the box, "because a characterisation that walks a
+  // smaller domain is a weaker claim wearing the same name". That reasoning is right and the choice was a false
+  // dilemma: there is a third option, and lean/CrossProof.lean now proves it works.
+  //
+  // `List.all` recurses once per element, so a single walk over 625 quadruples needs 625 frames and the default
+  // limit is 512. Nesting the walk over the FIVE-element coefficient list does the same 625 evaluations at depth
+  // five. The domain is identical, the characterisation is identical, and the ceiling is not approached rather than
+  // purchased — which is what theorem no_wing_buys_its_own_ceiling asks for, and what it caught here: the law went
+  // red on this exact line during a reconcile, having been added by the very commit that fixed the axioms.
   '',
   `/-- The four axes the exponents run over, in order: ${AXES.join(', ')}. Named here so a vector's third entry is\n    never a bare position in prose. -/`,
   `def planckAxes : List String := [${AXES.map((a) => JSON.stringify(a)).join(', ')}]`,
@@ -193,11 +203,15 @@ const DEFS = [
   'def gravForm (k : List Int) : Int := (List.zipWith (· * ·) k [1, -1, 1, -1]).foldl (· + ·) 0',
   `def coeffs : List Int := ${leanList(COEFFS)}`,
   `def smallCoeffs : List Int := ${leanList(SMALL)}`,
-  'def boxOf (cs : List Int) : List (List Int) :=',
-  '  cs.flatMap (fun a => cs.flatMap (fun b => cs.flatMap (fun c => cs.map (fun d => [a, b, c, d]))))',
-  'def box : List (List Int) := boxOf coeffs',
-  'def smallBox : List (List Int) := boxOf smallCoeffs',
-  'def targets : List (List Int) := coeffs.flatMap (fun h => coeffs.map (fun g => [h, g]))',
+  '-- THE WALK IS NESTED, NOT FLAT: the same 625 quadruples at recursion depth five instead of 625.',
+  'def allOver (cs : List Int) (f : List Int → Bool) : Bool :=',
+  '  cs.all (fun a => cs.all (fun b => cs.all (fun c => cs.all (fun d => f [a, b, c, d]))))',
+  'def anyOver (cs : List Int) (f : List Int → Bool) : Bool :=',
+  '  cs.any (fun a => cs.any (fun b => cs.any (fun c => cs.any (fun d => f [a, b, c, d]))))',
+  'def allBox (f : List Int → Bool) : Bool := allOver coeffs f',
+  'def anySmallBox (f : List Int → Bool) : Bool := anyOver smallCoeffs f',
+  'def allTargets (f : List Int → Bool) : Bool :=',
+  '  coeffs.all (fun h => coeffs.all (fun g => f [h, g]))',
 ].join('\n')
 
 console.log(`computing ${FACTS.length} PLANCK LATTICE cross formulas (clusters of lattice combinations) …`)

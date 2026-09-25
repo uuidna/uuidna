@@ -111,7 +111,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl`/`.foldr` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|mergeIdx|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
  *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
@@ -446,6 +446,33 @@ const skipType = (c: Cursor): void => {
     else if (ch === ')' || ch === ']') { if (depth === 0) return; depth-- }
     c.i++
   }
+}
+
+/**
+ * Lean `mergeIdx` — fuelled structural merge of two ASCENDING Nat lists, mirroring lean/Audit.lean exactly:
+ *   | 0, _, _ => [] | succ f, [], bs => bs | succ f, as, [] => as
+ *   | succ f, a::as, b::bs => if a <= b then a :: mergeIdx f as (b::bs) else b :: mergeIdx f (a::as) bs
+ *
+ * WHY THE EVALUATOR NEEDED IT. the_axiom_index_partitions_without_remainder proves a partition by MERGING the
+ * direct and reached index runs and comparing the result to the block's own `List.range'` — a merge equalling the
+ * index run proves disjoint, exhaustive and ordered at once, which the old `a + b + c = d` could not. That
+ * restatement escaped a recursion ceiling and silently cost the theorem its falsifier leg, because this grammar
+ * had never seen `mergeIdx` and reports what it cannot decide rather than guessing. `rosetta` caught it on the
+ * floor rule ("the floor may only rise") the next time the mirror was rebuilt, which is the finder working.
+ *
+ * THE FUEL IS PART OF THE FUNCTION, not a safety net around it. Lean's definition returns [] when the fuel runs
+ * out, so an under-fuelled call is a DIFFERENT value rather than an error, and an evaluator that quietly ignored
+ * the fuel would disagree with the kernel on exactly the inputs where the theorem is interesting.
+ */
+const mergeIdx = (fuel: number, xs: readonly number[], ys: readonly number[]): number[] => {
+  if (fuel <= 0) return []
+  if (xs.length === 0) return [...ys]
+  if (ys.length === 0) return [...xs]
+  const [a, ...as] = xs
+  const [b, ...bs] = ys
+  return a! <= b!
+    ? [a!, ...mergeIdx(fuel - 1, as, ys)]
+    : [b!, ...mergeIdx(fuel - 1, xs, bs)]
 }
 
 /** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. */
@@ -1266,6 +1293,12 @@ const atom = (c: Cursor): Val => {
     const out: Val[] = []
     for (let i = 0; i < n; i++) out.push(pair(xs[i]!, ys[i]!))
     return postfix(c, lst(out))
+  }
+  if (eat(c, 'mergeIdx')) {
+    const fuel = asNum(atom(c))
+    const xs = asLst(atom(c)).map(asNum)
+    const ys = asLst(atom(c)).map(asNum)
+    return postfix(c, lst(mergeIdx(fuel, xs, ys)))
   }
   if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
   if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))

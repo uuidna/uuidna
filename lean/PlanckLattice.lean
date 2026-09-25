@@ -1,7 +1,5 @@
 -- lean/PlanckLattice.lean — GENERATED. THE PLANCK EXPONENT LATTICE — cross formulas that prove each other, in clusters of lattice combinations. Each Planck quantity is a product of powers of four constants, so each is an integer vector of exponents over (hbar, G, c, k); the SQUARES are used, which keeps every exponent an integer and every theorem decidable. A product ADDS the vectors and a ratio SUBTRACTS them, so every combination is a lattice point and the lattice is closed under both — and that closure is what makes these formulas prove each other rather than sit beside each other. THE CLUSTERS ARE NOT CHOSEN, they are what the arithmetic partitions the six pairs into. Every quantity carries hbar to the first power, so hbar vanishes from EVERY ratio; G vanishes only when both quantities carry the same sign of G, which splits the four into two gravity classes, {length, time} at G^+1 and {mass, temperature} at G^-1. Exactly two of six pairs lie inside a class and give the constant-free ratios l/t = c and T/m = c^2/k. A PRODUCT cancels G across the classes instead — four of six pairs, the pure-quantum cluster, l*m = hbar/c and t*m = hbar/c^2. A RATIO across the classes keeps G and loses the quantum: l/m = G/c^2, t/m = G/c^3. Sums and differences therefore do OPPOSITE things to gravity and the same thing to the quantum, and that duality is the finding. WHERE THEY PROVE EACH OTHER: the constant-free l/t is reachable two independent ways — as the ratio of two pure-quantum products, where gravity has already cancelled, and as the ratio of two pure-gravity ratios, where the quantum has — and both routes land on the same vector without either being assumed. The same closure crosses the clusters back to the length: the pure-quantum product times the pure-gravity ratio is (hbar/c)(G/c^2) = hbar G / c^3, which is the squared length exactly. CLAIMED: the lattice arithmetic in full, every identity closed by the Lean 4 kernel over its own finite domain, axiom-free, and every census WALKED over all six pairs rather than sampled — a uniqueness claim written here without enumerating was how the second constant-free pair was missed, and the enumeration is the cure. NOT CLAIMED: that the Planck quantities are physically fundamental, or that anything is measurable at that scale. This is DIMENSIONAL ALGEBRA: the exponents are definitions and the combinations are arithmetic, with no experiment invoked. The experimental record lives in lean/StringTheory.lean and says plainly that one probe of six has ever reached this scale. Only the constants' EXPONENTS appear here, and an exponent is a choice of unit rather than a measurement. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-set_option maxRecDepth 100000
-
 /-- The four axes the exponents run over, in order: hbar, G, c, k. Named here so a vector's third entry is
     never a bare position in prose. -/
 def planckAxes : List String := ["hbar", "G", "c", "k"]
@@ -47,27 +45,31 @@ def hbarForm (k : List Int) : Int := k.foldl (· + ·) 0
 def gravForm (k : List Int) : Int := (List.zipWith (· * ·) k [1, -1, 1, -1]).foldl (· + ·) 0
 def coeffs : List Int := [-2, -1, 0, 1, 2]
 def smallCoeffs : List Int := [-1, 0, 1]
-def boxOf (cs : List Int) : List (List Int) :=
-  cs.flatMap (fun a => cs.flatMap (fun b => cs.flatMap (fun c => cs.map (fun d => [a, b, c, d]))))
-def box : List (List Int) := boxOf coeffs
-def smallBox : List (List Int) := boxOf smallCoeffs
-def targets : List (List Int) := coeffs.flatMap (fun h => coeffs.map (fun g => [h, g]))
+-- THE WALK IS NESTED, NOT FLAT: the same 625 quadruples at recursion depth five instead of 625.
+def allOver (cs : List Int) (f : List Int → Bool) : Bool :=
+  cs.all (fun a => cs.all (fun b => cs.all (fun c => cs.all (fun d => f [a, b, c, d]))))
+def anyOver (cs : List Int) (f : List Int → Bool) : Bool :=
+  cs.any (fun a => cs.any (fun b => cs.any (fun c => cs.any (fun d => f [a, b, c, d]))))
+def allBox (f : List Int → Bool) : Bool := allOver coeffs f
+def anySmallBox (f : List Int → Bool) : Bool := anyOver smallCoeffs f
+def allTargets (f : List Int → Bool) : Bool :=
+  coeffs.all (fun h => coeffs.all (fun g => f [h, g]))
 
 /-- CLAIMED: over all 625 combinations in the box, hbar vanishes from a(l)+b(m)+c(t)+d(T) EXACTLY when a+b+c+d =
     0 — cancellation is the kernel of a linear form, not a property found pair by pair. -/
-theorem the_quantum_of_action_cancels_on_a_linear_form : box.all (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true := by decide
+theorem the_quantum_of_action_cancels_on_a_linear_form : allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true := by decide
 
 /-- CLAIMED: over the same 625 combinations, G vanishes EXACTLY when a−b+c−d = 0 — the second form, and the one
     whose signs are the two gravity classes. -/
-theorem gravity_cancels_on_a_linear_form : box.all (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true := by decide
+theorem gravity_cancels_on_a_linear_form : allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true := by decide
 
 /-- CLAIMED: a combination loses BOTH constants exactly when c = −a and d = −b — so it is a(l/t) + b(T/m), a
     rank-two sublattice whose basis is the two constant-free ratios themselves. -/
-theorem the_constant_free_combinations_are_a_rank_two_sublattice : box.all (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true := by decide
+theorem the_constant_free_combinations_are_a_rank_two_sublattice : allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI k 3) == -(nthI k 1)))) = true := by decide
 
 /-- CLAIMED: a Planck combination with prescribed exponents (h, g) on hbar and G EXISTS exactly when h and g
     share parity — checked over all 25 targets against 81 combinations, both directions. -/
-theorem a_combination_exists_exactly_when_its_exponents_share_parity : targets.all (fun t => (smallBox.any (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true := by decide
+theorem a_combination_exists_exactly_when_its_exponents_share_parity : allTargets (fun t => (anySmallBox (fun k => (hbarForm k == nthI t 0) && (gravForm k == nthI t 1))) == (((nthI t 0) - (nthI t 1)) % 2 == 0)) = true := by decide
 
 /-- CLAIMED: all four Planck quantities carry the quantum of action to the same power, so hbar vanishes from
     every one of the 6 pairwise ratios — walked over all six, not sampled. -/
