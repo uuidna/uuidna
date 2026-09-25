@@ -1,21 +1,16 @@
 import {
-  AMOUNT,
-  AREA,
-  CONCENTRATION,
   DIMENSIONLESS,
-  MASS,
-  TEMPERATURE,
-  TIME,
-  VOLUME,
-  degenerate,
-  readEquation,
-  type Equation,
-  type SymbolTable,
-  type Term,
-} from './si.js'
+  dimUnit,
+  qAdd,
+  qDiv,
+  qMul,
+  quantity,
+  type Dim,
+  type Quantity,
+} from './quantum/os/engapi/index.js'
 
 /**
- * The equations printed on the DRY CLEANING plate of Zenodo record 22934883, read by the SI instrument.
+ * The equations printed on the DRY CLEANING plate of Zenodo record 22934883, read against the SI seven.
  *
  * WHAT THE RECORD CLAIMS, in its own words: the framework bridges "industrial chemical engineering
  * (tetrachloroethylene distillation, soil mass dynamics, emulsification kinetics)" with multimedia synthesis,
@@ -28,23 +23,175 @@ import {
  * genuine chemistry — the tetrachloroethylene partition ratio is textbook and is printed correctly — with
  * renders that are not equations at all, and nothing outside this run says which is which or how many of each.
  *
+ * THE ARITHMETIC IS NOT REIMPLEMENTED HERE. quantum/os/engapi already carries dimensioned exact arithmetic over
+ * the SI seven — exponent vectors, exact BigInt rationals, and a `qAdd` that REFUSES a sum whose dimensions
+ * disagree and hands back the exact factor that would make it lawful. This file was first written against a
+ * second, weaker copy of that (plain numbers, no values), which is the duplication this tree exists to refuse.
+ * What is added here is only what engapi has no reason to carry: the SHAPE of a printed equation, and a verdict
+ * for a symbol that cannot be read at all.
+ *
+ * THREE VERDICTS, AND THE THIRD IS THE POINT. `consistent`, `inconsistent`, and `illegible` — a symbol this
+ * table does not know is REFUSED, never read as dimensionless. A checker that silently treats what it cannot
+ * read as "1" manufactures agreement, and would report a plate of glyph soup as sound arithmetic.
+ *
+ * A DEFINITION IS NOT A DISAGREEMENT. Where the left side is a single symbol this table does not carry, the
+ * equation DEFINES that symbol, and only the right side's internal consistency is at issue. Without this rule
+ * every definition on earth reads as a failure, which would make the instrument useless and flattering at once.
+ *
+ * NECESSARY, NOT SUFFICIENT — and this file ships the proof. `m = m + m'` is dimensionally perfect and
+ * algebraically forces m' = 0. `degenerate` is the second instrument, and neither subsumes the other.
+ *
  * THE TRANSCRIPTION IS VERBATIM, INCLUDING THE GARBLE. Symbols that could not be read off the plate are
  * transcribed under the name they appear to carry and left OUT of the symbol table, so the instrument returns
- * `illegible` for them. The refusals are the table's, not the transcriber's — which matters, because a
- * transcriber who quietly drops what he cannot read decides the census himself and then reports it as a
- * measurement.
+ * `illegible` for them. The refusals are the table's, not the transcriber's — a transcriber who quietly drops
+ * what he cannot read decides the census himself and then reports it as a measurement.
  *
  * `T_` IS AMBIGUOUS AND BOTH READINGS ARE RUN. The plate uses `T_dist` beside a distillation column, where it
  * could be the temperature of the stage or the time of the cut. Picking one would put the instrument's thumb on
- * the scale, so both symbol tables are evaluated and `ROBUST` records whether a verdict survives either reading.
- * A failure that holds only under one reading is a weaker finding and is reported as one.
+ * the scale, so both symbol tables are evaluated and a verdict that differs between them is reported as
+ * `contested` rather than settled.
  */
 
-const symbol = (name: string): Term => ({ kind: 'symbol', name })
-const number: Term = { kind: 'number' }
-const sum = (...terms: Term[]): Term => ({ kind: 'sum', terms })
-const product = (...terms: Term[]): Term => ({ kind: 'product', terms })
-const quotient = (over: Term, by: Term): Term => ({ kind: 'quotient', over, by })
+// The SI seven in engapi's order — m, kg, s, A, K, mol, cd.
+const MASS: Dim = [0, 1, 0, 0, 0, 0, 0]
+const VOLUME: Dim = [3, 0, 0, 0, 0, 0, 0]
+const AREA: Dim = [2, 0, 0, 0, 0, 0, 0]
+const TIME: Dim = [0, 0, 1, 0, 0, 0, 0]
+const TEMPERATURE: Dim = [0, 0, 0, 0, 1, 0, 0]
+/** amount concentration, mol·m⁻³ — what square brackets mean in a chemical equation. */
+const CONCENTRATION: Dim = [-3, 0, 0, 0, 0, 1, 0]
+
+/** A symbol carries a dimension, not a measurement — so every one is the unit quantity of its kind. */
+const one = (dim: Dim): Quantity => quantity(1n, 1n, dim)
+
+/** An equation's right side, as structure rather than as a string. */
+export type EquationTerm =
+  | { kind: 'symbol'; name: string }
+  /** a pure number, including a percentage — dimensionless by construction */
+  | { kind: 'number' }
+  | { kind: 'sum'; terms: readonly EquationTerm[] }
+  | { kind: 'product'; terms: readonly EquationTerm[] }
+  | { kind: 'quotient'; over: EquationTerm; by: EquationTerm }
+  /** ∫ f d(x) — carries dim(f)·dim(x), which is why an undeclared integrand cannot be checked */
+  | { kind: 'integral'; of: EquationTerm; by: EquationTerm }
+
+export type Reading =
+  | { verdict: 'consistent'; quantity: Quantity }
+  | { verdict: 'inconsistent'; because: string }
+  | { verdict: 'illegible'; because: string }
+
+/** Values may be absent: a table that types every string as known makes the `illegible` path unreachable. */
+export type SymbolTable = Readonly<Record<string, Dim | undefined>>
+
+/** The dimension a term carries, or the first reason it has none. */
+export function dimensionOf(term: EquationTerm, symbols: SymbolTable): Reading {
+  switch (term.kind) {
+    case 'number':
+      return { verdict: 'consistent', quantity: one(DIMENSIONLESS) }
+
+    case 'symbol': {
+      const known = symbols[term.name]
+      return known === undefined
+        ? {
+            verdict: 'illegible',
+            because: `${term.name} is not in the symbol table, and an unread symbol is refused rather than taken for a pure number`,
+          }
+        : { verdict: 'consistent', quantity: one(known) }
+    }
+
+    case 'sum': {
+      let carried: Quantity | undefined
+      for (const addend of term.terms) {
+        const read = dimensionOf(addend, symbols)
+        if (read.verdict !== 'consistent') return read
+        if (carried === undefined) { carried = read.quantity; continue }
+        // engapi refuses the unlawful sum AND names the factor that would fix it — the mismatch states its cure.
+        const sum = qAdd(carried, read.quantity)
+        if (!sum.lawful || sum.quantity === null) return { verdict: 'inconsistent', because: sum.why }
+        carried = sum.quantity
+      }
+      return carried === undefined
+        ? { verdict: 'illegible', because: 'an empty sum has no dimension to read' }
+        : { verdict: 'consistent', quantity: carried }
+    }
+
+    case 'product': {
+      let carried = one(DIMENSIONLESS)
+      for (const factor of term.terms) {
+        const read = dimensionOf(factor, symbols)
+        if (read.verdict !== 'consistent') return read
+        carried = qMul(carried, read.quantity)
+      }
+      return { verdict: 'consistent', quantity: carried }
+    }
+
+    case 'quotient': {
+      const above = dimensionOf(term.over, symbols)
+      if (above.verdict !== 'consistent') return above
+      const below = dimensionOf(term.by, symbols)
+      if (below.verdict !== 'consistent') return below
+      return { verdict: 'consistent', quantity: qDiv(above.quantity, below.quantity) }
+    }
+
+    case 'integral': {
+      const of = dimensionOf(term.of, symbols)
+      if (of.verdict !== 'consistent') return of
+      const by = dimensionOf(term.by, symbols)
+      if (by.verdict !== 'consistent') return by
+      return { verdict: 'consistent', quantity: qMul(of.quantity, by.quantity) }
+    }
+  }
+}
+
+export interface Equation {
+  /** the left side as the plate writes it */
+  left: string
+  right: EquationTerm
+}
+
+/**
+ * Read one equation.
+ *
+ * Where `left` is a symbol the table does not carry, the equation DEFINES it and only the right side is at
+ * issue — see the header. Where the table does carry it, both sides must agree.
+ */
+export function readEquation(equation: Equation, symbols: SymbolTable): Reading {
+  const right = dimensionOf(equation.right, symbols)
+  if (right.verdict !== 'consistent') return right
+
+  const left = symbols[equation.left]
+  if (left === undefined) return right
+
+  const sum = qAdd(one(left), right.quantity)
+  if (sum.lawful) return right
+  return {
+    verdict: 'inconsistent',
+    because: `${equation.left} is ${dimUnit(left)} and its right side is ${right.quantity.unit} — they are not the same kind of thing, and the gap is ${sum.gapUnit}`,
+  }
+}
+
+/**
+ * The second instrument: an equation whose left symbol is a direct addend of its own right side.
+ *
+ * `m = m + m'` forces m' = 0 — every other addend must vanish. This is a DIFFERENT defect from a dimensional
+ * one and is invisible to `readEquation`, which passes it cleanly. Stated narrowly, to exactly what follows:
+ * only a top-level sum containing the left symbol is claimed, because that is the case where the conclusion is
+ * arithmetic rather than a guess about what the author meant.
+ */
+export function degenerate(equation: Equation): string | undefined {
+  if (equation.right.kind !== 'sum') return undefined
+  const others = equation.right.terms.filter(
+    (t) => !(t.kind === 'symbol' && t.name === equation.left),
+  )
+  if (others.length === equation.right.terms.length) return undefined
+  return `${equation.left} appears on both sides of its own sum, so the remaining ${String(others.length)} addend(s) are forced to zero`
+}
+
+const symbol = (name: string): EquationTerm => ({ kind: 'symbol', name })
+const number: EquationTerm = { kind: 'number' }
+const sum = (...terms: EquationTerm[]): EquationTerm => ({ kind: 'sum', terms })
+const product = (...terms: EquationTerm[]): EquationTerm => ({ kind: 'product', terms })
+const quotient = (over: EquationTerm, by: EquationTerm): EquationTerm => ({ kind: 'quotient', over, by })
 
 /** Symbols read with confidence off the plate, under its own prefix convention. */
 const SHARED: SymbolTable = {
@@ -56,7 +203,7 @@ const SHARED: SymbolTable = {
   C_solv: CONCENTRATION, C_soil: CONCENTRATION, C_liquid: CONCENTRATION, C_dist: CONCENTRATION,
   C2Cl4_gas: CONCENTRATION, C2Cl4_liquid: CONCENTRATION,
   // n_ — amount of substance
-  n_t: AMOUNT, n_2: AMOUNT,
+  n_t: [0, 0, 0, 0, 0, 1, 0], n_2: [0, 0, 0, 0, 0, 1, 0],
   // a partition ratio is a ratio
   K_eq: DIMENSIONLESS,
   t: TIME,
@@ -145,7 +292,7 @@ export function auditPlate(plate: readonly Printed[] = PLATE): Audited[] {
       return {
         of: reading.of,
         verdict: read.verdict,
-        because: read.verdict === 'consistent' ? `carries ${JSON.stringify(read.dimension)}` : read.because,
+        because: read.verdict === 'consistent' ? `carries ${read.quantity.unit}` : read.because,
       }
     })
     const first = under[0].verdict

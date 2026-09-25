@@ -9,6 +9,12 @@
 
 export { DISSOLVED, dissolvedGaps, type Dissolved, type DissolvedGap } from './dissolved.js'
 
+// the Zenodo dry-cleaning plate, read against the SI seven — the arithmetic is quantum/os/engapi's, not a second copy
+export {
+  PLATE, READINGS, auditPlate, plateCensus, dimensionOf, readEquation, degenerate,
+  type EquationTerm, type Reading, type SymbolTable, type Equation, type Printed, type Audited, type PlateCensus,
+} from './dry-cleaning.js'
+
 export {
   toUuid, cryptoAddress, strictUuidna, merge, coin64, excludeSortedJson, merkleFold, digitalRoot,
   gcd, gcdBigInt, isPrime, modpow,
