@@ -1,8 +1,8 @@
-# uuidna — 70,951 distinct theorems under 71,036 keys · 2 coins · one receipt
+# uuidna — 70,986 distinct theorems under 71,071 keys · 2 coins · one receipt
 
-`e6baf71a-4c18-87a6-a7e7-c04b55236c82`
+`570b2477-0314-834e-abac-7e8380e0ffe9`
 
-**What every theorem carries, and what most do not.** proof · falsifier · address hold for 71,036 of 71,036; **witness 29 of 71,036** (0.0%), **symbol 1340 of 71,036** (1.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 0 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · address hold for 71,071 of 71,071; **witness 30 of 71,071** (0.0%), **symbol 1375 of 71,071** (1.9%), **falsifier 71051 of 71,071** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256708](https://doi.org/10.5281/zenodo.22256708)
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,036 theorems and 172,266,178 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,071 theorems and 172,328,401 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -92,13 +92,13 @@ exposed a wrong denominator that every rung above it had hidden.
 
 ## Thesis
 
-> Captain PhD — concept (Clay 8, DNA 10, gravity true, demos true) ∧ work (search 0, digest 256, Grover 128, codons 64) ∧ thesis (ok true, gaps 0) → **complete true**. Thesis wave 24 / 24. Receipt `aef910a4-96cc-8017-923c-ff4021f0825b`.
+> Captain PhD — concept (Clay 8, DNA 10, gravity true, demos true) ∧ work (search 0, digest 256, Grover 128, codons 64) ∧ thesis (ok false, gaps 1) → **complete false**. Thesis wave 24 / 24. Receipt `56477305-4310-81c6-aeda-9e1b8344a671`.
 
 ### Proof of concept
 
 #### Clay
 
-Seven finite instances in [lean/Clay.lean](lean/Clay.lean), each a computational claim proven `by decide`. Prior art (initial clay σ-involution): DOI [10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603) ([Zenodo record](https://zenodo.org/records/21781603)) credited first; captain next. Live: [uuidna.com/articles/clay](https://uuidna.com/articles/clay). Clay gravity equals the rosetta at full capacity ([clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette)): seven ℤ/7 rays ([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, three-sevens 21, rosette doubling 2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins)).
+Seven finite instances in [lean/Clay.lean](lean/Clay.lean), each a computational claim proven `by decide`. Prior art (initial clay σ-involution): DOI [10.5281/zenodo.21781602](https://doi.org/10.5281/zenodo.21781602) ([Zenodo record](https://zenodo.org/records/21781603)) credited first; captain next. Live: [uuidna.com/articles/clay](https://uuidna.com/articles/clay). Clay gravity equals the rosetta at full capacity ([clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette)): seven ℤ/7 rays ([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, three-sevens 21, rosette doubling 2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins)).
 
 #### DNA
 
@@ -236,7 +236,7 @@ Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent`
 Scope charter — sufficient / insufficient, world solutions as waves: [doctrine](https://uuidna.com/doctrine) (computational claims only; verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)).
 
 **Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
-Board: **70,951** distinct / **71,036** keys · **122** skills · **252** Lean files · receipt `77477567-8313-8a44-999c-a148cc984633`.
+Board: **70,986** distinct / **71,071** keys · **126** skills · **256** Lean files · receipt `1c97fc5d-dfea-8fb0-90f3-c5e012b40e43`.
 Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [digit_polarities_partition_ten](https://uuidna.com/theorem/digit_polarities_partition_ten); [ve_pentads_overlap_to_eight](https://uuidna.com/theorem/ve_pentads_overlap_to_eight); [theorems_interact_as_faces](https://uuidna.com/theorem/theorems_interact_as_faces); [imagine_all_as_clique_faces](https://uuidna.com/theorem/imagine_all_as_clique_faces); [entanglement_completes_one_at_a_time](https://uuidna.com/theorem/entanglement_completes_one_at_a_time); [axes_stride_coprime](https://uuidna.com/theorem/axes_stride_coprime); [the_fused_ring_is_all_ones](https://uuidna.com/theorem/the_fused_ring_is_all_ones); [four_vectors_reach_the_uuid](https://uuidna.com/theorem/four_vectors_reach_the_uuid); [gap_is_a_count](https://uuidna.com/theorem/gap_is_a_count); [rounding_fee_closes_the_cube](https://uuidna.com/theorem/rounding_fee_closes_the_cube); [served_qubit_ceiling](https://uuidna.com/theorem/served_qubit_ceiling); [keplers_harmonic_law](https://uuidna.com/theorem/keplers_harmonic_law); [discovery_buys_coverage_never_supply](https://uuidna.com/theorem/discovery_buys_coverage_never_supply); [radial_equals_edge](https://uuidna.com/theorem/radial_equals_edge); [lanes_even_on_complete_system](https://uuidna.com/theorem/lanes_even_on_complete_system); [trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins); [trinity_edit_is_three](https://uuidna.com/theorem/trinity_edit_is_three); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
 Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
@@ -248,10 +248,10 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 70,951 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 71,036 | `theorems().length` |
-| Principles / wings | 252 / 252 | PRINCIPLES + wing ratings |
-| Skills | 122 | distinct `skill` tags |
+| Distinct theorems | 70,986 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 71,071 | `theorems().length` |
+| Principles / wings | 256 / 256 | PRINCIPLES + wing ratings |
+| Skills | 126 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
 | Neighbours per coin | 63 | fused ring 63 + 1 = 64 ([captain_theorem_the_coins_buy_the_ring_and_one](https://uuidna.com/theorem/captain_theorem_the_coins_buy_the_ring_and_one)); faces reflect |
 | Fake a handle | verify 32 · forge 2^32 · completes 2^96 · with witnesses 2^128 | 4 quarters span the uuid ([handle_string_spans_the_quarter](https://uuidna.com/theorem/handle_string_spans_the_quarter)); 3 related handles |
@@ -263,8 +263,8 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — concept | 4^3 = 64 · involution true | [codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed) · [dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution) |
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
-| Captain PhD — complete | true · receipt `aef910a4-96cc-8017-923c-ff4021f0825b` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,266,178 superpositions (6 hexbits) | sum of `by decide` domains |
+| Captain PhD — complete | false · receipt `56477305-4310-81c6-aeda-9e1b8344a671` | concept ∧ work ∧ thesis |
+| Ledger decided mass | 172,328,401 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -277,12 +277,12 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Quantum wing theorems | 65 | Quantum.lean |
 | Cipher wing theorems | 38 | Cipher.lean |
 | Research sources wired | 19 | cited for corroboration; approval stays with the source |
-| Conserved price paid | 142,072 coins | 71036 × 2 |
+| Conserved price paid | 142,142 coins | 71071 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);
-  provenance compile 28,631 / 28,631 packages (100%)
+  provenance compile 28,640 / 28,640 packages (100%)
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,670 / 22,670 = 100%; man compile 4,757 / 4,757; monitor receipt `8ddc9d3c-a3de-8c71-ba34-776bfb001445`;
+  community 22,679 / 22,679 = 100%; man compile 4,757 / 4,757; monitor receipt `5e51356e-d5dc-8570-9c6a-82a0bb5f8551`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states
@@ -302,7 +302,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,266,178** superpositions across **252** wings.
+The ledger covers **172,328,401** superpositions across **256** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -346,8 +346,8 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,266,178** superpositions decided across the ledger
-- **142,072** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- **172,328,401** superpositions decided across the ledger
+- **142,142** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **1,212** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the
@@ -385,7 +385,7 @@ provenance from Alpine's own published metadata, and one API of uuidna's own bes
 | `blockchain` | 29 | 19 | inclusion without disclosure |
 
 Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
-over-count rather than partition. Computed from the committed mirror on every build; receipt `fed53b78-c696-8f5e-8dcb-177646124ef2`.
+over-count rather than partition. Computed from the committed mirror on every build; receipt `97f0b4b8-320b-809f-b936-6ee73a1cd1d0`.
 <!-- ports:end -->
 
 <!-- clay:begin -->
