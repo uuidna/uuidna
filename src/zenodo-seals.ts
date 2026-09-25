@@ -101,6 +101,11 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     conceptDoi: '10.5281/zenodo.21787143',
     standingRecordId: STANDING_DOI.split('.').pop()!,
     conceptId: '21787143',
+    // NOVELTY IS THE FIRST DEPOSIT, and this series has nineteen versions — the standing DOI moves with every
+    // release and carries no precedence. Read from the deposit's own version list, earliest by publication date.
+    firstDoi: '10.5281/zenodo.21787144',
+    firstRecordId: '21787144',
+    firstPublished: '2026-08-04',
     pageUrl: HANDLE_HOST,
     uploadType: 'software',
     keywords: ['content-address', 'Lean 4', 'formal verification', 'uuidna', 'by decide', 'honest by construction'],
