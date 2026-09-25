@@ -1,7 +1,6 @@
-import { formulaLean, roundTrip } from './formula.js'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { typeset, parseFormula, classify, congruenceOf, formulaTex, type Node } from './formula.js'
+import { typeset, parseFormula, classify, congruenceOf, formulaLean, formulaSource, formulaTex, roundTrip, type Node } from './formula.js'
 import { THEOREMS } from './theorems/index.js'
 
 // THE INSTRUMENT THAT CAN FAIL. A typesetter is easy to check the easy way — look at six formulas, agree they
@@ -53,7 +52,7 @@ test('every formula-shaped statement parses, and the parse agrees with the kerne
   for (const t of THEOREMS) {
     if (classify(t.statement) !== 'formula') continue
     formula++
-    const p = parseFormula(t.statement)
+    const p = parseFormula(formulaSource(t.statement))
     if (!p.ok) { refused.push(`${p.why} :: ${t.statement}`); continue }
     const v = evaluate(p.node)
     if (typeof v !== 'boolean') { wrong.push(`not a proposition :: ${t.statement}`); continue }
@@ -162,7 +161,7 @@ test('EVERY sealed division typesets to a form that is true as written', () => {
   const wrong: string[] = []
   for (const t of THEOREMS) {
     if (classify(t.statement) !== 'formula' || !t.statement.includes('/')) continue
-    const p = parseFormula(t.statement)
+    const p = parseFormula(formulaSource(t.statement))
     if (!p.ok) continue
     const r = typeset(t.statement)
     if (!r.tex) continue
@@ -211,7 +210,7 @@ test('every formula-shaped statement survives the round trip', async () => {
   assert.ok(sealed.length > 1000, `expected the formula-shaped ledger, found ${sealed.length}`)
 
   const broken = sealed
-    .map((t) => ({ key: t.key, trip: roundTrip(t.statement) }))
+    .map((t) => ({ key: t.key, trip: roundTrip(formulaSource(t.statement)) }))
     .filter((r) => !r.trip.agrees)
     .map((r) => `${r.key}: ${r.trip.why ?? 'the returned node differs'}`)
 
@@ -230,7 +229,7 @@ test('and the returned form decides as the sealed one does', async () => {
 
   for (const t of theorems()) {
     if (classify(t.statement) !== 'formula') continue
-    const trip = roundTrip(t.statement)
+    const trip = roundTrip(formulaSource(t.statement))
     if (!trip.agrees || !trip.back) continue
 
     const sealed = holds(t.statement)
@@ -261,4 +260,61 @@ test('the pair can fail — a rendering that lies is caught', async () => {
   const dropped: Node = { kind: 'num', text: '0' }
   const negated: Node = { kind: 'not', of: dropped }
   assert.notEqual(formulaLean(negated), formulaLean(dropped))
+})
+
+// ── a type ascription is not part of the arithmetic ─────────────────────────
+//
+// `(2:Nat)^3 = 8` is `2^3 = 8` with the elaborator told which 2 to use. The
+// type is how Lean is ASKED; it is not what is asserted, and nobody writes the
+// ℕ inline when they write 2³ = 8. Ninety-four sealed statements were
+// classified as programs for that reason alone — blood_types_eight,
+// codons_sixty_four and seats_pigeonhole among them, three of the most-cited
+// theorems in the ledger, with no LaTeX and no MathML because of a `:Nat`.
+test('a Nat-ascribed numeral is a formula, and typesets without the type', () => {
+  assert.equal(classify('(2:Nat)^3 = 8'), 'formula')
+  assert.equal(typeset('(2:Nat)^3 = 8').tex, '2^{3} = 8')
+})
+
+test('the three most-cited theorems now carry a reading', () => {
+  assert.equal(typeset('(2:Nat)^3 = 8').tex, '2^{3} = 8')
+  assert.equal(typeset('(4:Nat)^3 = 64').tex, '4^{3} = 64')
+  assert.match(String(typeset('(2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1').tex), /2\^\{8\} = 256/)
+})
+
+// `: Int` IS PART OF THE STATEMENT, and this limit was paid for. A first version
+// stripped every ascription, which admitted thirty-two statements carrying
+// `: Int` — and three then parsed FALSE against a kernel that sealed them TRUE.
+// Nat is the default a bare numeral already has, so removing it changes nothing;
+// `: Int` is there precisely BECAUSE the arithmetic differs without it, since
+// `(3 - 7 : Int)` is −4 where ℕ subtraction truncates to 0. A reader that drops
+// it is reading a different statement.
+test('an Int ascription is kept, and such a statement stays a program', () => {
+  assert.equal(formulaSource('(3 - 7 : Int) = -4').includes('Int'), true, 'the type that changes the meaning survives')
+  assert.equal(classify('((3 - 7) + (11 - 7) : Int) = 0'), 'program')
+  assert.equal(typeset('((3 - 7) + (11 - 7) : Int) = 0').tex, null, 'no reading is better than a wrong one')
+})
+
+test('only Nat is removed — no other type name is touched', () => {
+  assert.equal(formulaSource('(2 : Nat)^3 = 8').replace(/[()\s]/g, ''), '2^3=8')
+  for (const t of ['Int', 'Bool', 'Fin']) {
+    assert.ok(formulaSource(`(2 : ${t})^3 = 8`).includes(t), `${t} must survive — it is not the default`)
+  }
+})
+
+// ONE READING, NOT TWO. classify judging the bare statement while the parser
+// read the raw one would report refusals that are artefacts of reading the same
+// input twice, differently.
+test('what classify admits, the parser parses', () => {
+  for (const s of ['(2:Nat)^3 = 8', '(4:Nat)^3 = 64', '(2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1']) {
+    const r = typeset(s)
+    assert.equal(r.classification, 'formula', s)
+    assert.equal(r.refused, null, `${s} was admitted and then refused: ${String(r.refused)}`)
+    assert.ok(r.tex, s)
+  }
+})
+
+test('a program is still a program — this widens the reading, not the claim', () => {
+  assert.equal(classify('(List.range 8).all (fun i => i < 8)'), 'program')
+  assert.equal(classify('∀ a b : Nat, a + b = b + a'), 'program')
+  assert.equal(typeset('(List.range 8).all (fun i => i < 8)').tex, null)
 })

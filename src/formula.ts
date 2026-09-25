@@ -30,10 +30,55 @@ export const FORMULA_CHARS = /^[0-9\s()+\-*\/%^=<>!¬∧≠≤≥]+$/
 
 export type Classification = 'formula' | 'program'
 
+/**
+ * A LEAN TYPE ASCRIPTION IS NOT PART OF THE ARITHMETIC.
+ *
+ * `(2:Nat)^3 = 8` is `2^3 = 8` with the elaborator told which 2 to use. The
+ * type is how Lean is asked; it is not what is asserted, and it has no reading
+ * in a typeset formula — nobody writes the ℕ inline when they write 2³ = 8.
+ *
+ * Ninety-four sealed statements were classified as PROGRAMS for this reason
+ * alone, and every one of them typesets cleanly once the ascription is taken
+ * off: blood_types_eight, codons_sixty_four, seats_pigeonhole — three of the
+ * most-cited theorems in the ledger — had no LaTeX and no MathML because of a
+ * `:Nat`. A formula layer that cannot read `(2:Nat)^3 = 8` is not a formula
+ * layer, it is one that happens to work on statements written without types.
+ *
+ * ONLY `Nat`, AND THAT LIMIT WAS PAID FOR. The first version stripped every
+ * ascription, which admitted thirty-two statements carrying `: Int` — and three
+ * of them then parsed FALSE against a kernel that sealed them TRUE. `: Int` is
+ * not decoration the way `: Nat` is: Nat is the default a bare numeral already
+ * has, so removing it changes nothing, while `: Int` is there precisely BECAUSE
+ * the arithmetic would be different without it — `(3 - 7 : Int)` is −4 where
+ * ℕ subtraction truncates to 0. An ascription that changes the meaning is part
+ * of the statement, and a reader that drops it is reading a different one.
+ *
+ * So sixty-two statements gain a reading and thirty-two keep none, which is the
+ * honest split rather than the larger number.
+ *
+ * REMOVED, NOT RELOCATED. The evaluator's `stripAscriptions` turns `(x : Int)`
+ * into `Int(x)` on purpose — it deletes `Int` as a named operator in a second
+ * pass — and reusing it here left `Int(` behind and classified the statement a
+ * program again. Two readers, two jobs.
+ */
+const withoutAscriptions = (statement: string): string =>
+  statement.replace(/\s*:\s*Nat\b/g, '')
+
 /** classify(statement) → whether the statement is a formula that typesets exactly, or a program that must not. */
 export function classify(statement: string): Classification {
-  return FORMULA_CHARS.test(statement) && /[0-9]/.test(statement) ? 'formula' : 'program'
+  const bare = withoutAscriptions(statement)
+  return FORMULA_CHARS.test(bare) && /[0-9]/.test(bare) ? 'formula' : 'program'
 }
+
+/**
+ * The statement as a formula reader should see it — ascriptions gone.
+ *
+ * Exported because `typeset` and the census must read the SAME string
+ * `classify` judged: a classifier that admits a statement its typesetter then
+ * refuses is two opinions about one input, which is the shape this tree keeps
+ * finding in itself.
+ */
+export const formulaSource = (statement: string): string => withoutAscriptions(statement)
 
 // ---- tokens ----
 type Tok = { t: 'num' | 'op' | '(' | ')'; v: string }
@@ -361,7 +406,11 @@ export interface TypesetStatement {
 export function typeset(statement: string, display: 'block' | 'inline' = 'block'): TypesetStatement {
   const classification = classify(statement)
   if (classification === 'program') return { classification, mathml: null, tex: null, refused: null }
-  const parsed = parseFormula(statement)
+  // THE SAME STRING classify JUDGED. Parsing the raw statement while
+  // classifying the bare one is two opinions about one input: a statement
+  // admitted as a formula and then refused by the parser reports a refusal that
+  // is an artefact of reading it twice, differently.
+  const parsed = parseFormula(formulaSource(statement))
   if (!parsed.ok) return { classification, mathml: null, tex: null, refused: parsed.why }
   const cong = congruenceOf(parsed.node)
   if (cong) return {
