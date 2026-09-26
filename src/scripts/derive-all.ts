@@ -51,6 +51,11 @@ const PERFORM = /(?:^|\s)(?:re-?run|run|regenerate with)\s+`?(?:npm run x -- |x 
 // a regeneration clears" when it was exactly that. A command in the FIRST position is the fix's action, which is the
 // same reasoning NOT_AN_ACTION uses in reverse: there is no verb in front of it to make it an illustration.
 const LEADS_WITH = /^\s*`?(?:npm run x -- |node dist\/scripts\/)([a-z0-9][a-z0-9:_-]*)(?:\.js)?`?/
+// A PACKAGE SCRIPT IS NOT AN x SCRIPT, and forcing every prescription into the dispatcher's shape invented commands
+// that do not exist. The axiom finder's fix is "run `npm run axioms`" — `axioms` is a package.json script, and
+// `npm run x -- axioms` would look for a dispatcher entry of that name. A backticked `npm run <script>` is therefore
+// taken AS WRITTEN, which is also the only form that can reach the chains package.json owns.
+const PACKAGE_SCRIPT = /`npm run ([a-z0-9][a-z0-9:_-]*)`/g
 // THE VETO IS POSITIONAL, NOT LEXICAL, and reading it lexically was itself a false limit. The first version refused
 // any fix containing "remove", "edit" or "never" anywhere, and stamp's fix reads "run `npm run x -- stamp` — the slots
 // are generated from the live census, so the surface is corrected by recomputing it, NEVER by editing the number".
@@ -68,10 +73,18 @@ export function prescribedIn(fix: string): string[] {
   const lead = LEADS_WITH.exec(fix)
   // a leading command has nothing in front of it BY CONSTRUCTION, so it is always the action
   if (lead) out.push(`npm run x -- ${lead[1]!}`)
+  for (const m of fix.matchAll(PACKAGE_SCRIPT)) {
+    if (m[1] === 'x' || m[1] === 'build') continue
+    if (REACHED_THROUGH.test(fix.slice(0, m.index))) continue
+    out.push(`npm run ${m[1]!}`)
+  }
   for (const m of fix.matchAll(PERFORM)) {
     const name = m[1]!
-    if (name === 'npm' || name === 'node' || name === 'it' || name === 'the' || name === 'build') continue
+    // `x` is the dispatcher and `build` is what every pass does anyway — neither is ever a script to run
+    if (name === 'npm' || name === 'node' || name === 'it' || name === 'the' || name === 'build' || name === 'x') continue
     if (REACHED_THROUGH.test(fix.slice(0, m.index))) continue
+    // already taken verbatim as a package script — do not also invent a dispatcher entry of the same name
+    if (out.includes(`npm run ${name}`)) continue
     out.push(`npm run x -- ${name}`)
   }
   return [...new Set(out)]
@@ -89,9 +102,14 @@ const guard = (): { code: number; text: string } => {
 const fixesFrom = (text: string): string[] => {
   const seen = new Set<string>()
   for (const line of text.split('\n')) {
-    const m = /^\s*FIX\s+(.*)$/.exec(line)
-    if (!m) continue
-    for (const c of prescribedIn(m[1]!)) seen.add(c)
+    const fix = /^\s*FIX\s+(.*)$/.exec(line)
+    if (fix) { for (const c of prescribedIn(fix[1]!)) seen.add(c); continue }
+    // AND WHEREVER ELSE THE GATE PRINTS ONE. Not every finder answers in the GAP/FIX table: the axiom witness reports
+    // "✗ guard — AXIOM WITNESS DOES NOT COVER THE LEDGER: <audited> against <ledger> theorems — run `npm run axioms`"
+    // on its own verdict line, so reading only FIX rows made the loop announce that the gate prescribed nothing while
+    // the cure sat in the sentence above. A backticked command after `run` on a FAILING line is the same instruction
+    // in a different frame, and only failing lines are read so a ✓ line mentioning a command never triggers a run.
+    if (/^\s*✗/.test(line)) for (const c of prescribedIn(line.replace(/^\s*✗\s*/, ''))) seen.add(c)
   }
   return [...seen]
 }

@@ -99,6 +99,8 @@ import { uuidnaExec } from './quantum/os/exec/index.js' // Alpine apps via apk +
 import { cryptoAppsPort, cryptoAppOf } from './quantum/os/cryptoapps/index.js'
 import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox and the ported OS as ONE content-addressed registry
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
+// sealedKeys reads the baked root at the edge and the rows on a host — the one accessor a keys-only answer needs
+import { sealedKeys } from './theorems/index.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf } from './school/laboratory/index.js'
@@ -831,7 +833,35 @@ const TOOLS: Tool[] = ([
   { name: 'uuidna_theorems',
     description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,skill,lean,address}. Filter by `principle` (derivation axis), `skill` (capability axis — see uuidna_skills), or `contains`.',
     inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'a skill name' }, contains: { type: 'string' }, keys: { type: 'boolean', description: 'only the keys' }, limit: { type: 'integer', description: 'page size' }, offset: { type: 'integer', description: 'skip this many' } } },
-    run: (a = {}) => { let ts = theorems(a.skill ? { skill: String(a.skill) } : {}); if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase())); if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) } const off = typeof a.offset === 'number' ? a.offset : 0; const lim = typeof a.limit === 'number' ? a.limit : ts.length; const page = ts.slice(off, off + lim); return a.keys === true ? page.map((t) => t.key) : page } },
+    run: (a = {}) => {
+      const off = typeof a.offset === 'number' ? a.offset : 0
+      // KEYS ONLY IS A KEY QUESTION, AND IT USED TO ASK FOR THE ROWS. Every path here called theorems(), which at the
+      // edge throws "the edge does not hold the whole ledger" — so `{keys:true, contains:"…"}` was refused for wanting
+      // 40 MB of statements it never reads. The baked root already carries every key (one newline-joined string with an
+      // offset index), and sealedKeys() is the accessor that reads it on the edge and the host alike, so this answer
+      // costs the edge NOTHING NEW and the door stops refusing the cheapest question it serves.
+      //
+      // MEASURED, 2026-09-26: this is the call I actually needed and could not make. Looking for the sealed key a
+      // commit should cite, uuidna.com refused list_theorems on every argument — including a nonsense one, because the
+      // refusal fires before validation — so I read keys out of `git log` instead. A door whose whole advertised
+      // contract is unreachable is a dead link, and the law is not to ignore one.
+      //
+      // `contains` NARROWS TO THE KEY on this path, and says so rather than pretending to search the statements: the
+      // statements are exactly what is not here. A caller wanting them asks without `keys`, on a host that holds them.
+      if (a.keys === true && a.skill === undefined && a.principle === undefined) {
+        const all: readonly string[] = sealedKeys()
+        const q = a.contains === undefined ? '' : String(a.contains).toLowerCase()
+        const hit = q === '' ? all : all.filter((k: string) => k.toLowerCase().includes(q))
+        const lim = typeof a.limit === 'number' ? a.limit : hit.length
+        return hit.slice(off, off + lim)
+      }
+      let ts = theorems(a.skill ? { skill: String(a.skill) } : {})
+      if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase()))
+      if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) }
+      const lim = typeof a.limit === 'number' ? a.limit : ts.length
+      const page = ts.slice(off, off + lim)
+      return a.keys === true ? page.map((t) => t.key) : page
+    } },
   { name: 'uuidna_lattice',
     description: 'THE LATTICE CALLS. The 2^16 HexSpan stations exist first. Pass {station} (four hex, or enumeration_hex4_<hex>) for that station\'s identity, the named theorems and axioms seated there, the human problems it calls, and the solution involution of those problems. Pass nothing for the fill: occupancy, all 18 problems seated, involution pairs. HexSpan surfaces ARE the stations, not cargo. Calling is not solving — negation_involution_solves is the method (a solution is the denial\'s failure); Clay σ-involution reflects seven and solves none. Returns a LatticeCall or LatticeFill.',
     inputSchema: { type: 'object', properties: { station: { type: 'string', description: 'four hex (0000–ffff) or enumeration_hex4_<hex>; omit for the fill of all 2^16 stations' } } },

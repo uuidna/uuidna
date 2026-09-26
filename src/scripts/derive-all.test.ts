@@ -70,6 +70,18 @@ test('A FIX THAT OPENS WITH THE BARE COMMAND IS PRESCRIBING IT — no imperative
   assert.deepEqual(prescribedIn('remove the wrapper; node dist/scripts/generate.js is reached through the dispatcher'), [])
 })
 
+test('A PACKAGE SCRIPT IS TAKEN AS WRITTEN, and a verdict line prescribes like a FIX row', () => {
+  // the axiom finder's live fix: `axioms` is a package.json script, so `npm run x -- axioms` would name nothing
+  assert.deepEqual(prescribedIn('71082 audited against 71085 theorems (a new theorem lacks a kernel-only witness) — run `npm run axioms`'),
+    ['npm run axioms'], 'a backticked package script is the command, not a dispatcher entry of that name')
+  // and it is not ALSO emitted in the dispatcher's shape — one instruction, one command
+  assert.equal(prescribedIn('run `npm run axioms`').length, 1)
+  // the dispatcher form still resolves to the dispatcher
+  assert.deepEqual(prescribedIn('run `npm run x -- stamp`'), ['npm run x -- stamp'])
+  // and `npm run x` itself is never a target, nor is build — derive-all builds every pass on its own
+  assert.deepEqual(prescribedIn('run `npm run x` then `npm run build`'), [])
+})
+
 test('THE CONTROL — the two directions are genuinely different, so neither answer is constant', () => {
   // if the extractor returned [] for everything, the first test would fail; if it returned a command for everything,
   // this one would. Asserting that both outcomes actually occur is what makes the pair evidence.
