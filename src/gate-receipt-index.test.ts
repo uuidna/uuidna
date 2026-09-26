@@ -64,7 +64,15 @@ test('planTestRun — a receipt that did NOT verify tests may not skip them', as
     writeFileSync(RECEIPT, JSON.stringify({ ...base, covers, verified: [] }, null, 2))
     assert.equal(planTestRun().mode, 'full', 'a receipt verifying nothing may excuse nothing')
 
-    writeFileSync(RECEIPT, JSON.stringify({ ...base, covers }, null, 2))
+    // THE FIELD IS DELETED, NOT MERELY LEFT OUT OF THE SPREAD — and getting that wrong made this case assert the
+    // opposite of what it claimed. `{ ...base, covers }` keeps whatever `base` carried, and the live receipt carries
+    // verified ["guard","tests"], so the "no verified field" case was re-testing the SKIP case under a name that said
+    // full. It failed loudly, which is the only reason it was caught; a case that sets up the wrong state and happens
+    // to expect the wrong answer passes forever.
+    const stripped = { ...base, covers } as Record<string, unknown>
+    delete stripped.verified
+    assert.ok(!('verified' in stripped), 'the field must be absent, or this case is not the case it names')
+    writeFileSync(RECEIPT, JSON.stringify(stripped, null, 2))
     assert.equal(planTestRun().mode, 'full', 'a receipt with no verified field at all may excuse nothing')
   } finally {
     // the receipt is a published attestation: restore it byte-exact whatever happened above

@@ -138,8 +138,18 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   // which is necessary and not sufficient — the sufficient half is "and did that receipt prove the tests". A digest
   // match on a receipt that proved only guard is a statement about identity, not about correctness.
   const verified = new Set(want.verified ?? [])
+  // AND THE REQUIREMENT GATES EVERY SKIP ROAD, NOT THE FIRST ONE. My own control caught this a commit later: the fix
+  // below guarded the `covers` branch, and a receipt with no `verified` field at all still skipped through the per-file
+  // manifest road ("coarse digest drift without file drift") and through the graph road ("no test imports or reads what
+  // moved"). Both of those reason about WHAT MOVED, which is a different question from whether the tests were ever
+  // proved for this receipt — and only the second question can excuse running them. So every skip is funnelled through
+  // one predicate, and a receipt that never verified tests cannot skip them by any route.
+  const provedTests = verified.has('tests')
+  const skipIfProved = (why: string): TestRunPlan => provedTests
+    ? { mode: 'skip', why }
+    : { mode: 'full', why: `${why} — but the receipt verified ${verified.size ? [...verified].join(', ') : 'nothing'}, never tests, so the suite runs` }
   if (want.covers?.src === haveCovers.src && want.covers?.lean === haveCovers.lean) {
-    if (verified.has('tests')) {
+    if (provedTests) {
       return { mode: 'skip', why: 'gate-receipt covers this tree AND verified tests — verified O(1), suite not recomputed' }
     }
     // the tree is the receipt's own, so nothing has changed to compute a delta FROM: the honest plan is the full suite
@@ -155,7 +165,7 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   }
   const moved = changedFiles(prior, haveFiles)
   if (!moved.length) {
-    return { mode: 'skip', why: 'per-file manifest matches — coarse digest drift without file drift' }
+    return skipIfProved('per-file manifest matches — coarse digest drift without file drift')
   }
   // THE GRAPH, NOT THE PREFIX LIST (2026-09-11). needsFullSuite stays as the answer when there is no built tree to
   // read; with dist present, the import-and-reads graph names the tests that can observe the move, and a dependency
@@ -173,7 +183,7 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   if (graph.mode === 'full') return graph
   const files = [...new Set([...graph.files, ...deltaTestFiles(moved.filter((f) => isTestSource(f)))])].sort()
   if (!files.length) {
-    return { mode: 'skip', why: `no test imports or reads what moved (${moved.length} path(s), ${graph.unreached.length} unreached) — verified by graph, suite not recomputed` }
+    return skipIfProved(`no test imports or reads what moved (${moved.length} path(s), ${graph.unreached.length} unreached) — verified by graph`)
   }
   return { mode: 'delta', files, why: `${graph.why}; ${moved.length} moved path(s)` }
 }
