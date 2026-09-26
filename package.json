@@ -187,7 +187,6 @@
     "state": "npm run build && node dist/scripts/state.js",
     "x": "npm run build && node dist/scripts/run.js",
     "wave": "npm run build && node dist/scripts/wave-run.js",
-    "zenodo-deposit": "npm run build && node dist/scripts/zenodo-deposit.js",
     "prepublish-seal": "npm run build && node dist/scripts/prepublish-seal.js",
     "ship": "npm run build && node dist/scripts/deploy-run.js",
     "release-cut": "npm run build && node dist/scripts/release-cut.js",

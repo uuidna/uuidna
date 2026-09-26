@@ -244,158 +244,30 @@ jobs:
   # committed .zenodo.json (the single source — the description carries the era's verified discoveries and their
   # honest scope); the file is the tag's own source tarball. Gated on `publish`: only what the seven-dimension
   # audit certifies reaches the permanent DOI. Integrity, not truth — the DOI dates the WHAT, Zenodo dates the WHEN.
-  zenodo:
-    runs-on: ubuntu-latest
-    needs: publish
-    if: startsWith(github.ref, 'refs/tags/') # a tag push, or the research desk dispatching on a fresh tag
-    steps:
-      - uses: actions/checkout@v7
-        with: { fetch-depth: 0 }   # a wing reads a committed definition from history (lean-involutions, 7a54411e)
-      - uses: actions/setup-node@v7
-        with: { node-version: '22', cache: npm }
-      - run: npm ci
-      - run: npm run build
-      # WORKFLOW-ONLY LAW: the deposit gate refuses every caller that is not this job on a release tag.
-      # Local `npm run zenodo-deposit` exits 1 naming this file — Zenodo publications are only through GitHub workflow.
-      - name: Gate — Zenodo deposit is workflow-only
-        run: node dist/scripts/zenodo-deposit.js
-      - name: Deposit the release to Zenodo (new version of the standing record, else fresh)
-        env:
-          ZENODO_TOKEN: ${{ secrets.ZENODO_ACCESS_TOKEN }}
-          CONCEPT_RECORD: "21787144" # the standing record (first version's id — the newversion handle)
-          CONCEPT_CHAIN: "21787143"  # the concept id every API deposit must land on — the curated citation trail
-          TWIN_CHAIN: "21970356"     # the GitHub↔Zenodo sync's own chain — the second, independent mint (two-chain law)
-        run: |
-          set -euo pipefail
-          test -n "$ZENODO_TOKEN" || { echo "::error::ZENODO_ACCESS_TOKEN secret is empty"; exit 1; }
-          # THE LICENSE LAW: the archive carries the SAME license as uuidna itself — package.json and .zenodo.json
-          # must agree (case-insensitively) or the deposit refuses. One licence, every surface.
-          PKG_LIC=$(node -p "require('./package.json').license" | tr '[:upper:]' '[:lower:]')
-          ZEN_LIC=$(jq -r '.license' .zenodo.json | tr '[:upper:]' '[:lower:]')
-          test "$PKG_LIC" = "$ZEN_LIC" || { echo "::error::license drift — package.json '$PKG_LIC' != .zenodo.json '$ZEN_LIC'"; exit 1; }
-          echo "license identity holds: $PKG_LIC"
-
-          # ZENODO STANDARDS CONFORMANCE — the deposit meets Zenodo's metadata requirements BEFORE the API is
-          # called, each requirement asserted by name (their controlled vocabularies, their required fields), so
-          # a violation fails here with its reason, never as an opaque 400 from the server. Terms of use hold by
-          # construction: own work, openly licensed, no personal data beyond the author's own attribution.
-          jq -e '.title | type == "string" and length > 0' .zenodo.json > /dev/null || { echo "::error::zenodo: title required"; exit 1; }
-          jq -e '.description | type == "string" and length >= 3' .zenodo.json > /dev/null || { echo "::error::zenodo: description required (min 3 chars)"; exit 1; }
-          jq -e '.creators | type == "array" and length > 0 and all(.[]; .name | type == "string" and length > 0)' .zenodo.json > /dev/null || { echo "::error::zenodo: creators[].name required"; exit 1; }
-          jq -e '.upload_type as $t | ["publication","poster","presentation","dataset","image","video","software","lesson","physicalobject","other"] | index($t)' .zenodo.json > /dev/null || { echo "::error::zenodo: upload_type not in the controlled vocabulary"; exit 1; }
-          jq -e '.access_right as $a | ["open","embargoed","restricted","closed"] | index($a)' .zenodo.json > /dev/null || { echo "::error::zenodo: access_right not in the controlled vocabulary"; exit 1; }
-          jq -e 'if .access_right == "open" then (.license | type == "string" and length > 0) else true end' .zenodo.json > /dev/null || { echo "::error::zenodo: open access requires a license id"; exit 1; }
-          jq -e '(.related_identifiers // []) | all(.[]; (.relation as $r | ["isCitedBy","cites","isSupplementTo","isSupplementedBy","isContinuedBy","continues","isDescribedBy","describes","hasMetadata","isMetadataFor","isNewVersionOf","isPreviousVersionOf","isPartOf","hasPart","isReferencedBy","references","isDocumentedBy","documents","isCompiledBy","compiles","isVariantFormOf","isOriginalFormof","isIdenticalTo","isAlternateIdentifier","isReviewedBy","reviews","isDerivedFrom","isSourceOf","requires","isRequiredBy","isObsoletedBy","obsoletes"] | index($r)) and (.identifier | type == "string" and length > 0))' .zenodo.json > /dev/null || { echo "::error::zenodo: related_identifiers must use Zenodo relation vocabulary with non-empty identifiers"; exit 1; }
-          echo "zenodo metadata conformance holds: every required field present, every vocabulary respected"
-          AUTH="Authorization: Bearer $ZENODO_TOKEN"
-          TARBALL="uuidna-$GITHUB_REF_NAME.tar.gz"
-          git archive --format=tar.gz -o "$TARBALL" "$GITHUB_REF_NAME"
-          shasum -a 256 "$TARBALL"
-
-          # THE CHAIN LAW: this deposit versions the standing record, or does NOTHING. The old fallback
-          # ("fresh deposition when the token does not own it") would silently start a THIRD lineage — one
-          # neither party minted. A split is worse than a missed deposit: the deposit can be retried, a chain
-          # cannot be rejoined (Zenodo records are permanent). The sync's twin chain is the captain's chosen
-          # second mint (see the two-chain law below); an accidental chain is still refused by name.
-          DRAFT=$(curl -sf -X POST -H "$AUTH" "https://zenodo.org/api/deposit/depositions/$CONCEPT_RECORD/actions/newversion" | jq -r '.links.latest_draft // empty' || true)
-          test -n "$DRAFT" || { echo "::error::the token cannot version standing record $CONCEPT_RECORD — refusing a fresh deposition (it would split the concept chain). Fix token ownership and re-run; the chain is the citation trail."; exit 1; }
-          DEP=$(curl -sf -H "$AUTH" "$DRAFT")
-          echo "versioning the standing record → draft $(echo "$DEP" | jq -r '.id')"
-          # a new version inherits the old files — clear them so the archive is exactly this tag
-          for FID in $(echo "$DEP" | jq -r '.files[]?.id'); do
-            curl -sf -X DELETE -H "$AUTH" "$(echo "$DEP" | jq -r '.links.self')/files/$FID" || echo "::warning::stale draft file $FID could not be deleted — the new version may carry a leftover file (uncensored, lead 120c)"
-          done
-          SELF=$(echo "$DEP" | jq -r '.links.self')
-          BUCKET=$(echo "$DEP" | jq -r '.links.bucket')
-
-          # metadata: the committed .zenodo.json, wrapped, stamped with this tag as the version
-          # THE TWIN IS THE OTHER CHAIN. The committed file names the standing chain (it is what the GitHub↔Zenodo
-          # sync deposits on $TWIN_CHAIN); this API deposit lands on $CONCEPT_CHAIN, so its "identical to" is the
-          # sync chain. Measured 2026-09-12: both chains had declared $TWIN_CHAIN, so the twin pointed at itself.
-          jq --arg v "${GITHUB_REF_NAME#v}" --arg c "10.5281/zenodo.$CONCEPT_CHAIN" --arg t "10.5281/zenodo.$TWIN_CHAIN" \
-            '{metadata: (. + {version: $v} | .related_identifiers |= map(if .relation == "isIdenticalTo" and .identifier == $c then .identifier = $t else . end))}' \
-            .zenodo.json > meta.json
-          curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" -d @meta.json "$SELF" > /dev/null
-
-          curl -sf -H "$AUTH" --upload-file "$TARBALL" "$BUCKET/$TARBALL" > /dev/null
-
-          # THE OUTCOME DECIDES, NOT THE REPORT. `curl -sf` aborts on any HTTP error — and Zenodo's publish is slow
-          # enough to answer 5xx while COMPLETING server-side. Measured 2026-08-17 on v0.1.4: the record published
-          # with its tarball (10.5281/zenodo.21978435) and the job still died `exit 22`, 57s after opening the draft,
-          # before the DOI notice, the chain check and the community request — a green archive reported as a failure,
-          # and every step after it skipped. So the publish is asked, then the RESULT IS VERIFIED against the API:
-          # a non-2xx is not a verdict until the record itself says the deposit did not land.
-          CODE=$(curl -s -o /tmp/pub.json -w '%{http_code}' -X POST -H "$AUTH" "$SELF/actions/publish" || echo 000)
-          PUB=$(cat /tmp/pub.json)
-          case "$CODE" in
-            20*) ;;
-            *)   echo "::warning::publish returned HTTP $CODE — re-reading the deposition to see what actually landed"
-                 sleep 15
-                 PUB=$(curl -sf -H "$AUTH" "$SELF" || echo '{}')
-                 test "$(echo "$PUB" | jq -r '.state // empty')" = "done" || {
-                   echo "::error::Zenodo publish failed (HTTP $CODE) and the deposition is not published: $(head -c 300 /tmp/pub.json)"; exit 1; }
-                 echo "the deposit DID land despite HTTP $CODE — continuing on the record, not the report" ;;
-          esac
-          DOI=$(echo "$PUB" | jq -r '.doi // .metadata.prereserve_doi.doi // "unknown"')
-          echo "::notice::Zenodo published — DOI $DOI"
-          echo "ZENODO_DOI=$DOI" >> "$GITHUB_ENV"
-
-          # VERIFY the landing: the published record must sit on the standing concept chain — asserted, not assumed.
-          CONCEPT=$(echo "$PUB" | jq -r '.conceptrecid // empty')
-          test "$CONCEPT" = "$CONCEPT_CHAIN" || { echo "::error::the DOI landed on concept $CONCEPT, not the standing chain $CONCEPT_CHAIN — the chain split despite the law; investigate before the next tick"; exit 1; }
-          echo "chain law holds: $DOI on concept $CONCEPT_CHAIN"
-
-          # THE COMMUNITY IS AUTOMATED, NOT VISITED. `.zenodo.json`'s `communities` field is a SILENT NO-OP on this
-          # deposit path — measured 2026-08-17: record 21976217 (v0.1.3) declared two communities and landed with
-          # `communities: none`, so a year of releases would have joined nothing while the manifest claimed they did.
-          # The real mechanism is an explicit inclusion request against the published record (InvenioRDM):
-          # POST /api/records/<id>/communities. Every declared community is requested by name here, so no human ever
-          # opens the /uploads/new form — the release joins its community the way it mints its DOI.
-          # NON-FATAL by design: inclusion is CURATOR-MEDIATED (even an owned community may queue a review), and a
-          # pending request must never unpublish a DOI that already landed. It reports, loudly, either way.
-          REC=$(echo "$PUB" | jq -r '.id // empty')
-          for C in $(jq -r '.communities[]?.identifier' .zenodo.json); do
-            RESP=$(curl -s -o /tmp/c.json -w '%{http_code}' -X POST -H "$AUTH" -H "Content-Type: application/json" \
-              -d "{\"communities\":[{\"id\":\"$C\"}]}" "https://zenodo.org/api/records/$REC/communities" || echo 000)
-            case "$RESP" in
-              20*) echo "::notice::community '$C' — inclusion requested for record $REC (HTTP $RESP)" ;;
-              *)   echo "::warning::community '$C' — inclusion request returned HTTP $RESP for record $REC: $(head -c 300 /tmp/c.json). The DOI stands; the membership does not — check the community's review queue." ;;
-            esac
-          done
-
-          # THE TWO-CHAIN LAW — dual-party archival, by the captain's decision (2026-08-17): every release is
-          # minted TWICE, independently — this API deposit on the curated standing chain (license law, conformance,
-          # .zenodo.json metadata) and the GitHub↔Zenodo sync on its own chain ($TWIN_CHAIN, born 2026-08-16 from
-          # the release event). Two independent mints of one tag are the two coins applied to the archive itself;
-          # .zenodo.json declares the twin (isIdenticalTo), so citations fold. The finder stays folded for what
-          # would still be a fault: any THIRD chain, which neither party minted.
-          sleep 10
-          STRAYS=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25" | jq -r --arg c "$CONCEPT_CHAIN" --arg t "$TWIN_CHAIN" '[.hits.hits[] | select(.metadata.title | startswith("uuidna")) | .conceptrecid | tostring] | unique | map(select(. != $c and . != $t)) | join(" ")' || true)
-          test -z "$STRAYS" || echo "::warning::unknown uuidna concept chain(s) on Zenodo: $STRAYS — neither the standing chain ($CONCEPT_CHAIN) nor the sync twin ($TWIN_CHAIN) minted these; investigate
-
-          # AND THE TWIN JOINS THE COMMUNITY TOO — it is not this job's deposit, so nothing was ever asking for it.
-          # The block above requests inclusion for $REC, the record THIS workflow published. The twin is minted
-          # independently by the GitHub-Zenodo sync on $TWIN_CHAIN, and that path has no community step at all, so
-          # it lands outside the portal every time. Measured 2026-09-21: the uuidna community held 3 records while
-          # a global search found 4 — the missing one was 22256731, the twin of the 2026-09-02 release. Half of
-          # every release has been arriving unpublished to the portal, which matters because a release IS the news:
-          # each carries the novelties and discoveries of its era, and a reader browsing the community saw one coin
-          # of the two. Non-fatal for the same reason as above: inclusion is curator-mediated and a pending review
-          # must never unpublish a DOI that already landed.
-          TWIN_REC=$(curl -s "https://zenodo.org/api/records?q=uuidna&size=25&sort=newest" \
-            | jq -r --arg t "$TWIN_CHAIN" '[.hits.hits[] | select((.conceptrecid|tostring) == $t)] | sort_by(.metadata.publication_date) | last | .id // empty' || true)
-          if [ -z "$TWIN_REC" ]; then
-            echo "::warning::the sync twin on chain $TWIN_CHAIN has not appeared yet — its community membership is UNREQUESTED, not refused; re-run this step or request it once the sync lands"
-          else
-            for C in $(jq -r '.communities[]?.identifier' .zenodo.json); do
-              RESP=$(curl -s -o /tmp/tc.json -w '%{http_code}' -X POST -H "$AUTH" -H "Content-Type: application/json" \
-                -d "{\"communities\":[{\"id\":\"$C\"}]}" "https://zenodo.org/api/records/$TWIN_REC/communities" || echo 000)
-              case "$RESP" in
-                20*) echo "::notice::community '$C' — inclusion requested for the TWIN record $TWIN_REC (HTTP $RESP)" ;;
-                *)   echo "::warning::community '$C' — twin inclusion returned HTTP $RESP for record $TWIN_REC: $(head -c 300 /tmp/tc.json). The twin DOI stands; its membership does not." ;;
-              esac
-            done
-          fi"
+  # THE ARCHIVE DOI IS MINTED BY ZENODO FROM THE GITHUB RELEASE — there is no deposit job here any more.
+  #
+  # (the captain, 2026-09-26: "let zenodo mint the doi from github release. No need of redundancy".)
+  #
+  # WHAT WAS REMOVED AND WHY, measured that day. This workflow used to ALSO deposit through the Zenodo API, so every
+  # release minted TWO records for one work, six seconds apart: 22256708 from the API deposit and 22256731 from the
+  # GitHub integration, distinguishable by their own artefacts — a `0.3.0` tarball against a `v0.3.0` repo-prefixed
+  # zip. Seventeen releases, thirty-four records. audit-doi-harvest refused every run because our record declared
+  # isIdenticalTo the other chain and the other chain could not reciprocate, which is a dangling pointer rather than
+  # a symmetric claim, and that refusal held the mint gate shut.
+  #
+  # AND THE SURVIVING CHAIN IS THE CITABLE ONE, which makes this a correction rather than a saving. The API
+  # deposit versioned concept 21787143, which holds NINETEEN versions under THREE distinct titles — uuidna, the ℤ/9
+  # Vortex Framework and the Clay Millennium Problems — because "New version" was used across different works, and a
+  # concept DOI resolves to whichever was published last. src/zenodo-seals.ts had recorded that it "is NOT safe to
+  # cite as ours" and left the untangling to the captain. The GitHub integration's chain 21970356 holds seventeen
+  # versions under ONE title. Abandoning the polluted chain is better than untangling it.
+  #
+  # WHAT STILL DEPOSITS BY API: zenodo-seals below, for the PUBLICATIONS — monographs a source archive does not
+  # cover. That is not redundant with the release; it is a different set of works.
+  #
+  # THE INTEGRATION FIRES ON THE RELEASE the `extension` job creates (`gh release create`), which is why `verify`
+  # now waits on that job instead of on a deposit step in this file. Enabling the repository in Zenodo's GitHub
+  # settings is an owner act done once, outside this workflow, and `verify` is what proves it happened.
 
   # Agnostic Zenodo publication seals — loops zenodo/manifest.json (clay-involution is one instance).
   # Metadata: zenodo/seals/<id>.json from gen-zenodo-seals (rich schema + canonical CC-BY-NC-ND-4.0).
@@ -419,7 +291,7 @@ jobs:
   # treats it as not-yet-live too and the job fails if the network never answers.
   verify:
     runs-on: ubuntu-latest
-    needs: [publish, zenodo]
+    needs: [publish, extension]   # the GitHub Release is what Zenodo mints from
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v7
@@ -462,6 +334,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Gate — Zenodo seals deposit is workflow-only
+        # the dispatcher owns the name (`npm run x -- zenodo-deposit`); this step calls the built file directly
+        # because the build already ran above, and package.json keeps no wrapper entry for it to lag behind.
         run: node dist/scripts/zenodo-deposit.js
       - name: Version every depositable publication seal (manifest loop)
         env:

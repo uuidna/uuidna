@@ -3,26 +3,13 @@
   {
    "id": "uuidna-software",
    "role": "own",
-   "declaredDoi": "10.5281/zenodo.22256708",
-   "declaredTitle": "uuidna — content-addressed identity, honest by construction",
-   "read": true,
-   "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
-   "liveRecordId": "22256708",
-   "liveConceptDoi": "10.5281/zenodo.21787143",
-   "agrees": true,
-   "titleOverlaps": true
-  },
-  {
-   "id": "uuidna-software:twin",
-   "role": "own",
-   "declaredDoi": "10.5281/zenodo.21970356",
+   "declaredDoi": "10.5281/zenodo.22256731",
    "declaredTitle": "uuidna — content-addressed identity, honest by construction",
    "read": true,
    "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
    "liveRecordId": "22256731",
    "liveConceptDoi": "10.5281/zenodo.21970356",
-   "agrees": false,
-   "twinSelfDeclared": true,
+   "agrees": true,
    "titleOverlaps": true
   },
   {
@@ -48,23 +35,9 @@
    "titleOverlaps": true
   }
  ],
- "owned": 4,
- "readCount": 4,
+ "owned": 3,
+ "readCount": 3,
  "agreeing": 3,
- "disagreeing": [
-  {
-   "id": "uuidna-software:twin",
-   "role": "own",
-   "declaredDoi": "10.5281/zenodo.21970356",
-   "declaredTitle": "uuidna — content-addressed identity, honest by construction",
-   "read": true,
-   "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
-   "liveRecordId": "22256731",
-   "liveConceptDoi": "10.5281/zenodo.21970356",
-   "agrees": false,
-   "twinSelfDeclared": true,
-   "titleOverlaps": true
-  }
- ],
- "receipt": "c6aa0bd4-04e8-858b-8e30-e972743815a9"
+ "disagreeing": [],
+ "receipt": "6e43c29c-771f-80bc-8bd6-2dd39169478e"
 }

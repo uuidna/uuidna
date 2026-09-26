@@ -1530,11 +1530,18 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      }
     },
     "leads": {
-     "type": "array"
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
     },
     "byKind": {
      "type": "object",
-     "properties": {}
+     "properties": {
+      "same-key-different-statement": {
+       "type": "integer"
+      }
+     }
     },
     "agree": {
      "type": "boolean"
@@ -1550,7 +1557,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":{\"wings\":71082,\"ledger\":71082,\"paper\":5546,\"selfChecked\":5546},\"leads\":[],\"byKind\":{},\"agree\":true,\"receipt\":\"93929a2d-4810-8ac6-9f32-4ed07d9e016c\"…"
+   "excerpt": "{\"surfaces\":{\"wings\":71082,\"ledger\":71082,\"paper\":5546,\"selfChecked\":5546},\"leads\":[{\"kind\":\"same-key-different-statement\",\"key\":\"the_lattice_is_closed_under_p…"
   }
  },
  "uuidna_verify_statement": {
@@ -14851,10 +14858,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      "type": "integer"
     },
     "owing": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
+     "type": "array"
     },
     "noRosettaPath": {
      "type": "array",
@@ -15835,7 +15839,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":45,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":45,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":46,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":46,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {

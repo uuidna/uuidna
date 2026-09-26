@@ -47,7 +47,9 @@ if (r.gaps.length > 0 && r.gaps.some((g) => !g.fix.startsWith('the subject could
     console.log(`    WHY ${g.fix}`)
   }
   console.log('\n  FIX if the version was bumped but never cut: `npm run release-cut -- --push` publishes through OIDC.')
-  console.log('      if npm carries it and Zenodo does not: publish.yml job zenodo was skipped or failed — re-run it.')
+  console.log('      if npm carries it and Zenodo does not: Zenodo mints the archive from the GITHUB RELEASE, so check')
+  console.log('      that publish.yml job `extension` created it (gh release create) and that the repository is still')
+  console.log('      enabled in Zenodo\'s GitHub settings — there is no API deposit for the archive to re-run.')
   process.exit(1)
 }
 if (r.pending > 0 && r.unread === 0) {

@@ -3,7 +3,7 @@
 // exists for exactly this: the network is the subject, so it must not also be the test's dependency.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { evaluateRelease, zenodoReleases, newerVersion, type ReleaseFacts } from './release-live.js'
+import { evaluateRelease, zenodoReleases, newerVersion, bareVersion, type ReleaseFacts } from './release-live.js'
 
 const DIST = {
   tarball: 'https://registry.npmjs.org/@uuidna/uuidna/-/uuidna-0.3.0.tgz',
@@ -188,4 +188,33 @@ test('release-live: pending never counts as passed', () => {
   const r = evaluateRelease({ ...GOOD, version: '0.3.1', tagged: false })
   assert.ok(r.passed < r.checks.length)
   for (const c of r.checks) assert.ok(!(c.ok && c.pending), `${c.name} is both ok and pending`)
+})
+
+// ── THE ARCHIVE IS NAMED BY THE TAG ──────────────────────────────────────────────────────────────────────────
+// Zenodo mints from the GitHub release, so its version field is `v0.3.0` where package.json says `0.3.0`. A filter
+// that demands bare digits rejects exactly the records it is looking for, which is what happened the moment the
+// archive moved to the GitHub-minted chain: every Zenodo check reported a published release missing.
+test('release-live: a Zenodo version named by its tag still matches the package version', () => {
+  const tagged: ReleaseFacts = {
+    ...GOOD,
+    zenodo: { read: true, reason: '', versions: [{ id: '22256731', version: 'v0.3.0', files: 1, bytes: 9, doi: '10.5281/zenodo.22256731' }] },
+  }
+  const r = evaluateRelease(tagged)
+  assert.equal(r.zenodoLatest, '0.3.0', 'the reported latest is the bare version, whatever the record calls it')
+  assert.ok(r.checks.find((c) => c.name === 'zenodo-version-deposited')!.ok, 'v0.3.0 IS 0.3.0 deposited')
+  assert.ok(r.checks.find((c) => c.name === 'npm-and-zenodo-agree')!.ok)
+})
+
+test('release-live: bareVersion strips only a leading v, and only one', () => {
+  assert.equal(bareVersion('v0.3.0'), '0.3.0')
+  assert.equal(bareVersion('0.3.0'), '0.3.0')
+  assert.equal(bareVersion('vv1.0.0'), 'v1.0.0', 'one prefix, not a loop — a double v is not a tag this tree cuts')
+})
+
+test('release-live: a record whose version is not a release at all is still excluded', () => {
+  // the abandoned chain held two other authors' works, which carry no version; that filter must survive the change
+  assert.deepEqual(zenodoReleases([
+    { id: '21787144', version: '', files: 5, bytes: 1, doi: 'clay' },
+    { id: '22256731', version: 'v0.3.0', files: 1, bytes: 2, doi: 'ours' },
+  ]).map((x) => x.id), ['22256731'])
 })

@@ -717,7 +717,7 @@ Call `get_latex_crosscheck` — the old name `uuidna_latex_crosscheck` still ans
 // arguments
 {}
 // answer (excerpt)
-{"surfaces":{"wings":71082,"ledger":71082,"paper":5546,"selfChecked":5546},"leads":[],"byKind":{},"agree":true,"receipt":"93929a2d-4810-8ac6-9f32-4ed07d9e016c"…
+{"surfaces":{"wings":71082,"ledger":71082,"paper":5546,"selfChecked":5546},"leads":[{"kind":"same-key-different-statement","key":"the_lattice_is_closed_under_p…
 ```
 
 _No parameters._
@@ -1140,7 +1140,7 @@ Call `get_lattice` — the old name `uuidna_lattice` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"stations":65536,"occupied":5794,"vacant":59742,"theoremsSeated":5546,"axiomsSeated":514,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
+{"stations":65536,"occupied":5797,"vacant":59739,"theoremsSeated":5546,"axiomsSeated":517,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
 ```
 
 **Parameters**
@@ -1667,7 +1667,7 @@ Call `predict_gaps` — the old name `uuidna_predict` still answers · read-only
 // arguments
 {"likelihood":"all"}
 // answer (excerpt)
-{"total":45,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":45,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
+{"total":46,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":46,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
 ```
 
 **Parameters**

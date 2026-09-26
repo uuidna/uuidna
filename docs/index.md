@@ -16,7 +16,9 @@ const census = computed(() => frontmatter.value.census || { theorems: 0, decided
 - **Check a claim.** [Trials](/trials) gives any statement one answer, VERIFIED or UNVERIFIED, and shows how that answer is able to fail.
 - **Re-check it all yourself.** [One command line](/guides#verify-every-theorem-yourself) re-runs the Lean kernel over every proof on your own machine.
 - **Explore.** [Quantum](/quantum) — what the ledger computes about quantum capacity. [Unlocks](/unlocks) — what each proof opens. [Doctrine](/doctrine) — the rules the work keeps.
-- **Cite it.** Every page has a short handle link, `https://uuidna.com/<handle>`, and every release is archived under DOI `10.5281/zenodo.22256708` — both sit in the site footer. [What stays permanent](/succession#what-is-already-permanent-with-or-without-anyone).
+<!-- cite:begin -->
+- **Cite it.** Every page has a short handle link, `https://uuidna.com/<handle>`, and every release is archived under DOI `10.5281/zenodo.22256731` — both sit in the site footer. [What stays permanent](/succession#what-is-already-permanent-with-or-without-anyone).
+<!-- cite:end -->
 - **Support it.** Free to read either way. If it was worth something to you, [send a captain coin](/captain): a deposit goes to `https://revolut.me/ceccec?note=<referrer>`, where the referrer is the handle link of the page that sent you (`encodeURIComponent`). Same licence everywhere: [CC BY-NC-ND 4.0](/license).
 
 ## For developers

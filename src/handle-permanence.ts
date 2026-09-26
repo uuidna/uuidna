@@ -25,7 +25,17 @@ export const UUIDNA_HOSTNAME = 'uuidna.com'
  *
  *  NOT THE CONCEPT DOI, deliberately: 10.5281/zenodo.21787143 is a Zenodo version chain that currently holds
  *  three distinct works, and a concept always resolves to whichever was deposited last. */
-export const STANDING_DOI = '10.5281/zenodo.22256708'
+// THE ARCHIVE IS THE ONE ZENODO MINTS FROM THE GITHUB RELEASE (the captain, 2026-09-26: "let zenodo mint the doi from
+// github release. No need of redundancy"). Measured that day: every release since v0.1.2 minted TWO Zenodo records for
+// one work, six seconds apart — 22256708 from publish.yml's API deposit and 22256731 from the GitHub↔Zenodo
+// integration, distinguishable by their own artefacts (a `0.3.0` tarball against a `v0.3.0` repo-prefixed zip).
+//
+// AND THE SURVIVING CHAIN IS THE CITABLE ONE, which is why this is a correction and not merely a tidy-up. The API
+// deposit's chain 21787143 holds 19 versions under THREE distinct titles — uuidna, the ℤ/9 Vortex Framework and the
+// Clay Millennium Problems — because "New version" was used across different works, and a concept DOI resolves to
+// whichever was published last. src/zenodo-seals.ts had already recorded that it "is NOT safe to cite as ours" and
+// left untangling to the captain. The GitHub integration's chain 21970356 holds 17 versions under ONE title.
+export const STANDING_DOI = '10.5281/zenodo.22256731'
 
 /** Hostname equality — `startsWith('https://uuidna.com')` accepts `https://uuidna.com.evil.com`. */
 export function isUuidnaUrl(s: string): boolean {
@@ -157,4 +167,36 @@ export function handlePermanenceAudit(): HandlePermanenceAudit {
       'handles must not churn — sealed in lean/seo-url-map.json. Bidirectional seal: DOI pages cite handles; ' +
       'Zenodo cites uuidna.com. Completeness = DOI (when present) + handle URL (always).',
   }
+}
+
+export const CITE_BEGIN = '<!-- cite:begin -->'
+export const CITE_END = '<!-- cite:end -->'
+
+/** citeSentence() → the home page's "Cite it." bullet, with the archive DOI read from STANDING_DOI.
+ *
+ *  THE DOI WAS TYPED INTO THE PROSE, AND THE PROSE DID NOT MOVE WHEN THE ARCHIVE DID. docs/index.md carried
+ *  `10.5281/zenodo.22256708` as a literal; when the archive became the chain Zenodo mints from the GitHub release,
+ *  STANDING_DOI moved to .22256731 and the sentence kept pointing a reader at the abandoned chain — which resolves to
+ *  a record whose concept holds three different works. publication-metadata caught it as a one-way seal, because it
+ *  reads the page's own markdown for the standing DOI rather than trusting that a constant reached it.
+ *
+ *  SO THE SENTENCE IS COMPOSED FROM THE CONSTANT AND INJECTED, exactly as the Clay and ports blocks are, and by the
+ *  same owner (gen-unlocks, the one writer of docs/index.md). The literal still sits in the markdown — the gate reads
+ *  that file, and a page that cites its archive only through a template would not be citing it to a reader with
+ *  JavaScript off — but no one types it: it is the constant's own text, regenerated.
+ *
+ *  THE LITERAL MUST STAY IN MARKDOWN, not move into the `{{ census }}` interpolation the same page already uses for
+ *  its theorem count. That is not a stylistic choice: the seal is bidirectional, and the page half of it is read from
+ *  the source file. */
+export const citeSentence = (): string =>
+  `- **Cite it.** Every page has a short handle link, \`${HANDLE_HOST}/<handle>\`, and every release is archived under`
+  + ` DOI \`${STANDING_DOI}\` — both sit in the site footer.`
+  + ` [What stays permanent](/succession#what-is-already-permanent-with-or-without-anyone).`
+
+/** citeBlock(text) → the text with the cite bullet replaced between its markers (appended once if absent). */
+export function citeBlock(text: string): string {
+  const block = `${CITE_BEGIN}\n${citeSentence()}\n${CITE_END}`
+  return text.includes(CITE_BEGIN) && text.includes(CITE_END)
+    ? text.replace(new RegExp(`${CITE_BEGIN}[\\s\\S]*?${CITE_END}`), block)
+    : text.trimEnd() + `\n\n${block}\n`
 }

@@ -29,7 +29,7 @@
     "machine-checked proof",
     "related:uuidna-software",
     "related:nature-mom-bh",
-    "doi:10.5281/zenodo.22256708",
+    "doi:10.5281/zenodo.22256731",
     "doi:10.1038/s41586-026-10846-4 (nature-mom-bh)",
     "captain-claim"
   ],
@@ -55,7 +55,7 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.22256708",
+      "identifier": "10.5281/zenodo.22256731",
       "relation": "isReferencedBy",
       "resource_type": "software"
     },
@@ -94,14 +94,14 @@
       "identifier": "uuidna"
     }
   ],
-  "notes": "PRIOR ART RESEARCHED AND NONE EXISTS: no external work claims what this seal claims, so THE CAPTAIN CLAIMS for seal clay-involution — explicit, never silent. CITED SOURCES, credited as sources and not as precedence: DOI 10.1038/s41586-026-10846-4 (nature-mom-bh). PROVENANCE (this project's own work): github.com/uuidna/uuidna; DOI 10.5281/zenodo.22256708; ceccec.psg.bg/millennium-solutions; github.com/ceccec/zeropoint-node.\n\nHandle door (alternate id): https://uuidna.com/755ee668\n\nCaptain coins: https://revolut.me/ceccec?note=https%3A%2F%2Fuuidna.com%2F755ee668\n\nRelated publications: uuidna-software, nature-mom-bh\n\nLicense: CC BY-NC-ND 4.0 — https://uuidna.com/license",
+  "notes": "PRIOR ART RESEARCHED AND NONE EXISTS: no external work claims what this seal claims, so THE CAPTAIN CLAIMS for seal clay-involution — explicit, never silent. CITED SOURCES, credited as sources and not as precedence: DOI 10.1038/s41586-026-10846-4 (nature-mom-bh). PROVENANCE (this project's own work): github.com/uuidna/uuidna; DOI 10.5281/zenodo.22256731; ceccec.psg.bg/millennium-solutions; github.com/ceccec/zeropoint-node.\n\nHandle door (alternate id): https://uuidna.com/755ee668\n\nCaptain coins: https://revolut.me/ceccec?note=https%3A%2F%2Fuuidna.com%2F755ee668\n\nRelated publications: uuidna-software, nature-mom-bh\n\nLicense: CC BY-NC-ND 4.0 — https://uuidna.com/license",
   "references": [
     "github.com/uuidna/uuidna — https://github.com/uuidna/uuidna",
-    "DOI 10.5281/zenodo.22256708 — https://doi.org/10.5281/zenodo.22256708",
+    "DOI 10.5281/zenodo.22256731 — https://doi.org/10.5281/zenodo.22256731",
     "ceccec.psg.bg/millennium-solutions — https://ceccec.psg.bg/millennium-solutions",
     "github.com/ceccec/zeropoint-node — https://github.com/ceccec/zeropoint-node",
     "DOI 10.1038/s41586-026-10846-4 (nature-mom-bh) — https://doi.org/10.1038/s41586-026-10846-4",
-    "uuidna — content-addressed identity, honest by construction — https://doi.org/10.5281/zenodo.22256708 — https://uuidna.com",
+    "uuidna — content-addressed identity, honest by construction — https://doi.org/10.5281/zenodo.22256731 — https://uuidna.com",
     "A gas-enshrouded and gas-reddened black hole at cosmic dawn (Nature) — https://doi.org/10.1038/s41586-026-10846-4 — https://uuidna.com/articles/mo-mbhstar1"
   ],
   "publication_type": "article",

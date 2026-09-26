@@ -91,21 +91,28 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     // their own tree — a deposit whose corrected repo never reached its permanent record — and their advice was
     // to harvest your own DOI and read it back. Doing that is what found this. The check is now in mint-gate.
     //
-    // THE CONCEPT DOI IS LEFT AS IT STANDS AND IS NOT SAFE TO CITE AS OURS: 10.5281/zenodo.21787143 is a Zenodo
+    // THE POLLUTED CHAIN IS ABANDONED, NOT UNTANGLED (the captain, 2026-09-26). What follows is the record of why,
+    // kept because the identifiers below moved and a reader needs to know from what: 10.5281/zenodo.21787143 is a Zenodo
     // CONCEPT — a version chain — and it currently chains THREE DISTINCT WORKS (21787144 Clay proofs, 21819217
     // the ℤ/9 Vortex Framework, 22256708 uuidna), because "New version" was used to publish different works.
     // A concept DOI always resolves to the newest version, so citing it for uuidna hands a reader whichever work
     // was published last. Deposit records therefore declare isPartOf the VERSION DOI, which is unambiguously
-    // ours. Untangling the chain is a Zenodo-side decision for the captain, not a code change.
+    // ours. The captain's decision was to stop depositing into it at all: Zenodo mints the archive from the GitHub
+    // release, whose chain 21970356 carries seventeen versions under ONE title, so the archive now cites a concept
+    // that resolves to this work and nothing else. The old chain keeps its records; nothing is withdrawn.
     standingDoi: STANDING_DOI,
-    conceptDoi: '10.5281/zenodo.21787143',
+    conceptDoi: '10.5281/zenodo.21970356',
     standingRecordId: STANDING_DOI.split('.').pop()!,
-    conceptId: '21787143',
-    // NOVELTY IS THE FIRST DEPOSIT, and this series has nineteen versions — the standing DOI moves with every
-    // release and carries no precedence. Read from the deposit's own version list, earliest by publication date.
-    firstDoi: '10.5281/zenodo.21787144',
-    firstRecordId: '21787144',
-    firstPublished: '2026-08-04',
+    conceptId: '21970356',
+    // NOVELTY IS THE FIRST DEPOSIT — the standing DOI moves with every release and carries no precedence, so
+    // precedence is the earliest version of THIS chain, read from its own version list by publication date.
+    //
+    // IT ALSO STOPS CITING ANOTHER AUTHOR'S PAPER. While the archive was the polluted chain, this field named
+    // 21787144 — which is titled "Quantum Proofs of the Clay Millennium Problems v1.0" and is not this work at all.
+    // The chain's own earliest uuidna deposit is 21970357 (v0.1.2, 2026-08-16), and that is what dates the work.
+    firstDoi: '10.5281/zenodo.21970357',
+    firstRecordId: '21970357',
+    firstPublished: '2026-08-16',
     pageUrl: HANDLE_HOST,
     uploadType: 'software',
     keywords: ['content-address', 'Lean 4', 'formal verification', 'uuidna', 'by decide', 'honest by construction'],
@@ -116,7 +123,11 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     related: [
       { identifier: UUIDNA_REPO, relation: 'isSupplementTo', resource_type: 'software' },
       { identifier: UUIDNA_NPM, relation: 'isIdenticalTo', resource_type: 'software' },
-      { identifier: '10.5281/zenodo.21970356', relation: 'isIdenticalTo', resource_type: 'software' },
+      // THE TWIN CLAIM IS GONE WITH THE TWIN. This declared isIdenticalTo the other chain, and audit-doi-harvest
+      // refused it every run: "the twin chain does not declare isIdenticalTo our concept — it names its own concept
+      // instead", which is a dangling pointer rather than a symmetric claim. With one chain there is no twin to
+      // point at, and a record declaring itself identical to its own concept would be exactly the defect the
+      // harvester was catching. The npm package above remains a genuine isIdenticalTo: same work, different registry.
       // CERN OPEN DATA, REFERENCED AS CITED SOURCES — the four CMS primary datasets whose published integers
       // lean/Cern.lean does arithmetic over. `references` is DataCite's relation for "this work uses that one",
       // which is exactly what they are: data, credited. They are NOT prior art, and that is measured rather

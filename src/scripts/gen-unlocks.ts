@@ -7,6 +7,7 @@ import { injectPorts } from '../quantum/os/ports/index.js'
 import { ROOT } from './api.js'
 import { unlockBoard, unlockHomeFragment, UNLOCK_LAW } from '../unlocks.js'
 import { clayBlock } from './gen-clay.js'
+import { citeBlock } from '../handle-permanence.js'
 
 const board = unlockBoard()
 if (!board.illustrationsAllPresent) {
@@ -107,7 +108,9 @@ if (existsSync(homePath)) {
   // and the port analytics ride this owner too — gen-unlocks composes docs/index.md, so it injects the block
   // rather than a second script fighting it for the file (the drain law).
   // the Clay block rides this owner too, for the same reason the ports do: one writer per path
-  writeFileSync(homePath, clayBlock(injectPorts(next)))
+  // the cite bullet rides this owner too, for the reason the ports and the Clay block do: one writer per
+  // path. Its DOI is STANDING_DOI's own text, so the page cannot keep citing an archive that has moved.
+  writeFileSync(homePath, citeBlock(clayBlock(injectPorts(next))))
 }
 
 console.log(`✓ gen-unlocks — ${board.keys} keys / ${board.distinct} distinct · ${board.skills} skills · illustrations ${board.illustrations.length}/${board.illustrations.length}`)

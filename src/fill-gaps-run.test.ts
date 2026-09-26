@@ -49,9 +49,14 @@ test('hasDeskAutomatableWork — true when lonely, harvest, wave, or open-leads 
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), bookTrialsUntried: 75 }), true)
 })
 
+// THE ORDER IS THE ARC, and this asserts it as a whole list rather than pairwise, so adding a phase has to say where
+// it belongs. cross-formulate and witness-wave sit AFTER domains-deposit and BEFORE the trials and the wave for a
+// reason each phase reads from the one before it: cross-formulate puts candidates on the conveyor and `wave` is what
+// reads the conveyor, so a deposit landing after the wave would wait a whole cycle; witness-wave names the verdicts
+// owing their faces, which is work the trials produce and the wave must know about when it seats witnesses.
 test('FILL_GAPS_PHASES — leverage order matches the taught arc', () => {
   assert.deepEqual(
     FILL_GAPS_PHASES.map((p) => p.name),
-    ['dry-clean', 'develop', 'connect-lonely', 'books', 'alpine-discovery', 'domains-deposit', 'trial-refusals', 'trial-book-leads', 'wave', 'derive-surfaces', 'develop-final'],
+    ['dry-clean', 'develop', 'connect-lonely', 'books', 'alpine-discovery', 'domains-deposit', 'cross-formulate', 'witness-wave', 'trial-refusals', 'trial-book-leads', 'wave', 'derive-surfaces', 'develop-final'],
   )
 })

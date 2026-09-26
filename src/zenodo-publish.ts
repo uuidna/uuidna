@@ -17,9 +17,15 @@ export interface ZenodoPublishGate {
 }
 
 export const ZENODO_PUBLISH_WORKFLOW = '.github/workflows/publish.yml'
-/** Software archive chain (uuidna releases) — concept 21787143. */
+/**
+ * THE SOFTWARE ARCHIVE IS NO LONGER DEPOSITED BY API — Zenodo mints it from the GitHub release (the captain,
+ * 2026-09-26: "let zenodo mint the doi from github release. No need of redundancy"). The `zenodo` job is gone from
+ * publish.yml, so the name is kept ONLY so that a stray process claiming to be it is still refused by
+ * zenodoDepositAllowed below rather than silently admitted by an unrecognised job name.
+ */
 export const ZENODO_PUBLISH_JOB = 'zenodo'
-/** Agnostic loop over zenodo/manifest.json — every owned publication seal (clay is one instance). */
+/** Agnostic loop over zenodo/manifest.json — every owned publication seal (clay is one instance). Still by API,
+ *  because a source archive does not cover a monograph: these are different works, not a second copy of one. */
 export const ZENODO_SEALS_PUBLISH_JOB = 'zenodo-seals'
 export const ZENODO_PUBLISH_JOBS = [ZENODO_PUBLISH_JOB, ZENODO_SEALS_PUBLISH_JOB] as const
 

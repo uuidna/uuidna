@@ -24,6 +24,7 @@
 // PURE VERDICT, INJECTED FACTS. evaluateRelease() takes facts and returns the verdict with no I/O, so every check
 // can be shown to FAIL on demand in the test rather than asserted to work. releaseLive() is the thin gatherer.
 import { toUuid, merkleFold } from './address.js'
+import { ZENODO_SEALS } from './zenodo-seals.js'
 
 export interface LiveCheck {
   name: string
@@ -117,7 +118,18 @@ export function newerVersion(a: string, b: string): string {
  * that matters is the one on the EXACT version, not on the newest.
  */
 export const zenodoReleases = (versions: readonly ZenodoVersion[]): ZenodoVersion[] =>
-  versions.filter((v) => /^\d+\.\d+\.\d+$/.test(v.version))
+  versions.filter((v) => /^v?\d+\.\d+\.\d+$/.test(v.version))
+
+/**
+ * THE TAG AND THE PACKAGE VERSION DIFFER BY ONE CHARACTER, and the archive is named by the tag.
+ *
+ * Zenodo mints from the GitHub release, so its `version` field is the tag — `v0.3.0` — while package.json says
+ * `0.3.0`. Measured the moment the archive moved to the GitHub-minted chain: every Zenodo check reported the release
+ * missing, because a `^\d+\.\d+\.\d+$` filter rejects the very records it was looking for. publish.yml already
+ * strips the prefix the same way (`${GITHUB_REF_NAME#v}`); comparing bare versions is the same normalisation, in the
+ * one place that compares them.
+ */
+export const bareVersion = (v: string): string => v.replace(/^v/, '')
 
 export function evaluateRelease(f: ReleaseFacts): ReleaseLive {
   // A ROW MUST ALWAYS SAY WHAT IT SAW, and a blank reason cannot — by construction, since an empty string carries no
@@ -146,8 +158,8 @@ export function evaluateRelease(f: ReleaseFacts): ReleaseLive {
   const uncutAndAbsent = notCut && f.npm.read && !f.npm.versions.includes(f.version)
 
   const rels = zenodoReleases(f.zenodo.versions)
-  const zenodoLatest = rels.length > 0 ? rels.map((r) => r.version).reduce(newerVersion) : ''
-  const mine = rels.find((r) => r.version === f.version)
+  const zenodoLatest = rels.length > 0 ? rels.map((r) => bareVersion(r.version)).reduce(newerVersion) : ''
+  const mine = rels.find((r) => bareVersion(r.version) === f.version)
   const d = f.npm.dist
 
   // ─── npm ───────────────────────────────────────────────────────────────────────────────────────────────────
@@ -336,7 +348,17 @@ export async function releaseFacts(version: string, pkg = '@uuidna/uuidna', tagg
   // holds nineteen records, so at twenty-six a check of an OLDER release would find it absent from page one and
   // report a deposit that exists as missing. `sort=newest` puts the current release on the first page, which is
   // exactly why that bug would have stayed invisible until someone verified an old version. So every page is read.
-  const seal = { conceptId: '21787143' }
+  // THE CHAIN IS READ FROM THE SEAL, NOT RESTATED HERE. This carried `conceptId: '21787143'` as a literal, which is
+  // the same figure typed twice — and when the archive moved to the GitHub-minted chain on 2026-09-26 a literal here
+  // would have kept verifying the abandoned one and reported the new release missing. src/zenodo-seals.ts is the one
+  // place that says which chain is ours.
+  const archive = ZENODO_SEALS.find((x) => x.id === 'uuidna-software')
+  const seal = { conceptId: archive?.conceptId ?? '' }
+  if (!seal.conceptId) {
+    return { version, tagged, npm, attestation, tarball,
+      zenodo: { read: false, reason: 'src/zenodo-seals.ts declares no conceptId for the software archive — the chain to verify is unknown', versions: [] },
+      doi: { read: false, reason: 'no chain', status: 0, landedOn: '' } }
+  }
   const hits: unknown[] = []
   let z = { ok: false, reason: 'not attempted', body: null as unknown }
   for (let page = 1; page <= 20; page += 1) {
@@ -363,7 +385,7 @@ export async function releaseFacts(version: string, pkg = '@uuidna/uuidna', tagg
 
   // doi.org for THIS release's record, followed to where it lands.
   let doi = { read: false, reason: 'no Zenodo record for this version — nothing to resolve', status: 0, landedOn: '' }
-  const mine = zenodoReleases(zversions).find((v) => v.version === version)
+  const mine = zenodoReleases(zversions).find((v) => bareVersion(v.version) === version)
   if (mine?.doi) {
     try {
       const res = await fetch(`https://doi.org/${mine.doi}`, { redirect: 'follow', headers: { 'user-agent': 'uuidna-release-live/1' } })
