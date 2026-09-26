@@ -1528,18 +1528,11 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      }
     },
     "leads": {
-     "type": "array",
-     "items": {
-      "type": "object"
-     }
+     "type": "array"
     },
     "byKind": {
      "type": "object",
-     "properties": {
-      "same-key-different-statement": {
-       "type": "integer"
-      }
-     }
+     "properties": {}
     },
     "agree": {
      "type": "boolean"
@@ -1555,7 +1548,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"surfaces\":{\"wings\":71082,\"ledger\":71082,\"paper\":5546,\"selfChecked\":5546},\"leads\":[{\"kind\":\"same-key-different-statement\",\"key\":\"reach_tactics_census\",\"why\":\"…"
+   "excerpt": "{\"surfaces\":{\"wings\":71082,\"ledger\":71082,\"paper\":5546,\"selfChecked\":5546},\"leads\":[],\"byKind\":{},\"agree\":true,\"receipt\":\"93929a2d-4810-8ac6-9f32-4ed07d9e016c\"…"
   }
  },
  "uuidna_verify_statement": {
