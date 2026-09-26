@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "a5f7eba2-8",
+  "generated": "29d5a1f4-e",
   "entries": [
     {
       "route": "/",
@@ -4030,9 +4030,9 @@
       "kind": "publication",
       "identity": "cross-formulas",
       "canonical": "https://uuidna.com/publications/cross-formulas",
-      "address": "a835112f-d3a0-80f3-b2ea-c5d1860cdee2",
-      "handle": "a835112f",
-      "hexbitDoor": "https://uuidna.com/a835112f"
+      "address": "0c15213c-af8c-8cb1-8a0c-596c8f25486d",
+      "handle": "0c15213c",
+      "hexbitDoor": "https://uuidna.com/0c15213c"
     },
     {
       "route": "/publications/cross-proof",
@@ -4048,9 +4048,9 @@
       "kind": "publication",
       "identity": "crosslink",
       "canonical": "https://uuidna.com/publications/crosslink",
-      "address": "34ab71b1-e31e-8752-a336-fd8a76f28c72",
-      "handle": "34ab71b1",
-      "hexbitDoor": "https://uuidna.com/34ab71b1"
+      "address": "8eb1f8f3-d027-835b-a459-a26603f76005",
+      "handle": "8eb1f8f3",
+      "hexbitDoor": "https://uuidna.com/8eb1f8f3"
     },
     {
       "route": "/publications/crt",
@@ -4075,9 +4075,9 @@
       "kind": "publication",
       "identity": "cyber",
       "canonical": "https://uuidna.com/publications/cyber",
-      "address": "5ad1f0c7-b445-8521-b162-64664cf52f17",
-      "handle": "5ad1f0c7",
-      "hexbitDoor": "https://uuidna.com/5ad1f0c7"
+      "address": "88e4a033-bc45-8284-b909-1500d65935b2",
+      "handle": "88e4a033",
+      "hexbitDoor": "https://uuidna.com/88e4a033"
     },
     {
       "route": "/publications/decipher",
@@ -5011,9 +5011,9 @@
       "kind": "publication",
       "identity": "forensics",
       "canonical": "https://uuidna.com/publications/forensics",
-      "address": "df91a782-2ab1-8cac-90bf-8adda5b45031",
-      "handle": "df91a782",
-      "hexbitDoor": "https://uuidna.com/df91a782"
+      "address": "5470bdac-0c64-83c5-a505-cc5e1df42232",
+      "handle": "5470bdac",
+      "hexbitDoor": "https://uuidna.com/5470bdac"
     },
     {
       "route": "/publications/glagolitic",
@@ -5056,9 +5056,9 @@
       "kind": "publication",
       "identity": "handle-store",
       "canonical": "https://uuidna.com/publications/handle-store",
-      "address": "ffd04b61-2765-8911-a1df-8b38d655ec51",
-      "handle": "ffd04b61",
-      "hexbitDoor": "https://uuidna.com/ffd04b61"
+      "address": "7dcb9899-6319-8bf2-893b-18f0a4504585",
+      "handle": "7dcb9899",
+      "hexbitDoor": "https://uuidna.com/7dcb9899"
     },
     {
       "route": "/publications/hardware",
@@ -5848,9 +5848,9 @@
       "kind": "publication",
       "identity": "site-build",
       "canonical": "https://uuidna.com/publications/site-build",
-      "address": "597c43f3-c341-84b6-9e2e-876e1ae0199f",
-      "handle": "597c43f3",
-      "hexbitDoor": "https://uuidna.com/597c43f3"
+      "address": "906e04f0-69ae-8fab-bf92-3538b3607d74",
+      "handle": "906e04f0",
+      "hexbitDoor": "https://uuidna.com/906e04f0"
     },
     {
       "route": "/publications/software",
@@ -6550,9 +6550,9 @@
       "kind": "theorem",
       "identity": "a_template_distinguishes_only_by_its_variable",
       "canonical": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
-      "address": "7927c325-779e-8cc9-aa1c-dc13f16caa6d",
-      "handle": "7927c325",
-      "hexbitDoor": "https://uuidna.com/7927c325"
+      "address": "25f6ad51-57b4-85f2-b143-add1a7a94ec4",
+      "handle": "25f6ad51",
+      "hexbitDoor": "https://uuidna.com/25f6ad51"
     },
     {
       "route": "/theorem/a_token_approximates_eight_hexbits",
@@ -30256,9 +30256,9 @@
       "kind": "theorem",
       "identity": "forged_handle_odds_are_small",
       "canonical": "https://uuidna.com/theorem/forged_handle_odds_are_small",
-      "address": "4ed082c0-466f-8df7-96f0-c65f07ec1bfe",
-      "handle": "4ed082c0",
-      "hexbitDoor": "https://uuidna.com/4ed082c0"
+      "address": "e108a595-db18-8a20-8051-c788d8c778c7",
+      "handle": "e108a595",
+      "hexbitDoor": "https://uuidna.com/e108a595"
     },
     {
       "route": "/theorem/forged_order_refused",
@@ -34594,9 +34594,9 @@
       "kind": "theorem",
       "identity": "most_of_the_unstated_remainder_stays_inside_one_wing",
       "canonical": "https://uuidna.com/theorem/most_of_the_unstated_remainder_stays_inside_one_wing",
-      "address": "e4d769b2-91e6-878f-b8e4-a869cf3fecc5",
-      "handle": "e4d769b2",
-      "hexbitDoor": "https://uuidna.com/e4d769b2"
+      "address": "ae254669-a8e0-8063-9e04-6964909d062d",
+      "handle": "ae254669",
+      "hexbitDoor": "https://uuidna.com/ae254669"
     },
     {
       "route": "/theorem/most_subsets_are_not_subgroups",
@@ -45844,9 +45844,9 @@
       "kind": "theorem",
       "identity": "sixteen_bit_handles_would_collide",
       "canonical": "https://uuidna.com/theorem/sixteen_bit_handles_would_collide",
-      "address": "b258e7d8-fa4a-8d93-9138-a4ab1f2091cc",
-      "handle": "b258e7d8",
-      "hexbitDoor": "https://uuidna.com/b258e7d8"
+      "address": "b4c1e32a-e529-811e-918c-1e9309bb42d7",
+      "handle": "b4c1e32a",
+      "hexbitDoor": "https://uuidna.com/b4c1e32a"
     },
     {
       "route": "/theorem/sixteen_connectives",
@@ -47131,9 +47131,9 @@
       "kind": "theorem",
       "identity": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
       "canonical": "https://uuidna.com/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "address": "dcf95703-ab80-865d-9508-29508492895c",
-      "handle": "dcf95703",
-      "hexbitDoor": "https://uuidna.com/dcf95703"
+      "address": "d4f27c64-8fc4-8055-a3c2-28088cbfd240",
+      "handle": "d4f27c64",
+      "hexbitDoor": "https://uuidna.com/d4f27c64"
     },
     {
       "route": "/theorem/the_cross_tells_a_ratio_from_a_convention",
@@ -47347,9 +47347,9 @@
       "kind": "theorem",
       "identity": "the_generated_closure_partitions_into_three_kinds",
       "canonical": "https://uuidna.com/theorem/the_generated_closure_partitions_into_three_kinds",
-      "address": "0f5fa5f5-e12a-8d18-bf2f-acba3c1d5425",
-      "handle": "0f5fa5f5",
-      "hexbitDoor": "https://uuidna.com/0f5fa5f5"
+      "address": "21f9fa68-cbe0-8d6b-baa1-e40805e9d0ae",
+      "handle": "21f9fa68",
+      "hexbitDoor": "https://uuidna.com/21f9fa68"
     },
     {
       "route": "/theorem/the_gregorian_cycle_counted_in_weeks",
@@ -47491,18 +47491,18 @@
       "kind": "theorem",
       "identity": "the_leaf_is_not_one_uuid_but_a_folder",
       "canonical": "https://uuidna.com/theorem/the_leaf_is_not_one_uuid_but_a_folder",
-      "address": "c8dbcd7c-11f5-85f3-8bca-d3a0ef07269e",
-      "handle": "c8dbcd7c",
-      "hexbitDoor": "https://uuidna.com/c8dbcd7c"
+      "address": "7d6f32c9-bf0c-8474-9f57-71f4c4e2f90e",
+      "handle": "7d6f32c9",
+      "hexbitDoor": "https://uuidna.com/7d6f32c9"
     },
     {
       "route": "/theorem/the_measured_store_uses_a_vanishing_share",
       "kind": "theorem",
       "identity": "the_measured_store_uses_a_vanishing_share",
       "canonical": "https://uuidna.com/theorem/the_measured_store_uses_a_vanishing_share",
-      "address": "af398ac8-7849-8c84-a75c-d7657be2be03",
-      "handle": "af398ac8",
-      "hexbitDoor": "https://uuidna.com/af398ac8"
+      "address": "7950311e-24a9-8e1d-9c67-381572208475",
+      "handle": "7950311e",
+      "hexbitDoor": "https://uuidna.com/7950311e"
     },
     {
       "route": "/theorem/the_metre_is_defined_by_the_second",
@@ -47977,18 +47977,18 @@
       "kind": "theorem",
       "identity": "the_store_footprint_is_its_folders",
       "canonical": "https://uuidna.com/theorem/the_store_footprint_is_its_folders",
-      "address": "52c4acbe-acd8-86f9-9e34-66fab4ba068f",
-      "handle": "52c4acbe",
-      "hexbitDoor": "https://uuidna.com/52c4acbe"
+      "address": "0a4f1d3e-8de0-8e6e-ab82-b8906a345588",
+      "handle": "0a4f1d3e",
+      "hexbitDoor": "https://uuidna.com/0a4f1d3e"
     },
     {
       "route": "/theorem/the_store_holds_far_less_than_it_admits",
       "kind": "theorem",
       "identity": "the_store_holds_far_less_than_it_admits",
       "canonical": "https://uuidna.com/theorem/the_store_holds_far_less_than_it_admits",
-      "address": "968f04d9-c0c2-8480-b5f6-64d6a8a3af1c",
-      "handle": "968f04d9",
-      "hexbitDoor": "https://uuidna.com/968f04d9"
+      "address": "f7188fda-eb1e-8638-a608-9fbd4677b073",
+      "handle": "f7188fda",
+      "hexbitDoor": "https://uuidna.com/f7188fda"
     },
     {
       "route": "/theorem/the_suanpan_rod_is_the_hexbit_ceiling",
@@ -48049,9 +48049,9 @@
       "kind": "theorem",
       "identity": "the_third_level_already_shares",
       "canonical": "https://uuidna.com/theorem/the_third_level_already_shares",
-      "address": "5a4dc683-d8ea-82f8-84e3-a40911217ca2",
-      "handle": "5a4dc683",
-      "hexbitDoor": "https://uuidna.com/5a4dc683"
+      "address": "e0b6fb06-22c4-8ec2-a1d0-144696cc942e",
+      "handle": "e0b6fb06",
+      "hexbitDoor": "https://uuidna.com/e0b6fb06"
     },
     {
       "route": "/theorem/the_twelve_neighbours_are_an_independent_set_0",
@@ -48346,9 +48346,9 @@
       "kind": "theorem",
       "identity": "three_kinds_partition_the_store",
       "canonical": "https://uuidna.com/theorem/three_kinds_partition_the_store",
-      "address": "8edc1361-33d2-8b14-9ca7-604e02526097",
-      "handle": "8edc1361",
-      "hexbitDoor": "https://uuidna.com/8edc1361"
+      "address": "01a0a982-9173-80a5-a668-18015a79737c",
+      "handle": "01a0a982",
+      "hexbitDoor": "https://uuidna.com/01a0a982"
     },
     {
       "route": "/theorem/three_no_inverse",
@@ -56298,6 +56298,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "a5f7eba2-8579-8de6-a6b2-3f7088fe36ca",
+  "receipt": "29d5a1f4-eaa2-86d1-b0cd-e05edf416a7c",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

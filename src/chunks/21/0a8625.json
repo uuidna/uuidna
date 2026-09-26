@@ -1,0 +1,12 @@
+{
+  "handle": "210a8625",
+  "address": "210a8625-d84d-830e-af90-8d0fea9d18b4",
+  "statement": "71000 + 446 + 260 = 71706",
+  "tactic": "decide",
+  "keys": [
+    "three_kinds_partition_the_store"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

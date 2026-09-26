@@ -1,0 +1,12 @@
+{
+  "handle": "a064fad9",
+  "address": "a064fad9-e91c-8193-81ed-85cb2332d9d1",
+  "kind": "chunk",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "statement": "(2570839365 = (71706 * (71706 - 1)) / 2) ∧ (2570839365 > 2000 * 71705)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

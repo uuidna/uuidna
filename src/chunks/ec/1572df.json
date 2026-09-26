@@ -1,0 +1,12 @@
+{
+  "handle": "ec1572df",
+  "address": "ec1572df-315a-804e-bcb5-c0ed2217ebd6",
+  "statement": "((453 * 100 < 98257) ∧ (782 > 116)) ∧ ((116 * 13 < 1532) ∧ (116 * 14 > 1532))",
+  "tactic": "decide",
+  "keys": [
+    "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

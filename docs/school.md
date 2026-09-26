@@ -1378,10 +1378,10 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 5,870,212 | 6 | 978,368× | `theorems().length` |
+| how many theorems are sealed? | 5,870,211 | 6 | 978,368× | `theorems().length` |
 | what does the tree hold right now? | 5,893,081 | 225 | 26,191× | `npm run state` |
 | which Alpine domains are ported? | 1,823,070 | 350 | 5,208× | `portsCensus()` |
-| is the tree green to release? | 1,158,121 | 65 | 17,817× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 1,158,333 | 65 | 17,820× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **26,191×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
@@ -1397,7 +1397,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,292,283 | 16 | 455,767× |
-| the sealed ledger | 23,480,848 | 16 | 1,467,553× |
+| the sealed ledger | 23,480,846 | 16 | 1,467,552× |
 | the leads record | 79,491 | 16 | 4,968× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request
