@@ -85,15 +85,23 @@ test('the deposit API appears ONLY in publish.yml', () => {
   assert.deepEqual(offenders, [], 'deposit/publish API must stay in ' + ZENODO_PUBLISH_WORKFLOW + ' only')
 })
 
-test('publish.yml jobs zenodo and zenodo-seals run the gate before the deposit curl', () => {
+// ONE DEPOSIT JOB REMAINS, AND THE ARCHIVE IS NOT IT. (the captain, 2026-09-26: "let zenodo mint the doi from github
+// release. No need of redundancy".) publish.yml's `zenodo` job deposited the SOFTWARE ARCHIVE by API while the
+// GitHub↔Zenodo integration was already minting it from the release — two records per release, six seconds apart,
+// seventeen releases deep. The job is gone; `zenodo-seals` stays, because the PUBLICATIONS are different works and a
+// source archive does not cover a monograph.
+test('publish.yml deposits the publications by API and does NOT deposit the archive', () => {
   const yml = readFileSync(join(ROOT, ZENODO_PUBLISH_WORKFLOW), 'utf8')
-  assert.match(yml, new RegExp(`^\\s+${ZENODO_PUBLISH_JOB}:`, 'm'))
-  assert.match(yml, new RegExp(`^\\s+${ZENODO_SEALS_PUBLISH_JOB}:`, 'm'))
-  assert.match(yml, /zenodo-deposit/)
-  assert.match(yml, DEPOSIT_API)
+  assert.match(yml, new RegExp(`^\\s+${ZENODO_SEALS_PUBLISH_JOB}:`, 'm'), 'the publication seals still deposit by API')
+  assert.doesNotMatch(yml, new RegExp(`^\\s+${ZENODO_PUBLISH_JOB}:`, 'm'),
+    'and the archive job is gone — Zenodo mints that DOI from the GitHub release')
+  assert.match(yml, DEPOSIT_API, 'the seals job still calls the deposit API')
   assert.match(yml, /ZENODO_ACCESS_TOKEN/)
   assert.match(yml, /zenodo\/manifest\.json/)
   assert.doesNotMatch(yml, /\.zenodo\.clay\.json/)
+  // the release the integration mints from must still be created, or nothing archives the archive
+  assert.match(yml, /gh release create/, 'the GitHub Release is what Zenodo now mints the archive from')
+  assert.match(yml, /^\s+verify:/m, 'and `verify` is what proves the record appeared')
 })
 
 test('gen-zenodo writes metadata only — it never calls the deposit API', () => {
