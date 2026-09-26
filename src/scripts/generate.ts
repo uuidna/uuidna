@@ -123,6 +123,13 @@ const GENERATORS: Gen[] = [
   // the symptom and leaves the cause, which is how the crosscheck in the guard would have become a trap rather
   // than a finder: green only for whoever remembered to run the generator first.
   { file: 'gen-latex.js', args: [], note: 'the ledger as one XeLaTeX article — derived from the seals, LAST among the emitters so no later generator can move the ledger out from under it' },
+  // AND THE CHAIN NO LONGER NEEDS THAT HAND-RUN. `npm run lean` used to run latex-crosscheck — the CHECK — with no
+  // gen-latex anywhere in front of it, so whenever that same run moved the census the check was GUARANTEED to read a
+  // stale paper and report every census theorem as a disagreement. Sixteen such gaps refused a landing, and every one
+  // said "this is a LEAD, not a fix", which is correct of the finder and useless to the loop: latex-crosscheck names
+  // leads and never prescribes, by the law that a lead goes to trial rather than to a hand disposition. So the cure is
+  // the ORDER, not a rule — gen-latex.js now runs immediately before latex-crosscheck.js in that chain, and the check
+  // compares the paper its own chain just wrote. A disagreement surviving that is a real lead.
   { file: 'gen-witness-seals.js', args: [], note: 'lean/witness-seals.json — each involution a wave sealed on all VE_FACES faces, signed only once the ledger holds its subject; with no wave receipt the committed seals stand' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
   // THE FREEZE RUNS LAST. It seals every navigable route, and gen-articles (below it once) writes a page per wing —
