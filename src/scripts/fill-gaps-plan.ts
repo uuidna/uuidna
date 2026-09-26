@@ -65,6 +65,17 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     when: (s) => s.alpinePending > 0,
   },
   {
+    name: 'cross-formulate',
+    cmd: 'node dist/scripts/cross-formulate.js --deposit',
+    note: 'rank the unstated crosses the corpus own integers generate and deposit the domain-crossing head (never seals)',
+    // GATED ON THE QUEUE IT DRAINS, which is the whole lesson of lead 55161239: a phase whose `when` reads a queue it
+    // neither fills nor drains is a stand-in, and a COPIED stand-in is what the law calls a convention. crossingPending
+    // counts exactly what this phase would propose — domain-crossing crosses the closure implies, minus what is sealed,
+    // minus what already waits — so the phase stops proposing the moment there is nothing new, and the count and the
+    // proposal are computed from one derivation (crossKeyOf) rather than two.
+    when: (s) => s.crossingPending > 0,
+  },
+  {
     name: 'trial-refusals',
     cmd: 'node dist/scripts/trial-refusals.js',
     note: 'try every lead by the sealed theorems its own text names, against fresh kernel receipts — verified or open; nothing is purged',

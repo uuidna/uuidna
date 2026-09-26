@@ -546,6 +546,26 @@ export function novelties(limit = 64): Novelty[] {
   return out.slice(0, limit)
 }
 
+/** THE OPERATION WORDS, so a derived key reads as what it is and needs no glossary beside it. */
+const OP_WORD: Readonly<Partial<Record<BinOp, string>>> = {
+  '+': 'sum', '-': 'difference', '*': 'product', '/': 'quotient', '%': 'remainder', '^': 'power',
+}
+
+/** crossKeyOf(cross) → the DESCRIPTIVE key a deposited cross carries: which domains it joins, and by which
+ *  operation. It lives here rather than in the depositing script because gap-survey must compute the SAME key to
+ *  know whether a cross is already queued — two derivations of one key is how a queue counts work it has already
+ *  done, which is the class this file's own census exists to measure. A key is an identifier; the explanation of
+ *  what the cross MEANS is prose beside it, where each clause can carry its citation. */
+export const crossKeyOf = (n: { op: BinOp; c: string; wings: readonly string[] }): string =>
+  // THE RESULT IS PART OF THE KEY, and leaving it out lost candidates silently. With the key at
+  // (domain-pair, operation) granularity, forty ranked crosses collapsed onto fourteen names: the first deposit took
+  // the name and every other cross joining the same two domains by the same operator became permanently
+  // undepositable, because the phase skips a key already queued. Measured before the fix: the queue fell 112 → 72 for
+  // fourteen deposits. Naming the result distinguishes them, stays descriptive — it is the quantity the cross lands
+  // on, not a reading of it — and keeps the one-derivation rule that lets gap-survey count what the phase proposes.
+  ['cross', ...[...new Set(n.wings.map((w) => w.replace(/\.lean$/, '').toLowerCase()))].sort().slice(0, 2),
+    OP_WORD[n.op] ?? 'cross', n.c].join('_').replace(/[^a-z0-9_]/g, '')
+
 /** crossesMissing(wing) → one wing's own unstated crosses, which is how the whole enumeration stays reachable
  *  without any answer ever carrying all of it */
 export function crossesMissing(wing: string): Cross[] {

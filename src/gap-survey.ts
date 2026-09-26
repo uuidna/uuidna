@@ -8,6 +8,8 @@ import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenLeads } from './school/open/questions/springs.js'
 import { ROOT } from './boundary.js'
+import { novelties, crossKeyOf } from './formulas.js'
+import { VE_FACES } from './hexbit/index.js'
 import { DERIVE_SURFACES_CMD } from './derive-surfaces-cmd.js'
 import { alpineExpectedClaimKeys } from './quantum/os/domains/index.js'
 import { bookTrialsUntried, type BookTrialsRecord } from './book-trials.js'
@@ -183,6 +185,10 @@ export interface GapSurvey {
   harvest: number
   /** Alpine claims the current catalogue implies that are neither sealed NOR already on the conveyor. */
   alpinePending: number
+  /** DOMAIN-CROSSING crosses the corpus's own integers generate that no wing carries all three of, that are neither
+   *  sealed NOR already on the conveyor. The queue cross-formulate drains — counted the same way alpinePending is,
+   *  because a phase gating on a queue it neither fills nor drains is the fault lead 55161239 named. */
+  crossingPending: number
   wavePending: number
   waveInFlight: number
   refusalOpen: number | null
@@ -224,6 +230,21 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   )
   const sealedNames = new Set<string>(theorems().map((t: { name: string }) => t.name))
   const alpinePending = alpineExpectedClaimKeys().filter((k) => !sealedNames.has(k) && !alpineQueued.has(k)).length
+  // THE CROSSING QUEUE, counted exactly as alpinePending is: what the closure implies, minus what is sealed, minus
+  // what is already waiting. A phase gating on a queue it neither fills nor drains is the fault lead 55161239 named,
+  // so cross-formulate gates on THIS and drains THIS. The novelty walk is the expensive half, so the head is bounded
+  // here too — the question is "is there anything to propose", not "how many are there in total".
+  // sealedNames is built from t.name, which is what an Alpine claim key is compared against; a CROSS key is a
+  // theorem KEY, so it needs its own set. Comparing a key to a name would have counted every cross as new forever.
+  const sealedKeys = new Set<string>(theorems().map((t: { key: string }) => t.key))
+  const crossingPending = ((): number => {
+    try {
+      return novelties(VE_FACES * 8)
+        .filter((n) => n.span >= 2)
+        .filter((n) => { const k = crossKeyOf(n); return !sealedKeys.has(k) && !alpineQueued.has(k) })
+        .length
+    } catch { return 0 }
+  })()
   const trialsRecord = readRepoJson('lean/refusal-trials.json') as RefusalTrialsRecord | null
   const refusalOpen = refusalTrialsOpen(trialsRecord)
   const bookRaw = readRepoJson('book-leads.json') as { lead?: unknown[] } | null
@@ -313,6 +334,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
     lonely,
     harvest,
     alpinePending,
+    crossingPending,
     wavePending: wave.pending,
     waveInFlight: wave.inFlight.size,
     refusalOpen,
