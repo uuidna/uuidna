@@ -120,7 +120,12 @@ const news = ((): { open: number; unread: number } => {
 
 // THE NEXT COMMAND — the one thing to run, decided by the same order the gate applies, so nobody has to guess
 const next =
-  dirtyFinders.length ? `npm run guard   # ${dirtyFinders.map(([n, c]) => `${n}:${c}`).join(' ')} — each finding carries its exact fix`
+  // ONE COMMAND, NOT A FINDER LIST. This named `npm run guard` and left the operator to read N findings and run each
+  // prescribed generator by hand — which this session did four times over, for one wave of five theorems, because no
+  // chain regenerates the surfaces a new theorem invalidates. derive-all runs exactly what the gate PRESCRIBES, to a
+  // fixed point, and falls back to reporting when the gaps are not the kind a regeneration clears — so naming it is
+  // always at least as good as naming guard, and usually ends the work.
+  dirtyFinders.length ? `npm run x -- derive-all --run   # ${dirtyFinders.map(([n, c]) => `${n}:${c}`).join(' ')} — runs what the gate prescribes, to a fixed point`
   // `!==` rather than `<`: a ledger that SHRANK leaves audited > length, and a witness vouching for theorems the
   // ledger no longer holds is exactly as stale as one missing a new theorem. And the command named is `npm run
   // axioms`, which BUILDS first — the bare `node dist/scripts/lean-axioms.js` audits whatever dist happens to
