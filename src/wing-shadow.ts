@@ -25,8 +25,9 @@ export interface Shadowed { file: string; def: string; why: string }
 
 /** builtinName(name) → true when the evaluator resolves this name with no wing in scope. */
 export function builtinName(name: string): boolean {
-  // `name = name` is reflexive for any value the evaluator can produce, and null when it cannot resolve the name at
-  // all. Reflexivity is the cheapest question that distinguishes "known" from "unknown" without assuming a type.
+  // `name = name` is reflexive for any value the evaluator can produce, and null for an unbound identifier — BY
+  // CONSTRUCTION, because src/involution returns null wherever its environment holds no binding for a name rather
+  // than throwing. Reflexivity is the cheapest question that separates "known" from "unknown" without assuming a type.
   try { return holds(`${name} = ${name}`) === true } catch { return false }
 }
 
