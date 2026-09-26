@@ -35,6 +35,17 @@ export const EXAMPLES: Readonly<Record<string, { args: Record<string, unknown>; 
     why: 'host must be one of the four hologram hosts; an enum on the schema would cost the catalogue ~76 bytes the shrink-only wire ratchet does not allow' },
   uuidna_predict: { args: { likelihood: 'all' },
     why: 'likelihood must be high, medium, low or all; its description says so and the schema carries no enum, for the same ratchet' },
+  // A DOCUMENTED EXAMPLE MUST BE REPRODUCIBLE BY ITS READER, and with no argument this one could not be. `address`
+  // is optional, so the recorder called uuidna_handle with {} — and with no address the tool answers about whatever
+  // the live tree offers, which moves with every stamp. The recorded excerpt was therefore stale the moment the next
+  // receipt was minted, and mcp-names refused a landing over it on four consecutive runs with a different address
+  // each time: 6dee3770, 75c43115, 09d2f9d4, 94dcbb6b. Nothing was broken except the input.
+  //
+  // The address below is uuidna's own canonical doc-comment example, the one src/handle.ts:3 uses to show the split
+  // (cc9c0011 becomes cc/9c/00/11). It is a fixture rather than a measurement, which is exactly what an example
+  // wants: a reader can paste it and get the same answer, and no generator can move it.
+  uuidna_handle: { args: { address: 'cc9c0011-0000-8000-8000-000000000000' },
+    why: 'address is optional, and with none the tool answers about whatever the live tree offers — an example that moves with every stamp cannot be reproduced by the reader it is written for' },
 }
 
 type Schema = { type?: string | string[]; enum?: unknown[]; minimum?: number; default?: unknown; description?: string; items?: Schema; properties?: Record<string, Schema>; required?: string[] }

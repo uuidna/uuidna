@@ -199,8 +199,10 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   },
   "status": "documented",
   "example": {
-   "args": {},
-   "excerpt": "{\"address\":\"94dcbb6b-ac69-851c-a76b-2856c50c4afa\",\"handle\":\"94dcbb6b\",\"path\":\"src/handles/94/dc/bb/6b/index.json\",\"parts\":[\"94\",\"dc\",\"bb\",\"6b\"],\"roundTrip\":tru…"
+   "args": {
+    "address": "cc9c0011-0000-8000-8000-000000000000"
+   },
+   "excerpt": "{\"address\":\"cc9c0011-0000-8000-8000-000000000000\",\"handle\":\"cc9c0011\",\"path\":\"src/handles/cc/9c/00/11/index.json\",\"parts\":[\"cc\",\"9c\",\"00\",\"11\"],\"roundTrip\":tru…"
   }
  },
  "uuidna_invitation": {

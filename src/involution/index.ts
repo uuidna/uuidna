@@ -111,7 +111,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl`/`.foldr` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|mergeIdx|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nthI|nth|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.foldr|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|mergeIdx|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|set|eraseDups|Nodup|nthI|nth|nthI|nthR|nthS|foldl|foldr|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLastD|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
  *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
@@ -1065,6 +1065,15 @@ const postfix = (c: Cursor, v: Val): Val => {
       v = asLst(v).filter((x) => asBool(f.run(x))).length
       continue
     }
+    // .getLastD d — the last element, or the default when empty. The mirror of .headD just above, and the one
+    // Diagonal.lean's nine_folds_to_zero_and_reflects_to_one needs: the ring closes where the diagonal ends, so the
+    // statement asks for the last entry and the first, and without this the theorem carried no independent denial.
+    if (eat(c, '.getLastD')) {
+      const d = atom(c)
+      const xs = asLst(v)
+      v = xs.length ? xs[xs.length - 1]! : d
+      continue
+    }
     if (eat(c, '.getLast!')) {
       const xs = asLst(v)
       if (!xs.length) throw new Error('getLast!')
@@ -1294,6 +1303,17 @@ const atom = (c: Cursor): Val => {
     for (let i = 0; i < n; i++) out.push(pair(xs[i]!, ys[i]!))
     return postfix(c, lst(out))
   }
+  // nthI xs i — the axiom-free list indexer this tree uses in place of List.getD, which routes through propext.
+  // Mirrors lean-gen's NTH_DEF exactly, INCLUDING the out-of-range answer: Lean's definition returns 0 for [] and
+  // for an index past the end, so a reader that threw or returned undefined would disagree with the kernel on the
+  // boundary rather than on the content. Recognising the name in the gate without implementing it here is what
+  // left five PlanckLattice theorems evaluable-but-undecided, which is the honest half of a leg and not a leg.
+  if (eat(c, 'nthI')) {
+    const xs = asLst(atom(c))
+    const i = asNum(atom(c))
+    const v = i >= 0 && i < xs.length ? xs[i]! : 0
+    return postfix(c, v)
+  }
   if (eat(c, 'mergeIdx')) {
     const fuel = asNum(atom(c))
     const xs = asLst(atom(c)).map(asNum)
@@ -1435,6 +1455,17 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'dd')) return postfix(c, ddFn(asPair(atom(c)), asPair(atom(c))))
   if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
+  // nthI — the SAME operation as nth under the name the Int-lattice wings use: indexed access with 0 out of range,
+  // which is exactly listNth. PlanckLattice defines it by pattern-matching recursion, so simpleDefs skips it (by
+  // design — KNOWN_DEFS gives recursive helpers their meaning), and KNOWN_DEFS cannot hold it either, because its
+  // signature is (number[]) => number and nthI takes a LIST and an index. It therefore fell through both roads and
+  // five sealed theorems lost their falsifier leg: mint-gate refuses a deposit over any theorem whose denial nobody
+  // can state, and bisecting the four PlanckLattice laws showed hbarForm, gravForm, combine, coeffs.all and nested
+  // lambdas ALL executed — only nthI came back null. One missing name, five undeniable proofs.
+  //
+  // IT IS EATEN BEFORE `nth`, because `eat` matches a prefix and `nth` would otherwise swallow the `nthI` token and
+  // leave a stray `I` — the same ordering `nthR` and `nthS` already rely on.
+  if (eat(c, 'nthI')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
   if (eat(c, 'nthR')) return postfix(c, lst(listNthR(asLst(atom(c)), asNum(atom(c)))))
   if (eat(c, 'nthS')) return postfix(c, listNthS(asLst(atom(c)), asNum(atom(c))))
   if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
@@ -1960,7 +1991,22 @@ function holdsUncached(statement: string, wingSource = ''): boolean | null {
   if (!evaluable(cleaned, wingSource)) return null
   const src = stripAscriptions(cleaned)
   // Lean elaborates the whole chain as Int once any `: Int` ascription appears (expected type); Nat otherwise.
-  const ring: Ring = /\bInt\b/.test(statement) ? 'Int' : 'Nat'
+  // THE RING IS WHAT THE OPERANDS ARE, NOT WHAT THE TEXT SAYS. This asked only whether the word `Int` appeared in
+  // the statement — so a statement whose every value is Int-valued, reached through wing defs, read as Nat and its
+  // subtraction saturated. Measured: a_combination_exists_exactly_when_its_exponents_share_parity names hbarForm,
+  // gravForm and nthI (all declared `: Int` in PlanckLattice) and never the word Int, so `(h - g) % 2` computed
+  // 0 - 3 = 0 instead of −3, and 0 % 2 = 0 instead of Lean's Int.emod −3 % 2 = 1. The parity flipped and the
+  // evaluator called a kernel-proved theorem FALSE — the same defect as the `chi` ring, one level up: that fix
+  // carried a def's declared ring into its BODY, and this carries it into the STATEMENT that calls the def.
+  //
+  // DERIVED FROM THE WING'S OWN SIGNATURES, never from a list: simpleDefs already reads each def's declared return
+  // ring, so a statement naming any Int-declared def it can see is evaluated in ℤ. Widening only — Nat stays the
+  // default, so nothing already decidable narrows.
+  const intDefs = wingSource
+    ? simpleDefs(wingSource).filter((d) => d.ring === 'Int').map((d) => d.name)
+    : []
+  const namesAnIntDef = intDefs.some((n) => new RegExp('\\b' + n + '\\b').test(statement))
+  const ring: Ring = /\bInt\b/.test(statement) || namesAnIntDef ? 'Int' : 'Nat'
   try {
     const c: Cursor = { s: src, i: 0, env: wingEnv(wingSource, ring), ring }
     const v = conjunction(c)

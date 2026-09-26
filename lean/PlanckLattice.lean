@@ -30,7 +30,6 @@ def freeOfGravity (a b : List Int) : Bool := ((product a b).drop 1).headD 0 == 0
     exponent vector, and the two forms read off what it cancels — hbarForm is a+b+c+d, gravForm is a−b+c−d. The
     boxes are the finite domains the kernel walks: 625 combinations for the characterisations, 81
     for the existence law, and 25 targets for it to reach. -/
-def basis : List (List Int) := [planckLength, planckMass, planckTime, planckTemperature]
 -- nthI — list indexing as decidable, AXIOM-FREE structural recursion: the Int form of lean-gen's `nth`.
 -- Lean's `List.getD` routes through the `propext` axiom under `by decide` and this recursion does not,
 -- which is why four theorems in this wing were the ledger's only non-kernel-only proofs until it was used.
@@ -39,8 +38,15 @@ def nthI : List Int → Nat → Int
   | x :: _, 0 => x
   | _ :: xs, Nat.succ n => nthI xs n
 
+def col0 : List Int := [1, 1, 1, 1]
+def col1 : List Int := [1, -1, 1, -1]
+def col2 : List Int := [-3, 1, -5, 5]
+def col3 : List Int := [0, 0, 0, -2]
 def combine (k : List Int) : List Int :=
-  (List.range 4).map (fun j => ((List.zipWith (fun ki v => ki * (nthI v j)) k basis).foldl (· + ·) 0))
+  [(List.zipWith (· * ·) k col0).foldl (· + ·) 0,
+   (List.zipWith (· * ·) k col1).foldl (· + ·) 0,
+   (List.zipWith (· * ·) k col2).foldl (· + ·) 0,
+   (List.zipWith (· * ·) k col3).foldl (· + ·) 0]
 def hbarForm (k : List Int) : Int := k.foldl (· + ·) 0
 def gravForm (k : List Int) : Int := (List.zipWith (· * ·) k [1, -1, 1, -1]).foldl (· + ·) 0
 def coeffs : List Int := [-2, -1, 0, 1, 2]
