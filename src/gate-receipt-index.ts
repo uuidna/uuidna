@@ -143,7 +143,10 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   // manifest road ("coarse digest drift without file drift") and through the graph road ("no test imports or reads what
   // moved"). Both of those reason about WHAT MOVED, which is a different question from whether the tests were ever
   // proved for this receipt — and only the second question can excuse running them. So every skip is funnelled through
-  // one predicate, and a receipt that never verified tests cannot skip them by any route.
+  // one predicate — BY CONSTRUCTION, because `skip` is now returned from exactly one place and that place asks
+  // `provedTests` first, so a receipt which never verified tests has no road to skipping them rather than merely
+  // no road anyone has found. That is the difference between a structural limit and an audited one, and the whole
+  // reason this needed fixing twice: the first version left two roads open while reading as though it had closed them.
   const provedTests = verified.has('tests')
   const skipIfProved = (why: string): TestRunPlan => provedTests
     ? { mode: 'skip', why }
