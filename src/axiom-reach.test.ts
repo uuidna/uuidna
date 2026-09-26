@@ -2,6 +2,9 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { axiomReach, axiomReachGaps, defBodies, theoremsExplaining } from './axiom-reach.js'
 import { axiomIndex } from './theorems/index.js'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './boundary.js'
 
 test('defBodies reads a wing and separates each def from the next declaration', () => {
   const b = defBodies('BioPhysics.lean')
@@ -73,4 +76,41 @@ test('the live axiom index partitions without remainder, as the sealed theorem s
   assert.ok(r.defs > 0, 'the index is not empty')
   assert.equal(r.orphans.length, 0, 'no definition goes unreached')
   assert.equal(r.direct + r.reached, r.defs, 'direct plus reached is every definition, with no remainder')
+})
+
+// ── STALENESS IS NOT ORPHANHOOD ──────────────────────────────────────────────────────────────────────────────
+// The two inputs to this census have different freshness by construction: the def list comes from the generated
+// ledger and the bodies are read from lean/*.lean. reconcile runs the JS controls BEFORE rewriting the ledger, so
+// for exactly one pass a wing added or a dead definition removed makes the index disagree with the disk — and that
+// disagreement used to present as unexplained vocabulary. Measured: one removed helper cost four reconcile passes,
+// each surfacing one link of what was really one fact. These two tests are the same wing with only the disk changed.
+test('a def the wing no longer defines is STALE, never an orphan', () => {
+  const wing = join(ROOT, 'lean', 'CrossProof.lean')
+  if (!existsSync(wing)) return // the wing is not on this host; nothing to stale
+  const before = readFileSync(wing, 'utf8')
+  const target = 'def symmSwapBoth (a b c d : Nat) : Bool := c * b == d * a\n'
+  if (!before.includes(target)) return // the wing moved on; the distinction is tested by its sibling below
+  try {
+    writeFileSync(wing, before.replace(target, ''))
+    const r = axiomReach()
+    const staled = r.stale.filter((e) => e.def === 'symmSwapBoth')
+    assert.equal(staled.length, 1, 'a def gone from the disk must be reported as stale')
+    assert.ok(!r.orphans.some((o) => o.def === 'symmSwapBoth'),
+      'and never as an orphan — an orphan sends the reader to argue about vocabulary that no longer exists')
+    assert.equal(r.full, false, 'a census taken against a stale index has not measured the tree it describes')
+    const gaps = axiomReachGaps()
+    assert.equal(gaps.length, 1)
+    assert.match(gaps[0]!.what, /no longer define/)
+    assert.match(gaps[0]!.fix, /generate/, 'the cure for staleness is to regenerate, not to justify a definition')
+  } finally {
+    writeFileSync(wing, before)
+  }
+})
+
+test('with the index fresh, nothing is stale and the census is full', () => {
+  const r = axiomReach()
+  assert.deepEqual(r.stale.map((e) => e.file + '::' + e.def), [],
+    'a stale entry here means the committed ledger disagrees with the committed wings — run generate')
+  assert.equal(r.orphans.length, 0, 'and no definition ships that no theorem accounts for')
+  assert.equal(r.full, true)
 })

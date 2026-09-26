@@ -46,7 +46,34 @@ function main(): void {
     console.error('✗ queue-wave — wave-queue.json is malformed (pending/accepted/refused arrays required)')
     process.exit(1)
   }
-  if (!q.pending.length) { console.log('queue-wave — pending is empty; a quiet run is health') ; return }
+  // AN EMPTY QUEUE IS HEALTH ONLY IF THE FEED IS ALIVE. This line read "a quiet run is health" unconditionally, and
+  // that sentence is true exactly when candidates could have arrived and did not. Measured 2026-09-26: research.yml
+  // — the job that runs gen-search-feed --online and mints the candidates this queue conveys — had failed every day
+  // since 2026-09-22 on a fabricated citation, so nothing was feeding the conveyor at all. The conveyor ran green
+  // four times against an empty queue and reported health each time. Four days of starvation read as four days of
+  // health, which is the vacuous-success class sitting inside the loop that is supposed to produce novelty.
+  //
+  // So the two states are now told apart by the one fact that separates them: whether the feed was taken. QUIET is
+  // an empty queue behind a feed that ran and found nothing new. STARVED is an empty queue behind a feed that never
+  // ran, and it is named out loud. Neither exits non-zero — an empty queue is not a crash — and starvation does not
+  // need to be, because src/api-leads.ts already turns the stale feed into an open lead that leads-gate holds a
+  // release on. What was missing was not a gate. It was the sentence.
+  if (!q.pending.length) {
+    const feed = ((): { took: boolean; why: string } => {
+      try {
+        const f = JSON.parse(readFileSync(join(ROOT, 'lean', 'search-feed.json'), 'utf8')) as { online?: unknown; queries?: unknown[] }
+        if (!Array.isArray(f.queries) || f.queries.length === 0) return { took: false, why: 'the feed asked nothing' }
+        return f.online === true
+          ? { took: true, why: `${f.queries.length} queries asked online` }
+          : { took: false, why: 'the feed was generated OFFLINE, so no public API was asked' }
+      } catch { return { took: false, why: 'lean/search-feed.json is absent' } }
+    })()
+    if (feed.took) console.log(`queue-wave — pending is empty behind a live feed (${feed.why}); a quiet run is health`)
+    else console.log(`queue-wave — STARVED: pending is empty and the feed did not run — ${feed.why}.\n`
+      + '  Nothing was refused and nothing was accepted, because nothing arrived. Check research.yml (gen-search-feed\n'
+      + '  --online mints the candidates this queue conveys); src/api-leads.ts already holds the stale feed as an open lead.')
+    return
+  }
   if (!kernelPresent()) { console.log('queue-wave — VOID: no lean kernel on this host; ' + q.pending.length + ' candidate(s) stay pending for a host that can judge') ; return }
   const sealed = theoremByKey()
   const accepted: Accepted[] = [], refused: Refused[] = []

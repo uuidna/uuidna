@@ -56,6 +56,19 @@ export interface DefReach {
   via: string[]
   /** nothing a theorem cites reaches this def — the only real gap */
   orphan: boolean
+  /**
+   * The generated index lists this def and the wing on disk no longer defines it: a STALE INDEX, not an orphan.
+   *
+   * WHY THE DISTINCTION EARNS ITS KEYSTROKES. The two inputs here have different freshness by construction — the def
+   * list comes from src/theorems/generated.ts and the bodies are read from lean/*.lean — and reconcile runs the JS
+   * controls BEFORE it rewrites generated.ts. So adding a wing, or removing one dead definition, makes the index
+   * disagree with the disk, the partition theorem's control fails, and the failure LOOKS exactly like unexplained
+   * vocabulary. Measured 2026-09-26: one removed helper took four reconcile passes to land, each pass surfacing one
+   * link of a chain that was really one fact — the index had not caught up. Reported as staleness the cure is
+   * `generate`, and reported as an orphan the cure is an argument about vocabulary. Naming it is the difference
+   * between one informed pass and four blind ones.
+   */
+  stale: boolean
   theoremCount: number
 }
 
@@ -66,6 +79,8 @@ export interface AxiomReach {
   orphans: DefReach[]
   /** direct + reached — every def a theorem accounts for, one way or the other */
   explained: number
+  /** defs the generated index still lists that the wings on disk no longer define */
+  stale: DefReach[]
   full: boolean
   entries: DefReach[]
   receipt: string
@@ -113,16 +128,23 @@ export function axiomReach(): AxiomReach {
     for (const d of defs) {
       const isDirect = direct.has(d.def)
       const via = chainOf.get(d.def) ?? []
+      // a def the index names that the wing does not define any more: the index is behind the disk
+      const stale = bodies.size > 0 && !bodies.has(d.def)
       entries.push({
         file, def: d.def, principle: d.principle,
         direct: isDirect,
         via,
-        orphan: !isDirect && via.length === 0,
+        // STALENESS IS NOT AN ORPHAN. A def that is gone from the wing cannot be unexplained vocabulary; it is a
+        // reading taken before the tree settled, and calling it an orphan sends the next session to argue about
+        // vocabulary that no longer exists.
+        orphan: !isDirect && via.length === 0 && !stale,
+        stale,
         theoremCount: d.theoremCount,
       })
     }
   }
   const orphans = entries.filter((e) => e.orphan)
+  const stale = entries.filter((e) => e.stale)
   const directN = entries.filter((e) => e.direct).length
   const reachedN = entries.filter((e) => !e.direct && !e.orphan).length
   return {
@@ -131,11 +153,16 @@ export function axiomReach(): AxiomReach {
     reached: reachedN,
     orphans,
     explained: directN + reachedN,
-    full: orphans.length === 0,
+    /** defs the index still lists that the wings no longer define — run `generate`, do not argue about vocabulary */
+    stale,
+    // `full` still requires no orphan AND no stale entry, because a census taken against a stale index has not
+    // measured the tree it claims to describe. What changes is the REASON a reader is given.
+    full: orphans.length === 0 && stale.length === 0,
     entries,
     receipt: merkleFold([
       toUuid('axiom-reach|' + entries.length + '|' + directN + '|' + reachedN),
       ...orphans.map((o) => toUuid('orphan|' + o.file + '|' + o.def)),
+      ...stale.map((o) => toUuid('stale|' + o.file + '|' + o.def)),
     ]),
   }
 }
@@ -144,6 +171,12 @@ export function axiomReach(): AxiomReach {
 export function axiomReachGaps(): { what: string; fix: string }[] {
   const r = axiomReach()
   if (r.full) return []
+  // A STALE INDEX HAS ITS OWN CURE, and it is not an argument about vocabulary. Reported first, because when both
+  // appear the staleness explains the orphans rather than the other way round.
+  if (r.stale.length > 0) return [{
+    what: `the axiom index lists ${r.stale.length} definition(s) the wings no longer define (${r.stale.slice(0, 4).map((e) => e.file + '::' + e.def).join(', ')}${r.stale.length > 4 ? ', …' : ''}) — the index is behind the disk, not the tree unexplained`,
+    fix: 'node dist/scripts/generate.js && npm run build — reconcile runs the JS controls BEFORE it rewrites src/theorems/generated.ts, so a wing added or a dead definition removed makes the index disagree with lean/*.lean for exactly one pass',
+  }]
   return [{
     what: `${r.orphans.length} wing definition(s) are reached by NO theorem, directly or through another def: `
       + r.orphans.slice(0, 10).map((o) => `${o.file}:${o.def}`).join(', '),
