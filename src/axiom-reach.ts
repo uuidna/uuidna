@@ -65,7 +65,7 @@ export interface DefReach {
    * disagree with the disk, the partition theorem's control fails, and the failure LOOKS exactly like unexplained
    * vocabulary. Measured 2026-09-26: one removed helper took four reconcile passes to land, each pass surfacing one
    * link of a chain that was really one fact — the index had not caught up. Reported as staleness the cure is
-   * `generate`, and reported as an orphan the cure is an argument about vocabulary. Naming it is the difference
+   * `npm run lean`, and reported as an orphan the cure is an argument about vocabulary. Naming it is the difference
    * between one informed pass and four blind ones.
    */
   stale: boolean
@@ -175,7 +175,11 @@ export function axiomReachGaps(): { what: string; fix: string }[] {
   // appear the staleness explains the orphans rather than the other way round.
   if (r.stale.length > 0) return [{
     what: `the axiom index lists ${r.stale.length} definition(s) the wings no longer define (${r.stale.slice(0, 4).map((e) => e.file + '::' + e.def).join(', ')}${r.stale.length > 4 ? ', …' : ''}) — the index is behind the disk, not the tree unexplained`,
-    fix: 'node dist/scripts/generate.js && npm run build — reconcile runs the JS controls BEFORE it rewrites src/theorems/generated.ts, so a wing added or a dead definition removed makes the index disagree with lean/*.lean for exactly one pass',
+    fix: 'npm run lean (dist/scripts/lean-all.js) — that is what rebuilds src/theorems/generated.ts from all '
+      + 'lean/*.lean, and `generate` does NOT: I asserted generate as the cure here and measured it not working, '
+      + 'which is the same wrong-FIX fault this check exists to remove. reconcile runs the JS controls BEFORE the '
+      + 'ledger is rewritten, so a wing added or a definition renamed makes the index disagree with the disk for '
+      + 'exactly one pass',
   }]
   return [{
     what: `${r.orphans.length} wing definition(s) are reached by NO theorem, directly or through another def: `

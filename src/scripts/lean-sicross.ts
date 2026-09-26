@@ -79,7 +79,7 @@ const FACTS = [
     why: `THE CLOSURE IS WHAT MAKES THE ROUTES PROVE EACH OTHER rather than merely coincide, so it is stated rather than assumed. Product ADDS exponents and ratio SUBTRACTS them, so the two operations are inverse and every combination of units is again a lattice point — which is exactly why a route may be walked backwards and why two routes that meet must agree. Walked over every unit in the table against every other, ${ALL.length * ALL.length} pairs, rather than argued. This is the SAME argument PlanckLattice makes at rank four; neither wing is independent evidence for the other, and saying so is the point of stating it here.`,
     js: () => ALL.every((u) => u.dim.length === 7)
       && ALL.every((a) => ALL.every((b) => eq(sub(add(a.dim, b.dim), b.dim), a.dim))),
-    lean: 'theorem the_lattice_is_closed_under_product_and_ratio : ((units.all (fun u => u.length == 7)) = true) \u2227 ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = true) := by decide' },
+    lean: 'theorem the_lattice_is_closed_under_product_and_ratio : ((siUnits.all (fun u => u.length == 7)) = true) \u2227 ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true) := by decide' },
 ]
 
 const DEFS = [
@@ -88,7 +88,14 @@ const DEFS = [
   'def subD (a b : List Int) : List Int := List.zipWith (· - ·) a b',
   '',
   `-- every unit this lattice carries — the ${BASE.length} base quantities and the ${DERIVED.length} named derived ones.`,
-  `def units : List (List Int) := [${ALL.map((u) => leanList(u.dim)).join(', ')}]`,
+  // NAMED siUnits, NOT units, AND THE NAME IS THE WHOLE BUG. `units` is a BUILTIN of the independent evaluator in
+  // src/involution — the six units of ℤ/9, [1, 2, 4, 5, 7, 8] — and a wing definition of the same name is SILENTLY
+  // SHADOWED by it, because the evaluator prefers what it already knows. So this list of seventeen seven-vectors was
+  // read as six scalars, `u.length` was asked of a number, the evaluator returned null, and
+  // the_lattice_is_closed_under_product_and_ratio carried NO independent denial — the last check holding mint-gate
+  // shut. The kernel was never wrong: Lean scopes a wing's definitions and a wing def shadows nothing there. Only
+  // the second reader was wrong, and silently, which is the worst way for two readers to disagree.
+  `def siUnits : List (List Int) := [${ALL.map((u) => leanList(u.dim)).join(', ')}]`,
 ].join('\n')
 
 console.log(`computing ${FACTS.length} SI LATTICE cross formulas (${CROSSED.length} crossed units, ${ENERGY.routes.length} routes to the joule) …`)
