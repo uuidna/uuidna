@@ -92,7 +92,7 @@ export const bare = (n: string): string => n.toLowerCase().replace(/^uuidna_/, '
 // ── the wire ─────────────────────────────────────────────────────────────────────────────────────────────────────
 /** how a door call failed: an unknown name, a JSON-RPC error, the tool's own refusal, or no network */
 export class DoorError extends Error {
-  kind: 'unknown' | 'rpc' | 'tool' | 'net'
+  kind: 'unknown' | 'rpc' | 'tool' | 'net' | 'empty'
   tried: string[]
   constructor(message: string, kind: DoorError['kind'], tried: string[] = []) { super(message); this.kind = kind; this.tried = tried }
 }
@@ -140,7 +140,24 @@ export async function callOnce(t: Transport, name: string, args: Record<string, 
     const msg = [(texts[0] ?? 'the tool refused').replace(/^error:\s*/, ''), ...texts.slice(1)].join('\n')
     throw new DoorError(msg, UNKNOWN.test(texts[0] ?? '') ? 'unknown' : 'tool')
   }
-  return { name, value: r.structuredContent ?? jsonOr(texts[0] ?? ''), ...(texts[1] ? { line: texts[1] } : {}) }
+  // AN EMPTY PAYLOAD IS NOT AN ANSWER, and rendering it as one is how this client misled its own session.
+  // MEASURED 2026-09-26: get_theorem on the_store_footprint_is_its_folders — a key the ledger seals, which
+  // latex-crosscheck reads from both the wings and the paper — came back from uuidna.com/mcp with no content, no
+  // structuredContent, no refusal and no gate/receipt trailer. compact('') printed nothing and the client exited 0,
+  // so the call was indistinguishable from a key that does not exist. The CONTROL is what makes this a defect rather
+  // than a guess: the same door answers a key that cannot exist with "unknown theorem: … (see uuidna_theorems)", so
+  // the silence was not a not-found, and the in-process path returns the full row for the same arguments.
+  //
+  // IT IS THE SAME LAW THE LOCAL FALLBACK BELOW ALREADY KEEPS: an action that was ABSENT must not read as success.
+  // A door that returns nothing has measured nothing, and the caller is told exactly that, non-zero.
+  const value = r.structuredContent ?? jsonOr(texts[0] ?? '')
+  const nothing = r.structuredContent === undefined
+    && texts.filter((t) => t.trim() !== '').length === 0
+  if (nothing) {
+    throw new DoorError(`the door returned no content and no refusal — nothing was measured`
+      + `${(r.content ?? []).length ? ` (${(r.content ?? []).length} content block(s), none of them text)` : ' (no content blocks)'}`, 'empty')
+  }
+  return { name, value, ...(texts[1] ? { line: texts[1] } : {}) }
 }
 
 /** localCall(callTool) → the same call shape over an in-process callTool (dist/mcp.js) */
@@ -323,6 +340,14 @@ export async function run(argv: readonly string[], env: Readonly<Record<string, 
   } catch (e) {
     if (!(e instanceof DoorError)) { io.err(`mcp — ${e instanceof Error ? e.message : String(e)}`); return 1 }
     const retry = `npm run mcp -- ${p.tool}${Object.keys(p.args).length ? ' ' + shellQuote(JSON.stringify(p.args)) : ''}`
+    if (e.kind === 'empty') {
+      io.err(`mcp — ${p.tool} answered NOTHING at ${door.where}: ${e.message}. This is not an empty result and not a`
+        + ` refusal — the door had a road to say "unknown" and did not take it, so the arguments are very likely fine`
+        + ` and the answer did not survive the edge (the ledger's rows do not fit a 128 MB isolate).\n`
+        + `  see the value the same arguments compute:  ${retry} --local\n`
+        + `  and read what the hosted door promises:    npm run mcp -- list_tools ${shellQuote(JSON.stringify({ name: bare(p.tool) }))}`)
+      return 4
+    }
     if (e.kind === 'unknown' && p.local) { io.err(`mcp — dist's catalogue has no tool "${p.tool}" (tried ${e.tried.join(', ')}); find it: npm run mcp -- list <word> --local`); return 2 }
     if (e.kind === 'unknown') {
       io.err(`mcp — ${door.where} does not serve "${p.tool}" (tried ${e.tried.join(', ')}). The live site carries what its last ship carried, so a newer tool arrives with the next ship, and fs/process tools are local-only.\n` +

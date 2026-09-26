@@ -75,6 +75,41 @@ test('an unknown name, a tool refusal and a JSON-RPC error fail by kind', async 
   await assert.rejects(callOnce(broken, 'x', {}), (e: unknown) => e instanceof DoorError && e.kind === 'rpc')
 })
 
+// AN EMPTY ENVELOPE IS NOT AN EMPTY RESULT, and this client used to render it as one.
+//
+// MEASURED at uuidna.com/mcp on 2026-09-26: get_theorem on the_store_footprint_is_its_folders — a key the ledger
+// seals — replied `result: {}`. The client printed nothing, exited 0, and the answer was indistinguishable from a key
+// that does not exist. I read it as "not sealed" and nearly declined to cite a real theorem.
+//
+// THE CONTROL IS THE THIRD CASE. A door legitimately answers with structuredContent and no text, so a rule of "no
+// text means nothing was measured" would refuse working doors — which is the mirror defect and exactly the kind of
+// over-wide finder this tree has cut twice. The pair asserts both directions: no content at all fails, and a
+// content-free but structured answer stands.
+test('a reply with nothing in it fails as empty, and a structured-only reply still answers', async () => {
+  const hollow: Transport = async () => ({ result: {} })
+  await assert.rejects(callOnce(hollow, 'uuidna_theorem', { key: 'k' }),
+    (e: unknown) => e instanceof DoorError && e.kind === 'empty' && /no content and no refusal/.test(e.message))
+
+  // content blocks that carry no text are equally nothing — and the message says how many there were
+  const untexted: Transport = async () => ({ result: { content: [{ type: 'image' }] } })
+  await assert.rejects(callOnce(untexted, 'uuidna_theorem', { key: 'k' }),
+    (e: unknown) => e instanceof DoorError && e.kind === 'empty' && /1 content block/.test(e.message))
+
+  // whitespace is not content either
+  const blank: Transport = async () => ({ result: { content: [{ type: 'text', text: '   ' }] } })
+  await assert.rejects(callOnce(blank, 'uuidna_theorem', { key: 'k' }),
+    (e: unknown) => e instanceof DoorError && e.kind === 'empty')
+
+  // THE CONTROL — structuredContent with no text block at all is a real answer and must pass
+  const structured: Transport = async () => ({ result: { structuredContent: { key: 'k', verdict: 'SEALED' } } })
+  const a = await callOnce(structured, 'uuidna_theorem', { key: 'k' })
+  assert.deepEqual(a.value, { key: 'k', verdict: 'SEALED' })
+
+  // and an ordinary text answer is untouched by the new rule
+  const ordinary: Transport = async () => ({ result: { content: [{ type: 'text', text: '{"ok":1}' }] } })
+  assert.deepEqual((await callOnce(ordinary, 'uuidna_theorem', {})).value, { ok: 1 })
+})
+
 test('the event-stream body and a non-JSON body both read as replies', () => {
   assert.deepEqual(replyOf('event: message\ndata: {"jsonrpc":"2.0","id":1,"result":{"ok":1}}\n\n', 200).result, { ok: 1 })
   assert.match(replyOf('<html>502</html>', 502).error?.message ?? '', /HTTP 502/)
