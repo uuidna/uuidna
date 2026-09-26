@@ -3,11 +3,11 @@
 **Generated:** 2026-09-26
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71082/71082 theorems — every one, by construction
-**Discovery claimed:** 70673 — the other 409 restate a fact a named source found first
+**Formalisation claimed:** 71085/71085 theorems — every one, by construction
+**Discovery claimed:** 70676 — the other 409 restate a fact a named source found first
 
 *The 409 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 344 of 379 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `69e32ca1-3dc9-851b-8234-bb15f52f9c6e`
+**Claim receipt:** `1fcbc24f-081e-8ffa-881e-1dc6b5cc7901`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `ef4f0988-bc37-89cf-b85c-f8a52f0e4969`
+- **Sample lineAddress:** `e39d5f9f-b833-890a-afa1-ce4828d29bea`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `97d51e85-0786-8bad-895c-fbb6d05f200d`
+- **Sample lineAddress:** `e4d9ed17-db60-8b8e-b2f8-108da2e103ee`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2339,7 +2339,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `ab3120ad-1e76-88b8-a0b3-726b6bae01ce`
+- **Sample lineAddress:** `7ca63b3d-ccaf-86c5-a147-617351f8f729`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2362,6 +2362,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [the_diagonal_runs_out_at_nine](/theorem/the_diagonal_runs_out_at_nine) · [the_diagonal_reaches_four_of_nine_residues](/theorem/the_diagonal_reaches_four_of_nine_residues) · [the_diagonal_reflects_about_its_centre](/theorem/the_diagonal_reflects_about_its_centre) · [nine_folds_to_zero_and_reflects_to_one](/theorem/nine_folds_to_zero_and_reflects_to_one) · [every_axis_member_reflects_into_the_orbit](/theorem/every_axis_member_reflects_into_the_orbit) · [the_squares_are_the_mirror_of_the_axis](/theorem/the_squares_are_the_mirror_of_the_axis) · [the_fold_is_a_straight_angle](/theorem/the_fold_is_a_straight_angle) · [the_double_torus_closes_the_turn](/theorem/the_double_torus_closes_the_turn) · [the_fold_composed_with_itself_is_the_turn](/theorem/the_fold_composed_with_itself_is_the_turn) · [the_nine_step_arc_is_one_step_short_of_the_circle](/theorem/the_nine_step_arc_is_one_step_short_of_the_circle)
+
+### THE DOOR SURFACE
+
+- **Theorems:** 3
+- **Sample lineAddress:** `6b10c9a3-a987-8fbd-be55-1e5c0b6c9df1`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[the_key_index_fits_where_the_rows_do_not](/theorem/the_key_index_fits_where_the_rows_do_not) · [the_keys_are_a_small_fraction_of_the_rows](/theorem/the_keys_are_a_small_fraction_of_the_rows) · [an_answer_is_content_or_a_refusal_and_never_neither](/theorem/an_answer_is_content_or_a_refusal_and_never_neither)
 
 ### THE PLANCK EXPONENT LATTICE
 
@@ -2400,7 +2409,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70997 (71082 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 71000 (71085 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2418,7 +2427,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71082 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71085 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2430,7 +2439,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71082; he claims discovery of 70673 and credits the other 409 facts to their named sources
+- ✓ The captain formalised all 71085; he claims discovery of 70676 and credits the other 409 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2446,7 +2455,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71082; of these I claim discovery of 70673, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71085; of these I claim discovery of 70676, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

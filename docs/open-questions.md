@@ -141,7 +141,7 @@ page regrows without it.
 - **Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) · [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) </small>
-  <br><small>sealed neighbors: [`cube_seals_at_completeness_only`](/theorem/cube_seals_at_completeness_only) · [`reuse_leaks_by_isometry`](/theorem/reuse_leaks_by_isometry) · [`secure_channel_by_default`](/theorem/secure_channel_by_default) </small>
+  <br><small>sealed neighbors: [`cube_seals_at_completeness_only`](/theorem/cube_seals_at_completeness_only) · [`an_answer_is_content_or_a_refusal_and_never_neither`](/theorem/an_answer_is_content_or_a_refusal_and_never_neither) · [`reuse_leaks_by_isometry`](/theorem/reuse_leaks_by_isometry) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## thermodynamics — 1 open
@@ -162,7 +162,7 @@ page regrows without it.
 - **stackoverflow.com /ai-assist as a theorem source**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
-  <br><small>sealed neighbors: [`every_install_and_its_path_named_once`](/theorem/every_install_and_its_path_named_once) · [`home_is_the_meta_package`](/theorem/home_is_the_meta_package) · [`redirect_imitable_but_coins_authorise`](/theorem/redirect_imitable_but_coins_authorise) </small>
+  <br><small>sealed neighbors: [`an_answer_is_content_or_a_refusal_and_never_neither`](/theorem/an_answer_is_content_or_a_refusal_and_never_neither) · [`every_install_and_its_path_named_once`](/theorem/every_install_and_its_path_named_once) · [`home_is_the_meta_package`](/theorem/home_is_the_meta_package) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## Honest scope

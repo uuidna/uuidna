@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "75cebac8b390ceeb",
+ "digest": "d8dc4ceff37bb00b",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -4808,6 +4808,11 @@ export const BOUND_SLICE: BoundSlice = {
   {
    "key": "the_diagonal_reflects_about_its_centre",
    "wing": "Diagonal.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "an_answer_is_content_or_a_refusal_and_never_neither",
+   "wing": "DoorSurface.lean",
    "verdict": "base-undecidable"
   }
  ]

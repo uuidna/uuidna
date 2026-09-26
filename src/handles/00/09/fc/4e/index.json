@@ -1,0 +1,12 @@
+{
+  "handle": "0009fc4e",
+  "address": "0009fc4e-2481-84cc-ba12-31ee6049077c",
+  "kind": "chunk",
+  "keys": [
+    "an_answer_is_content_or_a_refusal_and_never_neither"
+  ],
+  "statement": "(List.range 8).all (fun c => (List.range 2).all (fun e => answered c e == (c > 0 || e == 1))) = true",
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

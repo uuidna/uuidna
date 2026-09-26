@@ -1,0 +1,12 @@
+{
+  "handle": "5c4db9b4",
+  "address": "5c4db9b4-0879-80a2-a289-bc85db8d4b69",
+  "statement": "(1602374 * 83 < 134217728) ∧ (1602374 * 84 > 134217728)",
+  "tactic": "decide",
+  "keys": [
+    "the_key_index_fits_where_the_rows_do_not"
+  ],
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

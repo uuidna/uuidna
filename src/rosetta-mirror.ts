@@ -562,6 +562,10 @@ the_middle_is_not_a_pole 27
 identification_collapses_the_middle 27
 compass_three_decide_the_fourth 27
 compass_opposites_involute 27
+#DoorSurface.lean
+the_key_index_fits_where_the_rows_do_not 27
+the_keys_are_a_small_fraction_of_the_rows 27
+an_answer_is_content_or_a_refusal_and_never_neither 27
 #DoubleTorus.lean
 chi_measures_genus 27
 handles_give_generators 27

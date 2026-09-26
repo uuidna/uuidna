@@ -1,0 +1,12 @@
+{
+  "handle": "db232e30",
+  "address": "db232e30-ea6c-8c5b-bb86-3abed0a3667f",
+  "statement": "71085 * 2 ^ 105 < 2 ^ 122",
+  "tactic": "decide",
+  "keys": [
+    "forged_address_odds_are_negligible"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

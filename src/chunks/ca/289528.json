@@ -1,0 +1,12 @@
+{
+  "handle": "ca289528",
+  "address": "ca289528-4b7e-8caa-a795-a997478614ea",
+  "statement": "(2570767660 = (71705 * (71705 - 1)) / 2) ∧ (2570767660 > 2000 * 71704)",
+  "tactic": "decide",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

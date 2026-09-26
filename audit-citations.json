@@ -1,18 +1,18 @@
 {
-  "key": "181c4567-4d69-8ab1-a122-d5f908a001ce",
-  "publications": 259,
-  "sealedTheorems": 71082,
+  "key": "755e71a5-002e-84ea-aab5-dd888a8bbc2e",
+  "publications": 260,
+  "sealedTheorems": 71085,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2758,
-    "theorems": 71082,
+    "claims": 2761,
+    "theorems": 71085,
     "bijection": false,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 9,
-      "publications": 7
+      "claims": 7,
+      "theorems": 3,
+      "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -2061,6 +2061,14 @@
       "slug": "diagonal",
       "claims": 10,
       "cited": 10,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "door-surface",
+      "claims": 3,
+      "cited": 3,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

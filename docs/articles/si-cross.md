@@ -29,7 +29,7 @@ The ledger holds this as [the_crossed_units_agree_on_one_vector_each](/theorem/t
 The ledger holds this as [the_lattice_is_closed_under_product_and_ratio](/theorem/the_lattice_is_closed_under_product_and_ratio) — proven `by decide`, sorry-free:
 
 ```lean
-((units.all (fun u => u.length == 7)) = true) ∧ ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = true)
+((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true)
 ```
 
 

@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 459,
+ "count": 458,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -95,13 +95,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 32768,
    "promptPrice": "0.0000025",
    "completionPrice": "0.000005"
-  },
-  {
-   "id": "anthropic/claude-3-haiku",
-   "name": "Anthropic: Claude 3 Haiku",
-   "contextTokens": 200000,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000125"
   },
   {
    "id": "anthropic/claude-fable-5",
@@ -478,7 +471,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000022",
+   "promptPrice": "0.000000021",
    "completionPrice": "0.00000032"
   },
   {
@@ -492,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000449268",
-   "completionPrice": "0.000000898536"
+   "promptPrice": "0.000000348",
+   "completionPrice": "0.000000696"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -506,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.00000042"
+   "promptPrice": "0.000000035",
+   "completionPrice": "0.00000029"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -2767,8 +2760,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -3054,15 +3047,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3",
    "name": "Z.ai: GLM 5.3",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
+   "promptPrice": "0.0000003794",
+   "completionPrice": "0.0000011924"
   },
   {
    "id": "z-ai/glm-5.3-flash",
    "name": "Z.ai: GLM 5.3 Flash",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000045",
-   "completionPrice": "0.00000014"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "z-ai/glm-5.3-flash:batch",
@@ -3138,14 +3131,14 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.0000035"
+   "promptPrice": "0.00000024948",
+   "completionPrice": "0.00000074844"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek: DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000022",
+   "promptPrice": "0.000000021",
    "completionPrice": "0.00000032"
   },
   {
@@ -3215,15 +3208,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-flash-latest",
    "name": "Z.ai: GLM Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000045",
-   "completionPrice": "0.00000014"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000005614",
-   "completionPrice": "0.0000017644"
+   "promptPrice": "0.0000003794",
+   "completionPrice": "0.0000011924"
   }
  ]
 }

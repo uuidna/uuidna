@@ -1,0 +1,12 @@
+{
+  "handle": "59e74a12",
+  "address": "59e74a12-aad1-8ccd-aa34-30482d4511dd",
+  "statement": "71705 > 2 ^ 16",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

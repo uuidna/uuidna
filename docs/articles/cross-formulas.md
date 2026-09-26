@@ -5,17 +5,17 @@ description: "Computed from lean/CrossFormulas.lean — 5 sealed theorems, every
 
 # THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
-> THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25: "compute the missing formulas per domain and wing combinatorial experiments", then "strictly formulate all"). A CROSS is three integers and two operators — a ⊕ b ▷ c, as in 2 × 64 = 128 or 110 − 108 = 2 — and most of the sealed formula corpus is made of them. Because that shape is combinatorial, the corpus's own integers GENERATE a closure, and the part of it nobody has stated is computable rather than arguable: 613756 crosses land on an integer the corpus carries, of which 514609 are forced by an operator's own algebra, 453 are stated, and 98694 remain — a partition that accounts for the whole, so nothing is filtered out of sight. NOTHING HERE IS CHOSEN. The 6 arithmetic operators are the ones the sealed statements USE; the 780 integers are the ones those statements are BUILT FROM; the enumeration is bounded by the corpus's own largest numeral, which is why it needs no size cap; and an operator's role — commutative, diagonal-forced, or neither — is decided by RUNNING it over those integers rather than by being named, which is what keeps this free of the allow lists this ledger's laws forbid. THE FORCED INSTANCES ARE THE REASON THE RAW CLOSURE SAYS NOTHING: 0 × 0 = 0 and 1 × 64 = 64 hold of every integer, so they carry no information about the particular integers this ledger carries, and they outnumber the substantive remainder more than five to one. CLAIMED: the four counts and the inequalities between them, over 1530 formula-shaped statements in 115 wings, every universal walked by the kernel. NOT CLAIMED: that an unstated cross is a defect — each is true as written and decidable by decide, most are the ordinary arithmetic of the quantities involved, and which of them is worth a theorem is a question this census does not answer. A wing with no unstated cross is not more complete than its neighbour; it has fewer integers. — held by [the_generated_closure_partitions_into_three_kinds](/theorem/the_generated_closure_partitions_into_three_kinds) and its 4 siblings below.
+> THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25: "compute the missing formulas per domain and wing combinatorial experiments", then "strictly formulate all"). A CROSS is three integers and two operators — a ⊕ b ▷ c, as in 2 × 64 = 128 or 110 − 108 = 2 — and most of the sealed formula corpus is made of them. Because that shape is combinatorial, the corpus's own integers GENERATE a closure, and the part of it nobody has stated is computable rather than arguable: 615164 crosses land on an integer the corpus carries, of which 516419 are forced by an operator's own algebra, 453 are stated, and 98292 remain — a partition that accounts for the whole, so nothing is filtered out of sight. NOTHING HERE IS CHOSEN. The 6 arithmetic operators are the ones the sealed statements USE; the 782 integers are the ones those statements are BUILT FROM; the enumeration is bounded by the corpus's own largest numeral, which is why it needs no size cap; and an operator's role — commutative, diagonal-forced, or neither — is decided by RUNNING it over those integers rather than by being named, which is what keeps this free of the allow lists this ledger's laws forbid. THE FORCED INSTANCES ARE THE REASON THE RAW CLOSURE SAYS NOTHING: 0 × 0 = 0 and 1 × 64 = 64 hold of every integer, so they carry no information about the particular integers this ledger carries, and they outnumber the substantive remainder more than five to one. CLAIMED: the four counts and the inequalities between them, over 1532 formula-shaped statements in 116 wings, every universal walked by the kernel. NOT CLAIMED: that an unstated cross is a defect — each is true as written and decidable by decide, most are the ordinary arithmetic of the quantities involved, and which of them is worth a theorem is a question this census does not answer. A wing with no unstated cross is not more complete than its neighbour; it has fewer integers. — held by [the_generated_closure_partitions_into_three_kinds](/theorem/the_generated_closure_partitions_into_three_kinds) and its 4 siblings below.
 
 **5 theorems** and **5 decided cases**, from [the_generated_closure_partitions_into_three_kinds](/theorem/the_generated_closure_partitions_into_three_kinds) onward, each proven `by decide` in <a href="/lean/CrossFormulas.lean">lean/CrossFormulas.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_arithmetic_alphabet_partitions_by_its_own_algebra](/theorem/the_arithmetic_alphabet_partitions_by_its_own_algebra). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCrossFormulas.lean)** — nothing to install. The editor fetches `lean/CrossFormulas.lean` from the repository and re-decides all 5 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### CLAIMED: of 613756 crosses the corpus's own integers generate, 514609 are forced by an operator's algebra, 453 are stated, and 98694 remain — and the three account for the whole, 514609 + 453 + 98694 = 613756.
+### CLAIMED: of 615164 crosses the corpus's own integers generate, 516419 are forced by an operator's algebra, 453 are stated, and 98292 remain — and the three account for the whole, 516419 + 453 + 98292 = 615164.
 The ledger holds this as [the_generated_closure_partitions_into_three_kinds](/theorem/the_generated_closure_partitions_into_three_kinds) — proven `by decide`, sorry-free:
 
 ```lean
-(514609 + 453 + 98694 = 613756) ∧ (514609 > 5 * 98694)
+(516419 + 453 + 98292 = 615164) ∧ (516419 > 5 * 98292)
 ```
 
 ### CLAIMED: the 6 arithmetic operators the sealed formulas use split by what they do over the corpus's own integers — 2 commutative (* +), 3 forced on their diagonal (% - /), 1 neither (^) — and 2 + 3 + 1 = 6.
@@ -25,25 +25,25 @@ The ledger holds this as [the_arithmetic_alphabet_partitions_by_its_own_algebra]
 ((2 + 3 + 1 = 6) ∧ (3 > 2)) ∧ (2 > 1)
 ```
 
-### CLAIMED: of 98694 unstated crosses, 43772 join integers no single wing carries all three of — over two fifths and under a half, since 43772 × 5 > 98694 × 2 and 43772 × 2 < 98694.
+### CLAIMED: of 98292 unstated crosses, 43372 join integers no single wing carries all three of — over two fifths and under a half, since 43372 × 5 > 98292 × 2 and 43372 × 2 < 98292.
 The ledger holds this as [most_of_the_unstated_remainder_stays_inside_one_wing](/theorem/most_of_the_unstated_remainder_stays_inside_one_wing) — proven `by decide`, sorry-free:
 
 ```lean
-((43772 * 5 > 98694 * 2) ∧ (43772 * 2 < 98694)) ∧ (43772 < 98694)
+((43372 * 5 > 98292 * 2) ∧ (43372 * 2 < 98292)) ∧ (43372 < 98292)
 ```
 
-### CLAIMED: the 1530 formula-shaped statements across 115 wings are built from 780 distinct integers and state 453 crosses, against 98694 their own integers generate unstated — fewer than one in a hundred, since 453 × 100 < 98694, at between 13 and 14 formulas per wing.
+### CLAIMED: the 1532 formula-shaped statements across 116 wings are built from 782 distinct integers and state 453 crosses, against 98292 their own integers generate unstated — fewer than one in a hundred, since 453 × 100 < 98292, at between 13 and 14 formulas per wing.
 The ledger holds this as [the_corpus_has_sealed_under_a_hundredth_of_its_own_closure](/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure) — proven `by decide`, sorry-free:
 
 ```lean
-((453 * 100 < 98694) ∧ (780 > 115)) ∧ ((115 * 13 < 1530) ∧ (115 * 14 > 1530))
+((453 * 100 < 98292) ∧ (782 > 116)) ∧ ((116 * 13 < 1532) ∧ (116 * 14 > 1532))
 ```
 
-### CLAIMED: 1530 formula-shaped statements carry 1458 distinct byte-strings and 1325 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge.
+### CLAIMED: 1532 formula-shaped statements carry 1460 distinct byte-strings and 1327 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge.
 The ledger holds this as [the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain) — proven `by decide`, sorry-free:
 
 ```lean
-((1325 < 1458) ∧ (1530 - 1325 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))
+((1327 < 1460) ∧ (1532 - 1327 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))
 ```
 
 

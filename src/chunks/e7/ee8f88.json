@@ -1,0 +1,12 @@
+{
+  "handle": "e7ee8f88",
+  "address": "e7ee8f88-836c-88d7-b58a-557c6025b174",
+  "statement": "71705 < 2 ^ 32",
+  "tactic": "decide",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

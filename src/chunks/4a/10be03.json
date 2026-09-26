@@ -1,0 +1,12 @@
+{
+  "handle": "4a10be03",
+  "address": "4a10be03-9f4e-8321-bdf0-b952ab4a7874",
+  "statement": "(0 < 71030) ∧ (0 + 71030 = 71030)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

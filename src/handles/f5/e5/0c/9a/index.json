@@ -1,0 +1,12 @@
+{
+  "handle": "f5e50c9a",
+  "address": "f5e50c9a-3d85-81bc-a50f-80141d38664f",
+  "kind": "chunk",
+  "keys": [
+    "the_lattice_is_closed_under_product_and_ratio"
+  ],
+  "statement": "((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true)",
+  "files": [
+    "SiCross.lean"
+  ]
+}

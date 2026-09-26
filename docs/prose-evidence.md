@@ -82,9 +82,9 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
 
 **Backing theorems (1):**
 
-- **[the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)** — "CLAIMED: 1530 formula-shaped statements carry 1458 distinct byte-strings and 1325 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge."
+- **[the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)** — "CLAIMED: 1532 formula-shaped statements carry 1460 distinct byte-strings and 1327 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge."
   - File: CrossFormulas.lean
-  - Statement: `((1325 < 1458) ∧ (1530 - 1325 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))...`
+  - Statement: `((1327 < 1460) ∧ (1532 - 1327 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))...`
 
 
 ## no wing buys its own ceiling
@@ -95,7 +95,7 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
 
 **Backing theorems (1):**
 
-- **[no_wing_buys_its_own_ceiling](/theorem/no_wing_buys_its_own_ceiling)** — "NO WING BUYS ITS OWN CEILING. Across the 259 wings on disk, the census of recursion-depth raises is ZERO — not one file asks the kernel for more depth than it gives by default. Until 2026-08-25 it was one: Wave.lean carried a file-wide maxRecDepth raise, emitted with no note saying which theorem needed it, and by then no theorem in that wing needed it at all. That is why the count is kept rather than the line merely deleted. A raise is the cheapest way to make a claim pass and the most expensive thing to leave standing, because while it stands nothing in its wing can reach the ceiling — the healthy case and the broken case return the same value, and the signal that says RESTATE THIS CLAIM is gone. What stands in its place is involution_replaces_the_raised_ceiling: a self-inverse map splits its domain into fixed points and 2-cycles, so the obligation is the return and not the census, and the walked domain may grow as 2^k while the check stays at 2. Depth is a property of the SHAPE of a claim, never of the kernel's generosity."
+- **[no_wing_buys_its_own_ceiling](/theorem/no_wing_buys_its_own_ceiling)** — "NO WING BUYS ITS OWN CEILING. Across the 260 wings on disk, the census of recursion-depth raises is ZERO — not one file asks the kernel for more depth than it gives by default. Until 2026-08-25 it was one: Wave.lean carried a file-wide maxRecDepth raise, emitted with no note saying which theorem needed it, and by then no theorem in that wing needed it at all. That is why the count is kept rather than the line merely deleted. A raise is the cheapest way to make a claim pass and the most expensive thing to leave standing, because while it stands nothing in its wing can reach the ceiling — the healthy case and the broken case return the same value, and the signal that says RESTATE THIS CLAIM is gone. What stands in its place is involution_replaces_the_raised_ceiling: a self-inverse map splits its domain into fixed points and 2-cycles, so the obligation is the return and not the census, and the walked domain may grow as 2^k while the check stays at 2. Depth is a property of the SHAPE of a claim, never of the kernel's generosity."
   - File: Software.lean
   - Statement: `([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0...`
 
