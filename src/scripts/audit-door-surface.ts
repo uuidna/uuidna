@@ -31,6 +31,13 @@
 // empty set are different facts, and a surface that renders them alike is the defect the whole instrument exists to
 // catch. A run that could not reach the network says so and claims nothing — the absence of a measurement is never a
 // measurement of absence.
+//
+// WIRED INTO `npm run outward`, beside audit-doi-harvest and release-live, because those are this tree's other network
+// audits and a finder no chain runs is not folded — it is a script that happened to be written. The dormancy finder
+// caught exactly that on this file's first landing: built, reachable, run by nobody. It does NOT go into guard: guard
+// is the fast pre-flight and must not reach the network, and the `outward` family is where a measurement that needs
+// the live site already lives. Each run walks a bounded sample (UUIDNA_DOOR_SAMPLE, default 24) and says how much of
+// the surface it covered, so the routine run is a handful of calls and a full comparison is asked for explicitly.
 import { wrRoot } from '../boundary.js'
 
 const HOST = 'https://uuidna.com/mcp'
