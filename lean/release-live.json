@@ -1,86 +1,86 @@
 {
- "version": "0.3.0",
+ "version": "0.3.1",
  "npmLatest": "0.3.0",
  "zenodoLatest": "0.3.0",
  "checks": [
   {
    "name": "npm-version-published",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "18 versions published, latest 0.3.0",
+   "pending": true,
+   "measured": "18 versions published, latest 0.3.0 — and no tag v0.3.1 exists, so the release has not been cut",
    "why": "the version this tree calls itself must exist on the registry, or the tree is describing a release nobody can install"
   },
   {
    "name": "npm-latest-is-the-release",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "latest=0.3.0 · tree=0.3.0",
+   "pending": true,
+   "measured": "latest=0.3.0 · tree=0.3.1 — and no tag v0.3.1 exists, so the release has not been cut",
    "why": "a published version that is not `latest` installs for nobody who types the package name; a bumped version that was never cut leaves latest behind, which is exactly the state this check was written to catch"
   },
   {
    "name": "npm-tarball-serves",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "5590702 bytes served",
+   "pending": true,
+   "measured": "not attempted — no tarball url",
    "why": "registry metadata can name a tarball the CDN does not serve; only fetching it proves an install would work"
   },
   {
    "name": "npm-bytes-match-integrity",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "served sha512 sha512-rae38e6RqKlNOcNr54B… vs claimed sha512-rae38e6RqKlNOcNr54B…",
+   "pending": true,
+   "measured": "not attempted — no tarball url",
    "why": "the bytes a consumer receives must be the bytes the registry signed, recomputed here from what was served"
   },
   {
    "name": "npm-shasum-matches",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "served sha1 44f6a94fcda9… vs claimed 44f6a94fcda9…",
+   "pending": true,
+   "measured": "not attempted — no tarball url",
    "why": "the legacy digest is what older clients verify, and a release complete for new clients only is not complete"
   },
   {
    "name": "npm-tarball-complete",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "2093 files, 19015854 unpacked from 5590702 compressed",
+   "pending": true,
+   "measured": "the registry carries no dist for 0.3.1",
    "why": "an empty or unexpanding tarball publishes successfully and installs nothing; unpacked must exceed compressed"
   },
   {
    "name": "npm-provenance-attested",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "predicates: https://github.com/npm/attestation/tree/main/specs/publish/v0.1, https://slsa.dev/provenance/v1",
+   "pending": true,
+   "measured": "not attempted — the registry did not answer",
    "why": "the publish claims a signed Sigstore provenance chain; an attestation URL that serves nothing makes that claim unverifiable"
   },
   {
    "name": "zenodo-version-deposited",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "17 versioned records in the chain, newest 0.3.0",
+   "pending": true,
+   "measured": "17 versioned records in the chain, newest 0.3.0 — and no tag v0.3.1 exists, so the release has not been cut",
    "why": "the archive is where the release is permanent; a release absent from it is citable by nobody, and the deposit job can be skipped or fail long after npm has already accepted the publish"
   },
   {
    "name": "zenodo-record-carries-a-file",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "record 22256731: 1 file(s), 23625218 bytes",
+   "pending": true,
+   "measured": "no record for this version — and no tag v0.3.1 exists, so the release has not been cut",
    "why": "a published Zenodo record with no file is a landing page, not an archive — and it publishes just as successfully"
   },
   {
    "name": "zenodo-doi-resolves",
-   "ok": true,
+   "ok": false,
    "unread": false,
-   "pending": false,
-   "measured": "doi.org → 200 https://zenodo.org/records/22256731",
+   "pending": true,
+   "measured": "no Zenodo record for this version — nothing to resolve",
    "why": "DataCite registration lags the deposit, so a record can exist while its DOI resolves nowhere; a citation that 404s is worse than no citation because it looks like one"
   },
   {
@@ -92,11 +92,92 @@
    "why": "the code a reader installs and the record they cite must be the same release; the two publish independently, so they drift apart silently whenever one of the two halves of a release fails"
   }
  ],
- "passed": 11,
+ "passed": 1,
  "unread": 0,
- "pending": 0,
- "failed": [],
- "live": true,
+ "pending": 10,
+ "failed": [
+  {
+   "name": "npm-version-published",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "18 versions published, latest 0.3.0 — and no tag v0.3.1 exists, so the release has not been cut",
+   "why": "the version this tree calls itself must exist on the registry, or the tree is describing a release nobody can install"
+  },
+  {
+   "name": "npm-latest-is-the-release",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "latest=0.3.0 · tree=0.3.1 — and no tag v0.3.1 exists, so the release has not been cut",
+   "why": "a published version that is not `latest` installs for nobody who types the package name; a bumped version that was never cut leaves latest behind, which is exactly the state this check was written to catch"
+  },
+  {
+   "name": "npm-tarball-serves",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "not attempted — no tarball url",
+   "why": "registry metadata can name a tarball the CDN does not serve; only fetching it proves an install would work"
+  },
+  {
+   "name": "npm-bytes-match-integrity",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "not attempted — no tarball url",
+   "why": "the bytes a consumer receives must be the bytes the registry signed, recomputed here from what was served"
+  },
+  {
+   "name": "npm-shasum-matches",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "not attempted — no tarball url",
+   "why": "the legacy digest is what older clients verify, and a release complete for new clients only is not complete"
+  },
+  {
+   "name": "npm-tarball-complete",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "the registry carries no dist for 0.3.1",
+   "why": "an empty or unexpanding tarball publishes successfully and installs nothing; unpacked must exceed compressed"
+  },
+  {
+   "name": "npm-provenance-attested",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "not attempted — the registry did not answer",
+   "why": "the publish claims a signed Sigstore provenance chain; an attestation URL that serves nothing makes that claim unverifiable"
+  },
+  {
+   "name": "zenodo-version-deposited",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "17 versioned records in the chain, newest 0.3.0 — and no tag v0.3.1 exists, so the release has not been cut",
+   "why": "the archive is where the release is permanent; a release absent from it is citable by nobody, and the deposit job can be skipped or fail long after npm has already accepted the publish"
+  },
+  {
+   "name": "zenodo-record-carries-a-file",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "no record for this version — and no tag v0.3.1 exists, so the release has not been cut",
+   "why": "a published Zenodo record with no file is a landing page, not an archive — and it publishes just as successfully"
+  },
+  {
+   "name": "zenodo-doi-resolves",
+   "ok": false,
+   "unread": false,
+   "pending": true,
+   "measured": "no Zenodo record for this version — nothing to resolve",
+   "why": "DataCite registration lags the deposit, so a record can exist while its DOI resolves nowhere; a citation that 404s is worse than no citation because it looks like one"
+  }
+ ],
+ "live": false,
  "gaps": [],
- "receipt": "a6ac43db-6f5f-8bb9-8af8-f43bd98b04b7"
+ "receipt": "6d717bb8-8a34-877a-8b6a-f6b84577f474"
 }
