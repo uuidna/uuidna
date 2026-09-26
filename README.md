@@ -1,8 +1,8 @@
 # uuidna — 70,997 distinct theorems under 71,082 keys · 2 coins · one receipt
 
-`94dcbb6b-ac69-851c-a76b-2856c50c4afa`
+`c51f8ea8-cba4-8a2d-95ed-9e57653870c2`
 
-**What every theorem carries, and what most do not.** proof · address hold for 71,082 of 71,082; **witness 30 of 71,082** (0.0%), **symbol 1384 of 71,082** (1.9%), **falsifier 71081 of 71,082** (99.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · falsifier · address hold for 71,082 of 71,082; **witness 30 of 71,082** (0.0%), **symbol 1384 of 71,082** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256731](https://doi.org/10.5281/zenodo.22256731)
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,082 theorems and 172,331,323 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,082 theorems and 172,331,907 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -128,7 +128,7 @@ A **cross formula** is one quantity reachable by two independent routes through 
 - **Over ℕ the two forms are not equivalent.** Truncating division discards the remainder, so the ratio form is strictly weaker: a/b = c/d can hold where a·d = b·c fails, the smallest case being 1/1 = 3/2 = 1 against 1·2 ≠ 1·3 ([the_asymmetric_cross_is_strictly_weaker_over_naturals](https://uuidna.com/theorem/the_asymmetric_cross_is_strictly_weaker_over_naturals)). Cross-multiplication is taught as an equivalence and here it is an implication, product to ratio and never back.
 - **Exact division is the condition under which they prove each other.** With a = qb and c = rd the product form reads qbd = brd, non-zero b and d force q = r, and q = r returns a·d = b·c — both directions decided by the walk rather than assumed ([exact_division_makes_the_two_crosses_prove_each_other](https://uuidna.com/theorem/exact_division_makes_the_two_crosses_prove_each_other)).
 - **A closed lattice generates its crosses instead of listing them.** Cancellation is the kernel of a linear form, so whether a combination loses a constant is read off its coefficients rather than discovered pair by pair ([the_quantum_of_action_cancels_on_a_linear_form](https://uuidna.com/theorem/the_quantum_of_action_cancels_on_a_linear_form), [gravity_cancels_on_a_linear_form](https://uuidna.com/theorem/gravity_cancels_on_a_linear_form)).
-- **The same arithmetic answers more than one domain, and that is what a cross explains.** 2·6 = 3·4 is Boyle's law at fixed temperature and a moment balance about a pivot — one conserved product, two pieces of physics, neither derived from the other ([the_same_arithmetic_answers_more_than_one_domain](https://uuidna.com/theorem/the_same_arithmetic_answers_more_than_one_domain)).
+- **The same arithmetic answers more than one domain, and the cross PROVES BOTH CASES AT ONCE.** 2·6 = 3·4 is Boyle's law at fixed temperature (halving the volume doubles the pressure) and it is a moment balance about a pivot (6 N at 2 m holds 4 N at 3 m). These are not two facts that resemble each other — they are one conserved product, and the sealed identity settles the numerical content of both. Solving either case solves the other, because there is only one thing to solve, and that is what makes a cross worth more than an analogy ([the_same_arithmetic_answers_more_than_one_domain](https://uuidna.com/theorem/the_same_arithmetic_answers_more_than_one_domain)). Fifteen such crosses are sealed, each joining two domains that reached one form for independent reasons: navigation and sailing on 3²+4² = 5², prototype-pollution defence and trinity editing on 1+1+1 = 3, the semidiurnal tide and the colour wheel's warm/cool split on 6+6 = 12, blood types as (ℤ/2)³ and Hick's law on 2³ = 8.
 - **No wing buys its own ceiling.** When a walk meets the kernel's recursion limit the answer is the better algorithm, never a recursion-depth raise — a raise silences the limit for every other claim in its wing, so the healthy case and the broken case return the same value ([no_wing_buys_its_own_ceiling](https://uuidna.com/theorem/no_wing_buys_its_own_ceiling)).
 
 NOT CLAIMED: anything about ℚ or ℝ, where cross-multiplication is exactly the equivalence it is taught as. The ℕ result above is a fact about truncating division and is stated as one.
@@ -277,7 +277,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `04ccf23d-c6ab-8468-bab5-6068056c8dbd` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,331,323 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,331,907 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -315,7 +315,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **172,331,323** superpositions across **259** wings.
+The ledger covers **172,331,907** superpositions across **259** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -359,7 +359,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **172,331,323** superpositions decided across the ledger
+- **172,331,907** superpositions decided across the ledger
 - **142,164** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **1,212** superpositions per coin
 

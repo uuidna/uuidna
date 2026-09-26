@@ -7,8 +7,13 @@ import { ZENODO_SEALS } from '../zenodo-seals.js'
 // is the CLI's job; these tests prove the comparison is sound, including on the exact defect that motivated it.
 
 const seal = ZENODO_SEALS.find((s) => s.id === 'uuidna-software')!
-const ok = (title: string, doi: string, id = 22256708) => async () => ({
-  status: 200, body: { id, doi, conceptdoi: '10.5281/zenodo.21787143', metadata: { title } },
+// THE FIXTURE IS DERIVED FROM THE SEAL, NOT TYPED BESIDE IT. This hardcoded id 22256708 and conceptdoi 21787143 —
+// the API-deposit chain — so when the archive moved to the chain Zenodo mints from the GitHub release (the captain,
+// 2026-09-26: "let zenodo mint the doi from github release. No need of redundancy") the fixture went on answering with
+// the abandoned record and the test failed for the one reason a test must never fail: it disagreed with the seal about
+// which record is ours. Read from the seal, it follows the next move too.
+const ok = (title: string, doi: string, id = Number(seal.standingRecordId)) => async () => ({
+  status: 200, body: { id, doi, conceptdoi: seal.conceptDoi, metadata: { title } },
 })
 
 test('it AGREES when the live record is the identifier we cite', async () => {
@@ -97,13 +102,30 @@ test('a seal with neither DOI nor record id has nothing to read back, and says s
 // isIdenticalTo 21970356, so the sync chain's own records pointed at themselves and nothing on Zenodo led back
 // to the standing chain. The harvest read only the standing record, whose declaration was right, so nothing
 // fired. The twin is now read back, offline here, with the exact shape the live record had.
-const twinBody = (identical: string[], conceptdoi = '10.5281/zenodo.21970356') => async () => ({
+const twinBody = (identical: string[], conceptdoi = '10.5281/zenodo.21787143') => async () => ({
   status: 200,
   body: { id: 22256731, conceptdoi, metadata: { title: seal.title + ': 2499 theorems', related_identifiers: identical.map((identifier) => ({ identifier, relation: 'isIdenticalTo' })) } },
 })
 
+// THE LIVE SEAL NO LONGER DECLARES A TWIN, so the mechanism is exercised on a seal that does. Both facts matter and
+// they are separate tests: harvestTwin must still catch a self-declaring twin (the defect it was written for), and the
+// seal this repository actually ships must have no twin to catch — the redundancy that produced one is gone.
+// THE SYNTHETIC TWIN MUST BE A CHAIN THAT IS NOT OURS, and 21970356 became ours the day the archive moved to the
+// chain Zenodo mints from the GitHub release. Injecting it declared identity with our OWN concept, which is the AGREES
+// case wearing the FIRES test's name — the two tests silently swapped meaning. 21787143 is the abandoned API-deposit
+// chain: genuinely another chain, genuinely not ours, which is what a twin is.
+const TWIN = '10.5281/zenodo.21787143'
+const twinned = { ...seal, related: [...(seal.related ?? []), { identifier: TWIN, relation: 'isIdenticalTo' as const, resource_type: 'software' as const }] }
+
+test('the live software seal declares NO twin chain — the redundancy that made one is gone', async () => {
+  assert.equal(await harvestTwin(seal, twinBody([TWIN])), null,
+    'one chain means no twin: Zenodo mints the archive from the GitHub release and nothing else deposits it')
+  assert.ok(!(seal.related ?? []).some((r) => r.relation === 'isIdenticalTo' && /^10\.5281\/zenodo\./.test(String(r.identifier))),
+    'and the seal must not claim identity with another Zenodo chain, which is what could never be reciprocated')
+})
+
 test('the twin FIRES when its latest record names its own concept instead of ours', async () => {
-  const r = await harvestTwin(seal, twinBody(['10.5281/zenodo.21970356']))
+  const r = await harvestTwin(twinned, twinBody([TWIN]))
   assert.ok(r, 'the software seal declares a twin chain, so there is a twin row')
   assert.equal(r.id, 'uuidna-software:twin')
   assert.equal(r.read, true)
@@ -112,7 +134,7 @@ test('the twin FIRES when its latest record names its own concept instead of our
 })
 
 test('the twin AGREES when its latest record declares isIdenticalTo our concept', async () => {
-  const r = await harvestTwin(seal, twinBody([seal.conceptDoi!]))
+  const r = await harvestTwin(twinned, twinBody([seal.conceptDoi!]))
   assert.equal(r?.agrees, true)
   assert.equal(r?.twinSelfDeclared, false)
 })
@@ -123,15 +145,19 @@ test('a seal without a twin declaration has no twin row', async () => {
 })
 
 test('an unreachable twin is UNREAD, not disagreeing', async () => {
-  const r = await harvestTwin(seal, async () => ({ status: 403, body: null }))
+  const r = await harvestTwin(twinned, async () => ({ status: 403, body: null }))
   assert.equal(r?.read, false)
   assert.equal(r?.agrees, undefined)
 })
 
-test('the census reads the twin beside the standing record', async () => {
-  const h = await harvestOwnedDois(async (url) => url.includes('/records/21970356')
-    ? twinBody([seal.conceptDoi!])()
-    : ok(seal.title, seal.standingDoi!)())
-  assert.ok(h.rows.some((r) => r.id === 'uuidna-software:twin' && r.agrees === true))
-  assert.equal(h.owned, h.rows.length, 'every identifier in scope is counted, twins included')
+// THE CENSUS COUNTS WHAT THE SEAL DECLARES, and the seal declares no twin any more, so the row that used to be
+// asserted here must be ABSENT. That is the fact worth pinning: a census which still produced a twin row would mean
+// the harvester was inventing scope the registry does not claim.
+test('the census carries no twin row, because the seal declares no twin', async () => {
+  const h = await harvestOwnedDois(async () => ok(seal.title, seal.standingDoi!)())
+  assert.ok(!h.rows.some((r) => r.id.endsWith(':twin')),
+    'one chain, one row — a twin row here would be scope the seal does not declare')
+  assert.equal(h.owned, h.rows.length, 'every identifier in scope is counted, and none beyond it')
+  assert.ok(h.rows.some((r) => r.id === 'uuidna-software' && r.agrees === true),
+    'and the standing record still reads back as ours')
 })

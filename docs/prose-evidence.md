@@ -16,7 +16,7 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
   - Statement: `allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI ...`
 - **[the_lattice_is_closed_under_product_and_ratio](/theorem/the_lattice_is_closed_under_product_and_ratio)** — "CLAIMED: adding then subtracting the same vector returns the original, over all 17 units this lattice carries — the closure the routes above stand on."
   - File: SiCross.lean
-  - Statement: `((units.all (fun u => u.length == 7)) = true) ∧ ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = tr...`
+  - Statement: `((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))...`
 
 
 ## the symmetric cross is blind to its spelling
@@ -74,11 +74,11 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
   - Statement: `allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true...`
 
 
-## the same arithmetic answers more than one domain
+## one cross proves both domain cases at once
 
-**Prose:** "**The same arithmetic answers more than one domain, and that is what a cross explains.**" — backed by [the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)
+**Prose:** "**The same arithmetic answers more than one domain, and the cross PROVES BOTH CASES AT ONCE.**" — backed by [the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)
 
-**Address:** `a9c05f9d-d1b7-885d-90ef-3324d772f636`
+**Address:** `f65190ea-4fd6-8815-a225-94bc8223395b`
 
 **Backing theorems (1):**
 

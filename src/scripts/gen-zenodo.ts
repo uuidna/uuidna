@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 // src/scripts/gen-zenodo.ts — GENERATE .zenodo.json, the archive's deposited metadata.
-// DOES NOT PUBLISH. Zenodo DOI minting is WORKFLOW-ONLY (`.github/workflows/publish.yml` job `zenodo`);
-// this script only regenerates the metadata the workflow deposits. Local deposit attempts: `npm run zenodo-deposit`.
+// DOES NOT PUBLISH, AND THERE IS NO LONGER A DEPOSIT JOB TO PUBLISH THROUGH. Zenodo mints the archive DOI from the
+// GITHUB RELEASE (the captain, 2026-09-26: "let zenodo mint the doi from github release. No need of redundancy"), so
+// publish.yml's `zenodo` job and the `zenodo-deposit` script it paired with are both gone. This file still matters
+// exactly as much: .zenodo.json is the metadata the GitHub↔Zenodo integration READS when it mints, so what is
+// generated here is what lands in a permanent record. The release that triggers it is created by publish.yml job
+// `extension` (`gh release create`), and job `verify` is what proves the record appeared.
 //
 // THIS FILE EXISTS BECAUSE THE ARCHIVE WAS THE LAST HAND-WRITTEN SURFACE. README is generated, CHANGELOG is
 // generated, the site is generated — .zenodo.json was typed, and it is the ONE surface deposited into a permanent

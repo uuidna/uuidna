@@ -63,8 +63,8 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
     backing: T.filter(t => t.key === 'the_quantum_of_action_cancels_on_a_linear_form' || t.key === 'gravity_cancels_on_a_linear_form')
   },
   {
-    claim: 'the same arithmetic answers more than one domain',
-    prose: '**The same arithmetic answers more than one domain, and that is what a cross explains.**',
+    claim: 'one cross proves both domain cases at once',
+    prose: '**The same arithmetic answers more than one domain, and the cross PROVES BOTH CASES AT ONCE.**',
     backing: T.filter(t => t.key === 'the_same_arithmetic_answers_more_than_one_domain')
   },
   {

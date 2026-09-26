@@ -1,0 +1,141 @@
+{
+  "file": "SiCross.lean",
+  "slug": "sicross",
+  "status": "usable",
+  "address": "3658dd92-ebde-80f0-9bf8-f98b3c3cf0cd",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SiCross.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"SiCross.lean\",\n \"url\": \"https://uuidna.com/lean/SiCross.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 3,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-energy_is_reachable_by_four_independent_routes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the joule is reached 4 ways through the SI lattice — N·m, W·s, W/Hz, C·V — every one landing on [2, 1, -2, 0, 0, 0, 0], and a pair that is not a route does not."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ (addD [1, 0, 0, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] ≠ [2, 1, -2, 0, 0, 0, 0])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem energy_is_reachable_by_four_independent_routes : ((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ (addD [1, 0, 0, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] ≠ [2, 1, -2, 0, 0, 0, 0]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_crossed_units_agree_on_one_vector_each",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: 7 derived units are reached by more than one route — C(4), J(4), V(4), W(3), F(2), Hz(2), Ω(2) — and for each, every route lands on the same vector."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((addD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [0, 0, 0, 1, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (addD [-2, -1, 4, 2, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0])) ∧ ((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (addD [0, 0, -1, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0])) ∧ ((subD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0]) ∧ (subD [2, 1, -3, -1, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0]))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_crossed_units_agree_on_one_vector_each : ((addD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [0, 0, 0, 1, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0]) ∧ (addD [-2, -1, 4, 2, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [0, 0, 1, 1, 0, 0, 0])) ∧ ((addD [1, 1, -2, 0, 0, 0, 0] [1, 0, 0, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [2, 1, -3, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, -1, 0, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0]) ∧ (addD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -2, 0, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -1, 0, 0, 0])) ∧ ((addD [0, 0, 0, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (addD [0, 0, -1, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0]) ∧ (subD [2, 1, -2, 0, 0, 0, 0] [0, 0, 1, 0, 0, 0, 0] = [2, 1, -3, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [2, 1, -3, -2, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0]) ∧ (subD [0, 0, 1, 1, 0, 0, 0] [2, 1, -3, -1, 0, 0, 0] = [-2, -1, 4, 2, 0, 0, 0])) ∧ ((subD [0, 0, 0, 1, 0, 0, 0] [0, 0, 1, 1, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0]) ∧ (subD [2, 1, -3, 0, 0, 0, 0] [2, 1, -2, 0, 0, 0, 0] = [0, 0, -1, 0, 0, 0, 0])) ∧ ((subD [0, 0, 1, 0, 0, 0, 0] [-2, -1, 4, 2, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0]) ∧ (subD [2, 1, -3, -1, 0, 0, 0] [0, 0, 0, 1, 0, 0, 0] = [2, 1, -3, -2, 0, 0, 0])) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_lattice_is_closed_under_product_and_ratio",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: adding then subtracting the same vector returns the original, over all 17 units this lattice carries — the closure the routes above stand on."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_lattice_is_closed_under_product_and_ratio : ((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -111,7 +111,17 @@ test('the reading order is total, starts at the cheapest course, and never sorts
     else assert.ok(c.steps >= c.entry, `${c.code}: the median cannot be cheaper than the cheapest lesson`)
   }
   assert.equal(cs[0].rank, 1)
-  assert.ok(cs[0].level > 0 && cs[0].level <= cs[cs.length - 1].level, 'the school opens on a measured course')
+  // THE LAST COURSE IS UNMEASURED BY DESIGN, which is what this assertion forgot. Ten lines above, the same test
+  // enforces that a level-0 course sorts BEHIND every measured one — so comparing the first course's level against
+  // `cs[cs.length - 1]` compares it against an unmeasured tail, and 1 <= 0 is false the moment a single course is
+  // unmeasured. Measured: 259 courses, 258 measured, 1 not, and the ordering the test itself demands put that one
+  // last. The intent is that the school OPENS on a measured course and the levels ascend across the measured ones,
+  // so that is what is asserted — against the last MEASURED course, which is the one the claim is about.
+  const measuredCourses = cs.filter((c) => c.level > 0)
+  assert.ok(cs[0].level > 0, 'the school opens on a measured course')
+  assert.ok(measuredCourses.length > 0, 'and at least one course is measured, or the ordering claims nothing')
+  assert.ok(cs[0].level <= measuredCourses[measuredCourses.length - 1]!.level,
+    'the levels ascend across the measured courses — the unmeasured tail is behind them by construction')
 })
 
 // MUTATION CAUGHT: replace the lower median with an average — the value stops being a cost the kernel ever paid,
