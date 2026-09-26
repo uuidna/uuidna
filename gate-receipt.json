@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "6a8cfd96791728e8daf7fbbecebed175",
-    "lean": "d0fce337deef0aa94839c287212832d0"
+    "src": "27bc188c78f697606eccaf4c163705d0",
+    "lean": "392ef4fd2af2d78c0da832de122ede5b"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -526,7 +526,7 @@
     "lean/refusal-trials.json": "7654ddf6edba2ba8",
     "lean/refusion-manifest.json": "16df21190bbdbe80",
     "lean/relativity-manifest.json": "d3387e9e95ee182c",
-    "lean/release-live.json": "e7cee6f30e9a4454",
+    "lean/release-live.json": "cf847569ce609322",
     "lean/remaining-alpine-port.json": "3d2113fa304a4342",
     "lean/renderbudget-manifest.json": "4693773ce94b8365",
     "lean/report-manifest.json": "d1cb2ee964df5091",
@@ -799,8 +799,8 @@
     "src/gate-engine.ts": "17c9104529a7aedb",
     "src/gate-receipt-committed.test.ts": "3b9ae63a90047bed",
     "src/gate-receipt-compare.ts": "fb631dec2a745aee",
-    "src/gate-receipt-index.test.ts": "6145cc020e28d48a",
-    "src/gate-receipt-index.ts": "87220bea4b069ed9",
+    "src/gate-receipt-index.test.ts": "69f1257532918f04",
+    "src/gate-receipt-index.ts": "2f04668a4fd52d47",
     "src/gate.ts": "9299d91392eb7fd7",
     "src/gravity.test.ts": "b7916bad1ea2f01d",
     "src/gravity/index.ts": "f0cf5300cedd45af",
