@@ -5,7 +5,7 @@ def addD (a b : List Int) : List Int := List.zipWith (· + ·) a b
 def subD (a b : List Int) : List Int := List.zipWith (· - ·) a b
 
 -- every unit this lattice carries — the 7 base quantities and the 10 named derived ones.
-def units : List (List Int) := [[1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 1], [0, 0, -1, 0, 0, 0, 0], [1, 1, -2, 0, 0, 0, 0], [-1, 1, -2, 0, 0, 0, 0], [2, 1, -2, 0, 0, 0, 0], [2, 1, -3, 0, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [2, 1, -3, -1, 0, 0, 0], [2, 1, -3, -2, 0, 0, 0], [-2, -1, 4, 2, 0, 0, 0], [0, 1, -2, -1, 0, 0, 0]]
+def siUnits : List (List Int) := [[1, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 0, 0, 0], [0, 0, 1, 0, 0, 0, 0], [0, 0, 0, 1, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 0, 1], [0, 0, -1, 0, 0, 0, 0], [1, 1, -2, 0, 0, 0, 0], [-1, 1, -2, 0, 0, 0, 0], [2, 1, -2, 0, 0, 0, 0], [2, 1, -3, 0, 0, 0, 0], [0, 0, 1, 1, 0, 0, 0], [2, 1, -3, -1, 0, 0, 0], [2, 1, -3, -2, 0, 0, 0], [-2, -1, 4, 2, 0, 0, 0], [0, 1, -2, -1, 0, 0, 0]]
 
 /-- CLAIMED: the joule is reached 4 ways through the SI lattice — N·m, W·s, W/Hz, C·V — every one landing on [2,
     1, -2, 0, 0, 0, 0], and a pair that is not a route does not. -/
@@ -17,4 +17,4 @@ theorem the_crossed_units_agree_on_one_vector_each : ((addD [0, 0, 0, 1, 0, 0, 0
 
 /-- CLAIMED: adding then subtracting the same vector returns the original, over all 17 units this lattice
     carries — the closure the routes above stand on. -/
-theorem the_lattice_is_closed_under_product_and_ratio : ((units.all (fun u => u.length == 7)) = true) ∧ ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = true) := by decide
+theorem the_lattice_is_closed_under_product_and_ratio : ((siUnits.all (fun u => u.length == 7)) = true) ∧ ((siUnits.all (fun a => siUnits.all (fun b => subD (addD a b) b == a))) = true) := by decide

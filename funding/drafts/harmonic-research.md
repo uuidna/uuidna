@@ -21,7 +21,7 @@ uuidna is a corpus of 70999 distinct mathematical propositions, each proven in L
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
 | published monographs | 259 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
-| permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
+| permanent archive | 10.5281/zenodo.22256731 | resolves to the deposited record |
 
 **Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 70999 from the source and the kernel.
 

@@ -176,10 +176,6 @@ one withdraws it, and only a sealed theorem that proves what it meant closes the
   <br>_claimed:_ <q>THREE halves paid. (1) expectedPrinciples = 66 → PRINCIPLES.length — the live figure, so the branch cannot go mute when the ledger grows (was 66, now 115). (2) The self-comparison of titles vs entries off the SAME array was replaced by a real second source: lean/PRINCIPLE.md structural entries, plus a title-collision arm that says what it measures. (3) expectedGaps() now scans every gate script for expected* = N and .length === NNN — the general finder the lead owed; countsGaps holds prose, commentsGaps holds comments, this one holds CODE. Mass-gap doctrine: derive, never remember.</q>
   <br>_owes:_ the sealed theorem that proves what this settlement meant — its claim is not yet stated in Lean and refuted by the kernel (def lead_&lt;handle&gt;, theorem involution_&lt;handle&gt; : ¬ lead_&lt;handle&gt;) — or, where the claim is about FILES and no kernel can reach it, paid: VE_FACES faces each recomputing the census and signing measurement_&lt;handle&gt;
   <br>[take this one further →](https://stackoverflow.com/ai-assist?q=predict-and-fill.ts%3A57%20hardcodes%20an%20expected%20principle%20count%20that%20the%20ledger%20has%20long%20since%20passed%2C%20and%20the%20test%20is%20%60%3C%60%20%E2%80%94%20so%20the%20branch%20is%20unreachable%20and%20the%20check%20fails%20OPEN.%20Worse%2C%20it%20counts%20%60new%20Set(PRINCIPLES.map(p%20%3D%3E%20p%5B1%5D)).size%60%20(TITLES)%20while%20the%20other%20four%20sites%20count%20PRINCIPLES.length%20(ENT)
-- **`c0727ef6`** The seams reflect (row1's seams map onto row2's under the mirror)
-  <br>_claimed:_ <q>true by construction — the mirrored law was defined as carries(dz p, dz n) and dz is an involution, so it holds for ANY row. Unfalsifiable, therefore says nothing.</q>
-  <br>_owes:_ the sealed theorem that proves what this settlement meant — not signed and sealed by the 2×7 witness rosettas (0 of 14 faces)
-  <br>[take this one further →](https://stackoverflow.com/ai-assist?q=The%20seams%20reflect%20(row1's%20seams%20map%20onto%20row2's%20under%20the%20mirror))
 - **`a8a8f3ea`** Every merkaba has union 8 — an 8-vertex star tetrahedron
   <br>_claimed:_ <q>reduced mod 9 where 0 and 9 are one residue, m0 and m1 hold only 7 distinct. Only m2 is a genuine 8-vertex star. My 'union 8' counted the void twice and survived two exchanges before arithmetic caught it.</q>
   <br>_owes:_ the sealed theorem that proves what this settlement meant — its claim is not yet stated in Lean and refuted by the kernel (def lead_&lt;handle&gt;, theorem involution_&lt;handle&gt; : ¬ lead_&lt;handle&gt;) — or, where the claim is about FILES and no kernel can reach it, paid: VE_FACES faces each recomputing the census and signing measurement_&lt;handle&gt;
@@ -292,6 +288,9 @@ one withdraws it, and only a sealed theorem that proves what it meant closes the
 - **`2d552f1f`** Reflection conserves the stroke budget (four falling, five rising)
   <br>_killed by:_ measured across all 54 affine rows: budgets are 4,5 in 18 rows, 5,4 in 30, 6,3 in 6. The mirror keeps it on 30 of 54 and breaks it on 24; the IDENTITY is the only map conserving it everywhere.
   <br>[take this one further →](https://stackoverflow.com/ai-assist?q=Reflection%20conserves%20the%20stroke%20budget%20(four%20falling%2C%20five%20rising))
+- **`c0727ef6`** The seams reflect (row1's seams map onto row2's under the mirror)
+  <br>_killed by:_ true by construction — the mirrored law was defined as carries(dz p, dz n) and dz is an involution, so it holds for ANY row. Unfalsifiable, therefore says nothing.
+  <br>[take this one further →](https://stackoverflow.com/ai-assist?q=The%20seams%20reflect%20(row1's%20seams%20map%20onto%20row2's%20under%20the%20mirror))
 - **`e92de628`** 42 tiles 432 (the pair grid divides the full grid)
   <br>_killed by:_ 432/42 = 10.2857 — 7 does not divide 72. They share the factor 6 and diverge on the second.
   <br>[take this one further →](https://stackoverflow.com/ai-assist?q=42%20tiles%20432%20(the%20pair%20grid%20divides%20the%20full%20grid))
@@ -305,4 +304,4 @@ one withdraws it, and only a sealed theorem that proves what it meant closes the
 
 ---
 
-<small>21 in trial · 53 reopened · 6 refuted · generated from the ledger's leads record and the court's trial record</small>
+<small>21 in trial · 52 reopened · 7 refuted · generated from the ledger's leads record and the court's trial record</small>

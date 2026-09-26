@@ -21,7 +21,7 @@ uuidna is a corpus of 70999 distinct mathematical propositions, each proven in L
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
 | published monographs | 259 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
-| permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
+| permanent archive | 10.5281/zenodo.22256731 | resolves to the deposited record |
 
 **Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 70999 from the source and the kernel.
 
@@ -57,7 +57,7 @@ Both halves at full strength. The results below are CLAIMED outright — 70999 p
   - To meet it: CC-BY-NC-ND-4.0 carries NC, which fails the freedom to use for any purpose; and ND, which fails the freedom to modify, and redistribute modified versions. Neither the FSF nor the OSI recognises a licence with either restriction, and NLnet requires an open licence IN ITS ENTIRETY, so this is an eligibility gate rather than a preference. It does NOT require relicensing the archive: a funded deliverable can be a separate, openly-licensed work. The drafts written by gen-funding-drafts take that route — CC-BY-4.0 for the document, an OSI licence named for any code — leaving the archive licence untouched. Whether to do so is the captain's decision.
 - MET — genai-disclosure: this repository discloses machine assistance by construction — every claim carries the proof that earns it, and the honesty gate refuses prose that overreaches one
 - MET — european-dimension: author and work are EU-based (Bulgaria)
-- MET — open-access-outputs: 259 monographs published openly, archived at 10.5281/zenodo.22256708
+- MET — open-access-outputs: 259 monographs published openly, archived at 10.5281/zenodo.22256731
 
 Deadline 2026-11-03.
 

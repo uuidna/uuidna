@@ -70078,7 +70078,7 @@ polarity_plus_is_trinity_of_minus 27
 #SiCross.lean
 energy_is_reachable_by_four_independent_routes 31
 the_crossed_units_agree_on_one_vector_each 27
-the_lattice_is_closed_under_product_and_ratio 19
+the_lattice_is_closed_under_product_and_ratio 27
 #Singularity.lean
 one_source_is_exactly_one 27
 surfaces_cost_one_fold 27
