@@ -82,8 +82,13 @@ function exposeLeads(): SourceReading {
     // trailing index or handle from the key and ask the LEDGER whether siblings exist under that stem. Nothing names
     // EquilibriumXor or involution_ here; a family that stops being a family stops being exempt on the next run.
     //
-    // AND IT IS NOT VACUOUS: 58,191 of the 71,082 keys have a stem no other key shares, so any one of those sitting
-    // alone in a principle still reads as a lead. The finder's surface is intact; what left it was the false half.
+    // AND IT IS NOT VACUOUS: most keys in the ledger have a stem no other key shares — the majority of them, measured
+    // by walking theorems() and grouping on the stem this exemption strips — so any one of those sitting alone in a
+    // principle still reads as a lead. The finder's surface is intact; what left it was the false half.
+    //
+    // (The two figures that stood here were a ledger count in prose, which no generator keeps current: correct the
+    // day they were written and wrong on the next landing. The guard refuses them by name, and updating them would
+    // only schedule the next drift — so the source is named instead of the reading.)
     //
     // WHAT THIS DOES NOT CLAIM: that a one-member principle makes a good monograph. It may well be thin — but that is
     // a PUBLICATION question, which the coverage source already owns and states in its own words, and this lead's own
