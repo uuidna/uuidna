@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "9bc215e3bd19ca0e12d73710ef4d2948",
-    "lean": "3d1c91290b4d4defb118a39417aa1253"
+    "src": "b8902b588c6a2c0a8a12e2fd8315015b",
+    "lean": "db45138715deb6870c3a01b53df38d3d"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -324,6 +324,7 @@
     "lean/doi-domains.json": "3b5d1938becb8181",
     "lean/doi-harvest.json": "797c0f5cbca22797",
     "lean/doi-unclaimed.json": "d70f99ab6a37f66a",
+    "lean/door-surface.json": "dfb95ba6447177e4",
     "lean/doorsurface-manifest.json": "28747f4ba6fb2f91",
     "lean/dormant-receipt.json": "5e9619cf43c0f5e0",
     "lean/dormant-scripts.json": "6aa2c1bc20a74812",
@@ -72619,7 +72620,7 @@
     "src/mcp-constraints.test.ts": "c588753fc8a505e1",
     "src/mcp-constraints.ts": "63e62875f768df2f",
     "src/mcp-coverage.test.ts": "eb6a155f7be360c8",
-    "src/mcp-docs.generated.ts": "da2d30ce56cf6457",
+    "src/mcp-docs.generated.ts": "e53f5ab425ba6cba",
     "src/mcp-door.test.ts": "feb94bad23d23aae",
     "src/mcp-door.ts": "387d8c24af8d55d2",
     "src/mcp-edge-absent.test.ts": "1180e9fd9be210bf",
@@ -73143,6 +73144,8 @@
     "src/scripts/audit-citations.ts": "2be74d3d138e4f67",
     "src/scripts/audit-doi-harvest.test.ts": "dbb10c80a4aa9f2c",
     "src/scripts/audit-doi-harvest.ts": "0d37493be6239a13",
+    "src/scripts/audit-door-surface.test.ts": "09b4229ab9f2bdad",
+    "src/scripts/audit-door-surface.ts": "5e3df7ab8387499a",
     "src/scripts/audit-exemptions.ts": "6a9cd08cb4af14da",
     "src/scripts/audit-law-register.ts": "bb71b545a328be6b",
     "src/scripts/audit-lean-form.ts": "742839e652fa1e76",
@@ -73183,7 +73186,7 @@
     "src/scripts/court-hooks.ts": "1b42f7ea1fc35254",
     "src/scripts/court-investigate.test.ts": "e56f4a3cd7e58c50",
     "src/scripts/court-investigate.ts": "6a096e2c3e4c5e5f",
-    "src/scripts/cross-formulate.ts": "8f5b8420094fa2e3",
+    "src/scripts/cross-formulate.ts": "8f75b6cd4c644b85",
     "src/scripts/crypto-measure.ts": "411898d464d7de88",
     "src/scripts/cube-memory.ts": "a5bb1beb26f29bad",
     "src/scripts/dead-exports.ts": "969adc60463378ba",
