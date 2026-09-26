@@ -152,6 +152,10 @@ const FACTS = [
     lean: `theorem both_routes_to_light_speed_agree : (ratio (product planckLength planckMass) (product planckTime planckMass) = ${leanList(sub(L, T))}) ∧ (ratio (ratio planckLength planckMass) (ratio planckTime planckMass) = ${leanList(sub(L, T))}) := by decide` },
 ]
 
+// the basis TRANSPOSED: column j is [L[j], M[j], T[j], K[j]], computed from BASIS so no figure is typed twice
+const COLS: number[][] = [0, 1, 2, 3].map((j) => BASIS.map((row) => row[j]!))
+const COLUMNS: string[] = COLS.map((c, j) => `def col${j} : List Int := ${leanList(c)}`)
+
 const DEFS = [
   // THE WALKS ARE BIG ON PURPOSE and the kernel needs headroom for them: the characterisations decide over 625
   // coefficient quadruples and the existence law over 81 combinations against 25 targets. `decide` unfolds those
@@ -188,7 +192,10 @@ const DEFS = [
   'def freeOfGravity (a b : List Int) : Bool := ((product a b).drop 1).headD 0 == 0',
   '',
   `/-- THE COMBINATORIAL CORE. Every integer quadruple is a combination of the four quantities; combine reads off its\n    exponent vector, and the two forms read off what it cancels — hbarForm is a+b+c+d, gravForm is a−b+c−d. The\n    boxes are the finite domains the kernel walks: ${BOX.length} combinations for the characterisations, ${SMALL_BOX.length}\n    for the existence law, and ${TARGETS.length} targets for it to reach. -/`,
-  'def basis : List (List Int) := [planckLength, planckMass, planckTime, planckTemperature]',
+  // `basis` — the four vectors as ROWS — is gone with the index form of `combine` that read it. Transposing to
+  // columns left it cited by nothing, and the_axiom_index_partitions_without_remainder refuses a definition no
+  // theorem reaches: vocabulary the research does not use should not ship in a deposit unexplained. The rows
+  // themselves remain as planckLength/Mass/Time/Temperature, which the statements do name.
   '-- nthI — list indexing as decidable, AXIOM-FREE structural recursion: the Int form of lean-gen\'s `nth`.',
   '-- Lean\'s `List.getD` routes through the `propext` axiom under `by decide` and this recursion does not,',
   '-- which is why four theorems in this wing were the ledger\'s only non-kernel-only proofs until it was used.',
@@ -197,8 +204,30 @@ const DEFS = [
   '  | x :: _, 0 => x',
   '  | _ :: xs, Nat.succ n => nthI xs n',
   '',
+  // COMBINE BY COLUMNS, NOT BY INDEX — the same matrix-vector product, readable by the independent evaluator.
+  //
+  // This was `(List.range 4).map (fun j => (List.zipWith (fun ki v => ki * (nthI v j)) k basis).foldl (· + ·) 0)`:
+  // correct, and the inner lambda closes over `j` from the outer map, which src/involution's interpreter cannot
+  // resolve. The consequence was not cosmetic — five theorems in this wing carried NO independent denial, so
+  // mint-gate's falsifier-ceiling refused the mint and nobody could see why from the statements.
+  //
+  // Transposing fixes it with no change of meaning: a product against the basis ROWS indexed by j is the same as a
+  // product against the basis COLUMNS taken one at a time, and a column needs no index because it is its own list.
+  // `nthI` disappears from this definition entirely, and so does the closure.
+  //
+  // AND THE FIRST TWO COLUMNS ARE THE TWO LINEAR FORMS THIS WING ALREADY SEALS. Column 0 is all ones, so the hbar
+  // exponent is the plain sum of the coefficients — which is hbarForm. Column 1 is the gravity signs (+1,-1,+1,-1),
+  // so the G exponent is a-b+c-d — which is gravForm. The forms were not a shortcut discovered beside the lattice;
+  // they ARE its first two columns, and the transposition is what makes that visible in the definition.
+  ...COLUMNS,
+  // ONE PARAMETER, NO HELPER. A `dotCol (k c : List Int)` helper reads better and the independent evaluator cannot
+  // resolve a wing definition of two parameters — single-parameter ones like hbarForm it resolves fine. The whole
+  // point of the transposition was to become readable, so the dot product is written out per column instead.
   'def combine (k : List Int) : List Int :=',
-  '  (List.range 4).map (fun j => ((List.zipWith (fun ki v => ki * (nthI v j)) k basis).foldl (· + ·) 0))',
+  '  [(List.zipWith (· * ·) k col0).foldl (· + ·) 0,',
+  '   (List.zipWith (· * ·) k col1).foldl (· + ·) 0,',
+  '   (List.zipWith (· * ·) k col2).foldl (· + ·) 0,',
+  '   (List.zipWith (· * ·) k col3).foldl (· + ·) 0]',
   'def hbarForm (k : List Int) : Int := k.foldl (· + ·) 0',
   'def gravForm (k : List Int) : Int := (List.zipWith (· * ·) k [1, -1, 1, -1]).foldl (· + ·) 0',
   `def coeffs : List Int := ${leanList(COEFFS)}`,
