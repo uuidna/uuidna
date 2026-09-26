@@ -18,6 +18,7 @@ const emptySurvey = (): GapSurvey => ({
   harvest: 0,
   alpinePending: 0,
   crossingPending: 0,
+  witnessPending: 0,
   wavePending: 0,
   waveInFlight: 0,
   refusalOpen: 0,

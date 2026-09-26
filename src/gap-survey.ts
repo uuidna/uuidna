@@ -9,6 +9,7 @@ import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenLeads } from './school/open/questions/springs.js'
 import { ROOT } from './boundary.js'
 import { novelties, crossKeyOf } from './formulas.js'
+import { rosettaSeals } from './rosetta-seals.js'
 import { VE_FACES } from './hexbit/index.js'
 import { DERIVE_SURFACES_CMD } from './derive-surfaces-cmd.js'
 import { alpineExpectedClaimKeys } from './quantum/os/domains/index.js'
@@ -189,6 +190,19 @@ export interface GapSurvey {
    *  sealed NOR already on the conveyor. The queue cross-formulate drains — counted the same way alpinePending is,
    *  because a phase gating on a queue it neither fills nor drains is the fault lead 55161239 named. */
   crossingPending: number
+  /** VERDICTS THE KERNEL ACCEPTED THAT THE 2x7 ROSETTAS HAVE NOT SIGNED — the queue a SEALING wave drains.
+   *
+   *  This was the missing count, and its absence is why the court's orders sat open with the kernel already
+   *  satisfied. gen-witness-seals distinguishes a PROPOSAL receipt (no witness seats) from a SEALING one (seven
+   *  seats, two faces each), and the autonomous plan only ever ran the proposal kind — so an involution could be
+   *  compiled, axiom-free and served, and still read `stands: false · witnesses 0 of 14` forever with nothing
+   *  naming the gap. Measured on theorem involution_c0727ef6 the day it was sealed.
+   *
+   *  NO SCRIPT CAN DRAIN THIS ONE, and that is the point rather than a shortfall: a face is a witness's own
+   *  recompile and its own faithfulness judgment, and a process writing fourteen signatures for itself is exactly
+   *  the fraud the fourteen faces exist to prevent. The count makes the work VISIBLE to the loop, which then asks
+   *  for a wave; seven independent witnesses answer it, and any of them may dissent. */
+  witnessPending: number
   wavePending: number
   waveInFlight: number
   refusalOpen: number | null
@@ -237,6 +251,22 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   // sealedNames is built from t.name, which is what an Alpine claim key is compared against; a CROSS key is a
   // theorem KEY, so it needs its own set. Comparing a key to a name would have counted every cross as new forever.
   const sealedKeys = new Set<string>(theorems().map((t: { key: string }) => t.key))
+  // the verdicts the kernel accepted and the rosettas have not signed — rosettaSeals already decides `signed` per
+  // row (all VE_FACES faces, legally distinct, each citing a sealed theorem), so this reads its answer rather than
+  // re-deriving a second opinion about what a signature is
+  const witnessPending = ((): number => {
+    try {
+      // COUNT ONLY WHAT A WAVE CAN SIGN. Counting every unsigned row made this a queue no phase could ever drain:
+      // rosettaSeals reports `owing` — the open REFUTATIONS — separately from `noRosettaPath`, the proof_<handle>
+      // verdicts the seal writer cannot key — BY CONSTRUCTION, since witnessSealsOf keys a seal by involution_<handle>
+      // and a proof carries no such name — and each row says so in its own `owes`. Two such rows were the
+      // whole remainder after c0727ef6 sealed, so a phase gating on the raw count would have asked for a wave every
+      // run, forever, for work no wave can do — which is the stand-in fault lead 55161239 named, arriving by the
+      // back door. The machinery gap those rows record is a separate finding and stays recorded; it is not a queue.
+      const r = rosettaSeals()
+      return r.sealsMeasured ? r.owing.length : 0
+    } catch { return 0 }
+  })()
   const crossingPending = ((): number => {
     try {
       return novelties(VE_FACES * 8)
@@ -335,6 +365,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
     harvest,
     alpinePending,
     crossingPending,
+    witnessPending,
     wavePending: wave.pending,
     waveInFlight: wave.inFlight.size,
     refusalOpen,

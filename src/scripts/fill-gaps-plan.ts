@@ -76,6 +76,16 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     when: (s) => s.crossingPending > 0,
   },
   {
+    name: 'witness-wave',
+    cmd: 'node dist/scripts/witness-wave.js',
+    note: 'name the verdicts awaiting their fourteen faces and brief the 2x7 wave that must sign them (signs nothing)',
+    // GATED ON witnessPending, which rosettaSeals already decides per row. This phase is the one that CANNOT drain
+    // its own queue, and that is the design: a face is a witness's own recompile and its own faithfulness judgment,
+    // so a process signing fourteen for itself is the fraud the faces exist to refuse. It makes the work visible and
+    // asks; seven witnesses answer, any of them may dissent, and the loop stops asking when the count reaches zero.
+    when: (s) => s.witnessPending > 0,
+  },
+  {
     name: 'trial-refusals',
     cmd: 'node dist/scripts/trial-refusals.js',
     note: 'try every lead by the sealed theorems its own text names, against fresh kernel receipts — verified or open; nothing is purged',

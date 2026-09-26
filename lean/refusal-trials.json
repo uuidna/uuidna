@@ -19058,12 +19058,12 @@
      "seal": null
     },
     "witnesses": {
-     "signed": 0,
+     "signed": 14,
      "of": 14,
-     "seal": null
+     "seal": "97579270-fb98-8f3e-9e9d-8bcc59d765b4"
     },
     "missing": [],
-    "stands": false
+    "stands": true
    }
   },
   {
@@ -61282,5 +61282,5 @@
   }
  },
  "unreceipted": [],
- "seal": "d1dd76e7-b96b-8209-814f-9031f0cb4b5f"
+ "seal": "42a76a45-b587-83de-9184-4b49e24f3396"
 }
