@@ -33,6 +33,46 @@ test('planTestRun — absent receipt plans full suite', () => {
   assert.ok(plan.mode === 'full' || plan.mode === 'skip' || plan.mode === 'delta')
 })
 
+// ── A RECEIPT MAY ONLY EXCUSE WHAT IT VERIFIED, and for a long time this one excused everything.
+// planTestRun compared the receipt's tree digests and answered `skip` WITHOUT READING `verified` — the field was not
+// even in the cast it parses with, so it was structurally invisible. A receipt minted `--verified guard,build`
+// therefore skipped the entire suite, and so did a receipt verifying nothing at all. Measured by perturbation
+// 2026-09-26 on the live receipt: verified ["guard","build"] → skip, verified [] → skip, verified
+// ["nothing-at-all"] → skip. That is a false green in the one place it costs most — the certification's own decision
+// about whether to certify.
+//
+// `covers` answers "is this the tree the receipt is about", which is necessary and not sufficient. The sufficient
+// half is "and did that receipt prove the tests". This control asserts BOTH directions over a receipt whose digests
+// genuinely match the live tree, because a one-directional check here is what let the hole live: a test that only
+// confirmed `skip` on a good receipt would have passed throughout.
+test('planTestRun — a receipt that did NOT verify tests may not skip them', async () => {
+  const { treeCovers } = await import('./gate-receipt-index.js')
+  const { writeFileSync, existsSync, readFileSync: rd } = await import('node:fs')
+  const RECEIPT = join(ROOT, 'gate-receipt.json')
+  if (!existsSync(RECEIPT)) return          // nothing to perturb; the absent-receipt case is the test above
+  const original = rd(RECEIPT, 'utf8')
+  const base = JSON.parse(original) as Record<string, unknown>
+  const covers = treeCovers()
+  try {
+    // the digests MATCH, so only `verified` can decide — which is exactly the question
+    writeFileSync(RECEIPT, JSON.stringify({ ...base, covers, verified: ['guard', 'tests'] }, null, 2))
+    assert.equal(planTestRun().mode, 'skip', 'a receipt that verified tests over this exact tree may skip them')
+
+    writeFileSync(RECEIPT, JSON.stringify({ ...base, covers, verified: ['guard', 'build'] }, null, 2))
+    assert.equal(planTestRun().mode, 'full', 'guard+build is not tests — the suite must run')
+
+    writeFileSync(RECEIPT, JSON.stringify({ ...base, covers, verified: [] }, null, 2))
+    assert.equal(planTestRun().mode, 'full', 'a receipt verifying nothing may excuse nothing')
+
+    writeFileSync(RECEIPT, JSON.stringify({ ...base, covers }, null, 2))
+    assert.equal(planTestRun().mode, 'full', 'a receipt with no verified field at all may excuse nothing')
+  } finally {
+    // the receipt is a published attestation: restore it byte-exact whatever happened above
+    writeFileSync(RECEIPT, original)
+    assert.equal(rd(RECEIPT, 'utf8'), original, 'the receipt was not restored byte-exact')
+  }
+})
+
 // ── THE MINTER'S CALLERS MUST NAME WHAT THEY RAN. gate-receipt was hardened to refuse a bare write — a receipt
 // is an attestation, and one written without a run is how a red tree passes a green gate. next.ts was never
 // taught to pass `--verified`, so both of its call sites invoked a bare write, the refusal fired correctly on

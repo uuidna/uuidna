@@ -124,10 +124,29 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   const want = JSON.parse(readFileSync(RECEIPT, 'utf8')) as {
     covers?: Record<string, string>
     files?: Record<string, string>
+    verified?: string[]
   }
   const haveCovers = treeCovers(root)
+  // THE RECEIPT MUST HAVE VERIFIED THE THING IT IS EXCUSING. This compared the tree digests and skipped, without
+  // ever reading `verified` — the field was not even in the cast, so it was structurally invisible here. A receipt
+  // minted `--verified guard,build` therefore skipped the ENTIRE suite as long as the digests matched, and so did a
+  // receipt verifying nothing at all. Measured by perturbation 2026-09-26: with verified stripped to [], and again
+  // set to ["nothing-at-all"], planTestRun still answered skip.
+  //
+  // That is the false green this repository refuses everywhere else, in the one place it costs the most: the
+  // certification's own decision about whether to certify. `covers` answers "is this the tree the receipt is about",
+  // which is necessary and not sufficient — the sufficient half is "and did that receipt prove the tests". A digest
+  // match on a receipt that proved only guard is a statement about identity, not about correctness.
+  const verified = new Set(want.verified ?? [])
   if (want.covers?.src === haveCovers.src && want.covers?.lean === haveCovers.lean) {
-    return { mode: 'skip', why: 'gate-receipt covers this tree — verified O(1), suite not recomputed' }
+    if (verified.has('tests')) {
+      return { mode: 'skip', why: 'gate-receipt covers this tree AND verified tests — verified O(1), suite not recomputed' }
+    }
+    // the tree is the receipt's own, so nothing has changed to compute a delta FROM: the honest plan is the full suite
+    return {
+      mode: 'full',
+      why: `gate-receipt covers this tree but verified ${verified.size ? [...verified].join(', ') : 'nothing'} — tests were never proved for it, so the suite runs`,
+    }
   }
   const haveFiles = fileManifest(root)
   const prior = want.files ?? {}
