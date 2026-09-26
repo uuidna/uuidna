@@ -1,0 +1,22 @@
+{
+ "why": "What the live MCP door serves, against what dist declares. Each row is a LEAD in the shape lean/leads.json uses — filed, never settled here, because a lead leaves the record only by a verdict. Written by src/scripts/audit-door-surface.ts on every run, EMPTY INCLUDED: an absent file and an empty set are different facts. A run that could not reach the network states that instead of reporting agreement.",
+ "host": "https://uuidna.com/mcp",
+ "open": 2,
+ "held": [
+  {
+   "lead": "The live door surface is not the one dist declares: 234 contract(s) served against 248 declared, 14 declared and not served (compute_engine, compute_novelty, compute_selftest, decrypt_aead, deposit_wave, fetch_education_jobs, get_editorial, get_publication, get_resources, get_verdict_signatures, run_command, run_security_plan, run_wave, search_trial). A client reading the live list cannot tell a withdrawn door from one that has not shipped, because neither surface says which.",
+   "status": "open",
+   "owes": "a verdict on whether the difference is the expected ship lag or a door lost in a deploy — the counts alone cannot tell those apart, and nothing in the tree measured them before this run"
+  },
+  {
+   "lead": "One name, two contracts: 5 of 234 compared door(s) answer a different contract handle on the live site than in dist — check_citations (live 9cd13f1d ≠ dist b50a1f2d); compute_address (live b11384cb ≠ dist cd64ef0c); compute_merkle_proof (live 65796ac8 ≠ dist 644a400b); get_conformance (live ae7e547d ≠ dist c2597d21); run_trial (live d3ceee92 ≠ dist 3b6043d2). The handle is this tree's own content address of the contract, so the disagreement is measured rather than diffed, and a client reading one contract and calling the other reaches a different tool.",
+   "status": "open",
+   "owes": "a verdict on whether a shared name may carry two contracts at all; if it may not, the live catalogue owes the reader the version it is serving"
+  },
+  {
+   "lead": "Coverage of this run: 234 of 234 shared door(s) had both contracts read (sample 250). 0 were not compared and are therefore UNMEASURED, never agreeing.",
+   "status": "closed",
+   "owes": "nothing — every shared door was compared"
+  }
+ ]
+}

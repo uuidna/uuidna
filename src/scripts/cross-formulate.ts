@@ -57,7 +57,13 @@ const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const WRITE = process.argv.includes('--deposit')
 const LIMIT = VE_FACES
 
-/** the wing's own short name, as a key fragment: EquilibriumXor7.lean → equilibriumxor7 */
+/** the wing's own short name, lowercased and stripped of its extension, for use inside a theorem's identifier.
+ *
+ *  THE EXAMPLE THAT WAS HERE BROKE THE SECRET SCAN, and the scanner was right. It read "key fragment:" followed by a
+ *  mixed-case high-entropy token (a wing's CamelCase filename) and reported generic-api-key at entropy 3.78 — which is
+ *  exactly the shape of a leaked `key: <secret>`, and a scanner that ignored it would be the one worth worrying about.
+ *  So the wording is the thing that changed, not the rule and not an allow list: a comment can always be phrased so it
+ *  does not imitate a credential, and weakening the detector to accommodate prose is how secret handling rots. */
 const wingWord = (file: string): string => file.replace(/\.lean$/, '').toLowerCase()
 
 // THE KEY IS crossKeyOf, in src/formulas.ts — ONE derivation. It had a copy here, and gap-survey needs the same
