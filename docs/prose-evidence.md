@@ -3,6 +3,103 @@
 Each entry below quotes one phrase and lists the sealed theorems filtered for it by key, with each theorem's statement.
 
 
+## a cross formula is one quantity reached two independent ways
+
+**Prose:** "A **cross formula** is one quantity reachable by two independent routes through a closed structure." — backed by [the_constant_free_combinations_are_a_rank_two_sublattice](/theorem/the_constant_free_combinations_are_a_rank_two_sublattice), [the_lattice_is_closed_under_product_and_ratio](/theorem/the_lattice_is_closed_under_product_and_ratio)
+
+**Address:** `74524f8e-8716-8a22-a38d-e4ce316d44de`
+
+**Backing theorems (2):**
+
+- **[the_constant_free_combinations_are_a_rank_two_sublattice](/theorem/the_constant_free_combinations_are_a_rank_two_sublattice)** — "CLAIMED: a combination loses BOTH constants exactly when c = −a and d = −b — so it is a(l/t) + b(T/m), a rank-two sublattice whose basis is the two constant-free ratios themselves."
+  - File: PlanckLattice.lean
+  - Statement: `allBox (fun k => (((nthI (combine k) 0) == 0) && ((nthI (combine k) 1) == 0)) == (((nthI k 2) == -(nthI k 0)) && ((nthI ...`
+- **[the_lattice_is_closed_under_product_and_ratio](/theorem/the_lattice_is_closed_under_product_and_ratio)** — "CLAIMED: adding then subtracting the same vector returns the original, over all 17 units this lattice carries — the closure the routes above stand on."
+  - File: SiCross.lean
+  - Statement: `((units.all (fun u => u.length == 7)) = true) ∧ ((units.all (fun a => units.all (fun b => subD (addD a b) b == a))) = tr...`
+
+
+## the symmetric cross is blind to its spelling
+
+**Prose:** "**One proportion has two spellings.**" — backed by [the_symmetric_cross_is_blind_to_its_spelling](/theorem/the_symmetric_cross_is_blind_to_its_spelling)
+
+**Address:** `69f6da83-50aa-84dd-8f16-1a8a84b1c74f`
+
+**Backing theorems (1):**
+
+- **[the_symmetric_cross_is_blind_to_its_spelling](/theorem/the_symmetric_cross_is_blind_to_its_spelling)** — "CLAIMED: over all 625 quadruples in the box, the symmetric cross a·d = b·c agrees with all FOUR of its spellings — swapping inside each product, exchanging the two products, and both at once — so the four are one fact; and the asymmetric cross a/b = c/d is NOT invariant, disagreeing with its own inversion b/a = d/c on 212 of them."
+  - File: CrossProof.lean
+  - Statement: `(allQ (fun a b c d => ((symm a b c d) == (symmSwapWithin a b c d)) && ((symm a b c d) == (symmSwapSides a b c d)) && ((s...`
+
+
+## over the naturals the ratio form is strictly weaker
+
+**Prose:** "**Over ℕ the two forms are not equivalent.**" — backed by [the_asymmetric_cross_is_strictly_weaker_over_naturals](/theorem/the_asymmetric_cross_is_strictly_weaker_over_naturals)
+
+**Address:** `b1eca55c-7a67-8391-b7a5-ab05c76684f3`
+
+**Backing theorems (1):**
+
+- **[the_asymmetric_cross_is_strictly_weaker_over_naturals](/theorem/the_asymmetric_cross_is_strictly_weaker_over_naturals)** — "CLAIMED: over ℕ the ratio form is STRICTLY WEAKER than the product form — on 94 of 625 quadruples a/b = c/d holds while a·d = b·c fails, the smallest being 1/1 = 3/2 = 1 against 1·2 = 2 ≠ 3 = 1·3 — so cross-multiplication, which is taught as an equivalence, is an implication here."
+  - File: CrossProof.lean
+  - Statement: `(anyQ (fun a b c d => (asym a b c d) && !(symm a b c d)) = true) ∧ ((1 / 1 = 3 / 2) ∧ (1 * 2 ≠ 1 * 3))...`
+
+
+## exact division is what makes the two crosses prove each other
+
+**Prose:** "**Exact division is the condition under which they prove each other.**" — backed by [exact_division_makes_the_two_crosses_prove_each_other](/theorem/exact_division_makes_the_two_crosses_prove_each_other)
+
+**Address:** `54edb2c7-2bb8-8ad2-a0de-05da9740c4e0`
+
+**Backing theorems (1):**
+
+- **[exact_division_makes_the_two_crosses_prove_each_other](/theorem/exact_division_makes_the_two_crosses_prove_each_other)** — "CLAIMED: when both divisions are EXACT the two forms are equivalent — over the box the symmetric and asymmetric crosses agree on every one of the 144 exact quadruples, walked in both directions; and the agreement is substantive rather than vacuous, because 38 of those satisfy the proportion and 106 refute it, so both outcomes occur."
+  - File: CrossProof.lean
+  - Statement: `(allQ (fun a b c d => !(exact a b c d) || ((symm a b c d) == (asym a b c d))) = true) ∧ (anyQ (fun a b c d => exact a b ...`
+
+
+## a closed lattice generates its crosses instead of listing them
+
+**Prose:** "**A closed lattice generates its crosses instead of listing them.**" — backed by [the_quantum_of_action_cancels_on_a_linear_form](/theorem/the_quantum_of_action_cancels_on_a_linear_form), [gravity_cancels_on_a_linear_form](/theorem/gravity_cancels_on_a_linear_form)
+
+**Address:** `3f5bd387-d67c-8f1b-acdf-aa6ec4d73f10`
+
+**Backing theorems (2):**
+
+- **[the_quantum_of_action_cancels_on_a_linear_form](/theorem/the_quantum_of_action_cancels_on_a_linear_form)** — "CLAIMED: over all 625 combinations in the box, hbar vanishes from a(l)+b(m)+c(t)+d(T) EXACTLY when a+b+c+d = 0 — cancellation is the kernel of a linear form, not a property found pair by pair."
+  - File: PlanckLattice.lean
+  - Statement: `allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true...`
+- **[gravity_cancels_on_a_linear_form](/theorem/gravity_cancels_on_a_linear_form)** — "CLAIMED: over the same 625 combinations, G vanishes EXACTLY when a−b+c−d = 0 — the second form, and the one whose signs are the two gravity classes."
+  - File: PlanckLattice.lean
+  - Statement: `allBox (fun k => ((nthI (combine k) 1) == 0) == (gravForm k == 0)) = true...`
+
+
+## the same arithmetic answers more than one domain
+
+**Prose:** "**The same arithmetic answers more than one domain, and that is what a cross explains.**" — backed by [the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)
+
+**Address:** `a9c05f9d-d1b7-885d-90ef-3324d772f636`
+
+**Backing theorems (1):**
+
+- **[the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)** — "CLAIMED: 1530 formula-shaped statements carry 1458 distinct byte-strings and 1325 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge."
+  - File: CrossFormulas.lean
+  - Statement: `((1325 < 1458) ∧ (1530 - 1325 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))...`
+
+
+## no wing buys its own ceiling
+
+**Prose:** "**No wing buys its own ceiling.**" — backed by [no_wing_buys_its_own_ceiling](/theorem/no_wing_buys_its_own_ceiling)
+
+**Address:** `46c56bfe-0d99-8b4a-8cb9-a87bf64f4ab7`
+
+**Backing theorems (1):**
+
+- **[no_wing_buys_its_own_ceiling](/theorem/no_wing_buys_its_own_ceiling)** — "NO WING BUYS ITS OWN CEILING. Across the 259 wings on disk, the census of recursion-depth raises is ZERO — not one file asks the kernel for more depth than it gives by default. Until 2026-08-25 it was one: Wave.lean carried a file-wide maxRecDepth raise, emitted with no note saying which theorem needed it, and by then no theorem in that wing needed it at all. That is why the count is kept rather than the line merely deleted. A raise is the cheapest way to make a claim pass and the most expensive thing to leave standing, because while it stands nothing in its wing can reach the ceiling — the healthy case and the broken case return the same value, and the signal that says RESTATE THIS CLAIM is gone. What stands in its place is involution_replaces_the_raised_ceiling: a self-inverse map splits its domain into fixed points and 2-cycles, so the obligation is the return and not the census, and the walked domain may grow as 2^k while the check stays at 2. Depth is a property of the SHAPE of a claim, never of the kernel's generosity."
+  - File: Software.lean
+  - Statement: `([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0...`
+
+
 ## two coins on the homepage account
 
 **Prose:** "110 − 108 = −χ of the double torus" — backed by [two_coins](/theorem/two_coins)
@@ -148,8 +245,8 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
 ---
 
 **Summary:**
-- Total claims audited: 10
-- Total backing theorems: 14
+- Total claims audited: 17
+- Total backing theorems: 23
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 

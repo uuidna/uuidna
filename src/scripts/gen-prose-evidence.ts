@@ -33,6 +33,45 @@ interface EvidenceEntry {
 // construction", "human quantum analog" — that a prior README/homepage rewrite had already dropped entirely.)
 // Re-picked 2026-08-26 against the magnitudes README rewrite (6929fccd).
 const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
+  // ── THE CROSS FORMULATION, every aspect bound to the theorem that decides it. The captain, 2026-09-26: "Always
+  // explain the meaning with provable prose covering all aspects of the cross formulation." Provable here has the
+  // tree's own meaning rather than a rhetorical one: each quote below is an exact line of the generated README, and
+  // next.ts ARM 7 fails the release if any of them drifts out of it, so the prose cannot quietly stop being backed.
+  {
+    claim: 'a cross formula is one quantity reached two independent ways',
+    prose: 'A **cross formula** is one quantity reachable by two independent routes through a closed structure.',
+    backing: T.filter(t => t.key === 'the_lattice_is_closed_under_product_and_ratio' || t.key === 'the_constant_free_combinations_are_a_rank_two_sublattice')
+  },
+  {
+    claim: 'the symmetric cross is blind to its spelling',
+    prose: '**One proportion has two spellings.**',
+    backing: T.filter(t => t.key === 'the_symmetric_cross_is_blind_to_its_spelling')
+  },
+  {
+    claim: 'over the naturals the ratio form is strictly weaker',
+    prose: '**Over ℕ the two forms are not equivalent.**',
+    backing: T.filter(t => t.key === 'the_asymmetric_cross_is_strictly_weaker_over_naturals')
+  },
+  {
+    claim: 'exact division is what makes the two crosses prove each other',
+    prose: '**Exact division is the condition under which they prove each other.**',
+    backing: T.filter(t => t.key === 'exact_division_makes_the_two_crosses_prove_each_other')
+  },
+  {
+    claim: 'a closed lattice generates its crosses instead of listing them',
+    prose: '**A closed lattice generates its crosses instead of listing them.**',
+    backing: T.filter(t => t.key === 'the_quantum_of_action_cancels_on_a_linear_form' || t.key === 'gravity_cancels_on_a_linear_form')
+  },
+  {
+    claim: 'the same arithmetic answers more than one domain',
+    prose: '**The same arithmetic answers more than one domain, and that is what a cross explains.**',
+    backing: T.filter(t => t.key === 'the_same_arithmetic_answers_more_than_one_domain')
+  },
+  {
+    claim: 'no wing buys its own ceiling',
+    prose: '**No wing buys its own ceiling.**',
+    backing: T.filter(t => t.key === 'no_wing_buys_its_own_ceiling')
+  },
   {
     claim: 'two coins on the homepage account',
     prose: '110 − 108 = −χ of the double torus',
