@@ -1,0 +1,105 @@
+{
+  "file": "Involutionc0727ef6.lean",
+  "slug": "involutionc0727ef6",
+  "status": "usable",
+  "address": "d825687e-433f-8a42-94f2-a77da6f673b6",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Involutionc0727ef6.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Involutionc0727ef6.lean\",\n \"url\": \"https://uuidna.com/lean/Involutionc0727ef6.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 2,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-seam_census_c0727ef6",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The census the refutation rests on: the tour has 2 seams and its dz-mirror has 9 — every step of the mirror is a seam, so no map can carry two onto nine."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem seam_census_c0727ef6 : (seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-involution_c0727ef6",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The seams reflect (row1's seams map onto row2's under the mirror) — REFUTED: applying the tour's own law to the mirrored row gives 9 seams where the lead's image gives 2, so the seams do not reflect."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "¬ lead_c0727ef6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem involution_c0727ef6 : ¬ lead_c0727ef6 := by unfold lead_c0727ef6; decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

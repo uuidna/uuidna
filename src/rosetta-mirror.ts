@@ -68673,6 +68673,9 @@ involution_90c4f258 26
 #Involutionb13fd37a.lean
 reconciled_b13fd37a 26
 involution_b13fd37a 26
+#Involutionc0727ef6.lean
+seam_census_c0727ef6 26
+involution_c0727ef6 26
 #Involutione92de628.lean
 not_dvd_of_bound_e92de628 26
 involution_e92de628 26

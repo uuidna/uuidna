@@ -1,0 +1,12 @@
+{
+  "handle": "9fe66c8a",
+  "address": "9fe66c8a-c8e9-8b4a-bf8b-4a2e2e981aed",
+  "statement": "(seamPairs tour).length = 2 ∧ (seamPairs (tour.map dz)).length = 9 ∧ (tour.map dz).length = 9",
+  "tactic": "decide",
+  "keys": [
+    "seam_census_c0727ef6"
+  ],
+  "files": [
+    "Involutionc0727ef6.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b14830e0",
+  "address": "b14830e0-488e-8972-96cc-30423cdb583b",
+  "statement": "71700 < 2 ^ 32",
+  "tactic": "decide",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "files": [
+    "HandleStore.lean"
+  ]
+}

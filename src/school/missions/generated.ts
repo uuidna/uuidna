@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "4c924ffb7af82a5d",
+ "digest": "75cebac8b390ceeb",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -668,7 +668,7 @@ export const BOUND_SLICE: BoundSlice = {
   {
    "key": "the_axiom_index_partitions_without_remainder",
    "wing": "Audit.lean",
-   "verdict": "base-undecidable"
+   "verdict": "load-bearing"
   },
   {
    "key": "edits_break_recompute",

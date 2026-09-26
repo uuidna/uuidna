@@ -1,0 +1,12 @@
+{
+  "handle": "28367a92",
+  "address": "28367a92-0065-8822-a76e-29b6a15febaa",
+  "statement": "((1325 < 1458) ∧ (1530 - 1325 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))",
+  "tactic": "decide",
+  "keys": [
+    "the_same_arithmetic_answers_more_than_one_domain"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

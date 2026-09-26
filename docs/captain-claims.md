@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-25
+**Generated:** 2026-09-26
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71080/71080 theorems — every one, by construction
-**Discovery claimed:** 70671 — the other 409 restate a fact a named source found first
+**Formalisation claimed:** 71082/71082 theorems — every one, by construction
+**Discovery claimed:** 70673 — the other 409 restate a fact a named source found first
 
 *The 409 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 344 of 379 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `0a97d636-56b6-86a6-ba41-dd5fa75e31b0`
+**Claim receipt:** `69e32ca1-3dc9-851b-8234-bb15f52f9c6e`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `bbbf202e-f954-8084-9ed9-58e9fa3c7d01`
+- **Sample lineAddress:** `ef4f0988-bc37-89cf-b85c-f8a52f0e4969`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `427cddff-14e4-8a33-ae8d-daeed3a342d3`
+- **Sample lineAddress:** `97d51e85-0786-8bad-895c-fbb6d05f200d`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1994,6 +1994,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [reconciled_b13fd37a](/theorem/reconciled_b13fd37a) · [involution_b13fd37a](/theorem/involution_b13fd37a)
 
+### The involution of lead c0727ef6
+
+- **Theorems:** 2
+- **Sample lineAddress:** `20571b95-e07d-88f9-b880-2f3c61777ce5`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[seam_census_c0727ef6](/theorem/seam_census_c0727ef6) · [involution_c0727ef6](/theorem/involution_c0727ef6)
+
 ### The involution of lead e92de628
 
 - **Theorems:** 3
@@ -2330,7 +2339,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `296069a4-fdb5-84a7-b8a3-baad5c973ef9`
+- **Sample lineAddress:** `ab3120ad-1e76-88b8-a0b3-726b6bae01ce`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2391,7 +2400,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 70995 (71080 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 70997 (71082 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2409,7 +2418,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71080 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71082 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2421,7 +2430,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71080; he claims discovery of 70671 and credits the other 409 facts to their named sources
+- ✓ The captain formalised all 71082; he claims discovery of 70673 and credits the other 409 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2437,7 +2446,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71080; of these I claim discovery of 70671, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71082; of these I claim discovery of 70673, and the remaining 409 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

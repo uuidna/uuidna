@@ -1,8 +1,8 @@
 
 # uuidna — Advantage Metrics
 
-**Generated:** 2026-09-25
-**Data source:** Live ledger (71080 sealed theorems)
+**Generated:** 2026-09-26
+**Data source:** Live ledger (71082 sealed theorems)
 
 ---
 
@@ -11,12 +11,12 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 71080 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 71080/71080 (100%) | Kernel-only proofs, recomputable offline |
-| **Principles** | 258 | Mathematical domains (ring, rosette, quantum, etc.) |
+| **Theorems proven** | 71082 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 71082/71082 (100%) | Kernel-only proofs, recomputable offline |
+| **Principles** | 259 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 128 | Capability axes across the ledger |
-| **Proof cost** | 101063354 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 71080 addresses | one recomputed per theorem |
+| **Proof cost** | 101063998 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Verification work** | 71082 addresses | one recomputed per theorem |
 | **Steps per address** | 1421 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
@@ -33,8 +33,8 @@
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
 | **MCP tools** | 248 | In 37 categories |
-| **Publications** | 258 | Monographs linked to sealed theorems |
-| **Vocabulary terms** | 386 | `vocabulary()` — ledger domains and skills |
+| **Publications** | 259 | Monographs linked to sealed theorems |
+| **Vocabulary terms** | 387 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
 
 ---
@@ -57,8 +57,8 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 101063354 kernel decide-steps, measured
-- Every later push (verify): 71080 address recomputations
+- First push (prove): 101063998 kernel decide-steps, measured
+- Every later push (verify): 71082 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,13 +84,13 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       71080
-Axiom-free (decide):  71080 (100.0%)
-Principles:           258 domains
-Publications:         258 monographs
+Total theorems:       71082
+Axiom-free (decide):  71082 (100.0%)
+Principles:           259 domains
+Publications:         259 monographs
 MCP tools:            248 capabilities
 Security checks:      6 automated
-Languages:            386 vocabulary terms
+Languages:            387 vocabulary terms
 Runtime deps:         0 (zero)
 Code coverage:        100% reachable modules
 ```
@@ -106,9 +106,9 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 459 models · widest window 2,000,000 tokens · 1,967,521,816 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 459 models · widest window 2,000,000 tokens · 1,959,133,208 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 71080 theorems · 258 principles · 128 skills | [/theorems](/theorems) · every wing |
+| Ledger | 71082 theorems · 259 principles · 128 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 

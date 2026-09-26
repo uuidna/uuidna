@@ -3,15 +3,15 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'293 open'" />
+# Missions <Badge type="tip" :text="'294 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**293 missions** — 28 seal-finding · 136 decide-bound · 129 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`4c924ffb7af82a5d`) and the research ledger. The captain of every mission
+**294 missions** — 28 seal-finding · 136 decide-bound · 130 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`75cebac8b390ceeb`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -28,7 +28,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | --- | ---: | ---: | ---: | --- |
 | wave | 67088 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
-| involution | 18 | 10 | 12 | `fdb12218` |
+| involution | 20 | 11 | 13 | `fdb12218` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | vortex | 24 | 4 | 6 | `fa48a04a` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
@@ -739,7 +739,7 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture) · [`two_coins_make_a_coil_and_seven_coils_are_one_and_six`](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 129 open
+## Give a theorem its symbol leg — 130 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
@@ -1186,6 +1186,10 @@ _a sealed Lean line with no TypeScript mirror in the wing emitter — the comput
 - **`2755c4b3`** give 2 theorems in Involutionb13fd37a.lean the symbol leg
   <br><small>deliverable: 2 theorems in Involutionb13fd37a.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
   <br><small>covers: [`reconciled_b13fd37a`](/theorem/reconciled_b13fd37a) · [`involution_b13fd37a`](/theorem/involution_b13fd37a)</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
+- **`35bf2f31`** give 2 theorems in Involutionc0727ef6.lean the symbol leg
+  <br><small>deliverable: 2 theorems in Involutionc0727ef6.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`seam_census_c0727ef6`](/theorem/seam_census_c0727ef6) · [`involution_c0727ef6`](/theorem/involution_c0727ef6)</small>
   <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`1710d18c`** give 3 theorems in Involutione92de628.lean the symbol leg
   <br><small>deliverable: 3 theorems in Involutione92de628.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

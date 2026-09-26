@@ -1,0 +1,12 @@
+{
+  "handle": "2774492e",
+  "address": "2774492e-a8fa-8570-b9a8-ead198a3c1f8",
+  "statement": "71082 * 2 ^ 105 < 2 ^ 122",
+  "tactic": "decide",
+  "keys": [
+    "forged_address_odds_are_negligible"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}
