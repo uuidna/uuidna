@@ -51,17 +51,27 @@ const PERFORM = /(?:^|\s)(?:re-?run|run|regenerate with)\s+`?(?:npm run x -- |x 
 // a regeneration clears" when it was exactly that. A command in the FIRST position is the fix's action, which is the
 // same reasoning NOT_AN_ACTION uses in reverse: there is no verb in front of it to make it an illustration.
 const LEADS_WITH = /^\s*`?(?:npm run x -- |node dist\/scripts\/)([a-z0-9][a-z0-9:_-]*)(?:\.js)?`?/
-const NOT_AN_ACTION = /\bremove it\b|\bremove the\b|\bedit\b|\bdelete\b|\bnever\b/i
+// THE VETO IS POSITIONAL, NOT LEXICAL, and reading it lexically was itself a false limit. The first version refused
+// any fix containing "remove", "edit" or "never" anywhere, and stamp's fix reads "run `npm run x -- stamp` — the slots
+// are generated from the live census, so the surface is corrected by recomputing it, NEVER by editing the number".
+// That sentence's "never" governs the reader's alternative, and its action is the command it opens with — so the loop
+// refused the one command that would have cleared the gate, and said the gate prescribed nothing.
+//
+// WHAT ACTUALLY DISTINGUISHES THE TWO CASES IS WHERE THE VERB SITS. "remove it and use `X`" reaches the command
+// THROUGH a removal; "run `X` — never by editing the number" reaches it directly and then tells the reader what not to
+// do instead. So each candidate is judged by the text BEFORE it: a removal or an edit standing in front of a command
+// makes that command an illustration, and nothing standing in front of it makes the command the action.
+const REACHED_THROUGH = /\bremove\b|\bdelete\b|\bedit\b|\bdrop\b|\binstead of\b/i
 
 export function prescribedIn(fix: string): string[] {
-  // a fix whose ACTION is an edit or a removal prescribes no command, however many it quotes for illustration
-  if (NOT_AN_ACTION.test(fix)) return []
   const out: string[] = []
   const lead = LEADS_WITH.exec(fix)
+  // a leading command has nothing in front of it BY CONSTRUCTION, so it is always the action
   if (lead) out.push(`npm run x -- ${lead[1]!}`)
   for (const m of fix.matchAll(PERFORM)) {
     const name = m[1]!
     if (name === 'npm' || name === 'node' || name === 'it' || name === 'the' || name === 'build') continue
+    if (REACHED_THROUGH.test(fix.slice(0, m.index))) continue
     out.push(`npm run x -- ${name}`)
   }
   return [...new Set(out)]

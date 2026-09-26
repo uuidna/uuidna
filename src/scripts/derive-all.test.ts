@@ -37,11 +37,24 @@ test('A FIX WHOSE ACTION IS A REMOVAL OR AN EDIT PRESCRIBES NOTHING — the case
   assert.deepEqual(prescribedIn('drop the number and name the source instead ("the key count"), or mark the sentence as HISTORY'), [])
   assert.deepEqual(prescribedIn('edit src/novelty.ts:95: theoremFor(key) (import theoremByKey from the theorems index)'), [])
   assert.deepEqual(prescribedIn('this is a LEAD, not a fix: put it to the trial door (uuidna_trial)'), [])
-  // a fix carrying an explicit "never" is the clearest case, and the reason is the finder's own wording rather than
-  // a rule about the word: a fix that says the number is corrected by recomputing it "never by editing" is naming
-  // what the reader must not do, so there is no command in it for this loop to perform.
-  assert.deepEqual(prescribedIn('the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number'), [],
-    'a fix containing an explicit "never" is not an instruction to run anything')
+  // a fix that names no command prescribes none. The reason is that there is nothing in it to run — NOT that it
+  // contains the word "never", which the case below shows is no evidence at all.
+  assert.deepEqual(prescribedIn('the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number'), [])
+})
+
+test('A "NEVER" LATER IN THE SENTENCE DOES NOT VETO THE COMMAND IT OPENS WITH — my own false limit', () => {
+  // I wrote the first veto lexically, refusing any fix containing remove/edit/never anywhere, and used THIS fix's
+  // tail as my example of a non-action. stamp's fix is a genuine regeneration whose "never" governs the reader's
+  // alternative, so the loop refused the one command that clears the gate and reported the gate as prescribing
+  // nothing. The landing named it, which is the only reason the control is here rather than the assertion I wrote.
+  const stampFix = 'run `npm run x -- stamp` — the slots are generated from the live census, so the surface is'
+    + ' corrected by recomputing it, never by editing the number'
+  assert.deepEqual(prescribedIn(stampFix), ['npm run x -- stamp'],
+    'the verb the fix opens with is its action; the "never" tells the reader what not to do instead')
+
+  // and the discrimination is POSITIONAL: the same veto word in front of the command still vetoes it
+  assert.deepEqual(prescribedIn('remove it and use `npm run x -- stamp`'), [])
+  assert.deepEqual(prescribedIn('run `npm run x -- stamp`, and never edit the number by hand'), ['npm run x -- stamp'])
 })
 
 test('A FIX THAT OPENS WITH THE BARE COMMAND IS PRESCRIBING IT — no imperative verb is needed', () => {
