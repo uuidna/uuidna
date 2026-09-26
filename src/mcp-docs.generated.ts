@@ -13305,7 +13305,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"stations\":65536,\"occupied\":5794,\"vacant\":59742,\"theoremsSeated\":5546,\"axiomsSeated\":514,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
+   "excerpt": "{\"stations\":65536,\"occupied\":5797,\"vacant\":59739,\"theoremsSeated\":5546,\"axiomsSeated\":517,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
   }
  },
  "uuidna_skills": {
@@ -20647,6 +20647,12 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
        "type": "integer"
       },
       "alpinePending": {
+       "type": "integer"
+      },
+      "crossingPending": {
+       "type": "integer"
+      },
+      "witnessPending": {
        "type": "integer"
       },
       "wavePending": {
