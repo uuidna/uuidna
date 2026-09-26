@@ -52,7 +52,7 @@ const liveFormulaCopies = (): number => {
   }
   const groups = c.groups
   if (!Array.isArray(groups) || typeof c.formulas !== 'number' || c.formulas === 0) {
-    throw new Error('ratchets: lean/formula-duplication.json is absent or empty — run `npm run formula-duplication`; an untaken census is not a debt of zero')
+    throw new Error('ratchets: lean/formula-duplication.json is absent or empty — run `npm run x -- formula-duplication`; an untaken census is not a debt of zero')
   }
   return groups
     .filter((g) => g.withinOneSkill === true)

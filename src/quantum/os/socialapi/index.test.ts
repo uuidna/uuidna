@@ -1,6 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { post, readPost, feedRoot, follow, timeline, socialApi, socialCensus } from './index.js'
+import { catalogueState } from '../catalogue/index.js'
 
 test('attribution rides in the address — same text, two authors, two addresses', () => {
   assert.notEqual(post('alice', 'port day').address, post('bob', 'port day').address)
@@ -55,7 +56,16 @@ test('timeline carries only what the handle follows', () => {
 
 test('the census is the committed mirror, and the port names what it is not', () => {
   const c = socialCensus()
-  assert.equal(c.packages + c.outside, 28635)
+  // THE CLAIM IS THE PARTITION, NOT THE TOTAL. This read `=== 28635`, and the committed mirror is now 28644 — so the
+  // assertion was pinning a total that the mirror had already moved past, which is the frozen-count class this tree
+  // has a finder for everywhere else. The invariant it MEANS is that ported and outside partition the catalogue with
+  // nothing lost and nothing double-counted, and that is checkable against the mirror itself: it catches a package
+  // falling out of both sets — which a total never could, BY CONSTRUCTION, since a total is one number and a lost
+  // package changes both sides of it — and it cannot go stale.
+  const { count } = catalogueState()
+  assert.equal(c.packages + c.outside, count,
+    'ported + outside must account for every row of the committed mirror — a package in neither set is lost')
+  assert.ok(c.packages > 0 && c.outside > 0, 'both sides must be non-empty, or the partition is vacuous')
   const a = socialApi()
   assert.equal(a.ported.packages, c.packages)
   assert.match(a.honest, /no feed fetched|nothing federated/)
