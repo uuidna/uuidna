@@ -70,7 +70,29 @@ function exposeLeads(): SourceReading {
   try {
     // the SAME three walks uuidna_expose serves, from the same primitives — one derivation, so the gate and the
     // served surface can never disagree about what is exposed
-    const lonely = theorems().filter((t) => theoremNeighbours(t.key).count === 0)
+    // A THEOREM WITH SIXTY-THREE SIBLINGS IS NOT ALONE, whatever its principle is called. This rule read only the
+    // PRINCIPLE, and it was therefore measuring naming rather than mathematics: all 68 of its open leads were two
+    // indexed families. 64 are xor_translation_preserves_adjacency_<n>, one per wing EquilibriumXor1..64, split that
+    // way because each is a single enormous `by decide` — one peaks at 5.1 GB and 51.8 s — so the split is a host
+    // constraint, not a missing sibling. The other 4 are the court's own verdict wings (involution_<handle>,
+    // proof_<handle>), which hold exactly ONE verdict by design and always will.
+    //
+    // THE EXEMPTION IS DERIVED, NOT LISTED, which is the whole condition the laws put on it (the captain, 2026-09-14:
+    // "remove any allow lists or disallowed or any manual logic whatsoever not coming from lean decisions"). Strip a
+    // trailing index or handle from the key and ask the LEDGER whether siblings exist under that stem. Nothing names
+    // EquilibriumXor or involution_ here; a family that stops being a family stops being exempt on the next run.
+    //
+    // AND IT IS NOT VACUOUS: 58,191 of the 71,082 keys have a stem no other key shares, so any one of those sitting
+    // alone in a principle still reads as a lead. The finder's surface is intact; what left it was the false half.
+    //
+    // WHAT THIS DOES NOT CLAIM: that a one-member principle makes a good monograph. It may well be thin — but that is
+    // a PUBLICATION question, which the coverage source already owns and states in its own words, and this lead's own
+    // sentence asks for "a second theorem", which is false wherever the siblings already exist.
+    const stemOf = (key: string): string => key.replace(/_[0-9]+$/, '').replace(/_[0-9a-f]{8}$/, '')
+    const familySize = new Map<string, number>()
+    for (const t of theorems()) familySize.set(stemOf(t.key), (familySize.get(stemOf(t.key)) ?? 0) + 1)
+    const lonely = theorems().filter((t) =>
+      theoremNeighbours(t.key).count === 0 && (familySize.get(stemOf(t.key)) ?? 1) < 2)
     const open: Lead[] = [
       ...lonely.map((t) => ({ source: 'expose', what: `${t.key} is alone in its principle "${t.principle}" (${t.file})`, owes: 'a second theorem in that principle, or a sealed statement that one is genuinely enough' })),
       ...gridGaps().map((g) => ({ source: 'expose', what: g.what, owes: g.fix })),
