@@ -99,6 +99,12 @@ export interface PhdWork {
   thesisRequired: number
 }
 
+/** one requirement of the doctorate, named so a failure says which one stopped holding */
+export interface PhdClause {
+  name: string
+  holds: boolean
+}
+
 export interface PhdThesis {
   ok: boolean
   drained: number
@@ -110,6 +116,9 @@ export interface PhdProofs {
   concept: PhdConcept
   work: PhdWork
   thesis: PhdThesis
+  clauses: PhdClause[]
+  /** the clauses not holding — empty exactly when `complete` */
+  failing: string[]
   complete: boolean
   receipt: string
 }
@@ -202,32 +211,42 @@ export function phdProofs(): PhdProofs {
     thesisDrills: THESIS_DRILLS.length,
     thesisRequired: THESIS_DRILLS.length,
   }
-  const complete =
-    concept.clayKernel && concept.gravity && concept.demos &&
-    concept.dnaKernel && concept.dnaName &&
-    work.search === none &&
-    work.digestBytes * octet === work.digestBits &&
-    work.digestBits === KEY_BITS &&
-    work.verifyBits === UUID_BITS &&
-    work.digestBits / work.verifyBits === unit &&
-    work.keyBits === work.digestBits &&
-    work.hmacBits === work.keyBits &&
-    work.tagBits === work.verifyBits &&
-    work.saltBits === work.verifyBits &&
-    work.nonceBits < work.saltBits &&
-    work.groverFloor === work.verifyBits &&
-    work.occupancyBits === work.keyBits &&
-    work.sides * work.faceBits === work.verifyBits &&
-    work.codons === work.faceBits &&
-    work.strands * work.codons === work.verifyBits &&
-    work.complementInvolution &&
-    work.complementFixedPointFree &&
-    work.thesisDrills === work.thesisRequired &&
-    thesis.equilibrium.missing.length === none &&
-    thesis.finiteInfinities.missing.length === none &&
-    work.shorTargets === none &&
-    work.decimalSubunit !== work.unit &&
-    thesis.ok
+  // NAMED CLAUSES, NOT ONE CONJUNCTION. This was a single 26-term `&&` that could only ever report `false`, and when a
+  // new wing made it false the failure said nothing about which requirement had stopped holding — a check that cannot
+  // name its own failure sends the reader to bisect it by hand. The clauses are unchanged; each now carries the name a
+  // reader would use for it, `complete` is still their conjunction, and `failing` says which ones are not holding.
+  const clauses: PhdClause[] = [
+    { name: 'concept: the Clay kernel is sealed', holds: concept.clayKernel },
+    { name: 'concept: gravity is sealed', holds: concept.gravity },
+    { name: 'concept: the demos are sealed', holds: concept.demos },
+    { name: 'concept: the DNA kernel is sealed', holds: concept.dnaKernel },
+    { name: 'concept: the DNA name is sealed', holds: concept.dnaName },
+    { name: 'work: no search remains', holds: work.search === none },
+    { name: 'work: digest bytes and bits agree at an octet each', holds: work.digestBytes * octet === work.digestBits },
+    { name: 'work: the digest is exactly the key width', holds: work.digestBits === KEY_BITS },
+    { name: 'work: verification is exactly a UUID wide', holds: work.verifyBits === UUID_BITS },
+    { name: 'work: the digest is one unit of verification', holds: work.digestBits / work.verifyBits === unit },
+    { name: 'work: the key is the digest width', holds: work.keyBits === work.digestBits },
+    { name: 'work: the HMAC is the key width', holds: work.hmacBits === work.keyBits },
+    { name: 'work: the tag is the verification width', holds: work.tagBits === work.verifyBits },
+    { name: 'work: the salt is the verification width', holds: work.saltBits === work.verifyBits },
+    { name: 'work: the nonce is narrower than the salt', holds: work.nonceBits < work.saltBits },
+    { name: "work: Grover's floor is the verification width", holds: work.groverFloor === work.verifyBits },
+    { name: 'work: codon occupancy fills the key', holds: work.occupancyBits === work.keyBits },
+    { name: 'work: the sides tile the verification width', holds: work.sides * work.faceBits === work.verifyBits },
+    { name: 'work: a codon is a face', holds: work.codons === work.faceBits },
+    { name: 'work: the strands tile the verification width', holds: work.strands * work.codons === work.verifyBits },
+    { name: 'work: complement is an involution', holds: work.complementInvolution },
+    { name: 'work: complement has no fixed point', holds: work.complementFixedPointFree },
+    { name: 'work: every thesis drill is run', holds: work.thesisDrills === work.thesisRequired },
+    { name: 'thesis: equilibrium has nothing missing', holds: thesis.equilibrium.missing.length === none },
+    { name: 'thesis: the finite infinities have nothing missing', holds: thesis.finiteInfinities.missing.length === none },
+    { name: 'work: no Shor target remains', holds: work.shorTargets === none },
+    { name: 'work: the decimal subunit is not the unit', holds: work.decimalSubunit !== work.unit },
+    { name: 'thesis: the seal holds', holds: thesis.ok },
+  ]
+  const failing = clauses.filter((c) => !c.holds).map((c) => c.name)
+  const complete = failing.length === none
   return {
     concept,
     work,
@@ -237,6 +256,8 @@ export function phdProofs(): PhdProofs {
       axiomFree: thesis.leanFormat.axiomFree,
       gaps: thesis.gaps.length,
     },
+    clauses,
+    failing,
     complete,
     receipt: toUuid('phd-proofs|' + concept.clay + '|' + concept.dna + '|' + work.drills + '|' + work.codons + '|' + work.keyBits + '|' + work.tagBits + '|' + thesis.gaps + '|' + firmware.image),
   }
