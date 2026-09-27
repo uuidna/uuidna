@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 // window-crossroads — REPORT WHERE A WING OF FINITE WINDOWS STANDS, and how much is formulable there.
 //
-// Usage: npm run window-crossroads [-- <Wing.lean> ...]   (default: Clay.lean and the two CERN wings)
+// Usage: npm run x -- window-crossroads [<Wing.lean> ...]   (default: Clay.lean and the two CERN wings)
+//
+// Through the dispatcher, not a package.json entry: a hand-typed wrapper nothing else calls is refused here, and a
+// usage line naming a script that does not exist is a remedy pointing nowhere.
 //
 // This is the door src/window-crossroads.ts was missing (recorded at the time as UUIDNA_MCP_GAP="no clay door"). It
 // reports and holds: it deposits nothing and seals nothing, because a crossroad is a place to look and the crosses
