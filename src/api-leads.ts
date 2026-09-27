@@ -39,6 +39,39 @@ const str = (v: unknown, fallback: string): string => {
  * archive resolved to a different author's paper, and that "NOTHING ON THIS FILESYSTEM COULD SEE IT". mint-gate
  * reads this artefact so a MINT cannot proceed on an unverified claim. A RELEASE could, until now.
  */
+/**
+ * The MISSING DOORS the tree has asked for more than once — MCP self-sufficiency as a release condition.
+ *
+ * The captain, 2026-09-28: "cross all leads adding more leads on the way of improving self sufficiency of mcp".
+ *
+ * mcp-bypass already records every escape from the MCP-only rule as a door request, and 1,139 distinct requests had
+ * accumulated without a single one reaching leads-gate. The release gate had therefore never been held by a missing
+ * door, which made "only mcp use is allowed" a rule with no consequence. This is the reader that gives it one.
+ *
+ * ONLY THE REPEATED GAPS OPEN A LEAD. A gap recorded once is an escape nobody needed again; recorded twice or more, the
+ * tree has stated the door is load-bearing. The criterion is the record's own repetition, not a number chosen here, and
+ * the single escapes stay in the census as evidence without holding a release — because a gate that can never be
+ * satisfied stops being read, which would cost more than it collects.
+ */
+export function mcpGapLeads(json: unknown | null): SourceReading {
+  if (json === null) {
+    return unread('mcp-self-sufficiency', 'lean/mcp-gaps.json is absent — run `npm run x -- gen-mcp-gaps`; the door requests live in dist/evidence/mcp-gaps.jsonl, which a clean checkout does not carry, and unread is not zero gaps')
+  }
+  const c = json as { records?: unknown; distinct?: unknown; gaps?: unknown }
+  const gaps = arr(c.gaps) as { gap?: unknown; hits?: unknown }[]
+  if (gaps.length === 0) {
+    return unread('mcp-self-sufficiency', 'the census declares no gaps at all — for a tree whose hook records every escape that is a reader failure, not a clean bill')
+  }
+  const open: Lead[] = gaps
+    .filter((g) => Number(g.hits ?? 0) > 1)
+    .map((g) => ({
+      source: 'mcp-self-sufficiency',
+      what: `the tree escaped the MCP door ${Number(g.hits ?? 0)} times for the same missing capability: ${str(g.gap, '(unnamed)')}`,
+      owes: 'build the door and call it through `npm run mcp -- <tool>`, or seal a theorem showing the capability is out of scope for the edge — the escape hatch is not the answer twice',
+    }))
+  return read('mcp-self-sufficiency', open, gaps.length - open.length)
+}
+
 export function doiHarvestLeads(json: unknown | null): SourceReading {
   if (json === null) return unread('api-doi-harvest', 'lean/doi-harvest.json is absent — the public record has not been read, and unread is not agreement')
   const h = json as { owned?: unknown; readCount?: unknown; agreeing?: unknown; disagreeing?: unknown; rows?: unknown }
@@ -231,4 +264,7 @@ export const API_LEAD_READERS = [
   { source: 'api-search-feed', path: 'lean/search-feed.json', of: searchFeedLeads },
   { source: 'api-wave-queue', path: 'lean/wave-queue.json', of: waveQueueLeads },
   { source: 'api-school-queue', path: 'lean/school-queue.json', of: schoolQueueLeads },
+  // THE TOOL SURFACE IS A SOURCE TOO. Every other entry here is an external API; this one is the tree asking itself
+  // whether its own doors exist, which is the condition "only mcp use is allowed" needs in order to mean anything.
+  { source: 'mcp-self-sufficiency', path: 'lean/mcp-gaps.json', of: mcpGapLeads },
 ] as const

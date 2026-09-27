@@ -3,7 +3,7 @@
 // the state these four artefacts were in before this file existed.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { doiHarvestLeads, releaseLiveLeads, searchFeedLeads, waveQueueLeads, schoolQueueLeads, API_LEAD_READERS } from './api-leads.js'
+import { doiHarvestLeads, releaseLiveLeads, searchFeedLeads, waveQueueLeads, schoolQueueLeads, API_LEAD_READERS , mcpGapLeads } from './api-leads.js'
 
 // ─── absent is UNREAD, and unread blocks ─────────────────────────────────────────────────────────────────────
 test('api-leads: an absent artefact is unread, never clean', () => {
@@ -123,9 +123,10 @@ test('api-leads: the live queue state — 0 pending, 963 accepted, 30 refused �
 })
 
 test('api-leads: every reader is registered, so a new artefact is added in one place', () => {
-  assert.equal(API_LEAD_READERS.length, 5)
+  assert.equal(API_LEAD_READERS.length, 6)
   assert.deepEqual([...API_LEAD_READERS].map((r) => r.source).sort(),
-    ['api-doi-harvest', 'api-release-live', 'api-school-queue', 'api-search-feed', 'api-wave-queue'])
+    ['api-doi-harvest', 'api-release-live', 'api-school-queue', 'api-search-feed', 'api-wave-queue',
+      'mcp-self-sufficiency'])
   for (const r of API_LEAD_READERS) assert.match(r.path, /^lean\/.+\.json$/)
 })
 
@@ -182,4 +183,43 @@ test('api-leads: an ungraded but EMPTY queue holds no lead; waiting work does', 
   const w = schoolQueueLeads({ state: 'ungraded', why: 'no lean here', graded: 0, void: 3 })
   assert.equal(w.open.length, 1)
   assert.match(w.open[0]!.what, /3 submission/)
+})
+
+
+// ── MCP SELF-SUFFICIENCY ────────────────────────────────────────────────────────────────────────────────────────
+
+// UNREAD IS NOT ZERO GAPS, and here it is the likeliest state: the door requests accumulate in dist/, which a clean
+// checkout does not carry, so CI reads nothing unless the census was generated and committed.
+test('mcpGapLeads — an absent census is UNREAD and names how to produce it', () => {
+  const r = mcpGapLeads(null)
+  assert.equal(r.reached, false)
+  assert.match(String(r.why), /gen-mcp-gaps/)
+  assert.deepEqual(r.open, [])
+})
+
+test('mcpGapLeads — a census declaring no gaps at all is a reader failure, not a clean bill', () => {
+  const r = mcpGapLeads({ kind: 'mcp-gap-census', records: 0, distinct: 0, gaps: [] })
+  assert.equal(r.reached, false)
+  assert.match(String(r.why), /reader failure/)
+})
+
+// ONLY THE REPEATED GAPS OPEN A LEAD: one escape is an escape, twice is the tree saying the door is load-bearing.
+test('mcpGapLeads — a gap recorded once is settled evidence; recorded twice it opens a lead', () => {
+  const r = mcpGapLeads({
+    gaps: [
+      { gap: 'no door commits a pathspec', hits: 15 },
+      { gap: 'no door reads a broken source', hits: 2 },
+      { gap: 'a one-off nobody needed again', hits: 1 },
+    ],
+  })
+  assert.equal(r.reached, true)
+  assert.equal(r.open.length, 2)
+  assert.equal(r.settled, 1, 'the single escape counts as settled evidence, not as an open lead')
+  assert.match(r.open[0]!.what, /15 times/)
+  assert.match(r.open[0]!.owes, /build the door/)
+})
+
+test('mcpGapLeads — every lead carries the source, so the gate can attribute it', () => {
+  const r = mcpGapLeads({ gaps: [{ gap: 'x', hits: 3 }] })
+  assert.equal(r.open[0]!.source, 'mcp-self-sufficiency')
 })
