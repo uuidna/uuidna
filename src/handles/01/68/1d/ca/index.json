@@ -1,0 +1,12 @@
+{
+  "handle": "01681dca",
+  "address": "01681dca-549d-8e0b-b288-b35eb9e28ecf",
+  "kind": "chunk",
+  "keys": [
+    "the_key_index_fits_where_the_rows_do_not"
+  ],
+  "statement": "(1602720 * 83 < 134217728) ∧ (1602720 * 84 > 134217728)",
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

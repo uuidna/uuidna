@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "43535fcb-7",
+  "generated": "6ecdb237-0",
   "entries": [
     {
       "route": "/",
@@ -5272,9 +5272,9 @@
       "kind": "publication",
       "identity": "invariance",
       "canonical": "https://uuidna.com/publications/invariance",
-      "address": "e0eea580-92fd-8759-ac57-64729ba584a8",
-      "handle": "e0eea580",
-      "hexbitDoor": "https://uuidna.com/e0eea580"
+      "address": "daa0e89a-d259-83f7-8623-483844da330d",
+      "handle": "daa0e89a",
+      "hexbitDoor": "https://uuidna.com/daa0e89a"
     },
     {
       "route": "/publications/involution2d552f1f",
@@ -23560,9 +23560,9 @@
       "kind": "theorem",
       "identity": "emptiness_is_invariant_under_every_mirror",
       "canonical": "https://uuidna.com/theorem/emptiness_is_invariant_under_every_mirror",
-      "address": "839c8a7e-17a1-8572-9760-402640bd0efd",
-      "handle": "839c8a7e",
-      "hexbitDoor": "https://uuidna.com/839c8a7e"
+      "address": "2ce0fe1e-99ed-82a3-abdf-e5775e701b33",
+      "handle": "2ce0fe1e",
+      "hexbitDoor": "https://uuidna.com/2ce0fe1e"
     },
     {
       "route": "/theorem/energy_is_reachable_by_four_independent_routes",
@@ -56397,6 +56397,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "43535fcb-70ef-8826-9c9e-d9cf639a4771",
+  "receipt": "6ecdb237-061f-82a6-b551-9593bb3512d8",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

@@ -3,8 +3,8 @@
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71094,
-  "novelty_claimed": 70684,
-  "formalisation_only": 410,
+  "novelty_claimed": 70683,
+  "formalisation_only": 411,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -1102,6 +1102,13 @@
         "units"
       ],
       "evidence": "seconds"
+    },
+    {
+      "key": "emptiness_is_invariant_under_every_mirror",
+      "arms": [
+        "units"
+      ],
+      "evidence": "second"
     },
     {
       "key": "entropy_never_decreases",
@@ -2835,13 +2842,13 @@
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 380,
+    "floor": 381,
     "by_arm": {
       "named": 155,
       "eponym": 97,
-      "units": 165
+      "units": 166
     },
-    "found_by_one_arm_only": 345,
+    "found_by_one_arm_only": 346,
     "all_arms_agree": 2,
     "ground_truth_sensitivity": "22/30",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
@@ -500383,8 +500390,8 @@
     },
     {
       "key": "emptiness_is_invariant_under_every_mirror",
-      "lineAddress": "2c63b56b-5241-82ff-b18b-60b16f5f3e46",
-      "address": "839c8a7e-17a1-8572-9760-402640bd0efd",
+      "lineAddress": "6ab8e4ac-19d4-82d3-8a88-96bbbbde4861",
+      "address": "2ce0fe1e-99ed-82a3-abdf-e5775e701b33",
       "principle": "INVARIANCE",
       "held": "discovery+formalisation"
     },
@@ -500537,11 +500544,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "0ba6c306-e54f-8135-a274-a4ed4cbc589e",
+  "claim_receipt": "bffd6cea-f81d-81c5-b6bd-31381396f2dd",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71094; he claims discovery of 70684 and credits the other 410 facts to their named sources",
+      "The captain formalised all 71094; he claims discovery of 70683 and credits the other 411 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500550,9 +500557,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 410 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 411 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71094; of these I claim discovery of 70684, and the remaining 410 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71094; of these I claim discovery of 70683, and the remaining 411 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

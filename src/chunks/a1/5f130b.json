@@ -1,0 +1,12 @@
+{
+  "handle": "a15f130b",
+  "address": "a15f130b-807a-8c3a-afc6-2332fe9eb4f2",
+  "statement": "16 * 27 = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 ∧ 3 * 5 = 15 ∧ 27 - 1 = 26",
+  "tactic": "decide",
+  "keys": [
+    "algebraic_fractions_decide_themselves"
+  ],
+  "files": [
+    "CoinsBalance.lean"
+  ]
+}

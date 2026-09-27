@@ -1,0 +1,12 @@
+{
+  "handle": "03ae4d5e",
+  "address": "03ae4d5e-105f-84e4-b01d-0342371cfab7",
+  "kind": "chunk",
+  "keys": [
+    "emptiness_is_invariant_under_every_mirror"
+  ],
+  "statement": "((allQ (fun a b c d => !(everywhere a b c d) || (allPermsAgree a b c d))) = true) ∧ ((allQ (fun a b c d => everywhere a b c d)) = true)",
+  "files": [
+    "Invariance.lean"
+  ]
+}

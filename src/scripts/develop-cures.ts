@@ -97,6 +97,14 @@ export const CURES: CureRow[] = [
   // so a court cure drifts spin BY DESIGN. With the spin cure first in the table, land2 and land3 each spent six rounds
   // alternating "derived layer drift (spin)" ↔ "court record stale" and pushed nothing; and reconcile --derive-only
   // runs the guard as its precondition, so while the court is stale the spin cure stops at its first step, by construction.
+  // A GUARD WHOSE FAILURE HAS NO CURE HERE IS A GUARD THAT STOPS EVERY LANDING UNTIL SOMEONE READS IT BY HAND. Met
+  // 2026-09-27: strengthening a theorem's statement left the paper publishing the previous one under the same key, the
+  // latex crosscheck refused, and this table had no row for it — so the landing failed with an exact diagnosis and no
+  // automated repair. The paper is generated from the ledger, so the ledger is right by definition and the paper is
+  // what must be recomputed; the reverse would be editing a claim to match a stale copy of itself.
+  { name: 'paper publishes a superseded statement', when: /same-key-different-statement/,
+    cmd: 'node dist/scripts/gen-latex.js',
+    because: 'the manuscript is derived from the ledger, so a key whose wing and paper disagree is a stale derivation and never a disputed fact — recompute the paper, never reword the theorem to match it' },
   { name: 'court record stale', when: /lean\/refusal-trials\.json is not what the court computes now/,
     cmd: 'node dist/scripts/trial-refusals.js',
     because: 'the record is recomputed from the leads, the ledger and the kernel\'s receipts, never edited — any change to those inputs, or to the court\'s own seal, leaves it naming the previous verdicts; it runs before the spin reseal because the record is one of the files spin seals (measured 2026-09-15: six rounds of court ↔ spin alternation in each of two landings with the order reversed)' },

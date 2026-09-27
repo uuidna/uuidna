@@ -1,0 +1,12 @@
+{
+  "handle": "d9adb21f",
+  "address": "d9adb21f-1794-8c2b-b404-01bc65089a9e",
+  "statement": "71094 * 2 ^ 105 < 2 ^ 122",
+  "tactic": "decide",
+  "keys": [
+    "forged_address_odds_are_negligible"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

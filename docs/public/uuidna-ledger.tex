@@ -86064,10 +86064,10 @@ theorem an_answer_is_content_or_a_refusal_and_never_neither : (List.range 8).all
 
 \section{INVARIANCE}
 
-\begin{theorem}[CLAIMED: over all 625 quadruples, every form that is true of ALL of them is also invariant under the mirror (a,b,c,d) ↦ (d,c,b,a) — so a conjunct that cannot fail is symmetric for free, and padding is symmetry's degenerate limit rather than its opposite.]
+\begin{theorem}[CLAIMED: over all 625 quadruples and all 24 rearrangements of four positions, every form true of ALL quadruples agrees with its own image under EVERY rearrangement — so a conjunct that cannot fail is symmetric for free, and padding is symmetry's degenerate limit rather than its opposite. The second conjunct decides that the antecedent is satisfied by all 625, so the implication is not carried by an empty hypothesis.]
 \label{thm:emptiness-is-invariant-under-every-mirror}
 \begin{lstlisting}[language=lean]
-(allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true
+((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -86075,9 +86075,9 @@ theorem an_answer_is_content_or_a_refusal_and_never_neither : (List.range 8).all
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem emptiness_is_invariant_under_every_mirror : (allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true := by decide
+theorem emptiness_is_invariant_under_every_mirror : ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{839c8a7e-17a1-8572-9760-402640bd0efd}.
+\noindent Content-address \texttt{e3594693-2635-89ba-8eb7-639ab10622da}.
 \end{proof}
 
 \begin{theorem}[CLAIMED: the converse FAILS — the symmetric cross a·d = b·c is invariant under the mirror and is NOT true of every quadruple, so symmetry with content exists and invariance is not merely a symptom of saying nothing.]

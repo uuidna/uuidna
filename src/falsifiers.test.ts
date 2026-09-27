@@ -5520,7 +5520,6 @@ const DECIDED: readonly (readonly [string, string, string])[] = [
   ["the_key_index_fits_where_the_rows_do_not", "(1602720 * 83 < 134217728) ∧ (1602720 * 84 > 134217728)", "DoorSurface.lean"],
   ["the_keys_are_a_small_fraction_of_the_rows", "(1602720 * 26 < 41943040) ∧ (1602720 * 27 > 41943040) ∧ (26 > 1)", "DoorSurface.lean"],
   ["an_answer_is_content_or_a_refusal_and_never_neither", "(List.range 8).all (fun c => (List.range 2).all (fun e => answered c e == (c > 0 || e == 1))) = true", "DoorSurface.lean"],
-  ["emptiness_is_invariant_under_every_mirror", "(allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true", "Invariance.lean"],
   ["symmetry_with_content_is_not_emptiness", "((allQ (fun a b c d => (symmetric a b c d) == (symmetric d c b a))) = true) ∧ ¬(1 * 1 = 2 * 2)", "Invariance.lean"],
   ["the_square_has_no_fourth_cell", "(anyQ (fun a b c d => !(symmetric a b c d))) = true ∧ (allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true", "Invariance.lean"],
   ["the_quantum_of_action_cancels_on_a_linear_form", "allBox (fun k => ((nthI (combine k) 0) == 0) == (hbarForm k == 0)) = true", "PlanckLattice.lean"],

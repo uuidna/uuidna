@@ -1,0 +1,12 @@
+{
+  "handle": "af8a6f4f",
+  "address": "af8a6f4f-56dd-83b5-97c9-a128345e2eb0",
+  "kind": "chunk",
+  "keys": [
+    "the_pentagram_is_the_unit_and_its_coins"
+  ],
+  "statement": "n + coins = 5",
+  "files": [
+    "CoinsBalance.lean"
+  ]
+}

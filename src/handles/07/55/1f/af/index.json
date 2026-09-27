@@ -1,0 +1,12 @@
+{
+  "handle": "07551faf",
+  "address": "07551faf-30b8-8238-bfb5-c0e015d19daa",
+  "kind": "chunk",
+  "keys": [
+    "symmetry_with_content_is_not_emptiness"
+  ],
+  "statement": "((allQ (fun a b c d => (symmetric a b c d) == (symmetric d c b a))) = true) ∧ ¬(1 * 1 = 2 * 2)",
+  "files": [
+    "Invariance.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ca2f5690",
+  "address": "ca2f5690-3bc4-8b4d-92b4-2bbe48d85ad9",
+  "statement": "(0 < 71039) ∧ (0 + 71039 = 71039)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

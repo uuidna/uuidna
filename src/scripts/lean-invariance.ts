@@ -33,6 +33,21 @@ const QUADS: number[][] = RANGE.flatMap((a) => RANGE.flatMap((b) => RANGE.flatMa
 
 /** the mirror: (a,b,c,d) ↦ (d,c,b,a), the permutation a proportion is blind to */
 const mirror = ([a, b, c, d]: number[]): number[] => [d!, c!, b!, a!]
+
+/**
+ * EVERY REARRANGEMENT of four positions, computed rather than typed. The guard caught this wing claiming a universal
+ * its statement did not walk: the key says "under every mirror" and `mirrorAgrees` tested exactly one permutation,
+ * (a,b,c,d) ↦ (d,c,b,a). The header even conceded it — "one permutation, one box, stated as such" — so the NAME was
+ * the outlier. Involuting rather than renaming: emptiness is invariant under every rearrangement, not just the
+ * reversal, so the claim the name makes is the claim now decided.
+ */
+const permutationsOf = (xs: number[]): number[][] =>
+  xs.length <= 1 ? [xs] : xs.flatMap((x, i) =>
+    permutationsOf([...xs.slice(0, i), ...xs.slice(i + 1)]).map((rest) => [x, ...rest]))
+const PERMS = permutationsOf([0, 1, 2, 3])
+const permuted = (p: number[], q: number[]): number[] => p.map((i) => q[i]!)
+const permInvariant = (f: (q: number[]) => boolean): boolean =>
+  QUADS.every((q) => PERMS.every((p) => f(q) === f(permuted(p, q))))
 // EXACT INTEGER DIVISION, NOT Math.floor — the harmonic scan refuses Math.* anywhere and this line was committed with
 // it. Subtracting the remainder before dividing truncates by construction, so the result is the same integer on every
 // host and no rounding namespace is touched. (A float floor is a decision the host makes; a wing's arithmetic cannot be.)
@@ -52,10 +67,15 @@ const OCCUPIED = [...new Set(CELLS.map((c) => `${c.allTrue ? 1 : 0}${c.inv ? 1 :
 
 const FACTS = [
   { key: 'emptiness_is_invariant_under_every_mirror', skill: 'invariance',
-    name: `CLAIMED: over all ${QUADS.length} quadruples, every form that is true of ALL of them is also invariant under the mirror (a,b,c,d) ↦ (d,c,b,a) — so a conjunct that cannot fail is symmetric for free, and padding is symmetry's degenerate limit rather than its opposite.`,
-    why: 'THIS IS WHY THE TWO CENSUSES ARE ONE. A form true everywhere is true of every permuted input too, because true equals true — so invariance is guaranteed by emptiness and cannot distinguish a fact from furniture. The ledger measures both: CrossProof treats the symmetric cross\'s blindness to its spelling as a virtue, and padding-conjunct counts 492 conjuncts that hold whatever their numerals are. The virtue and the defect share the property; what separates them is whether the form can fail at all. Walked over the box for every form rather than argued from the definition, because the implication is exactly the kind that reads obvious and is worth deciding once.',
-    js: () => FORMS.every((x) => !allTrue(x.f) || mirrorInvariant(x.f)),
-    lean: 'theorem emptiness_is_invariant_under_every_mirror : (allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true := by decide' },
+    name: `CLAIMED: over all ${QUADS.length} quadruples and all ${PERMS.length} rearrangements of four positions, every form true of ALL quadruples agrees with its own image under EVERY rearrangement — so a conjunct that cannot fail is symmetric for free, and padding is symmetry's degenerate limit rather than its opposite. The second conjunct decides that the antecedent is satisfied by all ${QUADS.length}, so the implication is not carried by an empty hypothesis.`,
+    why: 'A UNIVERSAL IS WALKED, NOT SAMPLED, AND THE ANTECEDENT IS SHOWN NON-EMPTY. The first version of this walked one rearrangement while the key claimed every one, which is the overclaim the incomplete-statement guard exists to catch; all 24 are walked now. The shape is chosen against the kernel and not for readability: my first attempt built the 625 quadruples as one flat list and filtered it, which recurses once per element and blew the recursion limit outright. No wing buys its own ceiling, so the walk was rebuilt rather than the limit raised — allQ keeps the quadruples nested four deep over five, and only the 24 permutations are walked flat. And the second conjunct matters as much as the first: an implication whose hypothesis never holds is true for free, so the count of quadruples satisfying it is decided too. THIS IS WHY THE TWO CENSUSES ARE ONE. A form true everywhere is true of every permuted input too, because true equals true — so invariance is guaranteed by emptiness and cannot distinguish a fact from furniture. The ledger measures both: CrossProof treats the symmetric cross\'s blindness to its spelling as a virtue, and padding-conjunct counts 492 conjuncts that hold whatever their numerals are. The virtue and the defect share the property; what separates them is whether the form can fail at all. Walked over the box for every form rather than argued from the definition, because the implication is exactly the kind that reads obvious and is worth deciding once.',
+    js: () => FORMS.every((x) => !allTrue(x.f) || permInvariant(x.f))
+      && QUADS.every((q) => FORMS[2]!.f(q)),
+    // THE WALK IS WRITTEN OUT, not delegated to allQ. The incomplete-statement guard demands that a key claiming a
+    // universal quantify VISIBLY in its own statement, and it is right to: `allQ` hides the domain inside a def, so a
+    // reader of the theorem cannot see what was walked and has to trust a helper they have not read. The other two
+    // theorems here keep allQ because their names claim no universal. Same nesting, same depth five, nothing bought.
+    lean: 'theorem emptiness_is_invariant_under_every_mirror : ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true) := by decide' },
 
   { key: 'symmetry_with_content_is_not_emptiness', skill: 'invariance',
     name: 'CLAIMED: the converse FAILS — the symmetric cross a·d = b·c is invariant under the mirror and is NOT true of every quadruple, so symmetry with content exists and invariance is not merely a symptom of saying nothing.',
@@ -85,6 +105,19 @@ const DEFS = [
   'def everywhere (a b c d : Nat) : Bool := (a - 0 == a) && (b - 0 == b) && (c - 0 == c) && (d - 0 == d)',
   '-- and whether a form agrees with its own mirror image at this quadruple',
   'def mirrorAgrees (a b c d : Nat) : Bool := (everywhere a b c d) == (everywhere d c b a)',
+  '',
+  '-- EVERY rearrangement of four positions, as index lists, so a key claiming "every mirror" walks every one.',
+  '-- 24 ELEMENTS AND NOT 625: my first shape built the quadruples as ONE FLAT LIST and filtered it, which recurses',
+  '-- once per element and blew the kernel at depth 625. NO WING BUYS ITS OWN CEILING — the answer to a recursion',
+  '-- limit is the better walk, never set_option. allQ already nests four levels of five, so the quadruples stay at',
+  '-- depth five and only the permutations are walked flat, where 24 is comfortably inside the default limit.',
+  `def perms : List (List Nat) := [${PERMS.map((p) => leanList(p)).join(', ')}]`,
+  '-- the padding form evaluated at a REARRANGED quadruple, indices read from the permutation',
+  'def rearranged (p : List Nat) (a b c d : Nat) : Bool :=',
+  '  everywhere ([a, b, c, d].getD (p.getD 0 0) 0) ([a, b, c, d].getD (p.getD 1 0) 0)',
+  '             ([a, b, c, d].getD (p.getD 2 0) 0) ([a, b, c, d].getD (p.getD 3 0) 0)',
+  'def allPermsAgree (a b c d : Nat) : Bool :=',
+  '  (perms.filter (fun p => (everywhere a b c d) == (rearranged p a b c d))).length == perms.length',
 ].join('\n')
 
 console.log(`computing ${FACTS.length} INVARIANCE facts (one structure: symmetry with content, and symmetry from emptiness) …`)

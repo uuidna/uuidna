@@ -1,0 +1,12 @@
+{
+  "handle": "7fbfd6e3",
+  "address": "7fbfd6e3-7653-88f6-85a2-b6efc2b34e89",
+  "kind": "chunk",
+  "keys": [
+    "the_coil_is_the_faces_and_the_halves_are_equal"
+  ],
+  "statement": "coil = faces ∧ theory = practice",
+  "files": [
+    "CoinsBalance.lean"
+  ]
+}
