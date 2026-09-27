@@ -1,0 +1,12 @@
+{
+  "handle": "8d336c46",
+  "address": "8d336c46-767c-8aaf-b328-140af707b966",
+  "statement": "((List.range 16).all (fun a => (List.range 16).all (fun b => (16 * a + b) + (255 - (16 * a + b)) == 255))) ∧ (64 + 191 = 255)",
+  "tactic": "decide",
+  "keys": [
+    "tint_and_shade_complement"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

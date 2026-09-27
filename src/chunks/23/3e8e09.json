@@ -1,0 +1,12 @@
+{
+  "handle": "233e8e09",
+  "address": "233e8e09-66e7-8b8a-90bd-7dca7914bc6c",
+  "statement": "((periods.drop 1) = ((periods.drop 1).eraseDups.flatMap (fun n => [n, n]))) ∧ ¬(periods.headD 0 = (periods.drop 1).headD 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_rows_repeat_in_pairs_after_the_first"
+  ],
+  "files": [
+    "Periodic.lean"
+  ]
+}

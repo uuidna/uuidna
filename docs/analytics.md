@@ -15,7 +15,7 @@
 | **Axiom-free** | 71085/71085 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 260 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 129 | Capability axes across the ledger |
-| **Proof cost** | 101064495 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 101064789 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 71085 addresses | one recomputed per theorem |
 | **Steps per address** | 1421 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
@@ -25,14 +25,14 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 1401/1401 | Every module reachable (no dead code) |
+| **Supported modules** | 1403/1403 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 248 | In 37 categories |
+| **MCP tools** | 249 | In 37 categories |
 | **Publications** | 260 | Monographs linked to sealed theorems |
 | **Vocabulary terms** | 389 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 101064495 kernel decide-steps, measured
+- First push (prove): 101064789 kernel decide-steps, measured
 - Every later push (verify): 71085 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -88,7 +88,7 @@ Total theorems:       71085
 Axiom-free (decide):  71085 (100.0%)
 Principles:           260 domains
 Publications:         260 monographs
-MCP tools:            248 capabilities
+MCP tools:            249 capabilities
 Security checks:      6 automated
 Languages:            389 vocabulary terms
 Runtime deps:         0 (zero)

@@ -1,0 +1,12 @@
+{
+  "handle": "aa79e005",
+  "address": "aa79e005-ec93-88e8-84b9-1645228c80d6",
+  "statement": "(2 * 5 + 5 * 1 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 5).all (fun n => (n + 2) * (n + 2) + n * n == 2 * ((n + 1) * (n + 1)) + 2)) ∧ ((9 + 1) % 10 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_road_computes_in_one_arithmetic"
+  ],
+  "files": [
+    "Looms.lean"
+  ]
+}

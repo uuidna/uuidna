@@ -7,7 +7,7 @@ description: "Computed from lean/Colour.lean — 20 sealed theorems, every claim
 
 > THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. — held by [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) and its 19 siblings below.
 
-**20 theorems** and **1,187 decided cases**, from [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 20 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct). A boundary stated here is decided.
+**20 theorems** and **1,458 decided cases**, from [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 20 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [aura_alphabet_is_pairwise_distinct](/theorem/aura_alphabet_is_pairwise_distinct). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FColour.lean)** — nothing to install. The editor fetches `lean/Colour.lean` from the repository and re-decides all 20 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -106,7 +106,7 @@ The ledger holds this as [true_colour_is_24_bit](/theorem/true_colour_is_24_bit)
 The ledger holds this as [tint_and_shade_complement](/theorem/tint_and_shade_complement) — proven `by decide`, sorry-free:
 
 ```lean
-(0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255)
+((List.range 16).all (fun a => (List.range 16).all (fun b => (16 * a + b) + (255 - (16 * a + b)) == 255))) ∧ (64 + 191 = 255)
 ```
 
 ### The wheel divides into a warm half and a cool half — six hues each, 6 + 6 = 12 — the split running through the two temperature poles. Warm and cool are the wheel folded in two.

@@ -29,7 +29,7 @@ The ledger holds this as [the_spectrum_is_length_blind](/theorem/the_spectrum_is
 The ledger holds this as [the_empty_string_still_sounds](/theorem/the_empty_string_still_sounds) — proven `by decide`, sorry-free:
 
 ```lean
-(0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0)
+(0 * 4 = 0) ∧ (128 / 4 = 32) ∧ (32 - 128 / 4 = 0)
 ```
 
 ### TWO STRINGS SOUND ALIKE EXACTLY WHEN THEY ADDRESS ALIKE: the spectrum is a function of the address alone, so equal addresses give equal spectra and different addresses differ somewhere — agreement is decided, never heard. Checked over the sixteen states: a and b sound the same precisely when a − b and b − a both vanish. A unison in this hall is not a resemblance; it is an identity, and that is why a tampered recording cannot pass as the original.

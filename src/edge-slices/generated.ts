@@ -48,12 +48,12 @@ export const EDGE_SLICES: EdgeSlices = {
  ],
  "receipts": {
   "decode": {
-   "key": "4535d722-67a1-8e75-9e25-1387e925d36f",
+   "key": "b9b8eb46-e605-8a70-955f-d7041215d2aa",
    "value": {
     "polarities": {
-     "minus": 28535,
-     "neutral": 14132,
-     "plus": 28418,
+     "minus": 28530,
+     "neutral": 14136,
+     "plus": 28419,
      "capacity": {
       "minus": 4,
       "neutral": 2,
@@ -62,63 +62,63 @@ export const EDGE_SLICES: EdgeSlices = {
      "byRay": [
       {
        "ray": 0,
-       "minus": 4104,
-       "neutral": 2006,
+       "minus": 4105,
+       "neutral": 2008,
        "plus": 4060
       },
       {
        "ray": 1,
-       "minus": 4145,
-       "neutral": 1997,
-       "plus": 4038
+       "minus": 4144,
+       "neutral": 1998,
+       "plus": 4036
       },
       {
        "ray": 2,
-       "minus": 4164,
+       "minus": 4162,
        "neutral": 1945,
        "plus": 3951
       },
       {
        "ray": 3,
        "minus": 4002,
-       "neutral": 2045,
-       "plus": 4032
+       "neutral": 2048,
+       "plus": 4033
       },
       {
        "ray": 4,
-       "minus": 4032,
-       "neutral": 2077,
+       "minus": 4031,
+       "neutral": 2076,
        "plus": 4131
       },
       {
        "ray": 5,
-       "minus": 4008,
-       "neutral": 2089,
-       "plus": 4147
+       "minus": 4007,
+       "neutral": 2088,
+       "plus": 4146
       },
       {
        "ray": 6,
-       "minus": 4080,
+       "minus": 4079,
        "neutral": 1973,
-       "plus": 4059
+       "plus": 4062
       }
      ],
      "bySeed": [
       {
        "seed": 0,
-       "theorems": 7028
+       "theorems": 7031
       },
       {
        "seed": 1,
-       "theorems": 7070
+       "theorems": 7068
       },
       {
        "seed": 2,
-       "theorems": 7174
+       "theorems": 7172
       },
       {
        "seed": 3,
-       "theorems": 7114
+       "theorems": 7113
       },
       {
        "seed": 4,
@@ -126,7 +126,7 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 5,
-       "theorems": 7104
+       "theorems": 7105
       },
       {
        "seed": 6,
@@ -134,15 +134,15 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 7,
-       "theorems": 7126
+       "theorems": 7128
       },
       {
        "seed": 8,
-       "theorems": 7021
+       "theorems": 7019
       },
       {
        "seed": 9,
-       "theorems": 7108
+       "theorems": 7109
       }
      ],
      "ratios": [
@@ -150,8 +150,8 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.minus-plus",
        "labelA": "minus theorems",
        "labelB": "plus theorems",
-       "a": 28535,
-       "b": 28418,
+       "a": 28530,
+       "b": 28419,
        "forward": 1.004,
        "reverse": 0.996,
        "balanced": false
@@ -160,19 +160,19 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.neutral-rest",
        "labelA": "neutral",
        "labelB": "non-neutral",
-       "a": 14132,
-       "b": 56953,
+       "a": 14136,
+       "b": 56949,
        "forward": 0.248,
-       "reverse": 4.03,
+       "reverse": 4.029,
        "balanced": false
       },
       {
        "id": "polarity.capacity.minus",
        "labelA": "minus load",
        "labelB": "minus digits",
-       "a": 28535,
+       "a": 28530,
        "b": 4,
-       "forward": 7133.75,
+       "forward": 7132.5,
        "reverse": 0,
        "balanced": false
       },
@@ -180,14 +180,14 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.capacity.plus",
        "labelA": "plus load",
        "labelB": "plus digits",
-       "a": 28418,
+       "a": 28419,
        "b": 4,
-       "forward": 7104.5,
+       "forward": 7104.75,
        "reverse": 0,
        "balanced": false
       }
      ],
-     "receipt": "9cb53ca3-3e39-8ea4-964c-01d1813995f3"
+     "receipt": "3062fdb0-f799-8bb5-9987-16dee78616ab"
     },
     "angles": {
      "dashStepDegrees": 60,
@@ -233,19 +233,19 @@ export const EDGE_SLICES: EdgeSlices = {
      "bySeed": [
       {
        "seed": 0,
-       "theorems": 7028
+       "theorems": 7031
       },
       {
        "seed": 1,
-       "theorems": 7070
+       "theorems": 7068
       },
       {
        "seed": 2,
-       "theorems": 7174
+       "theorems": 7172
       },
       {
        "seed": 3,
-       "theorems": 7114
+       "theorems": 7113
       },
       {
        "seed": 4,
@@ -253,7 +253,7 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 5,
-       "theorems": 7104
+       "theorems": 7105
       },
       {
        "seed": 6,
@@ -261,19 +261,19 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 7,
-       "theorems": 7126
+       "theorems": 7128
       },
       {
        "seed": 8,
-       "theorems": 7021
+       "theorems": 7019
       },
       {
        "seed": 9,
-       "theorems": 7108
+       "theorems": 7109
       }
      ],
-     "fixed": 14132,
-     "nonFixed": 56953,
+     "fixed": 14136,
+     "nonFixed": 56949,
      "canonical": [
       {
        "seed": 0,
@@ -326,44 +326,44 @@ export const EDGE_SLICES: EdgeSlices = {
        "visited": 10
       }
      ],
-     "receipt": "be328a07-b117-8954-b0e9-e417c5abd380"
+     "receipt": "d976484b-c467-871f-b09e-a8dd85379704"
     },
     "rosetta": {
      "rays": [
       {
        "ray": 0,
        "degrees": 0,
-       "theorems": 10170
+       "theorems": 10173
       },
       {
        "ray": 1,
        "degrees": 51,
-       "theorems": 10180
+       "theorems": 10178
       },
       {
        "ray": 2,
        "degrees": 102,
-       "theorems": 10060
+       "theorems": 10058
       },
       {
        "ray": 3,
        "degrees": 154,
-       "theorems": 10079
+       "theorems": 10083
       },
       {
        "ray": 4,
        "degrees": 205,
-       "theorems": 10240
+       "theorems": 10238
       },
       {
        "ray": 5,
        "degrees": 257,
-       "theorems": 10244
+       "theorems": 10241
       },
       {
        "ray": 6,
        "degrees": 308,
-       "theorems": 10112
+       "theorems": 10114
       }
      ],
      "census": {
@@ -509,8 +509,8 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "rosetta.rays.spread",
        "labelA": "sparsest ray",
        "labelB": "densest ray",
-       "a": 10060,
-       "b": 10244,
+       "a": 10058,
+       "b": 10241,
        "forward": 0.982,
        "reverse": 1.018,
        "balanced": false
@@ -536,7 +536,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": false
       }
      ],
-     "receipt": "529a1354-0971-8305-9158-59f398446fd7"
+     "receipt": "fa6361fa-0598-87e7-88a5-23056aa9aabd"
     },
     "life": {
      "os": {
@@ -623,8 +623,8 @@ export const EDGE_SLICES: EdgeSlices = {
       ]
      },
      "balance": {
-      "active": 378,
-      "balanced": 166,
+      "active": 382,
+      "balanced": 170,
       "open": 212,
       "revealGap": 32977,
       "worst": [
@@ -694,9 +694,9 @@ export const EDGE_SLICES: EdgeSlices = {
        "labelA": "latent axioms",
        "labelB": "cited axioms",
        "a": 225,
-       "b": 341,
-       "forward": 0.66,
-       "reverse": 1.516,
+       "b": 344,
+       "forward": 0.654,
+       "reverse": 1.529,
        "balanced": false
       },
       {
@@ -713,10 +713,10 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "life.balance",
        "labelA": "balanced slices",
        "labelB": "open slices",
-       "a": 166,
+       "a": 170,
        "b": 212,
-       "forward": 0.783,
-       "reverse": 1.277,
+       "forward": 0.802,
+       "reverse": 1.247,
        "balanced": false
       },
       {
@@ -730,7 +730,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": true
       }
      ],
-     "receipt": "2961ce2e-9a46-8534-930d-abf659b0ff1a"
+     "receipt": "6c268df4-810a-855e-9a0d-86c2b19b85a4"
     },
     "genesis": {
      "deposits": 35,
@@ -739,9 +739,9 @@ export const EDGE_SLICES: EdgeSlices = {
     },
     "audit": {
      "polarities": {
-      "minus": 28535,
-      "neutral": 14132,
-      "plus": 28418,
+      "minus": 28530,
+      "neutral": 14136,
+      "plus": 28419,
       "capacity": {
        "minus": 4,
        "neutral": 2,
@@ -750,63 +750,63 @@ export const EDGE_SLICES: EdgeSlices = {
       "byRay": [
        {
         "ray": 0,
-        "minus": 4104,
-        "neutral": 2006,
+        "minus": 4105,
+        "neutral": 2008,
         "plus": 4060
        },
        {
         "ray": 1,
-        "minus": 4145,
-        "neutral": 1997,
-        "plus": 4038
+        "minus": 4144,
+        "neutral": 1998,
+        "plus": 4036
        },
        {
         "ray": 2,
-        "minus": 4164,
+        "minus": 4162,
         "neutral": 1945,
         "plus": 3951
        },
        {
         "ray": 3,
         "minus": 4002,
-        "neutral": 2045,
-        "plus": 4032
+        "neutral": 2048,
+        "plus": 4033
        },
        {
         "ray": 4,
-        "minus": 4032,
-        "neutral": 2077,
+        "minus": 4031,
+        "neutral": 2076,
         "plus": 4131
        },
        {
         "ray": 5,
-        "minus": 4008,
-        "neutral": 2089,
-        "plus": 4147
+        "minus": 4007,
+        "neutral": 2088,
+        "plus": 4146
        },
        {
         "ray": 6,
-        "minus": 4080,
+        "minus": 4079,
         "neutral": 1973,
-        "plus": 4059
+        "plus": 4062
        }
       ],
       "bySeed": [
        {
         "seed": 0,
-        "theorems": 7028
+        "theorems": 7031
        },
        {
         "seed": 1,
-        "theorems": 7070
+        "theorems": 7068
        },
        {
         "seed": 2,
-        "theorems": 7174
+        "theorems": 7172
        },
        {
         "seed": 3,
-        "theorems": 7114
+        "theorems": 7113
        },
        {
         "seed": 4,
@@ -814,7 +814,7 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 5,
-        "theorems": 7104
+        "theorems": 7105
        },
        {
         "seed": 6,
@@ -822,15 +822,15 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 7,
-        "theorems": 7126
+        "theorems": 7128
        },
        {
         "seed": 8,
-        "theorems": 7021
+        "theorems": 7019
        },
        {
         "seed": 9,
-        "theorems": 7108
+        "theorems": 7109
        }
       ],
       "ratios": [
@@ -838,8 +838,8 @@ export const EDGE_SLICES: EdgeSlices = {
         "id": "polarity.minus-plus",
         "labelA": "minus theorems",
         "labelB": "plus theorems",
-        "a": 28535,
-        "b": 28418,
+        "a": 28530,
+        "b": 28419,
         "forward": 1.004,
         "reverse": 0.996,
         "balanced": false
@@ -848,19 +848,19 @@ export const EDGE_SLICES: EdgeSlices = {
         "id": "polarity.neutral-rest",
         "labelA": "neutral",
         "labelB": "non-neutral",
-        "a": 14132,
-        "b": 56953,
+        "a": 14136,
+        "b": 56949,
         "forward": 0.248,
-        "reverse": 4.03,
+        "reverse": 4.029,
         "balanced": false
        },
        {
         "id": "polarity.capacity.minus",
         "labelA": "minus load",
         "labelB": "minus digits",
-        "a": 28535,
+        "a": 28530,
         "b": 4,
-        "forward": 7133.75,
+        "forward": 7132.5,
         "reverse": 0,
         "balanced": false
        },
@@ -868,14 +868,14 @@ export const EDGE_SLICES: EdgeSlices = {
         "id": "polarity.capacity.plus",
         "labelA": "plus load",
         "labelB": "plus digits",
-        "a": 28418,
+        "a": 28419,
         "b": 4,
-        "forward": 7104.5,
+        "forward": 7104.75,
         "reverse": 0,
         "balanced": false
        }
       ],
-      "receipt": "9cb53ca3-3e39-8ea4-964c-01d1813995f3"
+      "receipt": "3062fdb0-f799-8bb5-9987-16dee78616ab"
      },
      "angles": {
       "dashStepDegrees": 60,
@@ -921,19 +921,19 @@ export const EDGE_SLICES: EdgeSlices = {
       "bySeed": [
        {
         "seed": 0,
-        "theorems": 7028
+        "theorems": 7031
        },
        {
         "seed": 1,
-        "theorems": 7070
+        "theorems": 7068
        },
        {
         "seed": 2,
-        "theorems": 7174
+        "theorems": 7172
        },
        {
         "seed": 3,
-        "theorems": 7114
+        "theorems": 7113
        },
        {
         "seed": 4,
@@ -941,7 +941,7 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 5,
-        "theorems": 7104
+        "theorems": 7105
        },
        {
         "seed": 6,
@@ -949,19 +949,19 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 7,
-        "theorems": 7126
+        "theorems": 7128
        },
        {
         "seed": 8,
-        "theorems": 7021
+        "theorems": 7019
        },
        {
         "seed": 9,
-        "theorems": 7108
+        "theorems": 7109
        }
       ],
-      "fixed": 14132,
-      "nonFixed": 56953,
+      "fixed": 14136,
+      "nonFixed": 56949,
       "canonical": [
        {
         "seed": 0,
@@ -1014,44 +1014,44 @@ export const EDGE_SLICES: EdgeSlices = {
         "visited": 10
        }
       ],
-      "receipt": "be328a07-b117-8954-b0e9-e417c5abd380"
+      "receipt": "d976484b-c467-871f-b09e-a8dd85379704"
      },
      "rosetta": {
       "rays": [
        {
         "ray": 0,
         "degrees": 0,
-        "theorems": 10170
+        "theorems": 10173
        },
        {
         "ray": 1,
         "degrees": 51,
-        "theorems": 10180
+        "theorems": 10178
        },
        {
         "ray": 2,
         "degrees": 102,
-        "theorems": 10060
+        "theorems": 10058
        },
        {
         "ray": 3,
         "degrees": 154,
-        "theorems": 10079
+        "theorems": 10083
        },
        {
         "ray": 4,
         "degrees": 205,
-        "theorems": 10240
+        "theorems": 10238
        },
        {
         "ray": 5,
         "degrees": 257,
-        "theorems": 10244
+        "theorems": 10241
        },
        {
         "ray": 6,
         "degrees": 308,
-        "theorems": 10112
+        "theorems": 10114
        }
       ],
       "census": {
@@ -1197,8 +1197,8 @@ export const EDGE_SLICES: EdgeSlices = {
         "id": "rosetta.rays.spread",
         "labelA": "sparsest ray",
         "labelB": "densest ray",
-        "a": 10060,
-        "b": 10244,
+        "a": 10058,
+        "b": 10241,
         "forward": 0.982,
         "reverse": 1.018,
         "balanced": false
@@ -1224,7 +1224,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "balanced": false
        }
       ],
-      "receipt": "529a1354-0971-8305-9158-59f398446fd7"
+      "receipt": "fa6361fa-0598-87e7-88a5-23056aa9aabd"
      },
      "life": {
       "os": {
@@ -1311,8 +1311,8 @@ export const EDGE_SLICES: EdgeSlices = {
        ]
       },
       "balance": {
-       "active": 378,
-       "balanced": 166,
+       "active": 382,
+       "balanced": 170,
        "open": 212,
        "revealGap": 32977,
        "worst": [
@@ -1382,9 +1382,9 @@ export const EDGE_SLICES: EdgeSlices = {
         "labelA": "latent axioms",
         "labelB": "cited axioms",
         "a": 225,
-        "b": 341,
-        "forward": 0.66,
-        "reverse": 1.516,
+        "b": 344,
+        "forward": 0.654,
+        "reverse": 1.529,
         "balanced": false
        },
        {
@@ -1401,10 +1401,10 @@ export const EDGE_SLICES: EdgeSlices = {
         "id": "life.balance",
         "labelA": "balanced slices",
         "labelB": "open slices",
-        "a": 166,
+        "a": 170,
         "b": 212,
-        "forward": 0.783,
-        "reverse": 1.277,
+        "forward": 0.802,
+        "reverse": 1.247,
         "balanced": false
        },
        {
@@ -1418,24 +1418,24 @@ export const EDGE_SLICES: EdgeSlices = {
         "balanced": true
        }
       ],
-      "receipt": "2961ce2e-9a46-8534-930d-abf659b0ff1a"
+      "receipt": "6c268df4-810a-855e-9a0d-86c2b19b85a4"
      },
      "axiom": {
       "global": {
        "dimension": "ledger",
        "id": "ledger",
        "theorems": 71085,
-       "citedDefs": 341,
-       "bound": 68363,
-       "citeEdges": 134393,
-       "theoremsPerDef": 394.114,
+       "citedDefs": 344,
+       "bound": 68366,
+       "citeEdges": 134397,
+       "theoremsPerDef": 390.689,
        "defsPerBound": 1.966,
-       "delta": 392.148,
+       "delta": 388.723,
        "balanced": false
       },
-      "active": 378,
-      "balanced": 166,
-      "fused": "7327d183-9a49-8d7e-bd07-abf917b4678c"
+      "active": 382,
+      "balanced": 170,
+      "fused": "855ab101-160b-8cf9-9958-444ebe4d008e"
      },
      "kernel": {
       "id": "kernel.axiom",
@@ -1467,8 +1467,8 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.minus-plus",
        "labelA": "minus theorems",
        "labelB": "plus theorems",
-       "a": 28535,
-       "b": 28418,
+       "a": 28530,
+       "b": 28419,
        "forward": 1.004,
        "reverse": 0.996,
        "balanced": false
@@ -1477,19 +1477,19 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.neutral-rest",
        "labelA": "neutral",
        "labelB": "non-neutral",
-       "a": 14132,
-       "b": 56953,
+       "a": 14136,
+       "b": 56949,
        "forward": 0.248,
-       "reverse": 4.03,
+       "reverse": 4.029,
        "balanced": false
       },
       {
        "id": "polarity.capacity.minus",
        "labelA": "minus load",
        "labelB": "minus digits",
-       "a": 28535,
+       "a": 28530,
        "b": 4,
-       "forward": 7133.75,
+       "forward": 7132.5,
        "reverse": 0,
        "balanced": false
       },
@@ -1497,9 +1497,9 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "polarity.capacity.plus",
        "labelA": "plus load",
        "labelB": "plus digits",
-       "a": 28418,
+       "a": 28419,
        "b": 4,
-       "forward": 7104.5,
+       "forward": 7104.75,
        "reverse": 0,
        "balanced": false
       },
@@ -1537,8 +1537,8 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "rosetta.rays.spread",
        "labelA": "sparsest ray",
        "labelB": "densest ray",
-       "a": 10060,
-       "b": 10244,
+       "a": 10058,
+       "b": 10241,
        "forward": 0.982,
        "reverse": 1.018,
        "balanced": false
@@ -1578,9 +1578,9 @@ export const EDGE_SLICES: EdgeSlices = {
        "labelA": "latent axioms",
        "labelB": "cited axioms",
        "a": 225,
-       "b": 341,
-       "forward": 0.66,
-       "reverse": 1.516,
+       "b": 344,
+       "forward": 0.654,
+       "reverse": 1.529,
        "balanced": false
       },
       {
@@ -1597,10 +1597,10 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "life.balance",
        "labelA": "balanced slices",
        "labelB": "open slices",
-       "a": 166,
+       "a": 170,
        "b": 212,
-       "forward": 0.783,
-       "reverse": 1.277,
+       "forward": 0.802,
+       "reverse": 1.247,
        "balanced": false
       },
       {
@@ -1637,20 +1637,20 @@ export const EDGE_SLICES: EdgeSlices = {
        "id": "axiom.vocabulary",
        "labelA": "cited defs",
        "labelB": "bound theorems",
-       "a": 341,
-       "b": 68363,
+       "a": 344,
+       "b": 68366,
        "forward": 0.005,
-       "reverse": 200.478,
+       "reverse": 198.738,
        "balanced": false
       },
       {
        "id": "sequence.fixed",
        "labelA": "fixed",
        "labelB": "non-fixed",
-       "a": 14132,
-       "b": 56953,
+       "a": 14136,
+       "b": 56949,
        "forward": 0.248,
-       "reverse": 4.03,
+       "reverse": 4.029,
        "balanced": false
       },
       {
@@ -1664,10 +1664,10 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": false
       }
      ],
-     "fused": "a4eaa22a-73ec-86b8-848b-7731f3fecebc",
+     "fused": "0242effb-39e5-8c2c-8577-ebfacd28adcc",
      "honest": "Ratios, angles, polarities, and life DECODED — runSequence on every address, ±60° dash, 360/7° rosetta rays, uuidnaOS boot ground, living ledger, latent axioms, genesis chain. Folded order-invariant. Descriptive only."
     },
-    "fused": "d7e3ed1d-d36a-84e4-9191-8146f21561f9"
+    "fused": "fafe6f98-5d03-8390-bb1b-56ca1d22dec0"
    }
   }
  }

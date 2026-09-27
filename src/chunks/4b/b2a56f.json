@@ -1,0 +1,12 @@
+{
+  "handle": "4bb2a56f",
+  "address": "4bb2a56f-c347-8a98-87dc-72728b186458",
+  "statement": "(14 > 1) ∧ (2 * 7 = 14) ∧ (((List.range' 2 12).filter (fun d => 14 % d == 0)).length > 0)",
+  "tactic": "decide",
+  "keys": [
+    "unity_census_is_plural_and_needs_two"
+  ],
+  "files": [
+    "Reasoning.lean"
+  ]
+}

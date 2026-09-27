@@ -1,0 +1,12 @@
+{
+  "handle": "46895b1e",
+  "address": "46895b1e-986f-89c3-a84e-17866ca6d593",
+  "kind": "chunk",
+  "keys": [
+    "absolute_zero_and_kelvin"
+  ],
+  "statement": "((List.range 101).all (fun c => (c + 273) - 273 == c)) ∧ (100 + 273 = 373) ∧ (373 - 273 = 100)",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

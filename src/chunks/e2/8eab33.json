@@ -1,0 +1,12 @@
+{
+  "handle": "e28eab33",
+  "address": "e28eab33-7166-89d7-9ef9-87e1614ab08d",
+  "statement": "(1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (((List.range' 1 9).filter (fun x => 10 - x == x)).length = 1) ∧ (10 - 5 = 5) ∧ (10+30+5 = 45)",
+  "tactic": "decide",
+  "keys": [
+    "polarity_plus_is_trinity_of_minus"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

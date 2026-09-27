@@ -1,0 +1,12 @@
+{
+  "handle": "8b335dc6",
+  "address": "8b335dc6-1b2b-8ced-87cc-79c5144ba244",
+  "statement": "(sideChannels.length = 5) ∧ (sideChannels.length - 1 = 4) ∧ (sideChannels.length - 1 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "absence_defeats_the_algorithm_and_not_the_machine"
+  ],
+  "files": [
+    "Refusion.lean"
+  ]
+}

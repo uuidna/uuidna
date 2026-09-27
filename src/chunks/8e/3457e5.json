@@ -1,0 +1,12 @@
+{
+  "handle": "8e3457e5",
+  "address": "8e3457e5-7d8a-89f4-ab61-79d5976ad915",
+  "statement": "(50 / 50 = 1) ∧ (50 % 50 = 0) ∧ (50 + 50 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "pin_and_slot_equal_teeth"
+  ],
+  "files": [
+    "Antikythera.lean"
+  ]
+}

@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "d8dc4ceff37bb00b",
+ "digest": "0dbe16d29b5a4912",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -184,6 +184,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "digit_polarities_partition_ten",
    "wing": "Sequence.lean",
    "verdict": "load-bearing"
+  },
+  {
+   "key": "polarity_plus_is_trinity_of_minus",
+   "wing": "Sequence.lean",
+   "verdict": "survived-widening"
   },
   {
    "key": "dz_table",
@@ -1066,6 +1071,11 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "survived-widening"
   },
   {
+   "key": "absolute_zero_and_kelvin",
+   "wing": "Thermodynamics.lean",
+   "verdict": "survived-widening"
+  },
+  {
    "key": "zero_point_is_half_a_quantum",
    "wing": "Thermodynamics.lean",
    "verdict": "load-bearing"
@@ -1361,6 +1371,11 @@ export const BOUND_SLICE: BoundSlice = {
    "verdict": "load-bearing"
   },
   {
+   "key": "tint_and_shade_complement",
+   "wing": "Colour.lean",
+   "verdict": "load-bearing"
+  },
+  {
    "key": "dna_bases_reflect_through_three",
    "wing": "Harmony.lean",
    "verdict": "load-bearing"
@@ -1397,6 +1412,11 @@ export const BOUND_SLICE: BoundSlice = {
   },
   {
    "key": "redirect_imitable_but_coins_authorise",
+   "wing": "Reasoning.lean",
+   "verdict": "survived-widening"
+  },
+  {
+   "key": "unity_census_is_plural_and_needs_two",
    "wing": "Reasoning.lean",
    "verdict": "survived-widening"
   },
@@ -1529,6 +1549,11 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "the_stepped_drum_carries_at_nine",
    "wing": "Looms.lean",
    "verdict": "load-bearing"
+  },
+  {
+   "key": "the_road_computes_in_one_arithmetic",
+   "wing": "Looms.lean",
+   "verdict": "survived-widening"
   },
   {
    "key": "every_string_has_thirty_two_modes",

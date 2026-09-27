@@ -57,7 +57,7 @@ The ledger holds this as [exeligmos_closes_the_day](/theorem/exeligmos_closes_th
 The ledger holds this as [pin_and_slot_equal_teeth](/theorem/pin_and_slot_equal_teeth) — proven `by decide`, sorry-free:
 
 ```lean
-(50 = 50) ∧ (50 * 2 = 100)
+(50 / 50 = 1) ∧ (50 % 50 = 0) ∧ (50 + 50 = 100)
 ```
 
 ### WHY THE GOOD PAIRS ARE COPRIME — THE HUNTING TOOTH: when meshing counts share no factor, every tooth of one gear meets every tooth of the other before the pattern repeats, so wear spreads evenly and the train stays true — gcd(19,235) = 1, gcd(4,223) = 1, gcd(3,8) = 1 across the mechanism’s cycle pairs. The same coprime walk that closes the circle of fifths and draws the pentagram in one stroke turned bronze twenty centuries earlier: closure is arithmetic, and arithmetic is what holds.

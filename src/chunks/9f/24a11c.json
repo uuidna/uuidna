@@ -1,0 +1,12 @@
+{
+  "handle": "9f24a11c",
+  "address": "9f24a11c-42e9-8a3b-9af9-75bfe7cc20e9",
+  "statement": "(periods.foldl (· + ·) 0 = 118) ∧ (nobleTotals.getLastD 0 = periods.foldl (· + ·) 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_seven_periods_close_at_one_hundred_eighteen"
+  ],
+  "files": [
+    "Periodic.lean"
+  ]
+}

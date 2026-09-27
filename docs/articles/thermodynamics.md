@@ -7,7 +7,7 @@ description: "Computed from lean/Thermodynamics.lean — 16 sealed theorems, eve
 
 > THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. — held by [first_law_conservation](/theorem/first_law_conservation) and its 15 siblings below.
 
-**16 theorems** and **79 decided cases**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
+**16 theorems** and **179 decided cases**, from [first_law_conservation](/theorem/first_law_conservation) onward, each proven `by decide` in <a href="/lean/Thermodynamics.lean">lean/Thermodynamics.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [first_law_conservation](/theorem/first_law_conservation). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FThermodynamics.lean)** — nothing to install. The editor fetches `lean/Thermodynamics.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -36,7 +36,7 @@ The ledger holds this as [carnot_efficiency_below_one](/theorem/carnot_efficienc
 The ledger holds this as [absolute_zero_and_kelvin](/theorem/absolute_zero_and_kelvin) — proven `by decide`, sorry-free:
 
 ```lean
-(0 + 273 = 273) ∧ (100 + 273 = 373)
+((List.range 101).all (fun c => (c + 273) - 273 == c)) ∧ (100 + 273 = 373) ∧ (373 - 273 = 100)
 ```
 
 ### Charles's law keeps V/T constant at fixed pressure: heating a gas expands it proportionally — V₁/T₁ = V₂/T₂ gives 2/300 = 4/600, cross-multiplied 2·600 = 4·300 = 1200.

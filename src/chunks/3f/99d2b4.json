@@ -1,0 +1,12 @@
+{
+  "handle": "3f99d2b4",
+  "address": "3f99d2b4-f3e3-8bab-8e53-1ad60dbbee89",
+  "statement": "(71703 + 256 + 43561 + 71548 + 71703 + 1 = 258772) ∧ (258772 > 3 * 71703)",
+  "tactic": "decide",
+  "keys": [
+    "the_store_footprint_is_its_folders"
+  ],
+  "files": [
+    "Cyber.lean"
+  ]
+}

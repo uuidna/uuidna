@@ -82,9 +82,9 @@ Each entry below quotes one phrase and lists the sealed theorems filtered for it
 
 **Backing theorems (1):**
 
-- **[the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)** — "CLAIMED: 1532 formula-shaped statements carry 1460 distinct byte-strings and 1327 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge."
+- **[the_same_arithmetic_answers_more_than_one_domain](/theorem/the_same_arithmetic_answers_more_than_one_domain)** — "CLAIMED: 1524 formula-shaped statements carry 1452 distinct byte-strings and 1319 distinct algebraic forms, so 205 statements restate a form another already holds — and those split 129 copies against 15 crosses, the widest cross spanning 3 wings. Most repetition is waste; a small part of it is a bridge."
   - File: CrossFormulas.lean
-  - Statement: `((1327 < 1460) ∧ (1532 - 1327 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))...`
+  - Statement: `((1319 < 1452) ∧ (1524 - 1319 = 205)) ∧ ((129 > 8 * 15) ∧ (3 > 2))...`
 
 
 ## no wing buys its own ceiling

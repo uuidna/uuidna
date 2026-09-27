@@ -7,7 +7,7 @@ description: "Computed from lean/Reasoning.lean — 25 sealed theorems, every cl
 
 > THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). — held by [modus_ponens](/theorem/modus_ponens) and its 24 siblings below.
 
-**25 theorems** and **185 decided cases**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in <a href="/lean/Reasoning.lean">lean/Reasoning.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 25 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [research_always_has_a_next](/theorem/research_always_has_a_next). A boundary stated here is decided.
+**25 theorems** and **196 decided cases**, from [modus_ponens](/theorem/modus_ponens) onward, each proven `by decide` in <a href="/lean/Reasoning.lean">lean/Reasoning.lean</a>, axiom-free against the bare Lean kernel. The case count is what the generator's own walk visited while computing the facts — the ledger's tally, never a number typed into prose. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 25 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [research_always_has_a_next](/theorem/research_always_has_a_next). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReasoning.lean)** — nothing to install. The editor fetches `lean/Reasoning.lean` from the repository and re-decides all 25 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -141,7 +141,7 @@ The ledger holds this as [trust_by_recomputation](/theorem/trust_by_recomputatio
 The ledger holds this as [unity_census_is_plural_and_needs_two](/theorem/unity_census_is_plural_and_needs_two) — proven `by decide`, sorry-free:
 
 ```lean
-(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)
+(14 > 1) ∧ (2 * 7 = 14) ∧ (((List.range' 2 12).filter (fun d => 14 % d == 0)).length > 0)
 ```
 
 ### SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one.

@@ -11,7 +11,7 @@ description: The mission board, derived — open work with an exact deliverable,
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
 **294 missions** — 28 seal-finding · 136 decide-bound · 130 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`d8dc4ceff37bb00b`) and the research ledger. The captain of every mission
+rosetta mirror, the sealed bound census (`0dbe16d29b5a4912`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -56,7 +56,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | compare | 4 | 1 | 1 | `9b67900d` |
 | contribution | 5 | 1 | 1 | `7a2e3769` |
 | crt | 11 | 1 | 1 | `433a066a` |
-| crypt-salt | 4 | 1 | 1 | `6e2a318c` |
+| crypt-salt | 4 | 1 | 1 | `929fe202` |
 | doctrine | 10 | 1 | 1 | `10ad7c9b` |
 | double-torus | 6 | 1 | 1 | `573c8a10` |
 | editing | 14 | 1 | 1 | `6efd270e` |
@@ -68,7 +68,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | installs | 12 | 1 | 1 | `e781411a` |
 | isometry | 6 | 1 | 1 | `60f75693` |
 | legal | 17 | 2 | 1 | `a2b039ba` |
-| looms | 6 | 1 | 1 | `ed4a64c7` |
+| looms | 6 | 1 | 1 | `37611135` |
 | matching | 8 | 1 | 1 | `52c4f890` |
 | memory | 2 | 1 | 1 | `2efc2c84` |
 | negation | 8 | 1 | 1 | `47cf947d` |
@@ -79,12 +79,12 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | propulsion | 5 | 1 | 1 | `e15944e8` |
 | psychology | 8 | 1 | 1 | `1fcaca7c` |
 | readings | 17 | 1 | 1 | `533cb60d` |
-| reasoning | 25 | 1 | 1 | `ac1cc66e` |
+| reasoning | 25 | 1 | 1 | `9deab1f9` |
 | referrer | 15 | 1 | 1 | `4d1f67c8` |
 | reversal | 6 | 1 | 1 | `b09cba1c` |
 | scripture | 6 | 1 | 1 | `800c5368` |
 | seats | 6 | 1 | 1 | `fb6ca9e8` |
-| sequence | 29 | 1 | 1 | `6e2a318c` |
+| sequence | 29 | 1 | 1 | `929fe202` |
 | singularity | 5 | 1 | 1 | `d082f68b` |
 | site-build | 13 | 1 | 1 | `8ab4210a` |
 | software | 16 | 1 | 1 | `c80a1164` |
@@ -95,7 +95,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | strings | 6 | 1 | 1 | `cd3eaaa7` |
 | structures | 4 | 1 | 1 | `6edd07f9` |
 | subgroups | 6 | 1 | 1 | `64cc319a` |
-| thermodynamics | 16 | 1 | 1 | `4ea69427` |
+| thermodynamics | 16 | 1 | 1 | `447e3983` |
 | trinities | 6 | 1 | 1 | `0026ddec` |
 | typesetting | 15 | 2 | 1 | `8ab4210a` |
 | vector-equilibrium | 19 | 1 | 1 | `761c08a1` |
@@ -594,9 +594,9 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 1 statement in Links.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`ed4a64c7`** decide 1 surviving bound in Looms.lean
-  <br><small>deliverable: 1 statement in Looms.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`the_punched_card_is_the_bit`](/theorem/the_punched_card_is_the_bit)</small>
+- **`37611135`** decide 2 surviving bounds in Looms.lean
+  <br><small>deliverable: 2 statements in Looms.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`the_punched_card_is_the_bit`](/theorem/the_punched_card_is_the_bit) · [`the_road_computes_in_one_arithmetic`](/theorem/the_road_computes_in_one_arithmetic)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`52c4f890`** decide 1 surviving bound in Matching.lean
   <br><small>deliverable: 1 statement in Matching.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -638,9 +638,9 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 7 statements in Quantum.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`cnot_involution`](/theorem/cnot_involution) · [`pauli_x_involution`](/theorem/pauli_x_involution) · [`toffoli_involution`](/theorem/toffoli_involution) · [`cz_involution`](/theorem/cz_involution) · [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) · [`store_fold_change_moves_receipt`](/theorem/store_fold_change_moves_receipt) · [`all_signaling_duality`](/theorem/all_signaling_duality)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`ac1cc66e`** decide 8 surviving bounds in Reasoning.lean
-  <br><small>deliverable: 8 statements in Reasoning.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`research_always_has_a_next`](/theorem/research_always_has_a_next) · [`manipulation_never_faster`](/theorem/manipulation_never_faster) · [`redirect_imitable_but_coins_authorise`](/theorem/redirect_imitable_but_coins_authorise) · [`significance_is_partial_not_total`](/theorem/significance_is_partial_not_total) · [`untested_stays_unproven`](/theorem/untested_stays_unproven) · [`proof_needs_citation`](/theorem/proof_needs_citation) · [`unproven_not_refuted`](/theorem/unproven_not_refuted) · [`unfalsifiable_excludes_nothing`](/theorem/unfalsifiable_excludes_nothing)</small>
+- **`9deab1f9`** decide 9 surviving bounds in Reasoning.lean
+  <br><small>deliverable: 9 statements in Reasoning.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`research_always_has_a_next`](/theorem/research_always_has_a_next) · [`manipulation_never_faster`](/theorem/manipulation_never_faster) · [`redirect_imitable_but_coins_authorise`](/theorem/redirect_imitable_but_coins_authorise) · [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two) · [`significance_is_partial_not_total`](/theorem/significance_is_partial_not_total) · [`untested_stays_unproven`](/theorem/untested_stays_unproven) · [`proof_needs_citation`](/theorem/proof_needs_citation) · [`unproven_not_refuted`](/theorem/unproven_not_refuted) · [`unfalsifiable_excludes_nothing`](/theorem/unfalsifiable_excludes_nothing)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`4d1f67c8`** decide 3 surviving bounds in Referrer.lean
   <br><small>deliverable: 3 statements in Referrer.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -670,9 +670,9 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 1 statement in Seats.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`ten_seats_bound_any_ring`](/theorem/ten_seats_bound_any_ring)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`6e2a318c`** decide 6 surviving bounds in Sequence.lean
-  <br><small>deliverable: 6 statements in Sequence.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`mirror_congruence`](/theorem/mirror_congruence) · [`mirror_fixed_five`](/theorem/mirror_fixed_five) · [`agl_order_54`](/theorem/agl_order_54) · [`commutator_is_shift`](/theorem/commutator_is_shift) · [`salt_conv_leaks_equality`](/theorem/salt_conv_leaks_equality) · [`only_five_carries_the_three_singularities`](/theorem/only_five_carries_the_three_singularities)</small>
+- **`929fe202`** decide 7 surviving bounds in Sequence.lean
+  <br><small>deliverable: 7 statements in Sequence.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`mirror_congruence`](/theorem/mirror_congruence) · [`mirror_fixed_five`](/theorem/mirror_fixed_five) · [`agl_order_54`](/theorem/agl_order_54) · [`commutator_is_shift`](/theorem/commutator_is_shift) · [`salt_conv_leaks_equality`](/theorem/salt_conv_leaks_equality) · [`only_five_carries_the_three_singularities`](/theorem/only_five_carries_the_three_singularities) · [`polarity_plus_is_trinity_of_minus`](/theorem/polarity_plus_is_trinity_of_minus)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`d082f68b`** decide 1 surviving bound in Singularity.lean
   <br><small>deliverable: 1 statement in Singularity.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
@@ -714,9 +714,9 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>deliverable: 1 statement in Subgroups.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
   <br><small>covers: [`lagrange_divides_every_order`](/theorem/lagrange_divides_every_order)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
-- **`4ea69427`** decide 1 surviving bound in Thermodynamics.lean
-  <br><small>deliverable: 1 statement in Thermodynamics.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
-  <br><small>covers: [`entropy_never_decreases`](/theorem/entropy_never_decreases)</small>
+- **`447e3983`** decide 2 surviving bounds in Thermodynamics.lean
+  <br><small>deliverable: 2 statements in Thermodynamics.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>
+  <br><small>covers: [`entropy_never_decreases`](/theorem/entropy_never_decreases) · [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 - **`fdb12218`** decide 9 surviving bounds in Uuidna.lean
   <br><small>deliverable: 9 statements in Uuidna.lean survived one widening step: for each, either name the finite domain in the prose or restate without the bound</small>

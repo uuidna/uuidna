@@ -21,7 +21,8 @@ import { ROOT } from './boundary.js'
 import { holds } from './involution/index.js'
 import { simpleDefs } from './wing-defs.js'
 
-export interface Shadowed { file: string; def: string; why: string }
+export type ShadowKind = 'shape-stub' | 'drifted' | 'undecided'
+export interface Shadowed { file: string; def: string; kind: ShadowKind; why: string }
 
 /** builtinName(name) → true when the evaluator resolves this name with no wing in scope. */
 export function builtinName(name: string): boolean {
@@ -58,8 +59,28 @@ export function shadowedWingDefs(): Shadowed[] {
       const agrees = ((): boolean | null => {
         try { return holds(`${d.body} = ${d.name}`, src) } catch { return null }
       })()
-      if (agrees === false) out.push({ file, def: d.name, why: 'the builtin holds a different value than the wing body computes' })
-      else if (agrees === null) out.push({ file, def: d.name, why: 'the wing body could not be evaluated, so agreement with the builtin is UNDECIDED' })
+      if (agrees === true) continue
+      // A SHAPE STUB IS NOT A DRIFTED COPY, and calling it one sent me looking for a bug that was a design. The
+      // evaluator holds `bootPages`, `rootfsNibbles` and `releaseAddress` as ZEROS of the right length — the lengths
+      // come from BOOT_PAGE_COUNT, ROOTFS_NIBBLE_COUNT and RELEASE_ADDRESS_COUNT, constants it shares with the wings,
+      // so the shape is consolidated already and only the contents are absent. That is sound for the claims those
+      // wings actually make, which are about LENGTH; it is a live hazard for any claim about a VALUE, because such a
+      // claim would be "independently verified" against zeros and pass. The two cases want different responses, so
+      // they are reported as different findings rather than one word covering both.
+      const stub = ((): boolean => {
+        try {
+          const len = holds(`${d.name}.length = ${d.name}.length`, src) === true
+          const zeros = holds(`${d.name}.all (fun x => x == 0) = true`, src) === true
+            || holds(`${d.name}.all (fun p => p.all (fun x => x == 0)) = true`, src) === true
+          return len && zeros
+        } catch { return false }
+      })()
+      if (stub) out.push({ file, def: d.name, kind: 'shape-stub',
+        why: 'the builtin is a ZEROS placeholder of the right length — sound for a claim about shape, and a claim about a VALUE through this name would be verified against zeros and pass' })
+      else if (agrees === false) out.push({ file, def: d.name, kind: 'drifted',
+        why: 'the builtin holds a different value than the wing body computes, and it is not a zeros placeholder — the two readers disagree about content' })
+      else out.push({ file, def: d.name, kind: 'undecided',
+        why: 'the wing body could not be evaluated, so agreement with the builtin is UNDECIDED — which is where a silent disagreement would hide' })
     }
   }
   return out
@@ -70,7 +91,7 @@ export function wingShadowGaps(): { what: string; fix: string }[] {
   const s = shadowedWingDefs()
   if (s.length === 0) return []
   return [{
-    what: `${s.length} wing definition(s) collide with an evaluator builtin and are read as the builtin instead `
+    what: `${s.length} wing definition(s) collide with an evaluator builtin (${[...new Set(s.map((x) => x.kind))].join(', ')}) and are read as the builtin instead `
       + `(${s.slice(0, 5).map((x) => x.file + '::' + x.def + ' — ' + x.why).join('; ')}${s.length > 5 ? '; …' : ''})`,
     fix: 'rename the wing definition — Lean scopes it to the wing and src/involution does not, so the kernel and the '
       + 'independent evaluator read different values under one name and the theorem silently loses its denial',
