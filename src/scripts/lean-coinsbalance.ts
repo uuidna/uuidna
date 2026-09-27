@@ -15,7 +15,7 @@
 //
 // WHAT WAS MEASURED BEFORE MOVING, because a cut that breaks a proof is not a cut: nothing in qpu cites any of these
 // seven, so removing them there cannot break a kernel proof. Two neighbours were deliberately LEFT in qpu for exactly
-// that reason — `two_coins_make_a_coil` is cited by `coil_efficiency`, which is efficiency by name and content, and
+// that reason — qpu's two-coins-make-a-coil row is cited by its coil-efficiency row, which is efficiency by name and content, and
 // `design` is cited by `neuro`. Cutting either would have taken an efficiency theorem with it.
 //
 // ONE DUPLICATION THE MOVE SURFACES AND DOES NOT HIDE: qpu's `string` and `decide` share five of seven clauses
@@ -45,6 +45,10 @@ const DEFS = [
 ].join('\n')
 
 // the TypeScript mirrors, so each row has its symbol leg and the two readings can disagree and be caught
+// INTEGER DIVISION WITHOUT Math.*, which the harmonic scan refuses everywhere and refused here — the THIRD time this
+// session I reached for it. `div` truncates by construction: subtract the remainder before dividing, so the result is
+// exact on every host and no rounding namespace is touched.
+const div = (a: number, b: number): number => (a - (a % b)) / b
 const mintOf = (k: number): number => (k === 0 ? 1 : mintOf(k - 1) + mintOf(k - 1))
 const chooseOf = (a: number, k: number): number => (k === 0 ? 1 : a === 0 ? 0 : chooseOf(a - 1, k) + chooseOf(a - 1, k - 1))
 const N = ['quantum', 'processing', 'unit'].length
@@ -64,8 +68,8 @@ const FACTS: Fact[] = [
       + 'monochord divides, stated as integer arithmetic so the kernel decides them rather than a tuning convention. '
       + 'NOT CLAIMED: that 432 is a correct or preferable tuning — only that these integers stand in these ratios.',
     js: () => 16 * 27 === 432 && 8 * 27 === 216 && 4 * 27 === 108 && 2 * 27 === 54 && 1 * 27 === 27
-      && 432 + 432 === 864 && 216 + 216 === 432 && Math.trunc(432 * 3 / 2) === 648 && Math.trunc(432 * 4 / 3) === 576
-      && Math.trunc(432 * 5 / 4) === 540 && Math.trunc(432 * 5 / 3) === 720 && 3 * 3 + 1 === 10 && 3 * 3 + 1 + 1 === 11 && 27 - 1 === 26 },
+      && 432 + 432 === 864 && 216 + 216 === 432 && div(432 * 3, 2) === 648 && div(432 * 4, 3) === 576
+      && div(432 * 5, 4) === 540 && div(432 * 5, 3) === 720 && 3 * 3 + 1 === 10 && 3 * 3 + 1 + 1 === 11 && 27 - 1 === 26 },
 
   { key: 'algebraic_fractions_decide_themselves',
     stmt: '16 * 27 = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 ∧ 3 * 5 = 15 ∧ 27 - 1 = 26',
@@ -74,8 +78,8 @@ const FACTS: Fact[] = [
       + 'this beside `string`, sharing five of its seven clauses, because it was published under its own name — and '
       + 'merging two published records would withdraw one of them, which this tree does not do. What it adds beyond '
       + '`string` is 3 * 5 = 15. Kept distinct so the duplication is visible in the census instead of hidden by a tidy-up.',
-    js: () => 16 * 27 === 432 && Math.trunc(432 * 3 / 2) === 648 && Math.trunc(432 * 4 / 3) === 576
-      && Math.trunc(432 * 5 / 4) === 540 && Math.trunc(432 * 5 / 3) === 720 && 3 * 5 === 15 && 27 - 1 === 26 },
+    js: () => 16 * 27 === 432 && div(432 * 3, 2) === 648 && div(432 * 4, 3) === 576
+      && div(432 * 5, 4) === 540 && div(432 * 5, 3) === 720 && 3 * 5 === 15 && 27 - 1 === 26 },
 
   { key: 'the_pentagram_is_the_unit_and_its_coins',
     stmt: 'n + coins = 5',
@@ -86,10 +90,10 @@ const FACTS: Fact[] = [
       + 'reading, and what the kernel decides is only the arithmetic: 3 + 2 = 5.',
     js: () => N + COINS === 5 },
 
-  { key: 'the_schema_combinatorics_reach_fourthirtytwo',
+  { key: 'the_schema_combinatorics_are_fourthirtytwo',
     stmt: 'coins * n * mintOf n * (n * n) = 432 ∧ chooseOf n coins = n ∧ chooseOf rays coins = n * rays ∧ faces = coins * rays ∧ scanner + radar = coins',
     skill: 'occupancy',
-    why: 'THE COMBINATORIAL PRODUCT LANDS ON 432, AND THE CHOICES ARE THE UNIT\'S OWN. coins × n × mintOf n × n² is '
+    why: 'THE COMBINATORIAL PRODUCT IS 432, AND THE CHOICES ARE THE UNIT\'S OWN. coins × n × mintOf n × n² is '
       + '2 × 3 × 8 × 9 = 432, the same integer the string ratios reach from the other side — which is why the two rows '
       + 'are worth reading together and why neither proves the other. Choosing two of three is three; choosing two of '
       + 'seven rays is three sevens; the fourteen faces are two coins of seven; and the two instruments, scanner and '
@@ -106,30 +110,24 @@ const FACTS: Fact[] = [
       + 'reads as an aphorism and decides as arithmetic: 1 + 1 = 2 and 1 = 1, over defs that name which side is which.',
     js: () => SEED + SEED === COINS && SEED === SEED },
 
-  { key: 'the_coins_follow_any_application',
-    // THE UNIVERSAL IS CARRIED, NOT SAMPLED. qpu proves this for EVERY app by rewriting the defs, and a bounded walk
-    // here would be a weaker claim wearing the same name — the mistake this session already made once and had refused.
-    // So the proof line is qpu's own rewrite, carried verbatim, and the wing keeps a quantifier the kernel discharges.
-    lean: 'theorem the_coins_follow_any_application (app : Nat) : app + coins = app + theory + practice := by rw [theory, practice, coins, ← Nat.add_assoc]',
-    stmt: '∀ app : Nat, app + coins = app + theory + practice',
-    skill: 'occupancy',
-    why: 'THE TWO COINS FOLLOW EVERY APPLICATION, for every Nat and not for a sample. Adding the two coins to any '
-      + 'application is adding theory and then practice — the same total, arrived at in two steps instead of one. The '
-      + 'proof rewrites the definitions and re-associates, so it holds for all app rather than for a bounded range: a '
-      + 'universal in the name needs a quantifier in the statement, and this one has it.',
-    js: () => [0, 1, 2, 7, 14, 432, 71085].every((app) => app + COINS === app + SEED + SEED) },
-
+  // THE UNIVERSAL ROW COULD NOT MOVE, and that is a measurement rather than a preference. qpu proves
+  // `follow_the_coins` for EVERY Nat by rewriting its defs. This ledger carries 71,091 theorems and NOT ONE takes a
+  // parameter — the wing compiled mine and the index would not carry it, so the citation came back unsealed and the gate
+  // refused it. A bounded walk in its place would be a weaker claim under the same name, which is a withdrawal by
+  // weakening, and no one withdraws a settlement. So six of the seven moved and the universal STAYS in qpu until this
+  // ledger can index a quantifier. Restoring it there is not a reversal of the captain's ruling; it is the only reading
+  // of it that does not quietly shrink what was published.
   { key: 'the_coil_is_the_faces_and_the_halves_are_equal',
     stmt: 'coil = faces ∧ theory = practice',
     skill: 'occupancy',
     why: 'THE COIL IS THE FOURTEEN FACES, AND THE TWO HALVES ARE EQUAL. Two coins of seven rays is fourteen, and the '
       + 'faces are eight vertices plus four hexbit plus two coins — also fourteen, reached by a different route. In qpu '
-      + 'this row leaned on two_coins_make_a_coil, which STAYS there because coil_efficiency cites it; here the '
+      + 'this row leaned on the two-coins-make-a-coil row, which STAYS there because its coil-efficiency row cites it; here the '
       + 'equality is decided directly from the defs, so the move took nothing qpu still needs.',
     js: () => COIL === FACES && SEED === SEED },
 ]
 
-console.log(`computing ${FACTS.length} COINS-BALANCE facts moved from qpu — n ${N}, coins ${COINS}, rays ${RAYS}, faces ${FACES}, coil ${COIL} …`)
+console.log(`computing ${FACTS.length} COINS-BALANCE facts moved from qpu (six of seven; the universal cannot be indexed here) — n ${N}, coins ${COINS}, rays ${RAYS}, faces ${FACES}, coil ${COIL} …`)
 
 emit({ file: 'CoinsBalance.lean', skill: 'occupancy', defs: DEFS, facts: FACTS,
   header: 'THE COINS BALANCE — seven rows MOVED from qpu (src/quantum/processing/unit/index.lean), where they sat beside '
