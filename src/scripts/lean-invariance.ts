@@ -20,7 +20,7 @@
 //
 // SO THE SQUARE HAS NO FOURTH CELL, and that is the no-seam claim rather than a shortage of examples. Classify a form
 // by (true everywhere?, invariant under the mirror?) and three cells are occupied — the symmetric cross, reflexivity,
-// the asymmetric ratio — while the fourth, true everywhere yet not invariant, is IMPOSSIBLE. Not unobserved: excluded
+// the asymmetric ratio — while the fourth, true everywhere yet not invariant, is IMPOSSIBLE BY CONSTRUCTION — a predicate true at every point is preserved by any map between points, so the combination has no witness to find. Not unobserved: excluded
 // by the implication above. Nothing falls outside the square and nothing sits between its cells.
 //
 // CLAIMED: the three statements below, decided by the kernel over its own finite box of 5^4 quadruples, axiom-free.

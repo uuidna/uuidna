@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// padding-conjuncts — every conjunct in the ledger that cannot fail, named with the row that carries it.
+// padding-conjuncts — every conjunct in the ledger that cannot fail, named with the row that carries it. "Cannot fail"
+// is decided rather than judged: the conjunct is evaluated and holds on every assignment of its own finite domain, so
+// it adds no way for its theorem to be false.
 //
 // (the captain, 2026-09-27: "Why not simplify all to the core?!?" — after I had replaced eleven of these by hand.)
 //

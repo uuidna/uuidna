@@ -39,7 +39,10 @@
 // Acoustics, Astronomy, Chemistry and Electromagnetism, which say many of the same other things. So each candidate is
 // scored by the mean Jaccard overlap of its members' vocabularies WITH THE NAMING TERM REMOVED — otherwise every
 // candidate would score a free point for the word that defined the group. A word that explains nothing beyond itself
-// scores near zero and cannot name a class.
+// scores near zero and cannot name a class. A later edit described this score as "the share of members using the
+// word", which it is not: the score is log(wings / wings-saying-it), a RARITY, and coherence multiplies it only as a
+// tiebreak. The distinction matters because a share would rise with popularity and rarity falls with it, which is the
+// exact inversion that cost this module three rewrites.
 //
 // THE CORPUS GROUPS ITS SCIENCES AND DOES NOT NAME THEM, which is the honest end of this and took four attempts to
 // reach. With rarity scoring the groups are right: every EquilibriumXor, FermatRing, HexSpan and Involution family
@@ -56,8 +59,9 @@
 // are the EquilibriumXor family, whose generated headers are near-identical, so their mutual overlap is real and the
 // GROUP was correct — only the label was absurd, because the term that happened to win the selection is not
 // necessarily the term that describes the members. So a class is named after selection, by the most distinctive term
-// every one of its members uses. A word only some members use cannot name the class, and among the words all of them
-// use the rarest across the corpus wins, because that is the one that says something.
+// every one of its members uses. A word only some members use cannot name the class — nameOf filters to terms every
+// member's vocabulary contains, so a partial word is gone before scoring — and among the words all of them use the
+// rarest across the corpus wins, because that is the one that says something.
 //
 // SO THE CANDIDATES ARE THE MIDDLE OF THE RANGE: a term said by more than one wing and by fewer than all of them. A
 // word one wing uses names that wing, not a domain; a word every wing uses names nothing. Between those the term still
@@ -96,9 +100,14 @@ export function terms(subject: string): string[] {
 /**
  * The weight of every term in every wing: how often the wing says it, discounted by how many wings say it at all.
  *
- * The discount is `log(wings / wingsSaying)`, which is zero for a term every wing uses. That zero is the whole reason
- * no stopword list is needed: "the" appears in every header, so its discount is exactly 0 and it can never win a wing,
- * however often that wing repeats it.
+ * THE DISCOUNT IS `(wings - saying) / wings`, WHICH NEEDS NO LOGARITHM. The textbook form is log(wings / saying), and I
+ * wrote it that way until the determinism scan hard-rejected it — Math.* is refused tree-wide, with no exemption,
+ * because a float logarithm is a decision the host makes and a wing's arithmetic cannot be. The refusal turned out to
+ * be a simplification rather than a cost: nothing here uses the discount's VALUE, only its ORDER, and both expressions
+ * fall monotonically as `saying` rises. So the exact rational ranks identically and depends on nothing but integers.
+ *
+ * Either way it is zero for a term every wing uses, and that zero is the whole reason no stopword list is needed: "the"
+ * appears in every header, so its discount is exactly 0 and it can never win a wing, however often that wing repeats it.
  */
 export function weigh(subjects: readonly WingSubject[]): Map<string, Map<string, number>> {
   const saying = new Map<string, number>()
@@ -113,7 +122,7 @@ export function weigh(subjects: readonly WingSubject[]): Map<string, Map<string,
   for (const { wing, counts } of counted) {
     const w = new Map<string, number>()
     for (const [t, n] of counts) {
-      const discount = Math.log(subjects.length / (saying.get(t) ?? 1))
+      const discount = (subjects.length - (saying.get(t) ?? 1)) / subjects.length
       if (discount > 0) w.set(t, n * discount)
     }
     out.set(wing, w)
@@ -158,8 +167,9 @@ export function coherence(vocabularies: ReadonlyMap<string, Set<string>>, wings:
  * and the wing stays available to a weaker term that still groups it with a peer.
  *
  * A wing no candidate term reaches — an empty header, or a vocabulary it shares with nobody — is reported in
- * `unclassed` rather than swept into a default bucket. A wing the method cannot place is a fact about the method, and
- * hiding it behind an "other" class would make the partition look total when it is not.
+ * `unclassed` rather than swept into a default bucket. A wing the method cannot place is a fact about the method — no
+ * candidate term reaches it, which is a property of this scoring and not of the wing — and hiding it behind an "other"
+ * class would make the partition look total when it is not.
  */
 export function scienceClasses(subjects: readonly WingSubject[]): {
   classes: ScienceClass[]
@@ -182,7 +192,7 @@ export function scienceClasses(subjects: readonly WingSubject[]): {
       term,
       wings: w,
       // RARITY ALONE. A word two wings share out of 262 says something about both; a word 81 share says nothing.
-      score: Math.log(wings / w.size),
+      score: (wings - w.size) / wings,
       // how much those wings have in common besides the word — only ever a tiebreak between equally rare terms
       cohesion: coherence(vocabularies, [...w], term),
     }))
@@ -198,7 +208,7 @@ export function scienceClasses(subjects: readonly WingSubject[]): {
     let best = fallback
     let bestWeight = -1
     for (const t of shared) {
-      const w = Math.log(wings / (saying.get(t)?.size ?? 1))
+      const w = (wings - (saying.get(t)?.size ?? 1)) / wings
       if (w > bestWeight || (w === bestWeight && t < best)) { best = t; bestWeight = w }
     }
     return best
