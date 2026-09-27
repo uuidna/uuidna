@@ -88,8 +88,13 @@ test('the operational hard rules survive regeneration, in the payload', () => {
 
 // ── NO FROZEN COUNTS. A number written into prose is a claim with no way to stay true.
 test('it does not freeze a ledger count that will drift', () => {
-  const stale = [...txt().matchAll(/\b(\d{3,5})\s+(?:theorems|lessons|tools)\b/gi)]
+  // PRINCIPLES WAS UNGUARDED, and drifted. The line reads "71085 theorems, 260 principles, 250 tools"; this regex
+  // named theorems, lessons and tools, so the stale theorem count was caught on a ledger rebuild and the stale
+  // principle count beside it was not. A guard that covers three of the four nouns in one sentence is the shape of
+  // defect it exists to find, so `principles` is named and checked against the live figure.
+  const live = new Set([theorems().length, MCP_CATALOG.length, new Set(theorems().map((t) => t.principle)).size])
+  const stale = [...txt().matchAll(/\b(\d{3,5})\s+(?:theorems|lessons|tools|principles)\b/gi)]
     .map((m) => Number(m[1]))
-    .filter((n) => n !== theorems().length && n !== MCP_CATALOG.length)
+    .filter((n) => !live.has(n))
   assert.deepEqual(stale, [], 'a count in prose must equal the live figure, or not be written at all')
 })
