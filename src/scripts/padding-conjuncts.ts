@@ -4,7 +4,7 @@
 // (the captain, 2026-09-27: "Why not simplify all to the core?!?" — after I had replaced eleven of these by hand.)
 //
 // THE HAND SEARCH FOUND 3% OF THE CLASS. Reading statements turned up sixteen; substituting their numerals and
-// re-deciding finds 492 across 105 wings. A conjunct that holds whatever its numbers are constrains nothing, so the
+// re-deciding finds 492 across the wings. A conjunct that holds whatever its numbers are constrains nothing, so the
 // theorem reads as a conjunction of substance while part of it is furniture — and `by decide` signs it either way.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'

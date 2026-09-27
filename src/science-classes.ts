@@ -29,7 +29,7 @@
 // used by 43 wings — outscored every real subject term by sheer frequency. The partition was total and meaningless.
 //
 // THE REAL BUG WAS MULTIPLYING BY OCCURRENCE COUNT, and it took three wrong fixes to see it. "cern" is said by 2 of
-// 262 wings and scored 2 x log(262/2) = 9.8; "file" is said by 81 and scored 81 x 1.17 = 95. Term frequency is the
+// the wings and scored 2 x log(262/2) = 9.8; "file" is said by 81 and scored 81 x 1.17 = 95. Term frequency is the
 // right factor for ranking a word WITHIN one document and the wrong one for naming a GROUP, because a word's ubiquity
 // is precisely what disqualifies it as a domain name. Dropping the count and scoring by rarity alone puts "cern" nine
 // places above "file" and sinks every function word without naming one of them.
