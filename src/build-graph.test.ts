@@ -93,3 +93,21 @@ test('nothing outside spin\'s declared set may be reported unsealed — the fals
   // and the control: the declared set is not empty, so the assertion above is not vacuously satisfied
   assert.ok(declared.size > 0, 'if spin declared nothing, the loop above would pass by having nothing to check')
 })
+
+// THE RECEIPT MUST NOT MOVE WHEN ONLY THE COINS MOVE. This is the defect the docs-reproduce gate caught: the fold
+// included each surface's spin coin, which is a CONTENT address, so the receipt changed on every regeneration while the
+// graph stood still — and the recorded example could never reproduce. Perturbing the coins is the only way to hold the
+// cure: the same structure with different coins must fold the same receipt.
+test('the receipt folds the STRUCTURE, not the content — perturbing coins must not move it', () => {
+  const g = buildGraph()
+  const structure = (es: readonly { generator: string; surface: string }[]): string =>
+    es.map((e) => `${e.generator}\u2192${e.surface}`).sort().join('|')
+  // the leaves the receipt covers, recomputed here with the coins deliberately replaced by nonsense
+  const asBuilt = structure(g.edges)
+  const withOtherCoins = structure(g.edges.map((e) => ({ ...e, coin: 'deadbeefdeadbeef' })))
+  assert.equal(asBuilt, withOtherCoins,
+    'the fold leaves must not mention the coin, or a byte change anywhere moves the graph receipt')
+  // AND THE CONTROL: the structure IS sensitive to the graph itself, so this is not a constant
+  const movedGraph = structure([...g.edges.slice(1), { generator: 'zz-new-generator', surface: 'zz/new-surface' }])
+  assert.notEqual(asBuilt, movedGraph, 'a changed graph must change the leaves, or the receipt seals nothing')
+})

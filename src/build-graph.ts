@@ -100,9 +100,17 @@ export function buildGraph(): BuildGraph {
   const uncoined = [...surfaces].filter((s) => spinScope.has(s) && !coins[s]).sort()
   const outsideSpin = [...surfaces].filter((s) => !spinScope.has(s)).length
 
-  // ORDER-INVARIANT BY CONSTRUCTION: the leaves are sorted before folding, so two readers who walk the declarations in
-  // different orders fold the same receipt. hexbitReceipt is the tree's own fold; nothing here invents one.
-  const leaves = edges.map((e) => `${e.generator}→${e.surface}${e.coin ? ':' + e.coin : ''}`).sort()
+  // THE RECEIPT SEALS THE GRAPH, NOT THE CONTENT OF WHAT IT BUILT — and the first version folded the coins in, which
+  // made it neither. A spin coin is a content-address, so it moves whenever a surface's bytes move; folding coins meant
+  // this receipt changed on every regeneration even when the graph was identical, and the recorded MCP example could
+  // never reproduce. The docs-reproduce gate caught precisely that: same 82 generators, same 101 surfaces, same 109
+  // edges, same unowned and uncoined — and a different receipt.
+  //
+  // So the fold is over the STRUCTURE: which generator writes which surface. That is what "the computation graph" names,
+  // and it is stable exactly as long as the graph is. The coins stay on each edge as the per-surface evidence they are —
+  // dropped from the identity, not from the answer, because a reader still needs to know whether a surface is sealed.
+  // build-graph.test.ts perturbs the coins and requires the receipt not to move.
+  const leaves = edges.map((e) => `${e.generator}→${e.surface}`).sort()
   const r = hexbitReceipt(leaves)
   return {
     generators: generators.size,

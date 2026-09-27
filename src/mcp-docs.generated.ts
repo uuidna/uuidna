@@ -13273,6 +13273,74 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "excerpt": "{\"generators\":82,\"surfaces\":101,\"edges\":109,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":87,\"receipt\":\"cffe47e0-4b37-8652-ab05-d874d096c5e1\",\"handle\":\"cffe47…"
   }
  },
+ "uuidna_hex_programs": {
+  "name": "get_hex_programs",
+  "title": "Get hex programs",
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": false
+  },
+  "description": "Get hex programs. Returns {doors,width,bits,distinct,collisions,programs,capacity,…}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "doors": {
+     "type": "integer"
+    },
+    "width": {
+     "type": "integer"
+    },
+    "bits": {
+     "type": "integer"
+    },
+    "distinct": {
+     "type": "integer"
+    },
+    "collisions": {
+     "type": "array"
+    },
+    "programs": {
+     "type": "integer"
+    },
+    "capacity": {
+     "type": "object",
+     "properties": {
+      "middle": {
+       "type": "integer"
+      },
+      "program": {
+       "type": "integer"
+      },
+      "paramsInMiddle": {
+       "type": "integer"
+      },
+      "envelope": {
+       "type": "integer"
+      }
+     }
+    },
+    "receipt": {
+     "type": "string"
+    },
+    "handle": {
+     "type": "string"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {},
+   "excerpt": "{\"doors\":250,\"width\":8,\"bits\":32,\"distinct\":250,\"collisions\":[],\"programs\":250,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
+  }
+ },
  "uuidna_lattice": {
   "name": "get_lattice",
   "title": "Get lattice",
@@ -16774,7 +16842,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":274,\"tools\":249,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":275,\"tools\":250,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -19717,7 +19785,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":249,\"zeroArgReusable\":119,\"totalRequiredKeys\":192,\"reusablePerKey\":1.297,\"avgRequiredKeys\":0.771,\"avgRating\":4.229,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":250,\"zeroArgReusable\":120,\"totalRequiredKeys\":192,\"reusablePerKey\":1.302,\"avgRequiredKeys\":0.768,\"avgRating\":4.232,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -19795,7 +19863,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"2eded855\",\"theorems\":{\"count\":71085,\"verified\":71085,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\"},\"domains\":{\"count\":129,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"ff3750b1\",\"theorems\":{\"count\":71085,\"verified\":71085,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\"},\"domains\":{\"count\":129,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20318,7 +20386,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":249,\"registry\":\"989c9140-ff0b-8d0…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":250,\"registry\":\"f2cc658b-b3c3-8e5…"
   }
  },
  "uuidna_send": {
