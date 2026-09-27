@@ -1,6 +1,6 @@
 # uuidna — 71,000 distinct theorems under 71,085 keys · 2 coins · one receipt
 
-`b4c9fd46-52d4-8fd7-aee6-4642cbb28c80`
+`b886c06a-2690-89eb-8214-e8fa81afd06a`
 
 **What every theorem carries, and what most do not.** Of 71,085 keys: proof · falsifier · address hold for all of them; **witness 30** (0.0%), **symbol 1387** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,085 theorems and 172,332,352 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,085 theorems and 172,332,384 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -265,7 +265,7 @@ drain already keeps, so a generator added tomorrow enters the graph the day it d
 renders this block, the site page and `uuidna_build_graph`. One derivation, three renderings: a figure here cannot
 disagree with a figure there.
 
-**82 generators → 101 surfaces**, 109 declared edge(s), folded order-invariantly to receipt `49232402-082b-8969-9675-40d2d1ad520f` (handle `49232402`). Recompute with `uuidna_build_graph`.
+**82 generators → 101 surfaces**, 109 declared edge(s), folded order-invariantly to receipt `67b7901d-86b4-87bb-8e80-adcf00715762` (handle `67b7901d`). Recompute with `uuidna_build_graph`.
 
 | what | count | why it is the number to read |
 | --- | ---: | --- |
@@ -295,7 +295,7 @@ disagree with a figure there.
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `04ccf23d-c6ab-8468-bab5-6068056c8dbd` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,332,352 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,332,384 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
