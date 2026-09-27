@@ -3,11 +3,11 @@
 **Generated:** 2026-09-27
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71085/71085 theorems — every one, by construction
-**Discovery claimed:** 70675 — the other 410 restate a fact a named source found first
+**Formalisation claimed:** 71094/71094 theorems — every one, by construction
+**Discovery claimed:** 70684 — the other 410 restate a fact a named source found first
 
 *The 410 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 345 of 380 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `a92cdaff-3114-8b53-a82c-e64f6ad02bce`
+**Claim receipt:** `0ba6c306-e54f-8135-a274-a4ed4cbc589e`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `87cb4678-ac66-8155-afc6-163aee938d7e`
+- **Sample lineAddress:** `c1f2b48d-3d72-818d-a4c7-dfbf2fb8d8cc`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `e4d9ed17-db60-8b8e-b2f8-108da2e103ee`
+- **Sample lineAddress:** `b2c7d74e-aef3-87f9-813e-a2e62b303cad`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2336,10 +2336,19 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [unit_group_exponent_mod_23](/theorem/unit_group_exponent_mod_23) · [coprime_sum_open_reduced_1_mod_23](/theorem/coprime_sum_open_reduced_1_mod_23) · [coprime_sum_open_reduced_2_mod_23](/theorem/coprime_sum_open_reduced_2_mod_23) · [power_image_exact_reduced_11_mod_23](/theorem/power_image_exact_reduced_11_mod_23) · [coprime_sum_blocked_reduced_11_mod_23](/theorem/coprime_sum_blocked_reduced_11_mod_23) · [power_image_exact_reduced_22_mod_23](/theorem/power_image_exact_reduced_22_mod_23) · [coprime_sum_blocked_reduced_22_mod_23](/theorem/coprime_sum_blocked_reduced_22_mod_23) · [unit_group_exponent_mod_44](/theorem/unit_group_exponent_mod_44) · [power_image_exact_reduced_1_mod_44](/theorem/power_image_exact_reduced_1_mod_44) · [coprime_sum_blocked_reduced_1_mod_44](/theorem/coprime_sum_blocked_reduced_1_mod_44) · [power_image_exact_reduced_2_mod_44](/theorem/power_image_exact_reduced_2_mod_44) · [coprime_sum_blocked_reduced_2_mod_44](/theorem/coprime_sum_blocked_reduced_2_mod_44) · [power_image_exact_reduced_5_mod_44](/theorem/power_image_exact_reduced_5_mod_44) · [coprime_sum_blocked_reduced_5_mod_44](/theorem/coprime_sum_blocked_reduced_5_mod_44) · [power_image_exact_reduced_10_mod_44](/theorem/power_image_exact_reduced_10_mod_44) · [coprime_sum_blocked_reduced_10_mod_44](/theorem/coprime_sum_blocked_reduced_10_mod_44) · [unit_group_exponent_mod_65](/theorem/unit_group_exponent_mod_65) · [coprime_sum_open_reduced_1_mod_65](/theorem/coprime_sum_open_reduced_1_mod_65) · [power_image_exact_reduced_2_mod_65](/theorem/power_image_exact_reduced_2_mod_65) · [coprime_sum_blocked_reduced_2_mod_65](/theorem/coprime_sum_blocked_reduced_2_mod_65) · [power_image_exact_reduced_3_mod_65](/theorem/power_image_exact_reduced_3_mod_65) · [coprime_sum_blocked_reduced_3_mod_65](/theorem/coprime_sum_blocked_reduced_3_mod_65) · [power_image_exact_reduced_4_mod_65](/theorem/power_image_exact_reduced_4_mod_65) · [coprime_sum_blocked_reduced_4_mod_65](/theorem/coprime_sum_blocked_reduced_4_mod_65) · [power_image_exact_reduced_6_mod_65](/theorem/power_image_exact_reduced_6_mod_65) · [coprime_sum_blocked_reduced_6_mod_65](/theorem/coprime_sum_blocked_reduced_6_mod_65) · [power_image_exact_reduced_12_mod_65](/theorem/power_image_exact_reduced_12_mod_65) · [coprime_sum_blocked_reduced_12_mod_65](/theorem/coprime_sum_blocked_reduced_12_mod_65) · [unit_group_exponent_mod_86](/theorem/unit_group_exponent_mod_86) · [power_image_exact_reduced_1_mod_86](/theorem/power_image_exact_reduced_1_mod_86) · [coprime_sum_blocked_reduced_1_mod_86](/theorem/coprime_sum_blocked_reduced_1_mod_86) · [power_image_exact_reduced_2_mod_86](/theorem/power_image_exact_reduced_2_mod_86) · [coprime_sum_blocked_reduced_2_mod_86](/theorem/coprime_sum_blocked_reduced_2_mod_86) · [power_image_exact_reduced_3_mod_86](/theorem/power_image_exact_reduced_3_mod_86) · [coprime_sum_blocked_reduced_3_mod_86](/theorem/coprime_sum_blocked_reduced_3_mod_86) · [power_image_exact_reduced_6_mod_86](/theorem/power_image_exact_reduced_6_mod_86) · [coprime_sum_blocked_reduced_6_mod_86](/theorem/coprime_sum_blocked_reduced_6_mod_86) · [power_image_exact_reduced_7_mod_86](/theorem/power_image_exact_reduced_7_mod_86) · [coprime_sum_blocked_reduced_7_mod_86](/theorem/coprime_sum_blocked_reduced_7_mod_86) · [power_image_exact_reduced_14_mod_86](/theorem/power_image_exact_reduced_14_mod_86) · [coprime_sum_blocked_reduced_14_mod_86](/theorem/coprime_sum_blocked_reduced_14_mod_86) · [power_image_exact_reduced_21_mod_86](/theorem/power_image_exact_reduced_21_mod_86) · [coprime_sum_blocked_reduced_21_mod_86](/theorem/coprime_sum_blocked_reduced_21_mod_86) · [unit_group_exponent_mod_107](/theorem/unit_group_exponent_mod_107) · [coprime_sum_open_reduced_1_mod_107](/theorem/coprime_sum_open_reduced_1_mod_107) · [coprime_sum_open_reduced_2_mod_107](/theorem/coprime_sum_open_reduced_2_mod_107)
 
+### THE COINS BALANCE
+
+- **Theorems:** 6
+- **Sample lineAddress:** `6114d37c-b779-8cb5-a752-13770b1264f0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[string_ratios_of_twentyseven](/theorem/string_ratios_of_twentyseven) · [algebraic_fractions_decide_themselves](/theorem/algebraic_fractions_decide_themselves) · [the_pentagram_is_the_unit_and_its_coins](/theorem/the_pentagram_is_the_unit_and_its_coins) · [the_schema_combinatorics_are_fourthirtytwo](/theorem/the_schema_combinatorics_are_fourthirtytwo) · [theory_and_practice_are_the_two_coins](/theorem/theory_and_practice_are_the_two_coins) · [the_coil_is_the_faces_and_the_halves_are_equal](/theorem/the_coil_is_the_faces_and_the_halves_are_equal)
+
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `9f2b2084-5f77-8563-9d64-1631403cb5a2`
+- **Sample lineAddress:** `f366d200-369f-884c-bda6-12189fbc0396`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2366,11 +2375,20 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE DOOR SURFACE
 
 - **Theorems:** 3
-- **Sample lineAddress:** `6b10c9a3-a987-8fbd-be55-1e5c0b6c9df1`
+- **Sample lineAddress:** `1008d82d-b4b0-8a76-8cbe-2ac3500096a7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [the_key_index_fits_where_the_rows_do_not](/theorem/the_key_index_fits_where_the_rows_do_not) · [the_keys_are_a_small_fraction_of_the_rows](/theorem/the_keys_are_a_small_fraction_of_the_rows) · [an_answer_is_content_or_a_refusal_and_never_neither](/theorem/an_answer_is_content_or_a_refusal_and_never_neither)
+
+### INVARIANCE
+
+- **Theorems:** 3
+- **Sample lineAddress:** `2c63b56b-5241-82ff-b18b-60b16f5f3e46`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[emptiness_is_invariant_under_every_mirror](/theorem/emptiness_is_invariant_under_every_mirror) · [symmetry_with_content_is_not_emptiness](/theorem/symmetry_with_content_is_not_emptiness) · [the_square_has_no_fourth_cell](/theorem/the_square_has_no_fourth_cell)
 
 ### THE PLANCK EXPONENT LATTICE
 
@@ -2409,7 +2427,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 71000 (71085 entries, 85 re-namings — a theorem is its Lean |
+| sealed propositions | 71009 (71094 entries, 85 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2427,7 +2445,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71085 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71094 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2439,7 +2457,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71085; he claims discovery of 70675 and credits the other 410 facts to their named sources
+- ✓ The captain formalised all 71094; he claims discovery of 70684 and credits the other 410 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2455,7 +2473,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71085; of these I claim discovery of 70675, and the remaining 410 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71094; of these I claim discovery of 70684, and the remaining 410 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

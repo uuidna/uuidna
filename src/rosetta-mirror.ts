@@ -350,6 +350,13 @@ traitor_damage_sealed_by_same_billing 27
 wallet_counts_worlds 27
 coins_unique_operation_agreement 27
 coin_and_heart_generate_the_scales 27
+#CoinsBalance.lean
+string_ratios_of_twentyseven 27
+algebraic_fractions_decide_themselves 27
+the_pentagram_is_the_unit_and_its_coins 19
+the_schema_combinatorics_are_fourthirtytwo 19
+theory_and_practice_are_the_two_coins 19
+the_coil_is_the_faces_and_the_halves_are_equal 19
 #Colour.lean
 aura_alphabet_is_pairwise_distinct 27
 fourth_ray_is_green_band 27
@@ -68667,6 +68674,10 @@ every_path_carries_its_published_meaning 27
 a_spec_compiles_to_hexbits 27
 the_os_is_bootable_quantum 27
 the_install_set_names_the_bytes_it_rests_on 27
+#Invariance.lean
+emptiness_is_invariant_under_every_mirror 27
+symmetry_with_content_is_not_emptiness 27
+the_square_has_no_fourth_cell 27
 #Involution2d552f1f.lean
 involution_2d552f1f 26
 budget_census_2d552f1f 26
