@@ -1,0 +1,49 @@
+{
+ "why": "Every place the source hands a decision to a person, classified by what the act NEEDS rather than by how it is phrased. A credential, a logged-in act and a ruling no theorem decides are LAWFUL asks and must stay — the court's own audit, which names the calls a person must read and records no guess, is the law working. Anything else is the automation stopping early. Written by src/scripts/audit-asks.ts on every run, empty included.",
+ "asks": 3,
+ "registered": 0,
+ "unregistered": 3,
+ "registerLines": 46,
+ "lawful": {
+  "credential": 0,
+  "dashboard": 0,
+  "ruling": 2
+ },
+ "automatable": 1,
+ "held": [
+  {
+   "where": "src/post-push.ts",
+   "line": 76,
+   "text": "rosterGaps: string[]   // foreign checks NOT in the roster: judged normally, and named so someone decides",
+   "needs": "ruling",
+   "registered": false
+  },
+  {
+   "where": "src/post-push.ts",
+   "line": 157,
+   "text": "rosterGaps.push(`${c.name} (${c.appSlug}) is in no roster column — judged as a push check until someone decides`)",
+   "needs": "ruling",
+   "registered": false
+  },
+  {
+   "where": "src/scripts/one-receipt.ts",
+   "line": 273,
+   "text": "console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \\`one-receipt dry\\` to confi",
+   "needs": "AUTOMATABLE",
+   "registered": false
+  }
+ ],
+ "open": 2,
+ "leads": [
+  {
+   "lead": "3 of 3 ask(s) the source emits reach no register: the owner-decision list in .claude/lessons.md holds 46 hand-written line(s), and an ask printed at runtime never enters it. Each one repeats on every run and accumulates nowhere — src/post-push.ts:76, src/post-push.ts:157, src/scripts/one-receipt.ts:273.",
+   "status": "open",
+   "owes": "a verdict on whether the register should be DERIVED from these sites rather than written by hand — a hand-kept list of what the machine asks is a second copy of the asking, and it drifts the moment a site is added"
+  },
+  {
+   "lead": "1 ask(s) name no credential, no logged-in act and no ruling — the automation stopped where it had what it needed: src/scripts/one-receipt.ts:273.",
+   "status": "open",
+   "owes": "one fold each, or a stated reason the act is lawfully a person's — the classifier reads what the act NEEDS, so a site landing here is either a gap to close or an ask whose need was never written down"
+  }
+ ]
+}

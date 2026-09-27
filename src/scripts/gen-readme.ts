@@ -139,7 +139,7 @@ function generateReadme(): string {
 
 \`${receipt}\`
 
-**What every theorem carries, and what most do not.** ${complete.join(' · ')} hold for ${T.length.toLocaleString('en-US')} of ${T.length.toLocaleString('en-US')}${scarce.length ? '; ' + scarce.map((c) => `**${c.leg} ${c.n} of ${T.length.toLocaleString('en-US')}** (${c.pct}%)`).join(', ') : ''}. A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** ${UNREACHED.length} anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** Of ${T.length.toLocaleString('en-US')} keys: ${complete.join(' · ')} hold for all of them${scarce.length ? '; ' + scarce.map((c) => `**${c.leg} ${c.n}** (${c.pct}%)`).join(', ') : ''}. A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** ${UNREACHED.length} anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v${pkg.version}** · License **${license}** ([${licenseUrl}](${licenseUrl})) · Archive DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI})
 
@@ -441,7 +441,8 @@ door URL (\`encodeURIComponent\`). Agents deposit the two coins on every gated c
 A \`by decide\` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **${mass.toLocaleString('en-US')}** superpositions across **${wings}** wings.
+Both figures this needs — the decided mass and the wing count — are rows of **Magnitudes** above, with the
+theorem each rests on. Restating them here gave a reader two copies and one citation.
 
 ${heaviest}
 
@@ -449,12 +450,14 @@ ${capacityRef}
 
 ### What a handle spans
 
-A handle is eight hexbits, so it names **${HANDLE_SPAN.toLocaleString('en-US')}** addresses (16⁸).
-Inside that space today:
+A handle is eight hexbits — 16⁸ addresses, the **Handle span** row above. What is worth stating HERE is the one
+quantity that section does not carry, because it is a RATIO of two rows rather than a row:
 
-- **${mass.toLocaleString('en-US')}** superpositions decided across the ledger
-- **${(T.length * COINS).toLocaleString('en-US')}** coins paid (conserved denomination ${COINS} — [two_coins](https://uuidna.com/theorem/two_coins))
-- Floored coverage **${((mass - (mass % (T.length * COINS))) / (T.length * COINS)).toLocaleString('en-US')}** superpositions per coin
+- Floored coverage **${((mass - (mass % (T.length * COINS))) / (T.length * COINS)).toLocaleString('en-US')}** superpositions per coin — the decided mass over the coins paid, floored
+
+The decided mass and the coins paid are **Magnitudes** rows, each citing the theorem it rests on. They were printed
+again here, in a list, with no citation: three figures, two copies each, and the copy a reader met first was the one
+that could not be checked.
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (\`dz\`), the
 shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
