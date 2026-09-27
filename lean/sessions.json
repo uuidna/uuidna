@@ -5,5 +5,12 @@
     "purpose": "the voice, the anthem, the apparatus, the circle",
     "head": "0384b78c",
     "ledger": 1687
+  },
+  {
+    "handle": "807b6476",
+    "host": "CeciPro.local",
+    "purpose": "Zenodo/citations audit; moved seven qpu aphorisms to CoinsBalance; hex program space; beyondOf memo — LANDING a 42-commit queue, please announce before editing src/science-classes.ts, window-crossroads.ts, padding-conjunct*.ts",
+    "head": "9f3a410719",
+    "ledger": 71094
   }
 ]
