@@ -2,7 +2,7 @@
   "file": "CrossFormulas.lean",
   "slug": "crossformulas",
   "status": "usable",
-  "address": "76f9ecfd-ac68-8a3a-aa37-2db187eda9cb",
+  "address": "abb8871d-dd66-88ef-88a2-0cc76c6e7864",
   "page": {
     "root": {
       "type": "root",
@@ -37,7 +37,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "CLAIMED: of 612669 crosses the corpus's own integers generate, 514697 are forced by an operator's algebra, 449 are stated, and 97523 remain — and the three account for the whole, 514697 + 449 + 97523 = 612669."
+                  "text": "CLAIMED: of 612772 crosses the corpus's own integers generate, 514759 are forced by an operator's algebra, 449 are stated, and 97564 remain — and the three account for the whole, 514759 + 449 + 97564 = 612772."
                 }
               ]
             },
@@ -47,7 +47,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "(514697 + 449 + 97523 = 612669) ∧ (514697 > 5 * 97523)"
+                  "text": "(514759 + 449 + 97564 = 612772) ∧ (514759 > 5 * 97564)"
                 }
               ]
             },
@@ -57,7 +57,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_generated_closure_partitions_into_three_kinds : (514697 + 449 + 97523 = 612669) ∧ (514697 > 5 * 97523) := by decide"
+                  "text": "theorem the_generated_closure_partitions_into_three_kinds : (514759 + 449 + 97564 = 612772) ∧ (514759 > 5 * 97564) := by decide"
                 }
               ]
             }
@@ -109,7 +109,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "CLAIMED: of 97523 unstated crosses, 42630 join integers no single wing carries all three of — over two fifths and under a half, since 42630 × 5 > 97523 × 2 and 42630 × 2 < 97523."
+                  "text": "CLAIMED: of 97564 unstated crosses, 42673 join integers no single wing carries all three of — over two fifths and under a half, since 42673 × 5 > 97564 × 2 and 42673 × 2 < 97564."
                 }
               ]
             },
@@ -119,7 +119,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "((42630 * 5 > 97523 * 2) ∧ (42630 * 2 < 97523)) ∧ (42630 < 97523)"
+                  "text": "((42673 * 5 > 97564 * 2) ∧ (42673 * 2 < 97564)) ∧ (42673 < 97564)"
                 }
               ]
             },
@@ -129,7 +129,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((42630 * 5 > 97523 * 2) ∧ (42630 * 2 < 97523)) ∧ (42630 < 97523) := by decide"
+                  "text": "theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((42673 * 5 > 97564 * 2) ∧ (42673 * 2 < 97564)) ∧ (42673 < 97564) := by decide"
                 }
               ]
             }
@@ -145,7 +145,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "CLAIMED: the 1524 formula-shaped statements across 113 wings are built from 781 distinct integers and state 449 crosses, against 97523 their own integers generate unstated — fewer than one in a hundred, since 449 × 100 < 97523, at between 13 and 14 formulas per wing."
+                  "text": "CLAIMED: the 1524 formula-shaped statements across 113 wings are built from 781 distinct integers and state 449 crosses, against 97564 their own integers generate unstated — fewer than one in a hundred, since 449 × 100 < 97564, at between 13 and 14 formulas per wing."
                 }
               ]
             },
@@ -155,7 +155,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "((449 * 100 < 97523) ∧ (781 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))"
+                  "text": "((449 * 100 < 97564) ∧ (781 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))"
                 }
               ]
             },
@@ -165,7 +165,7 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((449 * 100 < 97523) ∧ (781 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524)) := by decide"
+                  "text": "theorem the_corpus_has_sealed_under_a_hundredth_of_its_own_closure : ((449 * 100 < 97564) ∧ (781 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524)) := by decide"
                 }
               ]
             }
