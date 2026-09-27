@@ -127,7 +127,11 @@ export function callOfUuid(uuid: string, index: HexProgramIndex = hexProgramInde
   const program = h.slice(8, 16)
   const found = index.programs.find((p) => p.hex === program)
   return {
-    handle: h.slice(0, 8),
+    // handleOf, NOT a slice. handle.test.ts holds that every handle in this tree comes from one derivation, and it
+    // caught this line: `h.slice(0, 8)` is the first group TODAY and agrees with handleOf only for as long as nobody
+    // changes what a handle means. A second derivation that happens to agree is the drift this tree keeps catching —
+    // it disagrees silently, on the day it matters, in the field a reader trusts most.
+    handle: handleOf(h),
     program,
     door: found?.name ?? null,
     params: h.slice(16, 20),

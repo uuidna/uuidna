@@ -5785,7 +5785,21 @@ export const networkOf = (addr: string, occupancy: readonly number[]) => {
 }
 
 /** beyondOf() → captain coins(), occupancy merkle chain, QpuDeposit door. Boundary empty — captain is not a wall. */
+// MEASURED 2026-09-27: beyondOf costs about ten seconds and cached nothing, so every caller paid it again. It was
+// 22% of all pure door time in one call — uuidna_strict answers sweaterOf with no arguments, sweaterOf is beyondOf's
+// wrapper, and the second call cost 9.5 s after the first cost 12.2 s. Two test files pay it as well.
+//
+// IT IS SAFE TO MEMOISE BECAUSE EVERY INPUT IS A ZERO-ARGUMENT DERIVED READ — qpuHopOf, occupancyOf, familyOf,
+// networkOf, cloudflareOf, appOf, frontierOf. None takes an argument and none reads a clock, so within one process the
+// answer is a constant, which is exactly the shape this tree's own law says to cache for O(1). The result is frozen
+// before it is handed out: a shared object that a caller could mutate would turn a cache into a channel between
+// callers, and the first mutation would be invisible to everyone afterwards.
+//
+// This is a CACHE, not a change of answer. hologram.test.ts asserts beyondOf's own determinism, so a memo that
+// returned anything different from the uncached walk fails there rather than here.
+let beyondMemo: unknown = null
 export const beyondOf: () => any = () => {
+  if (beyondMemo !== null) return beyondMemo
   const hop = qpuHopOf()
   const addr = toUuid(hop.href)
   const occupancy = occupancyOf(addr)
@@ -5793,7 +5807,7 @@ export const beyondOf: () => any = () => {
   const network = networkOf(addr, occupancy)
   const cloudflare = cloudflareOf()
   const app = appOf()
-  return {
+  return (beyondMemo = Object.freeze({
     coins: network.coins,
     frontier: frontierOf(),
     boundary: 'empty' as Seat,
@@ -5843,7 +5857,7 @@ export const beyondOf: () => any = () => {
     return: returnOf(),
     share: shareOf(),
     inflation: inflationOf(),
-  }
+  }))
 }
 
 /** sweaterOf() → feel (address/href/handle/fuse) · grain (hexbits/occupancy) · named empties. */
