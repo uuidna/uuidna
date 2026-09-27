@@ -1,0 +1,84 @@
+{
+ "why": "Whether each VitePress data loader RENDERS a door's answer or reaches past the doors into dist. One contract or two: if the page renders the door, improving the door improves the page by itself. The computation is usually shared already — what is duplicated is the contract, which is the half a reader and a search engine both see. Written by src/scripts/audit-ui-doors.ts on every run, EMPTY INCLUDED: an absent file and an empty set are different facts.",
+ "loaders": 8,
+ "renderDoor": 0,
+ "bypass": 6,
+ "fileOnly": 2,
+ "rows": [
+  {
+   "loader": "docs/.vitepress/fold.data.ts",
+   "callsDoor": false,
+   "reaches": []
+  },
+  {
+   "loader": "docs/.vitepress/home.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "captain/billing/index.js",
+    "editorial.js",
+    "gravity/index.js",
+    "publish.js",
+    "site.js",
+    "theorems/index.js",
+    "trial-run.js"
+   ]
+  },
+  {
+   "loader": "docs/.vitepress/ledger.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "address.js",
+    "aura.js",
+    "axiom-witness.js",
+    "gravity/index.js",
+    "publish.js",
+    "rosetta-legs.js",
+    "site.js",
+    "theorems/index.js",
+    "trial-run.js"
+   ]
+  },
+  {
+   "loader": "docs/.vitepress/news.data.ts",
+   "callsDoor": false,
+   "reaches": []
+  },
+  {
+   "loader": "docs/.vitepress/occupancy.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "hexagram.js"
+   ]
+  },
+  {
+   "loader": "docs/.vitepress/proof.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "site.js"
+   ]
+  },
+  {
+   "loader": "docs/.vitepress/publications.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "publish.js"
+   ]
+  },
+  {
+   "loader": "docs/.vitepress/school.data.ts",
+   "callsDoor": false,
+   "reaches": [
+    "publish.js",
+    "school.js"
+   ]
+  }
+ ],
+ "open": 1,
+ "leads": [
+  {
+   "lead": "6 of 8 site data loader(s) reach past the doors into dist rather than rendering a door's answer, so a door's naming, shape, honest line and receipt cannot reach the UI: home.data.ts → captain/billing/index.js, editorial.js, gravity/index.js, publish.js, site.js, theorems/index.js, trial-run.js; ledger.data.ts → address.js, aura.js, axiom-witness.js, gravity/index.js, publish.js, rosetta-legs.js, site.js, theorems/index.js, trial-run.js; occupancy.data.ts → hexagram.js; proof.data.ts → site.js; publications.data.ts → publish.js; school.data.ts → publish.js, school.js.",
+   "status": "open",
+   "owes": "per loader, either the door that serves its data (named, not guessed — a word match is not a contract) or a stated reason the page must compute privately; a door that does not exist yet is work, never an exemption"
+  }
+ ]
+}

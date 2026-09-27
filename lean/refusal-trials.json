@@ -60999,7 +60999,7 @@
   "toolchain": "leanprover/lean4:v4.33.0",
   "lean/leads.json": "20756a29-6b5b-866b-bbf4-ffbbe16724a4",
   "lean/wave-queue.json": "29b3d0d4-3872-8dc2-bedd-df639453e43d",
-  "src/theorems/generated.ts": "2aac1ea0-a5dc-8201-909f-68894367b54b",
+  "src/theorems/generated.ts": "1512e0c1-0a5c-8311-993a-5db873bdc09f",
   "lean/axioms.json": "e6485600-ea2a-8ac3-94a8-e4517598fae9",
   "lean-toolchain": "8de5f85e-020b-868f-9a1d-a0dc0bf7066e"
  },
@@ -61282,5 +61282,5 @@
   }
  },
  "unreceipted": [],
- "seal": "79021d8d-6c1d-8868-80f4-b072cf4d9d54"
+ "seal": "f40dd640-7a6f-8369-ba48-43b66a3e2c58"
 }
