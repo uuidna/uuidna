@@ -7,7 +7,7 @@
 **Discovery claimed:** 70683 — the other 411 restate a fact a named source found first
 
 *The 411 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 346 of 381 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `bffd6cea-f81d-81c5-b6bd-31381396f2dd`
+**Claim receipt:** `382d5dbe-403d-8c5b-b17f-e46daeca55ba`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `c1f2b48d-3d72-818d-a4c7-dfbf2fb8d8cc`
+- **Sample lineAddress:** `b1ca4017-bd4f-80bd-a593-75cdd6bf3d9a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2348,7 +2348,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `f366d200-369f-884c-bda6-12189fbc0396`
+- **Sample lineAddress:** `f4d2aef3-10ff-8e70-bfdd-174ec35fd43a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2384,7 +2384,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### INVARIANCE
 
 - **Theorems:** 3
-- **Sample lineAddress:** `6ab8e4ac-19d4-82d3-8a88-96bbbbde4861`
+- **Sample lineAddress:** `df8b7bdf-e567-85ef-9640-9c45affd6450`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 

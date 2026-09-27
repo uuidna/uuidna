@@ -2,8 +2,8 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "edd1ec0de808e13b",
-      "principles": "eb761049e9e56aa9",
+      "theorems": "388e8aa76dc709b8",
+      "principles": "c1aebe1dba9bb2f2",
       "monographs": "1140b84ed49f9b54"
     },
     "served": {
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "0abe1607731fc4ce23684b9c1718aa0a",
+    "sealed": "47427a4ba35e9aa48fec59a7639acd2e",
     "served": "4dd78d44211789b07e046e6352cb21e3",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "6b0cb0224115befa7829b3ab28c152e1",
     "walks": "178eb3646c4266824d4765f112d8fead"
   },
-  "unified_fold": "7b04332a0c745f56",
-  "receipt": "fc340cae9da223d3",
+  "unified_fold": "a1581ba959676bf1",
+  "receipt": "d1c069a391213cc2",
   "rosette_receipt": {
     "rays": [
       "11cd622d50360004",
       "bf0a979de9af126f",
-      "87db1e84cd6e50de",
+      "7c716a43b31eea5b",
       "a20454282e566346",
-      "7df7e3b1437451af",
+      "8fc6fbb78c7e62ba",
       "a761502744407dcd",
       "f7acf38752649f1f"
     ],
-    "concurrence": "c3d87b6059e8d62943ca91ca6197269d"
+    "concurrence": "44ef35d681d1e07e214954ba6634ef79"
   },
   "aura": {
-    "rgb": "#dc56a4",
-    "hsl": "hsl(35, 66%, 60%)",
+    "rgb": "#dc3884",
+    "hsl": "hsl(28, 70%, 54%)",
     "alphabet": "4c12110e5c171d38",
-    "movie": "5942dcf4e7d75292",
+    "movie": "2e456a7e17dd0b39",
     "lessons": "1ed86e54204fd626",
     "report": "940001b6ff9bd2fc",
     "session": "8c754ef7999d944e",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 8,
-      "ray": 2,
-      "wave": 5,
-      "hue": 35,
-      "sat": 66,
-      "light": 60,
-      "period": 16,
+      "residue": 5,
+      "ray": 4,
+      "wave": 4,
+      "hue": 28,
+      "sat": 70,
+      "light": 54,
+      "period": 20,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

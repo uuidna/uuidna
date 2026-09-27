@@ -7768,8 +7768,8 @@
     },
     {
       "key": "the_axiom_index_partitions_without_remainder",
-      "lineAddress": "d3361c1c-5087-84ea-948d-c04a98135c82",
-      "address": "ea921d1c-ecf2-845c-9598-6d500ac46a6e",
+      "lineAddress": "30a77309-962e-8a80-9879-16ad5a3800a3",
+      "address": "faca4823-152e-8b0d-91b0-ceacea90dc9a",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7833,8 +7833,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "cc54d997-5770-811c-bc18-3e4a642ee55b",
-      "address": "de304a68-2b2e-82fc-b51c-720fa8f87123",
+      "lineAddress": "a708eb6e-70d8-8bd1-968e-147258ab63e4",
+      "address": "866fb6bd-6d88-894e-84f4-5e8294a09df3",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -9653,8 +9653,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "018ac07d-2a91-8e7a-bd9d-5d752b2048d8",
-      "address": "767548cf-f66c-8ac0-b6e5-c8b3eae7579a",
+      "lineAddress": "f1ff5659-71f9-86e0-8151-e4745bcb4ba7",
+      "address": "ec9a9eaf-8a8a-8981-94ca-1e86229c0786",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10132,15 +10132,15 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "c1f2b48d-3d72-818d-a4c7-dfbf2fb8d8cc",
-      "address": "1b43ed0f-df27-8e6b-ace9-7e386cb39dda",
+      "lineAddress": "b1ca4017-bd4f-80bd-a593-75cdd6bf3d9a",
+      "address": "15ae1bf1-d2ca-8d05-adb5-e0d07566fec0",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "4ddf9da4-1748-87af-9437-c75f3cc5a19b",
-      "address": "3982993b-b256-80a6-b562-229421f97293",
+      "lineAddress": "373da25c-5753-86eb-8f24-79e65ef50993",
+      "address": "22e5da0a-c5d8-85c9-95f2-52107fc00a0b",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -10153,15 +10153,15 @@
     },
     {
       "key": "forged_handle_odds_are_small",
-      "lineAddress": "61bf6d11-11bc-8c34-9892-b8c031d3531c",
-      "address": "64d2ac54-bcba-821c-9c23-32a9b05fdfd9",
+      "lineAddress": "03d36d11-3e4f-83e2-8802-ec9064e4e03a",
+      "address": "ddcf99b7-1a65-8dbd-85fe-c3059124b8de",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "sixteen_bit_handles_would_collide",
-      "lineAddress": "c43b4260-9ec4-8670-afdc-258f47a5ade3",
-      "address": "af3a5067-7197-850c-a42c-0129a0c8ac51",
+      "lineAddress": "97d68de9-4e97-8308-8dfa-6f362201216a",
+      "address": "03cb7823-c38f-8226-be68-33443cf27d77",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
@@ -481649,8 +481649,8 @@
     },
     {
       "key": "the_store_holds_far_less_than_it_admits",
-      "lineAddress": "b64959ad-5ecf-83a0-af3a-124a2aaae963",
-      "address": "f636a18d-b0f0-8f0d-a8ee-9dc5b4dfd5aa",
+      "lineAddress": "7a7fd639-2124-809b-9974-d399e4be7709",
+      "address": "e4b7b142-9781-8c52-a43c-4ecaf07c083b",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "discovery+formalisation"
     },
@@ -481756,8 +481756,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "231f5403-fa7d-86f7-a0d9-8721ef8e8442",
-      "address": "2465660a-5ce1-806b-9d83-7d823ae9efb3",
+      "lineAddress": "1ce4d3f1-47a7-83ea-badc-27e1855de7f5",
+      "address": "1be70ed9-6d04-8dd4-831b-e64a8a8e0552",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481777,15 +481777,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "421f28ae-a97c-8eaa-976e-6ad0a49bcd42",
-      "address": "94e0a0e7-a441-88ed-a5ac-0cd0074371fe",
+      "lineAddress": "efed0572-44fb-8ff2-ab1b-2b1e851686ae",
+      "address": "b19760ff-0a04-87d6-a84a-a8bd5b985973",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "16efbc6a-de87-83cd-ac16-e5e74e0a06e7",
-      "address": "cbab883b-485b-8852-9008-bef500408fd4",
+      "lineAddress": "6a54e162-5c2c-8231-9f8c-96b3619ec182",
+      "address": "40e1b38f-6763-87c0-a034-2dfeaf9b92cb",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -500243,8 +500243,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "f366d200-369f-884c-bda6-12189fbc0396",
-      "address": "5256b67b-1195-83fe-a6cd-fd3630d8f135",
+      "lineAddress": "f4d2aef3-10ff-8e70-bfdd-174ec35fd43a",
+      "address": "c6ea56ba-2100-8173-9f86-563804198fde",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500257,15 +500257,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "86028ccd-02de-8321-a8ac-09eff4e74e09",
-      "address": "37af5716-12b3-8249-95a1-89444b34dce0",
+      "lineAddress": "e26feb87-9488-86ba-9145-f1cadbf728b1",
+      "address": "397411b4-6331-8437-9b6b-a1b5616d40ea",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "f679436c-9455-8b8d-a366-1bbdd4fb0496",
-      "address": "d029da95-76be-8614-8cc0-cbdaa021c1bf",
+      "lineAddress": "295ce465-7ba8-808b-9427-37894fc07959",
+      "address": "1d37a59f-7dc3-88f1-9960-28407b69c9b9",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500390,8 +500390,8 @@
     },
     {
       "key": "emptiness_is_invariant_under_every_mirror",
-      "lineAddress": "6ab8e4ac-19d4-82d3-8a88-96bbbbde4861",
-      "address": "2ce0fe1e-99ed-82a3-abdf-e5775e701b33",
+      "lineAddress": "df8b7bdf-e567-85ef-9640-9c45affd6450",
+      "address": "e3594693-2635-89ba-8eb7-639ab10622da",
       "principle": "INVARIANCE",
       "held": "discovery+formalisation"
     },
@@ -500544,7 +500544,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "bffd6cea-f81d-81c5-b6bd-31381396f2dd",
+  "claim_receipt": "382d5dbe-403d-8c5b-b17f-e46daeca55ba",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

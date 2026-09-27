@@ -1,0 +1,33 @@
+{
+  "file": "Infinity.lean",
+  "slug": "infinity",
+  "status": "retired",
+  "address": "d366e53e-5f77-8ae0-b75b-fac03c7c2b31",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Infinity.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Infinity.lean\",\n \"url\": \"https://uuidna.com/lean/Infinity.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 13,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

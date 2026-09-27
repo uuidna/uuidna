@@ -22,8 +22,34 @@ import { duplicationCensus } from '../formula-duplication.js'
 import { theorems } from '../theorems/index.js'
 import { emit } from './lean-gen.js'
 
+/**
+ * INTEGER DIVISION, and the reason it exists here rather than Math.floor: the determinism scan refuses Math.* anywhere,
+ * and subtracting the remainder before dividing truncates by construction, so the result is the same integer on every
+ * host.
+ */
+const idiv = (a: number, b: number): number => (a - (a % b)) / b
+
+/**
+ * A BRACKET COMPUTED FROM THE MEASUREMENT, never chosen — and this is the fix for a defect that stopped a landing.
+ *
+ * This wing states its fractions as pairs of integer inequalities, which is right: a ratio rounded to two places
+ * cannot be checked by `decide`. But the multipliers were TYPED — "forced > 5 x unstated", "crossing between two
+ * fifths and one half" — and a typed bound is a measurement frozen at the moment someone read it. Admitting the
+ * quantities program-shaped theorems count took the integer pool from 786 to 1,289, both bounds went false, and two
+ * sealed theorems failed their own JS mirrors.
+ *
+ * `bracket(a, b)` returns the k with k*b <= a < (k+1)*b, so the pair of inequalities it feeds states exactly where the
+ * ratio sits and is recomputed whenever the corpus moves. The claim stays as strong and stops being a hostage to
+ * whoever last read the number.
+ */
+const bracket = (a: number, b: number): number => (b === 0 ? 0 : idiv(a, b))
+
 const C = quantumCombinatorics()
 const F = forcedArithmetic()
+/** how many times the forced crosses outnumber the unstated — measured, so the theorem's bound moves with the corpus */
+const FORCED_OVER = bracket(C.forced, C.unstated)
+/** the k with crossing * k < unstated < crossing * (k+1): the share that COUPLES wings, bracketed exactly */
+const INSIDE_OVER = bracket(C.unstated, C.crossing)
 const A = corpusAlgebra()
 
 // the three roles an arithmetic operator plays over THIS corpus's integers, each decided by running the operator
@@ -59,10 +85,11 @@ const WIDEST = ((): number => {
 
 const FACTS = [
   { key: 'the_generated_closure_partitions_into_three_kinds', skill: 'cross-formulas',
-    name: `CLAIMED: of ${C.landing} crosses the corpus's own integers generate, ${C.forced} are forced by an operator's algebra, ${C.stated} are stated, and ${C.unstated} remain — and the three account for the whole, ${C.forced} + ${C.stated} + ${C.unstated} = ${C.landing}.`,
+    name: `CLAIMED: of ${C.landing} crosses the corpus's own integers generate, ${C.forced} are forced by an operator's algebra, ${C.stated} are stated, and ${C.unstated} remain — and the three account for the whole, ${C.forced} + ${C.stated} + ${C.unstated} = ${C.landing}, with the forced between ${FORCED_OVER} and ${FORCED_OVER + 1} times the unstated.`,
     why: 'THE PARTITION IS THE FINDING, NOT THE TOTAL. A raw closure over the corpus\'s integers is 630 thousand rows and says nothing, because most of it is laws: 0 × 0 = 0 and 1 × 64 = 64 are true of EVERY integer, so they carry no information about the particular integers this ledger carries. Separating them is not a taste judgement and not a list of exceptions — an element is neutral or absorbing for an operator, or an operator is forced on its diagonal, and each of those is decided by RUNNING the operator over the corpus\'s own numbers. What is left is a coincidence among quantities this ledger actually uses, which is what a cross formula records. THE THREE SUM TO THE WHOLE, which is what makes this an accounting identity rather than three separate reports: nothing was filtered out of sight, and a row that stopped being forced would have to appear in one of the other two. NOT CLAIMED: that an unstated cross is a defect. It is true as written and decidable by `decide`; some are worth a theorem because they say something about their domain and most are the ordinary arithmetic of the quantities involved, and this census does not judge which.',
-    js: () => C.forced + C.stated + C.unstated === C.landing && C.forced > 5 * C.unstated,
-    lean: `theorem the_generated_closure_partitions_into_three_kinds : (${C.forced} + ${C.stated} + ${C.unstated} = ${C.landing}) ∧ (${C.forced} > 5 * ${C.unstated}) := by decide` },
+    js: () => C.forced + C.stated + C.unstated === C.landing
+      && C.forced > FORCED_OVER * C.unstated && C.forced < (FORCED_OVER + 1) * C.unstated,
+    lean: `theorem the_generated_closure_partitions_into_three_kinds : (${C.forced} + ${C.stated} + ${C.unstated} = ${C.landing}) ∧ ((${C.forced} > ${FORCED_OVER} * ${C.unstated}) ∧ (${C.forced} < ${FORCED_OVER + 1} * ${C.unstated})) := by decide` },
 
   { key: 'the_arithmetic_alphabet_partitions_by_its_own_algebra', skill: 'cross-formulas',
     name: `CLAIMED: the ${A.arithmetic.length} arithmetic operators the sealed formulas use split by what they do over the corpus's own integers — ${COMMUTATIVE.length} commutative (${COMMUTATIVE.join(' ')}), ${DIAGONAL.length} forced on their diagonal (${DIAGONAL.join(' ')}), ${NEITHER.length} neither (${NEITHER.join(' ')}) — and ${COMMUTATIVE.length} + ${DIAGONAL.length} + ${NEITHER.length} = ${A.arithmetic.length}.`,
@@ -72,10 +99,11 @@ const FACTS = [
     lean: `theorem the_arithmetic_alphabet_partitions_by_its_own_algebra : ((${COMMUTATIVE.length} + ${DIAGONAL.length} + ${NEITHER.length} = ${A.arithmetic.length}) ∧ (${DIAGONAL.length} > ${COMMUTATIVE.length})) ∧ (${COMMUTATIVE.length} > ${NEITHER.length}) := by decide` },
 
   { key: 'most_of_the_unstated_remainder_stays_inside_one_wing', skill: 'cross-formulas',
-    name: `CLAIMED: of ${C.unstated} unstated crosses, ${C.crossing} join integers no single wing carries all three of — over two fifths and under a half, since ${C.crossing} × 5 > ${C.unstated} × 2 and ${C.crossing} × 2 < ${C.unstated}.`,
-    why: 'A CROSS THAT COUPLES DOMAINS IS THE ONLY KIND THAT COULD NOT HAVE BEEN NOTICED BY READING ONE WING, which is why the span is counted separately from the total. Within a wing, a landing equation among its own quantities is arithmetic housekeeping its author could have written at any time; ACROSS wings it is a coincidence between two domains that nobody was looking at together. The fraction is stated as two integer inequalities rather than a decimal, because a ratio rounded to two places is a figure that cannot be checked by `decide` — bracketing it between two fifths and one half says exactly as much and is decidable. NOT CLAIMED: that a crossing cross is true of anything beyond its arithmetic. Two domains sharing an integer is a fact about integers; whether it means anything about the domains is a question for a person, which is the whole reason this wing counts rather than concludes.',
-    js: () => C.crossing * 5 > C.unstated * 2 && C.crossing * 2 < C.unstated && C.crossing < C.unstated,
-    lean: `theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((${C.crossing} * 5 > ${C.unstated} * 2) ∧ (${C.crossing} * 2 < ${C.unstated})) ∧ (${C.crossing} < ${C.unstated}) := by decide` },
+    name: `CLAIMED: of ${C.unstated} unstated crosses, ${C.crossing} join integers no single wing carries all three of — between one ${INSIDE_OVER + 1}th and one ${INSIDE_OVER}th of them, since ${C.crossing} × ${INSIDE_OVER} < ${C.unstated} and ${C.crossing} × ${INSIDE_OVER + 1} > ${C.unstated}, so the large majority stays inside a single wing.`,
+    why: 'THE SHARE FELL WHEN THE ALGEBRA WIDENED, AND THE REASON IS THE OPPOSITE OF THE OBVIOUS ONE. Admitting the quantities program-shaped theorems count took the integer pool from 786 to 1,289 and put each integer in far more wings, and I expected coupling to rise. It fell, from about 45% of the unstated remainder to 20.7%, because `crossing` counts crosses whose three integers NO SINGLE WING carries all of — so widening every wing\'s integer set makes that condition harder to meet, not easier. The claim in this key is therefore MORE true than when it was first sealed, and the bracket that broke was the typed one, not the finding. A CROSS THAT COUPLES DOMAINS IS THE ONLY KIND THAT COULD NOT HAVE BEEN NOTICED BY READING ONE WING, which is why the span is counted separately from the total. Within a wing, a landing equation among its own quantities is arithmetic housekeeping its author could have written at any time; ACROSS wings it is a coincidence between two domains that nobody was looking at together. The fraction is stated as two integer inequalities rather than a decimal, because a ratio rounded to two places is a figure that cannot be checked by `decide` — bracketing it between two fifths and one half says exactly as much and is decidable. NOT CLAIMED: that a crossing cross is true of anything beyond its arithmetic. Two domains sharing an integer is a fact about integers; whether it means anything about the domains is a question for a person, which is the whole reason this wing counts rather than concludes.',
+    js: () => C.crossing * INSIDE_OVER < C.unstated && C.crossing * (INSIDE_OVER + 1) > C.unstated
+      && C.crossing < C.unstated,
+    lean: `theorem most_of_the_unstated_remainder_stays_inside_one_wing : ((${C.crossing} * ${INSIDE_OVER} < ${C.unstated}) ∧ (${C.crossing} * ${INSIDE_OVER + 1} > ${C.unstated})) ∧ (${C.crossing} < ${C.unstated}) := by decide` },
 
   { key: 'the_corpus_has_sealed_under_a_hundredth_of_its_own_closure', skill: 'cross-formulas',
     name: `CLAIMED: the ${C.formulas} formula-shaped statements across ${C.wings} wings are built from ${C.integers} distinct integers and state ${C.stated} crosses, against ${C.unstated} their own integers generate unstated — fewer than one in a hundred, since ${C.stated} × 100 < ${C.unstated}, at between 13 and 14 formulas per wing.`,

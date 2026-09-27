@@ -1,0 +1,12 @@
+{
+  "handle": "2ccb5106",
+  "address": "2ccb5106-781d-88e1-935d-c4cefab865a4",
+  "statement": "((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true)",
+  "tactic": "decide",
+  "keys": [
+    "emptiness_is_invariant_under_every_mirror"
+  ],
+  "files": [
+    "Invariance.lean"
+  ]
+}

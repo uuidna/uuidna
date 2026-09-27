@@ -1,0 +1,141 @@
+{
+  "file": "Invariance.lean",
+  "slug": "invariance",
+  "status": "usable",
+  "address": "e81c281e-0bc7-83e7-a836-648a40be4f33",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Invariance.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"Invariance.lean\",\n \"url\": \"https://uuidna.com/lean/Invariance.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 3,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-emptiness_is_invariant_under_every_mirror",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: over all 625 quadruples and all 24 rearrangements of four positions, every form true of ALL quadruples agrees with its own image under EVERY rearrangement — so a conjunct that cannot fail is symmetric for free, and padding is symmetry's degenerate limit rather than its opposite. The second conjunct decides that the antecedent is satisfied by all 625, so the implication is not carried by an empty hypothesis."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem emptiness_is_invariant_under_every_mirror : ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => !(everywhere a b c d) || (allPermsAgree a b c d)))))) = true) ∧ ((rng.all (fun a => rng.all (fun b => rng.all (fun c => rng.all (fun d => everywhere a b c d))))) = true) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-symmetry_with_content_is_not_emptiness",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: the converse FAILS — the symmetric cross a·d = b·c is invariant under the mirror and is NOT true of every quadruple, so symmetry with content exists and invariance is not merely a symptom of saying nothing."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((allQ (fun a b c d => (symmetric a b c d) == (symmetric d c b a))) = true) ∧ ¬(1 * 1 = 2 * 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem symmetry_with_content_is_not_emptiness : ((allQ (fun a b c d => (symmetric a b c d) == (symmetric d c b a))) = true) ∧ ¬(1 * 1 = 2 * 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_square_has_no_fourth_cell",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CLAIMED: classifying a form by (true everywhere, invariant under the mirror) leaves exactly 3 of the four cells occupied — and the missing one, true everywhere yet not invariant, is IMPOSSIBLE rather than merely unobserved: the first theorem excludes it."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(anyQ (fun a b c d => !(symmetric a b c d))) = true ∧ (allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_square_has_no_fourth_cell : (anyQ (fun a b c d => !(symmetric a b c d))) = true ∧ (allQ (fun a b c d => !(everywhere a b c d) || (mirrorAgrees a b c d))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

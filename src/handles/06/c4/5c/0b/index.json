@@ -1,0 +1,12 @@
+{
+  "handle": "06c45c0b",
+  "address": "06c45c0b-34d8-805c-a007-6a7d04f75525",
+  "kind": "chunk",
+  "keys": [
+    "three_kinds_partition_the_store"
+  ],
+  "statement": "71009 + 448 + 262 = 71719",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

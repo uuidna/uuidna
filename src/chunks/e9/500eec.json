@@ -1,0 +1,12 @@
+{
+  "handle": "e9500eec",
+  "address": "e9500eec-bba3-85db-991d-c9ecf37f22c4",
+  "statement": "(1551298 + 456 + 444930 = 1996684) ∧ ((1551298 > 3 * 444930) ∧ (1551298 < 4 * 444930))",
+  "tactic": "decide",
+  "keys": [
+    "the_generated_closure_partitions_into_three_kinds"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

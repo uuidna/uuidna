@@ -1,0 +1,12 @@
+{
+  "handle": "dd248f70",
+  "address": "dd248f70-6f0b-8721-b879-4b863a5de70b",
+  "statement": "71719 > 2 ^ 16",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_bit_handles_would_collide"
+  ],
+  "files": [
+    "Forensics.lean"
+  ]
+}

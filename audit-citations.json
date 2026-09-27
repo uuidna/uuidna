@@ -1,18 +1,18 @@
 {
-  "key": "2eeed477-a0f6-8c24-b2db-69098e06038b",
-  "publications": 260,
-  "sealedTheorems": 71085,
+  "key": "abf1173a-c05c-87a6-8cab-1a0834bda820",
+  "publications": 262,
+  "sealedTheorems": 71094,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2761,
-    "theorems": 71085,
+    "claims": 2770,
+    "theorems": 71094,
     "bijection": false,
     "digitalRoots": {
       "claims": 7,
       "theorems": 3,
-      "publications": 8
+      "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -2042,6 +2042,14 @@
       "fabricated": []
     },
     {
+      "slug": "coins-balance",
+      "claims": 6,
+      "cited": 6,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
       "slug": "cross-formulas",
       "claims": 5,
       "cited": 5,
@@ -2067,6 +2075,14 @@
     },
     {
       "slug": "door-surface",
+      "claims": 3,
+      "cited": 3,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "invariance",
       "claims": 3,
       "cited": 3,
       "isTheorem": 0,
