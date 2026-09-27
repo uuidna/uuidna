@@ -111,7 +111,7 @@ const FACTS: Fact[] = [
     js: () => SEED + SEED === COINS && SEED === SEED },
 
   // THE UNIVERSAL ROW COULD NOT MOVE, and that is a measurement rather than a preference. qpu proves
-  // `follow_the_coins` for EVERY Nat by rewriting its defs. This ledger carries 71,091 theorems and NOT ONE takes a
+  // qpu’s follow-the-coins row for EVERY Nat by rewriting its defs. This ledger carries 71,091 theorems and NOT ONE takes a
   // parameter — the wing compiled mine and the index would not carry it, so the citation came back unsealed and the gate
   // refused it. A bounded walk in its place would be a weaker claim under the same name, which is a withdrawal by
   // weakening, and no one withdraws a settlement. So six of the seven moved and the universal STAYS in qpu until this

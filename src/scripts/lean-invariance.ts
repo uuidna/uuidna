@@ -33,7 +33,10 @@ const QUADS: number[][] = RANGE.flatMap((a) => RANGE.flatMap((b) => RANGE.flatMa
 
 /** the mirror: (a,b,c,d) ↦ (d,c,b,a), the permutation a proportion is blind to */
 const mirror = ([a, b, c, d]: number[]): number[] => [d!, c!, b!, a!]
-const div = (x: number, y: number): number => Math.floor(x / y)
+// EXACT INTEGER DIVISION, NOT Math.floor — the harmonic scan refuses Math.* anywhere and this line was committed with
+// it. Subtracting the remainder before dividing truncates by construction, so the result is the same integer on every
+// host and no rounding namespace is touched. (A float floor is a decision the host makes; a wing's arithmetic cannot be.)
+const div = (x: number, y: number): number => (x - (x % y)) / y
 
 const FORMS: { name: string; f: (q: number[]) => boolean }[] = [
   { name: 'symmetric', f: ([a, b, c, d]) => a! * d! === b! * c! },

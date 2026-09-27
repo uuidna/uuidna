@@ -105,7 +105,9 @@ export function characteristicCeiling(
   const mid = counts.length >> 1
   return counts.length % 2 === 1
     ? counts[mid]!
-    : Math.ceil((counts[mid - 1]! + counts[mid]!) / 2)
+    // CEILING BY EXACT ARITHMETIC: (a + 1) / 2 truncated is the ceiling of a / 2 for non-negative integers, so the
+    // median of an even-length run needs no Math.ceil — which the determinism scan refuses anywhere, with no exemption.
+    : (counts[mid - 1]! + counts[mid]! + 1 - ((counts[mid - 1]! + counts[mid]! + 1) % 2)) / 2
 }
 
 /** the numerals a statement is about, whatever its shape. One reader, shared with corpusAlgebra() — see formula.ts */
@@ -173,7 +175,9 @@ export function crossroads(input: CrossroadInput): Crossroad[] {
         shared: [...shared],
         applications,
         characteristic,
-        rarity: Math.min(...shared.map((v) => carriers.get(v) ?? 0)),
+        // MINIMUM BY COMPARISON, not Math.min — same law, and a spread into Math.min also blows the stack on a long
+        // list, so the fold is both lawful and safe on any width this walk reaches.
+        rarity: shared.reduce((m, v) => { const c = carriers.get(v) ?? 0; return c < m ? c : m }, Number.MAX_SAFE_INTEGER),
       })
     }
   }
