@@ -13270,7 +13270,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"generators\":82,\"surfaces\":101,\"edges\":109,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":87,\"receipt\":\"67b7901d-86b4-87bb-8e80-adcf00715762\",\"handle\":\"67b790…"
+   "excerpt": "{\"generators\":82,\"surfaces\":101,\"edges\":109,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":87,\"receipt\":\"cffe47e0-4b37-8652-ab05-d874d096c5e1\",\"handle\":\"cffe47…"
   }
  },
  "uuidna_lattice": {
