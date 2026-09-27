@@ -75,7 +75,7 @@ const liveFormulaCopies = (): number => {
 const livePaddingDebt = (): number => {
   const c = JSON.parse(rd('lean/padding-conjuncts.json')) as { examined?: number; findings?: unknown[] }
   if (typeof c.examined !== 'number' || c.examined === 0 || !Array.isArray(c.findings)) {
-    throw new Error('ratchets: lean/padding-conjuncts.json is absent or empty — run `npm run padding`; an untaken census is not a debt of zero')
+    throw new Error('ratchets: lean/padding-conjuncts.json is absent or empty — run `npm run padding-conjuncts`; an untaken census is not a debt of zero')
   }
   return c.findings.length
 }
