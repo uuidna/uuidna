@@ -212,7 +212,7 @@ export function phdProofs(): PhdProofs {
     thesisRequired: THESIS_DRILLS.length,
   }
   // NAMED CLAUSES, NOT ONE CONJUNCTION. This was a single 26-term `&&` that could only ever report `false`, and when a
-  // new wing made it false the failure said nothing about which requirement had stopped holding. A check that does not
+  // new wing made it false the failure said nothing about which requirement had stopped holding — a single conjunction reports one boolean BY CONSTRUCTION, so the clause that broke is not recoverable from the result holding. A check that does not
   // name its own failure — by construction, since a conjunction evaluates to a single bit and one bit has no room to
   // say which of 26 terms produced it — sends the reader to bisect it by hand. The clauses are unchanged; each now carries the name a
   // reader would use for it, `complete` is still their conjunction, and `failing` says which ones are not holding.
