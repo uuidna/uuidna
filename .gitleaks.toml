@@ -82,6 +82,25 @@ targetRules = ["generic-api-key"]
 regexTarget = "secret"
 regexes = ['''^[a-z][a-z0-9]*(?:_[a-z0-9]+)+$''']
 
+# A WING'S OWN FILENAME, STANDING NEXT TO THE WORD `key`, IN A COMMENT. cross-formulate.ts:60 explained that a cross
+# key carries the wing's short name and illustrated it — `EquilibriumXor7.lean` → the lowercase fragment — so
+# generic-api-key read "key fragment:" followed by a CamelCase token and scored it at entropy 3.784 (e1170b8f1,
+# 2026-09-26). The token is lean/EquilibriumXor7.lean: a file in this repository, named again in lean/axioms.json and
+# lean/proof-cache.json, public by construction and recomputable from the Lean like every other wing.
+#
+# THE SCANNER WAS RIGHT AND THE COMMENT WAS REWORDED FIRST, at HEAD, because `key: <high-entropy token>` is the shape
+# of a real leak and prose has no business imitating it. That is not enough on its own, for the reason the
+# domains-deposit entry above already states: the scan runs over FULL HISTORY with fetch-depth 0, so a rewording fixes
+# HEAD and leaves the workflow red on a commit that is already written and must not be rewritten.
+#
+# The existing "sealed theorem keys" allowlist below does not reach it — that regex is lowercase words joined by
+# underscores, and a wing's name is CamelCase with a digit. Scoped to this ONE file and to generic-api-key alone, so
+# every token rule (github, aws, stripe, …) still reads every value in it.
+[[allowlists]]
+description = "cross-formulate's comment illustrating a cross key with a wing filename"
+targetRules = ["generic-api-key"]
+paths = ['''^src/scripts/cross-formulate\.ts$''']
+
 # the legal audit's control holds a credential-shaped SAMPLE ('sk-never-in-the-record-7f3a', 2026-09-14) to prove the
 # audit never records a raw secret — the leak-scan.test.ts reason above; renamed at HEAD, it stays in written history,
 # which only an allowlist reaches
