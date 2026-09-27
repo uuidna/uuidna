@@ -265,7 +265,7 @@ drain already keeps, so a generator added tomorrow enters the graph the day it d
 renders this block, the site page and `uuidna_build_graph`. One derivation, three renderings: a figure here cannot
 disagree with a figure there.
 
-**82 generators → 101 surfaces**, 109 declared edge(s), folded order-invariantly to receipt `67b7901d-86b4-87bb-8e80-adcf00715762` (handle `67b7901d`). Recompute with `uuidna_build_graph`.
+**82 generators → 101 surfaces**, 109 declared edge(s), folded order-invariantly to receipt `cffe47e0-4b37-8652-ab05-d874d096c5e1` (handle `cffe47e0`). Recompute with `uuidna_build_graph`.
 
 | what | count | why it is the number to read |
 | --- | ---: | --- |
