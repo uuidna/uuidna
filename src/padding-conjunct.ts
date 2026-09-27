@@ -91,7 +91,9 @@ export function conjunctsOf(statement: string): string[] {
  * thousands of conjuncts. Raising the heap would have bought the ceiling; narrowing the question earns it.
  *
  * Padding is always a SHORT ARITHMETIC term — that is what makes it padding. A conjunct that walks a list, applies a
- * lambda or indexes a structure is doing work whatever its numerals, and cannot be true merely by shape. So anything
+ * lambda or indexes a structure is doing work whatever its numerals, so it is not true merely by shape — by
+ * construction, since substituting the numerals leaves the walk, the lambda and the indexing in place to do the
+ * same work. So anything
  * carrying `fun`, a list literal, a `List.` call or a wing definition's name is skipped, and so is anything long. The
  * filter is on the SHAPE of the term and never on its content, so it cannot hide a padding conjunct that happens to
  * mention a large number — and the cost falls from tens of thousands of parses to a few hundred.

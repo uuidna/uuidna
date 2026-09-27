@@ -39,8 +39,9 @@
 // Acoustics, Astronomy, Chemistry and Electromagnetism, which say many of the same other things. So each candidate is
 // scored by the mean Jaccard overlap of its members' vocabularies WITH THE NAMING TERM REMOVED — otherwise every
 // candidate would score a free point for the word that defined the group. A word that explains nothing beyond itself
-// scores near zero and cannot name a class. A later edit described this score as "the share of members using the
-// word", which it is not: the score is log(wings / wings-saying-it), a RARITY, and coherence multiplies it only as a
+// scores near zero and so loses the ranking — by construction, since coherence multiplies the rarity and a near-zero
+// factor cannot reach the top of a descending sort. A later edit described this score as "the share of members using the
+// word", which it is not: the score is (wings - wings-saying-it) / wings, a RARITY, and coherence enters only as a
 // tiebreak. The distinction matters because a share would rise with popularity and rarity falls with it, which is the
 // exact inversion that cost this module three rewrites.
 //

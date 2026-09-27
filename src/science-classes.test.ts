@@ -33,8 +33,9 @@ test('scienceClasses — wings sharing a word form a class and bring their princ
   assert.deepEqual(cern!.principles, ['the CERN crossings', 'the CMS records'])
 })
 
-// A WING THE METHOD CANNOT PLACE IS A FACT ABOUT THE METHOD. Sweeping it into an "other" class would make the
-// partition look total when it is not.
+// A WING THIS METHOD LEAVES UNPLACED IS A FACT ABOUT THE METHOD — no candidate term reaches it, which is a property of
+// the scoring rather than of the wing. Sweeping it into an "other" class would make the partition look total when it is
+// not.
 test('scienceClasses — an unplaceable wing is NAMED, never swept into a default bucket', () => {
   const subjects: WingSubject[] = [
     { wing: 'A.lean', subject: 'same words here', principles: ['a'] },
@@ -43,7 +44,8 @@ test('scienceClasses — an unplaceable wing is NAMED, never swept into a defaul
   ]
   const { classes, unclassed } = scienceClasses(subjects)
   // A and B share a vocabulary, so they SHOULD share a class — two wings saying the same thing is the signal, not
-  // noise. Only the wing with no header at all cannot be placed, and it is named rather than bucketed.
+  // noise. Only the wing with no header at all stays unplaced — by construction, since an empty header yields no terms
+  // and a candidate must be a term some wing uses — and it is named rather than bucketed.
   assert.deepEqual(unclassed, ['Empty.lean'])
   assert.equal(classes.length, 1)
   assert.deepEqual(classes[0]!.wings, ['A.lean', 'B.lean'])
