@@ -1,0 +1,141 @@
+{
+  "file": "DoorSurface.lean",
+  "slug": "doorsurface",
+  "status": "usable",
+  "address": "ba875088-e903-8eb4-afe5-71ebeb26eba2",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "DoorSurface.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"DoorSurface.lean\",\n \"url\": \"https://uuidna.com/lean/DoorSurface.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 3,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_key_index_fits_where_the_rows_do_not",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE KEYS FIT THE ISOLATE 83 TIMES OVER, AND 84 DO NOT. The edge refuses any door that walks the ledger's rows, because 41943040 bytes of statements do not fit a 134217728-byte isolate — and that refusal is correct. But the keys are not the rows. Every one of the 71091 sealed keys sits in the baked root as one newline-joined string of 1602611 bytes, so the isolate holds 83 whole copies of the key index and has no room for a 84th. The bracket is stated from both sides on purpose: a one-sided bound would be satisfied by any multiplier smaller than the truth, and this tree has had a theorem refused by the kernel for exactly that. MEASURED 2026-09-26: uuidna_theorems {keys:true} was refused with the rows' budget when it reads only these keys, so the cheapest question the ledger serves was answered by the most expensive refusal it has."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1602611 * 83 < 134217728) ∧ (1602611 * 84 > 134217728)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_key_index_fits_where_the_rows_do_not : (1602611 * 83 < 134217728) ∧ (1602611 * 84 > 134217728) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_keys_are_a_small_fraction_of_the_rows",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE KEYS ARE UNDER A 26TH OF THE ROWS, WHICH IS WHY ONE SURVIVES THE EDGE AND THE OTHER DOES NOT. 1602611 bytes of keys go into 41943040 bytes of rows 26 times and no more, so the two are not the same order of question. A door that needs a statement must ask a host; a door that needs a NAME has always been able to answer at the edge, and it refused to because one accessor stood in for both. The third clause is the control: a ratio of one would mean the keys ARE the rows and the whole distinction this wing draws would be empty."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(1602611 * 26 < 41943040) ∧ (1602611 * 27 > 41943040) ∧ (26 > 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_keys_are_a_small_fraction_of_the_rows : (1602611 * 26 < 41943040) ∧ (1602611 * 27 > 41943040) ∧ (26 > 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-an_answer_is_content_or_a_refusal_and_never_neither",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "AN ANSWER IS CONTENT OR A REFUSAL, AT EVERY POINT OF THE OUTCOME SPACE. An MCP envelope carries some number of text blocks and either is or is not a refusal, so the space is {0..7} × {0,1} and the walk closes it: at all 16 points, \"this measured something\" agrees with \"it carried content, or it refused\". The corner that matters is (0, 0) — no content and no refusal — where the predicate is FALSE, and that is exactly the envelope uuidna.com/mcp returned on 2026-09-26 for a key the ledger seals. The client printed nothing and exited 0, so the call was indistinguishable from a key that does not exist. THE CONTROL: the same door answers a key that cannot exist with an explicit unknown-theorem refusal, and the in-process path returns the full row for identical arguments — so silence was never its way of saying unknown, and a third outcome had crept in."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 8).all (fun c => (List.range 2).all (fun e => answered c e == (c > 0 || e == 1))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem an_answer_is_content_or_a_refusal_and_never_neither : (List.range 8).all (fun c => (List.range 2).all (fun e => answered c e == (c > 0 || e == 1))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

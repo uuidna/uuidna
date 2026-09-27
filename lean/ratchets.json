@@ -28,6 +28,15 @@
       "measureAddress": "f52e0f8c-fa2d-867b-8d63-3da1df925ddd"
     },
     {
+      "prefix": "padding_conjunct_debt",
+      "reading": 492,
+      "direction": "shrink",
+      "unit": "conjuncts",
+      "cause": "First reading, and it is thirty times what reading the statements found. A conjunct that holds whatever its numerals are constrains nothing: src/ratchet-record.ts named the species (a term like `(6 + 0 = 6)`) and eleven were replaced by hand from a sixteen-row search. Substituting every data numeral and re-deciding with the independent evaluator finds 492 across 105 wings of 67226 conjunctive statements — so the hand search held 3% of the class and nothing would have stopped the twelfth. 0 and 1 are held fixed as structure rather than data, because `5 * 0 = 0` must stay a zero to reveal that multiplying by zero says nothing. Two substitution families are required, coprime and factor-sharing: primes alone made `Nat.gcd 19 235 = 1` — a real coprimality claim — look like padding, and the composite family keeps it.",
+      "evidence": "the live measure RATCHETS[padding_conjunct_debt].live(), reading lean/padding-conjuncts.json (scripts/padding-conjuncts.ts) and THROWING when it is absent, because zero is what a clean ledger reports and a measure returning it while blind satisfies the ratchet at the worst moment. Calibrated in src/padding-conjunct.test.ts against both errors it made: coprimality must survive, and my own replacement `(50 / 50 = 1)` must be caught — any n / n is 1, so it was the same species as the `(50 = 50)` it replaced.",
+      "measureAddress": "c6a66e8f-fba8-84c5-8927-3e67d9a04bc8"
+    },
+    {
       "prefix": "mcp_tool_debt",
       "reading": 100,
       "direction": "shrink",

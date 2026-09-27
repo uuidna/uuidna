@@ -1,0 +1,2958 @@
+{
+ "examined": 67226,
+ "findings": [
+  {
+   "key": "decibel_is_logarithmic",
+   "file": "Acoustics.lean",
+   "conjunct": "(10^1 = 10)",
+   "of": 2
+  },
+  {
+   "key": "wave_speed_f_lambda",
+   "file": "Acoustics.lean",
+   "conjunct": "(340 = 340 * 1)",
+   "of": 2
+  },
+  {
+   "key": "group_does_not_commute",
+   "file": "Affine.lean",
+   "conjunct": "(2376 ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "handle_discards_before_walking",
+   "file": "Alignment.lean",
+   "conjunct": "(32 ≠ 4)",
+   "of": 3
+  },
+  {
+   "key": "sixteen_alone_tiles",
+   "file": "Alignment.lean",
+   "conjunct": "(16 - 16 = 0)",
+   "of": 2
+  },
+  {
+   "key": "anthem_recursion_never_starves",
+   "file": "Anthem.lean",
+   "conjunct": "1 ≤ 6",
+   "of": 4
+  },
+  {
+   "key": "anthem_recursion_never_starves",
+   "file": "Anthem.lean",
+   "conjunct": "6 < 252",
+   "of": 4
+  },
+  {
+   "key": "anthem_superposition_mix_closes",
+   "file": "Anthem.lean",
+   "conjunct": "(4 % 9 = 4)",
+   "of": 2
+  },
+  {
+   "key": "anthem_three_lengths_quarter_the_bar",
+   "file": "Anthem.lean",
+   "conjunct": "252 * 4 / 4 = 252",
+   "of": 3
+  },
+  {
+   "key": "captain_commission_two_coins",
+   "file": "AntiFraud.lean",
+   "conjunct": "(commission 109 = 0)",
+   "of": 3
+  },
+  {
+   "key": "fabricated_cite_stays_unverified",
+   "file": "AntiFraud.lean",
+   "conjunct": "(unverified 1 0 = 1)",
+   "of": 3
+  },
+  {
+   "key": "fabricated_cite_stays_unverified",
+   "file": "AntiFraud.lean",
+   "conjunct": "(verified 1 1 = 1)",
+   "of": 3
+  },
+  {
+   "key": "fabricated_cite_stays_unverified",
+   "file": "AntiFraud.lean",
+   "conjunct": "(verified 1 0 = 0)",
+   "of": 3
+  },
+  {
+   "key": "pin_and_slot_equal_teeth",
+   "file": "Antikythera.lean",
+   "conjunct": "(50 / 50 = 1)",
+   "of": 3
+  },
+  {
+   "key": "pin_and_slot_equal_teeth",
+   "file": "Antikythera.lean",
+   "conjunct": "(50 % 50 = 0)",
+   "of": 3
+  },
+  {
+   "key": "prose_audit_total",
+   "file": "Audit.lean",
+   "conjunct": "(0 < 257)",
+   "of": 3
+  },
+  {
+   "key": "prose_audit_total",
+   "file": "Audit.lean",
+   "conjunct": "(0 < 3)",
+   "of": 3
+  },
+  {
+   "key": "prose_audit_total",
+   "file": "Audit.lean",
+   "conjunct": "(71036 = 71036 + 0)",
+   "of": 3
+  },
+  {
+   "key": "prose_beats_restatement",
+   "file": "Audit.lean",
+   "conjunct": "(0 < 71036)",
+   "of": 2
+  },
+  {
+   "key": "prose_beats_restatement",
+   "file": "Audit.lean",
+   "conjunct": "(0 + 71036 = 71036)",
+   "of": 2
+  },
+  {
+   "key": "prose_folds_receipt",
+   "file": "Audit.lean",
+   "conjunct": "(1 < 9)",
+   "of": 3
+  },
+  {
+   "key": "sanitize_depth_bounded",
+   "file": "Audit.lean",
+   "conjunct": "(0 < 32)",
+   "of": 2
+  },
+  {
+   "key": "wall_steady_state",
+   "file": "Audit.lean",
+   "conjunct": "(2 > 1)",
+   "of": 3
+  },
+  {
+   "key": "wall_steady_state",
+   "file": "Audit.lean",
+   "conjunct": "(3 > 0)",
+   "of": 3
+  },
+  {
+   "key": "advantage_first_doubles_at_seal_38",
+   "file": "Billing.lean",
+   "conjunct": "(55^37 < 2 * 54^37)",
+   "of": 2
+  },
+  {
+   "key": "hardware_coverage_is_not_correctness_coverage",
+   "file": "BindingPoint.lean",
+   "conjunct": "(5 = 5)",
+   "of": 3
+  },
+  {
+   "key": "hardware_coverage_is_not_correctness_coverage",
+   "file": "BindingPoint.lean",
+   "conjunct": "¬(5 > 5)",
+   "of": 3
+  },
+  {
+   "key": "hardware_coverage_is_not_correctness_coverage",
+   "file": "BindingPoint.lean",
+   "conjunct": "(5 * 0 = 0)",
+   "of": 3
+  },
+  {
+   "key": "xor_differs_from_or",
+   "file": "Boolean.lean",
+   "conjunct": "(rowsOf 6 ≠ rowsOf 14)",
+   "of": 3
+  },
+  {
+   "key": "byte_holds_two_hexbits",
+   "file": "Byte.lean",
+   "conjunct": "(2 ≠ 4)",
+   "of": 4
+  },
+  {
+   "key": "tamper_set_counts_eight_thousand",
+   "file": "Byte.lean",
+   "conjunct": "(8160 ≠ 0)",
+   "of": 2
+  },
+  {
+   "key": "century_leap_rule",
+   "file": "Calendar.lean",
+   "conjunct": "1900 % 400 ≠ 0",
+   "of": 3
+  },
+  {
+   "key": "the_record_has_holes_the_rule_does_not",
+   "file": "Calendar.lean",
+   "conjunct": "(5 - 4 - 1 = 0)",
+   "of": 3
+  },
+  {
+   "key": "week_is_z7",
+   "file": "Calendar.lean",
+   "conjunct": "7 % 7 = 0",
+   "of": 2
+  },
+  {
+   "key": "cms_events_close_over_their_files",
+   "file": "Cern.lean",
+   "conjunct": "(54 < 116)",
+   "of": 8
+  },
+  {
+   "key": "cms_events_close_over_their_files",
+   "file": "Cern.lean",
+   "conjunct": "(12 < 184)",
+   "of": 8
+  },
+  {
+   "key": "cms_events_close_over_their_files",
+   "file": "Cern.lean",
+   "conjunct": "(6 < 72)",
+   "of": 8
+  },
+  {
+   "key": "cms_events_close_over_their_files",
+   "file": "Cern.lean",
+   "conjunct": "(21 < 130)",
+   "of": 8
+  },
+  {
+   "key": "the_open_data_embargo_ran_six_years_or_longer",
+   "file": "Cern.lean",
+   "conjunct": "(6 ≥ 6)",
+   "of": 6
+  },
+  {
+   "key": "the_cern_file_total_is_twice_a_prime",
+   "file": "CernLinks.lean",
+   "conjunct": "(16 * 16 > 251)",
+   "of": 4
+  },
+  {
+   "key": "element_costs_nine",
+   "file": "Channel.lean",
+   "conjunct": "(378 < (2:Nat)^9)",
+   "of": 3
+  },
+  {
+   "key": "four_carry_handle",
+   "file": "Channel.lean",
+   "conjunct": "((378:Nat)^3 < 2^32)",
+   "of": 2
+  },
+  {
+   "key": "independence_is_assumed",
+   "file": "Channel.lean",
+   "conjunct": "(378 ≠ 42)",
+   "of": 4
+  },
+  {
+   "key": "page_outgrows_register",
+   "file": "Channel.lean",
+   "conjunct": "((378:Nat)^2 > 65536)",
+   "of": 2
+  },
+  {
+   "key": "page_outgrows_register",
+   "file": "Channel.lean",
+   "conjunct": "(378 < 65536)",
+   "of": 2
+  },
+  {
+   "key": "three_recover_the_discard",
+   "file": "Channel.lean",
+   "conjunct": "((378:Nat)^3 < 2^28)",
+   "of": 2
+  },
+  {
+   "key": "annihilation_conserves_everything",
+   "file": "Chemistry.lean",
+   "conjunct": "(((-1) + 1 : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "annihilation_conserves_everything",
+   "file": "Chemistry.lean",
+   "conjunct": "(1022 ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "haber_balances",
+   "file": "Chemistry.lean",
+   "conjunct": "(2 = 2*1)",
+   "of": 2
+  },
+  {
+   "key": "haber_balances",
+   "file": "Chemistry.lean",
+   "conjunct": "(3*2 = 2*3)",
+   "of": 2
+  },
+  {
+   "key": "torus_chessboard_chi_zero",
+   "file": "Chess.lean",
+   "conjunct": "((2:Int) - 2 * 1 = 0)",
+   "of": 2
+  },
+  {
+   "key": "aead_nonce_and_salt_bits",
+   "file": "Cipher.lean",
+   "conjunct": "(96 < 128)",
+   "of": 3
+  },
+  {
+   "key": "division_by_zero_is_the_abstract_zero_fold",
+   "file": "Cipher.lean",
+   "conjunct": "(5 / 0 = 0)",
+   "of": 2
+  },
+  {
+   "key": "faster_and_more_secure",
+   "file": "Cipher.lean",
+   "conjunct": "(0 < 1)",
+   "of": 3
+  },
+  {
+   "key": "faster_and_more_secure",
+   "file": "Cipher.lean",
+   "conjunct": "(20 < 1048576)",
+   "of": 3
+  },
+  {
+   "key": "imprint_capacity_within_address",
+   "file": "Cipher.lean",
+   "conjunct": "(115 < 128)",
+   "of": 2
+  },
+  {
+   "key": "imprint_header_minimal",
+   "file": "Cipher.lean",
+   "conjunct": "(116 ≤ 2 ^ 7)",
+   "of": 2
+  },
+  {
+   "key": "octave_codon_address",
+   "file": "Cipher.lean",
+   "conjunct": "(700 < 2 * 400)",
+   "of": 3
+  },
+  {
+   "key": "onion_layers_power_of_two",
+   "file": "Cipher.lean",
+   "conjunct": "(16 ≤ 128)",
+   "of": 2
+  },
+  {
+   "key": "secure_channel_by_default",
+   "file": "Cipher.lean",
+   "conjunct": "(1 < 3)",
+   "of": 3
+  },
+  {
+   "key": "four_simplex_boundary_euler_is_zero",
+   "file": "Clay.lean",
+   "conjunct": "((5:Int) - 10 + 10 - 5 = 0)",
+   "of": 2
+  },
+  {
+   "key": "residue_returns_step_does_not",
+   "file": "Clock.lean",
+   "conjunct": "((0:Nat) ≠ 6)",
+   "of": 2
+  },
+  {
+   "key": "repetition_three_majority",
+   "file": "Codes.lean",
+   "conjunct": "(2 * 2 > 3)",
+   "of": 2
+  },
+  {
+   "key": "heartbeat_share_resolves_at_four_hexbits",
+   "file": "Coins.lean",
+   "conjunct": "((579272 * 65536) / 579272 = 65536)",
+   "of": 5
+  },
+  {
+   "key": "minting_is_free_and_forging_is_not",
+   "file": "Coins.lean",
+   "conjunct": "(128 < 2^128)",
+   "of": 5
+  },
+  {
+   "key": "minting_is_free_and_forging_is_not",
+   "file": "Coins.lean",
+   "conjunct": "(16 < 2^16)",
+   "of": 5
+  },
+  {
+   "key": "traitor_damage_sealed_by_same_billing",
+   "file": "Coins.lean",
+   "conjunct": "(110 - 110 = 0)",
+   "of": 3
+  },
+  {
+   "key": "string_ratios_of_twentyseven",
+   "file": "CoinsBalance.lean",
+   "conjunct": "1 * 27 = 27",
+   "of": 14
+  },
+  {
+   "key": "alphabet_exceeds_wheel",
+   "file": "Colour.lean",
+   "conjunct": "(360 < 378)",
+   "of": 2
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(4052651 < 4113120)",
+   "of": 12
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(5431418 < 5451983)",
+   "of": 12
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(9164879 < 9190870)",
+   "of": 12
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(13904697 < 13904770)",
+   "of": 12
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(14436321 < 14437536)",
+   "of": 12
+  },
+  {
+   "key": "aura_alphabet_is_pairwise_distinct",
+   "file": "Colour.lean",
+   "conjunct": "(6741068 ≠ 5099567)",
+   "of": 12
+  },
+  {
+   "key": "nine_step_walk_closes_the_ring",
+   "file": "Colour.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 2
+  },
+  {
+   "key": "no_digit_is_an_exact_complement",
+   "file": "Colour.lean",
+   "conjunct": "(160 < 180)",
+   "of": 5
+  },
+  {
+   "key": "no_digit_is_an_exact_complement",
+   "file": "Colour.lean",
+   "conjunct": "(180 < 200)",
+   "of": 5
+  },
+  {
+   "key": "twelve_hue_wheel_wraps",
+   "file": "Colour.lean",
+   "conjunct": "12 % 12 = 0",
+   "of": 2
+  },
+  {
+   "key": "tamper_changes_tag",
+   "file": "Command.lean",
+   "conjunct": "(accept 1 1 = 1)",
+   "of": 2
+  },
+  {
+   "key": "directions_number_fortytwo",
+   "file": "Contribution.lean",
+   "conjunct": "(6 * 7 = 7 * 6)",
+   "of": 4
+  },
+  {
+   "key": "taking_before_paying_differs",
+   "file": "Contribution.lean",
+   "conjunct": "((128:Nat) ≠ 126)",
+   "of": 3
+  },
+  {
+   "key": "taking_before_paying_differs",
+   "file": "Contribution.lean",
+   "conjunct": "(126 < 128)",
+   "of": 3
+  },
+  {
+   "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
+   "file": "CrossFormulas.lean",
+   "conjunct": "(42676 < 97561)",
+   "of": 2
+  },
+  {
+   "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
+   "file": "CrossFormulas.lean",
+   "conjunct": "(2 > 1)",
+   "of": 2
+  },
+  {
+   "key": "crosslinking_outgrows_the_address_space",
+   "file": "Crosslink.lean",
+   "conjunct": "((16 * 15) / 2 <= 128)",
+   "of": 2
+  },
+  {
+   "key": "seventeen_leaves_already_pass_the_whole_uuid",
+   "file": "Crosslink.lean",
+   "conjunct": "(120 <= 128)",
+   "of": 4
+  },
+  {
+   "key": "the_leaf_is_not_one_uuid_but_a_folder",
+   "file": "Crosslink.lean",
+   "conjunct": "(80 > 0)",
+   "of": 2
+  },
+  {
+   "key": "the_fused_ring_is_all_ones",
+   "file": "Crt.lean",
+   "conjunct": "(63 < 64)",
+   "of": 3
+  },
+  {
+   "key": "sha512_doubles_the_word_block_and_digest_but_not_the_rounds",
+   "file": "Crypto.lean",
+   "conjunct": "(80 ≠ 2 * 64)",
+   "of": 5
+  },
+  {
+   "key": "the_aead_envelope_fits_inside_one_chacha_block",
+   "file": "Crypto.lean",
+   "conjunct": "(60 < 64)",
+   "of": 4
+  },
+  {
+   "key": "the_aead_envelope_fits_inside_one_chacha_block",
+   "file": "Crypto.lean",
+   "conjunct": "(∀ n : Fin 64, n.val + 16 - n.val = 16)",
+   "of": 4
+  },
+  {
+   "key": "the_third_level_already_shares",
+   "file": "Cyber.lean",
+   "conjunct": "(71548 < 71703)",
+   "of": 3
+  },
+  {
+   "key": "involution_census_self_explains",
+   "file": "Discover.lean",
+   "conjunct": "(29 > 1)",
+   "of": 3
+  },
+  {
+   "key": "dz_zero_only_zero",
+   "file": "DivByZero.lean",
+   "conjunct": "dz 0 = 0",
+   "of": 2
+  },
+  {
+   "key": "the_cross_tells_a_ratio_from_a_convention",
+   "file": "DivByZero.lean",
+   "conjunct": "(1000 ≠ 0 * 0)",
+   "of": 3
+  },
+  {
+   "key": "the_cross_tells_a_ratio_from_a_convention",
+   "file": "DivByZero.lean",
+   "conjunct": "(0 = 0 * 0)",
+   "of": 3
+  },
+  {
+   "key": "air_ppO2_in_window_at_surface",
+   "file": "Diving.lean",
+   "conjunct": "(16 <= 21)",
+   "of": 2
+  },
+  {
+   "key": "air_ppO2_in_window_at_surface",
+   "file": "Diving.lean",
+   "conjunct": "(21 <= 160)",
+   "of": 2
+  },
+  {
+   "key": "ascent_needs_a_stop",
+   "file": "Diving.lean",
+   "conjunct": "((4 / 1 : Nat) = 4)",
+   "of": 3
+  },
+  {
+   "key": "gas_blend_by_partial_pressure",
+   "file": "Diving.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 2
+  },
+  {
+   "key": "compass_three_decide_the_fourth",
+   "file": "Doctrine.lean",
+   "conjunct": "(6 - (1 + 2 + 3) = 0)",
+   "of": 5
+  },
+  {
+   "key": "jump_records_ascend",
+   "file": "Doctrine.lean",
+   "conjunct": "(4 % 9 = 4)",
+   "of": 2
+  },
+  {
+   "key": "saturation_deco_accounts",
+   "file": "Doctrine.lean",
+   "conjunct": "(37 < 43)",
+   "of": 3
+  },
+  {
+   "key": "solo_is_the_excluded_team",
+   "file": "Doctrine.lean",
+   "conjunct": "(1 < 2)",
+   "of": 3
+  },
+  {
+   "key": "solo_is_the_excluded_team",
+   "file": "Doctrine.lean",
+   "conjunct": "(1 < 3)",
+   "of": 3
+  },
+  {
+   "key": "solo_is_the_excluded_team",
+   "file": "Doctrine.lean",
+   "conjunct": "(0 * 2 + 0 * 3 = 0)",
+   "of": 3
+  },
+  {
+   "key": "the_key_index_fits_where_the_rows_do_not",
+   "file": "DoorSurface.lean",
+   "conjunct": "(1602374 * 84 > 134217728)",
+   "of": 2
+  },
+  {
+   "key": "the_keys_are_a_small_fraction_of_the_rows",
+   "file": "DoorSurface.lean",
+   "conjunct": "(1602374 * 27 > 41943040)",
+   "of": 3
+  },
+  {
+   "key": "the_keys_are_a_small_fraction_of_the_rows",
+   "file": "DoorSurface.lean",
+   "conjunct": "(26 > 1)",
+   "of": 3
+  },
+  {
+   "key": "handles_give_generators",
+   "file": "DoubleTorus.lean",
+   "conjunct": "(4 ≠ 2)",
+   "of": 2
+  },
+  {
+   "key": "presentation_counts_five",
+   "file": "DoubleTorus.lean",
+   "conjunct": "(1 ≠ 0)",
+   "of": 2
+  },
+  {
+   "key": "crossfade_overlap",
+   "file": "Editing.lean",
+   "conjunct": "(3 % 9 = 3)",
+   "of": 2
+  },
+  {
+   "key": "frame_index_is_z24",
+   "file": "Editing.lean",
+   "conjunct": "24 % 24 = 0",
+   "of": 2
+  },
+  {
+   "key": "containment_is_genus_one",
+   "file": "Electromagnetism.lean",
+   "conjunct": "((2:Int) - 2 * 1 = 0)",
+   "of": 2
+  },
+  {
+   "key": "coulomb_sign",
+   "file": "Electromagnetism.lean",
+   "conjunct": "((1 * 1 : Int) > 0)",
+   "of": 2
+  },
+  {
+   "key": "coulomb_sign",
+   "file": "Electromagnetism.lean",
+   "conjunct": "((1 * (-1) : Int) < 0)",
+   "of": 2
+  },
+  {
+   "key": "faraday_needs_changing_flux",
+   "file": "Electromagnetism.lean",
+   "conjunct": "((5 - 5 : Int) = 0)",
+   "of": 2
+  },
+  {
+   "key": "faraday_needs_changing_flux",
+   "file": "Electromagnetism.lean",
+   "conjunct": "((7 - 5 : Int) ≠ 0)",
+   "of": 2
+  },
+  {
+   "key": "kink_needs_q_above_one",
+   "file": "Electromagnetism.lean",
+   "conjunct": "(1 < 2)",
+   "of": 2
+  },
+  {
+   "key": "kink_needs_q_above_one",
+   "file": "Electromagnetism.lean",
+   "conjunct": "¬(1 < 1)",
+   "of": 2
+  },
+  {
+   "key": "torus_closes_the_pipe",
+   "file": "Electromagnetism.lean",
+   "conjunct": "(2 - 2 = 0)",
+   "of": 2
+  },
+  {
+   "key": "torus_closes_the_pipe",
+   "file": "Electromagnetism.lean",
+   "conjunct": "(2 - 2 * 1 = 0)",
+   "of": 2
+  },
+  {
+   "key": "the_doubling_changes_the_degree_and_not_the_transitivity",
+   "file": "Equilibrium.lean",
+   "conjunct": "¬(6 = 12)",
+   "of": 3
+  },
+  {
+   "key": "the_doubling_changes_the_degree_and_not_the_transitivity",
+   "file": "Equilibrium.lean",
+   "conjunct": "¬(0 = 24)",
+   "of": 3
+  },
+  {
+   "key": "fold_integrity_tamper",
+   "file": "Exploits.lean",
+   "conjunct": "(3 % 9 = 3)",
+   "of": 3
+  },
+  {
+   "key": "fold_prototype_pollution",
+   "file": "Exploits.lean",
+   "conjunct": "(7 % 9 = 7)",
+   "of": 3
+  },
+  {
+   "key": "fold_resource_dos",
+   "file": "Exploits.lean",
+   "conjunct": "(4 % 9 = 4)",
+   "of": 3
+  },
+  {
+   "key": "fold_supply_chain",
+   "file": "Exploits.lean",
+   "conjunct": "(6 % 9 = 6)",
+   "of": 3
+  },
+  {
+   "key": "fold_trojan_source_bidi",
+   "file": "Exploits.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 3
+  },
+  {
+   "key": "fold_weak_hash",
+   "file": "Exploits.lean",
+   "conjunct": "(4 % 9 = 4)",
+   "of": 3
+  },
+  {
+   "key": "fixed_power_law_is_not_vacuous",
+   "file": "FixedPower.lean",
+   "conjunct": "(2 < 113)",
+   "of": 2
+  },
+  {
+   "key": "gematria_ignores_order",
+   "file": "Glagolitic.lean",
+   "conjunct": "1 + 2 + 3 = 3 + 2 + 1",
+   "of": 2
+  },
+  {
+   "key": "roman_reads_subtractively",
+   "file": "Glagolitic.lean",
+   "conjunct": "9 ≠ 11",
+   "of": 3
+  },
+  {
+   "key": "the_rank_rule_climbs_by_ten",
+   "file": "Glagolitic.lean",
+   "conjunct": "((9 % 9 + 1) * 10 ^ (9 / 9) = 10)",
+   "of": 7
+  },
+  {
+   "key": "the_rank_rule_climbs_by_ten",
+   "file": "Glagolitic.lean",
+   "conjunct": "(22 < 27)",
+   "of": 7
+  },
+  {
+   "key": "theology_counts_in_the_mirror_base",
+   "file": "Glagolitic.lean",
+   "conjunct": "((0 % 9 + 1) * 10 ^ (0 / 9) = 1)",
+   "of": 8
+  },
+  {
+   "key": "theology_counts_in_the_mirror_base",
+   "file": "Glagolitic.lean",
+   "conjunct": "((9 % 9 + 1) * 10 ^ (9 / 9) = 10)",
+   "of": 8
+  },
+  {
+   "key": "theology_counts_in_the_mirror_base",
+   "file": "Glagolitic.lean",
+   "conjunct": "(1 + 2 + 3 = 3 + 2 + 1)",
+   "of": 8
+  },
+  {
+   "key": "fifteen_satisfies_both",
+   "file": "Grid.lean",
+   "conjunct": "(91 % 15 ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "reversal_fails_in_hexadecimal",
+   "file": "Grid.lean",
+   "conjunct": "(16 * 132 ≠ 432)",
+   "of": 3
+  },
+  {
+   "key": "seventytwo_is_decimal_only",
+   "file": "Grid.lean",
+   "conjunct": "(432 % 15 ≠ 0)",
+   "of": 4
+  },
+  {
+   "key": "words_stand_three_apart",
+   "file": "Hamming.lean",
+   "conjunct": "(3 ≠ 2)",
+   "of": 2
+  },
+  {
+   "key": "exponents_add",
+   "file": "HandleSpan.lean",
+   "conjunct": "(16 * 5 ≠ 21)",
+   "of": 2
+  },
+  {
+   "key": "total_exceeds_register",
+   "file": "HandleSpan.lean",
+   "conjunct": "(2097152 ≠ 16)",
+   "of": 3
+  },
+  {
+   "key": "total_exceeds_register",
+   "file": "HandleSpan.lean",
+   "conjunct": "((2:Nat)^21 ≠ 2^16)",
+   "of": 3
+  },
+  {
+   "key": "total_is_not_amplitudes",
+   "file": "HandleSpan.lean",
+   "conjunct": "(2097152 ≠ 65536)",
+   "of": 2
+  },
+  {
+   "key": "anomaly_cancels_at_twenty_six",
+   "file": "HandleStore.lean",
+   "conjunct": "((26 + (-26) : Int) = 0)",
+   "of": 2
+  },
+  {
+   "key": "crossing_sits_inside",
+   "file": "HandleStore.lean",
+   "conjunct": "((96 < 116) ∧ (116 < 128))",
+   "of": 2
+  },
+  {
+   "key": "kinematics_cancels_both",
+   "file": "HandleStore.lean",
+   "conjunct": "((1 - 1 = 0) ∧ (1 - 1 = 0))",
+   "of": 2
+  },
+  {
+   "key": "mass_selects_cancellation",
+   "file": "HandleStore.lean",
+   "conjunct": "((1 - 1 = 0) ∧ (1 - 1 = 0))",
+   "of": 2
+  },
+  {
+   "key": "payload_falls_short",
+   "file": "HandleStore.lean",
+   "conjunct": "(1616255 * 2 ^ 96 < 10 ^ 41)",
+   "of": 2
+  },
+  {
+   "key": "payload_falls_short",
+   "file": "HandleStore.lean",
+   "conjunct": "(1616255 * 2 ^ 32 < 10 ^ 41)",
+   "of": 2
+  },
+  {
+   "key": "planck_margin_bounded",
+   "file": "HandleStore.lean",
+   "conjunct": "(1616255 * 2 ^ 122 / 10 ^ 41 < 90)",
+   "of": 2
+  },
+  {
+   "key": "superstring_cancels_at_ten",
+   "file": "HandleStore.lean",
+   "conjunct": "((3 * 26 - 52 + 22 : Int) ≠ 0)",
+   "of": 2
+  },
+  {
+   "key": "action_reaction_and_charge_cancel",
+   "file": "Harmony.lean",
+   "conjunct": "((5 : Int) + (-5) = 0)",
+   "of": 2
+  },
+  {
+   "key": "action_reaction_and_charge_cancel",
+   "file": "Harmony.lean",
+   "conjunct": "((-1 : Int) + 1 = 0)",
+   "of": 2
+  },
+  {
+   "key": "chargaff_strand_balance",
+   "file": "Harmony.lean",
+   "conjunct": "(0 + 1 == 1 + 0)",
+   "of": 3
+  },
+  {
+   "key": "chargaff_strand_balance",
+   "file": "Harmony.lean",
+   "conjunct": "(0 != 1)",
+   "of": 3
+  },
+  {
+   "key": "address_and_payload_exchange_at_one_twenty_eight",
+   "file": "Hexbit.lean",
+   "conjunct": "(2 ^ 32 + 2 ^ 96 != 2 ^ 128)",
+   "of": 5
+  },
+  {
+   "key": "born_field_mass_gap_on_bell",
+   "file": "Hexbit.lean",
+   "conjunct": "(1 > 0)",
+   "of": 4
+  },
+  {
+   "key": "hexbit_ring_mass_gap",
+   "file": "Hexbit.lean",
+   "conjunct": "((1:Nat) > 0)",
+   "of": 4
+  },
+  {
+   "key": "hexbits_reconstruct_every_integer_they_span",
+   "file": "Hexbit.lean",
+   "conjunct": "((10 + 10 * 11 + 100 * 12) != 3258)",
+   "of": 6
+  },
+  {
+   "key": "layout_groups_thirtytwo",
+   "file": "Hexbit.lean",
+   "conjunct": "(32 ≠ 36)",
+   "of": 3
+  },
+  {
+   "key": "the_void_tile_cannot_cross",
+   "file": "Hexbit.lean",
+   "conjunct": "(0 * 15 = 0 * 1)",
+   "of": 3
+  },
+  {
+   "key": "isbn13_bookland_prefix",
+   "file": "Identifiers.lean",
+   "conjunct": "978 < 979",
+   "of": 2
+  },
+  {
+   "key": "newton_singularity_finite",
+   "file": "Infinity.lean",
+   "conjunct": "dz 0 = 0",
+   "of": 2
+  },
+  {
+   "key": "reach_window_finite",
+   "file": "Infinity.lean",
+   "conjunct": "(3125 < 3126)",
+   "of": 3
+  },
+  {
+   "key": "window_not_universal",
+   "file": "Infinity.lean",
+   "conjunct": "¬(10 < 10)",
+   "of": 2
+  },
+  {
+   "key": "home_is_the_meta_package",
+   "file": "Installs.lean",
+   "conjunct": "(nthS installNames 0 = \"alpine-base\")",
+   "of": 3
+  },
+  {
+   "key": "home_is_the_meta_package",
+   "file": "Installs.lean",
+   "conjunct": "(nthS installRoutes 0 = \"/\")",
+   "of": 3
+  },
+  {
+   "key": "home_reaches_every_install",
+   "file": "Installs.lean",
+   "conjunct": "(nth bfsOrder 0 = 0)",
+   "of": 5
+  },
+  {
+   "key": "the_terminal_is_the_toolbox",
+   "file": "Installs.lean",
+   "conjunct": "((6 : Nat) = 6)",
+   "of": 13
+  },
+  {
+   "key": "isometry_bounds_correction",
+   "file": "Isometry.lean",
+   "conjunct": "((3 - 1) / 2 ≠ 2)",
+   "of": 3
+  },
+  {
+   "key": "origin_surplus_class_by_class_is_the_catalogue_surplus",
+   "file": "Links.lean",
+   "conjunct": "(1277 ≤ 2034)",
+   "of": 9
+  },
+  {
+   "key": "origin_surplus_class_by_class_is_the_catalogue_surplus",
+   "file": "Links.lean",
+   "conjunct": "(2819 ≤ 3087)",
+   "of": 9
+  },
+  {
+   "key": "origin_surplus_class_by_class_is_the_catalogue_surplus",
+   "file": "Links.lean",
+   "conjunct": "(13843 ≤ 23514)",
+   "of": 9
+  },
+  {
+   "key": "origin_surplus_class_by_class_is_the_catalogue_surplus",
+   "file": "Links.lean",
+   "conjunct": "(16083 ≤ 28635)",
+   "of": 9
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(4316331 ≠ 3198876)",
+   "of": 17
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(161 < 360)",
+   "of": 17
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(360 < 9 * 7 * 6)",
+   "of": 17
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(4316331 < 2 ^ 24)",
+   "of": 17
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(3198876 < 2 ^ 24)",
+   "of": 17
+  },
+  {
+   "key": "the_aura_pair_the_wheel_cannot_separate",
+   "file": "Links.lean",
+   "conjunct": "(9 * 7 * 6 < 2 ^ 24)",
+   "of": 17
+  },
+  {
+   "key": "the_barren_claim_fails_exactly_at_the_dz_fixed_points",
+   "file": "Links.lean",
+   "conjunct": "(dz 0 = 0)",
+   "of": 9
+  },
+  {
+   "key": "the_barren_claim_fails_exactly_at_the_dz_fixed_points",
+   "file": "Links.lean",
+   "conjunct": "(dbl 0 = 0)",
+   "of": 9
+  },
+  {
+   "key": "the_untested_hundred_pay_a_third_of_the_wire",
+   "file": "Links.lean",
+   "conjunct": "(100 < 119)",
+   "of": 13
+  },
+  {
+   "key": "the_untested_hundred_pay_a_third_of_the_wire",
+   "file": "Links.lean",
+   "conjunct": "(32183 * 100 / 100 = 32183)",
+   "of": 13
+  },
+  {
+   "key": "the_untested_hundred_pay_a_third_of_the_wire",
+   "file": "Links.lean",
+   "conjunct": "(32183 * 3 > 83032)",
+   "of": 13
+  },
+  {
+   "key": "the_untested_hundred_pay_a_third_of_the_wire",
+   "file": "Links.lean",
+   "conjunct": "(4505 < 4506)",
+   "of": 13
+  },
+  {
+   "key": "the_untested_hundred_pay_a_third_of_the_wire",
+   "file": "Links.lean",
+   "conjunct": "((82616 + 373) * 100 ≤ 32183 * 258)",
+   "of": 13
+  },
+  {
+   "key": "the_punched_card_is_the_bit",
+   "file": "Looms.lean",
+   "conjunct": "((2:Nat)^1 = 2)",
+   "of": 3
+  },
+  {
+   "key": "the_road_computes_in_one_arithmetic",
+   "file": "Looms.lean",
+   "conjunct": "((2:Nat)^1 = 2)",
+   "of": 4
+  },
+  {
+   "key": "supplement_completes_the_straight",
+   "file": "MartialArts.lean",
+   "conjunct": "(30 < 150)",
+   "of": 3
+  },
+  {
+   "key": "supplement_completes_the_straight",
+   "file": "MartialArts.lean",
+   "conjunct": "(5 < 30)",
+   "of": 3
+  },
+  {
+   "key": "every_context_is_finite_against_the_lattice",
+   "file": "Models.lean",
+   "conjunct": "(2 ^ 128 > 2000000 * 8)",
+   "of": 2
+  },
+  {
+   "key": "ionic_threshold",
+   "file": "Molecular.lean",
+   "conjunct": "(3 % 9 = 3)",
+   "of": 2
+  },
+  {
+   "key": "mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(89 < 100)",
+   "of": 3
+  },
+  {
+   "key": "mombh_quantum_edge_redshifts_into_filter_gap",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(3100 < 3192)",
+   "of": 4
+  },
+  {
+   "key": "mombh_quantum_edge_redshifts_into_filter_gap",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(3192 < 3560)",
+   "of": 4
+  },
+  {
+   "key": "mombh_quantum_edge_redshifts_into_filter_gap",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(364 < 3100)",
+   "of": 4
+  },
+  {
+   "key": "mombh_quantum_hbeta_hgamma_are_balmer_lines",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(800 < 1000)",
+   "of": 4
+  },
+  {
+   "key": "mombh_quantum_hbeta_hgamma_are_balmer_lines",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(5816 < 12398)",
+   "of": 4
+  },
+  {
+   "key": "mombh_quantum_n2_population_needs_density",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(29 < 100)",
+   "of": 2
+  },
+  {
+   "key": "mombh_quantum_n2_population_needs_density",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(9 <= 11)",
+   "of": 2
+  },
+  {
+   "key": "mombh_variability_is_four_sigma",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(30 < 5 * 7)",
+   "of": 2
+  },
+  {
+   "key": "mombh_verified_ne_solved",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(3 >= 1)",
+   "of": 3
+  },
+  {
+   "key": "mombh_verified_ne_solved",
+   "file": "MoMBHStar1.lean",
+   "conjunct": "(0 < 1)",
+   "of": 3
+  },
+  {
+   "key": "a_window_exhausts_only_itself",
+   "file": "Negation.lean",
+   "conjunct": "(¬ (20 < 20))",
+   "of": 3
+  },
+  {
+   "key": "a_window_exhausts_only_itself",
+   "file": "Negation.lean",
+   "conjunct": "(16 < 20)",
+   "of": 3
+  },
+  {
+   "key": "exhausted_denial_is_the_proof",
+   "file": "Negation.lean",
+   "conjunct": "(16 - 16 = 0)",
+   "of": 2
+  },
+  {
+   "key": "silence_never_refutes",
+   "file": "Negation.lean",
+   "conjunct": "(3 > 0)",
+   "of": 3
+  },
+  {
+   "key": "waves_of_denial_tighten",
+   "file": "Negation.lean",
+   "conjunct": "(2^6 / 2^6 = 1)",
+   "of": 2
+  },
+  {
+   "key": "action_potential_swing",
+   "file": "Neuro.lean",
+   "conjunct": "((-55 : Int) < 40)",
+   "of": 3
+  },
+  {
+   "key": "inhibition_vetoes_spike",
+   "file": "Neuro.lean",
+   "conjunct": "((if (7 - 3 : Int) >= 5 then 1 else 0) = 0)",
+   "of": 4
+  },
+  {
+   "key": "inhibition_vetoes_spike",
+   "file": "Neuro.lean",
+   "conjunct": "((if (12 / 4 : Int) >= 5 then 1 else 0) = 0)",
+   "of": 4
+  },
+  {
+   "key": "refractory_bounds_rate",
+   "file": "Neuro.lean",
+   "conjunct": "((611 : Nat) < 1000)",
+   "of": 3
+  },
+  {
+   "key": "spatial_summation",
+   "file": "Neuro.lean",
+   "conjunct": "((if 3 >= 5 then 1 else 0) = 0)",
+   "of": 2
+  },
+  {
+   "key": "spatial_summation",
+   "file": "Neuro.lean",
+   "conjunct": "((if 3 + 3 >= 5 then 1 else 0) = 1)",
+   "of": 2
+  },
+  {
+   "key": "temporal_summation_decays",
+   "file": "Neuro.lean",
+   "conjunct": "((if (4 : Int) >= 5 then 1 else 0) = 0)",
+   "of": 2
+  },
+  {
+   "key": "reversal_escapes_arithmetic",
+   "file": "Notation.lean",
+   "conjunct": "(16 * 57 ≠ 432)",
+   "of": 3
+  },
+  {
+   "key": "reversal_escapes_arithmetic",
+   "file": "Notation.lean",
+   "conjunct": "(16 * 87 ≠ 432)",
+   "of": 3
+  },
+  {
+   "key": "conway_ninetynine_multiplicities_are_integers_and_close",
+   "file": "OpenProblems.lean",
+   "conjunct": "(54 > 0)",
+   "of": 3
+  },
+  {
+   "key": "conway_ninetynine_multiplicities_are_integers_and_close",
+   "file": "OpenProblems.lean",
+   "conjunct": "(44 > 0)",
+   "of": 3
+  },
+  {
+   "key": "this_ledger_offers_nothing_decidable_on_three_of_the_five",
+   "file": "OpenProblems.lean",
+   "conjunct": "(2 < 5)",
+   "of": 2
+  },
+  {
+   "key": "assignment_two_by_two_optimum",
+   "file": "Optimisation.lean",
+   "conjunct": "(2 < 5)",
+   "of": 3
+  },
+  {
+   "key": "simplex_pivot_improves",
+   "file": "Optimisation.lean",
+   "conjunct": "(9 < 11)",
+   "of": 2
+  },
+  {
+   "key": "pi_bracketed_by_finite_rationals",
+   "file": "Pentagram.lean",
+   "conjunct": "223 * 7 < 22 * 71",
+   "of": 3
+  },
+  {
+   "key": "doubling_collapses_nine",
+   "file": "Phase.lean",
+   "conjunct": "(dbl 0 = 0)",
+   "of": 3
+  },
+  {
+   "key": "five_returns_out_of_phase",
+   "file": "Phase.lean",
+   "conjunct": "(dbl 5 ≠ 5)",
+   "of": 3
+  },
+  {
+   "key": "maps_differ_in_reach",
+   "file": "Phase.lean",
+   "conjunct": "(10 ≠ 9)",
+   "of": 2
+  },
+  {
+   "key": "zero_closes_in_phase",
+   "file": "Phase.lean",
+   "conjunct": "(dz 0 = 0)",
+   "of": 2
+  },
+  {
+   "key": "zero_closes_in_phase",
+   "file": "Phase.lean",
+   "conjunct": "(dbl 0 = 0)",
+   "of": 2
+  },
+  {
+   "key": "fstop_14_rounds_sqrt_two",
+   "file": "Photography.lean",
+   "conjunct": "(5 % 9 = 5)",
+   "of": 2
+  },
+  {
+   "key": "the_rom_frees_twentysix_for_the_tongue",
+   "file": "Pravets.lean",
+   "conjunct": "(26 < 40)",
+   "of": 2
+  },
+  {
+   "key": "chromatic_is_z12",
+   "file": "Production.lean",
+   "conjunct": "12 % 12 = 0",
+   "of": 2
+  },
+  {
+   "key": "midi_is_seven_bit",
+   "file": "Production.lean",
+   "conjunct": "127 < 128",
+   "of": 2
+  },
+  {
+   "key": "sixteen_bit_dynamic_range",
+   "file": "Production.lean",
+   "conjunct": "(7 % 9 = 7)",
+   "of": 2
+  },
+  {
+   "key": "tempo_ms_per_beat",
+   "file": "Production.lean",
+   "conjunct": "(6 % 9 = 6)",
+   "of": 2
+  },
+  {
+   "key": "all_signaling_duality",
+   "file": "Quantum.lean",
+   "conjunct": "(1 + 0 = 0 + 1)",
+   "of": 2
+  },
+  {
+   "key": "bell_agreement_carries_no_command",
+   "file": "Quantum.lean",
+   "conjunct": "((1*1 + 0*0 : Nat) = (0*0 + 1*1))",
+   "of": 7
+  },
+  {
+   "key": "bell_agreement_carries_no_command",
+   "file": "Quantum.lean",
+   "conjunct": "((2:Nat)^2 < 2^3)",
+   "of": 7
+  },
+  {
+   "key": "bell_basis_orthogonal",
+   "file": "Quantum.lean",
+   "conjunct": "((1*1 + 0*0 + 0*0 + 1*(-1) : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "bell_basis_orthogonal",
+   "file": "Quantum.lean",
+   "conjunct": "((0*0 + 1*1 + 1*(-1) + 0*0 : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "bell_normalized",
+   "file": "Quantum.lean",
+   "conjunct": "((2:Nat) = 2^1)",
+   "of": 2
+  },
+  {
+   "key": "bell_zz_even_parity",
+   "file": "Quantum.lean",
+   "conjunct": "((0+0) % 2 = 0)",
+   "of": 2
+  },
+  {
+   "key": "chsh_beats_classical",
+   "file": "Quantum.lean",
+   "conjunct": "((2:Nat)^2 < 2^3)",
+   "of": 2
+  },
+  {
+   "key": "entanglement_determinant",
+   "file": "Quantum.lean",
+   "conjunct": "((1*1 - 0*0 : Int) ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "entanglement_determinant",
+   "file": "Quantum.lean",
+   "conjunct": "((1*0 - 0*0 : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "entanglement_determinant",
+   "file": "Quantum.lean",
+   "conjunct": "((1*0 - 1*0 : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "hexbit_slit_cross_is_overlap",
+   "file": "Quantum.lean",
+   "conjunct": "(1*1 + 0*0 = 1)",
+   "of": 4
+  },
+  {
+   "key": "hexbit_slit_cross_is_overlap",
+   "file": "Quantum.lean",
+   "conjunct": "(1*0 + 0*1 = 0)",
+   "of": 4
+  },
+  {
+   "key": "hexbit_slit_cross_is_overlap",
+   "file": "Quantum.lean",
+   "conjunct": "(1*1 + 0*1 = 1)",
+   "of": 4
+  },
+  {
+   "key": "hexbit_slit_cross_is_overlap",
+   "file": "Quantum.lean",
+   "conjunct": "(0*1 + 1*1 = 1)",
+   "of": 4
+  },
+  {
+   "key": "hexbit_slit_visibility",
+   "file": "Quantum.lean",
+   "conjunct": "((1 - 1)^2 = 0)",
+   "of": 4
+  },
+  {
+   "key": "majority_vote_is_floor_half",
+   "file": "Quantum.lean",
+   "conjunct": "((0 + 0 + 0) / 2 = 0)",
+   "of": 4
+  },
+  {
+   "key": "majority_vote_is_floor_half",
+   "file": "Quantum.lean",
+   "conjunct": "((1 + 0 + 0) / 2 = 0)",
+   "of": 4
+  },
+  {
+   "key": "phase_gate_order_ladder",
+   "file": "Quantum.lean",
+   "conjunct": "(8 % 8 = 0)",
+   "of": 3
+  },
+  {
+   "key": "served_qubit_ceiling",
+   "file": "Quantum.lean",
+   "conjunct": "((12:Nat) ≤ 16)",
+   "of": 3
+  },
+  {
+   "key": "superdense_two_bits",
+   "file": "Quantum.lean",
+   "conjunct": "(2 > 1)",
+   "of": 2
+  },
+  {
+   "key": "teleportation_costs_two_coins",
+   "file": "Quantum.lean",
+   "conjunct": "(2 ^ 1 < 2 ^ 2)",
+   "of": 3
+  },
+  {
+   "key": "usable_gap_eighty_bits",
+   "file": "Quantum.lean",
+   "conjunct": "(48 < 128)",
+   "of": 3
+  },
+  {
+   "key": "queneau_ten_sonnets_are_a_vanishing_sample",
+   "file": "Queneau.lean",
+   "conjunct": "10 < 100000000000000",
+   "of": 2
+  },
+  {
+   "key": "amplitude_inside_int16",
+   "file": "Readings.lean",
+   "conjunct": "8000 < 32768",
+   "of": 2
+  },
+  {
+   "key": "chi_all_three_genera",
+   "file": "Readings.lean",
+   "conjunct": "((2:Int) - 2*0 = 2)",
+   "of": 6
+  },
+  {
+   "key": "chi_all_three_genera",
+   "file": "Readings.lean",
+   "conjunct": "((2:Int) - 2*1 = 0)",
+   "of": 6
+  },
+  {
+   "key": "chi_all_three_genera",
+   "file": "Readings.lean",
+   "conjunct": "((2:Int) ≠ 0)",
+   "of": 6
+  },
+  {
+   "key": "chi_all_three_genera",
+   "file": "Readings.lean",
+   "conjunct": "((0:Int) ≠ -2)",
+   "of": 6
+  },
+  {
+   "key": "chi_all_three_genera",
+   "file": "Readings.lean",
+   "conjunct": "((2:Int) ≠ -2)",
+   "of": 6
+  },
+  {
+   "key": "handle_capacity_invariant_under_entanglement",
+   "file": "Readings.lean",
+   "conjunct": "1^19 = 1",
+   "of": 5
+  },
+  {
+   "key": "handle_capacity_invariant_under_entanglement",
+   "file": "Readings.lean",
+   "conjunct": "4294967296 * 1^19 = 4294967296",
+   "of": 5
+  },
+  {
+   "key": "mix_budget_closes",
+   "file": "Readings.lean",
+   "conjunct": "8000 ≤ 8000",
+   "of": 3
+  },
+  {
+   "key": "note_values_are_doublings",
+   "file": "Readings.lean",
+   "conjunct": "1 * 16 = 16",
+   "of": 5
+  },
+  {
+   "key": "note_values_are_doublings",
+   "file": "Readings.lean",
+   "conjunct": "16 * 1 = 16",
+   "of": 5
+  },
+  {
+   "key": "nyquist_clears_the_lattice",
+   "file": "Readings.lean",
+   "conjunct": "6912 < 8000",
+   "of": 3
+  },
+  {
+   "key": "time_counts_of_the_books",
+   "file": "Readings.lean",
+   "conjunct": "2 ≠ 3",
+   "of": 3
+  },
+  {
+   "key": "captain_honest_not_flawless",
+   "file": "Reasoning.lean",
+   "conjunct": "(0 < 1)",
+   "of": 4
+  },
+  {
+   "key": "crew_verifies_instantly",
+   "file": "Reasoning.lean",
+   "conjunct": "(16 < 2^16)",
+   "of": 4
+  },
+  {
+   "key": "manipulation_never_faster",
+   "file": "Reasoning.lean",
+   "conjunct": "(16 < 2^16)",
+   "of": 3
+  },
+  {
+   "key": "manipulation_never_faster",
+   "file": "Reasoning.lean",
+   "conjunct": "(110 - 110 = 0)",
+   "of": 3
+  },
+  {
+   "key": "unity_census_is_plural_and_needs_two",
+   "file": "Reasoning.lean",
+   "conjunct": "(14 > 1)",
+   "of": 3
+  },
+  {
+   "key": "orbit_steps_name_their_intervals",
+   "file": "Referrer.lean",
+   "conjunct": "(Nat.gcd 1 2 = 1)",
+   "of": 7
+  },
+  {
+   "key": "referrer_consonance_ladder",
+   "file": "Referrer.lean",
+   "conjunct": "2 < 3",
+   "of": 7
+  },
+  {
+   "key": "referrer_consonance_ladder",
+   "file": "Referrer.lean",
+   "conjunct": "3 < 5",
+   "of": 7
+  },
+  {
+   "key": "referrer_consonance_ladder",
+   "file": "Referrer.lean",
+   "conjunct": "5 < 7",
+   "of": 7
+  },
+  {
+   "key": "referrer_six_doors",
+   "file": "Referrer.lean",
+   "conjunct": "0 % 6 = 0",
+   "of": 3
+  },
+  {
+   "key": "referrer_six_doors",
+   "file": "Referrer.lean",
+   "conjunct": "(6:Nat) ≠ 0",
+   "of": 3
+  },
+  {
+   "key": "seventh_covers_reflection_cannot",
+   "file": "Reflection.lean",
+   "conjunct": "(dzMin 7 ≠ 7)",
+   "of": 3
+  },
+  {
+   "key": "neither_light_nor_execution_is_outrun",
+   "file": "Refusion.lean",
+   "conjunct": "(2 ^ 16 < 2 ^ 24)",
+   "of": 3
+  },
+  {
+   "key": "shor_is_defeated_by_absence_not_by_speed",
+   "file": "Refusion.lean",
+   "conjunct": "(0 * 2 ^ 64 = 0)",
+   "of": 2
+  },
+  {
+   "key": "interval_timelike_causal",
+   "file": "Relativity.lean",
+   "conjunct": "((9:Int) > 0)",
+   "of": 2
+  },
+  {
+   "key": "light_on_null_cone",
+   "file": "Relativity.lean",
+   "conjunct": "((5*5 - 5*5 : Int) = 0)",
+   "of": 3
+  },
+  {
+   "key": "light_on_null_cone",
+   "file": "Relativity.lean",
+   "conjunct": "((5*5 - 4*4 : Int) ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "light_on_null_cone",
+   "file": "Relativity.lean",
+   "conjunct": "((5*5 - 6*6 : Int) ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "a_new_tool_pays_at_most_the_mean_wire_cost",
+   "file": "RenderBudget.lean",
+   "conjunct": "(373 ≤ 416)",
+   "of": 4
+  },
+  {
+   "key": "the_budget_re_measured_from_the_resident_reading",
+   "file": "RenderBudget.lean",
+   "conjunct": "(12208 < 16446)",
+   "of": 6
+  },
+  {
+   "key": "the_citations_were_one_table_shipped_nine_thousand_times",
+   "file": "RenderBudget.lean",
+   "conjunct": "(9248 < 10344)",
+   "of": 4
+  },
+  {
+   "key": "the_cube_filled_and_the_tesseract_opens",
+   "file": "RenderBudget.lean",
+   "conjunct": "(4096 < 65536)",
+   "of": 4
+  },
+  {
+   "key": "the_render_samples_sit_below_the_peak_by_more_than_the_swing",
+   "file": "RenderBudget.lean",
+   "conjunct": "(542 < 2610)",
+   "of": 6
+  },
+  {
+   "key": "the_render_samples_sit_below_the_peak_by_more_than_the_swing",
+   "file": "RenderBudget.lean",
+   "conjunct": "(501 < 2610)",
+   "of": 6
+  },
+  {
+   "key": "the_render_samples_sit_below_the_peak_by_more_than_the_swing",
+   "file": "RenderBudget.lean",
+   "conjunct": "(1619 < 2610)",
+   "of": 6
+  },
+  {
+   "key": "the_render_samples_sit_below_the_peak_by_more_than_the_swing",
+   "file": "RenderBudget.lean",
+   "conjunct": "(2610 * 2 > 5153)",
+   "of": 6
+  },
+  {
+   "key": "the_retention_model_did_not_survive_the_doubling",
+   "file": "RenderBudget.lean",
+   "conjunct": "(7 < 17)",
+   "of": 5
+  },
+  {
+   "key": "the_word_and_the_instrument_select_different_populations",
+   "file": "RenderBudget.lean",
+   "conjunct": "(807 < 811)",
+   "of": 3
+  },
+  {
+   "key": "full_quorum_of_three",
+   "file": "Report.lean",
+   "conjunct": "(2 > 1)",
+   "of": 2
+  },
+  {
+   "key": "doubling_reverses_ambiguously",
+   "file": "Reversal.lean",
+   "conjunct": "(dbl 0 = 0)",
+   "of": 4
+  },
+  {
+   "key": "doubling_reverses_ambiguously",
+   "file": "Reversal.lean",
+   "conjunct": "(preOf dbl 0 ≠ 1)",
+   "of": 4
+  },
+  {
+   "key": "path_reverse_needs_both",
+   "file": "Reversal.lean",
+   "conjunct": "(preOf dbl 0 ≠ 1)",
+   "of": 3
+  },
+  {
+   "key": "reflection_explores_all",
+   "file": "Reversal.lean",
+   "conjunct": "(10 ≠ 9)",
+   "of": 3
+  },
+  {
+   "key": "sanitize_array_and_keys_are_ten_pow_five",
+   "file": "Sanitize.lean",
+   "conjunct": "(10^5 = 10^5)",
+   "of": 2
+  },
+  {
+   "key": "nicomachus_digit_rule_fails",
+   "file": "Scripture.lean",
+   "conjunct": "33550336 < 10 ^ 8",
+   "of": 5
+  },
+  {
+   "key": "powers_are_not_the_bound",
+   "file": "Seats.lean",
+   "conjunct": "((2:Nat)^8 ≠ (11 + 10 - 1) / 10)",
+   "of": 2
+  },
+  {
+   "key": "powers_are_not_the_bound",
+   "file": "Seats.lean",
+   "conjunct": "((2:Nat)^10 ≠ (21 + 10 - 1) / 10)",
+   "of": 2
+  },
+  {
+   "key": "collisions_under_one",
+   "file": "Security.lean",
+   "conjunct": "(91 < 2556)",
+   "of": 3
+  },
+  {
+   "key": "forward_reflected_mirror",
+   "file": "Sequence.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 3
+  },
+  {
+   "key": "nine_is_plus_not_neutral",
+   "file": "Sequence.lean",
+   "conjunct": "(9 ≠ 0)",
+   "of": 5
+  },
+  {
+   "key": "nine_is_plus_not_neutral",
+   "file": "Sequence.lean",
+   "conjunct": "(dz 0 = 0)",
+   "of": 5
+  },
+  {
+   "key": "one_strip",
+   "file": "Sequence.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 5
+  },
+  {
+   "key": "polarities_plus_minus",
+   "file": "Sequence.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 3
+  },
+  {
+   "key": "polarity_mirror_swaps_sides",
+   "file": "Sequence.lean",
+   "conjunct": "(dz 0 = 0)",
+   "of": 4
+  },
+  {
+   "key": "the_mirror_is_not_defined_on_the_void",
+   "file": "Sequence.lean",
+   "conjunct": "((1 - 0) % 9 = 1)",
+   "of": 4
+  },
+  {
+   "key": "the_mirror_is_not_defined_on_the_void",
+   "file": "Sequence.lean",
+   "conjunct": "(9 % 9 = 0)",
+   "of": 4
+  },
+  {
+   "key": "the_mirror_is_not_defined_on_the_void",
+   "file": "Sequence.lean",
+   "conjunct": "(1 ≠ 0)",
+   "of": 4
+  },
+  {
+   "key": "drift_needs_two_to_hide_in",
+   "file": "Singularity.lean",
+   "conjunct": "(1 * 0 / 2 = 0)",
+   "of": 3
+  },
+  {
+   "key": "drift_needs_two_to_hide_in",
+   "file": "Singularity.lean",
+   "conjunct": "(2 * 1 / 2 = 1)",
+   "of": 3
+  },
+  {
+   "key": "one_source_is_exactly_one",
+   "file": "Singularity.lean",
+   "conjunct": "(1 * 0 / 2 = 0)",
+   "of": 3
+  },
+  {
+   "key": "one_source_is_exactly_one",
+   "file": "Singularity.lean",
+   "conjunct": "(2 * 1 / 2 = 1)",
+   "of": 3
+  },
+  {
+   "key": "one_source_is_exactly_one",
+   "file": "Singularity.lean",
+   "conjunct": "(3 * 2 / 2 = 3)",
+   "of": 3
+  },
+  {
+   "key": "surfaces_cost_one_fold",
+   "file": "Singularity.lean",
+   "conjunct": "(1 * 0 / 2 = 0)",
+   "of": 3
+  },
+  {
+   "key": "the_singularity_is_the_dry_law_at_scale",
+   "file": "Singularity.lean",
+   "conjunct": "(2 > 1)",
+   "of": 3
+  },
+  {
+   "key": "the_singularity_is_the_dry_law_at_scale",
+   "file": "Singularity.lean",
+   "conjunct": "(1 * 0 / 2 = 0)",
+   "of": 3
+  },
+  {
+   "key": "a_shared_modulus_outranks_a_shared_word",
+   "file": "SiteBuild.lean",
+   "conjunct": "(2 > 1)",
+   "of": 4
+  },
+  {
+   "key": "a_shared_modulus_outranks_a_shared_word",
+   "file": "SiteBuild.lean",
+   "conjunct": "(102 > 116 / 2)",
+   "of": 4
+  },
+  {
+   "key": "exponent_associativity_changes_the_value",
+   "file": "SiteBuild.lean",
+   "conjunct": "(512 ≠ 64)",
+   "of": 3
+  },
+  {
+   "key": "render_retention_exceeds_the_container",
+   "file": "SiteBuild.lean",
+   "conjunct": "(20400 < 20480)",
+   "of": 5
+  },
+  {
+   "key": "the_concurrency_knob_cannot_close_the_gap",
+   "file": "SiteBuild.lean",
+   "conjunct": "(7980 < 8170)",
+   "of": 5
+  },
+  {
+   "key": "the_concurrency_knob_cannot_close_the_gap",
+   "file": "SiteBuild.lean",
+   "conjunct": "(420 < 750)",
+   "of": 5
+  },
+  {
+   "key": "the_page_budget_is_twice_the_ledger",
+   "file": "SiteBuild.lean",
+   "conjunct": "(4349 < 4352)",
+   "of": 5
+  },
+  {
+   "key": "the_params_are_not_the_retained_mass",
+   "file": "SiteBuild.lean",
+   "conjunct": "(88000 < 89420)",
+   "of": 4
+  },
+  {
+   "key": "the_two_sides_return_what_they_take",
+   "file": "SiteBuild.lean",
+   "conjunct": "(1 - 0 ≠ 0)",
+   "of": 3
+  },
+  {
+   "key": "the_two_sides_return_what_they_take",
+   "file": "SiteBuild.lean",
+   "conjunct": "(1 - 1 ≠ 1)",
+   "of": 3
+  },
+  {
+   "key": "verify_costs_one_walk_against_the_whole_page_count",
+   "file": "SiteBuild.lean",
+   "conjunct": "(5260 = 5260 * 1)",
+   "of": 4
+  },
+  {
+   "key": "verify_costs_one_walk_against_the_whole_page_count",
+   "file": "SiteBuild.lean",
+   "conjunct": "(1200 > 1)",
+   "of": 4
+  },
+  {
+   "key": "cubes_partition_ledger",
+   "file": "Software.lean",
+   "conjunct": "(260 < 71075)",
+   "of": 3
+  },
+  {
+   "key": "three_pentagons_close_a_vertex",
+   "file": "Solids.lean",
+   "conjunct": "(360 < 4 * 108)",
+   "of": 2
+  },
+  {
+   "key": "song_az_is_the_tuning",
+   "file": "Song.lean",
+   "conjunct": "432 * 1 = 432",
+   "of": 3
+  },
+  {
+   "key": "light_speed_rounds_to_300000",
+   "file": "Spectrum.lean",
+   "conjunct": "(3 % 9 = 3)",
+   "of": 2
+  },
+  {
+   "key": "spectrum_refuses_sixteen",
+   "file": "SpectrumHex.lean",
+   "conjunct": "(360 < 16 * 23)",
+   "of": 5
+  },
+  {
+   "key": "spectrum_refuses_sixteen",
+   "file": "SpectrumHex.lean",
+   "conjunct": "(360 % 16 ≠ 0)",
+   "of": 5
+  },
+  {
+   "key": "the_empty_string_still_sounds",
+   "file": "Strings.lean",
+   "conjunct": "(0 * 4 = 0)",
+   "of": 3
+  },
+  {
+   "key": "the_spectrum_is_length_blind",
+   "file": "Strings.lean",
+   "conjunct": "(1000000 > 1)",
+   "of": 2
+  },
+  {
+   "key": "collider_energy_is_below_the_planck_scale",
+   "file": "StringTheory.lean",
+   "conjunct": "(8800 < 13600)",
+   "of": 2
+  },
+  {
+   "key": "newtonian_gravity_is_verified_far_above_the_planck_length",
+   "file": "StringTheory.lean",
+   "conjunct": "(538705 < 1616255)",
+   "of": 2
+  },
+  {
+   "key": "the_proton_outlives_the_universe_many_times_over",
+   "file": "StringTheory.lean",
+   "conjunct": "(12600000000 < 138 * 10 ^ 8)",
+   "of": 2
+  },
+  {
+   "key": "most_subsets_are_not_subgroups",
+   "file": "Subgroups.lean",
+   "conjunct": "(4 ≠ 64)",
+   "of": 3
+  },
+  {
+   "key": "a_symphony_is_a_sequence_not_a_set",
+   "file": "Symphony.lean",
+   "conjunct": "(1 + 2 + 3 + 4 = 4 + 3 + 2 + 1)",
+   "of": 3
+  },
+  {
+   "key": "alternation_needs_a_second_phase",
+   "file": "Tesla.lean",
+   "conjunct": "(360 % 360 = 0)",
+   "of": 5
+  },
+  {
+   "key": "alternation_needs_a_second_phase",
+   "file": "Tesla.lean",
+   "conjunct": "(¬ (180 % 360 = 0))",
+   "of": 5
+  },
+  {
+   "key": "alternation_needs_a_second_phase",
+   "file": "Tesla.lean",
+   "conjunct": "(¬ (120 % 360 = 0))",
+   "of": 5
+  },
+  {
+   "key": "teleautomaton_precedes_transmission",
+   "file": "Tesla.lean",
+   "conjunct": "(613809 < 645576)",
+   "of": 3
+  },
+  {
+   "key": "tesla_leap_spring_to_grant",
+   "file": "Tesla.lean",
+   "conjunct": "(¬ (1888 % 100 = 0))",
+   "of": 3
+  },
+  {
+   "key": "caesium_light_step",
+   "file": "Thermodynamics.lean",
+   "conjunct": "299792458 * 100 < 9192631770 * 4",
+   "of": 2
+  },
+  {
+   "key": "carnot_efficiency_below_one",
+   "file": "Thermodynamics.lean",
+   "conjunct": "((400 - 300) < 400)",
+   "of": 2
+  },
+  {
+   "key": "carnot_efficiency_below_one",
+   "file": "Thermodynamics.lean",
+   "conjunct": "(0 < 300)",
+   "of": 2
+  },
+  {
+   "key": "cooling_cost_rises_toward_zero",
+   "file": "Thermodynamics.lean",
+   "conjunct": "1 < 9",
+   "of": 6
+  },
+  {
+   "key": "cooling_cost_rises_toward_zero",
+   "file": "Thermodynamics.lean",
+   "conjunct": "9 < 99",
+   "of": 6
+  },
+  {
+   "key": "cooling_cost_rises_toward_zero",
+   "file": "Thermodynamics.lean",
+   "conjunct": "99 < 299",
+   "of": 6
+  },
+  {
+   "key": "cooling_cost_rises_toward_zero",
+   "file": "Thermodynamics.lean",
+   "conjunct": "299 < 2999",
+   "of": 6
+  },
+  {
+   "key": "cooling_cost_rises_toward_zero",
+   "file": "Thermodynamics.lean",
+   "conjunct": "2999 < 29999",
+   "of": 6
+  },
+  {
+   "key": "electrical_energy_is_volt_amp_second",
+   "file": "Thermodynamics.lean",
+   "conjunct": "0 = 0",
+   "of": 3
+  },
+  {
+   "key": "landauer_floor_falls_with_temperature",
+   "file": "Thermodynamics.lean",
+   "conjunct": "28709781 < 287097813",
+   "of": 5
+  },
+  {
+   "key": "landauer_floor_falls_with_temperature",
+   "file": "Thermodynamics.lean",
+   "conjunct": "2870978 < 28709781",
+   "of": 5
+  },
+  {
+   "key": "landauer_floor_falls_with_temperature",
+   "file": "Thermodynamics.lean",
+   "conjunct": "956992 < 2870978",
+   "of": 5
+  },
+  {
+   "key": "landauer_floor_falls_with_temperature",
+   "file": "Thermodynamics.lean",
+   "conjunct": "0 < 956992",
+   "of": 5
+  },
+  {
+   "key": "reversible_erases_nothing",
+   "file": "Thermodynamics.lean",
+   "conjunct": "0 * 287097813 = 0",
+   "of": 3
+  },
+  {
+   "key": "reversible_erases_nothing",
+   "file": "Thermodynamics.lean",
+   "conjunct": "1 * 287097813 = 287097813",
+   "of": 3
+  },
+  {
+   "key": "reversible_erases_nothing",
+   "file": "Thermodynamics.lean",
+   "conjunct": "0 < 287097813",
+   "of": 3
+  },
+  {
+   "key": "steady_temperature_hides_power",
+   "file": "Thermodynamics.lean",
+   "conjunct": "10 < 20",
+   "of": 3
+  },
+  {
+   "key": "steady_temperature_hides_power",
+   "file": "Thermodynamics.lean",
+   "conjunct": "20 < 40",
+   "of": 3
+  },
+  {
+   "key": "zero_point_is_half_a_quantum",
+   "file": "Thermodynamics.lean",
+   "conjunct": "0 < 2 * 0 + 1",
+   "of": 2
+  },
+  {
+   "key": "contour_index_every_fifth",
+   "file": "Topography.lean",
+   "conjunct": "(30 % 50 != 0)",
+   "of": 2
+  },
+  {
+   "key": "contour_spacing_inverse_gradient",
+   "file": "Topography.lean",
+   "conjunct": "(50 < 100)",
+   "of": 3
+  },
+  {
+   "key": "gradient_rise_over_run",
+   "file": "Topography.lean",
+   "conjunct": "(5 * 100 / 100 = 5)",
+   "of": 2
+  },
+  {
+   "key": "gunters_chain_measures",
+   "file": "Topography.lean",
+   "conjunct": "(8 % 9 = 8)",
+   "of": 2
+  },
+  {
+   "key": "horizon_distance_finite",
+   "file": "Topography.lean",
+   "conjunct": "(8 % 9 = 8)",
+   "of": 2
+  },
+  {
+   "key": "trinities_cover_address",
+   "file": "Trinities.lean",
+   "conjunct": "((3:Nat)^80 < 2^128)",
+   "of": 2
+  },
+  {
+   "key": "trinities_cover_billion",
+   "file": "Trinities.lean",
+   "conjunct": "((3:Nat)^18 < 10^9)",
+   "of": 2
+  },
+  {
+   "key": "trinities_cover_word",
+   "file": "Trinities.lean",
+   "conjunct": "((3:Nat)^40 < 2^64)",
+   "of": 2
+  },
+  {
+   "key": "trinity_exceeds_qubit",
+   "file": "Trinities.lean",
+   "conjunct": "((2:Nat)^1 < 3)",
+   "of": 2
+  },
+  {
+   "key": "trinity_exceeds_qubit",
+   "file": "Trinities.lean",
+   "conjunct": "(3 < (2:Nat)^2)",
+   "of": 2
+  },
+  {
+   "key": "eclipse_four_hundred",
+   "file": "Universe.lean",
+   "conjunct": "(4 % 9 = 4)",
+   "of": 2
+  },
+  {
+   "key": "div_by_zero_is_the_reflection",
+   "file": "Uuidna.lean",
+   "conjunct": "divZero 0 = 0",
+   "of": 7
+  },
+  {
+   "key": "division_by_zero",
+   "file": "Uuidna.lean",
+   "conjunct": "(1000 / 0 = 0)",
+   "of": 4
+  },
+  {
+   "key": "division_by_zero",
+   "file": "Uuidna.lean",
+   "conjunct": "(0 / 0 = 0)",
+   "of": 4
+  },
+  {
+   "key": "hodge_bound",
+   "file": "Uuidna.lean",
+   "conjunct": "((0:Int)+1 = 1)",
+   "of": 2
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "sig (sig (3,7)) = (3,7)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "tau (tau (3,7)) = (3,7)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "kap (kap (3,7)) = (3,7)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "sig (kap (3,7)) = tau (3,7)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "tau (kap (3,7)) = sig (3,7)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "(sig (1,5)).1 = 1",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "tau (1,9) = (1,9)",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "(0:Int) ≠ 1",
+   "of": 10
+  },
+  {
+   "key": "involution_group",
+   "file": "Uuidna.lean",
+   "conjunct": "(2:Int) ≠ 1",
+   "of": 10
+  },
+  {
+   "key": "light_faster_than_uuidna",
+   "file": "Uuidna.lean",
+   "conjunct": "(299792458 : Nat) > 0",
+   "of": 3
+  },
+  {
+   "key": "light_faster_than_uuidna",
+   "file": "Uuidna.lean",
+   "conjunct": "(1000 / 0 = 0)",
+   "of": 3
+  },
+  {
+   "key": "ns_spike",
+   "file": "Uuidna.lean",
+   "conjunct": "(1*2 < 1*4)",
+   "of": 5
+  },
+  {
+   "key": "ns_spike",
+   "file": "Uuidna.lean",
+   "conjunct": "(1*4 = 4)",
+   "of": 5
+  },
+  {
+   "key": "ns_spike",
+   "file": "Uuidna.lean",
+   "conjunct": "(1*3 < 1*9)",
+   "of": 5
+  },
+  {
+   "key": "seats_pigeonhole",
+   "file": "Uuidna.lean",
+   "conjunct": "(2:Nat)^0 = 1",
+   "of": 3
+  },
+  {
+   "key": "defect_sums_to_the_characteristic",
+   "file": "VectorEquilibrium.lean",
+   "conjunct": "((360 : Int) * (2 - 2 * 1) = 0)",
+   "of": 4
+  },
+  {
+   "key": "theorems_interact_as_faces",
+   "file": "VectorEquilibrium.lean",
+   "conjunct": "(3 * 2 / 2 = 3)",
+   "of": 5
+  },
+  {
+   "key": "ve_double_five_merges_in_ten",
+   "file": "VectorEquilibrium.lean",
+   "conjunct": "(1 * 10 + 0 = 10)",
+   "of": 3
+  },
+  {
+   "key": "alpine_domain_art_origins_53",
+   "file": "Wave.lean",
+   "conjunct": "(29 <= 53)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_astronomy_origins_17",
+   "file": "Wave.lean",
+   "conjunct": "(9 <= 17)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_astronomy_origins_25",
+   "file": "Wave.lean",
+   "conjunct": "(11 <= 25)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_audio_origins_198",
+   "file": "Wave.lean",
+   "conjunct": "(116 <= 198)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_bio_origins_2",
+   "file": "Wave.lean",
+   "conjunct": "(1 <= 2)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_blockchain_origins_29",
+   "file": "Wave.lean",
+   "conjunct": "(19 <= 29)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_build_origins_260",
+   "file": "Wave.lean",
+   "conjunct": "(175 <= 260)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_chat_origins_241",
+   "file": "Wave.lean",
+   "conjunct": "(130 <= 241)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_chemistry_origins_3",
+   "file": "Wave.lean",
+   "conjunct": "(1 <= 3)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_crypto_origins_199",
+   "file": "Wave.lean",
+   "conjunct": "(114 <= 199)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_database_origins_438",
+   "file": "Wave.lean",
+   "conjunct": "(325 <= 438)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_driver_origins_630",
+   "file": "Wave.lean",
+   "conjunct": "(460 <= 630)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_engineering_origins_30",
+   "file": "Wave.lean",
+   "conjunct": "(15 <= 30)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_filesystem_origins_215",
+   "file": "Wave.lean",
+   "conjunct": "(112 <= 215)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_font_origins_82",
+   "file": "Wave.lean",
+   "conjunct": "(59 <= 82)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_game_origins_25",
+   "file": "Wave.lean",
+   "conjunct": "(15 <= 25)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_geo_origins_62",
+   "file": "Wave.lean",
+   "conjunct": "(51 <= 62)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_language_origins_7486",
+   "file": "Wave.lean",
+   "conjunct": "(4421 <= 7486)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_language_origins_7488",
+   "file": "Wave.lean",
+   "conjunct": "(4422 <= 7488)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_math_origins_40",
+   "file": "Wave.lean",
+   "conjunct": "(21 <= 40)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_media_origins_259",
+   "file": "Wave.lean",
+   "conjunct": "(158 <= 259)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_network_origins_332",
+   "file": "Wave.lean",
+   "conjunct": "(237 <= 332)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_neuro_origins_11",
+   "file": "Wave.lean",
+   "conjunct": "(7 <= 11)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_physics_origins_7",
+   "file": "Wave.lean",
+   "conjunct": "(3 <= 7)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_science_origins_74",
+   "file": "Wave.lean",
+   "conjunct": "(42 <= 74)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_security_origins_86",
+   "file": "Wave.lean",
+   "conjunct": "(47 <= 86)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_shell_origins_1279",
+   "file": "Wave.lean",
+   "conjunct": "(680 <= 1279)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_social_origins_303",
+   "file": "Wave.lean",
+   "conjunct": "(164 <= 303)",
+   "of": 2
+  },
+  {
+   "key": "alpine_domain_virtualization_origins_232",
+   "file": "Wave.lean",
+   "conjunct": "(178 <= 232)",
+   "of": 2
+  },
+  {
+   "key": "alpine_page_list_cap_removed_315",
+   "file": "Wave.lean",
+   "conjunct": "(422 < 1162)",
+   "of": 3
+  },
+  {
+   "key": "alpine_port_all_partition_28635",
+   "file": "Wave.lean",
+   "conjunct": "(28635 = 28635)",
+   "of": 3
+  },
+  {
+   "key": "alpine_port_all_partition_28635",
+   "file": "Wave.lean",
+   "conjunct": "(11370 < 28635)",
+   "of": 3
+  },
+  {
+   "key": "alpine_shell_domain_commands_345",
+   "file": "Wave.lean",
+   "conjunct": "(345 < 19095)",
+   "of": 2
+  },
+  {
+   "key": "art_spectrum_and_primaries",
+   "file": "Wave.lean",
+   "conjunct": "(3 < 7)",
+   "of": 2
+  },
+  {
+   "key": "astronomy_eight_planets",
+   "file": "Wave.lean",
+   "conjunct": "(8 < 9)",
+   "of": 2
+  },
+  {
+   "key": "bounded_silence_is_not_evidence",
+   "file": "Wave.lean",
+   "conjunct": "(31 ^ 12 = 31 ^ 12 * 1 ^ 12)",
+   "of": 3
+  },
+  {
+   "key": "bramah_stood_sixty_seven_years",
+   "file": "Wave.lean",
+   "conjunct": "(15 < 30)",
+   "of": 3
+  },
+  {
+   "key": "checklist_trial_two_dives_each",
+   "file": "Wave.lean",
+   "conjunct": "(2041 < 2086)",
+   "of": 2
+  },
+  {
+   "key": "chubb_stood_thirty_three_years",
+   "file": "Wave.lean",
+   "conjunct": "(7 < 25)",
+   "of": 2
+  },
+  {
+   "key": "correlated_failure_defeats_the_vote",
+   "file": "Wave.lean",
+   "conjunct": "((0 + 0 + 1) / 2 = 0)",
+   "of": 2
+  },
+  {
+   "key": "crt21_units_have_exponent_six",
+   "file": "Wave.lean",
+   "conjunct": "((5 ^ 2) % 21 ≠ 1)",
+   "of": 10
+  },
+  {
+   "key": "crt21_units_have_exponent_six",
+   "file": "Wave.lean",
+   "conjunct": "((5 ^ 3) % 21 ≠ 1)",
+   "of": 10
+  },
+  {
+   "key": "crt21_units_have_exponent_six",
+   "file": "Wave.lean",
+   "conjunct": "(6 < 12)",
+   "of": 10
+  },
+  {
+   "key": "display_gap_address_separates_4",
+   "file": "Wave.lean",
+   "conjunct": "(4 = 4)",
+   "of": 3
+  },
+  {
+   "key": "display_gap_address_separates_4",
+   "file": "Wave.lean",
+   "conjunct": "(1 < 4)",
+   "of": 3
+  },
+  {
+   "key": "freedive_records_ascend",
+   "file": "Wave.lean",
+   "conjunct": "(130 < 214)",
+   "of": 2
+  },
+  {
+   "key": "involution_replaces_the_raised_ceiling",
+   "file": "Wave.lean",
+   "conjunct": "(2 < 256)",
+   "of": 6
+  },
+  {
+   "key": "involution_walks_home_in_two",
+   "file": "Wave.lean",
+   "conjunct": "(10 < 256)",
+   "of": 3
+  },
+  {
+   "key": "mass_comply_four_states_three_open",
+   "file": "Wave.lean",
+   "conjunct": "(3 > 0)",
+   "of": 3
+  },
+  {
+   "key": "mass_comply_six_halves_and_not_seventh",
+   "file": "Wave.lean",
+   "conjunct": "¬(64 / (2 ^ 7) * (2 ^ 7) == 64)",
+   "of": 2
+  },
+  {
+   "key": "mass_comply_window_twenty_not_next",
+   "file": "Wave.lean",
+   "conjunct": "¬(20 < 20)",
+   "of": 2
+  },
+  {
+   "key": "mcp_tool_coverage_partition_244",
+   "file": "Wave.lean",
+   "conjunct": "(100 < 119)",
+   "of": 2
+  },
+  {
+   "key": "parity_bit_rejects_half_the_byte_tamper_set",
+   "file": "Wave.lean",
+   "conjunct": "(128 < 255)",
+   "of": 5
+  },
+  {
+   "key": "pluck_preserves_bound",
+   "file": "Wave.lean",
+   "conjunct": "(8000 * 0 / 128 = 0)",
+   "of": 3
+  },
+  {
+   "key": "pluck_preserves_bound",
+   "file": "Wave.lean",
+   "conjunct": "(8000 * 128 / 128 = 8000)",
+   "of": 3
+  },
+  {
+   "key": "pythagorean_comma_is_the_drift",
+   "file": "Wave.lean",
+   "conjunct": "(2 ^ 19 < 3 ^ 12)",
+   "of": 2
+  },
+  {
+   "key": "quantum_margin_after_both_advantages_73",
+   "file": "Wave.lean",
+   "conjunct": "(1000 <= 1024)",
+   "of": 4
+  },
+  {
+   "key": "quantum_types_decide_before_computing_121",
+   "file": "Wave.lean",
+   "conjunct": "(27 < 121)",
+   "of": 3
+  },
+  {
+   "key": "quantum_types_decide_before_computing_121",
+   "file": "Wave.lean",
+   "conjunct": "(7 < 110)",
+   "of": 3
+  },
+  {
+   "key": "ramadan_walks_the_year_in_a_life",
+   "file": "Wave.lean",
+   "conjunct": "(66 < 120)",
+   "of": 3
+  },
+  {
+   "key": "s4_parity_splits_evenly_its_involutions_do_not",
+   "file": "Wave.lean",
+   "conjunct": "4 ≠ 6",
+   "of": 8
+  },
+  {
+   "key": "saturation_deco_dominates",
+   "file": "Wave.lean",
+   "conjunct": "(13 < 24)",
+   "of": 2
+  },
+  {
+   "key": "scrubber_margin_holds",
+   "file": "Wave.lean",
+   "conjunct": "(288 < 575)",
+   "of": 3
+  },
+  {
+   "key": "seasons_return_in_eighteen_years",
+   "file": "Wave.lean",
+   "conjunct": "(18 < 120)",
+   "of": 4
+  },
+  {
+   "key": "seasons_return_in_eighteen_years",
+   "file": "Wave.lean",
+   "conjunct": "(120 < 1460)",
+   "of": 4
+  },
+  {
+   "key": "teleportation_costs_the_two_coins",
+   "file": "Wave.lean",
+   "conjunct": "(2 ^ 1 < 2 ^ 2)",
+   "of": 3
+  },
+  {
+   "key": "the_comma_hides_below_hearing",
+   "file": "Wave.lean",
+   "conjunct": "(1 < 6)",
+   "of": 3
+  },
+  {
+   "key": "three_cell_vote_majority",
+   "file": "Wave.lean",
+   "conjunct": "((0 + 0 + 0) / 2 = 0)",
+   "of": 4
+  },
+  {
+   "key": "three_cell_vote_majority",
+   "file": "Wave.lean",
+   "conjunct": "((1 + 0 + 0) / 2 = 0)",
+   "of": 4
+  },
+  {
+   "key": "truncated_run_counted_47",
+   "file": "Wave.lean",
+   "conjunct": "(6 < 47)",
+   "of": 3
+  },
+  {
+   "key": "usable_gap_is_two_to_eighty",
+   "file": "Wave.lean",
+   "conjunct": "(48 < 128)",
+   "of": 3
+  },
+  {
+   "key": "chi_crystallises_three_genera",
+   "file": "Waves.lean",
+   "conjunct": "(2 - 2 * 0 = 2)",
+   "of": 4
+  },
+  {
+   "key": "chi_crystallises_three_genera",
+   "file": "Waves.lean",
+   "conjunct": "(2 - 2 * 1 = 0)",
+   "of": 4
+  },
+  {
+   "key": "chi_crystallises_three_genera",
+   "file": "Waves.lean",
+   "conjunct": "((2 : Nat) ≠ 0)",
+   "of": 4
+  },
+  {
+   "key": "divers_and_astronauts_share_the_ladder",
+   "file": "Waves.lean",
+   "conjunct": "(20 < 60)",
+   "of": 4
+  },
+  {
+   "key": "haldane_bound_is_two_to_one",
+   "file": "Waves.lean",
+   "conjunct": "(2 / 1 = 2)",
+   "of": 3
+  },
+  {
+   "key": "haldane_bound_is_two_to_one",
+   "file": "Waves.lean",
+   "conjunct": "(2 = 2 ^ 1)",
+   "of": 3
+  },
+  {
+   "key": "imaginings_meet_at_sixtyfour",
+   "file": "Waves.lean",
+   "conjunct": "(64 - 64 = 0)",
+   "of": 4
+  },
+  {
+   "key": "one_image_every_architecture",
+   "file": "Waves.lean",
+   "conjunct": "((8 : Nat) / 8 = 1)",
+   "of": 4
+  }
+ ],
+ "receipt": "78ebb7d2-1cca-85f1-afe4-3c2388a81ebf"
+}

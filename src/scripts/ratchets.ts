@@ -62,6 +62,24 @@ const liveFormulaCopies = (): number => {
     .reduce((n, g) => { const k = Array.isArray(g.keys) ? g.keys.length : 1; return n + (k > 1 ? k - 1 : 0) }, 0)
 }
 
+/**
+ * CONJUNCTS THAT CANNOT FAIL — the padding debt, measured rather than eyeballed.
+ *
+ * I found sixteen of these by reading and replaced eleven by hand. The computed finder finds 492 across 105 wings, so
+ * the hand search had 3% of the class and the twelfth could have walked in unnoticed. That is what a ratchet is for:
+ * the count may only fall, and a new wing carrying one is refused by the number rather than by whether anyone looked.
+ *
+ * READS THE CENSUS ARTEFACT, like liveToolDebt above, and THROWS when it is absent — zero is what a clean ledger
+ * reports, so a measure returning it while knowing nothing satisfies the ratchet at the moment it is blind.
+ */
+const livePaddingDebt = (): number => {
+  const c = JSON.parse(rd('lean/padding-conjuncts.json')) as { examined?: number; findings?: unknown[] }
+  if (typeof c.examined !== 'number' || c.examined === 0 || !Array.isArray(c.findings)) {
+    throw new Error('ratchets: lean/padding-conjuncts.json is absent or empty — run `npm run padding`; an untaken census is not a debt of zero')
+  }
+  return c.findings.length
+}
+
 export const RATCHETS: readonly Ratchet[] = [
   {
     name: 'bare modal claims (the impossibility debt)',
@@ -86,6 +104,14 @@ export const RATCHETS: readonly Ratchet[] = [
     unit: 'restatements',
     live: liveFormulaCopies,
     measureAddress: measureAddress(liveFormulaCopies),
+  },
+  {
+    name: 'conjuncts that cannot fail (the padding debt)',
+    prefix: 'padding_conjunct_debt',
+    direction: 'shrink',
+    unit: 'conjuncts',
+    live: livePaddingDebt,
+    measureAddress: measureAddress(livePaddingDebt),
   },
   {
     name: 'MCP tools with no dedicated test',
