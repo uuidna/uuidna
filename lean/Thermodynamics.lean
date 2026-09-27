@@ -15,7 +15,7 @@ theorem carnot_efficiency_below_one : ((400 - 300) < 400) ∧ (0 < 300) := by de
 
 /-- The Kelvin scale floors at absolute zero: 0 °C = 273 K and 100 °C = 373 K (K = °C + 273). Nothing goes below
     0 K; temperature has a hard floor. -/
-theorem absolute_zero_and_kelvin : (0 + 273 = 273) ∧ (100 + 273 = 373) := by decide
+theorem absolute_zero_and_kelvin : ((List.range 101).all (fun c => (c + 273) - 273 == c)) ∧ (100 + 273 = 373) ∧ (373 - 273 = 100) := by decide
 
 /-- Charles's law keeps V/T constant at fixed pressure: heating a gas expands it proportionally — V₁/T₁ = V₂/T₂
     gives 2/300 = 4/600, cross-multiplied 2·600 = 4·300 = 1200. -/

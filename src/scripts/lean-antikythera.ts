@@ -46,8 +46,11 @@ const FACTS = [
 
   { key: 'pin_and_slot_equal_teeth',
     why: 'THE DEEPEST GEAR HIDES IN PLAIN RATIO: the lunar anomaly pair k1 and k2 carry FIFTY TEETH EACH — ratio one, no speed change at all — and the Moon’s varying pace comes instead from the pin of one riding an offset slot in the other. Equal teeth, unequal motion: the mechanism proves that a ratio of one is not a claim of sameness, only of return — the variation lives in geometry this wing honestly does not seal. 50 = 50, and 50·2 = 100 turns of the pair per hundred months, exactly.',
-    js: () => 50 === 50 && 50 * 2 === 100,
-    lean: 'theorem pin_and_slot_equal_teeth : (50 = 50) ∧ (50 * 2 = 100) := by decide' },
+    // RATIO ONE, COMPUTED. This read `(50 = 50)`, a numeral against itself, where the sentence's whole point is that
+    // the pair changes speed by NOTHING — a ratio of exactly one. So the ratio is divided out and its remainder shown
+    // to vanish, which is what "no speed change at all" means arithmetically, and the pair's total teeth follow.
+    js: () => 50 / 50 === 1 && 50 % 50 === 0 && 50 + 50 === 100,
+    lean: 'theorem pin_and_slot_equal_teeth : (50 / 50 = 1) ∧ (50 % 50 = 0) ∧ (50 + 50 = 100) := by decide' },
 
   { key: 'hunting_teeth_wear_even',
     why: 'WHY THE GOOD PAIRS ARE COPRIME — THE HUNTING TOOTH: when meshing counts share no factor, every tooth of one gear meets every tooth of the other before the pattern repeats, so wear spreads evenly and the train stays true — gcd(19,235) = 1, gcd(4,223) = 1, gcd(3,8) = 1 across the mechanism’s cycle pairs. The same coprime walk that closes the circle of fifths and draws the pentagram in one stroke turned bronze twenty centuries earlier: closure is arithmetic, and arithmetic is what holds.',

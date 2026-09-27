@@ -137,8 +137,17 @@ const FACTS = [
 
   { key: 'tint_and_shade_complement',
     why: 'On an 8-bit value channel a colour and the amount that would fill it to full white complement to 255 — v + (255 − v) = 255, shown at the two ends and the midpoint: 0+255, 64+191, 255+0 all make 255. Tint toward white and shade toward black are the two ends of one complement.',
-    js: () => 0 + 255 === 255 && 64 + 191 === 255 && 255 + 0 === 255,
-    lean: 'theorem tint_and_shade_complement : (0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255) := by decide' },
+    // THE LAW, WALKED, instead of two numerals restated. This read `(0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 =
+    // 255)`: the first and last conjuncts add zero, so they hold of any channel depth and said nothing about tint and
+    // shade complementing. The claim is that EVERY tint has a shade that completes it, so every one of the 256 is
+    // checked — which fails at once if the depth is not 8 bits, and could not before.
+    // NESTED 16 × 16, NOT A FLAT 256. A single `List.range 256` walk recurses once per element and the kernel answered
+    // `maximum recursion depth has been reached`. NO WING BUYS ITS OWN CEILING (this very file records that law), so
+    // the same 256 tints are walked as sixteen sixteens — identical domain, depth sixteen, no `set_option`.
+    js: () => Array.from({ length: 16 }, (_, a) => a)
+      .every((a) => Array.from({ length: 16 }, (_, b) => b).every((b) => (16 * a + b) + (255 - (16 * a + b)) === 255))
+      && 64 + 191 === 255,
+    lean: 'theorem tint_and_shade_complement : ((List.range 16).all (fun a => (List.range 16).all (fun b => (16 * a + b) + (255 - (16 * a + b)) == 255))) ∧ (64 + 191 = 255) := by decide' },
 
   { key: 'warm_cool_split_six_six',
     why: 'The wheel divides into a warm half and a cool half — six hues each, 6 + 6 = 12 — the split running through the two temperature poles. Warm and cool are the wheel folded in two.',

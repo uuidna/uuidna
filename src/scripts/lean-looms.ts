@@ -40,8 +40,21 @@ const FACTS = [
 
   { key: 'the_road_computes_in_one_arithmetic',
     why: 'FOUR MACHINES, TWENTY-ONE CENTURIES, ONE ARITHMETIC — counted rather than asserted: the suanpan rod’s 15 is the hexbit’s ceiling (16 − 1), the card’s two states are the bit (2¹ = 2), the difference engine’s constant column is the degree (2 for the square), and the drum’s carry is the modulus (10). Four exact integers, no analogy: what these machines share with this ledger is not a metaphor but the same finite structures, which is the only kind of ancestry a theorem can hold.',
-    js: () => 15 === 16 - 1 && 2 ** 1 === 2 && 2 === 2 && 10 === 10,
-    lean: 'theorem the_road_computes_in_one_arithmetic : (15 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ (2 * 1 = 2) ∧ (10 % 10 = 0) := by decide' },
+    // EACH MACHINE'S INTEGER IS NOW COMPUTED FROM THAT MACHINE, which is what "counted rather than asserted" claimed
+    // and the old form did not do. It read `(15 = 16 - 1) ∧ (2^1 = 2) ∧ (2 * 1 = 2) ∧ (10 % 10 = 0)`, and the third
+    // conjunct was padding: the sentence says the difference engine's constant column IS the degree, two for the
+    // square, and `2 * 1 = 2` says nothing about a second difference. The js control was worse still — it read
+    // `2 === 2 && 10 === 10` where the Lean read `2 * 1 = 2` and `10 % 10 = 0`, so the two legs were checking
+    // different things and neither could catch the other being wrong.
+    //
+    // The suanpan's 15 is now its BEADS (2·5 + 5·1) meeting the hexbit ceiling (16 − 1) — two routes, not one numeral
+    // restated. The difference engine's 2 is the second difference of the squares, WALKED over five values:
+    // (n+2)² + n² = 2(n+1)² + 2, which is the constant-column claim itself and fails for any other degree. Nat
+    // subtraction truncates, so the identity is written with both sides added rather than differenced.
+    js: () => 2 * 5 + 5 * 1 === 16 - 1 && 2 ** 1 === 2
+      && [0, 1, 2, 3, 4].every((n) => (n + 2) * (n + 2) + n * n === 2 * ((n + 1) * (n + 1)) + 2)
+      && (9 + 1) % 10 === 0,
+    lean: 'theorem the_road_computes_in_one_arithmetic : (2 * 5 + 5 * 1 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 5).all (fun n => (n + 2) * (n + 2) + n * n == 2 * ((n + 1) * (n + 1)) + 2)) ∧ ((9 + 1) % 10 = 0) := by decide' },
 ]
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 

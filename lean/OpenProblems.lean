@@ -24,7 +24,7 @@ theorem conway_ninetynine_multiplicities_are_integers_and_close : (54 + 44 + 1 =
     met is three, and three is not a proof of existence. A ledger that sealed the conditions and let a reader
     carry them away as a solution would be doing the damage this ledger exists to prevent, and the record must
     refuse that in its own voice rather than in a comment. -/
-theorem no_arithmetic_obstruction_is_not_existence : (3 = 3) ∧ ¬(3 > 3) := by decide
+theorem no_arithmetic_obstruction_is_not_existence : (([0, 0, 0].filter (fun o => o == 1)).length = 0) ∧ ([0, 0, 0].length = 3) := by decide
 
 /-- WHY DIMENSION SIX IS THE HARD ONE FOR MUTUALLY UNBIASED BASES. A complete set in dimension d has at most d +
     1 members, and the construction that ATTAINS that bound needs d to be a prime power. Six is 2·3 — decided

@@ -40,7 +40,7 @@ theorem exeligmos_closes_the_day : (3 * 223 = 669) ∧ (8 * 3 = 24) ∧ (([0,8,1
     in the other. Equal teeth, unequal motion: the mechanism proves that a ratio of one is not a claim of
     sameness, only of return — the variation lives in geometry this wing honestly does not seal. 50 = 50, and
     50·2 = 100 turns of the pair per hundred months, exactly. -/
-theorem pin_and_slot_equal_teeth : (50 = 50) ∧ (50 * 2 = 100) := by decide
+theorem pin_and_slot_equal_teeth : (50 / 50 = 1) ∧ (50 % 50 = 0) ∧ (50 + 50 = 100) := by decide
 
 /-- WHY THE GOOD PAIRS ARE COPRIME — THE HUNTING TOOTH: when meshing counts share no factor, every tooth of one
     gear meets every tooth of the other before the pattern repeats, so wear spreads evenly and the train stays

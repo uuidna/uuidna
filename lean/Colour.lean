@@ -85,7 +85,7 @@ theorem true_colour_is_24_bit : 2^8 = 256 ∧ 2^24 = 16777216 := by decide
 /-- On an 8-bit value channel a colour and the amount that would fill it to full white complement to 255 — v +
     (255 − v) = 255, shown at the two ends and the midpoint: 0+255, 64+191, 255+0 all make 255. Tint toward
     white and shade toward black are the two ends of one complement. -/
-theorem tint_and_shade_complement : (0 + 255 = 255) ∧ (64 + 191 = 255) ∧ (255 + 0 = 255) := by decide
+theorem tint_and_shade_complement : ((List.range 16).all (fun a => (List.range 16).all (fun b => (16 * a + b) + (255 - (16 * a + b)) == 255))) ∧ (64 + 191 = 255) := by decide
 
 /-- The wheel divides into a warm half and a cool half — six hues each, 6 + 6 = 12 — the split running through
     the two temperature poles. Warm and cool are the wheel folded in two. -/

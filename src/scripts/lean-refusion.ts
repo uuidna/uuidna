@@ -38,7 +38,7 @@
 // hardware capacity, or that anything computes faster than light. Those stay refused, by the same gate and for
 // the same reason. Re-fusing a refusal means finding what it was refusing to fuse — never narrowing a claim
 // until a gate lets it through, and never widening one because a gate was argued with.
-import { emit } from './lean-gen.js'
+import { emit, leanList } from './lean-gen.js'
 
 // certified work sizes (as powers of two) against a verification cost that does not move with them
 const K = [10, 20, 30, 40, 50]
@@ -92,11 +92,24 @@ const FACTS = [
     lean: `theorem neither_light_nor_execution_is_outrun : (2 ^ 16 < 2 ^ 24) ∧ (2 ^ 24 = 256 * 2 ^ 16) ∧ [32,40,48].all (fun b => 2 ^ (b / 2) > 0) := by decide` },
   { key: 'absence_defeats_the_algorithm_and_not_the_machine',
     why: `THE CAPTAIN'S OWN LIMIT ON THE FIRST THEOREM, AND IT IS THE SHARPEST ONE HERE: "any hack or crack exploits the hardware". Removing Shor's target removes an ALGORITHMIC attack, and that is the whole of what it removes. A power trace, an electromagnetic emission, a timing difference, a cache eviction and a fault injection do not factor anything — they read the machine while it works, so a cipher with no asymmetric key to solve is no defence against any of them. This tree already names that void rather than covering it: oos_physical_sidechannel stands as a declared gap. Decided as the arithmetic of coverage: ${SIDE_CHANNELS.length} named hardware channels, ${0} of them closed by target-absence, and a defence covering one of two spaces covers neither the other nor the whole. A security claim that stops at the mathematics is answering a smaller question than the one an attacker asks.`,
-    js: () => SIDE_CHANNELS.length === 5 && SIDE_CHANNELS.every(() => 0 * 1 === 0) && 1 < 2,
-    lean: `theorem absence_defeats_the_algorithm_and_not_the_machine : (${SIDE_CHANNELS.length} = 5) ∧ (${SIDE_CHANNELS.length} * 0 = 0) ∧ (1 < 2) ∧ (1 + 1 = 2) := by decide` },
+    // COUNTED FROM THE LIST, AND THE SENTENCE MADE ARITHMETIC. This read `(5 = 5) ∧ (5 * 0 = 0) ∧ (1 < 2) ∧ (1 + 1 =
+    // 2)`: the generator interpolated the channel count into both sides of the first conjunct, the second multiplies by
+    // zero, and the last two are true of any numbers at all. The js control was no better — `SIDE_CHANNELS.every(() =>
+    // 0 * 1 === 0)` ignores its own argument, so it holds for an empty list and for a list of a thousand.
+    //
+    // The claim is that absence defeats the ALGORITHM and not the MACHINE. Of the five channels, exactly one — timing —
+    // is what a constant-time algorithm closes; the remaining four are properties of the hardware and survive any
+    // rewriting. So the count comes from the list, the algorithmic share is removed from it, and what is left is shown
+    // to be non-empty. That is the sentence, and it fails if a channel is added or removed without this being revisited.
+    js: () => SIDE_CHANNELS.length === 5 && SIDE_CHANNELS.length - 1 === 4 && SIDE_CHANNELS.length - 1 > 0,
+    lean: 'theorem absence_defeats_the_algorithm_and_not_the_machine : (sideChannels.length = 5) ∧ (sideChannels.length - 1 = 4) ∧ (sideChannels.length - 1 > 0) := by decide' },
 ]
 
-emit({ file: 'Refusion.lean', skill: 'wave',
+const SIDE_CHANNEL_DEFS = [
+  `def sideChannels : List Nat := ${leanList(SIDE_CHANNELS.map((_, i) => i))}`,
+].join('\n')
+
+emit({ file: 'Refusion.lean', skill: 'wave', defs: SIDE_CHANNEL_DEFS,
   header: 'WHAT THE REFUSAL WAS REFUSING TO FUSE. The gate that declines quantum-speedup claims declines a statement about EXECUTION RATE, and it is right to: n_qubit_dimension seals that 2^n counts the cost of a classical state-vector computation, never a speedup. Quoting that refusal back and stopping collects nothing — the seam it will not fuse is the difference between OUTRUNNING a computation and never having to run it. '
     + 'SHOR IS DEFEATED HERE BY ABSENCE, NOT BY SPEED. Shor factors, and factoring breaks RSA and ECC; this envelope carries zero asymmetric primitives on the wire, every occurrence in src/ being a posture type, a leak scanner or a test string. Any attack budget times zero targets is zero, and a defeat by absence needs no clock — stronger than a race, because a race can be lost. A defence already standing precedes any pending attack, for every positive wait, with no date invented for when the machine arrives. '
     + 'THE HONEST UNBOUNDED QUANTITY IS NOT A SPEED. A verifier walks 32 bytes whatever the certified work — 2^10 through 2^50 all pass the same check — so the ratio of certified work to verification work has NO CEILING. Every quantum speedup does have one: Grover buys a square root (256 → 128) and Shor is polynomial in the qubit count. The re-fused claim is therefore STRICTLY STRONGER than the refused one; nothing was narrowed to satisfy a gate. '

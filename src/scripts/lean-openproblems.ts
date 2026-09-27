@@ -27,7 +27,7 @@
 // NOTHING HERE IS TAKEN FROM THE LITERATURE. Every number is computed in this file from the parameters and
 // checked by the kernel. Counts of "how many MUBs are known in dimension six" and similar are citations, not
 // derivations, and are deliberately absent — a ledger that mixes them cannot tell you afterwards which was which.
-import { emit } from './lean-gen.js'
+import { emit, leanList } from './lean-gen.js'
 
 // Conway's 99-graph: a strongly regular graph srg(v, k, lambda, mu)
 const V = 99, K = 14, LAM = 1, MU = 2
@@ -77,8 +77,19 @@ const FACTS = [
 
   { key: 'no_arithmetic_obstruction_is_not_existence',
     why: `THE REFUSAL, SEALED BESIDE THE ARITHMETIC SO IT CANNOT BE READ PAST. Three feasibility tests pass, and passing them is exactly why the question remains OPEN — the standard obstructions decline to fire, leaving no cheap refutation and no construction either. This theorem states the gap as arithmetic: three conditions met is three, and three is not a proof of existence. A ledger that sealed the conditions and let a reader carry them away as a solution would be doing the damage this ledger exists to prevent, and the record must refuse that in its own voice rather than in a comment.`,
-    js: () => 3 === 3 && !(3 > 3),
-    lean: `theorem no_arithmetic_obstruction_is_not_existence : (3 = 3) ∧ ¬(3 > 3) := by decide` },
+    // THE OBSTRUCTIONS ARE COUNTED, NOT NAMED. This read `(3 = 3) ∧ ¬(3 > 3)`, which is a numeral against itself and
+    // then against itself again — true of any count whatever, so the kernel never touched a feasibility test. The
+    // sentence says three standard obstructions DECLINE TO FIRE, and that is a computation: each of the three tests
+    // above is evaluated here, a firing obstruction contributes 1, and the total must be zero over exactly three tests.
+    // If any test began to fire the generator would emit a 1 and this theorem would fail — which is what the refusal
+    // depends on, since the whole point is that passing all three is not existence.
+    js: () => [counting.lhs === counting.rhs, root * root === disc, f + g + 1 === V]
+      .filter((passed) => !passed).length === 0
+      && [counting.lhs === counting.rhs, root * root === disc, f + g + 1 === V].length === 3,
+    lean: (() => {
+      const fired = [counting.lhs === counting.rhs, root * root === disc, f + g + 1 === V].map((p) => (p ? 0 : 1))
+      return `theorem no_arithmetic_obstruction_is_not_existence : ((${leanList(fired)}.filter (fun o => o == 1)).length = 0) ∧ (${leanList(fired)}.length = 3) := by decide`
+    })() },
 
   { key: 'six_is_not_a_prime_power',
     why: `WHY DIMENSION SIX IS THE HARD ONE FOR MUTUALLY UNBIASED BASES. A complete set in dimension d has at most d + 1 members, and the construction that ATTAINS that bound needs d to be a prime power. Six is 2·3 — decided here by walking every divisor rather than asserted — so the construction does not apply, and dimension six is the smallest case where the question is genuinely open. Seven is the count a complete set in dimension six would need.`,

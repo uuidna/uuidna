@@ -53,7 +53,34 @@ export function clayFragment(): string {
     'Each carries its own scope in its own words, written when it was sealed:',
     '',
   ]
-  for (const r of rows) lines.push(`- \`${r.key}\` — ${r.name}`)
+  // THE SHARED SENTENCE IS FACTORED, AND IT IS NOT A SUMMARY. The note above is right that a scope written ACROSS a
+  // set is a second copy of the scope, and that each theorem must speak for itself. Rendered as a list, though, that
+  // principle produced 44 verbatim repetitions of two sentences in a 446-line README — one boundary restated 25 times
+  // and another 19 — because the discrete-scheme wings each carry the same disclaimer, correctly, and the list prints
+  // all of them. A reader skips 25 identical paragraphs and therefore reads the boundary zero times.
+  //
+  // So the sentences that MORE THAN ONE row carries are lifted out and stated once, and nothing is authored: the
+  // hoisting is computed from the rows, the count of carriers is reported, and each theorem keeps every sentence that
+  // is its own. That is the opposite of a summary across the set — it is the set's own words, deduplicated.
+  const sentencesOf = (text: string): string[] =>
+    String(text).split(/(?<=[.!?])\s+/).map((x) => x.trim()).filter((x) => x.length > 0)
+  const carriers = new Map<string, number>()
+  for (const r of rows) for (const sen of new Set(sentencesOf(r.name))) carriers.set(sen, (carriers.get(sen) ?? 0) + 1)
+  const shared = [...carriers.entries()].filter(([, n]) => n > 1).sort((a, b) => b[1] - a[1])
+  const sharedSet = new Set(shared.map(([sen]) => sen))
+  if (shared.length > 0) {
+    lines.push('Sentences more than one of them carries are stated once here rather than repeated per row — computed from')
+    lines.push('the rows themselves, so nothing is summarised on their behalf:')
+    lines.push('')
+    for (const [sen, n] of shared) lines.push(`- *(carried by ${n})* ${sen}`)
+    lines.push('')
+    lines.push('What each theorem says that is only its own:')
+    lines.push('')
+  }
+  for (const r of rows) {
+    const own = sentencesOf(r.name).filter((sen) => !sharedSet.has(sen)).join(' ')
+    lines.push(`- \`${r.key}\` — ${own || '(its scope is entirely shared above)'}`)
+  }
   lines.push('')
   lines.push('None of these claims a Millennium problem. A verified theorem proves its exact statement — no less than it says,')
   lines.push('and no more: where one holds on a window because the conjecture is false in general, its own key names the window.')

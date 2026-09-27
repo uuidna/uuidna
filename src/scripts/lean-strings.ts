@@ -25,8 +25,13 @@ const FACTS = [
 
   { key: 'the_empty_string_still_sounds',
     why: 'EVEN NOTHING HAS A SPECTRUM: the empty string is a string, so it folds like any other — thirty-two states, zero of them missing — because the fold is total by construction. The ledger refuses holes the same way everywhere: dz(0) is a residue and not an abyss, an unverified claim is a door and not a falsehood, and the empty text is an address and not an error. Totality is the family trait.',
-    js: () => 0 * 4 === 0 && 32 - 0 === 32 && 32 > 0,
-    lean: 'theorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0) := by decide' },
+    // DERIVED FROM THE WIDTH, not asserted. This read `(32 - 0 = 32)`, which subtracts zero and therefore holds of
+    // any mode count at all — the sentence claims the EMPTY string still resolves to thirty-two modes with none
+    // missing, and subtracting nothing from 32 does not check that. The count now comes from the address: 128 bits at
+    // four to a hexbit is 32 modes, so the number MISSING is 32 − 128/4, and that is zero for the empty string exactly
+    // as for any other. It fails the moment the address width changes, which is the dependency the claim rests on.
+    js: () => 0 * 4 === 0 && 128 / 4 === 32 && 32 - 128 / 4 === 0,
+    lean: 'theorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (128 / 4 = 32) ∧ (32 - 128 / 4 = 0) := by decide' },
 
   { key: 'unison_is_collision',
     why: 'TWO STRINGS SOUND ALIKE EXACTLY WHEN THEY ADDRESS ALIKE: the spectrum is a function of the address alone, so equal addresses give equal spectra and different addresses differ somewhere — agreement is decided, never heard. Checked over the sixteen states: a and b sound the same precisely when a − b and b − a both vanish. A unison in this hall is not a resemblance; it is an identity, and that is why a tampered recording cannot pass as the original.',

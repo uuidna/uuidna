@@ -104,8 +104,13 @@ const FACTS = [
     lean: 'theorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5]) := by decide' },
   { key: 'unity_census_is_plural_and_needs_two',
     why: 'THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality. What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins.',
-    js: () => (14 > 1) && (2 === 2) && (3 === 3) && (2 * 7 === 14),
-    lean: 'theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide' },
+    // PLURAL IS COMPUTED, NOT RESTATED. This read `(2 = 2) ∧ (3 = 3)` — two numerals against themselves, which say
+    // nothing about the census being plural or needing two. Needing two means the count is NOT prime: it has a divisor
+    // strictly between one and itself, and that divisor is found by walking rather than named. The factorisation stays
+    // because 2 · 7 = 14 is a real identity; what was removed could not have been false.
+    js: () => 14 > 1 && 2 * 7 === 14
+      && Array.from({ length: 12 }, (_, i) => i + 2).filter((d) => 14 % d === 0).length > 0,
+    lean: 'theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 * 7 = 14) ∧ (((List.range\' 2 12).filter (fun d => 14 % d == 0)).length > 0) := by decide' },
 
   { key: 'significance_is_partial_not_total',
     why: 'SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one.',

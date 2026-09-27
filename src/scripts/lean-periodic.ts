@@ -63,19 +63,38 @@ const FACTS = [
     js: () => nobles.join() === '2,10,18,36,54,86,118',
     lean: `theorem the_nobles_are_the_running_totals : (List.range ${nobles.length}).map (fun k => ((List.range' 1 (k + 1)).map (fun p => 2 * ((p + 2) / 2) ^ 2)).foldl (· + ·) 0) = ${L(nobles)} := by decide` },
 
+  // STATED OVER THE LIST, NOT OVER ITS VALUES. This emitted `(8 = 8) ∧ (18 = 18) ∧ (32 = 32)`, because the generator
+  // interpolated lengths[1] and lengths[2] — which are equal, so every conjunct came out as a numeral equalling
+  // itself. The kernel verified that 8 is 8 and never saw the table. The js control was worse: its first clause ended
+  // in `|| true`, so it could not fail at all.
+  //
+  // The claim has content when it is about the LIST: dropping the first period, the row widths are exactly their own
+  // distinct values, each appearing twice, in order. No numeral appears in that statement — it would fail for
+  // [8,18,18,32,32,8] and for [8,8,18,32,32,18] and for any tail that pairs differently, which is what the sentence
+  // means and what the old form could not distinguish.
   { key: 'the_rows_repeat_in_pairs_after_the_first',
-    why: 'EVERY LENGTH BUT THE FIRST APPEARS TWICE. 8 and 8, then 18 and 18, then 32 and 32 — because a new subshell type opens only every other row under the filling order, so two consecutive periods draw on the same set before the next type becomes available. Decided over the tabulated lengths rather than asserted, since "the table repeats" is the kind of claim that reads true and can be wrong at the edges.',
-    js: () => lengths.slice(1).every((n, i) => (i % 2 === 0 ? n === lengths[i + 2] : n === lengths[i]) || true)
-      && [1, 3, 5].every((i) => lengths[i] === lengths[i + 1]),
-    lean: `theorem the_rows_repeat_in_pairs_after_the_first : (${lengths[1]} = ${lengths[2]}) ∧ (${lengths[3]} = ${lengths[4]}) ∧ (${lengths[5]} = ${lengths[6]}) ∧ ¬(${lengths[0]} = ${lengths[1]}) := by decide` },
+    why: 'EVERY LENGTH BUT THE FIRST APPEARS TWICE, and the statement says so about the TABLE rather than about numerals. Dropping the first period, the widths are exactly their own distinct values each repeated twice, in order — 8 8, 18 18, 32 32 — because a new subshell type opens only every other row under the filling order, so two consecutive periods draw on the same set before the next type becomes available. The first period is excluded and shown to be excluded: its width differs from the second, which is why the pairing starts where it does. WHAT THE EARLIER FORM PROVED: that 8 equals 8. It interpolated two entries the claim asserts are equal, so the kernel checked a numeral against itself and the table was never read.',
+    js: () => lengths.slice(1).join() === [...new Set(lengths.slice(1))].flatMap((n) => [n, n]).join()
+      && lengths[0] !== lengths[1],
+    lean: 'theorem the_rows_repeat_in_pairs_after_the_first : ((periods.drop 1) = ((periods.drop 1).eraseDups.flatMap (fun n => [n, n]))) ∧ ¬(periods.headD 0 = (periods.drop 1).headD 0) := by decide' },
 
   { key: 'the_seven_periods_close_at_one_hundred_eighteen',
     why: `THE TABLE'S TOTAL IS ITS OWN SUM. Seven periods of ${lengths.join(' + ')} give ${nobles[nobles.length - 1]}, which is the count of elements the table currently names and the atomic number of the last noble gas. The total and the final partial sum are the same number for the same reason, and both are decided here rather than either being carried over from the other.`,
-    js: () => lengths.reduce((a, n) => a + n, 0) === 118 && nobles[nobles.length - 1] === 118,
-    lean: `theorem the_seven_periods_close_at_one_hundred_eighteen : (${L(lengths)}.foldl (· + ·) 0 = 118) ∧ (${nobles[nobles.length - 1]} = 118) := by decide` },
+    // TWO ROUTES TO THE TOTAL, where the second conjunct used to be `118 = 118`. The generator interpolated the last
+    // noble — which IS 118 — so the statement restated its own answer and the kernel confirmed a numeral. The
+    // tabulated nobles are a separate list that could disagree with the sum, and that is the check worth making:
+    // the sum of the periods, and the last running total as tabulated, are the same number by two routes.
+    js: () => lengths.reduce((a, n) => a + n, 0) === 118
+      && nobles[nobles.length - 1] === lengths.reduce((a, n) => a + n, 0),
+    lean: 'theorem the_seven_periods_close_at_one_hundred_eighteen : (periods.foldl (· + ·) 0 = 118) ∧ (nobleTotals.getLastD 0 = periods.foldl (· + ·) 0) := by decide' },
 ]
 
-emit({ file: 'Periodic.lean',
+const DEFS = [
+  `def periods : List Nat := ${L(lengths)}`,
+  `def nobleTotals : List Nat := ${L(nobles)}`,
+].join('\n')
+
+emit({ file: 'Periodic.lean', defs: DEFS,
   header: 'THE PERIODIC TABLE\'S SHAPE — the period lengths, and where the nobles fall. Chemistry.lean seals the REACTIONS; this seals the TABLE. A subshell of angular momentum l holds 2(2l + 1) = 4l + 2 electrons, giving 2, 6, 10, 14 for s, p, d, f; shell n sums those over l < n and reaches 2n²; a period\'s length is the total of the subshells that fill in it, giving 2, 8, 8, 18, 18, 32, 32; and a noble gas closes a period, so its atomic number is the running total — 2, 10, 18, 36, 54, 86, 118. '
     + 'THE ROW WIDTHS ARE NOT A PATTERN NOTICED IN A CHART. They are those sums, and the nobles are those partial sums, and both are decided here rather than tabulated. Every length after the first appears twice because a new subshell type opens only every other row under the filling order. '
     + 'SCOPE, NOT SOFTENED: this is the COMBINATORICS OF SHELL FILLING. Nothing here solves a Schrödinger equation, derives the filling order from energies, or accounts for the real elements whose configurations depart from the naive order — chromium and copper among them. The order is TAKEN as input and its consequences are sealed. A wing claiming to derive chemistry from arithmetic would be the overreach this ledger exists to refuse.',

@@ -169,8 +169,15 @@ const FACTS = [
     lean: 'theorem polarity_mirror_swaps_sides : ([1,2,3,4].map dz = [9,8,7,6]) ∧ ([6,7,8,9].map dz = [4,3,2,1]) ∧ (dz 0 = 0) ∧ (dz 5 = 5) := by decide' },
   { key: 'polarity_plus_is_trinity_of_minus', skill: 'sequence',
     why: 'THE TWO POLARITIES SUM TO A TRINITY. 1+2+3+4 = 10 (the rung width every mirror pair already pays) and 6+7+8+9 = 30 = 3·10 — plus is the trinity of minus. The neutrals 0+5 = 5 are the heart. 10+30+5 = 45 = 1+…+9, the whole strip. Four, two, four digits; ten, thirty, five as sums — the same 4+2+4 partition read in value.',
-    js: () => 1 + 2 + 3 + 4 === 10 && 6 + 7 + 8 + 9 === 30 && 30 === 3 * 10 && 0 + 5 === 5 && 10 + 30 + 5 === 45,
-    lean: 'theorem polarity_plus_is_trinity_of_minus : (1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (0+5 = 5) ∧ (10+30+5 = 45) := by decide' },
+    // FIVE IS THE FIXED POINT, WHICH IS WHY IT SITS ALONE. This read `(0+5 = 5)` — adding zero, true of any centre at
+    // all — where the sentence's point is that five belongs to NEITHER polarity because it is its own mirror. Under the
+    // reflection x ↦ 10 − x on 1..9 that is a property to be checked, and it is checked the way a uniqueness claim has
+    // to be: by filtering all nine and finding exactly one fixed point. The two wings and their 3:1 ratio are real
+    // identities and stay; only the conjunct that could not fail was replaced.
+    js: () => 1 + 2 + 3 + 4 === 10 && 6 + 7 + 8 + 9 === 30 && 30 === 3 * 10
+      && Array.from({ length: 9 }, (_, i) => i + 1).filter((x) => 10 - x === x).length === 1
+      && 10 - 5 === 5 && 10 + 30 + 5 === 45,
+    lean: 'theorem polarity_plus_is_trinity_of_minus : (1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (((List.range\' 1 9).filter (fun x => 10 - x == x)).length = 1) ∧ (10 - 5 = 5) ∧ (10+30+5 = 45) := by decide' },
 
 ]
 

@@ -17,7 +17,7 @@ theorem the_spectrum_is_length_blind : (([1,1000,1000000] : List Nat).all (fun _
     zero of them missing — because the fold is total by construction. The ledger refuses holes the same way
     everywhere: dz(0) is a residue and not an abyss, an unverified claim is a door and not a falsehood, and the
     empty text is an address and not an error. Totality is the family trait. -/
-theorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0) := by decide
+theorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (128 / 4 = 32) ∧ (32 - 128 / 4 = 0) := by decide
 
 /-- TWO STRINGS SOUND ALIKE EXACTLY WHEN THEY ADDRESS ALIKE: the spectrum is a function of the address alone, so
     equal addresses give equal spectra and different addresses differ somewhere — agreement is decided, never

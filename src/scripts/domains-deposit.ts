@@ -14,6 +14,8 @@
 //   npm run x -- domains-deposit          → deposit every domain claim the ledger does not already hold
 //   npm run x -- domains-deposit -- --dry → report what WOULD land, write nothing
 import { join } from 'node:path'
+import { leanList } from './lean-gen.js'
+import { homoglyphCensus } from '../quantum/os/homoglyph/index.js'
 import { ROOT } from './api.js'
 import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } from '../quantum/os/domains/index.js'
 import { shellClaims } from '../quantum/os/shellapi/index.js'
@@ -92,9 +94,16 @@ candidates.push({
 // sanitising is the defence, and sanitising does not reach a homoglyph — by construction, since a Cyrillic
 // letter is legitimate
 // text no filter may remove.
+const hg = homoglyphCensus()
 candidates.push({
   key: 'display_gap_address_separates_4',
-  lean: 'theorem display_gap_address_separates_4 : (4 = 4) ∧ (1 < 4) ∧ (4 - 1 = 3) := by decide',
+  // THE CLAIM THE STATEMENT DID NOT MAKE. This read `(4 = 4) ∧ (1 < 4) ∧ (4 - 1 = 3)`: the first conjunct restates the
+  // class count against itself, and NOWHERE did it say the address separates the four classes — which is the sentence's
+  // whole content. The census already measures it per row (addressesDiffer, scrubCollapses), so the rows are carried
+  // into the statement as bits: every class must be separated by the address, exactly one must be reached by a scrub,
+  // and the remainder is what a scrub cannot reach. It fails the moment any published class stops being separated,
+  // which the old form could not detect. A conveyor candidate carries no defs, so the bits are inline by necessity.
+  lean: `theorem display_gap_address_separates_4 : ((${leanList(hg.gaps.map((g) => (g.addressesDiffer ? 1 : 0)))}).all (fun b => b == 1)) ∧ (((${leanList(hg.gaps.map((g) => (g.scrubCollapses ? 1 : 0)))}).filter (fun b => b == 1)).length = ${hg.caughtByScrub}) ∧ (${hg.gaps.length} - ${hg.caughtByScrub} = ${hg.gaps.length - hg.caughtByScrub}) := by decide`,
   why: 'DISPLAY VERSUS BYTES. Four published classes of display/byte divergence — bidi override (CVE-2021-42574), zero-width space, non-breaking space, Cyrillic homoglyph — were measured: the content-address separates 4 of 4, a scrub collapses 1 of 4, and 3 classes are reachable ONLY by the address. The defence anticipates no trick, which is why it covers tricks nobody has published. It does not say which rendering is honest, only that two are not one — which is the fact visual review was missing.',
   source: 'homoglyph', from: 'homoglyphCensus',
 } as WaveCandidate)

@@ -39,4 +39,4 @@ theorem the_stepped_drum_carries_at_nine : ((9 + 1) % 10 = 0) ∧ ((9 + 1) / 10 
     column is the degree (2 for the square), and the drum’s carry is the modulus (10). Four exact integers, no
     analogy: what these machines share with this ledger is not a metaphor but the same finite structures, which
     is the only kind of ancestry a theorem can hold. -/
-theorem the_road_computes_in_one_arithmetic : (15 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ (2 * 1 = 2) ∧ (10 % 10 = 0) := by decide
+theorem the_road_computes_in_one_arithmetic : (2 * 5 + 5 * 1 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 5).all (fun n => (n + 2) * (n + 2) + n * n == 2 * ((n + 1) * (n + 1)) + 2)) ∧ ((9 + 1) % 10 = 0) := by decide

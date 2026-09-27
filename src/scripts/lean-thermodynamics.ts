@@ -25,8 +25,13 @@ const FACTS = [
 
   { key: 'absolute_zero_and_kelvin',
     why: 'The Kelvin scale floors at absolute zero: 0 °C = 273 K and 100 °C = 373 K (K = °C + 273). Nothing goes below 0 K; temperature has a hard floor.',
-    js: () => 0 + 273 === 273 && 100 + 273 === 373,
-    lean: 'theorem absolute_zero_and_kelvin : (0 + 273 = 273) ∧ (100 + 273 = 373) := by decide' },
+    // THE OFFSET, WALKED AND INVERTED. This read `(0 + 273 = 273)`, which adds zero and so holds of any offset
+    // whatever — it did not check that Celsius and Kelvin differ by a constant. Now the conversion round-trips over
+    // every Celsius degree from freezing to boiling, and the interval between those two points is shown to be 100 in
+    // BOTH scales, which is the real content: the scales share the size of a degree and differ only by where zero sits.
+    js: () => Array.from({ length: 101 }, (_, c) => c).every((c) => (c + 273) - 273 === c)
+      && 100 + 273 === 373 && 373 - 273 === 100,
+    lean: 'theorem absolute_zero_and_kelvin : ((List.range 101).all (fun c => (c + 273) - 273 == c)) ∧ (100 + 273 = 373) ∧ (373 - 273 = 100) := by decide' },
 
   { key: 'charles_law',
     why: "Charles's law keeps V/T constant at fixed pressure: heating a gas expands it proportionally — V₁/T₁ = V₂/T₂ gives 2/300 = 4/600, cross-multiplied 2·600 = 4·300 = 1200.",

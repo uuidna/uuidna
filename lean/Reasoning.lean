@@ -126,7 +126,7 @@ theorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = Li
     is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure
     restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the
     trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins. -/
-theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide
+theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 * 7 = 14) ∧ (((List.range' 2 12).filter (fun d => 14 % d == 0)).length > 0) := by decide
 
 /-- SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four
     profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two
