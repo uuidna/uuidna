@@ -43,6 +43,21 @@ export interface Mission {
   door: string
   /** how many records this row covers */
   count: number
+  /** ONE CLOSED INSTANCE OF THE SAME KIND — the proof that this kind of work closes, cited so it can be opened.
+   *
+   *  The captain, 2026-09-27: "Proof of concept and work formulas in mcp and ui is enough to train any intelligence
+   *  no matter artificial or not." A mission carried the work formula — an exact deliverable and the door it deposits
+   *  through — and no proof that the formula has ever produced anything. `keys` is empty on a finding BY CONSTRUCTION,
+   *  because the theorem does not exist yet, so a learner met the instruction with nothing to compare it against and
+   *  no way to tell a task that closes from one nobody has ever closed.
+   *
+   *  So every row now carries a WORKED precedent: an instance of its own kind that is already closed, derived from the
+   *  same inputs this board is built from and costing no new read. seal-finding shows a finding that points at a sealed
+   *  theorem — the rows the loop above skips; decide-bound shows a bound the census judged load-bearing, which is what
+   *  naming the domain looks like once it is done; symbol-leg shows a theorem whose symbol leg is present. Null where
+   *  the tree holds no closed instance yet, WITH the reason, because "none exists" and "none was looked for" are
+   *  different facts and a learner must not read the second as the first. */
+  worked: { how: string; cite: string } | null
 }
 
 /** one bounded theorem's verdict row, as sealed by scripts/gen-bound-census into lean/bound-census.json */
@@ -78,6 +93,28 @@ const byWing = <T extends { wing: string; key: string }>(rows: readonly T[]): Ma
 }
 
 /** missionsOf(records) → the board. Pure over its inputs; the same records give the same rows in the same order. */
+/** workedOf(input) → one closed instance per kind, read off the very inputs the board is built from.
+ *
+ *  Derived rather than authored, so a precedent cannot go stale against the tree it is drawn from: each is the FIRST
+ *  row of its own kind that is already in the state its mission asks for. Sorted by key or claim so the answer is the
+ *  same for anyone who recomputes it — a precedent that changed between two readers would teach two different lessons. */
+function workedOf(input: { rows: readonly Rosetta[]; bounds: BoundSlice; findings: readonly Finding[] }): Record<MissionKind, Mission['worked']> {
+  const sealed = input.findings.filter((f) => f.theorem).sort((a, b) => a.claim.localeCompare(b.claim))[0]
+  const bearing = input.bounds.rows.filter((r) => r.verdict === 'load-bearing').sort((a, b) => a.key.localeCompare(b.key))[0]
+  const symbolled = input.rows.filter((r) => r.legs.includes('symbol')).sort((a, b) => a.key.localeCompare(b.key))[0]
+  return {
+    'seal-finding': sealed
+      ? { how: 'a research finding closed by sealing its value as a theorem and pointing the finding at it', cite: `theorem ${String(sealed.theorem)} anchors "${sealed.claim.slice(0, 90)}"` }
+      : null,
+    'decide-bound': bearing
+      ? { how: 'a bounded statement whose bound the census judged LOAD-BEARING — the domain is named and the bound carries the claim, which is what closing this kind looks like', cite: `theorem ${bearing.key} in ${bearing.wing}` }
+      : null,
+    'symbol-leg': symbolled
+      ? { how: 'a theorem whose symbol leg is present — the Lean line has its TypeScript mirror, so the two can disagree and be caught', cite: `theorem ${symbolled.key} in ${symbolled.wing}` }
+      : null,
+  }
+}
+
 export function missionsOf(input: {
   rows: readonly Rosetta[]
   bounds: BoundSlice
@@ -88,6 +125,9 @@ export function missionsOf(input: {
   limit?: number | null
 }): MissionBoard {
   const missions: Mission[] = []
+  // one precedent per kind, computed once from these same inputs — every row of a kind cites the same closed instance,
+  // because the lesson is the KIND's own proof of concept and not a per-row curiosity
+  const worked = workedOf(input)
 
   for (const f of input.findings) {
     if (f.theorem) continue
@@ -95,7 +135,7 @@ export function missionsOf(input: {
     missions.push({
       handle: missionHandle('seal-finding', 'research ledger', title), kind: 'seal-finding', wing: 'research ledger', title,
       deliverable: `seal ${f.value} ${f.units} (${f.kind}, ${f.status} source: ${f.source}) as a theorem, and point the finding at it`,
-      keys: [], door: MISSION_DOORS['seal-finding'], count: 1,
+      keys: [], door: MISSION_DOORS['seal-finding'], count: 1, worked: worked['seal-finding'],
     })
   }
 
@@ -105,7 +145,7 @@ export function missionsOf(input: {
     missions.push({
       handle: missionHandle('decide-bound', wing, title), kind: 'decide-bound', wing, title,
       deliverable: `${keys.length} statement${keys.length === 1 ? '' : 's'} in ${wing} survived one widening step: for each, either name the finite domain in the prose or restate without the bound`,
-      keys, door: MISSION_DOORS['decide-bound'], count: keys.length,
+      keys, door: MISSION_DOORS['decide-bound'], count: keys.length, worked: worked['decide-bound'],
     })
   }
 
@@ -115,7 +155,7 @@ export function missionsOf(input: {
     missions.push({
       handle: missionHandle('symbol-leg', wing, title), kind: 'symbol-leg', wing, title,
       deliverable: `${keys.length} theorem${keys.length === 1 ? '' : 's'} in ${wing} ${keys.length === 1 ? 'has' : 'have'} no js: mirror in the emitter — the TypeScript computation the Lean line is checked against`,
-      keys, door: MISSION_DOORS['symbol-leg'], count: keys.length,
+      keys, door: MISSION_DOORS['symbol-leg'], count: keys.length, worked: worked['symbol-leg'],
     })
   }
 
