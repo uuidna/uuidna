@@ -1578,3 +1578,35 @@ The same wave sealed lead 90c4f258 14/14 after its wing was restated over the in
 MEASURED rather than the two the lead misread; that one closed because a September wave had refused it and the
 refusal named its own cure. See «verify-with-an-instrument-that-can-fail», «one-step-is-not-a-walk» and
 «a-surface-that-agrees-with-itself».
+
+## THE ROSTER EXISTS AND NOBODY ANNOUNCED (2026-09-27, the qpu→uuidna move)
+
+Two sessions shared /Users/ceci/github/uuidna/uuidna for a whole day and collided five times, and the cure was
+three verbs that have been in the tree since August. `npm run x -- session announce "<purpose>"` takes a line in
+`lean/sessions.json`; `session roster` reads who is working and on what; `session depart` gives the line back. Its
+own header says why it beats what I tried first: "the roster rides the next landing; every device that fetches
+origin has it — no socket, no server." I reached for `SendMessage` instead, and the message was held for the other
+user's approval and expired UNDELIVERED. The roster needs nobody's permission because it rides git.
+
+THE FIVE COLLISIONS, each of which cost a wrong report or wasted work. `npm run state` looked like it was
+measuring a stale tree — it was not, a sibling's mid-edit file had broken the build between my two runs. A
+before/after fingerprint of every wing disagreed, and the cause was a sibling landing in between, not my change:
+on a shared tree only `git status` against the COMMITTED tree is a valid instrument. A commit silently did not
+happen (a pathspec naming a file that did not exist, with the error swallowed) and `git log -1` showed a sibling's
+line, which I nearly reported as my success. A cure I had landed at `science-classes.ts:42` came back red because
+a concurrent rewrite of that file took the cure with it, and a `package.json` wrapper I had removed was re-added
+the same way. And three cure-then-reguard cycles each surfaced NEW violations, because the other session was
+committing every few minutes: that is a race, not work, and the third cycle is where I should have stopped.
+
+TWO "BLOCKERS" I ESCALATED WERE FALSE, AND CHECKING BEAT CURING BOTH TIMES. `Math.log` in another session's module
+looked like a hard determinism violation needing the owner's ruling — the owner had already fixed it, and
+harmonic-scan was clean tree-wide. A theorem "claiming a universal its statement does not quantify" was CORRECT:
+`(quads.filter (fun q => …)).length = 0` is a closed walk over the whole enumeration, zero counterexamples IS all
+satisfy, and the finder's own predicate already accepts `.filter`. What fired was a STALE LEDGER INDEX still
+holding an older `allQ (fun …)` form, which has no dot and so misses the predicate. Had I "fixed" either, I would
+have weakened correct work to buy a green.
+
+SO: ANNOUNCE BEFORE THE FIRST EDIT, read the roster before touching a file another purpose names, and when a gate
+fires on a file you did not write, check whether the claim is wrong before curing it — the finder is sometimes the
+thing that is stale. See «host-is-shared-lanes-are-not», «green-is-about-the-committed-tree» and
+«verify-with-an-instrument-that-can-fail».
