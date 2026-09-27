@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-26",
+  "generated": "2026-09-27",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71085,
@@ -10118,8 +10118,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "997c9a61-6ed4-8e1b-9dc5-9668129df65d",
-      "address": "0a4f1d3e-8de0-8e6e-ab82-b8906a345588",
+      "lineAddress": "1e5f6602-497a-8a27-859b-278b3479376b",
+      "address": "d7d5acac-ba33-864d-a8cd-ac6d4e86bd4f",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -500187,8 +500187,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "452920ab-b9e2-8a95-bff8-ff1ad7fe11d2",
-      "address": "21f9fa68-cbe0-8d6b-baa1-e40805e9d0ae",
+      "lineAddress": "f917f7b8-b270-81b1-befd-4c0eec2f27b0",
+      "address": "d6070bc7-9453-8c40-a589-306302faeb4e",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500201,15 +500201,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "7422e72b-f128-85a6-ab84-63153b50d9ff",
-      "address": "ae254669-a8e0-8063-9e04-6964909d062d",
+      "lineAddress": "d4ba552c-fb47-8714-8605-2b109b2dfe09",
+      "address": "9668ade2-fed8-8665-aeec-e70f2683e184",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "fad0741a-71d3-8ef4-9d99-37f4def6d863",
-      "address": "d4f27c64-8fc4-8055-a3c2-28088cbfd240",
+      "lineAddress": "8d20eee5-dcbb-8def-b7f6-bc4483576d77",
+      "address": "cfc5808c-240c-8a53-b63b-c64839d6716d",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500467,7 +500467,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "91ae2237-6b62-8871-87ed-7402314f4a01",
+  "claim_receipt": "faa544ec-db42-8273-b3f9-1762c511f4ae",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

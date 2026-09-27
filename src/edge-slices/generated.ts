@@ -48,7 +48,7 @@ export const EDGE_SLICES: EdgeSlices = {
  ],
  "receipts": {
   "decode": {
-   "key": "05dd1213-b745-80a5-8501-ac7881edfc5f",
+   "key": "4535d722-67a1-8e75-9e25-1387e925d36f",
    "value": {
     "polarities": {
      "minus": 28535,
@@ -70,7 +70,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "ray": 1,
        "minus": 4145,
        "neutral": 1997,
-       "plus": 4037
+       "plus": 4038
       },
       {
        "ray": 2,
@@ -88,7 +88,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "ray": 4,
        "minus": 4032,
        "neutral": 2077,
-       "plus": 4132
+       "plus": 4131
       },
       {
        "ray": 5,
@@ -106,11 +106,11 @@ export const EDGE_SLICES: EdgeSlices = {
      "bySeed": [
       {
        "seed": 0,
-       "theorems": 7027
+       "theorems": 7028
       },
       {
        "seed": 1,
-       "theorems": 7069
+       "theorems": 7070
       },
       {
        "seed": 2,
@@ -122,11 +122,11 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 4,
-       "theorems": 7178
+       "theorems": 7177
       },
       {
        "seed": 5,
-       "theorems": 7105
+       "theorems": 7104
       },
       {
        "seed": 6,
@@ -187,7 +187,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": false
       }
      ],
-     "receipt": "ecbc791f-7906-8014-a851-9673696d50b5"
+     "receipt": "9cb53ca3-3e39-8ea4-964c-01d1813995f3"
     },
     "angles": {
      "dashStepDegrees": 60,
@@ -233,11 +233,11 @@ export const EDGE_SLICES: EdgeSlices = {
      "bySeed": [
       {
        "seed": 0,
-       "theorems": 7027
+       "theorems": 7028
       },
       {
        "seed": 1,
-       "theorems": 7069
+       "theorems": 7070
       },
       {
        "seed": 2,
@@ -249,11 +249,11 @@ export const EDGE_SLICES: EdgeSlices = {
       },
       {
        "seed": 4,
-       "theorems": 7178
+       "theorems": 7177
       },
       {
        "seed": 5,
-       "theorems": 7105
+       "theorems": 7104
       },
       {
        "seed": 6,
@@ -326,7 +326,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "visited": 10
       }
      ],
-     "receipt": "113e3378-a7cf-82fd-979b-b993eaf11a98"
+     "receipt": "be328a07-b117-8954-b0e9-e417c5abd380"
     },
     "rosetta": {
      "rays": [
@@ -338,7 +338,7 @@ export const EDGE_SLICES: EdgeSlices = {
       {
        "ray": 1,
        "degrees": 51,
-       "theorems": 10179
+       "theorems": 10180
       },
       {
        "ray": 2,
@@ -353,7 +353,7 @@ export const EDGE_SLICES: EdgeSlices = {
       {
        "ray": 4,
        "degrees": 205,
-       "theorems": 10241
+       "theorems": 10240
       },
       {
        "ray": 5,
@@ -536,7 +536,7 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": false
       }
      ],
-     "receipt": "38ea8c18-6349-8f54-a31d-4ca3c581690a"
+     "receipt": "529a1354-0971-8305-9158-59f398446fd7"
     },
     "life": {
      "os": {
@@ -758,7 +758,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "ray": 1,
         "minus": 4145,
         "neutral": 1997,
-        "plus": 4037
+        "plus": 4038
        },
        {
         "ray": 2,
@@ -776,7 +776,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "ray": 4,
         "minus": 4032,
         "neutral": 2077,
-        "plus": 4132
+        "plus": 4131
        },
        {
         "ray": 5,
@@ -794,11 +794,11 @@ export const EDGE_SLICES: EdgeSlices = {
       "bySeed": [
        {
         "seed": 0,
-        "theorems": 7027
+        "theorems": 7028
        },
        {
         "seed": 1,
-        "theorems": 7069
+        "theorems": 7070
        },
        {
         "seed": 2,
@@ -810,11 +810,11 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 4,
-        "theorems": 7178
+        "theorems": 7177
        },
        {
         "seed": 5,
-        "theorems": 7105
+        "theorems": 7104
        },
        {
         "seed": 6,
@@ -875,7 +875,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "balanced": false
        }
       ],
-      "receipt": "ecbc791f-7906-8014-a851-9673696d50b5"
+      "receipt": "9cb53ca3-3e39-8ea4-964c-01d1813995f3"
      },
      "angles": {
       "dashStepDegrees": 60,
@@ -921,11 +921,11 @@ export const EDGE_SLICES: EdgeSlices = {
       "bySeed": [
        {
         "seed": 0,
-        "theorems": 7027
+        "theorems": 7028
        },
        {
         "seed": 1,
-        "theorems": 7069
+        "theorems": 7070
        },
        {
         "seed": 2,
@@ -937,11 +937,11 @@ export const EDGE_SLICES: EdgeSlices = {
        },
        {
         "seed": 4,
-        "theorems": 7178
+        "theorems": 7177
        },
        {
         "seed": 5,
-        "theorems": 7105
+        "theorems": 7104
        },
        {
         "seed": 6,
@@ -1014,7 +1014,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "visited": 10
        }
       ],
-      "receipt": "113e3378-a7cf-82fd-979b-b993eaf11a98"
+      "receipt": "be328a07-b117-8954-b0e9-e417c5abd380"
      },
      "rosetta": {
       "rays": [
@@ -1026,7 +1026,7 @@ export const EDGE_SLICES: EdgeSlices = {
        {
         "ray": 1,
         "degrees": 51,
-        "theorems": 10179
+        "theorems": 10180
        },
        {
         "ray": 2,
@@ -1041,7 +1041,7 @@ export const EDGE_SLICES: EdgeSlices = {
        {
         "ray": 4,
         "degrees": 205,
-        "theorems": 10241
+        "theorems": 10240
        },
        {
         "ray": 5,
@@ -1224,7 +1224,7 @@ export const EDGE_SLICES: EdgeSlices = {
         "balanced": false
        }
       ],
-      "receipt": "38ea8c18-6349-8f54-a31d-4ca3c581690a"
+      "receipt": "529a1354-0971-8305-9158-59f398446fd7"
      },
      "life": {
       "os": {
@@ -1664,10 +1664,10 @@ export const EDGE_SLICES: EdgeSlices = {
        "balanced": false
       }
      ],
-     "fused": "0b193ef8-c409-814c-91fc-fa3c55da8292",
+     "fused": "a4eaa22a-73ec-86b8-848b-7731f3fecebc",
      "honest": "Ratios, angles, polarities, and life DECODED — runSequence on every address, ±60° dash, 360/7° rosetta rays, uuidnaOS boot ground, living ledger, latent axioms, genesis chain. Folded order-invariant. Descriptive only."
     },
-    "fused": "ad76c224-a540-8b24-a54d-95427a05c968"
+    "fused": "d7e3ed1d-d36a-84e4-9191-8146f21561f9"
    }
   }
  }

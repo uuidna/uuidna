@@ -11425,14 +11425,14 @@
   },
   {
    "key": "the_store_footprint_is_its_folders",
-   "statement": "(71703 + 256 + 43564 + 71548 + 71703 + 1 = 258775) ∧ (258775 > 3 * 71703)",
-   "normalised": "(71703+256+43564+71548+71703+1=258775)∧(258775>3*71703)",
+   "statement": "(71703 + 256 + 43562 + 71548 + 71703 + 1 = 258773) ∧ (258773 > 3 * 71703)",
+   "normalised": "(71703+256+43562+71548+71703+1=258773)∧(258773>3*71703)",
    "rawLength": 73,
    "normalisedLength": 55,
    "rawBytes": 75,
    "normalisedBytes": 57,
-   "address": "b688d27d-a624-8970-a529-a84520af07be",
-   "sha256": "667f148db2a07a7ed3c45682760f5ff8fd8180dcbc5d055af58568d5cb3ccc84"
+   "address": "5278789a-83e9-8d47-b17d-dc5d0b0bdd37",
+   "sha256": "90b4eabfd819f83a2ec68a33886bbaa639045921209dc6ff3ac2d1f6c5c4dc9e"
   },
   {
    "key": "the_third_level_already_shares",
@@ -60617,14 +60617,14 @@
   },
   {
    "key": "the_generated_closure_partitions_into_three_kinds",
-   "statement": "(516444 + 453 + 98257 = 615154) ∧ (516444 > 5 * 98257)",
-   "normalised": "(516444+453+98257=615154)∧(516444>5*98257)",
+   "statement": "(517809 + 453 + 98717 = 616979) ∧ (517809 > 5 * 98717)",
+   "normalised": "(517809+453+98717=616979)∧(517809>5*98717)",
    "rawLength": 54,
    "normalisedLength": 42,
    "rawBytes": 56,
    "normalisedBytes": 44,
-   "address": "052de26f-820c-8751-b61d-a6d3a3653a02",
-   "sha256": "455a7f24bc6cef8e1637f7147c962e86d4aaa2811dcda3fbf27cdb9fe4c6d5b3"
+   "address": "f4eec0c5-1c35-84ae-9482-d1c10d374de6",
+   "sha256": "426b994f275b410c77383314a69e4e233ffc64b92a8c27a1383b2c8ef9b725d7"
   },
   {
    "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
@@ -60639,25 +60639,25 @@
   },
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-   "statement": "((43342 * 5 > 98257 * 2) ∧ (43342 * 2 < 98257)) ∧ (43342 < 98257)",
-   "normalised": "((43342*5>98257*2)∧(43342*2<98257))∧(43342<98257)",
+   "statement": "((43796 * 5 > 98717 * 2) ∧ (43796 * 2 < 98717)) ∧ (43796 < 98717)",
+   "normalised": "((43796*5>98717*2)∧(43796*2<98717))∧(43796<98717)",
    "rawLength": 65,
    "normalisedLength": 49,
    "rawBytes": 69,
    "normalisedBytes": 53,
-   "address": "6ac3b4a8-0903-821a-a598-9b1176b6a238",
-   "sha256": "97e1f35d83b62769d17eefffeddc16379aad8ec628e3aa5bc0a532339db4a7c3"
+   "address": "8e29dac5-006e-80dd-a73b-f5c7afa6a805",
+   "sha256": "3889bdc5459623414c1eeb00fcad92b930aa98dc355d568aa67e1a100655d73f"
   },
   {
    "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-   "statement": "((453 * 100 < 98257) ∧ (782 > 116)) ∧ ((116 * 13 < 1532) ∧ (116 * 14 > 1532))",
-   "normalised": "((453*100<98257)∧(782>116))∧((116*13<1532)∧(116*14>1532))",
+   "statement": "((453 * 100 < 98717) ∧ (783 > 116)) ∧ ((116 * 13 < 1532) ∧ (116 * 14 > 1532))",
+   "normalised": "((453*100<98717)∧(783>116))∧((116*13<1532)∧(116*14>1532))",
    "rawLength": 77,
    "normalisedLength": 57,
    "rawBytes": 83,
    "normalisedBytes": 63,
-   "address": "fd3991f2-901d-8eb8-911a-e1a05228869d",
-   "sha256": "10240409c148d6e633ac5e4c41610cc206b0736dcff8cf38ffc1142438563f16"
+   "address": "8ece3671-4d24-825e-aeba-c764763b11dd",
+   "sha256": "14922d71526dee0778fc84ec74b199715564b08e4284ec263eeea56bc5ad5faa"
   },
   {
    "key": "the_same_arithmetic_answers_more_than_one_domain",

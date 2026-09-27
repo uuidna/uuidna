@@ -1,13 +1,13 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-26
+**Generated:** 2026-09-27
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Formalisation claimed:** 71085/71085 theorems — every one, by construction
 **Discovery claimed:** 70676 — the other 409 restate a fact a named source found first
 
 *The 409 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 344 of 379 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `91ae2237-6b62-8871-87ed-7402314f4a01`
+**Claim receipt:** `faa544ec-db42-8273-b3f9-1762c511f4ae`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `997c9a61-6ed4-8e1b-9dc5-9668129df65d`
+- **Sample lineAddress:** `1e5f6602-497a-8a27-859b-278b3479376b`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2339,7 +2339,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `452920ab-b9e2-8a95-bff8-ff1ad7fe11d2`
+- **Sample lineAddress:** `f917f7b8-b270-81b1-befd-4c0eec2f27b0`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
