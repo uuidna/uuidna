@@ -71,6 +71,15 @@ export interface Crossroad {
   characteristic: number
   /** the fewest wings carrying any shared integer — 1 means this junction is the only other place it appears */
   rarity: number
+  /**
+   * how many integers the NEIGHBOUR wing carries, which is the popularity this ranking has to discount.
+   *
+   * Measured 2026-09-28: asking which wings a school subject is entangled with returned HexSpan1.lean and Audit.lean
+   * at the top of every single subject, because those two carry nearly every integer in the corpus and therefore
+   * junction with everything. That is not an entanglement, it is a wing being large, and ranking by the count of
+   * formulable crosses rewards exactly that. Breadth makes it visible and `entanglements` divides by it.
+   */
+  breadth: number
 }
 
 export interface CrossroadInput {
@@ -178,6 +187,7 @@ export function crossroads(input: CrossroadInput): Crossroad[] {
         // MINIMUM BY COMPARISON, not Math.min — same law, and a spread into Math.min also blows the stack on a long
         // list, so the fold is both lawful and safe on any width this walk reaches.
         rarity: shared.reduce((m, v) => { const c = carriers.get(v) ?? 0; return c < m ? c : m }, Number.MAX_SAFE_INTEGER),
+        breadth: wingInts.size,
       })
     }
   }
@@ -211,4 +221,32 @@ export function crossroadCensus(
     characteristic: roads.reduce((n, r) => n + r.characteristic, 0),
     isolated: windows.filter((w) => !standing.has(w.key)).map((w) => w.key),
   }
+}
+
+
+/**
+ * The ENTANGLEMENTS: junctions where the shared quantity is genuinely characteristic and the neighbour is not a wing
+ * that shares with everyone.
+ *
+ * The captain, 2026-09-28: "find the entanglements between school subjects and scientific domains. for example sports
+ * and circus theatre and music arts and crafts". Asked directly, the crossroads ranking answered HexSpan1.lean and
+ * Audit.lean for every subject — the two widest wings in the corpus — which says nothing about sport or music. A
+ * junction is interesting when a RARE quantity is shared, not when many are, so this ranks by the rarity of the rarest
+ * shared integer and drops neighbours whose integer set is wider than the median wing's.
+ *
+ * THE CUT IS THE MEDIAN, so it is measured and moves with the corpus rather than being a number someone liked. A wing
+ * at or below the median breadth shares because it has a reason to; one far above it shares because it is large.
+ */
+export function entanglements(roads: readonly Crossroad[], limit = 8): Crossroad[] {
+  if (roads.length === 0) return []
+  const widths = [...new Set(roads.map((r) => r.breadth))].sort((a, b) => a - b)
+  const mid = widths.length >> 1
+  const median = widths.length % 2 === 1
+    ? widths[mid]!
+    : ((widths[mid - 1]! + widths[mid]!) - ((widths[mid - 1]! + widths[mid]!) % 2)) / 2
+  return roads
+    .filter((r) => r.breadth <= median && r.rarity > 0)
+    .sort((a, b) =>
+      a.rarity - b.rarity || b.shared.length - a.shared.length || a.wing.localeCompare(b.wing))
+    .slice(0, limit)
 }

@@ -12,7 +12,7 @@
 
 import { theorems } from '../theorems/index.js'
 import { corpusAlgebra } from '../formulas.js'
-import { CERN_WINGS, CLAY_WING, crossroadCensus, crossroads, windowsOf } from '../window-crossroads.js'
+import { CERN_WINGS, CLAY_WING, crossroadCensus, crossroads, entanglements, windowsOf } from '../window-crossroads.js'
 
 const asked = process.argv.slice(2).filter((a) => a.endsWith('.lean'))
 const wings = asked.length > 0 ? asked : [CLAY_WING, ...CERN_WINGS]
@@ -46,8 +46,17 @@ for (const wing of wings) {
   if (census.isolated.length > 0) {
     console.log(`  ISOLATED (standing at no junction): ${census.isolated.join(', ')}`)
   }
-  for (const r of roads.slice(0, 5)) {
-    console.log(`    ${r.windowKey} × ${r.wing} on [${r.shared.slice(0, 8).join(', ')}] — ${r.characteristic} characteristic of ${r.applications}, rarity ${r.rarity}`)
+  // ENTANGLEMENTS, not the biggest junctions. Ranking by the count of formulable crosses answers HexSpan1.lean and
+  // Audit.lean for every wing, because those two carry nearly every integer and so junction with everything — a fact
+  // about their size and not about the subject. See `entanglements` for the measured breadth cut.
+  const ent = entanglements(roads)
+  if (ent.length === 0) {
+    console.log('  no entanglement: every neighbour is wider than the median wing, so nothing here is characteristic')
+  } else {
+    for (const r of ent) {
+      console.log(`    ⇄ ${r.wing.replace(/\.lean$/, '')} on [${r.shared.slice(0, 10).join(', ')}] — rarity ${r.rarity}, breadth ${r.breadth}`)
+      console.log(`        via ${r.windowKey}`)
+    }
   }
   console.log()
 }
