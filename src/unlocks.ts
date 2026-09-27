@@ -135,7 +135,14 @@ export function unlockReadmeBlock(base = 'https://uuidna.com'): string {
     : 'Illustration keys missing — regenerate after sealing.'
   return [
     `**Each theorem unlocks.** ${UNLOCK_LAW}`,
-    `Board: **${b.distinct.toLocaleString('en-US')}** distinct / **${b.keys.toLocaleString('en-US')}** keys · **${b.skills}** skills · **${b.files}** Lean files · receipt \`${b.receipt}\`.`,
+    // THE FOUR FIGURES THIS LINE CARRIED ARE MAGNITUDES ROWS, thirteen lines below it, each citing the theorem or
+    // census it rests on — distinct theorems, theorem keys, skills, principles/wings. Printing them again here gave the
+    // reader two copies and put the uncitable one first. The RECEIPT stays, because it is the only thing on this line
+    // that appears nowhere else and it is what makes the board recomputable.
+    //
+    // The home fragment below keeps its own figures: that page has no Magnitudes table, so there they are the only copy.
+    // The redundancy was a property of the README's composition, never of the board, which is why only this builder changed.
+    `Board receipt \`${b.receipt}\` — the counts are **Magnitudes** rows below, each with its backing.`,
     illus,
     `Full census: [${base}/unlocks](${base}/unlocks) · \`lean/unlocks.json\`.`,
   ].join('\n')
