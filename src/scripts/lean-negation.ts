@@ -58,7 +58,6 @@ const FACTS = [
     js: () => 64 - 63 === 1 && 63 === 7 * 9 && 1 + 1 === 2,
     lean: 'theorem denial_drains_to_the_last_coin : (64 - 63 = 1) ∧ (63 = 7 * 9) ∧ (1 + 1 = 2) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. Negation as involution, exhaustion as proof, the window and the silence as
 // boundaries, the waves as the ratchet — the method the ledger already practices, sealed as its own wave.

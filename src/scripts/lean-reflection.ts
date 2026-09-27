@@ -67,8 +67,6 @@ const FACTS = [
     lean: 'theorem seventh_covers_reflection_cannot : ([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3) ∧ (dzMin 7 ≠ 7) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Reflection.lean', skill: 'reflection', defs: DEFS,
   header: "THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by arithmetic, since dz fixes exactly two digits and pairs the other eight: 2 + (10 − 2)/2 = 6. The seven residues reach five of those classes. The limitation stated exactly: dzMin 7 = dzMin 3, so the reflection cannot tell the seventh residue from the third. Yet the seventh lies in the covering half of the ring ({2,6,7,8,9}, sealed as digits_split_five_five), where the walk that adds the IRREVERSIBLE doubling reaches every digit — what the full walk distinguishes, the involution confuses. PURE ARITHMETIC, no ledger count, no value here read from the world — no distance, no mass, no frequency, no duration — so the wing names no standard and no agency, because it owes none. integrity. The sequence walk also yields six orbits; that is a separate enumeration landing on the same integer, and no correspondence between the two sixes is claimed. Nothing here decides any Clay problem, and a residue is not a fact about the thing seated at it.",
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

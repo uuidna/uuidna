@@ -333,6 +333,16 @@ export function docComment(prose: string, width = 108): string {
 export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
   // one pass: each fact's JS is run ONCE, its verdict checked and its walk tallied on the same execution, so
   // the recorded mass belongs to the computation that was actually validated.
+  //
+  // AND THIS IS THE ONLY PLACE THAT AUDIT BELONGS. Many wing generators used to run their own copy —
+  // `for (const f of FACTS) if (!f.js()) throw …` on the line above their emit() call — which did the same work a
+  // second time and did it worse: it called f.js() unguarded, so a fact with no JS mirror threw instead of being
+  // skipped, and it tallied nothing, so the walk it spent was not counted anywhere. Purged 2026-09-27, with every
+  // wing's bytes fingerprinted before and after to prove the output did not move.
+  //
+  // The generators that never had the copy were already covered by this loop, so the effect of removing it is one
+  // fewer pass over the facts in the wings that had it, and one law in one place. A generator that adds the copy back
+  // is paying twice for an audit it already gets.
   const cases = new Map<string, number>()
   const fail: Fact[] = []
   for (const f of facts) {

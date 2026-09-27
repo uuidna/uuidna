@@ -66,8 +66,6 @@ const FACTS = [
     lean: 'theorem group_does_not_commute : (agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376 ≠ 0) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Affine.lean', skill: 'affine', defs: DEFS,
   header: 'AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

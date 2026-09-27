@@ -60,8 +60,6 @@ const FACTS = [
     lean: 'theorem page_outgrows_register : ((378:Nat)^2 > 65536) ∧ (378 < 65536) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Channel.lean', skill: 'channel', defs: '',
   header: 'THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

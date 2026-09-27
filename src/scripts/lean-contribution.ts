@@ -52,8 +52,6 @@ const FACTS = [
     lean: 'theorem taking_before_paying_differs : (128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Contribution.lean', skill: 'contribution', defs: '',
   header: 'THE CONTRIBUTION — what the address becomes once the coins are paid.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

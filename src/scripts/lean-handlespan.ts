@@ -53,8 +53,6 @@ const FACTS = [
     lean: 'theorem total_is_not_amplitudes : (2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'HandleSpan.lean', skill: 'handle-span', defs: '',
   header: 'THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

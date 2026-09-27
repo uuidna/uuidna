@@ -58,8 +58,6 @@ const FACTS = [
     lean: 'theorem no_reading_enters_here : ((List.range 12).all (fun s => res s == res s)) ∧ (res 7 ≠ res 8) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Clock.lean', skill: 'clock', defs: DEFS,
   header: `THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

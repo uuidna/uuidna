@@ -67,8 +67,6 @@ const FACTS = [
     lean: 'theorem every_orbit_holds_zero : orbits.all (fun o => o.contains 0) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'ProseTrial.lean', skill: 'prose-trial', defs: DEFS,
   header: 'THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

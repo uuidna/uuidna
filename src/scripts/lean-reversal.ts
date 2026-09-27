@@ -61,8 +61,6 @@ const FACTS = [
     lean: 'theorem reflection_explores_all : (((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9) ∧ (10 ≠ 9) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Reversal.lean', skill: 'reversal', defs: DEFS,
   header: 'REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -58,8 +58,6 @@ const FACTS = [
     lean: 'theorem nine_divides_by_construction : ((List.range\' 1 8).map (fun k => 9 * k)).all (fun n => n % 9 == 0) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Notation.lean', skill: 'notation', defs: '',
   header: 'NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

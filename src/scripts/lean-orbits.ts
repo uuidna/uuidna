@@ -58,8 +58,6 @@ const FACTS = [
     lean: `theorem covering_seeds_are_named : (${L(D.filter((d) => orbitOf(d).length === 10))}.length = ${D.filter((d) => orbitOf(d).length === 10).length}) ∧ (${L(D.filter((d) => orbitOf(d).length !== 10))}.length = ${10 - D.filter((d) => orbitOf(d).length === 10).length}) ∧ (${D.filter((d) => orbitOf(d).length === 10).length} + ${10 - D.filter((d) => orbitOf(d).length === 10).length} = 10) := by decide` },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Orbits.lean', skill: 'orbits', defs: '',
   header: `THE ORBITS, WALKED — and the generator's own facts are walked too.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

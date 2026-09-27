@@ -47,7 +47,6 @@ const FACTS = [
     js: () => 55 * 55 === 3025 && 54 * 54 === 2916 && 3025 - 2916 === 109 && 55 + 54 === 109,
     lean: 'theorem compound_steps_in_exact_integers : (55 * 55 = 3025) ∧ (54 * 54 = 2916) ∧ (3025 - 2916 = 109) ∧ (55 + 54 = 109) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The compound billing law — the coins as common factor, the triangle over the
 // group, mint and rate split, the 38-seal doubling, the integer compound — demarcated: work-units, never money.

@@ -43,7 +43,6 @@ const FACTS = [
     js: () => 16 * 252 === 24 * 168 && 16 * 504 === 48 * 168 && 16 * 126 === 12 * 168,
     lean: 'theorem the_tempi_tile_the_film : (16 * 252 = 24 * 168) ∧ (16 * 504 = 48 * 168) ∧ (16 * 126 = 12 * 168) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The symphony as form — four tongues, the palindrome, the involution's homecoming,
 // the keys' modular return, sequence-and-set, the tempi on the film ring — demarcated: form, never beauty.

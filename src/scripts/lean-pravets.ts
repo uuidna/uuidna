@@ -57,7 +57,6 @@ const FACTS = [
     js: () => 16 - 8 === 8 && 640 === 10 * 64,
     lean: 'theorem from_eight_bits_to_the_dos_ceiling : (16 - 8 = 8) ∧ (640 = 10 * 64) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. Pravets — the prime year, the twenty-six freed slots, the screen's rings, the
 // glyph's coin, the boot's fee, the walk to sixteen — demarcated: the record seals, the era stays history's.

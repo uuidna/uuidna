@@ -237,8 +237,6 @@ const FACTS: Fact[] = [
     stmt: `(rootfsNibbles.length = 64) ∧ (64 * 4 = 256) ∧ (rootfsNibbles.all (fun h => h < 16)) ∧ (releaseAddress.length = 32) ∧ (releaseAddress.all (fun h => h < 16))` },
 ]
 
-for (const f of FACTS) if (!f.js!()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Installs.lean', skill: 'installs', defs,
   header: `THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the ${N} packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED ${data.branch} index, Alpine ${data.release.version}), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (${32 * (N + 1)} on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for ${data.release.version}/${data.arch}, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, loading rather than running.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -251,7 +251,6 @@ const FACTS = [
     js: () => N.nibbles.length === N.uuidHexbits && N.handleNibbles.length === N.handleHexbits,
     lean: `theorem uuidna_name_spans_the_layout : (${LN(N.nibbles)}.length = ${N.uuidHexbits}) ∧ (${LN(N.handleNibbles)}.length = ${N.handleHexbits}) := by decide` },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Hexbit.lean', skill: 'hexbit', defs: '',
   header: 'THE HEXBIT — the alphabet and the layout an address is actually built from. Mass gap and message cap are COMPUTED in src/hexbit + src/quantum (computeMassGap, hexbitRingMassGap, bellBornWeights / massGapOnBellBornField) and sealed here from those yields — never hardcoded Δ / Bell tables in the generator. Court and gates speak only this wing for those facts; a Quantum/message twin is a traitor filtered by architecture.',

@@ -36,8 +36,6 @@ const FACTS = [
 
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Byte.lean', skill: 'byte', defs: DEFS,
   header: 'THE BYTE — two hexbits, and the unit exact-copy verification actually compares in.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

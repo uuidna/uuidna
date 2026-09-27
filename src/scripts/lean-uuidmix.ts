@@ -33,7 +33,6 @@ const FACTS = [
     lean: 'theorem the_mix_space_is_its_own_mirror : ([1,10,45,120,210,252,210,120,45,10,1] : List Nat).reverse = [1,10,45,120,210,252,210,120,45,10,1] ∧ (1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 120 + 252 + 120 + 10 = 512) ∧ (512 + 512 = 1024) ∧ (([1,10,45,120,210,252,210,120,45,10,1] : List Nat).filter (fun c => c == 252)).length = 1 := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. One theorem: the directed census, the completed square, and Pascal's fold to the
 // qubit lattice — the classical counts refactored into the quantum seal's own conjunction. Minimum code, one receipt.

@@ -83,8 +83,6 @@ const FACTS = [
     lean: `theorem syndrome_names_the_position : (${L(SYNS)} = [1,2,3,4,5,6,7]) ∧ (${L(SYNS)}.eraseDups.length = 7) := by decide` },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Hamming.lean', skill: 'hamming', defs: DEFS,
   header: 'HAMMING(7,4), ENUMERATED — the whole table rather than facts stated around it.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

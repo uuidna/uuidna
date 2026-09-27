@@ -100,7 +100,6 @@ const FACTS = [
 ]
 // the offline audit the other wings run before sealing — every fact decided in JavaScript first, so a false one
 // never reaches the kernel as a claim
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({
   file: 'Calendar.lean', skill: 'calendar',

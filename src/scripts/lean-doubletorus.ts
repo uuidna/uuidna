@@ -56,8 +56,6 @@ const FACTS = [
     lean: 'theorem growth_is_not_bounded_here : (List.range 5).all (fun n => 8^(n+1) == 8 * 8^n) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'DoubleTorus.lean', skill: 'double-torus', defs: '',
   header: 'THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

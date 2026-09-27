@@ -43,8 +43,6 @@ const FACTS = [
     lean: 'theorem sanitize_bidi_points_are_nine : 5 + 4 = 9 := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Sanitize.lean', skill: 'sanitize',
   header: 'THE SANITISE STANDARDS — the engine\'s input/output guard, its rules kept IN THE THEOREMS: MAX_DEPTH = 32 = 2⁵, MAX_STRING = 10⁶, arrays and keys bounded to 10⁵, the three prototype-pollution poison keys dropped, and the nine Trojan-Source BIDI code points (5 overrides + 4 isolates) stripped — process any input, sanitise any output, by all standards.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

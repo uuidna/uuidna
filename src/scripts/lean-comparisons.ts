@@ -46,8 +46,6 @@ const FACTS: Fact[] = [
     stmt: `((List.range ${L.length}).all (fun i => (List.range ${L.length}).all (fun j => Nat.ble j i || nth ${JSON.stringify(L).replace(/,/g, ', ')} i > nth ${JSON.stringify(L).replace(/,/g, ', ')} j))) ∧ (180 * 20 = 3600) ∧ (60 * 60 = 3600) ∧ (120 * 30 = 3600)` },
 ]
 
-for (const f of FACTS) if (!f.js!()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Comparisons.lean', skill: 'compare', defs: NTH_DEF,
   header: 'THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel.org\'s eight channels totally ordered through a lossless integer encoding (28 strict pairs; the versions are the kernel\'s published data), the encoding\'s round-trip sealed, the register ladder 4→128 doubling completely (any two registers an exact number of coin-payments apart), and the pressure ladder of divers and astronauts closing on THE JEWEL: the surface is the geometric mean of the buddy depths, 180·20 = 60². Arithmetic only; published data named as data.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

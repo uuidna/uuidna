@@ -78,7 +78,6 @@ const FACTS = [
 ]
 
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // ...and then the same laws turned on the MEMORY that decides which of these theorems is safe to save. cubeFacts()
 // censuses every OTHER wing on disk and seals the sealing rule itself: a neighbourhood seals exactly when it is

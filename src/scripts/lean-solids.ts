@@ -75,7 +75,6 @@ const FACTS = [
 ]
 
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Solids.lean', skill: 'solids',
   header: 'THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`.',

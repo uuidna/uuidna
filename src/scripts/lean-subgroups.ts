@@ -62,8 +62,6 @@ const FACTS = [
     lean: 'theorem trivial_and_whole_are_subgroups : (isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Subgroups.lean', skill: 'subgroups', defs: DEFS,
   header: 'THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

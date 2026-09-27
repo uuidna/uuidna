@@ -57,8 +57,6 @@ const FACTS = [
     lean: 'theorem reach_shrinks_each_pass : ((((List.range 10).map dbl).eraseDups.map dbl).eraseDups.length ≤ ((List.range 10).map dbl).eraseDups.length) ∧ (((List.range 10).map dbl).eraseDups.length = 9) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Phase.lean', skill: 'phase', defs: DEFS,
   header: 'PHASE — why the alternating walk does not close, and which half is responsible.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

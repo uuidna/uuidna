@@ -57,8 +57,6 @@ const FACTS = [
     lean: 'theorem eightyone_squares_nine : (81 = 9^2) ∧ (81 = 3^4) ∧ (9 = 3^2) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Trinities.lean', skill: 'trinities', defs: '',
   header: 'THE TRINITY COVERING — how many threes span a space.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -48,7 +48,6 @@ const FACTS = [
     js: () => 16 > 8 && 2 ** 8 === 256 && 256 > 255,
     lean: 'theorem collisions_are_forced_by_the_ceiling : (16 > 8) ∧ ((2:Nat)^8 = 256) ∧ (256 > 255) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The strings the site serves — one width, length-blind, total on the empty text,
 // unison as identity, a bijection with the address space, and the pigeonhole ceiling named — demarcated: these

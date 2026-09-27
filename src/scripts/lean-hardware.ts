@@ -140,7 +140,6 @@ const FACTS = [
 ]
 
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Hardware.lean', skill: 'hardware', defs: LXOR_DEF,
   header: 'THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle.',

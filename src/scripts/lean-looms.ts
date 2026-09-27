@@ -56,7 +56,6 @@ const FACTS = [
       && (9 + 1) % 10 === 0,
     lean: 'theorem the_road_computes_in_one_arithmetic : (2 * 5 + 5 * 1 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 5).all (fun n => (n + 2) * (n + 2) + n * n == 2 * ((n + 1) * (n + 1)) + 2)) ∧ ((9 + 1) % 10 = 0) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The looms and engines — the rod that reaches fifteen, the card that is a bit,
 // the differences that flatten, the drum that carries — demarcated: what they COUNTED seals; who invented what

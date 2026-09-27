@@ -65,8 +65,6 @@ const FACTS = [
     lean: 'theorem ten_seats_bound_any_ring : (List.range 40).all (fun i => let n := i + 11; (n > 10) && ((n + 10 - 1) / 10 ≥ 2)) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Seats.lean', skill: 'seats', defs: DEFS,
   header: 'THE SEAT BOUND — the pigeonhole, stated.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

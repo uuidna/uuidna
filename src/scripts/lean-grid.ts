@@ -55,8 +55,6 @@ const FACTS = [
     lean: 'theorem six_rays_stay_derived : (7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Grid.lean', skill: 'grid', defs: '',
   header: 'THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

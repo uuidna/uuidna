@@ -63,8 +63,6 @@ const FACTS = [
     lean: 'theorem isometry_bounds_correction : ((3 - 1) / 2 = 1) ∧ (3 - 1 = 2) ∧ ((3 - 1) / 2 ≠ 2) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Isometry.lean', skill: 'isometry', defs: DEFS,
   header: 'THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

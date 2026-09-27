@@ -99,8 +99,6 @@ const FACTS = [
     lean: 'theorem fabricated_cite_stays_unverified : (unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'AntiFraud.lean', skill: 'anti-fraud', defs: DEFS,
   header: 'THE ANTI-FRAUD DETECTORS — generated, and exhaustive where the wing used to sample.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

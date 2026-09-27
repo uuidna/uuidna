@@ -73,7 +73,6 @@ const FACTS = [
 ]
 
 // audit each fact offline, then GENERATE its green `by decide` theorem — the research loop's terminal.
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Os.lean', skill: 'os',
   header: 'THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. uuidnaOS is a content-addressed PROVENANCE boundary (src/os pins an exact Alpine release, src/drivers the exact driver bundle, each checked against its PUBLISHED SHA-256 with uuidna\'s own pure-TS hash) — it NEVER boots, ports, links, or executes.',

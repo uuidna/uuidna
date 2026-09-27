@@ -102,7 +102,6 @@ const FACTS: Fact[] = [
     stmt: `((64 : Nat) / 8 = 8) ∧ (8 * 8 = 64) ∧ (64 = 2 ^ 6) ∧ (2 * 64 = 128) ∧ (2 * 8 = 16) ∧ ((128 : Nat) / 8 = 16)` },
 ]
 
-for (const f of FACTS) if (!f.js!()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 const defs = `-- the PUBLIC FEED's reported context windows (data, source-cited on the page) as ROWS of 32 — a flat
 -- ${N}-element list exceeds the kernel's recursion ceiling; the rows carry the same census within it

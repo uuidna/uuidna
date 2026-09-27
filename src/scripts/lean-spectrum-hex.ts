@@ -56,8 +56,6 @@ const FACTS = [
     lean: `theorem wheel_divides_by_nine_and_six : (((List.range' 1 20).filter (fun d => 360 % d == 0)) = ${L(DIVISORS)}) ∧ (360 / 9 = 40) ∧ (360 / 6 = 60) := by decide` },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'SpectrumHex.lean', skill: 'spectrum-hex', defs: '',
   header: 'THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

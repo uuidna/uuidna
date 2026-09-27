@@ -39,7 +39,6 @@ const FACTS = [
     js: () => 3 > 2 && R(3).length > R(2).length && 1 <= 1,
     lean: 'theorem the_singularity_is_the_dry_law_at_scale : (3 > 2) ∧ (2 > 1) ∧ (1 * 0 / 2 = 0) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The singularity — one is exactly one, n surfaces cost one fold, agreement is
 // address equality, drift needs a second slot, and the whole of it is DRY wearing its architecture.

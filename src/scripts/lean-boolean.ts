@@ -68,8 +68,6 @@ const FACTS = [
     lean: `theorem implication_is_a_gate : (rowsOf 13 = ${L(table(13))}) ∧ (rowsOf 11 = ${L(table(11))}) ∧ (rowsOf 2 = ${L(table(2))}) := by decide` },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Boolean.lean', skill: 'boolean', defs: DEFS,
   header: 'THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

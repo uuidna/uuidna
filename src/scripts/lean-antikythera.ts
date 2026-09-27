@@ -57,7 +57,6 @@ const FACTS = [
     js: () => { const gcd = (a: number, b: number): number => { let x = a, y = b; while (y !== 0) { const t = x % y; x = y; y = t } return x }; return gcd(19, 235) === 1 && gcd(4, 223) === 1 && gcd(3, 8) === 1 },
     lean: 'theorem hunting_teeth_wear_even : (Nat.gcd 19 235 = 1) ∧ (Nat.gcd 4 223 = 1) ∧ (Nat.gcd 3 8 = 1) := by decide' },
 ]
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 // compute → generate → verify. The geared computer of Rhodes — the intercalation, the honest correction, the
 // prime eclipse count, the spiral remainders, the equal-toothed anomaly, the hunting coprimes — as decidable

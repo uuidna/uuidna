@@ -53,8 +53,6 @@ const FACTS = [
     lean: 'theorem handle_discards_before_walking : (32 - 4 = 28) ∧ (32 ≠ 4) ∧ (4 * 8 = 32) := by decide' },
 ]
 
-for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
-
 emit({ file: 'Alignment.lean', skill: 'alignment', defs: '',
   header: 'ALIGNMENT — which moduli tile a qubit and which waste it.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })
