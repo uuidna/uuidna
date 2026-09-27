@@ -49,12 +49,15 @@ const satisfies = (c: Criterion, value: string): boolean => {
 // and the result carries the bound so "none found" is never read as "none exists".
 const SWEEP = 64n
 const multi = multiAnswerCriteria(criteria, sealedOf, satisfies, SWEEP)
+// DENOMINATOR BY COMPARISON, not Math.max — the determinism scan hard-rejects Math.* anywhere, with no exemption,
+// because a host rounding namespace is a decision the host makes and this tree's arithmetic cannot be.
+const offered = criteria.length > 0 ? criteria.length : 1
 // NO SUBMISSIONS EXIST YET: the SCHOOL KV namespace is an owner act, so the cohort half reports NOT READ by design.
 const cohort = cohortVacuity([])
 
 console.log(`exercises offered: ${criteria.length} of ${theorems().length} sealed statements`)
 console.log(`swept every offered exercise for a second answer below ${SWEEP}`)
-console.log(`MORE THAN ONE RIGHT ANSWER: ${multi.length} (${((multi.length / Math.max(criteria.length, 1)) * 100).toFixed(1)}% of exercises)`)
+console.log(`MORE THAN ONE RIGHT ANSWER: ${multi.length} (${((multi.length / offered) * 100).toFixed(1)}% of exercises)`)
 for (const m of multi.slice(0, 6)) {
   console.log(`  ✗ ${m.theorem} [${m.course}] — key ${m.sealed}, also ${m.also.slice(0, 5).join(', ')} (swept below ${m.below})`)
 }
@@ -126,7 +129,7 @@ const doc = [
   'the answer finds these.',
   '',
   `Measured now: **${multi.length} of ${criteria.length} offered exercises have more than one right answer**` +
-    ` (${((multi.length / Math.max(criteria.length, 1)) * 100).toFixed(1)}%), sweeping values below ${SWEEP}.` +
+    ` (${((multi.length / offered) * 100).toFixed(1)}%), sweeping values below ${SWEEP}.` +
     ' A wider sweep would find more: the bound is carried in every finding, so "none found" is never "none exists".',
   '',
   '**Nobody ever fails it.** A criterion at zero failures may be teaching that worked, or an instrument that is not',

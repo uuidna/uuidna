@@ -16,7 +16,8 @@
 // thousand.
 //
 // ASSESSMENT IS A VECTOR AND NEVER AN AVERAGE. The seal this repository mints is refused unless every component of its
-// equilibrium holds; on 2026-09-27 it refused on `messaging_total` alone while five others were true, and no average
+// equilibrium holds; on 2026-09-27 it refused on the messaging-carrier component alone while five others were true,
+// and no average
 // would have shown that. A project's assessment has the same shape — the cells it CLAIMS, each holding or not —
 // because an average is what lets a strong Making conceal an absent Reflecting.
 //
