@@ -101,6 +101,8 @@ import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox 
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
 // sealedKeys reads the baked root at the edge and the rows on a host — the one accessor a keys-only answer needs
 import { sealedKeys } from './theorems/index.js'
+// the build's own computation graph, folded — one derivation behind the README, the site page and this door
+import { buildGraph } from './build-graph.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf } from './school/laboratory/index.js'
@@ -862,6 +864,13 @@ const TOOLS: Tool[] = ([
       const page = ts.slice(off, off + lim)
       return a.keys === true ? page.map((t) => t.key) : page
     } },
+  // THE BUILD ITSELF, AS A RECEIPT. The graph was declared in four places and served by none, so the only way to see
+  // what computes what was to read source — and the hook that guards this tree refused exactly that, correctly: an
+  // ad-hoc probe over dist is the thing a door is for. One call now answers it for the README, the site and any client.
+  { name: 'uuidna_build_graph',
+    description: 'THE COMPUTATION GRAPH AS ONE ORDER-INVARIANT RECEIPT — what generates every derived surface in this repository, folded so anyone recomputes the same fold. Read from the declarations the drain already keeps (DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS) and the per-surface spin coins that prove each file is what its writer wrote, so nothing here is authored and a new generator enters the graph the day it declares an output. TWO COUNTS ARE THE ONES TO READ, and they are the reason this is a quality receipt rather than a listing: `unowned` surfaces are sealed as generated with NO declared writer, so a hand edit to one survives the drain and is sealed as though a generator made it; `uncoined` surfaces are the ones spin ITSELF declares it seals and no coin covers, measured against that declaration rather than against every surface — surfaces outside the declaration are counted separately as `outsideSpin`, because not-spin-to-seal and unsealed are different facts and a receipt conflating them would raise a false alarm. Both are named, not merely counted. Returns {generators,surfaces,edges,unowned,uncoined,receipt,handle}. The README section and the site page render THIS call, so a figure in one cannot disagree with the other.',
+    inputSchema: { type: 'object', properties: { edges: { type: 'boolean', description: 'include every generator→surface edge with its coin; omit for the counts and the receipt' } } },
+    run: (a = {}) => { const g = buildGraph(); return a.edges === true ? g : { ...g, edges: g.edges.length } } },
   { name: 'uuidna_lattice',
     description: 'THE LATTICE CALLS. The 2^16 HexSpan stations exist first. Pass {station} (four hex, or enumeration_hex4_<hex>) for that station\'s identity, the named theorems and axioms seated there, the human problems it calls, and the solution involution of those problems. Pass nothing for the fill: occupancy, all 18 problems seated, involution pairs. HexSpan surfaces ARE the stations, not cargo. Calling is not solving — negation_involution_solves is the method (a solution is the denial\'s failure); Clay σ-involution reflects seven and solves none. Returns a LatticeCall or LatticeFill.',
     inputSchema: { type: 'object', properties: { station: { type: 'string', description: 'four hex (0000–ffff) or enumeration_hex4_<hex>; omit for the fill of all 2^16 stations' } } },

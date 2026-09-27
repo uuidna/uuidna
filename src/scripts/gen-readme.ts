@@ -7,6 +7,7 @@ import { STANDING_DOI } from '../handle-permanence.js'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { clayBlock } from './gen-clay.js'
+import { buildReceiptMd } from '../build-graph.js'
 import { ROOT as ROOT_DIR } from './api.js'
 import { injectPorts } from '../quantum/os/ports/index.js'
 import {
@@ -390,6 +391,16 @@ ${unlockReadmeBlock()}
 ---
 
 ## Reference
+
+### Build receipt — the computation graph
+
+This README is a receipt of a build, so the build's own graph belongs in it: which generator writes which surface, and
+the order-invariant fold over every one of those edges. Nothing below is authored — it is read from the declarations the
+drain already keeps, so a generator added tomorrow enters the graph the day it declares an output, and the same call
+renders this block, the site page and \`uuidna_build_graph\`. One derivation, three renderings: a figure here cannot
+disagree with a figure there.
+
+${buildReceiptMd()}
 
 ### Magnitudes (computed at generation)
 

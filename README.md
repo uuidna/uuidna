@@ -1,6 +1,6 @@
 # uuidna — 71,000 distinct theorems under 71,085 keys · 2 coins · one receipt
 
-`c454fbe0-b5aa-866a-a44a-a4e1ce206ba9`
+`ba4e905d-0192-8673-b860-4a1ca3aa5e9b`
 
 **What every theorem carries, and what most do not.** Of 71,085 keys: proof · falsifier · address hold for all of them; **witness 30** (0.0%), **symbol 1387** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
@@ -44,7 +44,7 @@ Every proof `by decide`, sorry-free, no Mathlib, axiom-free against the bare lea
 
 ## In three lines
 
-1. **71,085 theorems and 172,332,323 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
+1. **71,085 theorems and 172,332,352 decided cases, every one decided by the Lean 4 kernel** — sorry-free, no Mathlib, and depending on **no axiom at all**, not even propext. Recompute the whole thing with `npm run lean`.
 2. **Nothing here is asserted.** Every number is either walked by the kernel or computed from a rule the kernel checks against the walk. A literal that nobody can recompute is treated as a defect.
 3. **The boundary is in the theorem's name.** A result that holds over a window says so where you read it — `coprime_sum_blocked_reduced_3_mod_9`, `fixed_power_law_mod_45`. You never have to hunt a footnote to learn the scope.
 
@@ -257,6 +257,24 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 ## Reference
 
+### Build receipt — the computation graph
+
+This README is a receipt of a build, so the build's own graph belongs in it: which generator writes which surface, and
+the order-invariant fold over every one of those edges. Nothing below is authored — it is read from the declarations the
+drain already keeps, so a generator added tomorrow enters the graph the day it declares an output, and the same call
+renders this block, the site page and `uuidna_build_graph`. One derivation, three renderings: a figure here cannot
+disagree with a figure there.
+
+**82 generators → 101 surfaces**, 109 declared edge(s), folded order-invariantly to receipt `49232402-082b-8969-9675-40d2d1ad520f` (handle `49232402`). Recompute with `uuidna_build_graph`.
+
+| what | count | why it is the number to read |
+| --- | ---: | --- |
+| Generators | 82 | each named by the file that runs it, so the graph and the code spell things the same |
+| Surfaces | 101 | every output a declaration claims a writer for |
+| Unowned derived surfaces | 1 | spin seals them as generated and nothing declares who writes them, so a hand edit is kept: lean |
+| Unsealed inside spin's set | 0 | spin declares it seals these and no coin covers them — none |
+| Outside spin's set | 87 | not unsealed, simply not spin's to seal: several carry their own receipt |
+
 ### Magnitudes (computed at generation)
 
 | Measure | Value | Backing |
@@ -277,7 +295,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `04ccf23d-c6ab-8468-bab5-6068056c8dbd` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 172,332,323 superpositions (6 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 172,332,352 superpositions (6 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
