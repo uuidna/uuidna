@@ -197,7 +197,8 @@
     "corpus": "npm run build && node dist/scripts/discover-books.js --write && node dist/scripts/mine-wikisource.js bg --search \u0411\u043e\u0442\u0435\u0432 --limit 8 && node dist/scripts/decode-book.js 84 && node dist/scripts/iq-books.js --n 4 && npm run books",
     "outward": "npm run build && (node dist/scripts/audit-doi-harvest.js; node dist/scripts/audit-door-surface.js; node dist/scripts/release-live.js; node dist/scripts/leads-gate.js)",
     "padding": "npm run build && node dist/scripts/padding-conjuncts.js",
-    "clay-crossroads": "node dist/scripts/clay-crossroads.js"
+    "window-crossroads": "node dist/scripts/window-crossroads.js",
+    "numeral-reach": "node dist/scripts/numeral-reach.js"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

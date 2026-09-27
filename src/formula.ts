@@ -80,6 +80,26 @@ export function classify(statement: string): Classification {
  */
 export const formulaSource = (statement: string): string => withoutAscriptions(statement)
 
+/**
+ * Every numeral a statement is ABOUT, whatever its SHAPE: unique, ascending by value, 0 and 1 excluded.
+ *
+ * `parseFormula` refuses a program, and rightly — `((List.range 16).filter …).length = 4` is not a formula and
+ * pretending otherwise would put a fiction in the ledger. But refusing the shape does not make 16 and 4 stop being the
+ * quantities that statement counts, and for 97.9% of this corpus the shape is a program. This reader is the only route
+ * to their arithmetic.
+ *
+ * 0 AND 1 ARE STRUCTURE. `x * 1 = x` says nothing about x, and an integer shared with another wing is evidence of a
+ * junction only if it is not shared with nearly every wing. The same exclusion is made from the other side in
+ * padding-conjunct, for the same reason.
+ */
+export function characteristicNumerals(statement: string): string[] {
+  const seen = new Set<string>()
+  for (const d of withoutAscriptions(statement).match(/\b\d+\b/g) ?? []) {
+    if (Number(d) >= 2) seen.add(String(BigInt(d)))
+  }
+  return [...seen].sort((a, b) => (BigInt(a) < BigInt(b) ? -1 : BigInt(a) > BigInt(b) ? 1 : 0))
+}
+
 // ---- tokens ----
 type Tok = { t: 'num' | 'op' | '(' | ')'; v: string }
 

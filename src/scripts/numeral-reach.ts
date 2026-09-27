@@ -10,9 +10,9 @@
 // wave with a seal behind it, not for a reporting script.
 
 import { theorems } from '../theorems/index.js'
-import { classify } from '../formula.js'
+import { characteristicNumerals, classify } from '../formula.js'
 import { corpusAlgebra } from '../formulas.js'
-import { windowIntegers } from '../clay-crossroads.js'
+
 
 const rows = theorems()
 let formulaShaped = 0
@@ -23,7 +23,7 @@ const wingsOfInvisible = new Map<string, number>()
 for (const t of rows) {
   const st = String(t.statement ?? '')
   const shape = classify(st)
-  const ints = windowIntegers(st)
+  const ints = characteristicNumerals(st)
   for (const i of ints) all.add(i)
   if (shape === 'formula') {
     formulaShaped += 1
@@ -45,7 +45,7 @@ const invisible = [...all].filter((i) => !seen.has(i))
 // integer some wing had a reason to count to.
 const wingsCarrying = new Map<string, Set<string>>()
 for (const t of rows) {
-  for (const i of windowIntegers(String(t.statement ?? ''))) {
+  for (const i of characteristicNumerals(String(t.statement ?? ''))) {
     const s = wingsCarrying.get(i) ?? new Set<string>()
     s.add(String(t.file))
     wingsCarrying.set(i, s)

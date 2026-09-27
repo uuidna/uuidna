@@ -1,4 +1,4 @@
-import { classify, formulaSource, formulaTex, parseFormula, type BinOp, type Node } from './formula.js'
+import { characteristicNumerals, classify, formulaSource, formulaTex, parseFormula, type BinOp, type Node } from './formula.js'
 import { theorems } from './theorems/index.js'
 
 /**
@@ -297,6 +297,46 @@ export interface CorpusAlgebra {
   ceiling: string
 }
 
+/**
+ * The characteristic quantities PROGRAM-shaped theorems count, which no parse can reach — minus the coordinates.
+ *
+ * MEASURED BEFORE IT WAS BUILT. corpusAlgebra() saw 786 distinct integers of the 66,320 the ledger carries: 1.2%,
+ * because it draws from formulas() and 97.9% of sealed statements are programs. Every cross this file can form was
+ * therefore drawn from a fiftieth of the corpus's arithmetic, and the seven Clay windows — programs to the last one —
+ * stood at zero junctions.
+ *
+ * THE COORDINATES MUST NOT COME IN WITH THEM, and this is the whole difficulty. The naive reading of that measurement
+ * is "65,536 integers are unreachable", which is exactly 2^16 and is one enumerated address space: the HexSpan wings
+ * walking every 16-bit value. Those members are coordinates, not quantities anything had a reason to count to.
+ * Admitting them would hand every ranking 65k counting numbers and call the flood coverage.
+ *
+ * SO AN INTEGER IS ADMITTED WHEN SOMETHING CHOSE IT. An integer appearing only inside a single enumerating wing family,
+ * in no more than two files of it, is a coordinate and stays out; an integer that surfaces in a second family, or
+ * across more of one, was counted to on purpose. The test is computed from the corpus's own file names and carrier
+ * counts, so it is not an exception list and it moves when the wings do. 503 integers pass it — two orders of magnitude
+ * below the flattering number, and every one of them a quantity some wing had a reason to reach.
+ */
+export function programQuantities(): { value: string; wings: string[] }[] {
+  const wingsOf = new Map<string, Set<string>>()
+  for (const t of theorems()) {
+    const st = String(t.statement ?? '')
+    if (classify(st) !== 'program') continue
+    for (const v of characteristicNumerals(st)) {
+      const w = wingsOf.get(v) ?? new Set<string>()
+      w.add(String(t.file))
+      wingsOf.set(v, w)
+    }
+  }
+  const family = (wing: string): string => wing.replace(/\d+\.lean$/, '.lean')
+  const out: { value: string; wings: string[] }[] = []
+  for (const [value, wings] of wingsOf) {
+    const families = new Set([...wings].map(family))
+    if (families.size === 1 && wings.size <= 2) continue
+    out.push({ value, wings: [...wings].sort() })
+  }
+  return out.sort((x, y) => (BigInt(x.value) < BigInt(y.value) ? -1 : BigInt(x.value) > BigInt(y.value) ? 1 : 0))
+}
+
 // THE ALGEBRA IS READ ONCE. Every question below needs the same walk over the 1,527 formulas, and asking it per
 // wing would be one measurement taken 114 times — which this repository prices as a crack rather than as
 // thoroughness (the captain, 2026-09-07: "Slow comes from quantum cracks").
@@ -327,6 +367,14 @@ export function corpusAlgebra(): CorpusAlgebra {
       if (!w.includes(row.wing)) w.push(row.wing)
       stated.set(c.text, w)
     }
+  }
+  // THE PROGRAMS' QUANTITIES JOIN THE FORMULAS', which is what lets a cross reach a window that has no formula form.
+  // They are merged rather than appended so an integer both a formula and a program carry reports every wing carrying
+  // it: the wing list is what `span` and `rarest` are computed from, and a split entry would understate both.
+  for (const { value, wings } of programQuantities()) {
+    const w = wingsOf.get(value) ?? new Set<string>()
+    for (const wing of wings) w.add(wing)
+    wingsOf.set(value, w)
   }
   const integers = [...wingsOf.entries()]
     .map(([value, wings]) => ({ value, wings: [...wings].sort() }))
