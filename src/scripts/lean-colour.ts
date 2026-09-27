@@ -143,7 +143,7 @@ const FACTS = [
     // checked — which fails at once if the depth is not 8 bits, and could not before.
     // NESTED 16 × 16, NOT A FLAT 256. A single `List.range 256` walk recurses once per element and the kernel answered
     // `maximum recursion depth has been reached`. NO WING BUYS ITS OWN CEILING (this very file records that law), so
-    // the same 256 tints are walked as sixteen sixteens — identical domain, depth sixteen, no `set_option`.
+    // the same 256 tints are walked as sixteen sixteens — identical domain, depth sixteen, no a recursion-depth raise.
     js: () => Array.from({ length: 16 }, (_, a) => a)
       .every((a) => Array.from({ length: 16 }, (_, b) => b).every((b) => (16 * a + b) + (255 - (16 * a + b)) === 255))
       && 64 + 191 === 255,
