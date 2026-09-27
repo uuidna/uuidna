@@ -1376,7 +1376,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71085,\"formalBytes\":7660799,\"bytesPerTheorem\":107.76955757192094,\"verifyOps\":71085,\"produceOverVerify\":107.76955757192094,\"largest\":{\"key\":\"a_template…"
+   "excerpt": "{\"count\":71085,\"formalBytes\":7660801,\"bytesPerTheorem\":107.76958570725188,\"verifyOps\":71085,\"produceOverVerify\":107.76958570725188,\"largest\":{\"key\":\"a_template…"
   }
  },
  "uuidna_unlocks": {
@@ -13359,7 +13359,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"stations\":65536,\"occupied\":5803,\"vacant\":59733,\"theoremsSeated\":5549,\"axiomsSeated\":521,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
+   "excerpt": "{\"stations\":65536,\"occupied\":5804,\"vacant\":59732,\"theoremsSeated\":5549,\"axiomsSeated\":521,\"problemsSeated\":18,\"collisions\":[{\"station\":\"000e\",\"keys\":[\"euler_ph…"
   }
  },
  "uuidna_skills": {
@@ -14716,7 +14716,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"polarities\":{\"minus\":28528,\"neutral\":14136,\"plus\":28421,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4104,\"neutral\":2008,\"plus\":4060…"
+   "excerpt": "{\"polarities\":{\"minus\":28532,\"neutral\":14132,\"plus\":28421,\"capacity\":{\"minus\":4,\"neutral\":2,\"plus\":4},\"byRay\":[{\"ray\":0,\"minus\":4104,\"neutral\":2006,\"plus\":4060…"
   }
  },
  "uuidna_treason": {
@@ -15202,7 +15202,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71085,\"total\":true,\"failures\":[],\"receipt\":\"cc88dc6b-09f1-8efe-a223-0400abe04bae\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
+   "excerpt": "{\"count\":71085,\"total\":true,\"failures\":[],\"receipt\":\"04fb2243-e740-877c-bdef-085fdb08edeb\",\"honest\":\"THE TOTALITY SEAL: secure messaging is a TOTAL function on…"
   }
  },
  "uuidna_dictionary": {
@@ -15244,7 +15244,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"terms\":71085,\"skills\":129,\"principles\":260,\"receipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
+   "excerpt": "{\"terms\":71085,\"skills\":129,\"principles\":260,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\",\"honest\":\"the lexicon is the ledger — every term sealed, every de…"
   }
  },
  "uuidna_quantum_voting": {
@@ -18084,7 +18084,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"verifiedAll\":{\"theorems\":71085,\"verified\":71085,\"unverified\":0,\"receipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
+   "excerpt": "{\"verifiedAll\":{\"theorems\":71085,\"verified\":71085,\"unverified\":0,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\"},\"guarantees\":[{\"key\":\"legal_verdict_is_exact…"
   }
  },
  "uuidna_cloudflare_audit": {
@@ -18405,7 +18405,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71085,\"fnvReceipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\",\"sha256\":\"a1f3e89c88c55be8cf827082ed70fe0c2ca55a7029b806a3697774965ce06cb7\",\"tamperCost\":\"A …"
+   "excerpt": "{\"count\":71085,\"fnvReceipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\",\"sha256\":\"d249e3f4cd353ecf84589f4814ca924cd7ff2b52c37ef2666096bbda96568714\",\"tamperCost\":\"A …"
   }
  },
  "uuidna_forensics": {
@@ -18788,7 +18788,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":71085,\"verified\":71085,\"unverified\":0,\"leanBacked\":71085,\"receipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
+   "excerpt": "{\"count\":71085,\"verified\":71085,\"unverified\":0,\"leanBacked\":71085,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\",\"verdicts\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ …"
   }
  },
  "uuidna_css": {
@@ -19795,7 +19795,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"90c2e762\",\"theorems\":{\"count\":71085,\"verified\":71085,\"receipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\"},\"domains\":{\"count\":129,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"2eded855\",\"theorems\":{\"count\":71085,\"verified\":71085,\"receipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\"},\"domains\":{\"count\":129,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -19910,7 +19910,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"9f233f5a\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"56c63d6f\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
@@ -21164,7 +21164,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"fingerprint\":{\"count\":71085,\"fnvReceipt\":\"b886c06a-2690-89eb-8214-e8fa81afd06a\",\"sha256\":\"a1f3e89c88c55be8cf827082ed70fe0c2ca55a7029b806a3697774965ce06cb7\",\"…"
+   "excerpt": "{\"fingerprint\":{\"count\":71085,\"fnvReceipt\":\"74781383-d0fa-8855-b263-f3f7e447cba5\",\"sha256\":\"d249e3f4cd353ecf84589f4814ca924cd7ff2b52c37ef2666096bbda96568714\",\"…"
   }
  },
  "uuidna_audit_agent_statement": {

@@ -1,0 +1,12 @@
+{
+  "handle": "8cc59cd8",
+  "address": "8cc59cd8-9733-834a-af75-0d8fd212b7a2",
+  "statement": "(71703 + 256 + 43563 + 71547 + 71703 + 1 = 258773) ∧ (258773 > 3 * 71703)",
+  "tactic": "decide",
+  "keys": [
+    "the_store_footprint_is_its_folders"
+  ],
+  "files": [
+    "Cyber.lean"
+  ]
+}
