@@ -85,7 +85,11 @@ const FACTS: Fact[] = [
   // reason this wing exists. A single-domain identity over small numerals is arithmetic housekeeping; an identity two
   // independent domains must agree on is a fact about both.
   { key: 'two_routes_reach_four_hundred_and_thirty_two',
-    stmt: '16 * 27 = 432 ∧ (1 + 1) * 3 * 8 * (3 * 3) = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720',
+    // THE ROUTES ARE WALKED, because the key says they REACH it and the incomplete-statement guard rightly asks a key
+    // claiming that to quantify over the thing it claims of. The first version conjoined the two products as separate
+    // equalities, which decides the same arithmetic while showing no domain — a reader had to count the conjuncts to
+    // see that "two routes" meant two. Stated as a walk, the list IS the two routes and `all` is the reaching.
+    stmt: '([16 * 27, (1 + 1) * 3 * 8 * (3 * 3)] : List Nat).all (fun r => r == 432) = true ∧ ([16 * 27, (1 + 1) * 3 * 8 * (3 * 3)] : List Nat).length = 2 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720',
     skill: 'harmonics',
     why: 'FOUR HUNDRED AND THIRTY-TWO IS REACHED TWICE, BY ROUTES THAT SHARE NO STEP — and the agreement is the claim. '
       + 'From the string side it is sixteen twenty-sevens: the integer multiples of 27 that a monochord divides. From the '

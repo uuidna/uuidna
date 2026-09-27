@@ -23,4 +23,4 @@ def coil : Nat := coins * rays
     division with no remainder, which is why the number carries the ratios at all. NOT CLAIMED: that 432 is a
     correct or preferable tuning, nor that any framework must be built on these integers. What is claimed is
     that two unrelated countings meet on one integer and that its fifths, fourths and thirds are exact there. -/
-theorem two_routes_reach_four_hundred_and_thirty_two : 16 * 27 = 432 ∧ (1 + 1) * 3 * 8 * (3 * 3) = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 := by decide
+theorem two_routes_reach_four_hundred_and_thirty_two : ([16 * 27, (1 + 1) * 3 * 8 * (3 * 3)] : List Nat).all (fun r => r == 432) = true ∧ ([16 * 27, (1 + 1) * 3 * 8 * (3 * 3)] : List Nat).length = 2 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 := by decide
