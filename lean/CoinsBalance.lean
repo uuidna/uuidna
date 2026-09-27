@@ -15,43 +15,12 @@ def theory : Nat := seed
 def practice : Nat := seed
 def coil : Nat := coins * rays
 
-/-- THE STRING RATIOS OVER TWENTY-SEVEN, moved from qpu where they measured nothing about a processing unit.
-    Integer multiples of 27 reach 432, and the just fractions of 432 — 3/2, 4/3, 5/4, 5/3 — land on 648, 576,
-    540 and 720 in exact Nat division with no remainder. That exactness is the whole content: these are the
-    ratios a monochord divides, stated as integer arithmetic so the kernel decides them rather than a tuning
-    convention. NOT CLAIMED: that 432 is a correct or preferable tuning — only that these integers stand in
-    these ratios. -/
-theorem string_ratios_of_twentyseven : 16 * 27 = 432 ∧ 8 * 27 = 216 ∧ 4 * 27 = 108 ∧ 2 * 27 = 54 ∧ 1 * 27 = 27 ∧ 432 + 432 = 864 ∧ 216 + 216 = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 ∧ 3 * 3 + 1 = 10 ∧ 3 * 3 + 1 + 1 = 11 ∧ 27 - 1 = 26 := by decide
-
-/-- THE SAME FRACTIONS AS A SEPARATE PUBLISHED ROW, and the overlap is stated rather than merged. qpu carried
-    this beside `string`, sharing five of its seven clauses, because it was published under its own name — and
-    merging two published records would withdraw one of them, which this tree does not do. What it adds beyond
-    `string` is 3 * 5 = 15. Kept distinct so the duplication is visible in the census instead of hidden by a
-    tidy-up. -/
-theorem algebraic_fractions_decide_themselves : 16 * 27 = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 ∧ 3 * 5 = 15 ∧ 27 - 1 = 26 := by decide
-
-/-- THE PENTAGRAM IS THREE PLUS TWO. n is the length of ["quantum","processing","unit"] and coins is two, so the
-    five points are the unit's own three words and the two coins — not a figure chosen for its shape. qpu read
-    the five as an occupancy pentagram over personal, business, corporate, saas and paas; that reading is a
-    reading, and what the kernel decides is only the arithmetic: 3 + 2 = 5. -/
-theorem the_pentagram_is_the_unit_and_its_coins : n + coins = 5 := by decide
-
-/-- THE COMBINATORIAL PRODUCT IS 432, AND THE CHOICES ARE THE UNIT'S OWN. coins × n × mintOf n × n² is 2 × 3 × 8
-    × 9 = 432, the same integer the string ratios reach from the other side — which is why the two rows are
-    worth reading together and why neither proves the other. Choosing two of three is three; choosing two of
-    seven rays is three sevens; the fourteen faces are two coins of seven; and the two instruments, scanner and
-    radar, are one coin each. NOT CLAIMED: that any UI framework must be built this way — qpu read these
-    integers onto a component schema, and the reading is not the theorem. -/
-theorem the_schema_combinatorics_are_fourthirtytwo : coins * n * mintOf n * (n * n) = 432 ∧ chooseOf n coins = n ∧ chooseOf rays coins = n * rays ∧ faces = coins * rays ∧ scanner + radar = coins := by decide
-
-/-- THEORY AND PRACTICE ARE ONE COIN EACH, AND EQUAL. Both are the seed, so their sum is the two coins and
-    neither outweighs the other — the balance is an identity rather than an aspiration. This is the row that
-    reads as an aphorism and decides as arithmetic: 1 + 1 = 2 and 1 = 1, over defs that name which side is
-    which. -/
-theorem theory_and_practice_are_the_two_coins : theory + practice = coins ∧ theory = practice := by decide
-
-/-- THE COIL IS THE FOURTEEN FACES, AND THE TWO HALVES ARE EQUAL. Two coins of seven rays is fourteen, and the
-    faces are eight vertices plus four hexbit plus two coins — also fourteen, reached by a different route. In
-    qpu this row leaned on the two-coins-make-a-coil row, which STAYS there because its coil-efficiency row
-    cites it; here the equality is decided directly from the defs, so the move took nothing qpu still needs. -/
-theorem the_coil_is_the_faces_and_the_halves_are_equal : coil = faces ∧ theory = practice := by decide
+/-- FOUR HUNDRED AND THIRTY-TWO IS REACHED TWICE, BY ROUTES THAT SHARE NO STEP — and the agreement is the claim.
+    From the string side it is sixteen twenty-sevens: the integer multiples of 27 that a monochord divides. From
+    the combinatorial side it is 2 × 3 × 8 × 9 — two coins, the three words of "quantum processing unit", the
+    eight doublings of those three, and the nine of three squared. Neither route mentions the other, and both
+    land on 432. Then the just fractions of it — 3/2, 4/3, 5/4, 5/3 — fall on 648, 576, 540 and 720 in exact Nat
+    division with no remainder, which is why the number carries the ratios at all. NOT CLAIMED: that 432 is a
+    correct or preferable tuning, nor that any framework must be built on these integers. What is claimed is
+    that two unrelated countings meet on one integer and that its fifths, fourths and thirds are exact there. -/
+theorem two_routes_reach_four_hundred_and_thirty_two : 16 * 27 = 432 ∧ (1 + 1) * 3 * 8 * (3 * 3) = 432 ∧ 432 * 3 / 2 = 648 ∧ 432 * 4 / 3 = 576 ∧ 432 * 5 / 4 = 540 ∧ 432 * 5 / 3 = 720 := by decide

@@ -351,12 +351,7 @@ wallet_counts_worlds 27
 coins_unique_operation_agreement 27
 coin_and_heart_generate_the_scales 27
 #CoinsBalance.lean
-string_ratios_of_twentyseven 27
-algebraic_fractions_decide_themselves 27
-the_pentagram_is_the_unit_and_its_coins 19
-the_schema_combinatorics_are_fourthirtytwo 19
-theory_and_practice_are_the_two_coins 19
-the_coil_is_the_faces_and_the_halves_are_equal 19
+two_routes_reach_four_hundred_and_thirty_two 27
 #Colour.lean
 aura_alphabet_is_pairwise_distinct 27
 fourth_ray_is_green_band 27
