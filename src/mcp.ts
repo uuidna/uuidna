@@ -107,7 +107,7 @@ import { buildGraph } from './build-graph.js'
 import { hexProgramIndex } from './hex-programs.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
-import { labOf } from './school/laboratory/index.js'
+import { labOf, familySiblingsOf } from './school/laboratory/index.js'
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
@@ -1100,6 +1100,13 @@ const TOOLS: Tool[] = ([
         key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file,
         address: t.address, verdict: 'SEALED', source: dual.paper.source,
         paper: dual.paper, blueprint: dual.blueprint, lab: labOf(t.key),
+        // THE FAMILY AXIS, 2026-09-28 (the captain: "develop all domains by family at school mcp os"). The 131
+        // admitted domains were served flat: schoolLabs() had the whole roster and mcp.ts imported only labOf, so the
+        // roster was correct and unreachable. The FULL roster stays off the wire on purpose — an open lead records
+        // tools/list already past its sealed ceiling — so what rides here is this skill's own families and the siblings
+        // inside them, which is the part a caller can act on. A domain spanning several wing families carries all of
+        // them; choosing the largest would invent a hierarchy the ledger does not have.
+        family: familySiblingsOf(t.skill ?? ''),
         axioms,
         ...(record ? { names: record.name, describes: record.description, cites: record.citation, honest: record.honest } : {}),
       }
@@ -2468,7 +2475,36 @@ export const resolveToolName = (name: unknown): string | undefined => {
     BY_NAME = new Map()
     for (const t of TOOLS) { BY_NAME.set(t.name, t.name); BY_NAME.set(STANDARD_NAMES[t.name] ?? t.name, t.name) }
   }
-  return BY_NAME.get(name)
+  const byName = BY_NAME.get(name)
+  if (byName !== undefined) return byName
+  // ── A UUID IS A PROGRAM CALL, AND THIS IS WHERE IT BECOMES ONE ────────────────────────────────────────────────
+  //
+  // The captain, 2026-09-28: "a UUID is a program call — 32 bits name the door, 16 carry params, inside the 48-bit
+  // middle", and before that "Convert code to hex instead of wrapping".
+  //
+  // THE ADDRESS SPACE EXISTED AND NOTHING CALLED IT. hex-programs derived a program hex for every door from its own
+  // contract, proved the set collision-free, and exposed uuidOfCall/callOfUuid — and a consumer check found ZERO real
+  // callers for the codec, only its own test. A published table nobody reads is the same defect as an artifact nobody
+  // reads, measured by the same instrument that named 435 dead exports in this tree. So the codec is wired into the
+  // ONE place every surface already resolves a name, rather than given a wrapper of its own: the edge's tools/call,
+  // the stdio server and callTool all pass through here, so a uuid is callable on every surface at once.
+  //
+  // THE LAYOUT IS THE SEALED ONE, not a scheme invented here: the middle three groups are 48 bits
+  // (layout_groups_thirtytwo), the program takes two message caps of four hexbits each — 32 bits, addressing 251
+  // doors with no collision — and one cap of 16 bits rides beside it for params. 2^48 is the capacity of the middle,
+  // and 2^32 is what a door address spans, which is why the collision set is recomputed on every index rather than
+  // assumed (gematria_forces_collisions is sealed here: names DO collide).
+  //
+  // WHAT IT DOES NOT DO: it resolves, it does not inject. Sixteen bits cannot carry a JSON object, so the params cap
+  // is reported by uuidna_hex_programs and decoded by callOfUuid for a caller that wants it; arguments still arrive
+  // as arguments. A resolver that guessed which schema field 16 bits belonged to would be inventing semantics the
+  // layout does not carry.
+  const bare = name.replace(/-/g, '').toLowerCase()
+  if (bare.length === 32 && /^[0-9a-f]{32}$/.test(bare)) {
+    const program = bare.slice(8, 16)
+    return hexProgramIndex().programs.find((pr) => pr.hex === program)?.name
+  }
+  return undefined
 }
 
 /** wireRowOf(t, surface) → the row tools/list serves: the standard name, the plain title, the ONE computed line
