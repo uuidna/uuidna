@@ -13998,7 +13998,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Check release readiness. Returns {sources,open,unmeasured,settled,asked,answered,ready,why,…}.",
+  "description": "Check release readiness. Returns {sources,open,holding,reported,unmeasured,settled,asked,…}.",
   "outputSchema": {
    "type": "object",
    "properties": {
@@ -14009,6 +14009,12 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      }
     },
     "open": {
+     "type": "array"
+    },
+    "holding": {
+     "type": "array"
+    },
+    "reported": {
      "type": "array"
     },
     "unmeasured": {
@@ -14059,7 +14065,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      }
     ]
    },
-   "excerpt": "{\"sources\":[{\"source\":\"theorem\",\"reached\":false,\"why\":\"theorem\",\"settled\":1,\"open\":[{\"source\":\"theorem\",\"what\":\"theorem\",\"owes\":\"theorem\"}]}],\"open\":[],\"unmeas…"
+   "excerpt": "{\"sources\":[{\"source\":\"theorem\",\"reached\":false,\"why\":\"theorem\",\"settled\":1,\"open\":[{\"source\":\"theorem\",\"what\":\"theorem\",\"owes\":\"theorem\"}]}],\"open\":[],\"holdin…"
   }
  },
  "uuidna_open_questions": {
@@ -15954,7 +15960,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":59,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":59,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":61,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":61,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
