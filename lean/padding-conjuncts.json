@@ -1,5 +1,5 @@
 {
- "examined": 67226,
+ "examined": 67225,
  "findings": [
   {
    "key": "decibel_is_logarithmic",
@@ -94,7 +94,7 @@
   {
    "key": "prose_audit_total",
    "file": "Audit.lean",
-   "conjunct": "(0 < 257)",
+   "conjunct": "(0 < 258)",
    "of": 3
   },
   {
@@ -106,25 +106,25 @@
   {
    "key": "prose_audit_total",
    "file": "Audit.lean",
-   "conjunct": "(71036 = 71036 + 0)",
+   "conjunct": "(71034 = 71034 + 0)",
    "of": 3
   },
   {
    "key": "prose_beats_restatement",
    "file": "Audit.lean",
-   "conjunct": "(0 < 71036)",
+   "conjunct": "(0 < 71034)",
    "of": 2
   },
   {
    "key": "prose_beats_restatement",
    "file": "Audit.lean",
-   "conjunct": "(0 + 71036 = 71036)",
+   "conjunct": "(0 + 71034 = 71034)",
    "of": 2
   },
   {
    "key": "prose_folds_receipt",
    "file": "Audit.lean",
-   "conjunct": "(1 < 9)",
+   "conjunct": "(7 < 9)",
    "of": 3
   },
   {
@@ -404,12 +404,6 @@
    "of": 3
   },
   {
-   "key": "string_ratios_of_twentyseven",
-   "file": "CoinsBalance.lean",
-   "conjunct": "1 * 27 = 27",
-   "of": 14
-  },
-  {
    "key": "alphabet_exceeds_wheel",
    "file": "Colour.lean",
    "conjunct": "(360 < 378)",
@@ -502,7 +496,7 @@
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
    "file": "CrossFormulas.lean",
-   "conjunct": "(42676 < 97561)",
+   "conjunct": "(89768 < 431173)",
    "of": 2
   },
   {
@@ -556,7 +550,7 @@
   {
    "key": "the_third_level_already_shares",
    "file": "Cyber.lean",
-   "conjunct": "(71548 < 71703)",
+   "conjunct": "(71556 < 71711)",
    "of": 3
   },
   {
@@ -646,13 +640,13 @@
   {
    "key": "the_key_index_fits_where_the_rows_do_not",
    "file": "DoorSurface.lean",
-   "conjunct": "(1602374 * 84 > 134217728)",
+   "conjunct": "(1602530 * 84 > 134217728)",
    "of": 2
   },
   {
    "key": "the_keys_are_a_small_fraction_of_the_rows",
    "file": "DoorSurface.lean",
-   "conjunct": "(1602374 * 27 > 41943040)",
+   "conjunct": "(1602530 * 27 > 41943040)",
    "of": 3
   },
   {
@@ -1038,6 +1032,12 @@
    "file": "Installs.lean",
    "conjunct": "((6 : Nat) = 6)",
    "of": 13
+  },
+  {
+   "key": "symmetry_with_content_is_not_emptiness",
+   "file": "Invariance.lean",
+   "conjunct": "¬(1 * 1 = 2 * 2)",
+   "of": 2
   },
   {
    "key": "isometry_bounds_correction",
@@ -2062,7 +2062,7 @@
   {
    "key": "cubes_partition_ledger",
    "file": "Software.lean",
-   "conjunct": "(260 < 71075)",
+   "conjunct": "(261 < 71073)",
    "of": 3
   },
   {
@@ -2954,5 +2954,5 @@
    "of": 4
   }
  ],
- "receipt": "78ebb7d2-1cca-85f1-afe4-3c2388a81ebf"
+ "receipt": "909ab50d-9daa-8a9c-aba9-ad39d2b74c71"
 }
