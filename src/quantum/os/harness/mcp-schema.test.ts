@@ -44,9 +44,24 @@ test('no empty call can spawn a process — every orchestration tool declares a 
   const src = readFileSync(join(ROOT, 'src', 'mcp.ts'), 'utf8')
   const blocks = src.split(/\n  \{ name: '/).slice(1)
   const offenders: string[] = []
+  // A MENTION IS NOT A SPAWN, and this finder accused uuidna_build_graph of shelling out on 2026-09-28. Its block runs
+  // to the next `{ name: '`, so it swallowed the paragraph before uuidna_git — one line of which reads "spawnSync
+  // reports status null when the command never STARTED". buildGraph() contains no spawn at all; the door it was blamed
+  // for is uuidna_git, which does shell out and correctly declares required: ['ask']. So the gate refused a landing over
+  // a sentence, and the tool it named was the one tool in the block that was innocent.
+  //
+  // The cure is the law this tree already holds for exactly this (scanner_cannot_tell_use_from_mention, and the same
+  // strip dead-exports.ts needed on 2026-09-28 before it could count a consumer): comments and string literals carry
+  // prose ABOUT code and are removed before the scan. A tool that really spawns still does so in code.
+  const code = (b: string): string => b
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1 ')
+    .replace(/'(?:[^'\\\n]|\\.)*'/g, "''")
+    .replace(/"(?:[^"\\\n]|\\.)*"/g, '""')
+    .replace(/`(?:[^`\\]|\\.)*`/g, '``')
   for (const b of blocks) {
     const name = b.slice(0, b.indexOf("'"))
-    if (!/spawnSync|execSync/.test(b)) continue
+    if (!/spawnSync|execSync/.test(code(b))) continue
     // spawn behind an explicit host flag — empty {} stays snapshot-only (uuidna_fill_gaps)
     if (/if\s*\(\s*a\.run\s*===?\s*true\s*\)[\s\S]*spawnSync/.test(b)) continue
     const entry = MCP_CATALOG.find((t) => t.name === name)
