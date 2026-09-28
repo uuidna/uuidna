@@ -14,9 +14,18 @@
 // corrected rule invalidates its own receipts by construction, with nothing to remember to bump.
 //
 // A RECEIPT IS NOT A CLAIM ABOUT THE ANSWER. It says only that this rule, over these inputs, already produced this
-// value. It cannot notice that the value was wrong, and a door whose logic is broken will serve the same broken answer
-// faster. That is the honest limit of caching and the reason the receipt carries the digest it was earned under — so a
-// reader can see exactly what was held fixed.
+// value. It cannot notice that the value was wrong BY CONSTRUCTION — the digest folds the inputs and the rule and never
+// the value, so there is nothing in a receipt for a wrong answer to disagree with — and a door whose logic is broken
+// will serve the same broken answer faster. That is the honest limit of caching, and the reason the receipt carries the
+// digest it was earned under — so a reader can see exactly what was held fixed.
+
+// @non-harmonic: async/await, for servedAsync ALONE and for one measured reason. A receipted door must not import the
+// ledger to decide whether it needs the ledger: dist/theorems/generated.js costs 699ms as a static import, which runs
+// before any logic, so a receipt placed after it can never pay (measured 2026-09-28 on falsifier-gap — the receipt HIT
+// and the door got slower). Reaching the heavy modules only on a miss means importing them INSIDE compute, and a
+// dynamic import is a promise. The await is therefore a BOUNDARY, not non-determinism: nothing here reads a clock, a
+// random source or a network, the digest folds the same bytes whether it is earned synchronously or not, and `served`,
+// the synchronous twin, carries the identical rule for every door with no such import to defer.
 
 import { createHash } from 'node:crypto'
 

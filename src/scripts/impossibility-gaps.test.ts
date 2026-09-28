@@ -56,6 +56,10 @@ test('a reason placed BEFORE the claim clears too — a sentence may run cause-f
 test('the keyword sources still clear, and clearing is not contagious', () => {
   assert.ok(!flagged('// cannot read it — no filesystem in an isolate'))
   assert.ok(!flagged('// cannot happen by construction'))
+  // THE FIX THIS FILE PRINTS MUST CLEAR THIS FILE. It names four sources; a cure written in the third one was
+  // flagged again until `declared boundary` joined the vocabulary, so both directions are asserted here.
+  assert.ok(!flagged('// cannot classify it from the name alone, which is the declared boundary of this reader'))
+  assert.ok(flagged('// cannot classify it from the name alone, which is the boundary'), 'bare "boundary" is not a reason')
   assert.ok(!flagged('// patch-first is the rule of this project, so a minor bump is not required'))
   // a reason attached to ONE claim does not license a second, unexplained one on the same line
   assert.ok(REASON_CLAUSE.test('// cannot A: because the host has no clock'))

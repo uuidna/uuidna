@@ -49,7 +49,14 @@ export const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible
 // a modal claim earns its place by naming a host fact, a law, a construction, or an explicit DECISION — the
 // last was added for the obligation class: a project rule is a legitimate source, it simply has to be named as
 // one rather than dressed as a necessity
-export const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
+//
+// `declared boundary` WAS ADDED BECAUSE THIS FILE'S OWN FIX ADVERTISED IT. The message printed beside every gap
+// names four acceptable sources — "a host fact …, a sealed theorem, a declared boundary, or 'by construction'" —
+// and the vocabulary carried three of them, so a reader who followed the printed instruction word for word was
+// flagged again on the next run. Two surfaces that must agree and did not, found by walking into it: the phrase
+// is taken as a PAIR, never bare `boundary`, because a boundary is a thing this tree has many of and only a
+// DECLARED one is a reason.
+export const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|declared boundary|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
 
 // AND A REASON STATED AS A CLAUSE IS A NAMED REASON. The rule at the top of this file is "must name the reason
 // in the same breath" — but JUSTIFIED is a VOCABULARY, so a claim that gives its reason in plain English scored
