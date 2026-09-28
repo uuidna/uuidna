@@ -1,0 +1,1834 @@
+{
+  "kind": "door-receipt",
+  "digest": "bd321397ce5cbc4762610205e6328af3",
+  "value": {
+    "sites": 1024,
+    "files": [
+      {
+        "file": "src/scripts/one-receipt.ts",
+        "gates": 110,
+        "checks": 1,
+        "cites": [
+          "two_coins",
+          "imprint_capacity_chain"
+        ],
+        "grounded": true,
+        "security": 2
+      },
+      {
+        "file": "src/scripts/deploy-verify.ts",
+        "gates": 58,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/dry-gaps.ts",
+        "gates": 25,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/advantage/audit/index.ts",
+        "gates": 23,
+        "checks": 0,
+        "cites": [
+          "verify_beats_recompute_by_magnitudes"
+        ],
+        "grounded": true,
+        "security": 1
+      },
+      {
+        "file": "src/prepublish-seal.ts",
+        "gates": 17,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/seo-freeze.ts",
+        "gates": 14,
+        "checks": 0,
+        "cites": [
+          "message_carries_address"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/publication-prior-art.ts",
+        "gates": 12,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/grid.ts",
+        "gates": 11,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/publication-metadata.ts",
+        "gates": 9,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/predict-and-fill.ts",
+        "gates": 9,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/handle-permanence.ts",
+        "gates": 7,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/browser-usable.ts",
+        "gates": 7,
+        "checks": 17,
+        "cites": [
+          "song_round_turns_on_seven"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/accounting-gaps.ts",
+        "gates": 6,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/quantum-dimension-scan.ts",
+        "gates": 6,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mirror.ts",
+        "gates": 5,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school/automate/improvement/index.ts",
+        "gates": 5,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-packages.ts",
+        "gates": 5,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/context-budget.ts",
+        "gates": 5,
+        "checks": 0,
+        "cites": [
+          "drift_is_named_or_caught"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/dissolved.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/memory-home.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/npm-pack.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/mcpman/index.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/ratchet-gaps.ts",
+        "gates": 4,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/research-ledger.ts",
+        "gates": 3,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-tool-exercise.ts",
+        "gates": 3,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/exercise-dormant.ts",
+        "gates": 3,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/quantum/os/catalogue/index.ts",
+        "gates": 2,
+        "checks": 0,
+        "cites": [
+          "the_os_is_bootable_quantum",
+          "provenance_integrity_not_content_truth"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/rosetta-legs.ts",
+        "gates": 2,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-ledger-drain.ts",
+        "gates": 2,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/autopilot.ts",
+        "gates": 2,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/landing-gaps.ts",
+        "gates": 2,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/collection/index.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/gap-survey.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [
+          "drift_is_named_or_caught",
+          "involution_c0727ef6"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/mcp-citations.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/theorem-demos.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school/leads/index.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/attestation-gaps.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/guard.ts",
+        "gates": 1,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/impossibility-gaps.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/ship-preflight.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/team/index.ts",
+        "gates": 1,
+        "checks": 0,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/anchor.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/books.ts",
+        "gates": 0,
+        "checks": 6,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/boundary.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/captain/credits/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/chacha.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/clay-involution.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/compose-object.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/constants.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/contract.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/conversation.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/corroborate.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/crypt.ts",
+        "gates": 0,
+        "checks": 6,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/cve.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/cycles.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/decide.ts",
+        "gates": 0,
+        "checks": 7,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/decipher/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/drivers/driverapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/due-process.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "n_qubit_dimension"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/edge-ledger.ts",
+        "gates": 0,
+        "checks": 10,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/editor.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/editorial.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/fusion/reactor/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/handle-store-census.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/handle.ts",
+        "gates": 0,
+        "checks": 8,
+        "cites": [
+          "message_carries_address"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/hex-programs.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/hexagram.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/hexbit/index.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/hkdf.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/hologram-fanout.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/imprint.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/involution/index.ts",
+        "gates": 0,
+        "checks": 57,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/lattice.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/lead-clusters.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/market.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp-a432.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp-door.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp-http.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [
+          "provenance_integrity_not_content_truth",
+          "drift_is_named_or_caught"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/mcp-names.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/mcp.ts",
+        "gates": 0,
+        "checks": 23,
+        "cites": [
+          "imprint_capacity_chain",
+          "orbits_closed_involution",
+          "provenance_integrity_not_content_truth",
+          "monitoring_the_points_covers_every_crack_by_architecture",
+          "drift_is_named_or_caught",
+          "captain_commission_two_coins",
+          "k432",
+          "minting_is_free_and_forging_is_not",
+          "the_os_is_bootable_quantum",
+          "a_spec_compiles_to_hexbits",
+          "the_aead_envelope_fits_inside_one_chacha_block",
+          "n_qubit_dimension",
+          "hexbit_is_four_qubits",
+          "every_access_instrument_is_qualified",
+          "no_instrument_narrower_than_its_question",
+          "court_theorem_beats_assertion",
+          "order_of_two_is_six",
+          "optimisation_space_is_qubit_dimension",
+          "grover_halves_the_search_exponent",
+          "lp_strong_duality_instance",
+          "grover_quadratic_bound",
+          "each_key_bit_doubles",
+          "birthday_halves_the_exponent",
+          "redirect_imitable_but_coins_authorise",
+          "anti_fraud_check_deterministic",
+          "honesty_gate_is_theorem_not_oracle",
+          "traitor_damage_sealed_by_same_billing",
+          "seats_pigeonhole",
+          "verify_cheaper_than_forge",
+          "no_maximum_only_bounds",
+          "alpine_shell_domain_commands_345",
+          "two_coins",
+          "verify_beats_recompute_by_magnitudes"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/crystals.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/curve-utils.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/curve.ts",
+        "gates": 0,
+        "checks": 18,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/edwards.ts",
+        "gates": 0,
+        "checks": 20,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/nobles/fft.ts",
+        "gates": 0,
+        "checks": 16,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/hash-utils.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/hmac.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/hybrid-nist.ts",
+        "gates": 0,
+        "checks": 6,
+        "cites": [],
+        "grounded": false,
+        "security": 3
+      },
+      {
+        "file": "src/nobles/hybrid.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/nobles/md.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/ml-dsa.ts",
+        "gates": 0,
+        "checks": 7,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/ml-kem.ts",
+        "gates": 0,
+        "checks": 9,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/nobles/modular.ts",
+        "gates": 0,
+        "checks": 35,
+        "cites": [],
+        "grounded": false,
+        "security": 3
+      },
+      {
+        "file": "src/nobles/montgomery.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/pq-utils.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/sha3.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/slh-dsa.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/nobles/weierstrass.ts",
+        "gates": 0,
+        "checks": 35,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/odometer.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/oeapi.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/optimise.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [
+          "optimisation_space_is_qubit_dimension"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/os/gpu/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/netapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/overlay/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/runtime/hostnode/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/runtime/rootfs/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/secapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/os/timing/index.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [
+          "verify_beats_recompute_by_magnitudes"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/payload-seed.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/post-push.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/pqc/envelope/index.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/pqc/hybrid/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 2
+      },
+      {
+        "file": "src/publish.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/qpu-hologram.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/anthem-superposition.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/balancer.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/categories/books/strips.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/categories/coding/frame-editor.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/categories/practice/drill.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/hexbit-animator.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/apps/hexbit-player.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/combinatorics/index.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/index.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [
+          "n_qubit_dimension"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/memory/index.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/message/index.ts",
+        "gates": 0,
+        "checks": 9,
+        "cites": [
+          "n_qubit_dimension"
+        ],
+        "grounded": true,
+        "security": 3
+      },
+      {
+        "file": "src/quantum/os/acme/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/boot/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/census/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/chainapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/chat/index.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/quantum/os/court/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/cryptoapps/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/dbapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/engapi/index.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [
+          "verify_beats_recompute_by_magnitudes",
+          "quantum_types_decide_before_computing_121"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/exec/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "the_os_is_bootable_quantum"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/fsapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "the_os_is_bootable_quantum"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/news/index.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/school/index.ts",
+        "gates": 0,
+        "checks": 9,
+        "cites": [
+          "provenance_integrity_not_content_truth"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/shellapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/socialapi/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/os/weather/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/quantum/voting/index.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/receipt-memo.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/referrer-song.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school/advantage/mcp/examples/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school/pqc/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school/sequence/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/api.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-door-surface.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-exemptions.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/audit-law-register.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/autopilot-train.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/bench-hexbit.ts",
+        "gates": 0,
+        "checks": 7,
+        "cites": [
+          "verify_beats_recompute_by_magnitudes"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/cloudflare-zone.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/court-hooks.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/deploy-run.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "two_coins",
+          "drift_is_named_or_caught"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/develop-cures.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/discover-books.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/gen-alpine-catalogue.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "the_os_is_bootable_quantum"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-alpine-overlay.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-alpine-testing-leads.ts",
+        "gates": 0,
+        "checks": 6,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-anthem.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-articles.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-bound-census.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-evasion.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-handle-chunks.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-handle-store.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-mcp-docs.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-referrer-song.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-rights-page.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-song.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/gen-symphony.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/involution-family.ts",
+        "gates": 0,
+        "checks": 21,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/leads-gate.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "no_instrument_narrower_than_its_question"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-axioms.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-cern-links.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [
+          "cms_events_close_over_their_files",
+          "digital_root",
+          "the_four_cern_records_close_their_own_totals",
+          "the_open_data_embargo_ran_six_years_or_longer",
+          "the_collision_energy_label_step_is_one_tev",
+          "rosette_and_vortex_are_coprime"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-cyber.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "the_store_footprint_is_its_folders",
+          "the_third_level_already_shares"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-forensics.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "forged_address_odds_are_negligible",
+          "forged_handle_odds_are_small",
+          "sixteen_bit_handles_would_collide"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-hexbit.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [
+          "address_and_payload_exchange_at_one_twenty_eight",
+          "hexbits_reconstruct_every_integer_they_span",
+          "the_void_tile_cannot_cross",
+          "the_uuid_is_two_boards",
+          "alphabet_names_each_nibble",
+          "layout_groups_thirtytwo",
+          "characters_span_the_address",
+          "handle_is_the_first_group",
+          "groups_are_four_apart",
+          "build_counts_in_hexbits",
+          "payload_carries_the_strand",
+          "payload_aligns_where_the_name_does_not",
+          "the_handle_molecule_is_the_mix_census",
+          "four_vectors_reach_the_uuid",
+          "slit_on_the_hexbit_ring",
+          "dark_fringe_is_the_half_turn",
+          "fringe_pattern_reflects_dz",
+          "which_path_conserves_the_total",
+          "hexbit_states_are_sixteen",
+          "message_cap_is_four_hexbits",
+          "hexbit_ring_mass_gap",
+          "born_field_mass_gap_on_bell",
+          "uuidna_name_spans_the_layout"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-installs.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-ledger.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "n_qubit_dimension"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/lean-sicross.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [
+          "energy_is_reachable_by_four_independent_routes",
+          "the_crossed_units_agree_on_one_vector_each",
+          "the_lattice_is_closed_under_product_and_ratio"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/mcp-call.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/mcp-drive.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/mcp-effects.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/mine-wikisource.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/post-push.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/prior-art-sweep.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/ratchets.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/receipt-deposit.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/release.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/scripts/scout.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/stamp.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/sync-changelog.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/scripts/trial-refusals.ts",
+        "gates": 0,
+        "checks": 4,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/seo-package.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/seo.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [
+          "two_coins"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/sequence-run.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/site/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/skills.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "provenance_integrity_not_content_truth"
+        ],
+        "grounded": true,
+        "security": 0
+      },
+      {
+        "file": "src/stream.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 1
+      },
+      {
+        "file": "src/tamper-cost.ts",
+        "gates": 0,
+        "checks": 5,
+        "cites": [],
+        "grounded": false,
+        "security": 5
+      },
+      {
+        "file": "src/test-paths.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/test-shards.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/theology/names/index.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/theorems/ledger-edge.ts",
+        "gates": 0,
+        "checks": 3,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/trial-gate.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/tts/readings.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/video.ts",
+        "gates": 0,
+        "checks": 1,
+        "cites": [
+          "drift_is_named_or_caught",
+          "provenance_integrity_not_content_truth"
+        ],
+        "grounded": true,
+        "security": 1
+      },
+      {
+        "file": "src/wave-deposit.ts",
+        "gates": 0,
+        "checks": 2,
+        "cites": [
+          "provenance_integrity_not_content_truth"
+        ],
+        "grounded": true,
+        "security": 0
+      }
+    ]
+  }
+}
