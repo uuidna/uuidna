@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "bbd24c88-e2d8-8bfe-9b66-426d50202707"
+        "ledgerReceipt": "a52b30e8-d88a-84c6-af3f-af11d477c995"
       },
-      "address": "621ec449-0322-89dd-8ee3-a32fcc02effe"
+      "address": "95752d06-f159-8ed4-bb77-61dc9d1e496b"
     },
     {
       "title": "Heartbeat coverage",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1454,
-        "roots": 917,
-        "supported": 1451,
-        "dead": 3,
-        "receipt": "95bde56f-b76c-82a6-9e6d-5e3702b67795"
+        "modules": 1467,
+        "roots": 926,
+        "supported": 1465,
+        "dead": 2,
+        "receipt": "70520372-c57d-821c-8f2a-df94bdcd68a1"
       },
-      "address": "4faffafe-e202-8f73-9180-8ab27ca3dc2e"
+      "address": "3839df7e-7f71-8b7f-92ae-5fd1da510b59"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "95276df8df69b7c6",
-        "unifiedFold": "899d859456873e9e",
+        "foldReceipt": "46e2811dc777cc31",
+        "unifiedFold": "1df2316dfeac8816",
         "zeroEntropy": "true"
       },
-      "address": "2511b82c-038f-85cf-96c0-e4cbb1c21823"
+      "address": "64f43ab1-970e-814b-a208-9057f17101f5"
     },
     {
       "title": "Gate receipt",
@@ -96,70 +96,70 @@
         "uncoveredFiles": 0,
         "captainClaimsTheorems": 71089,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
-        "researchLeads": 3,
+        "researchLeads": 2,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "ec1a13bc-50bc-88c2-9bf3-7dae9de06ca2"
+      "address": "fc39244b-19e6-8b36-aa0b-5c5fa28ef237"
     }
   ],
-  "receipt": "a6ca931f-5ec9-8053-b792-3f03ceb026f8",
-  "handle": "a6ca931f",
+  "receipt": "916fbb58-595c-82bf-a550-bb7d60bb58d2",
+  "handle": "916fbb58",
   "hexbits": [
-    10,
-    6,
-    12,
-    10,
     9,
-    3,
     1,
+    6,
     15,
+    11,
+    11,
     5,
-    14,
-    12,
-    9,
     8,
-    0,
     5,
-    3,
+    9,
+    5,
+    12,
+    8,
+    2,
+    11,
+    15,
+    10,
+    5,
+    5,
+    0,
+    11,
     11,
     7,
-    9,
-    2,
-    3,
-    15,
+    13,
+    6,
     0,
-    3,
-    12,
-    14,
     11,
-    0,
-    2,
-    6,
-    15,
-    8
-  ],
-  "door": "https://uuidna.com/a6ca931f",
-  "coin": [
-    10,
-    6,
-    12,
-    10,
-    9,
-    3,
-    1,
-    15,
+    11,
     5,
-    14,
-    12,
-    9,
     8,
-    0,
+    13,
+    2
+  ],
+  "door": "https://uuidna.com/916fbb58",
+  "coin": [
+    9,
+    1,
+    6,
+    15,
+    11,
+    11,
     5,
-    3
+    8,
+    5,
+    9,
+    5,
+    12,
+    8,
+    2,
+    11,
+    15
   ],
   "place": {
-    "handle": "a6ca931f",
-    "value": 2798293791,
+    "handle": "916fbb58",
+    "value": 2440018776,
     "span": 4294967296,
     "residue": 3,
     "nilpotent": true,

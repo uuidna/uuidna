@@ -13,7 +13,7 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `37424892-3b77-8178-8d6d-e0a4f38f2c9d` · hexbit door [`37424892`](https://uuidna.com/37424892) ·
+Fold receipt `490d2df0-8c96-8acb-9ecf-c2890128af32` · hexbit door [`490d2df0`](https://uuidna.com/490d2df0) ·
 33 door(s) · 8 lead(s) · 7 silent
 .
 

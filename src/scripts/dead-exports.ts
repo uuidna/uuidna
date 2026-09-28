@@ -12,9 +12,12 @@
 //
 // A MENTION IS NOT A CALL, and that blind spot hid a whole mechanism. Measured 2026-09-28: rowsForKeys in
 // src/edge-ledger.ts resolves a cited key to the one ledger piece holding it and seeds the row store — the entire reason
-// a door can answer on an edge that cannot hold 40 MB of rows. Nothing calls it, so every key-citing door fails in
+// a door can answer on an edge that cannot hold 40 MB of rows. Nothing called it, so every key-citing door failed in
 // production, and five keys tried against qpu.uuidna.com answered "unknown theorem" including the one in get_theorem's
-// own worked example. This finder reported it as USED, because src/theorems/ledger-edge.ts NAMES it inside an error
+// own worked example. (WIRED the same day, in 83ca8a2c2e: worker.js now calls it on the keys a message cites and on a
+// /theorem/<key> route. The finding stands as the reason this finder changed; production answers it only after a ship,
+// because the hosted edge runs the last deploy and not this tree.) This finder reported it as USED, because
+// src/theorems/ledger-edge.ts NAMES it inside an error
 // string: "a door answers from the baked root or from the one piece its cited key sits in (rowsForKeys)". The message
 // advertising the mechanism is what concealed that the mechanism is unused.
 //

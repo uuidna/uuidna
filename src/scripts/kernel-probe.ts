@@ -12,7 +12,16 @@ import { probeLean } from '../kernel-probe.js'
 // while a wave runs — would write and unlink the SAME file underneath each other, and the loser reads either a
 // truncated file or the other candidate's statement. The pid is the one-writer law's own discriminator, not a
 // clock and not a random: same process, same path, every time.
-const PROBE = join(ROOT, 'lean', `_wave_probe.${process.pid}.lean`)
+//
+// AND ONE PER CALL, WHICH THE PID ALONE DID NOT GIVE. The suite runs with --test-isolation=none, so every test file
+// shares ONE process and therefore one pid: two probes in that process resolved to the same path and each unlinked
+// under the other. Measured 2026-09-28 inside a landing's clean worktree, where it failed as
+// `ENOENT ... lean/_wave_probe.29013.lean` while passing standalone — a green that held only while nothing else probed.
+// The counter is the discriminator the pid was meant to be: an integer that rises once per call, so it is exact on
+// every host, carries no clock and no random, and two calls cannot meet. The pid stays, because two PROCESSES on one
+// shared tree are the case the line above was written for.
+let probes = 0
+const probePath = (): string => join(ROOT, 'lean', `_wave_probe.${process.pid}.${++probes}.lean`)
 
 /** what the probe needs: the theorem whose axioms are asked, and the Lean text that declares it */
 export interface ProbeCandidate { key: string; why: string; lean: string }
@@ -28,5 +37,5 @@ export function kernelPresent(): boolean {
 /** probe(c) → null when the kernel accepts the statement alone and vouches for its key with no axiom, else the
  *  kernel's diagnostic (bounded, naming no host). */
 export function probe(c: ProbeCandidate): string | null {
-  return probeLean(c.lean, c.key, PROBE, { cwd: ROOT, hide: [ROOT] }).reason
+  return probeLean(c.lean, c.key, probePath(), { cwd: ROOT, hide: [ROOT] }).reason
 }

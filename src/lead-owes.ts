@@ -37,7 +37,7 @@
 // list, the ones about cryptography, which is precisely backwards.
 //
 // PURE. No filesystem, no network, no clock: the leads are handed in, so a test can drive the whole classification.
-import type { Lead } from './leads.js'
+import { kernelDecidable, type Lead } from './leads.js'
 import { characteristicNumerals } from './formula.js'
 
 /** which instrument could settle a lead — and `source` means the kernel is the WRONG one, not that the lead is minor */
@@ -163,4 +163,26 @@ export function owesCensus(leads: readonly Lead[]): OwesCensus {
       + 'relation at all. A theorem generator reaches only the kernel group. Nothing here is settled, and nothing stops '
       + 'holding.',
   }
+}
+
+/**
+ * A lead the shape-reader calls a DOOR REQUEST while `kernelDecidable` lets it hold a release.
+ *
+ * THIS IS THE GUARD THE FIX OWED. On 2026-09-28 `kernelDecidable` filed 31 gap records as claims about the ledger,
+ * because its exclusion pattern matched `no mcp door`, `door missing` and `missing door` while `UUIDNA_MCP_GAP` writes
+ * "the tree escaped the MCP door N times for the same missing capability". Thirty-one door requests held a release that
+ * no theorem could ever release, and the test fixture hid it by passing on an unrelated clause. Correcting the pattern
+ * removed the leads; it did nothing to stop the next hand removing the correction.
+ *
+ * TWO RULES, WRITTEN FOR DIFFERENT PURPOSES, ASKED TO AGREE — which is the Rosetta discipline applied to a gate rather
+ * than a theorem. `kernelDecidable` reads prose for what a lead is ABOUT; `owedInstrument` reads the fixed shape the
+ * tree EMITS. Neither is derived from the other, so a disagreement is information: either the emitted shape changed and
+ * the prose rule has not caught up, or the prose rule was edited back. Both are the same defect arriving from either
+ * end, and both are caught here.
+ *
+ * IT IS NOT VACUOUS AND THE CHECK IS CHEAP TO MAKE: run it against the pattern as it stood this morning and it names 31
+ * leads. A guard that has never been shown to fire is a guard nobody has tested.
+ */
+export function misfiledDoorRequests(open: readonly Lead[]): Lead[] {
+  return open.filter((l) => owedInstrument(l) === 'door' && kernelDecidable(l))
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "2036b413",
+  "address": "2036b413-4c9a-8b6c-8436-eaf35ba31169",
+  "kind": "chunk",
+  "keys": [
+    "most_of_the_unstated_remainder_stays_inside_one_wing"
+  ],
+  "statement": "((89768 * 4 < 431173) ∧ (89768 * 5 > 431173)) ∧ (89768 < 431173)",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

@@ -11425,25 +11425,25 @@
   },
   {
    "key": "the_store_footprint_is_its_folders",
-   "statement": "(71711 + 256 + 43569 + 71555 + 71711 + 1 = 258803) ∧ (258803 > 3 * 71711)",
-   "normalised": "(71711+256+43569+71555+71711+1=258803)∧(258803>3*71711)",
+   "statement": "(71711 + 256 + 43570 + 71556 + 71711 + 1 = 258805) ∧ (258805 > 3 * 71711)",
+   "normalised": "(71711+256+43570+71556+71711+1=258805)∧(258805>3*71711)",
    "rawLength": 73,
    "normalisedLength": 55,
    "rawBytes": 75,
    "normalisedBytes": 57,
-   "address": "470a5132-213c-827f-adb7-644732aaf84f",
-   "sha256": "dfbc4064d91dbacec43b2ed1893c37f0fa5fe314c5261581f800d26c544137cc"
+   "address": "335ce9fa-9061-841a-9fc7-86b6402bbd4f",
+   "sha256": "c02fd59dedaa1f52edd7c79102444bdf44bec2e7445116287fe5cd7e4abf99e2"
   },
   {
    "key": "the_third_level_already_shares",
-   "statement": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71555 < 71711)",
-   "normalised": "([0,0,11,12,4,11,11,14].take 6=[0,0,11,12,4,11,12,1].take 6)∧([0,0,11,12,4,11,11,14]≠([0,0,11,12,4,11,12,1]:List Nat))∧(71555<71711)",
+   "statement": "([0,0,11,12,4,11,11,14].take 6 = [0,0,11,12,4,11,12,1].take 6) ∧ ([0,0,11,12,4,11,11,14] ≠ ([0,0,11,12,4,11,12,1] : List Nat)) ∧ (71556 < 71711)",
+   "normalised": "([0,0,11,12,4,11,11,14].take 6=[0,0,11,12,4,11,12,1].take 6)∧([0,0,11,12,4,11,11,14]≠([0,0,11,12,4,11,12,1]:List Nat))∧(71556<71711)",
    "rawLength": 144,
    "normalisedLength": 132,
    "rawBytes": 150,
    "normalisedBytes": 138,
-   "address": "0ef95b8f-afc5-857c-877a-a53957f61aac",
-   "sha256": "731a418e40fbbe958d355d17358822b2f49ab34d14634924af1510f66b098aa9"
+   "address": "293c1e3a-03d9-8ff0-87a6-44a4bf3ba87d",
+   "sha256": "5f59266addb8d3e106de8e999d47954fdfb5670eb66251329fd3720f7a01beb4"
   },
   {
    "key": "forged_address_odds_are_negligible",
@@ -60628,14 +60628,14 @@
   },
   {
    "key": "the_generated_closure_partitions_into_three_kinds",
-   "statement": "(1519343 + 449 + 430524 = 1950316) ∧ ((1519343 > 3 * 430524) ∧ (1519343 < 4 * 430524))",
-   "normalised": "(1519343+449+430524=1950316)∧((1519343>3*430524)∧(1519343<4*430524))",
+   "statement": "(1521705 + 449 + 431173 = 1953327) ∧ ((1521705 > 3 * 431173) ∧ (1521705 < 4 * 431173))",
+   "normalised": "(1521705+449+431173=1953327)∧((1521705>3*431173)∧(1521705<4*431173))",
    "rawLength": 86,
    "normalisedLength": 68,
    "rawBytes": 90,
    "normalisedBytes": 72,
-   "address": "a271ba7f-4d57-86f3-b72a-9c29c15081e4",
-   "sha256": "a7bc91df3d839cbc0726954ccaf7098f8ce6864060243b5689a2b8041c007815"
+   "address": "73837c48-6fa3-8e58-9260-6ffdad19006d",
+   "sha256": "392eba2afdf74cb54a53835fe129bc7cdda466fef10dc3deb325e69ffc0399af"
   },
   {
    "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
@@ -60650,25 +60650,25 @@
   },
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-   "statement": "((89124 * 4 < 430524) ∧ (89124 * 5 > 430524)) ∧ (89124 < 430524)",
-   "normalised": "((89124*4<430524)∧(89124*5>430524))∧(89124<430524)",
+   "statement": "((89768 * 4 < 431173) ∧ (89768 * 5 > 431173)) ∧ (89768 < 431173)",
+   "normalised": "((89768*4<431173)∧(89768*5>431173))∧(89768<431173)",
    "rawLength": 64,
    "normalisedLength": 50,
    "rawBytes": 68,
    "normalisedBytes": 54,
-   "address": "f4ff4a5e-2d1a-8e55-a0ba-390e847425bd",
-   "sha256": "a556855f9fc7900e802cc40d9c78e85f422d940acf59c1d0325c8a29a3cb30a6"
+   "address": "8f5ebfaf-0164-8923-8018-01b7751982f3",
+   "sha256": "9dc80fe926e4d4b7081fa32ab580a9e4710c27529a617ed806fcb1e28bd560a0"
   },
   {
    "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-   "statement": "((449 * 100 < 430524) ∧ (1278 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
-   "normalised": "((449*100<430524)∧(1278>113))∧((113*13<1524)∧(113*14>1524))",
+   "statement": "((449 * 100 < 431173) ∧ (1279 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
+   "normalised": "((449*100<431173)∧(1279>113))∧((113*13<1524)∧(113*14>1524))",
    "rawLength": 79,
    "normalisedLength": 59,
    "rawBytes": 85,
    "normalisedBytes": 65,
-   "address": "7aaa7007-5f7b-8fcb-a1b3-4f9882f33e9e",
-   "sha256": "0269760cec6978b773a293b19ad36f33312660e5d5ea3fd5d39feaf66040ec6e"
+   "address": "d145edaa-0606-88db-8d76-3c8d79226bdc",
+   "sha256": "e7e2c34253b0f86cf19d7b52b0b57eaa87ce1abb18b03fb8a20fd530edd09839"
   },
   {
    "key": "the_same_arithmetic_answers_more_than_one_domain",

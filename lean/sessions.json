@@ -1,5 +1,12 @@
 [
   {
+    "handle": "0c27b334",
+    "host": "CeciPro.local",
+    "purpose": "TAKING THE LANDING LANE — 27 unpushed commits, origin has not moved all session; three gates have failed in a row. Please do not start a land until this one answers.",
+    "head": "60e76d73fe",
+    "ledger": 71089
+  },
+  {
     "handle": "60787386",
     "host": "CeciPro.local",
     "purpose": "the voice, the anthem, the apparatus, the circle",

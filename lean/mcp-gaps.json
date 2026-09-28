@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1414,
-  "distinct": 1192,
+  "records": 1415,
+  "distinct": 1193,
   "loadBearing": 111,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -2600,6 +2600,13 @@
       "hits": 1,
       "forms": [
         "cat"
+      ]
+    },
+    {
+      "gap": "no door drafts a source patch",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
