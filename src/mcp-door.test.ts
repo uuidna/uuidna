@@ -264,11 +264,33 @@ test('list_tools {query} — an exact tool name answers that tool first', () => 
   }
 })
 
-// A SORT THAT REORDERS EQUAL ROWS MAKES THE LISTING UNSTABLE, and a listing a caller cannot learn is worse than an
-// unranked one.
+// A SORT THAT REORDERS EQUAL ROWS MAKES THE LISTING UNSTABLE, which defeats learning by construction: a caller who
+// memorises a position finds a different tool there next time, so instability is worse than no ranking at all.
 test('list_tools {query} — ties keep catalogue order, so the listing is stable', () => {
   const rows = mcpHttpCatalogue()
   const once = doorIndex(rows, 'receipt').tools.map((t) => t.name)
   const twice = doorIndex(rows, 'receipt').tools.map((t) => t.name)
   assert.deepEqual(once, twice)
+})
+
+// MEASURED ON THE LIVE EDGE: {query:"gate status health honest"} answered ZERO tools, because requiring every word means
+// one unmatched word empties the result. A descriptive question is exactly how a caller who does not know the tool's
+// name asks, so answering nothing sends them away believing no door exists — which is how the missing-door leads were
+// recorded in the first place.
+test('list_tools {query} — a descriptive phrase falls back to ANY word rather than answering nothing', () => {
+  const rows = mcpHttpCatalogue()
+  const phrase = doorIndex(rows, 'gate status health honest').tools
+  assert.ok(phrase.length > 0, 'a four-word question must not answer nothing')
+})
+
+test('list_tools {query} — AND is preferred whenever it answers, so precision is kept', () => {
+  const rows = mcpHttpCatalogue()
+  const both = doorIndex(rows, 'coin ledger').tools.map((t) => t.name)
+  assert.ok(both.length > 0)
+  // every row of an AND-satisfiable query carries both words; the fallback never widened it
+  for (const n of both) {
+    const row = rows.find((r) => r.name === n)!
+    const hay = [row.name, row.title ?? '', row.description].join(' ').toLowerCase()
+    assert.ok(hay.includes('coin') && hay.includes('ledger'), `${n} must carry both words`)
+  }
 })

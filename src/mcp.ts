@@ -1016,7 +1016,10 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'a sealed theorem key' } }, required: ['key'] },
     run: ({ key }) => {
       const t = theoremFor(String(key))
-      if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)')
+      if (!t) throw new Error('unknown theorem: ' + key
+        + " — for a key that works, read this tool's own contract: uuidna_list_tools {name:'uuidna_theorem'}"
+        + ' carries a worked example whose args name a real key. uuidna_theorems cannot enumerate keys on the'
+        + ' edge, which holds no full ledger, so the old pointer to it was a remedy that could not answer.')
       const dual = paperBlueprintTheorem(t)
       const axioms = theoremAxioms(t.key)
       // EVERY NAME IT IS KNOWN BY, SERVED — name, description, source, citation. theologyNameOf has been computable
@@ -1290,7 +1293,9 @@ const TOOLS: Tool[] = ([
     // unknown-key answer now, so the refusal reads off the same call that would have served it.
     run: ({ key }) => {
       const n = theoremNeighbours(String(key))
-      if (n.principle === null) throw new Error('unknown theorem: ' + String(key) + ' (see uuidna_theorems)')
+      if (n.principle === null) throw new Error('unknown theorem: ' + String(key)
+        + " — for a key that works, read the tool's own contract via uuidna_list_tools {name}, whose example"
+        + ' names a real one. uuidna_theorems cannot enumerate keys on the edge, which holds no full ledger.')
       return { key: n.key, principle: n.principle, count: n.neighbours.length,
                neighbours: n.neighbours.map((t) => ({ key: t.key, name: t.name, address: t.address })) } } },
   { name: 'uuidna_axiom_index',

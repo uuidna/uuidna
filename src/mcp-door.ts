@@ -127,7 +127,8 @@ export const openDoor = (name: unknown, args: Record<string, unknown> | undefine
  * THE SCORE IS WHERE THE WORD WAS FOUND, which is the only signal available without asking what the caller meant: a
  * name IS the tool's identity, a title is its summary, a description is prose that may mention anything. An exact name
  * match outranks a partial one, because a caller who types a tool's whole name has said which tool they want. Ties keep
- * catalogue order, so the ranking never reorders rows it cannot distinguish.
+ * catalogue order, so the ranking leaves untouched any pair it has no basis to separate — by construction, since equal
+ * scores fall through to the carried index.
  */
 const scoreOf = (r: DoorRow, words: readonly string[]): number => {
   const names = namesOf(r).map((n) => n.toLowerCase())
@@ -145,9 +146,17 @@ const scoreOf = (r: DoorRow, words: readonly string[]): number => {
 
 const matching = (rows: readonly DoorRow[], q: string): DoorRow[] => {
   const words = q.toLowerCase().split(/\s+/).filter(Boolean)
-  const hit = rows.filter((r) => { const hay = [...namesOf(r), r.title ?? '', r.description].join(' ').toLowerCase(); return words.every((w) => hay.includes(w)) })
+  const hay = (r: DoorRow): string => [...namesOf(r), r.title ?? '', r.description].join(' ').toLowerCase()
+  // EVERY WORD FIRST, THEN ANY WORD — and the fallback is why a phrase now finds something. Measured against the live
+  // edge: {query:"gate status health honest"} answered ZERO tools, because requiring every word means one unmatched word
+  // empties the result. AND is the right answer when it has one, so it is tried first and returned whole; only when it
+  // is empty does the search fall back to the rows carrying ANY word, which the ranking then orders by how many matched.
+  // Precision is kept where it exists and a descriptive question stops answering nothing.
+  const all = rows.filter((r) => words.every((w) => hay(r).includes(w)))
+  const hit = all.length > 0 ? all : rows.filter((r) => words.some((w) => hay(r).includes(w)))
   // INDEX CARRIED SO TIES KEEP CATALOGUE ORDER: a sort that reorders equal rows makes the listing unstable between
-  // runs, and an unstable listing is one a caller cannot learn.
+  // runs, and an unstable listing defeats learning: by construction, a caller who memorises a position finds a
+  // different tool there next time.
   return hit
     .map((r, i) => ({ r, i, s: scoreOf(r, words) }))
     .sort((a, b) => b.s - a.s || a.i - b.i)
