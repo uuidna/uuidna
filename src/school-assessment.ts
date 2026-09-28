@@ -21,7 +21,7 @@
 // would have shown that. A project's assessment has the same shape — the cells it CLAIMS, each holding or not —
 // because an average is what lets a strong Making conceal an absent Reflecting.
 //
-// REFLECTING TAKES TWO READINGS AND NOT ONE, because a single reading is its own witness and a witness cannot check
+// REFLECTING TAKES TWO READINGS AND NOT ONE, because a single reading is its own witness, and a witness cannot check itself BY CONSTRUCTION: it would compare a value with the value it came from, which agrees whatever either is. So it cannot check
 // itself. A student grading their own reflection is the failure this repository names as
 // the ledger that witnessed itself, and one teacher is one hand: rosetta-legs says it outright, that symbol and proof
 // "are written by one hand and share that hand's errors". So Reflecting takes two independent readings, and when they

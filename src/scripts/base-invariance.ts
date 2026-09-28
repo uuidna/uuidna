@@ -30,7 +30,7 @@ const only = ARG.find((a) => a.endsWith('.lean')) ?? null
 const rows = theorems()
   .filter((t) => only === null || String(t.file) === only)
   // ARTEFACTS ONLY: a statement with no numeral that is a function of ten has nothing for a base change to move, and
-  // asking the evaluator about all 71,089 would spend the run on statements the guard cannot judge.
+  // asking the evaluator about all 71,089 would spend the run on statements the guard cannot judge, their shapes lying outside the evaluator's grammar, so it returns no verdict rather than a wrong one.
   .filter((t) => /\b(?:9+|10+|142857|588235294117647)\b/.test(String(t.statement ?? '')))
   .map((t) => ({ key: String(t.key), file: String(t.file), statement: String(t.statement ?? '') }))
 
@@ -53,7 +53,7 @@ for (const v of notational.slice(0, 20)) {
 }
 if (notational.length > 20) console.log(`  … and ${notational.length - 20} more`)
 
-// THE CENSUS IS WRITTEN, not only printed. 1,442 findings cannot be read from a terminal tail, and re-running the
+// THE CENSUS IS WRITTEN, not only printed. 1,442 findings cannot be read from a terminal tail, which keeps its last lines and discards the rest, and re-running the
 // evaluator over 2,844 statements to ask a follow-up question is the kind of cost this tree calls a crack. The
 // artefact is committed so the gate can read it and a reader can analyse it without paying for the walk again.
 const byWing = new Map<string, { notational: number; suspect: number; invariant: number }>()

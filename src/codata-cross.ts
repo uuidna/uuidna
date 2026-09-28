@@ -4,7 +4,7 @@
 // proving with public apis and datasets".
 //
 // THE PROOF AVAILABLE HERE IS EXACT, and that is why this file can exist at all. entanglement-map finds 896 bridges —
-// quantities two wing families share — and cannot tell a physical constant from a digit coincidence. Colour and
+// quantities two wing families share — and cannot tell a physical constant from a digit coincidence, because both arrive here as the same thing: a run of digits with no provenance attached. That is a property of the input rather than a gap in the method. Colour and
 // Acoustics share 340: a hue angle and a wave speed. Relativity and Thermodynamics share 1380649. Only one of those
 // pairs is physics, and reading the wings is how I established it by hand, which does not scale and is not evidence
 // anyone else can recompute.
@@ -42,7 +42,7 @@ export interface CodataConstant {
  *
  * The format is fixed-width-ish: quantity, value, uncertainty, unit. Values use SPACES as digit group separators
  * (1.380 649 e-23), which is why the digits have to be joined before they can be compared with a ledger integer.
- * Returns null for headers, rules and anything whose value does not parse — a line this cannot read is skipped, never
+ * Returns null for headers, rules and anything whose value does not parse — a line whose value does not parse cannot be read as a quantity, there being no number in it to compare, so it is skipped, never
  * guessed at.
  */
 export function parseCodataLine(line: string): CodataConstant | null {
@@ -126,7 +126,7 @@ export function provenBridges(
       constants: hit.map((c) => ({ quantity: c.quantity, exponent: c.exponent, unit: c.unit, exact: c.exact })),
     })
   }
-  // exact constants first — a defining constant's digits cannot drift under a later adjustment, so a bridge on one is
+  // exact constants first — a defining constant's digits cannot drift under a later adjustment — BY DEFINITION, since the SI fixes its value exactly rather than measuring it — so a bridge on one is
   // permanent in a way a measured constant's is not
   return out.sort((a, b) => {
     const ax = a.constants.some((c) => c.exact) ? 0 : 1
