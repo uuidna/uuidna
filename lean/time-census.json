@@ -3,10 +3,17 @@
   "honest": "the ratio of a warm run to a cold one. Near 100/100 means the door rebuilt its answer; well under means it read a receipt. A fast door with a ratio near 100 is not a finding — its work may simply be small. A cache that misses every run is indistinguishable from no cache here, and that is a reader's question, not a verdict.",
   "doors": [
     {
+      "door": "base-invariance",
+      "cold": 210246,
+      "warm": 839,
+      "ratio": 0,
+      "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
+    },
+    {
       "door": "falsifier-gap",
-      "cold": 823,
-      "warm": 172,
-      "ratio": 20,
+      "cold": 838,
+      "warm": 166,
+      "ratio": 19,
       "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
     }
   ]
