@@ -155,10 +155,18 @@ for (let round = 1; round <= ROUNDS; round++) {
     }
   }
   const covered = run('node dist/scripts/gate-receipt.js --verify')
+  // THE SHA THE RECEIPT IS EARNED OVER, NAMED ONCE AND PUSHED BY NAME. A mint is a ~50-minute walk, and on a shared
+  // tree a neighbour commits inside that window — so the receipt, which was never wrong, stops covering HEAD and the
+  // loop re-mints for another 50 minutes. Four rounds of that converge only if every neighbour happens to fall silent,
+  // and on 2026-09-28 three lands raced each other's mint for over an hour and pushed nothing. The answer is not a
+  // longer loop: it is to stop conflating "the commit I proved" with "whatever HEAD is now". `pinned` is resolved
+  // BEFORE the worktree and the worktree is opened at that name, so a neighbour's commit cannot change what was proven.
+  let pinned = ''
   if (!covered.ok) {
-    console.log('\nland — HEAD moved past its receipt; earning a new one over a clean worktree of HEAD before the push …')
+    pinned = run('git rev-parse HEAD').out.trim()
+    console.log(`\nland — HEAD moved past its receipt; earning a new one over a clean worktree of ${pinned.slice(0, 8)} before the push …`)
     const wt = mkdtempSync(join(tmpdir(), 'uuidna-land-'))
-    const added = run('git worktree add --detach ' + JSON.stringify(wt) + ' HEAD')
+    const added = run('git worktree add --detach ' + JSON.stringify(wt) + ' ' + pinned)
     if (!added.ok) { console.error('✗ land — could not open a worktree of HEAD:\n' + added.out.slice(-600)); process.exit(1) }
     // THE WORKTREE IS REMOVED BEFORE ANY EXIT. The first version exited inside a try whose finally held the
     // cleanup, and process.exit does not run finally — a 2.7 GB worktree with a built dist was left on a 98%
@@ -211,10 +219,25 @@ for (let round = 1; round <= ROUNDS; round++) {
       console.error('✗ land — the receipt commit was REFUSED:\n' + (sealed.out.split('\n').filter((l) => /^(✗|GAP|FIX|BLOCKED)/.test(l.trim())).join('\n') || sealed.out.slice(-1200)))
       process.exit(1)
     }
+    // AND NOTHING MAY RIDE ALONG. The receipt covers `pinned`; the only commit allowed on top of it is the receipt's
+    // own. If a neighbour committed between the mint and this line, HEAD carries bytes no run has certified, and
+    // pushing them would be the vacuous-success class with a signature on it — green receipt, uncovered payload. So
+    // the distance is ASKED of git, and a stranger in between sends this round back to re-mint rather than out.
+    const between = run(`git rev-list --count ${pinned}..HEAD`).out.trim()
+    if (between !== '1') {
+      console.log(`· land — a neighbour committed during the mint (${between} commit(s) past ${pinned.slice(0, 8)}, expected 1).`)
+      console.log('  The receipt covers what it covers; nothing uncovered is pushed. Re-minting over the new HEAD.')
+      continue
+    }
   }
 
   const before = run('git rev-parse HEAD').out.trim()
-  const push = run('git push origin main')
+  // BY NAME, NEVER BY REF. `git push origin main` sends whatever `main` points at when git reads it, which is not
+  // necessarily the commit two lines above certified — and then the remote check below compared origin/main against a
+  // SHA that was never sent and printed "NOTHING LANDED" after a push that had in fact succeeded. Pushing
+  // `<sha>:main` sends exactly the bytes the receipt covers; a neighbour's later commits are simply not in this
+  // landing, and they land in the next one.
+  const push = run(`git push origin ${before}:main`)
   if (push.ok) {
     // VERIFY THE REMOTE MOVED, because "Everything up-to-date" is also a success. The push is only a landing if
     // origin/main now holds this commit — asked of git, never inferred from an exit code.

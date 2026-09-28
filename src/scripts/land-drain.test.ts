@@ -27,3 +27,26 @@ test('the push arm judges the derived layer it names, and defers what the preced
   assert.match(hook, /lean\/\[\^\/\]\+\\\.lean\|src\/scripts\/lean-\.\+\\\.ts/, 'the waiting set is precede\'s own source set')
   assert.match(hook, /push BLOCKED/, 'a settle nobody committed is still refused')
 })
+
+// ── THE PINNED PUSH (2026-09-28). Three lands raced each other's mint for over an hour and pushed nothing: each spent
+// ~50 minutes earning a receipt, a neighbour committed inside that window, the receipt stopped covering HEAD, and the
+// next round re-minted. Held as source shape, like the laws above it, because the race needs three concurrent lands to
+// reproduce and a test that needs a race is a test that passes for the wrong reason.
+test('the mint pins the commit it proves, and opens its worktree at that name rather than at HEAD', () => {
+  assert.match(land, /let pinned = ''/, 'the proven commit is named once, outside the mint block, so the push can see it')
+  assert.match(land, /pinned = run\('git rev-parse HEAD'\)/, 'the SHA is resolved BEFORE the worktree, not after the walk')
+  assert.match(land, /git worktree add --detach ' \+ JSON\.stringify\(wt\) \+ ' ' \+ pinned/,
+    'the worktree is opened at the pinned SHA — `HEAD` there is a name that can move under a 50-minute walk')
+})
+
+test('the push names the commit the receipt covers, and never the bare ref', () => {
+  assert.match(land, /git push origin \$\{before\}:main/, 'the landing sends a SHA, so what is pushed is what was proven')
+  // USE, not mention: the comment beside it names the old form to say it is gone (scanner_cannot_tell_use_from_mention)
+  assert.doesNotMatch(land, /run\((['"`])git push origin main\1\)/, 'no arm of land pushes a ref whose tip it has not certified')
+})
+
+test('nothing rides along: a neighbour inside the mint window re-mints instead of shipping uncovered bytes', () => {
+  assert.match(land, /git rev-list --count \$\{pinned\}\.\.HEAD/, 'the distance is ASKED of git, never assumed to be one')
+  assert.match(land, /if \(between !== '1'\)/, 'exactly the receipt commit may sit on top of what was proven')
+  assert.doesNotMatch(land, /between !== '1'\)[^}]*process\.exit\(0\)/, 'contention is a re-mint, never a green exit')
+})
