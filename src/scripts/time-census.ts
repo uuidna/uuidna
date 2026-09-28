@@ -18,7 +18,7 @@
 // question. Both are reported rather than collapsed into a verdict.
 
 import { spawnSync } from 'node:child_process'
-import { writeFileSync } from 'node:fs'
+import { existsSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
@@ -30,7 +30,14 @@ const TARGETS = DOORS.length > 0 ? DOORS : [
   'school-areas', 'entanglement-map', 'base-invariance',
 ]
 
-const timeOne = (door: string): number => {
+/** the receipt a door earns, by convention — removed before a cold run so that cold is honestly cold */
+const receiptOf = (door: string): string => join(ROOT, 'lean', `${door}-receipt.json`)
+
+const timeOne = (door: string, cold = false): number => {
+  if (cold) {
+    const r = receiptOf(door)
+    if (existsSync(r)) rmSync(r)
+  }
   const at = process.hrtime.bigint()
   const r = spawnSync(process.execPath, [join(ROOT, 'dist', 'scripts', `${door}.js`)],
     { encoding: 'utf8', timeout: 1_800_000 })
@@ -41,7 +48,7 @@ const timeOne = (door: string): number => {
 
 const rows: Timing[] = []
 for (const door of TARGETS) {
-  const cold = timeOne(door)
+  const cold = timeOne(door, true)
   if (cold < 0) {
     rows.push({ door, cold: -1, warm: -1, ratio: -1, verdict: 'FAILED — no timing, and a failure is not a fast run' })
     console.log(`  ✗ ${door.padEnd(20)} failed`)
@@ -52,10 +59,10 @@ for (const door of TARGETS) {
   // be a host decision. warm*100/cold truncated is exact and identical everywhere.
   const ratio = cold > 0 ? (warm * 100 - ((warm * 100) % cold)) / cold : 0
   const verdict = ratio >= 80
-    ? 'RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt'
+    ? 'RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached'
     : ratio >= 40
       ? 'partly cached — some of the walk was reused'
-      : 'verifies — the second run is dominated by reading a receipt'
+      : 'verifies — the warm run is dominated by reading a receipt rather than by the walk'
   rows.push({ door, cold, warm, ratio, verdict })
   console.log(`  ${ratio >= 80 ? '✗' : '✓'} ${door.padEnd(20)} cold ${String(cold).padStart(7)}ms · warm ${String(warm).padStart(7)}ms · ratio ${ratio}/100`)
 }

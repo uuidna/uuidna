@@ -13,6 +13,8 @@ import { ROOT } from '../boundary.js'
 import { theorems } from '../theorems/index.js'
 import { holds } from '../involution/index.js'
 import { baseCensus, baseVerdictOf, type BaseVerdict } from '../base-invariance.js'
+import { served } from '../receipt.js'
+import { fsStore, ledgerAndRule } from './receipted.js'
 
 const sourceOf = new Map<string, string>()
 const wingSource = (file: string): string => {
@@ -50,9 +52,22 @@ const declaresIn = (file: string, key: string): boolean => {
   return DECLARES.test(before.slice(open))
 }
 
-const verdicts: BaseVerdict[] = rows.map((r) =>
-  baseVerdictOf(r, (s) => holds(s, wingSource(r.file)), [8, 12, 16], declaresIn(r.file, r.key)))
+// THE WALK IS THE EXPENSIVE PART — 2,844 statements through the evaluator, about twenty minutes — so it is paid once
+// per change rather than once per question. The digest covers the ledger AND this door's rule: src/base-invariance.ts
+// holds the verdict logic and this file holds the declaration marker, so correcting either invalidates the receipt by
+// construction. A receipt keyed on the ledger alone would serve a stale answer after a corrected rule, which is the
+// defect audit-citations was measured committing on 2026-09-03.
+const receipt = served<BaseVerdict[]>({
+  path: 'lean/base-invariance-receipt.json',
+  inputs: ledgerAndRule(['dist/base-invariance.js', 'dist/scripts/base-invariance.js']),
+  compute: () => rows.map((r) =>
+    baseVerdictOf(r, (st) => holds(st, wingSource(r.file)), [8, 12, 16], declaresIn(r.file, r.key))),
+}, fsStore)
+const verdicts: BaseVerdict[] = receipt.value
 const c = baseCensus(verdicts)
+console.log(receipt.hit
+  ? `served by receipt ${receipt.digest} — the walk was not repeated`
+  : `walked ${rows.length} statements and earned receipt ${receipt.digest}`)
 
 console.log(`invariant ${c.invariant} · NOTATIONAL ${c.notational} · declared ${c.declared} · suspect ${c.suspect} · unread ${c.unread}`)
 console.log()
