@@ -66,7 +66,8 @@ export interface LifeApi {
    *
    * ADDED BECAUSE GraphQL DOES NOT ANSWER A QUERY STRING. Open Targets returned HTTP 500 to the declared GET probe: its
    * endpoint takes a POST with a JSON body, and a query parameter named `query` is not that. A declaration that can only
-   * describe GET cannot describe a GraphQL source at all, so the shape was missing rather than the source unreachable.
+   * describe GET is unable to reach a GraphQL source BY CONSTRUCTION — a query document is a body, and a GET
+ * carries none — so the shape was missing rather than the source unreachable.
    */
   post?: Record<string, unknown>
   /** the known-good query that proves this source still answers. No source without one. */
@@ -154,8 +155,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
   { id: 'unichem', name: 'UniChem — compound identifier cross-references (EMBL-EBI)', kind: 'chemistry',
     // THE DOCUMENTED v1 API DECLARES ITS QUERY AS A BODY, and that is why this row moved off the legacy path form.
     // Both answer: the legacy /inchikey/<key> returns 200, and so does v1 /compounds. The difference is that the
-    // legacy form hides the query inside the path, where the finder that requires every source to declare a
-    // known-good query cannot see it, while the body states it. Verified 2026-09-28: 200, and the compound comes
+    // legacy form hides the query inside the path, out of reach of the finder that requires every source to declare a
+    // known-good query never reads it BY CONSTRUCTION, since a path segment is not a declared field, while the body states it. Verified 2026-09-28: 200, and the compound comes
     // back as C21H20O6 — the SAME formula PubChem's own probe returns for curcumin, which is two independent
     // chemistry sources agreeing on one molecular formula rather than one source agreeing with itself.
     base: 'https://www.ebi.ac.uk/unichem/api/v1',
@@ -316,6 +317,6 @@ export const LIFE_APIS: readonly LifeApi[] = [
 export const LIFE_API_KINDS = (): LifeApiKind[] =>
   [...new Set(LIFE_APIS.map((a) => a.kind))].sort()
 
-/** sources that cannot be probed until a credential exists — an owner act, never a silent omission */
+/** sources unprobeable until a credential exists — an owner act to obtain, never a silent omission */
 export const LIFE_APIS_NEEDING_A_KEY = (): LifeApi[] =>
   LIFE_APIS.filter((a) => /KEY REQUIRED|REGISTRATION REQUIRED|free key is now required/.test(a.access))

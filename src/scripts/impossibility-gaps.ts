@@ -174,3 +174,49 @@ export function impossibilityReading(files: readonly string[], baseline: Readonl
 export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {
   return impossibilityReading(files, baseline).gaps
 }
+
+/**
+ * The files whose modal claims are already declared, from lean/impossibility-baseline.json.
+ *
+ * guard.ts and state.ts each hold a private copy of this reader. A third copy in this door would be a third place for
+ * the same rule to drift, so it is exported HERE, next to the finder it belongs to, and those two are a recorded lead
+ * rather than a refactor made in passing.
+ */
+export const declaredBaseline = (): ReadonlySet<string> => {
+  try {
+    // READ THROUGH THIS FILE'S OWN ACCESSOR. `rd` is the repo-relative read already imported here; reaching for
+    // node:fs and a ROOT join would have been three names this module does not carry, which is what left the tree
+    // unbuildable while the edit was in flight.
+    return new Set((JSON.parse(rd('lean/impossibility-baseline.json')) as { files: string[] }).files)
+  } catch { return new Set() }
+}
+
+// ── THE DOOR ────────────────────────────────────────────────────────────────────────────────────────────────────
+//
+// The captain, 2026-09-28: "no manual work whatsoever. all is possible in uuidna qpu os".
+//
+// THIS FINDER HAD FIVE CALLERS AND NO ENTRY POINT, which is why a session learned of its gaps only when a LANDING
+// refused. Measured on 2026-09-28: five landings in one session refused on this guard, each time on prose committed
+// minutes earlier, and each time the repair was a hand-reword followed by another landing. That loop is the manual work
+// the captain refuses, and its cause was not the guard — the guard was right every time. Its cause was that no session
+// could ASK the question before committing, because the library that answers it was not reachable from a command.
+//
+// It reports and holds. Naming a reason is a judgement about what is true, so nothing here rewrites prose: the door
+// gives the file, the line and the words, and the writer supplies the reason. What it removes is the round trip.
+if (process.argv[1]?.endsWith('impossibility-gaps.js')) {
+  const { sourceGraph } = await import('../test-paths.js')
+  const { judged } = await import('./api.js')
+  const { files } = judged([...sourceGraph().keys()])
+  const only = process.argv.slice(2).filter((a) => !a.startsWith('-'))
+  const asked = only.length > 0 ? files.filter((f) => only.some((o) => f.includes(o))) : files
+  const { gaps, unreadable } = impossibilityReading(asked, declaredBaseline())
+  console.log(`asked ${asked.length} source file(s) · gaps ${gaps.length} · unreadable ${unreadable.length}`)
+  for (const g of gaps) console.log(`  ✗ ${g.what}`)
+  for (const u of unreadable) console.log(`  ? ${u} — UNMEASURED, not clean`)
+  if (gaps.length > 0) {
+    console.log()
+    console.log('Name the reason in the same breath. What counts: a sealed theorem, "by construction", a host fact, a')
+    console.log('declared boundary, a named decision — or the reason as a plain clause after a colon, "because", "since".')
+  }
+  process.exit(gaps.length > 0 || unreadable.length > 0 ? 1 : 0)
+}
