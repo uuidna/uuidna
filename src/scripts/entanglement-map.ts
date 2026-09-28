@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:8 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // entanglement-map — EVERY RARE QUANTITY IN THE LEDGER AND THE FEW WINGS THAT SHARE IT, in one pass.
 //
 // The captain, 2026-09-28: "widen to anything imaginable and deep research the entanglements and cross applications".

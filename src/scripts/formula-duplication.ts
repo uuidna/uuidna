@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:0 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // formula-duplication — how many distinct FORMULAS the ledger holds, and which copies a new wing should cite.
 //
 // The key count is not the formula count. src/proposition-address.ts folds the keys that differ only in spelling;
@@ -18,6 +22,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { theorems } from '../theorems/index.js'
 import { duplicationCensus } from '../formula-duplication.js'
+import { wrArtifact } from '../artifact.js'
 
 const c = duplicationCensus(theorems().map((t) => ({
   key: t.key, statement: String(t.statement ?? ''), file: String(t.file ?? ''), skill: String(t.skill ?? ''), name: String(t.name ?? ''),
@@ -44,7 +49,7 @@ for (const g of c.groups.filter((g) => g.withinOneSkill).slice(0, 20)) {
 }
 if (c.copies > 20) console.log(`    … ${c.copies - 20} more, all in lean/formula-duplication.json`)
 
-writeFileSync(join(ROOT, 'lean', 'formula-duplication.json'), JSON.stringify(c, null, 1) + '\n')
+wrArtifact('lean/formula-duplication.json', c)
 console.log(`\n  receipt ${c.receipt} · written to lean/formula-duplication.json`)
 console.log('\n  IT DELETES NOTHING. A sealed theorem is a published record and no one withdraws a settlement; what a')
 console.log('  census owes is the true count and a pointer for the next wing.')

@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:9 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // base-invariance — WHICH SEALED STATEMENTS ARE CLAIMS ABOUT DECIMAL WRITING, asked of the whole ledger.
 //
 // A statement whose truth dies when its base-ten artefacts are rewritten in another base is a true claim about
@@ -15,6 +19,7 @@ import { holds } from '../involution/index.js'
 import { baseCensus, baseVerdictOf, type BaseVerdict } from '../base-invariance.js'
 import { servedAsync } from '../receipt.js'
 import { fsStore, ledgerAndRule } from './receipted.js'
+import { wrArtifact } from '../artifact.js'
 
 const sourceOf = new Map<string, string>()
 const wingSource = (file: string): string => {
@@ -125,7 +130,7 @@ if (notational.length > 20) console.log(`  … and ${notational.length - 20} mor
 // evaluator over 2,844 statements to ask a follow-up question is the kind of cost this tree calls a crack. The
 // artefact is committed so the gate can read it and a reader can analyse it without paying for the walk again.
 const wings = c.wings
-writeFileSync(join(ROOT, 'lean', 'base-invariance.json'), JSON.stringify({
+wrArtifact('lean/base-invariance.json', {
   kind: 'base-invariance-census',
   asked: c.asked,
   invariant: c.invariant,
@@ -137,7 +142,7 @@ writeFileSync(join(ROOT, 'lean', 'base-invariance.json'), JSON.stringify({
     + 'deleted. A one-digit artefact cannot convict, so those are suspect and a reader decides.',
   wings,
   notationalKeys: c.notationalKeys,
-}, null, 2) + '\n')
+})
 console.log()
 console.log('notational by wing (top 12):')
 for (const w of wings.filter((x) => x.notational > 0).slice(0, 12)) {

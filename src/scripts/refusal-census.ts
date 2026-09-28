@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:13 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // refusal-census — EVERY REFUSAL IN THIS TREE, AND WHETHER A SEALED THEOREM STANDS BEHIND IT.
 //
 // The captain, 2026-09-28: "remove ALL refusals not based on cross formulated theorems proving each other".

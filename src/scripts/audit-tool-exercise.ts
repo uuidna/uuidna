@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:17 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // audit-tool-exercise — WHICH MCP TOOLS HAVE A DEDICATED TEST, decided WITHOUT an agent. support.ts proves a
 // module is REACHABLE (some import reaches it); mcp-coverage proves the catalogue covers every THEOREM. Neither
 // answers the question a maintainer actually asks: does THIS tool have a test that names it and checks its

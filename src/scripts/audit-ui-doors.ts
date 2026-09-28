@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:19 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // audit-ui-doors — IS THE UI A RESULT OF MCP, OR A SECOND CONSUMER OF THE SAME INTERNALS?
 //
 // The captain, 2026-09-27: "Ui is result of mcp. No redundancy whatsoever." and "Seo optimised mcp results in seo
@@ -24,6 +28,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, wrRoot } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 const LOADERS = join(ROOT, 'docs', '.vitepress')
 
@@ -74,7 +79,7 @@ const out = {
   open: leads.length,
   leads,
 }
-wrRoot('lean/ui-doors.json', JSON.stringify(out, null, 1) + '\n')
+wrArtifact('lean/ui-doors.json', out)
 
 console.log(`audit-ui-doors — ${rows.length} loader(s): ${out.renderDoor} render a door, ${bypass.length} reach past into dist, ${fileOnly.length} read a generated file only`)
 for (const r of bypass) console.log(`  ⚙ ${r.loader.replace('docs/.vitepress/', '')} → ${r.reaches.join(', ')}`)

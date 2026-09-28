@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:5 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // phd-census — REPORT THE DOCTORATE'S REQUIREMENTS ONE BY ONE, and name the ones not holding.
 //
 // phdProofs().complete was a single 26-term conjunction. When a new wing made it false, the only thing any surface

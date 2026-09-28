@@ -23,6 +23,7 @@ import { leadCensus } from '../leads.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { commonWords, crossLeads, type LeadRow } from '../lead-cross.js'
 import { owesCensus, misfiledDoorRequests } from '../leads.js'
+import { wrArtifact } from '../artifact.js'
 
 const census = leadCensus(gatherLeads())
 const leads: LeadRow[] = census.open.map((l) => ({ source: l.source, what: l.what, owes: l.owes }))
@@ -59,7 +60,7 @@ if (clusters.length > 14) console.log(`  … and ${clusters.length - 14} smaller
 console.log()
 
 
-writeFileSync(join(ROOT, 'lean', 'lead-cross.json'), JSON.stringify({
+wrArtifact('lean/lead-cross.json', {
   kind: 'lead-cross',
   openLeads: leads.length,
   clusters: clusters.map((c) => ({ on: c.on, count: c.leads.length, coherence: c.coherence, leads: c.leads.map((l) => l.what) })),
@@ -71,7 +72,7 @@ writeFileSync(join(ROOT, 'lean', 'lead-cross.json'), JSON.stringify({
     + 'cluster is whichever shared word ranks first, with ties broken alphabetically, so the grouping is the claim and '
     + 'the name is not. A refutation candidate is NOT a settled refutation: nothing here closes a lead, because a '
     + 'wrongly closed lead is a false answer carrying a receipt.',
-}, null, 2) + '\n')
+})
 console.log()
 console.log('✓ lean/lead-cross.json written')
 

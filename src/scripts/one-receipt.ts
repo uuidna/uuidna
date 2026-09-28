@@ -1682,6 +1682,18 @@ const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'he
     // That is a change in HOW it runs, never in WHETHER.
     const importPat = new RegExp(`(?:import\\(['"]\\./${base}\\.js['"]\\)|from ['"]\\./${base}\\.js['"])`)
     if (importPat.test(selfExcluded(f, siblingSrc))) continue
+    // A DECLARED FINDER IS RUN BY finders.ts, WHICH SPAWNS WHAT IT DISCOVERS RATHER THAN WHAT IT NAMES. The audit's
+    // chain was 63 hand-sequenced steps until 2026-09-28, when each finder began declaring `@finder phase:<n>` in its
+    // own source and one runner read the directory — so the filename now appears in NO source, and invokesFile above is
+    // structurally unable to see it. Six doors that run on every audit reported dormant and refused a landing, which is
+    // the failure class this tree keeps meeting from the other side: a mechanism built correctly and wired to nothing.
+    // Here the wiring exists and the LAW did not know about it.
+    //
+    // THE RUNNER MUST ITSELF BE REACHED, or this exempts a whole class on the strength of a comment. If finders.ts were
+    // deleted, every declared finder would still carry its declaration and would silently stop running while passing —
+    // the exemption is read from the runner's presence in the chain, never from the declaration alone.
+    const runnerRuns = existsSync(join(dir, 'finders.ts')) && invokesFile(corpus, 'finders')
+    if (runnerRuns && /@finder\s+phase:\d+/.test(readFileSync(join(dir, f), 'utf8'))) continue
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({
@@ -1993,6 +2005,7 @@ export { dryGaps } from './dry-gaps.js'
 import { LEGACY_TEST_DIR } from '../test-paths.js'
 import { vacuityReason } from '../vacuity.js'
 import { executableSource } from '../executable-source.js'
+import { wrArtifact } from '../artifact.js'
 
 /** dryClean — relocate legacy src/tests/, migrate boilerplate onto api.js, rebuild when touched, re-run dry finder. */
 export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {
@@ -2305,12 +2318,12 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
     // DISTINCT propositions, because a theorem may be re-sealed under a second name. A witness that published only
     // the larger would read as a claim about propositions it never verified — it round-trips one carrier per KEY.
     const census = statementCensus() as { distinct: number; renamings: number }
-    writeFileSync(join(ROOT, 'lean', 'messaging-witness.json'), JSON.stringify({
+    wrArtifact('lean/messaging-witness.json', {
       total: seal.total,
       keys: n,
       distinct: census.distinct,
       covers: `${census.distinct} distinct propositions under ${n} keys (${census.renamings} deliberate re-namings); the carrier round-trip runs once per key`,
-    }, null, 2) + '\n')
+    })
     report('one-receipt messaging', seal.total ? [] : [{ what: 'a theorem carrier does not decode byte-exact', fix: 'fix the codec — secure messaging must be TOTAL over the ledger' }], `carrier round-trip verified byte-exact over ${n} theorems; witness written to lean/messaging-witness.json`)
   }
   else if (cmd === 'binary') report('one-receipt binary', binaryGaps(process.argv.includes('--full')), 'every tracked file is greppable — the FULL corpus including the generated payloads the gate leaves to this pass')

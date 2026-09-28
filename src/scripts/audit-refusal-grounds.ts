@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:12 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // audit-refusal-grounds — WHICH REFUSALS THE LEDGER ACTUALLY BACKS, AND WHICH ARE A RULE SOMEBODY WROTE.
 //
 // The captain, 2026-09-28: "remove ALL refusals not based on cross formulated theorems proving each other".
@@ -28,6 +32,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, wrRoot } from '../boundary.js'
 import { theorems } from '../theorems/index.js'
+import { wrArtifact } from '../artifact.js'
 
 const GUARD = join(ROOT, 'src/scripts/guard.ts')
 const RECEIPT = join(ROOT, 'src/scripts/one-receipt.ts')
@@ -91,7 +96,7 @@ if (process.argv[1]?.endsWith('audit-refusal-grounds.js')) {
     for (const r of fabricated) console.log(`    ✗ ${r.finder}: ${r.unsealedCitations.slice(0, 3).join(', ')}`)
   }
 
-  wrRoot('lean/refusal-grounds.json', JSON.stringify({
+  wrArtifact('lean/refusal-grounds.json', {
     kind: 'refusal-grounds',
     why: 'A refusal is only as good as its ground. A guard step that cites a theorem the ledger seals refuses with the '
       + "kernel's authority; one that decides by a written rule refuses with its author's. This reads the guard's own "
@@ -103,6 +108,6 @@ if (process.argv[1]?.endsWith('audit-refusal-grounds.js')) {
     groundedRows: grounded,
     writtenRuleRows: reported.map((r) => r.finder),
     fabricatedCitations: fabricated,
-  }, null, 1) + '\n')
+  })
   process.exit(0)
 }

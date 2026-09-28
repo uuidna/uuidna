@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:16 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // scripts/audit-lean-form — THE LEAN FORM, enforced on the surfaces the prose trial never reaches. The law is already
 // stated in derive-prose-trials.ts: "explicitly denying is not lean — lean CONFIRMS instead of denying". A paragraph
 // mentioning quantum speedup or advantage passes ONLY by citing a sealed theorem — the positive confirmation of what

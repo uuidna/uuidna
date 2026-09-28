@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:2 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // window-crossroads — REPORT WHERE A WING OF FINITE WINDOWS STANDS, and how much is formulable there.
 //
 // Usage: npm run x -- window-crossroads [<Wing.lean> ...]   (default: Clay.lean and the two CERN wings)

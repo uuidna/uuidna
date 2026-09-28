@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:4 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // closure-census — REPORT THE CORPUS CLOSURE FIGURES lean/CrossFormulas.lean seals its inequalities against.
 //
 // That wing states its findings as integer inequalities — forced > 5 x unstated, crossing between two fifths and one

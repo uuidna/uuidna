@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:11 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // audit-artifact-receipts — EVERY DERIVED ARTIFACT CARRIES A CROSS, OR IT IS AN ARRAY NOBODY CAN CHECK.
 //
 // The captain, 2026-09-28: "why arrays and hashes are not result of cross formulas?!? formulate all!" then "no manual
@@ -22,7 +26,8 @@
 // AND A FILE THAT CANNOT BE PARSED IS UNMEASURED, never clean — the third answer this tree has paid for twice.
 import { readdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, wrRoot, rdRoot } from '../boundary.js'
+import { ROOT, rdRoot } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 import { sealOf } from '../artifact.js'
 
 /** read, or null — a file that could not be read is UNMEASURED and must never reach the clean count */
@@ -91,7 +96,9 @@ if (process.argv[1]?.endsWith('audit-artifact-receipts.js')) {
     try { return JSON.parse(raw) as { unsealed?: number } } catch { return null }
   })()
 
-  wrRoot('lean/artifact-receipts.json', JSON.stringify({
+  // THROUGH THE DOOR IT POLICES. This finder counted its own artifact among the unsealed, which is the fault it
+  // exists to name, committed by the finder itself — it wrote with a bare wrRoot while requiring everyone else not to.
+  wrArtifact('lean/artifact-receipts.json', {
     kind: 'artifact-receipts',
     why: 'Every derived artifact should carry a cross: a content address its own leaves fold to, by two routes that '
       + 'must agree (src/crossfold.ts), stamped by the one write door (src/artifact.ts) rather than by each writer. '
@@ -107,7 +114,7 @@ if (process.argv[1]?.endsWith('audit-artifact-receipts.js')) {
     unmeasuredRows: unmeasured,
     fix: 'write it through wrArtifact(path, value) from src/artifact.ts instead of writeFileSync or a bare wrRoot — '
       + 'the seal is then computed from what was actually written, and no writer has to remember it.',
-  }, null, 1) + '\n')
+  })
 
   const rose = held !== null && typeof held.unsealed === 'number' && missing.length > held.unsealed
   if (rose) console.error(`\n✗ audit-artifact-receipts — the unsealed debt ROSE from ${held.unsealed} to ${missing.length}: a new artifact was written without going through the door`)

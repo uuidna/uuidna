@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:6 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // falsifier-gap — NAME the sealed statements that carry no decidable denial, instead of counting them.
 //
 // mint-gate refuses the mint on `falsifier-ceiling: 71090/71094 carry a decidable denial` and stops at the count. Four

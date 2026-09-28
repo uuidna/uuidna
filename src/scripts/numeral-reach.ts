@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:3 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // numeral-reach — HOW MUCH OF THE LEDGER'S ARITHMETIC THE CROSSING MACHINERY CAN SEE.
 //
 // clay-crossroads found the Clay windows standing at zero junctions, and the cause was not about Clay: corpusAlgebra()

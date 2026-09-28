@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @finder phase:18 — DISCOVERED, not listed. This file says that it belongs to the audit
+// chain and where in it; the runner (finders.ts) reads that and nothing central is edited when a finder
+// is added. The phase was taken from the chain as it stood when the hand list was dissolved, so the
+// order did not change on the day it stopped being typed.
 // audit-asks — EVERY PLACE THE AUTOMATION STOPS AND ASKS, and which of those asks is a gap rather than a law.
 //
 // The captain, 2026-09-27: "asking me shows the autonomous gaps to automate." Taken literally, an ask is evidence:
@@ -27,6 +31,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, wrRoot } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 // AN ASK IS EMITTED, NOT EXPLAINED — and reading that off the phrasing alone was wrong on five of seven sites the
 // first time this ran. `// the captain must come FIRST in the credit order` is publication-prior-art stating a LAW;
@@ -128,7 +133,7 @@ const out = {
   open: leads.filter((l) => l.status === 'open').length,
   leads,
 }
-wrRoot('lean/open-asks.json', JSON.stringify(out, null, 1) + '\n')
+wrArtifact('lean/open-asks.json', out)
 
 console.log(`audit-asks — ${asks.length} ask(s) in source: ${out.lawful.credential} credential, ${out.lawful.dashboard} dashboard, ${out.lawful.ruling} ruling, ${automatable.length} AUTOMATABLE`)
 console.log(`  register: ${registeredLines} hand-written line(s) · ${out.registered} ask(s) reach it · ${unregistered.length} reach nothing`)
