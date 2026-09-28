@@ -10,78 +10,78 @@
   {
    "url": "https://uuidna.com/sitemap.xml",
    "status": 200,
-   "ms": 1023.924375
+   "ms": 1006.227708
   },
   {
    "url": "https://uuidna.com/analytics",
    "status": 200,
-   "ms": 871.536958
+   "ms": 789.870625
   },
   {
    "url": "https://uuidna.com/chunk/1abc0681",
    "status": 200,
-   "ms": 890.916291
+   "ms": 1001.47375
   },
   {
    "url": "https://uuidna.com/chunk/47a59439",
    "status": 200,
-   "ms": 869.589625
+   "ms": 898.4005
   },
   {
    "url": "https://uuidna.com/chunk/746cb1bc",
    "status": 200,
-   "ms": 921.455709
+   "ms": 827.088375
   },
   {
    "url": "https://uuidna.com/chunk/a1158be2",
    "status": 200,
-   "ms": 939.386459
+   "ms": 804.831041
   },
   {
    "url": "https://uuidna.com/chunk/d2b9bc71",
    "status": 200,
-   "ms": 927.490958
+   "ms": 883.500292
   },
   {
    "url": "https://uuidna.com/publications/anthem",
    "status": 200,
-   "ms": 886.802792
+   "ms": 825.097167
   },
   {
    "url": "https://uuidna.com/theorem/carmichael_exponent_is_attained_mod_46",
    "status": 200,
-   "ms": 916.487708
+   "ms": 949.896667
   },
   {
    "url": "https://uuidna.com/theorem/coprime_sum_open_reduced_4_mod_61",
    "status": 200,
-   "ms": 889
+   "ms": 902.058042
   },
   {
    "url": "https://uuidna.com/theorem/fixed_power_on_prime_61_exp_16",
    "status": 200,
-   "ms": 835.528958
+   "ms": 885.110125
   },
   {
    "url": "https://uuidna.com/theorem/polarity_flip_is_an_automorphism_1",
    "status": 200,
-   "ms": 879.410208
+   "ms": 833.445542
   },
   {
    "url": "https://uuidna.com/theorem/the_path_spells_the_handle",
    "status": 200,
-   "ms": 926.744292
+   "ms": 855.989208
   },
   {
    "url": "https://uuidna.com/mcp",
    "status": 200,
-   "ms": 782.536084
+   "ms": 858.891
   }
  ],
- "receipt": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
+ "receipt": "7dd91930-230f-8d62-a431-9601236eba99",
  "crossed": {
-  "sorted": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
-  "reversed": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
+  "sorted": "7dd91930-230f-8d62-a431-9601236eba99",
+  "reversed": "7dd91930-230f-8d62-a431-9601236eba99",
   "agrees": true
  }
 }

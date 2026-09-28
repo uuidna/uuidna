@@ -13273,6 +13273,103 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "excerpt": "{\"generators\":83,\"surfaces\":102,\"edges\":110,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":88,\"receipt\":\"9a1c877c-e390-8216-bdb0-b347d9e3f528\",\"handle\":\"9a1c87…"
   }
  },
+ "uuidna_payload": {
+  "name": "get_payload",
+  "title": "Get payload",
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": false
+  },
+  "description": "Get payload. Returns {measured,kind,why,payload,checks,passed,failed,failures,…}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "measured": {
+     "type": "boolean"
+    },
+    "kind": {
+     "type": "string"
+    },
+    "why": {
+     "type": "string"
+    },
+    "payload": {
+     "type": "string"
+    },
+    "checks": {
+     "type": "integer"
+    },
+    "passed": {
+     "type": "integer"
+    },
+    "failed": {
+     "type": "integer"
+    },
+    "failures": {
+     "type": "array"
+    },
+    "collections": {
+     "type": "integer"
+    },
+    "seeds": {
+     "type": "integer"
+    },
+    "crossHash": {
+     "type": "object",
+     "properties": {
+      "uuidna": {
+       "type": "string"
+      },
+      "payload": {
+       "type": "string"
+      },
+      "agrees": {
+       "type": "boolean"
+      }
+     }
+    },
+    "receipt": {
+     "type": "string"
+    },
+    "crossed": {
+     "type": "object",
+     "properties": {
+      "sorted": {
+       "type": "string"
+      },
+      "reversed": {
+       "type": "string"
+      },
+      "agrees": {
+       "type": "boolean"
+      }
+     }
+    },
+    "pluginsInstalled": {
+     "type": "integer"
+    },
+    "pluginsImported": {
+     "type": "integer"
+    },
+    "pluginsCarriedByAdapter": {
+     "type": "integer"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {},
+   "excerpt": "{\"measured\":true,\"kind\":\"payload-conformance\",\"why\":\"Does a vanilla Payload, on its own defaults with every official plugin active, return what uuidna gave it?…"
+  }
+ },
  "uuidna_hex_programs": {
   "name": "get_hex_programs",
   "title": "Get hex programs",
@@ -13338,7 +13435,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"doors\":250,\"width\":8,\"bits\":32,\"distinct\":250,\"collisions\":[],\"programs\":250,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
+   "excerpt": "{\"doors\":251,\"width\":8,\"bits\":32,\"distinct\":251,\"collisions\":[],\"programs\":251,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
   }
  },
  "uuidna_lattice": {
@@ -15960,7 +16057,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":61,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":61,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":62,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":62,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
@@ -16848,7 +16945,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":275,\"tools\":250,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":276,\"tools\":251,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -19791,7 +19888,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":250,\"zeroArgReusable\":120,\"totalRequiredKeys\":192,\"reusablePerKey\":1.302,\"avgRequiredKeys\":0.768,\"avgRating\":4.232,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":251,\"zeroArgReusable\":121,\"totalRequiredKeys\":192,\"reusablePerKey\":1.307,\"avgRequiredKeys\":0.765,\"avgRating\":4.235,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -19869,7 +19966,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"82001cfc\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"6e086996\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20392,7 +20489,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":250,\"registry\":\"f2cc658b-b3c3-8e5…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":251,\"registry\":\"53de76d9-eec0-8de…"
   }
  },
  "uuidna_send": {

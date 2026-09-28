@@ -1,0 +1,65 @@
+{
+ "kind": "payload-conformance",
+ "why": "Does a vanilla Payload, on its own defaults with every official plugin active, return what uuidna gave it? Decided by cross-hashed uuid streams whose roots must agree, with a control that perturbs one character and requires the fold to move. Written by conformance/payload/conform.ts, which runs Payload; uuidna ships none of it. This is the RECORD of a run, not a live verdict.",
+ "payload": "4.0.0-canary.37",
+ "checks": 24,
+ "passed": 24,
+ "failed": 0,
+ "failures": [],
+ "collections": 15,
+ "collectionSlugs": [
+  "users",
+  "pages",
+  "media",
+  "tenants",
+  "search",
+  "redirects",
+  "forms",
+  "form-submissions",
+  "exports",
+  "imports",
+  "payload-kv",
+  "payload-jobs",
+  "payload-locked-documents",
+  "payload-preferences",
+  "payload-migrations"
+ ],
+ "pluginsInstalled": [
+  "@payloadcms/plugin-cloud-storage",
+  "@payloadcms/plugin-form-builder",
+  "@payloadcms/plugin-import-export",
+  "@payloadcms/plugin-multi-tenant",
+  "@payloadcms/plugin-nested-docs",
+  "@payloadcms/plugin-redirects",
+  "@payloadcms/plugin-search",
+  "@payloadcms/plugin-sentry",
+  "@payloadcms/plugin-seo",
+  "@payloadcms/plugin-stripe"
+ ],
+ "pluginsImported": [
+  "@payloadcms/plugin-form-builder",
+  "@payloadcms/plugin-import-export",
+  "@payloadcms/plugin-multi-tenant",
+  "@payloadcms/plugin-nested-docs",
+  "@payloadcms/plugin-redirects",
+  "@payloadcms/plugin-search",
+  "@payloadcms/plugin-sentry",
+  "@payloadcms/plugin-seo",
+  "@payloadcms/plugin-stripe"
+ ],
+ "pluginsCarriedByAdapter": [
+  "@payloadcms/plugin-cloud-storage"
+ ],
+ "seeds": 24,
+ "crossHash": {
+  "uuidna": "0342bd0d",
+  "payload": "0342bd0d",
+  "agrees": true
+ },
+ "receipt": "6441a828-d711-84aa-9574-3a7f107231bc",
+ "crossed": {
+  "sorted": "6441a828-d711-84aa-9574-3a7f107231bc",
+  "reversed": "6441a828-d711-84aa-9574-3a7f107231bc",
+  "agrees": true
+ }
+}
