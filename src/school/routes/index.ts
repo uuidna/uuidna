@@ -22,6 +22,9 @@ import {
 } from '../progress/index.js'
 import { submissionOf, submissionKey, QUEUED, type KvLike } from '../submission/index.js'
 import { handleGrade, type SchoolDeps } from '../grade/index.js'
+// handleOf is already this module graph's derivation (school/progress/identity, missions, leads all call it); the
+// certificate title sliced the address by hand instead, which is the coincidence src/handle.ts exists to end.
+import { handleOf } from '../../handle.js'
 
 /** every school record — progress, certificates' progress links, submissions and their verdicts — lives in SCHOOL */
 export interface SchoolEnv { SCHOOL?: KvLike; ASSETS: { fetch(req: Request): Promise<Response> } }
@@ -231,7 +234,7 @@ export function certificatePage(v: CertificateVerdict): string {
     ? `<p>Handle <code>${esc(b.handle)}</code> answered all ${esc(b.exercises)} checked exercises of the course <a href="/school/learn?course=${encodeURIComponent(b.course)}">${esc(b.title)}</a> (${esc(b.lessons)} lessons, wing <code>${esc(b.wing)}</code>).</p><p>${esc(b.text)}</p>`
     : '<p>No certificate could be read at this address.</p>'
   const lessons = b ? `<h2>Answers</h2><ul>${b.attempts.map((a) => `<li><a href="/theorem/${encodeURIComponent(a.lesson)}">${esc(a.lesson)}</a>: ${esc(a.answer)}</li>`).join('')}</ul>` : ''
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>School certificate ${esc(v.address.slice(0, 8))} · uuidna</title>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>School certificate ${esc(handleOf(v.address))} · uuidna</title>
 <style>:root{--bg:#ffffff;--fg:#3c3c43;--dim:#67676c;--line:#e2e2e3;--acc:#6b46e5}@media(prefers-color-scheme:dark){:root{--bg:#1b1b1f;--fg:#dfdfd6;--dim:#98989f;--line:#2e2e32;--acc:#a78bfa}}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 ui-sans-serif,system-ui,sans-serif}main{max-width:820px;margin:0 auto;padding:24px 16px}h1{font-size:24px}a{color:var(--acc)}a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .v{font-weight:700}.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}caption{text-align:left;color:var(--dim);padding-bottom:6px}code{word-break:break-all}</style></head>
