@@ -107,7 +107,7 @@ import { buildGraph } from './build-graph.js'
 import { hexProgramIndex } from './hex-programs.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
-import { labOf, familySiblingsOf } from './school/laboratory/index.js'
+import { labOf, labsByFamily } from './school/laboratory/index.js'
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
@@ -925,6 +925,75 @@ const TOOLS: Tool[] = ([
   // is configured to benefit qpu and use all payload plugins collections with documented approach in mcp". The harness
   // lives in conformance/payload with its own node_modules — uuidna runs no third-party code at runtime — and it seals
   // its verdict as an artifact through the same write door every census uses. This door serves that record.
+  // ── THE DOOR THE GAP LOG ASKED FOR MOST ────────────────────────────────────────────────────────────────────────
+  //
+  // Measured 2026-09-28 from dist/evidence/mcp-gaps.jsonl: this session bypassed "only mcp use is allowed" 1,446
+  // times, in 1,223 distinct sentences — a fresh justification written for almost every command instead of the few
+  // doors that would carry them. Classified, the largest family is git state and committing by pathspec: 61 rows,
+  // topped by "no door commits a pathspec to git" at 35. The log exists so doors get BUILT from it; this is that.
+  //
+  // READ-ONLY BY DEFAULT, AND THE WRITE IS NARROW. `state`, `log` and `holder` only ask. `commit` takes an explicit
+  // pathspec and refuses an empty one, because this tree is shared by several sessions and `-a` or `add -A` would
+  // sweep a neighbour's uncommitted work into this session's commit — which happened to my own files twice today, in
+  // the other direction. It NEVER pushes: a push must be earned by the gate (npm run land), and a door that pushed
+  // would put an outward, irreversible act behind a tool call.
+  //
+  // THE THIRD ANSWER IS KEPT. spawnSync reports status null when the command never STARTED, and mapping that to a
+  // failure would report a fact about the repository that was never gathered — the same defect qpu's `ran` field
+  // carries and the same one land.ts learned when "Everything up-to-date" read as a successful push.
+  { name: 'uuidna_git',
+    description: 'THE REPOSITORY\'S OWN STATE, asked rather than shelled. `ask: "state"` returns {head, branch, ahead, behind, dirty[], holder} — the commit, how far it stands from origin, the porcelain dirty set as {path,status} rows, and whether a landing currently holds the tree. `ask: "log"` with optional {path, limit} returns recent commits, so the history of a source path is a call instead of a grep. `ask: "holder"` answers only the question a session needs before editing: is the tree held, and by what. `ask: "commit"` requires {paths: [...], message} and commits EXACTLY those paths — an empty pathspec is refused by name, because this tree is shared and a sweeping add takes a neighbour\'s uncommitted work with it. IT NEVER PUSHES: a push is the gate\'s to earn (npm run land), and no tool call should carry an outward irreversible act. Node-only by construction — a Worker has no git and no child process — so at the edge it refuses by name rather than answering emptily. A command that never STARTED is reported as unstarted, never as a failure, because that is a fact about this host and not about the repository. Returns the answer for the ask, or {refused, why}.',
+    inputSchema: { type: 'object', required: ['ask'], properties: {
+      ask: { type: 'string', description: 'state | log | holder | commit' },
+      path: { type: 'string', description: 'for log: limit the history to one path' },
+      limit: { type: 'integer', description: 'for log: how many commits (default 10)' },
+      paths: { type: 'array', description: 'for commit: the exact pathspec, never empty' },
+      message: { type: 'string', description: 'for commit: the message, which must cite a sealed theorem to pass the commit-msg gate' },
+    } },
+    run: (a = {}) => {
+      const cp = (process as unknown as { getBuiltinModule?: (n: string) => typeof import('node:child_process') }).getBuiltinModule?.('node:child_process')
+      if (!cp) return { refused: true, why: 'git is reachable only on a host with a child process — a Worker has neither, and answering emptily would report a clean tree that was never read' }
+      const run = (args: string[]): { ok: boolean; out: string; unstarted: boolean } => {
+        const r = cp.spawnSync('git', args, { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+        return { ok: r.status === 0, out: String(r.stdout ?? '') + String(r.stderr ?? ''), unstarted: r.status === null }
+      }
+      const ask = String(a.ask ?? '')
+      const holder = (): string | null => {
+        const ps = cp.spawnSync('pgrep', ['-f', 'dist/scripts/land.js'], { encoding: 'utf8' })
+        return ps.status === 0 && String(ps.stdout ?? '').trim() !== '' ? 'a landing holds the tree (dist/scripts/land.js is running)' : null
+      }
+      if (ask === 'holder') return { held: holder() !== null, holder: holder() }
+      if (ask === 'state') {
+        const head = run(['rev-parse', 'HEAD'])
+        if (head.unstarted) return { refused: true, why: 'git never started on this host, so nothing about the repository was measured' }
+        const porcelain = run(['status', '--porcelain'])
+        const dirty = porcelain.out.split('\n').filter((l) => l.trim() !== '').map((l) => ({ status: l.slice(0, 2).trim(), path: l.slice(3) }))
+        return {
+          head: head.out.trim(), branch: run(['rev-parse', '--abbrev-ref', 'HEAD']).out.trim(),
+          ahead: Number(run(['rev-list', '--count', 'origin/main..HEAD']).out.trim() || '0'),
+          behind: Number(run(['rev-list', '--count', 'HEAD..origin/main']).out.trim() || '0'),
+          dirty, dirtyCount: dirty.length, holder: holder(),
+        }
+      }
+      if (ask === 'log') {
+        const limit = typeof a.limit === 'number' ? a.limit : 10
+        const args = ['log', '--oneline', '-n', String(limit)]
+        if (typeof a.path === 'string' && a.path !== '') args.push('--', a.path)
+        const r = run(args)
+        if (r.unstarted) return { refused: true, why: 'git never started on this host' }
+        return { commits: r.out.split('\n').filter((l) => l.trim() !== '') }
+      }
+      if (ask === 'commit') {
+        const paths = Array.isArray(a.paths) ? a.paths.map(String).filter((x) => x !== '') : []
+        const message = typeof a.message === 'string' ? a.message : ''
+        if (paths.length === 0) return { refused: true, why: 'commit requires an explicit pathspec: this tree is shared by several sessions, and a commit without one takes a neighbour\'s uncommitted work with it' }
+        if (message.trim() === '') return { refused: true, why: 'commit requires a message, and the commit-msg gate refuses one that cites no sealed theorem' }
+        const r = cp.spawnSync('git', ['commit', '-q', '-m', message, '--', ...paths], { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+        if (r.status === null) return { refused: true, why: 'git never started, so nothing was committed and nothing about the tree is known' }
+        return { committed: r.status === 0, paths, head: run(['rev-parse', 'HEAD']).out.trim(), said: (String(r.stdout ?? '') + String(r.stderr ?? '')).split('\n').filter((l) => l.trim() !== '').slice(-6) }
+      }
+      return { refused: true, why: `unknown ask: ${ask} — state, log, holder or commit` }
+    } },
   { name: 'uuidna_payload',
     description: 'PAYLOAD CONFORMANCE — does a vanilla Payload, on its own defaults with EVERY official plugin active, return exactly what uuidna gave it? Decided by CROSS-HASHED UUID STREAMS: a leaf per seed from the address uuidna computed before Payload saw the body, a second leaf recomputed from what Payload stored and returned, both folded order-invariantly, and the cross is that the roots agree. A control perturbs one character of one body and requires the fold to MOVE, so a green run means something. Reports the payload version (the newest canary, ahead of stable, by the captain\'s instruction), the collections mounted including each plugin\'s own, the plugins installed against those imported and those carried transitively by a storage adapter, the seed count and the two fold handles. THE NATIVE CLOUDFLARE BINDINGS ARE THE POINT: @payloadcms/db-d1-sqlite and @payloadcms/storage-r2 are Payload\'s OWN adapters for D1 and R2, so no adapter is written here — both are built and sanitized by the harness while the binding itself stays the Worker\'s to supply, which is a host fact and not a preference. THIS IS A RECORD OF THE LAST RUN, never a live verdict: the door reads the sealed artifact and says when it cannot. Returns {payload,checks,passed,failed,collections,pluginsInstalled,pluginsImported,pluginsCarriedByAdapter,seeds,crossHash,receipt}.',
     inputSchema: { type: 'object', properties: { slugs: { type: 'boolean', description: 'include every mounted collection slug and every plugin name; omit for the counts and the cross' } } },
@@ -999,7 +1068,15 @@ const TOOLS: Tool[] = ([
   { name: 'uuidna_review_domains',
     description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
     inputSchema: { type: 'object', properties: {} },
-    run: () => reviewDomains() },
+    // BY FAMILY, 2026-09-28 (the captain: "develop all domains by family at school mcp os"). This door served the 131
+    // admitted domains FLAT, and the family axis was already in the ledger: a domain's family is its wings' family, read
+    // with the same `familyOf` the entanglement census uses rather than a second rule that would agree today and drift
+    // later. A domain whose theorems span several wing families carries ALL of them — choosing the largest would invent
+    // a hierarchy the ledger does not have — so `placed` is a SET size and not a sum of group sizes, which would exceed
+    // the domain count and agree with arithmetic instead of with the set. Measured: 131 domains, 131 placed, 0
+    // unplaced, 164 families, of which 154 hold one domain — so the axis is real structure for about twenty domains and
+    // none for the rest, which is what the counts say rather than what a grouping implies.
+    run: () => ({ ...labsByFamily(), domains: reviewDomains() }) },
   { name: 'uuidna_document',
     description: 'The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, EditorState.toJSON() shape). The SERVE projection of the serializer contract lean/Editor.lean proves: a document is a SEQUENCE, so the fold is ORDER-SENSITIVE (reordering a node moves the address — the opposite of a set), change-sensitive, and bounded-injective. serialize → merkleRoot over the leaves → the handle you cite; editing is re-addressing. Returns {handle,address,nodes}. The SAME fold a PayloadCMS save-hook and a VitePress render read — one contract, both frameworks. Integrity, not truth (theorem provenance_integrity_not_content_truth): it proves WHICH document, not that its content is correct.',
     inputSchema: { type: 'object', properties: { state: { type: 'object', description: 'a Lexical EditorState', properties: { root: { type: 'object', properties: { type: { type: 'string' }, children: { type: 'array', items: { type: 'object', properties: { type: { type: 'string' } } } } } } }, required: ['root'] } }, required: ['state'] },
@@ -1100,13 +1177,6 @@ const TOOLS: Tool[] = ([
         key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file,
         address: t.address, verdict: 'SEALED', source: dual.paper.source,
         paper: dual.paper, blueprint: dual.blueprint, lab: labOf(t.key),
-        // THE FAMILY AXIS, 2026-09-28 (the captain: "develop all domains by family at school mcp os"). The 131
-        // admitted domains were served flat: schoolLabs() had the whole roster and mcp.ts imported only labOf, so the
-        // roster was correct and unreachable. The FULL roster stays off the wire on purpose — an open lead records
-        // tools/list already past its sealed ceiling — so what rides here is this skill's own families and the siblings
-        // inside them, which is the part a caller can act on. A domain spanning several wing families carries all of
-        // them; choosing the largest would invent a hierarchy the ledger does not have.
-        family: familySiblingsOf(t.skill ?? ''),
         axioms,
         ...(record ? { names: record.name, describes: record.description, cites: record.citation, honest: record.honest } : {}),
       }

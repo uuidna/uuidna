@@ -13273,6 +13273,44 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "excerpt": "{\"generators\":83,\"surfaces\":102,\"edges\":110,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":88,\"receipt\":\"9a1c877c-e390-8216-bdb0-b347d9e3f528\",\"handle\":\"9a1c87…"
   }
  },
+ "uuidna_git": {
+  "name": "run_git",
+  "title": "Run git",
+  "annotations": {
+   "readOnlyHint": false,
+   "destructiveHint": false,
+   "idempotentHint": false,
+   "openWorldHint": true
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": true
+  },
+  "why": {
+   "spawns": "run"
+  },
+  "description": "Run git. Returns {refused,why}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "refused": {
+     "type": "boolean"
+    },
+    "why": {
+     "type": "string"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {
+    "ask": "theorem"
+   },
+   "excerpt": "{\"refused\":true,\"why\":\"unknown ask: theorem — state, log, holder or commit\"}"
+  }
+ },
  "uuidna_payload": {
   "name": "get_payload",
   "title": "Get payload",
@@ -13385,10 +13423,18 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Get hex programs. Returns {doors,width,bits,distinct,collisions,programs,capacity,…}.",
+  "description": "Get hex programs. Returns {byHex,byName,doors,width,bits,distinct,collisions,programs,…}.",
   "outputSchema": {
    "type": "object",
    "properties": {
+    "byHex": {
+     "type": "object",
+     "properties": {}
+    },
+    "byName": {
+     "type": "object",
+     "properties": {}
+    },
     "doors": {
      "type": "integer"
     },
@@ -13435,7 +13481,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"doors\":251,\"width\":8,\"bits\":32,\"distinct\":251,\"collisions\":[],\"programs\":251,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
+   "excerpt": "{\"byHex\":{},\"byName\":{},\"doors\":252,\"width\":8,\"bits\":32,\"distinct\":252,\"collisions\":[],\"programs\":252,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296…"
   }
  },
  "uuidna_lattice": {
@@ -13837,34 +13883,37 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Review domains. Returns [{domain,theorems,fold,verdict,receipt}].",
+  "description": "Review domains. Returns {families,domains,placed,unfamilied,receipt}.",
   "outputSchema": {
-   "type": "array",
-   "items": {
-    "type": "object",
-    "properties": {
-     "domain": {
-      "type": "string"
-     },
-     "theorems": {
-      "type": "integer"
-     },
-     "fold": {
-      "type": "string"
-     },
-     "verdict": {
-      "type": "string"
-     },
-     "receipt": {
-      "type": "string"
+   "type": "object",
+   "properties": {
+    "families": {
+     "type": "array",
+     "items": {
+      "type": "object"
      }
+    },
+    "domains": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "placed": {
+     "type": "integer"
+    },
+    "unfamilied": {
+     "type": "array"
+    },
+    "receipt": {
+     "type": "string"
     }
    }
   },
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "[{\"domain\":\"z9-ring\",\"theorems\":305,\"fold\":\"4d097213-5f01-83d3-a917-a6f0c48ae1d9\",\"verdict\":\"VERIFIED\",\"receipt\":\"63c0d341-27a5-82ca-9ae2-bd618bf8bc19\"},{\"doma…"
+   "excerpt": "{\"families\":[{\"family\":\"Uuidna\",\"domains\":[\"z9-ring\",\"vortex\",\"involution\",\"foundational\",\"neuro\",\"quantum\",\"clay-reflection\",\"science-pairs\",\"reflection\",\"coi…"
   }
  },
  "uuidna_document": {
@@ -16057,7 +16106,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":62,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":62,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":64,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":64,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
@@ -16945,7 +16994,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":276,\"tools\":251,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":277,\"tools\":252,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -19888,7 +19937,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":251,\"zeroArgReusable\":121,\"totalRequiredKeys\":192,\"reusablePerKey\":1.307,\"avgRequiredKeys\":0.765,\"avgRating\":4.235,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":252,\"zeroArgReusable\":121,\"totalRequiredKeys\":193,\"reusablePerKey\":1.306,\"avgRequiredKeys\":0.766,\"avgRating\":4.234,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -19966,7 +20015,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"6e086996\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"a0b4eba3\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20489,7 +20538,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":251,\"registry\":\"53de76d9-eec0-8de…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":252,\"registry\":\"3831cb2b-eb08-860…"
   }
  },
  "uuidna_send": {
