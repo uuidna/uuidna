@@ -1,0 +1,368 @@
+{
+  "kind": "lead-cross",
+  "openLeads": 174,
+  "clusters": [
+    {
+      "on": "module",
+      "count": 3,
+      "coherence": 1,
+      "leads": [
+        "an unreachable module",
+        "an unreachable module",
+        "an unreachable module"
+      ]
+    },
+    {
+      "on": "lookup",
+      "count": 2,
+      "coherence": 0.7,
+      "leads": [
+        "the tree escaped the MCP door 3 times for the same missing capability: symbol lookup door missing",
+        "the tree escaped the MCP door 2 times for the same missing capability: refusal-trials lookup door"
+      ]
+    },
+    {
+      "on": "kernel",
+      "count": 3,
+      "coherence": 0.6555555555555556,
+      "leads": [
+        "the tree escaped the MCP door 3 times for the same missing capability: no door runs the kernel on a candidate",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door runs the kernel on an involution",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door waits on a background kernel run or reads its log"
+      ]
+    },
+    {
+      "on": "wing",
+      "count": 2,
+      "coherence": 0.5833333333333334,
+      "leads": [
+        "the tree escaped the MCP door 2 times for the same missing capability: no door prints a wing's defs and theorems",
+        "the tree escaped the MCP door 2 times for the same missing capability: wing source read door"
+      ]
+    },
+    {
+      "on": "commits",
+      "count": 8,
+      "coherence": 0.5745104307296426,
+      "leads": [
+        "1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all",
+        "the tree escaped the MCP door 17 times for the same missing capability: no door commits a pathspec to git",
+        "the tree escaped the MCP door 15 times for the same missing capability: no door commits a pathspec",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits a pathspec in another repository",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree; a signed commit by pathspec is a git act, not a ledger computation",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door stages or commits the tree"
+      ]
+    },
+    {
+      "on": "compares",
+      "count": 2,
+      "coherence": 0.5,
+      "leads": [
+        "the tree escaped the MCP door 3 times for the same missing capability: no door compares publications to the kin graph",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door compares the wings' cited DOIs to the deposit's references"
+      ]
+    },
+    {
+      "on": "serves",
+      "count": 2,
+      "coherence": 0.5,
+      "leads": [
+        "the tree escaped the MCP door 3 times for the same missing capability: no door serves the cross-skill identity census",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door serves the computed clay scope"
+      ]
+    },
+    {
+      "on": "witness",
+      "count": 17,
+      "coherence": 0.4231808352691502,
+      "leads": [
+        "the tree escaped the MCP door 4 times for the same missing capability: no door returns verbatim lead records for witness faithfulness judgment",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door reports the witness",
+        "the tree escaped the MCP door 3 times for the same missing capability: no MCP door returns a leads.json row addressed by handleOf(toUuid(row.lead)) for an independent witness",
+        "the tree escaped the MCP door 3 times for the same missing capability: no MCP door returns a single leads.json row by handle for a witness",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the axiom witness",
+        "the tree escaped the MCP door 2 times for the same missing capability: no MCP door runs a witness-authored comment/string-stripped numeral hunt over the tree",
+        "the tree escaped the MCP door 2 times for the same missing capability: no MCP door runs an independent witness perturbation probe against a wing's Prop (vacuity + satisfiability controls)",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness 7: replay the generator's exact hunting rule and probe its blind spots",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness control: no door runs a deliberately falsified wing copy that the kernel must refuse",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness court: control mutations of a wing copy",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness court: independent census",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness court: lead row lookup by handle",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness court: no door serves a single lead's exact recorded text by handle",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness kernel face: must-fail control runs against a wing copy",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness kernel face: mutation controls",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness rosetta: kernel control mutations under witness control",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness: locate leads row by handle"
+      ]
+    },
+    {
+      "on": "court",
+      "count": 10,
+      "coherence": 0.42215868009985646,
+      "leads": [
+        "gate-receipt-index.ts reaches node:crypto, node:fs, node:child_process and node:path EAGERLY, so anything importing it cannot run in a browser. That is why the court had to give up its receipt arm on 2026-09-01: exec -> court -> gate-receipt-index put path.join into the docs bundle and the OS page died with \"(0, m_.join) is not a function\". The captain's correction stands — this is not a host-only check by nature, it is a module written as though a host were the only place it would ever run.",
+        "the tree escaped the MCP door 8 times for the same missing capability: court investigation",
+        "the tree escaped the MCP door 7 times for the same missing capability: court-wave investigator: read-only source verification",
+        "the tree escaped the MCP door 5 times for the same missing capability: court scratch kernel run",
+        "the tree escaped the MCP door 4 times for the same missing capability: read-only source verification for court investigation",
+        "the tree escaped the MCP door 3 times for the same missing capability: court investigator verifying refuted leads against source",
+        "the tree escaped the MCP door 2 times for the same missing capability: court must read prepublishSeal gaps",
+        "the tree escaped the MCP door 2 times for the same missing capability: court must run the kernel on the seams candidate",
+        "the tree escaped the MCP door 2 times for the same missing capability: court scratch kernel run outside the repo",
+        "the tree escaped the MCP door 2 times for the same missing capability: raw lead text for court investigation not served by any door"
+      ]
+    },
+    {
+      "on": "reports",
+      "count": 13,
+      "coherence": 0.4115340467613197,
+      "leads": [
+        "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
+        "deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 301), so the zone setting was already on and only the verification failed — but the run could not tell the difference and said nothing",
+        "the tree escaped the MCP door 5 times for the same missing capability: no door reports the tree holder",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a generated article",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing's phase",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a reconcile's phase",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports how the zenodo related identifiers are derived",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the fold input for the src/handles chunk store",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the involution registry",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the publication kin graph",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the school's course ordering and levels",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports which generator owns a wing; placing the path's theorems"
+      ]
+    },
+    {
+      "on": "handle",
+      "count": 10,
+      "coherence": 0.2945154845154845,
+      "leads": [
+        "HANDLE_BITS % HEXAGRAM_BITS = 2 (the eight-hex handle does not tile as hexagrams). HEXBIT_STATES % HEXAGRAM_BITS = 4. Those remainders are different cuts.",
+        "docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.",
+        "Renaming a theorem moves its handle",
+        "the tree escaped the MCP door 5 times for the same missing capability: lead-by-handle lookup door missing",
+        "the tree escaped the MCP door 4 times for the same missing capability: no door serves a lead record verbatim by handle",
+        "the tree escaped the MCP door 3 times for the same missing capability: court investigator needs raw lead records by handle",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door returns a lead record by handle",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door returns a lead's docket record by handle",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door locates a lead handle across repo files",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door maps a lead's text to its handle"
+      ]
+    },
+    {
+      "on": "reads",
+      "count": 3,
+      "coherence": 0.21212121212121213,
+      "leads": [
+        "Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.",
+        "the tree escaped the MCP door 9 times for the same missing capability: no door reads a broken source",
+        "the tree escaped the MCP door 7 times for the same missing capability: no door reads a generated page"
+      ]
+    },
+    {
+      "on": "theorem",
+      "count": 21,
+      "coherence": 0.19480178732207845,
+      "leads": [
+        "kdf_cost_bounded was removed from axiom-hunt because the theorem only compared the numerals 600000 ≤ 10000000. ITER / MAX_ITER still bind in crypt.ts and one-receipt.",
+        "MCP tools/list wire grew to 168373 bytes, over the sealed ceiling 167794 (+579) — uuidna_skill / uuidna_theorem / uuidna_reason descriptions carried school-lab and paper-blueprint derivation onto the wire.",
+        "Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing enforces it.",
+        "Literature has poor theorem yield (one per quarter-million characters)",
+        "one census() costs 66 seconds — it evaluates every sealed statement under an involution, about 30 ms per theorem. Memoising removed all REDUNDANCY (four calls became two, one per involution, the minimum), so the suite floor is now 2 x 66 s and is set by the evaluation itself rather than by repetition",
+        "decide() spends about 11 microseconds on input that reaches NO verdict at all — measured as the prose path, against 0.93 us for a sealed-theorem hit and 17.4 us for the arithmetic path. The ledger lookup is not the cost; the scanning before any decision is",
+        "most-searched query \"gemini\" rings no sealed theorem",
+        "most-searched query \"deepseek\" rings no sealed theorem",
+        "most-searched query \"iphone\" rings no sealed theorem",
+        "most-searched query \"ufc\" rings no sealed theorem",
+        "most-searched query \"f1\" rings no sealed theorem",
+        "most-searched query \"cricket\" rings no sealed theorem",
+        "most-searched query \"education\" rings no sealed theorem",
+        "the tree escaped the MCP door 2 times for the same missing capability: court investigation: recompute theorem census",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a theorem by key",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports qpu's intra-file theorem dependency graph",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door runs the kernel on a candidate theorem",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door serves a named theorem's statement by key",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door serves a theorem by key",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door traces a sealed theorem through the derived layer",
+        "the tree escaped the MCP door 2 times for the same missing capability: no MCP door greps theorem keys by word from the local generated ledger"
+      ]
+    },
+    {
+      "on": "lean",
+      "count": 30,
+      "coherence": 0.1765802898737508,
+      "leads": [
+        "lean/messaging-witness.json covers 2138 keys; the live ledger is 2140. messaging_total is therefore false and the one-receipt fold refuses equilibrium.",
+        "The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.",
+        "A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering' is a NAME, 'rather than' is contrast).",
+        "two_routes_reach_four_hundred_and_thirty_two is alone in its principle \"THE COINS BALANCE\" (CoinsBalance.lean)",
+        "the tree escaped the MCP door 15 times for the same missing capability: no door runs the bare Lean 4 kernel on proposed involution text",
+        "the tree escaped the MCP door 5 times for the same missing capability: no door compiles a candidate Lean verdict in a scratch directory",
+        "the tree escaped the MCP door 4 times for the same missing capability: no door compiles candidate Lean",
+        "the tree escaped the MCP door 4 times for the same missing capability: no door compiles candidate Lean source and returns #print axioms for a court proposal",
+        "the tree escaped the MCP door 4 times for the same missing capability: no door runs a scratch Lean file for a court verdict proposal",
+        "the tree escaped the MCP door 4 times for the same missing capability: no door runs a scratch Lean file for a proposed involution (court investigator needs kernel + #print axioms before proposing)",
+        "the tree escaped the MCP door 3 times for the same missing capability: court-wave investigator needs read-only lead text lookup by handle from lean/leads.json",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door reads a lead record by handle from lean/leads.json",
+        "the tree escaped the MCP door 3 times for the same missing capability: no MCP door compiles an arbitrary witness-mutated Lean file in a scratch dir for an independent kernel control",
+        "the tree escaped the MCP door 3 times for the same missing capability: no MCP door returns a single lead record by handle from lean/leads.json",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door greps Lean sources",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door recompiles an arbitrary lean wing and prints #print axioms for a witness",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door returns one lead row by handle from lean/leads.json",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door returns raw Lean wing source text",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door runs a bare Lean 4 kernel over an investigator's candidate involution outside lean/",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door runs arbitrary Lean text against the bare kernel for a court investigator to check its own involution",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door serves a single lean/leads.json row by handle for a witness judgment",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door serves one lean/leads.json row by handle",
+        "the tree escaped the MCP door 2 times for the same missing capability: no MCP door reads a single lean/leads.json row by handle",
+        "the tree escaped the MCP door 2 times for the same missing capability: read lead records by handle from lean/leads.json",
+        "the tree escaped the MCP door 2 times for the same missing capability: run the bare Lean kernel on the axiom-free involution",
+        "the tree escaped the MCP door 2 times for the same missing capability: run the bare Lean kernel on the candidate involution",
+        "the tree escaped the MCP door 2 times for the same missing capability: running the bare lean kernel on a candidate wing before it enters the tree",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness kernel face: run lean on scratch copy",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness kernel re-run: no door executes lean over a scratch copy of a wing",
+        "the tree escaped the MCP door 2 times for the same missing capability: witness rosetta: independent handle recomputation over lean/leads.json rows"
+      ]
+    },
+    {
+      "on": "over",
+      "count": 2,
+      "coherence": 0.11764705882352941,
+      "leads": [
+        "kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION, not because the catalogue lacks straddling software",
+        "Port a security API and a further network API over the Alpine security (86 packages) and network (332 packages) domains, as chat, shell, filesystem, database and blockchain were ported."
+      ]
+    },
+    {
+      "on": "hexface",
+      "count": 3,
+      "coherence": 0.0196078431372549,
+      "leads": [
+        "HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).",
+        "VitePress client externalizes node:fs via src/seo-freeze.ts, so HexFace cannot be verified in the browser (dev server abort after the fs error).",
+        "HexFace occupancy glyphs freeze hit(5), hit(8), hit(9), hit(12) and stations as 3 ∧ 7 ∨ 10; readings filter 10 and 22."
+      ]
+    },
+    {
+      "on": "still",
+      "count": 9,
+      "coherence": 0.016649772443490606,
+      "leads": [
+        "PI_ROOF_NUM = 22 is still a numeral beside the Nat roof walk (PI_ROOF × rung + remainder = product).",
+        "axiom-hunt live predicates still pin A432_HZ === 432, coins() × A432_HZ === 864, A432_HZ × 16 === 6912, SAMPLE_RATE/2 === 8000, MAX_SERVED_QUBITS === 12 and 1<<12 === 4096.",
+        "trading-shelf.test.ts and harmony-scan.test.ts still hunt honesty by honest.includes('never money' / 'no currency' / 'NOT a medical device').",
+        "CRT axiom-free still fails in the in-tree v030-balance-trial / sequence-coverage surfaces (unfrozen).",
+        "src/aura.ts CSS still pins RAYS = 7, period = 12 + ray*2, hue-rotate(360deg), box-shadow 24px/64px/4px/12px, n % 9, 360/RAYS, while one-receipt only copies a parallel 10D bag.",
+        "one-receipt's 10D aura bag still pins period: 12 + ray*2, rotation: 360, glow_inner: 24, glow_outer: 64, hz: 432.",
+        "referrer-song BAR = 252 is still a numeral (the 252 ms bar).",
+        "dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half",
+        "catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full"
+      ]
+    },
+    {
+      "on": "runs",
+      "count": 2,
+      "coherence": 0.014925373134328358,
+      "leads": [
+        "CAN AN ALPINE APP REPLACE COMPLEXITY WITH NANOSPEED (the captain, 2026-09-01)? Measured position today: NO by the porting route — uuidnaOS DOES execute (uuidnaExec, uuidna_run) — the captain corrected that premise on 2026-09-01 — but the route that runs an ALPINE BINARY spawns a host process at millisecond setup cost against in-process ops of 100-800 ns, so substitution is ~10000x SLOWER, not faster. But the question survives in a second reading the census has not tried: an Alpine package embodies an ALGORITHM (zstd's entropy coding, musl's allocator, xxhash's mixing), and the catalogue holds 28,635 of those descriptions beside code of ours that may be doing the same job worse",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door runs kernelVerdicts/kernelHolds/leanFormatFault over the Crt wing"
+      ]
+    },
+    {
+      "on": "from",
+      "count": 5,
+      "coherence": 0.009217171717171718,
+      "leads": [
+        "decrypt skipped verifyEnvelope, so a mutated address still decoded; v:3 opened from the traveling salt, so the referrer was not a secrecy door.",
+        "Two I Ching squares fold to 256 triangles (128 cells × 2 diagonals). That count is UUID_BITS × COINS, which is also the ChaCha20 key width. Crypt still samples 256 bits from PBKDF2 beside the boards, as if the fold were a second tape.",
+        "runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.",
+        "exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see it",
+        "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor"
+      ]
+    },
+    {
+      "on": "that",
+      "count": 3,
+      "coherence": 0.004901960784313725,
+      "leads": [
+        "The hosted MCP bills a call that is missing a required argument",
+        "importing mcp costs 23.0 MB, and it is the DEPENDENCY GRAPH rather than the tools: its 45 direct imports account for all of it, mcp.js itself adds nothing measurable on top, and the 232 tool objects serialise to 0.3 MB. A caller that wants one tool pays for the whole tree, which matters in a Worker isolate where the catalogue index already wants 17.1 MB beside it",
+        "THE RATCHET IS VALIDATED AND ITS FIRST STEP IS TOO SLOW FOR A TAB. Measured in a real browser 2026-09-01 (PortsConsole on /os): chatSend #0, which derives the session with PBKDF2 at 600,000 iterations in pure TypeScript, cost 25.7 s; chatSend #1 on the same session, rotating the key by its step, cost 2.4 ms. About 10,700x. The design is exactly right — the two coins are paid ONCE and every later message is free — and that is the captain's law in one measurement: highest speed comes at highest security, by design."
+      ]
+    },
+    {
+      "on": "generated",
+      "count": 2,
+      "coherence": 0,
+      "leads": [
+        "the search feed was generated OFFLINE, so no public API was asked what the world is searching for",
+        "the tree escaped the MCP door 3 times for the same missing capability: no door quotes a generated doc's lines"
+      ]
+    },
+    {
+      "on": "honest",
+      "count": 2,
+      "coherence": 0,
+      "leads": [
+        "gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it",
+        "an honest alpinePending for GapSurvey costs 644 ms — it must classify all 28,635 packages to know the binding counts. catalogue() warm is free; the classification is not. This is why the phase gate reached for a cheap proxy"
+      ]
+    },
+    {
+      "on": "leads",
+      "count": 2,
+      "coherence": 0,
+      "leads": [
+        "refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.",
+        "the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one"
+      ]
+    },
+    {
+      "on": "ledger",
+      "count": 2,
+      "coherence": 0,
+      "leads": [
+        "The ledger and the wings had drifted; two theorems were proven and invisible",
+        "the tree escaped the MCP door 2 times for the same missing capability: pre-flighting ledger piece sizes against qpu's heap bound"
+      ]
+    },
+    {
+      "on": "sealed",
+      "count": 2,
+      "coherence": 0,
+      "leads": [
+        "fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).",
+        "the tree escaped the MCP door 2 times for the same missing capability: prototyping the mod-9 mirror falsifier over the sealed ledger with a control"
+      ]
+    }
+  ],
+  "alone": [
+    "Plan leftover: concurrent width is 14 VE faces.",
+    "Nonce 12, salt 16, tag 16, onion 16, ChaCha block 64 and OTK 32 were RFC numerals sitting beside the architecture, so crypt looked like a standard glued on rather than occupancy × fold.",
+    "Every merkaba has union 8 — an 8-vertex star tetrahedron",
+    "The re-namings are 2 x 42 = 84",
+    "harmonic-scan enforces 'quantum'",
+    "The network is down",
+    "roundTrips() disagrees with a verified byte-exact imprint round-trip",
+    "https://uuidna.com/school/submissions?status=queued answers 503 — storage unavailable (no SCHOOL KV namespace bound)",
+    "the tree escaped the MCP door 4 times for the same missing capability: no door times a finder's cost",
+    "the tree escaped the MCP door 3 times for the same missing capability: no door hunts a derived constant restated as a numeral",
+    "the tree escaped the MCP door 2 times for the same missing capability: committing the A432 reconcile",
+    "the tree escaped the MCP door 2 times for the same missing capability: no door crosses the MCP self-sufficiency audits into one census",
+    "the tree escaped the MCP door 2 times for the same missing capability: no door edits an authored citation",
+    "the tree escaped the MCP door 2 times for the same missing capability: no door probes zenodo header behaviour"
+  ],
+  "refutationByWordOverlap": "measured not to work: 163 of 174 leads matched some tool, and the four strongest matches are coincidences on generic words. Not reported and not used to settle anything.",
+  "commonWords": [
+    "capability",
+    "door",
+    "escaped",
+    "missing",
+    "same",
+    "times",
+    "tree"
+  ],
+  "honest": "a cluster is leads sharing a distinctive word, which is evidence they ask for one capability. The NAME of a cluster is whichever shared word ranks first, with ties broken alphabetically, so the grouping is the claim and the name is not. A refutation candidate is NOT a settled refutation: nothing here closes a lead, because a wrongly closed lead is a false answer carrying a receipt."
+}

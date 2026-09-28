@@ -52,6 +52,15 @@ export interface LifeApi {
   format: string
   /** free and keyless, or exactly what it costs — never left vague */
   access: string
+  /**
+   * The path segment the probe appends to `base`, when the endpoint is path-shaped rather than query-shaped.
+   *
+   * ADDED AFTER THE FIRST PROBE RUN REFUTED SEVENTEEN OF TWENTY-TWO DECLARATIONS. Every probe was built as base plus
+   * query parameters, which is right for OLS, Wikidata and WHO and wrong for most of the rest: openFDA wants
+   * /drug/label.json, GBIF wants /species/search, PubChem wants the whole query in the path. The 404s were a finding
+   * about these declarations, not about those services.
+   */
+  path?: string
   /** the known-good query that proves this source still answers. No source without one. */
   probe: LifeApiQuery
   /** what the source does NOT say, which for a medical record is the load-bearing half */
@@ -62,6 +71,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── literature and trials ──────────────────────────────────────────────────────────────────────────────────────
   { id: 'europepmc', name: 'Europe PMC — biomedical and life-science literature', kind: 'literature',
     base: 'https://www.ebi.ac.uk/europepmc/webservices/rest',
+    path: '/search',
     probe: { query: 'curcumin AND OPEN_ACCESS:y', format: 'json', pageSize: 3 },
     serves: ['abstracts', 'full-text where open', 'citations', 'MeSH terms', 'grant links'],
     format: 'JSON', access: 'public, no key',
@@ -71,6 +81,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'clinicaltrials', name: 'ClinicalTrials.gov — registered interventional and observational studies', kind: 'clinical',
     base: 'https://clinicaltrials.gov/api/v2',
+    path: '/studies',
     probe: { 'query.term': 'Curcuma longa', pageSize: 3, format: 'json' },
     serves: ['registered protocols', 'phase', 'status', 'enrolment', 'outcome measures', 'results where posted'],
     format: 'JSON', access: 'public, no key',
@@ -81,6 +92,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── regulatory record ─────────────────────────────────────────────────────────────────────────────────────────
   { id: 'openfda', name: 'openFDA — labels, adverse event reports, recalls, devices', kind: 'regulatory',
     base: 'https://api.fda.gov',
+    path: '/drug/label.json',
     probe: { search: 'openfda.generic_name:"aspirin"', limit: 3 },
     serves: ['drug labels (SPL)', 'FAERS adverse event reports', 'enforcement and recalls', 'device records', 'NDC directory'],
     format: 'JSON', access: 'public, no key (rate-limited; a key raises the limit)',
@@ -90,6 +102,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'dailymed', name: 'DailyMed — the official FDA drug label archive (NLM)', kind: 'regulatory',
     base: 'https://dailymed.nlm.nih.gov/dailymed/services/v2',
+    path: '/spls.json',
     probe: { drug_name: 'aspirin', pagesize: 3 },
     serves: ['current prescribing information', 'SPL history', 'packaging', 'NDC codes'],
     format: 'JSON / XML (SPL)', access: 'public, no key',
@@ -98,6 +111,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'rxnav', name: 'RxNav / RxNorm — normalised drug nomenclature and interactions (NLM)', kind: 'pharmacology',
     base: 'https://rxnav.nlm.nih.gov/REST',
+    path: '/rxcui.json',
     probe: { name: 'ibuprofen' },
     serves: ['RxNorm concepts', 'ingredient and brand mapping', 'ATC classes', 'dose forms'],
     format: 'JSON / XML', access: 'public, no key',
@@ -107,7 +121,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── chemistry ─────────────────────────────────────────────────────────────────────────────────────────────────
   { id: 'pubchem', name: 'PubChem — compounds, substances and bioassays (NCBI)', kind: 'chemistry',
     base: 'https://pubchem.ncbi.nlm.nih.gov/rest/pug',
-    probe: { compound: 'curcumin', property: 'MolecularFormula,MolecularWeight,CanonicalSMILES', output: 'JSON' },
+    path: '/compound/name/curcumin/property/MolecularFormula,MolecularWeight/JSON',
+    probe: {},
     serves: ['structures', 'identifiers (CID, InChI, SMILES)', 'computed properties', 'bioassay results', 'cross-references'],
     format: 'JSON / CSV / SDF', access: 'public, no key',
     honest: 'DEPOSITED DATA OF MIXED PROVENANCE. Properties may be computed rather than measured, and a bioassay hit ' +
@@ -116,6 +131,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'chembl', name: 'ChEMBL — curated bioactivity of drug-like molecules (EMBL-EBI)', kind: 'pharmacology',
     base: 'https://www.ebi.ac.uk/chembl/api/data',
+    path: '/molecule',
     probe: { format: 'json', limit: 3, pref_name__icontains: 'quercetin' },
     serves: ['activities (IC50, Ki, EC50)', 'targets', 'assays', 'mechanisms', 'drug indications'],
     format: 'JSON / XML', access: 'public, no key (CC BY-SA 3.0)',
@@ -125,7 +141,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'unichem', name: 'UniChem — compound identifier cross-references (EMBL-EBI)', kind: 'chemistry',
     base: 'https://www.ebi.ac.uk/unichem/rest',
-    probe: { inchikey: 'VFLDPWHFBUODDF-FCXRPNKRSA-N' },
+    path: '/inchikey/VFLDPWHFBUODDF-FCXRPNKRSA-N',
+    probe: {},
     serves: ['InChIKey to source-database identifier mapping across 40+ chemistry resources'],
     format: 'JSON', access: 'public, no key',
     honest: 'A MAPPING ONLY. It resolves whether two databases mean the same structure; it holds no property, no ' +
@@ -142,6 +159,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── genomics and targets ──────────────────────────────────────────────────────────────────────────────────────
   { id: 'uniprot', name: 'UniProt — protein sequence and functional annotation', kind: 'genomics',
     base: 'https://rest.uniprot.org',
+    path: '/uniprotkb/search',
     probe: { query: 'gene:PTGS2 AND organism_id:9606', format: 'json', size: 3 },
     serves: ['sequences', 'domains', 'post-translational modifications', 'variants', 'literature-backed function'],
     format: 'JSON / TSV / FASTA', access: 'public, no key (CC BY 4.0)',
@@ -150,7 +168,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'ensembl', name: 'Ensembl — genomes, variation and comparative genomics', kind: 'genomics',
     base: 'https://rest.ensembl.org',
-    probe: { symbol: 'PTGS2', species: 'homo_sapiens', 'content-type': 'application/json' },
+    path: '/lookup/symbol/homo_sapiens/PTGS2',
+    probe: { 'content-type': 'application/json' },
     serves: ['genes', 'transcripts', 'variants', 'regulatory features', 'orthologues'],
     format: 'JSON', access: 'public, no key',
     honest: 'COORDINATES AND MODELS ON A REFERENCE ASSEMBLY. A gene model is a current best annotation that changes ' +
@@ -167,6 +186,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── botany, and the herbal corpora the captain named ──────────────────────────────────────────────────────────
   { id: 'gbif', name: 'GBIF — global biodiversity occurrence and taxonomic backbone', kind: 'botany',
     base: 'https://api.gbif.org/v1',
+    path: '/species/search',
     probe: { q: 'Curcuma longa', limit: 3 },
     serves: ['accepted names and synonyms', 'occurrence records', 'distributions', 'dataset provenance'],
     format: 'JSON', access: 'public, no key (records vary by licence)',
@@ -254,6 +274,7 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'open-meteo', name: 'Open-Meteo — weather, air quality and climate reanalysis', kind: 'environment',
     base: 'https://api.open-meteo.com/v1',
+    path: '/forecast',
     probe: { latitude: 42.7, longitude: 23.3, hourly: 'temperature_2m', forecast_days: 1 },
     serves: ['forecast', 'historical reanalysis', 'air quality', 'solar radiation'],
     format: 'JSON', access: 'public, no key for non-commercial use',
