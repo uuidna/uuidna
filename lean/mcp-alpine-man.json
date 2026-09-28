@@ -17,7 +17,7 @@
   "provides": 1,
   "self": 2
  },
- "receipt": "c63078f7-1315-88a1-aab2-11b5643592b8",
+ "receipt": "f562c861-98ea-8691-8cf8-ceda8506caa2",
  "honest": "Every honest Alpine app (man-covered corpus) is reachable through ONE MCP tool — uuidna_exec — not one wire descriptor per package. man <doc> exercises man→app→hexbit; apk info <app> reaches the catalogued app. Orphans are named, never padded. Protects the MCP wire ceiling.",
  "pct": 100,
  "before": {
@@ -28,5 +28,10 @@
   "exposed": 4757,
   "wireDoors": 1,
   "catalogManDriven": "4757/4757"
+ },
+ "crossed": {
+  "sorted": "f562c861-98ea-8691-8cf8-ceda8506caa2",
+  "reversed": "f562c861-98ea-8691-8cf8-ceda8506caa2",
+  "agrees": true
  }
 }

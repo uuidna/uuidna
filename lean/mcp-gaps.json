@@ -1,10 +1,18 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1415,
-  "distinct": 1193,
-  "loadBearing": 111,
+  "records": 1457,
+  "distinct": 1229,
+  "loadBearing": 115,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
+    {
+      "gap": "no door commits a pathspec",
+      "hits": 18,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "export"
+      ]
+    },
     {
       "gap": "no door commits a pathspec to git",
       "hits": 17,
@@ -12,14 +20,6 @@
         "UUIDNA_MCP_GAP",
         "cat",
         "sed"
-      ]
-    },
-    {
-      "gap": "no door commits a pathspec",
-      "hits": 16,
-      "forms": [
-        "UUIDNA_MCP_GAP",
-        "export"
       ]
     },
     {
@@ -309,6 +309,13 @@
       ]
     },
     {
+      "gap": "no door calls a door",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door commits",
       "hits": 2,
       "forms": [
@@ -338,6 +345,14 @@
       ]
     },
     {
+      "gap": "no door crosses a family declaration",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e",
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
       "gap": "no door crosses the MCP self-sufficiency audits into one census",
       "hits": 2,
       "forms": [
@@ -358,6 +373,13 @@
       "forms": [
         "node --input-type=module -e",
         "node worker.js"
+      ]
+    },
+    {
+      "gap": "no door edits the harness",
+      "hits": 2,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -432,6 +454,13 @@
     },
     {
       "gap": "no door reports a theorem by key",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door reports another door's contract",
       "hits": 2,
       "forms": [
         "node --input-type=module -e"
@@ -1245,6 +1274,13 @@
       ]
     },
     {
+      "gap": "committing the cleanup through the door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
       "gap": "committing the edge ledger and gate repairs",
       "hits": 1,
       "forms": [
@@ -1721,6 +1757,13 @@
       ]
     },
     {
+      "gap": "exercising the new git door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "extracting the numbers the bible itself states and crossing them with the ledger",
       "hits": 1,
       "forms": [
@@ -1855,6 +1898,13 @@
     },
     {
       "gap": "finding which witness face fails to sign one ledger piece",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "fixing the git door to reach an untracked path",
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
@@ -2316,6 +2366,13 @@
       ]
     },
     {
+      "gap": "no door calls a door or wires a chain",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door censuses the ledger's formulas",
       "hits": 1,
       "forms": [
@@ -2348,6 +2405,20 @@
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "no door classifies the ledger's statements",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
+      "gap": "no door classifies the ledger's statements as crosses or single-domain identities",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -2491,6 +2562,13 @@
       ]
     },
     {
+      "gap": "no door counts mechanical rewrite sites",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door counts re-namings: keys sharing one statement, distinct statements, and the excess (a refuted lead's settlement records 73 from 1336 over 1263 and says the number moved three times)",
       "hits": 1,
       "forms": [
@@ -2537,6 +2615,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door crosses a family declaration against the ledger",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
+      "gap": "no door deposits a cross-repository flaw report",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2624,6 +2716,13 @@
       ]
     },
     {
+      "gap": "no door edits a finder's declaration or the chain",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door edits a staged scratchpad module",
       "hits": 1,
       "forms": [
@@ -2639,6 +2738,13 @@
     },
     {
       "gap": "no door edits the catalogue or reports a probe row",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door edits the dispatch",
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
@@ -2670,6 +2776,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits the Payload config",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2897,6 +3010,13 @@
       ]
     },
     {
+      "gap": "no door lists the messaging doors",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door lists the official @payloadcms plugin packages and their canary versions",
       "hits": 1,
       "forms": [
@@ -3044,6 +3164,13 @@
       ]
     },
     {
+      "gap": "no door measures a packed representation of the ledger",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
       "gap": "no door measures formula duplication under the corpus's own derived equivalence, nor names the domains a cross bridges",
       "hits": 1,
       "forms": [
@@ -3069,6 +3196,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door measures the chain's shape",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3254,6 +3388,13 @@
       ]
     },
     {
+      "gap": "no door probes the live deployment for errors",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door probes zenodo endpoints or reads the publish workflow",
       "hits": 1,
       "forms": [
@@ -3366,10 +3507,24 @@
       ]
     },
     {
+      "gap": "no door reads a family declaration",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
       "gap": "no door reads a generated wing",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads a generator's emitter",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3590,6 +3745,13 @@
       ]
     },
     {
+      "gap": "no door reports a family's exports",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door reports a file's introducing commit",
       "hits": 1,
       "forms": [
@@ -3772,13 +3934,6 @@
       ]
     },
     {
-      "gap": "no door reports another door's contract",
-      "hits": 1,
-      "forms": [
-        "node --input-type=module -e"
-      ]
-    },
-    {
       "gap": "no door reports another door's handler cost or network use",
       "hits": 1,
       "forms": [
@@ -3825,6 +3980,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports dead code totals",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3937,6 +4099,27 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports its own ratchet state",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reports land state",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reports land state or a theorem statement",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -4171,6 +4354,13 @@
       ]
     },
     {
+      "gap": "no door reports the Payload config's collections and plugins",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door reports the release gate's preconditions",
       "hits": 1,
       "forms": [
@@ -4353,6 +4543,13 @@
       ]
     },
     {
+      "gap": "no door reports what consumes an artifact",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reports what makes a seed page.json heavy, nor whether the heavy ones are duplicates",
       "hits": 1,
       "forms": [
@@ -4483,6 +4680,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports whether a surface is generated",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -5235,6 +5439,13 @@
       ]
     },
     {
+      "gap": "no door sends a flaw report to a sibling repository",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
       "gap": "no door separates authored from generated changes",
       "hits": 1,
       "forms": [
@@ -5585,6 +5796,20 @@
       ]
     },
     {
+      "gap": "no door writes a runner",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door writes a runner or marks finders",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door writes a sibling repo's source",
       "hits": 1,
       "forms": [
@@ -5599,7 +5824,21 @@
       ]
     },
     {
+      "gap": "no door writes a test",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door writes source",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door writes the conformance artifact or wires the harness",
       "hits": 1,
       "forms": [
         "export"
@@ -6397,6 +6636,13 @@
       ]
     },
     {
+      "gap": "regenerating the door docs after adding a door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "releaseLive(version) — is the release complete and live in npm and Zenodo, with the digests recomputed from the served bytes",
       "hits": 1,
       "forms": [
@@ -6443,6 +6689,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "selecting the cleanup's own files",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

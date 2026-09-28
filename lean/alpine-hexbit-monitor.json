@@ -143,6 +143,11 @@
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "5e51356e-d5dc-8570-9c6a-82a0bb5f8551",
- "honest": "Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide."
+ "receipt": "f7a27234-0a26-8252-b190-0c95e94f1fe5",
+ "honest": "Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.",
+ "crossed": {
+  "sorted": "f7a27234-0a26-8252-b190-0c95e94f1fe5",
+  "reversed": "f7a27234-0a26-8252-b190-0c95e94f1fe5",
+  "agrees": true
+ }
 }

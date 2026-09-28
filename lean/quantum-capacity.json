@@ -133,10 +133,15 @@
    "source": "Xanadu, Nature 2022"
   }
  ],
- "receipt": "6a71ca14-93f1-842b-8d2e-6520f41156bb",
+ "receipt": "66e27e33-995f-8e26-9d89-87a51054139f",
  "measured": {
   "nsDecade": 3,
   "ledger": 71089
  },
- "honest": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty)"
+ "honest": "2^128 addresses: 16^8 = 2^32, 2^32 · 2^96 = 2^128, 2^7 = 128 (theorem handle_capacity_is_quantum_by_architecture); 48 < 128, 128 − 48 = 80, 2^128 = 2^80 · 2^48 (theorem usable_gap_is_two_to_eighty)",
+ "crossed": {
+  "sorted": "66e27e33-995f-8e26-9d89-87a51054139f",
+  "reversed": "66e27e33-995f-8e26-9d89-87a51054139f",
+  "agrees": true
+ }
 }

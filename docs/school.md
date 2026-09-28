@@ -1381,11 +1381,11 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 5,873,035 | 6 | 978,839× | `theorems().length` |
-| what does the tree hold right now? | 5,896,150 | 225 | 26,205× | `npm run state` |
+| what does the tree hold right now? | 5,895,961 | 225 | 26,204× | `npm run state` |
 | which Alpine domains are ported? | 1,823,073 | 350 | 5,208× | `portsCensus()` |
 | is the tree green to release? | 1,159,611 | 65 | 17,840× | `leads-gate + gate-receipt --verify` |
 
-Median ratio **26,205×**. Tokens are estimated at four bytes each — an approximation, and
+Median ratio **26,204×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
 A high number is not a good score. It is the cost of not knowing the door, and every one of those tokens is spent
 re-deriving something the tree already sealed.

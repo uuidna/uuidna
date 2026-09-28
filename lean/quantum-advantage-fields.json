@@ -3,6 +3,11 @@
  "dispatch": "5c9e1948-8db9-8477-9a7a-dd996c94693b",
  "host": "12946120-f16e-8d4d-b582-06996779ebb9",
  "proof": "71a1d5e9-c44d-8905-8d53-711d95e481a2",
- "receipt": "e660d831-2f83-87a5-a427-b29ca82a0e47",
- "report": "0f956de8-6fbc-8527-a86d-82da44ea7915"
+ "receipt": "6baf1f95-7c52-8a5c-a520-b11b1b851e1e",
+ "report": "0f956de8-6fbc-8527-a86d-82da44ea7915",
+ "crossed": {
+  "sorted": "6baf1f95-7c52-8a5c-a520-b11b1b851e1e",
+  "reversed": "6baf1f95-7c52-8a5c-a520-b11b1b851e1e",
+  "agrees": true
+ }
 }

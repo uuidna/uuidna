@@ -1,493 +1,498 @@
 {
-  "definition": "store+os+man→app→browser",
-  "manDriven": {
-    "definition": "man→app→hexbit",
-    "total": 4757,
-    "witnessed": 4757,
-    "missing": [],
-    "gaps": [],
-    "byVia": {
-      "corpus": 2,
-      "origin": 4746,
-      "gtk-doc": 5,
-      "libs": 0,
-      "dev": 1,
-      "provides": 1,
-      "self": 2
-    }
-  },
-  "mounts": [
-    {
-      "id": "hexbit-animator",
-      "route": "/apps",
-      "mount": "HexbitAnimator",
-      "doc": "apps",
-      "ok": true,
-      "detail": "apps.md mounts <HexbitAnimator>"
-    },
-    {
-      "id": "hexbit-player",
-      "route": "/referrer-song",
-      "mount": "HexbitPlayer",
-      "doc": "referrer-song",
-      "ok": true,
-      "detail": "referrer-song.md mounts <HexbitPlayer>"
-    },
-    {
-      "id": "school-tools",
-      "route": "/tools",
-      "mount": "SchoolTools",
-      "doc": "tools",
-      "ok": true,
-      "detail": "tools.md mounts <SchoolTools>"
-    },
-    {
-      "id": "book-room",
-      "route": "/reading-room",
-      "mount": "BookRoom",
-      "doc": "reading-room",
-      "ok": true,
-      "detail": "reading-room.md mounts <BookRoom>"
-    },
-    {
-      "id": "star-play",
-      "route": "/games",
-      "mount": "StarPlay",
-      "doc": "games",
-      "ok": true,
-      "detail": "games.md mounts <StarPlay>"
-    },
-    {
-      "id": "nim-play",
-      "route": "/games",
-      "mount": "NimPlay",
-      "doc": "games",
-      "ok": true,
-      "detail": "games.md mounts <NimPlay>"
-    },
-    {
-      "id": "chess",
-      "route": "/chess",
-      "mount": "Chess",
-      "doc": "chess",
-      "ok": true,
-      "detail": "chess.md mounts <Chess>"
-    },
-    {
-      "id": "practice-loop",
-      "route": "/school",
-      "mount": "PracticeLoop",
-      "doc": "school",
-      "ok": true,
-      "detail": "school.md mounts <PracticeLoop>"
-    },
-    {
-      "id": "advantage-mcp",
-      "route": "/school",
-      "mount": "AdvantageMcp",
-      "doc": "school",
-      "ok": true,
-      "detail": "school.md mounts <AdvantageMcp>"
-    },
-    {
-      "id": "trading-floor",
-      "route": "/trading",
-      "mount": "TradingFloor",
-      "doc": "trading",
-      "ok": true,
-      "detail": "trading.md mounts <TradingFloor>"
-    },
-    {
-      "id": "terminal",
-      "route": "/terminal",
-      "mount": "ExecShell",
-      "doc": "terminal",
-      "ok": true,
-      "detail": "terminal.md mounts <ExecShell>"
-    },
-    {
-      "id": "chat-terminal",
-      "route": "/chat",
-      "mount": "UuidnaTerminal",
-      "doc": "chat",
-      "ok": true,
-      "detail": "chat.md mounts <UuidnaTerminal>"
-    },
-    {
-      "id": "os-boot",
-      "route": "/os",
-      "mount": "HexbitPlayer",
-      "doc": "os",
-      "ok": true,
-      "detail": "os.md mounts <HexbitPlayer>"
-    },
-    {
-      "id": "os-port",
-      "route": "/os",
-      "mount": "PortPanel",
-      "doc": "os",
-      "ok": true,
-      "detail": "os.md mounts <PortPanel>"
-    },
-    {
-      "id": "catalogue-browser",
-      "route": "/catalogue",
-      "mount": "CatalogueBrowser",
-      "doc": "catalogue",
-      "ok": true,
-      "detail": "catalogue.md mounts <CatalogueBrowser>"
-    }
-  ],
-  "compute": [
-    {
-      "id": "coding/testClaim",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "coding/frame-editor",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "coding/build",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "books/readPassage",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "books/findFacts",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "books/tryQuote",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "practice/advantage-mcp",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "practice/drill",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "gaming/chess",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "gaming/nim",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "gaming/mobility",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "trading/desk",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "kernel/player",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "kernel/animator",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "os/catalogue-browser",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "os/exec-shell",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "os/port-panel",
-      "ok": true,
-      "detail": "computed"
-    },
-    {
-      "id": "theorem/drill-coverage",
-      "ok": true,
-      "detail": "computed"
-    }
-  ],
-  "manSamples": [
-    {
-      "topic": "busybox",
-      "ok": true,
-      "detail": "man busybox → 32 hexbits"
-    },
-    {
-      "topic": "openssl",
-      "ok": true,
-      "detail": "man openssl → 32 hexbits"
-    },
-    {
-      "topic": "man-pages",
-      "ok": true,
-      "detail": "man man-pages → 32 hexbits"
-    },
-    {
-      "topic": "man-pages-posix",
-      "ok": true,
-      "detail": "man man-pages-posix → 32 hexbits"
-    },
-    {
-      "topic": "apk-tools",
-      "ok": true,
-      "detail": "man apk-tools → 32 hexbits"
-    },
-    {
-      "topic": "zlib",
-      "ok": true,
-      "detail": "man zlib → 32 hexbits"
-    },
-    {
-      "topic": "ca-certificates",
-      "ok": true,
-      "detail": "man ca-certificates → 32 hexbits"
-    },
-    {
-      "topic": "dotnet",
-      "ok": true,
-      "detail": "man dotnet → 32 hexbits"
-    },
-    {
-      "topic": "gtk",
-      "ok": true,
-      "detail": "man gtk → 32 hexbits"
-    },
-    {
-      "topic": "unifont",
-      "ok": true,
-      "detail": "man unifont → 32 hexbits"
-    },
-    {
-      "topic": "clutter-gtk",
-      "ok": true,
-      "detail": "man clutter-gtk → 32 hexbits"
-    },
-    {
-      "topic": "oh-my-pi",
-      "ok": true,
-      "detail": "man oh-my-pi → 32 hexbits"
-    }
-  ],
-  "catalogueExec": [
-    {
-      "topic": "apk list --all",
-      "ok": true,
-      "detail": "catalogue 28644 packages"
-    },
-    {
-      "topic": "ls /catalogue",
-      "ok": true,
-      "detail": "repo dirs listed"
-    },
-    {
-      "topic": "driver",
-      "ok": true,
-      "detail": "driver provenance"
-    },
-    {
-      "topic": "device",
-      "ok": true,
-      "detail": "device door returns an address (the value is this host's, reported live, never sealed)"
-    },
-    {
-      "topic": "nginx",
-      "ok": true,
-      "detail": "use nginx → 32 hexbits"
-    },
-    {
-      "topic": "openssl",
-      "ok": true,
-      "detail": "use openssl → 32 hexbits"
-    }
-  ],
-  "installRoutes": [
-    {
-      "route": "/layout/data",
-      "package": "alpine-baselayout-data",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/keys",
-      "package": "alpine-keys",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/release",
-      "package": "alpine-release",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal/network",
-      "package": "busybox-ifupdown",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/trust",
-      "package": "ca-certificates-bundle",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/devices",
-      "package": "mdev-conf",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/core",
-      "package": "musl",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal",
-      "package": "busybox",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal/sh",
-      "package": "busybox-binsh",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/layout",
-      "package": "alpine-baselayout",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal/privileged",
-      "package": "busybox-suid",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/capabilities",
-      "package": "libcap2",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/crypto",
-      "package": "libcrypto3",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/tls",
-      "package": "libssl3",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/scan",
-      "package": "scanelf",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/core/utils",
-      "package": "musl-utils",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/compression",
-      "package": "zlib",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/apk",
-      "package": "libapk",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/packages",
-      "package": "apk-tools",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/services",
-      "package": "openrc",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/setup",
-      "package": "alpine-conf",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal/devices",
-      "package": "busybox-mdev-openrc",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/terminal/services",
-      "package": "busybox-openrc",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/services/user",
-      "package": "openrc-user",
-      "hexbits": 32,
-      "ok": true
-    },
-    {
-      "route": "/",
-      "package": "alpine-base",
-      "hexbits": 32,
-      "ok": true
-    }
-  ],
-  "totals": {
-    "surfaces": 15,
-    "mountsOk": 15,
-    "computeOk": 18,
-    "manSamplesOk": 12,
-    "catalogueExecOk": 6,
-    "installOk": 25,
-    "manWitnessed": 4757,
-    "manTotal": 4757
-  },
+ "definition": "store+os+man→app→browser",
+ "manDriven": {
+  "definition": "man→app→hexbit",
+  "total": 4757,
+  "witnessed": 4757,
+  "missing": [],
   "gaps": [],
-  "ok": true,
-  "honest": "Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
-  "receipt": "e42d4c5a-aa1d-8dca-a0dd-601aeb341219"
+  "byVia": {
+   "corpus": 2,
+   "origin": 4746,
+   "gtk-doc": 5,
+   "libs": 0,
+   "dev": 1,
+   "provides": 1,
+   "self": 2
+  }
+ },
+ "mounts": [
+  {
+   "id": "hexbit-animator",
+   "route": "/apps",
+   "mount": "HexbitAnimator",
+   "doc": "apps",
+   "ok": true,
+   "detail": "apps.md mounts <HexbitAnimator>"
+  },
+  {
+   "id": "hexbit-player",
+   "route": "/referrer-song",
+   "mount": "HexbitPlayer",
+   "doc": "referrer-song",
+   "ok": true,
+   "detail": "referrer-song.md mounts <HexbitPlayer>"
+  },
+  {
+   "id": "school-tools",
+   "route": "/tools",
+   "mount": "SchoolTools",
+   "doc": "tools",
+   "ok": true,
+   "detail": "tools.md mounts <SchoolTools>"
+  },
+  {
+   "id": "book-room",
+   "route": "/reading-room",
+   "mount": "BookRoom",
+   "doc": "reading-room",
+   "ok": true,
+   "detail": "reading-room.md mounts <BookRoom>"
+  },
+  {
+   "id": "star-play",
+   "route": "/games",
+   "mount": "StarPlay",
+   "doc": "games",
+   "ok": true,
+   "detail": "games.md mounts <StarPlay>"
+  },
+  {
+   "id": "nim-play",
+   "route": "/games",
+   "mount": "NimPlay",
+   "doc": "games",
+   "ok": true,
+   "detail": "games.md mounts <NimPlay>"
+  },
+  {
+   "id": "chess",
+   "route": "/chess",
+   "mount": "Chess",
+   "doc": "chess",
+   "ok": true,
+   "detail": "chess.md mounts <Chess>"
+  },
+  {
+   "id": "practice-loop",
+   "route": "/school",
+   "mount": "PracticeLoop",
+   "doc": "school",
+   "ok": true,
+   "detail": "school.md mounts <PracticeLoop>"
+  },
+  {
+   "id": "advantage-mcp",
+   "route": "/school",
+   "mount": "AdvantageMcp",
+   "doc": "school",
+   "ok": true,
+   "detail": "school.md mounts <AdvantageMcp>"
+  },
+  {
+   "id": "trading-floor",
+   "route": "/trading",
+   "mount": "TradingFloor",
+   "doc": "trading",
+   "ok": true,
+   "detail": "trading.md mounts <TradingFloor>"
+  },
+  {
+   "id": "terminal",
+   "route": "/terminal",
+   "mount": "ExecShell",
+   "doc": "terminal",
+   "ok": true,
+   "detail": "terminal.md mounts <ExecShell>"
+  },
+  {
+   "id": "chat-terminal",
+   "route": "/chat",
+   "mount": "UuidnaTerminal",
+   "doc": "chat",
+   "ok": true,
+   "detail": "chat.md mounts <UuidnaTerminal>"
+  },
+  {
+   "id": "os-boot",
+   "route": "/os",
+   "mount": "HexbitPlayer",
+   "doc": "os",
+   "ok": true,
+   "detail": "os.md mounts <HexbitPlayer>"
+  },
+  {
+   "id": "os-port",
+   "route": "/os",
+   "mount": "PortPanel",
+   "doc": "os",
+   "ok": true,
+   "detail": "os.md mounts <PortPanel>"
+  },
+  {
+   "id": "catalogue-browser",
+   "route": "/catalogue",
+   "mount": "CatalogueBrowser",
+   "doc": "catalogue",
+   "ok": true,
+   "detail": "catalogue.md mounts <CatalogueBrowser>"
+  }
+ ],
+ "compute": [
+  {
+   "id": "coding/testClaim",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "coding/frame-editor",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "coding/build",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "books/readPassage",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "books/findFacts",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "books/tryQuote",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "practice/advantage-mcp",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "practice/drill",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "gaming/chess",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "gaming/nim",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "gaming/mobility",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "trading/desk",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "kernel/player",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "kernel/animator",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "os/catalogue-browser",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "os/exec-shell",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "os/port-panel",
+   "ok": true,
+   "detail": "computed"
+  },
+  {
+   "id": "theorem/drill-coverage",
+   "ok": true,
+   "detail": "computed"
+  }
+ ],
+ "manSamples": [
+  {
+   "topic": "busybox",
+   "ok": true,
+   "detail": "man busybox → 32 hexbits"
+  },
+  {
+   "topic": "openssl",
+   "ok": true,
+   "detail": "man openssl → 32 hexbits"
+  },
+  {
+   "topic": "man-pages",
+   "ok": true,
+   "detail": "man man-pages → 32 hexbits"
+  },
+  {
+   "topic": "man-pages-posix",
+   "ok": true,
+   "detail": "man man-pages-posix → 32 hexbits"
+  },
+  {
+   "topic": "apk-tools",
+   "ok": true,
+   "detail": "man apk-tools → 32 hexbits"
+  },
+  {
+   "topic": "zlib",
+   "ok": true,
+   "detail": "man zlib → 32 hexbits"
+  },
+  {
+   "topic": "ca-certificates",
+   "ok": true,
+   "detail": "man ca-certificates → 32 hexbits"
+  },
+  {
+   "topic": "dotnet",
+   "ok": true,
+   "detail": "man dotnet → 32 hexbits"
+  },
+  {
+   "topic": "gtk",
+   "ok": true,
+   "detail": "man gtk → 32 hexbits"
+  },
+  {
+   "topic": "unifont",
+   "ok": true,
+   "detail": "man unifont → 32 hexbits"
+  },
+  {
+   "topic": "clutter-gtk",
+   "ok": true,
+   "detail": "man clutter-gtk → 32 hexbits"
+  },
+  {
+   "topic": "oh-my-pi",
+   "ok": true,
+   "detail": "man oh-my-pi → 32 hexbits"
+  }
+ ],
+ "catalogueExec": [
+  {
+   "topic": "apk list --all",
+   "ok": true,
+   "detail": "catalogue 28644 packages"
+  },
+  {
+   "topic": "ls /catalogue",
+   "ok": true,
+   "detail": "repo dirs listed"
+  },
+  {
+   "topic": "driver",
+   "ok": true,
+   "detail": "driver provenance"
+  },
+  {
+   "topic": "device",
+   "ok": true,
+   "detail": "device door returns an address (the value is this host's, reported live, never sealed)"
+  },
+  {
+   "topic": "nginx",
+   "ok": true,
+   "detail": "use nginx → 32 hexbits"
+  },
+  {
+   "topic": "openssl",
+   "ok": true,
+   "detail": "use openssl → 32 hexbits"
+  }
+ ],
+ "installRoutes": [
+  {
+   "route": "/layout/data",
+   "package": "alpine-baselayout-data",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/keys",
+   "package": "alpine-keys",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/release",
+   "package": "alpine-release",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal/network",
+   "package": "busybox-ifupdown",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/trust",
+   "package": "ca-certificates-bundle",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/devices",
+   "package": "mdev-conf",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/core",
+   "package": "musl",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal",
+   "package": "busybox",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal/sh",
+   "package": "busybox-binsh",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/layout",
+   "package": "alpine-baselayout",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal/privileged",
+   "package": "busybox-suid",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/capabilities",
+   "package": "libcap2",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/crypto",
+   "package": "libcrypto3",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/tls",
+   "package": "libssl3",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/scan",
+   "package": "scanelf",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/core/utils",
+   "package": "musl-utils",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/compression",
+   "package": "zlib",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/apk",
+   "package": "libapk",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/packages",
+   "package": "apk-tools",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/services",
+   "package": "openrc",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/setup",
+   "package": "alpine-conf",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal/devices",
+   "package": "busybox-mdev-openrc",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/terminal/services",
+   "package": "busybox-openrc",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/services/user",
+   "package": "openrc-user",
+   "hexbits": 32,
+   "ok": true
+  },
+  {
+   "route": "/",
+   "package": "alpine-base",
+   "hexbits": 32,
+   "ok": true
+  }
+ ],
+ "totals": {
+  "surfaces": 15,
+  "mountsOk": 15,
+  "computeOk": 18,
+  "manSamplesOk": 12,
+  "catalogueExecOk": 6,
+  "installOk": 25,
+  "manWitnessed": 4757,
+  "manTotal": 4757
+ },
+ "gaps": [],
+ "ok": true,
+ "honest": "Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
+ "receipt": "de57189e-0b75-89fc-a3b4-558709692576",
+ "crossed": {
+  "sorted": "de57189e-0b75-89fc-a3b4-558709692576",
+  "reversed": "de57189e-0b75-89fc-a3b4-558709692576",
+  "agrees": true
+ }
 }

@@ -689,7 +689,7 @@
   "sweeps": 109,
   "verdict": "EXACT"
  },
- "receipt": "343fef8f-1fc7-8e17-bd15-8c165139454a",
+ "receipt": "76cc66a8-331a-8836-b973-73e549a276e5",
  "report": {
   "baseline": {
    "errorsPerMillion": 1000,
@@ -814,5 +814,10 @@
    }
   ],
   "unsealable": "served live — whether independent estimates settled on one decade is this host's timing noise"
+ },
+ "crossed": {
+  "sorted": "76cc66a8-331a-8836-b973-73e549a276e5",
+  "reversed": "76cc66a8-331a-8836-b973-73e549a276e5",
+  "agrees": true
  }
 }
