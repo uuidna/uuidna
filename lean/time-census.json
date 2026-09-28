@@ -1,0 +1,48 @@
+{
+  "kind": "time-census",
+  "honest": "the ratio of a warm run to a cold one. Near 100/100 means the door rebuilt its answer; well under means it read a receipt. A fast door with a ratio near 100 is not a finding — its work may simply be small. A cache that misses every run is indistinguishable from no cache here, and that is a reader's question, not a verdict.",
+  "doors": [
+    {
+      "door": "numeral-reach",
+      "cold": 1262,
+      "warm": 1262,
+      "ratio": 100,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    },
+    {
+      "door": "closure-census",
+      "cold": 3588,
+      "warm": 3634,
+      "ratio": 101,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    },
+    {
+      "door": "phd-census",
+      "cold": 4402,
+      "warm": 4211,
+      "ratio": 95,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    },
+    {
+      "door": "falsifier-gap",
+      "cold": 770,
+      "warm": 764,
+      "ratio": 99,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    },
+    {
+      "door": "science-classes",
+      "cold": 1399,
+      "warm": 1371,
+      "ratio": 97,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    },
+    {
+      "door": "school-areas",
+      "cold": 731,
+      "warm": 741,
+      "ratio": 101,
+      "verdict": "RECOMPUTES — the second run costs what the first did, so nothing was verified against a receipt"
+    }
+  ]
+}
