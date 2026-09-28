@@ -219,7 +219,7 @@ export const powerOf = (): Power => {
  *  whole rather than a fee per case: a per-unit price on numbers this uneven would be a different claim. */
 export interface Rate { key: string; superpositions: number; hexbits: number; coins: number; perCoin: number }
 
-export const rateOf = (t: { key: string; statement: string; cases?: number }): Rate => {
+const rateOf = (t: { key: string; statement: string; cases?: number }): Rate => {
   const superpositions = decidedMass(t as never)
   return {
     key: t.key,
@@ -250,7 +250,7 @@ export const rates = (): readonly Rate[] =>
 /** SHARE_BASE is 16^4 — computed, not borrowed. Measured against this ledger's own costs: at ten thousand
  *  parts the cheapest theorem (13 steps of 579,272) reports zero, so the share is not floored but LOST. 16^3
  *  still loses it; 16^4 resolves it to one. Four hexbits is the smallest resolution the distribution requires. */
-export const SHARE_BASE = 16 ** 4
+const SHARE_BASE = 16 ** 4
 
 export interface Cost { key: string; steps: number; totalSteps: number; share: number; shareBase: number; coins: number }
 

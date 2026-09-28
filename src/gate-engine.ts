@@ -38,7 +38,7 @@ const compactWitness = (receipt: string) => {
 }
 
 /** Derived witness — kept in sync with lean/messaging-witness.json (one-receipt messaging). */
-export const MESSAGING_WITNESS = { total: true, keys: 2127, distinct: 2044 } as const
+const MESSAGING_WITNESS = { total: true, keys: 2127, distinct: 2044 } as const
 
 /** THE GATE'S SPEC IS READ OFF THE LEDGER. This was a hand-written list of six keys, and when the
  *  lexical honesty gate was folded away four of them left the ledger — so the gate went on publishing four
@@ -46,7 +46,7 @@ export const MESSAGING_WITNESS = { total: true, keys: 2127, distinct: 2044 } as 
  *  compute; it can only go stale. The spec is therefore SELECTED: every sealed theorem whose statement is about
  *  the gate's own algebra — the conjunction `cleanAudit` or the forgery detector `forged` that feeds it. Seal a
  *  new one and it joins the spec; rename one and nothing breaks, because no name is written down here. */
-export const gateTheoremsOf = (ts: readonly { key: string; file: string; statement: string }[]): string[] => ts
+const gateTheoremsOf = (ts: readonly { key: string; file: string; statement: string }[]): string[] => ts
   .filter((t) =>
     // the MECHANISM: the conjunction itself and the forgery detector that feeds it. The boundary clause that
     // stood beside this one selected the Clay wing's non-dz theorems, and there are none: the wing proved

@@ -5,10 +5,8 @@
 
 import { createHash } from 'node:crypto'
 import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { theorems } from '../index.js'
-import { HERE, ROOT } from './api.js'
+import { join } from 'node:path'
+import { ROOT } from './api.js'
 
 interface QuantumMessage {
   id: string

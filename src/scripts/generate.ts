@@ -19,7 +19,6 @@
 import { spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { toUuid, merkleGravity } from '../index.js'
 import { coins } from '../index.js'
 import { ROOT } from './api.js'

@@ -8,7 +8,7 @@ const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinM
 const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: this chunk uploads to the edge, which has no path
 const urlm = (): typeof import('node:url') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:url') as typeof import('node:url') // lazy: this chunk uploads to the edge, which has no url
 import { theorems, PRINCIPLES } from '../index.js'
-import { HERE, ROOT, invokesFile, rd } from './api.js'
+import { ROOT, invokesFile, rd } from './api.js'
 
 export interface PredictedGap {
   pattern: string
@@ -19,7 +19,7 @@ export interface PredictedGap {
 }
 
 /** the sealed axiom witness, or null when it could not be read — null is UNMEASURED and never "clean". */
-export function readAxiomWitness(): { audited: number; axiomFree: number; offenders: string[] } | null {
+function readAxiomWitness(): { audited: number; axiomFree: number; offenders: string[] } | null {
   try {
     const raw = JSON.parse(fsm().readFileSync(pathm().join(ROOT, 'lean', 'axioms.json'), 'utf8')) as
       { audited?: number; axiomFree?: number; offenders?: Record<string, unknown> }
@@ -151,7 +151,6 @@ function predictPackageGaps(): PredictedGap[] {
     const pkgDir = pathm().join(ROOT, 'packages', pkg)
     const pkgJsonPath = pathm().join(pkgDir, 'package.json')
     const srcPath = pathm().join(pkgDir, 'src', 'index.ts')
-    const distPath = pathm().join(pkgDir, 'dist', 'index.js')
 
     if (!fsm().existsSync(pkgJsonPath)) {
       gaps.push({
@@ -262,7 +261,6 @@ function predictFeatureGaps(): PredictedGap[] {
   const scriptFiles = fsm().readdirSync(scriptsDir).filter((f) => f.endsWith('.ts'))
   const packageJsonPath = pathm().join(ROOT, 'package.json')
   const packageJson = JSON.parse(fsm().readFileSync(packageJsonPath, 'utf-8'))
-  const npmScripts = Object.keys(packageJson.scripts || {})
 
   // A script is WIRED when something actually INVOKES it — `dist/scripts/<name>.js` in an npm script body, a CI
   // workflow, or another script that spawns it. The previous check asked whether any npm script KEY contained the

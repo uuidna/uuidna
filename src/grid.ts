@@ -28,7 +28,7 @@ export {
   PAIR_SEATS, pairName, pairs, pairSeat, transpose, pairsRoot,
   type Pair,
 } from './pairs.js'
-import { PAIR_SEATS, pairs, pairSeat, transpose, pairsRoot } from './pairs.js'
+import { PAIR_SEATS, pairs, transpose, pairsRoot } from './pairs.js'
 
 /** The six PROJECTED rays. DIMENSIONS[0] ('en') is the source the wings are written in — its map is the identity. */
 export const PROJECTED = DIMENSIONS.slice(1) as readonly string[]

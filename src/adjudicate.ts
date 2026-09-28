@@ -6,7 +6,7 @@
 // Integrity — the record recomputes for anyone. Everything content-addressed.
 import { slimGate } from './slimgate.js'
 // theoremFor, not theoremByKey: ONE cited row, from the piece the pre-pass fetched — never a map over the ledger
-import { THEOREMS, theoremFor, type LeanTheorem } from './theorems/index.js'
+import { theoremFor, type LeanTheorem } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { imprint, readImprint } from './imprint.js'

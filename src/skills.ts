@@ -45,7 +45,7 @@ const HONEST =
  *  needs its `/-- … -/` adjacent or the prose census reads it as undocumented, so the marker sits ABOVE the doc
  *  comment and the ledger learned to look past it while the gate did not, and reported a skill it had just read
  *  (2026-09-18). One definition, imported by both. */
-export const INLINE_SKILL = /--\s*@skill:\s*([\w-]+)\s*\n(?:\s*\/--[\s\S]*?-\/\s*\n)?\s*theorem\s+(\w+)/g
+const INLINE_SKILL = /--\s*@skill:\s*([\w-]+)\s*\n(?:\s*\/--[\s\S]*?-\/\s*\n)?\s*theorem\s+(\w+)/g
 
 /** inlineSkillsOf(text) → every [theoremKey, skill] a wing authors inline. */
 export const inlineSkillsOf = (text: string): [string, string][] =>

@@ -41,7 +41,7 @@ function countTs(dir: string): number {
 
 /** measureSurfaces() → what this tree can offer, MEASURED from the tree rather than claimed for it. Every magnitude
  *  names where it came from, so a reader can re-derive it without trusting this file. */
-export function measureSurfaces(): Surface[] {
+function measureSurfaces(): Surface[] {
   const cryptoPresent = CRYPTO_MODULES.filter((m) => existsSync(join(ROOT, 'src', `${m}.ts`)))
   return [
     { name: 'lean-ledger', magnitude: THEOREMS.length, evidence: 'THEOREMS.length in src/theorems/index.ts',
@@ -94,14 +94,14 @@ function rowOf(r: GhRepo): OutsideRepo {
  *  to notice: the sweep returns a full, confident, plausible list with a hole in it. An instrument scoped
  *  narrower than its question reports absence it never tested for, so the scope is widened here rather than
  *  written down as a caveat nobody reads. */
-export async function namedRepo(fullName: string): Promise<OutsideRepo | null> {
+async function namedRepo(fullName: string): Promise<OutsideRepo | null> {
   const r = await ghSearch<GhRepo>(`repos/${fullName}`)
   return r?.full_name === undefined ? null : rowOf(r)
 }
 
 /** orgRepos(org, per) → the organisation's most-starred public repositories as OutsideRepo rows. The search endpoint
  *  is used because it is the one that orders by stars in a single request — one call per organisation, not a page walk. */
-export async function orgRepos(org: string, per: number): Promise<OutsideRepo[]> {
+async function orgRepos(org: string, per: number): Promise<OutsideRepo[]> {
   const json = await ghSearch<{ items?: GhRepo[] }>(`search/repositories?q=org:${encodeURIComponent(org)}&sort=stars&order=desc&per_page=${per}`)
   const items = json?.items ?? []
   return items.filter((r) => typeof r.full_name === 'string').map(rowOf)
@@ -109,7 +109,7 @@ export async function orgRepos(org: string, per: number): Promise<OutsideRepo[]>
 
 /** claOf(fullName) → whether the host's CONTRIBUTING asks for a contributor licence agreement, when it can be read.
  *  Unread stays undefined: an unread CONTRIBUTING and a CLA-free one are not the same fact. */
-export async function claOf(fullName: string): Promise<boolean | undefined> {
+async function claOf(fullName: string): Promise<boolean | undefined> {
   for (const file of ['CONTRIBUTING.md', '.github/CONTRIBUTING.md']) {
     const json = await ghSearch<{ content?: string }>(`repos/${fullName}/contents/${file}`)
     if (typeof json?.content !== 'string') continue

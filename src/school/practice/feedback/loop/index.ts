@@ -17,7 +17,7 @@ export interface PracticeResult {
   confidence: number // 0–1, how sure we are about this assessment
 }
 
-export function recordPracticeTrial(
+function recordPracticeTrial(
   studentId: string,
   theoremKey: string,
   attemptCount: number,
@@ -30,7 +30,7 @@ export function recordPracticeTrial(
   return foldPracticeTrial(studentId, theoremKey, attemptCount, timeSpent, hintCount, verdict)
 }
 
-export function assessPracticeDifficulty(trial: PracticeTrial): PracticeResult {
+function assessPracticeDifficulty(trial: PracticeTrial): PracticeResult {
   const passed = trial.verdict === 'VERIFIED'
 
   // Difficulty heuristic based on attempts, time, and hints
@@ -83,7 +83,7 @@ export interface TheoremDifficultyData {
   suggestedHelp: string[] // recommended guides, examples, hints
 }
 
-export function aggregateTheoremData(trials: PracticeTrial[]): TheoremDifficultyData[] {
+function aggregateTheoremData(trials: PracticeTrial[]): TheoremDifficultyData[] {
   const theoremMap = new Map<string, PracticeTrial[]>()
 
   for (const trial of trials) {
@@ -173,7 +173,7 @@ export interface CurriculumImprovement {
   deadlineDays: number // relative deadline — a count, not a clock; the caller anchors it
 }
 
-export function generateCurriculumImprovements(aggregated: TheoremDifficultyData[]): CurriculumImprovement[] {
+function generateCurriculumImprovements(aggregated: TheoremDifficultyData[]): CurriculumImprovement[] {
   const improvements: CurriculumImprovement[] = []
 
   for (const data of aggregated) {
@@ -250,7 +250,7 @@ export interface ExecutedImprovement {
   receipt: string
 }
 
-export function executeImprovement(improvement: CurriculumImprovement): ExecutedImprovement {
+function executeImprovement(improvement: CurriculumImprovement): ExecutedImprovement {
   // The improvement is PROPOSED here, never sealed: sealing needs a Lean proof through the reconcile,
   // so the status is 'pending' until the ledger carries the key — the module cannot overclaim.
   const improvementId = toUuid(`curriculum:${improvement.theoremKey}:${improvement.improvementType}`)
@@ -285,7 +285,7 @@ export interface FeedbackLoopCycle {
   receipt: string
 }
 
-export function runFeedbackLoopCycle(trials: PracticeTrial[]): FeedbackLoopCycle {
+function runFeedbackLoopCycle(trials: PracticeTrial[]): FeedbackLoopCycle {
   console.log('📚 Running curriculum feedback loop...')
 
   // Step 1: Record trials (already done by students)
@@ -340,7 +340,7 @@ export function runFeedbackLoopCycle(trials: PracticeTrial[]): FeedbackLoopCycle
 // THE PRINCIPLE: SCHOOL LEARNS BY DOING
 // ============================================================================
 
-export const PRACTICE_FEEDBACK_PRINCIPLE = `
+const PRACTICE_FEEDBACK_PRINCIPLE = `
 The school learns by watching students practice.
 
 Every trial teaches the system:

@@ -42,7 +42,7 @@ import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps
 import { MCP_CATALOG, MCP_LISTED } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { contextGaps } from './context-budget.js'   // the per-request toll of being connected — reported here, blocked in the guard
-import { legalGaps, lonelyGaps, incompleteGaps, proseGaps, tautologyGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, leanNegationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, importGaps, blocksGaps, countsGaps, expectedGaps, censusGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, nameGaps, deadkeyGaps, staleGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
+import { legalGaps, incompleteGaps, proseGaps, tautologyGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, leanNegationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, importGaps, blocksGaps, countsGaps, expectedGaps, censusGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, nameGaps, deadkeyGaps, staleGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
 
 const git = (cmd: string): string => { try { return execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return '' } }
 

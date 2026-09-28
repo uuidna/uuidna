@@ -1,7 +1,7 @@
 // publication-metadata — one rich schema + license identity for every seal (agnostic).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../../../boundary.js'
 import {

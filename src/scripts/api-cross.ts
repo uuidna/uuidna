@@ -25,7 +25,7 @@
 // 3683.8 all become the same string, so a match carries no information about scale. Only the CODATA path recovers scale,
 // because only it carries an exponent.
 
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { wrArtifact } from '../artifact.js'
 import { ROOT } from '../boundary.js'

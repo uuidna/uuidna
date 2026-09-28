@@ -143,7 +143,7 @@ export interface NameInput { old: string; targets: readonly string[]; effects: E
 const joinName = (verb: string, object: readonly string[]): string => [verb, ...object.filter((w) => w !== verb)].join('_')
 
 /** behaviourVerb(t) → rule 5's verb: what the run reaches, then whether it needs an argument */
-export const behaviourVerb = (t: NameInput): string =>
+const behaviourVerb = (t: NameInput): string =>
   t.effects.network ? 'fetch' : t.effects.spawns ? 'run' : t.effects.writes || t.effects.deletes ? 'record' : t.required === 0 ? 'get' : 'compute'
 
 /** derivedName(t, declared) → the name rules 1–5 give, and the rule that gave it. Pass declared = {} to read what the
@@ -211,7 +211,7 @@ export const shapeOf = (v: unknown, depth = 2): Shape => {
 }
 
 /** returnsOf(shape, cap) → the "Returns X" phrase: {a,b,c} for an object, [X] for a list, the type otherwise. */
-export const returnsOf = (s: Shape | undefined, cap = 64): string => {
+const returnsOf = (s: Shape | undefined, cap = 64): string => {
   if (!s) return 'a result'
   if (s.type === 'array') return s.items ? `[${returnsOf(s.items, cap - 2)}]` : '[]'
   if (s.type !== 'object') return s.type

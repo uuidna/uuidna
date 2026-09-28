@@ -17,8 +17,7 @@
 // unforged, every test passes, a --push is not behind origin, and the index holds nothing this run did not put there.
 // Verify measures origin-ahead and continues; --push refuses it. Integrity.
 import { execSync, spawnSync } from 'node:child_process'
-import { join } from 'node:path'
-import { ROOT, HERE, lastLines } from './api.js'
+import { ROOT, lastLines } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { planTestRun } from '../gate-receipt-index.js'
 import { testRunGlobs } from '../test-paths.js'

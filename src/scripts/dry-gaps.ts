@@ -140,7 +140,7 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
 // A LINEAR SCAN WHERE A KEYED MAP EXISTS IS DUPLICATION OF THE INDEX (2026-09-12). `THEOREMS.find((x) => x.key === k)`
 // walks the ledger per lookup; under any loop over the ledger that is quadratic — uuidna_theorem cost 40 s for one
 // pass of the coverage test and 3 s through theoremByKey(). Measured, cured in three call sites, and the finder folded.
-export const LINEAR_KEY_SCAN = /\b(?:THEOREMS|theorems\(\))\.find\(\((\w+)\) => \1\.key === |new Map\(theorems\(\)\.map\(\(t\) => \[t\.key, t\]\)\)/g
+const LINEAR_KEY_SCAN = /\b(?:THEOREMS|theorems\(\))\.find\(\((\w+)\) => \1\.key === |new Map\(theorems\(\)\.map\(\(t\) => \[t\.key, t\]\)\)/g
 /** the 1-based lines of `src` that scan the ledger for a key — the pure core the control test drives */
 export function linearScansIn(src: string): number[] {
   const out: number[] = []

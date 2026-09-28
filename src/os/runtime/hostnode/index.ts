@@ -13,10 +13,10 @@ const take = <T>(name: string): T => {
   return g(name)
 }
 
-export const nodeFs = (): Fs => take('node:fs')
-export const nodePath = (): Path => take('node:path')
-export const nodeOs = (): Os => take('node:os')
-export const nodeCp = (): Cp => take('node:child_process')
+const nodeFs = (): Fs => take('node:fs')
+const nodePath = (): Path => take('node:path')
+const nodeOs = (): Os => take('node:os')
+const nodeCp = (): Cp => take('node:child_process')
 
 export const join = (...p: string[]): string => nodePath().join(...p)
 export const existsSync = (p: string): boolean => nodeFs().existsSync(p)

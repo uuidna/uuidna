@@ -134,14 +134,14 @@ export function waveQueueRefusedKeys(queuePath: string): Set<string> {
 /** refusalAddress(key, lean) → what a kernel refusal blocks: the key paired with the content address of the exact
  *  lean text the kernel refused. The same text under the same key stays refused; a changed proof under that key is
  *  a new text, and it returns to the probe. */
-export const refusalAddress = (key: string, lean: string): string => `${key}:${toUuid(lean)}`
+const refusalAddress = (key: string, lean: string): string => `${key}:${toUuid(lean)}`
 
 interface QueueKeySets { inFlight: Set<string>; refused: Set<string>; refusedTexts: Set<string> }
 const emptyKeySets = (): QueueKeySets => ({ inFlight: new Set(), refused: new Set(), refusedTexts: new Set() })
 
 /** waveQueueKeySetsFromData(q) → in-flight keys, refused keys, and refused (key, text) addresses from parsed queue
  *  JSON. Pure — edge bundle or host disk. */
-export function waveQueueKeySetsFromData(q: WaveQueueFile | null | undefined): QueueKeySets {
+function waveQueueKeySetsFromData(q: WaveQueueFile | null | undefined): QueueKeySets {
   if (!q || !Array.isArray(q.pending) || !Array.isArray(q.accepted)) return emptyKeySets()
   const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
   const rows = Array.isArray(q.refused) ? q.refused : []

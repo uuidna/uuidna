@@ -7,7 +7,6 @@
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { HANDLE_HEXBITS, UUID_HEXBITS } from './hexbit/index.js'
-import { imprintTextChain } from './imprint.js'
 import { applyToElements, INVOLUTIONS, involutionSurvives, type Involution, type Survival } from './involution/index.js'
 import { THEOREMS, type Theorem } from './theorems/index.js'
 
@@ -241,7 +240,7 @@ export interface TrialSealedContent {
   receipt: string
 }
 
-export const admissionReceipt = (c: TrialCandidate): string =>
+const admissionReceipt = (c: TrialCandidate): string =>
   toUuid(`trial-admit|${c.key}|${toUuid(c.key + ':' + c.statement)}`)
 
 export const refusalReceipt = (c: TrialCandidate, a: TrialAdmission): string =>

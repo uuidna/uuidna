@@ -42,7 +42,7 @@ export interface UuidnaRow {
   hexbitCapacity: string; speed: string; messaging: string; cryptoSecurity: string; coveragePerToken: string
 }
 
-export const UUIDNA_ROW: UuidnaRow = {
+const UUIDNA_ROW: UuidnaRow = {
   hexbitCapacity: '2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window',
   speed: 'mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live)',
   messaging: 'the channel IS the uuid: 128 payload bits per address, sealed ratchet (uuidna_send/receive), every message receipted',

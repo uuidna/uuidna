@@ -28,7 +28,7 @@
 // SCOPE, STATED: this seals the ARITHMETIC of a width chosen as a minimum over measured points — the monotonicity,
 // the floor, the totality of naming, and the overstatement. It says nothing about what any point's capacity IS on
 // any machine; those are host measurements, and a host is not a theorem.
-import { emit, range } from './lean-gen.js'
+import { emit } from './lean-gen.js'
 
 /** one host reading: cores after reserve, and the lanes its memory affords a job of a given footprint */
 interface Row { cpu: number; mem: number }

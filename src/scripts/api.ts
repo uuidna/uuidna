@@ -392,7 +392,7 @@ export const wr = (p: string, data: string): void => {
   fsm().writeFileSync(pathm().join(ROOT, p), data)
 }
 /** forget every cached read — for a caller that knows the tree moved underneath it (a spawn, a checkout) */
-export const forgetReads = (): void => { READS.clear() }
+const forgetReads = (): void => { READS.clear() }
 /** mkdir -p a repo-relative directory */
 export const mkdirp = (p: string): void => { fsm().mkdirSync(pathm().join(ROOT, p), { recursive: true }) }
 /** rm -rf a repo-relative path when it exists */

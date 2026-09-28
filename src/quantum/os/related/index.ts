@@ -95,7 +95,7 @@ export function relatedPackages(names: readonly string[], hay: string): RelatedR
  *  imported module, never a file read, so this decides the same way on the edge as it does here. The Lean
  *  SOURCE files carry more prose than the ledger does, but they are not shipped; the ledger is what every
  *  surface can recompute from, so the ledger is what the verdict is measured against. */
-export const sealedHaystack = (): string =>
+const sealedHaystack = (): string =>
   LEAN_LEDGER.map((t) => t.key + ' ' + t.name + ' ' + t.statement).join('\n')
 
 /** relatedToTheorems(names) → the adjudication against the SEALED LEDGER, for any candidate package names the

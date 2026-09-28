@@ -8,7 +8,7 @@ import { landingGaps } from './landing-gaps.js'
 import { deployPathRecomputeGaps } from './deploy-verify.js'
 import { leadsGuardGaps } from './leads-conserved.js'
 import { linearGaps, memoGaps } from './dry-gaps.js'
-import { impossibilityGaps, impossibilityReading } from './impossibility-gaps.js'
+import { impossibilityReading } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
 import { accountingGaps } from './accounting-gaps.js'
 import { proseProvenanceGaps } from '../prose-provenance.js'
@@ -33,10 +33,9 @@ const impossibilityBaseline = (): ReadonlySet<string> => {
 }
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { forgedAgainstWings } from '../treason.js'
-import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
+import { theorems, statementCensus, pairsGaps } from '../index.js'
 import { HERE, ROOT, pool, type Gap, rd, has, judged } from './api.js'
 import { memoryHomeGuardGaps } from '../memory-home.js'
 import { latexCrosscheck } from '../latex-crosscheck.js'
@@ -45,7 +44,7 @@ import { capacity } from '../os/host/index.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG, MCP_LISTED } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, tautologyGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps, lfsGaps} from './one-receipt.js'
 
 // ── --quiet: PRINT WHAT THE CALLER ACTS ON, NOTHING ELSE. A clean run prints 6607 bytes and every caller in
 // practice pipes it through a grep for failures and the verdict — this session did exactly that on eight

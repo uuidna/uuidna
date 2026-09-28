@@ -15,10 +15,10 @@ export interface BakedReceipt { key: string; value: unknown }
 export interface EdgeSlices { package: PackageSlice; wrangler: WranglerPosture; workspaces: WorkspaceRow[]; receipts: Record<string, BakedReceipt> }
 
 /** the minted receipts an edge tool answers from; each costs its size in the worker bundle (decode: 20 KB) */
-export const BAKED_RECEIPTS = ['decode'] as const
+const BAKED_RECEIPTS = ['decode'] as const
 
 /** the dependency NAMES — the supply-chain surface the security audit judges; versions move without changing it */
-export const packageSliceOf = (pkg: { dependencies?: Record<string, string>; devDependencies?: Record<string, string> }): PackageSlice =>
+const packageSliceOf = (pkg: { dependencies?: Record<string, string>; devDependencies?: Record<string, string> }): PackageSlice =>
   ({ dependencies: Object.keys(pkg.dependencies ?? {}).sort(), devDependencies: Object.keys(pkg.devDependencies ?? {}).sort() })
 
 // Strip TOML comments (everything from an unescaped '#' to end of line) and blank lines — enough to tell an

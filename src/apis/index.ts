@@ -40,5 +40,5 @@ export const ask = async (url: string, ms = 9000): Promise<Answered | { host: st
 }
 
 /** the same fold the ledger uses everywhere: many answers reduce to one handle, order-invariantly. */
-export const foldAnswers = (all: readonly Answered[]): string =>
+const foldAnswers = (all: readonly Answered[]): string =>
   hexbitDoorOf(toUuid([...all].map((a) => a.address).sort().join('\n'))).handle

@@ -220,7 +220,7 @@ const crossOf = (a: bigint, op: BinOp, b: bigint, rel: BinOp, c: bigint): Cross 
   ({ a: String(a), op, b: String(b), rel, c: String(c), text: `${a} ${op} ${b} ${rel} ${c}` })
 
 /** every numeral in a parse tree, in the order the statement writes them */
-export function integersOf(n: Node): bigint[] {
+function integersOf(n: Node): bigint[] {
   const out: bigint[] = []
   const walk = (x: Node): void => {
     if (x.kind === 'num') { out.push(BigInt(x.text)); return }
@@ -264,7 +264,7 @@ export function holds(rel: BinOp, left: bigint, right: bigint): boolean {
 }
 
 /** every cross a parse tree STATES — read from the tree, never from the text */
-export function crossesOf(n: Node): Cross[] {
+function crossesOf(n: Node): Cross[] {
   const out: Cross[] = []
   const walk = (x: Node): void => {
     if (x.kind === 'num') return
@@ -316,7 +316,7 @@ export interface CorpusAlgebra {
  * counts, so it is not an exception list and it moves when the wings do. 503 integers pass it — two orders of magnitude
  * below the flattering number, and every one of them a quantity some wing had a reason to reach.
  */
-export function programQuantities(): { value: string; wings: string[] }[] {
+function programQuantities(): { value: string; wings: string[] }[] {
   const wingsOf = new Map<string, Set<string>>()
   for (const t of theorems()) {
     const st = String(t.statement ?? '')
@@ -456,7 +456,7 @@ export function forcedArithmetic(alg: CorpusAlgebra = corpusAlgebra()): ForcedAr
 }
 
 /** whether `a ⊕ b` is forced by the operator's own algebra, and so says nothing about this corpus */
-export function isLawInstance(f: ForcedArithmetic, op: BinOp, a: string, b: string): boolean {
+function isLawInstance(f: ForcedArithmetic, op: BinOp, a: string, b: string): boolean {
   if (f.diagonal.has(op) && a === b) return true
   const n = f.neutral.get(op)
   const z = f.absorbing.get(op)
@@ -616,7 +616,7 @@ export const crossKeyOf = (n: { op: BinOp; c: string; wings: readonly string[] }
 
 /** crossesMissing(wing) → one wing's own unstated crosses, which is how the whole enumeration stays reachable
  *  without any answer ever carrying all of it */
-export function crossesMissing(wing: string): Cross[] {
+function crossesMissing(wing: string): Cross[] {
   const alg = corpusAlgebra()
   const forced = forcedArithmetic(alg)
   const file = wing.endsWith('.lean') ? wing : `${wing}.lean`

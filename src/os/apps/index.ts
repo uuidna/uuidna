@@ -28,7 +28,7 @@
 // wall-clock-dependent act — reading what upstream calls "latest" right now — lives at the bottom, in the
 // fetcher, which is honest at src/os and nowhere else. A down mirror yields an empty catalogue, never a
 // fabricated checksum.
-import { uuidnaPackage, untarMember, untarGzipMember, type UuidnaPackage } from '../packages/index.js'
+import { uuidnaPackage, untarGzipMember, type UuidnaPackage } from '../packages/index.js'
 import { theorems } from '../../theorems/index.js'
 import { hexbitDoorOf, UUID_HEXBITS } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
@@ -271,7 +271,7 @@ export { untarGzipMember } from '../packages/index.js'
 /** fetchRepoIndex(repo, branch, arch) → every package Alpine publishes in one repository, right now. Network +
  *  the platform's own gunzip + the pure-TS untar os/packages already owns; the document is DATA and is parsed,
  *  never run. Best-effort and honest: a down mirror or a shape drift yields [], never a fabricated checksum. */
-export async function fetchRepoIndex(repo = 'main', branch = 'latest-stable', arch = 'x86_64'): Promise<IndexPackage[]> {
+async function fetchRepoIndex(repo = 'main', branch = 'latest-stable', arch = 'x86_64'): Promise<IndexPackage[]> {
   try {
     const gz = new Uint8Array(await (await fetch(`${CDN}/${branch}/${repo}/${arch}/APKINDEX.tar.gz`)).arrayBuffer())
     return parseIndex(await untarGzipMember(gz, 'APKINDEX'))

@@ -39,7 +39,7 @@ export interface CloudflareTemplate {
 
 /** allTemplateConfigs() → EVERY row the mirror holds, primary and e2e alike. Nothing is dropped: the first
  *  harvest discarded the e2e rows silently and that is how a real binding went missing. */
-export const allTemplateConfigs = (): CloudflareTemplate[] => [...TEMPLATE_ROWS]
+const allTemplateConfigs = (): CloudflareTemplate[] => [...TEMPLATE_ROWS]
 
 /** cloudflareTemplates() → the TEMPLATES, one row each: the primary config. The e2e workers are carried by
  *  allTemplateConfigs() and reported by the census, so they are visible without being counted as templates. */
@@ -180,4 +180,3 @@ export function templatesFor(idea: string): TemplateCoverage[] {
 }
 
 /** the handle of the whole census — one address for "which templates, with which bindings, at this harvest" */
-export const templateCensusHandle = (): string => handleOf(templateCensus().receipt)

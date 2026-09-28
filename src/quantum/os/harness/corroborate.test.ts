@@ -13,7 +13,6 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { corroborate, evidenceRow, type ResearchEvidence } from '../../../corroborate.js'
 import { toUuid } from '../../../address.js'
-import { theorems } from '../../../theorems/index.js'
 
 // ── THE CONTROL THAT WAS MISSING. discover.ts states this law about itself — "a relation survives only if it holds
 // AND stops holding when an input moves" — and the corroboration path had no such control, so nothing could tell a

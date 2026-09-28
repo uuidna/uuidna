@@ -98,7 +98,6 @@ function audit() {
 
   const leanDir = join(ROOT, 'lean')
   const scriptsDir = join(ROOT, 'src/scripts')
-  const docsDir = join(ROOT, 'docs')
 
   ;[leanDir, scriptsDir].forEach((dir) => {
     try {

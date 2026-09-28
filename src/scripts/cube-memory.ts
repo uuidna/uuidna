@@ -23,10 +23,10 @@ import { toUuid } from '../address.js'
 import { cubeMemory, hold, cubes, planMemory, commitMemory, type CubeMemory, type CubeReceipts } from '../quantum/memory/index.js'
 
 const LEAN_DIR = join(ROOT, 'lean')
-export const MEMORY_PATH = join(ROOT, 'lean', 'cube-memory.json')
+const MEMORY_PATH = join(ROOT, 'lean', 'cube-memory.json')
 
 /** the neighbourhoods as they stand ON DISK: one cube per .lean file, its members that file's theorems */
-export function leanCensus(): Map<string, { key: string; address: string }[]> {
+function leanCensus(): Map<string, { key: string; address: string }[]> {
   const census = new Map<string, { key: string; address: string }[]>()
   for (const file of readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort()) {
     const decls = leanDecls(readFileSync(join(LEAN_DIR, file), 'utf8'))
@@ -39,19 +39,19 @@ export function leanCensus(): Map<string, { key: string; address: string }[]> {
 
 /** stage every theorem on disk into a memory whose census is that same disk — so every cube is whole by construction
  *  and any cube that ISN'T is a genuine defect (a duplicate key, a file that changed under the walk) */
-export function stagedMemory(census = leanCensus()): CubeMemory {
+function stagedMemory(census = leanCensus()): CubeMemory {
   const mem = cubeMemory([...census].map(([file, members]) => [file, members.map((m) => m.key)] as const))
   for (const [file, members] of census) for (const m of members) hold(mem, { key: m.key, principle: file, address: m.address })
   return mem
 }
 
-export const readMemory = (): CubeReceipts => {
+const readMemory = (): CubeReceipts => {
   try { return existsSync(MEMORY_PATH) ? JSON.parse(readFileSync(MEMORY_PATH, 'utf8')) : {} } catch { return {} }
 }
 
 /** the gaps a memory run can find: a neighbourhood that will not seal. Nothing else here is a defect — a moved cube
  *  is work, and work is not a gap. */
-export function cubeGaps(): Gap[] {
+function cubeGaps(): Gap[] {
   const plan = planMemory(stagedMemory(), readMemory())
   return plan.held.map((c) => ({
     what: `the neighbourhood ${c.principle} did not seal — ${c.members.length} of ${c.size} members held, missing ${c.missing.join(', ')}`,

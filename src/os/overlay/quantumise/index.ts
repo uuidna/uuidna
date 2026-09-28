@@ -8,7 +8,7 @@
 import { npmShasumToQ1 } from '../index.js'
 import type { CataloguePackage } from '../../../quantum/os/catalogue/index.js'
 
-export const REGISTRY_REPOS = ['npm', 'rubygems', 'pypi', 'crates'] as const
+const REGISTRY_REPOS = ['npm', 'rubygems', 'pypi', 'crates'] as const
 export type RegistryRepo = (typeof REGISTRY_REPOS)[number]
 
 export interface RegistryRecord {
@@ -23,12 +23,12 @@ export interface RegistryRecord {
 }
 
 /** registryIdentityName(name) → catalogue identity charset. Scoped npm `@scope/pkg` → `scope-pkg`. */
-export function registryIdentityName(name: string): string {
+function registryIdentityName(name: string): string {
   return String(name ?? '').trim().replace(/^@/, '').replace(/\//g, '-')
 }
 
 /** registryChecksum(published) → Q1 for sha1-20, lowercase hex64 for sha256; null if the width is not a published digest. */
-export function registryChecksum(published: string): string | null {
+function registryChecksum(published: string): string | null {
   const raw = String(published ?? '').trim()
   if (raw.startsWith('Q1')) return raw
   const c = raw.toLowerCase()
@@ -68,6 +68,6 @@ export function quantumiseRegistry(r: RegistryRecord): QuantumiseResult {
   }
 }
 
-export function isRegistryPackage(p: CataloguePackage): boolean {
+function isRegistryPackage(p: CataloguePackage): boolean {
   return (REGISTRY_REPOS as readonly string[]).includes(p.repo)
 }

@@ -8,8 +8,8 @@ import { join } from 'node:path'
 import { probeLean } from '../../../kernel-probe.js'
 import type { Probe } from '../proof/index.js'
 
-export const KERNEL_BUDGET_MS = 60000
-export const KERNEL_MEMORY_MB = 4096
+const KERNEL_BUDGET_MS = 60000
+const KERNEL_MEMORY_MB = 4096
 const LEAN_ENV_KEYS = ['PATH', 'HOME', 'ELAN_HOME', 'LANG'] as const
 
 export function leanEnv(from: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {

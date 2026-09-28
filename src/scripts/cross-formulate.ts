@@ -64,7 +64,6 @@ const LIMIT = VE_FACES
  *  exactly the shape of a leaked `key: <secret>`, and a scanner that ignored it would be the one worth worrying about.
  *  So the wording is the thing that changed, not the rule and not an allow list: a comment can always be phrased so it
  *  does not imitate a credential, and weakening the detector to accommodate prose is how secret handling rots. */
-const wingWord = (file: string): string => file.replace(/\.lean$/, '').toLowerCase()
 
 // THE KEY IS crossKeyOf, in src/formulas.ts — ONE derivation. It had a copy here, and gap-survey needs the same
 // answer to know whether a cross is already queued: two derivations of one key is how a queue miscounts the work it

@@ -13,14 +13,12 @@
 // counting argument…", "Riemann, through Mertens…"), so the problem is the text before the first comma, never a
 // hand-kept map from key to problem.
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
-import { join } from 'node:path'
 import { theorems } from '../index.js'
-import { ROOT } from './api.js'
 
 interface ClayRow { key: string; problem: string; name: string; tactic: string }
 
 /** the Clay wing's theorems, grouped by the problem each names in its own first clause */
-export function clayRows(): ClayRow[] {
+function clayRows(): ClayRow[] {
   return theorems()
     .filter((t) => (t as { skill?: string }).skill === 'clay')
     .map((t) => {
@@ -34,7 +32,7 @@ export function clayRows(): ClayRow[] {
 }
 
 /** the block both surfaces carry: one line per theorem, its own name as its own scope */
-export function clayFragment(): string {
+function clayFragment(): string {
   const rows = clayRows()
   const named = rows.filter((r) => r.problem !== '')
   const problems = [...new Set(named.map((r) => r.problem))]
@@ -87,7 +85,7 @@ export function clayFragment(): string {
   return lines.join('\n')
 }
 
-export const CLAY_BEGIN = '<!-- clay:begin -->'
+const CLAY_BEGIN = '<!-- clay:begin -->'
 export const CLAY_END = '<!-- clay:end -->'
 
 /** clayBlock(text) → the text with the Clay block replaced between its markers, or appended once if it has none.

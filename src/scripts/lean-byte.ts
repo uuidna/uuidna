@@ -5,7 +5,6 @@ import { emit } from './lean-gen.js'
 const POSITIONS = 32                       // a SHA-256 digest, in bytes
 const ALTERNATIVES = 255                   // every other value one byte can take
 const TAMPERS = POSITIONS * ALTERNATIVES
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
 const DEFS = ''
 
 const FACTS = [

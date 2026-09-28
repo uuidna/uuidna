@@ -26,7 +26,7 @@ export type Node =
 export type BinOp = '∧' | '=' | '≠' | '≤' | '≥' | '<' | '>' | '+' | '-' | '*' | '/' | '%' | '^'
 
 /** the closed operator set the sealed formula-shaped statements actually use — a census, not a guess. */
-export const FORMULA_CHARS = /^[0-9\s()+\-*\/%^=<>!¬∧≠≤≥]+$/
+const FORMULA_CHARS = /^[0-9\s()+\-*\/%^=<>!¬∧≠≤≥]+$/
 
 export type Classification = 'formula' | 'program'
 
@@ -103,7 +103,7 @@ export function characteristicNumerals(statement: string): string[] {
 // ---- tokens ----
 type Tok = { t: 'num' | 'op' | '(' | ')'; v: string }
 
-export function tokenise(src: string): { ok: true; toks: Tok[] } | { ok: false; at: number; found: string } {
+function tokenise(src: string): { ok: true; toks: Tok[] } | { ok: false; at: number; found: string } {
   const toks: Tok[] = []
   let i = 0
   while (i < src.length) {
@@ -394,7 +394,7 @@ function bracket(n: Node): string {
 
 /** formulaMathml(node, display) → standard MathML. Native in every current engine: no library, no webfont, and
  *  it is what a print stylesheet can set as real mathematics rather than as a picture of it. */
-export function formulaMathml(n: Node, display: 'block' | 'inline' = 'block'): string {
+function formulaMathml(n: Node, display: 'block' | 'inline' = 'block'): string {
   return `<math xmlns="http://www.w3.org/1998/Math/MathML" display="${display}">${ml(n)}</math>`
 }
 

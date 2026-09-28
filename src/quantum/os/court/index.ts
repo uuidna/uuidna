@@ -26,17 +26,17 @@ export type NeedBag = Record<string, unknown>
 export interface NeedFail { tool: string; detail: string }
 export interface CourtResult { ok: boolean; fails: NeedFail[]; receipt?: string; ms: number }
 
-export const asBag = (name: string, raw: unknown): NeedBag => {
+const asBag = (name: string, raw: unknown): NeedBag => {
   if (raw && typeof raw === 'object') return raw as NeedBag
   throw new Error(`${name}: expected object, got ${typeof raw}`)
 }
 
-export const hexLattice = (states: unknown, pages: number): boolean =>
+const hexLattice = (states: unknown, pages: number): boolean =>
   Array.isArray(states)
   && states.length === UUID_HEXBITS * pages
   && states.every((h) => Number.isInteger(h) && (h as number) >= 0 && (h as number) < HEXBIT_STATES)
 
-export function evalHex(raw: unknown): { ok: boolean; receipt: string; detail: string } {
+function evalHex(raw: unknown): { ok: boolean; receipt: string; detail: string } {
   const os = asBag('uuidna_os', raw)
   const pages = Number(os.portCount) + 1
   const boot = os.boot && typeof os.boot === 'object' ? os.boot as NeedBag : {}
@@ -46,7 +46,7 @@ export function evalHex(raw: unknown): { ok: boolean; receipt: string; detail: s
   return { ok, receipt, detail: `hex ${Array.isArray(boot.states) ? boot.states.length : 0} states · ${UUID_HEXBITS}×${pages}` }
 }
 
-export function evalCourtTool(name: string, raw: unknown): { ok: boolean; detail: string } {
+function evalCourtTool(name: string, raw: unknown): { ok: boolean; detail: string } {
   const out = asBag(name, raw)
   switch (name) {
     case 'uuidna_gate_status':
@@ -64,7 +64,7 @@ export function evalCourtTool(name: string, raw: unknown): { ok: boolean; detail
   }
 }
 
-export function evalPlaybookStep(tool: string, raw: unknown): { ok: boolean; detail: string } {
+function evalPlaybookStep(tool: string, raw: unknown): { ok: boolean; detail: string } {
   try {
     const out = asBag(tool, raw)
     if (tool === 'uuidna_decide') return { ok: out.verdict === 'VERIFIED' || out.verdict === 'EVALUATED_TRUE', detail: String(out.verdict ?? '') }
@@ -97,7 +97,7 @@ export function dailyPlaybookSteps(): PlaybookStep[] {
   return quantumAdvantagePlaybook().steps.filter((s) => s.tool !== 'uuidna_os' && s.tool !== 'uuidna_crypto')
 }
 
-export function fullPlaybookSteps(): PlaybookStep[] {
+function fullPlaybookSteps(): PlaybookStep[] {
   return quantumAdvantagePlaybook().steps.filter((s) => s.tool !== 'uuidna_os')
 }
 

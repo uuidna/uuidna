@@ -43,7 +43,7 @@ export const PROBE_INPUTS: readonly string[] = [
 // `coinNeighbours(0).length` and this checker reported it UNCHECKABLE, which was the honest answer and an
 // incomplete contract: an invariant a downstream depends on belongs in the contract that promises it, not on a
 // list of things nobody verifies. Adding it takes the live pin from eleven checkable probes to twelve.
-export const CONTRACT_CARDINALITIES: Readonly<Record<string, number>> = Object.freeze({
+const CONTRACT_CARDINALITIES: Readonly<Record<string, number>> = Object.freeze({
   'coinNeighbours(0).length': coinNeighbours(0).length,
   'hexagramsOf(uuid).length': hexagramsOf(toUuid('uuidna')).length,
 })

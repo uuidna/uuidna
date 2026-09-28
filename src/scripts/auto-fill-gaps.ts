@@ -2,10 +2,9 @@
 // auto-fill-gaps — automatically seal predicted gaps.
 // Reads predict-and-fill output and applies auto-fill actions deterministically.
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { HERE, ROOT } from './api.js'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './api.js'
 
 function autoFillUnwiredScripts() {
   const packageJsonPath = join(ROOT, 'package.json')

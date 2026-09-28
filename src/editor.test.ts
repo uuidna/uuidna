@@ -4,7 +4,7 @@
 // proof is the contract; the test is the witness that the code meets it.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type EditorState } from './index.js'
+import { documentAddress, documentHandle, reAddress, payloadFoldHook, type EditorState } from './index.js'
 
 const doc = (...paras: string[]): EditorState => ({
   root: { type: 'root', children: paras.map((t) => ({ type: 'paragraph', children: [{ type: 'text', text: t }] })) },

@@ -55,7 +55,6 @@ const NS = [4, 8, 16, 17, 20, 32, 64, 128, 256, 1024]     // leaf counts to deci
 const pairsOf = (n: number): number => (n * (n - 1)) / 2
 
 const L = (xs: readonly number[]): string => '[' + xs.join(',') + ']'
-const P = (rs: readonly [string | number, number][]): string => '[' + rs.map(([a, b]) => `(${typeof a === 'number' ? a : 0},${b})`).join(',') + ']'
 
 const FACTS = [
   { key: 'a_tree_uses_one_link_per_leaf_and_no_more',

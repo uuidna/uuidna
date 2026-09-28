@@ -1,13 +1,9 @@
 // tamper-cost — verify vs forge at handle/coin/uuid tiers; neighbour + related witnesses; mint is free.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
-import { tamperCosts, UUID_BITS, LEVERAGE, KEY_BITS, RAYS, HEXAGRAM_BITS, FUSED_RING, HEXAGRAM_STATES, COINS, HANDLE_HEXBITS, coins, coinNeighbours, coinBoardWitness, theorems } from './index.js'
+import { tamperCosts, UUID_BITS, LEVERAGE, KEY_BITS, RAYS, HEXAGRAM_BITS, FUSED_RING, HEXAGRAM_STATES, COINS, coins, coinNeighbours, coinBoardWitness, theorems } from './index.js'
 import { HANDLE_BITS } from './hexbit/index.js'
 import { LEGS } from './rosetta-legs.js'
-import { axisMonographs } from './axis-monograph.js'
 
 test('tamperCosts: handle 2^32; coin 63+1=64; uuid 63·2+2=128 with locate legs; mint 0', () => {
   const t = tamperCosts()

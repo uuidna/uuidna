@@ -226,14 +226,14 @@ export function courses(cost?: Record<string, number>, measure: Basis['measure']
 // verdict it never reached — which is the whole discipline this file has been acquiring all night.
 const LEAN_VOCAB = /List|Nat|Bool|Int|foldl|foldr|filter|all|any|map|range|length|fun|let|if|then|else|true|false|decide|Prop|Type|sorry|by|rfl|And|Or|Not/g
 
-export function dimensionInvariant(statement: string): boolean {
+function dimensionInvariant(statement: string): boolean {
   const bare = statement.replace(LEAN_VOCAB, '')
   return !/[\p{L}]/u.test(bare)
 }
 
 /** The ledger split by dimension-validity, with BOTH sides counted — a filter that reported only what it kept
  *  would be a reading with no denominator. */
-export function quantumSplit(): { invariant: string[]; unestablished: string[] } {
+function quantumSplit(): { invariant: string[]; unestablished: string[] } {
   const invariant: string[] = [], unestablished: string[] = []
   for (const t of theorems()) (dimensionInvariant(t.statement) ? invariant : unestablished).push(t.key)
   return { invariant, unestablished }
@@ -242,7 +242,7 @@ export function quantumSplit(): { invariant: string[]; unestablished: string[] }
 /** quantumCourses() → the school taught ONLY from theorems valid in every dimension. Wings keep their identity
  *  and lose their contingent lessons; a wing left with no invariant lesson is DROPPED rather than shown empty,
  *  and the count of dropped wings rides in the census so the loss is visible rather than silent. */
-export function quantumCourses(cost?: Record<string, number>): { courses: Course[]; droppedWings: number; keptLessons: number; ofLessons: number } {
+function quantumCourses(cost?: Record<string, number>): { courses: Course[]; droppedWings: number; keptLessons: number; ofLessons: number } {
   const keep = new Set(quantumSplit().invariant)
   const all = courses(cost)
   const out: Course[] = []
@@ -413,7 +413,7 @@ export function composeCourse(a: Course, b: Course): Composed {
  *  licence: any two courses can be studied together, that is what taking two courses IS, and the ledger already
  *  says so by holding both. The order is by rank, so the walk is deterministic and the same reader gets the
  *  same route twice. */
-export function nextFrom(code: string, budget = 8, cs: Course[] = courses()): Composed[] {
+function nextFrom(code: string, budget = 8, cs: Course[] = courses()): Composed[] {
   const here = cs.find((c) => c.code === code)
   if (!here) return []
   const out: Composed[] = []

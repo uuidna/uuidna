@@ -28,7 +28,7 @@ export interface TautologicalAssert { line: number; text: string }
 
 const CALL = /assert\.(equal|deepEqual|strictEqual|deepStrictEqual|notEqual|notDeepEqual|notStrictEqual)\(/g
 /** state a test body can change that a later same-expression comparison cannot see */
-export const MUTATION = /\b(writeFileSync|appendFileSync|rmSync|unlinkSync|mkdirSync|renameSync|copyFileSync|truncateSync|execSync|execFileSync|spawnSync)\s*\(/
+const MUTATION = /\b(writeFileSync|appendFileSync|rmSync|unlinkSync|mkdirSync|renameSync|copyFileSync|truncateSync|execSync|execFileSync|spawnSync)\s*\(/
 const norm = (s: string): string => s.replace(/\s+/g, '')
 
 /** topLevelArgs(src, openParen) → the call's arguments split at depth zero, quotes respected */

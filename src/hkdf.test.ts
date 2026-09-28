@@ -5,7 +5,6 @@ import { hkdfSync } from 'node:crypto'
 import { hkdfSha256, hkdfExtract, hkdfExpand } from './index.js'
 
 const hx = (h: string): Uint8Array => new Uint8Array((h.match(/../g) || []).map((x) => parseInt(x, 16)))
-const hex = (u: Uint8Array): string => [...u].map((b) => b.toString(16).padStart(2, '0')).join('')
 
 test('HKDF-SHA256 matches node:crypto.hkdfSync — case 1 shape', () => {
   const ikm = new Uint8Array(22).fill(0x0b)

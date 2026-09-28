@@ -62,7 +62,7 @@ export const submissionKey = (address: string): string => SUBMISSION_PREFIX + ad
 /** the largest submission accepted — a request-size bound; a proof of one sealed statement fits well within it */
 export const LEAN_BYTES_MAX = 65_536
 
-export const submittedAddressOf = (handle: string, course: string, lesson: string, lean: string): string =>
+const submittedAddressOf = (handle: string, course: string, lesson: string, lean: string): string =>
   toUuid(canonicalJson({ handle, course, lesson, lean }))
 
 /** submissionOf(handle, course, lesson, lean) → a queued submission, or why it is refused before the kernel sees it.

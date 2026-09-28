@@ -11,7 +11,7 @@
 // answered, and the answer contradicts this tree), 2 is UNREAD (the services did not answer, so nothing was
 // learned). A verifier that returns 0 when it could not reach its subject is the vacuous-success class, and a
 // release verifier is the single place in the pipeline most exposed to it.
-import { writeFileSync, readFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'

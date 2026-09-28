@@ -24,7 +24,7 @@
 import { toUuid } from './address.js'
 
 /** the address of a protocol — hypothesis and criterion, which are what make two trials the same trial */
-export const protocolAddress = (hypothesis: string, refutedIf: string): string => toUuid(`trial:${hypothesis}|${refutedIf}`)
+const protocolAddress = (hypothesis: string, refutedIf: string): string => toUuid(`trial:${hypothesis}|${refutedIf}`)
 
 export type Outcome = 'supported' | 'refuted' | 'void' | 'inconclusive'
 

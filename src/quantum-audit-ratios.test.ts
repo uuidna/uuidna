@@ -11,7 +11,6 @@ import {
   rosettaRayOf,
 } from './index.js'
 import { THEOREMS } from './index.js'
-import { runSequence } from './index.js'
 
 test('decodeAngles — dash closes and rosetta step is 360/7', () => {
   const a = decodeAngles()

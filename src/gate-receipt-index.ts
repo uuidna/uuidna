@@ -15,7 +15,7 @@ export const COVERED = ['src', 'lean'] as const
 export const EXCLUDED = /^src\/(seeds|chunks)\//
 
 /** Paths whose change forces the full suite — ledger, served surface, or fold invariants. */
-export const FULL_SUITE_PREFIXES = [
+const FULL_SUITE_PREFIXES = [
   'lean/',
   'src/theorems/',
   'src/mcp.ts',

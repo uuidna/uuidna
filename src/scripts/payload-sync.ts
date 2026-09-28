@@ -9,8 +9,7 @@
 // its bytes NOW and read exactly that sealed folder — older versions stay on disk untouched, the sync names only
 // the tip. Idempotent by construction: uuidnaVersion equality says "already synced, skip".
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { theorems, isPagelessFile } from '../theorems/index.js'
 import { buildLeanPageSeed, toPayloadDocs, toPayloadBlocksDoc } from '../payload-seed.js'
 import { PAYLOAD } from '../site/index.js'

@@ -141,7 +141,6 @@ test('THE DOCS REPRODUCE: each documented example answers today what was recorde
     assert.equal(d.description, wireLineOf(d.name, d.outputSchema), `${c.name}: the wire line is not read off the recorded shape`)
     let v = callTool(c.name, structuredClone(d.example.args), { hardware: hostHardware })   // the context the stdio server hands every call, as the generator did
     if (v && typeof (v as { then?: unknown }).then === 'function') v = await v
-    const s = typeof v === 'string' ? v : JSON.stringify(v)
     // the SAME excerpt the generator recorded — one definition, imported, never a second clip written here
     assert.equal(excerptOf(v), d.example.excerpt, `${c.name}: the recorded example no longer reproduces — run gen-mcp-docs`)
     checked++

@@ -139,7 +139,7 @@ export function handleParts(handle: string): string[] {
 }
 
 /** Four IPv4 octets — the handle already is a /32. Two hex characters are one octet (00..ff). */
-export const HANDLE_OCTETS = 4
+const HANDLE_OCTETS = 4
 
 const HEX = '0123456789abcdef'
 const octetSpan = (): number => {
@@ -164,13 +164,13 @@ export const ipv4Masks = (): readonly number[] => {
 }
 
 /** handleOctets(handle) → four integers 0..255, IPv4 dotted-quad order. */
-export function handleOctets(handle: string): [number, number, number, number] {
+function handleOctets(handle: string): [number, number, number, number] {
   const p = handleParts(handle)
   return [parseInt(p[0]!, 16), parseInt(p[1]!, 16), parseInt(p[2]!, 16), parseInt(p[3]!, 16)]
 }
 
 /** octetsToHandle(a,b,c,d) → the handle those four octets name. Inverse of handleOctets. */
-export function octetsToHandle(a: number, b: number, c: number, d: number): string {
+function octetsToHandle(a: number, b: number, c: number, d: number): string {
   const span = octetSpan()
   const hex = (n: number): string => {
     if (!Number.isInteger(n) || n < 0 || n >= span) throw new Error(`handle: octet ${n} is not 0..${span - 1}`)
@@ -180,7 +180,6 @@ export function octetsToHandle(a: number, b: number, c: number, d: number): stri
 }
 
 /** handleIpv4(handle) → dotted-quad, e.g. cc9c0011 → 204.156.0.17 */
-export const handleIpv4 = (handle: string): string => handleOctets(handle).join('.')
 
 /** cidrNetwork(handle, maskBits) → the IPv4 network this handle sits on at that mask (/8 /16 /24 /32). */
 export function cidrNetwork(handle: string, maskBits: number): { cidr: string; mask: number; octets: [number, number, number, number] } {

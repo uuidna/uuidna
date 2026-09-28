@@ -160,12 +160,12 @@ const POLL_SECONDS = 2
 /** the ceiling is a FINDING, not a queue: a writer that has stopped WORKING must be named to a human rather
  *  than waited on forever. Reaching this count is not itself the finding — see awaitAcquire, which asks
  *  working() before it refuses. Elapsed polls open the question; the process table answers it. */
-export const MAX_POLLS = 1000
+const MAX_POLLS = 1000
 
 /** how many times a still-WORKING holder may extend past the ceiling before it is named anyway. Bounded on
  *  purpose: "wait forever while a child exists" is not a queue either — a runner wedged on a child that itself
  *  never finishes would hold the tree silently and no caller would ever return. Each extension announces. */
-export const MAX_EXTENSIONS = 6
+const MAX_EXTENSIONS = 6
 
 /** working(pid) → does this holder have a LIVE CHILD? (queue lead 123: the ceiling was a CLOCK, and a clock
  *  cannot tell busy from stuck — a legitimate land round runs develop, lean, tsc and a full gate, so a holder
@@ -313,7 +313,7 @@ if (isMain) {
 // ── THE SESSION MANIFEST — the host side of src/dirty-paths.ts, which stays pure so it can be tested without a
 // git checkout. Reading and writing live here for the same reason acquire() lives here rather than in a library:
 // spawning is the scripts boundary's job, and the law it enforces is the library's.
-export function openSession(sid: string): OpenManifest {
+function openSession(sid: string): OpenManifest {
   const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' }).trim()
   // tracked modifications AND untracked files: a peer's half-written NEW file is exactly as much theirs as a
   // peer's edit to an existing one, and the sweep that caused this took both kinds
@@ -330,7 +330,7 @@ export function openSession(sid: string): OpenManifest {
 /** null when there is no manifest, and null means UNKNOWN rather than clean — see the three-answers note in
  *  src/dirty-paths.ts. An unreadable manifest is the same: it cannot speak, so it does not — a file that will
  *  not open and a file that says "clean" are one answer to any reader that guesses. */
-export function readSession(sid: string): OpenManifest | null {
+function readSession(sid: string): OpenManifest | null {
   if (!sid) return null
   try { return JSON.parse(readFileSync(sessionPath(ROOT, sid), 'utf8')) as OpenManifest } catch { return null }
 }

@@ -62,7 +62,6 @@ console.log('Provider        | Requests | Cache Hit | Latency | Error Rate | Cos
 console.log('─────────────────────────────────────────────────────────────────────────')
 
 for (const m of cloudMetrics) {
-  const pct = ((m.requests / totalRequests) * 100).toFixed(1)
   console.log(`${m.provider.padEnd(15)} | ${m.requests.toString().padEnd(8)} | ${(m.cache_hit_rate * 100).toFixed(1)}%${' '.repeat(6)} | ${m.avg_response_time}ms${' '.repeat(4)} | ${(m.error_rate * 100).toFixed(2)}%${' '.repeat(5)} | $${m.estimated_monthly_cost}`)
 }
 

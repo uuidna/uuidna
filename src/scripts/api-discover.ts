@@ -24,9 +24,6 @@
 
 import { LIFE_APIS, type LifeApi } from '../life-apis.js'
 import { discoveryOf, type Discovered } from '../api-discovery.js'
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 
 const TIMEOUT_MS = 8000

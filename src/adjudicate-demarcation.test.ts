@@ -11,7 +11,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { numeralsOf, theoremNumerals } from './adjudicate.js'
-import { tryClaim, theorems } from './index.js'
+import { theorems } from './index.js'
 
 // ── THE EVASIONS. Each of these returned zero collisions before the fix.
 

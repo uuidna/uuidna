@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // repair-fs-imports — hostnode exports a subset; tests use node:fs/path/os/child_process directly on the host.
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { join } from 'node:path'
 import { ROOT } from './api.js'
 
 const FS = new Set(['readFileSync', 'writeFileSync', 'readdirSync', 'existsSync', 'mkdirSync', 'mkdtempSync', 'rmSync', 'unlinkSync', 'statSync', 'realpathSync'])

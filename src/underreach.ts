@@ -32,7 +32,7 @@ export const UNDERREACH_RE =
   /\b(may|might|could|should|possibly|perhaps|probably|arguably|apparently|seems?|appears?)\s+(?:well\s+|be\s+|to\s+be\s+|have\s+been\s+)?(?:prov(?:en|ed|able)|decid(?:ed|able)|seal(?:ed)?|verified|follows?|be\s+true|be\s+correct|holds?\s+(?:true|for\b|in\s+every|over\b))/i
 
 /** A sentence that declares its quantity empirical is CORRECTLY scoped — an uncertainty there is a fact. */
-export const MEASURED_RE = /\b(measur\w+|empirical\w*|observ\w+|reading|readings|estimate\w*|sampled?)\b/i
+const MEASURED_RE = /\b(measur\w+|empirical\w*|observ\w+|reading|readings|estimate\w*|sampled?)\b/i
 
 export interface UnderreachFinding {
   where: string
@@ -202,11 +202,11 @@ export function decidedDomain(statement: string): number {
 /** Does the claim sentence STATE its scope? A universal word, a count, or an explicit narrowing — because
  *  "on sample Gaussian-integer amplitudes" is a scope declaration too, and a narrowing one: it claims LESS on
  *  purpose and says so, which is precision rather than timidity. */
-export const STATES_SCOPE =
+const STATES_SCOPE =
   /\b(every|all|each|any|never|always|none|exhaustive\w*|enumerat\w+|whole|entire|both|sample[ds]?|these|those|respectiv\w+|\d+|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|sixteen|twenty|sixty|hundred)\b/i
 
 /** A universal asserted in words — what the sentence claims when it claims everything. */
-export const CLAIMS_UNIVERSAL = /\b(every|all|each|any|always|never|exhaustive\w*|enumerat\w+|whole|entire)\b/i
+const CLAIMS_UNIVERSAL = /\b(every|all|each|any|always|never|exhaustive\w*|enumerat\w+|whole|entire)\b/i
 
 /** THE FLOOR, AND IT WAS SET TOO HIGH BY ME. It was 8, on the reasoning that below that an unstated scope is a
  *  phrasing choice rather than a lost claim. A peer session measuring the same ledger found what that hid:

@@ -131,7 +131,7 @@ export const treeFiles = (): TreeFiles => {
 const CITED_FILE = /(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_.-]+\.(?:ts|js|mjs|json|lean|md)\b/g
 /** missingCited(text, files) → each file a settlement names that is not in the tree; a path is matched whole, a bare
  *  name by any file of that name, and a compiled `.js` name by its `.ts` source */
-export const missingCited = (text: string, files: TreeFiles): string[] => {
+const missingCited = (text: string, files: TreeFiles): string[] => {
   const known = (f: string): boolean => (f.includes('/') ? files.paths.has(f) : files.names.has(f))
   return [...new Set(text.match(CITED_FILE) ?? [])].filter((f) => !known(f) && !known(f.replace(/\.js$/, '.ts'))).sort()
 }

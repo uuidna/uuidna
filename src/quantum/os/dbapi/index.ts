@@ -19,11 +19,11 @@
 // existed and were reached separately, each with its own limit convention and its own idea of what "not found"
 // means. One door with one result shape makes the ABSENT case uniform — every query says how many matched and
 // how many it returned, so a truncated answer can never read as a complete one.
-import { catalogue, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueState, type CataloguePackage } from '../catalogue/index.js'
+import { cataloguePackage, catalogueSearch, catalogueRdepends, catalogueState, type CataloguePackage } from '../catalogue/index.js'
 import { domainCensus, type DomainCensus } from '../domains/index.js'
 import { toUuid } from '../../../address.js'
 
-export const DB_DOMAIN = 'database' as const
+const DB_DOMAIN = 'database' as const
 
 export function dbCensus(): DomainCensus {
   const c = domainCensus(DB_DOMAIN)

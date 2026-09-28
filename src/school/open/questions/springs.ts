@@ -5,7 +5,6 @@
 // Refuted (killed_by) and refused (boundary) are CLOSED — recorded on docs/leads.md, not homework here.
 // Research findings, search-feed leads, support-wave, and axiom-hunt exposed live on their own surfaces
 // (uuidna_research_ledger, search-feed page, …). Every open lead adjudicates UNVERIFIED until a seal verifies.
-import { adjudicate } from '../../../adjudicate.js'
 import { decide } from '../../../decide.js'
 import { readRepoJson } from '../../../desk/repo/json/index.js'
 import type { OpenItem } from './index.js'

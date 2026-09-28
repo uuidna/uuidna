@@ -5,7 +5,7 @@
 //
 // One receipt over the set of aspect reflections + harvest receipts — order-invariant. Integrity, not semantics.
 import { reflects, type Reflected } from './reflects.js'
-import { harvestFragments, mintLeadsFromText, type MintLead } from './harvest.js'
+import { mintLeadsFromText, type MintLead } from './harvest.js'
 import { merkleFold, toUuid } from './address.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 

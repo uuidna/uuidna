@@ -281,7 +281,7 @@ export function names(text: string): Aspect {
 }
 
 /** namesIn(text) → just the candidate roster, for a caller auditing one corpus against another. */
-export function namesIn(text: string): string[] {
+function namesIn(text: string): string[] {
   const a = names(text)
   return a.verdict === 'read' ? String(a.evidence.commonest).split(' ').filter(Boolean) : []
 }

@@ -108,7 +108,7 @@ export function handleStoreCensus(root: string, fs: HostFs | null = hostFs): Han
 }
 
 /** the report a surface or a tool prints — occupancy, capacity and use, each labelled as what it is */
-export function handleStoreReport(c: HandleStoreCensus): string {
+function handleStoreReport(c: HandleStoreCensus): string {
   const kinds = Object.entries(c.kinds).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${n} ${k}`).join(', ')
   const dist = Object.entries(c.keysPerLeaf).sort((a, b) => Number(a[0]) - Number(b[0]))
     .map(([k, n]) => `${k}:${n}`).join('  ')

@@ -182,7 +182,7 @@ const TREE = /(^|\/)(dist|src)\//
 const TOOLING = /(^|\/)(dist|src|scripts|hooks|tools|packages|node_modules)\//
 
 /** isLocalSpec(spec, cwd, root) → whether an import specifier reaches this repository's dist/ or src/ */
-export function isLocalSpec(spec: string, cwd: string, root: string): boolean {
+function isLocalSpec(spec: string, cwd: string, root: string): boolean {
   if (/^@uuidna\//.test(spec)) return within(cwd, root)
   const path = spec.startsWith('file://') ? decodeURIComponent(spec.slice('file://'.length)) : spec
   if (!(isAbsolute(path) || path.startsWith('.') || /^(dist|src)\//.test(path))) return false
@@ -195,7 +195,7 @@ const LIT = /(['"`])((?:\\.|(?!\1)[^\\])*)\1/g
 const CALL = /\b(?:import|require(?:\.resolve)?)\s*\(([^()]*(?:\([^()]*\)[^()]*)*)\)/g
 /** specsOf(code, cwd) → the specifiers the code imports or requires: static imports, and the literal pieces of every
  *  import()/require() argument joined (a template's `${…}` prefix and a `process.cwd() + '…'` prefix read as cwd) */
-export function specsOf(code: string, cwd: string): string[] {
+function specsOf(code: string, cwd: string): string[] {
   const specs: string[] = []
   for (const m of code.matchAll(/\b(?:import|export)\s+(?:type\s+)?(?:[\w*${}\s,]+?\s+from\s*)?(['"])([^'"\n]+)\1/g)) specs.push(m[2]!)
   for (const m of code.matchAll(CALL)) {
@@ -211,7 +211,7 @@ export function specsOf(code: string, cwd: string): string[] {
 
 /** identifiersOf(code, specs) → what the code takes from the repository: named imports, destructured names, members
  *  called on an imported binding, the imported modules' own names — and any tool it names outright */
-export function identifiersOf(code: string, specs: readonly string[]): { ids: string[]; tools: string[] } {
+function identifiersOf(code: string, specs: readonly string[]): { ids: string[]; tools: string[] } {
   const ids: string[] = []
   const add = (s: string): void => { const n = (s.trim().split(/\s+as\s+|\s*:\s*|\s*=\s*/)[0] ?? '').trim(); if (/^[A-Za-z_$][\w$]*$/.test(n) && n !== 'default' && n !== 'type') ids.push(n) }
   const bindings: string[] = []
@@ -286,7 +286,7 @@ export function bypassesOf(command: string, cwd: string, root: string, readFile:
 
 // ── the one escape: a gap, stated and recorded ───────────────────────────────────────────────────────────────────
 export const GAP_FILE = join('dist', 'evidence', 'mcp-gaps.jsonl')
-export const GAP_VAR = 'UUIDNA_MCP_GAP'
+const GAP_VAR = 'UUIDNA_MCP_GAP'
 const PLACEHOLDER = '<what is missing>'
 
 /** gapOf(command) → the missing capability the command states in UUIDNA_MCP_GAP=…, or null (absent, empty, or the

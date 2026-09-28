@@ -43,7 +43,7 @@ export function typeErrorFiles(out: string): string[] {
 /** ownersOf(file, writers, outputs) → the generators that write this file, read from the two declarations the drain
  *  already keeps (DRAIN_WRITERS for the ledger's own emitters, RECONCILE_OUTPUTS for the reconcile chain) — a file no
  *  declaration names is hand-written, and no bootstrap is allowed to paper over a type error in it */
-export function ownersOf(file: string, writers: Readonly<Record<string, string>>, outputs: Readonly<Record<string, readonly string[]>>): string[] {
+function ownersOf(file: string, writers: Readonly<Record<string, string>>, outputs: Readonly<Record<string, readonly string[]>>): string[] {
   const owners = new Set<string>()
   if (writers[file]) owners.add(writers[file]!)
   for (const [gen, outs] of Object.entries(outputs)) if (outs.some((o) => o === file || file.startsWith(o.replace(/\/$/, '') + '/'))) owners.add(gen)
@@ -155,7 +155,7 @@ export function loopGap(v: Exclude<LoopVerdict, { kind: 'converged' } | { kind: 
 // ── C · LAND ────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 /** a failure marker means something only at the START of a line: `✖` and `not ok` are the suite's, `✗ ` the gates' */
-export const isFailureMarker = (l: string): boolean => /^(✖|not ok|✗ |# fail)/.test(l.trim())
+const isFailureMarker = (l: string): boolean => /^(✖|not ok|✗ |# fail)/.test(l.trim())
 
 /** failingTests(out) → every failure marker WITH the indented reason lines under it, verbatim — the reporter prints
  *  a failure's file and message beneath its name, and a marker without them is a name without a why */
@@ -211,7 +211,7 @@ export function instructionArgs(instructions: string, tool: string): Record<stri
 
 export interface ToolSchema { properties?: Record<string, { default?: unknown; examples?: unknown[]; description?: string }>; required?: string[] }
 /** the first quoted example a property's description gives (`e.g. "apk add nginx", …`) */
-export const exampleOf = (description?: string): string | null => /e\.g\.\s*["'`]([^"'`]+)["'`]/.exec(description ?? '')?.[1] ?? null
+const exampleOf = (description?: string): string | null => /e\.g\.\s*["'`]([^"'`]+)["'`]/.exec(description ?? '')?.[1] ?? null
 
 /** argsFor(tool, instructions, served, local) → the arguments to call a named tool with: what the instructions write,
  *  then for each REQUIRED property still absent a default, an example or a quoted e.g. — from the served schema first,

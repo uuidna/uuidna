@@ -38,11 +38,11 @@ export interface ConstraintReport {
 /** OpenAI's hard cap on tools in a single chat-completions request. */
 export const OPENAI_TOOL_CAP = 128
 /** OpenAI's recommended ceiling — guidance, not a rejection. */
-export const OPENAI_TOOL_ADVICE = 20
+const OPENAI_TOOL_ADVICE = 20
 /** Longest tool name a function call accepts. */
 export const NAME_MAX = 64
 /** The characters a tool name may use. */
-export const NAME_PATTERN = /^[a-zA-Z0-9_-]+$/
+const NAME_PATTERN = /^[a-zA-Z0-9_-]+$/
 
 const HONEST =
   'This surface measured against limits published by the clients that serve it, recomputed from the live tool ' +

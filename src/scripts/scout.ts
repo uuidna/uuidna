@@ -49,7 +49,7 @@ export interface ScoutVerdict { cited: string[]; real: string[]; fabricated: str
 
 /** VERIFY A SCOUT'S REPORT: every theorem it names must be in the ledger. A fabricated citation drains the
  *  report — the whole report, not the one line, because a scout that invents one name has shown the method. */
-export function verifyReport(report: string): ScoutVerdict {
+function verifyReport(report: string): ScoutVerdict {
   const g = slimGate(report)
   return { cited: [...g.real, ...g.fabricated], real: g.real, fabricated: g.fabricated, sealed: g.fabricated.length === 0 }
 }
@@ -66,7 +66,7 @@ export function verifyReport(report: string): ScoutVerdict {
 export interface Finding { bucket: number; handle: string; theorem: string; finding: string }
 
 /** post a finding to a bucket. REFUSES a key the ledger does not hold — a scout may not cite what is not sealed. */
-export function postFinding(bucket: number, finding: string, theoremKey: string): { sealed: unknown; handle: string } {
+function postFinding(bucket: number, finding: string, theoremKey: string): { sealed: unknown; handle: string } {
   if (!LEAN_LEDGER.some((t) => t.key === theoremKey))
     throw new Error(`scout: ${theoremKey} is not in the ledger — a finding travels with its theorem or not at all`)
   if (!Number.isInteger(bucket) || bucket < 0 || bucket >= HEXBIT_STATES)
@@ -76,7 +76,7 @@ export function postFinding(bucket: number, finding: string, theoremKey: string)
 }
 
 /** read every bucket's findings in ONE call — the whole board, no coordination, no broker */
-export function readAll(posted: readonly { bucket: number; sealed: unknown }[]): Finding[] {
+function readAll(posted: readonly { bucket: number; sealed: unknown }[]): Finding[] {
   const out: Finding[] = []
   for (const p of posted) {
     const handle = handleOf(toUuid('scout:bucket:' + p.bucket))

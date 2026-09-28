@@ -27,7 +27,7 @@ export const ZENODO_PUBLISH_JOB = 'zenodo'
 /** Agnostic loop over zenodo/manifest.json — every owned publication seal (clay is one instance). Still by API,
  *  because a source archive does not cover a monograph: these are different works, not a second copy of one. */
 export const ZENODO_SEALS_PUBLISH_JOB = 'zenodo-seals'
-export const ZENODO_PUBLISH_JOBS = [ZENODO_PUBLISH_JOB, ZENODO_SEALS_PUBLISH_JOB] as const
+const ZENODO_PUBLISH_JOBS = [ZENODO_PUBLISH_JOB, ZENODO_SEALS_PUBLISH_JOB] as const
 
 /** True only when this process is publish.yml `zenodo` or `zenodo-seals` on a release tag. Everything else is a hard no. */
 export function zenodoPublishAllowed(env: NodeJS.ProcessEnv): ZenodoPublishGate {

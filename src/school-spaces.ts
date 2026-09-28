@@ -50,7 +50,7 @@ export interface Space {
 export interface Zone { n: number; name: string }
 
 /** §1: ten interconnected zones around a common social heart */
-export const ZONES: readonly Zone[] = [
+const ZONES: readonly Zone[] = [
   { n: 1, name: 'The Commons' },
   { n: 2, name: 'Arts & Performance Quarter' },
   { n: 3, name: 'Science & Nature Quarter' },
@@ -66,7 +66,7 @@ export const ZONES: readonly Zone[] = [
 const S = (name: string, zone: string, kind: SpaceClass, privacy: Privacy, store: string | null, serves: string[]): Space =>
   ({ name, zone, kind, privacy, store, serves })
 
-export const SPACES: readonly Space[] = [
+const SPACES: readonly Space[] = [
   // §2 the Commons — "almost like a town square", transforming gathering → lunch → exhibition → debate → concert
   S('Main atrium / forum', 'The Commons', 'in-between', 'public', null, ['assembly', 'gathering', 'festival', 'community event']),
   S('Dining hall', 'The Commons', 'flexible', 'social', 'kitchen stores', ['dining', 'community dining', 'events', 'exhibitions']),
@@ -181,7 +181,7 @@ const EQUIPMENT = ['instrument', 'sports', 'circus', 'costume', 'scenery', 'mate
   'juggling', 'mat', 'model', 'sensor', 'recording', 'medical'] as const
 
 /** does this space hold the kind of thing §16 lists? Read from what it serves, never from a hand-kept roll of rooms. */
-export const holdsEquipment = (s: Space): boolean => {
+const holdsEquipment = (s: Space): boolean => {
   const words = [s.name, ...s.serves].join(' ').toLowerCase()
   // WORD BOUNDARIES, BECAUSE A SUBSTRING IS NOT A WORD. `includes` found `mat` inside "misinformation" and `model`
   // inside "model UN", so a digital-ethics seminar room and a debate chamber were told to build equipment stores for
@@ -191,7 +191,7 @@ export const holdsEquipment = (s: Space): boolean => {
 }
 
 /** the equipment-bearing spaces the programme leaves without an adjacent store — §16 turned back on §4–§14 */
-export const storeless = (spaces: readonly Space[] = SPACES): Space[] =>
+const storeless = (spaces: readonly Space[] = SPACES): Space[] =>
   spaces.filter((s) => holdsEquipment(s) && s.store === null)
 
 // ── THE QUIET GRADIENT (§14) ─────────────────────────────────────────────────────────────────────────────────────────
@@ -212,7 +212,7 @@ export function gradient(spaces: readonly Space[] = SPACES): Gradient {
  * use; whether it SHOULD is a timetable and a pedagogy, neither of which is in this file. An area reaching many zones is
  * not better served than one reaching few — it may simply own more words.
  */
-export function zonesFor(area: LearningArea, spaces: readonly Space[] = SPACES): string[] {
+function zonesFor(area: LearningArea, spaces: readonly Space[] = SPACES): string[] {
   const terms = areaTerms(area)
   const hit = new Set<string>()
   for (const s of spaces) {
@@ -238,7 +238,7 @@ export interface SpaceCensus {
 }
 
 /** the whole reading. It REPORTS, and its gaps are the programme's own laws turned back on it. */
-export function spaceCensus(spaces: readonly Space[] = SPACES, areas: readonly LearningArea[] = LEARNING_AREAS): SpaceCensus {
+function spaceCensus(spaces: readonly Space[] = SPACES, areas: readonly LearningArea[] = LEARNING_AREAS): SpaceCensus {
   const p = partition(spaces)
   const g = gradient(spaces)
   const short = storeless(spaces)

@@ -67,7 +67,7 @@ function parse(token: string): Parsed | string {
 }
 
 /** claimsRefusal(claims, expect, nowMs) → null when every claim holds at this clock reading, else the first that fails */
-export function claimsRefusal(c: Record<string, unknown>, e: OidcExpectation, nowMs: number): string | null {
+function claimsRefusal(c: Record<string, unknown>, e: OidcExpectation, nowMs: number): string | null {
   const skew = e.skewMs ?? 60000
   if (c.iss !== (e.issuer ?? GITHUB_ACTIONS_ISSUER)) return 'iss is not the expected issuer'
   const aud = c.aud

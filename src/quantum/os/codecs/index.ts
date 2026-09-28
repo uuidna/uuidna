@@ -117,4 +117,3 @@ export function tarEntries(tar: Uint8Array): TarEntry[] {
 }
 
 /** tarMember(tar, name) → one member's text, delegating to the untar this tree already ships. */
-export const tarMember = (tar: Uint8Array, name: string): string => untarMember(tar, name)

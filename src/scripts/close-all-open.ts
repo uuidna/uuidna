@@ -37,7 +37,7 @@ export interface CloseAllOpenRecord {
   receipt: string
 }
 
-export function closeAllOpen(readings = gatherLeads()): { ok: boolean; record: CloseAllOpenRecord } {
+function closeAllOpen(readings = gatherLeads()): { ok: boolean; record: CloseAllOpenRecord } {
   const before = gapSurvey(ROOT, readings)
   printFillGapsSurvey('close-all-open · BEFORE', before)
 

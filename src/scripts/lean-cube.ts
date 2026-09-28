@@ -95,7 +95,6 @@ const declared = perCube.map((c) => c.declared)
 const distinct = perCube.map((c) => c.distinct)
 const total = distinct.reduce((a, b) => a + b, 0)
 
-const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
 // SUM was a LOCAL copy here and a second local copy in the sibling generator, which is precisely how the same
 // recursion-depth failure reached three wings at once when the ledger grew past 119 entries. One helper now,
 // in lean-gen, folding in two levels so depth stops tracking the census length.

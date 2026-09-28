@@ -128,7 +128,7 @@ const ROUTER_NOISE = new Set(['the', 'a', 'an', 'of', 'to', 'in', 'on', 'at', 'f
 
 /** routerWords(text) → the words a command line means by: lowercase alphanumeric tokens minus the noise —
  *  the router's own floor ('theorem' survives here; 'show me' does not). */
-export const routerWords = (text: string): string[] =>
+const routerWords = (text: string): string[] =>
   [...text.toLowerCase().matchAll(/[a-z0-9]+/g)].map((m) => m[0]).filter((w) => !ROUTER_NOISE.has(w))
 
 /** A tool as tools/list serves it — the router reads the wire's own shapes, nothing bespoke. */

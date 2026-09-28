@@ -68,7 +68,7 @@ export interface Cluster {
 }
 
 /** mean pairwise vocabulary overlap of a group, with the naming word removed so it cannot score a free point */
-export function coherenceOf(leads: readonly LeadRow[], on: string): number {
+function coherenceOf(leads: readonly LeadRow[], on: string): number {
   const vocab = leads.map((l) => new Set(WORDS(l.what).filter((w) => w !== on)))
   if (vocab.length < 2) return 0
   let sum = 0

@@ -70,7 +70,7 @@ export interface Ratchet {
  *  loosening with no stated cause or no checkable evidence — STRICTLY MORE FRICTION than the numeral, which went
  *  green with no reason recorded anywhere. Falls back to the ledger suffix so a prefix not yet in the record
  *  keeps its old ceiling rather than silently losing one. */
-export function sealedValue(prefix: string): number | null {
+function sealedValue(prefix: string): number | null {
   try {
     const rec = JSON.parse(rd('lean/ratchets.json')) as { entries?: { prefix: string; reading: number }[] }
     const hit = (rec.entries ?? []).find((e) => e.prefix === prefix)

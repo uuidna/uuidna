@@ -4,10 +4,9 @@
 // Predicts gaps across all dimensions and rates risk by entanglement density.
 
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { theorems, PRINCIPLES } from '../index.js'
-import { HERE, ROOT } from './api.js'
+import { ROOT } from './api.js'
 import { listTestSources, testDistForSource } from '../test-paths.js'
 
 interface DimensionGap {
@@ -141,7 +140,6 @@ function scanFeatureCompletenessDimension(): DimensionGap[] {
   const allScripts = readdirSync(scriptsDir).filter((f) => f.endsWith('.ts'))
   const packageJsonPath = join(ROOT, 'package.json')
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'))
-  const npmScripts = Object.keys(packageJson.scripts || {})
   const npmScriptValues = Object.values(packageJson.scripts || {}).join(' ')
 
   // Predict completeness: feature script ratio

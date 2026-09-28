@@ -18,7 +18,7 @@
  *  so the same theorem lands in the same slice on every machine and every run), and balanced by construction
  *  rather than by tuning — addresses are content-derived, so they spread. Nothing is listed and nothing is chosen.
  */
-export const LATTICE_SLICE_STATIONS = 0x10000
+const LATTICE_SLICE_STATIONS = 0x10000
 export const shardOfAddress = (address: string, n: number): number => {
   if (!Number.isInteger(n) || n < 1) throw new Error(`test-shards: ${n} slices is not a partition`)
   const station = parseInt(address.replace(/-/g, '').slice(0, 4), 16)

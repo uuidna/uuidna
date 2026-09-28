@@ -40,7 +40,7 @@ export interface SchoolCtx {
   grader?: SchoolDeps
 }
 
-export const CERTIFICATE_RUN = 'school-certificate'
+const CERTIFICATE_RUN = 'school-certificate'
 export const CERTIFICATE_STORAGE = `https://qpu.uuidna.com/storage/receipts/uuidna/${CERTIFICATE_RUN}`
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
 const progressKey = (handle: string): string => `school/progress/${handle}`
@@ -59,7 +59,7 @@ export const NO_SCHOOL_STORE = 'storage unavailable (no SCHOOL KV namespace boun
 const refuse = (error: string, status: number, extra: Record<string, unknown> = {}): Refusal => ({ refused: json({ error, ...extra }, status) })
 
 /** courseOf(env, origin, course) → the served course file, or null for an id no wing carries */
-export async function courseOf(env: SchoolEnv, origin: string, course: string): Promise<CourseFile | null> {
+async function courseOf(env: SchoolEnv, origin: string, course: string): Promise<CourseFile | null> {
   if (!COURSE.test(course)) return null
   const res = await env.ASSETS.fetch(new Request(new URL(`/school/${course}.json`, origin)))
   if (!res.ok) return null
@@ -68,7 +68,7 @@ export async function courseOf(env: SchoolEnv, origin: string, course: string): 
 }
 
 /** pinnedExercise(course, key) → the lesson and its exercise, re-derived and pinned to the seal — or a refusal */
-export function pinnedExercise(course: CourseFile, key: string): { lesson: Lesson; exercise: NonNullable<Lesson['exercise']> } | Refusal {
+function pinnedExercise(course: CourseFile, key: string): { lesson: Lesson; exercise: NonNullable<Lesson['exercise']> } | Refusal {
   if (!LESSON.test(key)) return refuse('a lesson id is a theorem key', 400)
   const lesson = lessonIn(course, key)
   if (!lesson) return refuse(`course ${course.course} serves no lesson ${key}`, 404)
@@ -227,7 +227,7 @@ export async function handleSchool(request: Request, url: URL, env: SchoolEnv, c
 const esc = (s: unknown): string => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!))
 
 /** certificatePage(verdict) → the certificate as a page a person can read, every check listed with its outcome */
-export function certificatePage(v: CertificateVerdict): string {
+function certificatePage(v: CertificateVerdict): string {
   const b = v.body
   const rows = v.checks.map((c) => `<tr><th scope="row">${esc(c.name)}</th><td>${c.holds ? 'holds' : 'FAILS'}</td><td>${esc(c.detail ?? '')}</td></tr>`).join('')
   const head = b

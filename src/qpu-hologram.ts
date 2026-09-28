@@ -20,7 +20,6 @@ const doubleOf = (k: number): number => {
   return x
 }
 
-const seed = doubleOf(TRINITY - TRINITY)
 const bits = HANDLE_BITS
 const amplitudes = doubleOf(bits)
 const kvAmplitudes = amplitudes + amplitudes

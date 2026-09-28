@@ -6,7 +6,7 @@
 // reports a hundred and a six on the exponents where solutions exist. And the near-miss is the refusal made
 // concrete: inside this window the cube sum never once equals a cube, but it lands ONE away twice.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit, chunkWidth, imin, imax, gcdOf, unitsOf } from './lean-gen.js'
+import { emit, imax, gcdOf, unitsOf } from './lean-gen.js'
 
 const N = 20                       // the window's ceiling: 1 ≤ x ≤ y < z ≤ N
 const EXPONENTS = [3, 4, 5, 6]     // the exponents searched and found empty
@@ -133,7 +133,6 @@ for (let m = MOD_MIN; m <= MOD_MAX; m++) {
   const U = unitsOf(m)
   if (U.length === 0) continue
   const lam = lambdaOf(m)
-  const gen = U.find((a) => orderOf(a, m) === lam)
   const properDivs = divisorsOf(lam).filter((k) => k < lam)
   const facts: F[] = []
 

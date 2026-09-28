@@ -88,7 +88,7 @@ function prune(dir: string, want: ReadonlySet<string>, tally: HandleStoreWrite, 
   return true
 }
 
-export function writeHandleStore(): HandleStoreWrite {
+function writeHandleStore(): HandleStoreWrite {
   const records = buildHandleRecords()
   const tally: HandleStoreWrite = { written: 0, unchanged: 0, removed: 0, dirsRemoved: 0 }
   const want = new Set<string>()

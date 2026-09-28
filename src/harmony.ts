@@ -7,7 +7,7 @@ import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
 import { merkleGravity } from './gravity/index.js'
 
-export const HARMONIC_OPS: readonly [string, RegExp][] = [
+const HARMONIC_OPS: readonly [string, RegExp][] = [
   ['fetch', /\bfetch\s*\(/],
   ['async', /\basync\b/],
   ['await', /\bawait\b/],

@@ -3,7 +3,7 @@
 // live HTTP in CI); auditBook is just fetchGutenberg piped into this same auditText. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { auditText, auditTranslation, toUuid, digitalRoot, merkleRoot } from './index.js'
+import { auditText, auditTranslation, toUuid, digitalRoot } from './index.js'
 import { stripGutenberg } from './books.js'
 import { UUID } from './test-api.js'
 

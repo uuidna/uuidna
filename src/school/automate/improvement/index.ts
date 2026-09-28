@@ -6,7 +6,7 @@
 // The flywheel: Students Learn → Theorems Seal → Graduate & Teach → More Students Enroll → Loop
 // This automation keeps the wheel spinning and accelerates it with each cycle.
 
-import { theorems, coins, ledgerCoins } from '../../../index.js'
+import { theorems, ledgerCoins } from '../../../index.js'
 import { toUuid } from '../../../address.js'
 import { handleOf } from '../../../handle.js'
 import { merkleGravity } from '../../../gravity/index.js'
@@ -36,9 +36,8 @@ export interface SchoolMetrics {
   schoolReceipt: string // order-invariant hash of all metrics
 }
 
-export function computeSchoolMetrics(): SchoolMetrics {
+function computeSchoolMetrics(): SchoolMetrics {
   const T = theorems()
-  const L = ledgerCoins(T)
 
   // Fixed placeholder metrics — not yet read from the student progress ledger
   const enrolledStudents = 50 // current enrollment
@@ -85,7 +84,7 @@ export interface SchoolGap {
   estimatedImpact: string // how much this will improve things
 }
 
-export function detectSchoolGaps(): SchoolGap[] {
+function detectSchoolGaps(): SchoolGap[] {
   const metrics = computeSchoolMetrics()
   const gaps: SchoolGap[] = []
 
@@ -171,10 +170,9 @@ export interface ImprovementAction {
   deadlineDays: number // relative deadline — a count, not a clock; the caller anchors it
 }
 
-export function generateImprovementActions(): ImprovementAction[] {
+function generateImprovementActions(): ImprovementAction[] {
   const gaps = detectSchoolGaps()
   const T = theorems()
-  const L = ledgerCoins(T)
 
   const actions: ImprovementAction[] = []
   let priority = 10
@@ -220,7 +218,7 @@ export interface LearningPath {
   successRate: number // 0–1, percentage of students who complete
 }
 
-export function autoGenerateLearningPaths(): LearningPath[] {
+function autoGenerateLearningPaths(): LearningPath[] {
   const T = theorems()
   const skillMap = new Map<string, string[]>()
 
@@ -270,7 +268,7 @@ export interface TeacherPromotion {
   graduationDate: string
 }
 
-export function identifyTeacherCandidates(students: StudentProgress[]): TeacherPromotion[] {
+function identifyTeacherCandidates(students: StudentProgress[]): TeacherPromotion[] {
   const promotions: TeacherPromotion[] = []
 
   for (const student of students) {
@@ -318,7 +316,7 @@ export interface GrowthForecast {
   intervention: string | null // what to do if behind
 }
 
-export function forecastSchoolGrowth(cycles: number = 6): GrowthForecast[] {
+function forecastSchoolGrowth(cycles: number = 6): GrowthForecast[] {
   const metrics = computeSchoolMetrics()
   const forecasts: GrowthForecast[] = []
 
@@ -377,9 +375,8 @@ export interface WeeklyImprovementReport {
 }
 
 // week is the rosetta ray's own tick, supplied by the caller — a count, never a wall clock
-export function generateWeeklyImprovementReport(students: StudentProgress[], week: number): WeeklyImprovementReport {
+function generateWeeklyImprovementReport(students: StudentProgress[], week: number): WeeklyImprovementReport {
   const T = theorems()
-  const L = ledgerCoins(T)
 
   const metrics = computeSchoolMetrics()
   const gaps = detectSchoolGaps()
@@ -420,7 +417,7 @@ export function generateWeeklyImprovementReport(students: StudentProgress[], wee
 // ============================================================================
 
 // week is the rosetta ray's tick, supplied by the caller; every timestamp inside derives from a handle
-export function runWeeklySchoolImprovement(week: number): WeeklyImprovementReport {
+function runWeeklySchoolImprovement(week: number): WeeklyImprovementReport {
   console.log('🎓 Running weekly school improvement automation...')
 
   // Step 1: Measure current state
@@ -494,7 +491,7 @@ export function runWeeklySchoolImprovement(week: number): WeeklyImprovementRepor
  * Every improvement is sealed as a theorem and audited by the ledger.
  */
 
-export const FLYWHEEL_PRINCIPLE = `
+const FLYWHEEL_PRINCIPLE = `
 The school improves by automation, not hope.
 
 Every week:

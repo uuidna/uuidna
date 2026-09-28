@@ -11,7 +11,7 @@
 //   npm run x -- lean-heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
-import { capacity, laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
+import { laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'

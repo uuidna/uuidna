@@ -17,9 +17,6 @@
 //             by sailing; `(2*6) = (3*4)` by chemistry and by statics. These are not waste at all — they are the
 //             corpus telling you that two domains need the same identity for independent reasons, which is what a
 //             cross formula IS. They are the most interesting rows here and they are ranked separately for that.
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './api.js'
 import { theorems } from '../theorems/index.js'
 import { duplicationCensus } from '../formula-duplication.js'
 import { wrArtifact } from '../artifact.js'

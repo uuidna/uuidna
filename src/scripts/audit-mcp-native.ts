@@ -4,8 +4,7 @@
 // Each verification is a theorem already proven; MCP re-verifies O(1) by calling sealed tools
 // Redundancy removed: no duplicate lean runs, no duplicate scans — ask the theorems instead
 
-import { theorems, coins, ADDRESS_BITS, PRINCIPLES, toUuid } from '../index.js'
-import { handleMcpRpc } from '../mcp-http.js'
+import { theorems, coins } from '../index.js'
 
 const T = theorems()
 
@@ -47,7 +46,6 @@ console.log(`   ${ledgerPass ? '✓' : '✗'} ${T.length} theorems, ${coins()} c
 
 // VERIFICATION 2: Harmonic/determinism (ask MCP, don't re-scan)
 console.log('② Determinism Gate via MCP...')
-const hasAsyncCode = T.some((t) => t.key === 'mcp_tools_are_pure')
 results.push({
   name: 'Harmonic Scan',
   pass: true,

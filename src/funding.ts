@@ -183,7 +183,7 @@ export interface RequirementVerdict {
   toMeet: string
 }
 
-export function requirementVerdict(r: Requirement, pack: EvidencePack): RequirementVerdict {
+function requirementVerdict(r: Requirement, pack: EvidencePack): RequirementVerdict {
   switch (r) {
     case 'open-licence': {
       const objections = licenceObjections(pack.licence)

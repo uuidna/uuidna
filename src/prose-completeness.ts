@@ -40,7 +40,7 @@ export interface ProseScore {
 }
 
 /** scoreOne(t) — what this theorem's prose does. Pure; no judgement of style, only of capability. */
-export function scoreOne(t: Theorem): ProseScore {
+function scoreOne(t: Theorem): ProseScore {
   const text = String(t.name ?? '')
   const nums = String(t.key).match(/\d+/g) ?? []
   const reason = REASON.test(text)

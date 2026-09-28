@@ -6,7 +6,7 @@
 // the audit / pre-push wave; a non-conforming commit is BLOCKED. Recomputable by anyone — integrity, not truth.
 import { ledgerFacts, sealedCount } from './theorems/index.js'
 import { coins } from './captain/billing/index.js'
-import { toUuid, toUuidOnce } from './address.js'
+import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { securityAudit } from './security-audit.js'
 import { axiomWitness } from './axiom-witness.js'

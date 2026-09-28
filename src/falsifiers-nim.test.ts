@@ -14,10 +14,7 @@ import assert from 'node:assert/strict'
 // written out. For the non-negative integers walked below, x - (x % 1) is exactly floor(x), and the comparisons
 // ARE the definitions of the other two rather than approximations of them.
 const trunc = (x: number): number => x - (x % 1)
-const ceilOf = (x: number): number => (x % 1 === 0 ? x : x - (x % 1) + 1)
 const maxOf = (...xs: number[]): number => xs.reduce((a, b) => (a > b ? a : b))
-const minOf = (...xs: number[]): number => xs.reduce((a, b) => (a < b ? a : b))
-const absOf = (x: number): number => (x < 0 ? -x : x)
 
 // ── THE SEALED DEFINITION, REBUILT ────────────────────────────────────────────────────────────────────────────
 // lxorAux/lxor mirror the wing's own structural recursion over an 8-bit fuel, transcribed into JavaScript rather

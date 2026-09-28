@@ -29,7 +29,6 @@ const SEVEN = [1, 2, 3, 4, 5, 6, 7]
 const SEVEN_CLASSES = [...new Set(SEVEN.map(dzMin))].sort((a, b) => a - b)
 const FIXED = DIGITS.filter((d) => dz(d) === d)
 const COVERING = [2, 6, 7, 8, 9]                               // sealed in Seats.lean as digits_split_five_five
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
 const DEFS = `def dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d
 
 -- a reflection class, named by its least member: d and dz d share one class

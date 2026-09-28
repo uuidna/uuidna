@@ -27,7 +27,7 @@ import { toUuid } from '../../../address.js'
 import { gateCommitMessage } from '../../../sign.js'
 import { scrubString } from '../../../sanitize.js'
 
-export const CHAT_DOMAIN = 'chat' as const
+const CHAT_DOMAIN = 'chat' as const
 
 /** the ported Alpine chat surface — provenance only, computed from the committed mirror */
 export const chatCensus = (): DomainCensus => {

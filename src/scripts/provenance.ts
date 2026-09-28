@@ -7,8 +7,7 @@
 // content-addressed and fold, order-invariantly, to ONE recomputable receipt. It can FAIL (exit 1) — the opposite of
 // a trial rigged to pass. Integrity.
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { theorems, merkleFold, toUuid } from '../index.js'
 import { overreachOf } from '../prose-gate.js'
 import { MCP_CATALOG } from '../mcp.js'

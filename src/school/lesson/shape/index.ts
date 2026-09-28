@@ -72,7 +72,7 @@ export const COURSE = /^[A-Za-z][A-Za-z0-9_]*$/
 export const LESSON = /^[A-Za-z0-9_']+$/
 
 /** the widest answer accepted: a request-size bound, wider than any numeral the ledger's exercises blank */
-export const ANSWER_DIGITS_MAX = 40
+const ANSWER_DIGITS_MAX = 40
 /** a numeral in canonical form — no sign, no leading zero — so one value has one spelling and one digest */
 export const isAnswer = (answer: string): boolean =>
   answer.length <= ANSWER_DIGITS_MAX && /^(0|[1-9][0-9]*)$/.test(answer)

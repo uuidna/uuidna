@@ -30,14 +30,14 @@ const measure = (): PackResult => JSON.parse(execSync('npm pack --dry-run --json
 /** the target is derived
  *  for the header when the base already sits exactly on a boundary. Integer arithmetic only — Math.* settles no
  *  theorem, so the determinism scan rejects it outright and the alignment must be computed without rounding. */
-export const alignTarget = (base: number, unit: number = UNIT): number => {
+const alignTarget = (base: number, unit: number = UNIT): number => {
   const pad = (unit - (base % unit)) % unit
   return base + (pad === 0 ? unit : pad)
 }
 
 /** ASCII-only header (1 char == 1 byte, so a byte-exact truncation is a char-exact slice). Every number in it is
  *  MEASURED at generation time — the previous header carried a literal, which is how it came to lie. */
-export const headerFor = (target: number, base: number): string =>
+const headerFor = (target: number, base: number): string =>
 `# uuidna reserved space - this package is aligned to EXACTLY ${target} bytes unpacked (${target / UNIT} x 64 KiB).
 # Measured base (everything except this file): ${base} bytes. Reserve: ${target - base} bytes.
 # Below: reproducible content-addresses (toUuid of "uuidna:reserve:<i>"), a self-hosted reserve for the
@@ -45,7 +45,7 @@ export const headerFor = (target: number, base: number): string =>
 `
 
 /** the reserve body, filled to EXACTLY `size` bytes. */
-export function reserveBody(size: number, target: number, base: number): string {
+function reserveBody(size: number, target: number, base: number): string {
   let body = headerFor(target, base)
   for (let i = 0; body.length < size; i++) body += toUuid('uuidna:reserve:' + i) + '\n'
   return body.slice(0, size)

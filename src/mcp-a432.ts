@@ -6,11 +6,11 @@
 // without minting one uuidna_* per app or per tongue. Padding names until listed = 432 is the naive
 // catalogue the wire ceiling already refused.
 import { A432_HZ } from './tts/synth.js'
-import { HEXBIT_STATES, hexbitDoorOf, UUID_HEXBITS } from './hexbit/index.js'
+import { HEXBIT_STATES, hexbitDoorOf } from './hexbit/index.js'
 import { TRINITY, toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { MCP_ALPINE_DOOR } from './quantum/os/mcpman/index.js'
-import { cidrNetwork, ipv4Masks, cidrHostSpan, cidrContains, isHandle } from './handle.js'
+import { cidrNetwork, ipv4Masks, cidrHostSpan, isHandle } from './handle.js'
 
 export { A432_HZ, MCP_ALPINE_DOOR }
 
@@ -76,7 +76,7 @@ export interface McpIpv4Network {
 /** mcpIpv4Network(tools, maskBits) → the MCP catalogue as an IPv4 routing table.
  *  Each tool handle is a /32; the mask aggregates them into /8 /16 /24 networks. Vacant prefixes are counted,
  *  never padded with fake tools. */
-export function mcpIpv4Network(
+function mcpIpv4Network(
   tools: readonly { name: string; handle: string }[],
   maskBits: number = ipv4Masks()[1]!,
 ): McpIpv4Network {

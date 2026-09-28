@@ -30,7 +30,7 @@
 // of re-sealing.
 import { toUuid, merkleFold } from './address.js'
 import { classify, formulaSource, parseFormula, type Node, type BinOp } from './formula.js'
-import { corpusAlgebra, forcedArithmetic, applyOp, holds } from './formulas.js'
+import { corpusAlgebra, forcedArithmetic, holds } from './formulas.js'
 
 /** the arithmetic operators the corpus USES whose operands may be swapped without changing the value — measured by
  *  forcedArithmetic, which probes every ordered pair where both directions are defined and excludes the diagonal

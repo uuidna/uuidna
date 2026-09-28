@@ -42,7 +42,7 @@ export interface CapacityRow { bits: number; leaves: number; recomputeMs: number
  *  today). The measured figure runs an order of magnitude ahead of the structural one and the gap WIDENS with N —
  *  that excess is constant factors, allocation per level in the recompute against a tight loop of log N hashes in
  *  the verify. It is not a stronger theorem and must never be quoted as one. */
-export function capacityCurve(bits: readonly number[]): CapacityRow[] {
+function capacityCurve(bits: readonly number[]): CapacityRow[] {
   const rows: CapacityRow[] = []
   for (const p of bits) {
     const leaves: string[] = new Array(1 << p)
@@ -161,8 +161,8 @@ export interface LatticeBench {
 
 /** THE MEASURED PAGE PAYLOAD, from the built dist on 2026-09-04. Named constants rather than magic numbers, and
  *  they are MEASUREMENTS of one build — re-measure after a layout change rather than trusting them. */
-export const FACE_SHIPPED_BYTES = 70_842      // 46,080 hex-line/hex-gate + 24,762 occupancy-cite elements
-export const BUILT_PAGES = 5_606
+const FACE_SHIPPED_BYTES = 70_842      // 46,080 hex-line/hex-gate + 24,762 occupancy-cite elements
+const BUILT_PAGES = 5_606
 
 export function benchLattice(n = 20_000): LatticeBench {
   const addr = THEOREMS[0]?.address ?? toUuid('bench')

@@ -6,9 +6,6 @@
 // the first pass. Independence is also the licence to run them CONCURRENTLY: the first version of this script
 // collected all the verdicts but still walked them linearly, which is why it was slow.
 import { readFileSync, existsSync } from 'node:fs'
-import { execFileSync } from 'node:child_process'
-import { join } from 'node:path'
-import { ROOT } from '../boundary.js'
 import { INSTRUMENTS } from './gate-all.js'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'

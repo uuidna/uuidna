@@ -43,12 +43,10 @@ const PS = [5, 7, 11, 13]
 // ── Yang–Mills — the SU(2) structure constants are the Levi-Civita symbol: of 27 index triples, 6 are non-zero.
 const eps = (i: number, j: number, k: number): number =>
   (i === j || j === k || i === k) ? 0 : ((j - i) * (k - j) * (k - i) > 0 ? 1 : -1)
-const NONZERO = R(3).flatMap((i) => R(3).flatMap((j) => R(3).map((k) => eps(i, j, k)))).filter((e) => e !== 0)
 
 // ── Navier–Stokes — discrete incompressibility: a divergence computed by differences over a closed grid
 //    telescopes to zero, so the discrete field is divergence-free by construction, at this size.
 const FIELD = R(4).map((i) => R(4).map((j) => (i * 3 + j * 5) % 7))
-const divSum = FIELD.flatMap((row, i) => row.map((_, j) => FIELD[i]![(j + 1) % 4]! - FIELD[i]![j]!)).reduce((a, b) => a + b, 0)
 
 // ── Hodge — the alternating sum of Betti numbers IS the Euler characteristic, on a complex where both are known:
 //    the 2-torus, b = [1, 2, 1], χ = 1 − 2 + 1 = 0.

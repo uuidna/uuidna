@@ -28,7 +28,7 @@ import { driverBundle, verifyDriverBundle, type DriverBundle, type DriverCheck }
 import { domainCensus, type DomainCensus } from '../../quantum/os/domains/index.js'
 import { toUuid } from '../../address.js'
 
-export const DRIVER_DOMAIN = 'driver' as const
+const DRIVER_DOMAIN = 'driver' as const
 
 export function driverCensus(): DomainCensus {
   const c = domainCensus(DRIVER_DOMAIN)

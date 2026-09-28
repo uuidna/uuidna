@@ -41,7 +41,7 @@ export interface ArtifactSeal {
  * Exported because the finder recomputes with the SAME function — a verifier that reimplements the derivation is
  * checking two derivations against each other, and this tree has paid for that mistake in other shapes.
  */
-export function leavesOf(value: unknown, path = '', out: string[] = []): string[] {
+function leavesOf(value: unknown, path = '', out: string[] = []): string[] {
   if (value === null || typeof value !== 'object') {
     out.push(path + SEP + String(value))
     return out

@@ -8,8 +8,7 @@
 // This is the migration record: run it, then `npm run lean` regenerates the manifests (now {key,name,skill}) and the
 // ledger, and the site + MCP derive the skill from there. Nothing here authors a theorem; it authors the axis label.
 import { readFileSync, writeFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { HERE } from './api.js'
 
 const SCRIPTS = HERE.replace(/\/dist\//, '/src/') // author into src/, not dist/

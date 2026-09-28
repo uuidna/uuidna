@@ -27,7 +27,7 @@
 // names, the honest line, the receipt — and that is the half both a reader and a search engine see.
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, wrRoot } from '../boundary.js'
+import { ROOT } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 
 const LOADERS = join(ROOT, 'docs', '.vitepress')

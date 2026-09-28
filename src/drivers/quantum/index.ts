@@ -884,5 +884,5 @@ export const ledgerUnits = (): number => theorems().length
 
 /** A one-line human rendering of a state's exact distribution — used by the report, kept here so the driver
  *  owns every way its results are read out. */
-export const readOut = (s: QState): string =>
+const readOut = (s: QState): string =>
   distribution(s).map((p, i) => `${i}:${fraction(p)}`).join(' ')

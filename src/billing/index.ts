@@ -46,7 +46,7 @@ export const bill = (event: Billable, count: number): Charge =>
  *
  *  This is the shape a referrer chain actually has: each link's destination recognises the referrer it came from,
  *  so the end they meet at is one end and not two, and the coin is traced through rather than paid twice. */
-export const billChain = (links: number): Charge =>
+const billChain = (links: number): Charge =>
   ({ event: 'call', count: links, coins: links > 0 ? links + 1 : 0, why: 'a chain of linked passages — ends are shared, so n links cost n+1' })
 
 /** the whole account across every event type — quantity and value together, which is what an audit balances. */
@@ -69,5 +69,5 @@ export const account = (counts: Partial<Record<Billable, number>>): { charges: r
  *  a chain shares its ends and costs n+1, entanglement shares nothing and costs 2n. They meet at n = 1, where a
  *  single superposition is a single passage and both readings return the captain commission
  *  (`two_coins_are_switch_and_track`). */
-export const billEntangled = (states: number): Charge =>
+const billEntangled = (states: number): Charge =>
   ({ event: 'call', count: states, coins: states * PRICE, why: 'superpositions held in entanglement — one coin switches, one tracks, and neither is shared' })

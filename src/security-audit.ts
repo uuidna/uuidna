@@ -8,7 +8,6 @@ import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { computes } from './gate.js'
-import { adjudicate } from './adjudicate.js'
 import { axiomWitness } from './axiom-witness.js'
 import { EDGE_SLICES } from './edge-slices/generated.js'
 

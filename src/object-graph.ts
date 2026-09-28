@@ -33,13 +33,13 @@ export function theoremRef(t) {
 }
 
 /** linkRef for a domain publication note. */
-export function publicationRef(p) {
+function publicationRef(p) {
   if (!p) return null
   return { key: p.slug, title: shortTitle(p), link: `/publications/${p.slug}` }
 }
 
 /** linkRef for a Zenodo seal surface (article / software archive). */
-export function sealRef(seal) {
+function sealRef(seal) {
   if (!seal) return null
   const link = String(seal.pageUrl || '').replace(/^https:\/\/uuidna\.com/, '') || '/'
   return { key: seal.id, title: shortTitle({ title: seal.title, slug: seal.id }), link }
@@ -73,12 +73,12 @@ export function buildRelatedMaps(pubs) {
 }
 
 /** Sealed skill + principle keywords for a theorem (same source as quantumSeo). */
-export function theoremKeywords(t) {
+function theoremKeywords(t) {
   return [t.skill, t.principle].filter(Boolean)
 }
 
 /** Position helper: [prev, next] on a list by key. */
-export function axisPair(list, key) {
+function axisPair(list, key) {
   const i = list.findIndex((t) => t.key === key)
   if (i < 0) return { prev: null, next: null }
   return {
@@ -88,7 +88,7 @@ export function axisPair(list, key) {
 }
 
 /** Cyclic neighbour at +stride (wrapping). */
-export function rotRef(all, key, stride) {
+function rotRef(all, key, stride) {
   const n = all.length
   if (!n) return null
   const i = all.findIndex((t) => t.key === key)
@@ -97,7 +97,7 @@ export function rotRef(all, key, stride) {
 }
 
 /** Reflect through ledger centre (self-inverse). */
-export function reflectRef(all, key) {
+function reflectRef(all, key) {
   const n = all.length
   if (!n) return null
   const i = all.findIndex((t) => t.key === key)
@@ -239,7 +239,7 @@ export const OBJECT_KIND_ROOT = Object.freeze({
 })
 
 /** Nested static-doc section roots (path segment → crumb). */
-export const DOC_SECTION_ROOT = Object.freeze({
+const DOC_SECTION_ROOT = Object.freeze({
   articles: { text: 'Articles', link: '/articles' },
   publications: { text: 'Publications', link: '/publications' },
   theorem: { text: 'Theorems', link: '/theorems' },

@@ -179,7 +179,7 @@ export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
-export const FOLDED_APPLETS = [] as const
+const FOLDED_APPLETS = [] as const
 
 /** apk READ + session WRITE (session state only — host rootfs unchanged). Host binary run: uuidna_run. */
 export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends', 'add', 'del', 'policy'] as const
@@ -1104,7 +1104,6 @@ export async function uuidnaExecAsync(line: string): Promise<ExecResult> {
   const args = parts.slice(1)
   const flags = args.filter((a) => a.startsWith('-'))
   const operands = args.filter((a) => !a.startsWith('-'))
-  const has = (f: string): boolean => flags.includes(f)
   // the RESULT names the spelling the caller used; the LOGIC runs under the primary name. A pigz that reported
   // `applet: "gzip"` would be answering a question nobody asked.
   const base = { applet: spelling, ranAs: applet, mode: 'executed' as const, unrunArgs: [] as string[] }

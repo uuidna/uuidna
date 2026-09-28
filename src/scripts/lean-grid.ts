@@ -21,7 +21,6 @@ import { emit } from './lean-gen.js'
 const RAYS = 6
 const rev10 = (n: number) => Number(String(n).split('').reverse().join(''))
 const CASES = [72, 75, 78, 90, 91, 95, 105]
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
 
 const FACTS = [
   { key: 'decimal_asks_three',

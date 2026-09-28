@@ -30,7 +30,7 @@
 // fake, so they are classified by what the act NEEDS and never by the phrasing.
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, wrRoot } from '../boundary.js'
+import { ROOT } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 
 // AN ASK IS EMITTED, NOT EXPLAINED — and reading that off the phrasing alone was wrong on five of seven sites the

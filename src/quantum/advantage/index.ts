@@ -142,7 +142,6 @@ export const LEVELS: readonly Level[] = [
     note: 'the whole sealed theorem set swept once — the level the published capacity figure was taken at' },
 ]
 
-export const levelByName = (name: string): Level | undefined => LEVELS.find((l) => l.name === name)
 
 /** What the scripts boundary hands in for ONE level: a steady-state cost and a fidelity count, both MEASURED.
  *  `ops` and `disagreements` are what make the fidelity row a bound rather than a boast — a bound is only as

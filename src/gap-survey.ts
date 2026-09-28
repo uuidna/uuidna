@@ -35,7 +35,7 @@ export function boundaryCitation(key: BoundaryTheoremKey): string {
   return `Boundary declared — theorem ${key}`
 }
 
-export function isSealedBoundaryTheorem(key: string): boolean {
+function isSealedBoundaryTheorem(key: string): boolean {
   return theoremFor(key) !== undefined
 }
 

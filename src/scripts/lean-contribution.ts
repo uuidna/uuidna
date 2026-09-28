@@ -22,7 +22,6 @@ const factorPairs = (n: number): [number, number][] => {
   return out
 }
 const PAIRS = factorPairs(126)
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
 
 const FACTS = [
   { key: 'contribution_leaves_one_twentysix',

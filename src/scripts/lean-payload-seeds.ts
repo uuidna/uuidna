@@ -5,8 +5,7 @@
 // an unchanged file finds its folder already sealed and skips. The closing demo REVERSE-ENGINEERS the whole tree
 // from the folder NAMES alone — zero file reads — proving the no-cost filtering/indexing claim on the spot.
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { theorems } from '../theorems/index.js'
 import { buildLeanPageSeed, readSeed, filterSeeds, retiredUuid, seedReference, type SeedStatus } from '../payload-seed.js'
 import { documentAddress, type EditorState } from '../editor.js'

@@ -185,7 +185,7 @@ export interface GradeCriterion { name: string; ok: boolean; why: string }
  *  this line. Profiling is what found it: theoremNeighbours turned out to be free and typeset cost 12ms total,
  *  so the expensive thing was the check I had not suspected. Counted once into a map, the same answer is O(n).
  *  The tree's standing law — cache an immutable read for O(1) — applied to a distinctness test. */
-export function abstractCounts(abstracts: readonly string[]): Map<string, number> {
+function abstractCounts(abstracts: readonly string[]): Map<string, number> {
   const counts = new Map<string, number>()
   for (const a of abstracts) counts.set(a, (counts.get(a) ?? 0) + 1)
   return counts
@@ -322,7 +322,7 @@ export interface TheoremDepositRecord {
 }
 
 /** theoremDepositRecords() → one candidate per distinct PROPOSITION, every field derived. */
-export function theoremDepositRecords(): TheoremDepositRecord[] {
+function theoremDepositRecords(): TheoremDepositRecord[] {
   const pubs = publications()
   const monographOf = new Map<string, Publication>()
   for (const p of pubs) monographOf.set(p.file, p)
@@ -492,7 +492,7 @@ export function theoremDepositLedger(): TheoremDepositLedger {
 }
 
 /** theoremDepositGaps() → the guard's shape for the per-theorem tier. */
-export function theoremDepositGaps(): { what: string; fix: string }[] {
+function theoremDepositGaps(): { what: string; fix: string }[] {
   const l = theoremDepositLedger()
   if (l.allReady) return []
   const byFault = new Map<string, number>()

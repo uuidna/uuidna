@@ -14,9 +14,6 @@
 // never a silent pass. A gate that treats an unreachable host as agreement is worse than no gate.
 //
 // @non-harmonic: resolves our own DOIs over the network — fetch IS the reading, and the boundary is named here
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './api.js'
 import { ZENODO_SEALS } from '../zenodo-seals.js'
 import { toUuid, merkleFold } from '../address.js'
 import { wrArtifact } from '../artifact.js'
@@ -142,7 +139,7 @@ export async function harvestSeal(
   }
 }
 
-export const defaultFetchJson = async (url: string): Promise<{ status: number; body: unknown }> => {
+const defaultFetchJson = async (url: string): Promise<{ status: number; body: unknown }> => {
   const res = await fetch(url, { headers: { 'user-agent': 'uuidna-doi-harvest/1' } })
   const body = res.status === 200 ? await res.json() : null
   return { status: res.status, body }

@@ -11,7 +11,6 @@
 //
 // Nothing is committed if the reconcile leaves the tree unchanged (the derived layer already matched). account.js
 // fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity.
-import { join } from 'node:path'
 import { ROOT, stageDerived, shellRun, shellOut } from './api.js'
 import { acquire, awaitAcquire, release, LOCK_PATH } from './one-writer.js'
 

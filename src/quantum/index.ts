@@ -35,7 +35,6 @@ export interface QState { amp: Cx[]; scale: number; qubits: number }
  *  ledger computes in hexbits — so a register is reported in them and not only in qubits. Exact integer
  *  division, never a logarithm: 16 qubits is 4 hexbits, and the 64-hexbit cipher key falls to a 32-hexbit floor
  *  under Grover, which is one whole uuid (`key_floor_is_one_uuid`). Bits are the borrowed unit here. */
-export const hexbitsOfQubits = (qubits: number): number => qubitsToHexbits(qubits)
 /** An exact probability num/den (den a power of two before reduction), reduced to lowest terms. */
 export interface Prob { num: bigint; den: bigint }
 

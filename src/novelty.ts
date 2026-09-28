@@ -1,5 +1,5 @@
 import { doiPriorArtForLeanFile, ZENODO_SEALS, type ZenodoSeal } from './zenodo-seals.js'
-import { theorems, theoremByKey } from './theorems/index.js'
+import { theoremByKey } from './theorems/index.js'
 
 /**
  * NOVELTY — the question uuidna_prior_art leaves to an external anchor, answered where an anchor exists.

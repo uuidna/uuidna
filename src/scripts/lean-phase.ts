@@ -21,7 +21,6 @@ const dz = (d: number) => (d === 0 ? 0 : 10 - d)
 const dbl = (d: number) => (2 * d) % 9
 const dzImg = [...new Set(DIGITS.map(dz))].sort((a, b) => a - b)
 const dblImg = [...new Set(DIGITS.map(dbl))].sort((a, b) => a - b)
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
 const DEFS = `def dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d
 def dbl (d : Nat) : Nat := (2 * d) % 9`
 

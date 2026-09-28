@@ -4,7 +4,7 @@
 // Deterministic, recomputable from the ledger, no manual inspection needed.
 // Exit code: 0 if all passes, 1 if gaps detected (CI gate).
 
-import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { workspacePackages } from '../npm-pack.js'

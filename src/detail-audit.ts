@@ -110,7 +110,7 @@ const powValue = (base: bigint, exp: bigint): bigint | null => {
 /** hearPowers(text) → the powers-of-ten the detail speaks: every magnitude recorded, plus any DECIDABLE claim
  *  they form — an explicit equation ("10 to the 3 is 1000") or an orders-of-magnitude relation between two
  *  same-base powers ("10 to the 93 is 38 orders of magnitude larger than 10 to the 55"). */
-export function hearPowers(text: string): { facts: ExtractedFact[]; magnitudes: { base: number; exp: number; negative: boolean }[] } {
+function hearPowers(text: string): { facts: ExtractedFact[]; magnitudes: { base: number; exp: number; negative: boolean }[] } {
   const magnitudes: { base: number; exp: number; negative: boolean }[] = []
   const facts: ExtractedFact[] = []
   const matches = [...String(text).matchAll(POWER_RE)]
@@ -151,7 +151,7 @@ const CHAIN_OPS: Record<string, (a: number, b: number) => number> = {
 const CHAIN_OP_SYMBOL: Record<string, string> = { plus: '+', minus: '-', times: '*', over: '/' }
 
 /** hearChain(text) → the running total decided step by step, or [] when no ≥2-step chain parses whole. */
-export function hearChain(text: string): ExtractedFact[] {
+function hearChain(text: string): ExtractedFact[] {
   // normalise symbols to words, then tokenise; "divided by" folds to "over", assertion phrases fold to "is"
   const words = String(text).toLowerCase()
     .replace(/[×*]/g, ' times ').replace(/\+/g, ' plus ').replace(/[−]/g, ' minus ').replace(/=/g, ' is ')

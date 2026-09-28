@@ -58,7 +58,7 @@ export function listTestSources(root: string = ROOT): string[] {
   return walkTestSources('src', root).sort()
 }
 
-export function testDistForModule(srcPath: string): string | null {
+function testDistForModule(srcPath: string): string | null {
   if (!srcPath.startsWith('src/') || isTestSource(srcPath)) return null
   if (srcPath.endsWith('/index.ts')) {
     const co = `${srcPath.slice(0, -'/index.ts'.length)}/index.test.ts`
@@ -96,7 +96,7 @@ export function rewriteTestImports(content: string, fromRel: string, toRel: stri
     .replace(/import\(['"](\.[^'"]+)['"]\)/g, (_m, imp: string) => `import('${fix(imp)}')`)
 }
 
-export function allTestFiles(root: string = ROOT): string[] {
+function allTestFiles(root: string = ROOT): string[] {
   return listTestSources(root)
 }
 
@@ -173,7 +173,7 @@ function walkAllSources(dir: string, root: string, out: string[] = []): string[]
 
 /** dependentTestFiles(changed) → the delta tests PLUS the tests of every module that transitively imports a
  *  changed file. Bounded by the graph; a cycle cannot loop it because `seen` only ever grows. */
-export function dependentTestFiles(changed: readonly string[], root: string = ROOT): string[] {
+function dependentTestFiles(changed: readonly string[], root: string = ROOT): string[] {
   const g = sourceGraph(root)
   // A SELECTOR THAT ANSWERS "NOTHING" FOR INPUT IT COULD NOT READ IS THE DEFECT IT EXISTS TO PREVENT. Called
   // with a mangled path — `ocs/...` for `docs/...`, off by the width of a git-status prefix — this returned an

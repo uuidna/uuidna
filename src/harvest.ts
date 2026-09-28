@@ -9,7 +9,7 @@ import { isBareLiteralLean, type WaveCandidate } from './wave-deposit.js'
 
 // Bounded quantifiers: commas are stripped before matchAll, so the class is digits only; unbounded
 // `\s*` next to `%` in the operator class is the ReDoS shape CodeQL names (js/polynomial-redos).
-export const ARITH_FRAG = /\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})+[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}|\d{1,24}[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})*/g
+const ARITH_FRAG = /\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})+[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}|\d{1,24}[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})*/g
 
 const normKey = (s: string): string => s.replace(/,/g, '').replace(/\s+/g, '')
 

@@ -2,7 +2,7 @@
 import { theoremByKey } from '../../theorems/index.js'
 import { sequenceCurriculum, type SequenceMcpCurriculum } from '../../quantum/sequence/mcp/curriculum/index.js'
 
-export const SEQUENCE_REQUIRED_THEOREMS = [
+const SEQUENCE_REQUIRED_THEOREMS = [
   'seal_ten',
   'agl_order_54',
   'commutator_is_shift',

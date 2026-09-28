@@ -5,9 +5,8 @@
 // Layer 3 = six packages + six vector motions (the ledger's topology)
 
 import { toUuid } from './address.js'
-import { handleOf } from './handle.js'
 import { merkleGravity } from './gravity/index.js'
-import type { Leg } from './rosetta-legs.js'
+import type { } from './rosetta-legs.js'
 
 // ============================================================================
 // LAYER 2A: SIX ROSETTA LEGS — extend beyond the original five

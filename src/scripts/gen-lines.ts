@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 // src/scripts/gen-lines.ts — lean/statement-index.json: every Lean line that more than one key seals, with the
 // wings that seal it. Generated, so the declaration is a measurement of the ledger rather than a memory of it.
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './api.js'
 import { statementCensus } from '../editorial.js'
 import { wrArtifact } from '../artifact.js'
 

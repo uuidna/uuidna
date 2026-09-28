@@ -8,8 +8,7 @@
 // (depth-aware); default is the dry-run PLAN so the guard can check it before a single file moves. Integrity.
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { seedOf } from '../handle.js'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { toUuid, digitalRoot } from '../index.js'
 import { ROOT } from './api.js'
 

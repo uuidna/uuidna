@@ -11,9 +11,7 @@
 // fact about decimal for a fact about music, physics or the world. See src/base-invariance.ts for the failure that
 // prompted it: I reported three wings sharing 142857 as a real entanglement, and ord_8(7) = 1 refutes it in one line.
 
-import { readFileSync, writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from '../boundary.js'
+import { readFileSync } from 'node:fs'
 import { theorems } from '../theorems/index.js'
 import { holds } from '../involution/index.js'
 import { baseCensus, baseVerdictOf, type BaseVerdict } from '../base-invariance.js'

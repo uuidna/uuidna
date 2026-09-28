@@ -164,7 +164,7 @@ export const restatesValue = (line: string, value: number, words: readonly strin
  *  Precision is what makes a survey readable, so the miss stays, written down, with its own case in the control
  *  marked KNOWN MISS. Tuning further against the handful of spellings already known is the exact defect five
  *  witness waves caught in the generator this finder replaces. */
-export function matcherFor(value: number, words: readonly string[]): (line: string) => boolean {
+function matcherFor(value: number, words: readonly string[]): (line: string) => boolean {
   const v = String(value)
   const bare = `(?<![\\w.$\\d-])(?<![*+/-]\\s)${v}(?!\\s*[*+/-]|[\\w.$\\d])`
   // STEMMED, because the tree names a thing in the plural and calls it in the singular: the vocabulary learns
@@ -290,7 +290,7 @@ export function restatedConstants(files: readonly string[] = sources(), read: (f
 }
 
 /** restatedGaps() → the guard's shape: each restatement with the exact edit that cures it */
-export function restatedGaps(): { what: string; fix: string }[] {
+function restatedGaps(): { what: string; fix: string }[] {
   return restatedConstants().map((r) => ({
     what: `${r.file}:${r.line} writes ${r.constant}'s value as the bare numeral ${r.value} — \`${r.text}\` — in a file that never names ${r.constant} (declared at ${r.declaredIn})`,
     fix: `edit ${r.file}:${r.line}: import { ${r.constant} } from its declaration and use it. A derived constant copied as a numeral is a figure that has stopped tracking its own definition — the two drift apart in silence, which is what lead a5572638 alleged and what five witness waves found eleven times`,

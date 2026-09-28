@@ -123,7 +123,6 @@ export function composePublication(file: string): Publication {
   const pageless = isPagelessFile(file)
   // Typeset and details do not scale past a short wing: Wave and the span hang the suite if inlined.
   const inlineProofs = !pageless && ts.length <= 80
-  const cases = ts.reduce((a, t) => a + (typeof t.cases === 'number' ? t.cases : 0), 0)
   // WHAT "CASES" IS, EXACTLY, because the lead claim rests on it. lean-gen instruments the JS mirror's actual
   // iteration and records what it visited — a real measurement, not a numeral scraped off the statement. But a
   // fact that ITERATES NOTHING (`5260 * 17 = 89420`) is recorded as 1 by a floor, and a floor is a convention.
@@ -436,7 +435,7 @@ export interface Coverage {
 /** the part of publications() coverage needs — file and theorem keys — as a receipt minted at reconcile (gen-receipts),
  *  so a fresh process asks 9 ms instead of composing 178 monographs (215 s, measured 2026-09-12). Misses recompute. */
 export type PublicationProjection = { file: string; theorems: readonly string[] }[]
-export function coverageProjection(): PublicationProjection {
+function coverageProjection(): PublicationProjection {
   return readReceipt<PublicationProjection>('coverage') ?? publications().map((p) => ({ file: p.file, theorems: p.theorems }))
 }
 export function coverage(): Coverage {

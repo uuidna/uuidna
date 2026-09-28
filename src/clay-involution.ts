@@ -9,17 +9,13 @@ if (!seal) throw new Error('zenodo-seals registry missing clay-involution instan
 
 export const CLAY_INVOLUTION_DOI = seal.standingDoi
 /** The FIRST deposit — the DOI that carries the priority date, and the only one that proves novelty. */
-export const CLAY_INVOLUTION_FIRST_DOI = seal.firstDoi ?? seal.standingDoi
-export const CLAY_INVOLUTION_FIRST_PUBLISHED = seal.firstPublished ?? ''
-export const CLAY_INVOLUTION_CONCEPT_DOI = seal.conceptDoi ?? '10.5281/zenodo.21781602'
-export const CLAY_INVOLUTION_RECORD_ID = seal.standingRecordId ?? '21781603'
-export const CLAY_INVOLUTION_CONCEPT_ID = seal.conceptId ?? '21781602'
+const CLAY_INVOLUTION_FIRST_DOI = seal.firstDoi ?? seal.standingDoi
+const CLAY_INVOLUTION_FIRST_PUBLISHED = seal.firstPublished ?? ''
+const CLAY_INVOLUTION_RECORD_ID = seal.standingRecordId ?? '21781603'
 export const CLAY_INVOLUTION_DOI_URL = `https://doi.org/${CLAY_INVOLUTION_DOI}`
 export const CLAY_INVOLUTION_RECORD_URL = `https://zenodo.org/records/${CLAY_INVOLUTION_RECORD_ID}`
-export const CLAY_INVOLUTION_TITLE = seal.title
-export const CLAY_UUIDNA_ARTICLE_URL = seal.pageUrl
-export const CLAY_UUIDNA_ORIGIN = 'https://uuidna.com'
-export const CLAY_UUIDNA_REPO = 'https://github.com/uuidna/uuidna'
+const CLAY_INVOLUTION_TITLE = seal.title
+const CLAY_UUIDNA_ARTICLE_URL = seal.pageUrl
 
 /**
  * What Clay.lean reaches, COUNTED RATHER THAN ASSERTED.

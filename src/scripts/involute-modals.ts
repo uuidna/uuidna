@@ -72,7 +72,7 @@ export interface Involution { file: string; line: number; before: string; after:
 export interface Untaught { file: string; line: number; text: string }
 
 /** involuteFile(text) → the file with every TAUGHT form applied to bare-modal comment lines only. Pure. */
-export function involuteFile(text: string): { out: string; done: Involution[]; left: Untaught[] } {
+function involuteFile(text: string): { out: string; done: Involution[]; left: Untaught[] } {
   const done: Involution[] = []
   const left: Untaught[] = []
   const lines = text.split('\n')

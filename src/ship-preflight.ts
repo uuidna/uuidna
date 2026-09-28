@@ -119,7 +119,7 @@ export function deadShipLinks(files: readonly { path: string; text: string }[], 
 }
 
 /** docs/**\/*.md as the SSG sees it — .vitepress and dynamic-route templates excluded */
-export function docsMarkdown(root: string = ROOT): { path: string; text: string }[] {
+function docsMarkdown(root: string = ROOT): { path: string; text: string }[] {
   const out: { path: string; text: string }[] = []
   const walk = (rel: string): void => {
     for (const e of readdirSync(join(root, rel), { withFileTypes: true })) {
@@ -169,7 +169,7 @@ export function pageReportOf(live: { object: number; statics: number; pin: numbe
 }
 
 /** the static .md pages the SSG renders (dynamic-route templates excluded) */
-export const staticPageCount = (root: string = ROOT): number => docsMarkdown(root).length
+const staticPageCount = (root: string = ROOT): number => docsMarkdown(root).length
 
 export function shipPageReport(root: string = ROOT): string {
   const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as { scripts?: Record<string, string> }

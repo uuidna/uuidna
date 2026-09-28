@@ -23,7 +23,7 @@ export interface RightsInstrument {
 /** the verified instruments, in table order — the only rows any answer may cite */
 export const RIGHTS_INSTRUMENTS: readonly RightsInstrument[] = (table as unknown as RightsInstrument[]).filter((r) => r.verified)
 
-export const RIGHTS_SCOPE = 'Integrity of the citation against the sealed instrument table — never what a law means, whether a right is honoured, or who is in breach; not legal advice.'
+const RIGHTS_SCOPE = 'Integrity of the citation against the sealed instrument table — never what a law means, whether a right is honoured, or who is in breach; not legal advice.'
 
 const words = (s: string): Set<string> => new Set(contentWords(s))
 const overlap = (a: Set<string>, b: Set<string>): number => [...a].filter((w) => b.has(w)).length

@@ -171,7 +171,7 @@ const K_BOLTZ = 1380649n          // Boltzmann constant = K_BOLTZ x 1e-29 J/K
  *  quoted 96485.33212 C/mol is this exact product rounded to ten significant figures. */
 export const FARADAY_NUM = N_AVOGADRO * E_CHARGE
 /** molar gas constant R = k N_A, exact: GAS_NUM / 1e14 J/(mol K) (= 8.31446261815324). */
-export const GAS_NUM = K_BOLTZ * N_AVOGADRO
+const GAS_NUM = K_BOLTZ * N_AVOGADRO
 /** molar volume of an IDEAL gas at STP (273.15 K, 100 kPa): MOLAR_VOLUME_NUM / 1e21 m3/mol (= 22.710954641... L/mol).
  *  The reference point and the constant are exact; the IDEAL-GAS MODEL is not a measurement of real biogas. */
 export const MOLAR_VOLUME_NUM = GAS_NUM * 27315n

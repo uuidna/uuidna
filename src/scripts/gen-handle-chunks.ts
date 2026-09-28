@@ -5,7 +5,7 @@ import { has, wr, mkdirp, rmrf } from './api.js'
 
 export { buildChunks, chunkHandleOf, type HandleChunk } from '../handle-chunks.js'
 
-export function writeHandleChunks(): void {
+function writeHandleChunks(): void {
   const chunks = buildChunks()
   const handles = chunks.map((c) => c.handle)
   if (new Set(handles).size !== handles.length) {

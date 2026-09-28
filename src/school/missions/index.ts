@@ -76,13 +76,13 @@ export interface MissionBoard {
   honest: string
 }
 
-export const MISSION_DOORS: Record<MissionKind, string> = {
+const MISSION_DOORS: Record<MissionKind, string> = {
   'seal-finding': 'uuidna_trial the claim, then a Lean line in the wing that owns the value; set the finding\'s `theorem` field to close it',
   'decide-bound': 'uuidna_theorem <key>, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range',
   'symbol-leg': 'add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass',
 }
 
-export const MISSION_HONEST = 'Derived, not adjudicated: a mission is a record that is open (a finding with no theorem, a bound that survived one widening step, a rosetta row without its symbol leg). Nothing here verdicts the work; the doors do. The bound rows are a LOWER BOUND from one widening step: a survivor is one sample, and silence never refutes (theorem silence_never_refutes) — only a person restating the theorem without its bound settles that the bound was decorative. When a record closes, its mission leaves the board by recomputation.'
+const MISSION_HONEST = 'Derived, not adjudicated: a mission is a record that is open (a finding with no theorem, a bound that survived one widening step, a rosetta row without its symbol leg). Nothing here verdicts the work; the doors do. The bound rows are a LOWER BOUND from one widening step: a survivor is one sample, and silence never refutes (theorem silence_never_refutes) — only a person restating the theorem without its bound settles that the bound was decorative. When a record closes, its mission leaves the board by recomputation.'
 
 const missionHandle = (kind: MissionKind, wing: string, title: string): string => handleOf(toUuid(`mission|${kind}|${wing}|${title}`))
 

@@ -2,7 +2,7 @@
 // browser-apps-usable — SEAL that every honest app surface is usable: store mounts, man→app→hexbit,
 // uuidnaExec man samples (the terminal applet), default-install routes. Optional --live probes HTTP 200 on
 // https://uuidna.com (or --base URL). Integrates manDrivenPortCoverage — does not replace the hexbit port work.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { BROWSER_SURFACES, browserAppsUsable, type BrowserAppsUsable } from '../quantum/apps/browser-usable.js'

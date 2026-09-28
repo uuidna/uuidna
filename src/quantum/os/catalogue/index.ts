@@ -25,7 +25,7 @@
 // `uuidnaPackage` the install port uses; the states are `compileToHexbits` from src/hexbit. If it is named a
 // hexbit, the unit computed it.
 import { uuidnaPackage } from '../../../os/packages/index.js'
-import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from '../../../hexbit/index.js'
+import { hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from '../../../hexbit/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
 
 /** where the committed catalogue lives, repo-relative — one declaration, read by the generator and the reader */
@@ -40,7 +40,7 @@ export const OVERLAY_REPO = 'overlay' as const
 export const TESTING_REPO = 'testing' as const
 /** Alpine's published branch for TESTING_REPO rows. */
 export const TESTING_BRANCH = 'edge' as const
-export const ALPINE_DISTRO_REPOS = ['main', 'community'] as const
+const ALPINE_DISTRO_REPOS = ['main', 'community'] as const
 
 export function isAlpineDistroPackage(p: CataloguePackage): boolean {
   return p.repo === 'main' || p.repo === 'community'
@@ -195,7 +195,7 @@ export const cataloguePrimed = (): boolean => LOADED !== null || LINES !== null
 
 /** parse ONE TSV line, or null when it is the header or a short row. The bulk parser below calls this too, so
  *  a lazily materialised row and an eagerly parsed one agree by construction about what a column means. */
-export const parseCatalogueRow = (line: string): CataloguePackage | null => {
+const parseCatalogueRow = (line: string): CataloguePackage | null => {
   if (!line || line.charCodeAt(0) === 35) return null                  // '#' — the header, not a row
   const c = line.split('\t')
   if (c.length < 6 || !c[1]) return null
@@ -216,7 +216,7 @@ const sortCatalogue = (packages: CataloguePackage[]): CataloguePackage[] =>
   [...packages].sort((a, b) => (a.repo === b.repo ? (a.name < b.name ? -1 : a.name > b.name ? 1 : 0) : a.repo < b.repo ? -1 : 1))
 
 /** merge overlay rows into the APKINDEX census — overlay wins on name collision. */
-export function mergeCataloguePackages(base: CataloguePackage[], overlay: CataloguePackage[]): CataloguePackage[] {
+function mergeCataloguePackages(base: CataloguePackage[], overlay: CataloguePackage[]): CataloguePackage[] {
   const byName = new Map<string, CataloguePackage>()
   for (const p of base) byName.set(p.name, p)
   for (const p of overlay) byName.set(p.name, p)
@@ -370,7 +370,7 @@ export const cataloguePackage = (name: string): CataloguePackage | null => {
 }
 
 /** Editorial prefix for any published package — beyond the 25 default-install routes. */
-export const CATALOGUE_ROUTE_PREFIX = '/catalogue'
+const CATALOGUE_ROUTE_PREFIX = '/catalogue'
 
 /** catalogueRouteOf(name) → the uuidna.com path for any published package (/catalogue/<name>). */
 export const catalogueRouteOf = (name: string): string => CATALOGUE_ROUTE_PREFIX + '/' + name
@@ -531,7 +531,7 @@ const soStems = (): Set<string> => {
 }
 
 /** depResolves(d) — a dependency resolves when the universe names it exactly, or when an apk `so:` stem matches. */
-export const depResolves = (d: string): boolean => {
+const depResolves = (d: string): boolean => {
   const bare = bareDep(d)
   if (universe().has(bare)) return true
   const stem = soStem(bare)
@@ -854,7 +854,7 @@ export interface ManDrivenRunJobs {
 
 /** manDrivenRunJobs() → every man-tested app's published binaries, as run jobs. The automated port:
  *  man pages name the app, `cmd:` names what uuidna_run executes, no per-package helper is authored. */
-export function manDrivenRunJobs(repo?: 'main' | 'community' | typeof OVERLAY_REPO): ManDrivenRunJobs {
+function manDrivenRunJobs(repo?: 'main' | 'community' | typeof OVERLAY_REPO): ManDrivenRunJobs {
   const list = manPagePackages(repo)
   const jobs: ManRunJob[] = []
   const noBinary: string[] = []

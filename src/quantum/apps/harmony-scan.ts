@@ -15,7 +15,7 @@
 // peak, silence — counted from the PCM itself), then CROSS-CHECKS them. Agreement is the health finding;
 // disagreement means the recording is not the song it claims to be, which is the only diagnosis this apparatus
 // is competent to make. Exact integers throughout — no host rounding library, no float, no clock.
-import { SAMPLE_RATE, AMPLITUDE, toneOf } from '../../tts/synth.js'
+import { SAMPLE_RATE, AMPLITUDE } from '../../tts/synth.js'
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
 

@@ -8,7 +8,7 @@
 // observer — the public git commit on GitHub (whose push time is recorded by a third party), a Zenodo DOI (dated by
 // Zenodo), or an RFC 3161 timestamp authority. This record proves WHAT / WHO / INTEGRITY / TERMS on its own; for WHEN,
 // it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity, not truth.
-import { THEOREMS, theoremByKey } from './theorems/index.js'
+import { theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './trial-run.js'
 

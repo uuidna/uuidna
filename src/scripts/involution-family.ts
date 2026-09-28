@@ -16,7 +16,7 @@
 // A MODULE WITH NO SIDE EFFECTS. lean-all imports every lean-*.js for its top level, and scripts/run.ts imports every
 // script the same way, so a script cannot carry a main-guard. What the emitter, the ledger's titles, the seal writer
 // and their tests share lives here, where importing computes nothing.
-import { readFileSync, readdirSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -490,7 +490,7 @@ export function formalLeads(book: LeadBook = readJson<LeadBook>('lean/leads.json
   }
   return out.sort((a, b) => (a.handle < b.handle ? -1 : a.handle > b.handle ? 1 : 0))
 }
-export const formalFileOf = (f: Pick<FormalLead, 'handle' | 'kind'>): string => (f.kind === 'involution' ? wingFileOf(f.handle) : `Proof${f.handle}.lean`)
+const formalFileOf = (f: Pick<FormalLead, 'handle' | 'kind'>): string => (f.kind === 'involution' ? wingFileOf(f.handle) : `Proof${f.handle}.lean`)
 
 /** leadScopeOf(handle, lean) → the doc comment the row wrote on its own `def lead_<handle>`, flattened, or null.
  *

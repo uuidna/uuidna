@@ -58,7 +58,7 @@ export async function awaitValue(opts: {
 
 /** read one JSON field over the wire; null on ANY failure (down, non-2xx, unparseable) so the loop retries rather
  *  than dying — the hazard that the shell version carried under `set -euo pipefail`. */
-export async function probeJsonField(url: string, field: string): Promise<string | null> {
+async function probeJsonField(url: string, field: string): Promise<string | null> {
   try {
     const res = await fetch(url, { headers: { 'cache-control': 'no-cache' } })
     if (!res.ok) return null

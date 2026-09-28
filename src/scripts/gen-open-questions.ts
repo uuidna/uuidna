@@ -8,7 +8,7 @@
 // comment). The banner is the wave's own seal: silence never refutes — these are doors, not defeats. Nothing on
 // the page is authored except the frame; every item, placement, magnet and plan recomputes from the records and
 // the ledger, so the page regrows as doors open and close.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'

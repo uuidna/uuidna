@@ -9,7 +9,7 @@
 import { DIMENSIONS } from './dimensions.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
-import { HEXBIT_WORDS, readHexbits } from './tts/readings.js'
+import { readHexbits } from './tts/readings.js'
 
 export type LocaleRay = (typeof DIMENSIONS)[number]
 

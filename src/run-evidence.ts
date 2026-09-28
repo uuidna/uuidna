@@ -13,7 +13,7 @@ import { auditManipulation, type AuditRecord } from './legal-audit.js'
 // boundary, like device-readings; it decides nothing, and on the edge (no filesystem) it answers "not measured".
 // investigation-log: every investigator and verifier of a 2×7 wave appends what it did and what the kernel said, as it
 // goes, so the court observes the investigation through this door rather than waiting for the last report
-export const RUN_LOGS = ['axioms-receipts', 'trial-rows', 'legal-audit', 'trial-evidence', 'investigation-log'] as const
+const RUN_LOGS = ['axioms-receipts', 'trial-rows', 'legal-audit', 'trial-evidence', 'investigation-log'] as const
 
 type Temp = { measured?: boolean; millikelvin?: number; source?: string }
 type Row = { file?: string; coord?: string; tool?: string; family?: string; readings?: { ns?: string; die?: unknown; battery?: Temp | null } }

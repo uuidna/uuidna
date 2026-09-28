@@ -25,7 +25,7 @@
 import { ZENODO_SEALS } from './zenodo-seals.js'
 import { toUuid, merkleFold } from './address.js'
 
-export const OAI_BASE = 'https://zenodo.org/oai2d'
+const OAI_BASE = 'https://zenodo.org/oai2d'
 /** A Zenodo community is an OAI set named `user-<slug>`. */
 export const communitySet = (slug: string): string => `user-${slug}`
 
@@ -88,7 +88,7 @@ export function parseListRecords(xml: string): { records: OaiRecord[]; token: st
 
 export type FetchText = (url: string) => Promise<{ status: number; body: string }>
 
-export const defaultFetchText: FetchText = async (url) => {
+const defaultFetchText: FetchText = async (url) => {
   const res = await fetch(url, { headers: { 'user-agent': 'uuidna-zenodo-oai/1' } })
   return { status: res.status, body: res.status === 200 ? await res.text() : '' }
 }

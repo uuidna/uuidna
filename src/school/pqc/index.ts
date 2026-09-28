@@ -2,7 +2,7 @@
 import { theoremByKey } from '../../theorems/index.js'
 import { pqcCurriculum, type PqcMcpCurriculum } from '../../quantum/pqc/mcp/curriculum/index.js'
 
-export const PQC_REQUIRED_THEOREMS = [
+const PQC_REQUIRED_THEOREMS = [
   'grover_quadratic_bound',
   'sha256_grover_margin_is_the_address',
   'key_floor_is_one_uuid',

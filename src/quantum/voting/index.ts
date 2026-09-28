@@ -9,7 +9,7 @@
 import { theorems } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
-import { ket0, hadamard, pauliX, pauliZ, cnot, cz, label, fraction, receiptOf, type QState } from '../index.js'
+import { ket0, hadamard, pauliX, pauliZ, receiptOf, type QState } from '../index.js'
 
 export interface AgentContribution {
   workAddress: string       // content-address of the work (code, docs, theorems)

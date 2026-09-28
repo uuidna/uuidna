@@ -8,11 +8,11 @@ import { rd, type Gap } from './api.js'
 export const DEPLOY_BUDGET_MS = 60_000
 
 /** Navigate band stated 90→120 with delta −30 → net floor/ceiling 60→90 (seconds). */
-export const NAVIGATE_FROM_S = 90
-export const NAVIGATE_TO_S = 120
-export const NAVIGATE_DELTA_S = -30
-export const NAVIGATE_FLOOR_S = NAVIGATE_FROM_S + NAVIGATE_DELTA_S
-export const NAVIGATE_CEILING_S = NAVIGATE_TO_S + NAVIGATE_DELTA_S
+const NAVIGATE_FROM_S = 90
+const NAVIGATE_TO_S = 120
+const NAVIGATE_DELTA_S = -30
+const NAVIGATE_FLOOR_S = NAVIGATE_FROM_S + NAVIGATE_DELTA_S
+const NAVIGATE_CEILING_S = NAVIGATE_TO_S + NAVIGATE_DELTA_S
 /** Floor seats DEPLOY_BUDGET_MS; ceiling is the sail hop limit (seconds-only). */
 export const DEPLOY_CEILING_MS = NAVIGATE_CEILING_S * 1000
 
@@ -56,14 +56,14 @@ export function feverOf(ms: number, millikelvin?: number): {
 }
 
 /** Production path: next, land, deploy-run (ship), cloudflare-zone (harden). Sweater grain is the same fabric. */
-export const DEPLOY_PATH_FILES = [
+const DEPLOY_PATH_FILES = [
   'src/scripts/next.ts',
   'src/scripts/land.ts',
   'src/scripts/deploy-run.ts',
   'src/scripts/cloudflare-zone.ts',
 ] as const
 
-export const SWEATER_FILES = [
+const SWEATER_FILES = [
   'src/hologram-lattice.ts',
   'src/mcp.ts',
   'src/holofractal.ts',
@@ -212,34 +212,34 @@ export function sweaterFamilySilent(text: string): boolean {
 }
 
 /** sweaterCultureSilent(text) → family not living at hop / school door. */
-export function sweaterCultureSilent(text: string): boolean {
+function sweaterCultureSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\bcultureOf\b/.test(body) || !/\buuidna_school_apis\b/.test(body)
 }
 
 /** sweaterOrgSilent(text) → uuidna.org not readable as address on the fabric. */
-export function sweaterOrgSilent(text: string): boolean {
+function sweaterOrgSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\borgOf\b/.test(body) || !/\buuidna\.org\b/.test(body)
 }
 
 /** sweaterOrgHostSmash(text) → uuidna.org bolted onto HOLOGRAM_HOSTS (four-host particle smashed). */
-export function sweaterOrgHostSmash(text: string): boolean {
+function sweaterOrgHostSmash(text: string): boolean {
   const block = text.match(/export const HOLOGRAM_HOSTS = \[[\s\S]*?\] as const/)
   return !!block && /\buuidna\.org\b/.test(block[0])
 }
 
 /** sweaterOrganicSilent(text) → occupancy/fuse closes not served as organism. */
-export function sweaterOrganicSilent(text: string): boolean {
+function sweaterOrganicSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\borganicOf\b/.test(body) || !/\bfuseHalves\b/.test(body)
 }
 
 /** sweaterNetworkSilent(text) → UUID sequence / coins / fanout / treason court not served as network. */
-export function sweaterNetworkSilent(text: string): boolean {
+function sweaterNetworkSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\bnetworkOf\b/.test(body) || !/\buuidna_fanout\b/.test(body) || !/\buuidna_treason\b/.test(body)
@@ -302,14 +302,14 @@ export function sweaterElectronicsSilent(text: string): boolean {
 }
 
 /** sweaterPoolsSilent(text) → lattice stations / merkle gravity / occupancy not pooled. */
-export function sweaterPoolsSilent(text: string): boolean {
+function sweaterPoolsSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\bpoolsOf\b/.test(body) || !/\bhandleBirthdayPoint\b/.test(body)
 }
 
 /** sweaterReflectSilent(text) → expected green / red return not served as reverse hop. */
-export function sweaterReflectSilent(text: string): boolean {
+function sweaterReflectSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\breflectOf\b/.test(body) || !/\bqpuReverseHrefOf\b/.test(body) || !/\bleanOf\b/.test(body)
@@ -709,7 +709,7 @@ export function landForgeSoft(text: string): boolean {
 }
 
 /** sweaterRestrictionSilent(text) → extra allow/deny/skip fences still ride the particle. */
-export function sweaterRestrictionSilent(text: string): boolean {
+function sweaterRestrictionSilent(text: string): boolean {
   const body = codeOf(text)
   if (!/\bsweaterOf\b/.test(body)) return false
   return !/\brestrictionOf\b/.test(body) || !/allow:\s*'?empty/.test(body) || !/skip:\s*'?empty/.test(body) || !/\bHARMONY\b/.test(body)

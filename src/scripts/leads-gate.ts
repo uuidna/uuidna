@@ -186,7 +186,7 @@ const apiLeadSources: (() => SourceReading)[] = API_LEAD_READERS.map(({ source, 
   }
 })
 
-export const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads, ...apiLeadSources]
+const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads, ...apiLeadSources]
 
 export function gatherLeads(): SourceReading[] {
   return LEAD_SOURCES.map((s) => {
@@ -268,7 +268,7 @@ export function autoSettle(record: LeadsFile, sealed: readonly SealedStatement[]
 
 /** autoSettleLeads() → run autoSettle over lean/leads.json against the served ledger and the kernel's fresh,
  *  axiom-free receipts, writing the record only when a lead moved */
-export function autoSettleLeads(): Omit<AutoSettleResult, 'record'> {
+function autoSettleLeads(): Omit<AutoSettleResult, 'record'> {
   const path = join(ROOT, 'lean/leads.json')
   const record = JSON.parse(readFileSync(path, 'utf8')) as LeadsFile
   const { record: next, moved, before, after } = autoSettle(record, sealedStatements(), kernelCheckOf().ok)

@@ -176,7 +176,7 @@ export const sealedAddressOf = (key: string): string | undefined =>
 
 /** every sealed address, as a set — what forensics asks when a text presents a uuid as a ledger address */
 let _sealedAddresses: ReadonlySet<string> | null = null
-export const sealedAddresses = (): ReadonlySet<string> =>
+const sealedAddresses = (): ReadonlySet<string> =>
   (_sealedAddresses ??= new Set(sealedKeys().map((k) => sealedAddressOf(k) as string)))
 
 /** isSealedAddress(uuid) → whether the ledger holds a theorem at this address, WITHOUT building the set. The baked
@@ -287,7 +287,7 @@ export function theorems(opts: { skill?: string } = {}): { key: string; name: st
 }
 
 /** theoremPrice(key) → the exact seal price of one theorem. Unsealed keys mint nothing. */
-export function theoremPrice(key: string): { key: string; coins: number } {
+function theoremPrice(key: string): { key: string; coins: number } {
   const t = theoremByKey().get(key)
   return { key, coins: t ? t.coins : 0 }
 }

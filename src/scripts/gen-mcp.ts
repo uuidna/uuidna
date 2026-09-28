@@ -4,8 +4,7 @@
 // site's local search and its in-page navigation cover the whole MCP surface with no hand-maintained list.
 // Regenerate after adding or renaming a tool. A theorem computes in Lean; a tool recomputes — both are receipted.
 import { writeFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { MCP_CATALOG } from '../mcp.js'
 import { MCP_DOCS } from '../mcp-docs.generated.js'   // each tool's standard name, annotations and actual answer (gen-mcp-docs)
 import type { Annotations } from '../mcp-names.js'
@@ -71,7 +70,6 @@ const sections = order.map((cat) => {
 // Integer sqrt without Math.* (the purity guard scans src/scripts too): is the tool count a perfect square (8×8)?
 let isqrt = 0
 while ((isqrt + 1) * (isqrt + 1) <= MCP_CATALOG.length) isqrt++
-const GRID_LAYOUT = isqrt * isqrt === MCP_CATALOG.length ? `${isqrt}×${isqrt}` : 'in rows of 8'
 
 // The grid EMERGES from the usability metric, not a hand-kept order: rank by fewest REQUIRED keys first, so the
 // maximally-reusable (zero-arg) tools rise to the top — exactly what uuidna_mcp_benchmark measures. Top at the top.

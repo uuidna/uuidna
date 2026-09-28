@@ -12,9 +12,6 @@
 // THE HAND SEARCH FOUND 3% OF THE CLASS. Reading statements turned up sixteen; substituting their numerals and
 // re-deciding finds 492 across the wings. A conjunct that holds whatever its numbers are constrains nothing, so the
 // theorem reads as a conjunction of substance while part of it is furniture — and `by decide` signs it either way.
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './api.js'
 import { theorems } from '../theorems/index.js'
 import { paddingCensus } from '../padding-conjunct.js'
 import { wrArtifact } from '../artifact.js'

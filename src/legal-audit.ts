@@ -74,7 +74,7 @@ export function auditCall(surface: string, tool: string, args: unknown, output: 
 /** resumeChain(last) → continue the chain after a record already saved, so a host that serves each call in a fresh
  *  process (a hook) extends ONE chain instead of restarting at genesis. Only a record whose link recomputes is resumed
  *  from — a forged tail is refused, never continued. */
-export function resumeChain(last: AuditRecord): boolean {
+function resumeChain(last: AuditRecord): boolean {
   if (auditChainBreaks([last]) !== null) return false
   tip = last.link
   seq = last.seq

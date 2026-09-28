@@ -19,7 +19,7 @@ export * from './shape/index.js'
 
 /** how many numerals, from the last backwards, are tried as the blank — a bound on generation cost (three evaluations
  *  each); the last numeral is usually the value a statement computes, so the first try is the one that teaches */
-export const EXERCISE_CANDIDATES = 3
+const EXERCISE_CANDIDATES = 3
 
 /** the evaluator's reading of a statement it has not seen before: uncached, so a learner's answers never grow the memo,
  *  and a throw is an undecided reading (the evaluator's diagnostic path reads a host global the edge lacks) */
@@ -119,7 +119,7 @@ export interface CourseMeta { wing: string; title: string; principle: string; sk
 
 /** composeCourse(meta, rows, whyOf) → a course file, lessons in the order the course gives them */
 /** The served keys, aliased to schema.org terms this tree already vets. Aliasing keeps every consumer working. */
-export const SCHOOL_JSONLD_CONTEXT: Readonly<Record<string, string>> = {
+const SCHOOL_JSONLD_CONTEXT: Readonly<Record<string, string>> = {
   '@vocab': 'https://schema.org/',
   course: 'identifier', wing: 'isBasedOn', title: 'name', principle: 'abstract', skills: 'keywords',
   lessons: 'hasPart', key: 'identifier', why: 'description', statement: 'mathExpression', address: 'sameAs',

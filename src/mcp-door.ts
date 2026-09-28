@@ -37,9 +37,9 @@ export const LIST = 'uuidna_list_tools'
 /** list_tools — the list door's standard name */
 export const LIST_NAME = 'list_tools'
 /** isDoor(name) → whether a name, standard or alias, is the CALL door (the one tools/call unwraps) */
-export const isDoor = (name: unknown): boolean => name === DOOR || name === DOOR_NAME
+const isDoor = (name: unknown): boolean => name === DOOR || name === DOOR_NAME
 /** isListDoor(name) → whether a name, standard or alias, is the list door */
-export const isListDoor = (name: unknown): boolean => name === LIST || name === LIST_NAME
+const isListDoor = (name: unknown): boolean => name === LIST || name === LIST_NAME
 /** isDoorTool(name) → either door: listed whatever the instructions say, and each keeps its own line */
 export const isDoorTool = (name: unknown): boolean => isDoor(name) || isListDoor(name)
 

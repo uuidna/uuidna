@@ -244,7 +244,7 @@ export interface DomainRelated {
 }
 
 /** domainRelated(domain) → packages that REFERENCE a member without matching the pattern themselves */
-export function domainRelated(domain: string): DomainRelated | null {
+function domainRelated(domain: string): DomainRelated | null {
   const pat = DOMAIN_PATTERNS.find((d) => d.domain === domain)
   if (!pat) return null
   const rows = catalogue()
@@ -274,7 +274,7 @@ export interface DomainEcho { domain: string; echo: number; names: string[] }
  *  does a Matrix homeserver carry a neuroscience word? (Because a synapse is a junction, and both fields borrowed
  *  the metaphor from the same place.) That is a discovery a tight pattern throws away and a loose pattern
  *  swallows; the third tier keeps it as a lead. */
-export function domainEcho(domain: string): DomainEcho | null {
+function domainEcho(domain: string): DomainEcho | null {
   const pat = DOMAIN_PATTERNS.find((d) => d.domain === domain)
   if (!pat?.echo) return null
   const rel = domainRelated(domain)
@@ -290,7 +290,7 @@ export function domainEcho(domain: string): DomainEcho | null {
 }
 
 /** every domain that carries a vocabulary, and what it echoes */
-export function allDomainEchoes(): DomainEcho[] {
+function allDomainEchoes(): DomainEcho[] {
   return DOMAIN_PATTERNS.filter((d) => d.echo)
     .map((d) => domainEcho(d.domain))
     .filter((e): e is DomainEcho => e !== null)
@@ -298,7 +298,7 @@ export function allDomainEchoes(): DomainEcho[] {
 }
 
 /** every domain's involution tier, largest relation count first */
-export function allDomainRelated(): DomainRelated[] {
+function allDomainRelated(): DomainRelated[] {
   return DOMAIN_PATTERNS.map((d) => domainRelated(d.domain))
     .filter((r): r is DomainRelated => r !== null)
     .sort((a, b) => b.related - a.related || a.domain.localeCompare(b.domain))

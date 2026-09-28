@@ -24,7 +24,7 @@ import { VE_FACES } from './hexbit/index.js'
 /** the run the ledger is deposited under — the folder of qpu storage its pieces land in */
 export const LEDGER_RUN = 'ledger'
 /** where the MCP door lands a run's deposits: receipts/uuidna/<run>/<content address> (mcp.ts, uuidna_evidence {run, deposit}) */
-export const LEDGER_STORAGE = `https://qpu.uuidna.com/storage/receipts/uuidna/${LEDGER_RUN}`
+const LEDGER_STORAGE = `https://qpu.uuidna.com/storage/receipts/uuidna/${LEDGER_RUN}`
 
 /** one deposited piece: a contiguous run of the ledger, with the line address of each row */
 export interface LedgerPiece { kind: 'ledger-piece'; file: string; part: string | null; rows: LeanTheorem[]; lines: string[] }

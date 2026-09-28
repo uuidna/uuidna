@@ -6,7 +6,6 @@
 import { writeFileSync, readFileSync, existsSync, mkdirSync, renameSync, rmSync } from 'node:fs'
 import { execFile } from 'node:child_process'
 import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { toUuid } from '../address.js'
 import { hmacSha256 } from '../sha256.js'
 
@@ -23,7 +22,7 @@ const CACHE_PATH = join(ROOT, 'lean', 'proof-cache.json')
 export const readProofCache = (): Record<string, string> => {
   try { return existsSync(CACHE_PATH) ? JSON.parse(readFileSync(CACHE_PATH, 'utf8')) : {} } catch { return {} }
 }
-export const writeProofCache = (c: Record<string, string>): void => {
+const writeProofCache = (c: Record<string, string>): void => {
   const sorted: Record<string, string> = {}
   for (const k of Object.keys(c).sort()) sorted[k] = c[k]!
   writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 1) + '\n')
@@ -74,7 +73,7 @@ const WALKERS = ['every', 'some', 'map', 'filter', 'forEach', 'reduce', 'find', 
 let walked = 0
 let tallying = false
 const originals = new Map<string, unknown>()
-export const startTally = (): void => {
+const startTally = (): void => {
   walked = 0
   if (tallying) return
   tallying = true
@@ -87,7 +86,7 @@ export const startTally = (): void => {
     }
   }
 }
-export const endTally = (): number => {
+const endTally = (): number => {
   if (tallying) for (const m of WALKERS)
     (Array.prototype as unknown as Record<string, unknown>)[m] = originals.get(m)
   tallying = false
@@ -260,7 +259,7 @@ export const blocksOf = (m: number): string => {
   return '[' + out.join(',') + ']'
 }
 
-export const countExprOf = (m: number, pred: string): string =>
+const countExprOf = (m: number, pred: string): string =>
   `(${blocksOf(m)}.map (fun c => c.countP (fun x => ${pred}))).foldl (· + ·) 0`
 
 export function chunkWidth(n: number): number {

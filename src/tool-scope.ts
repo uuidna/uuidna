@@ -98,12 +98,12 @@ export function numberInvolute(name: string): readonly string[] {
 }
 
 /** Caller-content hit: exact roster, energy unit suffix, or number-involution of a roster stem. */
-export const isCallerParam = (p: string): boolean =>
+const isCallerParam = (p: string): boolean =>
   CALLER_SUPPLIED.test(p) || ENERGY_UNIT_STEM.test(p)
   || numberInvolute(p).some((f) => f !== p && (CALLER_SUPPLIED.test(f) || ENERGY_UNIT_STEM.test(f)))
 
 /** Ledger-id hit. `uuids` is transport (caller) — do not fold it to ledger `uuid`. */
-export const isLedgerParam = (p: string): boolean => {
+const isLedgerParam = (p: string): boolean => {
   if (/^uuids$/i.test(p)) return false
   return LEDGER_IDENTIFIER.test(p) || numberInvolute(p).some((f) => f !== p && LEDGER_IDENTIFIER.test(f))
 }
@@ -121,7 +121,7 @@ const pointable = (schema?: { properties?: Record<string, unknown> }): string[] 
 
 /** Parameter names on NEITHER list. The scope question cannot be decided over these, and naming them is the
  *  remedy: add the name to whichever list it belongs to, or rename the parameter. */
-export const unrecognisedParams = (schema?: { properties?: Record<string, unknown> }): string[] =>
+const unrecognisedParams = (schema?: { properties?: Record<string, unknown> }): string[] =>
   pointable(schema).filter((p) => !isCallerParam(p) && !isLedgerParam(p))
 
 export function scopeOf(schema?: { properties?: Record<string, unknown> }): ToolScope {

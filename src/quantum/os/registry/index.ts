@@ -63,7 +63,7 @@ export function portTool(t: { name: string; description: string }): PackagePort 
 
 /** portInstall(s) → the ported Alpine package already IS a PackagePort in all but name: it carries its id,
  *  address, hexbits, meaning and route. This is the proof the two are the same object — no recompute needed. */
-export function portInstall(s: InstallSpec): PackagePort {
+function portInstall(s: InstallSpec): PackagePort {
   return { kind: 'install', id: s.id, name: s.name, route: s.route, meaning: oneLine(s.meaning), address: s.address, hexbits: s.hexbits }
 }
 

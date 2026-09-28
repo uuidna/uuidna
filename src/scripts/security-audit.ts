@@ -3,7 +3,7 @@
 // repo-tree scans that need the source (no committed secret across every tracked file; the crypto KAT suite wired),
 // folded to ONE order-invariant receipt and printed as a table. Exits non-zero if any check fails — a dimension of
 // `npm run audit`, recomputable by anyone from the same tree. Integrity.
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs'
+import { readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { securityAudit, type SecurityCheck } from '../security-audit.js'
 import { toUuid, merkleGravity } from '../index.js'

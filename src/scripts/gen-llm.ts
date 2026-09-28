@@ -5,8 +5,7 @@
 // (2^7 = 128) scope — each line cites a `by decide` theorem an agent can re-verify with uuidna_verify_statement.
 // Run in the reconcile wave (after gen-readme); a changed theorem re-flows here. Integrity.
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { theorems, coins, ADDRESS_BITS, toUuid } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT } from './api.js'

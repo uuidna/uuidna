@@ -10,7 +10,6 @@ import { hologramFanout } from './hologram-fanout.js'
 import { qpuHopOf } from './qpu-hologram.js'
 import { runEvidence } from './run-evidence.js'
 import { auditCall, saveAudit, auditState } from './legal-audit.js'
-import { pqcPosture } from './pqc/index.js'
 import { invitation } from './invitation.js'
 import { handleStoreCensus } from './handle-store-census.js'
 import { fold as leadFold, around as leadsAround } from './lead-clusters.js'
@@ -49,7 +48,7 @@ import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf, handleWitness } from './handle.js'   // THE one derivation of a handle from an address
 import { sendTrial } from './trial-send.js'
-import { compileToHexbits, sha256IsFourSixtyfours, HEXBIT_BITS, HANDLE_HEXBITS, COIN_HEXBITS, UUID_HEXBITS, VE_FACES, COINS } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { compileToHexbits, sha256IsFourSixtyfours, HEXBIT_BITS, HANDLE_HEXBITS, UUID_HEXBITS, VE_FACES, COINS } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
 import { feverOf } from './scripts/deploy-verify.js'
 import { auditAction } from './law-audit.js'
 import { canonicalJson } from './address.js'
@@ -104,14 +103,14 @@ import { sealedKeys } from './theorems/index.js'
 // the build's own computation graph, folded — one derivation behind the README, the site page and this door
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
-import { hexProgramIndex } from './hex-programs.js'
+import { callOfUuid, hexProgramIndex } from './hex-programs.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf, labsByFamily } from './school/laboratory/index.js'
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
-import { gateVerdict, gateSelfTest, gateStatus, registryReceipt, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
+import { gateVerdict, gateSelfTest, gateStatus, depositCoins, ledgerLine, messagingEnvelope } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
 import { rosettaSeals } from './rosetta-seals.js' // which refutations the 2×7 faces have signed — a compiling wing is not a closed lead
 import { channelAudit, channelSeal, channelOpen } from './hexagram.js'
 import { tamperCosts } from './tamper-cost.js'
@@ -988,6 +987,15 @@ const TOOLS: Tool[] = ([
         const message = typeof a.message === 'string' ? a.message : ''
         if (paths.length === 0) return { refused: true, why: 'commit requires an explicit pathspec: this tree is shared by several sessions, and a commit without one takes a neighbour\'s uncommitted work with it' }
         if (message.trim() === '') return { refused: true, why: 'commit requires a message, and the commit-msg gate refuses one that cites no sealed theorem' }
+        // AN UNTRACKED PATH IS STILL A PATH THE CALLER NAMED. `git commit -- <path>` cannot reach a file git does not
+        // know, so the first version of this door refused a new file and sent the caller back to a shell — the exact
+        // bypass it was built to remove, reproduced by the door itself on its first real use. `--intent-to-add` is
+        // git's own answer: it registers the path without staging content, so the commit that follows carries exactly
+        // the pathspec asked for and nothing else. Only paths the caller NAMED are added; nothing is discovered.
+        for (const one of paths) {
+          const known = cp.spawnSync('git', ['ls-files', '--error-unmatch', one], { cwd: LIB_ROOT, encoding: 'utf8' })
+          if (known.status !== 0) cp.spawnSync('git', ['add', '--intent-to-add', one], { cwd: LIB_ROOT, encoding: 'utf8' })
+        }
         const r = cp.spawnSync('git', ['commit', '-q', '-m', message, '--', ...paths], { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
         if (r.status === null) return { refused: true, why: 'git never started, so nothing was committed and nothing about the tree is known' }
         return { committed: r.status === 0, paths, head: run(['rev-parse', 'HEAD']).out.trim(), said: (String(r.stdout ?? '') + String(r.stderr ?? '')).split('\n').filter((l) => l.trim() !== '').slice(-6) }
@@ -2286,7 +2294,7 @@ export const hostHardware = async (): Promise<Record<string, unknown>> => {
 const canonicalOf = canonicalJson
 /** liveFromQpu(run, latest, fetch) → a run's deposits read back from qpu storage, newest first: the live links
  *  live/<run>/<inverted arrival>-<address> the Worker writes beside each content-addressed deposit */
-export const QPU_STORAGE = 'https://qpu.uuidna.com/storage'
+const QPU_STORAGE = 'https://qpu.uuidna.com/storage'
 const liveFromQpu = async (run: string, latest: number, fetchImpl: typeof fetch): Promise<Record<string, unknown>> => {
   const href = `${QPU_STORAGE}?prefix=${encodeURIComponent(`live/${run}/`)}&limit=${Number.isInteger(latest) && latest > 0 ? latest : 10}`
   try {
@@ -2571,8 +2579,9 @@ export const resolveToolName = (name: unknown): string | undefined => {
   // layout does not carry.
   const bare = name.replace(/-/g, '').toLowerCase()
   if (bare.length === 32 && /^[0-9a-f]{32}$/.test(bare)) {
-    const program = bare.slice(8, 16)
-    return hexProgramIndex().programs.find((pr) => pr.hex === program)?.name
+    // callOfUuid is the codec's ONE decode; resolveToolName is its consumer. Not a fourth inline copy of
+    // slice(8, 16) — the drift this tree keeps catching — so a change to the layout moves both together.
+    return callOfUuid(name).door ?? undefined
   }
   return undefined
 }
@@ -2749,7 +2758,7 @@ export interface UuidnaUnified {
 // from inside. A tool that reads live device state (resources) surfaces here as non-deterministic — honestly, not
 // as a hidden pass. Folds to one self-test receipt.
 export interface McpSelfTest { checks: number; passed: number; deterministic: number; failed: { name: string; why: string }[]; receipt: string }
-export function mcpSelfTest(): McpSelfTest {
+function mcpSelfTest(): McpSelfTest {
   const failed: { name: string; why: string }[] = []
   let checks = 0, deterministic = 0
   for (const entry of MCP_CATALOG) {

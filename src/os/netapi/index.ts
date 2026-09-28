@@ -26,7 +26,7 @@ import { domainCensus, type DomainCensus } from '../../quantum/os/domains/index.
 import { toUuid } from '../../address.js'
 import { sha256 } from '../../sha256.js'
 
-export const NETWORK_DOMAIN = 'network' as const
+const NETWORK_DOMAIN = 'network' as const
 
 export function networkCensus(): DomainCensus {
   const c = domainCensus(NETWORK_DOMAIN)

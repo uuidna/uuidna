@@ -42,7 +42,7 @@ export interface SealedFactorisation {
 /** sealedFactorisations() → every composite whose factor pair the LEDGER proves, read off sealed statements as
  *  `(a * b = n)`. These are the moduli this module is allowed to work on: a target with no seal behind it is an
  *  authored constant, and authoring is what the kernel exists to refuse. Pure. */
-export function sealedFactorisations(): SealedFactorisation[] {
+function sealedFactorisations(): SealedFactorisation[] {
   const seen = new Map<string, SealedFactorisation>()
   for (const t of theorems()) {
     for (const m of t.statement.matchAll(/\(\s*(\d+)\s*\*\s*(\d+)\s*=\s*(\d+)\s*\)/g)) {
@@ -85,21 +85,21 @@ function buildSealed(): void {
   }
 }
 
-export function sealedExponents(): SealedExponent[] {
+function sealedExponents(): SealedExponent[] {
   if (SEALED === null) buildSealed()
   return SEALED!
 }
 
 /** sealedExponentsOf(n) → the sealed group exponents for ONE modulus, by hash rather than by walking all of them.
  *  The callers all ask "what does the ledger know about THIS n", which is a lookup, not a search. */
-export function sealedExponentsOf(n: bigint): readonly SealedExponent[] {
+function sealedExponentsOf(n: bigint): readonly SealedExponent[] {
   if (BY_MODULUS === null) buildSealed()
   return BY_MODULUS!.get(String(n)) ?? []
 }
 
 /** modExp(base, exp, mod) → base^exp mod mod, square-and-multiply. The reversible circuit Shor runs computes this
  *  same map; here it is the oracle the post-processing is checked against. Pure. */
-export function modExp(base: bigint, exp: bigint, mod: bigint): bigint {
+function modExp(base: bigint, exp: bigint, mod: bigint): bigint {
   if (mod <= 1n) return 0n
   let result = 1n, b = base % mod, e = exp
   while (e > 0n) {
@@ -119,7 +119,7 @@ export function gcd(a: bigint, b: bigint): bigint {
 
 /** deterministicBase(n, attempt) → the base used instead of a random one. RULE, returned with every result: walk
  *  a upward from the first non-unit, keep those coprime to n, take the attempt-th. Pure. */
-export function deterministicBase(n: bigint, attempt = 0): { base: bigint; rule: string } {
+function deterministicBase(n: bigint, attempt = 0): { base: bigint; rule: string } {
   let found = -1
   for (let a = 2n; a < n; a += 1n) {
     if (gcd(a, n) === 1n) {
@@ -163,7 +163,7 @@ export function convergents(num: bigint, den: bigint, limit = periodBits(shorChu
 /** periodFromPhase(numerator, denominator, a, n) → the period recovered from a phase estimate s/r, by walking the
  *  convergents and testing each denominator against the modular-exponentiation oracle. Exactly Shor's own
  *  post-processing, and ring-independent: it works unchanged however the quantum step is later supplied. Pure. */
-export function periodFromPhase(numerator: bigint, denominator: bigint, a: bigint, n: bigint): bigint | null {
+function periodFromPhase(numerator: bigint, denominator: bigint, a: bigint, n: bigint): bigint | null {
   for (const c of convergents(numerator, denominator)) {
     if (c.denominator > 0n && c.denominator < n && modExp(a, c.denominator, n) === 1n) return c.denominator
   }
@@ -321,7 +321,7 @@ export interface ShorLedgerHarness {
  *  a period-finder is not. The second arm is therefore the only arm that computes the distinction; the first
  *  merely confirms both can arrive. That is the exact blindness a coverage check on one direction of a
  *  biconditional always has, stated as what the check DOES rather than as what it lacks. Pure. */
-export function shorLedgerHarness(): ShorLedgerHarness {
+function shorLedgerHarness(): ShorLedgerHarness {
   const sealed = sealedFactorisations()
   const cases: LedgerCase[] = sealed.map((s) => {
     const got = shorFactor(s.n)

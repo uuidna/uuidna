@@ -52,7 +52,7 @@ export function signCommit(message: string): CommitSignature {
 
 /** Shell-damage scan — backtick substitution and collapsed whitespace (2026-08-17). Unique: the permanent record
  *  must arrive whole; this is integrity, not an honesty verdict. */
-export function messageDamage(msg: string): string[] {
+function messageDamage(msg: string): string[] {
   const damage: string[] = []
   const mentioned = (l: string): string => l.replace(/"[^"]*"/g, 'Q').replace(/`[^`]*`/g, 'Q').replace(/'[^']{2,}'/g, 'Q')
   const prose = msg.split('\n').filter((l) => !/^\s*[|\-*+#>]/.test(l) && !/^\s{2,}/.test(l))

@@ -49,7 +49,7 @@ const LEAN = join(ROOT, 'lean')
 export interface ArtifactRow { file: string; state: 'sealed' | 'foreign' | 'missing' | 'STALE' | 'UNMEASURED'; why?: string }
 
 /** every lean/*.json, judged. Exported so the test can hand it a controlled set instead of the live tree. */
-export function judgeArtifacts(files: readonly string[]): ArtifactRow[] {
+function judgeArtifacts(files: readonly string[]): ArtifactRow[] {
   const rows: ArtifactRow[] = []
   for (const file of files) {
     const raw = readOrNull('lean/' + file)
@@ -77,7 +77,7 @@ export function judgeArtifacts(files: readonly string[]): ArtifactRow[] {
   return rows
 }
 
-export const leanArtifacts = (): string[] => readdirSync(LEAN).filter((f) => f.endsWith('.json')).sort()
+const leanArtifacts = (): string[] => readdirSync(LEAN).filter((f) => f.endsWith('.json')).sort()
 
 if (process.argv[1]?.endsWith('audit-artifact-receipts.js')) {
   const files = leanArtifacts()

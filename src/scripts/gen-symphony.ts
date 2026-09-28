@@ -15,7 +15,7 @@ import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
-import { discoverStaticPages, canonicalOrder, computeSidebar } from '../site.js'
+import { computeSidebar } from '../site.js'
 
 const sealed = new Set(LEAN_LEDGER.filter((t) => t.file === 'Symphony.lean').map((t) => t.key))
 for (const k of ['four_movements_are_the_tongues', 'sonata_form_is_a_palindrome', 'recapitulation_is_the_involution', 'the_keys_walk_home', 'a_symphony_is_a_sequence_not_a_set', 'the_tempi_tile_the_film'])

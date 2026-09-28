@@ -42,6 +42,5 @@ test('citing a REAL sealed theorem passes — a backed claim is not drained', ()
 // back VERIFIED because the key exists. The collision check retires that: a claim in uuidna's own voice asserting a
 // solve about a subject whose sealed name carries "— OPEN" (or a SOLVED credited to someone else) adjudicates
 // UNVERIFIED on every path, while demarcated claims (the reflection, none, not) and off-subject deposits still pass.
-import { adjudicate } from './index.js'
 
 

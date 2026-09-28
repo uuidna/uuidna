@@ -167,7 +167,7 @@ export function commitMemory(plan: CubePlan, prior: CubeReceipts = {}): CubeRece
  *  sealed and this ledger allows no axiom. */
 export interface MemoryWidth { principle: string; expected: number; held: number; owed: number; bits: number; hexbits: number }
 
-export const widthOf = (mem: CubeMemory, principle: string): MemoryWidth => {
+const widthOf = (mem: CubeMemory, principle: string): MemoryWidth => {
   const expected = mem.expected.get(principle)?.size ?? 0
   const held = mem.held.get(principle)?.size ?? 0
   // the state space is 2^expected — each key held or owed — and its width is `expected` bits exactly
@@ -176,5 +176,5 @@ export const widthOf = (mem: CubeMemory, principle: string): MemoryWidth => {
 }
 
 /** every neighbourhood's width, widest first — what the whole memory spans, in the unit it computes in. */
-export const memoryWidths = (mem: CubeMemory): readonly MemoryWidth[] =>
+const memoryWidths = (mem: CubeMemory): readonly MemoryWidth[] =>
   [...mem.expected.keys()].map((p) => widthOf(mem, p)).sort((a, b) => b.bits - a.bits || a.principle.localeCompare(b.principle))

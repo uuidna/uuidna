@@ -2,13 +2,13 @@
 import { catalogue, cataloguePackage, type CataloguePackage } from '../catalogue/index.js'
 import { harmoniseOf } from '../../../os/apps/index.js'
 
-export const CRYPTO_PKG = new Set([
+const CRYPTO_PKG = new Set([
   'libcrypto3', 'libssl3', 'openssl', 'openssl3', 'libressl', 'gnutls', 'nettle', 'libsodium', 'libgcrypt',
 ])
 
 export type CryptoVia = 'purpose' | 'depends' | 'both'
 
-export function soIsCrypto(tok: string): boolean {
+function soIsCrypto(tok: string): boolean {
   if (!tok.startsWith('so:')) return false
   const stem = tok.slice(3).split('=')[0]!
   return stem.startsWith('libssl.so')
@@ -22,23 +22,23 @@ export function soIsCrypto(tok: string): boolean {
     || stem.startsWith('libnettle.so')
 }
 
-export function pkgDepIsCrypto(tok: string): boolean {
+function pkgDepIsCrypto(tok: string): boolean {
   if (tok.startsWith('so:') || tok.startsWith('cmd:') || tok.startsWith('pc:') || tok.startsWith('/')) return false
   return CRYPTO_PKG.has(tok.split('=')[0]!)
 }
 
-export function purposeCrypto(p: CataloguePackage): boolean {
+function purposeCrypto(p: CataloguePackage): boolean {
   return CRYPTO_PKG.has(p.name) || harmoniseOf(p.name, p.desc)?.skill === 'security'
 }
 
-export function depCrypto(p: CataloguePackage): boolean {
+function depCrypto(p: CataloguePackage): boolean {
   for (const d of p.deps) {
     if (soIsCrypto(d) || pkgDepIsCrypto(d)) return true
   }
   return false
 }
 
-export function namedDeps(p: CataloguePackage): string[] {
+function namedDeps(p: CataloguePackage): string[] {
   const out: string[] = []
   for (const d of p.deps) {
     if (d.startsWith('so:') || d.startsWith('cmd:') || d.startsWith('pc:') || d.startsWith('/')) continue

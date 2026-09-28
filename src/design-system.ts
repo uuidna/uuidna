@@ -492,7 +492,6 @@ export const designSystem = {
 export const colors = designSystem.colors;
 export const typography = designSystem.typography;
 export const components = designSystem.components;
-export const mcpNavigation = designSystem.mcpNavigation;
 export const layout = designSystem.layout;
 export const spacing = designSystem.spacing;
 export const animation = designSystem.animation;

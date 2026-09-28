@@ -13,7 +13,6 @@ import {
   decodeVortexDashAngles, computeVortexInvariantsHold, developmentVortex, walkTour, livingFieldReport,
   ap, polar, saltConv, saltSeq,
 } from '../sequence-field.js'
-import { runSequence } from '../sequence-run.js'
 import { theorems } from '../index.js'
 
 const seqTheorems = theorems().filter((t) => t.file === 'Sequence.lean')

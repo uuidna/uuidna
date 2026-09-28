@@ -146,4 +146,3 @@ export async function walkHostedAlpineApis(
 }
 
 /** alpineMansForAgent() → the man corpus the hosted door must cover (Alpine APKINDEX, not overlay). */
-export const alpineMansForAgent = (): CataloguePackage[] => manPagePackages()

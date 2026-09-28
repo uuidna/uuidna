@@ -10,7 +10,7 @@
 // source against a fake AudioWorkletProcessor and driving its own process() — the copy is tested, not trusted.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { triangleAt, rampAt, spanOf, barSample, fill, workletSource, START, type Bar } from '../../apps/anthem-stream.js'
+import { triangleAt, rampAt, spanOf, fill, workletSource, START, type Bar } from '../../apps/anthem-stream.js'
 import { tone, humanise, silence, toneOf, SAMPLE_RATE } from '../../../tts/synth.js'
 
 const idiv = (v: number, d: number): number => (v - (v % d)) / d

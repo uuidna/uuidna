@@ -2,7 +2,6 @@
 import { merkleGravity } from '../../../gravity/index.js'
 import { toUuid } from '../../../address.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
-import { RESEARCH_SOURCE_NAMES } from '../research/index.js'
 import { RESEARCH_DOORS } from '../research/index.js'
 import { SCHOOL_APIS, schoolApiRegistry } from '../school/index.js'
 import { JOURNAL_DOORS } from '../journals/index.js'

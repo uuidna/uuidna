@@ -20,7 +20,7 @@ import { merkleGravity } from './gravity/index.js'
 import { involuteToVerified } from './solution-involution.js'
 import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
 import { verifyEnvelope } from './crypt.js'
-import { hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from './hexbit/index.js'
+import { hexbitDoorOf, UUID_HEXBITS } from './hexbit/index.js'
 
 // the six sealed guarantees that make the process DUE — each a lean/Legal.lean theorem, with the right it secures.
 const GUARANTEES: { key: string; right: string }[] = [

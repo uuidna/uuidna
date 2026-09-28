@@ -5,7 +5,7 @@
 import { ledgerFacts, sealedCount } from './theorems/index.js'
 import { conformance } from './conformance.js'
 import { computes } from './gate.js'
-import { toUuid, toUuidOnce } from './address.js'
+import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { axiomsOf, wingAskedKey } from './axiom-report.js'
 import { dispositionFor, involutionOf, witnessSealOf, receiptSealOf, receiptSealed, SEALED_BY } from './refusal-trials.js'

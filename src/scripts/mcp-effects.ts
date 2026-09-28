@@ -17,7 +17,7 @@ import { join, dirname, resolve } from 'node:path'
 import type { Effects } from '../mcp-names.js'
 
 /** stripCode(s) → the source with comments removed and every string literal emptied, so neither can fire a pattern */
-export const stripCode = (s: string): string => {
+const stripCode = (s: string): string => {
   let o = '', i = 0
   const n = s.length
   while (i < n) {
@@ -35,7 +35,7 @@ export const stripCode = (s: string): string => {
 }
 
 /** THE FOUR PATTERNS — the calls that leave the process. A body matching one has that effect. */
-export const EFFECT_PATTERNS: Readonly<Record<keyof Effects, RegExp>> = {
+const EFFECT_PATTERNS: Readonly<Record<keyof Effects, RegExp>> = {
   network: /\bfetch\s*\(|\bfetchImpl\s*\(|ctx\??\.fetch\b/,
   writes: /\b(?:writeFileSync|appendFileSync|mkdirSync|renameSync|copyFileSync|writeFile|appendFile)\s*\(|ctx\??\.deposit\b/,
   deletes: /\b(?:rmSync|unlinkSync|rmdirSync)\s*\(/,

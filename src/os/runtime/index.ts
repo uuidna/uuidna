@@ -39,7 +39,7 @@ export function pinnedAlpineRelease(): AlpineRelease {
 }
 
 /** defaultRootfsTarballPath() → repo-relative path to the pinned minirootfs tarball, if present. */
-export function defaultRootfsTarballPath(release = pinnedAlpineRelease()): string {
+function defaultRootfsTarballPath(release = pinnedAlpineRelease()): string {
   return join(ROOT, 'mirror', release.file)
 }
 

@@ -140,7 +140,7 @@ export type ExternalRole = 'cited-source' | 'prior-art'
 
 /** DECLARED ROLES, by DOI prefix or host. Each entry states WHY, because a classification with no reason is a
  *  preference. Add a source here when it is registered; an unlisted external source is reported as undeclared. */
-export const EXTERNAL_ROLES: readonly { match: string; role: ExternalRole; why: string }[] = [
+const EXTERNAL_ROLES: readonly { match: string; role: ExternalRole; why: string }[] = [
   {
     match: '10.7483/',
     role: 'cited-source',
@@ -159,7 +159,7 @@ export const EXTERNAL_ROLES: readonly { match: string; role: ExternalRole; why: 
 ]
 
 /** roleOf(source) → the declared role, or null when nothing declares it. Null is a gap, not a default. */
-export function roleOf(source: PriorArtSource): ExternalRole | null {
+function roleOf(source: PriorArtSource): ExternalRole | null {
   const text = `${source.who} ${source.link ?? ''}`.toLowerCase()
   for (const r of EXTERNAL_ROLES) if (text.includes(r.match.toLowerCase())) return r.role
   return null

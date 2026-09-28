@@ -30,7 +30,7 @@ const RECEIPT = runTrial().receipt
 
 /** THE SLOT TABLE — the only place any surface's ledger number is decided. A number absent here cannot be
  *  stamped, which is the intended friction: a fact worth publishing is worth computing. */
-export const SLOTS: Readonly<Record<string, () => string>> = {
+const SLOTS: Readonly<Record<string, () => string>> = {
   distinct: () => String(census.distinct),        // propositions — a theorem is its Lean
   keys: () => String(T.length),                   // entries — the larger of the two true sizes
   renamings: () => String(census.renamings),      // the gap between them, stated so neither number misleads
@@ -49,7 +49,7 @@ const microdata = (slot: string, value: string): string =>
 const MARKER = /<!--L:([a-z]+)(:raw)?-->[\s\S]*?<!--\/L-->/g
 
 /** stampText(text) → the same text with every declared slot refreshed. Idempotent: stamping twice is stamping once. */
-export function stampText(text: string): { out: string; slots: string[]; unknown: string[] } {
+function stampText(text: string): { out: string; slots: string[]; unknown: string[] } {
   const slots: string[] = [], unknown: string[] = []
   const out = text.replace(MARKER, (whole, slot: string, raw: string | undefined) => {
     const read = SLOTS[slot]
@@ -62,7 +62,7 @@ export function stampText(text: string): { out: string; slots: string[]; unknown
 }
 
 /** The surfaces are DISCOVERED— a file is stamped exactly when it declares a slot. */
-export function stampSurfaces(write = true): { file: string; slots: string[]; changed: boolean }[] {
+function stampSurfaces(write = true): { file: string; slots: string[]; changed: boolean }[] {
   const files = listTracked().filter((f) => /\.(md|html|txt|json)$/.test(f) && !f.includes('package-lock'))
   const done: { file: string; slots: string[]; changed: boolean }[] = []
   for (const f of files) {

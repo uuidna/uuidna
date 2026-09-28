@@ -29,7 +29,7 @@ export {
 } from './readings.js'
 
 /** a theorem, said the way a reader would say it: its name, then the statement it settles. */
-export const utterTheorem = (t: { key: string; name?: string; statement: string }): Utterance =>
+const utterTheorem = (t: { key: string; name?: string; statement: string }): Utterance =>
   utter([t.name ?? t.key, `It states: ${t.statement}`, `Sealed as ${t.key}.`])
 
 /** THE BOUNDARY — the only device write in this module.
@@ -48,7 +48,7 @@ export const emit = (u: Utterance, opts: { voice?: string; rate?: number; dryRun
 }
 
 /** read a passage aloud and return what was said, addressed — compose then emit, in one call. */
-export const readAloud = (lines: readonly string[], opts?: { voice?: string; rate?: number; dryRun?: boolean }): { utterance: Utterance; emitted: ReturnType<typeof emit> } => {
+const readAloud = (lines: readonly string[], opts?: { voice?: string; rate?: number; dryRun?: boolean }): { utterance: Utterance; emitted: ReturnType<typeof emit> } => {
   const utterance = utter(lines)
   return { utterance, emitted: emit(utterance, opts) }
 }

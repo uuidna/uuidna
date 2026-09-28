@@ -22,8 +22,8 @@ import { messagingSeal } from '../quantum/message/index.js'
 import { execSync , spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
-import { fileURLToPath, pathToFileURL } from 'node:url'
-import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus, FREE_KEYS } from '../index.js'
+import { pathToFileURL } from 'node:url'
+import { theorems, PRINCIPLES, runTrial, theoremCountByFile, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus, FREE_KEYS } from '../index.js'
 import { A432_HZ } from '../tts/synth.js'
 import { MCP_CATALOG, STANDARD_NAMES, callTool } from '../mcp.js'
 import { callHosted } from './mcp-call.js'
@@ -206,7 +206,7 @@ export function proseGaps(): { gaps: Gap[]; facts: string; pages: number } {
 // THE GRADUATION WALK — one source, three lives: wave() EXECUTES these steps in order, the star_walk leaf SEALS
 // them into the one receipt (change a step, the receipt moves), and the school TEACHES them. Green ends in the
 // minted diploma; red stops at the first exact prompt.
-export const WAVE_STEPS = ['build', 'enroll', 'dry', 'legal', 'prose', 'fold', 'guard', 'next', 'mint'] as const // nine steps — the ring's number; enroll = no theorem enters unmeasured
+const WAVE_STEPS = ['build', 'enroll', 'dry', 'legal', 'prose', 'fold', 'guard', 'next', 'mint'] as const // nine steps — the ring's number; enroll = no theorem enters unmeasured
 
 export function wave(statement: string): void {
   if (!statement) { console.error('✗ one-receipt wave — usage: one-receipt wave "<statement citing a sealed theorem>"'); process.exit(1) }
@@ -239,7 +239,7 @@ function depositRecord(): { receipts: { id: string; statement: string }[] } {
 // boilerplate variants are removed and the api import inserted (multi-line-import-safe — the splice bug of the
 // first codemod is the lesson baked in; a re-export must bind locally — the lean-gen lesson too). What it leaves
 // unmatched it lists honestly, for dry to keep objecting to. Idempotent: a second run touches nothing. ──
-export function migrate(): { touched: number; left: string[] } {
+function migrate(): { touched: number; left: string[] } {
   const VARIANTS = [
     /^const HERE = dirname\(fileURLToPath\(import\.meta\.url\)\)\s*$/m,
     /^const ROOT = join\(dirname\(fileURLToPath\(import\.meta\.url\)\), '\.\.', '\.\.'\)\s*$/m,
@@ -278,7 +278,7 @@ export function migrate(): { touched: number; left: string[] } {
 // made a checked invariant: every built page must carry a title, a meta description in the click-worthy length band
 // (50-160 chars — Google truncates outside it), a canonical link, and structured data; and no two pages may share a
 // description (the duplicate-content penalty). Honest SEO: describe what is sealed. ──
-export function seoGaps(): { gaps: Gap[]; pages: number } {
+function seoGaps(): { gaps: Gap[]; pages: number } {
   const gaps: Gap[] = []
   const dist = join(ROOT, 'docs/.vitepress/dist')
   if (!existsSync(dist)) return { gaps: [{ what: 'no built site to audit', fix: 'run `npm run docs:build` first' }], pages: 0 }
@@ -312,7 +312,7 @@ export function seoGaps(): { gaps: Gap[]; pages: number } {
 // round-trip, or its irreversibility is named and its forward direction is deterministic. A reversible primitive
 // whose inverse does not invert, or a one-way primitive that is not deterministic, is a gap. "All combinations,
 // all directions" made an executable invariant instead of a claim. ──
-export async function cryptoGaps(): Promise<Gap[]> {
+async function cryptoGaps(): Promise<Gap[]> {
   const gaps: Gap[] = []
   const dist = join(ROOT, 'dist')
   if (!existsSync(join(dist, 'sha256.js'))) return [{ what: 'no built crypto to audit', fix: 'npm run build' }]
@@ -695,7 +695,7 @@ export function tautologyGaps(): Gap[] {
 // bits back out: a bijection with an exact inverse, no search, no key, microseconds. Layer 2 (the sealed layer)
 // reverses ONLY by key recovery: one full KDF derive per passphrase guess, Grover merely halving the exponent.
 // The posture is decidable; the per-guess TIMING is measurement and stays at the heartbeats boundary. ──
-export async function reGaps(): Promise<Gap[]> {
+async function reGaps(): Promise<Gap[]> {
   const gaps: Gap[] = []
   const { roundTrips, imprintTextChain, readImprintTextChain, CAPACITY } = await importAbs<typeof import('../imprint.js')>(join(ROOT, 'dist/imprint.js'))
   const { ITER, MAX_ITER } = await importAbs<typeof import('../crypt.js')>(join(ROOT, 'dist/crypt.js'))
@@ -1561,7 +1561,7 @@ export const LANE_FLOOR = 21
 //      verdict on the whole tree.
 // this is a prose heuristic. It was wrong twice on the one file known to violate it,
 // so it is deliberately paired with a DECLARED backlog rather than trusted to judge the whole tree from scratch.
-export function sourcesGaps(): Gap[] {
+function sourcesGaps(): Gap[] {
   const gaps: Gap[] = []
   const UNITS = /\b\d[\d,.]*\s*(?:°|deg\b|degrees\b|m\b|km\b|mm\b|kg\b|J\b|K\b|Hz\b|knots\b|nautical\b|volts\b|watts\b)|\bmeasured\b/i
   const SRC = /\bRFC\s?\d+|\bISO\b\s?\d|\bSI\b|\bWGS\s?84|\bNGA\b|\bIERS\b|\bNOAA\b|\bFIPS\b|\bOWASP\b|\bIAU\b|et al\.|(?:18|19|20)\d{2}\)|\bsurvey\b|\bredefinition\b/
@@ -2008,7 +2008,7 @@ import { executableSource } from '../executable-source.js'
 import { wrArtifact } from '../artifact.js'
 
 /** dryClean — relocate legacy src/tests/, migrate boilerplate onto api.js, rebuild when touched, re-run dry finder. */
-export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {
+function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {
   let relocated = 0
   let rebuilt = false
   const legacyTests = join(ROOT, LEGACY_TEST_DIR)

@@ -94,7 +94,7 @@ export async function untarGzipMember(gz: Uint8Array, member: string): Promise<s
   return ''
 }
 
-export async function fetchAlpineIndex(arch = 'x86_64', repo = 'main', branch = 'latest-stable'): Promise<{ name: string; version: string; checksum: string }[]> {
+async function fetchAlpineIndex(arch = 'x86_64', repo = 'main', branch = 'latest-stable'): Promise<{ name: string; version: string; checksum: string }[]> {
   try {
     const url = `${CDN}/${branch}/${repo}/${arch}/APKINDEX.tar.gz`
     const gz = new Uint8Array(await (await fetch(url)).arrayBuffer())

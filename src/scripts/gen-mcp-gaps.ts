@@ -21,7 +21,7 @@
 // without holding the release. Opening all 1,139 would block every release indefinitely, which would make the gate
 // useless rather than strict — and a gate nobody can ever satisfy stops being read.
 
-import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
@@ -44,7 +44,6 @@ for (const line of lines) {
 }
 
 const all = [...counted.values()].sort((a, b) => b.hits - a.hits || a.gap.localeCompare(b.gap))
-const repeated = all.filter((g) => g.hits > 1)
 
 // THE PREVIOUS CENSUS IS CARRIED FORWARD, because dist/ is wiped by a clean build and the committed record may only
 // grow. A door that replaced the census with whatever this session happened to see would delete every gap another

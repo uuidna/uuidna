@@ -12,7 +12,7 @@ import {
   mergeCatalogueLayers, catalogueTsvBody, parseCatalogue, type CataloguePackage,
 } from '../quantum/os/catalogue/index.js'
 
-export const OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
+const OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
 
 async function npmMeta(spec: typeof OVERLAY_APPS[number]): Promise<{ shasum: string; desc: string }> {
   const url = `https://registry.npmjs.org/${encodeURIComponent(spec.npm)}/${spec.npmVersion}`

@@ -163,7 +163,7 @@ export function areaSpread(areas: readonly LearningArea[] = LEARNING_AREAS): Map
  * is computed. So a term only counts when the CORPUS treats it as characteristic: used by no more wing headers than the
  * median term. A wing with no characteristic match is left unplaced, which for machinery is the correct answer.
  */
-export function corpusSpreadOf(
+function corpusSpreadOf(
   rows: readonly { subject: string }[],
 ): Map<string, number> {
   const spread = new Map<string, number>()
@@ -211,7 +211,7 @@ export function candidateAreaFor(
 }
 
 /** the median carrier count across the corpus's header vocabulary — measured, so the cut moves with the corpus */
-export function corpusMedian(corpus: Map<string, number>): number {
+function corpusMedian(corpus: Map<string, number>): number {
   if (corpus.size === 0) return 1
   const counts = [...corpus.values()].sort((a, b) => a - b)
   const mid = counts.length >> 1

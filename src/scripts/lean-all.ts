@@ -17,13 +17,13 @@
 // is caught locally on keyed hosts. A keyless host keeps the weaker address-match floor, named; and the
 // RELEASE still consults no cache: `npm run audit` sets UUIDNA_PROVE_ALL=1, so everything shipped is
 // kernel-signed in that run regardless of any key.
-import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { readdirSync, existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { readProofCache, proofEntryValid, pendingProofs, provePending, queueProof } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
-import { capacity, laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
+import { laneBudget, LEAN_JOB_BYTES } from '../os/host/index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 const SCRIPTS = join(ROOT, 'dist', 'scripts')

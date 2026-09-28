@@ -12,8 +12,7 @@
 // publication set, so an unchanged set is a cache hit and a changed note moves the key and re-scans. SAVED to
 // audit-citations.json, recomputable by anyone from the same ledger. Integrity.
 import { writeFileSync, readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { publications, theorems, merkleFold, toUuid, digitalRoot } from '../index.js'
 import { ROOT } from './api.js'
 

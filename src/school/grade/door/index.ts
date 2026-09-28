@@ -16,7 +16,7 @@
 export const DOOR_MAX_LENGTH = 8192
 
 /** forms refused anywhere in the text, case-sensitive, as substrings — so `unsafeIO` and `sorryAx` are caught */
-export const DOOR_FORMS: readonly { form: string; why: string }[] = [
+const DOOR_FORMS: readonly { form: string; why: string }[] = [
   { form: '#eval', why: 'evaluates a program at elaboration time' },
   { form: '#exit', why: 'stops elaboration, so the rest of the file is never checked' },
   { form: 'run_cmd', why: 'runs a command-level program' },
@@ -39,7 +39,7 @@ export const DOOR_FORMS: readonly { form: string; why: string }[] = [
 ]
 
 /** words refused as whole identifiers: each begins a command or defines code that elaboration runs later */
-export const DOOR_WORDS: readonly string[] = [
+const DOOR_WORDS: readonly string[] = [
   'elab', 'elab_rules', 'macro', 'macro_rules', 'syntax', 'declare_syntax_cat', 'notation', 'infix', 'infixl', 'infixr',
   'prefix', 'postfix', 'simproc', 'dsimproc', 'initialize', 'builtin_initialize', 'by_elab', 'instance', 'attribute',
   'def', 'theorem', 'lemma', 'example', 'abbrev', 'opaque', 'structure', 'class', 'inductive', 'coinductive', 'mutual',

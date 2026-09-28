@@ -20,7 +20,7 @@ import { DOMAIN_PATTERNS, domainCensus, type DomainCensus } from '../domains/ind
 import { uuidnaExec, APPLETS } from '../exec/index.js'
 import { toUuid } from '../../../address.js'
 
-export const SHELL_DOMAIN = 'shell' as const
+const SHELL_DOMAIN = 'shell' as const
 
 // THE APPLET LIST IS IMPORTED, NOT RESTATED, and the test beside this caught why. This module kept its own copy
 // of the seventeen applet names so a caller could find the door without reading exec — reasonable, and a second

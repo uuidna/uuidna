@@ -28,7 +28,7 @@ export { ml_kem768_x25519 as hybridKem768X25519 }
 const x25519kem = /* @__PURE__ */ _ecdhKem(x25519)
 
 /** createKitchenSink(label, pqc, curveKem, xof) → HKDF-SHA256 hybrid KEM combiner. */
-export function createKitchenSink(
+function createKitchenSink(
   label: string,
   pqc: KEM,
   curveKEM: KEM,

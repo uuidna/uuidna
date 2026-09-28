@@ -9,7 +9,7 @@
 // digital root, and the door's own widths. The count set is derived from live theorem statements of named
 // keys already in the ledger. Change the ledger, the face follows. No deity table, no authored myth list.
 import { digitalRoot, BASE, TRINITY, toUuid, merkleFold } from './address.js'
-import { quantumAura, rotationOf, type TenD } from './aura.js'
+import { quantumAura, type TenD } from './aura.js'
 import { handleOf, handleParts, seedOf } from './handle.js'
 import { coins } from './captain/billing/index.js'
 import { growLife } from './grow.js'
@@ -657,9 +657,9 @@ export function monographFaceOf(address: string): Record<string, unknown> {
 
 /** RFC 9562 printable groups — 32 hex digits; four hyphens bring the printed form to 36 characters. */
 export const UUID_LAYOUT_GROUPS = [8, 4, 4, 4, 12] as const
-export const UUID_LAYOUT_SEPARATORS = UUID_LAYOUT_GROUPS.length - 1
+const UUID_LAYOUT_SEPARATORS = UUID_LAYOUT_GROUPS.length - 1
 export const UUID_LAYOUT_HEX_CHARS = UUID_LAYOUT_GROUPS.reduce((a, b) => a + b, 0)
-export const UUID_LAYOUT_PRINTED_CHARS = UUID_LAYOUT_HEX_CHARS + UUID_LAYOUT_SEPARATORS
+const UUID_LAYOUT_PRINTED_CHARS = UUID_LAYOUT_HEX_CHARS + UUID_LAYOUT_SEPARATORS
 
 /** One 4-hex group = message_cap_is_four_hexbits: 4 tiles × 4 bits = 16 qubits, 2^16 amplitudes. */
 export const MESSAGE_CAP_HEXBITS = UUID_LAYOUT_GROUPS[1]

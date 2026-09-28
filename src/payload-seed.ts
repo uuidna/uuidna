@@ -77,7 +77,7 @@ export function readSeed(uuid: string): SeedIdentity {
 /** readSeedLegacy(uuid) → the SAME identity out of a uuid minted under the old status ∥ stem ∥ content layout.
  *  Kept only so existing versions can be migrated exactly rather than discarded: the imprint is reversible, so a
  *  seed's identity survives the move and 913 versions of history need not be thrown away to fix an ordering. */
-export function readSeedLegacy(uuid: string): SeedIdentity {
+function readSeedLegacy(uuid: string): SeedIdentity {
   const bits = readImprint(uuid)
   if (bits.length !== STATUS_W + STEM_W + BODY_W) throw new Error('readSeedLegacy: width mismatch')
   const status = BITS_STATUS[bits.slice(0, STATUS_W)]
@@ -86,7 +86,7 @@ export function readSeedLegacy(uuid: string): SeedIdentity {
 }
 
 /** reimprint(uuid) → the same seed identity under the content-leading layout. Exact, by reversibility. */
-export function reimprint(uuid: string): string {
+function reimprint(uuid: string): string {
   const id = readSeedLegacy(uuid)
   return imprint(id.content64 + STATUS_BITS[id.status] + id.stem32)
 }

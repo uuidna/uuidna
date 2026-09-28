@@ -20,7 +20,6 @@ import { theorems } from '../index.js'
 import { ROOT, MAXBUF, savedOleanOf, savingTo } from './lean-gen.js'
 
 // The receipt is the kernel's own `#print axioms`: every axiom it names is reported, with no list in between.
-import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
 import { parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
 import { measured, appendEvidence, loggedEvidence, freeMemoryBytes } from './device-readings.js'

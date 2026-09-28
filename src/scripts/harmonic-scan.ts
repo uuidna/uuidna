@@ -19,8 +19,7 @@
 // what rule (2) still scanned. Two of three surfaces described a rule none of them implemented. Run in the
 // audit/pre-push wave AND fast, locally, before any reconcile. Integrity.
 import { readFileSync, readdirSync, statSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { MATH_CALL, WALLCLOCK, stripCommentLines } from '../harmony.js'
 

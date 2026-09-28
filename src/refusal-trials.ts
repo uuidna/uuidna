@@ -168,7 +168,7 @@ export function witnessKeysFor(_prose: string, _keys: Set<string> = sealedKeySet
 }
 
 /** relatedWords(a, b) → shared content words (adjudicate's floor), strong overlap only. */
-export function relatedWords(a: string, b: string): string[] {
+function relatedWords(a: string, b: string): string[] {
   const wa = new Set(contentWords(a))
   return contentWords(b).filter((w) => wa.has(w) && (w.length >= 4 || /\d/.test(w)))
 }
@@ -180,7 +180,7 @@ export function refusalStatus(sealedKeys: string[], _lead: string, _boundary: st
 }
 
 /** bookHitsFor(lead, boundary, corpus) → book claims sharing vocabulary with the refusal (top 5). */
-export function bookHitsFor(lead: string, boundary: string, corpus: readonly BookLeadInput[], limit = 5): BookHit[] {
+function bookHitsFor(lead: string, boundary: string, corpus: readonly BookLeadInput[], limit = 5): BookHit[] {
   const query = `${lead} ${boundary}`
   const scored = corpus
     .map((b) => {
@@ -199,7 +199,7 @@ export function bookHitsFor(lead: string, boundary: string, corpus: readonly Boo
 }
 
 /** theoremTrialStatement(key) → adjudicate-ready sentence with vocabulary from the sealed name. */
-export function theoremTrialStatement(key: string): string {
+function theoremTrialStatement(key: string): string {
   const th = theoremFor(key)
   if (!th) return `proven by theorem ${key}`
   const gloss = contentWords(th.name).slice(0, 12).join(' ')
@@ -207,14 +207,14 @@ export function theoremTrialStatement(key: string): string {
 }
 
 /** theoremTrialsFor(keys) → one adjudicate verdict per sealed key. */
-export function theoremTrialsFor(keys: readonly string[]): TheoremTrial[] {
+function theoremTrialsFor(keys: readonly string[]): TheoremTrial[] {
   return keys.map((key) => ({ key, verdict: adjudicate(theoremTrialStatement(key)).verdict }))
 }
 
 const COLLISION_OVERLAP = 3
 
 /** collisionPairCount(trials) → undirected collision pair count. */
-export function collisionPairCount(trials: readonly RefusalTrialRow[]): number {
+function collisionPairCount(trials: readonly RefusalTrialRow[]): number {
   let n = 0
   for (let i = 0; i < trials.length; i++) {
     for (let j = i + 1; j < trials.length; j++) {
@@ -294,7 +294,7 @@ export function involutionOf(handle: string, sealed: readonly { key: string; sta
 
 /** enrichTrials(base, kernelOk?, sealed?) → attach collisions, the cited theorems' trials (evidence), and the
  *  disposition the kernel decided for the lead's own handle. */
-export function enrichTrials(base: readonly RefusalTrialRow[], kernelOk?: KernelOk, sealed: readonly SealedStatement[] = ledgerStatements()): RefusalTrialRow[] {
+function enrichTrials(base: readonly RefusalTrialRow[], kernelOk?: KernelOk, sealed: readonly SealedStatement[] = ledgerStatements()): RefusalTrialRow[] {
   const collisions = pairCollisions(base)
   return base.map((t, i) => {
     const theoremTrials = theoremTrialsFor(t.sealedKeys)

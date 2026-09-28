@@ -26,7 +26,7 @@ import { GUTENDEX_HEADERS } from '../books.js'
 
 /** What the ledger wants to reason about. Grouped, because a domain is a standing interest and not a single query.
  *  Adding a line here adds books; there are no ids to find by hand. */
-export const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
+const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
   { domain: 'investigation', queries: ['forensic', 'criminal investigation', 'detective methods', 'medical jurisprudence'] },
   { domain: 'advocacy', queries: ['cross-examination', 'evidence law', 'trial practice', 'rhetoric argument'] },
   { domain: 'deception', queries: ['pathology of lying', 'swindling', 'fraud', 'forensic psychiatry'] },
@@ -101,7 +101,7 @@ export const gutenberg: Library = { name: 'gutenberg', search: async (q, take) =
   return (b.results ?? []).slice(0, take).map((it, i) => ({ ...mk(it.title, it.authors?.[0]?.name ?? '', String(it.id), 'gutenberg', i), downloads: it.download_count ?? 0 }))
 } }
 
-export const LIBRARIES: readonly Library[] = [gutenberg, crossref, europepmc, archive, wikisource('en'), wikisource('bg')]
+const LIBRARIES: readonly Library[] = [gutenberg, crossref, europepmc, archive, wikisource('en'), wikisource('bg')]
 
 /** ONE SEARCH OVER EVERY COLLECTION.
  *
@@ -113,7 +113,7 @@ export const LIBRARIES: readonly Library[] = [gutenberg, crossref, europepmc, ar
  *  A library that FAILS is reported. Today a single unfollowed 301 was read as a total
  *  network outage and repeated as fact; a fan-out that hides which leg failed makes that error routine. Results
  *  carry their library, so a finding always knows where it came from. */
-export async function searchAll(query: string, take = 4, libs: readonly Library[] = LIBRARIES):
+async function searchAll(query: string, take = 4, libs: readonly Library[] = LIBRARIES):
   Promise<{ found: Found[]; failed: { library: string; why: string }[] }> {
   const settled = await Promise.all(libs.map(async (L) => {
     try { return { library: L.name, hits: (await L.search(query, take)).map((f) => ({ ...f, query })) } }

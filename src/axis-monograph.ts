@@ -556,7 +556,7 @@ export function axisMonographs(): AxisBundle {
  *  every figure at zero — structurally perfect and empty, which is the worst way for a surface to be wrong because
  *  it looks finished. The list is gone; the config asks this set, and this set is derived from the dispatch below,
  *  so a page cannot be an axis in one file and not in the other. */
-export const AXIS_PAGES: ReadonlySet<string> = new Set([
+const AXIS_PAGES: ReadonlySet<string> = new Set([
   'formulas.md', 'theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'axioms.md',
 ])
 

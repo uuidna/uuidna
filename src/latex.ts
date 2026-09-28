@@ -74,7 +74,7 @@ const CANDIDATES = [
 ] as const
 
 /** leanKeywords(theorems) → the candidates the sealed proofs actually use, in candidate order. Derived. */
-export function leanKeywords(theorems: readonly TheoremLike[]): string[] {
+function leanKeywords(theorems: readonly TheoremLike[]): string[] {
   const src = theorems.map((t) => t.lean ?? '').join('\n')
   const present = new Set((src.match(/\b[A-Za-z][A-Za-z0-9_]*\b/g) ?? []))
   // an underscore is a TeX instruction in the preamble's text mode, so a keyword carrying one is refused rather
@@ -123,7 +123,7 @@ export interface LatexDocument {
 
 /** the preamble. It names the engine it needs rather than hoping: the prose carries Greek, Cyrillic and CJK, and
  *  pdfTeX would fail on the first Cyrillic character in a theorem name. */
-export function latexPreamble(title: string, subtitle: string, keywords: readonly string[] = []): string {
+function latexPreamble(title: string, subtitle: string, keywords: readonly string[] = []): string {
   return `% ${title}
 %
 % GENERATED — do not edit. Every line below is derived from the sealed Lean ledger by src/latex.ts; edit the

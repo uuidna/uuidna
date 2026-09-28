@@ -11,7 +11,6 @@
 // Deterministic and offline: no clock, no RNG, nothing but the bytes of index.ts. Integrity.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { toUuid, merkleGravity } from '../index.js'
 import { ROOT } from './api.js'
 

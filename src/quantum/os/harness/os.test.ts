@@ -15,11 +15,11 @@ import {
   boot, bootBrowser, reset, fresh, exec, shell, ls, servedOS, execShellHelp,
   execSessionStamp, sessionWrite, APPLETS, APK_VERBS, SEQUENCE_VERBS,
 } from './index.js'
-import { browseCatalogue, inspectCataloguePackage, renderAlpineApp, SHADCN_ALPINE_SLOTS } from '../../../index.js'
+import { browseCatalogue, inspectCataloguePackage, renderAlpineApp } from '../../../index.js'
 import { portPanelView } from '../../apps/port-panel.js'
 import { defaultInstalls } from '../index.js'
 import { callTool } from '../../../mcp.js'
-import { planAlpineRun, pinnedAlpineRelease, verifyPinnedRootfs } from '../../../os/runtime/index.js'
+import { planAlpineRun, verifyPinnedRootfs } from '../../../os/runtime/index.js'
 import { listTestSources } from '../../../test-paths.js'
 
 test('tests never import exec outside harness', () => {

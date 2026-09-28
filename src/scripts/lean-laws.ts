@@ -20,7 +20,7 @@
 // the exponent of (Z/m)* is ATTAINED by a single element, which is false for abelian groups in general and true
 // here. It is sealed below as an identity between the two wings' own definitions.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit, chunkWidth, imin, imax, gcdOf, lcmOf, unitsOf, orderOf } from './lean-gen.js'
+import { emit, chunkWidth, imin, lcmOf, unitsOf } from './lean-gen.js'
 
 const MOD_MAX = 60
 const PER = 10          // moduli per theorem — depth, not taste

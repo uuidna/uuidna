@@ -57,6 +57,6 @@ export function execShellHelp(): string {
 }
 
 /** formatExecResult(r) → display text for one applet run. */
-export function formatExecResult(r: ExecResult): string {
+function formatExecResult(r: ExecResult): string {
   return r.output.join('\n')
 }

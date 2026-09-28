@@ -38,7 +38,6 @@
 // is the fast pre-flight and must not reach the network, and the `outward` family is where a measurement that needs
 // the live site already lives. Each run walks a bounded sample (UUIDNA_DOOR_SAMPLE, default 24) and says how much of
 // the surface it covered, so the routine run is a handful of calls and a full comparison is asked for explicitly.
-import { wrRoot } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 
 const HOST = 'https://uuidna.com/mcp'

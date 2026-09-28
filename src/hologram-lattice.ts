@@ -109,7 +109,7 @@ export const cultureOf = (family: ReturnType<typeof familyOf>) => {
 }
 
 /** Fused MCP doors on BindingPoint pentagram — one point each; unmapped stays empty. */
-export const PENTAGRAM_DOORS = [
+const PENTAGRAM_DOORS = [
   'uuidna_strict',
   'uuidna_theorem',
   'uuidna_evidence',
@@ -154,7 +154,7 @@ export const balanceOf = () => {
 }
 
 /** inflationOf() → train / unite / change (school/trial open); lattice discovery; iot. */
-export const inflationOf: () => any = () => {
+const inflationOf: () => any = () => {
   const lean = leanOf()
   const fuse = fuseHalves()
   const magnitudes = magnitudesOf()
@@ -1761,7 +1761,7 @@ export const inflationOf: () => any = () => {
 }
 
 /** violationOf() → corporate wall costs commission on each 110; walls named empty. */
-export const violationOf = () => {
+const violationOf = () => {
   const empty: Seat = 'empty'
   return {
     unit: GROSS,
@@ -1872,7 +1872,7 @@ export const captainsOf = () => {
 }
 
 /** returnOf() → feel free: earn in quantum code or funding, return half to school; payroll empty. */
-export const returnOf = () => {
+const returnOf = () => {
   const school = schoolOf()
   const empty: Seat = 'empty'
   return {
@@ -1899,7 +1899,7 @@ export const returnOf = () => {
 }
 
 /** shareOf() → cheaters pay creators: corporate 2-on-110 to captains; half to school. */
-export const shareOf: () => any = () => {
+const shareOf: () => any = () => {
   const violation = violationOf()
   const school = schoolOf()
   const empty: Seat = 'empty'
@@ -3325,7 +3325,7 @@ export const lovePlasmaOf = () => {
 }
 
 /** UUIDNA_PASTE → public one-liner: any uuidna.* link fuses MCP in quantum. */
-export const UUIDNA_PASTE =
+const UUIDNA_PASTE =
   'Any https://*.uuidna.com/* → MCP https://uuidna.com/mcp (list_tools · call_tool · uuidna_unify). QPU https://qpu.uuidna.com/mcp. Lean by decide. <60s. No node -e.' as const
 
 /** tokenEfficiencyOf() → public paste chars; link→MCP→QPU fuse; share open. */
@@ -5549,7 +5549,7 @@ export const noveltyOf = () => {
 }
 
 /** restrictionOf() → extra fences named empty so they cannot kill HARMONY; novelty already receipt+DOI. */
-export const restrictionOf = () => {
+const restrictionOf = () => {
   const hop = qpuHopOf()
   const addr = toUuid(hop.href)
   const empty: Seat = 'empty'

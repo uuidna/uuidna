@@ -38,7 +38,7 @@ export function runnable(): string[] {
  *  here opens with a comment saying what it does; the listing just never read it. A shebang is skipped, a
  *  `@non-harmonic:` marker and a `<name> —` prefix are stripped, and a script whose header says nothing shows
  *  nothing — the COUNT of those is printed, so the gap is a number that can shrink rather than an impression. */
-export function purposeOf(name: string): string {
+function purposeOf(name: string): string {
   try {
     for (const raw of readFileSync(join(ROOT, 'src', 'scripts', name + '.ts'), 'utf8').split('\n').slice(0, 10)) {
       const l = raw.trim()

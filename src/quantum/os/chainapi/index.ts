@@ -22,7 +22,7 @@ import { merkleRoot, merkleProof, verifyProof } from '../../../merkle.js'
 import { domainCensus, type DomainCensus } from '../domains/index.js'
 import { toUuid } from '../../../address.js'
 
-export const CHAIN_DOMAIN = 'blockchain' as const
+const CHAIN_DOMAIN = 'blockchain' as const
 
 export function chainCensus(): DomainCensus {
   const c = domainCensus(CHAIN_DOMAIN)

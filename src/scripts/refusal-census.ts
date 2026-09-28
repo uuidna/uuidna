@@ -25,7 +25,7 @@
 // IT REPORTS AND REMOVES NOTHING. Which ungrounded refusal is furniture and which is a real protection whose theorem was
 // never written is a judgement about what the tree owes, and this door has no standing to make it.
 
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { servedAsync } from '../receipt.js'

@@ -11,7 +11,7 @@ import { RESOLVED_REFERENCES, REFERENCES_BY_WING } from './references-resolved.j
 // stuffs, or claims a position; the description is the theorem's real statement, the JSON-LD cites the real proof and
 // address, and rel=canonical folds every serving host (.net/.org/CNAME) to the one recomputable home. Recomputable by
 // anyone from the same ledger. It optimises for HONEST discovery.
-import { theorems, theoremByKey, theoremFor } from './theorems/index.js'
+import { theoremByKey, theoremFor } from './theorems/index.js'
 import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
 import { toUuid, merkleFold } from './address.js'

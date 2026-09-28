@@ -10,7 +10,7 @@
 // and folds to one receipt. It maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO
 // 2108, SMPTE, Nyquist–Shannon …) — a citation
 // content-address can settle. Efficiency here is MEASURED and recomputable"maximum".
-import { theorems, theoremCountByFile, PRINCIPLES, skillSummary } from './theorems/index.js'
+import { theoremCountByFile, PRINCIPLES, skillSummary } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { overreachOf } from './prose-gate.js'
 

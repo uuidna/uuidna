@@ -98,7 +98,7 @@ export function claimedBy(note: string): string {
  *  That is worth recording rather than quietly patching: the census reported a catastrophic loss, the floor ratchet
  *  refused to publish it (`the floor may only rise`), and the refusal is what surfaced the bug. A census that had
  *  been willing to write down a smaller number would have ratified the loss and nobody would have looked. */
-export function commentAbove(src: string, key: string): string {
+function commentAbove(src: string, key: string): string {
   const at = src.search(new RegExp('^theorem\\s+' + key.replace(/[-_]/g, '[-_]') + '\\b', 'm'))
   if (at < 0) return ''
   const before = src.slice(0, at)
@@ -191,7 +191,7 @@ const mirrorPath = (): string => pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
  *  That is not scarcity, it is a reading error at the collection point, and publishing the leg fraction without it
  *  invites the reader to conclude the corroboration does not exist. Counted here, from the same rule the leg is
  *  decided by, so the two can never disagree. */
-export function unreachedAnchors(rows: readonly Rosetta[]): string[] {
+function unreachedAnchors(rows: readonly Rosetta[]): string[] {
   const dir = pathm().join(ROOT, 'src', 'scripts')
   const has = new Set(rows.filter((r) => r.legs.includes('witness')).map((r) => r.key))
   const out: string[] = []
@@ -262,7 +262,7 @@ export function renderMirror(rows: readonly Rosetta[]): string {
 /** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise, never fall, so a run that
  *  would publish a smaller witness or falsifier count fails loudly instead of quietly ratifying the loss. */
 /** ruleDigest() → a digest of the WITNESS source line, so a rule change is detectable without storing the rule. */
-export function ruleDigest(): string {
+function ruleDigest(): string {
   const src = fsm().readFileSync(pathm().join(ROOT, 'src', 'scripts', 'rosetta.ts'), 'utf8')
   const m = /^const WITNESS = .*$/m.exec(src)
   return handleOf(toUuid('witness-rule|' + (m ? m[0] : '')))
@@ -376,7 +376,7 @@ export interface Fall {
 // captain's instruction) read as "a claim lost its external witness" and blocked the mirror from recording the
 // change. What a ratchet is actually for is a SURVIVING theorem quietly dropping a leg, which no total can see.
 // This replaced a separate `regressions()` that walked the same keys to reach one of the four answers below.
-export function classifyFall(rows: readonly Rosetta[]): Fall {
+function classifyFall(rows: readonly Rosetta[]): Fall {
   const prior = priorMirror()
   const notes = noteByKey()
   const ruleMoved = prior.rule !== '' && prior.rule !== ruleDigest()
@@ -406,7 +406,7 @@ export function classifyFall(rows: readonly Rosetta[]): Fall {
   return fall
 }
 
-export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[]; corrected: string[] } {
+function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[]; corrected: string[] } {
   const fall = classifyFall(rows)
   // A RULE CHANGE THAT LOWERS THE COUNT MUST BE DECLARED, with a reason that lands in the mirror and stays there.
   // Permitting it silently is what made the first version of this gate walk-past-able.

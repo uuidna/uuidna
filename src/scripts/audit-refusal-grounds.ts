@@ -30,7 +30,7 @@
 // captain's instruction turns on.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, wrRoot } from '../boundary.js'
+import { ROOT } from '../boundary.js'
 import { theorems } from '../theorems/index.js'
 import { wrArtifact } from '../artifact.js'
 
@@ -40,7 +40,7 @@ const RECEIPT = join(ROOT, 'src/scripts/one-receipt.ts')
 export interface Ground { finder: string; grounded: boolean; cited: string[]; unsealedCitations: string[] }
 
 /** the source of a named export in a module, from its declaration to the next top-level declaration */
-export function sourceOfExport(text: string, name: string): string {
+function sourceOfExport(text: string, name: string): string {
   const re = new RegExp('^(?:export )?(?:const|function|async function) ' + name + '\\b', 'm')
   const m = re.exec(text)
   if (!m || m.index === undefined) return ''

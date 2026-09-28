@@ -111,8 +111,8 @@ export function portsCensus(): PortsCensus {
 // So the ownership does not move: gen-readme still owns README.md and gen-unlocks still owns docs/index.md, and
 // both ask THIS function for the same block. One computation, two owners, no second writer — which is what DRY
 // actually asks for, as opposed to one more script.
-export const PORTS_BEGIN = '<!-- ports:begin -->'
-export const PORTS_END = '<!-- ports:end -->'
+const PORTS_BEGIN = '<!-- ports:begin -->'
+const PORTS_END = '<!-- ports:end -->'
 
 /** the port analytics as a markdown block — computed from the mirror, injected by whoever owns the file */
 export function portsFragment(): string {

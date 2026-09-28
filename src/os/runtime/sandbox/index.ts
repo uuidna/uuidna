@@ -7,7 +7,7 @@
 // because they cannot reach the host or the network.
 import { spawnSync } from '../hostnode/index.js'
 import type { PosixShell } from '../../host/index.js'
-import { reason, type Reasoning, type Rule } from '../../../reason.js'
+import { reason, type Reasoning } from '../../../reason.js'
 
 export const SANDBOX_HONEST =
   'Layer 2 uuidnaOS sandbox: the pinned minirootfs is imported as a throwaway image, then spawned with ' +
@@ -23,7 +23,7 @@ export function dockerPlatformOf(arch: string): string {
 }
 
 /** sandboxImageName(digest) → content-addressed tag; the image IS the verified tarball. */
-export function sandboxImageName(digest: string): string {
+function sandboxImageName(digest: string): string {
   return 'uuidna-rootfs:' + digest
 }
 
@@ -42,7 +42,7 @@ export function isProbeableCmdName(name: string): boolean {
 
 /** partitionCmdNames(commands) → probe names (binary I/O) vs leftover (named, never written to the cmds file).
  *  Refused is not part of the binary I/O. */
-export function partitionCmdNames(commands: readonly string[]): { probe: string[]; leftover: string[] } {
+function partitionCmdNames(commands: readonly string[]): { probe: string[]; leftover: string[] } {
   const probe: string[] = []
   const leftover: string[] = []
   for (const raw of commands) {

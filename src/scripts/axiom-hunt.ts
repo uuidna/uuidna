@@ -19,7 +19,6 @@ import { handleBookOf, STRIP_LINES, STRIP_CHOICES } from '../quantum/apps/catego
 import { hexbitRingMassGap } from '../hexbit/index.js'
 import { massGapOnBellBornField } from '../quantum/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
-import { wrRoot } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 
 export type HuntCandidate = { theorem: string; assumes: string; where: string; live: () => boolean }

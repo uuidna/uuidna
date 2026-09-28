@@ -32,7 +32,7 @@ const SRC = join(ROOT, 'src', 'scripts')
 export interface Declared { name: string; phase: number }
 
 /** every finder that declares itself, in the order it declares — read from source, never from a list beside it */
-export function declaredFinders(dir = SRC): Declared[] {
+function declaredFinders(dir = SRC): Declared[] {
   const out: Declared[] = []
   for (const file of readdirSync(dir).sort()) {
     if (!file.endsWith('.ts') || file.endsWith('.test.ts') || file === 'finders.ts') continue

@@ -49,7 +49,7 @@ export interface AutoFold {
 // DETECT LOOP CLOSURE: Is a cycle complete?
 // ============================================================================
 
-export function isLoopClosed(cycle: LoopCycle): boolean {
+function isLoopClosed(cycle: LoopCycle): boolean {
   // A loop is closed when:
   // 1. All actions completed (no pending actions)
   // 2. All theorems sealed (theoremsSeal > 0)
@@ -64,7 +64,7 @@ export function isLoopClosed(cycle: LoopCycle): boolean {
   return hasActions && hasSeals && notBlocked && hasEndTime
 }
 
-export function detectLoopClosure(cycle: LoopCycle): LoopClosure | null {
+function detectLoopClosure(cycle: LoopCycle): LoopClosure | null {
   if (!isLoopClosed(cycle)) {
     return null
   }
@@ -117,7 +117,7 @@ export interface LoopHistory {
 
 const loopHistories = new Map<string, LoopHistory>()
 
-export function foldClosedLoop(closure: LoopClosure): AutoFold {
+function foldClosedLoop(closure: LoopClosure): AutoFold {
   // Retrieve or initialize history for this loop type
   const cycleName = closure.cycle.cycleName
   let history = loopHistories.get(cycleName)
@@ -190,7 +190,7 @@ export interface ContinuationSignal {
   autoStartNextCycle: boolean
 }
 
-export function emitContinuationSignal(fold: AutoFold, loopName: string): ContinuationSignal {
+function emitContinuationSignal(fold: AutoFold, loopName: string): ContinuationSignal {
   return {
     fromLoopName: loopName,
     fromCycleId: fold.folded.cyclesSince.toString(), // use cycle count as ID
@@ -214,11 +214,11 @@ export type LoopHandler = (signal: ContinuationSignal) => LoopCycle
 
 const registeredLoops = new Map<string, LoopHandler>()
 
-export function registerLoopHandler(loopName: string, handler: LoopHandler): void {
+function registerLoopHandler(loopName: string, handler: LoopHandler): void {
   registeredLoops.set(loopName, handler)
 }
 
-export function autoStartNextCycle(signal: ContinuationSignal): LoopCycle | null {
+function autoStartNextCycle(signal: ContinuationSignal): LoopCycle | null {
   if (!signal.autoStartNextCycle) {
     console.log(`Loop ${signal.fromLoopName} is complete but not auto-starting next cycle`)
     return null
@@ -246,7 +246,7 @@ export function autoStartNextCycle(signal: ContinuationSignal): LoopCycle | null
 // THE CLOSED-LOOP PATTERN: Close → Fold → Emit → Next
 // ============================================================================
 
-export function processClosedLoop(cycle: LoopCycle): {
+function processClosedLoop(cycle: LoopCycle): {
   closure: LoopClosure | null
   fold: AutoFold | null
   signal: ContinuationSignal | null
@@ -290,7 +290,7 @@ export function processClosedLoop(cycle: LoopCycle): {
 // THE PRINCIPLE: CONTINUOUS LOOPS
 // ============================================================================
 
-export const LOOP_CLOSURE_PRINCIPLE = `
+const LOOP_CLOSURE_PRINCIPLE = `
 Every closed loop folds to singularity and triggers the next.
 
 Pattern:

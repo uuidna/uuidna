@@ -35,7 +35,7 @@ export interface InstallAudit {
 }
 
 /** declaredSubpaths() → every subpath the package's own exports map promises a consumer. */
-export function declaredSubpaths(): string[] {
+function declaredSubpaths(): string[] {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { name: string; exports?: Record<string, unknown> }
   const ex = pkg.exports ?? {}
   return Object.keys(ex).map((k) => (k === '.' ? pkg.name : `${pkg.name}${k.slice(1)}`))

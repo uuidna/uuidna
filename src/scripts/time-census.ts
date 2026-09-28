@@ -30,7 +30,7 @@
 // question. Both are reported rather than collapsed into a verdict.
 
 import { spawnSync } from 'node:child_process'
-import { existsSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'

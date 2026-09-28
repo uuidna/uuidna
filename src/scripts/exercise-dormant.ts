@@ -55,7 +55,7 @@ const RECEIPT = 'lean/dormant-receipt.json'
  *
  *  The fold is over the compiled output rather than the source, because compiled output is what actually runs.
  *  merkleGravity sorts its leaves, so the receipt does not depend on the order the roster is read in. */
-export function rosterFold(roster: readonly string[]): string {
+function rosterFold(roster: readonly string[]): string {
   const leaves = roster.map((n) => toUuid(n + ':' + scriptFold(n)))
   leaves.push(toUuid('manifest:' + manifestFold()))
   return merkleGravity(leaves)
@@ -70,25 +70,25 @@ export function rosterFold(roster: readonly string[]): string {
  *
  *  The manifest is deliberately global. It declares what each script may WRITE, so a manifest edit can invalidate
  *  any script's verdict without touching that script's bytes; when it moves, everything is re-exercised. */
-export const scriptFold = (name: string): string => {
+const scriptFold = (name: string): string => {
   const built = join(HERE, name.replace(/\.ts$/, '') + '.js')
   return toUuid(existsSync(built) ? readFileSync(built, 'utf8') : 'MISSING')
 }
-export const manifestFold = (): string => toUuid(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8'))
+const manifestFold = (): string => toUuid(readFileSync(join(ROOT, 'lean', 'dormant-scripts.json'), 'utf8'))
 
 /** which scripts must actually run: those whose built bytes moved, or all of them if the manifest moved */
-export function movedSince(roster: readonly string[], prior: { manifest?: string; scripts?: Record<string, string> } | null): string[] {
+function movedSince(roster: readonly string[], prior: { manifest?: string; scripts?: Record<string, string> } | null): string[] {
   if (!prior || prior.manifest !== manifestFold()) return [...roster]
   return roster.filter((n) => (prior.scripts ?? {})[n] !== scriptFold(n))
 }
 
-export function priorReceipt(): { manifest?: string; scripts?: Record<string, string> } | null {
+function priorReceipt(): { manifest?: string; scripts?: Record<string, string> } | null {
   try { return JSON.parse(readFileSync(join(ROOT, RECEIPT), 'utf8')) as { manifest?: string; scripts?: Record<string, string> } }
   catch { return null }
 }
 
 /** the receipt of the last run in which every rostered script exited 0 */
-export function lastGreen(): string | null {
+function lastGreen(): string | null {
   try { return (JSON.parse(readFileSync(join(ROOT, RECEIPT), 'utf8')) as { fold?: string }).fold ?? null }
   catch { return null }
 }
@@ -105,7 +105,7 @@ export interface Exercise {
 }
 
 /** the working tree's dirty set, as paths — the baseline against which a script's writes are measured. */
-export function dirtySet(): Set<string> {
+function dirtySet(): Set<string> {
   const out = execSync('git status --porcelain', { cwd: ROOT, encoding: 'utf8' })
   return new Set(
     out.split('\n').filter(Boolean)
@@ -133,7 +133,7 @@ export function snapshot(paths: readonly string[]): Map<string, Buffer | null> {
 }
 
 /** put the declared paths back byte for byte; a path that did not exist before is removed again. */
-export function restoreSnapshot(snap: ReadonlyMap<string, Buffer | null>): string[] {
+function restoreSnapshot(snap: ReadonlyMap<string, Buffer | null>): string[] {
   const changed: string[] = []
   for (const [p, before] of snap) {
     const abs = join(ROOT, p)

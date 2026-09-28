@@ -4,7 +4,7 @@
 // returns with its develop plan.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { snapshot, reactor, theorems } from './index.js'
+import { snapshot, reactor } from './index.js'
 import { UUID } from './test-api.js'
 import { handleOf } from './index.js'   // THE one derivation — see handle.ts
 

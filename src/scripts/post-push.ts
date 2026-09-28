@@ -29,7 +29,7 @@ const askForge = (cmd: string): string | null => {
 /** this tree's own owner/repo, read from its remote — never written inline (see repoSlugOf) */
 const SLUG = repoSlugOf(sh('git remote get-url origin'))
 
-export function runsFor(limit = 30): RunRow[] {
+function runsFor(limit = 30): RunRow[] {
   return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion,event,databaseId`))
 }
 
@@ -38,7 +38,7 @@ export function runsFor(limit = 30): RunRow[] {
  *  "unattributed" because their workflow runs sat outside the last thirty. A window truncation wearing the
  *  costume of an absent run — the same conflation this arm has now met four times. `?head_sha=` is exact and
  *  needs no window at all. */
-export function runsForSha(sha: string): RunRow[] {
+function runsForSha(sha: string): RunRow[] {
   const answer = askForge(`gh api repos/${SLUG}/actions/runs?head_sha=${encodeURIComponent(sha)} --paginate`)
   if (answer === null) return []
   const raw: unknown = JSON.parse(answer)
@@ -61,7 +61,7 @@ export function runsForSha(sha: string): RunRow[] {
  *  `Workers Builds: uuidna` failed on five consecutive pushes and this arm reported every one of them green.
  *  The run id is recovered from details_url so an Actions check inherits its workflow's event; a foreign app's
  *  url carries none, which is why the roster exists. */
-export function checksFor(sha: string): CheckRow[] {
+function checksFor(sha: string): CheckRow[] {
   const answer = askForge(`gh api repos/${SLUG}/commits/${sha}/check-runs --paginate`)
   if (answer === null) return []
   const raw: unknown = JSON.parse(answer)

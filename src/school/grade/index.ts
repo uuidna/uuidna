@@ -24,9 +24,9 @@ export interface GradeEnv { SCHOOL?: KvLike }
 export interface SchoolDeps { jwks?: Jwks; fetch?: typeof fetch }
 
 /** a post carries at most this many verdicts */
-export const MAX_VERDICTS = 200
+const MAX_VERDICTS = 200
 /** the queue listing serves at most this many; the kernel job's 60 s budget per proof bounds its run by it */
-export const QUEUE_LIMIT = 25
+const QUEUE_LIMIT = 25
 const LIST_PAGES = 10
 
 const json = (body: unknown, status = 200): Response =>

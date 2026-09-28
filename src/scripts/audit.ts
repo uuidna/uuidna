@@ -13,9 +13,8 @@
 // Every finding is content-addressed; the addresses fold, ORDER-INVARIANTLY, to ONE recomputable audit receipt.
 // Recomputable by anyone from this same tree. Integrity.
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { readdirSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
 import {
   computes, runTrial, THEOREMS,
   toUuid, merkleGravity,

@@ -81,7 +81,7 @@ export const leadsOf = (src: LeadSources): { leads: Lead[]; unreadable: string[]
 }
 
 /** The cluster vocabulary from wing file names: this tree's own sealed wings. Derived, never a hand-typed synonym table. */
-export const wingTermsOf = (files: readonly string[]): string[] =>
+const wingTermsOf = (files: readonly string[]): string[] =>
   files.filter((f) => f.endsWith('.lean')).map((f) => f.slice(0, -5).toLowerCase()).sort()
 
 /** Leads standing around one name — the SAME tokenisation `fold` uses, and that shared rule is the point.
@@ -116,14 +116,14 @@ export const foldOf = (src: LeadSources): Fold => {
   return { clusters, graph, unanchored, leads: all, unreadable }
 }
 
-export const aroundOf = (term: string, src: LeadSources): { term: string; hits: Lead[]; total: number; unreadable: string[] } => {
+const aroundOf = (term: string, src: LeadSources): { term: string; hits: Lead[]; total: number; unreadable: string[] } => {
   const { leads: all, unreadable } = leadsOf(src)
   const t = term.toLowerCase()
   return { term, hits: all.filter((l) => tokens(l.text).has(t)), total: all.length, unreadable }
 }
 
 /** leadSources(root) → the source texts under root, read from the host; Unmeasured where there is no filesystem */
-export const leadSources = (root = '.', fs: HostFs | null = hostFs): LeadSources | Unmeasured => {
+const leadSources = (root = '.', fs: HostFs | null = hostFs): LeadSources | Unmeasured => {
   if (!fs) return unmeasuredHere('the lead clusters')
   const read = (rel: string): string | null => { try { return fs.readFileSync(fs.path.join(root, rel), 'utf8') } catch { return null } }
   let wings: string[] | null

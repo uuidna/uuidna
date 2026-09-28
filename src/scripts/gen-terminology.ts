@@ -14,7 +14,7 @@
 // COMPUTED, NOT AUTHORED. Nothing here is a glossary someone maintains. The terms are found by the shape the
 // codebase already uses, counted, and addressed — so a concept named tomorrow appears without an edit here, and
 // one that disappears stops being listed.
-import { writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs'
+import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems, toUuid } from '../index.js'
 import { handleOf } from '../handle.js'

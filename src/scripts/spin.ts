@@ -6,8 +6,7 @@
 // gate: "has my derived layer drifted since the last seal?" answered in one fold per file, no re-derivation.
 import { readFileSync, writeFileSync, existsSync, statSync, readdirSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { DERIVED_FILES, sealSpin, verifySpin, type SpinManifest } from '../spin.js'
 import { ROOT } from './api.js'
 

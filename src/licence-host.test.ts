@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { mayServe, LICENSED_HOSTS, REDIRECT_TO, redirectHost } from './licence-host.js'
+import { mayServe, LICENSED_HOSTS, redirectHost } from './licence-host.js'
 
 test('THE NO-LOOP INVARIANT: the redirect target’s own host is licensed', () => {
   assert.ok(LICENSED_HOSTS.includes(redirectHost()),

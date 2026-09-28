@@ -38,7 +38,7 @@ export function receiptOf(names: readonly string[]): string {
 // those file receipts — a two-level merkle, so the whole verifies from the parts without re-reading a name. The
 // definition of the total moved once, here, and receiptFlatOf keeps the old flat fold re-derivable. What this
 // proves is exact: which tests passed, per file and in total. The tests prove computation; this folds their names.
-export function receiptFlatOf(names: readonly string[]): string { return receiptOf(names) }
+function receiptFlatOf(names: readonly string[]): string { return receiptOf(names) }
 
 export function fileReceiptsOf(byFile: ReadonlyMap<string, readonly string[]>): [string, string, number][] {
   return [...byFile.entries()]

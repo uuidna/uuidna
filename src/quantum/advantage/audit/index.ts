@@ -20,8 +20,8 @@ import { LEVELS } from '../index.js'
 import { toUuid } from '../../../address.js'
 
 export const QA_SEAL_PATH = 'lean/quantum-advantage.json'
-export const QA_MD_PATH = 'lean/quantum-advantage.md'
-export const QA_JSONLD_PATH = 'docs/public/quantum-advantage.jsonld'
+const QA_MD_PATH = 'lean/quantum-advantage.md'
+const QA_JSONLD_PATH = 'docs/public/quantum-advantage.jsonld'
 
 /** Theorems the advantage audit requires to be sealed in the ledger. */
 export const QA_REQUIRED_THEOREMS: readonly string[] = [

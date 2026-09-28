@@ -25,7 +25,7 @@
 // reading the sentences tells you which, which is exactly why this is a lead and not a verdict.
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from '../boundary.js'
+import { ROOT, rdRoot } from '../boundary.js'
 import { wrArtifact } from '../artifact.js'
 import { MCP_CATALOG } from '../mcp.js'
 
@@ -87,26 +87,93 @@ const leads = families.filter((f) => f.asks >= 10).map((f) => ({
     + ' reading the sentences decides which',
 }))
 
-const out = {
-  why: 'The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may'
-    + ' proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so'
-    + ' this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is'
-    + ' cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each'
-    + ' is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists.'
-    + ' Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are'
-    + ' different facts.',
-  requests: asks.length,
-  distinct: distinct.size,
-  served,
-  families: families.map((f) => ({ verb: f.verb, asks: f.asks })),
-  unclassified,
-  held: families,
-  open: leads.length,
-  leads,
+/**
+ * ratchetOf(held, now) → what the two numbers oblige.
+ *
+ * Exported and pure so the ratchet can be SHOWN failing. A ratchet nobody has watched refuse is a decoration, and this
+ * file spent weeks as a report that could not fail while a thousand bypasses accumulated in the log it reads.
+ *
+ * `open` may only shrink — it falls when a door is built, and rises only when a new family has been asked for ten times
+ * or more with nothing answering it, which is the moment somebody should hear. `served` may only rise — doors are not
+ * removed to make a gate pass. `requests` is deliberately NOT ratcheted: the log only grows, so a gate watching it
+ * would refuse forever for the wrong reason.
+ */
+export const ratchetOf = (
+  held: { open?: number; served?: number } | null,
+  now: { open: number; served: number },
+): { refused: boolean; why: string[] } => {
+  const why: string[] = []
+  if (held !== null && typeof held.open === 'number' && now.open > held.open) {
+    why.push(`the open demand ROSE from ${held.open} to ${now.open}: a family has been asked for ten times or more and no door answers it`)
+  }
+  if (held !== null && typeof held.served === 'number' && now.served < held.served) {
+    why.push(`the served surface FELL from ${held.served} to ${now.served}: doors are not removed to make a ratchet pass`)
+  }
+  return { refused: why.length > 0, why }
 }
-wrArtifact('lean/door-demand.json', out)
 
-console.log(`audit-door-demand — ${asks.length} recorded ask(s), ${distinct.size} distinct, against ${served} served doors`)
-for (const f of families.slice(0, 12)) console.log(`  ${String(f.asks).padStart(5)}  a door that ${f.verb}s`)
-console.log(`  ${String(unclassified).padStart(5)}  matched no verb — kept unclassified rather than swept into a bucket`)
-console.log(`  → ${leads.length} lead(s) at lean/door-demand.json (a family asked for ten times or more)`)
+// ── THE CLI IS GUARDED, because importing this file used to RUN it. The ratchet test imported it to exercise
+// ratchetOf and the module executed the whole finder and called process.exit, so ONE of five tests ran and the
+// runner reported a pass. That is the same entry-point defect as a finder with five callers and no main, seen from
+// the other side: a module that acts on import cannot be tested, and a test that cannot run is a check nobody has.
+if (process.argv[1]?.endsWith('audit-door-demand.js')) {
+  const out = {
+    why: 'The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may'
+      + ' proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so'
+      + ' this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is'
+      + ' cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each'
+      + ' is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists.'
+      + ' Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are'
+      + ' different facts.',
+    requests: asks.length,
+    distinct: distinct.size,
+    served,
+    families: families.map((f) => ({ verb: f.verb, asks: f.asks })),
+    unclassified,
+    held: families,
+    open: leads.length,
+    leads,
+  }
+  // ── THE RECORD MUST OBLIGE, OR IT IS A DIARY ────────────────────────────────────────────────────────────────────
+  //
+  // The captain, 2026-09-28: "automate so nothing is missed".
+  //
+  // MEASURED THE DAY THIS RATCHET WAS ADDED: this file had ranked the demand for weeks and could not fail — no
+  // process.exit, no comparison against anything held. One session had bypassed "only mcp use is allowed" 1,446 times in
+  // 1,223 distinct sentences, every one of them recorded HERE, and the gate stayed green throughout. A report nobody is
+  // obliged to act on is how a log accumulates a thousand entries while every board reads clean.
+  //
+  // SO TWO NUMBERS RATCHET, and both are read off this artifact's own previous version rather than typed anywhere.
+  // `open` — families asked for ten times or more — MAY ONLY SHRINK: it falls when a door is built and rises only when a
+  // new family of demand appears unanswered, which is exactly the moment somebody should hear about it. `served` MAY ONLY
+  // RISE: doors are not removed to make a ratchet pass. `requests` is NOT ratcheted, because the log only grows and a
+  // gate that failed on it would fail forever for the wrong reason.
+  //
+  // WHAT IT DOES NOT DO: it does not decide WHICH door to build. Ranking is evidence, and choosing is the session's act —
+  // the ratchet only refuses to let the choice be forgotten.
+  const held = (() => {
+    try {
+      const raw = rdRoot('lean/door-demand.json')
+      return JSON.parse(raw) as { open?: number; served?: number }
+    } catch { return null }
+  })()
+
+  wrArtifact('lean/door-demand.json', out)
+
+
+  console.log(`audit-door-demand — ${asks.length} recorded ask(s), ${distinct.size} distinct, against ${served} served doors`)
+  for (const f of families.slice(0, 12)) console.log(`  ${String(f.asks).padStart(5)}  a door that ${f.verb}s`)
+  console.log(`  ${String(unclassified).padStart(5)}  matched no verb — kept unclassified rather than swept into a bucket`)
+  console.log(`  → ${leads.length} lead(s) at lean/door-demand.json (a family asked for ten times or more)`)
+
+  // THE RATCHET RUNS LAST, after the report it gates — the findings are printed whether or not the demand rose,
+  // because a gate that swallows its own evidence to fail faster is the defect this file exists to name.
+  const verdict = ratchetOf(held, { open: leads.length, served })
+  for (const why of verdict.why) console.error(`\n✗ audit-door-demand — ${why}. Build the door, or point those asks at the one that already serves them.`)
+  const refused = verdict.refused
+  if (!refused && held !== null && typeof held.open === 'number' && leads.length < held.open) {
+    console.log(`\n✓ audit-door-demand — the open demand fell from ${held.open} to ${leads.length}; commit the artifact with the door that earned it`)
+  }
+  process.exit(refused ? 1 : 0)
+
+}

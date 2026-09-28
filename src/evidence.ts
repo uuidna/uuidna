@@ -6,7 +6,7 @@
 // do not, and the evidence is void. uuidna delivers what recomputes; the court rules. It proves INTEGRITY (the claim
 // was made, the proofs are these, nothing was quietly changed)— that is the court's
 // fold's. Deterministic and offline. Integrity.
-import { THEOREMS, theoremByKey } from './theorems/index.js'
+import { theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './trial-run.js'
 import { adjudicate, type VerdictKind } from './adjudicate.js'

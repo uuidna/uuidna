@@ -12,7 +12,7 @@
 //
 // NO FILE IS EXEMPT. The gate machinery must utter the refused phrase to refuse it, and it confirms the way every
 // other surface does: the sealed bound is cited in the same block, so a Lean theorem, not a list of paths, passes it.
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join, extname } from 'node:path'
 import { theorems } from '../index.js'
 import { ROOT, relRoot } from './api.js'

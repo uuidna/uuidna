@@ -169,8 +169,8 @@ export function handlePermanenceAudit(): HandlePermanenceAudit {
   }
 }
 
-export const CITE_BEGIN = '<!-- cite:begin -->'
-export const CITE_END = '<!-- cite:end -->'
+const CITE_BEGIN = '<!-- cite:begin -->'
+const CITE_END = '<!-- cite:end -->'
 
 /** citeSentence() → the home page's "Cite it." bullet, with the archive DOI read from STANDING_DOI.
  *
@@ -188,7 +188,7 @@ export const CITE_END = '<!-- cite:end -->'
  *  THE LITERAL MUST STAY IN MARKDOWN, not move into the `{{ census }}` interpolation the same page already uses for
  *  its theorem count. That is not a stylistic choice: the seal is bidirectional, and the page half of it is read from
  *  the source file. */
-export const citeSentence = (): string =>
+const citeSentence = (): string =>
   `- **Cite it.** Every page has a short handle link, \`${HANDLE_HOST}/<handle>\`, and every release is archived under`
   + ` DOI \`${STANDING_DOI}\` — both sit in the site footer.`
   + ` [What stays permanent](/succession#what-is-already-permanent-with-or-without-anyone).`

@@ -1,5 +1,5 @@
 // hkdf — HKDF-SHA256 (RFC 5869) in pure TypeScript. Builds on ./sha256 HMAC; no native crypto.
-import { hmacSha256, sha256 } from './sha256.js'
+import { hmacSha256 } from './sha256.js'
 
 const cat = (...a: Uint8Array[]): Uint8Array => {
   const t = new Uint8Array(a.reduce((s, x) => s + x.length, 0))

@@ -499,7 +499,7 @@ export function composeVe(t) {
  *
  *  So the filter is named here rather than applied quietly, and both the counter and the enumerator use it —
  *  they are asserted equal in the test, so by construction a page that stops being counted is not built. */
-export const isPageless = isPagelessFile
+const isPageless = isPagelessFile
 
 export function objectPageCount() {
   const pubs = publications()

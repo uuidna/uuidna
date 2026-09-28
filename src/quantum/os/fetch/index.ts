@@ -6,7 +6,7 @@ export type DataKind = 'json' | 'csv' | 'text' | 'page'
 export interface Fetched<T> { data: T | null; declined: boolean; note: string }
 
 /** the deadline every port inherits — one bound, so a fan-out costs one deadline and not the sum of its doors */
-export const FETCH_TIMEOUT_MS = 25_000
+const FETCH_TIMEOUT_MS = 25_000
 
 const isHtml = (contentType: string, body: string): boolean =>
   /text\/html/i.test(contentType) || /^\s*(<!doctype html|<html[\s>])/i.test(body.slice(0, 200))

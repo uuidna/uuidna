@@ -22,11 +22,11 @@ import { pathToFileURL } from 'node:url'
 export const ENDPOINT = 'https://uuidna.com/mcp'
 export const PREFIX = 'uuidna_'
 /** the list door's names — standard, then catalogue id (src/mcp-door.ts LIST_NAME / LIST) */
-export const LIST_DOORS = ['list_tools', 'uuidna_list_tools'] as const
+const LIST_DOORS = ['list_tools', 'uuidna_list_tools'] as const
 /** the first call door, whose {q} is a search on surfaces that predate list_tools */
-export const FIRST_DOOR = 'uuidna_call'
+const FIRST_DOOR = 'uuidna_call'
 
-export const USAGE = [
+const USAGE = [
   'npm run mcp -- <tool> [\'<json-arguments>\' | key=value …] [--local]',
   'npm run mcp -- list [words…] [--local]',
   '',
@@ -110,7 +110,7 @@ export function replyOf(text: string, status: number): RpcReply {
 }
 
 /** httpTransport(url) → the hosted door over MCP's Streamable HTTP transport */
-export const httpTransport = (url: string): Transport => async (request) => {
+const httpTransport = (url: string): Transport => async (request) => {
   let res: Response
   try {
     res = await fetch(url, {
@@ -161,7 +161,7 @@ export async function callOnce(t: Transport, name: string, args: Record<string, 
 }
 
 /** localCall(callTool) → the same call shape over an in-process callTool (dist/mcp.js) */
-export const localCall = (callTool: (n: string, a: Record<string, unknown>) => unknown) =>
+const localCall = (callTool: (n: string, a: Record<string, unknown>) => unknown) =>
   async (name: string, args: Record<string, unknown>): Promise<Answer> => {
     try { return { name, value: await Promise.resolve(callTool(name, args)) } } catch (e) {
       const msg = e instanceof Error ? e.message : String(e)
@@ -227,7 +227,7 @@ export async function localDoor(): Promise<Door> {
 }
 
 /** keywordFilter(rows, words) → the rows matching every word in their name, title or description */
-export function keywordFilter(rows: readonly ToolRow[], words: readonly string[]): ToolRow[] {
+function keywordFilter(rows: readonly ToolRow[], words: readonly string[]): ToolRow[] {
   const ws = words.map((w) => w.toLowerCase()).filter(Boolean)
   return rows.filter((r) => { const hay = [r.name, r.title ?? '', r.description].join(' ').toLowerCase(); return ws.every((w) => hay.includes(w)) })
 }
@@ -244,7 +244,7 @@ export async function search(door: Door, words: readonly string[]): Promise<{ vi
 }
 
 /** contractOf(door, name) → the tool's input schema: list_tools {name} where the door has it, else the catalogue row */
-export async function contractOf(door: Door, name: string): Promise<unknown> {
+async function contractOf(door: Door, name: string): Promise<unknown> {
   for (const n of LIST_DOORS) {
     try { const v = (await door.call(n, { name })).value as { inputSchema?: unknown } | null; if (v && typeof v === 'object' && 'inputSchema' in v) return v.inputSchema } catch (e) { if (!(e instanceof DoorError)) return undefined }
   }
@@ -267,7 +267,7 @@ export function skeletonOf(schema: unknown): Record<string, unknown> {
   }
   return out
 }
-export const shellQuote = (s: string): string => `'${s.replace(/'/g, `'\\''`)}'`
+const shellQuote = (s: string): string => `'${s.replace(/'/g, `'\\''`)}'`
 /** commandFor(name, schema) → the exact command that calls the tool, its arguments sketched from its schema */
 export const commandFor = (name: string, schema: unknown, args: Record<string, unknown> = skeletonOf(schema)): string =>
   `npm run mcp -- ${name}${Object.keys(args).length ? ' ' + shellQuote(JSON.stringify(args)) : ''}`

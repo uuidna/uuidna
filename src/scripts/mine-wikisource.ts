@@ -40,7 +40,7 @@ export interface Reading extends Decoding { pageid: number; title: string; revid
 
 /** wikitext carries templates, refs and link syntax that are apparatus. Strip them so the counts
  *  describe what was written rather than how the wiki stores it. */
-export function stripMarkup(wt: string): string {
+function stripMarkup(wt: string): string {
   return wt
     .replace(/<ref[^>]*>[\s\S]*?<\/ref>/g, ' ').replace(/<ref[^>]*\/>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
@@ -80,7 +80,7 @@ export async function category(lang: string, name: string, limit: number): Promi
 }
 
 /** Decode a batch. The extract is read, counted, and dropped — only integers survive the call. */
-export async function readBatch(lang: string, pages: readonly Page[], top: number): Promise<Reading[]> {
+async function readBatch(lang: string, pages: readonly Page[], top: number): Promise<Reading[]> {
   if (!pages.length) return []
   const j = await api(lang, {
     // NOT prop=extracts: Wikisource builds pages by transclusion, so TextExtracts returned an empty body for

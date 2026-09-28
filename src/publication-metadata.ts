@@ -22,7 +22,7 @@ import {
 } from './publication-prior-art.js'
 
 /** Zenodo / package.json form of the SPDX id (lowercase). */
-export function zenodoLicenseId(spdx: string = legalFacts().license.spdx): string {
+function zenodoLicenseId(spdx: string = legalFacts().license.spdx): string {
   return spdx.toLowerCase()
 }
 

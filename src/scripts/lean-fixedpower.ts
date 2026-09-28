@@ -22,7 +22,7 @@
 // walked-count = gcd-expression, never walked-count = literal, so the kernel computes BOTH sides and the law is
 // what is being checked — a literal on the right would only restate the walk.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit, chunkedList, chunkWidth, imin, imax, gcdOf, powMod } from './lean-gen.js'
+import { emit, chunkedList, chunkWidth, imin, gcdOf, powMod } from './lean-gen.js'
 
 const MOD_MAX = 120        // the table's reach; every modulus from 2 up is carried, none skipped
 const PRIME_MAX = 60       // primes for the closed-form layer

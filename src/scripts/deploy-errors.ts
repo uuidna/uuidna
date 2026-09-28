@@ -45,7 +45,7 @@ const ask = async (url: string, init?: RequestInit): Promise<Probe> => {
 }
 
 /** the URLs the deployment publishes about itself; empty when the sitemap itself cannot be read */
-export const urlsOf = (xml: string): string[] => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1] as string)
+const urlsOf = (xml: string): string[] => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1] as string)
 
 // INTEGER DIVISION WITH NO ROUNDING NAMESPACE, which the harmonic scan refuses everywhere and refused here on the
 // first run. `div` truncates by construction — subtract the remainder before dividing — so the result is exact on
@@ -63,7 +63,7 @@ export const sampleOf = (urls: readonly string[], n: number): string[] => {
 }
 
 /** a 4xx on a URL the SITE published is a deploy error; a 5xx, a timeout or an unreachable host is about the run */
-export const isDeployError = (p: Probe): boolean => p.status !== null && p.status >= 400 && p.status < 500
+const isDeployError = (p: Probe): boolean => p.status !== null && p.status >= 400 && p.status < 500
 
 if (process.argv[1]?.endsWith('deploy-errors.js')) {
   const sitemap = await ask(`${HOST}/sitemap.xml`)

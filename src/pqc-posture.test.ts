@@ -64,7 +64,6 @@ test('gap: asymmetric threat model not yet in QC demarcation (qc/index.ts)', () 
   // The QC_AUDIT findings list Shor as out-of-scope, but now the hybrid suite
   // provides ML-DSA + ML-KEM which ARE in-scope for FUTURE asymmetric uses.
   // This is recorded here so the next QC audit refines the verdict.
-  const qcVerdictKey = 'qc-demarcation'
   const qcTheorem = theoremByKey().get('n_qubit_dimension') // named in qc/index.ts
   assert.ok(qcTheorem, 'n_qubit_dimension theorem exists')
 

@@ -31,7 +31,7 @@ export const primeTreeCovers = (covers: Record<string, string>): void => { PRIME
 export const coversPrimed = (): boolean => PRIMED !== null
 
 /** forget them — for a caller that knows the tree moved under it */
-export const forgetTreeCovers = (): void => { PRIMED = null }
+const forgetTreeCovers = (): void => { PRIMED = null }
 
 /** coversMatch(want, have) → pure comparison. Every key in `have` must match `want`, or it names what moved. */
 export function coversMatch(want: Record<string, string> | undefined, have: Record<string, string>): CoverVerdict {

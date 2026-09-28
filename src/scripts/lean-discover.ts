@@ -15,7 +15,6 @@ const m = (n: number): number => ((n % BASE) + BASE) % BASE
 const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b))
 const R = Array.from({ length: BASE }, (_, i) => i) // 0 .. BASE-1, computed
 const hasInverse = (a: number) => R.some((e) => m(a * e) === 1)
-const inverseOf = (a: number) => R.find((e) => m(a * e) === 1)
 const orbit2 = () => { const o: number[] = []; let x = 1; do { o.push(x); x = m(x * 2) } while (x !== 1); return o } // ⟨2⟩ by iteration
 const pow = (a: number, k: number) => { let r = 1; for (let i = 0; i < k; i++) r = m(r * a); return r }
 const orderOf = (a: number) => { for (let k = 1; k <= BASE - 1; k++) if (pow(a, k) === 1) return k; return 0 } // multiplicative order, discovered by iteration

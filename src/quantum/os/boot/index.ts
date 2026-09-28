@@ -25,7 +25,7 @@ export interface BrowserBootResult {
 }
 
 /** runBrowserSelfTestChunked — the whole catalogue self-test without blocking the main thread past ~50 ms. */
-export async function runBrowserSelfTestChunked(chunk = 1500): Promise<BrowserSelfTestSummary> {
+async function runBrowserSelfTestChunked(chunk = 1500): Promise<BrowserSelfTestSummary> {
   const suite = await testAllPackagesChunked(chunk)
   const upstreamGaps = suite.failures.filter((f) => isUpstreamClosureGap(f.unresolved)).length
   return {

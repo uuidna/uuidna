@@ -20,7 +20,7 @@ import { merkleGravity } from '../../../gravity/index.js'
 import { toUuid } from '../../../address.js'
 import { sha256 } from '../../../sha256.js'
 
-export const FS_DOMAIN = 'filesystem' as const
+const FS_DOMAIN = 'filesystem' as const
 
 export interface FsEntry { path: string; bytes: Uint8Array }
 export interface FsManifestRow { path: string; digest: string; address: string; size: number }

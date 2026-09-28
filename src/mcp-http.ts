@@ -35,7 +35,7 @@ import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
 // The gated dispatch core — pure and Workers-safe (address/gravity/sanitize/slimgate, no node built-ins): the SAME
 // conjunction gate the stdio server enforces, so the edge and the local surface serve ONE law (DRY, sealed spec).
-import { gateVerdict, gateSelfTest, gateStatus, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js'
+import { gateVerdict, gateSelfTest, gateStatus, depositCoins, ledgerLine, messagingEnvelope } from './gate-engine.js'
 // The research surface, edge-safe by construction: the ledger carries its findings in source and the leg census is
 // shipped as a mirror (src/rosetta-mirror.ts), because DECIDING a leg means reading the wings and the tests and this
 // runtime has no disk. Both call the SAME report functions the stdio server calls — one law, two surfaces.

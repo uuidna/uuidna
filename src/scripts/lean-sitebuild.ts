@@ -37,7 +37,6 @@ const KIN_MIN = KIN_DEGREES.reduce((a, b) => (b < a ? b : a), KIN_MAX)
 // each abstract as a NUMBER, so distinctness is something the kernel can actually decide rather than a
 // tautology about two equal counts: the fingerprints are enumerated and their duplicate-free length checked.
 const ABSTRACT_MARKS = PUBS.map((p) => Number.parseInt(handleOf(toUuid('abstract|' + (p.abstract ?? ''))), 16))
-const LIST_N = (xs: readonly number[]): string => '[' + xs.join(', ') + ']'
 // THE CORPUS OUTGREW THE FLAT LIST, AS IT WAS ALWAYS GOING TO. These statements walk one entry per monograph,
 // so their depth IS the corpus size — fine at 116, refused by the kernel at 144. The width is not chosen: it is
 // ceil(sqrt(n)), whose depth bound the kernel decides in Recursion.lean. Blocked, the same 144 entries walk 12

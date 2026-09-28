@@ -16,7 +16,7 @@
 // A moved file that no test imports or reads changes nothing a test can observe; it is listed as unreached so the
 // plan's `why` says so, and the guard — a separate arm — still reads it.
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
-import { dirname, join, relative, resolve } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 import { ROOT } from './scripts/api.js'
 
 /** Covered data directories a module may name; a read of one is a dependency on every file under it. */
@@ -182,7 +182,7 @@ export const testGraphOf = (root: string = ROOT): TestGraph => {
 }
 
 /** src path → dist module path, or null when tsc does not compile it (data, .d.ts, non-ts). */
-export const distOf = (srcPath: string): string | null => {
+const distOf = (srcPath: string): string | null => {
   if (!srcPath.startsWith('src/') || !srcPath.endsWith('.ts') || srcPath.endsWith('.d.ts')) return null
   if (srcPath.startsWith('src/handles/') || srcPath.startsWith('src/seeds/') || srcPath.startsWith('src/chunks/')) return null
   return `dist/${srcPath.slice('src/'.length, -'.ts'.length)}.js`

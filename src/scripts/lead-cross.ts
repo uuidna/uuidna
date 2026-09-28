@@ -15,9 +15,6 @@
 // `--settle --refute` with a stated reason, and a wrongly closed lead is worse than an open one: an open lead is a
 // question, a wrongly closed one is a false answer carrying a receipt.
 
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from '../boundary.js'
 import { gatherLeads } from './leads-gate.js'
 import { leadCensus } from '../leads.js'
 import { MCP_CATALOG } from '../mcp.js'

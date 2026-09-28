@@ -7,10 +7,9 @@
 // `by decide` Lean theorem, writes lean/Infinity.lean, and VERIFIES it compiles sorry-free. Compute → generate →
 // verify. these are finite arithmetic witnesses of the RESOLUTION MECHANISM (cancellation,
 // quantization, closed form, regularization, removable singularity) — not derivations of the physics itself.
-import { emit, ROOT , chunkedSum, chunkedList } from './lean-gen.js'
+import { emit, ROOT , chunkedSum } from './lean-gen.js'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems } from '../index.js'
 
 // small helpers, mirrored exactly by the Lean `by decide` below — the JS check must hold before a line is written.
 const geo = (base: number, k: number) => { let s = 0; for (let n = 0; n <= k; n++) s += base ** n; return s } // Σ_{n=0}^k base^n

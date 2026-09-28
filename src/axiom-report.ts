@@ -68,7 +68,6 @@ export function axiomsOf(out: string, key: string): string[] | null {
 // Fermat rings at a gigabyte and ten minutes each. The answer for a wing depends on exactly two things: that
 // wing's Lean text and the keys asked of it. Fold those into the wing's own handle, keep the verdict beside it,
 // and a landing probes only the wing that moved; the whole-ledger receipt is then the fold of the per-wing ones.
-import { handleOf } from './handle.js'
 import { toUuid } from './address.js'
 
 /** one wing's audit, keyed by what the kernel was actually asked: its text and the theorems named */
