@@ -69,7 +69,12 @@ export function mcpGapLeads(json: unknown | null): SourceReading {
       what: `the tree escaped the MCP door ${Number(g.hits ?? 0)} times for the same missing capability: ${str(g.gap, '(unnamed)')}`,
       owes: 'build the door and call it through `npm run mcp -- <tool>`, or seal a theorem showing the capability is out of scope for the edge — the escape hatch is not the answer twice',
     }))
-  return read('mcp-self-sufficiency', open, gaps.length - open.length)
+  return read('mcp-self-sufficiency', open, gaps.length - open.length,
+      // EVERY ROW OF lean/mcp-gaps.json IS A RECORDED ESCAPE: a session needed a capability, no door served it, and the
+      // hook wrote the request down. So every lead this census makes owes a DOOR, never a theorem, and it says so here
+      // rather than leaving a prose rule in leads.ts to infer it from the sentence — which it did wrongly for 111 of
+      // them, twice, on two different spellings.
+      false)
 }
 
 export function doiHarvestLeads(json: unknown | null): SourceReading {

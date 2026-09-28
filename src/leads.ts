@@ -47,6 +47,22 @@ export interface Lead {
 export interface SourceReading {
   source: string
   reached: boolean
+  /**
+   * THE PRODUCER'S OWN DECLARATION that this census does not produce claims about the ledger.
+   *
+   * `kernelDecidable` below reads PROSE to guess what a lead is about, and a prose rule always lags the strings the tree
+   * emits: on 2026-09-28 it matched `no mcp door` and `missing door` while UUIDNA_MCP_GAP writes "escaped the MCP door N
+   * times for the same missing capability", so 111 door requests held a release no theorem could release. Patching the
+   * pattern per string is the manual work the captain banned on 2026-09-14 ("remove any allow lists or disallowed or any
+   * manual logic whatsoever not coming from lean decisions") — a hand-maintained word list is exactly a disallow list.
+   *
+   * The census that BUILT the reading already knows. api-leads reads lean/mcp-gaps.json, whose every row is a recorded
+   * escape, so every lead it makes is a door request BY CONSTRUCTION — provenance, not vocabulary. Declaring it at the
+   * producer needs no central list and cannot lag, because a new census cannot forget to add itself to a table it is not
+   * in. Left undeclared, the prose rule still decides, which keeps the three-state law: an undeclared source is not the
+   * same as one declared harmless.
+   */
+  decides?: boolean
   why: string | null   // when it did not answer: the reason
   open: Lead[]         // leads still in trial
   settled: number      // how many this source has settled — the denominator that makes `open` meaningful
@@ -69,8 +85,8 @@ export interface LeadCensus {
 }
 
 /** a source that answered, with what it holds */
-export const read = (source: string, open: Lead[], settled: number): SourceReading =>
-  ({ source, reached: true, why: null, open, settled })
+export const read = (source: string, open: Lead[], settled: number, decides?: boolean): SourceReading =>
+  ({ source, reached: true, why: null, open, settled, ...(decides === undefined ? {} : { decides }) })
 
 /** a source that could NOT be read — blocks the release, and says why */
 export const unread = (source: string, why: string): SourceReading =>
@@ -108,13 +124,14 @@ export const unread = (source: string, why: string): SourceReading =>
 export const kernelDecidable = (lead: Lead): boolean => {
   const text = `${lead.what} ${lead.owes ?? ''}`.toLowerCase()
   // ABOUT SOMETHING OTHER THAN THE LEDGER: a door, a host, a service, a credential. These are work, not claims.
-  // THE GAP RECORD IS THE CANONICAL DOOR REQUEST AND THIS PATTERN DID NOT MATCH IT. `UUIDNA_MCP_GAP` writes
-  // "the tree escaped the MCP door N times for the same missing capability: <capability>", and none of `no mcp door`,
-  // `door missing` or `missing door` appears in that string — so 31 plain door requests were filed as claims about the
-  // ledger and held a release that no theorem could ever release. The test fixture hid it: it read
-  // "escaped the MCP door 15 times: no door commits a pathspec", which passed on the pathspec clause rather than on the
-  // escape, so the pattern was never asked the question the tree actually asks it. Measured 2026-09-28: holding 40 → 9.
-  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|escaped the (?:mcp )?door|missing capability|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit)\b/
+  // THIS LIST NO LONGER CARRIES THE DOOR REQUESTS, and shrinking it is the point. The gap-record patterns that used to
+  // live here (`escaped the mcp door`, `missing capability`) were a prose rule chasing a string the tree emits, added
+  // after 111 door requests held a release because the earlier spellings — `no mcp door`, `missing door` — never matched
+  // it. That whole class is now decided by PROVENANCE: api-leads declares `decides: false`, because every row it reads
+  // from lean/mcp-gaps.json is a recorded escape. What remains here is what no source declares for itself: a lead from
+  // the LEDGER census whose subject turns out to be a host, a key or a git act. Every entry removed from this list is a
+  // hand-maintained judgement replaced by a computed one, which is the direction the 2026-09-14 rule points.
+  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit|network is down)\b/
   if (elsewhere.test(text)) return false
   // ABOUT THE LEDGER: it names sealed content, or asserts a relation the kernel evaluates.
   // PLURALS AND INFLECTIONS COUNT, and an existing test caught their absence in the dangerous direction. With `\bwing\b`
@@ -130,9 +147,13 @@ export function leadCensus(sources: readonly SourceReading[]): LeadCensus {
   const unmeasured = sources.filter((s) => !s.reached).map((s) => s.source)
   const open = answered.flatMap((s) => s.open)
   const settled = answered.reduce((n, s) => n + s.settled, 0)
-  // THE CAPTAIN'S RULE: only a lead a cross-formulated theorem could decide binds the release. See kernelDecidable.
-  const holding = open.filter(kernelDecidable)
-  const reported = open.filter((l) => !kernelDecidable(l))
+  // THE CAPTAIN'S RULE: only a lead a cross-formulated theorem could decide binds the release. A source that DECLARES it
+  // makes no claims about the ledger contributes none — provenance is asked before prose, because the census that built
+  // the reading knows what it built and a word list only guesses. Undeclared sources fall to kernelDecidable.
+  const decidesOf = new Map(answered.map((s) => [s.source, s.decides]))
+  const holds = (l: Lead): boolean => decidesOf.get(l.source) !== false && kernelDecidable(l)
+  const holding = open.filter(holds)
+  const reported = open.filter((l) => !holds(l))
   const ready = unmeasured.length === 0 && holding.length === 0
   const why = ready
     ? `every one of ${sources.length} lead sources answered and no KERNEL-DECIDABLE lead is open — ${settled} settled, `
@@ -340,6 +361,6 @@ export function owesCensus(leads: readonly Lead[]): OwesCensus {
  * IT IS NOT VACUOUS AND THE CHECK IS CHEAP TO MAKE: run it against the pattern as it stood this morning and it names 31
  * leads. A guard that has never been shown to fire is a guard nobody has tested.
  */
-export function misfiledDoorRequests(open: readonly Lead[]): Lead[] {
-  return open.filter((l) => owedInstrument(l) === 'door' && kernelDecidable(l))
+export function misfiledDoorRequests(holding: readonly Lead[]): Lead[] {
+  return holding.filter((l) => owedInstrument(l) === 'door')
 }
