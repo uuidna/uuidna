@@ -53,6 +53,10 @@ export interface SourceReading {
 export interface LeadCensus {
   sources: SourceReading[]
   open: Lead[]           // every open lead, across every source that answered
+  /** the open leads a cross-formulated theorem could decide — these and only these bind `ready` */
+  holding: Lead[]
+  /** the open leads no theorem could decide: a door, a host, a service. Reported, counted, and not holding */
+  reported: Lead[]
   unmeasured: string[]   // sources that could NOT be read — each one blocks
   settled: number        // total settled, so a zero-open census is distinguishable from an empty tree
   asked: number          // how many sources were consulted
@@ -76,19 +80,63 @@ export const unread = (source: string, why: string): SourceReading =>
  *  (settle it, or refute it with a measurement); an unmeasured source is a broken
  *  reader (fix the reader, then ask again). Folding them together would make the second look like the first and
  *  send someone hunting a lead that was never found. */
+/**
+ * WHETHER A CROSS-FORMULATED THEOREM COULD EVER DECIDE THIS LEAD.
+ *
+ * THE CAPTAIN'S DECISION, 2026-09-28, in the captain's words: "release all holding none solved by cross formulas proving
+ * each other". It changes what a lead is for, so it is recorded here as a decision rather than inferred from a mood.
+ *
+ * WHY THE OLD RULE MADE RELEASING IMPOSSIBLE RATHER THAN STRICT. A lead held a release until it was settled, and settling
+ * means proving it as `def lead_<handle> : Prop` with a sealed theorem, or refuting it with `involution_<handle>`. That
+ * works for a claim ABOUT THE LEDGER. It cannot work for a claim about anything else — and the largest cluster of open
+ * leads says so in its own text: "no door commits a pathspec; a signed commit by pathspec is a git act, not a ledger
+ * computation". No theorem will ever decide whether a git door exists, so that lead could never be settled, so it held
+ * every release forever. 174 leads were open, 108 of them missing-door requests, and the gate had become a rule that
+ * could not be satisfied — which is a rule nobody can act on.
+ *
+ * SO A LEAD HOLDS ONLY IF THE KERNEL COULD DECIDE IT, and the test is what the lead is ABOUT. A lead that names sealed
+ * content — a theorem key, a wing, a principle, a count or a relation the ledger carries — is a claim the kernel can
+ * settle, and it holds. A lead about a host fact, a missing tool, an HTTP status, a credential or an external service is
+ * REPORTED AND DOES NOT HOLD: it is real work, and it is not a claim about what this tree proves.
+ *
+ * NOTHING IS DELETED AND NOTHING IS HIDDEN. Every lead stays in the census, counted and named, and `open` still carries
+ * all of them. What changes is only which ones bind `ready`. A lead that cannot hold is not a lead that does not matter —
+ * it is one whose remedy is a door or a key, not a proof.
+ */
+export const kernelDecidable = (lead: Lead): boolean => {
+  const text = `${lead.what} ${lead.owes ?? ''}`.toLowerCase()
+  // ABOUT SOMETHING OTHER THAN THE LEDGER: a door, a host, a service, a credential. These are work, not claims.
+  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit)\b/
+  if (elsewhere.test(text)) return false
+  // ABOUT THE LEDGER: it names sealed content, or asserts a relation the kernel evaluates.
+  // PLURALS AND INFLECTIONS COUNT, and an existing test caught their absence in the dangerous direction. With `\bwing\b`
+  // the lead "the grid breaks at 73 wings" did not match, so a plain claim about the ledger was classified as not
+  // holding — which lets a release through that should have been held. Under-counting what holds is the error that costs
+  // something; over-counting merely keeps a release waiting. So the stems accept a trailing s or es.
+  const ledger = /\b(theorem|lemma|statement|sealed|wing|principle|axiom|proof|by decide|key|address|receipt|census|count|invariant|involution|falsifier|ledger)(?:e?s)?\b/
+  return ledger.test(text)
+}
+
 export function leadCensus(sources: readonly SourceReading[]): LeadCensus {
   const answered = sources.filter((s) => s.reached)
   const unmeasured = sources.filter((s) => !s.reached).map((s) => s.source)
   const open = answered.flatMap((s) => s.open)
   const settled = answered.reduce((n, s) => n + s.settled, 0)
-  const ready = unmeasured.length === 0 && open.length === 0
+  // THE CAPTAIN'S RULE: only a lead a cross-formulated theorem could decide binds the release. See kernelDecidable.
+  const holding = open.filter(kernelDecidable)
+  const reported = open.filter((l) => !kernelDecidable(l))
+  const ready = unmeasured.length === 0 && holding.length === 0
   const why = ready
-    ? `every one of ${sources.length} lead sources answered, and none holds a lead — ${settled} settled. A release may ship.`
+    ? `every one of ${sources.length} lead sources answered and no KERNEL-DECIDABLE lead is open — ${settled} settled, `
+      + `${reported.length} lead(s) reported without holding (a door, a host or a service, which no theorem decides). `
+      + 'A release may ship.'
     : unmeasured.length
       ? `${unmeasured.length} of ${sources.length} lead sources could NOT be read (${unmeasured.join(', ')}), so this is not a clean census — it is an absent one. A release must not ship on a reading nobody took.`
-      : `${open.length} lead(s) still in trial across ${answered.length} source(s). Each is unverified, and a release is the act of saying the tree is what it claims — settle it, or refute it with a measurement.`
+      : `${holding.length} KERNEL-DECIDABLE lead(s) still in trial across ${answered.length} source(s), with `
+        + `${reported.length} more reported that no theorem could decide. A release is the act of saying the tree is what `
+        + 'it claims, so a claim about the ledger holds it — settle it, or refute it with a measurement.'
   return {
-    sources: [...sources], open, unmeasured, settled,
+    sources: [...sources], open, holding, reported, unmeasured, settled,
     asked: sources.length, answered: answered.length, ready, why,
     // the fold binds the VERDICT of each source, not just its name, so a source flipping from clean to
     // holding — or from answering to silent — moves the receipt

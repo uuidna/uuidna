@@ -15,7 +15,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { leadCensus, renderCensus, read, unread, type Lead } from './leads.js'
+import { leadCensus, renderCensus, read, unread, type Lead , kernelDecidable } from './leads.js'
 import { gatherLeads, autoSettle, type LeadsFile } from './scripts/leads-gate.js'
 import { ROOT } from './boundary.js'
 import { handleOf } from './handle.js'
@@ -78,10 +78,15 @@ test('a clean census PERMITS — the half a red tree never shows you', () => {
   assert.match(c.why, /may ship/)
 })
 
-test('ONE held lead REFUSES the release, however many are settled', () => {
-  const c = leadCensus([read('ledger', [lead('ledger', 'the 42-state paired walk')], 17), read('expose', [], 23)])
+// UPDATED FOR THE CAPTAIN'S RULE of 2026-09-28 — "release all holding none solved by cross formulas proving each other".
+// The claim this test protects is unchanged and is the important half: a settled count NEVER buys off an open lead. What
+// changed is WHICH open lead binds — one a cross-formulated theorem could decide. The lead here names a sealed walk, so
+// it is decidable and still refuses, exactly as before.
+test('ONE held kernel-decidable lead REFUSES the release, however many are settled', () => {
+  const c = leadCensus([read('ledger', [lead('ledger', 'the 42-state paired walk is a sealed statement')], 17), read('expose', [], 23)])
   assert.equal(c.ready, false)
   assert.equal(c.open.length, 1)
+  assert.equal(c.holding.length, 1, 'a claim about sealed content holds')
   assert.match(c.why, /still in trial/)
   // the settled count must NOT buy off the open one — 17 settled and 1 open is not 94% ready, it is not ready
   assert.equal(c.settled, 40)
@@ -150,4 +155,66 @@ test('closed refuted and refused stay on leads.md, not open-questions', () => {
   const leaked = settled.filter((s) => s.lead && page.includes(s.lead.slice(0, 48)))
   assert.deepEqual(leaked.map((s) => s.lead.slice(0, 60)), [],
     'refuted and refused are closed — they belong on docs/leads, not open-questions homework')
+})
+
+// ── THE CAPTAIN'S RULE, 2026-09-28: "release all holding none solved by cross formulas proving each other" ───────
+
+test('kernelDecidable — a claim about the ledger HOLDS a release, plurals included', () => {
+  for (const what of [
+    'the grid breaks at 73 wings',
+    'two sealed statements share one principle',
+    'the falsifier cache holds stale receipts',
+    'predict-and-fill.ts:57 hardcodes an expected principle count the ledger has passed',
+    'two_routes_reach_four_hundred_and_thirty_two is alone in its principle',
+    'the falsifier ceiling is short by four sealed statements',
+    'a wing definition no theorem reaches',
+  ]) {
+    assert.equal(kernelDecidable({ source: 's', what, owes: 'seal a theorem' }), true, what)
+  }
+})
+
+// A LEAD NO THEOREM COULD EVER DECIDE could never be settled, so under the old rule it held every release forever.
+// The largest open cluster says it in its own text: a signed commit by pathspec is a git act, not a ledger computation.
+test('kernelDecidable — a claim about a door, a host or a service does NOT hold', () => {
+  for (const what of [
+    'the tree escaped the MCP door 15 times: no door commits a pathspec',
+    'no MCP door greps theorem keys by word',
+    'powo answers HTTP 403 to an identified probe',
+    'a credential is required and none is held',
+    'wrangler kv namespace create SCHOOL is an owner act',
+  ]) {
+    assert.equal(kernelDecidable({ source: 's', what, owes: 'build the door' }), false, what)
+  }
+})
+
+test('leadCensus — a reported lead is counted and named, never hidden', () => {
+  const census = leadCensus([{
+    source: 'mcp', reached: true, why: null, settled: 0,
+    open: [
+      { source: 'mcp', what: 'no door commits a pathspec', owes: 'build the door' },
+      { source: 'mcp', what: 'a sealed theorem is alone in its principle', owes: 'seal a second' },
+    ],
+  }])
+  assert.equal(census.open.length, 2, 'both stay in the census')
+  assert.equal(census.holding.length, 1)
+  assert.equal(census.reported.length, 1)
+  assert.equal(census.ready, false, 'the decidable one still holds')
+})
+
+test('leadCensus — only reported leads left means a release may ship', () => {
+  const census = leadCensus([{
+    source: 'mcp', reached: true, why: null, settled: 9,
+    open: [{ source: 'mcp', what: 'no door reads a generated page', owes: 'build the door' }],
+  }])
+  assert.equal(census.ready, true, 'no theorem could decide it, so it does not hold')
+  assert.match(census.why, /reported without holding/)
+  assert.equal(census.open.length, 1, 'and it is still on the record')
+})
+
+// AN UNREADABLE SOURCE STILL BLOCKS, because a census nobody took is absent rather than clean — the new rule changes
+// which OPEN leads bind, and touches nothing about a reader that failed.
+test('leadCensus — an unmeasured source blocks regardless of the new rule', () => {
+  const census = leadCensus([{ source: 'x', reached: false, why: 'reader threw', settled: 0, open: [] }])
+  assert.equal(census.ready, false)
+  assert.match(census.why, /could NOT be read/)
 })
