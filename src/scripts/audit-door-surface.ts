@@ -17,6 +17,13 @@
 //     returning the whole-ledger census. A client that reads one contract and calls the other gets a different tool,
 //     and the handle is the tree's own content address of the contract, so the disagreement needs no schema diffing.
 //
+//   · A CONTRACT THAT AGREES IS NOT A DOOR THAT ANSWERS. Everything above compares what the two surfaces SAY.
+//     Nothing called a door to find out whether it replies, and the two are not the same measurement: of 21
+//     zero-argument doors asked on 2026-09-28, 12 refused. Eleven of those are get_*/list_* reads, so the
+//     persistence bar below cannot be theirs, and their refusal and the writers' refusal wear one message.
+//     The suite cannot see any of it — package.json runs it with --max-old-space-size=8192 against an edge that
+//     has 128 MB, so every one of those doors answers under node and refuses in production.
+//
 //   · A REFUSAL CAN NAME THE WRONG BAR, which is the one that cost the most. The hosted trial and claim doors refuse
 //     EVERY call — measured with a trivial `2 + 2 = 4`, so it is not the input — with "the edge does not hold the
 //     whole ledger: 40 MB of rows does not fit a 128 MB isolate". That sentence is true of the rows and is not why
@@ -61,7 +68,19 @@ const call = async (name: string, args: Record<string, unknown>): Promise<unknow
   const rep = await post({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name, arguments: args } })
   if (rep.error) throw new Error(rep.error.message ?? 'rpc error')
   const txt = (rep.result?.content ?? []).filter((c) => c.type === 'text').map((c) => c.text ?? '')[0]
-  return rep.result?.structuredContent ?? (txt ? JSON.parse(txt) : undefined)
+  if (rep.result?.structuredContent !== undefined) return rep.result.structuredContent
+  if (!txt) return undefined
+  /*
+   * A door may serve HTTP 200 with a result whose text is a plain error sentence rather than JSON. Parsing that
+   * blindly threw, and the thrown message was the PARSER's — "Unexpected token 'e'" — so two doors were filed
+   * under a complaint of ours instead of their own reason. The raw text is returned so the caller reads what
+   * the door actually said.
+   */
+  try {
+    return JSON.parse(txt)
+  } catch {
+    return txt
+  }
 }
 
 const rowsOf = (v: unknown): Contract[] =>
@@ -115,6 +134,72 @@ try {
       owes: 'a verdict on whether a shared name may carry two contracts at all; if it may not, the live catalogue owes the reader the version it is serving',
     })
   }
+
+  /*
+   * DOES IT ANSWER. Everything above compares what the two surfaces SAY. Nothing called a door to find out
+   * whether it replies, and a contract that agrees is not a door that answers — only the second is what a
+   * client gets.
+   *
+   * ONLY DOORS THAT REQUIRE NOTHING, AND THE REQUIREMENT IS READ FROM DIST BECAUSE THE LIVE LISTING DECLINES
+   * TO CARRY IT: `list_tools {}` projects name, title and description and no inputSchema, by construction of
+   * that door. A first version filtered on the live rows anyway, so the filter was true of all 234, thirty
+   * doors were asked indiscriminately, and `compute_sha256` complaining about a missing `text` was counted as
+   * a refusal — "27 of 30 did not answer" measured the filter. dist carries the schema, so it is asked there
+   * first and the live door is only called when its own contract requires nothing.
+   *
+   * A door may also answer with an error in its result text rather than an rpc error, so that is caught too:
+   * answering is not the same as answering with data, which is the bar the journals port already states.
+   *
+   * Refusals are grouped by message, because two doors refusing for one reason is one fact — and the grouping
+   * is the thing worth having: one sentence names ONE bar, so when doors doing different work share it, it is
+   * at most half an explanation, and the half that is wrong sends the reader to measure the wrong thing. That
+   * is the cost this file's own header records paying. No cause is assigned here; this file files leads.
+   */
+  const refused = new Map<string, string[]>()
+  let askable = 0
+  let answered = 0
+  for (const name of walk) {
+    let required: string[] | undefined
+    try {
+      const here = callTool('list_tools', { name }) as { inputSchema?: { required?: string[] } }
+      required = here?.inputSchema?.required
+    } catch { continue }
+    // Absent `required` in dist means the contract truly asks for nothing; a
+    // non-empty one means any refusal would be ours, so the door is not asked.
+    if (required && required.length > 0) continue
+    askable++
+    try {
+      const answer = await call(name, {})
+      const text = typeof answer === 'string' ? answer : ''
+      if (text.startsWith('error:')) refused.set(text, [...(refused.get(text) ?? []), name])
+      else answered++
+    } catch (e) {
+      const why = e instanceof Error ? e.message : String(e)
+      refused.set(why, [...(refused.get(why) ?? []), name])
+    }
+  }
+
+  if (refused.size > 0) {
+    const grouped = [...refused.entries()]
+      .map(([why, names]) => `${names.length} door(s) [${names.join(', ')}] answer: ${why.slice(0, 260)}`)
+      .join(' || ')
+    leads.push({
+      lead: `${askable - answered} of ${askable} door(s) that require no argument did not answer. ${grouped}.`
+        + ' A contract that agrees is not a door that replies, and nothing in this tree asked the second question before this run.'
+        + ' Where one message is shared by doors that write and doors that only read, it cannot be true of both.',
+      status: 'open',
+      owes: 'a verdict per GROUP rather than per door: a refusal shared by reads and writes names at most one of their two bars, and whichever half is wrong sends the reader to measure the wrong thing',
+    })
+  }
+
+  leads.push({
+    lead: `Reach of this run: ${answered} of ${askable} door(s) requiring no argument answered, within the ${walk.length} walked (sample ${SAMPLE} of ${shared.length} shared).`
+      + ' Doors whose contract requires an argument were not asked, because a refusal we caused is not a measurement of the door.',
+    status: askable > 0 && answered >= askable ? 'closed' : 'open',
+    owes: askable === 0
+      ? 'a wider walk — this run asked nothing, and nothing is not agreement'
+      : answered >= askable ? 'nothing — every door asked answered' : 'a wider walk (UUIDNA_DOOR_SAMPLE) before any claim that the surface answers',
+  })
 
   leads.push({
     lead: `Coverage of this run: ${compared} of ${shared.length} shared door(s) had both contracts read (sample ${SAMPLE}).`

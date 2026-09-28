@@ -1,0 +1,33 @@
+{
+  "file": "SiteBuild.lean",
+  "slug": "sitebuild",
+  "status": "retired",
+  "address": "42874727-2681-8806-8345-df24cddd564b",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "SiteBuild.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"SiteBuild.lean\",\n \"url\": \"https://uuidna.com/lean/SiteBuild.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 15,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
