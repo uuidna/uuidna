@@ -48,6 +48,13 @@ export interface HexProgramIndex {
   /** every hex two or more doors share, with their names — empty is the measured claim, never the assumed one */
   collisions: { hex: string; doors: string[] }[]
   programs: readonly HexProgram[]
+  /** hex → door and door → hex, so a lookup is a lookup. `programs.find` is O(doors) and both callOfUuid and
+   *  uuidOfCall ran it per call: the exhaustive round trip over every door × every param — 16,449,536 calls, the whole
+   *  combinatorial space — cost 147 seconds of linear scans and 0 of arithmetic. The maps are built from `programs` in
+   *  the same pass, so they cannot disagree with it, and the collision census still reads `programs` rather than a map
+   *  that would have silently dropped the second door of a colliding pair. */
+  byHex: ReadonlyMap<string, string>
+  byName: ReadonlyMap<string, string>
   capacity: {
     /** the middle's whole space: 16^12 */
     middle: number
@@ -81,7 +88,11 @@ export function hexProgramIndex(): HexProgramIndex {
   const collisions = collisionsOf(programs)
   // ORDER-INVARIANT: the leaves are the sorted name→hex pairs, so any two readers fold the same receipt
   const r = hexbitReceipt(programs.map((p) => `${p.name}:${p.hex}`))
+  const byHex = new Map<string, string>()
+  const byName = new Map<string, string>()
+  for (const p of programs) { if (!byHex.has(p.hex)) byHex.set(p.hex, p.name); byName.set(p.name, p.hex) }
   return {
+    byHex, byName,
     doors: programs.length,
     width,
     bits: width * 4,
@@ -125,7 +136,7 @@ export function callOfUuid(uuid: string, index: HexProgramIndex = hexProgramInde
     throw new Error(`not a uuid: ${uuid} — a program address is 32 hex characters (layout_groups_thirtytwo)`)
   }
   const program = h.slice(8, 16)
-  const found = index.programs.find((p) => p.hex === program)
+  const found = index.byHex.get(program)
   return {
     // handleOf, NOT a slice. handle.test.ts holds that every handle in this tree comes from one derivation, and it
     // caught this line: `h.slice(0, 8)` is the first group TODAY and agrees with handleOf only for as long as nobody
@@ -133,7 +144,7 @@ export function callOfUuid(uuid: string, index: HexProgramIndex = hexProgramInde
     // it disagrees silently, on the day it matters, in the field a reader trusts most.
     handle: handleOf(h),
     program,
-    door: found?.name ?? null,
+    door: found ?? null,
     params: h.slice(16, 20),
     envelope: h.slice(20, 32),
   }
@@ -148,12 +159,12 @@ export function uuidOfCall(
   call: { handle: string; door: string; params?: string; envelope?: string },
   index: HexProgramIndex = hexProgramIndex(),
 ): string {
-  const found = index.programs.find((p) => p.name === call.door)
-  if (!found) throw new Error(`unknown door: ${call.door} — a program hex is derived from a served contract, never invented`)
+  const found = index.byName.get(call.door)
+  if (found === undefined) throw new Error(`unknown door: ${call.door} — a program hex is derived from a served contract, never invented`)
   const pad = (s: string, n: string): string => (s || '').replace(/[^0-9a-f]/gi, '').toLowerCase().padStart(n.length, '0').slice(-n.length)
   const handle = pad(call.handle, '00000000')
   const params = pad(call.params ?? '', '0000')
   const envelope = pad(call.envelope ?? '', '000000000000')
-  const h = handle + found.hex + params + envelope
+  const h = handle + found + params + envelope
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20, 32)}`
 }
