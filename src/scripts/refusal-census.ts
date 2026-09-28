@@ -51,9 +51,26 @@ const SECURITY = /\b(secret|credential|token|password|permission|auth|authoris|a
 interface Site { file: string; line: number; text: string; security: boolean; gate: boolean }
 interface FileVerdict { file: string; gates: number; checks: number; cites: string[]; grounded: boolean; security: number }
 
+// THE SCANNED SOURCES ARE INPUTS, AND LEAVING THEM OUT MADE THIS CENSUS BLIND TO ITS OWN SUBJECT. Measured
+// 2026-09-28: the receipt served "383 gates, 221 bare" while a forced walk of the same tree answered 386 and 224 —
+// three gates added that day, reported as absent, under a digest IDENTICAL to the stale one. A receipt keyed on the
+// ledger and the rule but not on the files being read is a cache that cannot notice the thing it exists to count, and
+// it served that answer while the captain was asking whether new blocks were replacing removed ones. The instrument
+// said no. The instrument could not have said yes.
+//
+// This is the audit-citations defect a second time in a day — src/scripts/lead-owes.ts omitted dist/leads.js the same
+// way and reported 40 holding leads after the rule that decides holding had changed. A receipt is keyed on the RULE and
+// on EVERY INPUT, and for a scanner the corpus IS the input.
+//
+// The graph is walked before the receipt rather than inside it, which costs the module load on a hit as well as a miss.
+// That is the price of an answer that can be wrong and know it, and it is smaller than the cost of a green that means
+// only that nothing was re-read.
+const { sourceGraph: graphForInputs } = await import('../test-paths.js')
+const SCANNED = [...graphForInputs().keys()].filter((f) => f.endsWith('.ts') && !f.endsWith('.test.ts')).sort()
+
 const census = await servedAsync<{ sites: number; files: FileVerdict[] }>({
   path: 'lean/refusal-census-receipt.json',
-  inputs: ledgerAndRule(['dist/scripts/refusal-census.js']),
+  inputs: ledgerAndRule(['dist/scripts/refusal-census.js', ...SCANNED]),
   compute: async () => {
     const { sourceGraph } = await import('../test-paths.js')
     const { judged } = await import('./api.js')
