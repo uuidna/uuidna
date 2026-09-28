@@ -1,7 +1,7 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1454,
- "distinct": 1226,
+ "requests": 1458,
+ "distinct": 1230,
  "served": 252,
  "families": [
   {
@@ -14,7 +14,7 @@
   },
   {
    "verb": "commit",
-   "asks": 74
+   "asks": 75
   },
   {
    "verb": "ledger",
@@ -34,7 +34,7 @@
   },
   {
    "verb": "land",
-   "asks": 14
+   "asks": 15
   },
   {
    "verb": "index",
@@ -49,11 +49,11 @@
    "asks": 7
   },
   {
-   "verb": "diff",
-   "asks": 5
+   "verb": "reach",
+   "asks": 6
   },
   {
-   "verb": "reach",
+   "verb": "diff",
    "asks": 5
   },
   {
@@ -73,7 +73,7 @@
    "asks": 1
   }
  ],
- "unclassified": 889,
+ "unclassified": 890,
  "held": [
   {
    "verb": "wing",
@@ -95,7 +95,7 @@
   },
   {
    "verb": "commit",
-   "asks": 74,
+   "asks": 75,
    "samples": [
     "committing the qpu storage write repair in the sibling repository",
     "committing the edge ledger and gate repairs",
@@ -140,7 +140,7 @@
   },
   {
    "verb": "land",
-   "asks": 14,
+   "asks": 15,
    "samples": [
     "no door reports a running landing's progress; reading the land log and push state",
     "no door reports a landing's state; checking before changing the scheduler",
@@ -175,21 +175,21 @@
    ]
   },
   {
+   "verb": "reach",
+   "asks": 6,
+   "samples": [
+    "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
+    "checking whether basis is genuinely unreached or the reach walk misses it",
+    "verifying both new queues reach the survey and the MCP door that serves it"
+   ]
+  },
+  {
    "verb": "diff",
    "asks": 5,
    "samples": [
     "no door reads a diff",
     "no door diffs a path",
     "no door diffs the working tree against HEAD"
-   ]
-  },
-  {
-   "verb": "reach",
-   "asks": 5,
-   "samples": [
-    "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
-    "checking whether basis is genuinely unreached or the reach walk misses it",
-    "verifying both new queues reach the survey and the MCP door that serves it"
    ]
   },
   {
@@ -240,7 +240,7 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "74 recorded ask(s) for a door that commits, against 252 doors served — sessions stated this gap 74 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
+   "lead": "75 recorded ask(s) for a door that commits, against 252 doors served — sessions stated this gap 75 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -265,7 +265,7 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "14 recorded ask(s) for a door that lands, against 252 doors served — sessions stated this gap 14 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
+   "lead": "15 recorded ask(s) for a door that lands, against 252 doors served — sessions stated this gap 15 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -280,10 +280,10 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
  ],
- "receipt": "e1f66dd8-9648-88a2-b1ce-dc7bb0a4b9bd",
+ "receipt": "df0cc26f-5327-84cb-8b77-7466482afd88",
  "crossed": {
-  "sorted": "e1f66dd8-9648-88a2-b1ce-dc7bb0a4b9bd",
-  "reversed": "e1f66dd8-9648-88a2-b1ce-dc7bb0a4b9bd",
+  "sorted": "df0cc26f-5327-84cb-8b77-7466482afd88",
+  "reversed": "df0cc26f-5327-84cb-8b77-7466482afd88",
   "agrees": true
  }
 }

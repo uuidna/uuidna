@@ -13219,6 +13219,62 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "excerpt": "[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ 1 (mod 9)\",\"statement\":\"(1 * 1) % 9 = 1\",\"tactic\":\"decide\",\"file\":\"Core.lean\",\"principle\":\"The 8×8 core\",\"skill\":\"z9-ring\",\"ca…"
   }
  },
+ "uuidna_wing": {
+  "name": "compute_wing",
+  "title": "Compute wing",
+  "annotations": {
+   "readOnlyHint": true,
+   "destructiveHint": false,
+   "idempotentHint": true,
+   "openWorldHint": false
+  },
+  "effects": {
+   "network": false,
+   "writes": false,
+   "deletes": false,
+   "spawns": false
+  },
+  "description": "Compute wing. Returns {wing,defs,theorems,count,principles,source,bytes}.",
+  "outputSchema": {
+   "type": "object",
+   "properties": {
+    "wing": {
+     "type": "string"
+    },
+    "defs": {
+     "type": "array"
+    },
+    "theorems": {
+     "type": "array",
+     "items": {
+      "type": "object"
+     }
+    },
+    "count": {
+     "type": "integer"
+    },
+    "principles": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "source": {
+     "type": "null"
+    },
+    "bytes": {
+     "type": "integer"
+    }
+   }
+  },
+  "status": "documented",
+  "example": {
+   "args": {
+    "wing": "Core.lean"
+   },
+   "excerpt": "{\"wing\":\"Core.lean\",\"defs\":[],\"theorems\":[{\"key\":\"mul9_1_1\",\"name\":\"1·1 ≡ 1 (mod 9)\",\"statement\":\"(1 * 1) % 9 = 1\",\"principle\":\"The 8×8 core\",\"address\":\"808f7b…"
+  }
+ },
  "uuidna_build_graph": {
   "name": "get_build_graph",
   "title": "Get build graph",
@@ -13481,7 +13537,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"byHex\":{},\"byName\":{},\"doors\":252,\"width\":8,\"bits\":32,\"distinct\":252,\"collisions\":[],\"programs\":252,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296…"
+   "excerpt": "{\"byHex\":{},\"byName\":{},\"doors\":253,\"width\":8,\"bits\":32,\"distinct\":253,\"collisions\":[],\"programs\":253,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296…"
   }
  },
  "uuidna_lattice": {
@@ -16994,7 +17050,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"count\":277,\"tools\":252,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
+   "excerpt": "{\"count\":278,\"tools\":253,\"installs\":25,\"packages\":[{\"kind\":\"install\",\"id\":\"uuidna/alpine-base\",\"name\":\"alpine-base\",\"route\":\"/\",\"meaning\":\"Meta package for min…"
   }
  },
  "uuidna_alpine": {
@@ -19937,7 +19993,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"tools\":252,\"zeroArgReusable\":121,\"totalRequiredKeys\":193,\"reusablePerKey\":1.306,\"avgRequiredKeys\":0.766,\"avgRating\":4.234,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
+   "excerpt": "{\"tools\":253,\"zeroArgReusable\":121,\"totalRequiredKeys\":194,\"reusablePerKey\":1.304,\"avgRequiredKeys\":0.767,\"avgRating\":4.233,\"hardest\":[{\"name\":\"uuidna_crt\",\"re…"
   }
  },
  "uuidna_unify": {
@@ -20015,7 +20071,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"a0b4eba3\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
+   "excerpt": "{\"handle\":\"05a6c65b\",\"theorems\":{\"count\":71089,\"verified\":71089,\"receipt\":\"a52b30e8-d88a-84c6-af3f-af11d477c995\"},\"domains\":{\"count\":131,\"verdict\":\"VERIFIED\",\"…"
   }
  },
  "uuidna_quantum_profile": {
@@ -20538,7 +20594,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":252,\"registry\":\"3831cb2b-eb08-860…"
+   "excerpt": "{\"table\":[1,0,0,0,0,0,0,0],\"sealedTable\":[1,0,0,0,0,0,0,0],\"matchesSealedSpec\":true,\"cleanStates\":1,\"drainedStates\":7,\"tools\":253,\"registry\":\"ad95ad31-fe8b-84f…"
   }
  },
  "uuidna_send": {

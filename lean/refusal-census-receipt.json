@@ -1,8 +1,8 @@
 {
   "kind": "door-receipt",
-  "digest": "5a7bdf47842f808a600847ad428a092b",
+  "digest": "ffd8178f58924eb2a8dd570078c47a12",
   "value": {
-    "sites": 1024,
+    "sites": 1027,
     "files": [
       {
         "file": "src/scripts/one-receipt.ts",
@@ -203,6 +203,14 @@
         "file": "src/research-ledger.ts",
         "gates": 3,
         "checks": 2,
+        "cites": [],
+        "grounded": false,
+        "security": 0
+      },
+      {
+        "file": "src/school-spaces.ts",
+        "gates": 3,
+        "checks": 0,
         "cites": [],
         "grounded": false,
         "security": 0

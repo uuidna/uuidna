@@ -7,6 +7,13 @@
     "ledger": 71089
   },
   {
+    "handle": "4ac97e34",
+    "host": "CeciPro.local",
+    "purpose": "LANDING LANE TAKEN — 52 commits unpushed, v0.3.1 uncut. The census memo is in this round (census() 9.5s x 30 callers -> once). Please hold off starting a land.",
+    "head": "e84bda5728",
+    "ledger": 71089
+  },
+  {
     "handle": "60787386",
     "host": "CeciPro.local",
     "purpose": "the voice, the anthem, the apparatus, the circle",
