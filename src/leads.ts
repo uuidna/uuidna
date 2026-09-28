@@ -106,7 +106,13 @@ export const unread = (source: string, why: string): SourceReading =>
 export const kernelDecidable = (lead: Lead): boolean => {
   const text = `${lead.what} ${lead.owes ?? ''}`.toLowerCase()
   // ABOUT SOMETHING OTHER THAN THE LEDGER: a door, a host, a service, a credential. These are work, not claims.
-  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit)\b/
+  // THE GAP RECORD IS THE CANONICAL DOOR REQUEST AND THIS PATTERN DID NOT MATCH IT. `UUIDNA_MCP_GAP` writes
+  // "the tree escaped the MCP door N times for the same missing capability: <capability>", and none of `no mcp door`,
+  // `door missing` or `missing door` appears in that string — so 31 plain door requests were filed as claims about the
+  // ledger and held a release that no theorem could ever release. The test fixture hid it: it read
+  // "escaped the MCP door 15 times: no door commits a pathspec", which passed on the pathspec clause rather than on the
+  // escape, so the pattern was never asked the question the tree actually asks it. Measured 2026-09-28: holding 40 → 9.
+  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|escaped the (?:mcp )?door|missing capability|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit)\b/
   if (elsewhere.test(text)) return false
   // ABOUT THE LEDGER: it names sealed content, or asserts a relation the kernel evaluates.
   // PLURALS AND INFLECTIONS COUNT, and an existing test caught their absence in the dangerous direction. With `\bwing\b`

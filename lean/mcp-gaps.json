@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1374,
-  "distinct": 1156,
-  "loadBearing": 108,
+  "records": 1414,
+  "distinct": 1192,
+  "loadBearing": 111,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -16,9 +16,10 @@
     },
     {
       "gap": "no door commits a pathspec",
-      "hits": 15,
+      "hits": 16,
       "forms": [
-        "UUIDNA_MCP_GAP"
+        "UUIDNA_MCP_GAP",
+        "export"
       ]
     },
     {
@@ -352,6 +353,14 @@
       ]
     },
     {
+      "gap": "no door edits source",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e",
+        "node worker.js"
+      ]
+    },
+    {
       "gap": "no door greps Lean sources",
       "hits": 2,
       "forms": [
@@ -436,6 +445,13 @@
       ]
     },
     {
+      "gap": "no door reports its own seal",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door reports qpu's intra-file theorem dependency graph",
       "hits": 2,
       "forms": [
@@ -461,6 +477,13 @@
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports the leads ledger contents",
+      "hits": 2,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2580,6 +2603,13 @@
       ]
     },
     {
+      "gap": "no door drafts a source patch into the scratchpad",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door edits a candidate",
       "hits": 1,
       "forms": [
@@ -2594,10 +2624,17 @@
       ]
     },
     {
-      "gap": "no door edits source",
+      "gap": "no door edits the catalogue",
       "hits": 1,
       "forms": [
-        "node worker.js"
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door edits the catalogue or reports a probe row",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -2654,6 +2691,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door exercises a published npm tarball's bin and predicates",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -2741,6 +2785,27 @@
       ]
     },
     {
+      "gap": "no door installs a PUBLISHED npm tarball from the registry and exercises it — verifying a publish means running the artifact a consumer receives, which no tool in either door does",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door installs a PUBLISHED npm tarball from the registry and exercises it — verifying a publish requires running the artifact a consumer receives, which is outside both repos' doors",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door installs a published tarball or reads a sibling repo's forge run",
+      "hits": 1,
+      "forms": [
+        "node -e`, `node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door lets a witness probe restatedConstants internals (vocabulary/matcher/file-filter) for lead a5572638",
       "hits": 1,
       "forms": [
@@ -2815,6 +2880,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists the lead-trial automation",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3252,6 +3324,20 @@
       ]
     },
     {
+      "gap": "no door reads .claude/lessons.md — AGENTS.md names it one of the three memories and nothing serves it",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reads .claude/lessons.md — the lessons home is named in AGENTS.md as one of the three memories, and nothing serves it",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reads a diff",
       "hits": 1,
       "forms": [
@@ -3326,6 +3412,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads or bumps a sibling repo's version surfaces",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -3609,10 +3702,24 @@
       ]
     },
     {
+      "gap": "no door reports a script's network reach or a baseline's contents",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reports a security fact's shape",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a test's current assertion or runs a prober",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3655,6 +3762,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports another door's contract",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3756,6 +3870,13 @@
       ]
     },
     {
+      "gap": "no door reports how many doors are pure enough to memoise",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door reports how many generated theorems carry an explanation",
       "hits": 1,
       "forms": [
@@ -3781,6 +3902,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports its own catalogue by verb",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door reports its own cross",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3959,6 +4094,20 @@
       ]
     },
     {
+      "gap": "no door reports the leads ledger or land state",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door reports the leads ledger shape",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reports the lean-gen finder's rule for a generated-but-unproved wing",
       "hits": 1,
       "forms": [
@@ -3970,6 +4119,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door reports the ledger row shape or wing census",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -4064,6 +4220,13 @@
       ]
     },
     {
+      "gap": "no door reports the shape of a generated surface",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door reports the shape of a trial lead row nor its writer",
       "hits": 1,
       "forms": [
@@ -4078,6 +4241,13 @@
       ]
     },
     {
+      "gap": "no door reports the theorem row shape",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door reports the VitePress data loader wiring for the census used by docs pages",
       "hits": 1,
       "forms": [
@@ -4089,6 +4259,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports the wing index",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -4180,6 +4357,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports where a sibling repo's version lives",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -4299,6 +4483,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports whether an artifact carries a receipt",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -4502,6 +4693,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports who writes into lean/ or which artifacts carry a receipt",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -4813,6 +5011,27 @@
       ]
     },
     {
+      "gap": "no door runs a finder over a sibling repository",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door runs a finder over a sibling repository, so its control must be run the same ad-hoc way",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door runs a finder over a sibling repository, so its control runs the same ad-hoc way",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door runs a PERTURBED restated-constant scan (exemption removed) to test the finder's own blind spot",
       "hits": 1,
       "forms": [
@@ -4943,6 +5162,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door runs uuidna's finders over a SIBLING repository's files — cross-repo folding of a lesson has no door, and that is the gap this measurement names",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -5226,6 +5452,13 @@
       ]
     },
     {
+      "gap": "no door summarises another door's saved answer",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door tallies a witness wave journal into faces and dissent",
       "hits": 1,
       "forms": [
@@ -5342,6 +5575,27 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door writes a sibling repo's source",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door writes a sibling repo's test",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "no door writes source",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

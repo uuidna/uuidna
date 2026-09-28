@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.00000028"
+   "promptPrice": "0.0000000854",
+   "completionPrice": "0.0000001708"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000095526",
-   "completionPrice": "0.00000191052"
+   "promptPrice": "0.000000951432",
+   "completionPrice": "0.000001902864"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -499,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000245",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.000000035",
+   "completionPrice": "0.00000029"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -3033,8 +3033,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.1",
    "name": "Z.ai: GLM 5.1",
    "contextTokens": 204800,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
+   "promptPrice": "0.0000009646",
+   "completionPrice": "0.0000030316"
   },
   {
    "id": "z-ai/glm-5.2",
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3",
    "name": "Z.ai: GLM 5.3",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000001785",
-   "completionPrice": "0.000002805"
+   "promptPrice": "0.0000014",
+   "completionPrice": "0.0000044"
   },
   {
    "id": "z-ai/glm-5.3-flash",
@@ -3124,14 +3124,14 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000245",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.000000035",
+   "completionPrice": "0.00000029"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000128",
+   "promptPrice": "0.00000022592",
    "completionPrice": "0.0000019584"
   },
   {

@@ -1,0 +1,60 @@
+{
+  "kind": "door-receipt",
+  "digest": "df2dba7d173a2743c3e8753a70586d75",
+  "value": {
+    "holding": 9,
+    "door": 0,
+    "corpus": 7,
+    "kernel": 1,
+    "source": 0,
+    "undetermined": 1,
+    "automatable": "11.1%",
+    "rows": [
+      {
+        "what": "two_routes_reach_four_hundred_and_thirty_two is alone in its principle \"THE COINS BALANCE\" (CoinsBalance.lean)",
+        "instrument": "undetermined",
+        "why": "states no relation among quantities and names no source artefact — unread, and not to be guessed at"
+      },
+      {
+        "what": "most-searched query \"gemini\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "most-searched query \"deepseek\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "most-searched query \"iphone\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "most-searched query \"ufc\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "most-searched query \"f1\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "most-searched query \"cricket\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      },
+      {
+        "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor",
+        "instrument": "kernel",
+        "why": "a relation among 58, 70, 128 — the kernel holds the data and can decide it"
+      },
+      {
+        "what": "most-searched query \"education\" rings no sealed theorem",
+        "instrument": "corpus",
+        "why": "a coverage record: the world asked for something no theorem covers. Owes new content, not a proof"
+      }
+    ]
+  }
+}

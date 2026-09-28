@@ -177,6 +177,11 @@ test('kernelDecidable — a claim about the ledger HOLDS a release, plurals incl
 // The largest open cluster says it in its own text: a signed commit by pathspec is a git act, not a ledger computation.
 test('kernelDecidable — a claim about a door, a host or a service does NOT hold', () => {
   for (const what of [
+    // VERBATIM FROM THE LIVE CENSUS OF 2026-09-28, because the old fixture was not the string the tree writes. It read
+    // "escaped the MCP door 15 times: no door commits a pathspec" and passed on the pathspec clause, so the escape shape
+    // itself was never tested — and 31 records in exactly this shape held a release no theorem could release.
+    'the tree escaped the MCP door 8 times for the same missing capability: court investigation',
+    'the tree escaped the MCP door 2 times for the same missing capability: read lead records by handle from lean/leads.json',
     'the tree escaped the MCP door 15 times: no door commits a pathspec',
     'no MCP door greps theorem keys by word',
     'powo answers HTTP 403 to an identified probe',

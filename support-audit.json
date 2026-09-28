@@ -1,11 +1,10 @@
 {
-  "modules": 1454,
-  "roots": 917,
-  "supported": 1451,
+  "modules": 1467,
+  "roots": 926,
+  "supported": 1465,
   "dead": [
-    "src/lead-cross.ts",
     "src/theorems/ledger-edge.ts",
     "src/theorems/ledger-node.ts"
   ],
-  "receipt": "95bde56f-b76c-82a6-9e6d-5e3702b67795"
+  "receipt": "70520372-c57d-821c-8f2a-df94bdcd68a1"
 }
