@@ -836,9 +836,32 @@ const TOOLS: Tool[] = ([
     run: (a = {}, ctx) => hologramFanout(a, ctx?.fetch) },
   { name: 'uuidna_theorems',
     description: 'The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean theorem proven `by decide` (verified sorry-free). Returns each theorem\'s {key,name,statement,tactic,file,principle,skill,lean,address}. Filter by `principle` (derivation axis), `skill` (capability axis — see uuidna_skills), or `contains`.',
-    inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'a skill name' }, contains: { type: 'string' }, keys: { type: 'boolean', description: 'only the keys' }, limit: { type: 'integer', description: 'page size' }, offset: { type: 'integer', description: 'skip this many' } } },
+    inputSchema: { type: 'object', properties: { principle: { type: 'string' }, skill: { type: 'string', description: 'a skill name' }, contains: { type: 'string' }, wing: { type: 'string', description: 'one lean wing — its file name, with or without .lean' }, wings: { type: 'boolean', description: 'the wing census: every wing with its theorem count, instead of the rows' }, keys: { type: 'boolean', description: 'only the keys' }, limit: { type: 'integer', description: 'page size' }, offset: { type: 'integer', description: 'skip this many' } } },
     run: (a = {}) => {
       const off = typeof a.offset === 'number' ? a.offset : 0
+      // ── THE WING AXIS, AND WHY IT IS HERE RATHER THAN IN A DOOR OF ITS OWN ────────────────────────────────────
+      //
+      // The gap log this repository keeps — every refused ad-hoc command states what is missing, and the hook
+      // appends that sentence — ranks "a door that wings" FIRST, at 204 recorded asks against 250 served doors.
+      // Sessions have been counting theorems in one lean wing by reading files, and the sample sentence beside the
+      // count says why: "counting theorems in one lean wing while the hosted index door is down".
+      //
+      // IT EXTENDS THIS DOOR INSTEAD OF ADDING ONE, because a wing is the same kind of question `principle` and
+      // `skill` already answer: one axis of the same ledger. A separate door would serve a second answer shape for
+      // the same rows, and every filter added later would have to be added twice.
+      //
+      // The census is the honest cheap half: 262 wings and their counts, which is what a caller asking "how big is
+      // this wing" actually wants, without paging 71,089 rows to count them. Both paths read the sealed ledger, so
+      // on a surface that does not hold it the refusal is the ledger's own, by name — the same answer the statement
+      // paths already give rather than a second, quieter failure.
+      const wingOf = (t: { file: string }): string => t.file
+      const wingKey = (x: unknown): string => String(x).toLowerCase().replace(/\.lean$/, '')
+      if (a.wings === true) {
+        const counted = new Map<string, number>()
+        for (const t of theorems({})) counted.set(wingOf(t), (counted.get(wingOf(t)) ?? 0) + 1)
+        const rows = [...counted.entries()].map(([wing, count]) => ({ wing, theorems: count })).sort((x, y) => y.theorems - x.theorems || x.wing.localeCompare(y.wing))
+        return { wings: rows.length, theorems: rows.reduce((n, r) => n + r.theorems, 0), rows }
+      }
       // KEYS ONLY IS A KEY QUESTION, AND IT USED TO ASK FOR THE ROWS. Every path here called theorems(), which at the
       // edge throws "the edge does not hold the whole ledger" — so `{keys:true, contains:"…"}` was refused for wanting
       // 40 MB of statements it never reads. The baked root already carries every key (one newline-joined string with an
@@ -852,7 +875,12 @@ const TOOLS: Tool[] = ([
       //
       // `contains` NARROWS TO THE KEY on this path, and says so rather than pretending to search the statements: the
       // statements are exactly what is not here. A caller wanting them asks without `keys`, on a host that holds them.
-      if (a.keys === true && a.skill === undefined && a.principle === undefined) {
+      // `wing` MUST REACH THE FAST PATH'S GUARD, and it did not. sealedKeys() is the baked key list with no file
+      // beside it, so this branch cannot honour a wing — and it fired first, which meant {wing, keys:true} returned
+      // every key in the ledger while naming one wing. A wrong answer served confidently, found by the control that
+      // asked for a wing that does not exist and was handed 71,089 keys. A filter this path cannot apply must send
+      // the call down the path that can, never be dropped on the floor.
+      if (a.keys === true && a.skill === undefined && a.principle === undefined && a.wing === undefined) {
         const all: readonly string[] = sealedKeys()
         const q = a.contains === undefined ? '' : String(a.contains).toLowerCase()
         const hit = q === '' ? all : all.filter((k: string) => k.toLowerCase().includes(q))
@@ -861,6 +889,7 @@ const TOOLS: Tool[] = ([
       }
       let ts = theorems(a.skill ? { skill: String(a.skill) } : {})
       if (a.principle) ts = ts.filter((t) => t.principle.toLowerCase().includes(String(a.principle).toLowerCase()))
+      if (a.wing !== undefined) { const w = wingKey(a.wing); ts = ts.filter((t) => wingKey(t.file) === w) }
       if (a.contains) { const q = String(a.contains).toLowerCase(); ts = ts.filter((t) => (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q)) }
       const lim = typeof a.limit === 'number' ? a.limit : ts.length
       const page = ts.slice(off, off + lim)
@@ -1017,9 +1046,11 @@ const TOOLS: Tool[] = ([
     run: ({ key }) => {
       const t = theoremFor(String(key))
       if (!t) throw new Error('unknown theorem: ' + key
-        + " — for a key that works, read this tool's own contract: uuidna_list_tools {name:'uuidna_theorem'}"
-        + ' carries a worked example whose args name a real key. uuidna_theorems cannot enumerate keys on the'
-        + ' edge, which holds no full ledger, so the old pointer to it was a remedy that could not answer.')
+        + " — on the hosted edge this door resolves NO key, including mul9_1_1 from its own worked example:"
+        + ' measured 2026-09-28, five keys tried, all unknown. The edge holds no full ledger (40 MB of rows'
+        + ' against a 128 MB isolate), so key lookup belongs to a door answering from the baked root or from'
+        + ' the piece a cited key sits in. Locally the ledger answers; pointing a caller at uuidna_theorems,'
+        + ' or at this example, was a remedy that cannot answer here.')
       const dual = paperBlueprintTheorem(t)
       const axioms = theoremAxioms(t.key)
       // EVERY NAME IT IS KNOWN BY, SERVED — name, description, source, citation. theologyNameOf has been computable
@@ -1294,8 +1325,8 @@ const TOOLS: Tool[] = ([
     run: ({ key }) => {
       const n = theoremNeighbours(String(key))
       if (n.principle === null) throw new Error('unknown theorem: ' + String(key)
-        + " — for a key that works, read the tool's own contract via uuidna_list_tools {name}, whose example"
-        + ' names a real one. uuidna_theorems cannot enumerate keys on the edge, which holds no full ledger.')
+        + " — on the hosted edge no key resolves here, its own example included, because the edge holds no"
+        + ' full ledger. Locally the ledger answers.')
       return { key: n.key, principle: n.principle, count: n.neighbours.length,
                neighbours: n.neighbours.map((t) => ({ key: t.key, name: t.name, address: t.address })) } } },
   { name: 'uuidna_axiom_index',

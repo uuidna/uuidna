@@ -1,34 +1,36 @@
 {
   "kind": "api-discovery",
   "asked": 23,
-  "answered": 16,
+  "answered": 15,
   "keyed": 4,
-  "failed": 3,
-  "honest": "a probe that did not answer is recorded as not answering, never as answering with nothing. A derived schema is a floor — the endpoint served at least this — and never a contract: optional fields absent from one response are invisible to it. The URL shape is built as base + query params, which is wrong for path-style endpoints, and such a refusal is a finding about the declaration rather than a fault in the source.",
+  "failed": 2,
+  "notMeasured": 2,
+  "notMeasuredRows": [
+    {
+      "api": "europepmc",
+      "why": "no answer within 8000ms"
+    },
+    {
+      "api": "wfo",
+      "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint."
+    }
+  ],
+  "honest": "a probe that did not answer is recorded as not answering, never as answering with nothing. A source with no VERIFIED CONNECTION is counted apart from a source that answered an error: a TLS chain this client rejects, a name that did not resolve and a refused connection are facts about the path, not about the service, and wfo is the measured case — curl reaches it, node refuses its incomplete chain. A derived schema is a floor — the endpoint served at least this — and never a contract: optional fields absent from one response are invisible to it. The URL shape is built as base + query params, which is wrong for path-style endpoints, and such a refusal is a finding about the declaration rather than a fault in the source.",
   "sources": [
     {
       "api": "europepmc",
-      "status": 200,
-      "ms": 627,
+      "status": null,
+      "ms": 8003,
       "keyed": false,
-      "why": "answered JSON",
-      "fields": 44,
-      "quantities": [
-        {
-          "path": "hitCount",
-          "sample": "65509"
-        },
-        {
-          "path": "resultList.result[].citedByCount",
-          "sample": "0"
-        }
-      ],
-      "methods": 42
+      "why": "no answer within 8000ms",
+      "fields": null,
+      "quantities": [],
+      "methods": 0
     },
     {
       "api": "clinicaltrials",
       "status": 200,
-      "ms": 326,
+      "ms": 396,
       "keyed": false,
       "why": "answered JSON",
       "fields": 122,
@@ -38,7 +40,7 @@
     {
       "api": "openfda",
       "status": 200,
-      "ms": 845,
+      "ms": 1030,
       "keyed": false,
       "why": "answered JSON",
       "fields": 97,
@@ -53,7 +55,7 @@
     {
       "api": "dailymed",
       "status": 200,
-      "ms": 578,
+      "ms": 672,
       "keyed": false,
       "why": "answered JSON",
       "fields": 18,
@@ -63,7 +65,7 @@
     {
       "api": "rxnav",
       "status": 200,
-      "ms": 565,
+      "ms": 839,
       "keyed": false,
       "why": "answered JSON",
       "fields": 4,
@@ -73,7 +75,7 @@
     {
       "api": "pubchem",
       "status": 200,
-      "ms": 370,
+      "ms": 733,
       "keyed": false,
       "why": "answered JSON",
       "fields": 7,
@@ -88,7 +90,7 @@
     {
       "api": "chembl",
       "status": 200,
-      "ms": 211,
+      "ms": 351,
       "keyed": false,
       "why": "answered JSON",
       "fields": 71,
@@ -167,7 +169,7 @@
     {
       "api": "unichem",
       "status": 200,
-      "ms": 1083,
+      "ms": 134,
       "keyed": false,
       "why": "answered JSON",
       "fields": 30,
@@ -182,7 +184,7 @@
     {
       "api": "ols",
       "status": 200,
-      "ms": 56,
+      "ms": 58,
       "keyed": false,
       "why": "answered JSON",
       "fields": 12,
@@ -192,7 +194,7 @@
     {
       "api": "uniprot",
       "status": 200,
-      "ms": 235,
+      "ms": 412,
       "keyed": false,
       "why": "answered JSON",
       "fields": 142,
@@ -347,18 +349,18 @@
     {
       "api": "ensembl",
       "status": 200,
-      "ms": 269,
+      "ms": 381,
       "keyed": false,
       "why": "answered JSON",
       "fields": 17,
       "quantities": [
         {
-          "path": "end",
-          "sample": "186680922"
-        },
-        {
           "path": "start",
           "sample": "186671791"
+        },
+        {
+          "path": "end",
+          "sample": "186680922"
         },
         {
           "path": "strand",
@@ -370,7 +372,7 @@
     {
       "api": "opentargets",
       "status": 200,
-      "ms": 242,
+      "ms": 290,
       "keyed": false,
       "why": "answered JSON",
       "fields": 4,
@@ -380,7 +382,7 @@
     {
       "api": "gbif",
       "status": 200,
-      "ms": 285,
+      "ms": 357,
       "keyed": false,
       "why": "answered JSON",
       "fields": 59,
@@ -439,9 +441,9 @@
     {
       "api": "wfo",
       "status": null,
-      "ms": 345,
+      "ms": 331,
       "keyed": false,
-      "why": "request failed: TypeError: fetch failed",
+      "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint.",
       "fields": null,
       "quantities": [],
       "methods": 0
@@ -449,7 +451,7 @@
     {
       "api": "powo",
       "status": 403,
-      "ms": 76,
+      "ms": 253,
       "keyed": false,
       "why": "HTTP 403 for the declared probe",
       "fields": null,
@@ -459,7 +461,7 @@
     {
       "api": "duke-phytochem",
       "status": 404,
-      "ms": 641,
+      "ms": 579,
       "keyed": false,
       "why": "HTTP 404 for the declared probe",
       "fields": null,
@@ -469,7 +471,7 @@
     {
       "api": "lotus",
       "status": 200,
-      "ms": 284,
+      "ms": 471,
       "keyed": false,
       "why": "answered JSON",
       "fields": 10,
@@ -509,7 +511,7 @@
     {
       "api": "who-gho",
       "status": 200,
-      "ms": 75,
+      "ms": 239,
       "keyed": false,
       "why": "answered JSON",
       "fields": 7,
@@ -529,7 +531,7 @@
     {
       "api": "open-meteo",
       "status": 200,
-      "ms": 220,
+      "ms": 209,
       "keyed": false,
       "why": "answered JSON",
       "fields": 16,
@@ -544,7 +546,7 @@
         },
         {
           "path": "generationtime_ms",
-          "sample": "0.027298927307128906"
+          "sample": "0.02968311309814453"
         },
         {
           "path": "elevation",

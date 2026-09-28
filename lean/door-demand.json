@@ -1,12 +1,12 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1354,
- "distinct": 1139,
+ "requests": 1394,
+ "distinct": 1176,
  "served": 250,
  "families": [
   {
    "verb": "wing",
-   "asks": 198
+   "asks": 204
   },
   {
    "verb": "theorem",
@@ -14,46 +14,42 @@
   },
   {
    "verb": "commit",
-   "asks": 68
+   "asks": 71
+  },
+  {
+   "verb": "test",
+   "asks": 44
   },
   {
    "verb": "ledger",
    "asks": 39
   },
   {
-   "verb": "test",
-   "asks": 38
-  },
-  {
    "verb": "doc",
-   "asks": 27
+   "asks": 30
   },
   {
    "verb": "kill",
-   "asks": 22
+   "asks": 18
   },
   {
-   "verb": "log",
-   "asks": 14
+   "verb": "index",
+   "asks": 11
   },
   {
    "verb": "land",
    "asks": 11
   },
   {
-   "verb": "index",
-   "asks": 10
-  },
-  {
    "verb": "time",
    "asks": 10
   },
   {
-   "verb": "reach",
-   "asks": 7
+   "verb": "diff",
+   "asks": 5
   },
   {
-   "verb": "diff",
+   "verb": "reach",
    "asks": 5
   },
   {
@@ -65,19 +61,23 @@
    "asks": 5
   },
   {
-   "verb": "endpoint",
-   "asks": 1
+   "verb": "log",
+   "asks": 4
   },
   {
-   "verb": "push",
+   "verb": "lesson",
+   "asks": 3
+  },
+  {
+   "verb": "endpoint",
    "asks": 1
   }
  ],
- "unclassified": 815,
+ "unclassified": 850,
  "held": [
   {
    "verb": "wing",
-   "asks": 198,
+   "asks": 204,
    "samples": [
     "counting theorems in one lean wing while the hosted index door is down",
     "running the bare lean kernel on a candidate wing before it enters the tree",
@@ -95,11 +95,20 @@
   },
   {
    "verb": "commit",
-   "asks": 68,
+   "asks": 71,
    "samples": [
     "committing the qpu storage write repair in the sibling repository",
     "committing the edge ledger and gate repairs",
     "committing the A432 reconcile"
+   ]
+  },
+  {
+   "verb": "test",
+   "asks": 44,
+   "samples": [
+    "reading qpu's own tests and lean file to see what pins its storage address function",
+    "checking which Lean Nat conventions the test evaluator diverges on",
+    "testing x/0=x against the kernel's sealed statements"
    ]
   },
   {
@@ -112,39 +121,30 @@
    ]
   },
   {
-   "verb": "test",
-   "asks": 38,
-   "samples": [
-    "reading qpu's own tests and lean file to see what pins its storage address function",
-    "checking which Lean Nat conventions the test evaluator diverges on",
-    "testing x/0=x against the kernel's sealed statements"
-   ]
-  },
-  {
    "verb": "doc",
-   "asks": 27,
+   "asks": 30,
    "samples": [
+    "no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation ",
     "checking whether these docs are generated before touching them",
-    "no door traces a dead path taught by a generated doc back to its source row",
-    "read reopened lead handles from docs/school.md"
+    "no door traces a dead path taught by a generated doc back to its source row"
    ]
   },
   {
    "verb": "kill",
-   "asks": 22,
+   "asks": 18,
    "samples": [
-    "baking the per-skill summary the vocabulary needs",
     "no door prints one lead row by handle with its lean, killed_by and kernel verdict",
-    "no door restates a lead row's lean from its own killed_by measurement"
+    "no door restates a lead row's lean from its own killed_by measurement",
+    "no door returns a single lean/leads.json row by its handleOf(toUuid(row.lead)) — witness rosetta faithfulness face needs the raw row text and killed_by"
    ]
   },
   {
-   "verb": "log",
-   "asks": 14,
+   "verb": "index",
+   "asks": 11,
    "samples": [
-    "no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation ",
-    "reading a qpu test failure log",
-    "surveying the theology wing for cross-fold candidates"
+    "measuring the edge index memory after the typed-array repair",
+    "measuring what the edge rows cost resident, and what a compact index would cost",
+    "no door runs arbitrary Lean text against the bare kernel; a court investigator must check its own proposed involution before proposing it (qpu_lean only serves "
    ]
   },
   {
@@ -157,15 +157,6 @@
    ]
   },
   {
-   "verb": "index",
-   "asks": 10,
-   "samples": [
-    "measuring the edge index memory after the typed-array repair",
-    "measuring what the edge rows cost resident, and what a compact index would cost",
-    "no door searches lean/*.lean source text or src/ for a term (get_lean_index returns statements only; compute_by_lean matches whole identities) — court investiga"
-   ]
-  },
-  {
    "verb": "time",
    "asks": 10,
    "samples": [
@@ -175,21 +166,21 @@
    ]
   },
   {
-   "verb": "reach",
-   "asks": 7,
-   "samples": [
-    "no MCP door computes restatedConstants()/restatedGaps() over the tree — the finder folded for lead a5572638 is unreachable from any door and unwired from the gu",
-    "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
-    "giving the new page its sealed anchor, and reading the unreached def I left"
-   ]
-  },
-  {
    "verb": "diff",
    "asks": 5,
    "samples": [
     "no door reads a diff",
     "no door diffs a path",
     "no door diffs the working tree against HEAD"
+   ]
+  },
+  {
+   "verb": "reach",
+   "asks": 5,
+   "samples": [
+    "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
+    "checking whether basis is genuinely unreached or the reach walk misses it",
+    "verifying both new queues reach the survey and the MCP door that serves it"
    ]
   },
   {
@@ -211,24 +202,35 @@
    ]
   },
   {
+   "verb": "log",
+   "asks": 4,
+   "samples": [
+    "reading a qpu test failure log",
+    "recording the returned wave's verdicts in the evidence log",
+    "no door waits on a background kernel run or reads its log"
+   ]
+  },
+  {
+   "verb": "lesson",
+   "asks": 3,
+   "samples": [
+    "no door reads .claude/lessons.md — the lessons home is named in AGENTS.md as one of the three memories, and nothing serves it",
+    "no door reads .claude/lessons.md — AGENTS.md names it one of the three memories and nothing serves it",
+    "no door runs uuidna's finders over a SIBLING repository's files — cross-repo folding of a lesson has no door, and that is the gap this measurement names"
+   ]
+  },
+  {
    "verb": "endpoint",
    "asks": 1,
    "samples": [
     "no door probes zenodo endpoints or reads the publish workflow"
    ]
-  },
-  {
-   "verb": "push",
-   "asks": 1,
-   "samples": [
-    "no hosted door knows an unpushed seal; reading the local statement to write its witness"
-   ]
   }
  ],
- "open": 11,
+ "open": 10,
  "leads": [
   {
-   "lead": "198 recorded ask(s) for a door that wings, against 250 doors served — sessions stated this gap 198 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"counting theorems in one lean wing while the hosted index door is down\".",
+   "lead": "204 recorded ask(s) for a door that wings, against 250 doors served — sessions stated this gap 204 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"counting theorems in one lean wing while the hosted index door is down\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -238,7 +240,12 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "68 recorded ask(s) for a door that commits, against 250 doors served — sessions stated this gap 68 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
+   "lead": "71 recorded ask(s) for a door that commits, against 250 doors served — sessions stated this gap 71 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
+   "status": "open",
+   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
+  },
+  {
+   "lead": "44 recorded ask(s) for a door that tests, against 250 doors served — sessions stated this gap 44 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -248,32 +255,22 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "38 recorded ask(s) for a door that tests, against 250 doors served — sessions stated this gap 38 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
+   "lead": "30 recorded ask(s) for a door that docs, against 250 doors served — sessions stated this gap 30 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation \".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "27 recorded ask(s) for a door that docs, against 250 doors served — sessions stated this gap 27 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"checking whether these docs are generated before touching them\".",
+   "lead": "18 recorded ask(s) for a door that kills, against 250 doors served — sessions stated this gap 18 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door prints one lead row by handle with its lean, killed_by and kernel verdict\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "22 recorded ask(s) for a door that kills, against 250 doors served — sessions stated this gap 22 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"baking the per-skill summary the vocabulary needs\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "14 recorded ask(s) for a door that logs, against 250 doors served — sessions stated this gap 14 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door replays a PREFIX of the catalogue in one process and reports another tool's answer size — needed to find inter-tool interference (uuidna_hero_animation \".",
+   "lead": "11 recorded ask(s) for a door that indexs, against 250 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"measuring the edge index memory after the typed-array repair\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
    "lead": "11 recorded ask(s) for a door that lands, against 250 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "10 recorded ask(s) for a door that indexs, against 250 doors served — sessions stated this gap 10 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"measuring the edge index memory after the typed-array repair\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },

@@ -32,6 +32,13 @@ const LOG = join(ROOT, 'dist', 'evidence', 'mcp-gaps.jsonl')
 const VERBS = ['commit', 'land', 'push', 'diff', 'status', 'log', 'test', 'time', 'profile', 'wing', 'theorem',
   'ledger', 'endpoint', 'reach', 'wait', 'kill', 'index', 'doc', 'lesson', 'roster', 'receipt'] as const
 
+// A VERB IS MATCHED ON A WORD BOUNDARY, and the first version was not. `low.includes(v)` put every ask about a SKILL
+// into the family "a door that kills", because `kill` is a substring of `skill` — 22 rows, every one of them
+// misclassified, and the sample sentence printed beside the count said so in plain words ("baking the per-skill
+// summary") while the label above it said something else entirely. A ranking is the input to what gets built next, so
+// a classifier that reads inside words does not merely mislabel: it aims the work.
+const saysVerb = (text: string, verb: string): boolean => new RegExp(`\\b${verb}`, 'i').test(text)
+
 interface Family { verb: string; asks: number; samples: string[] }
 
 const asks: string[] = []
@@ -51,7 +58,7 @@ const distinct = new Set(asks)
 const byVerb = new Map<string, Family>()
 for (const gap of asks) {
   const low = gap.toLowerCase()
-  const verb = VERBS.find((v) => low.includes(v)) ?? 'other'
+  const verb = VERBS.find((v) => saysVerb(low, v)) ?? 'other'
   const f = byVerb.get(verb) ?? { verb, asks: 0, samples: [] }
   f.asks++
   if (f.samples.length < 3 && !f.samples.includes(gap)) f.samples.push(gap.slice(0, 160))

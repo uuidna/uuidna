@@ -75,7 +75,23 @@ const probe = async (a: LifeApi): Promise<Probed> => {
     return { ...discoveryOf(a.id, body, 'answered JSON'), status: res.status, ms, url, keyed: false }
   } catch (e) {
     const ms = Date.now() - at
-    const why = e instanceof Error && e.name === 'AbortError' ? `no answer within ${TIMEOUT_MS}ms` : `request failed: ${String(e)}`
+    // WHY A FAILURE IS CLASSIFIED AND NOT JUST STRINGIFIED. "request failed: TypeError: fetch failed" was reported for
+    // wfo, and the census counted it beside a 404 as "did not answer" — but the host DOES answer: curl gets 200, and
+    // node's own cause says `unable to verify the first certificate`, an incomplete chain this client will not accept,
+    // with the remedy named in the message (--use-system-ca). A dark endpoint and an endpoint this client cannot
+    // verify are different facts about different things — one is a claim about the source, the other about the
+    // prober's trust store — and folding them made a working source look retired. The cause chain carries the answer,
+    // so it is read rather than discarded: `e.cause` is where node puts it and `String(e)` throws it away.
+    const cause = e instanceof Error ? String((e as { cause?: { message?: string; code?: string } }).cause?.message ?? (e as { cause?: { code?: string } }).cause?.code ?? '') : ''
+    const why = e instanceof Error && e.name === 'AbortError'
+      ? `no answer within ${TIMEOUT_MS}ms`
+      : /certificate|CERT_|self.signed|chain/i.test(cause)
+        ? `THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: ${cause}. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint.`
+        : /ENOTFOUND|EAI_AGAIN|DNS/i.test(cause)
+          ? `the host name did not resolve (${cause}) — a DNS answer, not an HTTP one`
+          : /ECONNREFUSED|ECONNRESET|EHOSTUNREACH|ETIMEDOUT/i.test(cause)
+            ? `the connection was refused or dropped (${cause}) — reached the network, never reached the application`
+            : `request failed: ${String(e)}${cause ? ` (cause: ${cause})` : ''}`
     return { ...discoveryOf(a.id, null, why), status: null, ms, url, keyed: false }
   } finally {
     clearTimeout(timer)
@@ -94,9 +110,24 @@ for (const a of wanted) {
 
 const answered = rows.filter((r) => r.fields !== null)
 const keyed = rows.filter((r) => r.keyed)
-const failed = rows.filter((r) => r.fields === null && !r.keyed)
+// THE FOURTH BUCKET, and it exists because naming a cause in the row is not enough if the TALLY still conflates it.
+// A source this client cannot make a verified TLS connection to has not been measured at all — the endpoint may be
+// perfectly alive, as wfo's is (curl 200, node refusing an incomplete chain) — so counting it beside a 404 reports a
+// retired source that is not retired. `unverifiable` is carried separately in the census and in the artifact, which is
+// the same three-answer discipline the rows already keep: answered, refused, and never looked at.
+// A 4xx IS ABOUT THE DECLARATION; A 5xx, A TIMEOUT AND A BROKEN PATH ARE ABOUT THE MOMENT. Measured across two runs
+// eight minutes apart: europepmc answered 44 fields in 7366ms and then 503, and ensembl answered in 339ms and then
+// timed out at 8000ms. Neither source changed — the run did. A census that files those beside powo's 403 and duke's
+// 404 turns a snapshot into a verdict, and the two 4xx rows are the ones that are genuinely a finding: the source
+// answered, and what it said was that the declared request is wrong. So the split is by WHO the failure is about.
+const transient = (r: Probed): boolean =>
+  /CANNOT VERIFY THE TLS CHAIN|did not resolve|refused or dropped/.test(r.why ?? '')
+  || /no answer within/.test(r.why ?? '')
+  || (r.status !== null && r.status >= 500)
+const notMeasured = rows.filter((r) => r.fields === null && !r.keyed && transient(r))
+const failed = rows.filter((r) => r.fields === null && !r.keyed && !transient(r))
 console.log()
-console.log(`asked ${rows.length} · ANSWERED ${answered.length} · needs a key ${keyed.length} · did not answer ${failed.length}`)
+console.log(`asked ${rows.length} · ANSWERED ${answered.length} · needs a key ${keyed.length} · the DECLARATION is wrong ${failed.length} · NOT MEASURED THIS RUN ${notMeasured.length}`)
 console.log(`quantities discovered: ${answered.reduce((n, r) => n + r.quantities.length, 0)}`)
 
 writeFileSync(join(ROOT, 'lean', 'api-discovery.json'), JSON.stringify({
@@ -105,7 +136,10 @@ writeFileSync(join(ROOT, 'lean', 'api-discovery.json'), JSON.stringify({
   answered: answered.length,
   keyed: keyed.length,
   failed: failed.length,
-  honest: 'a probe that did not answer is recorded as not answering, never as answering with nothing. A derived schema '
+  /** a 5xx, a timeout, or no verified connection: about this run, not about the source — NEVER a dark endpoint */
+  notMeasured: notMeasured.length,
+  notMeasuredRows: notMeasured.map((r) => ({ api: r.api, why: r.why })),
+  honest: 'a probe that did not answer is recorded as not answering, never as answering with nothing. A source with no VERIFIED CONNECTION is counted apart from a source that answered an error: a TLS chain this client rejects, a name that did not resolve and a refused connection are facts about the path, not about the service, and wfo is the measured case — curl reaches it, node refuses its incomplete chain. A derived schema '
     + 'is a floor — the endpoint served at least this — and never a contract: optional fields absent from one response '
     + 'are invisible to it. The URL shape is built as base + query params, which is wrong for path-style endpoints, and '
     + 'such a refusal is a finding about the declaration rather than a fault in the source.',
