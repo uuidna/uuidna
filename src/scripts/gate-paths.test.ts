@@ -224,9 +224,12 @@ test('a claim that IS a sealed theorem’s own prose counts as backed, and stays
 // is untracked and then registers as drift the moment `git add` tracks it — the court's own words were "the
 // drift is only files appearing or disappearing", and three landings in a row named the newly-added sources as
 // MOVED. Holding the ORDER rather than the presence: both calls existed before and the bug was which came first.
-test('land commits the drain, mints over a clean worktree of HEAD, commits the receipt, then pushes', () => {
-  // LEAD 235: a working directory is a private tree that answers like a public one. The mint runs in a worktree
-  // of HEAD — the bytes the push sends — so the receipt attests the commit, never an open edit in this directory.
+test('land commits the drain, mints over a clean worktree of the PINNED commit, commits the receipt, then pushes it by name', () => {
+  // LEAD 235: a working directory is a private tree that answers like a public one. The mint runs in a worktree of the
+  // commit being landed — the bytes the push sends — so the receipt attests that commit, never an open edit here.
+  // 2026-09-28: the worktree used to be opened at the NAME `HEAD`, and a name moves. On a shared tree a neighbour
+  // commits inside the ~50-minute mint, so the receipt stopped covering HEAD and the round re-minted; three lands
+  // raced that way for an hour and pushed nothing. The SHA is now resolved once and both the mint and the push use it.
   const land = readFileSync(join(ROOT, 'src', 'scripts', 'land.ts'), 'utf8')
   const stage = land.indexOf('stage()')
   const commitDrain = land.indexOf("run('git commit -m ' + JSON.stringify(msg) + pathspec())")
@@ -234,10 +237,14 @@ test('land commits the drain, mints over a clean worktree of HEAD, commits the r
   const worktree = land.indexOf("git worktree add --detach")
   const mint = land.indexOf('--verified guard,tests --root')
   const commitReceipt = land.indexOf("' -- gate-receipt.json'")
-  const push = land.indexOf("push origin main')")   // the mention, not the run — a quoted push is a call site to the landing finder
+  // THE PUSH NAMES A COMMIT, so the locator names one too: `push origin main')` matched a form that sent the REF and
+  // is deliberately gone — pushing a ref sends whatever it points at when git reads it, which is not necessarily what
+  // the receipt two lines above covers.
+  const push = land.indexOf('push origin ${before}:main')
   for (const [name, i] of Object.entries({ stage, commitDrain, verify, worktree, mint, commitReceipt, push })) assert.ok(i > 0, `land must ${name}`)
   assert.ok(stage < commitDrain, 'the drain is staged, then committed — the receipt must cover the ledger the push carries')
   assert.ok(commitDrain < verify && verify < worktree && worktree < mint, 'the mint runs over a worktree of the NEW head, only when its receipt is stale')
+  assert.ok(land.indexOf("pinned = run('git rev-parse HEAD')") < worktree, 'the SHA is resolved BEFORE the worktree opens — a name resolved after a 50-minute walk is a different commit')
   assert.ok(mint < commitReceipt && commitReceipt < push, 'the minted receipt is committed and rides with the push')
   assert.match(land, /git worktree prune/, 'the worktree is removed whatever the verdict')
   assert.match(land, /git rev-parse origin\/main/, 'and the remote ref is read back after the push — "Everything up-to-date" is also a success')

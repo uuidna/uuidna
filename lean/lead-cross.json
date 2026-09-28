@@ -1,13 +1,12 @@
 {
   "kind": "lead-cross",
-  "openLeads": 174,
+  "openLeads": 176,
   "clusters": [
     {
       "on": "module",
-      "count": 3,
+      "count": 2,
       "coherence": 1,
       "leads": [
-        "an unreachable module",
         "an unreachable module",
         "an unreachable module"
       ]
@@ -22,6 +21,15 @@
       ]
     },
     {
+      "on": "source",
+      "count": 2,
+      "coherence": 0.7,
+      "leads": [
+        "the tree escaped the MCP door 9 times for the same missing capability: no door reads a broken source",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door edits source"
+      ]
+    },
+    {
       "on": "kernel",
       "count": 3,
       "coherence": 0.6555555555555556,
@@ -32,27 +40,26 @@
       ]
     },
     {
+      "on": "commits",
+      "count": 7,
+      "coherence": 0.5924723424723424,
+      "leads": [
+        "1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all",
+        "the tree escaped the MCP door 17 times for the same missing capability: no door commits a pathspec to git",
+        "the tree escaped the MCP door 16 times for the same missing capability: no door commits a pathspec",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits a pathspec in another repository",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door stages or commits the tree"
+      ]
+    },
+    {
       "on": "wing",
       "count": 2,
       "coherence": 0.5833333333333334,
       "leads": [
         "the tree escaped the MCP door 2 times for the same missing capability: no door prints a wing's defs and theorems",
         "the tree escaped the MCP door 2 times for the same missing capability: wing source read door"
-      ]
-    },
-    {
-      "on": "commits",
-      "count": 8,
-      "coherence": 0.5745104307296426,
-      "leads": [
-        "1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all",
-        "the tree escaped the MCP door 17 times for the same missing capability: no door commits a pathspec to git",
-        "the tree escaped the MCP door 15 times for the same missing capability: no door commits a pathspec",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door commits",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door commits a pathspec in another repository",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree; a signed commit by pathspec is a git act, not a ledger computation",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door stages or commits the tree"
       ]
     },
     {
@@ -71,6 +78,28 @@
       "leads": [
         "the tree escaped the MCP door 3 times for the same missing capability: no door serves the cross-skill identity census",
         "the tree escaped the MCP door 2 times for the same missing capability: no door serves the computed clay scope"
+      ]
+    },
+    {
+      "on": "reports",
+      "count": 15,
+      "coherence": 0.42608951377084836,
+      "leads": [
+        "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
+        "deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 301), so the zone setting was already on and only the verification failed — but the run could not tell the difference and said nothing",
+        "the tree escaped the MCP door 5 times for the same missing capability: no door reports the tree holder",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a generated article",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing's phase",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a reconcile's phase",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports how the zenodo related identifiers are derived",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports its own seal",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the fold input for the src/handles chunk store",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the involution registry",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the leads ledger contents",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the publication kin graph",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the school's course ordering and levels",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door reports which generator owns a wing; placing the path's theorems"
       ]
     },
     {
@@ -115,26 +144,6 @@
       ]
     },
     {
-      "on": "reports",
-      "count": 13,
-      "coherence": 0.4115340467613197,
-      "leads": [
-        "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
-        "deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 301), so the zone setting was already on and only the verification failed — but the run could not tell the difference and said nothing",
-        "the tree escaped the MCP door 5 times for the same missing capability: no door reports the tree holder",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a generated article",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a landing's phase",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports a reconcile's phase",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports how the zenodo related identifiers are derived",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the fold input for the src/handles chunk store",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the involution registry",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the publication kin graph",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports the school's course ordering and levels",
-        "the tree escaped the MCP door 2 times for the same missing capability: no door reports which generator owns a wing; placing the path's theorems"
-      ]
-    },
-    {
       "on": "handle",
       "count": 10,
       "coherence": 0.2945154845154845,
@@ -149,16 +158,6 @@
         "the tree escaped the MCP door 3 times for the same missing capability: no door returns a lead's docket record by handle",
         "the tree escaped the MCP door 2 times for the same missing capability: no door locates a lead handle across repo files",
         "the tree escaped the MCP door 2 times for the same missing capability: no door maps a lead's text to its handle"
-      ]
-    },
-    {
-      "on": "reads",
-      "count": 3,
-      "coherence": 0.21212121212121213,
-      "leads": [
-        "Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.",
-        "the tree escaped the MCP door 9 times for the same missing capability: no door reads a broken source",
-        "the tree escaped the MCP door 7 times for the same missing capability: no door reads a generated page"
       ]
     },
     {
@@ -224,6 +223,16 @@
         "the tree escaped the MCP door 2 times for the same missing capability: witness kernel face: run lean on scratch copy",
         "the tree escaped the MCP door 2 times for the same missing capability: witness kernel re-run: no door executes lean over a scratch copy of a wing",
         "the tree escaped the MCP door 2 times for the same missing capability: witness rosetta: independent handle recomputation over lean/leads.json rows"
+      ]
+    },
+    {
+      "on": "ledger",
+      "count": 3,
+      "coherence": 0.12962962962962962,
+      "leads": [
+        "The ledger and the wings had drifted; two theorems were proven and invisible",
+        "the tree escaped the MCP door 2 times for the same missing capability: no door commits the tree; a signed commit by pathspec is a git act, not a ledger computation",
+        "the tree escaped the MCP door 2 times for the same missing capability: pre-flighting ledger piece sizes against qpu's heap bound"
       ]
     },
     {
@@ -320,12 +329,12 @@
       ]
     },
     {
-      "on": "ledger",
+      "on": "reads",
       "count": 2,
       "coherence": 0,
       "leads": [
-        "The ledger and the wings had drifted; two theorems were proven and invisible",
-        "the tree escaped the MCP door 2 times for the same missing capability: pre-flighting ledger piece sizes against qpu's heap bound"
+        "Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.",
+        "the tree escaped the MCP door 7 times for the same missing capability: no door reads a generated page"
       ]
     },
     {
