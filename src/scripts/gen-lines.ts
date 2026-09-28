@@ -5,6 +5,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { statementCensus } from '../editorial.js'
+import { wrArtifact } from '../artifact.js'
 
 const census = statementCensus()
 const reuse: Record<string, string[]> = {}
@@ -21,5 +22,5 @@ const out = {
   reuse,
   wings,
 }
-writeFileSync(join(ROOT, 'lean/statement-index.json'), JSON.stringify(out, null, 2) + '\n')
+wrArtifact('lean/statement-index.json', out)
 console.log(`✓ gen-lines — ${Object.keys(reuse).length} reused Lean line(s) declared across ${census.entries} keys / ${census.distinct} distinct`)

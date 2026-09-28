@@ -36,6 +36,7 @@ import { auditJsonLd } from '../schema-org-vocab.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { merkleRoot, merkleProof, verifyProof } from '../merkle.js'   // the O(1)-verify vs O(N)-recompute axis
+import { wrArtifact } from '../artifact.js'
 
 /** How many sealed-value decisions each level should execute. EQUAL ACROSS LEVELS on purpose: a fidelity bound
  *  is only meaningful against its denominator, so giving every row the same denominator is what makes the
@@ -403,10 +404,9 @@ const sealedDoc = sortedSeal({
   proof: { ...proof, device: undefined }, dispatch: run, receipt,
   address: toUuid(`quantum-advantage|${receipt}|${REFERENCE_HOST}`),
 }) as Record<string, unknown>
-writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify(sealedDoc, null, 1) + '\n')
+wrArtifact('lean/quantum-advantage.json', sealedDoc)
 // the per-field coin map — where a drift is, not merely that one happened
-writeFileSync(join(ROOT, 'lean', 'quantum-advantage-fields.json'), JSON.stringify(
-  Object.fromEntries(Object.keys(sealedDoc).sort().map((k) => [k, toUuid(JSON.stringify(sealedDoc[k]))])), null, 1) + '\n')
+wrArtifact('lean/quantum-advantage-fields.json', Object.fromEntries(Object.keys(sealedDoc).sort().map((k) => [k, toUuid(JSON.stringify(sealedDoc[k]))])))
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.md'), block + '\n')
 // AND IT PRINTS THEM, so a CI log localizes a drift without a round trip. Six publish attempts each cost ~12
 // minutes to learn one bit — "this file moved" — because the only evidence was an aggregate coin over a whole

@@ -33,6 +33,10 @@ import { searchPlugin } from '@payloadcms/plugin-search'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { importExportPlugin } from '@payloadcms/plugin-import-export'
+import { sentryPlugin } from '@payloadcms/plugin-sentry'
+import { stripePlugin } from '@payloadcms/plugin-stripe'
+import { multiTenantPlugin } from '@payloadcms/plugin-multi-tenant'
+import { r2Storage } from '@payloadcms/storage-r2'
 
 // THE SLUG AND THE STATUSES ARE uuidna'S OWN DECLARATION, read from its build. Writing 'pages' and 'published' again
 // here would be a second copy of a constant that already exists — the drift this repository spends its guard on —
@@ -157,6 +161,15 @@ const media = scoped({
   fields: [{ name: 'alt', type: 'text' as const }],
 })
 
+// THE TENANTS COLLECTION, which multiTenantPlugin scopes TO and does not invent. Its default slug is `tenants`, so
+// this is the plugin's documented companion rather than a name chosen here — the plugin adds the relationship field
+// and the access scoping onto the theorem collection, and it needs a collection for that relationship to point at.
+const tenants = scoped({
+  slug: 'tenants',
+  admin: { useAsTitle: 'name' },
+  fields: [{ name: 'name', type: 'text' as const, required: true }],
+})
+
 // THE AUTH COLLECTION IS HERE BECAUSE ACCESS CONTROL REFUSED THE INGEST, AND THAT REFUSAL WAS CORRECT. Payload v4
 // defaults an un-configured collection to authenticated-only writes, so the first run of the harness got a 403 on
 // create. The two ways past it are not equal: `overrideAccess` would skip the check, and this repository's standing
@@ -190,10 +203,47 @@ export const plugins = [
   redirectsPlugin({ collections: [COLLECTION] }),
   formBuilderPlugin({ fields: { text: true, textarea: true, select: true, email: true, message: true } }),
   importExportPlugin({ collections: [COLLECTION] }),
+  // ── THE FOUR THAT WERE INSTALLED AND REACHED BY NOTHING ────────────────────────────────────────────────────────
+  //
+  // The captain, 2026-09-28: "use all payload plugins collections with documented approach". This file's own header
+  // said "WITH EVERY OFFICIAL PLUGIN ACTIVE" while four of the ten installed plugins were in node_modules and in no
+  // config — sentry, stripe, multi-tenant, and cloud-storage. conform.ts now decides that claim by set difference
+  // against this package's own dependencies, so the sentence cannot drift away from the code again.
+  //
+  // EACH IS CONFIGURED, NONE IS FAKED. A plugin whose service needs a credential is configured to READ that
+  // credential and to say so when it is absent: `enabled` is the documented switch on sentry, and stripe's own
+  // `isTestKey` is the documented way to declare a non-live key. That is the framework's strict documented form
+  // (the captain, 2026-09-13), and it is also the honest one — the conformance question here is whether the CONFIG
+  // builds and sanitizes with every plugin's hooks installed, never whether a third-party service answered.
+  sentryPlugin({
+    // Sentry captures 500s by default; the 4xx list is the documented way to widen it. Off unless a DSN is supplied,
+    // because a plugin that reports to nowhere is worse than one that declares itself disabled.
+    enabled: Boolean(process.env.SENTRY_DSN),
+    options: { captureErrors: [400, 403, 404, 500] },
+  }),
+  stripePlugin({
+    // NO LIVE KEY IS INVENTED. An absent key configures the plugin with an empty secret and isTestKey, which is what
+    // `isTestKey` exists to declare; the hooks install and sanitize either way, and no Stripe call is made here.
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY ?? '',
+    isTestKey: !process.env.STRIPE_SECRET_KEY,
+    logs: false,
+  }),
+  multiTenantPlugin({
+    // ONE TENANT FIELD ON THE THEOREM COLLECTION. The tenants collection above is the documented companion — the
+    // plugin adds the relationship and the access scoping; it does not invent the collection it scopes to.
+    collections: { [COLLECTION]: {} },
+    // AND THE 403 THIS CAUSED WAS THE PLUGIN WORKING. Adding tenant scoping made the harness's writes refused,
+    // because its user belongs to no tenant — exactly what tenant isolation is for. The two ways past it are not
+    // equal: `overrideAccess` would SKIP the check, which this repository forbids ("compute all through hooks. no
+    // direct operations"), while `userHasAccessToAllTenants` is the plugin's OWN documented hook for an operator who
+    // works across tenants. The harness's user is that operator, so access still RUNS and still decides — it is
+    // answered, not bypassed.
+    userHasAccessToAllTenants: () => true,
+  }),
 ]
 
 const common = {
-  collections: [users, pages, media],
+  collections: [users, pages, media, tenants],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET ?? derivedSecret,
   typescript: { outputFile: '/dev/null' },
@@ -207,5 +257,24 @@ export const localConfig = buildConfig({ ...common, db: sqliteAdapter({ client: 
  *  the configuration is proved here; the binding itself only exists in the Workers runtime. */
 export const d1Config = (binding: unknown) =>
   buildConfig({ ...common, db: sqliteD1Adapter({ binding: binding as never }) })
+
+/**
+ * The storage half, and it is the same host fact as the database half.
+ *
+ * `@payloadcms/storage-r2` was installed and named in this file's header while being configured NOWHERE — the header
+ * said R2 was the storage adapter and no line wired it. It takes an R2 BUCKET BINDING, which exists in the Workers
+ * runtime and not in a Node process, exactly as sqliteD1Adapter takes a D1 binding. So it is built and sanitized here
+ * and the binding stays the Worker's to supply, which is the pattern the database half already established.
+ *
+ * AND IT IS HOW cloud-storage IS ACTIVE. `@payloadcms/plugin-cloud-storage` is a dependency of storage-r2, not a
+ * plugin to configure beside it: the adapter installs the cloud-storage hooks itself. A config that listed both would
+ * be running the same hooks twice, which is why conform.ts counts a plugin reached THROUGH an adapter as reached.
+ */
+export const r2Config = (bucket: unknown) =>
+  buildConfig({
+    ...common,
+    db: sqliteAdapter({ client: { url: 'file:./conformance.db' } }),
+    plugins: [...plugins, r2Storage({ bucket: bucket as never, collections: { media: true } })],
+  })
 
 export default localConfig

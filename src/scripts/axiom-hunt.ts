@@ -20,6 +20,7 @@ import { hexbitRingMassGap } from '../hexbit/index.js'
 import { massGapOnBellBornField } from '../quantum/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 import { wrRoot } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 export type HuntCandidate = { theorem: string; assumes: string; where: string; live: () => boolean }
 export type HuntHeld = { lead: string; status: string; owes: string }
@@ -272,7 +273,7 @@ if (IS_CLI) {
   // exposed, because "no file" and "nothing exposed" must not render alike, which is the defect this whole
   // instrument exists to catch one level down.
   const out = { why: 'Assumptions the running code makes that NO sealed theorem states. Each is a lead: seal it, and axiom-hunt reports it proven on the next run. Written by src/scripts/axiom-hunt.ts on every run, empty included — an absent file and an empty set are different facts.', exposed: hunt.exposed.length, held: hunt.exposed }
-  wrRoot('lean/exposed-axioms.json', JSON.stringify(out, null, 1) + '\n')
+  wrArtifact('lean/exposed-axioms.json', out)
 
   if (hunt.exposed.length) {
     console.log(`⚠ axiom-hunt — ${hunt.exposed.length} axiom(s) in use with NO sealing theorem: seal each (add the fact to its domain generator, then npm run lean).`)

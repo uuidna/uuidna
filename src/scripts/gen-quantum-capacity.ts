@@ -34,6 +34,7 @@ import { handleOf } from '../handle.js'
 import { COINS, HANDLE_HEXBITS, capacityAt, fuseWidth } from '../hexbit/index.js'
 import { reportDataset, type Figure } from '../microdata.js'
 import { auditJsonLd } from '../schema-org-vocab.js'
+import { wrArtifact } from '../artifact.js'
 
 interface Row {
   model: string; org: string; type: string; year: number
@@ -331,7 +332,7 @@ if (jsonLdFailures.length) {
 
 mkdirSync(join(ROOT, 'docs', 'public'), { recursive: true })
 writeFileSync(join(ROOT, 'docs', 'public', 'quantum-capacity.jsonld'), JSON.stringify(dataset, null, 2) + '\n')
-writeFileSync(join(ROOT, 'lean', 'quantum-capacity.json'), JSON.stringify({ rows, receipt, measured: { nsDecade: m.nsDecade, ledger: m.ledger }, honest: UUIDNA.usableMetric }, null, 1) + '\n')
+wrArtifact('lean/quantum-capacity.json', { rows, receipt, measured: { nsDecade: m.nsDecade, ledger: m.ledger }, honest: UUIDNA.usableMetric })
 writeFileSync(join(ROOT, 'lean', 'quantum-capacity.md'), block + '\n')
 
 // /quantum carries the same sealed block between markers — replaced in place (home no longer hosts the full table).

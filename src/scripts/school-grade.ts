@@ -14,6 +14,7 @@ import { exerciseOfCourses } from '../school/grade/exercise/index.js'
 import { kernelPresent, kernelProbe } from '../school/grade/kernel/index.js'
 import { NO_SCHOOL_STORE } from '../school/routes/index.js'
 import type { CourseFile } from '../school/lesson/shape/index.js'
+import { wrArtifact } from '../artifact.js'
 
 const QUEUE_URL = process.env.SCHOOL_QUEUE ?? 'https://uuidna.com/school/submissions?status=queued'
 
@@ -47,8 +48,7 @@ async function main(): Promise<void> {
   // LEAD that holds the next release until the owner provisions it or the feature is retired by name.
   const unprovisioned = res.status === 503 && text.includes(NO_SCHOOL_STORE)
   const note = (state: string, why: string, graded: number, voided: number): void => {
-    writeFileSync(join(ROOT, 'lean', 'school-queue.json'),
-      JSON.stringify({ queue: QUEUE_URL, state, why, graded, void: voided }, null, 1) + '\n')
+    wrArtifact('lean/school-queue.json', { queue: QUEUE_URL, state, why, graded, void: voided })
   }
 
   if (unprovisioned) {

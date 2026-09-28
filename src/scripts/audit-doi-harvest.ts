@@ -19,6 +19,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { ZENODO_SEALS } from '../zenodo-seals.js'
 import { toUuid, merkleFold } from '../address.js'
+import { wrArtifact } from '../artifact.js'
 
 export interface HarvestRow {
   id: string
@@ -236,7 +237,7 @@ if (isMain) {
       if (r.twinSelfDeclared) console.log(`      NOTE    : the twin's record declares isIdenticalTo its own concept — a pointer to itself`)
     } else console.log(`      UNREAD  : ${r.reason}`)
   }
-  writeFileSync(join(ROOT, 'lean', 'doi-harvest.json'), JSON.stringify(h, null, 1) + '\n')
+  wrArtifact('lean/doi-harvest.json', h)
   console.log(`\n  ${h.readCount}/${h.owned} read · ${h.agreeing} agree · ${h.disagreeing.length} disagree · receipt ${h.receipt}`)
   if (h.disagreeing.length) {
     console.log('\n✗ audit-doi-harvest — this repository claims a record the public record does not support:')

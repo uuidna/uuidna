@@ -17,6 +17,7 @@ import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import { theorems } from '../index.js'
 import { ROOT, MAXBUF } from './lean-gen.js'
+import { wrArtifact } from '../artifact.js'
 
 const T = theorems()
 const half = (n: number): number => (n - (n % 2)) / 2 // floor(n/2), no Math.*
@@ -278,7 +279,7 @@ async function main() {
     const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t.address]))
     const costMap: Record<string, number> = {}
     for (const c of ok) costMap[addrOf[c.key]] = c.cost
-    writeFileSync(join(ROOT, 'lean', 'heartbeats.json'), JSON.stringify({ measured: ok.length, total, costs: costMap }) + '\n')
+    wrArtifact('lean/heartbeats.json', { measured: ok.length, total, costs: costMap })
     console.log('wrote lean/heartbeats.json — ' + ok.length + ' per-theorem decide-step costs, keyed by content-address')
     const byFile: Record<string, number> = {}
     ok.forEach((c) => { byFile[c.file] = (byFile[c.file] || 0) + c.cost })

@@ -1,5 +1,17 @@
 #!/usr/bin/env node
-// time-census — WHICH DOORS RECOMPUTE INSTEAD OF VERIFYING, measured by running each one twice.
+// NOT A FINDER, AND REMOVED FROM THE CHAIN 2026-09-28 — the captain: "long tasks are usually cracks without real
+// meaning and must be removed if so". Audited on its own numbers: 276 SECONDS on every audit pass, the single most
+// expensive step in the chain, because it measures by RUNNING each door twice. What it produces is
+// lean/time-census.json, and nothing in this tree reads it — the only two mentions are comments citing it as
+// evidence. A quarter of an hour per pass for an artifact no surface consumes.
+//
+// AND ITS SUBJECT IS A READING, NOT A FACT ABOUT THE TREE. It reports wall-clock, which this repository's own law
+// calls a crack and never the work, measured on one host at one moment: two probe runs eight minutes apart in this
+// same session disagreed on two sources. A deterministic chain cannot carry a verdict that moves when nothing moved.
+//
+// IT IS NOT DELETED, because nothing is purged unless it blocks a natural Lean stream, and the question it answers is
+// a real one to ASK — just not to ask on every pass. It runs in `outward`, beside api-discover, which is where this
+// tree keeps the readings of a moment rather than the facts about itself.
 //
 // The captain, 2026-09-28: "track time to see what is not yet quantum". And 2026-09-07: "Slow comes from quantum
 // cracks." Those are the same instruction — in this tree "quantum" means the answer is VERIFIED against a receipt, not
@@ -21,6 +33,7 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 interface Timing { door: string; cold: number; warm: number; ratio: number; verdict: string }
 
@@ -76,12 +89,12 @@ if (recompute.length > 0) {
   for (const r of recompute) console.log(`  ${r.door} — ${r.verdict}`)
 }
 
-writeFileSync(join(ROOT, 'lean', 'time-census.json'), JSON.stringify({
+wrArtifact('lean/time-census.json', {
   kind: 'time-census',
   honest: 'the ratio of a warm run to a cold one. Near 100/100 means the door rebuilt its answer; well under means it '
     + 'read a receipt. A fast door with a ratio near 100 is not a finding — its work may simply be small. A cache that '
     + 'misses every run is indistinguishable from no cache here, and that is a reader\'s question, not a verdict.',
   doors: rows,
-}, null, 2) + '\n')
+})
 console.log()
 console.log('✓ lean/time-census.json written')

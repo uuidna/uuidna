@@ -25,6 +25,7 @@ import { toUuid } from '../address.js'
 import { parseAxiomReport, wingAskedKey, reusableWings, type WingReceipt } from '../axiom-report.js'
 import { measured, appendEvidence, loggedEvidence, freeMemoryBytes } from './device-readings.js'
 import { memoryPool } from '../memory-pool.js'
+import { wrArtifact } from '../artifact.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
 
 const T = theorems()
@@ -327,7 +328,7 @@ async function main() {
   }
   // PAST THE DRAIN, so this receipt is only ever written by a run that covered its whole subject
   if (!check) {
-    writeFileSync(join(ROOT, 'lean', 'axioms.json'), JSON.stringify(receipt) + '\n')
+    wrArtifact('lean/axioms.json', receipt)
     console.log('wrote lean/axioms.json — ' + audited + '/' + T.length + ' theorems audited, keyed by content-address')
   }
   console.log('\n✓ every theorem depends on NO axioms — the ledger recomputes from the kernel alone.')

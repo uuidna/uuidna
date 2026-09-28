@@ -21,6 +21,7 @@ import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { toUuid } from '../address.js'
 import { reportDataset, type Figure } from '../microdata.js'
 import { auditJsonLd } from '../schema-org-vocab.js'
+import { wrArtifact } from '../artifact.js'
 
 const port = defaultInstalls()
 const home = port.specs[port.specs.length - 1]!
@@ -336,7 +337,7 @@ if (jsonLdFailures.length) {
 }
 
 writeFileSync(join(ROOT, 'docs', 'public', 'alpine-hexbit-monitor.jsonld'), JSON.stringify(dataset, null, 2) + '\n')
-writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
+wrArtifact('lean/alpine-hexbit-monitor.json', {
   completeness: {
     definition: completeness.definition,
     total: completeness.total,
@@ -394,14 +395,14 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
   honest: 'Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.',
-}, null, 1) + '\n')
+})
 
-writeFileSync(join(ROOT, 'lean', 'mcp-alpine-man.json'), JSON.stringify({
+wrArtifact('lean/mcp-alpine-man.json', {
   ...mcpMan,
   pct: Number(mcpPct),
   before: { exposed: 'sample-only', wireDoorsIfNaive: mcpMan.naiveWireIfPerApp },
   after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors, catalogManDriven: `${completeness.witnessed}/${completeness.total}` },
-}, null, 1) + '\n')
+})
 
 console.log(`✓ docs/os.md — default install ${port.count} paths + monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, self-test ${selfTest.passed}/${selfTest.total}, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
 console.log(`  → docs/public/alpine-hexbit-monitor.jsonld · lean/alpine-hexbit-monitor.json · receipt ${monitorReceipt}`)

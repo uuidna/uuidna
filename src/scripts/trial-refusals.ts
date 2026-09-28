@@ -31,6 +31,7 @@ import { wingAskedKey } from '../axiom-report.js'
 import { theorems } from '../index.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
+import { wrArtifact } from '../artifact.js'
 
 /** read a source the trial cannot run without — missing or malformed is a STOP, never an empty list */
 const requireJson = <T>(rel: string): T => {
@@ -247,7 +248,7 @@ const main = async (): Promise<void> => {
     })
   }
   const record = buildTrialRecord()
-  writeFileSync(join(ROOT, 'lean', 'refusal-trials.json'), JSON.stringify(record, null, 1) + '\n')
+  wrArtifact('lean/refusal-trials.json', record)
 
   // LIVE EVIDENCE FOR THE COURT'S INVESTIGATORS (the captain, 2026-09-14: "fuse all related apis on the way to help court
   // with legal live evidence" · "not only law apis. all apis the court investigators need to professionally

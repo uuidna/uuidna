@@ -28,6 +28,7 @@ import { fetchCatalogue, catalogueAddress } from '../os/apps/index.js'
 import { dispatchAll, refusalReport, type Claimed } from '../quantum/dispatch/index.js'
 import { handleOf } from '../handle.js'
 import { classifyIndex, coverageOf, type IndexCell } from '../os/apps/coverage.js'
+import { wrArtifact } from '../artifact.js'
 
 const repos = ['main', 'community']
 const catalogue = await fetchCatalogue(repos)
@@ -153,10 +154,10 @@ is honest at the \`src/os\` boundary and nowhere else in this tree.*
 
 // coverage travels WITH the catalogue: the count and its denominator are one fact, and a consumer that can read
 // the first without the second is exactly how "28630 packages" came to sound like all of Alpine
-writeFileSync(join(ROOT, 'lean', 'alpine-apps.json'), JSON.stringify({
+wrArtifact('lean/alpine-apps.json', {
   ...catalogue, address, dispatch: run,
   coverage: { published: coverage.published, read: coverage.read, unread: coverage.unread, breadth: coverage.breadth, receipt: coverage.receipt },
-}, null, 1) + '\n')
+})
 writeFileSync(join(ROOT, 'lean', 'alpine-apps.md'), block + '\n')
 
 console.log(`✓ gen-alpine-apps — ${catalogue.count} packages / ${catalogue.origins} projects ported from ${repos.join(' + ')} (${catalogue.branch}, ${catalogue.arch})`)

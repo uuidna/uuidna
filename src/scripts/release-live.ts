@@ -16,6 +16,7 @@ import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { releaseLive } from '../release-live.js'
+import { wrArtifact } from '../artifact.js'
 
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { name: string; version: string }
 const want = process.argv.find((a) => /^\d+\.\d+\.\d+$/.test(a)) ?? pkg.version
@@ -38,7 +39,7 @@ for (const c of r.checks) {
 console.log(`\n  npm latest ${r.npmLatest || '(none)'} · zenodo newest ${r.zenodoLatest || '(none)'} · tree ${want}`)
 console.log(`  ${r.passed}/${r.checks.length} live · ${r.unread} unread · ${r.pending} pending (v${want} ${tagged ? 'is tagged' : 'has NO tag — not cut'}) · receipt ${r.receipt}`)
 
-writeFileSync(join(ROOT, 'lean', 'release-live.json'), JSON.stringify(r, null, 1) + '\n')
+wrArtifact('lean/release-live.json', r)
 
 if (r.gaps.length > 0 && r.gaps.some((g) => !g.fix.startsWith('the subject could not be read'))) {
   console.log('\n✗ release-live — the public record does not carry the release this tree describes:')

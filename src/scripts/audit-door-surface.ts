@@ -39,6 +39,7 @@
 // the live site already lives. Each run walks a bounded sample (UUIDNA_DOOR_SAMPLE, default 24) and says how much of
 // the surface it covered, so the routine run is a handful of calls and a full comparison is asked for explicitly.
 import { wrRoot } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 const HOST = 'https://uuidna.com/mcp'
 const SAMPLE = Number(process.env.UUIDNA_DOOR_SAMPLE ?? 24)
@@ -136,7 +137,7 @@ const out = {
   open: leads.filter((l) => l.status === 'open').length,
   held: leads,
 }
-wrRoot('lean/door-surface.json', JSON.stringify(out, null, 1) + '\n')
+wrArtifact('lean/door-surface.json', out)
 
 console.log(`audit-door-surface — ${leads.length} row(s), ${out.open} open → lean/door-surface.json${unmeasured ? ' (UNMEASURED: ' + unmeasured + ')' : ''}`)
 for (const l of leads) console.log(`  · [${l.status}] ${l.lead.slice(0, 160)}`)

@@ -7,6 +7,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { BROWSER_SURFACES, browserAppsUsable, type BrowserAppsUsable } from '../quantum/apps/browser-usable.js'
 import { toUuid } from '../address.js'
+import { wrArtifact } from '../artifact.js'
 
 const live = process.argv.includes('--live')
 const baseArg = process.argv.find((a) => a.startsWith('--base='))
@@ -50,7 +51,7 @@ const out: BrowserAppsUsable & { receipt: string; live?: LiveHit[]; base?: strin
   ...(live ? { live: liveHits, base: BASE } : {}),
 }
 
-writeFileSync(join(ROOT, 'lean', 'browser-apps-usable.json'), JSON.stringify(out, null, 2) + '\n')
+wrArtifact('lean/browser-apps-usable.json', out)
 
 const liveFail = liveHits.filter((h) => !h.ok)
 const ok = report.ok && liveFail.length === 0
