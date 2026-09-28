@@ -186,7 +186,52 @@ const apiLeadSources: (() => SourceReading)[] = API_LEAD_READERS.map(({ source, 
   }
 })
 
-const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads, ...apiLeadSources]
+// ── REFUSALS BECOME LEADS (the captain, 2026-09-28: "send refusals to leads") ────────────────────────────────────────
+//
+// A refusal named in a census report binds nothing. refusal-census has counted the tree's gates since this morning —
+// 386 of them, 162 grounded in a sealed theorem and 224 bare — and printed the list every audit while the number went
+// UP: three gates added that day, none grounded, none removed. Printing is not holding. A lead holds a release, which
+// is the only thing in this tree that makes an order outlive the session that gave it.
+//
+// ONE LEAD PER FILE, NOT PER SITE. 224 sites across 35 files: a lead per site would be 224 rows saying the same thing
+// about the same module, and the decision is per file anyway — either that module's refusals rest on a theorem it names
+// or they do not. The site count rides in the text so the weight is visible.
+//
+// THE SECURITY CARVE-OUT IS THE CAPTAIN'S OWN AND CHANGES WHAT THE LEAD OWES, NEVER WHETHER IT EXISTS. "This never
+// licenses deleting access control or secret handling; derive them instead" (2026-09-14), so a file whose refusals guard
+// credentials or secrets owes a DERIVATION, and the lead says so rather than asking for a deletion that would be
+// refused. Four such sites are in the bare set.
+//
+// AND IT READS THE ARTIFACT, SO AN UNRUN CENSUS BLOCKS. The census is a door with its own receipt; this source reads
+// what that door sealed. If the artifact is absent the reading is UNREAD and holds the release — because "no refusals
+// found" and "I never counted" are the same empty list, which is the defect this whole module exists to refuse.
+function refusalLeads(): SourceReading {
+  let census: { sites: number; files: { file: string; gates: number; grounded: boolean; security: number }[] }
+  try {
+    const raw = JSON.parse(readFileSync(join(ROOT, 'lean', 'refusal-census-receipt.json'), 'utf8')) as Record<string, unknown>
+    const value = (raw.value ?? raw) as typeof census
+    if (!Array.isArray(value.files)) throw new Error('no files array')
+    census = value
+  } catch (e) {
+    return unread('refusals', `lean/refusal-census-receipt.json is absent or unreadable (${e instanceof Error ? e.message : String(e)}) — run \`npm run x -- refusal-census\`; an uncounted tree is not an ungated one`)
+  }
+  const gated = census.files.filter((f) => f.gates > 0)
+  const bare = gated.filter((f) => !f.grounded)
+  const groundedSites = gated.filter((f) => f.grounded).reduce((n, f) => n + f.gates, 0)
+  const open: Lead[] = bare
+    .slice()
+    .sort((a, b) => (b.gates - a.gates) || (a.file < b.file ? -1 : 1))
+    .map((f) => ({
+      source: 'refusals',
+      what: `${f.file} refuses ${f.gates} time(s) with no sealed theorem named in it`,
+      owes: f.security > 0
+        ? `${f.security} of these guard access control or secrets, which the captain exempts from deletion — DERIVE them from a theorem and name it in the file`
+        : 'name the theorem the refusal rests on, or remove the gate — a refusal that answers to nothing is furniture with authority',
+    }))
+  return read('refusals', open, groundedSites)
+}
+
+const LEAD_SOURCES: readonly (() => SourceReading)[] = [ledgerLeads, exposeLeads, coverageLeads, researchLeads, alpineCommunityLeads, refusalLeads, ...apiLeadSources]
 
 export function gatherLeads(): SourceReading[] {
   return LEAD_SOURCES.map((s) => {
