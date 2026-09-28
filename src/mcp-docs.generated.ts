@@ -13270,7 +13270,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"generators\":82,\"surfaces\":101,\"edges\":109,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":87,\"receipt\":\"cffe47e0-4b37-8652-ab05-d874d096c5e1\",\"handle\":\"cffe47…"
+   "excerpt": "{\"generators\":83,\"surfaces\":102,\"edges\":110,\"unowned\":[\"lean\"],\"uncoined\":[],\"outsideSpin\":88,\"receipt\":\"9a1c877c-e390-8216-bdb0-b347d9e3f528\",\"handle\":\"9a1c87…"
   }
  },
  "uuidna_hex_programs": {
@@ -15954,7 +15954,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":58,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":58,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":57,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":57,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
