@@ -10,7 +10,7 @@
 // mechanism wired to nothing is the same defect src/api-leads.ts was written to fix on the API side, and here it is
 // again on the tool side: the requests arrived, were written down, and stopped.
 //
-// AND THE RECORD CANNOT SURVIVE A CHECKOUT. dist/ is gitignored, so the census is session-local: CI has never seen a
+// AND THE RECORD DOES NOT SURVIVE A CHECKOUT, because dist/ is gitignored — so the census is session-local: CI has never seen a
 // single gap, and a clean clone reads zero. That is why this door exists rather than a reader pointed straight at the
 // jsonl — the gate must read a COMMITTED artefact, the way it reads lean/doi-harvest.json.
 //

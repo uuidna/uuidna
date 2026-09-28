@@ -19,6 +19,7 @@
 
 import { theorems } from '../theorems/index.js'
 import { characteristicNumerals } from '../formula.js'
+import { bridges as bridgesOf, carriedCount } from '../entanglement.js'
 
 const ARG = process.argv.slice(2)
 const wanted = (flag: string, fallback: number): number => {
@@ -30,35 +31,15 @@ const wanted = (flag: string, fallback: number): number => {
 const MAX_CARRIERS = wanted('--carriers', 4)
 const SHOW = wanted('--show', 40)
 
-// ── one walk: every characteristic integer, and the wings that carry it
-const carriers = new Map<string, Set<string>>()
-const keyOf = new Map<string, string>()
-for (const t of theorems()) {
-  const wing = String(t.file).replace(/\.lean$/, '')
-  for (const v of characteristicNumerals(String(t.statement ?? ''))) {
-    const s = carriers.get(v) ?? new Set<string>()
-    if (!s.has(wing)) keyOf.set(`${v}|${wing}`, String(t.key))
-    s.add(wing)
-    carriers.set(v, s)
-  }
-}
-
-// AN ENUMERATED FAMILY IS ONE CARRIER, NOT SIXTEEN. HexSpan1..16 and EquilibriumXor1..64 are one wing split across
-// files; counting them separately would make every integer in them look widely shared and drown the real bridges.
-const family = (wing: string): string => wing.replace(/\d+$/, '')
-const bridges: { value: string; wings: string[]; families: number }[] = []
-for (const [value, wingSet] of carriers) {
-  const wings = [...wingSet].sort()
-  const fams = new Set(wings.map(family))
-  if (fams.size < 2) continue          // a single family sharing with itself is its own arithmetic
-  if (fams.size > MAX_CARRIERS) continue // a quantity many families carry is a counting number
-  bridges.push({ value, wings, families: fams.size })
-}
-bridges.sort((a, b) =>
-  a.families - b.families
-  || (BigInt(b.value) > BigInt(a.value) ? 1 : BigInt(b.value) < BigInt(a.value) ? -1 : 0))
-
-const distinct = carriers.size
+// ── one walk: every characteristic integer, and the wings that carry it. THE RULE LIVES IN src/entanglement.ts so the
+// CODATA proving door shares it rather than restating it — a duplicated criterion drifts, and the drift is invisible
+// because each copy stays self-consistent.
+const rows = theorems().map((t) => ({
+  file: String(t.file),
+  numerals: characteristicNumerals(String(t.statement ?? '')),
+}))
+const bridges = bridgesOf(rows, MAX_CARRIERS)
+const distinct = carriedCount(rows)
 console.log(`characteristic integers ${distinct} · bridges (shared by 2..${MAX_CARRIERS} wing families) ${bridges.length}`)
 console.log()
 for (const b of bridges.slice(0, SHOW)) {

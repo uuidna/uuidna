@@ -2,7 +2,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { LIFE_APIS, LIFE_API_KINDS, LIFE_APIS_NEEDING_A_KEY } from './life-apis.js'
 
-// THE REGISTRY'S OWN RULE, inherited from the school registry: a source cannot be added without saying how to check it.
+// THE REGISTRY'S OWN RULE, inherited from the school registry: a source is not addable without saying how to check it —
+// by construction, since this test requires a probe on every row and fails the build for a row that lacks one.
 test('every source declares a probe, so none can be added unverifiable', () => {
   assert.ok(LIFE_APIS.length >= 20, 'the family is declared')
   for (const a of LIFE_APIS) {

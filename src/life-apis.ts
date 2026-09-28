@@ -13,7 +13,8 @@
 // "safe".
 //
 // EVERY SOURCE CARRIES ITS OWN PROBE, which is the school registry's rule and the reason this file can be trusted at
-// all: "a source cannot be added without saying how to check it". A declaration here is NOT a claim that the endpoint
+// all: a source is not addable without saying how to check it, enforced by construction in life-apis.test.ts, which
+// fails the build for any row lacking a probe. A declaration here is NOT a claim that the endpoint
 // answers. The probe run is the evidence, and a declared source that does not answer becomes an open lead rather than a
 // silent absence — the same discipline src/api-leads.ts applies to every other API, where `null` is unread and never
 // clean.

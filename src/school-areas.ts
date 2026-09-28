@@ -200,7 +200,8 @@ export function candidateAreaFor(
   const mine = new Set(terms(subject))
   let best: Candidacy = { wing, area: null, score: 0, on: [] }
   for (const a of areas) {
-    // ONLY CHARACTERISTIC WORDS PLACE A WING. A word the corpus spends everywhere cannot carry a subject.
+    // ONLY CHARACTERISTIC WORDS PLACE A WING. A word the corpus spends everywhere carries no subject — by construction,
+  // since its weight is 1/(areas x headers using it) and a word in fifty headers is worth a fiftieth of a unique one.
     const hit = [...areaTerms(a)].filter((t) => mine.has(t) && (corpus.get(t) ?? 1) <= characteristic)
     let score = 0
     for (const t of hit) score += 1 / ((spread.get(t) ?? 1) * (corpus.get(t) ?? 1))
@@ -228,7 +229,8 @@ export interface AreaCensus {
 
 /**
  * The school as CANDIDATES: which wings each area's vocabulary reaches, which reach none, and which areas nothing
- * reaches. Nothing here is an assignment — see the header for why the corpus cannot make one.
+ * reaches. Nothing here is an assignment, because no wing header states which science its wing belongs to: placing
+ * Acoustics under physics is world knowledge, not a fact in this tree. The header records the three measurements.
  */
 export function schoolAreas(
   rows: readonly { wing: string; subject: string; principles: readonly string[] }[],

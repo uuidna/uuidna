@@ -18,7 +18,8 @@ test('the four dimensions each name a leg, and none is self-certifiable', () => 
   }
 })
 
-// A DIMENSION THAT CANNOT FAIL IS THE DEFECT THIS WHOLE FILE IS ABOUT, so each one states its own failure shape.
+// A DIMENSION WITH NO FAILURE SHAPE IS THE DEFECT THIS WHOLE FILE IS ABOUT — by construction, since a criterion whose
+// negation is unstatable admits every submission — so each one states its own failure shape and this test requires it.
 test('every dimension states a failure shape distinct from its evidence', () => {
   for (const d of ASSESSMENT) assert.notEqual(d.fails, d.evidence)
 })
