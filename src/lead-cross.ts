@@ -34,7 +34,8 @@ const WORDS = (s: string): string[] => (s.toLowerCase().match(/[a-z]{4,}/g) ?? [
  * A word is common when it appears in more than a quarter of the leads AND in more than two of them. The second
  * condition is not decoration: with a share alone the rule degenerates on small corpora, and measured on a three-lead
  * corpus the cap is 0.75, so a word appearing in ONE lead counted as common and every lead came out with no distinctive
- * words at all. A word in two leads cannot be what most leads share, whatever the arithmetic of the share says.
+ * words at all. A word in two leads cannot be what most leads share: the floor of two is a DECLARED BOUNDARY of this
+ * rule, chosen because the share alone degenerates below four leads, as the measurement above shows.
  */
 export function commonWords(leads: readonly LeadRow[], shareCap = 4): Set<string> {
   const seen = new Map<string, number>()
