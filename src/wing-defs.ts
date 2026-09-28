@@ -119,3 +119,56 @@ export function simpleDefs(source: string): SimpleDef[] {
   }
   return out
 }
+
+// ── READ ONE WING ────────────────────────────────────────────────────────────────────────────────────────────────────
+//
+// THE GAP LOG ASKED FOR THIS 215 TIMES. audit-door-demand ranks the recorded escapes and "a door that wings" is the
+// largest family by a factor of two and a half over the next; reading the asks verbatim rather than their verb, they
+// cluster on one capability — "returns raw lean wing source text", "prints a wing's defs and theorems", "counting
+// theorems in one lean wing while the hosted index door is down", "reads a wing generator's entry format".
+//
+// AND EVERY PIECE ALREADY EXISTED. simpleDefs above parses a wing's own definitions and is used by wing-shadow and the
+// involution evaluator; theorems() carries each sealed row's file, key, statement, principle and address. Nothing was
+// missing except the composition and a door, which is the shape this tree keeps finding: not absent work, unreachable
+// work. So this adds no parser and no census — it joins two things that are already proven and already tested.
+//
+// PURE, AND THE SOURCE IS HANDED IN. The Lean text lives on disk and the hosted edge has no filesystem, so reading it
+// is the door's job and deciding what it means is this function's. That split is why the function is testable without a
+// checkout, and why the door can answer the ledger half at the edge even where the source half is unavailable.
+
+export interface WingTheorem { key: string; name: string; statement: string; principle: string; address: string }
+
+export interface WingRead {
+  wing: string
+  /** the wing's own definitions, parsed by simpleDefs — what the second implementation had to be taught */
+  defs: SimpleDef[]
+  theorems: WingTheorem[]
+  count: number
+  /** every principle the wing's theorems are filed under, deduplicated in first-seen order */
+  principles: string[]
+  /** the raw Lean, only when asked for and only when a filesystem answered — never an empty string standing in */
+  source: string | null
+  /** bytes of Lean read, reported even when the text itself is withheld, so a caller knows the wing is not empty */
+  bytes: number
+}
+
+/**
+ * wingRead(wing, source, rows) → what this repository knows about one wing.
+ *
+ * `source` may be null where no filesystem answered, and then `defs` is empty and `bytes` is 0 — which is NOT the same
+ * answer as a wing with no definitions, so the two are distinguishable by `source === null`. Collapsing them would be
+ * the two-valued instrument over a three-answer question that theorem no_instrument_narrower_than_its_question forbids.
+ */
+export function wingRead(wing: string, source: string | null, rows: readonly WingTheorem[], withSource = false): WingRead {
+  const principles: string[] = []
+  for (const r of rows) if (r.principle && !principles.includes(r.principle)) principles.push(r.principle)
+  return {
+    wing,
+    defs: source === null ? [] : simpleDefs(source),
+    theorems: [...rows],
+    count: rows.length,
+    principles,
+    source: withSource ? source : null,
+    bytes: source === null ? 0 : source.length,
+  }
+}
