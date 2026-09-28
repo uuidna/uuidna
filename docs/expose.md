@@ -11,8 +11,8 @@ seals, and regenerates on every reconcile — a board of TODAY's digs, not a his
 opens is two calls: `uuidna_expose` finds the coordinates, and `uuidna_wave_deposit` saves candidates into
 [the conveyor](/waves), where the kernel judges each alone.
 
-**Counts:** 68 lonely · 0 grid gap(s) · 0 pair gap(s) ·
-fold receipt `0d8f2b43-8f3b-8828-8086-8337997d693c`
+**Counts:** 69 lonely · 0 grid gap(s) · 0 pair gap(s) ·
+fold receipt `6eb58061-7ee2-8996-a6e8-e6952f2b9d3f`
 
 ## Lonely principles — clusters of one, asking for their second
 
@@ -89,6 +89,7 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 | [`involution_90c4f258`](/theorem/involution_90c4f258) | Involution90c4f258.lean | The involution of lead 90c4f258 |
 | [`proof_de5612a2`](/theorem/proof_de5612a2) | Proofde5612a2.lean | The proof of lead de5612a2 |
 | [`proof_f59dbc3d`](/theorem/proof_f59dbc3d) | Prooff59dbc3d.lean | The proof of lead f59dbc3d |
+| [`two_routes_reach_four_hundred_and_thirty_two`](/theorem/two_routes_reach_four_hundred_and_thirty_two) | CoinsBalance.lean | THE COINS BALANCE |
 
 ## Grid gaps — the 432 grid's own report
 

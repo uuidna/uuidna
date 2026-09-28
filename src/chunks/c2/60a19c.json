@@ -1,0 +1,12 @@
+{
+  "handle": "c260a19c",
+  "address": "c260a19c-fe99-898c-adcf-bae7960db02a",
+  "statement": "(0 < 71034) ∧ (0 + 71034 = 71034)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

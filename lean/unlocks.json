@@ -1,8 +1,8 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 71094,
- "distinct": 71009,
- "skills": 132,
+ "keys": 71089,
+ "distinct": 71004,
+ "skills": 131,
  "files": 262,
  "bySkill": [
   {
@@ -478,10 +478,6 @@
    "n": 4
   },
   {
-   "name": "occupancy",
-   "n": 4
-  },
-  {
    "name": "structures",
    "n": 4
   },
@@ -518,10 +514,6 @@
    "n": 2
   },
   {
-   "name": "harmonics",
-   "n": 2
-  },
-  {
    "name": "memory",
    "n": 2
   },
@@ -531,6 +523,10 @@
   },
   {
    "name": "clay-reflection",
+   "n": 1
+  },
+  {
+   "name": "harmonics",
    "n": 1
   }
  ],
@@ -908,6 +904,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live state-vector computation, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "09de5fff-5ff1-8f24-b9a3-da7e50c8e43a",
+ "receipt": "d4041216-1831-8db6-914f-5c6e2389dbb5",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

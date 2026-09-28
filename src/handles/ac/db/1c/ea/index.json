@@ -1,0 +1,12 @@
+{
+  "handle": "acdb1cea",
+  "address": "acdb1cea-7fa3-8162-904f-0ee1f5570315",
+  "kind": "chunk",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "statement": "(0 < 258) ∧ (0 < 3) ∧ (71034 = 71034 + 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}

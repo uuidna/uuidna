@@ -1,20 +1,5 @@
 -- lean/CoinsBalance.lean — GENERATED. THE COINS BALANCE — seven rows MOVED from qpu (src/quantum/processing/unit/index.lean), where they sat beside a processing unit's efficiency while measuring something else: the string ratios over 27, the same fractions as a separate published row, the pentagram as three words plus two coins, the schema combinatorics that reach 432, theory and practice as one coin each, the two coins following every application, and the coil as the fourteen faces. THE CAPTAIN RULED MOVE, NOT DELETE (2026-09-27), and that ruling is the design: a sealed theorem is a published record and no one withdraws a settlement, so qpu's defs are carried verbatim and every claim is the claim it was, re-proven here. Measured before the move: nothing in qpu cites any of these seven, so removing them there breaks no kernel proof — while two_coins_make_a_coil and design were LEFT because coil_efficiency and neuro cite them. CLAIMED: this arithmetic, decided by the kernel over its own finite domain, axiom-free, with the universal row carrying its quantifier rather than a sample. NOT CLAIMED: that 432 is a correct tuning, that any framework must be built on these integers, or that an aphorism becomes true by being decidable — each row proves its arithmetic and the reading beside it stays a reading. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-def mintOf : Nat → Nat | 0 => 1 | k + 1 => mintOf k + mintOf k
-def chooseOf : Nat → Nat → Nat | _, 0 => 1 | 0, _ + 1 => 0 | n + 1, k + 1 => chooseOf n (k + 1) + chooseOf n k
-def n : Nat := ["quantum", "processing", "unit"].length
-def seed : Nat := mintOf (n - n)
-def coins : Nat := seed + seed
-def scanner : Nat := seed
-def radar : Nat := seed
-def rays : Nat := n + coins + coins
-def vertices : Nat := mintOf n
-def hexbit : Nat := mintOf coins
-def faces : Nat := vertices + hexbit + coins
-def theory : Nat := seed
-def practice : Nat := seed
-def coil : Nat := coins * rays
-
 /-- FOUR HUNDRED AND THIRTY-TWO IS REACHED TWICE, BY ROUTES THAT SHARE NO STEP — and the agreement is the claim.
     From the string side it is sixteen twenty-sevens: the integer multiples of 27 that a monochord divides. From
     the combinatorial side it is 2 × 3 × 8 × 9 — two coins, the three words of "quantum processing unit", the
