@@ -1,0 +1,184 @@
+{
+ "kind": "refusal-grounds",
+ "why": "A refusal is only as good as its ground. A guard step that cites a theorem the ledger seals refuses with the kernel's authority; one that decides by a written rule refuses with its author's. This reads the guard's own source, so a finder added tomorrow is classified the day it lands, and it verifies every citation against the sealed set, because a citation to a theorem that does not exist counts for nothing.",
+ "finders": 68,
+ "grounded": 1,
+ "writtenRule": 67,
+ "groundedRows": [
+  {
+   "finder": "legal",
+   "grounded": true,
+   "cited": [
+    "two_coins"
+   ],
+   "unsealedCitations": []
+  }
+ ],
+ "writtenRuleRows": [
+  "prose",
+  "dry",
+  "linear",
+  "memo",
+  "coherent",
+  "involution",
+  "threshold",
+  "absence",
+  "pipes",
+  "actions",
+  "vacuous",
+  "tautology",
+  "lfs",
+  "citations",
+  "literal",
+  "constant",
+  "binary",
+  "orphan",
+  "unit",
+  "hexbit",
+  "incomplete",
+  "markup",
+  "name",
+  "deadkey",
+  "lines",
+  "counts",
+  "expected",
+  "census",
+  "negation",
+  "frozen",
+  "state",
+  "folders",
+  "imports",
+  "blocks",
+  "pairs",
+  "drain",
+  "precede",
+  "stale",
+  "scripts",
+  "landing",
+  "deploy-verify",
+  "leads",
+  "latex-crosscheck",
+  "memory-home",
+  "impossibility",
+  "attestation",
+  "accounting",
+  "prose-provenance",
+  "mcpcite",
+  "stamp",
+  "ratchet",
+  "leak",
+  "underreach",
+  "claim-balance",
+  "ledger-drain",
+  "axiom-reach",
+  "deposit-grade",
+  "geometry-exact",
+  "mirror",
+  "lanes",
+  "context",
+  "ship-assets",
+  "ship-links",
+  "ship-edge",
+  "ship-pages",
+  "pages",
+  "comments"
+ ],
+ "fabricatedCitations": [
+  {
+   "finder": "absence",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "address"
+   ]
+  },
+  {
+   "finder": "unit",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "computes"
+   ]
+  },
+  {
+   "finder": "hexbit",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "claiming"
+   ]
+  },
+  {
+   "finder": "name",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "statements"
+   ]
+  },
+  {
+   "finder": "counts",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "address"
+   ]
+  },
+  {
+   "finder": "census",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "claiming"
+   ]
+  },
+  {
+   "finder": "negation",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "within"
+   ]
+  },
+  {
+   "finder": "imports",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "identically"
+   ]
+  },
+  {
+   "finder": "leads",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "proved"
+   ]
+  },
+  {
+   "finder": "ledger-drain",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "reaches"
+   ]
+  },
+  {
+   "finder": "pages",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "combination"
+   ]
+  },
+  {
+   "finder": "comments",
+   "grounded": false,
+   "cited": [],
+   "unsealedCitations": [
+    "carries"
+   ]
+  }
+ ]
+}
