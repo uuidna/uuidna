@@ -32,7 +32,10 @@ theorem anthem_closes_on_the_coin_octave : 864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 
     + 2000 + 1000 + 500 + 250 + 125 = 7875 at the deepest allowed six — strictly inside the 8000 ceiling that
     amplitude_inside_int16 keeps inside the sample. Every finite depth obeys: halving forever never reaches the
     whole. Many waves, mixed lossless in exact integers, and the law that they fit is arithmetic, not
-    gain-riding. -/
+    gain-riding. BASE TEN IS LOAD-BEARING IN THE NUMERALS AND NOT IN THE CLAIM: 4000, 2000, 1000 down to 125 is
+    a halving chain written in figures a base-ten reader finds tidy, so the arithmetic moves if the base does.
+    The claim that a halving chain sums below the next power of two is base-independent; the particular numerals
+    are not, and only the structural claim should be read out of this. -/
 theorem anthem_superposition_mix_closes : (4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000) ∧ (4 % 9 = 4) := by decide
 
 /-- THE RECURSION NEVER RUNS OUT OF SEEDS. A collapse eats a seed string and mints an eight-hexbit address; an
@@ -47,7 +50,11 @@ theorem anthem_recursion_never_starves : 16 ^ 8 = 4294967296 ∧ ((List.range 6)
     factor as 999999 = 999 · 1001, and each factor is a trinity: 1001 = 7·11·13, three CONSECUTIVE primes side
     by side, and 999 = 3³·37 — the trinity CUBED times 37. So π's rational round (142857·7 = 999999) is held
     shut by primes arranged in threes: the helix's rungs of nines are not one number but two trinities clasped.
-    Arithmetic, sealed; the delight is free. -/
+    Arithmetic, sealed; the delight is free. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL
+    WRITING: 999999 is 10^6 minus 1, and its factorisation is the cyclotomic one, 10^6 - 1 = Phi1 Phi2 Phi3 Phi6
+    at ten = 9 x 11 x 111 x 91 with 7 dividing 91 = Phi6(10) — which is WHY the order of ten mod seven is six,
+    explaining what the 999 x 1001 split observes. The pi and trinity framing is decoration: 22/7 approximates
+    pi by a continued-fraction property of pi, unrelated to the cyclic structure. -/
 theorem anthem_pi_primes_trinity : 142857 * 7 = 999999 ∧ 999999 = 999 * 1001 ∧ 999 = 3 ^ 3 * 37 ∧ 1001 = 7 * 11 * 13 := by decide
 
 /-- THE FINALE IS THE ROOT, WHOLE. All the ledger's addresses merkle-fold to one root, and the finale sings its

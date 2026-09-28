@@ -100,10 +100,33 @@ test('baseVerdictOf — failing only on a one-digit artefact is SUSPECT, not not
   assert.match(v.why, /ambiguous/)
 })
 
-test('baseVerdictOf — a multi-digit artefact still convicts', () => {
+test('baseVerdictOf — an artefact at exponent two or more convicts', () => {
   const v = baseVerdictOf({ key: 'nines', file: 'x.lean', statement: '111 * 9 = 999' }, arithmetic)
   assert.equal(v.verdict, 'notational')
-  assert.match(v.why, /multi-digit/)
+})
+
+// THE CORRECTION: `10` is two digits and is STILL ambiguous, because exponent one is the base itself. 1+2+3+4 = 10 is
+// about the number ten, and my first cut convicted it.
+test('baseVerdictOf — 10 at exponent one is ambiguous, not notational', () => {
+  const v = baseVerdictOf({ key: 'sum', file: 'x.lean', statement: '4 * 10 = 40' }, arithmetic)
+  assert.equal(v.verdict, 'suspect')
+})
+
+// A PARTIAL REWRITE IS THE GUARD'S FAULT: rewriting 1000 while leaving the correlated 1001 breaks the statement for a
+// reason that is not about the statement.
+test('baseVerdictOf — a correlated bound left unrewritten yields suspect, not notational', () => {
+  const v = baseVerdictOf({ key: 'bounded', file: 'x.lean', statement: '1000 = 1001' },
+    (s) => s.trim() === '1000 = 1001' ? true : arithmetic(s))
+  assert.equal(v.verdict, 'suspect')
+  assert.match(v.why, /correlated bound/)
+})
+
+// WITHOUT THIS THE GUARD IS UNFALSIFIABLE AS A WORK LIST: it tests statements, so annotating prose could never clear a
+// finding and "fix the twelve" would have no measurable end.
+test('baseVerdictOf — a notational statement that DECLARES the dependency is cleared', () => {
+  const row = { key: 'midy', file: 'x.lean', statement: '111 * 9 = 999' }
+  assert.equal(baseVerdictOf(row, arithmetic).verdict, 'notational')
+  assert.equal(baseVerdictOf(row, arithmetic, [8, 12, 16], true).verdict, 'declared')
 })
 
 test('baseCensus — counts every verdict and names the work list', () => {
@@ -117,6 +140,7 @@ test('baseCensus — counts every verdict and names the work list', () => {
   assert.equal(c.invariant, 1)
   assert.equal(c.noArtefact, 1)
   assert.equal(c.suspect, 0)
+  assert.equal(c.declared, 0)
   assert.deepEqual(c.notationalKeys, ['a'])
 })
 

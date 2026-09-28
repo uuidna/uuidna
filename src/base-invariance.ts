@@ -143,7 +143,7 @@ export interface BaseVerdict {
    * 'invariant' survived every base tried; 'notational' held in ten and failed elsewhere on an UNAMBIGUOUS artefact;
    * 'suspect' failed only on a one-digit artefact, which cannot carry the verdict alone; 'unread' undecidable.
    */
-  verdict: 'invariant' | 'notational' | 'suspect' | 'unread' | 'no-artefact'
+  verdict: 'invariant' | 'notational' | 'declared' | 'suspect' | 'unread' | 'no-artefact'
   /** the bases where it failed, with what was swapped */
   failedIn: Restatement[]
   why: string
@@ -160,6 +160,14 @@ export function baseVerdictOf(
   row: { key: string; file: string; statement: string },
   decide: (statement: string) => boolean | null,
   bases: readonly number[] = [8, 12, 16],
+  /**
+   * Whether the row's own prose DECLARES the base dependency.
+   *
+   * Without this the guard is unfalsifiable as a work list: it tests statements, so annotating prose could never clear
+   * a finding and "fix the twelve" would have no measurable end. A notational statement that says it is about decimal
+   * writing has done the only thing asked of it, and the census must be able to see that it did.
+   */
+  declares = false,
 ): BaseVerdict {
   const artefacts = [...new Set(row.statement.match(/\b\d+\b/g) ?? [])]
     .map((n) => artefactOf(n))
@@ -182,13 +190,30 @@ export function baseVerdictOf(
     if (held === null) { unread = true; continue }
     if (held === false) failedIn.push(r)
   }
-  // A ONE-DIGIT ARTEFACT IS AMBIGUOUS AND CANNOT CONVICT. `9` is both 10^1 − 1 and the number nine; `10` is both the
-  // base and ten. So a statement that fails only because 9 became 7 may be casting out nines — genuinely base-ten — or
-  // may simply be about the integer nine, as 3^2 = 9 is. Measured on lean/Song.lean, five of nine findings were exactly
-  // this, and reporting them as notational would have been the same overreach the guard exists to catch: a confident
-  // verdict from evidence that does not reach it. Only an artefact of two digits or more decides.
+  // AN ARTEFACT AT EXPONENT ONE IS AMBIGUOUS AND CANNOT CONVICT, and the criterion is the EXPONENT rather than the digit
+  // count — which is the correction. `9` is both 10^1 − 1 and the number nine; `10` is both the base and the number ten,
+  // and `1 + 2 + 3 + 4 = 10` is plainly about ten. My first cut convicted on any numeral of two digits or more, which let
+  // `10` through and flagged a Symphony theorem whose 10 is a SUM. Exponent one is exactly the ambiguous case: the base
+  // itself, and the base less one. Anything at exponent two or above — 99, 1000, 999999 — is unambiguous.
+  //
+  // A CORRELATED BOUND LEFT UNREWRITTEN BREAKS A STATEMENT FOR THE WRONG REASON, and that is the second correction.
+  // `(List.range 11).all (fun d => 10 - (10 - d) == d)` is true for ANY base — b − (b − d) = d — and failed only because
+  // 10 was rewritten while the range bound 11 was not. A rewritten artefact whose neighbour (n ± 1) also appears
+  // unrewritten in the statement means the rewrite was partial, so the failure is the guard's and not the statement's.
+  const partial = (f: Restatement): boolean =>
+    f.swapped.some((sw) => {
+      const n = BigInt(sw.from)
+      return new RegExp(`\\b(?:${n + 1n}|${n - 1n})\\b`).test(row.statement)
+        && !f.swapped.some((o) => o.from === String(n + 1n) || o.from === String(n - 1n))
+    })
   const conclusive = failedIn.filter((f) =>
-    f.absent.some((a) => a.numeral.length > 1) || f.swapped.some((sw) => sw.from.length > 1))
+    !partial(f)
+    && (f.absent.some((a) => a.at >= 2) || f.swapped.some((sw) => (artefactOf(sw.from)?.at ?? 0) >= 2)))
+  if (conclusive.length > 0 && declares) {
+    return { key: row.key, file: row.file, verdict: 'declared', failedIn: conclusive,
+      why: 'holds in base ten and fails elsewhere, AND its own prose says so — a true claim about decimal writing that '
+        + 'declares itself, which is all the guard asks. Midy\'s theorem is this case' }
+  }
   if (conclusive.length > 0) {
     return { key: row.key, file: row.file, verdict: 'notational', failedIn: conclusive,
       why: `holds in base ten and fails in ${conclusive.map((f) => f.base).join(', ')} on a multi-digit artefact — a `
@@ -197,9 +222,9 @@ export function baseVerdictOf(
   }
   if (failedIn.length > 0) {
     return { key: row.key, file: row.file, verdict: 'suspect', failedIn,
-      why: 'fails in another base only because a ONE-DIGIT artefact moved (9 becoming 7, or 10 becoming 8), and a '
-        + 'single digit is ambiguous: 9 is both ten-less-one and the number nine. A reader must decide whether the '
-        + 'statement is about digit sums or about the integer' }
+      why: 'fails in another base only on an artefact at exponent one (9 becoming 7, or 10 becoming 8), or because a '
+        + 'correlated bound was left unrewritten. Exponent one is ambiguous — 9 is both ten-less-one and the number '
+        + 'nine — and a partial rewrite breaks a statement for the guard\'s reason rather than its own. A reader decides' }
   }
   if (unread) {
     return { key: row.key, file: row.file, verdict: 'unread', failedIn: [],
@@ -213,7 +238,9 @@ export interface BaseCensus {
   asked: number
   invariant: number
   notational: number
-  /** failed only on a one-digit artefact — a reader's call, not the guard's */
+  /** notational AND declaring it — the cleared state */
+  declared: number
+  /** failed only on an exponent-one artefact or a partial rewrite — a reader's call, not the guard's */
   suspect: number
   unread: number
   noArtefact: number
@@ -226,6 +253,7 @@ export function baseCensus(verdicts: readonly BaseVerdict[]): BaseCensus {
     asked: verdicts.length,
     invariant: verdicts.filter((v) => v.verdict === 'invariant').length,
     notational: verdicts.filter((v) => v.verdict === 'notational').length,
+    declared: verdicts.filter((v) => v.verdict === 'declared').length,
     suspect: verdicts.filter((v) => v.verdict === 'suspect').length,
     unread: verdicts.filter((v) => v.verdict === 'unread').length,
     noArtefact: verdicts.filter((v) => v.verdict === 'no-artefact').length,

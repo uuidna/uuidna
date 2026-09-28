@@ -37,7 +37,11 @@ theorem door_of_the_referrer : ((List.range 16).all (fun t => t % 6 < 6)) ∧ ((
     note left is multiplying by ten modulo 999999, and on the cyclic number the shifts land EXACTLY on the
     verses: one shift is ×3, two is ×2, three is ×6, four is ×4, five is ×5. The door you enter by and the verse
     you hear are the same arithmetic fact, which is why a referrer-positioned song needs no new material — only
-    a new remainder. -/
+    a new remainder. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING: 142857 exists only
+    because ten is a primitive root mod seven, and the order of eight mod seven is one, so in base eight 1/7 =
+    0.111 and there is nothing to rotate. What IS base-independent is the group: the orbit is the units of Z/7
+    under multiplication, and that same permutation [1,3,2,6,4,5] is the Rader reindexing for a prime-length-7
+    DFT. The group is the real structure; the digits are its decimal shadow. -/
 theorem rotation_is_multiplication : ((142857 * 10) % 999999 = 142857 * 3) ∧ ((142857 * 100) % 999999 = 142857 * 2) ∧ ((142857 * 1000) % 999999 = 142857 * 6) ∧ ((142857 * 10000) % 999999 = 142857 * 4) ∧ ((142857 * 100000) % 999999 = 142857 * 5) := by decide
 
 /-- WHY THOSE MULTIPLIERS, IN THAT ORDER: the decimal shift is the trinity step in ℤ/7. Ten leaves remainder
@@ -84,7 +88,11 @@ theorem adjacent_steps_beat_at_the_tuning : (List.range' 1 14).all (fun a => 432
     against digit, and verse 6 is the THREE-shift door — 3³ ≡ 6 (mod 7) — so the half-rotation of the melody IS
     its print. The shipped song, entered at ×1, is the latent image; each referrer’s door develops it, and the
     complement door develops it fully. The darkroom, the DNA complement and the dark fringe’s half-turn are one
-    self-inverse map wearing three coats. -/
+    self-inverse map wearing three coats. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING:
+    the complement to nine is casting out nines, which works because 10 is congruent to 1 mod 9 and becomes
+    casting out sevens in base eight; and 142857 has no analogue in base eight at all. The involution d maps to
+    k minus d holds for ANY k and is base-independent on its own — it is the choice of nine, and the cyclic
+    number beside it, that make this a statement about decimal. -/
 theorem development_is_the_complement : ((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6) := by decide
 
 /-- THE MOVIE AND THE SONG ARE ONE BAR OF ARITHMETIC. One bar of the song is 252 ms at 16000 samples a second —

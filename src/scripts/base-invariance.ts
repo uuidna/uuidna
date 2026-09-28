@@ -30,17 +30,31 @@ const only = ARG.find((a) => a.endsWith('.lean')) ?? null
 const rows = theorems()
   .filter((t) => only === null || String(t.file) === only)
   // ARTEFACTS ONLY: a statement with no numeral that is a function of ten has nothing for a base change to move, and
-  // asking the evaluator about all 71,089 would spend the run on statements the guard cannot judge, their shapes lying outside the evaluator's grammar, so it returns no verdict rather than a wrong one.
+  // asking the evaluator about all 71,089 would spend the run on statements the guard cannot judge BY CONSTRUCTION: their shapes lie outside the evaluator's grammar, so it returns no verdict rather than a wrong one.
   .filter((t) => /\b(?:9+|10+|142857|588235294117647)\b/.test(String(t.statement ?? '')))
   .map((t) => ({ key: String(t.key), file: String(t.file), statement: String(t.statement ?? '') }))
 
 console.log(`statements carrying a base-ten artefact: ${rows.length} of ${theorems().length}`)
 
+// A DECLARATION IS READ FROM THE WING'S OWN PROSE, in the doc comment that precedes the theorem. The markers are the
+// words a declaration would actually use; a key claiming a base-ten fact while saying nothing about base ten is the gap.
+const DECLARES = /base[- ]ten|base 10|decimal (?:writing|notation|expansion|representation)|notational|in this base|casting out nines/i
+const declaresIn = (file: string, key: string): boolean => {
+  const src = wingSource(file)
+  const at = src.indexOf(`theorem ${key}`)
+  if (at < 0) return false
+  // the doc comment immediately above the theorem
+  const before = src.slice(0, at)
+  const open = before.lastIndexOf('/--')
+  if (open < 0) return false
+  return DECLARES.test(before.slice(open))
+}
+
 const verdicts: BaseVerdict[] = rows.map((r) =>
-  baseVerdictOf(r, (s) => holds(s, wingSource(r.file))))
+  baseVerdictOf(r, (s) => holds(s, wingSource(r.file)), [8, 12, 16], declaresIn(r.file, r.key)))
 const c = baseCensus(verdicts)
 
-console.log(`invariant ${c.invariant} · NOTATIONAL ${c.notational} · suspect ${c.suspect} · unread ${c.unread} · no artefact ${c.noArtefact}`)
+console.log(`invariant ${c.invariant} · NOTATIONAL ${c.notational} · declared ${c.declared} · suspect ${c.suspect} · unread ${c.unread}`)
 console.log()
 const notational = verdicts.filter((v) => v.verdict === 'notational')
 for (const v of notational.slice(0, 20)) {
@@ -53,7 +67,7 @@ for (const v of notational.slice(0, 20)) {
 }
 if (notational.length > 20) console.log(`  … and ${notational.length - 20} more`)
 
-// THE CENSUS IS WRITTEN, not only printed. 1,442 findings cannot be read from a terminal tail, which keeps its last lines and discards the rest, and re-running the
+// THE CENSUS IS WRITTEN, not only printed. 1,442 findings cannot be read from a terminal tail BY CONSTRUCTION — a tail keeps its last lines and discards the rest — and re-running the
 // evaluator over 2,844 statements to ask a follow-up question is the kind of cost this tree calls a crack. The
 // artefact is committed so the gate can read it and a reader can analyse it without paying for the walk again.
 const byWing = new Map<string, { notational: number; suspect: number; invariant: number }>()
@@ -71,6 +85,7 @@ writeFileSync(join(ROOT, 'lean', 'base-invariance.json'), JSON.stringify({
   asked: c.asked,
   invariant: c.invariant,
   notational: c.notational,
+  declared: c.declared,
   suspect: c.suspect,
   unread: c.unread,
   honest: 'notational means the statement is TRUE and depends on base-ten writing; it must declare that, never be '
