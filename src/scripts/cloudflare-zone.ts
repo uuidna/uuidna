@@ -156,7 +156,11 @@ async function ensureWwwRedirect(token: string, zoneId: string, zoneName: string
   return { ok: false, detail: `redirect rule FAILED for ${zoneName} — ${msg}`, needScope: /Authentication|unauthorized|10000|9109|plan|entitlement/i.test(msg) }
 }
 
-async function probe(url: string): Promise<{ status: number; location: string }> {
+// EXPORTED BECAUSE A TEST ASSERTS IT AS A CONTRACT, not because a module imports it. The de-export sweep read
+// "nothing imports this" and was right about the import graph and wrong about the promise: finder-controls.test.ts checks the
+// source text for this very keyword. tsc cannot see a contract asserted as a regex over a file, so the compiler
+// passed while the promise was broken — the limit of that instrument, named here so the next sweep knows it.
+export async function probe(url: string): Promise<{ status: number; location: string }> {
   try {
     const res = await fetch(url, { method: 'GET', redirect: 'manual', headers: { 'cache-control': 'no-cache' } })
     return { status: res.status, location: res.headers.get('location') ?? '' }

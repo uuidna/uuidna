@@ -24,10 +24,15 @@ test('CI through the MCP: the served tools return what the sealed package comput
   // the fold — the served trial receipt IS the package's receipt
   assert.equal((callTool('uuidna_trial', {}) as { receipt: string }).receipt, runTrial().receipt)
   // local reviews — one recomputable review per domain the sequence touches, all VERIFIED
-  const reviews = callTool('uuidna_review_domains', {}) as { domain: string; verdict: string }[]
+  // THE ROWS MOVED UNDER `domains` when the door was grouped by family (2026-09-28), and the contract did not change:
+  // what the door serves must still be what the package computes. This assertion failed as `undefined !== 131` — the
+  // door returning a census object where the test read an array — which is the check working: a served shape that
+  // drifts from the sealed function is exactly what "the served tools return what the sealed package computes" is for.
+  const served = callTool('uuidna_review_domains', {}) as { domains: { domain: string; verdict: string }[]; placed: number }
+  const reviews = served.domains
   assert.equal(reviews.length, SKILLS.length)
   assert.ok(reviews.every((r) => r.verdict === 'VERIFIED'))
-  assert.deepEqual(reviews, reviewDomains())
+  assert.deepEqual(reviews, reviewDomains(), 'the served rows ARE the package\'s rows, however they are grouped')
 })
 
 test('uuidna_quantum runs GHZ at the encoder width — no refuse', () => {

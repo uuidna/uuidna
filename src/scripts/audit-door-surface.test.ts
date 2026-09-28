@@ -53,6 +53,10 @@ test('every row is a LEAD and settles nothing — the shape lean/leads.json uses
 
 test('it does not write lean/leads.json — no writer appends a row there, and a hand edit is refused by law', () => {
   const src = readFileSync(join(ROOT, 'src', 'scripts', 'audit-door-surface.ts'), 'utf8')
-  const writes = [...src.matchAll(/wrRoot\('([^']+)'/g)].map((m) => m[1]!)
+  // BOTH WRITE DOORS, because the artifact door now wraps the other. This audit was codemodded onto wrArtifact when
+  // the seal moved into the write path (25 sites, 23 files), and a detector that knew only `wrRoot` then found ZERO
+  // writes and reported that the script no longer writes its own file — a true statement about the regex and a false
+  // one about the script. The intent of this check is "only its own file", and wrArtifact writes through wrRoot.
+  const writes = [...src.matchAll(/wr(?:Root|Artifact)\('([^']+)'/g)].map((m) => m[1]!)
   assert.deepEqual(writes, ['lean/door-surface.json'], 'it writes its own file and only its own file')
 })

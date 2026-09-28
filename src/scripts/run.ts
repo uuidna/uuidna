@@ -38,7 +38,11 @@ export function runnable(): string[] {
  *  here opens with a comment saying what it does; the listing just never read it. A shebang is skipped, a
  *  `@non-harmonic:` marker and a `<name> —` prefix are stripped, and a script whose header says nothing shows
  *  nothing — the COUNT of those is printed, so the gap is a number that can shrink rather than an impression. */
-function purposeOf(name: string): string {
+// EXPORTED BECAUSE A TEST ASSERTS IT AS A CONTRACT, not because a module imports it. The de-export sweep read
+// "nothing imports this" and was right about the import graph and wrong about the promise: gate-paths.test.ts checks the
+// source text for this very keyword. tsc cannot see a contract asserted as a regex over a file, so the compiler
+// passed while the promise was broken — the limit of that instrument, named here so the next sweep knows it.
+export function purposeOf(name: string): string {
   try {
     for (const raw of readFileSync(join(ROOT, 'src', 'scripts', name + '.ts'), 'utf8').split('\n').slice(0, 10)) {
       const l = raw.trim()
@@ -48,6 +52,11 @@ function purposeOf(name: string): string {
       if (!/^(\/\/|\/\*\*|\*)/.test(l)) continue
       const t = l.replace(/^(\/\/|\/\*\*|\*)\s*/, '')
         .replace(/^@non-harmonic:\s*/, '')
+        // AND THE @finder MARKER, for the same reason the line above exists. When the audit chain's hand list was
+        // dissolved, twenty-one finders gained `// @finder phase:N — DISCOVERED, not listed …` as their first comment,
+        // and this reader took that sentence as their purpose: gate-paths refused at once, correctly, because a purpose
+        // is DRAINED from a header and that text was authored for a runner, not for a reader asking what a script does.
+        .replace(/^@finder\s+phase:\d+\s*[—–-]?\s*/, '')
         .replace(new RegExp('^' + name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*[—–-]\\s*'), '')
         .trim()
       if (t.length > 3) return t

@@ -36,7 +36,7 @@ import { hexProgramIndex, callOfUuid, uuidOfCall } from '../hex-programs.js'
 import { servedAsync } from '../receipt.js'
 import { fsStore, ledgerAndRule } from './receipted.js'
 
-const PARAMS = 65536            // 16^4 — every value the params cap can hold
+const PARAMS = 16 ** 4          // every value the params cap can hold — the arithmetic, not a literal beside it
 const hex4 = (n: number): string => n.toString(16).padStart(4, '0')
 /** the carried bases: values for the two fields that are copied verbatim, not enumerated */
 const HANDLE = 'aabbccdd'

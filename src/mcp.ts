@@ -107,6 +107,7 @@ import { callOfUuid, hexProgramIndex } from './hex-programs.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf, labsByFamily } from './school/laboratory/index.js'
+import { wingRead } from './wing-defs.js' // the wing asks: 215 recorded escapes wanted a wing's defs, theorems and source
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
@@ -915,6 +916,40 @@ const TOOLS: Tool[] = ([
   // THE BUILD ITSELF, AS A RECEIPT. The graph was declared in four places and served by none, so the only way to see
   // what computes what was to read source — and the hook that guards this tree refused exactly that, correctly: an
   // ad-hoc probe over dist is the thing a door is for. One call now answers it for the README, the site and any client.
+  // ── THE DOOR THE WING ASKS ASKED FOR (2026-09-28) ──────────────────────────────────────────────────────────────
+  //
+  // audit-door-demand ranks the gap log's recorded escapes, and "a door that wings" is the largest family: 215 asks
+  // against 252 served doors, two and a half times the next. Read verbatim rather than by verb they are one request —
+  // a wing's raw Lean, its own defs, its theorems, and how many there are "while the hosted index door is down".
+  //
+  // IT COMPOSES, IT DOES NOT COMPUTE. simpleDefs already parses a wing's definitions for the involution evaluator and
+  // wing-shadow; theorems() already carries each row's file, key, statement, principle and address. The capability was
+  // present and unreachable, which is the defect this tree meets from both sides all day.
+  //
+  // THREE ANSWERS, NOT TWO. The hosted edge has no filesystem, so the Lean text may be unavailable where the ledger
+  // half is not: source null with bytes 0 is "not readable here", and it is distinguishable from a wing that truly has
+  // no defs. An unknown wing is REFUSED BY NAME with the count of what is served, never answered with an empty set that
+  // would read like "this wing proves nothing".
+  { name: 'uuidna_wing',
+    description: 'READ ONE WING — its sealed theorems (key, name, statement, principle, address), its own Lean definitions as the second implementation parses them, the principles it is filed under, and the size of its Lean source. {wing} names it with or without the .lean suffix; {source:true} returns the raw Lean text as well. The ledger half answers anywhere; the source half needs a filesystem, and reports source:null with bytes:0 where there is none rather than an empty string. An unknown wing is refused by name. PURE over the sealed ledger and the wing file — no network, no clock. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
+    inputSchema: { type: 'object', required: ['wing'], properties: {
+      wing: { type: 'string', description: 'the wing, e.g. CoinsBalance or CoinsBalance.lean' },
+      source: { type: 'boolean', description: 'include the raw Lean text; omit for the defs, theorems and byte count' } } },
+    run: (a) => {
+      const asked = String(a.wing ?? '').trim()
+      const file = asked.endsWith('.lean') ? asked : `${asked}.lean`
+      const rows = theorems().filter((t) => String(t.file) === file)
+      if (rows.length === 0) {
+        const served = [...new Set(theorems().map((t) => String(t.file)))].sort()
+        return { refused: true, why: `unknown wing: ${asked} — ${served.length} wings are served; ask uuidna_reports for the census`, nearest: served.filter((w) => w.toLowerCase().startsWith(asked.slice(0, 3).toLowerCase())).slice(0, 8) }
+      }
+      let source: string | null = null
+      try { source = rdRoot(`lean/${file}`) } catch { source = null }
+      return wingRead(file, source, rows.map((t) => ({
+        key: String(t.key), name: String(t.name), statement: String(t.statement),
+        principle: String(t.principle ?? ''), address: String(t.address ?? ''),
+      })), a.source === true)
+    } },
   { name: 'uuidna_build_graph',
     description: 'THE COMPUTATION GRAPH AS ONE ORDER-INVARIANT RECEIPT — what generates every derived surface in this repository, folded so anyone recomputes the same fold. Read from the declarations the drain already keeps (DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS) and the per-surface spin coins that prove each file is what its writer wrote, so nothing here is authored and a new generator enters the graph the day it declares an output. TWO COUNTS ARE THE ONES TO READ, and they are the reason this is a quality receipt rather than a listing: `unowned` surfaces are sealed as generated with NO declared writer, so a hand edit to one survives the drain and is sealed as though a generator made it; `uncoined` surfaces are the ones spin ITSELF declares it seals and no coin covers, measured against that declaration rather than against every surface — surfaces outside the declaration are counted separately as `outsideSpin`, because not-spin-to-seal and unsealed are different facts and a receipt conflating them would raise a false alarm. Both are named, not merely counted. Returns {generators,surfaces,edges,unowned,uncoined,receipt,handle}. The README section and the site page render THIS call, so a figure in one cannot disagree with the other.',
     inputSchema: { type: 'object', properties: { edges: { type: 'boolean', description: 'include every generator→surface edge with its coin; omit for the counts and the receipt' } } },
@@ -950,7 +985,12 @@ const TOOLS: Tool[] = ([
       message: { type: 'string', description: 'for commit: the message, which must cite a sealed theorem to pass the commit-msg gate' },
     } },
     run: (a = {}) => {
-      const cp = (process as unknown as { getBuiltinModule?: (n: string) => typeof import('node:child_process') }).getBuiltinModule?.('node:child_process')
+      // `process` ITSELF MUST BE TESTED BEFORE IT IS TOUCHED. mcp-edge-coverage runs every door with the host process
+      // HIDDEN, exactly as the Worker hides it, and the first version of this door reached for process.getBuiltinModule
+      // straight away — a ReferenceError at the edge instead of the refusal-by-name this door already knew how to give.
+      // The test caught it; production would have caught it louder.
+      const host = typeof process === 'undefined' ? undefined : (process as unknown as { getBuiltinModule?: (n: string) => typeof import('node:child_process') })
+      const cp = host?.getBuiltinModule?.('node:child_process')
       if (!cp) return { refused: true, why: 'git is reachable only on a host with a child process — a Worker has neither, and answering emptily would report a clean tree that was never read' }
       const run = (args: string[]): { ok: boolean; out: string; unstarted: boolean } => {
         const r = cp.spawnSync('git', args, { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
@@ -1074,7 +1114,7 @@ const TOOLS: Tool[] = ([
         : { refused: `${q} is neither a template in the mirror nor a word any template answers`, templates: cloudflareTemplates().map((x) => x.template) }
     } },
   { name: 'uuidna_review_domains',
-    description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
+    description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. GROUPED BY FAMILY since 2026-09-28: the rows themselves ride under `domains` and are exactly what reviewDomains() computes, while `families`, `placed` and `unfamilied` are the census over them — `placed` is a SET size, never a sum of group sizes, because a domain spanning several wing families belongs to all of them. Returns {families,domains:[{domain,theorems,fold,verdict,receipt}],placed,unfamilied,receipt}.',
     inputSchema: { type: 'object', properties: {} },
     // BY FAMILY, 2026-09-28 (the captain: "develop all domains by family at school mcp os"). This door served the 131
     // admitted domains FLAT, and the family axis was already in the ledger: a domain's family is its wings' family, read
