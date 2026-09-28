@@ -1,7 +1,7 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1425,
- "distinct": 1203,
+ "requests": 1426,
+ "distinct": 1204,
  "served": 250,
  "families": [
   {
@@ -73,7 +73,7 @@
    "asks": 1
   }
  ],
- "unclassified": 865,
+ "unclassified": 866,
  "held": [
   {
    "verb": "wing",
@@ -280,10 +280,10 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
  ],
- "receipt": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
+ "receipt": "865ba292-734f-8026-a554-e6f6965a44dd",
  "crossed": {
-  "sorted": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
-  "reversed": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
+  "sorted": "865ba292-734f-8026-a554-e6f6965a44dd",
+  "reversed": "865ba292-734f-8026-a554-e6f6965a44dd",
   "agrees": true
  }
 }

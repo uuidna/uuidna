@@ -1,0 +1,87 @@
+{
+ "kind": "deploy-errors",
+ "why": "Whether the DEPLOYED site serves what it publishes. The surfaces are read from the deployment own sitemap rather than listed, and the sample is a deterministic stride so two runs ask the same paths. A 4xx on a published URL is a deploy error; a 5xx, a timeout or an unreachable host is a fact about the run and is counted apart. deploy-verify.ts is NOT this check: it has no entry point and exports only constants.",
+ "host": "https://uuidna.com",
+ "published": 11438,
+ "sampled": 12,
+ "errors": 0,
+ "notReached": 0,
+ "probes": [
+  {
+   "url": "https://uuidna.com/sitemap.xml",
+   "status": 200,
+   "ms": 1023.924375
+  },
+  {
+   "url": "https://uuidna.com/analytics",
+   "status": 200,
+   "ms": 871.536958
+  },
+  {
+   "url": "https://uuidna.com/chunk/1abc0681",
+   "status": 200,
+   "ms": 890.916291
+  },
+  {
+   "url": "https://uuidna.com/chunk/47a59439",
+   "status": 200,
+   "ms": 869.589625
+  },
+  {
+   "url": "https://uuidna.com/chunk/746cb1bc",
+   "status": 200,
+   "ms": 921.455709
+  },
+  {
+   "url": "https://uuidna.com/chunk/a1158be2",
+   "status": 200,
+   "ms": 939.386459
+  },
+  {
+   "url": "https://uuidna.com/chunk/d2b9bc71",
+   "status": 200,
+   "ms": 927.490958
+  },
+  {
+   "url": "https://uuidna.com/publications/anthem",
+   "status": 200,
+   "ms": 886.802792
+  },
+  {
+   "url": "https://uuidna.com/theorem/carmichael_exponent_is_attained_mod_46",
+   "status": 200,
+   "ms": 916.487708
+  },
+  {
+   "url": "https://uuidna.com/theorem/coprime_sum_open_reduced_4_mod_61",
+   "status": 200,
+   "ms": 889
+  },
+  {
+   "url": "https://uuidna.com/theorem/fixed_power_on_prime_61_exp_16",
+   "status": 200,
+   "ms": 835.528958
+  },
+  {
+   "url": "https://uuidna.com/theorem/polarity_flip_is_an_automorphism_1",
+   "status": 200,
+   "ms": 879.410208
+  },
+  {
+   "url": "https://uuidna.com/theorem/the_path_spells_the_handle",
+   "status": 200,
+   "ms": 926.744292
+  },
+  {
+   "url": "https://uuidna.com/mcp",
+   "status": 200,
+   "ms": 782.536084
+  }
+ ],
+ "receipt": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
+ "crossed": {
+  "sorted": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
+  "reversed": "f9d9dae3-042a-8d3a-a2c3-38484bf77927",
+  "agrees": true
+ }
+}

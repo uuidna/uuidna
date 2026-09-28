@@ -2,9 +2,9 @@
  "kind": "artifact-receipts",
  "why": "Every derived artifact should carry a cross: a content address its own leaves fold to, by two routes that must agree (src/crossfold.ts), stamped by the one write door (src/artifact.ts) rather than by each writer. An artifact without one is an array a reader can compare to nothing. UNSEALED is a debt and may only shrink; STALE is a fault and fails now, because an address that no longer covers its content is worse than none.",
  "artifacts": 330,
- "sealed": 10,
+ "sealed": 12,
  "sealedElsewhere": 17,
- "unsealed": 39,
+ "unsealed": 37,
  "stale": 0,
  "unmeasured": 264,
  "staleRows": [],
@@ -1331,10 +1331,10 @@
   }
  ],
  "fix": "write it through wrArtifact(path, value) from src/artifact.ts instead of writeFileSync or a bare wrRoot — the seal is then computed from what was actually written, and no writer has to remember it.",
- "receipt": "c73060cd-2b3e-81fd-ad24-86aade7d5f85",
+ "receipt": "c723e754-a051-874a-a8e1-819feb5476f7",
  "crossed": {
-  "sorted": "c73060cd-2b3e-81fd-ad24-86aade7d5f85",
-  "reversed": "c73060cd-2b3e-81fd-ad24-86aade7d5f85",
+  "sorted": "c723e754-a051-874a-a8e1-819feb5476f7",
+  "reversed": "c723e754-a051-874a-a8e1-819feb5476f7",
   "agrees": true
  }
 }

@@ -1,0 +1,2436 @@
+{
+  "kind": "door-receipt",
+  "digest": "b4a26c23166954f3368092933b66b425",
+  "value": {
+    "asked": 2844,
+    "invariant": 765,
+    "notational": 257,
+    "declared": 9,
+    "suspect": 1810,
+    "unread": 3,
+    "findings": [
+      {
+        "key": "division_by_zero",
+        "file": "Uuidna.lean",
+        "how": "base 8: 1000→512, 9→7"
+      },
+      {
+        "key": "verify_beats_recompute_by_magnitudes",
+        "file": "Cipher.lean",
+        "how": "base 8: 10000→4096, 100→64, 10→8"
+      },
+      {
+        "key": "the_axiom_index_partitions_without_remainder",
+        "file": "Audit.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fold_trojan_source_bidi",
+        "file": "Exploits.lean",
+        "how": "base 8: 100000→32768, 10→8, 9→7"
+      },
+      {
+        "key": "sanitize_array_and_keys_are_ten_pow_five",
+        "file": "Sanitize.lean",
+        "how": "base 16: 100000→1048576, 10→16"
+      },
+      {
+        "key": "firing_rate_saturates",
+        "file": "Neuro.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "refractory_bounds_rate",
+        "file": "Neuro.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "spike_amplitude_attenuates",
+        "file": "Neuro.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "threshold_is_quasi_threshold",
+        "file": "Neuro.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "contour_index_every_fifth",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "elevation_counts_intervals",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "gradient_rise_over_run",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "contour_spacing_inverse_gradient",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "map_scale_one_to_25000",
+        "file": "Topography.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "six_figure_grid_tenths",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "vertical_exaggeration",
+        "file": "Topography.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "wgs84_polar_shorter",
+        "file": "Topography.lean",
+        "how": "base 8: 1000000000→134217728"
+      },
+      {
+        "key": "trimix_fractions_sum_100",
+        "file": "Diving.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "partial_pressures_sum_to_absolute",
+        "file": "Diving.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "refractive_index_ge_one",
+        "file": "Optics.lean",
+        "how": "base 12: 100→144"
+      },
+      {
+        "key": "light_slower_in_medium",
+        "file": "Optics.lean",
+        "how": "base 12: 100→144"
+      },
+      {
+        "key": "first_law_conservation",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "no_perpetual_motion",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 1000→512, 100→64"
+      },
+      {
+        "key": "caesium_light_step",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "landauer_bound_derived",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 1000000→262144"
+      },
+      {
+        "key": "landauer_floor_falls_with_temperature",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 1000000→262144"
+      },
+      {
+        "key": "cooling_cost_rises_toward_zero",
+        "file": "Thermodynamics.lean",
+        "how": "base 8: 1000→512, 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "a_new_tool_pays_at_most_the_mean_wire_cost",
+        "file": "RenderBudget.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "the_budget_re_measured_from_the_resident_reading",
+        "file": "RenderBudget.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "counting_beats_composing_by_six_magnitudes",
+        "file": "SiteBuild.lean",
+        "how": "base 12: 1000000→2985984"
+      },
+      {
+        "key": "the_process_holds_more_than_the_container_allows",
+        "file": "SiteBuild.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "mechanical_advantage",
+        "file": "Statics.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "beam_reactions",
+        "file": "Statics.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "stress_is_force_over_area",
+        "file": "Statics.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "exact_dilation_is_sparse_among_the_rationals",
+        "file": "Relativity.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "the_collision_energy_label_step_is_one_tev",
+        "file": "Cern.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "alphabetic_three_ranks",
+        "file": "Glagolitic.lean",
+        "how": "base 8: 100→64, 9→7"
+      },
+      {
+        "key": "abjad_four_ranks",
+        "file": "Glagolitic.lean",
+        "how": "base 8: 1000→512, 10→8, 9→7"
+      },
+      {
+        "key": "theology_counts_in_the_mirror_base",
+        "file": "Glagolitic.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "the_rank_rule_climbs_by_ten",
+        "file": "Glagolitic.lean",
+        "how": "base 8: 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "beast_number_fits_two_readings",
+        "file": "Scripture.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "gregorian_leap_rule",
+        "file": "Ephemeris.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "saros_eclipse_cycle",
+        "file": "Ephemeris.lean",
+        "how": "base 16: 100→256"
+      },
+      {
+        "key": "gregorian_cycle_is_ninety_seven_leaps",
+        "file": "Ephemeris.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "enumeration_hex4_2710",
+        "file": "HexSpan3.lean",
+        "how": "base 16: 10000→65536"
+      },
+      {
+        "key": "a_cheaper_representation_multiplies_the_width_at_the_same_hardware",
+        "file": "QuantumCube.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "ten_square_ten_free",
+        "file": "Chess.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "ten_square_computes_ten_dimensions",
+        "file": "Chess.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "fifty_move_rule_bounds_a_run",
+        "file": "Chessgames.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "leap_years_per_400",
+        "file": "Calendar.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "century_leap_rule",
+        "file": "Calendar.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "the_reform_is_exactly_three_days_in_four_hundred",
+        "file": "Calendar.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "complement_fixes_the_half",
+        "file": "MartialArts.lean",
+        "how": "base 8: 100→64, 10→8"
+      },
+      {
+        "key": "dropframe_is_one_thousandth",
+        "file": "Editing.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+        "file": "MoMBHStar1.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "mombh_quantum_edge_redshifts_into_filter_gap",
+        "file": "MoMBHStar1.lean",
+        "how": "base 8: 10000→4096"
+      },
+      {
+        "key": "mombh_quantum_hbeta_hgamma_are_balmer_lines",
+        "file": "MoMBHStar1.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "mombh_quantum_n2_population_needs_density",
+        "file": "MoMBHStar1.lean",
+        "how": "base 12: 100→144, 9→11"
+      },
+      {
+        "key": "iso_full_stops_agree_exactly",
+        "file": "Photography.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "octave_of_light_doubles",
+        "file": "Spectrum.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "inverse_at_fixed_c",
+        "file": "Spectrum.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "pin_and_slot_equal_teeth",
+        "file": "Antikythera.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "sport_marathon_and_the_teams",
+        "file": "Wave.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "gregorian_cycle_closes_on_the_week",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "binary_kilo_drift_compounds",
+        "file": "Wave.lean",
+        "how": "base 8: 1000→512, 10→8, 9→7"
+      },
+      {
+        "key": "a440_drift_is_heard",
+        "file": "Wave.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "the_comma_hides_below_hearing",
+        "file": "Wave.lean",
+        "how": "base 8: 1000→512"
+      },
+      {
+        "key": "decimal_day_recoined_the_pound",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "kelvin_floor_carries_the_hundred",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "literature_sonnet_volume",
+        "file": "Wave.lean",
+        "how": "base 8: 100000000000000→4398046511104, 10→8"
+      },
+      {
+        "key": "alpine_dom_sc_ma_ie_100",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "alpine_dom_sc_ga_ie_99",
+        "file": "Wave.lean",
+        "how": "base 8: 99→63"
+      },
+      {
+        "key": "alpine_dom_as_fo_ie_99",
+        "file": "Wave.lean",
+        "how": "base 8: 99→63"
+      },
+      {
+        "key": "quantum_margin_after_both_advantages_73",
+        "file": "Wave.lean",
+        "how": "base 8: 1000→512, 10→8"
+      },
+      {
+        "key": "mcp_tool_coverage_partition_244",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "alpine_page_list_cap_removed_315",
+        "file": "Wave.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "crypto_widths_are_fixed_not_sampled",
+        "file": "Models.lean",
+        "how": "base 8: 100000→32768"
+      },
+      {
+        "key": "ten_reduces_to_one",
+        "file": "Notation.lean",
+        "how": "base 8: 10000→4096, 1000→512, 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_0",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_4",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_5",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_6",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_8",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_12",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_13",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "polarity_double_degree_is_twelve_14",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_0",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_4",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_5",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_6",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_8",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_12",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_13",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "the_twelve_neighbours_are_an_independent_set_14",
+        "file": "Equilibrium.lean",
+        "how": "base 8: 100→64, 99→63"
+      },
+      {
+        "key": "the_untested_hundred_pay_a_third_of_the_wire",
+        "file": "Links.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "conway_ninetynine_counting_identity_holds",
+        "file": "OpenProblems.lean",
+        "how": "base 8: 99→63"
+      },
+      {
+        "key": "conway_ninetynine_multiplicities_are_integers_and_close",
+        "file": "OpenProblems.lean",
+        "how": "base 8: 99→63"
+      },
+      {
+        "key": "queneau_poems_are_ten_to_the_fourteen",
+        "file": "Queneau.lean",
+        "how": "base 8: 100000000000000→4398046511104, 10→8"
+      },
+      {
+        "key": "queneau_poems_are_the_fourteen_digit_numerals",
+        "file": "Queneau.lean",
+        "how": "base 8: 100000000000000→4398046511104, 99999999999999→4398046511103, 10→8"
+      },
+      {
+        "key": "queneau_ten_sonnets_are_a_vanishing_sample",
+        "file": "Queneau.lean",
+        "how": "base 8: 100000000000000→4398046511104, 10000000000000→549755813888, 10→8"
+      },
+      {
+        "key": "fixed_power_law_mod_100",
+        "file": "FixedPower.lean",
+        "how": "base 16: 100→256, 99→255, 10→16, 9→15"
+      },
+      {
+        "key": "fixed_power_law_mod_101",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_102",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_103",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_104",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_105",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_106",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_107",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_108",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_109",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_110",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_111",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_112",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_114",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_115",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_116",
+        "file": "FixedPower.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "fixed_power_law_mod_117",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_118",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_119",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_law_mod_120",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "fixed_power_multiplicative_10_by_11",
+        "file": "FixedPower.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "exponent_reduces_at_lambda_100",
+        "file": "FermatReduction.lean",
+        "how": "base 8: 100→64, 10→8, 9→7"
+      },
+      {
+        "key": "fermat_window_exponent_one_counts_one_hundred",
+        "file": "Fermat.lean",
+        "how": "base 8: 100→64"
+      },
+      {
+        "key": "unit_group_exponent_mod_109",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_12_mod_109",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_109_part1",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_109_part2",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_109_part3",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_109_part4",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_109_part5",
+        "file": "FermatRing2.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_3_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_6_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_12_mod_112",
+        "file": "FermatRing5.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_113",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_7_mod_113",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part1",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part2",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part3",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part4",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part5",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_7_mod_113_part6",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_8_mod_113",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part1",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part2",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part3",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part4",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part5",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_113_part6",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_14_mod_113",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part1",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part2",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part3",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part4",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part5",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_14_mod_113_part6",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_16_mod_113",
+        "file": "FermatRing6.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part1",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part2",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part3",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part4",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part5",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_113_part6",
+        "file": "FermatRing6.lean",
+        "how": "base 12: 100→144, 99→143, 10→12, 9→11"
+      },
+      {
+        "key": "unit_group_exponent_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_7_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_14_mod_116",
+        "file": "FermatRing9.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_118",
+        "file": "FermatRing11.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_118",
+        "file": "FermatRing11.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_3_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_3_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_3_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_3_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_3_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_4_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_4_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_4_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_4_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_6_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_6_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_6_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_6_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_6_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_8_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_8_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_12_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_12_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_16_mod_119",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_119_part1",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_119_part2",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_119_part3",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_16_mod_119_part4",
+        "file": "FermatRing12.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_5_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_10_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_20_mod_100",
+        "file": "FermatRing14.lean",
+        "how": "base 8: 100→64, 99→63, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_101",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_5_mod_101",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_5_mod_101_part1",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_5_mod_101_part2",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_5_mod_101_part3",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_5_mod_101_part4",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_10_mod_101",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_10_mod_101_part1",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_10_mod_101_part2",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_10_mod_101_part3",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_10_mod_101_part4",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_20_mod_101",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_20_mod_101_part1",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_20_mod_101_part2",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_20_mod_101_part3",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "coprime_sum_blocked_reduced_20_mod_101_part4",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_3_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_5_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_6_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_10_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_12_mod_122",
+        "file": "FermatRing15.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_103",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 16: 99→255, 10→16, 9→15"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_3_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_5_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_6_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_10_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 8: 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_15_mod_124",
+        "file": "FermatRing17.lean",
+        "how": "base 16: 99→255, 9→15"
+      },
+      {
+        "key": "unit_group_exponent_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_3_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_6_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_12_mod_104",
+        "file": "FermatRing18.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "unit_group_exponent_mod_125",
+        "file": "FermatRing18.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_1_mod_106",
+        "file": "FermatRing20.lean",
+        "how": "base 12: 99→143, 9→11"
+      },
+      {
+        "key": "power_image_exact_reduced_2_mod_106",
+        "file": "FermatRing20.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "power_image_exact_reduced_4_mod_106",
+        "file": "FermatRing20.lean",
+        "how": "base 8: 99→63, 9→7"
+      },
+      {
+        "key": "unit_group_exponent_mod_107",
+        "file": "FermatRing21.lean",
+        "how": "base 8: 100→64, 99→63, 10→8, 9→7"
+      }
+    ],
+    "wings": [
+      {
+        "wing": "FermatRing12.lean",
+        "notational": 31,
+        "suspect": 43,
+        "invariant": 17
+      },
+      {
+        "wing": "FermatRing6.lean",
+        "notational": 29,
+        "suspect": 21,
+        "invariant": 19
+      },
+      {
+        "wing": "FermatRing15.lean",
+        "notational": 24,
+        "suspect": 8,
+        "invariant": 43
+      },
+      {
+        "wing": "FixedPower.lean",
+        "notational": 21,
+        "suspect": 337,
+        "invariant": 121
+      },
+      {
+        "wing": "Equilibrium.lean",
+        "notational": 16,
+        "suspect": 8,
+        "invariant": 4
+      },
+      {
+        "wing": "Wave.lean",
+        "notational": 14,
+        "suspect": 97,
+        "invariant": 7
+      },
+      {
+        "wing": "FermatRing17.lean",
+        "notational": 9,
+        "suspect": 27,
+        "invariant": 31
+      },
+      {
+        "wing": "FermatRing18.lean",
+        "notational": 8,
+        "suspect": 43,
+        "invariant": 22
+      },
+      {
+        "wing": "Topography.lean",
+        "notational": 8,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "FermatRing14.lean",
+        "notational": 7,
+        "suspect": 38,
+        "invariant": 20
+      },
+      {
+        "wing": "FermatRing2.lean",
+        "notational": 7,
+        "suspect": 23,
+        "invariant": 11
+      },
+      {
+        "wing": "FermatRing5.lean",
+        "notational": 7,
+        "suspect": 39,
+        "invariant": 16
+      },
+      {
+        "wing": "FermatRing9.lean",
+        "notational": 6,
+        "suspect": 40,
+        "invariant": 30
+      },
+      {
+        "wing": "Thermodynamics.lean",
+        "notational": 6,
+        "suspect": 5,
+        "invariant": 2
+      },
+      {
+        "wing": "Glagolitic.lean",
+        "notational": 4,
+        "suspect": 5,
+        "invariant": 0
+      },
+      {
+        "wing": "MoMBHStar1.lean",
+        "notational": 4,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Neuro.lean",
+        "notational": 4,
+        "suspect": 3,
+        "invariant": 1
+      },
+      {
+        "wing": "Calendar.lean",
+        "notational": 3,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Ephemeris.lean",
+        "notational": 3,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "FermatRing20.lean",
+        "notational": 3,
+        "suspect": 22,
+        "invariant": 28
+      },
+      {
+        "wing": "Queneau.lean",
+        "notational": 3,
+        "suspect": 0,
+        "invariant": 2
+      },
+      {
+        "wing": "Statics.lean",
+        "notational": 3,
+        "suspect": 3,
+        "invariant": 1
+      },
+      {
+        "wing": "Chess.lean",
+        "notational": 2,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "Diving.lean",
+        "notational": 2,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "FermatRing11.lean",
+        "notational": 2,
+        "suspect": 36,
+        "invariant": 25
+      },
+      {
+        "wing": "OpenProblems.lean",
+        "notational": 2,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "Optics.lean",
+        "notational": 2,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "RenderBudget.lean",
+        "notational": 2,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "SiteBuild.lean",
+        "notational": 2,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Spectrum.lean",
+        "notational": 2,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Antikythera.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "Audit.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Cern.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "Chessgames.lean",
+        "notational": 1,
+        "suspect": 4,
+        "invariant": 4
+      },
+      {
+        "wing": "Cipher.lean",
+        "notational": 1,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Editing.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Exploits.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 4
+      },
+      {
+        "wing": "Fermat.lean",
+        "notational": 1,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "FermatReduction.lean",
+        "notational": 1,
+        "suspect": 31,
+        "invariant": 3
+      },
+      {
+        "wing": "FermatRing21.lean",
+        "notational": 1,
+        "suspect": 25,
+        "invariant": 15
+      },
+      {
+        "wing": "HexSpan3.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Links.lean",
+        "notational": 1,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "MartialArts.lean",
+        "notational": 1,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Models.lean",
+        "notational": 1,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "Notation.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 2
+      },
+      {
+        "wing": "Photography.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "QuantumCube.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Relativity.lean",
+        "notational": 1,
+        "suspect": 5,
+        "invariant": 0
+      },
+      {
+        "wing": "Sanitize.lean",
+        "notational": 1,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Scripture.lean",
+        "notational": 1,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Uuidna.lean",
+        "notational": 1,
+        "suspect": 7,
+        "invariant": 5
+      },
+      {
+        "wing": "Acoustics.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Affine.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 0
+      },
+      {
+        "wing": "Alignment.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 0
+      },
+      {
+        "wing": "Anthem.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "AntiFraud.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Astronomy.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "AuditGame.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Billing.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "BindingPoint.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 3
+      },
+      {
+        "wing": "BioPhysics.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "CernLinks.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Channel.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Clay.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Coins.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Colour.lean",
+        "notational": 0,
+        "suspect": 7,
+        "invariant": 1
+      },
+      {
+        "wing": "Command.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Comparisons.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Contribution.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Core.lean",
+        "notational": 0,
+        "suspect": 50,
+        "invariant": 14
+      },
+      {
+        "wing": "CrossFormulas.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Crt.lean",
+        "notational": 0,
+        "suspect": 10,
+        "invariant": 0
+      },
+      {
+        "wing": "Crypto.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Diagonal.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Discover.lean",
+        "notational": 0,
+        "suspect": 14,
+        "invariant": 1
+      },
+      {
+        "wing": "DivByZero.lean",
+        "notational": 0,
+        "suspect": 9,
+        "invariant": 2
+      },
+      {
+        "wing": "Doctrine.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Electromagnetism.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "EquilibriumXor10.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "EquilibriumXor11.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "FermatRing1.lean",
+        "notational": 0,
+        "suspect": 13,
+        "invariant": 6
+      },
+      {
+        "wing": "FermatRing10.lean",
+        "notational": 0,
+        "suspect": 19,
+        "invariant": 15
+      },
+      {
+        "wing": "FermatRing13.lean",
+        "notational": 0,
+        "suspect": 26,
+        "invariant": 3
+      },
+      {
+        "wing": "FermatRing16.lean",
+        "notational": 0,
+        "suspect": 48,
+        "invariant": 4
+      },
+      {
+        "wing": "FermatRing19.lean",
+        "notational": 0,
+        "suspect": 10,
+        "invariant": 4
+      },
+      {
+        "wing": "FermatRing3.lean",
+        "notational": 0,
+        "suspect": 28,
+        "invariant": 24
+      },
+      {
+        "wing": "FermatRing4.lean",
+        "notational": 0,
+        "suspect": 38,
+        "invariant": 5
+      },
+      {
+        "wing": "FermatRing7.lean",
+        "notational": 0,
+        "suspect": 26,
+        "invariant": 7
+      },
+      {
+        "wing": "FermatRing8.lean",
+        "notational": 0,
+        "suspect": 42,
+        "invariant": 20
+      },
+      {
+        "wing": "Grid.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "HandleStore.lean",
+        "notational": 0,
+        "suspect": 5,
+        "invariant": 1
+      },
+      {
+        "wing": "Hexbit.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "HexSpan1.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 6
+      },
+      {
+        "wing": "Identifiers.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 1
+      },
+      {
+        "wing": "Infinity.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 3
+      },
+      {
+        "wing": "Installs.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Involutionc0727ef6.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Involutionef58b583.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 0
+      },
+      {
+        "wing": "LandRights.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Laws.lean",
+        "notational": 0,
+        "suspect": 219,
+        "invariant": 82
+      },
+      {
+        "wing": "Looms.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 2
+      },
+      {
+        "wing": "Matching.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Molecular.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Negation.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Nim.lean",
+        "notational": 0,
+        "suspect": 5,
+        "invariant": 0
+      },
+      {
+        "wing": "OneLeap.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Optimisation.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Orbits.lean",
+        "notational": 0,
+        "suspect": 7,
+        "invariant": 2
+      },
+      {
+        "wing": "Pentagram.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Periodic.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Phase.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 0
+      },
+      {
+        "wing": "Pravets.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Production.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 1
+      },
+      {
+        "wing": "Propulsion.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 3
+      },
+      {
+        "wing": "ProseTrial.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Psychology.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Quantum.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 3
+      },
+      {
+        "wing": "Readings.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Reasoning.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Recursion.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 1
+      },
+      {
+        "wing": "Referrer.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 1
+      },
+      {
+        "wing": "Reflection.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 2
+      },
+      {
+        "wing": "Refusion.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 2
+      },
+      {
+        "wing": "Reversal.lean",
+        "notational": 0,
+        "suspect": 6,
+        "invariant": 0
+      },
+      {
+        "wing": "Ring.lean",
+        "notational": 0,
+        "suspect": 158,
+        "invariant": 76
+      },
+      {
+        "wing": "Sailing.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Seats.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 1
+      },
+      {
+        "wing": "Security.lean",
+        "notational": 0,
+        "suspect": 4,
+        "invariant": 0
+      },
+      {
+        "wing": "Sequence.lean",
+        "notational": 0,
+        "suspect": 25,
+        "invariant": 7
+      },
+      {
+        "wing": "Software.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 3
+      },
+      {
+        "wing": "Song.lean",
+        "notational": 0,
+        "suspect": 5,
+        "invariant": 0
+      },
+      {
+        "wing": "SpectrumHex.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Strings.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "StringTheory.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Structures.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Subgroups.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Symphony.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Tesla.lean",
+        "notational": 0,
+        "suspect": 0,
+        "invariant": 1
+      },
+      {
+        "wing": "Torus.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "Trinities.lean",
+        "notational": 0,
+        "suspect": 3,
+        "invariant": 0
+      },
+      {
+        "wing": "Typesetting.lean",
+        "notational": 0,
+        "suspect": 1,
+        "invariant": 0
+      },
+      {
+        "wing": "Universe.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "UuidMix.lean",
+        "notational": 0,
+        "suspect": 2,
+        "invariant": 0
+      },
+      {
+        "wing": "VectorEquilibrium.lean",
+        "notational": 0,
+        "suspect": 7,
+        "invariant": 1
+      },
+      {
+        "wing": "Vortex.lean",
+        "notational": 0,
+        "suspect": 11,
+        "invariant": 0
+      },
+      {
+        "wing": "Waves.lean",
+        "notational": 0,
+        "suspect": 8,
+        "invariant": 1
+      }
+    ],
+    "notationalKeys": [
+      "a440_drift_is_heard",
+      "a_cheaper_representation_multiplies_the_width_at_the_same_hardware",
+      "a_new_tool_pays_at_most_the_mean_wire_cost",
+      "abjad_four_ranks",
+      "alphabetic_three_ranks",
+      "alpine_dom_as_fo_ie_99",
+      "alpine_dom_sc_ga_ie_99",
+      "alpine_dom_sc_ma_ie_100",
+      "alpine_page_list_cap_removed_315",
+      "beam_reactions",
+      "beast_number_fits_two_readings",
+      "binary_kilo_drift_compounds",
+      "caesium_light_step",
+      "century_leap_rule",
+      "complement_fixes_the_half",
+      "contour_index_every_fifth",
+      "contour_spacing_inverse_gradient",
+      "conway_ninetynine_counting_identity_holds",
+      "conway_ninetynine_multiplicities_are_integers_and_close",
+      "cooling_cost_rises_toward_zero",
+      "coprime_sum_blocked_reduced_10_mod_101_part1",
+      "coprime_sum_blocked_reduced_10_mod_101_part2",
+      "coprime_sum_blocked_reduced_10_mod_101_part3",
+      "coprime_sum_blocked_reduced_10_mod_101_part4",
+      "coprime_sum_blocked_reduced_12_mod_109_part1",
+      "coprime_sum_blocked_reduced_12_mod_109_part2",
+      "coprime_sum_blocked_reduced_12_mod_109_part3",
+      "coprime_sum_blocked_reduced_12_mod_109_part4",
+      "coprime_sum_blocked_reduced_12_mod_109_part5",
+      "coprime_sum_blocked_reduced_12_mod_119_part1",
+      "coprime_sum_blocked_reduced_12_mod_119_part2",
+      "coprime_sum_blocked_reduced_12_mod_119_part3",
+      "coprime_sum_blocked_reduced_12_mod_119_part4",
+      "coprime_sum_blocked_reduced_14_mod_113_part1",
+      "coprime_sum_blocked_reduced_14_mod_113_part2",
+      "coprime_sum_blocked_reduced_14_mod_113_part3",
+      "coprime_sum_blocked_reduced_14_mod_113_part4",
+      "coprime_sum_blocked_reduced_14_mod_113_part5",
+      "coprime_sum_blocked_reduced_14_mod_113_part6",
+      "coprime_sum_blocked_reduced_16_mod_113_part1",
+      "coprime_sum_blocked_reduced_16_mod_113_part2",
+      "coprime_sum_blocked_reduced_16_mod_113_part3",
+      "coprime_sum_blocked_reduced_16_mod_113_part4",
+      "coprime_sum_blocked_reduced_16_mod_113_part5",
+      "coprime_sum_blocked_reduced_16_mod_113_part6",
+      "coprime_sum_blocked_reduced_16_mod_119_part1",
+      "coprime_sum_blocked_reduced_16_mod_119_part2",
+      "coprime_sum_blocked_reduced_16_mod_119_part3",
+      "coprime_sum_blocked_reduced_16_mod_119_part4",
+      "coprime_sum_blocked_reduced_20_mod_101_part1",
+      "coprime_sum_blocked_reduced_20_mod_101_part2",
+      "coprime_sum_blocked_reduced_20_mod_101_part3",
+      "coprime_sum_blocked_reduced_20_mod_101_part4",
+      "coprime_sum_blocked_reduced_3_mod_119_part1",
+      "coprime_sum_blocked_reduced_3_mod_119_part2",
+      "coprime_sum_blocked_reduced_3_mod_119_part3",
+      "coprime_sum_blocked_reduced_3_mod_119_part4",
+      "coprime_sum_blocked_reduced_4_mod_119_part1",
+      "coprime_sum_blocked_reduced_4_mod_119_part2",
+      "coprime_sum_blocked_reduced_4_mod_119_part3",
+      "coprime_sum_blocked_reduced_4_mod_119_part4",
+      "coprime_sum_blocked_reduced_5_mod_101_part1",
+      "coprime_sum_blocked_reduced_5_mod_101_part2",
+      "coprime_sum_blocked_reduced_5_mod_101_part3",
+      "coprime_sum_blocked_reduced_5_mod_101_part4",
+      "coprime_sum_blocked_reduced_6_mod_119_part1",
+      "coprime_sum_blocked_reduced_6_mod_119_part2",
+      "coprime_sum_blocked_reduced_6_mod_119_part3",
+      "coprime_sum_blocked_reduced_6_mod_119_part4",
+      "coprime_sum_blocked_reduced_7_mod_113_part1",
+      "coprime_sum_blocked_reduced_7_mod_113_part2",
+      "coprime_sum_blocked_reduced_7_mod_113_part3",
+      "coprime_sum_blocked_reduced_7_mod_113_part4",
+      "coprime_sum_blocked_reduced_7_mod_113_part5",
+      "coprime_sum_blocked_reduced_7_mod_113_part6",
+      "coprime_sum_blocked_reduced_8_mod_113_part1",
+      "coprime_sum_blocked_reduced_8_mod_113_part2",
+      "coprime_sum_blocked_reduced_8_mod_113_part3",
+      "coprime_sum_blocked_reduced_8_mod_113_part4",
+      "coprime_sum_blocked_reduced_8_mod_113_part5",
+      "coprime_sum_blocked_reduced_8_mod_113_part6",
+      "coprime_sum_blocked_reduced_8_mod_119_part1",
+      "coprime_sum_blocked_reduced_8_mod_119_part2",
+      "coprime_sum_blocked_reduced_8_mod_119_part3",
+      "coprime_sum_blocked_reduced_8_mod_119_part4",
+      "counting_beats_composing_by_six_magnitudes",
+      "crypto_widths_are_fixed_not_sampled",
+      "decimal_day_recoined_the_pound",
+      "division_by_zero",
+      "dropframe_is_one_thousandth",
+      "elevation_counts_intervals",
+      "enumeration_hex4_2710",
+      "exact_dilation_is_sparse_among_the_rationals",
+      "exponent_reduces_at_lambda_100",
+      "fermat_window_exponent_one_counts_one_hundred",
+      "fifty_move_rule_bounds_a_run",
+      "firing_rate_saturates",
+      "first_law_conservation",
+      "fixed_power_law_mod_100",
+      "fixed_power_law_mod_101",
+      "fixed_power_law_mod_102",
+      "fixed_power_law_mod_103",
+      "fixed_power_law_mod_104",
+      "fixed_power_law_mod_105",
+      "fixed_power_law_mod_106",
+      "fixed_power_law_mod_107",
+      "fixed_power_law_mod_108",
+      "fixed_power_law_mod_109",
+      "fixed_power_law_mod_110",
+      "fixed_power_law_mod_111",
+      "fixed_power_law_mod_112",
+      "fixed_power_law_mod_114",
+      "fixed_power_law_mod_115",
+      "fixed_power_law_mod_116",
+      "fixed_power_law_mod_117",
+      "fixed_power_law_mod_118",
+      "fixed_power_law_mod_119",
+      "fixed_power_law_mod_120",
+      "fixed_power_multiplicative_10_by_11",
+      "fold_trojan_source_bidi",
+      "gradient_rise_over_run",
+      "gregorian_cycle_closes_on_the_week",
+      "gregorian_cycle_is_ninety_seven_leaps",
+      "gregorian_leap_rule",
+      "inverse_at_fixed_c",
+      "iso_full_stops_agree_exactly",
+      "kelvin_floor_carries_the_hundred",
+      "landauer_bound_derived",
+      "landauer_floor_falls_with_temperature",
+      "leap_years_per_400",
+      "light_slower_in_medium",
+      "literature_sonnet_volume",
+      "map_scale_one_to_25000",
+      "mcp_tool_coverage_partition_244",
+      "mechanical_advantage",
+      "mombh_hbeta_oiii_ratio_central_over_ten_lower_under",
+      "mombh_quantum_edge_redshifts_into_filter_gap",
+      "mombh_quantum_hbeta_hgamma_are_balmer_lines",
+      "mombh_quantum_n2_population_needs_density",
+      "no_perpetual_motion",
+      "octave_of_light_doubles",
+      "partial_pressures_sum_to_absolute",
+      "pin_and_slot_equal_teeth",
+      "polarity_double_degree_is_twelve_0",
+      "polarity_double_degree_is_twelve_12",
+      "polarity_double_degree_is_twelve_13",
+      "polarity_double_degree_is_twelve_14",
+      "polarity_double_degree_is_twelve_4",
+      "polarity_double_degree_is_twelve_5",
+      "polarity_double_degree_is_twelve_6",
+      "polarity_double_degree_is_twelve_8",
+      "power_image_exact_reduced_10_mod_100",
+      "power_image_exact_reduced_10_mod_101",
+      "power_image_exact_reduced_10_mod_122",
+      "power_image_exact_reduced_10_mod_124",
+      "power_image_exact_reduced_12_mod_104",
+      "power_image_exact_reduced_12_mod_109",
+      "power_image_exact_reduced_12_mod_112",
+      "power_image_exact_reduced_12_mod_119",
+      "power_image_exact_reduced_12_mod_122",
+      "power_image_exact_reduced_14_mod_113",
+      "power_image_exact_reduced_14_mod_116",
+      "power_image_exact_reduced_15_mod_124",
+      "power_image_exact_reduced_16_mod_113",
+      "power_image_exact_reduced_16_mod_119",
+      "power_image_exact_reduced_1_mod_100",
+      "power_image_exact_reduced_1_mod_104",
+      "power_image_exact_reduced_1_mod_106",
+      "power_image_exact_reduced_1_mod_112",
+      "power_image_exact_reduced_1_mod_116",
+      "power_image_exact_reduced_1_mod_118",
+      "power_image_exact_reduced_1_mod_122",
+      "power_image_exact_reduced_1_mod_124",
+      "power_image_exact_reduced_20_mod_100",
+      "power_image_exact_reduced_20_mod_101",
+      "power_image_exact_reduced_2_mod_100",
+      "power_image_exact_reduced_2_mod_104",
+      "power_image_exact_reduced_2_mod_106",
+      "power_image_exact_reduced_2_mod_112",
+      "power_image_exact_reduced_2_mod_116",
+      "power_image_exact_reduced_2_mod_118",
+      "power_image_exact_reduced_2_mod_122",
+      "power_image_exact_reduced_2_mod_124",
+      "power_image_exact_reduced_3_mod_104",
+      "power_image_exact_reduced_3_mod_112",
+      "power_image_exact_reduced_3_mod_119",
+      "power_image_exact_reduced_3_mod_122",
+      "power_image_exact_reduced_3_mod_124",
+      "power_image_exact_reduced_4_mod_100",
+      "power_image_exact_reduced_4_mod_104",
+      "power_image_exact_reduced_4_mod_106",
+      "power_image_exact_reduced_4_mod_112",
+      "power_image_exact_reduced_4_mod_116",
+      "power_image_exact_reduced_4_mod_119",
+      "power_image_exact_reduced_4_mod_122",
+      "power_image_exact_reduced_5_mod_100",
+      "power_image_exact_reduced_5_mod_101",
+      "power_image_exact_reduced_5_mod_122",
+      "power_image_exact_reduced_5_mod_124",
+      "power_image_exact_reduced_6_mod_104",
+      "power_image_exact_reduced_6_mod_112",
+      "power_image_exact_reduced_6_mod_119",
+      "power_image_exact_reduced_6_mod_122",
+      "power_image_exact_reduced_6_mod_124",
+      "power_image_exact_reduced_7_mod_113",
+      "power_image_exact_reduced_7_mod_116",
+      "power_image_exact_reduced_8_mod_113",
+      "power_image_exact_reduced_8_mod_119",
+      "quantum_margin_after_both_advantages_73",
+      "queneau_poems_are_ten_to_the_fourteen",
+      "queneau_poems_are_the_fourteen_digit_numerals",
+      "queneau_ten_sonnets_are_a_vanishing_sample",
+      "refractive_index_ge_one",
+      "refractory_bounds_rate",
+      "sanitize_array_and_keys_are_ten_pow_five",
+      "saros_eclipse_cycle",
+      "six_figure_grid_tenths",
+      "spike_amplitude_attenuates",
+      "sport_marathon_and_the_teams",
+      "stress_is_force_over_area",
+      "ten_reduces_to_one",
+      "ten_square_computes_ten_dimensions",
+      "ten_square_ten_free",
+      "the_axiom_index_partitions_without_remainder",
+      "the_budget_re_measured_from_the_resident_reading",
+      "the_collision_energy_label_step_is_one_tev",
+      "the_comma_hides_below_hearing",
+      "the_process_holds_more_than_the_container_allows",
+      "the_rank_rule_climbs_by_ten",
+      "the_reform_is_exactly_three_days_in_four_hundred",
+      "the_twelve_neighbours_are_an_independent_set_0",
+      "the_twelve_neighbours_are_an_independent_set_12",
+      "the_twelve_neighbours_are_an_independent_set_13",
+      "the_twelve_neighbours_are_an_independent_set_14",
+      "the_twelve_neighbours_are_an_independent_set_4",
+      "the_twelve_neighbours_are_an_independent_set_5",
+      "the_twelve_neighbours_are_an_independent_set_6",
+      "the_twelve_neighbours_are_an_independent_set_8",
+      "the_untested_hundred_pay_a_third_of_the_wire",
+      "theology_counts_in_the_mirror_base",
+      "threshold_is_quasi_threshold",
+      "trimix_fractions_sum_100",
+      "unit_group_exponent_mod_100",
+      "unit_group_exponent_mod_101",
+      "unit_group_exponent_mod_103",
+      "unit_group_exponent_mod_104",
+      "unit_group_exponent_mod_107",
+      "unit_group_exponent_mod_109",
+      "unit_group_exponent_mod_112",
+      "unit_group_exponent_mod_113",
+      "unit_group_exponent_mod_116",
+      "unit_group_exponent_mod_119",
+      "unit_group_exponent_mod_124",
+      "unit_group_exponent_mod_125",
+      "verify_beats_recompute_by_magnitudes",
+      "vertical_exaggeration",
+      "wgs84_polar_shorter"
+    ]
+  }
+}

@@ -1,62 +1,68 @@
 {
-  "kind": "time-census",
-  "honest": "the ratio of a warm run to a cold one. Near 100/100 means the door rebuilt its answer; well under means it read a receipt. A fast door with a ratio near 100 is not a finding — its work may simply be small. A cache that misses every run is indistinguishable from no cache here, and that is a reader's question, not a verdict.",
-  "doors": [
-    {
-      "door": "numeral-reach",
-      "cold": 1469,
-      "warm": 1708,
-      "ratio": 116,
-      "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
-    },
-    {
-      "door": "closure-census",
-      "cold": 5945,
-      "warm": 4590,
-      "ratio": 77,
-      "verdict": "partly cached — some of the walk was reused"
-    },
-    {
-      "door": "phd-census",
-      "cold": 5072,
-      "warm": 4831,
-      "ratio": 95,
-      "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
-    },
-    {
-      "door": "science-classes",
-      "cold": 1457,
-      "warm": 1417,
-      "ratio": 97,
-      "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
-    },
-    {
-      "door": "falsifier-gap",
-      "cold": 858,
-      "warm": 175,
-      "ratio": 20,
-      "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
-    },
-    {
-      "door": "school-areas",
-      "cold": 797,
-      "warm": 797,
-      "ratio": 100,
-      "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
-    },
-    {
-      "door": "entanglement-map",
-      "cold": 911,
-      "warm": 911,
-      "ratio": 100,
-      "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
-    },
-    {
-      "door": "base-invariance",
-      "cold": 244232,
-      "warm": 883,
-      "ratio": 0,
-      "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
-    }
-  ]
+ "kind": "time-census",
+ "honest": "the ratio of a warm run to a cold one. Near 100/100 means the door rebuilt its answer; well under means it read a receipt. A fast door with a ratio near 100 is not a finding — its work may simply be small. A cache that misses every run is indistinguishable from no cache here, and that is a reader's question, not a verdict.",
+ "doors": [
+  {
+   "door": "numeral-reach",
+   "cold": 2005,
+   "warm": 1771,
+   "ratio": 88,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "closure-census",
+   "cold": 5364,
+   "warm": 4684,
+   "ratio": 87,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "phd-census",
+   "cold": 6026,
+   "warm": 9747,
+   "ratio": 161,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "science-classes",
+   "cold": 1847,
+   "warm": 1866,
+   "ratio": 101,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "falsifier-gap",
+   "cold": 1181,
+   "warm": 217,
+   "ratio": 18,
+   "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
+  },
+  {
+   "door": "school-areas",
+   "cold": 937,
+   "warm": 938,
+   "ratio": 100,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "entanglement-map",
+   "cold": 1157,
+   "warm": 1175,
+   "ratio": 101,
+   "verdict": "RECOMPUTES — the warm run costs what the cold one did, with the receipt removed in between, so nothing is cached"
+  },
+  {
+   "door": "base-invariance",
+   "cold": 309083,
+   "warm": 4113,
+   "ratio": 1,
+   "verdict": "verifies — the warm run is dominated by reading a receipt rather than by the walk"
+  }
+ ],
+ "receipt": "de06a4ff-dba8-8ae6-bfef-35a0e2db3251",
+ "crossed": {
+  "sorted": "de06a4ff-dba8-8ae6-bfef-35a0e2db3251",
+  "reversed": "de06a4ff-dba8-8ae6-bfef-35a0e2db3251",
+  "agrees": true
+ }
 }
