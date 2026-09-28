@@ -1,16 +1,16 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1394,
- "distinct": 1176,
+ "requests": 1407,
+ "distinct": 1187,
  "served": 250,
  "families": [
   {
    "verb": "wing",
-   "asks": 204
+   "asks": 206
   },
   {
    "verb": "theorem",
-   "asks": 78
+   "asks": 79
   },
   {
    "verb": "commit",
@@ -18,7 +18,7 @@
   },
   {
    "verb": "test",
-   "asks": 44
+   "asks": 45
   },
   {
    "verb": "ledger",
@@ -45,15 +45,15 @@
    "asks": 10
   },
   {
+   "verb": "receipt",
+   "asks": 7
+  },
+  {
    "verb": "diff",
    "asks": 5
   },
   {
    "verb": "reach",
-   "asks": 5
-  },
-  {
-   "verb": "receipt",
    "asks": 5
   },
   {
@@ -73,11 +73,11 @@
    "asks": 1
   }
  ],
- "unclassified": 850,
+ "unclassified": 857,
  "held": [
   {
    "verb": "wing",
-   "asks": 204,
+   "asks": 206,
    "samples": [
     "counting theorems in one lean wing while the hosted index door is down",
     "running the bare lean kernel on a candidate wing before it enters the tree",
@@ -86,7 +86,7 @@
   },
   {
    "verb": "theorem",
-   "asks": 78,
+   "asks": 79,
    "samples": [
     "locating the one source theorem the derived layer is missing",
     "reading the sealed colour theorem the A432 change moved",
@@ -104,7 +104,7 @@
   },
   {
    "verb": "test",
-   "asks": 44,
+   "asks": 45,
    "samples": [
     "reading qpu's own tests and lean file to see what pins its storage address function",
     "checking which Lean Nat conventions the test evaluator diverges on",
@@ -166,6 +166,15 @@
    ]
   },
   {
+   "verb": "receipt",
+   "asks": 7,
+   "samples": [
+    "no door reports whether a minted receipt is stale",
+    "no door records a wave result and mints its receipt",
+    "measure the union of buildTrialMerkaba input receipts and their mod-9 reductions"
+   ]
+  },
+  {
    "verb": "diff",
    "asks": 5,
    "samples": [
@@ -181,15 +190,6 @@
     "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
     "checking whether basis is genuinely unreached or the reach walk misses it",
     "verifying both new queues reach the survey and the MCP door that serves it"
-   ]
-  },
-  {
-   "verb": "receipt",
-   "asks": 5,
-   "samples": [
-    "no door reports whether a minted receipt is stale",
-    "no door records a wave result and mints its receipt",
-    "measure the union of buildTrialMerkaba input receipts and their mod-9 reductions"
    ]
   },
   {
@@ -230,12 +230,12 @@
  "open": 10,
  "leads": [
   {
-   "lead": "204 recorded ask(s) for a door that wings, against 250 doors served — sessions stated this gap 204 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"counting theorems in one lean wing while the hosted index door is down\".",
+   "lead": "206 recorded ask(s) for a door that wings, against 250 doors served — sessions stated this gap 206 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"counting theorems in one lean wing while the hosted index door is down\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "78 recorded ask(s) for a door that theorems, against 250 doors served — sessions stated this gap 78 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"locating the one source theorem the derived layer is missing\".",
+   "lead": "79 recorded ask(s) for a door that theorems, against 250 doors served — sessions stated this gap 79 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"locating the one source theorem the derived layer is missing\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -245,7 +245,7 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "44 recorded ask(s) for a door that tests, against 250 doors served — sessions stated this gap 44 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
+   "lead": "45 recorded ask(s) for a door that tests, against 250 doors served — sessions stated this gap 45 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -279,5 +279,11 @@
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
- ]
+ ],
+ "receipt": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
+ "crossed": {
+  "sorted": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
+  "reversed": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
+  "agrees": true
+ }
 }

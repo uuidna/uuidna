@@ -1,0 +1,1334 @@
+{
+ "kind": "artifact-receipts",
+ "why": "Every derived artifact should carry a cross: a content address its own leaves fold to, by two routes that must agree (src/crossfold.ts), stamped by the one write door (src/artifact.ts) rather than by each writer. An artifact without one is an array a reader can compare to nothing. UNSEALED is a debt and may only shrink; STALE is a fault and fails now, because an address that no longer covers its content is worse than none.",
+ "artifacts": 328,
+ "sealed": 3,
+ "sealedElsewhere": 19,
+ "unsealed": 42,
+ "stale": 0,
+ "unmeasured": 264,
+ "staleRows": [],
+ "unmeasuredRows": [
+  {
+   "file": "acoustics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "affine-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "alignment-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "anthem-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "antifraud-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "antikythera-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "astronomy-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "audit-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "auditgame-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "billing-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "bindingpoint-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "biophysics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "boolean-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "byte-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "calendar-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "cern-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "cernlinks-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "channel-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "chemistry-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "chess-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "chessgames-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "cipher-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "circle-findings.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "clay-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "clock-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "codes-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "coins-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "coinsbalance-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "colour-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "command-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "comparisons-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "contribution-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "core-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "crossformulas-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "crosslink-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "crossproof-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "crt-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "crypto-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "cyber-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "decipher-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "diagonal-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "discover-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "divbyzero-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "diving-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "doctrine-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "doorsurface-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "doubletorus-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "editing-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "editor-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "electromagnetism-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "ephemeris-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibrium-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor1-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor10-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor11-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor12-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor13-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor14-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor15-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor16-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor17-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor18-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor19-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor2-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor20-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor21-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor22-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor23-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor24-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor25-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor26-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor27-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor28-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor29-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor3-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor30-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor31-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor32-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor33-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor34-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor35-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor36-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor37-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor38-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor39-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor4-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor40-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor41-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor42-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor43-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor44-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor45-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor46-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor47-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor48-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor49-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor5-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor50-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor51-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor52-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor53-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor54-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor55-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor56-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor57-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor58-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor59-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor6-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor60-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor61-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor62-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor63-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor64-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor7-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor8-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "equilibriumxor9-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "exploits-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermat-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatreduction-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring1-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring10-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring11-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring12-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring13-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring14-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring15-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring16-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring17-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring18-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring19-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring2-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring20-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring21-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring3-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring4-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring5-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring6-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring7-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring8-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fermatring9-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fixedpower-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "fluid-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "forensics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "glagolitic-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "grid-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hamming-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "handlespan-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "handlestore-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hardware-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "harmony-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexbit-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan1-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan10-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan11-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan12-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan13-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan14-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan15-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan16-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan2-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan3-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan4-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan5-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan6-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan7-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan8-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "hexspan9-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "identifiers-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "infinity-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "installs-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "invariance-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involution2d552f1f-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involution83b7cc65-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involution90c4f258-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involutionb13fd37a-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involutionc0727ef6-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involutione92de628-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "involutionef58b583-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "isometry-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "landrights-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "laws-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "legal-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "links-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "looms-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "martialarts-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "matching-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "models-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "molecular-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "mombhstar1-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "navigation-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "negation-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "neuro-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "nim-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "notation-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "oneleap-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "openproblems-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "optics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "optimisation-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "orbits-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "os-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "pentagram-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "periodic-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "phase-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "photography-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "plancklattice-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "platonic-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "pravets-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "production-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "proofde5612a2-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "prooff59dbc3d-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "propulsion-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "prosetrial-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "psychology-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "quantum-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "quantumcube-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "queneau-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "readings-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "reasoning-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "recursion-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "referrer-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "reflection-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "refusion-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "relativity-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "renderbudget-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "report-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "reversal-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "ring-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "rosette-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sailing-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sanitize-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "scripture-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "seats-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "security-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sequence-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sessions.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sicross-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "singularity-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "sitebuild-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "software-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "solids-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "song-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "spectrum-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "spectrumhex-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "statics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "strings-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "stringtheory-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "structures-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "subgroups-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "symphony-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "tesla-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "thermodynamics-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "tides-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "topography-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "torus-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "trinities-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "typesetting-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "universe-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "uuidlaws-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "uuidmix-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "uuidna-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "vectorequilibrium-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "vortex-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "wave-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  },
+  {
+   "file": "waves-manifest.json",
+   "state": "UNMEASURED",
+   "why": "top level is not an object, so it has nowhere to carry a seal"
+  }
+ ],
+ "fix": "write it through wrArtifact(path, value) from src/artifact.ts instead of writeFileSync or a bare wrRoot — the seal is then computed from what was actually written, and no writer has to remember it."
+}

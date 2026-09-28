@@ -1,563 +1,569 @@
 {
-  "kind": "api-discovery",
-  "asked": 23,
-  "answered": 15,
-  "keyed": 4,
-  "failed": 2,
-  "notMeasured": 2,
-  "notMeasuredRows": [
+ "kind": "api-discovery",
+ "asked": 23,
+ "answered": 15,
+ "keyed": 4,
+ "failed": 2,
+ "notMeasured": 2,
+ "notMeasuredRows": [
+  {
+   "api": "europepmc",
+   "why": "no answer within 8000ms"
+  },
+  {
+   "api": "wfo",
+   "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint."
+  }
+ ],
+ "honest": "a probe that did not answer is recorded as not answering, never as answering with nothing. A source with no VERIFIED CONNECTION is counted apart from a source that answered an error: a TLS chain this client rejects, a name that did not resolve and a refused connection are facts about the path, not about the service, and wfo is the measured case — curl reaches it, node refuses its incomplete chain. A derived schema is a floor — the endpoint served at least this — and never a contract: optional fields absent from one response are invisible to it. The URL shape is built as base + query params, which is wrong for path-style endpoints, and such a refusal is a finding about the declaration rather than a fault in the source.",
+ "sources": [
+  {
+   "api": "europepmc",
+   "status": null,
+   "ms": 8001,
+   "keyed": false,
+   "why": "no answer within 8000ms",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "clinicaltrials",
+   "status": 200,
+   "ms": 362,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 122,
+   "quantities": [],
+   "methods": 115
+  },
+  {
+   "api": "openfda",
+   "status": 200,
+   "ms": 1080,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 97,
+   "quantities": [
     {
-      "api": "europepmc",
-      "why": "no answer within 8000ms"
-    },
-    {
-      "api": "wfo",
-      "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint."
+     "path": "meta.results.skip",
+     "sample": "0"
     }
-  ],
-  "honest": "a probe that did not answer is recorded as not answering, never as answering with nothing. A source with no VERIFIED CONNECTION is counted apart from a source that answered an error: a TLS chain this client rejects, a name that did not resolve and a refused connection are facts about the path, not about the service, and wfo is the measured case — curl reaches it, node refuses its incomplete chain. A derived schema is a floor — the endpoint served at least this — and never a contract: optional fields absent from one response are invisible to it. The URL shape is built as base + query params, which is wrong for path-style endpoints, and such a refusal is a finding about the declaration rather than a fault in the source.",
-  "sources": [
+   ],
+   "methods": 95
+  },
+  {
+   "api": "dailymed",
+   "status": 200,
+   "ms": 683,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 18,
+   "quantities": [],
+   "methods": 17
+  },
+  {
+   "api": "rxnav",
+   "status": 200,
+   "ms": 765,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 4,
+   "quantities": [],
+   "methods": 3
+  },
+  {
+   "api": "pubchem",
+   "status": 200,
+   "ms": 638,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 7,
+   "quantities": [
     {
-      "api": "europepmc",
-      "status": null,
-      "ms": 8003,
-      "keyed": false,
-      "why": "no answer within 8000ms",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "clinicaltrials",
-      "status": 200,
-      "ms": 396,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 122,
-      "quantities": [],
-      "methods": 115
-    },
-    {
-      "api": "openfda",
-      "status": 200,
-      "ms": 1030,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 97,
-      "quantities": [
-        {
-          "path": "meta.results.skip",
-          "sample": "0"
-        }
-      ],
-      "methods": 95
-    },
-    {
-      "api": "dailymed",
-      "status": 200,
-      "ms": 672,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 18,
-      "quantities": [],
-      "methods": 17
-    },
-    {
-      "api": "rxnav",
-      "status": 200,
-      "ms": 839,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 4,
-      "quantities": [],
-      "methods": 3
-    },
-    {
-      "api": "pubchem",
-      "status": 200,
-      "ms": 733,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 7,
-      "quantities": [
-        {
-          "path": "PropertyTable.Properties[].CID",
-          "sample": "969516"
-        }
-      ],
-      "methods": 6
-    },
-    {
-      "api": "chembl",
-      "status": 200,
-      "ms": 351,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 71,
-      "quantities": [
-        {
-          "path": "molecules[].black_box_warning",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].chemical_probe",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].chirality",
-          "sample": "2"
-        },
-        {
-          "path": "molecules[].first_in_class",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].inorganic_flag",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].molecule_properties.aromatic_rings",
-          "sample": "3"
-        },
-        {
-          "path": "molecules[].molecule_properties.hba",
-          "sample": "7"
-        },
-        {
-          "path": "molecules[].molecule_properties.hbd",
-          "sample": "5"
-        },
-        {
-          "path": "molecules[].molecule_properties.heavy_atoms",
-          "sample": "22"
-        },
-        {
-          "path": "molecules[].molecule_properties.num_ro5_violations",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].molecule_properties.rtb",
-          "sample": "1"
-        },
-        {
-          "path": "molecules[].natural_product",
-          "sample": "1"
-        },
-        {
-          "path": "molecules[].orphan",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].polymer_flag",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].prodrug",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].veterinary",
-          "sample": "0"
-        },
-        {
-          "path": "molecules[].availability_type",
-          "sample": "-1"
-        }
-      ],
-      "methods": 54
-    },
-    {
-      "api": "unichem",
-      "status": 200,
-      "ms": 134,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 30,
-      "quantities": [
-        {
-          "path": "compounds[].uci",
-          "sample": "896764"
-        }
-      ],
-      "methods": 28
-    },
-    {
-      "api": "ols",
-      "status": 200,
-      "ms": 58,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 12,
-      "quantities": [],
-      "methods": 11
-    },
-    {
-      "api": "uniprot",
-      "status": 200,
-      "ms": 412,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 142,
-      "quantities": [
-        {
-          "path": "results[].entryAudit.entryVersion",
-          "sample": "240"
-        },
-        {
-          "path": "results[].entryAudit.sequenceVersion",
-          "sample": "2"
-        },
-        {
-          "path": "results[].annotationScore",
-          "sample": "5"
-        },
-        {
-          "path": "results[].organism.taxonId",
-          "sample": "9606"
-        },
-        {
-          "path": "results[].references[].referenceNumber",
-          "sample": "1"
-        },
-        {
-          "path": "results[].sequence.molWeight",
-          "sample": "68996"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.FUNCTION",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.CATALYTIC ACTIVITY",
-          "sample": "38"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.COFACTOR",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.ACTIVITY REGULATION",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.BIOPHYSICOCHEMICAL PROPERTIES",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.PATHWAY",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.SUBUNIT",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.INTERACTION",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.SUBCELLULAR LOCATION",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.INDUCTION",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.PTM",
-          "sample": "2"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.MISCELLANEOUS",
-          "sample": "3"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.SIMILARITY",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.WEB RESOURCE",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Signal",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Chain",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Domain",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Active site",
-          "sample": "2"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Binding site",
-          "sample": "3"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Site",
-          "sample": "1"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Modified residue",
-          "sample": "2"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Glycosylation",
-          "sample": "4"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Disulfide bond",
-          "sample": "5"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Natural variant",
-          "sample": "5"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Mutagenesis",
-          "sample": "11"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Sequence conflict",
-          "sample": "2"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Turn",
-          "sample": "7"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Beta strand",
-          "sample": "14"
-        },
-        {
-          "path": "results[].extraAttributes.countByFeatureType.Helix",
-          "sample": "39"
-        },
-        {
-          "path": "results[].extraAttributes.countByCommentType.CAUTION",
-          "sample": "1"
-        }
-      ],
-      "methods": 141
-    },
-    {
-      "api": "ensembl",
-      "status": 200,
-      "ms": 381,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 17,
-      "quantities": [
-        {
-          "path": "start",
-          "sample": "186671791"
-        },
-        {
-          "path": "end",
-          "sample": "186680922"
-        },
-        {
-          "path": "strand",
-          "sample": "-1"
-        }
-      ],
-      "methods": 16
-    },
-    {
-      "api": "opentargets",
-      "status": 200,
-      "ms": 290,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 4,
-      "quantities": [],
-      "methods": 3
-    },
-    {
-      "api": "gbif",
-      "status": 200,
-      "ms": 357,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 59,
-      "quantities": [
-        {
-          "path": "results[].nameKey",
-          "sample": "3115801"
-        },
-        {
-          "path": "results[].nubKey",
-          "sample": "2757624"
-        },
-        {
-          "path": "results[].parentKey",
-          "sample": "103055720"
-        },
-        {
-          "path": "results[].kingdomKey",
-          "sample": "102974832"
-        },
-        {
-          "path": "results[].phylumKey",
-          "sample": "102986054"
-        },
-        {
-          "path": "results[].classKey",
-          "sample": "103019693"
-        },
-        {
-          "path": "results[].orderKey",
-          "sample": "103053978"
-        },
-        {
-          "path": "results[].familyKey",
-          "sample": "103055166"
-        },
-        {
-          "path": "results[].genusKey",
-          "sample": "103055720"
-        },
-        {
-          "path": "results[].speciesKey",
-          "sample": "103055807"
-        },
-        {
-          "path": "results[].numDescendants",
-          "sample": "0"
-        },
-        {
-          "path": "results[].numOccurrences",
-          "sample": "0"
-        }
-      ],
-      "methods": 56
-    },
-    {
-      "api": "wfo",
-      "status": null,
-      "ms": 331,
-      "keyed": false,
-      "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint.",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "powo",
-      "status": 403,
-      "ms": 253,
-      "keyed": false,
-      "why": "HTTP 403 for the declared probe",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "duke-phytochem",
-      "status": 404,
-      "ms": 579,
-      "keyed": false,
-      "why": "HTTP 404 for the declared probe",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "lotus",
-      "status": 200,
-      "ms": 471,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 10,
-      "quantities": [],
-      "methods": 9
-    },
-    {
-      "api": "coconut",
-      "status": null,
-      "ms": 0,
-      "keyed": true,
-      "why": "a credential is required and none is held: KEY REQUIRED — measured 2026-09-28: /api/molecules answers 401 and /api/v1/molecules 404, so the surface is gated. The DATA is CC BY 4.0; the ACCESS is not open, and my declaration of \"public, no key\" was refuted by its own probe.",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "mpns",
-      "status": null,
-      "ms": 0,
-      "keyed": true,
-      "why": "a credential is required and none is held: REGISTRATION REQUIRED — free for non-commercial use, key issued by Kew",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "usda-fdc",
-      "status": null,
-      "ms": 0,
-      "keyed": true,
-      "why": "a credential is required and none is held: KEY REQUIRED — free, issued by api.data.gov",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "who-gho",
-      "status": 200,
-      "ms": 239,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 7,
-      "quantities": [],
-      "methods": 6
-    },
-    {
-      "api": "openaq",
-      "status": null,
-      "ms": 0,
-      "keyed": true,
-      "why": "a credential is required and none is held: public; a free key is now required for v3",
-      "fields": null,
-      "quantities": [],
-      "methods": 0
-    },
-    {
-      "api": "open-meteo",
-      "status": 200,
-      "ms": 209,
-      "keyed": false,
-      "why": "answered JSON",
-      "fields": 16,
-      "quantities": [
-        {
-          "path": "latitude",
-          "sample": "42.6875"
-        },
-        {
-          "path": "longitude",
-          "sample": "23.3125"
-        },
-        {
-          "path": "generationtime_ms",
-          "sample": "0.02968311309814453"
-        },
-        {
-          "path": "elevation",
-          "sample": "549"
-        },
-        {
-          "path": "hourly.temperature_2m[]",
-          "sample": "10.4"
-        }
-      ],
-      "methods": 15
+     "path": "PropertyTable.Properties[].CID",
+     "sample": "969516"
     }
-  ]
+   ],
+   "methods": 6
+  },
+  {
+   "api": "chembl",
+   "status": 200,
+   "ms": 231,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 71,
+   "quantities": [
+    {
+     "path": "molecules[].black_box_warning",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].chemical_probe",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].chirality",
+     "sample": "2"
+    },
+    {
+     "path": "molecules[].first_in_class",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].inorganic_flag",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].molecule_properties.aromatic_rings",
+     "sample": "3"
+    },
+    {
+     "path": "molecules[].molecule_properties.hba",
+     "sample": "7"
+    },
+    {
+     "path": "molecules[].molecule_properties.hbd",
+     "sample": "5"
+    },
+    {
+     "path": "molecules[].molecule_properties.heavy_atoms",
+     "sample": "22"
+    },
+    {
+     "path": "molecules[].molecule_properties.num_ro5_violations",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].molecule_properties.rtb",
+     "sample": "1"
+    },
+    {
+     "path": "molecules[].natural_product",
+     "sample": "1"
+    },
+    {
+     "path": "molecules[].orphan",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].polymer_flag",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].prodrug",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].veterinary",
+     "sample": "0"
+    },
+    {
+     "path": "molecules[].availability_type",
+     "sample": "-1"
+    }
+   ],
+   "methods": 54
+  },
+  {
+   "api": "unichem",
+   "status": 200,
+   "ms": 121,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 30,
+   "quantities": [
+    {
+     "path": "compounds[].uci",
+     "sample": "896764"
+    }
+   ],
+   "methods": 28
+  },
+  {
+   "api": "ols",
+   "status": 200,
+   "ms": 59,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 12,
+   "quantities": [],
+   "methods": 11
+  },
+  {
+   "api": "uniprot",
+   "status": 200,
+   "ms": 417,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 142,
+   "quantities": [
+    {
+     "path": "results[].entryAudit.entryVersion",
+     "sample": "240"
+    },
+    {
+     "path": "results[].entryAudit.sequenceVersion",
+     "sample": "2"
+    },
+    {
+     "path": "results[].annotationScore",
+     "sample": "5"
+    },
+    {
+     "path": "results[].organism.taxonId",
+     "sample": "9606"
+    },
+    {
+     "path": "results[].references[].referenceNumber",
+     "sample": "1"
+    },
+    {
+     "path": "results[].sequence.molWeight",
+     "sample": "68996"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.FUNCTION",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.CATALYTIC ACTIVITY",
+     "sample": "38"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.COFACTOR",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.ACTIVITY REGULATION",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.BIOPHYSICOCHEMICAL PROPERTIES",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.PATHWAY",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.SUBUNIT",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.INTERACTION",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.SUBCELLULAR LOCATION",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.INDUCTION",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.PTM",
+     "sample": "2"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.MISCELLANEOUS",
+     "sample": "3"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.SIMILARITY",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.WEB RESOURCE",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Signal",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Chain",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Domain",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Active site",
+     "sample": "2"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Binding site",
+     "sample": "3"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Site",
+     "sample": "1"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Modified residue",
+     "sample": "2"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Glycosylation",
+     "sample": "4"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Disulfide bond",
+     "sample": "5"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Natural variant",
+     "sample": "5"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Mutagenesis",
+     "sample": "11"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Sequence conflict",
+     "sample": "2"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Turn",
+     "sample": "7"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Beta strand",
+     "sample": "14"
+    },
+    {
+     "path": "results[].extraAttributes.countByFeatureType.Helix",
+     "sample": "39"
+    },
+    {
+     "path": "results[].extraAttributes.countByCommentType.CAUTION",
+     "sample": "1"
+    }
+   ],
+   "methods": 141
+  },
+  {
+   "api": "ensembl",
+   "status": 200,
+   "ms": 5140,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 17,
+   "quantities": [
+    {
+     "path": "strand",
+     "sample": "-1"
+    },
+    {
+     "path": "end",
+     "sample": "186680922"
+    },
+    {
+     "path": "start",
+     "sample": "186671791"
+    }
+   ],
+   "methods": 16
+  },
+  {
+   "api": "opentargets",
+   "status": 200,
+   "ms": 392,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 4,
+   "quantities": [],
+   "methods": 3
+  },
+  {
+   "api": "gbif",
+   "status": 200,
+   "ms": 470,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 59,
+   "quantities": [
+    {
+     "path": "results[].nameKey",
+     "sample": "3115801"
+    },
+    {
+     "path": "results[].nubKey",
+     "sample": "2757624"
+    },
+    {
+     "path": "results[].parentKey",
+     "sample": "103055720"
+    },
+    {
+     "path": "results[].kingdomKey",
+     "sample": "102974832"
+    },
+    {
+     "path": "results[].phylumKey",
+     "sample": "102986054"
+    },
+    {
+     "path": "results[].classKey",
+     "sample": "103019693"
+    },
+    {
+     "path": "results[].orderKey",
+     "sample": "103053978"
+    },
+    {
+     "path": "results[].familyKey",
+     "sample": "103055166"
+    },
+    {
+     "path": "results[].genusKey",
+     "sample": "103055720"
+    },
+    {
+     "path": "results[].speciesKey",
+     "sample": "103055807"
+    },
+    {
+     "path": "results[].numDescendants",
+     "sample": "0"
+    },
+    {
+     "path": "results[].numOccurrences",
+     "sample": "0"
+    }
+   ],
+   "methods": 56
+  },
+  {
+   "api": "wfo",
+   "status": null,
+   "ms": 1064,
+   "keyed": false,
+   "why": "THIS CLIENT CANNOT VERIFY THE TLS CHAIN, which is not the source failing to answer: unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca. curl reaches the same URL; node ships its own CA store and the remedy it names is --use-system-ca. Re-probe before treating this as a dark endpoint.",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "powo",
+   "status": 403,
+   "ms": 236,
+   "keyed": false,
+   "why": "HTTP 403 for the declared probe",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "duke-phytochem",
+   "status": 404,
+   "ms": 1572,
+   "keyed": false,
+   "why": "HTTP 404 for the declared probe",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "lotus",
+   "status": 200,
+   "ms": 464,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 10,
+   "quantities": [],
+   "methods": 9
+  },
+  {
+   "api": "coconut",
+   "status": null,
+   "ms": 0,
+   "keyed": true,
+   "why": "a credential is required and none is held: KEY REQUIRED — measured 2026-09-28: /api/molecules answers 401 and /api/v1/molecules 404, so the surface is gated. The DATA is CC BY 4.0; the ACCESS is not open, and my declaration of \"public, no key\" was refuted by its own probe.",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "mpns",
+   "status": null,
+   "ms": 0,
+   "keyed": true,
+   "why": "a credential is required and none is held: REGISTRATION REQUIRED — free for non-commercial use, key issued by Kew",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "usda-fdc",
+   "status": null,
+   "ms": 0,
+   "keyed": true,
+   "why": "a credential is required and none is held: KEY REQUIRED — free, issued by api.data.gov",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "who-gho",
+   "status": 200,
+   "ms": 221,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 7,
+   "quantities": [],
+   "methods": 6
+  },
+  {
+   "api": "openaq",
+   "status": null,
+   "ms": 0,
+   "keyed": true,
+   "why": "a credential is required and none is held: public; a free key is now required for v3",
+   "fields": null,
+   "quantities": [],
+   "methods": 0
+  },
+  {
+   "api": "open-meteo",
+   "status": 200,
+   "ms": 328,
+   "keyed": false,
+   "why": "answered JSON",
+   "fields": 16,
+   "quantities": [
+    {
+     "path": "latitude",
+     "sample": "42.6875"
+    },
+    {
+     "path": "longitude",
+     "sample": "23.3125"
+    },
+    {
+     "path": "generationtime_ms",
+     "sample": "0.031232833862304688"
+    },
+    {
+     "path": "elevation",
+     "sample": "549"
+    },
+    {
+     "path": "hourly.temperature_2m[]",
+     "sample": "10.4"
+    }
+   ],
+   "methods": 15
+  }
+ ],
+ "receipt": "0011a14e-22e8-8ddc-9379-25c73310e92b",
+ "crossed": {
+  "sorted": "0011a14e-22e8-8ddc-9379-25c73310e92b",
+  "reversed": "0011a14e-22e8-8ddc-9379-25c73310e92b",
+  "agrees": true
+ }
 }
