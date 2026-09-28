@@ -30,6 +30,11 @@ interface Gen { file: string; args: string[]; note: string }
 // THE MANIFEST — dependency order, the shell chain's order preserved where it existed, orphans folded in at the
 // point their inputs are ready. This list is the ONE place generation order is stated.
 const GENERATORS: Gen[] = [
+  // THE DOOR-REQUEST RECORD IS A DERIVED SURFACE like any other: it is read out of dist/evidence/mcp-gaps.jsonl,
+  // which every refused ad-hoc command appends to, so it moves whenever a session states a gap. A gen-* that writes
+  // a file and is invoked by nothing leaves that file to rot while git reports the tree clean — the derived-attribute
+  // law says so in those words, and it refused the tree until this entry existed.
+  { file: 'gen-mcp-gaps.js', args: [], note: 'the doors sessions asked for, read from the gap log every escape appends to' },
   { file: 'gen-mcp-docs.js', args: [], note: 'every tool run once in a sandbox: standard name, annotations from what it reaches, the shape of its actual answer — src/mcp-docs.generated.ts, which both MCP surfaces serve and gen-mcp renders' },
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
   { file: 'gen-apis.js', args: [], note: 'the public API catalog — drained from publicApiRegistry(), no hand-typed /apis' },

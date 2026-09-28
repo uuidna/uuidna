@@ -639,6 +639,8 @@ export const DRAIN_WRITERS: Readonly<Record<string, string>> = {
  *  llm.txt all rewrote and none were staged. `one-receipt drain` holds this map against reconcile.ts and
  *  against DRAIN_PATHS, so adding a generator to the chain without declaring its output fails at guard speed. */
 export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
+  // the door-request record, read out of the gap log every refused ad-hoc command appends to
+  'gen-mcp-gaps': ['lean/mcp-gaps.json'],
   'lean-axioms': ['lean/axioms.json'],
   'gen-mcp-docs': ['src/mcp-docs.generated.ts'],
   'gen-mcp': ['docs/mcp.md'],
