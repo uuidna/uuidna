@@ -114,9 +114,44 @@ export const openDoor = (name: unknown, args: Record<string, unknown> | undefine
 }
 
 /** matching(rows, q) → the rows matching every word of q in their name, aliases, title or description */
+/**
+ * The rows matching every word of q, RANKED — a name match before a description match.
+ *
+ * IT USED TO FILTER WITHOUT RANKING, and that manufactured work for everyone who asked. Rows came back in catalogue
+ * order, so asking for "theorem" answered get_skills, compute_skill, get_handle, get_tokens and get_cost before
+ * get_theorem, which sat NINTH of eighteen — matched only because those descriptions happen to mention the word.
+ * Measured consequence: four separate sessions searched for a theorem-by-key door, none found the one that exists, and
+ * each recorded "no door serves a theorem by key" as a missing capability. Those leads are false and this ranking is
+ * why they were created.
+ *
+ * THE SCORE IS WHERE THE WORD WAS FOUND, which is the only signal available without asking what the caller meant: a
+ * name IS the tool's identity, a title is its summary, a description is prose that may mention anything. An exact name
+ * match outranks a partial one, because a caller who types a tool's whole name has said which tool they want. Ties keep
+ * catalogue order, so the ranking never reorders rows it cannot distinguish.
+ */
+const scoreOf = (r: DoorRow, words: readonly string[]): number => {
+  const names = namesOf(r).map((n) => n.toLowerCase())
+  const title = (r.title ?? '').toLowerCase()
+  const description = r.description.toLowerCase()
+  let score = 0
+  for (const w of words) {
+    if (names.some((n) => n === w || n === `uuidna_${w}`)) score += 1000
+    else if (names.some((n) => n.includes(w))) score += 100
+    else if (title.includes(w)) score += 10
+    else if (description.includes(w)) score += 1
+  }
+  return score
+}
+
 const matching = (rows: readonly DoorRow[], q: string): DoorRow[] => {
   const words = q.toLowerCase().split(/\s+/).filter(Boolean)
-  return rows.filter((r) => { const hay = [...namesOf(r), r.title ?? '', r.description].join(' ').toLowerCase(); return words.every((w) => hay.includes(w)) })
+  const hit = rows.filter((r) => { const hay = [...namesOf(r), r.title ?? '', r.description].join(' ').toLowerCase(); return words.every((w) => hay.includes(w)) })
+  // INDEX CARRIED SO TIES KEEP CATALOGUE ORDER: a sort that reorders equal rows makes the listing unstable between
+  // runs, and an unstable listing is one a caller cannot learn.
+  return hit
+    .map((r, i) => ({ r, i, s: scoreOf(r, words) }))
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .map((x) => x.r)
 }
 /** rowOf(rows, name) → the row a standard name or an old alias names, or undefined */
 const rowOf = (rows: readonly DoorRow[], name: string): DoorRow | undefined => rows.find((r) => namesOf(r).includes(name))

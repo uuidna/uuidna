@@ -232,3 +232,43 @@ test('THE WIRE: tools/list costs a fraction of the catalogue, measured per tool 
   const keys = new Set(MCP_LISTED.flatMap((l) => Object.keys((l.inputSchema as { properties?: object } | undefined)?.properties ?? {})))
   t.diagnostic(`stdio tools/list: ${MCP_LISTED.length} listed of ${MCP_CATALOG.length}, ${listed} bytes (the two doors ${wireBytes(doors)}; catalogue as rows ${whole}), ${rate} hundredths per tool reached, ${keys.size} distinct keys listed; edge tools/list: ${edgeList.length} listed of ${mcpHttpToolNames().length}, ${wireBytes(edgeList)} bytes`)
 })
+
+// ── THE SEARCH MUST SURFACE THE DOOR THAT EXISTS ────────────────────────────────────────────────────────────────
+//
+// MEASURED CONSEQUENCE OF THE UNRANKED LISTING. uuidna_theorem reads one theorem by key and has existed throughout;
+// asking the catalogue for "theorem" answered get_skills, compute_skill, get_handle, get_tokens and get_cost first,
+// with the real door NINTH of eighteen, because the filter returned catalogue order and those descriptions happen to
+// mention the word. Four separate sessions searched, none found it, and each recorded "no door serves a theorem by key"
+// as a missing capability in dist/evidence/mcp-gaps.jsonl. Those leads are false, and this is the defect that made them.
+test('list_tools {query} ranks a NAME match above a description match', () => {
+  const rows = mcpHttpCatalogue()
+  const ranked = doorIndex(rows, 'theorem').tools.map((t) => t.name)
+  assert.ok(ranked.length > 1, 'more than one tool mentions theorem')
+  assert.match(ranked[0]!, /theorem/, `the first answer must name it, got ${ranked[0]}`)
+
+  // and the tools that merely MENTION it in prose come after the ones that carry it in their name
+  const named = ranked.filter((n) => n.includes('theorem'))
+  const mentioned = ranked.filter((n) => !n.includes('theorem'))
+  if (mentioned.length > 0 && named.length > 0) {
+    assert.ok(ranked.indexOf(named[named.length - 1]!) < ranked.indexOf(mentioned[0]!),
+      'every name match precedes every description-only match')
+  }
+})
+
+test('list_tools {query} — an exact tool name answers that tool first', () => {
+  const rows = mcpHttpCatalogue()
+  for (const q of ['spin', 'trial', 'handle']) {
+    const ranked = doorIndex(rows, q).tools.map((t) => t.name)
+    if (ranked.length === 0) continue
+    assert.match(ranked[0]!, new RegExp(q), `"${q}" must answer a tool whose name carries it, got ${ranked[0]}`)
+  }
+})
+
+// A SORT THAT REORDERS EQUAL ROWS MAKES THE LISTING UNSTABLE, and a listing a caller cannot learn is worse than an
+// unranked one.
+test('list_tools {query} — ties keep catalogue order, so the listing is stable', () => {
+  const rows = mcpHttpCatalogue()
+  const once = doorIndex(rows, 'receipt').tools.map((t) => t.name)
+  const twice = doorIndex(rows, 'receipt').tools.map((t) => t.name)
+  assert.deepEqual(once, twice)
+})
