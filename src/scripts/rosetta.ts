@@ -125,7 +125,26 @@ function commentAbove(src: string, key: string): string {
 }
 
 /** Read every wing and decide, per theorem, which of the five legs it actually carries. */
+// MEASURED 2026-09-28: census() costs 9,538 ms and is called by THIRTY files. With --test-isolation=none the whole
+// suite runs in one process, so twenty-nine of those calls recompute an answer the first already has: 286 seconds
+// against 9.5 memoised. It is most of rosetta-legs.test.ts's 284 s, and the five heaviest test files are 985 s of a
+// twenty-minute landing gate — which is the difference between losing the race on a shared tree and releasing often.
+//
+// IT IS SAFE TO MEMOISE BECAUSE IT TAKES NO ARGUMENT AND READS NO CLOCK. The rows are derived from the sealed ledger,
+// so within one process the answer is a constant — exactly the shape this tree's own law says to serve at O(1) rather
+// than recompute (verify_beats_recompute_by_magnitudes). Measured identical across two calls before this was written.
+//
+// FROZEN BEFORE IT IS HANDED OUT, because a shared array a caller could mutate turns a cache into a channel between
+// callers and the first mutation would be invisible to everyone after it. This is a CACHE, not a change of answer: the
+// tests that assert the census's own content fail there rather than here if it ever became one.
+let censusMemo: Rosetta[] | null = null
+
 export function census(): Rosetta[] {
+  if (censusMemo !== null) return censusMemo
+  return (censusMemo = Object.freeze(censusUncached()) as Rosetta[])
+}
+
+function censusUncached(): Rosetta[] {
   const leanDir = pathm().join(ROOT, 'lean')
   const wings = fsm().readdirSync(leanDir).filter((f) => f.endsWith('.lean'))
   // COMMENTS ARE NOT COVERAGE. This scan is a substring match, so for a long time a theorem key merely MENTIONED in
