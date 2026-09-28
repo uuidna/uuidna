@@ -11,7 +11,8 @@
 // same wall clock twice. So the RATIO of the two runs is the measurement: near 1 means recompute, well under 1 means
 // verify. Nothing is inferred from reading the source, which could only ever say what a cache was meant to do.
 //
-// WHAT THIS CANNOT SEE, said plainly. A door may be fast because its work is small rather than because it verifies, so
+// WHAT THIS CANNOT SEE, said plainly, and BY CONSTRUCTION: a clock reports duration and nothing about method. A door may
+// be fast because its work is small rather than because it verifies, so
 // a low absolute time with a ratio near 1 is not a finding. And a door with a cache that MISSES on every run looks
 // exactly like one with no cache, which is the honest limit: this measures the behaviour, and the cause is a reader's
 // question. Both are reported rather than collapsed into a verdict.

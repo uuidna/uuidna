@@ -47,22 +47,11 @@ import type { Fact } from './lean-gen.js'
 // qpu's own defs, carried from src/quantum/processing/unit/index.lean so the arithmetic cannot drift from the
 // arithmetic these rows were proven under. n is the length of ["quantum","processing","unit"] there; it is written as
 // that same list here rather than as 3, because a numeral would be the drift this whole discipline refuses.
-const DEFS = [
-  'def mintOf : Nat → Nat | 0 => 1 | k + 1 => mintOf k + mintOf k',
-  'def chooseOf : Nat → Nat → Nat | _, 0 => 1 | 0, _ + 1 => 0 | n + 1, k + 1 => chooseOf n (k + 1) + chooseOf n k',
-  'def n : Nat := ["quantum", "processing", "unit"].length',
-  'def seed : Nat := mintOf (n - n)',
-  'def coins : Nat := seed + seed',
-  'def scanner : Nat := seed',
-  'def radar : Nat := seed',
-  'def rays : Nat := n + coins + coins',
-  'def vertices : Nat := mintOf n',
-  'def hexbit : Nat := mintOf coins',
-  'def faces : Nat := vertices + hexbit + coins',
-  'def theory : Nat := seed',
-  'def practice : Nat := seed',
-  'def coil : Nat := coins * rays',
-].join('\n')
+// NO DEFS, because the one surviving cross is pure numerals and a def no theorem reaches is dead weight the wing
+// finder correctly refuses. Carrying qpu's fourteen definitions made sense while six ported rows referred to them; with
+// five of those rows gone as non-crosses, the definitions were reached by nothing. qpu keeps them, where its own
+// theorems use them.
+const DEFS = ''
 
 // the TypeScript mirrors, so each row has its symbol leg and the two readings can disagree and be caught
 // INTEGER DIVISION WITHOUT Math.*, which the harmonic scan refuses everywhere and refused here — the THIRD time this
