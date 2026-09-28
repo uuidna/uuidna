@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+// @non-harmonic: measures how long a live public API took to answer. The latency IS the reading — a probe that
+// reports whether a host answered without reporting how slowly cannot tell a healthy source from one about to
+// time out, and TIMEOUT_MS is meaningless without a clock to compare against. Nothing sealed depends on it: the
+// ms column is a reading of one host at one moment, like the measured column in the verify-vs-recompute table.
 // api-discover — WALK THE CHAIN: the declared APIs, what each answers, its schema, its methods, its quantities.
 //
 // The captain, 2026-09-28: "discover the apis to discover the schemas to discover the methods to discover the cross

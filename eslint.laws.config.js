@@ -7,7 +7,11 @@ import tsparser from '@typescript-eslint/parser'
 import uuidna from './eslint-rules/index.js'
 
 export default [
-  { ignores: ['dist/**', 'node_modules/**', 'docs/.vitepress/**', 'packages/*/src/**', 'src/chunks/**', 'lean/**', 'extension/**', 'worker.js', 'handles.js', 'eslint.config.js', 'eslint.laws.config.js', 'eslint-rules/**'] },
+  // `.claude/worktrees/**` HOLDS OTHER SESSIONS' CHECKOUTS OF THIS SAME REPOSITORY, so linting them lints this tree again
+  // through a copy — and reports it against files the root already exempts, because `docs/.vitepress/**` cannot reach
+  // `.claude/worktrees/<agent>/docs/.vitepress/`. Measured 2026-09-28: 20 of 26 errors were six worktrees repeating the
+  // same handful of files, each one a checkout another session is mid-edit on.
+  { ignores: ['dist/**', 'node_modules/**', '.claude/worktrees/**', 'docs/.vitepress/**', 'packages/*/src/**', 'src/chunks/**', 'lean/**', 'extension/**', 'worker.js', 'handles.js', 'eslint.config.js', 'eslint.laws.config.js', 'eslint-rules/**'] },
   // the TS parser only — no projectService, so this gate needs no type information and stays fast enough to run
   // on every guard rather than only in CI. The laws are syntactic; they do not need to know what a type is.
   { files: ['**/*.ts'], languageOptions: { parser: tsparser }, plugins: { uuidna }, rules: {

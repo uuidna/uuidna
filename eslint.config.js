@@ -10,7 +10,12 @@ import tseslint from 'typescript-eslint'
 import uuidna from './eslint-rules/index.js'
 
 export default tseslint.config(
-  { ignores: ['dist/**', 'node_modules/**', 'docs/.vitepress/**', 'packages/*/src/**', 'src/chunks/**', 'lean/**', 'extension/**', 'worker.js', 'handles.js'] },
+  // `.claude/worktrees/**` HOLDS OTHER SESSIONS' CHECKOUTS OF THIS SAME REPOSITORY, and linting them lints this tree
+  // again through a copy. Measured 2026-09-28: 26 errors, of which 20 were six worktrees reporting the same handful of
+  // files — including `docs/.vitepress/home.data.ts`, which the next entry already exempts at the root and which the
+  // pattern cannot reach at `.claude/worktrees/<agent>/docs/.vitepress/`. So a rule this tree has decided not to apply
+  // was applied anyway, to a file it does not own, in a checkout another session is mid-edit on.
+  { ignores: ['dist/**', 'node_modules/**', '.claude/worktrees/**', 'docs/.vitepress/**', 'packages/*/src/**', 'src/chunks/**', 'lean/**', 'extension/**', 'worker.js', 'handles.js'] },
   js.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
