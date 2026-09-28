@@ -1,0 +1,7 @@
+{
+  "kind": "api-cross",
+  "publishedQuantities": 0,
+  "evidenceFloor": 0,
+  "candidates": [],
+  "honest": "a candidate is a shared digit string between a public source and a sealed statement. It is not a bridge: the decimal point is dropped so scale is lost, and 368.38, 36.838 and 3683.8 all match the same key. Only a match carrying a unit and an exponent — the CODATA path — can be checked as meaning the same quantity."
+}
