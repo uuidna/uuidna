@@ -70,7 +70,12 @@ export const sealOf = (value: unknown): ArtifactSeal => {
  * meant. A writer that passes its own `receipt` has it recomputed and replaced: an asserted address is the thing this
  * door exists to abolish.
  */
-export function wrArtifact(relPath: string, value: Record<string, unknown>): ArtifactSeal {
+// GENERIC OVER THE WRITER'S OWN TYPE, because every caller has one. The first signature took Record<string, unknown>
+// and every typed census — DuplicationCensus, PaddingCensus, ReleaseLive, Harvest — was refused by the compiler for
+// being MORE specific than that, which would have meant either widening each writer's own interface or casting at
+// twenty-five call sites. The seal is computed from the value's own leaves and cares about no field by name, so the
+// constraint that actually matters is that it is an object.
+export function wrArtifact<T extends object>(relPath: string, value: T): ArtifactSeal {
   const seal = sealOf(value)
   wrRoot(relPath, JSON.stringify({ ...value, ...seal }, null, 1) + '\n')
   return seal
