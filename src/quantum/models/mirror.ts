@@ -492,15 +492,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002523",
-   "completionPrice": "0.0000035"
+   "promptPrice": "0.0000003995",
+   "completionPrice": "0.0000042"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000035",
-   "completionPrice": "0.00000029"
+   "promptPrice": "0.0000000245",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
@@ -772,8 +772,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-26b-a4b-it",
    "name": "Google: Gemma 4 26B A4B ",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000675",
-   "completionPrice": "0.000000225"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "google/gemma-4-26b-a4b-it:free",
@@ -1297,8 +1297,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.6",
    "name": "MoonshotAI: Kimi K2.6",
    "contextTokens": 262144,
-   "promptPrice": "0.00000095",
-   "completionPrice": "0.000004"
+   "promptPrice": "0.00000065",
+   "completionPrice": "0.00000341"
   },
   {
    "id": "moonshotai/kimi-k2.7-code",
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3",
    "name": "Z.ai: GLM 5.3",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
+   "promptPrice": "0.0000001785",
+   "completionPrice": "0.000002805"
   },
   {
    "id": "z-ai/glm-5.3-flash",
@@ -3124,15 +3124,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000035",
-   "completionPrice": "0.00000029"
+   "promptPrice": "0.0000000245",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002523",
-   "completionPrice": "0.0000035"
+   "promptPrice": "0.000000128",
+   "completionPrice": "0.0000019584"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
@@ -3215,7 +3215,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000004522",
+   "promptPrice": "0.0000001785",
    "completionPrice": "0.000002805"
   }
  ]

@@ -1,24 +1,24 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1372,
+  "records": 1374,
   "distinct": 1156,
   "loadBearing": 108,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
-      "gap": "no door commits a pathspec",
-      "hits": 15,
-      "forms": [
-        "UUIDNA_MCP_GAP"
-      ]
-    },
-    {
       "gap": "no door commits a pathspec to git",
-      "hits": 15,
+      "hits": 17,
       "forms": [
         "UUIDNA_MCP_GAP",
         "cat",
         "sed"
+      ]
+    },
+    {
+      "gap": "no door commits a pathspec",
+      "hits": 15,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {

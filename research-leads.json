@@ -1,6 +1,29 @@
 {
   "leads": [
     {
+      "module": "src/lead-cross.ts",
+      "capability": [
+        "LeadRow",
+        "ToolRow",
+        "commonWords",
+        "distinctive",
+        "Cluster",
+        "crossLeads",
+        "Verdict",
+        "fakeLeads"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "be2b76a9-b15a-8705-be8e-d93a593897c3"
+    },
+    {
       "module": "src/theorems/ledger-edge.ts",
       "capability": [
         "LEDGER_EDGE",
@@ -34,5 +57,5 @@
       "receipt": "96079783-a2ed-8646-9e7c-5afee0b02eb7"
     }
   ],
-  "receipt": "7a18637a-a48e-821b-a90c-ad31b1142e0e"
+  "receipt": "95bde56f-b76c-82a6-9e6d-5e3702b67795"
 }
