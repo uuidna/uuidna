@@ -1,0 +1,18 @@
+{
+  "kind": "door-receipt",
+  "digest": "c830413182f795006f31ef73ffff8fc0",
+  "value": {
+    "doors": 251,
+    "params": 65536,
+    "combinations": 16449536,
+    "walked": 16449536,
+    "forwardFails": [],
+    "backFails": [],
+    "independence": {
+      "bases": 256,
+      "disagreements": 0
+    },
+    "collisions": 0,
+    "unresolved": 0
+  }
+}

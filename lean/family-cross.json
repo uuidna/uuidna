@@ -1,0 +1,32 @@
+{
+ "kind": "family-cross",
+ "why": "A family declares a set of wings and the kernel seals them: two domains, one intent and one proof. Families from unrelated subjects (the six-cube xor translations; refuted leads) must both land on wings that exist, so they prove each other rather than each proving itself. The families are DISCOVERED from src/scripts/*-family.ts and their membership is the zero-argument export ending in Wings, so a family added tomorrow is crossed on that landing with nothing edited. A module that cannot be asked is UNMEASURED and never counted as clean.",
+ "families": 2,
+ "agreeing": 2,
+ "disagreeing": 0,
+ "unmeasured": 0,
+ "sealedWings": 262,
+ "rows": [
+  {
+   "family": "equilibrium-family",
+   "declared": 64,
+   "sealed": 64,
+   "missing": [],
+   "agrees": true
+  },
+  {
+   "family": "involution-family",
+   "declared": 9,
+   "sealed": 9,
+   "missing": [],
+   "agrees": true
+  }
+ ],
+ "unmeasuredRows": [],
+ "receipt": "b91c6212-09b0-896e-a4f0-1918252da845",
+ "crossed": {
+  "sorted": "b91c6212-09b0-896e-a4f0-1918252da845",
+  "reversed": "b91c6212-09b0-896e-a4f0-1918252da845",
+  "agrees": true
+ }
+}
