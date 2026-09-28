@@ -30,7 +30,18 @@ const readOrNull = (rel: string): string | null => { try { return rdRoot(rel) } 
 
 const LEAN = join(ROOT, 'lean')
 
-export interface ArtifactRow { file: string; state: 'sealed' | 'missing' | 'STALE' | 'UNMEASURED'; why?: string }
+// FIVE ANSWERS, AND THE FIFTH WAS A LESSON. The first version had four and called 19 artifacts STALE on its first
+// run — every one of them wrongly. Those files DO carry a receipt, computed by their own generator's fold: a spin
+// coin, a hexbitReceipt over that generator's own leaves, a rosette concurrence. This finder recomputes with sealOf,
+// which is THIS door's derivation and nobody else's, so a mismatch against a foreign fold says nothing about the
+// artifact and everything about the instrument. An address this door cannot recompute is not an address that is
+// wrong: the fold that produced it belongs to another generator, which is a DECLARED BOUNDARY of this finder
+// rather than a fault in the file.
+//
+// So a receipt is only recomputed when the artifact also carries `crossed`, which is the mark wrArtifact leaves. A
+// receipt without it is FOREIGN — sealed by a route this finder does not own — and is reported as such rather than
+// accused. STALE now means what it should: an artifact this door sealed whose content has moved since.
+export interface ArtifactRow { file: string; state: 'sealed' | 'foreign' | 'missing' | 'STALE' | 'UNMEASURED'; why?: string }
 
 /** every lean/*.json, judged. Exported so the test can hand it a controlled set instead of the live tree. */
 export function judgeArtifacts(files: readonly string[]): ArtifactRow[] {
@@ -47,6 +58,10 @@ export function judgeArtifacts(files: readonly string[]): ArtifactRow[] {
     }
     const o = held as Record<string, unknown>
     if (typeof o.receipt !== 'string') { rows.push({ file, state: 'missing' }); continue }
+    if (o.crossed === null || typeof o.crossed !== 'object') {
+      rows.push({ file, state: 'foreign', why: 'carries a receipt from its own generator\'s fold, which this door cannot recompute and does not judge' })
+      continue
+    }
     const fresh = sealOf(o)
     if (fresh.receipt !== o.receipt) {
       rows.push({ file, state: 'STALE', why: `carries ${String(o.receipt).slice(0, 12)} but its own content folds to ${fresh.receipt.slice(0, 12)}` })
@@ -63,9 +78,9 @@ if (process.argv[1]?.endsWith('audit-artifact-receipts.js')) {
   const files = leanArtifacts()
   const rows = judgeArtifacts(files)
   const by = (s: ArtifactRow['state']): ArtifactRow[] => rows.filter((r) => r.state === s)
-  const sealed = by('sealed'), missing = by('missing'), stale = by('STALE'), unmeasured = by('UNMEASURED')
+  const sealed = by('sealed'), foreign = by('foreign'), missing = by('missing'), stale = by('STALE'), unmeasured = by('UNMEASURED')
 
-  console.log(`audit-artifact-receipts — ${files.length} artifact(s) in lean/: ${sealed.length} sealed, ${missing.length} unsealed, ${stale.length} STALE, ${unmeasured.length} unmeasured`)
+  console.log(`audit-artifact-receipts — ${files.length} artifact(s) in lean/: ${sealed.length} sealed by this door, ${foreign.length} sealed elsewhere, ${missing.length} unsealed, ${stale.length} STALE, ${unmeasured.length} unmeasured`)
   for (const r of stale) console.log(`  ✗ STALE       ${r.file} — ${r.why}`)
   for (const r of unmeasured) console.log(`  ?             ${r.file} — ${r.why}`)
   if (missing.length > 0) console.log(`  · unsealed    ${missing.slice(0, 8).map((r) => r.file).join(', ')}${missing.length > 8 ? ` … and ${missing.length - 8} more` : ''}`)
@@ -84,6 +99,7 @@ if (process.argv[1]?.endsWith('audit-artifact-receipts.js')) {
       + 'STALE is a fault and fails now, because an address that no longer covers its content is worse than none.',
     artifacts: files.length,
     sealed: sealed.length,
+    sealedElsewhere: foreign.length,
     unsealed: missing.length,
     stale: stale.length,
     unmeasured: unmeasured.length,

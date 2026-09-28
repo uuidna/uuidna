@@ -850,17 +850,35 @@ const TOOLS: Tool[] = ([
       // `skill` already answer: one axis of the same ledger. A separate door would serve a second answer shape for
       // the same rows, and every filter added later would have to be added twice.
       //
-      // The census is the honest cheap half: 262 wings and their counts, which is what a caller asking "how big is
-      // this wing" actually wants, without paging 71,089 rows to count them. Both paths read the sealed ledger, so
-      // on a surface that does not hold it the refusal is the ledger's own, by name — the same answer the statement
-      // paths already give rather than a second, quieter failure.
+      // The census is the honest cheap half: every wing and its count, which is what a caller asking "how big is this
+      // wing" actually wants, without paging the whole ledger to count it. Both paths read the sealed ledger, so on a
+      // surface that does not hold it the refusal is the ledger's own, by name — the same answer the statement paths
+      // already give rather than a second, quieter failure.
+      //
+      // ── AND THE ARRAY IS A CROSS, WHICH IS THE ONLY REASON TO TRUST IT ────────────────────────────────────────
+      //
+      // The captain, 2026-09-28: "why arrays and hashes are not result of cross formulas?!? formulate all!" The first
+      // version of this census answered with its own sum — it counted the rows it had just built and reported the
+      // total of the numbers it had just added. That is a surface agreeing with itself, and this repository has a
+      // lesson for exactly it: internal consistency is not corroboration. A census like that cannot be wrong, which
+      // is the same as saying it cannot be checked.
+      //
+      // So the total is CROSSED against a surface that shares no step with it. sealedKeys() is the baked key list the
+      // edge carries — one newline-joined string with an offset index, built by a different generator, holding no
+      // statements and no file names. Summing per-wing counts walks the ledger rows and groups them by `file`;
+      // counting sealedKeys() reads a flat string. Neither derives the other, and they must land on one integer. The
+      // answer carries `crossed` so a caller reads the agreement rather than trusting the arithmetic, and `agrees`
+      // false is a real finding: it means a wing moved in one surface and not the other, which is exactly the drift
+      // a census exists to catch and the self-summing version would have served as a clean number.
       const wingOf = (t: { file: string }): string => t.file
       const wingKey = (x: unknown): string => String(x).toLowerCase().replace(/\.lean$/, '')
       if (a.wings === true) {
         const counted = new Map<string, number>()
         for (const t of theorems({})) counted.set(wingOf(t), (counted.get(wingOf(t)) ?? 0) + 1)
         const rows = [...counted.entries()].map(([wing, count]) => ({ wing, theorems: count })).sort((x, y) => y.theorems - x.theorems || x.wing.localeCompare(y.wing))
-        return { wings: rows.length, theorems: rows.reduce((n, r) => n + r.theorems, 0), rows }
+        const summed = rows.reduce((n, r) => n + r.theorems, 0)
+        const baked = sealedKeys().length
+        return { wings: rows.length, theorems: summed, crossed: { summedOverWings: summed, bakedKeyCount: baked, agrees: summed === baked }, rows }
       }
       // KEYS ONLY IS A KEY QUESTION, AND IT USED TO ASK FOR THE ROWS. Every path here called theorems(), which at the
       // edge throws "the edge does not hold the whole ledger" — so `{keys:true, contains:"…"}` was refused for wanting

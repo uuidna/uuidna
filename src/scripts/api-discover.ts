@@ -23,6 +23,7 @@ import { discoveryOf, type Discovered } from '../api-discovery.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 
 const TIMEOUT_MS = 8000
 // A NAMED AGENT WITH A CONTACT URL, because several of these services refuse an unidentified client outright and are
@@ -130,7 +131,7 @@ console.log()
 console.log(`asked ${rows.length} · ANSWERED ${answered.length} · needs a key ${keyed.length} · the DECLARATION is wrong ${failed.length} · NOT MEASURED THIS RUN ${notMeasured.length}`)
 console.log(`quantities discovered: ${answered.reduce((n, r) => n + r.quantities.length, 0)}`)
 
-writeFileSync(join(ROOT, 'lean', 'api-discovery.json'), JSON.stringify({
+wrArtifact('lean/api-discovery.json', {
   kind: 'api-discovery',
   asked: rows.length,
   answered: answered.length,
@@ -149,6 +150,6 @@ writeFileSync(join(ROOT, 'lean', 'api-discovery.json'), JSON.stringify({
     quantities: r.quantities.map((q) => ({ path: q.path, sample: q.sample })),
     methods: r.methods.length,
   })),
-}, null, 2) + '\n')
+})
 console.log()
 console.log('✓ lean/api-discovery.json written')

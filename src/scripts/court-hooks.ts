@@ -67,6 +67,48 @@ const audit = async (call: HookInput): Promise<void> => {
   const receipt = { record, verdict: { clean: verdict.clean, receipt: verdict.receipt, breaches: verdict.breaches.length }, readings: momentReadings() }
   await depositEvidence('legal-audit', receipt as Record<string, unknown>)
   if (!verdict.clean) console.error(`legal-audit — ${tool}: ${verdict.breaches.join('; ')}`)
+  await proseOfTheEdit(call)
+}
+
+// ── THE ROUND TRIP, REMOVED ─────────────────────────────────────────────────────────────────────────────────────
+//
+// The captain, 2026-09-28: "why still manual work?!?" — asked after the sixth hand-reword of the same class of comment
+// in one session.
+//
+// THE LOOP THAT WAS THE MANUAL WORK, measured on this session: write a comment that asserts a limit; commit; land;
+// the landing runs twenty minutes of gate and refuses on that comment; reword it; land again. Five landings refused
+// this way. Every refusal was CORRECT — the guard was right each time — and every repair was the same three-second
+// edit arriving twenty minutes late. The cost was never the judgement, it was the distance between writing the
+// sentence and being told about it.
+//
+// SO THE QUESTION IS ASKED WHERE THE SENTENCE IS WRITTEN. This hook already runs after every tool call ("compute all
+// through hooks. no direct operations"), and it already had the file in hand — it audited the ACTION and never read
+// what the action wrote. Now a Write/Edit to a source file is read back immediately and the finder's own words are
+// printed. The refusal is the same refusal; it arrives while the sentence is still in view.
+//
+// WHY IT REPORTS AND NEVER REWRITES. Naming the cause of a limit is a judgement about what is true, and a hook that
+// invented one would be manufacturing justifications — the same fault as a theorem dressed up to satisfy a gate. What
+// is automated is the ASKING, which was the part being done by hand.
+//
+// IT NEVER BLOCKS AND NEVER THROWS. A hook that fails takes the session's next edit with it, so every step here is
+// inside one catch and the worst case is silence. It reads ONE file, which is milliseconds against the whole-tree
+// sweep the guard runs.
+const proseOfTheEdit = async (call: HookInput): Promise<void> => {
+  try {
+    if (!/^(Edit|Write|MultiEdit)$/.test(call.tool_name ?? '')) return
+    const input = (call.tool_input ?? {}) as { file_path?: unknown }
+    const abs = typeof input.file_path === 'string' ? input.file_path : ''
+    if (!abs.endsWith('.ts') || !abs.startsWith(ROOT)) return
+    const rel = abs.slice(ROOT.length).replace(/^\//, '')
+    if (!rel.startsWith('src/')) return
+    const { impossibilityReading, declaredBaseline } = await import('./impossibility-gaps.js')
+    const { gaps } = impossibilityReading([rel], declaredBaseline())
+    if (gaps.length === 0) return
+    console.error(`prose — ${rel}: ${gaps.length} limit(s) asserted with no cause named, and the gate will refuse them at the landing:`)
+    for (const g of gaps.slice(0, 6)) console.error(`  ✗ ${g.what}`)
+    console.error('  Name the cause in the same breath: a sealed theorem, "by construction", a host fact, a declared')
+    console.error('  boundary, a named decision — or as a plain clause after a colon, "because", "since".')
+  } catch { /* a hook that throws costs the session its next edit; silence is the only safe failure */ }
 }
 
 // THE COURT INVESTIGATES ITS OWN AUDIT ORDERS FIRST (2026-09-15). Every audit order used to be answered by a session

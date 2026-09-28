@@ -21,7 +21,8 @@
 // reading the sentences tells you which, which is exactly why this is a lead and not a verdict.
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT, wrRoot } from '../boundary.js'
+import { ROOT } from '../boundary.js'
+import { wrArtifact } from '../artifact.js'
 import { MCP_CATALOG } from '../mcp.js'
 
 const LOG = join(ROOT, 'dist', 'evidence', 'mcp-gaps.jsonl')
@@ -99,7 +100,7 @@ const out = {
   open: leads.length,
   leads,
 }
-wrRoot('lean/door-demand.json', JSON.stringify(out, null, 1) + '\n')
+wrArtifact('lean/door-demand.json', out)
 
 console.log(`audit-door-demand — ${asks.length} recorded ask(s), ${distinct.size} distinct, against ${served} served doors`)
 for (const f of families.slice(0, 12)) console.log(`  ${String(f.asks).padStart(5)}  a door that ${f.verb}s`)

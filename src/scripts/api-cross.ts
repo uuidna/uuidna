@@ -23,6 +23,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { wrArtifact } from '../artifact.js'
 import { ROOT } from '../boundary.js'
 import { servedAsync } from '../receipt.js'
 import { fsStore, ledgerAndRule } from './receipted.js'
@@ -106,7 +107,7 @@ console.log('EVERY LINE ABOVE IS A CANDIDATE, NOT A BRIDGE. A shared digit strin
 console.log('found Colour and Acoustics sharing 340, a hue angle against a wave speed, with nothing passing between.')
 console.log('The unit is what would make it checkable, and only the CODATA path carries one.')
 
-writeFileSync(join(ROOT, 'lean', 'api-cross.json'), JSON.stringify({
+wrArtifact('lean/api-cross.json', {
   kind: 'api-cross',
   publishedQuantities: published.length,
   evidenceFloor: floor,
@@ -114,6 +115,6 @@ writeFileSync(join(ROOT, 'lean', 'api-cross.json'), JSON.stringify({
   honest: 'a candidate is a shared digit string between a public source and a sealed statement. It is not a bridge: the '
     + 'decimal point is dropped so scale is lost, and 368.38, 36.838 and 3683.8 all match the same key. Only a match '
     + 'carrying a unit and an exponent — the CODATA path — can be checked as meaning the same quantity.',
-}, null, 2) + '\n')
+})
 console.log()
 console.log('✓ lean/api-cross.json written')

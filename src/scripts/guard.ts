@@ -496,14 +496,69 @@ const finderRows = await pool(queued.map((f) => async () => {
   const ms = Number(process.hrtime.bigint() - t0) / 1e6
   return { name: f.name, gaps, ms }
 }), capacity().lanes)
+// ── ONLY A SEALED THEOREM MAY REFUSE ─────────────────────────────────────────
+//
+// The captain, 2026-09-28: "remove ALL refusals not based on cross formulated theorems proving each other", then
+// "release all holding none solved by cross formulas proving each other!"
+//
+// MEASURED BEFORE CUTTING, which is this tree's own law: of the finders below, ONE cites a theorem the ledger seals.
+// The other sixty-seven decide by a rule somebody wrote — and this session is the evidence for why that matters. The
+// impossibility finder's printed cure names four acceptable causes; its keyword list carried three; a cure written word
+// for word in the third was refused again on the next run. No kernel was involved in that refusal at any point.
+//
+// THE GUARD ALREADY ARGUED THIS ITSELF, in the ADVISORY block below: "Every entry here decided something OTHER than a
+// Lean violation ... a gate that cannot refuse a proof is custom logic over spelling, counting or presentation." Those
+// finders were demoted, then deleted. This applies the same standard to the rest, and applies it BY DERIVATION:
+// groundOfFinder reads each finder's own source, collects the theorem keys it cites, and keeps only the keys the sealed
+// set actually contains. There is no list of exempt steps, because a list is the thing being removed. A finder that
+// starts citing a sealed theorem starts refusing again on that landing, with nothing edited here.
+//
+// WHAT STILL REFUSES, and it is not nothing: every check ABOVE this loop — the treason sweep, the WING WITNESS (the
+// ledger against the wings that declare it: two surfaces that must agree, which is exactly a cross), #print axioms,
+// key uniqueness and the harmonic scan — runs before this mark and refuses on its own authority. So does the legal
+// step, which cites two_coins. Access control and secret handling are untouched: the captain's standing carve-out is
+// that removing hand logic "never licenses deleting access control or secret handling".
+//
+// WHAT IS GIVEN UP, stated plainly rather than discovered later: sixty-seven classes of real finding stop blocking a
+// reconcile. They still run on every pass, still print every gap with its exact fix, and still write their artifacts.
+// A defect they would have caught can now land, and what catches it is a session reading the report rather than a gate
+// refusing the work.
+const { findersOf, groundOfFinder } = await import('./audit-refusal-grounds.js')
+const GROUNDS = (() => {
+  try {
+    const sealedSet = new Set(theorems().map((t) => t.key))
+    // THE SOURCE IS READ FROM src/, NOT FROM HERE. HERE is dist/scripts at run time, which holds guard.js and no
+    // guard.ts, so the first version threw, GROUNDS came back null and every finder silently kept its authority. The
+    // safe failure worked exactly as designed and hid the change completely — which is why it is worth naming.
+    const guardText = readFileSync(join(ROOT, 'src/scripts/guard.ts'), 'utf8')
+    const receiptText = readFileSync(join(ROOT, 'src/scripts/one-receipt.ts'), 'utf8')
+    const map = new Map<string, boolean>()
+    for (const f of findersOf(guardText)) map.set(f.name, groundOfFinder(f.name, f.body, receiptText, sealedSet).grounded)
+    return map
+  } catch {
+    // THE SAFE FAILURE IS TO REFUSE. If the grounds cannot be computed, every finder keeps the authority it had: a gate
+    // that silently stopped blocking because it could not read its own source would be the worst of both.
+    return null
+  }
+})()
+const mayRefuse = (name: string): boolean => GROUNDS === null || GROUNDS.get(name) !== false
+let reportedOnly = 0
 for (const row of finderRows) {
   if (row.ms > METER) console.log(`    · ${row.name} took ${row.ms.toFixed(0)} ms`)
   if (row.gaps.length) {
-    failed = true
-    console.error(`✗ guard — ${row.name}: ${row.gaps.length} gap(s), each with its exact fix:`)
-    for (const g of row.gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
+    if (mayRefuse(row.name)) {
+      failed = true
+      console.error(`✗ guard — ${row.name}: ${row.gaps.length} gap(s), each with its exact fix:`)
+      for (const g of row.gaps) { console.error(`    GAP ${g.what}`); console.error(`    FIX ${g.fix}`) }
+    } else {
+      reportedOnly++
+      console.log(`· guard — ${row.name}: ${row.gaps.length} finding(s), REPORTED not refused — no theorem the ledger seals backs a refusal here (lean/refusal-grounds.json)`)
+      for (const g of row.gaps.slice(0, 3)) { console.log(`    · ${g.what}`); console.log(`      FIX ${g.fix}`) }
+      if (row.gaps.length > 3) console.log(`    · … ${row.gaps.length - 3} more`)
+    }
   } else console.log(`✓ guard — ${row.name} clean`)
 }
+if (reportedOnly > 0) console.log(`· guard — ${reportedOnly} finder(s) reported rather than refused: their ground is a written rule, not a sealed theorem (the captain, 2026-09-28)`)
 
 if (process.env.UUIDNA_METER) console.log(`    · blocking finders total ${(Number(process.hrtime.bigint() - GATE_T0) / 1e6).toFixed(0)} ms`)
 const TAIL_T0 = process.hrtime.bigint()
