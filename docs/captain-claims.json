@@ -3,8 +3,8 @@
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71089,
-  "novelty_claimed": 70678,
-  "formalisation_only": 411,
+  "novelty_claimed": 70677,
+  "formalisation_only": 412,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -1944,6 +1944,13 @@
       "evidence": "hertz"
     },
     {
+      "key": "song_verses_base_pair",
+      "arms": [
+        "eponym"
+      ],
+      "evidence": "Midy's theorem"
+    },
+    {
       "key": "sport_marathon_and_the_teams",
       "arms": [
         "units"
@@ -2842,13 +2849,13 @@
     "honest": "identifier = a fetchable DOI. standard = a named public standard (SI, CODATA, WGS 84) — lookupable, not fetchable. named = an originator with neither. All three are credits; they are not the same warrant."
   },
   "external_fact_floor": {
-    "floor": 381,
+    "floor": 382,
     "by_arm": {
       "named": 155,
-      "eponym": 97,
+      "eponym": 98,
       "units": 166
     },
-    "found_by_one_arm_only": 346,
+    "found_by_one_arm_only": 347,
     "all_arms_agree": 2,
     "ground_truth_sensitivity": "22/30",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
@@ -7768,8 +7775,8 @@
     },
     {
       "key": "the_axiom_index_partitions_without_remainder",
-      "lineAddress": "30a77309-962e-8a80-9879-16ad5a3800a3",
-      "address": "faca4823-152e-8b0d-91b0-ceacea90dc9a",
+      "lineAddress": "663a8335-b431-8add-ba54-27e7a855b6af",
+      "address": "c9b98808-5912-81e7-8663-ed05eb1699b9",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -7833,8 +7840,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "40079d8c-38a0-8624-828c-ea007f81e43d",
-      "address": "4744d547-d7c7-8ef3-992b-6763445b173d",
+      "lineAddress": "b82f0f72-9394-8ab0-9fbf-bced977b86c5",
+      "address": "f2aa7b17-daee-86e8-8f71-a85bbec96ca6",
       "principle": "The detectors, proven",
       "held": "discovery+formalisation"
     },
@@ -9653,8 +9660,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "505d5052-812c-8509-b8cc-54d006ef8d52",
-      "address": "9ab22275-073f-8bd1-b20b-9e0245932aeb",
+      "lineAddress": "ef61db56-76f1-8c5d-813c-8a6b7471463a",
+      "address": "33ea5952-c863-822e-adcf-363aaf47b8ac",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10132,36 +10139,36 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "396a8ffd-42b5-894d-af4e-1061a1960800",
-      "address": "ec817dc8-97ce-8a98-9788-663b1fd72627",
+      "lineAddress": "4655e918-17b2-8389-9820-a981e7067166",
+      "address": "0057f7af-461d-831f-9055-e86ff08470b5",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "373da25c-5753-86eb-8f24-79e65ef50993",
-      "address": "22e5da0a-c5d8-85c9-95f2-52107fc00a0b",
+      "lineAddress": "274987df-14bd-8af7-b34e-5559bad52079",
+      "address": "7fdc9334-a25f-8105-a09f-6e194b0b18bd",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_address_odds_are_negligible",
-      "lineAddress": "b2c7d74e-aef3-87f9-813e-a2e62b303cad",
-      "address": "8a382f6a-e344-8b35-9346-d5aaa7c9b742",
+      "lineAddress": "a0bdf3e4-9c85-85af-b7cb-c9aee8674ed9",
+      "address": "9c1c33ae-99ea-89cc-96c0-9d4da13036e3",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_handle_odds_are_small",
-      "lineAddress": "03d36d11-3e4f-83e2-8802-ec9064e4e03a",
-      "address": "ddcf99b7-1a65-8dbd-85fe-c3059124b8de",
+      "lineAddress": "5d8f5301-2816-8572-891e-845bf3c9eef8",
+      "address": "c185a4da-f0f4-8ebf-abda-e7e8f90ca890",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "sixteen_bit_handles_would_collide",
-      "lineAddress": "97d68de9-4e97-8308-8dfa-6f362201216a",
-      "address": "03cb7823-c38f-8226-be68-33443cf27d77",
+      "lineAddress": "bc0d605e-fd5f-82f8-8670-a600acf2da6c",
+      "address": "87606340-76e7-8bbc-bcea-ca456113cfa0",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
@@ -481649,8 +481656,8 @@
     },
     {
       "key": "the_store_holds_far_less_than_it_admits",
-      "lineAddress": "7a7fd639-2124-809b-9974-d399e4be7709",
-      "address": "e4b7b142-9781-8c52-a43c-4ecaf07c083b",
+      "lineAddress": "8afea2d6-811f-8447-9167-02f10bd77377",
+      "address": "a6557cc4-a237-81fc-8dba-7f5be8d68d44",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "discovery+formalisation"
     },
@@ -481756,8 +481763,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "1ce4d3f1-47a7-83ea-badc-27e1855de7f5",
-      "address": "1be70ed9-6d04-8dd4-831b-e64a8a8e0552",
+      "lineAddress": "36c9a170-3ad2-86ba-b2d8-05efa096c3f5",
+      "address": "89dd4e50-399b-88ab-b1d6-dda5fe9a17fa",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481777,15 +481784,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "efed0572-44fb-8ff2-ab1b-2b1e851686ae",
-      "address": "b19760ff-0a04-87d6-a84a-a8bd5b985973",
+      "lineAddress": "afc52b4f-feed-8777-9e20-2c99cc86c5af",
+      "address": "6aca254f-128b-86f1-a9f1-9553562f8962",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "6a54e162-5c2c-8231-9f8c-96b3619ec182",
-      "address": "40e1b38f-6763-87c0-a034-2dfeaf9b92cb",
+      "lineAddress": "d2d52fea-49c5-855b-a95d-4eb57b99ac43",
+      "address": "dbb18909-02d1-89ce-b296-0275a09d3101",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481833,8 +481840,8 @@
     },
     {
       "key": "reconciled_generator_sat_inside_the_truncated_run",
-      "lineAddress": "4f1df83b-59f0-8826-9570-2078607cf8f1",
-      "address": "28a097f1-eb70-8ac2-aed3-8c94a5dcfeba",
+      "lineAddress": "da88c513-cf3b-8866-a596-38a7f9d0c028",
+      "address": "a18ccc84-b30d-87a9-99a4-5aa22b1da951",
       "principle": "The links between lonely theorems",
       "held": "discovery+formalisation"
     },
@@ -482414,7 +482421,7 @@
     },
     {
       "key": "reconciled_b13fd37a",
-      "lineAddress": "0a0120a4-d711-868b-9aa0-6909da51e62b",
+      "lineAddress": "3a713b3d-c77d-8181-98e6-f4d62bfd601e",
       "address": "a19b5d7c-575d-8ea9-8d1b-30305c0e9cfa",
       "principle": "The involution of lead b13fd37a",
       "held": "discovery+formalisation"
@@ -500208,8 +500215,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "78dcfcea-56b1-8829-82ff-62cfae026eda",
-      "address": "25f18b68-2033-8488-8ba5-1869c0053563",
+      "lineAddress": "4529a1ea-0e27-8672-aecb-d837f07508d4",
+      "address": "1fad2a43-4223-8368-a978-aed718403d19",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500222,22 +500229,22 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "a44d5a5d-a79b-8cb9-9705-5c70ddcee044",
-      "address": "e1603299-b40b-8574-8875-f15e3a098072",
+      "lineAddress": "af2578d4-2f91-86f6-b89b-39f26e6363c3",
+      "address": "6c0a4063-1549-8389-ae1f-418557f58a97",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "93d0db7c-9e64-845b-a4f6-c3b4a616fbb4",
-      "address": "f2e5eade-3db8-801b-ad7d-80e8c4325ca6",
+      "lineAddress": "47cb40c0-fa72-8da9-ae0d-b40a7e4e8f0c",
+      "address": "527c7942-3795-8aef-81dc-50f72472f0e0",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_same_arithmetic_answers_more_than_one_domain",
-      "lineAddress": "4ba34373-d05c-8786-9043-cab9e0bb66ec",
-      "address": "a6d91bd3-2737-8330-913e-e3cec9669ab6",
+      "lineAddress": "1b47ff48-2e51-8951-b008-4f9f0baa4051",
+      "address": "261e31d9-9339-851c-8a65-bbe7a6f311f4",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500334,15 +500341,15 @@
     },
     {
       "key": "the_key_index_fits_where_the_rows_do_not",
-      "lineAddress": "1008d82d-b4b0-8a76-8cbe-2ac3500096a7",
-      "address": "6aaa8da8-21a1-8f9b-96cb-06840b0a317c",
+      "lineAddress": "682ff672-36fe-85cf-8c2a-ec0950699295",
+      "address": "858afaeb-b5c4-8dfa-b774-00e552eefa4e",
       "principle": "THE DOOR SURFACE",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_keys_are_a_small_fraction_of_the_rows",
-      "lineAddress": "04340bfc-963d-882f-af7b-d51a2035fd72",
-      "address": "9b09c66f-2b04-8832-a27d-20c8b9b3c9fd",
+      "lineAddress": "e994c5df-c4c5-8d80-ba5f-8447c67d3bb0",
+      "address": "e83cc5cd-45c3-814e-865b-05918c54f7a7",
       "principle": "THE DOOR SURFACE",
       "held": "discovery+formalisation"
     },
@@ -500509,11 +500516,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "7765dcea-b871-8b72-9ef6-991377530595",
+  "claim_receipt": "2b92536c-cb4a-8af1-b4b7-e28cc8383682",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71089; he claims discovery of 70678 and credits the other 411 facts to their named sources",
+      "The captain formalised all 71089; he claims discovery of 70677 and credits the other 412 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500522,9 +500529,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 411 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 412 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71089; of these I claim discovery of 70678, and the remaining 411 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71089; of these I claim discovery of 70677, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

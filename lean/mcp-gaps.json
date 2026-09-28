@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1354,
-  "distinct": 1139,
+  "records": 1372,
+  "distinct": 1156,
   "loadBearing": 108,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -13,18 +13,19 @@
       ]
     },
     {
+      "gap": "no door commits a pathspec to git",
+      "hits": 15,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "cat",
+        "sed"
+      ]
+    },
+    {
       "gap": "no door runs the bare Lean 4 kernel on proposed involution text",
       "hits": 15,
       "forms": [
         "cd"
-      ]
-    },
-    {
-      "gap": "no door commits a pathspec to git",
-      "hits": 14,
-      "forms": [
-        "UUIDNA_MCP_GAP",
-        "cat"
       ]
     },
     {
@@ -2572,6 +2573,13 @@
       ]
     },
     {
+      "gap": "no door discovers a public API's response schema nor compares two APIs for a shared schema — the cross-application test",
+      "hits": 1,
+      "forms": [
+        "cat"
+      ]
+    },
+    {
       "gap": "no door edits a candidate",
       "hits": 1,
       "forms": [
@@ -2800,6 +2808,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists the external API hosts the tree reaches",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -3244,6 +3259,13 @@
       ]
     },
     {
+      "gap": "no door reads a doc article",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads a drained call at its seq",
       "hits": 1,
       "forms": [
@@ -3433,6 +3455,13 @@
       ]
     },
     {
+      "gap": "no door reports a doc article's origin or its citations",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reports a domain's coverage with its context",
       "hits": 1,
       "forms": [
@@ -3489,7 +3518,28 @@
       ]
     },
     {
+      "gap": "no door reports a generator's CLI flags",
+      "hits": 1,
+      "forms": [
+        "python3"
+      ]
+    },
+    {
       "gap": "no door reports a generator's inputs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a generator's output constant",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a landing lane or commits a pathspec",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3581,6 +3631,20 @@
     },
     {
       "gap": "no door reports a wing generator's skeleton",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a wing manifest's def list",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports a wing's def lines",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3693,6 +3757,20 @@
     },
     {
       "gap": "no door reports how many generated theorems carry an explanation",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports how many times the door catalogue is walked across test files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports how the index seals the bound-census digest",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3864,6 +3942,13 @@
       "hits": 1,
       "forms": [
         "tail"
+      ]
+    },
+    {
+      "gap": "no door reports the index's wing-def entry for a wing",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -4077,6 +4162,13 @@
       ]
     },
     {
+      "gap": "no door reports what an audit wing's js mirror computes for a failing fact",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reports what makes a seed page.json heavy, nor whether the heavy ones are duplicates",
       "hits": 1,
       "forms": [
@@ -4259,6 +4351,13 @@
       ]
     },
     {
+      "gap": "no door reports which artifact feeds the index's wing-def map",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reports which deposited references carry a DOI the citation graph can follow",
       "hits": 1,
       "forms": [
@@ -4291,6 +4390,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports which generated surfaces carry a removed theorem key",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -5127,6 +5233,13 @@
       ]
     },
     {
+      "gap": "no door tests a cross-application prediction across two APIs sharing a schema",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door tests a witness seal for a non-theorem subject",
       "hits": 1,
       "forms": [
@@ -5138,6 +5251,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door tests whether cross-domain integer coincidences exceed chance — the null model for the entanglement claim",
+      "hits": 1,
+      "forms": [
+        "cat"
       ]
     },
     {

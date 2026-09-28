@@ -11,28 +11,28 @@ description: "Computed from lean/Song.lean — 11 sealed theorems, every claim c
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSong.lean)** — nothing to install. The editor fetches `lean/Song.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### THE OVERTURE. π cannot be sung to the end — irrational, infinite, no `by decide` object — but its rational roof can: 22/7 opens 3.142857, the familiar three-point-one-four and then the round begins. 22·10⁶ / 7 = 3142857 in exact integer division; the song starts where Archimedes left the bracket.
+### THE OVERTURE. π cannot be sung to the end — irrational, infinite, no `by decide` object — but its rational roof can: 22/7 opens 3.142857, the familiar three-point-one-four and then the round begins. 22·10⁶ / 7 = 3142857 in exact integer division; the song starts where Archimedes left the bracket. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING: 142857 exists because ten happens to be a primitive root mod seven, and the multiplicative order of eight mod seven is one, so in base eight 1/7 = 0.111… and there is no cyclic number to rotate at all. The arithmetic is exact and the structure is real; what it is real ABOUT is the decimal expansion, not music. Nothing about a scale changes when you write numbers in octal. The π framing is a separate fact and must not be read into this one: 22/7 approximates π to three digits as a continued-fraction property of π, while 142857 appears here only because 22/7 = 3 + 1/7.
 The ledger holds this as [song_pi_roof_opens](/theorem/song_pi_roof_opens) — proven `by decide`, sorry-free:
 
 ```lean
 22 * 1000000 / 7 = 3142857
 ```
 
-### THE ROUND TURNS ON SEVEN. The period 142857 times seven is 999999 — six nines, the whole cycle of 1/7 — and 10⁶ mod 7 = 1: after six digits the decimal engine is back at remainder one, so the round repeats forever without ever ending. A finite song that never stops is how a rational voice sings an infinite number.
+### THE ROUND TURNS ON SEVEN. The period 142857 times seven is 999999 — six nines, the whole cycle of 1/7 — and 10⁶ mod 7 = 1: after six digits the decimal engine is back at remainder one, so the round repeats forever without ever ending. A finite song that never stops is how a rational voice sings an infinite number. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING: 142857 exists because ten happens to be a primitive root mod seven, and the multiplicative order of eight mod seven is one, so in base eight 1/7 = 0.111… and there is no cyclic number to rotate at all. The arithmetic is exact and the structure is real; what it is real ABOUT is the decimal expansion, not music. Nothing about a scale changes when you write numbers in octal.
 The ledger holds this as [song_round_turns_on_seven](/theorem/song_round_turns_on_seven) — proven `by decide`, sorry-free:
 
 ```lean
 142857 * 7 = 999999 ∧ 1000000 % 7 = 1
 ```
 
-### SIX VERSES, ONE MELODY. 142857 is the cyclic number of seven: multiplied by 2, 3, 4, 5, 6 it does not change its notes, it rotates them — 285714, 428571, 571428, 714285, 857142. Every verse of the song is the same six-note melody entered at a different door, the way a round is sung.
+### SIX VERSES, ONE MELODY. 142857 is the cyclic number of seven: multiplied by 2, 3, 4, 5, 6 it does not change its notes, it rotates them — 285714, 428571, 571428, 714285, 857142. Every verse of the song is the same six-note melody entered at a different door, the way a round is sung. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING: 142857 exists because ten happens to be a primitive root mod seven, and the multiplicative order of eight mod seven is one, so in base eight 1/7 = 0.111… and there is no cyclic number to rotate at all. The arithmetic is exact and the structure is real; what it is real ABOUT is the decimal expansion, not music. Nothing about a scale changes when you write numbers in octal. The rotations form Z/6 under multiplication; the seven modes of a diatonic scale form Z/7 under addition, and the orders do not even match — six rotations against seven modes.
 The ledger holds this as [song_six_verses_one_melody](/theorem/song_six_verses_one_melody) — proven `by decide`, sorry-free:
 
 ```lean
 142857 * 2 = 285714 ∧ 142857 * 3 = 428571 ∧ 142857 * 4 = 571428 ∧ 142857 * 5 = 714285 ∧ 142857 * 6 = 857142
 ```
 
-### THE VERSES BASE-PAIR — THE SONG IS A DOUBLE HELIX. Verse k and verse 7−k are complementary strands: 142857 + 857142 = 999999, 285714 + 714285 = 999999, 428571 + 571428 = 999999. Three rungs, digit against digit, every rung closing to nine — the same complementary pairing the double helix keeps, A against T, G against C, here sealed as addition.
+### THE VERSES BASE-PAIR — THE SONG IS A DOUBLE HELIX. Verse k and verse 7−k are complementary strands: 142857 + 857142 = 999999, 285714 + 714285 = 999999, 428571 + 571428 = 999999. Three rungs, digit against digit, every rung closing to nine — the same complementary pairing the double helix keeps, A against T, G against C, here sealed as addition. BASE TEN IS LOAD-BEARING HERE AND THE CLAIM IS ABOUT DECIMAL WRITING: the nines are 10^k − 1 and the complement to nine is casting out nines, which works because 10 ≡ 1 (mod 9) and becomes casting out sevens in base eight. A true theorem about notation, stated as one. This is Midy's theorem, which is a genuine theorem about notation.
 The ledger holds this as [song_verses_base_pair](/theorem/song_verses_base_pair) — proven `by decide`, sorry-free:
 
 ```lean

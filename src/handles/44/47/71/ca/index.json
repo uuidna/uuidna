@@ -1,0 +1,12 @@
+{
+  "handle": "444771ca",
+  "address": "444771ca-ba1a-86e8-8228-7d47d90db59c",
+  "kind": "chunk",
+  "keys": [
+    "forged_handle_odds_are_small"
+  ],
+  "statement": "71714 * 2 ^ 15 < 2 ^ 32",
+  "files": [
+    "Forensics.lean"
+  ]
+}

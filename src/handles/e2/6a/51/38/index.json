@@ -1,0 +1,12 @@
+{
+  "handle": "e26a5138",
+  "address": "e26a5138-525e-8a31-adfe-8356efe900d7",
+  "kind": "chunk",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "statement": "(710 + 70924 + 75 + 5 = 71714) ∧ (80 > 0)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

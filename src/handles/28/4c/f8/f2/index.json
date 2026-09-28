@@ -1,0 +1,12 @@
+{
+  "handle": "284cf8f2",
+  "address": "284cf8f2-7ef1-84a9-96b0-ace5afca007d",
+  "kind": "chunk",
+  "keys": [
+    "forged_address_odds_are_negligible"
+  ],
+  "statement": "71089 * 2 ^ 105 < 2 ^ 122",
+  "files": [
+    "Forensics.lean"
+  ]
+}

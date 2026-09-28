@@ -1,0 +1,12 @@
+{
+  "handle": "e603a8ef",
+  "address": "e603a8ef-fd25-8735-9b11-0007bf1d8144",
+  "kind": "chunk",
+  "keys": [
+    "the_store_holds_far_less_than_it_admits"
+  ],
+  "statement": "71714 < 2 ^ 32",
+  "files": [
+    "HandleStore.lean"
+  ]
+}
