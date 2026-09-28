@@ -4,7 +4,7 @@
 // it as a set of larger learning areas, so that traditional subjects remain recognisable but interdisciplinary work is
 // easy." What follows is that architecture, in the captain's own words.
 //
-// WHY THE TAXONOMY IS THE CAPTAIN'S AND THE ASSIGNMENT IS NOT. src/science-classes.ts groups the 262 principles by
+// WHY THE TAXONOMY IS THE CAPTAIN'S AND THE ASSIGNMENT IS NOT. src/science-classes.ts groups the the principles by
 // their wings' own vocabulary and reaches an honest dead end: the grouping is right — Acoustics, Chemistry,
 // Electromagnetism, Molecular, Optics and Sailing land together — but the corpus cannot NAME that class, because no
 // header ever says "physics". The best shared word is "domain", which names nothing. That module says so and stops,

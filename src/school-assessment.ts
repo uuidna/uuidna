@@ -9,7 +9,7 @@
 // dimensions ask for exactly those kinds of evidence about a student's work instead of a theorem's.
 //
 // AND THE LEDGER'S OWN DISTRIBUTION PREDICTS THE SCHOOL'S DIFFICULTY CURVE, which is the most useful thing this mapping
-// buys. Measured across 71,085 sealed theorems: proof, falsifier and address at 100%, symbol at 2.0%, witness at 0.04%
+// buys. Measured across the sealed theorems: proof, falsifier and address at 100%, symbol at 2.0%, witness at 0.04%
 // — 29 theorems fully anchored. So a school will find Making and Understanding cheap to evidence, Reflecting harder,
 // and ENCOUNTERING by far the scarcest, because an anchor outside the institution is the expensive kind. A curriculum
 // claiming rich Encountering across twelve areas is claiming what the analogous system achieves four times in ten
