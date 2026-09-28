@@ -7,7 +7,14 @@ import { LIFE_APIS, LIFE_API_KINDS, LIFE_APIS_NEEDING_A_KEY } from './life-apis.
 test('every source declares a probe, so none can be added unverifiable', () => {
   assert.ok(LIFE_APIS.length >= 20, 'the family is declared')
   for (const a of LIFE_APIS) {
-    assert.ok(Object.keys(a.probe).length > 0, `${a.id} declares a known-good query`)
+    // A DECLARED QUERY MAY BE A BODY. The assertion read "probe is non-empty", which is right for a query-shaped
+    // source and wrong for one whose request carries its query in a JSON body: Open Targets is GraphQL and answers
+    // nothing else, UniChem's v1 API takes {type, compound}. Demanding a query PARAMETER of those two would have
+    // meant inventing one the service ignores — a declaration that reads as verified and probes nothing. What the
+    // finder is actually for is that no source enters unverifiable, so it asks for a known-good REQUEST, and a body
+    // is one. Both forms stay required to be non-empty: the widening admits POST, it does not admit silence.
+    assert.ok(Object.keys(a.probe).length > 0 || Object.keys(a.post ?? {}).length > 0,
+      `${a.id} declares a known-good request — a probe query or a post body`)
     assert.match(a.base, /^https:\/\//, `${a.id} is reached over TLS`)
     assert.ok(a.serves.length > 0, `${a.id} says what it serves`)
   }
@@ -20,10 +27,24 @@ test('every source states what it does NOT say, at length', () => {
   }
 })
 
+// A MEASURED REFUSAL IS AN EXACT STATEMENT ABOUT ACCESS, which the first version of this test did not admit. After
+// probing, powo reads "REFUSED TO THIS CLIENT — HTTP 403" and duke-phytochem "NO PUBLIC JSON SURFACE FOUND — 404", and
+// both are more exact than any cost: they say what happened when the door was knocked on. The vocabulary was too narrow,
+// not the declarations.
 test('access is stated exactly, never left vague', () => {
   for (const a of LIFE_APIS) {
-    assert.match(a.access, /no key|KEY REQUIRED|REGISTRATION REQUIRED|key is now required|non-commercial/,
-      `${a.id} says what it costs`)
+    assert.match(a.access,
+      /no key|KEY REQUIRED|REGISTRATION REQUIRED|key is now required|non-commercial|REFUSED TO THIS CLIENT|NO PUBLIC JSON SURFACE FOUND|UNREACHABLE FROM NODE/,
+      `${a.id} must say what it costs OR what happened when it was probed, got: ${a.access.slice(0, 60)}`)
+  }
+})
+
+// AND A MEASURED CLAIM CARRIES ITS DATE, so a reader can tell a fresh refusal from a stale one.
+test('every measured access claim is dated', () => {
+  for (const a of LIFE_APIS) {
+    if (/measured/i.test(a.access)) {
+      assert.match(a.access, /measured \d{4}-\d{2}-\d{2}/, `${a.id} dates what it measured`)
+    }
   }
 })
 

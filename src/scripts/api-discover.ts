@@ -25,6 +25,9 @@ import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
 const TIMEOUT_MS = 8000
+// A NAMED AGENT WITH A CONTACT URL, because several of these services refuse an unidentified client outright and are
+// right to: a probe that hides what it is gives an operator no way to ask it to stop.
+const UA = 'uuidna-api-discover/1.0 (+https://uuidna.com; ceccec@psg.bg)'
 const ONLY = process.argv.slice(2).filter((a) => !a.startsWith('-'))
 
 const needsKey = (a: LifeApi): boolean =>
@@ -50,9 +53,15 @@ const probe = async (a: LifeApi): Promise<Probed> => {
   const ctl = new AbortController()
   const timer = setTimeout(() => ctl.abort(), TIMEOUT_MS)
   try {
+    // POST WHEN A BODY IS DECLARED, because a GraphQL endpoint answers nothing else. The method is derived from the
+    // declaration rather than guessed per host: a source that needs a body says so, and one that does not is a GET.
     const res = await fetch(url, {
       signal: ctl.signal,
-      headers: { accept: 'application/json', 'user-agent': 'uuidna-api-discover (+https://uuidna.com)' },
+      method: a.post ? 'POST' : 'GET',
+      headers: a.post
+        ? { accept: 'application/json', 'content-type': 'application/json', 'user-agent': UA }
+        : { accept: 'application/json', 'user-agent': UA },
+      ...(a.post ? { body: JSON.stringify(a.post) } : {}),
     })
     const ms = Date.now() - at
     if (!res.ok) {

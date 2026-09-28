@@ -61,6 +61,14 @@ export interface LifeApi {
    * about these declarations, not about those services.
    */
   path?: string
+  /**
+   * The body to POST, for an endpoint that does not answer a GET.
+   *
+   * ADDED BECAUSE GraphQL DOES NOT ANSWER A QUERY STRING. Open Targets returned HTTP 500 to the declared GET probe: its
+   * endpoint takes a POST with a JSON body, and a query parameter named `query` is not that. A declaration that can only
+   * describe GET cannot describe a GraphQL source at all, so the shape was missing rather than the source unreachable.
+   */
+  post?: Record<string, unknown>
   /** the known-good query that proves this source still answers. No source without one. */
   probe: LifeApiQuery
   /** what the source does NOT say, which for a medical record is the load-bearing half */
@@ -121,8 +129,12 @@ export const LIFE_APIS: readonly LifeApi[] = [
   // ── chemistry ─────────────────────────────────────────────────────────────────────────────────────────────────
   { id: 'pubchem', name: 'PubChem — compounds, substances and bioassays (NCBI)', kind: 'chemistry',
     base: 'https://pubchem.ncbi.nlm.nih.gov/rest/pug',
-    path: '/compound/name/curcumin/property/MolecularFormula,MolecularWeight/JSON',
-    probe: {},
+    // THE QUERY MOVED FROM THE PATH INTO THE PROBE, and it is the same request either way. PUG REST accepts a name
+    // lookup as a path segment OR as a URL parameter, and only the second form declares the query where every other
+    // row declares it — so the finder that requires a known-good query per source could not see this one's. Verified
+    // 2026-09-28: 200, CID 969516, C21H20O6, 368.4 g/mol.
+    path: '/compound/name/property/MolecularFormula,MolecularWeight/JSON',
+    probe: { name: 'curcumin' },
     serves: ['structures', 'identifiers (CID, InChI, SMILES)', 'computed properties', 'bioassay results', 'cross-references'],
     format: 'JSON / CSV / SDF', access: 'public, no key',
     honest: 'DEPOSITED DATA OF MIXED PROVENANCE. Properties may be computed rather than measured, and a bioassay hit ' +
@@ -140,8 +152,15 @@ export const LIFE_APIS: readonly LifeApi[] = [
       'assay description attached to every value.' },
 
   { id: 'unichem', name: 'UniChem — compound identifier cross-references (EMBL-EBI)', kind: 'chemistry',
-    base: 'https://www.ebi.ac.uk/unichem/rest',
-    path: '/inchikey/VFLDPWHFBUODDF-FCXRPNKRSA-N',
+    // THE DOCUMENTED v1 API DECLARES ITS QUERY AS A BODY, and that is why this row moved off the legacy path form.
+    // Both answer: the legacy /inchikey/<key> returns 200, and so does v1 /compounds. The difference is that the
+    // legacy form hides the query inside the path, where the finder that requires every source to declare a
+    // known-good query cannot see it, while the body states it. Verified 2026-09-28: 200, and the compound comes
+    // back as C21H20O6 — the SAME formula PubChem's own probe returns for curcumin, which is two independent
+    // chemistry sources agreeing on one molecular formula rather than one source agreeing with itself.
+    base: 'https://www.ebi.ac.uk/unichem/api/v1',
+    path: '/compounds',
+    post: { type: 'inchikey', compound: 'VFLDPWHFBUODDF-FCXRPNKRSA-N' },
     probe: {},
     serves: ['InChIKey to source-database identifier mapping across 40+ chemistry resources'],
     format: 'JSON', access: 'public, no key',
@@ -177,7 +196,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'opentargets', name: 'Open Targets Platform — target–disease association evidence', kind: 'pharmacology',
     base: 'https://api.platform.opentargets.org/api/v4/graphql',
-    probe: { query: '{ search(queryString: "curcumin") { total } }' },
+    post: { query: '{ search(queryString: "curcumin", entityNames: ["drug"]) { total } }' },
+    probe: {},
     serves: ['target–disease associations', 'evidence by datatype', 'tractability', 'known drugs'],
     format: 'GraphQL / JSON', access: 'public, no key (CC0)',
     honest: 'AN ASSOCIATION SCORE IS A SUMMARY OF EVIDENCE STRENGTH, not a probability that a target treats a ' +
@@ -195,9 +215,14 @@ export const LIFE_APIS: readonly LifeApi[] = [
 
   { id: 'wfo', name: 'World Flora Online — the consensus plant name backbone', kind: 'botany',
     base: 'https://list.worldfloraonline.org',
-    probe: { 'matching_name': 'Hypericum perforatum' },
+    path: '/matching_rest.php',
+    probe: { input_string: 'Hypericum perforatum' },
     serves: ['accepted plant names', 'synonymy', 'nomenclatural status', 'authorship'],
-    format: 'JSON / DwC-A', access: 'public, no key (CC BY 4.0)',
+    format: 'JSON / DwC-A', access: 'public, no key (CC BY 4.0) — but UNREACHABLE FROM NODE: measured 2026-09-28, the '
+      + 'host serves an incomplete certificate chain and fetch fails with UNABLE_TO_VERIFY_LEAF_SIGNATURE, while curl '
+      + 'accepts it. The path and parameter here are correct and verified to answer 200; the obstacle is their TLS. '
+      + 'Disabling certificate verification would trade every request this process makes for one connector, so it is '
+      + 'left unreachable and recorded.',
     honest: 'NOMENCLATURE IS THE PREREQUISITE AND NOT THE SUBJECT. Herbal literature is full of ambiguous common ' +
       'names, and two studies of "St John\'s wort" may not be studying one taxon. WFO fixes which plant is meant; it ' +
       'says nothing about its chemistry or use.' },
@@ -206,7 +231,8 @@ export const LIFE_APIS: readonly LifeApi[] = [
     base: 'https://powo.science.kew.org/api/2',
     probe: { q: 'Hypericum perforatum', perPage: 3 },
     serves: ['accepted taxonomy', 'native and introduced ranges', 'descriptions', 'images'],
-    format: 'JSON', access: 'public, no key declared; Kew asks that heavy use be arranged',
+    format: 'JSON', access: 'REFUSED TO THIS CLIENT — measured 2026-09-28: HTTP 403 to an identified probe, so Kew '
+      + 'gates the endpoint however it is documented. Access needs arranging with Kew, not a different header.',
     honest: 'A MONOGRAPHIC TREATMENT, so it is an expert view that other treatments may contradict. Distribution is ' +
       'at region level and is not a statement about where a plant may be collected or grown.' },
 
@@ -214,7 +240,9 @@ export const LIFE_APIS: readonly LifeApi[] = [
     base: 'https://phytochem.nal.usda.gov/api',
     probe: { q: 'Curcuma longa' },
     serves: ['plant–chemical occurrence', 'chemical activities as reported', 'ethnobotanical uses by culture', 'source citations'],
-    format: 'JSON (surface not formally documented)', access: 'public, no key; the API surface is undocumented and may move',
+    format: 'JSON (surface not formally documented)', access: 'NO PUBLIC JSON SURFACE FOUND — measured 2026-09-28: 404 '
+      + 'at the documented host for every path tried. The database is public through its web interface; an API is not '
+      + 'evidenced, and this row stays declared so the gap is on the record rather than forgotten.',
     honest: 'THE CANONICAL HERBAL CORPUS, AND THE EASIEST TO MISREAD IN THIS WHOLE FILE. An "activity" row records ' +
       'that a source reported an activity for a chemical — frequently in vitro, frequently at concentrations no diet ' +
       'or preparation reaches, sometimes from a single old citation. An ethnobotanical use records that a people used ' +
@@ -234,7 +262,9 @@ export const LIFE_APIS: readonly LifeApi[] = [
     base: 'https://coconut.naturalproducts.net/api',
     probe: { q: 'quercetin', limit: 3 },
     serves: ['aggregated natural product structures', 'source databases', 'computed descriptors'],
-    format: 'JSON', access: 'public, no key (CC BY 4.0)',
+    format: 'JSON', access: 'KEY REQUIRED — measured 2026-09-28: /api/molecules answers 401 and /api/v1/molecules 404, '
+      + 'so the surface is gated. The DATA is CC BY 4.0; the ACCESS is not open, and my declaration of "public, no key" '
+      + 'was refuted by its own probe.',
     honest: 'AN AGGREGATION, so duplicates and disagreements between its source databases survive into it. A ' +
       'structure being present means some collection listed it, not that it was isolated and characterised.' },
 
