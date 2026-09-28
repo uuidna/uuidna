@@ -181,5 +181,11 @@
     "carries"
    ]
   }
- ]
+ ],
+ "receipt": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
+ "crossed": {
+  "sorted": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
+  "reversed": "e4bf3154-813d-8f3e-9426-f9bfb1a99500",
+  "agrees": true
+ }
 }

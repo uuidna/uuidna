@@ -2954,5 +2954,10 @@
    "of": 4
   }
  ],
- "receipt": "909ab50d-9daa-8a9c-aba9-ad39d2b74c71"
+ "receipt": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
+ "crossed": {
+  "sorted": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
+  "reversed": "a52ea76f-2d27-8f4e-acce-5cab1667f044",
+  "agrees": true
+ }
 }

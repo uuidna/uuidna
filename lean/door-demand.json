@@ -1,7 +1,7 @@
 {
  "why": "The doors sessions asked for, ranked by how often they asked. Every refused ad-hoc command in this repository may proceed only by stating the gap it fills, and the hook appends that sentence to dist/evidence/mcp-gaps.jsonl, so this tree has been recording the list of doors it lacks in its own words. This reads that log. Each row is cross-formulated — what sessions ASK against what the catalogue SERVES, two surfaces that must agree — and each is DEMAND rather than absence, because a repeated ask can mean the asker missed a door that exists. Written by src/scripts/audit-door-demand.ts on every run, EMPTY INCLUDED: an absent file and an empty log are different facts.",
- "requests": 1407,
- "distinct": 1187,
+ "requests": 1425,
+ "distinct": 1203,
  "served": 250,
  "families": [
   {
@@ -14,15 +14,15 @@
   },
   {
    "verb": "commit",
-   "asks": 71
+   "asks": 72
+  },
+  {
+   "verb": "ledger",
+   "asks": 45
   },
   {
    "verb": "test",
    "asks": 45
-  },
-  {
-   "verb": "ledger",
-   "asks": 39
   },
   {
    "verb": "doc",
@@ -33,11 +33,11 @@
    "asks": 18
   },
   {
-   "verb": "index",
-   "asks": 11
+   "verb": "land",
+   "asks": 14
   },
   {
-   "verb": "land",
+   "verb": "index",
    "asks": 11
   },
   {
@@ -73,7 +73,7 @@
    "asks": 1
   }
  ],
- "unclassified": 857,
+ "unclassified": 865,
  "held": [
   {
    "verb": "wing",
@@ -95,11 +95,20 @@
   },
   {
    "verb": "commit",
-   "asks": 71,
+   "asks": 72,
    "samples": [
     "committing the qpu storage write repair in the sibling repository",
     "committing the edge ledger and gate repairs",
     "committing the A432 reconcile"
+   ]
+  },
+  {
+   "verb": "ledger",
+   "asks": 45,
+   "samples": [
+    "no door answers the git history of a source path (when the edge stopped bundling the ledger)",
+    "pre-flighting the ledger deposit piece sizes against qpu's heap bound",
+    "pre-flighting ledger piece sizes against qpu's heap bound"
    ]
   },
   {
@@ -109,15 +118,6 @@
     "reading qpu's own tests and lean file to see what pins its storage address function",
     "checking which Lean Nat conventions the test evaluator diverges on",
     "testing x/0=x against the kernel's sealed statements"
-   ]
-  },
-  {
-   "verb": "ledger",
-   "asks": 39,
-   "samples": [
-    "no door answers the git history of a source path (when the edge stopped bundling the ledger)",
-    "pre-flighting the ledger deposit piece sizes against qpu's heap bound",
-    "pre-flighting ledger piece sizes against qpu's heap bound"
    ]
   },
   {
@@ -139,21 +139,21 @@
    ]
   },
   {
+   "verb": "land",
+   "asks": 14,
+   "samples": [
+    "no door reports a running landing's progress; reading the land log and push state",
+    "no door reports a landing's state; checking before changing the scheduler",
+    "no door reports a landing's state"
+   ]
+  },
+  {
    "verb": "index",
    "asks": 11,
    "samples": [
     "measuring the edge index memory after the typed-array repair",
     "measuring what the edge rows cost resident, and what a compact index would cost",
     "no door runs arbitrary Lean text against the bare kernel; a court investigator must check its own proposed involution before proposing it (qpu_lean only serves "
-   ]
-  },
-  {
-   "verb": "land",
-   "asks": 11,
-   "samples": [
-    "no door reports a running landing's progress; reading the land log and push state",
-    "no door reports a landing's state; checking before changing the scheduler",
-    "no door reports a landing's state"
    ]
   },
   {
@@ -240,17 +240,17 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "71 recorded ask(s) for a door that commits, against 250 doors served — sessions stated this gap 71 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
+   "lead": "72 recorded ask(s) for a door that commits, against 250 doors served — sessions stated this gap 72 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"committing the qpu storage write repair in the sibling repository\".",
+   "status": "open",
+   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
+  },
+  {
+   "lead": "45 recorded ask(s) for a door that ledgers, against 250 doors served — sessions stated this gap 45 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door answers the git history of a source path (when the edge stopped bundling the ledger)\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
    "lead": "45 recorded ask(s) for a door that tests, against 250 doors served — sessions stated this gap 45 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"reading qpu's own tests and lean file to see what pins its storage address function\".",
-   "status": "open",
-   "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
-  },
-  {
-   "lead": "39 recorded ask(s) for a door that ledgers, against 250 doors served — sessions stated this gap 39 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door answers the git history of a source path (when the edge stopped bundling the ledger)\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -265,12 +265,12 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "11 recorded ask(s) for a door that indexs, against 250 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"measuring the edge index memory after the typed-array repair\".",
+   "lead": "14 recorded ask(s) for a door that lands, against 250 doors served — sessions stated this gap 14 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
   {
-   "lead": "11 recorded ask(s) for a door that lands, against 250 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"no door reports a running landing's progress; reading the land log and push state\".",
+   "lead": "11 recorded ask(s) for a door that indexs, against 250 doors served — sessions stated this gap 11 times in their own words and the catalogue answers it with nothing named for the verb. Sample: \"measuring the edge index memory after the typed-array repair\".",
    "status": "open",
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   },
@@ -280,10 +280,10 @@
    "owes": "either the door, named by the verb the asks use so the contract is written by demand rather than by taste, or the door these asks failed to find — a repeated ask can mean the asker missed what is already served, and only reading the sentences decides which"
   }
  ],
- "receipt": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
+ "receipt": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
  "crossed": {
-  "sorted": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
-  "reversed": "2e8903a9-cbbb-8a22-bb96-3b07a66ca1b2",
+  "sorted": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
+  "reversed": "f841b8c7-f440-86c3-9527-ff2f96e99aed",
   "agrees": true
  }
 }

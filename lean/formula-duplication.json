@@ -4334,5 +4334,10 @@
  ],
  "copies": 129,
  "crosses": 15,
- "receipt": "44c9b6a1-9e2e-8384-94a5-0dc573ad6b02"
+ "receipt": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
+ "crossed": {
+  "sorted": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
+  "reversed": "8fe3db60-b1d7-8052-a26e-70a488fb8093",
+  "agrees": true
+ }
 }
