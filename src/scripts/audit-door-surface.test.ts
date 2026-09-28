@@ -56,3 +56,42 @@ test('it does not write lean/leads.json — no writer appends a row there, and a
   const writes = [...src.matchAll(/wrRoot\('([^']+)'/g)].map((m) => m[1]!)
   assert.deepEqual(writes, ['lean/door-surface.json'], 'it writes its own file and only its own file')
 })
+
+test('the reach row distinguishes a door that answered from one that was never asked', () => {
+  // THE CONTROL FOR THE SECOND QUESTION. Reading a contract and calling a door are different measurements, and
+  // the characteristic failure of the second is the same as the first: reporting reach when nothing was asked.
+  // A run that asks NOTHING must not close, because zero of zero is not "every door answered" — it is silence.
+  const reach = read().held.filter((r) => r.lead.startsWith('Reach of this run:'))
+  assert.equal(reach.length, 1, 'the reach of a run is stated exactly once, or a reader picks a row')
+
+  const m = /Reach of this run: (\d+) of (\d+) door\(s\)/.exec(reach[0]!.lead)
+  assert.ok(m, 'the reach row names both numbers, so a door asked and a door answering cannot read alike')
+  const [answered, askable] = [Number(m[1]), Number(m[2])]
+  assert.ok(answered <= askable, 'more answered than asked is impossible and would mean the census is wrong')
+
+  assert.equal(reach[0]!.status === 'closed', askable > 0 && answered >= askable,
+    'the reach row closes exactly when every door asked answered, and never on an empty ask')
+})
+
+test('a door is only asked when its own contract requires nothing', () => {
+  // THE FAULT THIS CONTROL EXISTS FOR, measured 2026-09-28. The live listing projects name, title and
+  // description and no inputSchema, by construction of that door, so a first version filtered on a field absent
+  // from every row, asked thirty doors indiscriminately, and counted compute_sha256 complaining about a missing
+  // `text` as a refusal: "27 of 30 did not answer" measured the filter. A refusal we caused is not evidence
+  // about the door.
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'audit-door-surface.ts'), 'utf8')
+  const body = src.slice(src.indexOf('DOES IT ANSWER'))
+
+  assert.match(body, /callTool\('list_tools', \{ name \}\)/,
+    'the requirement must be read from dist, which is the only surface carrying inputSchema')
+  assert.match(body, /required\.length > 0\) continue/,
+    'a door whose contract requires an argument is skipped, not asked and counted against')
+})
+
+test('an error served as a result is a refusal, not an answer', () => {
+  // Four doors answer HTTP 200 with a result whose text begins "error: the edge does not hold…". A door that
+  // replies with an error has answered the transport and not the question, which is the distinction the
+  // journals port already states: answering is not the same as answering with data.
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'audit-door-surface.ts'), 'utf8')
+  assert.match(src, /text\.startsWith\('error:'\)/, 'an error in the result text is counted as a refusal')
+})
