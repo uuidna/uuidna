@@ -1382,7 +1382,7 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 5,873,035 | 6 | 978,839× | `theorems().length` |
 | what does the tree hold right now? | 5,895,961 | 225 | 26,204× | `npm run state` |
-| which Alpine domains are ported? | 1,823,073 | 350 | 5,208× | `portsCensus()` |
+| which Alpine domains are ported? | 1,823,075 | 350 | 5,208× | `portsCensus()` |
 | is the tree green to release? | 1,159,611 | 65 | 17,840× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **26,204×**. Tokens are estimated at four bytes each — an approximation, and
@@ -1398,7 +1398,7 @@ fetched only if someone actually wants it.
 
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
-| the whole Alpine catalogue | 7,292,293 | 16 | 455,768× |
+| the whole Alpine catalogue | 7,292,301 | 16 | 455,768× |
 | the sealed ledger | 23,492,143 | 16 | 1,468,258× |
 | the leads record | 79,491 | 16 | 4,968× |
 

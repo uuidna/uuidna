@@ -1,10 +1,11 @@
 {
-  "modules": 1467,
-  "roots": 926,
-  "supported": 1465,
+  "modules": 1475,
+  "roots": 934,
+  "supported": 1472,
   "dead": [
+    "src/school-spaces.ts",
     "src/theorems/ledger-edge.ts",
     "src/theorems/ledger-node.ts"
   ],
-  "receipt": "70520372-c57d-821c-8f2a-df94bdcd68a1"
+  "receipt": "dff4f38c-0d30-8bb9-9f03-5b0efafc7272"
 }

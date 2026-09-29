@@ -11425,14 +11425,14 @@
   },
   {
    "key": "the_store_footprint_is_its_folders",
-   "statement": "(71711 + 256 + 43570 + 71556 + 71711 + 1 = 258805) ∧ (258805 > 3 * 71711)",
-   "normalised": "(71711+256+43570+71556+71711+1=258805)∧(258805>3*71711)",
+   "statement": "(71711 + 256 + 43568 + 71556 + 71711 + 1 = 258803) ∧ (258803 > 3 * 71711)",
+   "normalised": "(71711+256+43568+71556+71711+1=258803)∧(258803>3*71711)",
    "rawLength": 73,
    "normalisedLength": 55,
    "rawBytes": 75,
    "normalisedBytes": 57,
-   "address": "335ce9fa-9061-841a-9fc7-86b6402bbd4f",
-   "sha256": "c02fd59dedaa1f52edd7c79102444bdf44bec2e7445116287fe5cd7e4abf99e2"
+   "address": "4b0e0a20-99b4-838b-bd27-b4677f77f76e",
+   "sha256": "119991d0d61cb27461dfdc43c6c86915502ea414c620a5c4b21d80199cdace3d"
   },
   {
    "key": "the_third_level_already_shares",
@@ -29564,14 +29564,14 @@
   },
   {
    "key": "context_windows_are_transient_hexbits",
-   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 458) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=458)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
+   "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 460) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+   "normalised": "(((modelContextRows.map(fun r=>r.length)).sum)=460)∧((modelContextRows.map(fun r=>r.map(fun c=>c*8)))=modelTransientRows)",
    "rawLength": 138,
    "normalisedLength": 121,
    "rawBytes": 140,
    "normalisedBytes": 123,
-   "address": "537272af-b923-81e0-b116-d72054d6047d",
-   "sha256": "c7e9f0080ea60411babb0948a8a667b891ff120cd528c32b104d7c45501007ca"
+   "address": "dcce02de-d6e6-872c-b7fd-3198f9953ad4",
+   "sha256": "716be4ff0fe8c4526102170b88dd21f13c874a26693e74bfacb90719a44edf37"
   },
   {
    "key": "speaking_an_address_costs_the_text",
@@ -60628,14 +60628,14 @@
   },
   {
    "key": "the_generated_closure_partitions_into_three_kinds",
-   "statement": "(1521705 + 449 + 431173 = 1953327) ∧ ((1521705 > 3 * 431173) ∧ (1521705 < 4 * 431173))",
-   "normalised": "(1521705+449+431173=1953327)∧((1521705>3*431173)∧(1521705<4*431173))",
+   "statement": "(1519346 + 449 + 430527 = 1950322) ∧ ((1519346 > 3 * 430527) ∧ (1519346 < 4 * 430527))",
+   "normalised": "(1519346+449+430527=1950322)∧((1519346>3*430527)∧(1519346<4*430527))",
    "rawLength": 86,
    "normalisedLength": 68,
    "rawBytes": 90,
    "normalisedBytes": 72,
-   "address": "73837c48-6fa3-8e58-9260-6ffdad19006d",
-   "sha256": "392eba2afdf74cb54a53835fe129bc7cdda466fef10dc3deb325e69ffc0399af"
+   "address": "f91910ca-ce28-8d62-871c-6b19f334aac5",
+   "sha256": "bae0b10a18e6e84d83a9085ff982c23dec301d40f75d2c190adfdcd487f2b7df"
   },
   {
    "key": "the_arithmetic_alphabet_partitions_by_its_own_algebra",
@@ -60650,25 +60650,25 @@
   },
   {
    "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-   "statement": "((89768 * 4 < 431173) ∧ (89768 * 5 > 431173)) ∧ (89768 < 431173)",
-   "normalised": "((89768*4<431173)∧(89768*5>431173))∧(89768<431173)",
+   "statement": "((89120 * 4 < 430527) ∧ (89120 * 5 > 430527)) ∧ (89120 < 430527)",
+   "normalised": "((89120*4<430527)∧(89120*5>430527))∧(89120<430527)",
    "rawLength": 64,
    "normalisedLength": 50,
    "rawBytes": 68,
    "normalisedBytes": 54,
-   "address": "8f5ebfaf-0164-8923-8018-01b7751982f3",
-   "sha256": "9dc80fe926e4d4b7081fa32ab580a9e4710c27529a617ed806fcb1e28bd560a0"
+   "address": "1067f9a5-77ac-8d28-9728-52a76ba32129",
+   "sha256": "e68178e12c0c6da0f8ad6a676b61939d266f0afaef70a78740bf4028c48deaf0"
   },
   {
    "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-   "statement": "((449 * 100 < 431173) ∧ (1279 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
-   "normalised": "((449*100<431173)∧(1279>113))∧((113*13<1524)∧(113*14>1524))",
+   "statement": "((449 * 100 < 430527) ∧ (1278 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
+   "normalised": "((449*100<430527)∧(1278>113))∧((113*13<1524)∧(113*14>1524))",
    "rawLength": 79,
    "normalisedLength": 59,
    "rawBytes": 85,
    "normalisedBytes": 65,
-   "address": "d145edaa-0606-88db-8d76-3c8d79226bdc",
-   "sha256": "e7e2c34253b0f86cf19d7b52b0b57eaa87ce1abb18b03fb8a20fd530edd09839"
+   "address": "28aac5b0-cfa9-8c11-a105-920a9f396974",
+   "sha256": "75ca8651870d920b4d65f137dfd8b57d4748203b1fec6a00f59eb4a95c297750"
   },
   {
    "key": "the_same_arithmetic_answers_more_than_one_domain",

@@ -1,6 +1,31 @@
 {
   "leads": [
     {
+      "module": "src/school-spaces.ts",
+      "capability": [
+        "SpaceClass",
+        "GRADIENT",
+        "Privacy",
+        "Space",
+        "Zone",
+        "Partition",
+        "partition",
+        "Gradient",
+        "gradient",
+        "SpaceCensus"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "7edc9580-b86e-8fbe-84f7-01ba9378dafe"
+    },
+    {
       "module": "src/theorems/ledger-edge.ts",
       "capability": [
         "LEDGER_EDGE",
@@ -34,5 +59,5 @@
       "receipt": "96079783-a2ed-8646-9e7c-5afee0b02eb7"
     }
   ],
-  "receipt": "70520372-c57d-821c-8f2a-df94bdcd68a1"
+  "receipt": "dff4f38c-0d30-8bb9-9f03-5b0efafc7272"
 }

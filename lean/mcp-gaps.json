@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1457,
-  "distinct": 1229,
-  "loadBearing": 115,
+  "records": 1483,
+  "distinct": 1254,
+  "loadBearing": 116,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -271,6 +271,13 @@
       "hits": 3,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "checking a door's return shape",
+      "hits": 2,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -882,6 +889,20 @@
       ]
     },
     {
+      "gap": "applying the census memo",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "applying the prescribed cure and reading the review shape",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "arithmetic identity check of crypt constants",
       "hits": 1,
       "forms": [
@@ -914,6 +935,34 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "asking the door for state before landing",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "asking the door for the holder",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "asking the door for the holder and position",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "asking the door for the tree holder",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -963,6 +1012,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "asking the scope census what it does not recognise",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -1274,6 +1330,13 @@
       ]
     },
     {
+      "gap": "committing the census memo through the door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "committing the cleanup through the door",
       "hits": 1,
       "forms": [
@@ -1285,6 +1348,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "committing the eight cures through the door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
       ]
     },
     {
@@ -1327,6 +1397,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "comparing a file's working and committed state",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -1390,6 +1467,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "counting census invocations deterministically",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -1764,6 +1848,20 @@
       ]
     },
     {
+      "gap": "extending CALLER_SUPPLIED",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "extending the caller-supplied alternation",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "extracting the numbers the bible itself states and crossing them with the ledger",
       "hits": 1,
       "forms": [
@@ -1960,6 +2058,13 @@
       ]
     },
     {
+      "gap": "gating the eight cures",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "generate the involution Lean text from recomputed tree figures",
       "hits": 1,
       "forms": [
@@ -2062,6 +2167,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "landing the widened finder",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -2191,6 +2303,13 @@
       ]
     },
     {
+      "gap": "making the git door edge-safe",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "making the skip require that the receipt actually verified the tests",
       "hits": 1,
       "forms": [
@@ -2216,6 +2335,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "measuring how often a receipt's inputs would move",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -6370,6 +6496,13 @@
       ]
     },
     {
+      "gap": "reading the catalogue's category classification",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "reading the clay article's DOI citations against the seal the audit demands",
       "hits": 1,
       "forms": [
@@ -6500,6 +6633,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reading the review shape to fix its test",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -6636,6 +6776,20 @@
       ]
     },
     {
+      "gap": "regenerating a derived surface and reading a door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `export"
+      ]
+    },
+    {
+      "gap": "regenerating llm.txt and exercising the wing door",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "regenerating the door docs after adding a door",
       "hits": 1,
       "forms": [
@@ -6664,6 +6818,13 @@
       ]
     },
     {
+      "gap": "repairing a half-landed change",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "replacing the sealed-address Set with an aligned search in the baked root",
       "hits": 1,
       "forms": [
@@ -6672,6 +6833,13 @@
     },
     {
       "gap": "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "search for Bell state and CNOT gate quantum patterns in source",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6843,6 +7011,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "timing a pure census to size the memo",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {

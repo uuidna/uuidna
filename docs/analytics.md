@@ -1,7 +1,7 @@
 
 # uuidna — Advantage Metrics
 
-**Generated:** 2026-09-28
+**Generated:** 2026-09-29
 **Data source:** Live ledger (71089 sealed theorems)
 
 ---
@@ -15,7 +15,7 @@
 | **Axiom-free** | 71089/71089 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 262 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 131 | Capability axes across the ledger |
-| **Proof cost** | 101328672 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 101328624 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 71089 addresses | one recomputed per theorem |
 | **Steps per address** | 1425 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
@@ -32,7 +32,7 @@
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 252 | In 37 categories |
+| **MCP tools** | 253 | In 37 categories |
 | **Publications** | 262 | Monographs linked to sealed theorems |
 | **Vocabulary terms** | 393 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 101328672 kernel decide-steps, measured
+- First push (prove): 101328624 kernel decide-steps, measured
 - Every later push (verify): 71089 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -88,7 +88,7 @@ Total theorems:       71089
 Axiom-free (decide):  71089 (100.0%)
 Principles:           262 domains
 Publications:         262 monographs
-MCP tools:            252 capabilities
+MCP tools:            253 capabilities
 Security checks:      6 automated
 Languages:            393 vocabulary terms
 Runtime deps:         0 (zero)
@@ -106,7 +106,7 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 458 models · widest window 2,000,000 tokens · 1,957,533,208 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 460 models · widest window 2,000,000 tokens · 1,969,661,976 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
 | Ledger | 71089 theorems · 262 principles · 131 skills | [/theorems](/theorems) · every wing |
 
