@@ -11,7 +11,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { MCP_CATALOG, MCP_LISTED, TOOL_NAMES, STANDARD_NAMES, callTool, resolveToolName, wireRowOf, indexRowOf } from './mcp.js'
 import { handleMcpRpc, mcpHttpToolNames, mcpHttpCatalogue, mcpHttpListedNames } from './mcp-http.js'
-import { DOOR, DOOR_NAME, DOOR_DESCRIPTION, LIST, LIST_NAME, LIST_DESCRIPTION, CONNECT, idOf, doorIndex, listedOf, namedIn, openDoor, isDoorTool, type DoorRow, type ListRow } from './mcp-door.js'
+import { DOOR, DOOR_NAME, DOOR_DESCRIPTION, LIST, LIST_NAME, LIST_DESCRIPTION, CONNECT, idOf, doorIndex, listTools, listedOf, namedIn, openDoor, isDoorTool, type DoorRow, type ListRow } from './mcp-door.js'
 import { wireBytes, WIRE_CAP, sealedBudget } from './mcp-wire.js'
 import { contextGaps } from './scripts/context-budget.js'
 
@@ -281,6 +281,17 @@ test('list_tools {query} — a descriptive phrase falls back to ANY word rather 
   const rows = mcpHttpCatalogue()
   const phrase = doorIndex(rows, 'gate status health honest').tools
   assert.ok(phrase.length > 0, 'a four-word question must not answer nothing')
+})
+
+test('list_tools {query} names the words no tool carries, so an empty answer can be acted on', () => {
+  const rows = mcpHttpCatalogue()
+  const partial = listTools(rows, { query: 'merkle zzqqxx' }) as { tools: ListRow[]; unmatched?: string[] }
+  assert.ok(partial.tools.length > 0)
+  assert.deepEqual(partial.unmatched, ['zzqqxx'])
+  const none = listTools(rows, { query: 'zzqqxx-no-tool-says-this' }) as { tools: ListRow[]; unmatched?: string[] }
+  assert.deepEqual(none.tools, [])
+  assert.deepEqual(none.unmatched, ['zzqqxx-no-tool-says-this'])
+  assert.equal('unmatched' in (listTools(rows, { query: 'merkle' }) as object), false)
 })
 
 test('list_tools {query} — AND is preferred whenever it answers, so precision is kept', () => {

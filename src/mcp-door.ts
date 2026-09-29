@@ -162,6 +162,10 @@ const matching = (rows: readonly DoorRow[], q: string): DoorRow[] => {
     .sort((a, b) => b.s - a.s || a.i - b.i)
     .map((x) => x.r)
 }
+const unmatchedOf = (rows: readonly DoorRow[], q: string): string[] => {
+  const hays = rows.map((r) => [...namesOf(r), r.title ?? '', r.description].join(' ').toLowerCase())
+  return [...new Set(q.toLowerCase().split(/\s+/).filter(Boolean))].filter((w) => !hays.some((h) => h.includes(w)))
+}
 /** rowOf(rows, name) → the row a standard name or an old alias names, or undefined */
 const rowOf = (rows: readonly DoorRow[], name: string): DoorRow | undefined => rows.find((r) => namesOf(r).includes(name))
 
@@ -183,13 +187,16 @@ export const unknownLookup = (rows: readonly DoorRow[], name: unknown, args: Rec
   isListDoor(name) && typeof args?.name === 'string' && !rowOf(rows, args.name) ? args.name : null
 
 /** listTools(rows, a) → list_tools's answer: one contract by {name}; the rows {query} matches; every row. */
-export const listTools = (rows: readonly DoorRow[], a: Record<string, unknown>): DoorRow | { query?: string; tools: ListRow[] } => {
+export const listTools = (rows: readonly DoorRow[], a: Record<string, unknown>): DoorRow | { query?: string; tools: ListRow[]; unmatched?: string[] } => {
   if (typeof a.name === 'string') {
     const row = rowOf(rows, a.name)
     if (!row) throw new Error(`unknown tool: ${a.name}`)
     return row
   }
-  if (typeof a.query === 'string') return { query: a.query, tools: matching(rows, a.query).map(brief) }
+  if (typeof a.query === 'string') {
+    const unmatched = unmatchedOf(rows, a.query)
+    return { query: a.query, tools: matching(rows, a.query).map(brief), ...(unmatched.length ? { unmatched } : {}) }
+  }
   return { tools: rows.map(brief) }
 }
 
