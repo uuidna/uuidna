@@ -23,7 +23,9 @@
 import { handleOf } from '../../handle.js'
 import { toUuid } from '../../address.js'
 import type { Rosetta } from '../../rosetta-legs.js'
-import type { Finding } from '../../research-ledger.js'
+import { anchors, type Finding } from '../../research-ledger.js'
+import { forensics } from '../../forensics.js'
+import { merkleGravity } from '../../gravity/index.js'
 
 export type MissionKind = 'seal-finding' | 'decide-bound' | 'symbol-leg'
 export const MISSION_KINDS: readonly MissionKind[] = ['seal-finding', 'decide-bound', 'symbol-leg'] as const
@@ -58,6 +60,19 @@ export interface Mission {
    *  the tree holds no closed instance yet, WITH the reason, because "none exists" and "none was looked for" are
    *  different facts and a learner must not read the second as the first. */
   worked: { how: string; cite: string } | null
+  /** NO LEAD REMAINS UNTAGGED (the captain, 2026-10-03): "leads that do not cross check after all possible effort to
+   *  involute perspective appear to be lies or manipulations, and there are cross formulas for them." Every row
+   *  carries the verdict of its own cross formula — the doors this tree already serves, fused to one receipt:
+   *    crossed    — every leg of the formula holds: the lead reads the same from the other side
+   *    uncrossed  — a leg fails after the effort the record shows: the primary could not be read, the claim is
+   *                 REFUTED or forensics finds a violation, or the theorem's own address does not recompute. The
+   *                 class to distrust, by the captain's law — tagged, never deleted, so the distrust is visible
+   *    open       — the formula's second leg is owed and nothing has failed: the work the mission names IS the cross
+   *  The field is REQUIRED on the type, which is what makes "no lead untagged" a compile error and not a wish. */
+  tag: 'crossed' | 'uncrossed' | 'open'
+  /** the cross formula that decided the tag: its legs, each with what it asked and whether it held, FUSED by
+   *  merkleGravity to one order-invariant receipt anyone recomputes from the same records */
+  cross: { formula: string; legs: readonly { leg: string; holds: boolean; why: string }[]; receipt: string }
 }
 
 /** one bounded theorem's verdict row, as sealed by scripts/gen-bound-census into lean/bound-census.json */
@@ -71,6 +86,8 @@ export interface BoundSlice {
 export interface MissionBoard {
   total: number
   byKind: Record<MissionKind, number>
+  /** the tag census — sums to total by construction, which the test asserts rather than assumes */
+  byTag: Record<Mission['tag'], number>
   missions: Mission[]
   captain: string
   honest: string
@@ -82,7 +99,40 @@ const MISSION_DOORS: Record<MissionKind, string> = {
   'symbol-leg': 'add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass',
 }
 
-const MISSION_HONEST = 'Derived, not adjudicated: a mission is a record that is open (a finding with no theorem, a bound that survived one widening step, a rosetta row without its symbol leg). Nothing here verdicts the work; the doors do. The bound rows are a LOWER BOUND from one widening step: a survivor is one sample, and silence never refutes (theorem silence_never_refutes) — only a person restating the theorem without its bound settles that the bound was decorative. When a record closes, its mission leaves the board by recomputation.'
+// ── THE CROSS FORMULAS, ONE PER KIND, USING THE DOORS THIS TREE SERVES ──────────────────────────────────────────
+// A finding is crossed by two legs that can each FAIL: its PRIMARY source was read (anchors — the research ledger's
+// own law), and FORENSICS finds no violation in the claim (a fabricated citation, an overreach). A theorem-backed lead (a bound,
+// a missing leg) is crossed on one leg every theorem has: its content-address RECOMPUTES from key and statement
+// (ledgerFacts().forged is the list of those that do not — tampered or forged DNA, the manipulation the conformance
+// gate exists for). Its second perspective — naming the finite domain, writing the symbol leg — is the mission
+// itself, so with the address sound the lead is OPEN, not uncrossed; with the address unsound nothing it says can be
+// crossed, and it is tagged. The legs are fused with merkleGravity: the same legs in any order give one receipt.
+type Leg = { leg: string; holds: boolean; why: string }
+const fuse = (formula: string, legs: readonly Leg[]): Mission['cross'] =>
+  ({ formula, legs, receipt: merkleGravity(legs.map((l) => toUuid(`${l.leg}|${l.holds}|${l.why}`))) })
+
+const crossFinding = (f: Finding): { tag: Mission['tag']; cross: Mission['cross'] } => {
+  // NOT adjudicate(): its verdict is VERIFIED | UNVERIFIED and UNVERIFIED means unproven, never false — a leg on it
+  // could never fail honestly and would tag every open finding uncrossed, which is the vacuity this tree refuses. The
+  // signal adjudicate carries that CAN fail is a fabricated citation, and forensics asks exactly that, plus overreach.
+  const fx = forensics(f.claim)
+  const legs: Leg[] = [
+    { leg: 'primary-read', holds: anchors(f), why: `status ${f.status}: ${anchors(f) ? 'the primary source was retrieved and the figure read from its own text' : 'the primary was not read after the develop steps the record shows — secondary or unread'}` },
+    { leg: 'forensics-clean', holds: fx.violations.length === 0, why: fx.violations.length === 0 ? 'no violation' : fx.violations.map((x) => x.kind).join(', ') },
+  ]
+  return { tag: legs.every((l) => l.holds) ? 'crossed' : 'uncrossed', cross: fuse('primary-read ∧ forensics-clean', legs) }
+}
+
+const crossTheorems = (keys: readonly string[], forged: ReadonlySet<string>, owed: string): { tag: Mission['tag']; cross: Mission['cross'] } => {
+  const bad = keys.filter((k) => forged.has(k))
+  const legs: Leg[] = [
+    { leg: 'address-recomputes', holds: bad.length === 0, why: bad.length === 0 ? `every one of ${keys.length} address(es) recomputes from key and statement` : `${bad.length} address(es) do not recompute: ${bad.slice(0, 3).join(', ')}` },
+    { leg: owed, holds: false, why: 'owed — this is the mission; it is not a failure until the record shows the effort was made and it did not cross' },
+  ]
+  return { tag: bad.length ? 'uncrossed' : 'open', cross: fuse(`address-recomputes ∧ ${owed}`, legs) }
+}
+
+const MISSION_HONEST = 'Every lead carries its tag — crossed, uncrossed or open — decided by the cross formula fused in its own `cross` field, from the doors this tree serves (anchors, adjudicate, forensics, the address that recomputes); an uncrossed lead is kept and marked, never deleted, because the distrust has to be visible to be checked. Derived, not adjudicated: a mission is a record that is open (a finding with no theorem, a bound that survived one widening step, a rosetta row without its symbol leg). Nothing here verdicts the work; the doors do. The bound rows are a LOWER BOUND from one widening step: a survivor is one sample, and silence never refutes (theorem silence_never_refutes) — only a person restating the theorem without its bound settles that the bound was decorative. When a record closes, its mission leaves the board by recomputation.'
 
 const missionHandle = (kind: MissionKind, wing: string, title: string): string => handleOf(toUuid(`mission|${kind}|${wing}|${title}`))
 
@@ -120,10 +170,13 @@ export function missionsOf(input: {
   bounds: BoundSlice
   findings: readonly Finding[]
   captain: string
+  /** the keys whose address does not recompute — ledgerFacts().forged; the one leg every theorem-backed lead has */
+  forged?: readonly string[]
   kind?: MissionKind | null
   wing?: string | null
   limit?: number | null
 }): MissionBoard {
+  const forged = new Set(input.forged ?? [])
   const missions: Mission[] = []
   // one precedent per kind, computed once from these same inputs — every row of a kind cites the same closed instance,
   // because the lesson is the KIND's own proof of concept and not a per-row curiosity
@@ -136,6 +189,7 @@ export function missionsOf(input: {
       handle: missionHandle('seal-finding', 'research ledger', title), kind: 'seal-finding', wing: 'research ledger', title,
       deliverable: `seal ${f.value} ${f.units} (${f.kind}, ${f.status} source: ${f.source}) as a theorem, and point the finding at it`,
       keys: [], door: MISSION_DOORS['seal-finding'], count: 1, worked: worked['seal-finding'],
+      ...crossFinding(f),
     })
   }
 
@@ -146,6 +200,7 @@ export function missionsOf(input: {
       handle: missionHandle('decide-bound', wing, title), kind: 'decide-bound', wing, title,
       deliverable: `${keys.length} statement${keys.length === 1 ? '' : 's'} in ${wing} survived one widening step: for each, either name the finite domain in the prose or restate without the bound`,
       keys, door: MISSION_DOORS['decide-bound'], count: keys.length, worked: worked['decide-bound'],
+      ...crossTheorems(keys, forged, 'domain-named'),
     })
   }
 
@@ -156,18 +211,20 @@ export function missionsOf(input: {
       handle: missionHandle('symbol-leg', wing, title), kind: 'symbol-leg', wing, title,
       deliverable: `${keys.length} theorem${keys.length === 1 ? '' : 's'} in ${wing} ${keys.length === 1 ? 'has' : 'have'} no js: mirror in the emitter — the TypeScript computation the Lean line is checked against`,
       keys, door: MISSION_DOORS['symbol-leg'], count: keys.length, worked: worked['symbol-leg'],
+      ...crossTheorems(keys, forged, 'symbol-leg-written'),
     })
   }
 
   const byKind: Record<MissionKind, number> = { 'seal-finding': 0, 'decide-bound': 0, 'symbol-leg': 0 }
-  for (const m of missions) byKind[m.kind]++
+  const byTag: Record<Mission['tag'], number> = { crossed: 0, uncrossed: 0, open: 0 }
+  for (const m of missions) { byKind[m.kind]++; byTag[m.tag]++ }
 
   let out = missions
   if (input.kind) out = out.filter((m) => m.kind === input.kind)
   if (input.wing) { const w = String(input.wing).toLowerCase(); out = out.filter((m) => m.wing.toLowerCase() === w || m.wing.toLowerCase() === `${w}.lean`) }
   if (input.limit != null && Number.isInteger(input.limit) && input.limit >= 0) out = out.slice(0, input.limit)
 
-  return { total: missions.length, byKind, missions: out, captain: input.captain, honest: MISSION_HONEST }
+  return { total: missions.length, byKind, byTag, missions: out, captain: input.captain, honest: MISSION_HONEST }
 }
 
 /** A SCHOOL THAT TRAINS INNOVATORS ROUTES PRACTICE INTO OPEN WORK (the captain, 2026-09-13). The curriculum is the ledger

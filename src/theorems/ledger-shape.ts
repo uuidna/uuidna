@@ -33,6 +33,16 @@ export interface LedgerFacts {
   skills?: readonly { skill: string; count: number; domains: number; fold: string }[]
   /** how many theorems each lean file seals — about a hundred entries, built by a walk over every row */
   countByFile?: Readonly<Record<string, number>>
+  /** EVERY ZERO-ARGUMENT DOOR, ANSWERED ONCE ON THE HOST AND READ AT THE EDGE. trial, credits, skills and countByFile
+   *  above are four instances of one pattern, each added after a door answered `exceededMemory` instead of answering;
+   *  on 2026-10-03 a caller counted the doors that still walked the rows at the edge and found THIRTY-EIGHT, every
+   *  trial door among them, against eight that read a baked tally. A door that takes no argument is a pure function
+   *  of the sealed ledger — the same answer for anyone, until the ledger seals again — so the bake runs it where the
+   *  rows are affordable and keeps the answer, and the edge serves that answer without the rows. Keyed by the tool's
+   *  catalogue name. `answer` is the host's output exactly; `unmeasured` records why none is held (the host threw, or
+   *  two runs disagreed so it is a measurement and not a function of the ledger, or the answer exceeds the budget an
+   *  isolate can bundle), so an absent answer is a stated reason and never a silent fall-through to the refusal. */
+  doors?: Readonly<Record<string, { bytes: number; answer: unknown } | { bytes: number; unmeasured: string }>>
 }
 
 export interface EdgeRoot { root: string; count: number; keys: string; addresses: string; gate: readonly string[]; facts?: LedgerFacts }

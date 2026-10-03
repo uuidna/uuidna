@@ -167,6 +167,20 @@ export const ledgerFactsOf = (rows: readonly Theorem[]): LedgerFacts => ({
 export const ledgerFacts = (): LedgerFacts => LEDGER_EDGE?.root?.facts ?? ledgerFactsOf(THEOREMS)
 
 export const sealedCount = (): number => (LEDGER_EDGE ? LEDGER_EDGE.count() : THEOREMS.length)
+
+/** bakedDoor(name) → the answer the bake kept for a zero-argument door, at the edge only. A host returns undefined and
+ *  runs the door, so a host never serves a stale bake of its own ledger; the edge returns what the host computed from
+ *  the ledger it serves. An entry that holds a reason instead of an answer is undefined here too, so the caller falls
+ *  through to the door and gets the honest refusal with its reason, never a shape the door's contract does not have. */
+export const bakedDoor = (name: string): unknown => {
+  const d = LEDGER_EDGE?.root?.facts?.doors?.[name]
+  return d && 'answer' in d ? d.answer : undefined
+}
+/** why a zero-argument door holds no baked answer, when the bake recorded one */
+export const bakedDoorWhy = (name: string): string | undefined => {
+  const d = LEDGER_EDGE?.root?.facts?.doors?.[name]
+  return d && 'unmeasured' in d ? d.unmeasured : undefined
+}
 export const sealedKeyAt = (i: number): string | undefined => (LEDGER_EDGE ? LEDGER_EDGE.keyAt(i) : THEOREMS[i]?.key)
 
 /** sealedAddressOf(key) → a sealed key's address, or undefined for a key the ledger does not hold — what the honesty

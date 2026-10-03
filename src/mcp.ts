@@ -99,7 +99,7 @@ import { cryptoAppsPort, cryptoAppOf } from './quantum/os/cryptoapps/index.js'
 import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox and the ported OS as ONE content-addressed registry
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
 // sealedKeys reads the baked root at the edge and the rows on a host — the one accessor a keys-only answer needs
-import { sealedKeys } from './theorems/index.js'
+import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts } from './theorems/index.js'
 // the build's own computation graph, folded — one derivation behind the README, the site page and this door
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
@@ -1192,7 +1192,7 @@ const TOOLS: Tool[] = ([
       const kind = a?.kind == null ? null : String(a.kind) as MissionKind
       if (kind !== null && !MISSION_KINDS.includes(kind)) throw new Error(`uuidna_missions: unknown kind "${kind}" — expected one of ${MISSION_KINDS.join(', ')} (nothing was computed)`)
       const limit = a?.limit == null ? null : Number(a.limit)
-      const board = missionsOf({ rows: mirrorRows(), bounds: BOUND_SLICE, findings: FINDINGS, captain: MISSION_CAPTAIN, kind, wing: a?.wing == null ? null : String(a.wing), limit: a?.skill == null ? limit : null })
+      const board = missionsOf({ rows: mirrorRows(), bounds: BOUND_SLICE, findings: FINDINGS, captain: MISSION_CAPTAIN, forged: ledgerFacts().forged, kind, wing: a?.wing == null ? null : String(a.wing), limit: a?.skill == null ? limit : null })
       if (a?.skill == null) return board
       const skill = String(a.skill)
       const path = innovationPathOf(board.missions, theorems())
@@ -2717,8 +2717,31 @@ export function callTool(name: string, args: Record<string, unknown> = {}, ctx?:
   const tool = TOOLS.find((t) => t.name === id)
   if (!tool) throw new Error(`unknown tool: ${name}`)
   argsGateOf(tool.name, tool.inputSchema, args)   // refused under the catalogue id, so an alias and its standard name refuse alike
+  // THE BAKED ANSWER FIRST, AT THE EDGE, FOR A CALL THAT PASSES NOTHING. A zero-argument door is a pure function of
+  // the sealed ledger, and the bake already ran it where the rows are affordable (ledger-deposit --bake). On a host
+  // bakedDoor is undefined and the door runs; at the edge it is the host's own answer, served without the rows that
+  // thirty-eight doors were refusing for. A call WITH arguments still runs the door: the bake holds one answer, the
+  // bare one, and a narrowed question is not that answer.
+  if (Object.keys(args).length === 0) {
+    const baked = bakedDoor(tool.name)
+    if (baked !== undefined) return baked
+  }
   return tool.run(args, ctx)
 }
+
+/** bakeableDoors() → the catalogue names a bake may answer once and the edge may serve: every tool whose schema
+ *  requires no argument. DERIVED from the schemas, never listed — a door added later with no required key is baked
+ *  the next time the ledger seals, without anyone remembering it. Whether a bare call is also DETERMINISTIC is the
+ *  bake's question, asked by running it twice; a door whose two answers differ is reading a machine, not the ledger,
+ *  and is recorded as unmeasured rather than frozen at one machine's reading. */
+export const bakeableDoors = (): string[] =>
+  TOOLS.filter((t) => {
+    const schema = t.inputSchema as { required?: unknown } | undefined
+    return !Array.isArray(schema?.required) || schema.required.length === 0
+  }).map((t) => t.name)
+
+/** the reason a zero-argument door holds no baked answer at this surface, for a caller that met the refusal */
+export const bakedDoorReason = (name: string): string | undefined => bakedDoorWhy(resolveToolName(name) ?? name)
 
 // ── THE UUIDNA QUANTUM ENGINE — import/export fused into ONE input→output surface ───────────────────────────────
 // You do not import a function; you feed the engine an INPUT {op, args} and read its OUTPUT. Every module export is

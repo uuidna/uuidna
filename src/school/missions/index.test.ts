@@ -91,3 +91,30 @@ test('CONTROL — a finding that loses its theorem field reappears as a mission'
   const reopened = missionsOf({ rows: [], bounds: { digest: 't', rows: [] }, findings: [{ ...findings[1]!, theorem: undefined }], captain: 'c' })
   assert.equal(reopened.total, 1, 'the board must be able to grow, or it cannot be trusted to shrink')
 })
+
+
+// ── NO LEAD REMAINS UNTAGGED — the cross formula on every row, with the controls that make it evidence ─────────
+test('every lead is tagged by its fused cross formula, and the census sums to the board', () => {
+  const unread: Finding = { claim: 'believed value', value: '3', units: 'u', source: 's', status: 'unread', kind: 'measured' }
+  const b = missionsOf({ rows, bounds, findings: [...findings, unread], captain: 'c', forged: ['b_one'] })
+  for (const m of b.missions) {
+    assert.ok(['crossed', 'uncrossed', 'open'].includes(m.tag), `${m.handle} carries a tag`)
+    assert.equal(m.cross.legs.length >= 2, true, 'a cross formula has at least two legs')
+    assert.match(m.cross.receipt, /^[0-9a-f-]{36}$/, 'the legs fuse to one address')
+  }
+  assert.equal(b.byTag.crossed + b.byTag.uncrossed + b.byTag.open, b.total, 'the tag census is the board')
+  // a READ finding that adjudicates and passes forensics crosses; an UNREAD one does not, after the effort shown
+  const open = b.missions.find((m) => m.title === 'open value')!, believed = b.missions.find((m) => m.title === 'believed value')!
+  assert.equal(open.tag, 'crossed')
+  assert.equal(believed.tag, 'uncrossed')
+  assert.equal(believed.cross.legs.find((l) => l.leg === 'primary-read')!.holds, false, 'the failing leg is named')
+  // THE CONTROL — a bound whose key is FORGED (its address does not recompute) is uncrossed; a sound one is open
+  const beta = b.missions.find((m) => m.kind === 'decide-bound' && m.wing === 'Beta.lean')!
+  const alpha = b.missions.find((m) => m.kind === 'decide-bound' && m.wing === 'Alpha.lean')!
+  assert.equal(beta.tag, 'uncrossed', 'b_one is forged in this fixture')
+  assert.equal(alpha.tag, 'open', 'a_one recomputes; its second perspective is the mission')
+  // and the fuse is order-invariant: the same legs reversed give the same receipt
+  const r1 = alpha.cross.receipt
+  const again = missionsOf({ rows, bounds, findings: [...findings, unread], captain: 'c', forged: ['b_one'] })
+  assert.equal(again.missions.find((m) => m.handle === alpha.handle)!.cross.receipt, r1, 'deterministic')
+})

@@ -19,6 +19,8 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
 import { THEOREMS, ledgerFactsOf, skillSummaryOf, theoremCountByFile } from '../theorems/index.js'
+import { callTool, bakeableDoors } from '../mcp.js'
+import type { LedgerFacts } from '../theorems/ledger-shape.js'
 import { runTrial } from '../trial-run.js'
 import { creditsSummary } from '../captain/credits/index.js'
 import type { EdgeRoot } from '../theorems/ledger-shape.js'
@@ -42,6 +44,32 @@ const edgeRootSourceOf = (root: EdgeRoot): string =>
   `import type { EdgeRoot } from './ledger-shape.js'\n\n` +
   `export const EDGE_ROOT: EdgeRoot | null = ${JSON.stringify(root)}\n`
 
+// THE BUDGET ONE ANSWER MAY TAKE IN THE BUNDLE. edge-root.ts was 4.25 MB before the doors; a Worker bundles it whole.
+// An answer past this is recorded with its size and no answer, so the edge refuses it with the reason instead of the
+// bundle failing to ship — the limit is named where it bites, not discovered at deploy.
+const DOOR_BYTES = 256 * 1024
+/** one JSON for one value, keys sorted, so two runs of a pure door compare byte for byte */
+const stable = (v: unknown): string => JSON.stringify(v, (_k, x) => (x && typeof x === 'object' && !Array.isArray(x)
+  ? Object.fromEntries(Object.keys(x as Record<string, unknown>).sort().map((k) => [k, (x as Record<string, unknown>)[k]])) : x))
+
+/** bakeDoors() → every zero-argument door, run twice on this host; kept only when the two runs agree and the answer
+ *  fits the budget. The host is where the rows are affordable; the edge is where they are not, and it reads this. */
+const bakeDoors = (): NonNullable<LedgerFacts['doors']> => {
+  const out: Record<string, { bytes: number; answer: unknown } | { bytes: number; unmeasured: string }> = {}
+  let kept = 0, skipped = 0, bytes = 0
+  for (const name of bakeableDoors()) {
+    let a: string, b: string, answer: unknown
+    try { answer = callTool(name, {}); a = stable(answer); b = stable(callTool(name, {})) }
+    catch (e) { out[name] = { bytes: 0, unmeasured: `the host threw: ${String((e as Error)?.message ?? e).slice(0, 160)}` }; skipped++; continue }
+    if (a !== b) { out[name] = { bytes: a.length, unmeasured: 'two bare runs on the host disagreed — this door reads a machine or a clock, not the ledger, and one reading must not be served as the ledger\'s' }; skipped++; continue }
+    if (a.length > DOOR_BYTES) { out[name] = { bytes: a.length, unmeasured: `the bare answer is ${a.length} bytes and the bundle budget for one door is ${DOOR_BYTES}` }; skipped++; continue }
+    out[name] = { bytes: a.length, answer }; kept++; bytes += a.length
+  }
+  console.log(`  doors: ${kept} baked (${(bytes / 1024).toFixed(0)} KB), ${skipped} recorded unmeasured with a reason, of ${bakeableDoors().length} zero-argument doors`)
+  for (const [n, d] of Object.entries(out)) if ('unmeasured' in d) console.log(`    ○ ${n}: ${d.unmeasured.slice(0, 120)}`)
+  return out
+}
+
 /** bake() → write src/theorems/edge-root.ts for the current ledger; offline */
 const bake = (): { root: string; count: number; pieces: number } => {
   const { pieces, root } = ledgerPlan()
@@ -49,7 +77,7 @@ const bake = (): { root: string; count: number; pieces: number } => {
   // that walk in a 128 MB isolate is what it could not do. The bake already holds the whole ledger, so it walks once
   // and the tally rides in the root — the verdicts themselves are never carried, only what the door reports.
   const t = runTrial()
-  const facts = { ...ledgerFactsOf(THEOREMS), trial: { count: t.count, verified: t.verified, unverified: t.unverified, receipt: t.receipt }, credits: creditsSummary(), skills: skillSummaryOf(), countByFile: Object.fromEntries(theoremCountByFile()) }
+  const facts = { ...ledgerFactsOf(THEOREMS), trial: { count: t.count, verified: t.verified, unverified: t.unverified, receipt: t.receipt }, credits: creditsSummary(), skills: skillSummaryOf(), countByFile: Object.fromEntries(theoremCountByFile()), doors: bakeDoors() }
   writeFileSync(join(ROOT, 'src', 'theorems', 'edge-root.ts'), edgeRootSourceOf({ ...edgeRootOf(THEOREMS, root, GATE_THEOREMS), facts }))
   return { root, count: THEOREMS.length, pieces: pieces.length }
 }

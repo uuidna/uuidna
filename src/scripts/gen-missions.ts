@@ -11,7 +11,7 @@ import { ROOT } from './api.js'
 import { mirrorRows } from '../rosetta-legs.js'
 import { FINDINGS } from '../research-ledger.js'
 import { missionsOf, innovationPathOf, MISSION_KINDS, type BoundSlice, type BoundRow, type MissionKind } from '../school/missions/index.js'
-import { theorems } from '../theorems/index.js'
+import { theorems, ledgerFacts } from '../theorems/index.js'
 import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
 const census = JSON.parse(readFileSync(join(ROOT, 'lean', 'bound-census.json'), 'utf8')) as { digest: string; rows: (BoundRow & { statement?: string })[] }
@@ -26,7 +26,16 @@ export const BOUND_SLICE: BoundSlice = ${JSON.stringify(slice, null, 1)}
 export const MISSION_CAPTAIN = ${JSON.stringify(claims.captain_authority)}
 `)
 
-const board = missionsOf({ rows: mirrorRows(), bounds: slice, findings: FINDINGS, captain: claims.captain_authority })
+const board = missionsOf({ rows: mirrorRows(), bounds: slice, findings: FINDINGS, captain: claims.captain_authority, forged: ledgerFacts().forged })
+// NO LEAD REMAINS UNTAGGED — the type already refuses a row without a tag; this is the same law at the one place the
+// board is written, so a generated slice can never carry a row the compiler did not see.
+{
+  const untagged = board.missions.filter((m) => !['crossed', 'uncrossed', 'open'].includes(m.tag))
+  if (untagged.length) throw new Error(`gen-missions: ${untagged.length} lead(s) carry no tag — nothing written`)
+  const sum = board.byTag.crossed + board.byTag.uncrossed + board.byTag.open
+  if (sum !== board.total) throw new Error(`gen-missions: the tag census (${sum}) and the board (${board.total}) disagree — nothing written`)
+  console.log(`  leads tagged: ${board.byTag.crossed} crossed · ${board.byTag.uncrossed} uncrossed · ${board.byTag.open} open — of ${board.total}`)
+}
 const clean = (s: string): string => pageSafe(s.replace(/`/g, ''))
 const HEAD: Record<MissionKind, [string, string]> = {
   'seal-finding': ['Seal a finding', 'a read primary source whose value no theorem seals yet — the theorem is the deliverable'],
@@ -40,8 +49,12 @@ const links = (keys: readonly string[]): string => {
 const sections = MISSION_KINDS.map((kind) => {
   const rows = board.missions.filter((m) => m.kind === kind)
   const [h, why] = HEAD[kind]
+  // THE TAG, ON THE ROW, where a reader meets it — the slice carries it and the page must too, or an uncrossed
+  // lead reads on this page exactly like a crossed one, which is the invisibility the captain's law forbids
+  const tagOf = (m: typeof rows[number]): string =>
+    `${m.tag === 'crossed' ? '✓' : m.tag === 'uncrossed' ? '✗' : '○'} ${m.tag} — ${m.cross.legs.map((l) => `${l.holds ? '✓' : '✗'} ${l.leg}`).join(' · ')} · fused \`${m.cross.receipt.slice(0, 13)}…\``
   const body = rows.map((m) =>
-    `- **\`${m.handle}\`** ${clean(m.title)}\n  <br><small>deliverable: ${clean(m.deliverable)}</small>` +
+    `- **\`${m.handle}\`** ${clean(m.title)}\n  <br><small>${tagOf(m)}</small>\n  <br><small>deliverable: ${clean(m.deliverable)}</small>` +
     (m.keys.length ? `\n  <br><small>covers: ${links(m.keys)}</small>` : '') +
     `\n  <br><small>door: ${clean(m.door)}</small>`).join('\n')
   return `## ${h} — ${rows.length} open\n\n_${why}._\n\n${body || '_none open — every record of this kind is closed_'}`
@@ -79,6 +92,12 @@ is the paying handle \`${board.captain}\`: a mission is claimed by DEPOSITING, n
 [\`uuidna_trial\`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [\`uuidna_agent_contribute\`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [\`uuidna_missions\`](/mcp#uuidna-missions).
+
+**No lead remains untagged** — ${board.byTag.crossed} crossed · ${board.byTag.uncrossed} uncrossed · ${board.byTag.open} open.
+Each row carries the verdict of its own cross formula, decided by the doors this tree serves and fused to one receipt:
+_crossed_ reads the same from the other side; _uncrossed_ failed a leg after the effort the record shows (a primary
+source that could not be read, a forensic violation, an address that does not recompute) — the class to distrust, kept
+and marked rather than deleted; _open_ owes its second leg, and that leg is the mission.
 
 ${pathSection}
 

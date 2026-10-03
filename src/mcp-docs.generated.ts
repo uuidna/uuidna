@@ -14340,7 +14340,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Get missions. Returns {total,byKind,missions,captain,honest}.",
+  "description": "Get missions. Returns {total,byKind,byTag,missions,captain,honest}.",
   "outputSchema": {
    "type": "object",
    "properties": {
@@ -14357,6 +14357,20 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
        "type": "integer"
       },
       "symbol-leg": {
+       "type": "integer"
+      }
+     }
+    },
+    "byTag": {
+     "type": "object",
+     "properties": {
+      "crossed": {
+       "type": "integer"
+      },
+      "uncrossed": {
+       "type": "integer"
+      },
+      "open": {
        "type": "integer"
       }
      }
@@ -14378,7 +14392,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":294,\"byKind\":{\"seal-finding\":28,\"decide-bound\":136,\"symbol-leg\":130},\"missions\":[{\"handle\":\"f3b786a0\",\"kind\":\"seal-finding\",\"wing\":\"research ledger\",\"…"
+   "excerpt": "{\"total\":294,\"byKind\":{\"seal-finding\":28,\"decide-bound\":136,\"symbol-leg\":130},\"byTag\":{\"crossed\":25,\"uncrossed\":3,\"open\":266},\"missions\":[{\"handle\":\"f3b786a0\",…"
   }
  },
  "uuidna_theorem": {
