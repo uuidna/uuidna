@@ -1333,7 +1333,7 @@ Refusion. VERIFIED cells stay. UNVERIFIED cells involute to sealed solutions in 
 
 ### `get_missions` {#uuidna-missions}
 
-**Get missions.** Returns {total,byKind,missions,captain,honest}.
+**Get missions.** Returns {total,byKind,byTag,missions,captain,honest}.
 
 Call `get_missions` — the old name `uuidna_missions` still answers · read-only · idempotent
 
@@ -1341,7 +1341,7 @@ Call `get_missions` — the old name `uuidna_missions` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"total":294,"byKind":{"seal-finding":28,"decide-bound":136,"symbol-leg":130},"missions":[{"handle":"f3b786a0","kind":"seal-finding","wing":"research ledger","…
+{"total":294,"byKind":{"seal-finding":28,"decide-bound":136,"symbol-leg":130},"byTag":{"crossed":25,"uncrossed":3,"open":266},"missions":[{"handle":"f3b786a0",…
 ```
 
 **Parameters**

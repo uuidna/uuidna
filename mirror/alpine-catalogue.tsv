@@ -334,7 +334,7 @@ community	anytun	0.3.8-r12	Q1nf8W3h1ElNT8Gy9PWtB0s8rgR90=	Secure anycast tunneli
 community	anytun-dev	0.3.8-r12	Q16ZRpg69ShDU2atzqnfXWLozHF3c=	Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (development files)	openssl-dev>3 boost-dev linux-headers so:libboost_serialization.so.1.84.0 so:libboost_thread.so.1.84.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:anytun-config=0.3.8-r12
 community	anytun-doc	0.3.8-r12	Q1pW8+F6o+QY2hPE+iw4yKVj0HSRw=	Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (documentation)		
 community	anytun-openrc	0.3.8-r12	Q1rA1U3xNbtkjZvFluqiAH4uOsKoM=	Secure anycast tunneling protocol implementation for flexible and fault-tolerant VPNs (OpenRC init scripts)		
-community	apache-ant	1.10.16-r0	Q1fTwQN5A3k5tRngvLbUcsPbfmebo=	A java-based build tool	java-jdk	cmd:ant=1.10.16-r0
+community	apache-ant	1.10.18-r0	Q1qAmS22UfcFmoiIS3oHoScPG7hpQ=	A java-based build tool	java-jdk	cmd:ant=1.10.18-r0
 community	apache-arrow	23.0.1-r2	Q178OQW+HSVkFlspJ2YSlMJgcicNI=	multi-language toolbox for accelerated data interchange and in-memory processing	so:libarrow.so.2300 so:libarrow_flight.so.2300 so:libboost_filesystem.so.1.84.0 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libgmock.so.1.17.0 so:libgtest.so.1.17.0 so:libre2.so.11 so:libstdc++.so.6 so:libutf8proc.so.3	so:libarrow_compute.so.2300=2300.1.0 so:libarrow_flight_testing.so.2300=2300.1.0 so:libarrow_testing.so.2300=2300.1.0
 community	apache-arrow-dev	23.0.1-r2	Q1CJRnk8mgyzSuOsJkpaRZSkjUsr0=	multi-language toolbox for accelerated data interchange and in-memory processing (development files)	apache-arrow=23.0.1-r2 libarrow=23.0.1-r2 libarrow_acero=23.0.1-r2 libarrow_dataset=23.0.1-r2 libarrow_flight=23.0.1-r2 libparquet=23.0.1-r2 python3~3.14 pc:gtest pkgconfig	pc:arrow-acero=23.0.1 pc:arrow-compute=23.0.1 pc:arrow-csv=23.0.1 pc:arrow-dataset=23.0.1 pc:arrow-filesystem=23.0.1 pc:arrow-flight-testing=23.0.1 pc:arrow-flight=23.0.1 pc:arrow-json=23.0.1 pc:arrow-orc=23.0.1 pc:arrow-tensorflow=23.0.1 pc:arrow-testing=23.0.1 pc:arrow=23.0.1 pc:parquet=23.0.1
 community	apache-arrow-doc	23.0.1-r2	Q1zhutTn2uGU63setMpjEhKEVeih8=	multi-language toolbox for accelerated data interchange and in-memory processing (documentation)		
@@ -2478,9 +2478,9 @@ community	csview-bash-completion	1.3.4-r0	Q1L3SazYyOIALG7j6heHhttQYqIa4=	Bash co
 community	csview-fish-completion	1.3.4-r0	Q1NNhwtZG4gIStIevM7hriFw4n368=	Fish completions for csview		
 community	csview-zsh-completion	1.3.4-r0	Q1nD77tWri2/CvkY0SwrCyMieJYt8=	Zsh completions for csview		
 community	csvq	1.18.1-r28	Q1l3HaEy8CpVSf3QUZrukCBTYrgV0=	SQL-like query language for csv format	so:libc.musl-x86_64.so.1	cmd:csvq=1.18.1-r28
-community	csync2	2.0-r5	Q1MLaIUgj4ru55vUdd1K27REXBv4U=	Cluster synchronization tool	bash so:libc.musl-x86_64.so.1 so:libgnutls.so.30 so:librsync.so.2	cmd:csync2-compare=2.0-r5 cmd:csync2=2.0-r5
-community	csync2-doc	2.0-r5	Q1j6fFE8vtixP8zEnYHulIv/yg9ZI=	Cluster synchronization tool (documentation)		
-community	csync2-openrc	2.0-r5	Q1i35cK+fEgUQvZdbvLPKnd5Qq/wo=	Cluster synchronization tool (OpenRC init scripts)		
+community	csync2	2.0-r6	Q1BgLXYS5k449KkjE/VojSSk74l/w=	Cluster synchronization tool	bash so:libc.musl-x86_64.so.1 so:libgnutls.so.30 so:librsync.so.2	cmd:csync2-compare=2.0-r6 cmd:csync2=2.0-r6
+community	csync2-doc	2.0-r6	Q11seIug1OQiczzq6AcdGHN1mVtSc=	Cluster synchronization tool (documentation)		
+community	csync2-openrc	2.0-r6	Q11Eoz/4vG1tQPqY5x1yG4bdznvkg=	Cluster synchronization tool (OpenRC init scripts)		
 community	ctags	6.2.1-r0	Q1Ebdi5Ye3G/5T22ZOZb6RUxySRxE=	Generator of tags for all types of C/C++ languages	so:libc.musl-x86_64.so.1 so:libjansson.so.4 so:libyaml-0.so.2	cmd:ctags=6.2.1-r0 cmd:optscript=6.2.1-r0 cmd:readtags=6.2.1-r0
 community	ctags-doc	6.2.1-r0	Q1rfcJehx8U+6t7M0P85/aTdYKVEo=	Generator of tags for all types of C/C++ languages (documentation)		
 community	ctop	0.7.7-r37	Q1HQA7cLRRSW6qFIqOZH4BUpyNPLw=	Top-like interface for container metrics	so:libc.musl-x86_64.so.1	cmd:ctop=0.7.7-r37
@@ -2790,26 +2790,26 @@ community	dnstwist-pyc	20250130-r1	Q1xLRCBbCru6hemv1DOsLMiKlN0hU=	Precompiled Py
 community	do-agent	3.18.14-r1	Q1aaLJqzj3FjAiagzIKk51dma5gpE=	Collects system metrics from DigitalOcean Droplets	/bin/sh so:libc.musl-x86_64.so.1	cmd:do-agent=3.18.14-r1
 community	do-agent-doc	3.18.14-r1	Q1aPM6xMaXSKi3XYg5CzPw6a/oMFs=	Collects system metrics from DigitalOcean Droplets (documentation)		
 community	do-agent-openrc	3.18.14-r1	Q1GoIqvQ4REA+JwLQkWrcoeIuAKSI=	Collects system metrics from DigitalOcean Droplets (OpenRC init scripts)		
-community	docker	29.5.3-r1	Q1l41R2Axf7KcH42mi+9FAlAmcq8o=	Pack, ship and run any application as a lightweight container	docker-engine=29.5.3-r1 docker-cli=29.5.3-r1 docker-cli-buildx	
+community	docker	29.8.2-r0	Q12gvZqBvRCV55thRykJelRBNS9Q4=	Pack, ship and run any application as a lightweight container	docker-engine=29.8.2-r0 docker-cli=29.8.2-r0 docker-cli-buildx	
 community	docker-auth	1.14.0-r8	Q1X9m5G/IWFPNbnMzy0BskbBwpdbs=	Authentication server for Docker Registry 2	/bin/sh	cmd:docker-auth=1.14.0-r8
 community	docker-auth-doc	1.14.0-r8	Q1hR/0u4fobV7UeQoJVVXNNfEi8XA=	Authentication server for Docker Registry 2 (documentation)		
 community	docker-auth-openrc	1.14.0-r8	Q1ug+3+1VvLazSVz1lQaA3WnfhDUI=	Authentication server for Docker Registry 2 (OpenRC init scripts)		
-community	docker-bash-completion	29.5.3-r1	Q15XbdcQu5C+O6+oxoO6Rgy5GH7vM=	Bash completions for docker		
-community	docker-cli	29.5.3-r1	Q1zq/Ut2dfWUf3vMncPgDO6YtKOkQ=	Docker CLI	ca-certificates so:libc.musl-x86_64.so.1	cmd:docker=29.5.3-r1
+community	docker-bash-completion	29.8.2-r0	Q1Lsp64aucoQoj1o2wviRaW4IpYp4=	Bash completions for docker		
+community	docker-cli	29.8.2-r0	Q1a+7Ve5FPRfr0VWkFy2o1owGlzYc=	Docker CLI	ca-certificates so:libc.musl-x86_64.so.1	cmd:docker=29.8.2-r0
 community	docker-cli-buildx	0.34.1-r1	Q1+7MjUMxDF/jp4MF572oyW6w40QU=	A Docker CLI plugin for extended build capabilities	so:libc.musl-x86_64.so.1	
 community	docker-cli-compose	5.1.4-r1	Q13pDSxELH4/nCfLDRTvlJ3UIHu9Q=	Docker CLI plugin for extended build capabilities	docker-cli so:libc.musl-x86_64.so.1	docker-compose=5.1.4-r1 cmd:docker-compose=5.1.4-r1
 community	docker-credential-ecr-login	0.12.0-r4	Q1XInUKgiJuO3iL3aWdbzUlbm9aRE=	Credential helper for Docker to use the AWS Elastic Container Registry	so:libc.musl-x86_64.so.1	cmd:docker-credential-ecr-login=0.12.0-r4
 community	docker-credential-ecr-login-doc	0.12.0-r4	Q1B2ifRKki/99DD1jxRw0opA9S9s8=	Credential helper for Docker to use the AWS Elastic Container Registry (documentation)		
-community	docker-doc	29.5.3-r1	Q1AG1jeXx4JD49kR6JnqiL18UA6+o=	Documentation for Docker		
-community	docker-engine	29.5.3-r1	Q1tWqmCR7lrTVWYWmpoxk7c/rFqS4=	Docker Engine (dockerd)	ca-certificates containerd iptables tini-static /bin/sh so:libc.musl-x86_64.so.1 so:libnftables.so.1	cmd:docker-init=29.5.3-r1 cmd:docker-proxy=29.5.3-r1 cmd:dockerd=29.5.3-r1
-community	docker-fish-completion	29.5.3-r1	Q1qz5wAUG11HCK5tJ1GG2MUg81EfY=	Fish completions for docker		
-community	docker-openrc	29.5.3-r1	Q15xUBwFd0/jsiOzDNoEqwWm5UCmM=	Pack, ship and run any application as a lightweight container (OpenRC init scripts)	log_proxy	
+community	docker-doc	29.8.2-r0	Q1Ku0ZQ67NRmmi1Hslwc6nOeD53GU=	Documentation for Docker		
+community	docker-engine	29.8.2-r0	Q15cPD+L8Gu+NxAT6VAMVrrqphRh8=	Docker Engine (dockerd)	ca-certificates containerd iptables tini-static /bin/sh so:libc.musl-x86_64.so.1	cmd:docker-init=29.8.2-r0 cmd:docker-proxy=29.8.2-r0 cmd:dockerd=29.8.2-r0
+community	docker-fish-completion	29.8.2-r0	Q1Ti1O0Yx8QEJYVPr19jWgVaGT5mk=	Fish completions for docker		
+community	docker-openrc	29.8.2-r0	Q1TLcjr9sqac29BbhLXPW8jEPoVy4=	Pack, ship and run any application as a lightweight container (OpenRC init scripts)	log_proxy	
 community	docker-registry	2.8.3-r24	Q1SdA91pLTqsu3qyvmOX1fd/FywJw=	An implementation of the Docker Registry HTTP API V2 for use with docker 1.6+	/bin/sh so:libc.musl-x86_64.so.1	cmd:docker-registry-api-descriptor-template=2.8.3-r24 cmd:docker-registry-digest=2.8.3-r24 cmd:docker-registry=2.8.3-r24
 community	docker-registry-openrc	2.8.3-r24	Q1/BR9N85vkt9IcdLmg9n5jBNRL3A=	An implementation of the Docker Registry HTTP API V2 for use with docker 1.6+ (OpenRC init scripts)		
-community	docker-rootless-extras	29.5.3-r1	Q1FeTWUIq8pTY/sLImUx7Cn/eD0o0=	Extras to run docker as in rootless mode	docker rootlesskit slirp4netns fuse-overlayfs	cmd:dockerd-rootless=29.5.3-r1
-community	docker-rootless-extras-openrc	29.5.3-r1	Q1gHJEA6UyDvjLFawwzXhUzpbJPBg=	OpenRC scripts for running docker in rootless mode	docker-rootless-extras	
-community	docker-systemd	29.5.3-r1	Q1gSqPGpWyVT/zGLket9oofgRQTGI=	Pack, ship and run any application as a lightweight container (systemd files)		
-community	docker-zsh-completion	29.5.3-r1	Q1iBU9pX1Y6WRQup0DRy8sBiUje30=	Zsh completions for docker		
+community	docker-rootless-extras	29.8.2-r0	Q1x8J+0Mj3P6/PQfl3IT60r5UCRqY=	Extras to run docker as in rootless mode	docker rootlesskit slirp4netns fuse-overlayfs	cmd:dockerd-rootless=29.8.2-r0
+community	docker-rootless-extras-openrc	29.8.2-r0	Q1/wmB7tOWj8ZaanXgYO6eynXNBsE=	OpenRC scripts for running docker in rootless mode	docker-rootless-extras	
+community	docker-systemd	29.8.2-r0	Q1BeLVng+ucPwcc25B/NSe+VZ6PRc=	Pack, ship and run any application as a lightweight container (systemd files)		
+community	docker-zsh-completion	29.8.2-r0	Q15My9ahXqUSXtAFU5YvC1kuMn98Y=	Zsh completions for docker		
 community	dockviz	0.6.4-r33	Q1/VFe/rPWrWcweE//ksHg08T2Nyc=	Visualizing Docker Data	docker so:libc.musl-x86_64.so.1	cmd:dockviz=0.6.4-r33
 community	docopt-cpp	0.6.3-r3	Q18pYAUnfrVM1OP3e8bCh2Q7eQxgs=	Command line arguments parser for C++11 and later	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	docopt=0.6.3-r3 so:libdocopt.so.0=0.6.2
 community	docopt-cpp-dev	0.6.3-r3	Q16N+Moq9dAxAteFPyUWkGObO4UPs=	Command line arguments parser for C++11 and later (development files)	docopt-cpp=0.6.3-r3 pkgconfig	pc:docopt=0.6.3
@@ -7795,9 +7795,9 @@ community	labwc-lang	0.20.0-r0	Q1elqPIvRPyTwzqsU9k5xuuhv04HI=	Languages for pack
 community	ladspa	1.17-r0	Q12alDhz+BJEZ03vIMABSFqUIVWAs=	Linux Audio Developer's Simple Plug-in API, examples and tools	so:libc.musl-x86_64.so.1 so:libsndfile.so.1 so:libstdc++.so.6	cmd:analyseplugin=1.17-r0 cmd:applyplugin=1.17-r0 cmd:listplugins=1.17-r0
 community	ladspa-dev	1.17-r0	Q1jS1YVOj5Pu0t7mnlpBgUc8PSdUM=	Linux Audio Developer's Simple Plug-in API, examples and tools (development files)		
 community	lager	0.1.1-r1	Q1DMJMVGL8E5I/iiKfVjYkdnzCL4g=	C++ library for value-oriented design using the unidirectional data-flow architecture		
-community	lagrange	1.21.1-r0	Q1s7uSYAetNUVOt4ga9ejVRTLCRdo=	Beautiful Gemini client	so:libSDL2-2.0.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libfribidi.so.0 so:libharfbuzz.so.0 so:libmpg123.so.0 so:libncursesw.so.6 so:libopusfile.so.0 so:libpcre2-8.so.0 so:libssl.so.3 so:libunistring.so.5 so:libwebpdecoder.so.3 so:libz.so.1	cmd:clagrange=1.21.1-r0 cmd:lagrange=1.21.1-r0
-community	lagrange-dbg	1.21.1-r0	Q1LRILp7hDBIEzLFfYRGaYKZkGCUc=	Beautiful Gemini client (debug symbols)	!lagrange<1.21.1-r0 !lagrange>1.21.1-r0	
-community	lagrange-doc	1.21.1-r0	Q1aJluO94tqMphTKkfQocFkLjbSdU=	Beautiful Gemini client (documentation)		
+community	lagrange	1.21.2-r0	Q1AvCb2U8sEkWw7inBqTlecIggdec=	Beautiful Gemini client	so:libSDL2-2.0.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libfribidi.so.0 so:libharfbuzz.so.0 so:libmpg123.so.0 so:libncursesw.so.6 so:libopusfile.so.0 so:libpcre2-8.so.0 so:libssl.so.3 so:libunistring.so.5 so:libwebpdecoder.so.3 so:libz.so.1	cmd:clagrange=1.21.2-r0 cmd:lagrange=1.21.2-r0
+community	lagrange-dbg	1.21.2-r0	Q1H8RxwVD7UFIf9t4Qh1dH4tKHrYQ=	Beautiful Gemini client (debug symbols)	!lagrange<1.21.2-r0 !lagrange>1.21.2-r0	
+community	lagrange-doc	1.21.2-r0	Q1IOcZLQgaIo/WteoikNhmFXyJvuI=	Beautiful Gemini client (documentation)		
 community	laminar	1.3-r10	Q1+2DLediyZwgkt9CjqWrt2rWZOTI=	Fast and lightweight Continuous Integration server	/bin/sh so:libc.musl-x86_64.so.1 so:libcapnp-rpc.so.1.4.0 so:libcapnp.so.1.4.0 so:libgcc_s.so.1 so:libkj-async.so.1.4.0 so:libkj-http.so.1.4.0 so:libkj.so.1.4.0 so:libsqlite3.so.0 so:libstdc++.so.6 so:libz.so.1	cmd:laminarc=1.3-r10 cmd:laminard=1.3-r10
 community	laminar-bash-completion	1.3-r10	Q1IKkQp3p9oqW8AQDkliGhIbFWHZs=	Bash completions for laminar		
 community	laminar-doc	1.3-r10	Q1XbSPtI2i0lTOIZksLhLW9qyMCa0=	Fast and lightweight Continuous Integration server (documentation)		
@@ -11183,95 +11183,95 @@ community	newsboat-fish-completion	2.43-r0	Q134SWOxNuEViw7HTK6h09OQMrQ0g=	Fish c
 community	newsboat-lang	2.43-r0	Q1hwYw/NbdvDKSfif72zEmBtVbEGo=	Languages for package newsboat		
 community	newsflash	4.2.1-r0	Q1Eb9OXPOk7OOLGWIIiWE3GO/SAJU=	An rss feed reader that supports various web based services	desktop-file-utils so:libadwaita-1.so.0 so:libc.musl-x86_64.so.1 so:libcairo.so.2 so:libclapper-0.0.so.0 so:libclapper-gtk-0.0.so.0 so:libcrypto.so.3 so:libgcc_s.so.1 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgraphene-1.0.so.0 so:libgstreamer-1.0.so.0 so:libgtk-4.so.1 so:libintl.so.8 so:libjavascriptcoregtk-6.0.so.1 so:libpango-1.0.so.0 so:libsqlite3.so.0 so:libssl.so.3 so:libwebkitgtk-6.0.so.4 so:libxml2.so.2	cmd:io.gitlab.news_flash.NewsFlash=4.2.1-r0 cmd:newsflash=4.2.1-r0
 community	newsflash-lang	4.2.1-r0	Q1xfHXs+4ekIm8kRidORgdzjnUsrQ=	Languages for package newsflash		
-community	newsraft	0.37-r0	Q1LdPSU+6xu0JsqxSl8SbcD77SRFs=	Feed reader with text-based user interface	so:libc.musl-x86_64.so.1 so:libcurl.so.4 so:libexpat.so.1 so:libgumbo.so.3 so:libsqlite3.so.0	cmd:newsraft=0.37-r0
-community	newsraft-doc	0.37-r0	Q13yzSUlqBMlZ8i9ylY0MFLIiSzWM=	Feed reader with text-based user interface (documentation)		
+community	newsraft	0.38-r0	Q1gHczvRZg0sf5zBTA7tJqNEg2Azc=	Feed reader with text-based user interface	so:libc.musl-x86_64.so.1 so:libcurl.so.4 so:libexpat.so.1 so:libgumbo.so.3 so:libsqlite3.so.0	cmd:newsraft=0.38-r0
+community	newsraft-doc	0.38-r0	Q167+eD9IOURvz4Fi742s7/If1gbQ=	Feed reader with text-based user interface (documentation)		
 community	nextcloud-client	33.0.1-r0	Q1n6uhWw+tH1IwZ32nFs+IhLJeyE8=	Nextcloud Desktop Client	dbus:org.freedesktop.Secrets so:libKF6Archive.so.6 so:libKF6GuiAddons.so.6 so:libQt6Core.so.6 so:libQt6Core5Compat.so.6 so:libQt6DBus.so.6 so:libQt6Gui.so.6 so:libQt6Network.so.6 so:libQt6Qml.so.6 so:libQt6Quick.so.6 so:libQt6QuickControls2.so.6 so:libQt6Sql.so.6 so:libQt6Svg.so.6 so:libQt6WebEngineCore.so.6 so:libQt6WebEngineWidgets.so.6 so:libQt6WebSockets.so.6 so:libQt6Widgets.so.6 so:libQt6Xml.so.6 so:libc.musl-x86_64.so.1 so:libcloudproviders.so.0 so:libcrypto.so.3 so:libgcc_s.so.1 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libkdsingleapplication-qt6.so.1.1 so:libp11.so.3 so:libqt6keychain.so.1 so:libsqlite3.so.0 so:libstdc++.so.6 so:libz.so.1	cmd:nextcloud=33.0.1-r0 cmd:nextcloudcmd=33.0.1-r0 so:libnextcloud_csync.so.0=33.0.1 so:libnextcloudsync.so.0=33.0.1 so:nextcloudsync_vfs_suffix.so=0 so:nextcloudsync_vfs_xattr.so=0
 community	nextcloud-client-dev	33.0.1-r0	Q1Ljq/Kghi5/DvqjDfUZkgTM5WgCc=	Nextcloud Desktop Client (development files)	nextcloud-client=33.0.1-r0	
 community	nextcloud-client-dolphin	33.0.1-r0	Q11oTVeUEYfw1jSTQjCSlfJFonlOw=	Nextcloud Desktop Client - KDE Dolphin integration	dbus:org.freedesktop.Secrets so:libKF6CoreAddons.so.6 so:libKF6KIOCore.so.6 so:libKF6KIOWidgets.so.6 so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libQt6Network.so.6 so:libQt6Widgets.so.6 so:libc.musl-x86_64.so.1 so:libstdc++.so.6	so:libnextclouddolphinpluginhelper.so=0
-community	nextcloud32	32.0.14-r0	Q1O0U5OE/BZoAw0f5PQRQt/1Mxxrc=	A safe home for all your data	ca-certificates php83 php83-bcmath php83-ctype php83-curl php83-dom php83-gd php83-fileinfo php83-gmp php83-iconv php83-intl php83-mbstring php83-opcache php83-openssl php83-pcntl php83-posix php83-session php83-simplexml php83-xml php83-xmlreader php83-xmlwriter php83-zip /bin/sh	nextcloud32-accessibility=32.0.14-r0 nextcloud32-bruteforcesettings=32.0.14-r0 nextcloud32-contactsinteraction=32.0.14-r0 nextcloud32-cloud_federation_api=32.0.14-r0 nextcloud32-dav=32.0.14-r0 nextcloud32-files=32.0.14-r0 nextcloud32-files_videoplayer=32.0.14-r0 nextcloud32-federatedfilesharing=32.0.14-r0 nextcloud32-lookup_server_connector=32.0.14-r0 nextcloud32-oauth2=32.0.14-r0 nextcloud32-profile=32.0.14-r0 nextcloud32-provisioning_api=32.0.14-r0 nextcloud32-related_resources=32.0.14-r0 nextcloud32-settings=32.0.14-r0 nextcloud32-theming=32.0.14-r0 nextcloud32-twofactor_backupcodes=32.0.14-r0 nextcloud32-twofactor_nextcloud_notification=32.0.14-r0 nextcloud32-twofactor_totp=32.0.14-r0 nextcloud32-viewer=32.0.14-r0 nextcloud32-workflowengine=32.0.14-r0
-community	nextcloud32-activity	32.0.14-r0	Q1mDvXI0OVMIr1ihDq3Llu0DepAsY=	Nextcloud Activity app	nextcloud32	
-community	nextcloud32-admin_audit	32.0.14-r0	Q1t/0SLwpD33TPrc/Rc2apUgdvV2I=	Nextcloud Auditing / Logging app	nextcloud32	
-community	nextcloud32-app_api	32.0.14-r0	Q1fAvMna4i/6Q5O6ooZyJOJnjklzo=	Nextcloud AppAPI app	nextcloud32	
-community	nextcloud32-circles	32.0.14-r0	Q1KRuWj39ZUvS5cTZ+gAjSfgi0n5Q=	Nextcloud Teams app	nextcloud32	
-community	nextcloud32-comments	32.0.14-r0	Q1uRYyr2fCPAPLoPgIBANoEaq5bSI=	Nextcloud Comments app	nextcloud32	
-community	nextcloud32-dashboard	32.0.14-r0	Q1sIyfTHHb3DvZi0sc0AlWvi+NT/c=	Nextcloud Dashboard app	nextcloud32	
-community	nextcloud32-default-apps	32.0.14-r0	Q1bhc0c83U/5v2IT2XsYvWH2V4bFc=	Nextcloud default apps	nextcloud32 nextcloud32-circles nextcloud32-files_pdfviewer nextcloud32-logreader nextcloud32-password_policy nextcloud32-privacy nextcloud32-recommendations nextcloud32-serverinfo nextcloud32-text nextcloud32-viewer	
-community	nextcloud32-doc	32.0.14-r0	Q1FTqRe4tFxel18xd4V/rlc0QMY38=	A safe home for all your data (documentation)		
-community	nextcloud32-encryption	32.0.14-r0	Q1au1aGGPgPly6jHeOolkbL8vu7/g=	Nextcloud Default encryption module app	nextcloud32 php83-openssl	
-community	nextcloud32-federation	32.0.14-r0	Q1S+b8wVO+03th1s4Xt9bzuzXNTqo=	Nextcloud Federation app	nextcloud32	
-community	nextcloud32-files_downloadlimit	32.0.14-r0	Q1lz5Zj1iav0XG1EGKd6uZHY2+Fwc=	Nextcloud Files download limit app	nextcloud32	
-community	nextcloud32-files_external	32.0.14-r0	Q19R+ZuCfMQLa9jKNE7v10pbKTU3w=	Nextcloud External storage support app	nextcloud32	
-community	nextcloud32-files_pdfviewer	32.0.14-r0	Q1UmXN4Zfe0kYYivFZ7pHUxEUKKsc=	Nextcloud PDF viewer app	nextcloud32	
-community	nextcloud32-files_reminders	32.0.14-r0	Q1JRkU0DeWfk+biZbbOpj8gYiXj4M=	Nextcloud File reminders app	nextcloud32	
-community	nextcloud32-files_sharing	32.0.14-r0	Q11DE2+ePovod5K1OAYMrAARsWLLg=	Nextcloud File sharing app	nextcloud32 nextcloud32-federatedfilesharing	
-community	nextcloud32-files_trashbin	32.0.14-r0	Q1qwtQ1cJaFUJXom4N8Vjdvo+nVUw=	Nextcloud Deleted files app	nextcloud32	
-community	nextcloud32-files_versions	32.0.14-r0	Q1Pvot7o7okaEUZfC34hgVgMURefA=	Nextcloud Versions app	nextcloud32	
-community	nextcloud32-firstrunwizard	32.0.14-r0	Q1KThT6pdjU9MTWAdx1JCunoGXhw8=	Nextcloud First run wizard app	nextcloud32	
-community	nextcloud32-initscript	32.0.14-r0	Q1mzTGWQXJ2GWbzRwU7KBHZXvzydw=	Init script that runs Nextcloud with php-fpm	nextcloud32 php83-fpm /bin/sh	
-community	nextcloud32-logreader	32.0.14-r0	Q15/EBFJ+RSnxIJ/fPRKpy7n3H6HU=	Nextcloud Log Reader app	nextcloud32	
-community	nextcloud32-mysql	32.0.14-r0	Q1UAW2YObCqjs4iN+l5AgoeUAXauk=	Nextcloud MySQL support	nextcloud32 php83-pdo_mysql	
-community	nextcloud32-nextcloud_announcements	32.0.14-r0	Q1hzrmExkaqFaXG7VFWwVB0inVOx0=	Nextcloud Nextcloud announcements app	nextcloud32	
-community	nextcloud32-notifications	32.0.14-r0	Q1jwxwp7WokHRi7rnukraWmVOQpjo=	Nextcloud Notifications app	nextcloud32	
-community	nextcloud32-occ	32.0.14-r0	Q1bl+9FTQradnyU7YChnhb4lwvH/Y=	Nextcloud OCC cmd	ca-certificates php83 php83-bcmath php83-ctype php83-curl php83-dom php83-gd php83-fileinfo php83-gmp php83-iconv php83-intl php83-mbstring php83-opcache php83-openssl php83-pcntl php83-posix php83-session php83-simplexml php83-xml php83-xmlreader php83-xmlwriter php83-zip	cmd:occ=32.0.14-r0
-community	nextcloud32-password_policy	32.0.14-r0	Q1qCOMf/1PPN4EDxh7XdzVvQ292oQ=	Nextcloud Password policy app	nextcloud32	
-community	nextcloud32-pgsql	32.0.14-r0	Q1f4mJ8taiZhodCM1o8hxxqJAWqlo=	Nextcloud PostgreSQL support	nextcloud32 php83-pgsql php83-pdo_pgsql	
-community	nextcloud32-photos	32.0.14-r0	Q1AMdoeEGw2gJSp5Eopn2sDgfAtmM=	Nextcloud Photos app	nextcloud32	
-community	nextcloud32-privacy	32.0.14-r0	Q1z5I0rjcelb4HbCAJpAzyhwPsf9w=	Nextcloud Privacy app	nextcloud32	
-community	nextcloud32-recommendations	32.0.14-r0	Q1MqfyYYAQ+tiY0N+TQrIAPcLehOw=	Nextcloud Recommendations app	nextcloud32	
-community	nextcloud32-serverinfo	32.0.14-r0	Q18wJQPdRFk/xg7KYubQROZ+boc4I=	Nextcloud Monitoring app	nextcloud32 nextcloud32-files_sharing	
-community	nextcloud32-sharebymail	32.0.14-r0	Q1pNa42AsEtJnJV4P8sbHA4qSxKM8=	Nextcloud Share by mail app	nextcloud32	
-community	nextcloud32-sqlite	32.0.14-r0	Q1teAeNQ/GJAoDcy0eeYDUx+6yelQ=	Nextcloud SQLite support	nextcloud32 php83-sqlite3 php83-pdo_sqlite	
-community	nextcloud32-support	32.0.14-r0	Q1Z34uA+vgRwts/vH+WJ5fDnDSBvU=	Nextcloud Support app	nextcloud32	
-community	nextcloud32-survey_client	32.0.14-r0	Q1pZeetlo0QhU7Cf9U0Ki6XoXpcbk=	Nextcloud Usage survey app	nextcloud32	
-community	nextcloud32-suspicious_login	32.0.14-r0	Q1YbHFUQr7LEpNG1yMuj8CaTN4SFQ=	Nextcloud Suspicious Login app	nextcloud32	
-community	nextcloud32-systemtags	32.0.14-r0	Q1D+s6vUqQJZi1a15qcgibf6TU5Uw=	Nextcloud Collaborative tags app	nextcloud32	
-community	nextcloud32-text	32.0.14-r0	Q1I6nBwBOiJo7uwnGV7TKroFi5g6I=	Nextcloud Text app	nextcloud32	
-community	nextcloud32-user_ldap	32.0.14-r0	Q1XIfEKTInWKZL/W+vkMLi3IUuUOw=	Nextcloud LDAP user and group backend app	nextcloud32 php83-ldap	
-community	nextcloud32-user_status	32.0.14-r0	Q1ERQNzz6QqAY2SBNAF+4pkgmfWjA=	Nextcloud User status app	nextcloud32	
-community	nextcloud32-weather_status	32.0.14-r0	Q1dGCEv8SSb+0+7C0Cm6QqFzE6dM8=	Nextcloud Weather status app	nextcloud32	
-community	nextcloud32-webhook_listeners	32.0.14-r0	Q1atwK4Io6+CWBh5AVP5mhV8gpN5s=	Nextcloud Nextcloud webhook support app	nextcloud32	
-community	nextcloud33	33.0.8-r0	Q1wujGXnzfvrGw52O/T5kJ10afNLw=	A safe home for all your data	ca-certificates php85 php85-bcmath php85-ctype php85-curl php85-dom php85-gd php85-fileinfo php85-gmp php85-iconv php85-intl php85-mbstring php85-openssl php85-pcntl php85-posix php85-session php85-simplexml php85-xml php85-xmlreader php85-xmlwriter php85-zip /bin/sh	nextcloud=33.0.8-r0 nextcloud-accessibility=33.0.8-r0 nextcloud33-accessibility=33.0.8-r0 nextcloud-bruteforcesettings=33.0.8-r0 nextcloud33-bruteforcesettings=33.0.8-r0 nextcloud-contactsinteraction=33.0.8-r0 nextcloud33-contactsinteraction=33.0.8-r0 nextcloud-cloud_federation_api=33.0.8-r0 nextcloud33-cloud_federation_api=33.0.8-r0 nextcloud-dav=33.0.8-r0 nextcloud33-dav=33.0.8-r0 nextcloud-files=33.0.8-r0 nextcloud33-files=33.0.8-r0 nextcloud-files_videoplayer=33.0.8-r0 nextcloud33-files_videoplayer=33.0.8-r0 nextcloud-federatedfilesharing=33.0.8-r0 nextcloud33-federatedfilesharing=33.0.8-r0 nextcloud-lookup_server_connector=33.0.8-r0 nextcloud33-lookup_server_connector=33.0.8-r0 nextcloud-oauth2=33.0.8-r0 nextcloud33-oauth2=33.0.8-r0 nextcloud-profile=33.0.8-r0 nextcloud33-profile=33.0.8-r0 nextcloud-provisioning_api=33.0.8-r0 nextcloud33-provisioning_api=33.0.8-r0 nextcloud-related_resources=33.0.8-r0 nextcloud33-related_resources=33.0.8-r0 nextcloud-settings=33.0.8-r0 nextcloud33-settings=33.0.8-r0 nextcloud-theming=33.0.8-r0 nextcloud33-theming=33.0.8-r0 nextcloud-twofactor_backupcodes=33.0.8-r0 nextcloud33-twofactor_backupcodes=33.0.8-r0 nextcloud-twofactor_nextcloud_notification=33.0.8-r0 nextcloud33-twofactor_nextcloud_notification=33.0.8-r0 nextcloud-twofactor_totp=33.0.8-r0 nextcloud33-twofactor_totp=33.0.8-r0 nextcloud-viewer=33.0.8-r0 nextcloud33-viewer=33.0.8-r0 nextcloud-workflowengine=33.0.8-r0 nextcloud33-workflowengine=33.0.8-r0
-community	nextcloud33-activity	33.0.8-r0	Q1yTvCHF6/ZIxt8qeNoO1eYBT5qIw=	Nextcloud Activity app	nextcloud33	nextcloud-activity=33.0.8-r0
-community	nextcloud33-admin_audit	33.0.8-r0	Q1bp43TL6OSAKtOq0G8/wQFLju6i4=	Nextcloud Auditing / Logging app	nextcloud33	nextcloud-admin_audit=33.0.8-r0
-community	nextcloud33-app_api	33.0.8-r0	Q1V9osmJ4wa5+cBT3KYfw8nBrUU6w=	Nextcloud AppAPI app	nextcloud33	nextcloud-app_api=33.0.8-r0
-community	nextcloud33-circles	33.0.8-r0	Q175bteBmyuPeb5miPf4CEoG08QTw=	Nextcloud Teams app	nextcloud33	nextcloud-circles=33.0.8-r0
-community	nextcloud33-comments	33.0.8-r0	Q1a9VhsHQhKj5ncI9x76mEWBMVIDQ=	Nextcloud Comments app	nextcloud33	nextcloud-comments=33.0.8-r0
-community	nextcloud33-dashboard	33.0.8-r0	Q1MzfK2RqhR+74p9KXliVAUzdRtLQ=	Nextcloud Dashboard app	nextcloud33	nextcloud-dashboard=33.0.8-r0
-community	nextcloud33-default-apps	33.0.8-r0	Q1trPNuCxlnsJRp00MDKKZOKiIOYA=	Nextcloud default apps	nextcloud33 nextcloud33-circles nextcloud33-files_pdfviewer nextcloud33-logreader nextcloud33-password_policy nextcloud33-privacy nextcloud33-recommendations nextcloud33-serverinfo nextcloud33-text nextcloud33-viewer	nextcloud-default-apps=33.0.8-r0
-community	nextcloud33-doc	33.0.8-r0	Q13GjnX3bQz8Y4GcmARWiO+Sh2KK8=	A safe home for all your data (documentation)		nextcloud-doc=33.0.8-r0
-community	nextcloud33-encryption	33.0.8-r0	Q1QJbFOcosVenVqOlu9zefyusD4lE=	Nextcloud Default Encryption Module app	nextcloud33 php85-openssl	nextcloud-encryption=33.0.8-r0
-community	nextcloud33-federation	33.0.8-r0	Q1k8KwVrqoYpbLiw2Aij0z8qcWgkM=	Nextcloud Federation app	nextcloud33	nextcloud-federation=33.0.8-r0
-community	nextcloud33-files_downloadlimit	33.0.8-r0	Q1O+59k7seIIej77ILiIpL38N3WyY=	Nextcloud Files download limit app	nextcloud33	nextcloud-files_downloadlimit=33.0.8-r0
-community	nextcloud33-files_external	33.0.8-r0	Q1YrG7rKgQDoqXOff4j1lmcLDaSLI=	Nextcloud External storage support app	nextcloud33	nextcloud-files_external=33.0.8-r0
-community	nextcloud33-files_pdfviewer	33.0.8-r0	Q1q+Vieba+RY/Hq5IUmdJjrsB5egI=	Nextcloud PDF viewer app	nextcloud33	nextcloud-files_pdfviewer=33.0.8-r0
-community	nextcloud33-files_reminders	33.0.8-r0	Q1IZ5B3+JdbZuG9HeR7c4smTBUAck=	Nextcloud File reminders app	nextcloud33	nextcloud-files_reminders=33.0.8-r0
-community	nextcloud33-files_sharing	33.0.8-r0	Q1Uv40NuJSRaRgVSKa6gBiO53ieIQ=	Nextcloud File sharing app	nextcloud33 nextcloud33-federatedfilesharing	nextcloud-files_sharing=33.0.8-r0
-community	nextcloud33-files_trashbin	33.0.8-r0	Q1mUaLqTNaJ/vDN1iwkf2uZO/M6HU=	Nextcloud Deleted files app	nextcloud33	nextcloud-files_trashbin=33.0.8-r0
-community	nextcloud33-files_versions	33.0.8-r0	Q1gTNqYd71unUA9NlhWHW2r69wrCQ=	Nextcloud Versions app	nextcloud33	nextcloud-files_versions=33.0.8-r0
-community	nextcloud33-firstrunwizard	33.0.8-r0	Q15Ofhl+I+0gRAp3VsKpg7JbOkvEk=	Nextcloud First run wizard app	nextcloud33	nextcloud-firstrunwizard=33.0.8-r0
-community	nextcloud33-initscript	33.0.8-r0	Q1HlV+L/ACEwOJCik1Y/4olQBDPTQ=	Init script that runs Nextcloud with php-fpm	nextcloud33 php85-fpm /bin/sh	nextcloud-initscript=33.0.8-r0
-community	nextcloud33-logreader	33.0.8-r0	Q1Yna3c764ALYumZU1qU4Ic58t12s=	Nextcloud Log Reader app	nextcloud33	nextcloud-logreader=33.0.8-r0
-community	nextcloud33-mysql	33.0.8-r0	Q1tRZ6frnykHL/zSWNtQ1IxkvrG8E=	Nextcloud MySQL support	nextcloud33 php85-pdo_mysql	nextcloud-mysql=33.0.8-r0
-community	nextcloud33-nextcloud_announcements	33.0.8-r0	Q1PP+bh39FdVa0MskFxhMFGmTHvDg=	Nextcloud Nextcloud announcements app	nextcloud33	nextcloud-nextcloud_announcements=33.0.8-r0
-community	nextcloud33-notifications	33.0.8-r0	Q11Y1fZK4bhyIVdY0A4rMgggaqfNA=	Nextcloud Notifications app	nextcloud33	nextcloud-notifications=33.0.8-r0
-community	nextcloud33-occ	33.0.8-r0	Q1W83dYxGBpXhBx5WZkEkNVv1u3ag=	Nextcloud OCC cmd	ca-certificates php85 php85-bcmath php85-ctype php85-curl php85-dom php85-gd php85-fileinfo php85-gmp php85-iconv php85-intl php85-mbstring php85-openssl php85-pcntl php85-posix php85-session php85-simplexml php85-xml php85-xmlreader php85-xmlwriter php85-zip	nextcloud-occ=33.0.8-r0 cmd:occ=33.0.8-r0
-community	nextcloud33-password_policy	33.0.8-r0	Q1DNt/dxwEtqcs+VUVbQkCOsGzceU=	Nextcloud Password policy app	nextcloud33	nextcloud-password_policy=33.0.8-r0
-community	nextcloud33-pgsql	33.0.8-r0	Q1j4i/t0aZEO+h6gepo/+oJsF83Ds=	Nextcloud PostgreSQL support	nextcloud33 php85-pgsql php85-pdo_pgsql	nextcloud-pgsql=33.0.8-r0
-community	nextcloud33-photos	33.0.8-r0	Q1cSv+dm+IqWintZ9ui899LMdMOgE=	Nextcloud Photos app	nextcloud33	nextcloud-photos=33.0.8-r0
-community	nextcloud33-privacy	33.0.8-r0	Q12cT0nc0S4XotfBVzFjHf971ESLM=	Nextcloud Privacy app	nextcloud33	nextcloud-privacy=33.0.8-r0
-community	nextcloud33-recommendations	33.0.8-r0	Q1Lc8LjtsO2KnNOIRc9sLejHspoSM=	Nextcloud Recommendations app	nextcloud33	nextcloud-recommendations=33.0.8-r0
-community	nextcloud33-serverinfo	33.0.8-r0	Q1/9b0HLrVaK0kDoTo1acRIPK6Fi4=	Nextcloud Monitoring app	nextcloud33 nextcloud33-files_sharing	nextcloud-serverinfo=33.0.8-r0
-community	nextcloud33-sharebymail	33.0.8-r0	Q1QxTtx6yvT9OMnedBZpVy6rop0jk=	Nextcloud Share by mail app	nextcloud33	nextcloud-sharebymail=33.0.8-r0
-community	nextcloud33-sqlite	33.0.8-r0	Q1cz5C0pEgamuUcjsSByXF6Zh1kLI=	Nextcloud SQLite support	nextcloud33 php85-sqlite3 php85-pdo_sqlite	nextcloud-sqlite=33.0.8-r0
-community	nextcloud33-support	33.0.8-r0	Q1+DZuO0hSKx/hPyrsmqtG3mxoY5g=	Nextcloud Support app	nextcloud33	nextcloud-support=33.0.8-r0
-community	nextcloud33-survey_client	33.0.8-r0	Q15E0dZKBE9oxwDiyHWHtnO0vAIG8=	Nextcloud Usage survey app	nextcloud33	nextcloud-survey_client=33.0.8-r0
-community	nextcloud33-suspicious_login	33.0.8-r0	Q16V4p8fNj5CXs9dLgTuH7Ch8hjw8=	Nextcloud Suspicious Login app	nextcloud33	nextcloud-suspicious_login=33.0.8-r0
-community	nextcloud33-systemtags	33.0.8-r0	Q1kyF+7hpJNYMaqVhkTa19iPMm//E=	Nextcloud Collaborative tags app	nextcloud33	nextcloud-systemtags=33.0.8-r0
-community	nextcloud33-text	33.0.8-r0	Q1eHO7E7XEcnpH6nsKJTCRnc65oEU=	Nextcloud Text app	nextcloud33	nextcloud-text=33.0.8-r0
-community	nextcloud33-user_ldap	33.0.8-r0	Q1xqFi/zrV3nICy0xw81TBWYWwqU4=	Nextcloud LDAP user and group backend app	nextcloud33 php85-ldap	nextcloud-user_ldap=33.0.8-r0
-community	nextcloud33-user_status	33.0.8-r0	Q1D81k8s1acAvu5kYtvyzSgPwch0s=	Nextcloud User status app	nextcloud33	nextcloud-user_status=33.0.8-r0
-community	nextcloud33-weather_status	33.0.8-r0	Q1c0gSxaryB/w8yj86DC6/Fjp+lUM=	Nextcloud Weather status app	nextcloud33	nextcloud-weather_status=33.0.8-r0
-community	nextcloud33-webhook_listeners	33.0.8-r0	Q1onS5LR8weclVgW8Dbstn626/7ok=	Nextcloud Nextcloud Webhook Support app	nextcloud33	nextcloud-webhook_listeners=33.0.8-r0
+community	nextcloud32	32.0.15-r0	Q1Rduxbhd1ZmsEQk600js3v1Z5x0w=	A safe home for all your data	ca-certificates php83 php83-bcmath php83-ctype php83-curl php83-dom php83-gd php83-fileinfo php83-gmp php83-iconv php83-intl php83-mbstring php83-opcache php83-openssl php83-pcntl php83-posix php83-session php83-simplexml php83-xml php83-xmlreader php83-xmlwriter php83-zip /bin/sh	nextcloud32-accessibility=32.0.15-r0 nextcloud32-bruteforcesettings=32.0.15-r0 nextcloud32-contactsinteraction=32.0.15-r0 nextcloud32-cloud_federation_api=32.0.15-r0 nextcloud32-dav=32.0.15-r0 nextcloud32-files=32.0.15-r0 nextcloud32-files_videoplayer=32.0.15-r0 nextcloud32-federatedfilesharing=32.0.15-r0 nextcloud32-lookup_server_connector=32.0.15-r0 nextcloud32-oauth2=32.0.15-r0 nextcloud32-profile=32.0.15-r0 nextcloud32-provisioning_api=32.0.15-r0 nextcloud32-related_resources=32.0.15-r0 nextcloud32-settings=32.0.15-r0 nextcloud32-theming=32.0.15-r0 nextcloud32-twofactor_backupcodes=32.0.15-r0 nextcloud32-twofactor_nextcloud_notification=32.0.15-r0 nextcloud32-twofactor_totp=32.0.15-r0 nextcloud32-viewer=32.0.15-r0 nextcloud32-workflowengine=32.0.15-r0
+community	nextcloud32-activity	32.0.15-r0	Q1iEG6j3Kfk8F0G7F/6Z/NnHjy2Ts=	Nextcloud Activity app	nextcloud32	
+community	nextcloud32-admin_audit	32.0.15-r0	Q1DdvWuqoO7wcCZofYRAxd6V/MOGU=	Nextcloud Auditing / Logging app	nextcloud32	
+community	nextcloud32-app_api	32.0.15-r0	Q12SP5703hgb/tDpBEm80GjfMGETY=	Nextcloud AppAPI app	nextcloud32	
+community	nextcloud32-circles	32.0.15-r0	Q183PM7FZ1tEjwKKMqmszsBxrUI/s=	Nextcloud Teams app	nextcloud32	
+community	nextcloud32-comments	32.0.15-r0	Q1NNV5U8P9ZhzDYN70LTV3HO6C/gE=	Nextcloud Comments app	nextcloud32	
+community	nextcloud32-dashboard	32.0.15-r0	Q1HbF88Uzhh8GqwdZ7tPxNlCIekB0=	Nextcloud Dashboard app	nextcloud32	
+community	nextcloud32-default-apps	32.0.15-r0	Q19BCcGR+v6yUJH+nG4M0FAtR/4qY=	Nextcloud default apps	nextcloud32 nextcloud32-circles nextcloud32-files_pdfviewer nextcloud32-logreader nextcloud32-password_policy nextcloud32-privacy nextcloud32-recommendations nextcloud32-serverinfo nextcloud32-text nextcloud32-viewer	
+community	nextcloud32-doc	32.0.15-r0	Q1m0wh7rRnWqxvu05ObplLIiPOvQs=	A safe home for all your data (documentation)		
+community	nextcloud32-encryption	32.0.15-r0	Q1uqxxeLHq8xET5iwj0K2v1R6EqCg=	Nextcloud Default encryption module app	nextcloud32 php83-openssl	
+community	nextcloud32-federation	32.0.15-r0	Q1eYJM6ZG6Mv6zahzWaz+jnwq4q5o=	Nextcloud Federation app	nextcloud32	
+community	nextcloud32-files_downloadlimit	32.0.15-r0	Q17BiKZO7csCPoENzkMxKKiSKmWoo=	Nextcloud Files download limit app	nextcloud32	
+community	nextcloud32-files_external	32.0.15-r0	Q1UJuy09SQqVQwoFk9CSJnqMulojw=	Nextcloud External storage support app	nextcloud32	
+community	nextcloud32-files_pdfviewer	32.0.15-r0	Q1GSPp9NsdYk7qcNj0eG4CtOKrnLo=	Nextcloud PDF viewer app	nextcloud32	
+community	nextcloud32-files_reminders	32.0.15-r0	Q1hi9+heyFPWqhxLVDkJ/bRrppMhw=	Nextcloud File reminders app	nextcloud32	
+community	nextcloud32-files_sharing	32.0.15-r0	Q1LESMKSld028l454Nqjj6+SXjm58=	Nextcloud File sharing app	nextcloud32 nextcloud32-federatedfilesharing	
+community	nextcloud32-files_trashbin	32.0.15-r0	Q1xIxD59w+vgC87f8rn5DGBGxCW7A=	Nextcloud Deleted files app	nextcloud32	
+community	nextcloud32-files_versions	32.0.15-r0	Q1qQTTvcTVJoqxULNFjiUKzSn9bUE=	Nextcloud Versions app	nextcloud32	
+community	nextcloud32-firstrunwizard	32.0.15-r0	Q15Jwvg7SkkhSxrm2r+xB6YZVJeCc=	Nextcloud First run wizard app	nextcloud32	
+community	nextcloud32-initscript	32.0.15-r0	Q1xJ4t1q2J26jHmvGD3QgBdUN4+8w=	Init script that runs Nextcloud with php-fpm	nextcloud32 php83-fpm /bin/sh	
+community	nextcloud32-logreader	32.0.15-r0	Q1uQa8rXRUUnSjICROYgs3dSCpIh4=	Nextcloud Log Reader app	nextcloud32	
+community	nextcloud32-mysql	32.0.15-r0	Q1s2abLc0CV4vnL44fKXxHeTk3Tn0=	Nextcloud MySQL support	nextcloud32 php83-pdo_mysql	
+community	nextcloud32-nextcloud_announcements	32.0.15-r0	Q15ZoqfrIx6RbLiV1Iu7cUC2Q/xyA=	Nextcloud Nextcloud announcements app	nextcloud32	
+community	nextcloud32-notifications	32.0.15-r0	Q1Znck2phRxEpz6C6yxn91iLP8+GE=	Nextcloud Notifications app	nextcloud32	
+community	nextcloud32-occ	32.0.15-r0	Q16aBzjDUpwLCAwQLyHJp68iTBCnk=	Nextcloud OCC cmd	ca-certificates php83 php83-bcmath php83-ctype php83-curl php83-dom php83-gd php83-fileinfo php83-gmp php83-iconv php83-intl php83-mbstring php83-opcache php83-openssl php83-pcntl php83-posix php83-session php83-simplexml php83-xml php83-xmlreader php83-xmlwriter php83-zip	cmd:occ=32.0.15-r0
+community	nextcloud32-password_policy	32.0.15-r0	Q1lNPsu/MnQYATx+K5eVHPAXp5sgo=	Nextcloud Password policy app	nextcloud32	
+community	nextcloud32-pgsql	32.0.15-r0	Q1o9TRh62KC/4OkxZJ8Rl7x8FF2ds=	Nextcloud PostgreSQL support	nextcloud32 php83-pgsql php83-pdo_pgsql	
+community	nextcloud32-photos	32.0.15-r0	Q1v/BTt1vUHOtAy9eQq1rIHKKUwSk=	Nextcloud Photos app	nextcloud32	
+community	nextcloud32-privacy	32.0.15-r0	Q1drblq9EaVeFNU4kq5AMe/ASNmXo=	Nextcloud Privacy app	nextcloud32	
+community	nextcloud32-recommendations	32.0.15-r0	Q1nUU46qJH6ANNLR+9YFwFyu9r72o=	Nextcloud Recommendations app	nextcloud32	
+community	nextcloud32-serverinfo	32.0.15-r0	Q1niqV94dtVMFjOMlzJIg6C1xnzJo=	Nextcloud Monitoring app	nextcloud32 nextcloud32-files_sharing	
+community	nextcloud32-sharebymail	32.0.15-r0	Q1lPKDqDZILK1JLZE5lYNblxmWa8Y=	Nextcloud Share by mail app	nextcloud32	
+community	nextcloud32-sqlite	32.0.15-r0	Q18MemImo2CUraU37bMT1aEbueX/s=	Nextcloud SQLite support	nextcloud32 php83-sqlite3 php83-pdo_sqlite	
+community	nextcloud32-support	32.0.15-r0	Q12Nr3NDh8vsU0Webw7pR69zJx9OY=	Nextcloud Support app	nextcloud32	
+community	nextcloud32-survey_client	32.0.15-r0	Q1WX/hXflBWB8D3UEQx2hyv3/KVOI=	Nextcloud Usage survey app	nextcloud32	
+community	nextcloud32-suspicious_login	32.0.15-r0	Q16Uj4gst3IhUTcvS1W5+kzrWY/NI=	Nextcloud Suspicious Login app	nextcloud32	
+community	nextcloud32-systemtags	32.0.15-r0	Q1/VHAlvKxqhlWVRly2iZ331b6ScM=	Nextcloud Collaborative tags app	nextcloud32	
+community	nextcloud32-text	32.0.15-r0	Q1QUjfMJmDHQmwPae8MYO+3HtXz20=	Nextcloud Text app	nextcloud32	
+community	nextcloud32-user_ldap	32.0.15-r0	Q1vSgqCosDf4NqsYii/Jx9SO8Ltu0=	Nextcloud LDAP user and group backend app	nextcloud32 php83-ldap	
+community	nextcloud32-user_status	32.0.15-r0	Q1nUCgJd+VckqvrKAi4ay5AljfzGQ=	Nextcloud User status app	nextcloud32	
+community	nextcloud32-weather_status	32.0.15-r0	Q1ibaUEGJxCgZtBwyB23BaO5cflUU=	Nextcloud Weather status app	nextcloud32	
+community	nextcloud32-webhook_listeners	32.0.15-r0	Q10NO2K2kwTHVlAq1zDC2fVVZYXE4=	Nextcloud Nextcloud webhook support app	nextcloud32	
+community	nextcloud33	33.0.9-r0	Q1i0eQWRVwWGppkDn+rjF/GSWf0gM=	A safe home for all your data	ca-certificates php85 php85-bcmath php85-ctype php85-curl php85-dom php85-gd php85-fileinfo php85-gmp php85-iconv php85-intl php85-mbstring php85-openssl php85-pcntl php85-posix php85-session php85-simplexml php85-xml php85-xmlreader php85-xmlwriter php85-zip /bin/sh	nextcloud=33.0.9-r0 nextcloud-accessibility=33.0.9-r0 nextcloud33-accessibility=33.0.9-r0 nextcloud-bruteforcesettings=33.0.9-r0 nextcloud33-bruteforcesettings=33.0.9-r0 nextcloud-contactsinteraction=33.0.9-r0 nextcloud33-contactsinteraction=33.0.9-r0 nextcloud-cloud_federation_api=33.0.9-r0 nextcloud33-cloud_federation_api=33.0.9-r0 nextcloud-dav=33.0.9-r0 nextcloud33-dav=33.0.9-r0 nextcloud-files=33.0.9-r0 nextcloud33-files=33.0.9-r0 nextcloud-files_videoplayer=33.0.9-r0 nextcloud33-files_videoplayer=33.0.9-r0 nextcloud-federatedfilesharing=33.0.9-r0 nextcloud33-federatedfilesharing=33.0.9-r0 nextcloud-lookup_server_connector=33.0.9-r0 nextcloud33-lookup_server_connector=33.0.9-r0 nextcloud-oauth2=33.0.9-r0 nextcloud33-oauth2=33.0.9-r0 nextcloud-profile=33.0.9-r0 nextcloud33-profile=33.0.9-r0 nextcloud-provisioning_api=33.0.9-r0 nextcloud33-provisioning_api=33.0.9-r0 nextcloud-related_resources=33.0.9-r0 nextcloud33-related_resources=33.0.9-r0 nextcloud-settings=33.0.9-r0 nextcloud33-settings=33.0.9-r0 nextcloud-theming=33.0.9-r0 nextcloud33-theming=33.0.9-r0 nextcloud-twofactor_backupcodes=33.0.9-r0 nextcloud33-twofactor_backupcodes=33.0.9-r0 nextcloud-twofactor_nextcloud_notification=33.0.9-r0 nextcloud33-twofactor_nextcloud_notification=33.0.9-r0 nextcloud-twofactor_totp=33.0.9-r0 nextcloud33-twofactor_totp=33.0.9-r0 nextcloud-viewer=33.0.9-r0 nextcloud33-viewer=33.0.9-r0 nextcloud-workflowengine=33.0.9-r0 nextcloud33-workflowengine=33.0.9-r0
+community	nextcloud33-activity	33.0.9-r0	Q1GXDVxHs3oftWp+5BgelU76hsVoA=	Nextcloud Activity app	nextcloud33	nextcloud-activity=33.0.9-r0
+community	nextcloud33-admin_audit	33.0.9-r0	Q1afvqUdJf1OMPxhm9zPRhLPqxC2s=	Nextcloud Auditing / Logging app	nextcloud33	nextcloud-admin_audit=33.0.9-r0
+community	nextcloud33-app_api	33.0.9-r0	Q1frQaXsUcIS4vP74sQZ399TLRcOw=	Nextcloud AppAPI app	nextcloud33	nextcloud-app_api=33.0.9-r0
+community	nextcloud33-circles	33.0.9-r0	Q1V9tNysmhBAhU4GcWP30101Vb0pM=	Nextcloud Teams app	nextcloud33	nextcloud-circles=33.0.9-r0
+community	nextcloud33-comments	33.0.9-r0	Q1gzjWgL9sknmM0IG9keGbyFDvwuw=	Nextcloud Comments app	nextcloud33	nextcloud-comments=33.0.9-r0
+community	nextcloud33-dashboard	33.0.9-r0	Q1NmR5RWLSmN4hZz1v6/hz5nSEG9M=	Nextcloud Dashboard app	nextcloud33	nextcloud-dashboard=33.0.9-r0
+community	nextcloud33-default-apps	33.0.9-r0	Q1hyZxUqyP0Iz/QU+HbW2YX80fyGo=	Nextcloud default apps	nextcloud33 nextcloud33-circles nextcloud33-files_pdfviewer nextcloud33-logreader nextcloud33-password_policy nextcloud33-privacy nextcloud33-recommendations nextcloud33-serverinfo nextcloud33-text nextcloud33-viewer	nextcloud-default-apps=33.0.9-r0
+community	nextcloud33-doc	33.0.9-r0	Q1Ed/NacbHkm7Kzmgs3I+Eymx9Ipg=	A safe home for all your data (documentation)		nextcloud-doc=33.0.9-r0
+community	nextcloud33-encryption	33.0.9-r0	Q1gFoEz84rosTnLt2e/UGkRtL6/CE=	Nextcloud Default Encryption Module app	nextcloud33 php85-openssl	nextcloud-encryption=33.0.9-r0
+community	nextcloud33-federation	33.0.9-r0	Q1GNJBO03sD9vhLLVZiDERWsjYcP0=	Nextcloud Federation app	nextcloud33	nextcloud-federation=33.0.9-r0
+community	nextcloud33-files_downloadlimit	33.0.9-r0	Q13TgaBRqJ9Z4Fbgmt0V9aN8Ovlyg=	Nextcloud Files download limit app	nextcloud33	nextcloud-files_downloadlimit=33.0.9-r0
+community	nextcloud33-files_external	33.0.9-r0	Q1Qz9/kSrn1JoLZ/2ekufHzc2UaSY=	Nextcloud External storage support app	nextcloud33	nextcloud-files_external=33.0.9-r0
+community	nextcloud33-files_pdfviewer	33.0.9-r0	Q16NAa1UY/9Yt4RCvKpwzaoAX3/XM=	Nextcloud PDF viewer app	nextcloud33	nextcloud-files_pdfviewer=33.0.9-r0
+community	nextcloud33-files_reminders	33.0.9-r0	Q1iq9RUNjk0TOvARPLr3R6bBlAwiE=	Nextcloud File reminders app	nextcloud33	nextcloud-files_reminders=33.0.9-r0
+community	nextcloud33-files_sharing	33.0.9-r0	Q1wY97+iIzoj3n0s7O8D+nc5BuzoY=	Nextcloud File sharing app	nextcloud33 nextcloud33-federatedfilesharing	nextcloud-files_sharing=33.0.9-r0
+community	nextcloud33-files_trashbin	33.0.9-r0	Q1cAqa4NnPKLt50Z5rqgNCSWzPkqU=	Nextcloud Deleted files app	nextcloud33	nextcloud-files_trashbin=33.0.9-r0
+community	nextcloud33-files_versions	33.0.9-r0	Q1bfddje2BiZnxzbHSqRyJEubUaNI=	Nextcloud Versions app	nextcloud33	nextcloud-files_versions=33.0.9-r0
+community	nextcloud33-firstrunwizard	33.0.9-r0	Q1H63VSpT+Y5vdp7Rz1kUFkJNBZR0=	Nextcloud First run wizard app	nextcloud33	nextcloud-firstrunwizard=33.0.9-r0
+community	nextcloud33-initscript	33.0.9-r0	Q1gxkteFnSOkWGryOTvTZhV7p1EJs=	Init script that runs Nextcloud with php-fpm	nextcloud33 php85-fpm /bin/sh	nextcloud-initscript=33.0.9-r0
+community	nextcloud33-logreader	33.0.9-r0	Q1VAVsJVDJAkfGf0kIkMYdRogW4pA=	Nextcloud Log Reader app	nextcloud33	nextcloud-logreader=33.0.9-r0
+community	nextcloud33-mysql	33.0.9-r0	Q1+XRnMWD2vpJz4RFFQrG4jw77xVQ=	Nextcloud MySQL support	nextcloud33 php85-pdo_mysql	nextcloud-mysql=33.0.9-r0
+community	nextcloud33-nextcloud_announcements	33.0.9-r0	Q11BzhnMjIFPkwTpmfx9vxLA9Yun8=	Nextcloud Nextcloud announcements app	nextcloud33	nextcloud-nextcloud_announcements=33.0.9-r0
+community	nextcloud33-notifications	33.0.9-r0	Q1rGwtr40hOSSztqPpBvJ/MvFJOSI=	Nextcloud Notifications app	nextcloud33	nextcloud-notifications=33.0.9-r0
+community	nextcloud33-occ	33.0.9-r0	Q1jR6Gv4oymaI9mKLYf70O8euUioQ=	Nextcloud OCC cmd	ca-certificates php85 php85-bcmath php85-ctype php85-curl php85-dom php85-gd php85-fileinfo php85-gmp php85-iconv php85-intl php85-mbstring php85-openssl php85-pcntl php85-posix php85-session php85-simplexml php85-xml php85-xmlreader php85-xmlwriter php85-zip	nextcloud-occ=33.0.9-r0 cmd:occ=33.0.9-r0
+community	nextcloud33-password_policy	33.0.9-r0	Q1XxnmrmHAF7uQoH9n2iR+P2G/ojI=	Nextcloud Password policy app	nextcloud33	nextcloud-password_policy=33.0.9-r0
+community	nextcloud33-pgsql	33.0.9-r0	Q1UYx6xNIjZzQPGsL9FFdaEHqgT/U=	Nextcloud PostgreSQL support	nextcloud33 php85-pgsql php85-pdo_pgsql	nextcloud-pgsql=33.0.9-r0
+community	nextcloud33-photos	33.0.9-r0	Q1tN7HnO2H+GIRTzNWZv4cDInmM+w=	Nextcloud Photos app	nextcloud33	nextcloud-photos=33.0.9-r0
+community	nextcloud33-privacy	33.0.9-r0	Q1/X2/SEXlywlhdcdPeNiof5s7CBU=	Nextcloud Privacy app	nextcloud33	nextcloud-privacy=33.0.9-r0
+community	nextcloud33-recommendations	33.0.9-r0	Q1ixw1UQMpcdo6mxukTKVSzRS3W2E=	Nextcloud Recommendations app	nextcloud33	nextcloud-recommendations=33.0.9-r0
+community	nextcloud33-serverinfo	33.0.9-r0	Q1++j1bfWtWeEZPJICen65PbEmloQ=	Nextcloud Monitoring app	nextcloud33 nextcloud33-files_sharing	nextcloud-serverinfo=33.0.9-r0
+community	nextcloud33-sharebymail	33.0.9-r0	Q1ut2BDURHt4RmhHP5BwzUH5Y91LQ=	Nextcloud Share by mail app	nextcloud33	nextcloud-sharebymail=33.0.9-r0
+community	nextcloud33-sqlite	33.0.9-r0	Q1vDq4uiLSLwFqXZEY+nlgbev3ug0=	Nextcloud SQLite support	nextcloud33 php85-sqlite3 php85-pdo_sqlite	nextcloud-sqlite=33.0.9-r0
+community	nextcloud33-support	33.0.9-r0	Q11ikRcuQi2e9QcBLzm4mnBIZ1HGI=	Nextcloud Support app	nextcloud33	nextcloud-support=33.0.9-r0
+community	nextcloud33-survey_client	33.0.9-r0	Q15I4PWqqxaqQC5c7a0zU3/b9LrgQ=	Nextcloud Usage survey app	nextcloud33	nextcloud-survey_client=33.0.9-r0
+community	nextcloud33-suspicious_login	33.0.9-r0	Q1NpIz0gWPL+WIySnHXmlxzND3tD4=	Nextcloud Suspicious Login app	nextcloud33	nextcloud-suspicious_login=33.0.9-r0
+community	nextcloud33-systemtags	33.0.9-r0	Q1j47OLgiYa4v36UE3oIftO/tkApg=	Nextcloud Collaborative tags app	nextcloud33	nextcloud-systemtags=33.0.9-r0
+community	nextcloud33-text	33.0.9-r0	Q15i/fQaDQyJ4eDVfx5BFhKwR7KvY=	Nextcloud Text app	nextcloud33	nextcloud-text=33.0.9-r0
+community	nextcloud33-user_ldap	33.0.9-r0	Q1UAt3rAKO2Ek9N6vJpRIrfDXVDY8=	Nextcloud LDAP user and group backend app	nextcloud33 php85-ldap	nextcloud-user_ldap=33.0.9-r0
+community	nextcloud33-user_status	33.0.9-r0	Q1fK6ECO/IE6WkmkwsKbnL8BZPz5g=	Nextcloud User status app	nextcloud33	nextcloud-user_status=33.0.9-r0
+community	nextcloud33-weather_status	33.0.9-r0	Q1sNGrvTAOvWkiPDXHEKx21oR6PO4=	Nextcloud Weather status app	nextcloud33	nextcloud-weather_status=33.0.9-r0
+community	nextcloud33-webhook_listeners	33.0.9-r0	Q1qhhYKjQRDxYh1EeldJLYmpRryDY=	Nextcloud Nextcloud Webhook Support app	nextcloud33	nextcloud-webhook_listeners=33.0.9-r0
 community	nextvi	5.3-r0	Q1IJmv/4UDE6tzlsEDvgX5Dks2qn8=	A small vi/ex terminal text editor (neatvi rewrite)	so:libc.musl-x86_64.so.1	cmd:nextvi=5.3-r0
 community	nextvi-doc	5.3-r0	Q17zyDPPjABcXq7APAuuFKQ29RMHI=	A small vi/ex terminal text editor (neatvi rewrite) (documentation)		
 community	nextvi-vi	5.3-r0	Q1RHzII70BTI/2y9yRhvcexQBbtFE=	nextvi vi provider	nextvi=5.3-r0 nextvi=5.3-r0	cmd:vi=5.3-r0
@@ -14593,22 +14593,22 @@ community	pnpm-zsh-completion	11.20.0-r0	Q1aM9z3qx86g3VmyEwA1k867sjXxE=	Zsh comp
 community	poco	1.15.1-r0	Q1C3WCZHvATJb1AEKCreVtjoTh0Qg=	C++ class libraries for building network- and internet-based applications	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libexpat.so.1 so:libgcc_s.so.1 so:libmariadb.so.3 so:libodbc.so.2 so:libpcre2-8.so.0 so:libpq.so.5 so:libsqlite3.so.0 so:libssl.so.3 so:libstdc++.so.6 so:libutf8proc.so.3 so:libz.so.1	so:libPocoActiveRecord.so.121=121 so:libPocoCrypto.so.121=121 so:libPocoData.so.121=121 so:libPocoDataMySQL.so.121=121 so:libPocoDataODBC.so.121=121 so:libPocoDataPostgreSQL.so.121=121 so:libPocoDataSQLite.so.121=121 so:libPocoEncodings.so.121=121 so:libPocoFoundation.so.121=121 so:libPocoJSON.so.121=121 so:libPocoJWT.so.121=121 so:libPocoMongoDB.so.121=121 so:libPocoNet.so.121=121 so:libPocoNetSSL.so.121=121 so:libPocoPrometheus.so.121=121 so:libPocoRedis.so.121=121 so:libPocoUtil.so.121=121 so:libPocoXML.so.121=121 so:libPocoZip.so.121=121
 community	poco-bin	1.15.1-r0	Q1dKwNfdL2qI8P99eIDVfrGRpm8Ko=	C++ class libraries for building network- and internet-based applications	so:libPocoFoundation.so.121 so:libPocoNet.so.121 so:libPocoUtil.so.121 so:libPocoXML.so.121 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:cpspc=1.15.1-r0 cmd:f2cpsp=1.15.1-r0 cmd:poco-arc=1.15.1-r0
 community	poco-dev	1.15.1-r0	Q1q35synmOlPI2RF0Vi6hvVkWxdYg=	C++ class libraries for building network- and internet-based applications (development files)	expat-dev libpng-dev libpq-dev mariadb-connector-c-dev openssl-dev pcre2-dev sqlite-dev unixodbc-dev zlib-dev poco=1.15.1-r0	
-community	podman	5.8.6-r1	Q1pWAzg2tccWWRavI5H6eCe+F1M3c=	Simple management tool for pods, containers and images	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit /bin/sh so:libc.musl-x86_64.so.1 so:libgpgme.so.45 so:libseccomp.so.2 so:libsqlite3.so.0	cmd:podman=5.8.6-r1 cmd:podmansh=5.8.6-r1
-community	podman-bash-completion	5.8.6-r1	Q1BXZ2fvvCkshfAhztbUFKtlN4TKo=	Bash completions for podman		
+community	podman	5.8.8-r0	Q1VApdHGDfIzjwpUBMxml+ZMYNajE=	Simple management tool for pods, containers and images	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit /bin/sh so:libc.musl-x86_64.so.1 so:libgpgme.so.45 so:libseccomp.so.2 so:libsqlite3.so.0	cmd:podman=5.8.8-r0 cmd:podmansh=5.8.8-r0
+community	podman-bash-completion	5.8.8-r0	Q1q7DQV8OdIh8NAkrQKSnDwoLQTB0=	Bash completions for podman		
 community	podman-compose	1.6.0-r0	Q1o+U4O+JXaZrMkWkSTJowpXE9ZuA=	Script to run docker-compose.yml using podman	podman py3-dotenv py3-yaml python3~3.14	cmd:podman-compose=1.6.0-r0 py3.14:podman_compose=1.6.0-r0
 community	podman-compose-bash-completion	1.6.0-r0	Q1s1bi2BtfBEFYqRcXJkOWvMoy5Sw=	Bash completions for podman-compose		
 community	podman-compose-doc	1.6.0-r0	Q1W9SIJJp4LEK2qBU6OdfOqTbzPdQ=	Script to run docker-compose.yml using podman (documentation)		
 community	podman-compose-pyc	1.6.0-r0	Q1SE9ph3vQ6lFkvSk8e8eQ3yzrhhs=	Precompiled Python bytecode for podman-compose	python3~3.14	
-community	podman-doc	5.8.6-r1	Q1TC7y5gJEUaHU5OgbgPpGkG7lNZQ=	Simple management tool for pods, containers and images (documentation)		
-community	podman-docker	5.8.6-r1	Q1TFv6q+yF2FWq1hURtJk/PaVEW5I=	Emulate Docker CLI using Podman	podman	docker docker-cli cmd:docker=5.8.6-r1
-community	podman-docker-doc	5.8.6-r1	Q1YMEIo93kA7Nx5c4XWWRZxghg9rU=	Emulate Docker CLI using Podman (documentation)	podman-doc podman-doc=5.8.6-r1	
-community	podman-docker-systemd	5.8.6-r1	Q17xV0x+vqYqgE/Lo7wkLXQOIaD2o=	Emulate Docker CLI using Podman (systemd files)	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit	
-community	podman-fish-completion	5.8.6-r1	Q1TfCV9bJuRdvmNXPZoQLZD7sWNnE=	Fish completions for podman		
-community	podman-openrc	5.8.6-r1	Q13l7ZIo2qL5vrbOW1ty4uB3KsSlw=	Simple management tool for pods, containers and images (OpenRC init scripts)		
-community	podman-remote	5.8.6-r1	Q12+KTpoVuWg/5XC9h0nnFB8CGJvo=	Remote CLI for Podman	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit so:libc.musl-x86_64.so.1	cmd:podman-remote=5.8.6-r1
-community	podman-systemd	5.8.6-r1	Q1BODJNb4c/JV3AHDxTEjM6jKM3z0=	Simple management tool for pods, containers and images (systemd files)	so:libc.musl-x86_64.so.1	
+community	podman-doc	5.8.8-r0	Q19GdFSdno4Uca6IhaiTVbVTUSiUM=	Simple management tool for pods, containers and images (documentation)		
+community	podman-docker	5.8.8-r0	Q1yUo1wK1K7ztOI2+aKNZPrm1+pB8=	Emulate Docker CLI using Podman	podman	docker docker-cli cmd:docker=5.8.8-r0
+community	podman-docker-doc	5.8.8-r0	Q1nOkK9TeEbBLnXVt83xcA4qjPTPw=	Emulate Docker CLI using Podman (documentation)	podman-doc podman-doc=5.8.8-r0	
+community	podman-docker-systemd	5.8.8-r0	Q1AI5GIieEre5Op8/uf4V0NeHOr6g=	Emulate Docker CLI using Podman (systemd files)	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit	
+community	podman-fish-completion	5.8.8-r0	Q12npUiOt3WF4CZMsvaWtp/p9IQx0=	Fish completions for podman		
+community	podman-openrc	5.8.8-r0	Q1NNwxLDs8imL6eHxJQ8utyQ/V1vU=	Simple management tool for pods, containers and images (OpenRC init scripts)		
+community	podman-remote	5.8.8-r0	Q1cs0Z5dnQU/56IE5bh+KHG1GLzCs=	Remote CLI for Podman	conmon oci-runtime passt cmd:newgidmap cmd:newuidmap containers-common netavark aardvark-dns catatonit so:libc.musl-x86_64.so.1	cmd:podman-remote=5.8.8-r0
+community	podman-systemd	5.8.8-r0	Q1MHrCaI5/JkScmEAMAgMUe/nEwNw=	Simple management tool for pods, containers and images (systemd files)	so:libc.musl-x86_64.so.1	
 community	podman-tui	1.9.0-r10	Q1Jm2scyiimSj5mn2zz56LpudRSfQ=	Terminal user interface for Podman v4 & v5	podman so:libc.musl-x86_64.so.1 so:libgpgme.so.45	cmd:podman-tui=1.9.0-r10
-community	podman-zsh-completion	5.8.6-r1	Q1MbDEybxQdeLykQ94L/9XfDra3WI=	Zsh completions for podman		
+community	podman-zsh-completion	5.8.8-r0	Q15bRk9XEIMYbp3TAn6xnAopikSB0=	Zsh completions for podman		
 community	podofo	1.1.0-r0	Q1JIws+44SigsG5v3F6HbkVOgFp3M=	C++ library to work with the PDF file format	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libfontconfig.so.1 so:libfreetype.so.6 so:libgcc_s.so.1 so:libjpeg.so.8 so:libpng16.so.16 so:libstdc++.so.6 so:libtiff.so.6 so:libxml2.so.2 so:libz.so.1	so:libpodofo.so.4=1.1.0
 community	podofo-dev	1.1.0-r0	Q1gZPGU13m5tKdhi2MYLbwe6NA3eA=	C++ library to work with the PDF file format (development files)	podofo=1.1.0-r0 pc:fontconfig pc:freetype2 pc:libjpeg pc:libpng pc:libssl pc:libtiff-4 pc:libxml-2.0 pc:zlib pkgconfig	pc:libpodofo=1.1.0
 community	poedit	3.9-r0	Q1vGwHef0HDa6eY2QlrQP4e5hwxF0=	cross-platform translations editor	gettext so:libboost_iostreams.so.1.84.0 so:libboost_thread.so.1.84.0 so:libc.musl-x86_64.so.1 so:libcpprest.so.2.10 so:libcrypto.so.3 so:libgcc_s.so.1 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgtk-3.so.0 so:libgtkspell3-3.so.0 so:libicui18n.so.78 so:libicuuc.so.78 so:liblucene++.so.0 so:libpugixml.so.1 so:libsecret-1.so.0 so:libstdc++.so.6 so:libwx_baseu-3.2.so.0 so:libwx_baseu_net-3.2.so.0 so:libwx_gtk3u_core-3.2.so.0 so:libwx_gtk3u_webview-3.2.so.0 so:libwx_gtk3u_xrc-3.2.so.0	cmd:poedit=3.9-r0
@@ -15925,8 +15925,8 @@ community	py3-gitdb2-pyc	4.0.12-r1	Q1VzAq4T4Gcda0y4XNQk5PeQBr7LI=	Precompiled Py
 community	py3-gitlab	8.0.0-r1	Q1Kt3PIx7cq3hQ5gEnHXjKUeFhoiE=	Python wrapper for Gitlab's API	python3 py3-gql py3-httpx py3-requests py3-requests-toolbelt python3~3.14	cmd:gitlab=8.0.0-r1 py3.14:gitlab=8.0.0-r1
 community	py3-gitlab-doc	8.0.0-r1	Q1vnI6AFspgm4QcXWmpr/tqjwKp10=	Python wrapper for Gitlab's API (documentation)		
 community	py3-gitlab-pyc	8.0.0-r1	Q1MJhDv25ULxTHoLnous4at6lFx5w=	Precompiled Python bytecode for py3-gitlab	python3~3.14	
-community	py3-gitpython	3.1.49-r0	Q1Ek3u25Kc2AVEQoGP4d0x8mNlGMM=	Python3 Git Library	git py3-gitdb2 py3-typing-extensions python3~3.14	py3.14:git=3.1.49-r0
-community	py3-gitpython-pyc	3.1.49-r0	Q1Xjx1TOzQC51HO1ptM0Plq1w4BaI=	Precompiled Python bytecode for py3-gitpython	python3~3.14	
+community	py3-gitpython	3.1.61-r0	Q1KYjfHoqCvqk1KHX3nFy//uA9H8Q=	Python3 Git Library	git py3-gitdb2 py3-typing-extensions python3~3.14	py3.14:git=3.1.61-r0
+community	py3-gitpython-pyc	3.1.61-r0	Q15k+YBVkMtMn3ifZztSuzQJPUNDc=	Precompiled Python bytecode for py3-gitpython	python3~3.14	
 community	py3-glad	2.0.8-r1	Q153tavgPGB6x6Z500T4bybepJPzs=	Multi-Language Vulkan/GL/GLES/EGL/GLX/WGL Loader-Generator based on the official specs	py3-jinja2 python3 python3~3.14	cmd:glad=2.0.8-r1 py3.14:glad=2.0.8-r1
 community	py3-glad-pyc	2.0.8-r1	Q1xgJUPXhma81fTajPZ8TUZ+N+6tA=	Precompiled Python bytecode for py3-glad	python3~3.14	
 community	py3-gnucash	5.14-r1	Q1WaaOjJJFfeBNxyKbkdu9q4jjB8s=	GnuCash Double-Entry Accounting Program (python bindings)	dconf guile python3~3.14 so:libc.musl-x86_64.so.1 so:libglib-2.0.so.0 so:libgnc-app-utils.so so:libgnc-core-utils.so so:libgnc-engine.so so:libgobject-2.0.so.0 so:libpython3.14.so.1.0	py3.14:gnucash=5.14-r1
@@ -17718,8 +17718,8 @@ community	py3-txacme	0.9.3-r9	Q1rlaUwbHYuNO53P3TzVup29KPS2w=	ACME protocol imple
 community	py3-txacme-pyc	0.9.3-r9	Q1H5AVr0ox2AXXRX4fEy0n+bgUQYw=	Precompiled Python bytecode for py3-txacme	python3~3.14	
 community	py3-txaio	23.1.1-r3	Q1Iu3LDDR6OLBgMbrCKvPyUG9RyPo=	Compatibility API between asyncio/Twisted/Trollius	python3 python3~3.14	py3.14:txaio=23.1.1-r3
 community	py3-txaio-pyc	23.1.1-r3	Q17rBchSm5uOYRKTVIODt+OPtrrfA=	Precompiled Python bytecode for py3-txaio	python3~3.14	
-community	py3-txredisapi	1.4.10-r2	Q1G5jwItiJ+rqNsTtcCqOAUT3zyf0=	non-blocking redis client for python twisted	python3 py3-twisted python3~3.14	py3.14:txredisapi=1.4.10-r2
-community	py3-txredisapi-pyc	1.4.10-r2	Q1DcruDaRv3ZW5Zan0r3vPL9LQGyI=	Precompiled Python bytecode for py3-txredisapi	python3~3.14	
+community	py3-txredisapi	1.5.0-r0	Q1fKFg9ErE8tmsFWv9Pn05Lbi5LAQ=	non-blocking redis client for python twisted	python3 py3-twisted python3~3.14	py3.14:txredisapi=1.5.0-r0
+community	py3-txredisapi-pyc	1.5.0-r0	Q1uZsHpdn+Iq+1WVTUgb0p9FaprhA=	Precompiled Python bytecode for py3-txredisapi	python3~3.14	
 community	py3-txsni	0.2.0-r7	Q1M8/ZwFE9ZUCfUtvE5HTYuSyNiis=	Simple support for running a TLS server with Twisted	python3 py3-openssl py3-twisted python3~3.14	py3.14:txsni=0.2.0-r7
 community	py3-txsni-pyc	0.2.0-r7	Q1v6Vxm7VW093YB8M1DCMbX5w8opY=	Precompiled Python bytecode for py3-txsni	python3~3.14	
 community	py3-typeguard	4.5.2-r0	Q1GcLZBCZ93iXanUboYVrpIYPloHE=	run-time type checker for Python	py3-bracex py3-typing-extensions python3~3.14	py3.14:typeguard=4.5.2-r0
@@ -20215,9 +20215,9 @@ community	sympow	2.023.7-r3	Q1G9HTCazVAqF53D7AGytgw/8WorI=	Compute special value
 community	sympow-doc	2.023.7-r3	Q18JMmj8iMdYt1e6ZBmywGKKQ6SU0=	Compute special values of symmetric power elliptic curve L-functions (documentation)		
 community	synadm	0.49.2-r1	Q1yYU8Pgadr8N+MWgQCQS9MeTrwws=	Command line admin tool for Synapse	py3-tabulate py3-click py3-requests py3-yaml py3-click-option-group py3-dnspython python3~3.14	cmd:synadm=0.49.2-r1 py3.14:synadm=0.49.2-r1
 community	synadm-pyc	0.49.2-r1	Q1HvNY6vezANs+2ywfMcGKd3e6GyU=	Precompiled Python bytecode for synadm	python3~3.14	
-community	synapse	1.161.0-r0	Q1rlQoFX03cBKfRgnEQ7RpyuDn4f8=	Matrix reference homeserver	python3 py3-asn1 py3-asn1-modules py3-attrs py3-authlib py3-bcrypt py3-bleach py3-canonicaljson py3-daemonize py3-eliot py3-icu py3-idna py3-ijson py3-immutabledict py3-jinja2 py3-jsonschema py3-jwt py3-lxml py3-matrix-common py3-maturin py3-msgpack py3-netaddr py3-openssl py3-phonenumbers py3-pillow py3-prometheus-client py3-psycopg2 py3-pydantic py3-pymacaroons py3-pynacl py3-python-multipart py3-saml2 py3-service_identity py3-setuptools py3-setuptools-rust py3-signedjson py3-sortedcontainers py3-treq py3-twisted py3-txredisapi py3-typing-extensions py3-yaml /bin/sh python3~3.14 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	cmd:export_signing_key=1.161.0-r0 cmd:generate_config=1.161.0-r0 cmd:generate_log_config=1.161.0-r0 cmd:generate_signing_key=1.161.0-r0 cmd:hash_password=1.161.0-r0 cmd:register_new_matrix_user=1.161.0-r0 cmd:synapse_homeserver=1.161.0-r0 cmd:synapse_port_db=1.161.0-r0 cmd:synapse_review_recent_signups=1.161.0-r0 cmd:synapse_worker=1.161.0-r0 cmd:synctl=1.161.0-r0 cmd:update_synapse_database=1.161.0-r0 py3.14:synapse=1.161.0-r0
-community	synapse-openrc	1.161.0-r0	Q18+Q17D8SCmNex0nzTzITQrxWNrM=	Matrix reference homeserver (OpenRC init scripts)		
-community	synapse-pyc	1.161.0-r0	Q1PDGT2LOU7GKJNyE5Lw0GNX3JqIM=	Precompiled Python bytecode for synapse	python3~3.14	
+community	synapse	1.162.0-r0	Q1QvAt04j0YyJQDOB+gNXKeMQBbiY=	Matrix reference homeserver	python3 py3-asn1 py3-asn1-modules py3-attrs py3-authlib py3-bcrypt py3-bleach py3-canonicaljson py3-daemonize py3-eliot py3-icu py3-idna py3-ijson py3-immutabledict py3-jinja2 py3-jsonschema py3-jwt py3-lxml py3-matrix-common py3-maturin py3-msgpack py3-netaddr py3-openssl py3-phonenumbers py3-pillow py3-prometheus-client py3-psycopg2 py3-pydantic py3-pymacaroons py3-pynacl py3-python-multipart py3-saml2 py3-service_identity py3-setuptools py3-setuptools-rust py3-signedjson py3-sortedcontainers py3-treq py3-twisted py3-txredisapi py3-typing-extensions py3-yaml /bin/sh python3~3.14 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	cmd:export_signing_key=1.162.0-r0 cmd:generate_config=1.162.0-r0 cmd:generate_log_config=1.162.0-r0 cmd:generate_signing_key=1.162.0-r0 cmd:hash_password=1.162.0-r0 cmd:register_new_matrix_user=1.162.0-r0 cmd:synapse_homeserver=1.162.0-r0 cmd:synapse_port_db=1.162.0-r0 cmd:synapse_review_recent_signups=1.162.0-r0 cmd:synapse_worker=1.162.0-r0 cmd:synctl=1.162.0-r0 cmd:update_synapse_database=1.162.0-r0 py3.14:synapse=1.162.0-r0
+community	synapse-openrc	1.162.0-r0	Q1vNv4zdnQyxrnazQ/Ga1wRGRX5pY=	Matrix reference homeserver (OpenRC init scripts)		
+community	synapse-pyc	1.162.0-r0	Q1gTbiOWvYk8Y8/+Vp3M48j13nFfA=	Precompiled Python bytecode for synapse	python3~3.14	
 community	syncoid	2.3.0-r0	Q1n9xF/hcdGTXnJFy405K/9Ydc0hg=	Policy-driven snapshot management and replication tools	procps perl-capture-tiny pv gzip lzop mbuffer	cmd:syncoid=2.3.0-r0
 community	syncplay	1.7.5-r0	Q1AALMhmZ1SUCZzmbNjX5piApPpR4=	Synchronize watching movies on mplayer2, vlc, mpv, and mpc-hc across many computers	syncplay-client syncplay-server	
 community	syncplay-client	1.7.5-r0	Q1mYm8I/qoOcxq5sZrgC7UMh9t7W4=	Synchronize watching movies on mplayer2, vlc, mpv, and mpc-hc across many computers	syncplay-common=1.7.5-r0 python3	cmd:syncplay=1.7.5-r0
@@ -20778,8 +20778,8 @@ community	tmatrix	1.4-r2	Q17MbpmW1XZogcmB1QKdM7chYTd/k=	Terminal based replica o
 community	tmatrix-bash-completion	1.4-r2	Q1Y6+vFJbwaPNsRJbXHeM2pKc0B5w=	Bash completions for tmatrix		
 community	tmatrix-doc	1.4-r2	Q1MkGfz9aDeeZTyohE3dYJ2KuXWWs=	Terminal based replica of the digital rain from The Matrix (documentation)		
 community	tmatrix-zsh-completion	1.4-r2	Q1DeJI8IdQUcn3WeTI8Xti4ZZ4a+o=	Zsh completions for tmatrix		
-community	tmux-rime	0.0.5-r1	Q1YSXhRw17Kfu7E5qDoWZt1+2b5TU=	Use Rime input method with tmux	tmux so:libc.musl-x86_64.so.1 so:libglib-2.0.so.0 so:librime.so.1	cmd:tmux-rime=0.0.5-r1
-community	tmux-rime-dev	0.0.5-r1	Q1COPuISUE3Z/GzAxr8y+SRIx9EFU=	Use Rime input method with tmux (development files)		
+community	tmux-rime	0.0.6-r0	Q1Xw1REkhzmNqwBOdfdsAyeA+zCnc=	Use Rime input method with tmux	tmux so:libc.musl-x86_64.so.1 so:libglib-2.0.so.0 so:librime.so.1	cmd:tmux-rime=0.0.6-r0
+community	tmux-rime-dev	0.0.6-r0	Q1Gg9NEBUpUiWynqt070jlu8/9ppU=	Use Rime input method with tmux (development files)		
 community	tmuxinator	3.4.0-r0	Q1lZBGzFPMboilFUxTobno5Ph0OZA=	manage complex tmux sessions easily	tmux ruby ruby-erubi ruby-thor	cmd:tmuxinator=3.4.0-r0
 community	tmuxinator-bash-completion	3.4.0-r0	Q1AEgqJVu/Re7h5LPQyS+wXbGHpFE=	Bash completions for tmuxinator		
 community	tmuxinator-fish-completion	3.4.0-r0	Q15eeuc+5kz6xoOWWzdCALo5PnYsE=	Fish completions for tmuxinator		
@@ -22932,24 +22932,24 @@ main	apache-mod-auth-ntlm-winbind	0.1-r9	Q1zNG+D0YLTLJdmDzYMJBxFHURBzU=	Authenti
 main	apache-mod-auth-radius	1.6.0-r3	Q1Wm0IASl4/6pC7GFJj/eR7j75uJU=	Apache authentication module to become RADIUS client for AAA requests	apache2 so:libc.musl-x86_64.so.1	
 main	apache-mod-fcgid	2.3.9-r6	Q1Zhoyxw6lwfUJf4BlfIDz0B9H9x4=	FastCGI module for Apache 2.x	apache2 so:libc.musl-x86_64.so.1	
 main	apache-mod-fcgid-doc	2.3.9-r6	Q1Ed2V2hi2EuDUXfED4NF3CUeDHHM=	FastCGI module for Apache 2.x (documentation)		
-main	apache2	2.4.68-r0	Q1DR9xf1qUpeMEaVMiXbViXJDF4Sc=	A high performance Unix-based HTTP server	/bin/sh so:libapr-1.so.0 so:libaprutil-1.so.0 so:libc.musl-x86_64.so.1 so:libpcre2-8.so.0 so:libz.so.1	cmd:fcgistarter=2.4.68-r0 cmd:httpd=2.4.68-r0 cmd:suexec=2.4.68-r0
-main	apache2-brotli	2.4.68-r0	Q1AC6W2+qxE+3+1EM8ntcliUsJdx0=	Brotli content compression for the Apache HTTP Server	apache2 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1	
-main	apache2-ctl	2.4.68-r0	Q1cqcLUjsToYoPQFUuBA7G38RrAZQ=	Apache control script	lynx	cmd:apachectl=2.4.68-r0
-main	apache2-dev	2.4.68-r0	Q16vKchL0N9wRoMjwxpSxV9igT0cQ=	A high performance Unix-based HTTP server (development files)	perl apr-util-dev	cmd:apxs=2.4.68-r0
-main	apache2-doc	2.4.68-r0	Q1YsrOIVqyNEQIdJRBhuUUTSSqt4E=	A high performance Unix-based HTTP server (documentation)		
-main	apache2-error	2.4.68-r0	Q1Tlu2IZt0ZtM0yXp+zuUkk3vbTqc=	Apache Multi Language Custom Error Documents		
-main	apache2-http2	2.4.68-r0	Q1BjRQpSfZR1EZJhXyoIJbnUAvVKs=	HTTP/2 transport layer for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libnghttp2.so.14	
-main	apache2-icons	2.4.68-r0	Q19CNlDhqcchvJLHjVbEAN+Njjkmc=	Apache Public Domain Icons		
-main	apache2-ldap	2.4.68-r0	Q1u/7OyzCwIuYRlR6iZF67kF6nxWw=	LDAP authentication/authorization module for the Apache HTTP Server	apache2 apr-util-ldap so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	apache2-lua	2.4.68-r0	Q1z9p7Z0B0oGxLOLSesDp8kFupG34=	Lua support for the Apache HTTP server	apache2 so:libc.musl-x86_64.so.1 so:liblua.so.5	
+main	apache2	2.4.69-r0	Q1TiTIJM/VRF8va30SRGXwKZaX5wQ=	A high performance Unix-based HTTP server	/bin/sh so:libapr-1.so.0 so:libaprutil-1.so.0 so:libc.musl-x86_64.so.1 so:libpcre2-8.so.0 so:libz.so.1	cmd:fcgistarter=2.4.69-r0 cmd:httpd=2.4.69-r0 cmd:suexec=2.4.69-r0
+main	apache2-brotli	2.4.69-r0	Q1UktS1xgXx0jNP8OQp5Tqo58Fx9w=	Brotli content compression for the Apache HTTP Server	apache2 so:libbrotlienc.so.1 so:libc.musl-x86_64.so.1	
+main	apache2-ctl	2.4.69-r0	Q1wdU6J2tM8UFnJmv4xJROvf+w8Sw=	Apache control script	lynx	cmd:apachectl=2.4.69-r0
+main	apache2-dev	2.4.69-r0	Q1UO4xiVxtwIoauG/goSBNFTh6xnY=	A high performance Unix-based HTTP server (development files)	perl apr-util-dev	cmd:apxs=2.4.69-r0
+main	apache2-doc	2.4.69-r0	Q1Y7NFH0m4N9SvsxQ8YA2wKYjBAdQ=	A high performance Unix-based HTTP server (documentation)		
+main	apache2-error	2.4.69-r0	Q1lCgi2gbAFmk0OF+tR/iVCkgjnqA=	Apache Multi Language Custom Error Documents		
+main	apache2-http2	2.4.69-r0	Q1oo0iwsLhAC5IjUPEfrrXXaXP4M0=	HTTP/2 transport layer for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libnghttp2.so.14	
+main	apache2-icons	2.4.69-r0	Q1FQsoTwuXYyDy8GU2YCDoJCpj4qU=	Apache Public Domain Icons		
+main	apache2-ldap	2.4.69-r0	Q1uIJw613s+LezroLHQ/Vwqa9x548=	LDAP authentication/authorization module for the Apache HTTP Server	apache2 apr-util-ldap so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	apache2-lua	2.4.69-r0	Q1sJylafLHuDFqhFY+O6nnYJyRI0Y=	Lua support for the Apache HTTP server	apache2 so:libc.musl-x86_64.so.1 so:liblua.so.5	
 main	apache2-mod-wsgi	5.0.2-r1	Q1ZOQd2re5nylPyw4RKP/m+dKI3r8=	Python WSGI Module for Apache2	apache2 /bin/sh so:libc.musl-x86_64.so.1 so:libpython3.14.so.1.0	
 main	apache2-mod-wsgi-doc	5.0.2-r1	Q1zBorVLXrHsaZoxBVtK8YVPcVhGk=	Python WSGI Module for Apache2 (documentation)		
-main	apache2-openrc	2.4.68-r0	Q1QmFnut2BuSKNpRRt+TwiQAkfe30=	A high performance Unix-based HTTP server (OpenRC init scripts)		
-main	apache2-proxy	2.4.68-r0	Q10GhoWPIq+14gW2kBIAKorYcfYb0=	Proxy modules for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1	
-main	apache2-proxy-html	2.4.68-r0	Q1eiftRRFifZotmrXHYOicmAB/Ewc=	HTML and XML content filters for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1 so:libxml2.so.2	
-main	apache2-ssl	2.4.68-r0	Q1h5bvDq+ObQTwxVsql1gB8wh5yDo=	SSL/TLS module for the Apache HTTP Server	apache2 openssl>3 /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	
-main	apache2-utils	2.4.68-r0	Q1wHKvUAiU5usN20ufet1BvvxRbCY=	Apache utility programs for webservers	so:libapr-1.so.0 so:libaprutil-1.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	cmd:ab=2.4.68-r0 cmd:checkgid=2.4.68-r0 cmd:dbmmanage=2.4.68-r0 cmd:htcacheclean=2.4.68-r0 cmd:htdbm=2.4.68-r0 cmd:htdigest=2.4.68-r0 cmd:htpasswd=2.4.68-r0 cmd:httxt2dbm=2.4.68-r0 cmd:logresolve=2.4.68-r0 cmd:rotatelogs=2.4.68-r0
-main	apache2-webdav	2.4.68-r0	Q1+TFlgwIaUM1AiZyWKtJLccAp1YY=	WebDAV support for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1	
+main	apache2-openrc	2.4.69-r0	Q13BBz4cD/LGn6cNmP1gR38eKRGfs=	A high performance Unix-based HTTP server (OpenRC init scripts)		
+main	apache2-proxy	2.4.69-r0	Q1DWdr+kjDIqJ16oAZpBVC4q3oMpo=	Proxy modules for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1	
+main	apache2-proxy-html	2.4.69-r0	Q16UN0N2pEITX5cg7NSY2+F1a1PGA=	HTML and XML content filters for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1 so:libxml2.so.2	
+main	apache2-ssl	2.4.69-r0	Q1Q7rwLOq5dta3xh+yMaUaRbK0muE=	SSL/TLS module for the Apache HTTP Server	apache2 openssl>3 /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	
+main	apache2-utils	2.4.69-r0	Q1N1hT6Ol22c3ooC6fFBJSLQECmwk=	Apache utility programs for webservers	so:libapr-1.so.0 so:libaprutil-1.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	cmd:ab=2.4.69-r0 cmd:checkgid=2.4.69-r0 cmd:dbmmanage=2.4.69-r0 cmd:htcacheclean=2.4.69-r0 cmd:htdbm=2.4.69-r0 cmd:htdigest=2.4.69-r0 cmd:htpasswd=2.4.69-r0 cmd:httxt2dbm=2.4.69-r0 cmd:logresolve=2.4.69-r0 cmd:rotatelogs=2.4.69-r0
+main	apache2-webdav	2.4.69-r0	Q1g+brbJPQMdwtrj2Ha+L2iPRwsXk=	WebDAV support for the Apache HTTP Server	apache2 so:libc.musl-x86_64.so.1	
 main	apcupsd	3.14.14-r6	Q1QIV13BmxFpXHiPwq8lQQ+zfDzb4=	A Daemon to control APC UPSes	util-linux so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libusb-0.1.so.4	cmd:apcaccess=3.14.14-r6 cmd:apctest=3.14.14-r6 cmd:apcupsd=3.14.14-r6 cmd:smtp=3.14.14-r6
 main	apcupsd-doc	3.14.14-r6	Q1fcQGpfeyAYx4og5DQBxPyOlnJgg=	A Daemon to control APC UPSes (documentation)		
 main	apcupsd-openrc	3.14.14-r6	Q1HERLZ38GLsxhSA+qXs7CayrOQKU=	A Daemon to control APC UPSes (OpenRC init scripts)		
@@ -24088,8 +24088,8 @@ main	graphviz-graphs	12.2.1-r3	Q1KMkGg6GwgvLf57OxLETsbENaJZk=	Demo graphs for gr
 main	graphviz-libs	12.2.1-r3	Q1CZUSBhHsyNgq9dgKAVgWDd7N1f4=	Graph Visualization Tools (libraries)	so:libc.musl-x86_64.so.1 so:libexpat.so.1 so:libz.so.1	so:libcdt.so.5=5.0.0 so:libcgraph.so.6=6.0.0 so:libgvc.so.6=6.0.0 so:libgvpr.so.2=2.0.0 so:libpathplan.so.4=4.0.0 so:libxdot.so.4=4.0.0
 main	grep	3.12-r0	Q1BCg3Zo7G7UJo40dVonubIdHKeHk=	Searches input files for lines containing a match to a specified pattern	so:libc.musl-x86_64.so.1 so:libpcre2-8.so.0	cmd:egrep=3.12-r0 cmd:fgrep=3.12-r0 cmd:grep=3.12-r0
 main	grep-doc	3.12-r0	Q1ix6CMvXqXheuYlVSdPGHqtCx9Lo=	Searches input files for lines containing a match to a specified pattern (documentation)		
-main	groff	1.24.1-r0	Q1e1PJb/LVXmsBTpApjfph2tbDFaQ=	GNU troff text-formatting system	perl so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:addftinfo=1.24.1-r0 cmd:afmtodit=1.24.1-r0 cmd:chem=1.24.1-r0 cmd:eqn2graph=1.24.1-r0 cmd:eqn=1.24.1-r0 cmd:gdiffmk=1.24.1-r0 cmd:glilypond=1.24.1-r0 cmd:gperl=1.24.1-r0 cmd:gpinyin=1.24.1-r0 cmd:grap2graph=1.24.1-r0 cmd:grn=1.24.1-r0 cmd:grodvi=1.24.1-r0 cmd:groff=1.24.1-r0 cmd:grog=1.24.1-r0 cmd:grolbp=1.24.1-r0 cmd:grolj4=1.24.1-r0 cmd:gropdf=1.24.1-r0 cmd:grops=1.24.1-r0 cmd:grotty=1.24.1-r0 cmd:hpftodit=1.24.1-r0 cmd:indxbib=1.24.1-r0 cmd:lkbib=1.24.1-r0 cmd:lookbib=1.24.1-r0 cmd:mmroff=1.24.1-r0 cmd:neqn=1.24.1-r0 cmd:nroff=1.24.1-r0 cmd:pdfmom=1.24.1-r0 cmd:pfbtops=1.24.1-r0 cmd:pic2graph=1.24.1-r0 cmd:pic=1.24.1-r0 cmd:post-grohtml=1.24.1-r0 cmd:pre-grohtml=1.24.1-r0 cmd:preconv=1.24.1-r0 cmd:refer=1.24.1-r0 cmd:soelim=1.24.1-r0 cmd:tbl=1.24.1-r0 cmd:tfmtodit=1.24.1-r0 cmd:troff=1.24.1-r0
-main	groff-doc	1.24.1-r0	Q1hsXjNu0a39teq+Q/GE043e6hhs8=	GNU troff text-formatting system (documentation)		
+main	groff	1.24.2-r0	Q1fpSjgWNrX6M/iwAPyvlVAmZhF44=	GNU troff text-formatting system	perl so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:addftinfo=1.24.2-r0 cmd:afmtodit=1.24.2-r0 cmd:chem=1.24.2-r0 cmd:eqn2graph=1.24.2-r0 cmd:eqn=1.24.2-r0 cmd:gdiffmk=1.24.2-r0 cmd:glilypond=1.24.2-r0 cmd:gperl=1.24.2-r0 cmd:gpinyin=1.24.2-r0 cmd:grap2graph=1.24.2-r0 cmd:grn=1.24.2-r0 cmd:grodvi=1.24.2-r0 cmd:groff=1.24.2-r0 cmd:grog=1.24.2-r0 cmd:grolbp=1.24.2-r0 cmd:grolj4=1.24.2-r0 cmd:gropdf=1.24.2-r0 cmd:grops=1.24.2-r0 cmd:grotty=1.24.2-r0 cmd:hpftodit=1.24.2-r0 cmd:indxbib=1.24.2-r0 cmd:lkbib=1.24.2-r0 cmd:lookbib=1.24.2-r0 cmd:mmroff=1.24.2-r0 cmd:neqn=1.24.2-r0 cmd:nroff=1.24.2-r0 cmd:pdfmom=1.24.2-r0 cmd:pfbtops=1.24.2-r0 cmd:pic2graph=1.24.2-r0 cmd:pic=1.24.2-r0 cmd:post-grohtml=1.24.2-r0 cmd:pre-grohtml=1.24.2-r0 cmd:preconv=1.24.2-r0 cmd:refer=1.24.2-r0 cmd:soelim=1.24.2-r0 cmd:tbl=1.24.2-r0 cmd:tfmtodit=1.24.2-r0 cmd:troff=1.24.2-r0
+main	groff-doc	1.24.2-r0	Q1fB4beJb255f2wykh0UlUMtawJAM=	GNU troff text-formatting system (documentation)		
 main	gross	1.0.4-r1	Q1oQUsHFbCb7jrxSHjSQazEvJcOtg=	Greylisting of suspicious sources	/bin/sh so:libc.musl-x86_64.so.1 so:libcares.so.2	cmd:gclient=1.0.4-r1 cmd:grossd=1.0.4-r1 so:grosscheck.so=0
 main	gross-dev	1.0.4-r1	Q1uNODbWFGQPG48DR+F2LC7mRGfVk=	Greylisting of suspicious sources (development files)		
 main	gross-doc	1.0.4-r1	Q1jzeG23FoyYsDv/WLtxGs3ICMH7Y=	Greylisting of suspicious sources (documentation)		
@@ -24591,7 +24591,7 @@ main	libconfig++	1.8.2-r0	Q1OBtelTrWvjOYQJ20NmkHDHU95js=	C++ bindings for libcon
 main	libconfig-dev	1.8.2-r0	Q1AeEbUYGKM1R9b7jAYBkjq/8Vj70=	A simple library for manipulating structured configuration files (development files)	libconfig++=1.8.2-r0 libconfig=1.8.2-r0 pkgconfig	pc:libconfig++=1.8.2 pc:libconfig=1.8.2
 main	libconfig-doc	1.8.2-r0	Q1WTpBqW0fuJAtYhUTUt7QXxydwZE=	A simple library for manipulating structured configuration files (documentation)		
 main	libconfig-static	1.8.2-r0	Q1YUFQyXYXgAX0Q3EeejIZ5UtRwHw=	A simple library for manipulating structured configuration files (static libraries)		
-main	libcrypto3	3.5.8-r0	Q1GzufwME29JNpMryy7CFJnwrl39M=	Crypto library from openssl	so:libc.musl-x86_64.so.1	so:libcrypto.so.3=3
+main	libcrypto3	3.5.9-r0	Q1HA3ulzTPIvyXzdGBkTu9cQ5t+wg=	Crypto library from openssl	so:libc.musl-x86_64.so.1	so:libcrypto.so.3=3
 main	libcurl	8.22.0-r0	Q1eBYAa2ryJwq25+hfdK25TBa9xIs=	The multiprotocol file transfer library	ca-certificates-bundle so:libbrotlidec.so.1 so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libidn2.so.0 so:libnghttp2.so.14 so:libpsl.so.5 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	so:libcurl.so.4=4.8.0
 main	libdaemon	0.14-r6	Q1BQosWcQLLRHpocy4hHAbOgrTFrM=	A lightweight C library which eases the writing of UNIX daemons	so:libc.musl-x86_64.so.1	so:libdaemon.so.0=0.5.0
 main	libdaemon-dev	0.14-r6	Q1a/JdnjuNkPT3n6sYaQCXUXqEx+g=	A lightweight C library which eases the writing of UNIX daemons (development files)	libdaemon=0.14-r6 pkgconfig	pc:libdaemon=0.14
@@ -24725,7 +24725,7 @@ main	libksba	1.7.0-r0	Q1e0RBgneLyny55OHW0Ufx66T/y3o=	Libksba is a CMS and X.509 
 main	libksba-dev	1.7.0-r0	Q194lCEvJ22ieHdNg0V6POYu60Zxg=	Libksba is a CMS and X.509 access library (development files)	libksba=1.7.0-r0 pc:gpg-error pkgconfig	cmd:ksba-config=1.7.0-r0 pc:ksba=1.7.0
 main	libksba-doc	1.7.0-r0	Q1TLjd7TspmEUZjj/PSjpdbtOWXHw=	Libksba is a CMS and X.509 access library (documentation)		
 main	liblastlog2	2.42.3-r1	Q1umMpGVhm+F4yvJ5A1eNELGbbY1I=	Y2038 safe version of lastlog	so:libc.musl-x86_64.so.1 so:libpam.so.0 so:libsqlite3.so.0	so:liblastlog2.so.2=2.0.0
-main	libldap	2.6.14-r0	Q1ES/zEHL0ERmEDnOcQZW28kif4Eg=	OpenLDAP libraries	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libsasl2.so.3 so:libssl.so.3	so:liblber.so.2=2.0.200 so:libldap.so.2=2.0.200
+main	libldap	2.6.15-r0	Q1+f8htVVZd55oCbmAkDqK41y111g=	OpenLDAP libraries	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libsasl2.so.3 so:libssl.so.3	so:liblber.so.2=2.0.200 so:libldap.so.2=2.0.200
 main	liblibdwarfp	2.1.0-r0	Q1z2V5MKoRTSBOKaNI5e3ybiK2WBo=	Parsing library for DWARF2 and later debugging file format	so:libc.musl-x86_64.so.1 so:libdwarf.so.2	so:libdwarfp.so.2=2.1.0
 main	liblksctp	1.0.19-r5	Q1cP4hQt84gHTh01cdlS90PJQEMk0=	User-space access to Linux Kernel SCTP (libraries)	so:libc.musl-x86_64.so.1	so:libsctp.so.1=1.0.19
 main	liblockfile	1.17-r4	Q1Q9K1XLvq9a/9qobhbXGA12NHD4g=	Shared library with NFS-safe locking functions	so:libc.musl-x86_64.so.1	cmd:dotlockfile=1.17-r4 so:liblockfile.so.1=1.0
@@ -24819,15 +24819,15 @@ main	libpciaccess-dbg	0.19-r0	Q1MrGfFLEJdM5oXPALGVb6J5aASJk=	X11 PCI access libr
 main	libpciaccess-dev	0.19-r0	Q1gRNm7cl9mroH8cq9sl6J2PrSk5U=	X11 PCI access library (development files)	libpciaccess=0.19-r0 pkgconfig	pc:pciaccess=0.19
 main	libpciaccess-doc	0.19-r0	Q1aw3pAkLoManHtePCfJMsy+eLVfM=	X11 PCI access library (documentation)		
 main	libpcre16	8.45-r4	Q1+05EuvG7bxZJLflc0iH+Koxwrbo=	PCRE with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre16.so.0=0.2.13
-main	libpcre2-16	10.48-r0	Q1OHqzuqW/rvxX8/FU8CSqWoGpTbI=	PCRE2 with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-16.so.0=0.16.0
-main	libpcre2-32	10.48-r0	Q1duL0b5oKJabEWToUZ8qz+aUoKm4=	PCRE2 with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-32.so.0=0.16.0
+main	libpcre2-16	10.49-r0	Q1cdO9sqg6KjxRzv1SKY2Gdv1qPRY=	PCRE2 with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-16.so.0=0.16.1
+main	libpcre2-32	10.49-r0	Q1cHqReuze4aNEt4YvKHFoUw1tIm0=	PCRE2 with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-32.so.0=0.16.1
 main	libpcre32	8.45-r4	Q1zCu43VanV/xbxHduSxCCbntx7YI=	PCRE with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre32.so.0=0.0.13
 main	libpcrecpp	8.45-r4	Q1CGCLrLRK+sWgegWB++dwfjwViCQ=	C++ bindings for PCRE	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libpcre.so.1 so:libstdc++.so.6	so:libpcrecpp.so.0=0.0.2
-main	libpng	1.6.58-r1	Q1wsxAneG10hTX8gjHK+U+faF9XqY=	Portable Network Graphics library	so:libc.musl-x86_64.so.1 so:libz.so.1	so:libpng16.so.16=16.58.0
-main	libpng-dev	1.6.58-r1	Q1aYaDknp81d76w/V6l7nvQBuCAg4=	Portable Network Graphics library (development files)	libpng=1.6.58-r1 pc:zlib pkgconfig	cmd:libpng-config=1.6.58-r1 cmd:libpng16-config=1.6.58-r1 pc:libpng16=1.6.58 pc:libpng=1.6.58
-main	libpng-doc	1.6.58-r1	Q1bifei78juEDfSKz963vVjdRwx94=	Portable Network Graphics library (documentation)		
-main	libpng-static	1.6.58-r1	Q1dENEK65iOL8hjmeRaNXkH1UT8uA=	Portable Network Graphics library (static library)	libpng-dev	
-main	libpng-utils	1.6.58-r1	Q1dBIUlf5o71LCnGXEDdN3jxeW/6I=	Portable Network Graphics library (pngfix utils)	so:libc.musl-x86_64.so.1 so:libpng16.so.16 so:libz.so.1	cmd:png-fix-itxt=1.6.58-r1 cmd:pngfix=1.6.58-r1
+main	libpng	1.6.59-r0	Q1qtsPrh9nP39XxYLvdXFAUOykO5I=	Portable Network Graphics library	so:libc.musl-x86_64.so.1 so:libz.so.1	so:libpng16.so.16=16.59.0
+main	libpng-dev	1.6.59-r0	Q1TmYhBmtNbWVnWP1pfznUFTsMN/Y=	Portable Network Graphics library (development files)	libpng=1.6.59-r0 pc:zlib pkgconfig	cmd:libpng-config=1.6.59-r0 cmd:libpng16-config=1.6.59-r0 pc:libpng16=1.6.59 pc:libpng=1.6.59
+main	libpng-doc	1.6.59-r0	Q1l4bSki2txOh0nhH4J6/57ptNTBI=	Portable Network Graphics library (documentation)		
+main	libpng-static	1.6.59-r0	Q1bU/Tiyh59ExnwvMD0u0qE0u6VgI=	Portable Network Graphics library (static library)	libpng-dev	
+main	libpng-utils	1.6.59-r0	Q1haAqKfToUX5kW+BDfV0TZTMnN9c=	Portable Network Graphics library (pngfix utils)	so:libc.musl-x86_64.so.1 so:libpng16.so.16 so:libz.so.1	cmd:png-fix-itxt=1.6.59-r0 cmd:pngfix=1.6.59-r0
 main	libportaudiocxx	19.7.0-r3	Q1lcq2UmbSCzvX/o26CRTpUd5cMPo=	C++ bindings library for portaudio	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libportaudio.so.2 so:libstdc++.so.6	so:libportaudiocpp.so.0=0.0.12
 main	libpq	18.6-r0	Q1qXfiJ9hDLF4XhwY+ulJod761eL4=	PostgreSQL client library	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	so:libpq.so.5=5.18
 main	libpq-dev	18.6-r0	Q1psHv0XxN6Lbmx37uIySoF1qlQ04=	PostgreSQL client library (development files)	libpq=18.6-r0 pc:libcrypto pc:libssl pkgconfig so:libc.musl-x86_64.so.1	cmd:pg_config=18.6-r0 pc:libpq=18.6
@@ -24895,7 +24895,7 @@ main	libssh2-dbg	1.11.1-r3	Q1Gs9R6ZLnTlTUJ/tIUgRGKOIlY5o=	library for accessing 
 main	libssh2-dev	1.11.1-r3	Q1jX3oqQ6T4e+tsaGf3c/Ud97tRH4=	library for accessing ssh1/ssh2 protocol servers (development files)	libssh2=1.11.1-r3 pc:libcrypto pc:zlib pkgconfig	pc:libssh2=1.11.1
 main	libssh2-doc	1.11.1-r3	Q15YBJHmCl/9A4UC91xDKvfHuiYpw=	library for accessing ssh1/ssh2 protocol servers (documentation)		
 main	libssh2-static	1.11.1-r3	Q1rP9/4n5Q8GTnNw+DsG9lku6w8Qg=	library for accessing ssh1/ssh2 protocol servers (static library)	libssh2-dev	
-main	libssl3	3.5.8-r0	Q1X5seVdghlT0uKx2zItrXCjtQQeo=	SSL shared libraries	libcrypto3=3.5.8-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3	so:libssl.so.3=3
+main	libssl3	3.5.9-r0	Q1IMTJDqnSCp3ToE3q3yxsT2QjNkM=	SSL shared libraries	libcrypto3=3.5.9-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3	so:libssl.so.3=3
 main	libstdc++	15.2.0-r5	Q1X3oq12RhKLoCzA1vuUZytoRWSNU=	GNU C++ standard runtime library	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	so:libstdc++.so.6=6.0.34
 main	libstdc++-dev	15.2.0-r5	Q16OyN4lX+7wXQ0QH7GOJr46LbZ7U=	GNU C++ standard runtime library (development files)	libstdc++=15.2.0-r5	
 main	libstemmer	2.2.0-r0	Q1+NPvd/FCyNmlD1AzewK39dy+Qvo=	Snowball rule-based stemming algorithms	so:libc.musl-x86_64.so.1	so:libstemmer.so.2=2
@@ -26112,11 +26112,11 @@ main	nftables-openrc	1.1.6-r1	Q1QZ3p3Y7HJmtoBxmpdxG+lMR8mew=	Netfilter tables us
 main	nftables-rulesets	1.1.6-r1	Q1dPhAXJWlyt7FJU39KKHudg67Sqc=	Meta package for pulling in all nftables rulesets		
 main	nftables-static	1.1.6-r1	Q15sn1V5HztusGLz9k4u+lyu8B/7Q=	Netfilter tables userspace tools (static library)	nftables-dev	
 main	nftables-systemd	1.1.6-r1	Q1+EZXPxUYRoq31eZN/6mx96tPWLg=	Netfilter tables userspace tools (systemd files)		
-main	nghttp2	1.69.0-r0	Q14q6ATNQIJVpArGPdRfhim9nIPWA=	HTTP/2 C client, server and proxy	so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libev.so.4 so:libgcc_s.so.1 so:libnghttp2.so.14 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	cmd:h2load=1.69.0-r0 cmd:nghttp=1.69.0-r0 cmd:nghttpd=1.69.0-r0 cmd:nghttpx=1.69.0-r0
-main	nghttp2-dev	1.69.0-r0	Q1dVcheTD++DS2nCPK3rgg1n/hYy8=	HTTP/2 C client, server and proxy (development files)	nghttp2-libs=1.69.0-r0 pkgconfig	pc:libnghttp2=1.69.0
-main	nghttp2-doc	1.69.0-r0	Q1rIl+u5G83YQRCKwZdADqkDG5kzo=	HTTP/2 C client, server and proxy (documentation)		
-main	nghttp2-libs	1.69.0-r0	Q1UzG4xkH3qQkc4vQ9rSqZhRxPSxI=	HTTP/2 C client, server and proxy (libraries)	so:libc.musl-x86_64.so.1	so:libnghttp2.so.14=14.29.4
-main	nghttp2-static	1.69.0-r0	Q1BjIYHhekyo2WhZ4UvC9bplG1Nbk=	HTTP/2 C client, server and proxy (static library)	nghttp2-dev	
+main	nghttp2	1.70.0-r0	Q1WtiiaGsLmTGOfYWZDnxh/Fg5byM=	HTTP/2 C client, server and proxy	so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libev.so.4 so:libgcc_s.so.1 so:libnghttp2.so.14 so:libssl.so.3 so:libstdc++.so.6 so:libz.so.1	cmd:h2load=1.70.0-r0 cmd:nghttp=1.70.0-r0 cmd:nghttpd=1.70.0-r0 cmd:nghttpx=1.70.0-r0
+main	nghttp2-dev	1.70.0-r0	Q1mvZjJN6KN8R9yeOS84XaxyXObHU=	HTTP/2 C client, server and proxy (development files)	nghttp2-libs=1.70.0-r0 pkgconfig	pc:libnghttp2=1.70.0
+main	nghttp2-doc	1.70.0-r0	Q126qg4I2eumNwD0Fb3RRzCVbFRXc=	HTTP/2 C client, server and proxy (documentation)		
+main	nghttp2-libs	1.70.0-r0	Q1Y70xm5rxw9PHMMlrBKiJlkaW82c=	HTTP/2 C client, server and proxy (libraries)	so:libc.musl-x86_64.so.1	so:libnghttp2.so.14=14.29.5
+main	nghttp2-static	1.70.0-r0	Q1EdNcj4Cld7vLTJXrAvwo06XCNWg=	HTTP/2 C client, server and proxy (static library)	nghttp2-dev	
 main	nghttp3	1.15.0-r0	Q1yaBTUdbBOwJq1pm4LI+9i0hL3YE=	HTTP/3 library written in C	so:libc.musl-x86_64.so.1	so:libnghttp3.so.9=9.6.1
 main	nghttp3-dev	1.15.0-r0	Q1HDhKnVN5NtuuMFRdpF1i5lqO9yk=	HTTP/3 library written in C (development files)	nghttp3=1.15.0-r0 pkgconfig	pc:libnghttp3=1.15.0
 main	nghttp3-static	1.15.0-r0	Q1cSRX4BygOR22g/JQXG8gxvnrxng=	HTTP/3 library written in C (static library)	nghttp3-dev	
@@ -26260,55 +26260,55 @@ main	openjade-libs	1.3.2-r9	Q1qcyT6ujfdc3IZ/caAJ3fPoHZIcU=	Implementation of the
 main	openjpeg	2.5.4-r1	Q1z39kHOZCtk94D+Wrv/x3Crd7Kq0=	Open-source implementation of JPEG2000 image codec	so:libc.musl-x86_64.so.1	so:libopenjp2.so.7=2.5.4
 main	openjpeg-dev	2.5.4-r1	Q1htVdJ7y4xpiS1x0KE3hutdYRjLw=	Open-source implementation of JPEG2000 image codec (development files)	openjpeg-tools openjpeg=2.5.4-r1 pkgconfig	pc:libopenjp2=2.5.4
 main	openjpeg-tools	2.5.4-r1	Q11WSCb4J6AUg0BnVeFeLswQcExuE=	Open-source implementation of JPEG2000 image codec - tools	so:libc.musl-x86_64.so.1 so:liblcms2.so.2 so:libopenjp2.so.7 so:libpng16.so.16 so:libtiff.so.6	cmd:opj_compress=2.5.4-r1 cmd:opj_decompress=2.5.4-r1 cmd:opj_dump=2.5.4-r1
-main	openldap	2.6.14-r0	Q1tq2pAnOV318v7VZmc4HFS8WxgYI=	LDAP Server	/bin/sh so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libltdl.so.7 so:libsasl2.so.3 so:libuuid.so.1	openldap-back-monitor=2.6.14-r0 cmd:slapacl=2.6.14-r0 cmd:slapadd=2.6.14-r0 cmd:slapauth=2.6.14-r0 cmd:slapcat=2.6.14-r0 cmd:slapd=2.6.14-r0 cmd:slapdn=2.6.14-r0 cmd:slapindex=2.6.14-r0 cmd:slapmodify=2.6.14-r0 cmd:slappasswd=2.6.14-r0 cmd:slapschema=2.6.14-r0 cmd:slaptest=2.6.14-r0
-main	openldap-back-asyncmeta	2.6.14-r0	Q1yB7E1TnU4jhLQzkI38JHLu1Ga6o=	OpenLDAP asyncmeta backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-dnssrv	2.6.14-r0	Q1vKAd+Q0/YTvXsQyw0tDc/0dwG9k=	OpenLDAP dnssrv backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-ldap	2.6.14-r0	Q11yCk2fG7E/CG85CJlg01Pg7U+/U=	OpenLDAP ldap backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-lload	2.6.14-r0	Q1gTSIJ/DKI6d7pvr755eFwbW8c4Q=	OpenLDAP load balancer backend (module)	so:libc.musl-x86_64.so.1 so:libevent-2.1.so.7	
-main	openldap-back-mdb	2.6.14-r0	Q1dk15Kq9XS/q1Vnee2f07eM6yiO4=	OpenLDAP mdb backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-meta	2.6.14-r0	Q1EmJ0BpixAp1O3kD4J06nSnTxQlc=	OpenLDAP meta backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-null	2.6.14-r0	Q1wkD79xEQiNE5AAtxh1UXXRtiWgg=	OpenLDAP null backend	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-back-passwd	2.6.14-r0	Q1XTRIC3JZpXVYTNfhQz1P+qJZrC4=	OpenLDAP passwd backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-relay	2.6.14-r0	Q1iuaX/NVkOCvHLMqrVS0v6KCrQXw=	OpenLDAP relay backend	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-back-sock	2.6.14-r0	Q1nakGSk+G15Tso3XCGXkY3Fg/9cw=	OpenLDAP sock backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-back-sql	2.6.14-r0	Q1AOXd2vrKu1ps0Zf9IyBSnIuq110=	OpenLDAP sql backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libodbc.so.2	
-main	openldap-backend-all	2.6.14-r0	Q1tk7+QwJJ8adatEMxJ+gopaqSINs=	Virtual package that installs all OpenLDAP backends	openldap-back-asyncmeta openldap-back-dnssrv openldap-back-ldap openldap-back-lload openldap-back-mdb openldap-back-meta openldap-back-null openldap-back-passwd openldap-back-relay openldap-back-sock openldap-back-sql	
-main	openldap-clients	2.6.14-r0	Q1Iloib37A3jXpv5pCgqJZaGRJTOU=	LDAP client utilities	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libsasl2.so.3 so:libuuid.so.1	cmd:ldapadd=2.6.14-r0 cmd:ldapcompare=2.6.14-r0 cmd:ldapdelete=2.6.14-r0 cmd:ldapexop=2.6.14-r0 cmd:ldapmodify=2.6.14-r0 cmd:ldapmodrdn=2.6.14-r0 cmd:ldappasswd=2.6.14-r0 cmd:ldapsearch=2.6.14-r0 cmd:ldapurl=2.6.14-r0 cmd:ldapvc=2.6.14-r0 cmd:ldapwhoami=2.6.14-r0
-main	openldap-dev	2.6.14-r0	Q1bBp0tSk8ZaMzDzlIkMno7u8zPTA=	LDAP Server (development files)	cyrus-sasl-dev libevent-dev libsodium-dev util-linux-dev libldap=2.6.14-r0 pkgconfig	pc:lber=2.6.14 pc:ldap=2.6.14
-main	openldap-doc	2.6.14-r0	Q17MuVPMnGBs2rWeYKvHR9f2kIkA8=	LDAP Server (documentation)		
-main	openldap-lloadd	2.6.14-r0	Q18yeknyq5L7PM2GWAqYah5j/suWQ=	Standalone LDAP Load Balancer Daemon	/bin/sh so:libc.musl-x86_64.so.1 so:libevent-2.1.so.7 so:liblber.so.2 so:libldap.so.2 so:libsasl2.so.3	cmd:lloadd=2.6.14-r0
-main	openldap-lloadd-openrc	2.6.14-r0	Q1XWw1LPTPUE7iuRoLBrmTGqCxZWg=	Standalone LDAP Load Balancer Daemon (OpenRC init scripts)		
-main	openldap-openrc	2.6.14-r0	Q13Xzf4Rgku4bhG577YLuU+UadMas=	LDAP Server (OpenRC init scripts)		
-main	openldap-overlay-accesslog	2.6.14-r0	Q1Q/5KkwXL3ddx40RWOX53CqP6Avg=	OpenLDAP accesslog overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-all	2.6.14-r0	Q1crpL94UyIFdobtNwJ2E5AQ+EGeU=	Virtual package that installs all OpenLDAP overlays	openldap-overlay-accesslog openldap-overlay-auditlog openldap-overlay-autoca openldap-overlay-collect openldap-overlay-constraint openldap-overlay-dds openldap-overlay-deref openldap-overlay-dyngroup openldap-overlay-dynlist openldap-overlay-homedir openldap-overlay-lastbind openldap-overlay-memberof openldap-overlay-mqtt openldap-overlay-otp openldap-overlay-ppolicy openldap-overlay-proxycache openldap-overlay-refint openldap-overlay-remoteauth openldap-overlay-retcode openldap-overlay-rwm openldap-overlay-seqmod openldap-overlay-sssvlv openldap-overlay-syncprov openldap-overlay-translucent openldap-overlay-unique openldap-overlay-valsort	
-main	openldap-overlay-auditlog	2.6.14-r0	Q1ZPihgzHNGHBQE0MYKt7+oGGuM9Y=	OpenLDAP auditlog overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-autoca	2.6.14-r0	Q1rm6fFX/43CE3gMcBMCoz7MrU26E=	OpenLDAP autoca overlay	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-collect	2.6.14-r0	Q1zC2fqXaXyZqCykrYJvoG4ZQCGZQ=	OpenLDAP collect overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-overlay-constraint	2.6.14-r0	Q11CgBw1PhNeiqDF6ikVNCAp5VRXg=	OpenLDAP constraint overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-dds	2.6.14-r0	Q18cG/7I5rvIkqWzy5Mg+GZmcH0MQ=	OpenLDAP dds overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-deref	2.6.14-r0	Q1wQmmbdjQner4RQbOnU2FKdpCBtg=	OpenLDAP deref overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-overlay-dyngroup	2.6.14-r0	Q1XImJd+EYm/n2Ia1lf2cF67hi3Us=	OpenLDAP dyngroup overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-overlay-dynlist	2.6.14-r0	Q1c5lCWj9SWfx+tvm6Svupcqnt/Pw=	OpenLDAP dynlist overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-homedir	2.6.14-r0	Q1w0lDT7UbSL44jMJyzR9sHg8kZmM=	OpenLDAP homedir overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-lastbind	2.6.14-r0	Q1ZkEBUjZIChwVMHov8k8zsLZMzqs=	OpenLDAP lastbind overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-overlay-memberof	2.6.14-r0	Q1YrUDjZVur6ijSgZqaJEUGpNVOvs=	OpenLDAP memberof overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-overlay-mqtt	2.6.14-r0	Q1gc9z95jUi60HyXHd28zF3LA2vxY=	OpenLDAP mqtt overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libmosquitto.so.1	openldap-mqtt=2.6.14-r0
-main	openldap-overlay-otp	2.6.14-r0	Q1NmmXLBApDNvVcWXDUlchu2ONyKY=	OpenLDAP otp overlay	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:liblber.so.2	
-main	openldap-overlay-ppolicy	2.6.14-r0	Q1SBL4P1yWZE2qrVZC9KPFv7hHDgo=	OpenLDAP ppolicy overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libltdl.so.7	
-main	openldap-overlay-proxycache	2.6.14-r0	Q1prrxWpVbCkEbcrw/yOcVAal8dO8=	OpenLDAP proxycache overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-refint	2.6.14-r0	Q1dopOwLjkB5kADHK0toX3Xs5CsXo=	OpenLDAP refint overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-remoteauth	2.6.14-r0	Q1JHLAJpMYWE0o94/C0rmIyePa/P0=	OpenLDAP remoteauth overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-retcode	2.6.14-r0	Q1TSUFFj6cgZui6k5AHUJNGo6vAlU=	OpenLDAP retcode overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-rwm	2.6.14-r0	Q1nWPmrb+gVAe2vhAWk5yH+JRXZGA=	OpenLDAP rwm overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-seqmod	2.6.14-r0	Q1P9ObfLCdqkmD7U8yKUJGhRoYJ30=	OpenLDAP seqmod overlay	so:libc.musl-x86_64.so.1 so:libldap.so.2	
-main	openldap-overlay-sssvlv	2.6.14-r0	Q1lrHO7+Q3Wn4W/CJ0iztoKCsEFNk=	OpenLDAP sssvlv overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-syncprov	2.6.14-r0	Q1PO9ANvTP1+DKpmcS61NlRXOoGxg=	OpenLDAP syncprov overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-translucent	2.6.14-r0	Q1oNIGYtT91y14X5RTZZKz+G/eOYQ=	OpenLDAP translucent overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-unique	2.6.14-r0	Q10OmAzJGFsrxT5tBzXsEDzOxZIZw=	OpenLDAP unique overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
-main	openldap-overlay-valsort	2.6.14-r0	Q1pdRmVJ/WyHu6hlCza4YYrVWGgco=	OpenLDAP valsort overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-passwd-argon2	2.6.14-r0	Q1qfnJYikJqG6jKKKADAVy+RyVX1o=	Argon2 OpenLDAP support	openldap so:libargon2.so.1 so:libc.musl-x86_64.so.1 so:liblber.so.2	
-main	openldap-passwd-pbkdf2	2.6.14-r0	Q1ir3A4Lali+qLZAHHsvlJAMk94q8=	PBKDF2 OpenLDAP support	openldap so:libc.musl-x86_64.so.1 so:libcrypto.so.3	
-main	openldap-passwd-sha2	2.6.14-r0	Q1MAdyjFPceobEcYRfleMzT4WD1vs=	SHA2 OpenLDAP support	openldap so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap	2.6.15-r0	Q1yTSWCwn7xmeUGKSxGjiaMDAzOms=	LDAP Server	/bin/sh so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libltdl.so.7 so:libsasl2.so.3 so:libuuid.so.1	openldap-back-monitor=2.6.15-r0 cmd:slapacl=2.6.15-r0 cmd:slapadd=2.6.15-r0 cmd:slapauth=2.6.15-r0 cmd:slapcat=2.6.15-r0 cmd:slapd=2.6.15-r0 cmd:slapdn=2.6.15-r0 cmd:slapindex=2.6.15-r0 cmd:slapmodify=2.6.15-r0 cmd:slappasswd=2.6.15-r0 cmd:slapschema=2.6.15-r0 cmd:slaptest=2.6.15-r0
+main	openldap-back-asyncmeta	2.6.15-r0	Q10GB/n/Vk8gvw+2WV87heOI4eqis=	OpenLDAP asyncmeta backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-dnssrv	2.6.15-r0	Q1xeiN8d/XUzoysUZCAVaygNtamGo=	OpenLDAP dnssrv backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-ldap	2.6.15-r0	Q1XdJ9BHTehkWWdjgQrTIcV4jZMS0=	OpenLDAP ldap backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-lload	2.6.15-r0	Q1Y/TV8hd3hhCu82TyYfp4mPGzmVo=	OpenLDAP load balancer backend (module)	so:libc.musl-x86_64.so.1 so:libevent-2.1.so.7	
+main	openldap-back-mdb	2.6.15-r0	Q1aGe/AmdyLRw2zBUWeBJai+xHVAU=	OpenLDAP mdb backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-meta	2.6.15-r0	Q1zEm+DuQkUoMTQojgZD57vW5D6sg=	OpenLDAP meta backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-null	2.6.15-r0	Q1A46445RTCIfepNEtGTAya4ivTRc=	OpenLDAP null backend	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-back-passwd	2.6.15-r0	Q1wfc+KvqaIAV9q0EbozbYd/mPCSw=	OpenLDAP passwd backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-relay	2.6.15-r0	Q1tNbGnJ///5/342YYU29Ojfevz+w=	OpenLDAP relay backend	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-back-sock	2.6.15-r0	Q11XaUwkJ/XyxHiXNW5/P7P9B7Rh8=	OpenLDAP sock backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-back-sql	2.6.15-r0	Q1ijo8eb9n451jCTI8ui8DgZ8Jkbc=	OpenLDAP sql backend	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libodbc.so.2	
+main	openldap-backend-all	2.6.15-r0	Q1iFlpql6L5Ls32jQmJwmZ7v8xJqQ=	Virtual package that installs all OpenLDAP backends	openldap-back-asyncmeta openldap-back-dnssrv openldap-back-ldap openldap-back-lload openldap-back-mdb openldap-back-meta openldap-back-null openldap-back-passwd openldap-back-relay openldap-back-sock openldap-back-sql	
+main	openldap-clients	2.6.15-r0	Q1QSsIJR2+VKqTUh64j4g455QACos=	LDAP client utilities	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libsasl2.so.3 so:libuuid.so.1	cmd:ldapadd=2.6.15-r0 cmd:ldapcompare=2.6.15-r0 cmd:ldapdelete=2.6.15-r0 cmd:ldapexop=2.6.15-r0 cmd:ldapmodify=2.6.15-r0 cmd:ldapmodrdn=2.6.15-r0 cmd:ldappasswd=2.6.15-r0 cmd:ldapsearch=2.6.15-r0 cmd:ldapurl=2.6.15-r0 cmd:ldapvc=2.6.15-r0 cmd:ldapwhoami=2.6.15-r0
+main	openldap-dev	2.6.15-r0	Q1NPWikPW2xTAvFronR9MN2Qq9d9g=	LDAP Server (development files)	cyrus-sasl-dev libevent-dev libsodium-dev util-linux-dev libldap=2.6.15-r0 pkgconfig	pc:lber=2.6.15 pc:ldap=2.6.15
+main	openldap-doc	2.6.15-r0	Q1RPatNu8O5GSaW05NbcXGFMbt6L0=	LDAP Server (documentation)		
+main	openldap-lloadd	2.6.15-r0	Q1WbQaH15CB0FFxsY5T6hFb6rzQWo=	Standalone LDAP Load Balancer Daemon	/bin/sh so:libc.musl-x86_64.so.1 so:libevent-2.1.so.7 so:liblber.so.2 so:libldap.so.2 so:libsasl2.so.3	cmd:lloadd=2.6.15-r0
+main	openldap-lloadd-openrc	2.6.15-r0	Q1ZfnNUz1HmyxQFf6AQ7/7ZPK++Fk=	Standalone LDAP Load Balancer Daemon (OpenRC init scripts)		
+main	openldap-openrc	2.6.15-r0	Q1nicQpnj9jw6EOUAGQsLGAre56p4=	LDAP Server (OpenRC init scripts)		
+main	openldap-overlay-accesslog	2.6.15-r0	Q10LZ2BLiEQYnlCM8kIrusN0lgYtU=	OpenLDAP accesslog overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-all	2.6.15-r0	Q1Sc+gnEqafO4Um77wl/ZgVfw8CyU=	Virtual package that installs all OpenLDAP overlays	openldap-overlay-accesslog openldap-overlay-auditlog openldap-overlay-autoca openldap-overlay-collect openldap-overlay-constraint openldap-overlay-dds openldap-overlay-deref openldap-overlay-dyngroup openldap-overlay-dynlist openldap-overlay-homedir openldap-overlay-lastbind openldap-overlay-memberof openldap-overlay-mqtt openldap-overlay-otp openldap-overlay-ppolicy openldap-overlay-proxycache openldap-overlay-refint openldap-overlay-remoteauth openldap-overlay-retcode openldap-overlay-rwm openldap-overlay-seqmod openldap-overlay-sssvlv openldap-overlay-syncprov openldap-overlay-translucent openldap-overlay-unique openldap-overlay-valsort	
+main	openldap-overlay-auditlog	2.6.15-r0	Q1cnkK/vB3sZJKVfKP+9HspfCxRDQ=	OpenLDAP auditlog overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-autoca	2.6.15-r0	Q16ij4gm2MjfFhbLSmatw73gbRY0k=	OpenLDAP autoca overlay	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-collect	2.6.15-r0	Q1LLr+flJAViBBZKdoT3TXVSU+DiM=	OpenLDAP collect overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-overlay-constraint	2.6.15-r0	Q16YTIjz7ssvxPvCwrfAp6c8CtHqY=	OpenLDAP constraint overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-dds	2.6.15-r0	Q1fk63umPjtsH4MLyq580HttxNEqw=	OpenLDAP dds overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-deref	2.6.15-r0	Q1MqgvB63rk2GLlFGrS65z5tQofQE=	OpenLDAP deref overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-overlay-dyngroup	2.6.15-r0	Q1qaV6hVrrwRoukt0qJUgyuQrQM58=	OpenLDAP dyngroup overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-overlay-dynlist	2.6.15-r0	Q1VNDgP6tnsYXFrbLAZoWyKxWje1E=	OpenLDAP dynlist overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-homedir	2.6.15-r0	Q1viLc+MyD/+pq5dQVjbO0ch6v900=	OpenLDAP homedir overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-lastbind	2.6.15-r0	Q1vgnS1NR5ag8uj8yVAkk+cRy+y9k=	OpenLDAP lastbind overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-overlay-memberof	2.6.15-r0	Q1LGppZJvOFHXgcBD/Rtvbust/JqE=	OpenLDAP memberof overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-overlay-mqtt	2.6.15-r0	Q1aPyDXi8IArGAWzbSHlLWkiawwFk=	OpenLDAP mqtt overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libmosquitto.so.1	openldap-mqtt=2.6.15-r0
+main	openldap-overlay-otp	2.6.15-r0	Q17uqj/GnGtbk2LyhmKZO59Oak7jQ=	OpenLDAP otp overlay	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:liblber.so.2	
+main	openldap-overlay-ppolicy	2.6.15-r0	Q14LOkrLWKQKEhOaATiSJJKLZQBkk=	OpenLDAP ppolicy overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libltdl.so.7	
+main	openldap-overlay-proxycache	2.6.15-r0	Q1TWUrge+JHH20xe9421O01ZZRwnY=	OpenLDAP proxycache overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-refint	2.6.15-r0	Q1dXL6D+ZgXQzuiwjFWZqgiTEbHCQ=	OpenLDAP refint overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-remoteauth	2.6.15-r0	Q1QNAmm8SZZuQlkeR3fJsNzUhrzGw=	OpenLDAP remoteauth overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-retcode	2.6.15-r0	Q16QG7SpOJEh8tg/tfRtetgE0qI+4=	OpenLDAP retcode overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-rwm	2.6.15-r0	Q1HR0KkO1awzDWJOvmNUevoQVsoro=	OpenLDAP rwm overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-seqmod	2.6.15-r0	Q1rBm2JiuXj3EHV+o+xeYDBok8yzY=	OpenLDAP seqmod overlay	so:libc.musl-x86_64.so.1 so:libldap.so.2	
+main	openldap-overlay-sssvlv	2.6.15-r0	Q1dkkvVdFZYW89ccqews3ccAkRqxA=	OpenLDAP sssvlv overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-syncprov	2.6.15-r0	Q1iV97SIUO9qm3pbJfnKsIQe6kqG4=	OpenLDAP syncprov overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-translucent	2.6.15-r0	Q1g7Hfcb6RxneHkt9SOBwvvpVat94=	OpenLDAP translucent overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-unique	2.6.15-r0	Q1jQUdi+01LXdcK2WW+nWK2VbCgo4=	OpenLDAP unique overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2	
+main	openldap-overlay-valsort	2.6.15-r0	Q1BakEbTiPLwVL3DY2285bN7Lr+gQ=	OpenLDAP valsort overlay	so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-passwd-argon2	2.6.15-r0	Q1kgYiVF/EzdbUCg8pm25eRL1U9Lg=	Argon2 OpenLDAP support	openldap so:libargon2.so.1 so:libc.musl-x86_64.so.1 so:liblber.so.2	
+main	openldap-passwd-pbkdf2	2.6.15-r0	Q1YL7OPeJ7cQPiPH7B7wT/yphzSHU=	PBKDF2 OpenLDAP support	openldap so:libc.musl-x86_64.so.1 so:libcrypto.so.3	
+main	openldap-passwd-sha2	2.6.15-r0	Q1iC7L51B5ta66MKEfEvQovlfanCA=	SHA2 OpenLDAP support	openldap so:libc.musl-x86_64.so.1 so:liblber.so.2	
 main	opennhrp	0.14.1-r12	Q1ChD/2SdUtzPJxZhG0mJfnt48tcg=	NBMA Next Hop Resolution Protocol daemon	so:libc.musl-x86_64.so.1 so:libcares.so.2	cmd:opennhrp=0.14.1-r12 cmd:opennhrpctl=0.14.1-r12
 main	opennhrp-doc	0.14.1-r12	Q1rT8qjj1j2AYPBgviTM5wJyyg2M4=	NBMA Next Hop Resolution Protocol daemon (documentation)		
 main	opennhrp-openrc	0.14.1-r12	Q1DHBmxZEtvAOrbBjX09zSAMII/g4=	NBMA Next Hop Resolution Protocol daemon (OpenRC init scripts)		
@@ -26354,13 +26354,13 @@ main	openssh-server-krb5	10.3_p1-r1	Q12UmQT5Iq7h+51xhw7Ygwj++28Gc=	OpenSSH serve
 main	openssh-server-pam	10.3_p1-r1	Q1dz9d4c+xbTRb0rcVzSdxmDY9SmI=	OpenSSH server with pam support	openssh-keygen=10.3_p1-r1 openssh-server-common=10.3_p1-r1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libpam.so.0 so:libz.so.1	cmd:sshd.pam=10.3_p1-r1
 main	openssh-sftp-server	10.3_p1-r1	Q1WLJNJreKekCwCwgqrFLCdBrMpeg=	ssh sftp server module	so:libc.musl-x86_64.so.1	
 main	openssh-sk-helper	10.3_p1-r1	Q1ufi2iL3e1Ms3IuA0wst0MjEJ890=	OpenSSH libfido2 security key helper	openssh-keygen=10.3_p1-r1 openssh-server-common=10.3_p1-r1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libfido2.so.1	
-main	openssl	3.5.8-r0	Q1zDDR3QcjwGvbMoZwjc75onppebg=	Toolkit for Transport Layer Security (TLS)	libssl3=3.5.8-r0 libcrypto3=3.5.8-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	openssl3=3.5.8-r0 cmd:openssl=3.5.8-r0
-main	openssl-dbg	3.5.8-r0	Q17CHS4e157NXP2hNLDHGLksKUqWQ=	Toolkit for Transport Layer Security (TLS) (debug symbols)	!libcrypto3<3.5.8-r0 !libcrypto3>3.5.8-r0 !libssl3<3.5.8-r0 !libssl3>3.5.8-r0 !openssl-fips<3.5.8-r0 !openssl-fips>3.5.8-r0 !openssl<3.5.8-r0 !openssl>3.5.8-r0	
-main	openssl-dev	3.5.8-r0	Q1VgpnefUlHIp9HnjNNEIQuZRoEMY=	Toolkit for Transport Layer Security (TLS) (development files)	libcrypto3=3.5.8-r0 libssl3=3.5.8-r0 pkgconfig	openssl3-dev=3.5.8-r0 pc:libcrypto=3.5.8 pc:libssl=3.5.8 pc:openssl=3.5.8
-main	openssl-doc	3.5.8-r0	Q17utwtLJVOItR3zumuKtZXZ8k8mo=	Toolkit for Transport Layer Security (TLS) (documentation)		
-main	openssl-fips	3.5.8-r0	Q1pf7C9t7ftb61eYX7zjI8iu6Pm9w=	FIPS module from openssl	libssl3=3.5.8-r0 libcrypto3=3.5.8-r0 /bin/sh so:libc.musl-x86_64.so.1	
-main	openssl-libs-static	3.5.8-r0	Q1Hwx6Tbz2ESv3ZIVDpjFTlLCmo5M=	Toolkit for Transport Layer Security (TLS) (static library)	openssl-dev	
-main	openssl-misc	3.5.8-r0	Q1+i1W1tJ4RjrOnCqixH+4vFBHKYM=	Various perl scripts from openssl	openssl=3.5.8-r0 perl	
+main	openssl	3.5.9-r0	Q16pTwH+6xSahfRAL19xOiXpD3cBE=	Toolkit for Transport Layer Security (TLS)	libssl3=3.5.9-r0 libcrypto3=3.5.9-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	openssl3=3.5.9-r0 cmd:openssl=3.5.9-r0
+main	openssl-dbg	3.5.9-r0	Q1bc6A+6vg87jiB+iuKo6q0lAQxQI=	Toolkit for Transport Layer Security (TLS) (debug symbols)	!libcrypto3<3.5.9-r0 !libcrypto3>3.5.9-r0 !libssl3<3.5.9-r0 !libssl3>3.5.9-r0 !openssl-fips<3.5.9-r0 !openssl-fips>3.5.9-r0 !openssl<3.5.9-r0 !openssl>3.5.9-r0	
+main	openssl-dev	3.5.9-r0	Q1uBN7xm0iehkPeVruxatZ6M1i2Ys=	Toolkit for Transport Layer Security (TLS) (development files)	libcrypto3=3.5.9-r0 libssl3=3.5.9-r0 pkgconfig	openssl3-dev=3.5.9-r0 pc:libcrypto=3.5.9 pc:libssl=3.5.9 pc:openssl=3.5.9
+main	openssl-doc	3.5.9-r0	Q1Sh1Y/f+JnLg2Pn482+x05DN/GQM=	Toolkit for Transport Layer Security (TLS) (documentation)		
+main	openssl-fips	3.5.9-r0	Q1t/k7eRymxS22UYhBC6uD1PaD1vU=	FIPS module from openssl	libssl3=3.5.9-r0 libcrypto3=3.5.9-r0 /bin/sh so:libc.musl-x86_64.so.1	
+main	openssl-libs-static	3.5.9-r0	Q1DAYo50dEEkWLjDQbM1PUo3X4wvk=	Toolkit for Transport Layer Security (TLS) (static library)	openssl-dev	
+main	openssl-misc	3.5.9-r0	Q1sVTHF1Vm6y2+0MBmX+GTthRg81E=	Various perl scripts from openssl	openssl=3.5.9-r0 perl	
 main	openvpn	2.7.7-r0	Q18l901ahbr4uzvw/tTJJ8HBqMYv8=	Robust, and highly configurable VPN (Virtual Private Network)	iproute2-minimal /bin/sh so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libcrypto.so.3 so:liblz4.so.1 so:liblzo2.so.2 so:libnl-3.so.200 so:libnl-genl-3.so.200 so:libpkcs11-helper.so.1 so:libssl.so.3	cmd:openvpn=2.7.7-r0
 main	openvpn-ad-check	1.1-r4	Q1pvdR8+iFcYktM/264orK23VT5IY=	Authenticate OpenVPN users against AD server and verify if they are member of a specific group.	openvpn lua-ldap	
 main	openvpn-auth-ldap	2.0.4-r8	Q1V5/YHpkl3+JQslqkEU1621TfYng=	LDAP authentication and authorization plugin for OpenVPN 2.x	openvpn /bin/sh so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libobjc.so.4	
@@ -26427,11 +26427,11 @@ main	pcre-dev	8.45-r4	Q1fSRPbSvDlVTdG0TysJNVqj1u46Q=	Perl-compatible regular exp
 main	pcre-doc	8.45-r4	Q1acosYhVZt/2kbRthVluVY4LHjSg=	Perl-compatible regular expression library (documentation)		
 main	pcre-static	8.45-r4	Q1uleAyp53Xv07X+b3tEnDTc5cRrE=	Perl-compatible regular expression library (static library)	pcre-dev	
 main	pcre-tools	8.45-r4	Q1Iehl5E5GyMwV0m3p5s2R6/5q4m4=	Auxiliary utilities for PCRE	so:libc.musl-x86_64.so.1 so:libpcre.so.1 so:libpcre16.so.0 so:libpcre32.so.0 so:libpcreposix.so.0	cmd:pcregrep=8.45-r4 cmd:pcretest=8.45-r4
-main	pcre2	10.48-r0	Q1R8XO5zv/GM4xu1AQQ8Yo8E0q+Uo=	Perl-compatible regular expression library	so:libc.musl-x86_64.so.1	so:libpcre2-8.so.0=0.16.0 so:libpcre2-posix.so.3=3.0.8
-main	pcre2-dev	10.48-r0	Q1b24Pr818dsmChENp1Er/SG4OkNI=	Perl-compatible regular expression library (development files)	libedit-dev zlib-dev libpcre2-16=10.48-r0 libpcre2-32=10.48-r0 pcre2=10.48-r0 pkgconfig	cmd:pcre2-config=10.48-r0 pc:libpcre2-16=10.48 pc:libpcre2-32=10.48 pc:libpcre2-8=10.48 pc:libpcre2-posix=10.48
-main	pcre2-doc	10.48-r0	Q1hOa18+ZiWH+gKqerhcBqX55TxeM=	Perl-compatible regular expression library (documentation)		
-main	pcre2-static	10.48-r0	Q1WA28N9BampsrGdRhmW8Cvklo05I=	Perl-compatible regular expression library (static library)	pcre2-dev	
-main	pcre2-tools	10.48-r0	Q1nmapjvjATVBIiZDaKUJng5PLtOo=	Auxiliary utilities for PCRE2	so:libc.musl-x86_64.so.1 so:libedit.so.0 so:libpcre2-16.so.0 so:libpcre2-32.so.0 so:libpcre2-8.so.0 so:libpcre2-posix.so.3 so:libz.so.1	cmd:pcre2grep=10.48-r0 cmd:pcre2test=10.48-r0
+main	pcre2	10.49-r0	Q17JkrALr3G7od2eIXlhP5IzrzXI0=	Perl-compatible regular expression library	so:libc.musl-x86_64.so.1	so:libpcre2-8.so.0=0.16.1 so:libpcre2-posix.so.3=3.0.9
+main	pcre2-dev	10.49-r0	Q12+ECtva9XlhPFy+1q44AoUj3O+k=	Perl-compatible regular expression library (development files)	libedit-dev zlib-dev libpcre2-16=10.49-r0 libpcre2-32=10.49-r0 pcre2=10.49-r0 pkgconfig	cmd:pcre2-config=10.49-r0 pc:libpcre2-16=10.49 pc:libpcre2-32=10.49 pc:libpcre2-8=10.49 pc:libpcre2-posix=10.49
+main	pcre2-doc	10.49-r0	Q1cIzzaypc0RI/CpT53h1fNTVH8wM=	Perl-compatible regular expression library (documentation)		
+main	pcre2-static	10.49-r0	Q1K/YPCsFIztr/BmI8yVGiYp1aRdY=	Perl-compatible regular expression library (static library)	pcre2-dev	
+main	pcre2-tools	10.49-r0	Q1GUSgY5JBidey1a7yLVEDrL7ueGc=	Auxiliary utilities for PCRE2	so:libc.musl-x86_64.so.1 so:libedit.so.0 so:libpcre2-16.so.0 so:libpcre2-32.so.0 so:libpcre2-8.so.0 so:libpcre2-posix.so.3 so:libz.so.1	cmd:pcre2grep=10.49-r0 cmd:pcre2test=10.49-r0
 main	pcsc-lite	2.4.0-r4	Q1rq1fLNcwLldOlH05LSkSAmUK2v0=	Middleware to access a smart card using SCard API (PC/SC)	/bin/sh so:libc.musl-x86_64.so.1 so:libudev.so.1	cmd:pcsc-spy=2.4.0-r4 cmd:pcscd=2.4.0-r4
 main	pcsc-lite-dev	2.4.0-r4	Q1oPdHyKlnCkPjTR8ROV665T1xtTs=	Middleware to access a smart card using SCard API (PC/SC) (development files)	pcsc-lite-libs=2.4.0-r4 eudev-dev pcsc-lite-libs=2.4.0-r4 pcsc-lite-spy-libs=2.4.0-r4 pkgconfig	pc:libpcsclite=2.4.0
 main	pcsc-lite-doc	2.4.0-r4	Q1/oa9Ukg40QjYkdQIQCMWHJYmLKI=	Middleware to access a smart card using SCard API (PC/SC) (documentation)		
@@ -27610,21 +27610,21 @@ main	py3-xmlschema	4.3.1-r2	Q1DZamCqZa9pThw9IvA8d/gA+t0TA=	XML schema validator 
 main	py3-xmlschema-pyc	4.3.1-r2	Q1hzLK0Lqt3ftjp/j3Upms8FU46yU=	Precompiled Python bytecode for py3-xmlschema	python3~3.14	
 main	py3-yaml	6.0.3-r2	Q1gt1r3DlN+WFh8LhxgfurCNHXNM8=	Python3 bindings for YAML	python3~3.14 so:libc.musl-x86_64.so.1 so:libyaml-0.so.2	py-yaml=6.0.3-r2 py3.14:_yaml=6.0.3-r2 py3.14:yaml=6.0.3-r2
 main	py3-yaml-pyc	6.0.3-r2	Q1m0jSzHuLAFYKsBeqXFlQYaf0cSE=	Precompiled Python bytecode for py3-yaml	python3~3.14	
-main	pyc	3.14.7-r1	Q1ITCblxEOKhTbtoJ5t+d8bZ3dxdE=	Meta package for pulling in all -pyc packages		
-main	python3	3.14.7-r1	Q19+7OPzdzLS4XWcfc51M9SrhalfA=	High-level scripting language	libssl3>=3.3.0 libexpat>=2.8.0 so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libexpat.so.1 so:libffi.so.8 so:libgdbm_compat.so.4 so:liblzma.so.5 so:libmpdec.so.4 so:libncursesw.so.6 so:libpanelw.so.6 so:libreadline.so.8 so:libsqlite3.so.0 so:libssl.so.3 so:libz.so.1	pythonispython3=3.14.7-r1 cmd:pydoc3.14=3.14.7-r1 cmd:pydoc3=3.14.7-r1 cmd:python3.14=3.14.7-r1 cmd:python3=3.14.7-r1 cmd:python=3.14.7-r1 so:libpython3.14.so.1.0=1.0 so:libpython3.so=0
-main	python3-dbg	3.14.7-r1	Q1INWS1NrhHws4Q7X3szzYtIDUDw4=	High-level scripting language (debug symbols)	!python3-gdbm<3.14.7-r1 !python3-gdbm>3.14.7-r1 !python3<3.14.7-r1 !python3>3.14.7-r1	
-main	python3-dev	3.14.7-r1	Q19PDA5YCbrgSzJ8lLjYRLPgycLz4=	High-level scripting language (development files)	python3=3.14.7-r1 pkgconfig	cmd:python-config=3.14.7-r1 cmd:python3-config=3.14.7-r1 cmd:python3.14-config=3.14.7-r1 pc:python-3.14-embed=3.14 pc:python-3.14=3.14 pc:python3-embed=3.14 pc:python3=3.14
-main	python3-doc	3.14.7-r1	Q1AGhpxfzSjDCvFJIW61NSPs3RjIA=	High-level scripting language (documentation)		
-main	python3-gdbm	3.14.7-r1	Q1AWC5xF9Wh9qLarypQo6p9H+8IDQ=	Python backend for GNU gdbm	libssl3>=3.3.0 libexpat>=2.8.0 so:libc.musl-x86_64.so.1 so:libgdbm.so.6	
-main	python3-idle	3.14.7-r0	Q19DWSqddOPgSk2GyWP1dlWIrdQbc=	IDE for Python3 using Tkinter	python3-tkinter=3.14.7-r0 python3 python3-tests	cmd:idle3.14=3.14.7-r0 cmd:idle=3.14.7-r0
-main	python3-pyc	3.14.7-r1	Q15qN3zzjdpHjWi7KfRqZf/xe37Rw=	High-level scripting language (install .pyc cache files)	python3-pycache-pyc0=3.14.7-r1 pyc	
-main	python3-pycache-pyc0	3.14.7-r1	Q1jV5OxVFMCyBHDQWCo+Rwm1kqQZk=	High-level scripting language (.pyc pycache files)		
-main	python3-pycache-pyc1	3.14.7-r1	Q1iVfzhRMD80trWcd7DSa00i2/BjE=	High-level scripting language (.opt-1.pyc pycache files)		
-main	python3-pycache-pyc2	3.14.7-r1	Q1zaAuisG6sDQQx1NngIpnR/XyeyE=	High-level scripting language (.opt-2.pyc pycache files)		
-main	python3-tests	3.14.7-r1	Q1rlRd8R+46EwtRJPz4x+7pOREGjw=	The test modules from the main python package	libssl3>=3.3.0 libexpat>=2.8.0	
-main	python3-tkinter	3.14.7-r0	Q1biYL1x5JJwrvjVsJ9XPHt86R1zk=	A graphical user interface for the Python programming language	so:libc.musl-x86_64.so.1 so:libtcl8.6.so so:libtk8.6.so	
-main	python3-tkinter-pyc	3.14.7-r0	Q1T2c/j5asJeayvPkKY0RaN6njaLM=	Precompiled Python bytecode for python3-tkinter		
-main	python3-tkinter-tests	3.14.7-r0	Q1sy7TjBczMV4eGjDSGlaZdCArWQc=	The test modules from the main python package for tkinter		
+main	pyc	3.14.8-r0	Q1wgaD0pVz4F1y7XtBGmZasGdmJu8=	Meta package for pulling in all -pyc packages		
+main	python3	3.14.8-r0	Q1NN2I5sUMrXRCS/HMuJ8t3+9QOso=	High-level scripting language	libssl3>=3.3.0 libexpat>=2.8.0 so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libexpat.so.1 so:libffi.so.8 so:libgdbm_compat.so.4 so:liblzma.so.5 so:libmpdec.so.4 so:libncursesw.so.6 so:libpanelw.so.6 so:libreadline.so.8 so:libsqlite3.so.0 so:libssl.so.3 so:libz.so.1	pythonispython3=3.14.8-r0 cmd:pydoc3.14=3.14.8-r0 cmd:pydoc3=3.14.8-r0 cmd:python3.14=3.14.8-r0 cmd:python3=3.14.8-r0 cmd:python=3.14.8-r0 so:libpython3.14.so.1.0=1.0 so:libpython3.so=0
+main	python3-dbg	3.14.8-r0	Q1ImD/X1cPSLy7tCw8o+CkIPRXKro=	High-level scripting language (debug symbols)	!python3-gdbm<3.14.8-r0 !python3-gdbm>3.14.8-r0 !python3<3.14.8-r0 !python3>3.14.8-r0	
+main	python3-dev	3.14.8-r0	Q14Yu89rli8jNLEVQxPjpj8dVGAW0=	High-level scripting language (development files)	python3=3.14.8-r0 pkgconfig	cmd:python-config=3.14.8-r0 cmd:python3-config=3.14.8-r0 cmd:python3.14-config=3.14.8-r0 pc:python-3.14-embed=3.14 pc:python-3.14=3.14 pc:python3-embed=3.14 pc:python3=3.14
+main	python3-doc	3.14.8-r0	Q16+e9pPjB+rClZNUQu6X3mo7nICU=	High-level scripting language (documentation)		
+main	python3-gdbm	3.14.8-r0	Q1DGwQ/KUUjNXX7lM6WRaep1+29/M=	Python backend for GNU gdbm	libssl3>=3.3.0 libexpat>=2.8.0 so:libc.musl-x86_64.so.1 so:libgdbm.so.6	
+main	python3-idle	3.14.8-r0	Q10emO1byM/HL/F2WNqkLGcI9wux0=	IDE for Python3 using Tkinter	python3-tkinter=3.14.8-r0 python3 python3-tests	cmd:idle3.14=3.14.8-r0 cmd:idle=3.14.8-r0
+main	python3-pyc	3.14.8-r0	Q1MgO/ybewDyjFtXMxB4S6JNXetqg=	High-level scripting language (install .pyc cache files)	python3-pycache-pyc0=3.14.8-r0 pyc	
+main	python3-pycache-pyc0	3.14.8-r0	Q1MWKq8KirrFH8CR5AQjQy+sNiXXA=	High-level scripting language (.pyc pycache files)		
+main	python3-pycache-pyc1	3.14.8-r0	Q1n70TfAKm/fzSot+KwubRepKKlls=	High-level scripting language (.opt-1.pyc pycache files)		
+main	python3-pycache-pyc2	3.14.8-r0	Q1fH+810IBYyvbXeP6pRVAc/QOKIM=	High-level scripting language (.opt-2.pyc pycache files)		
+main	python3-tests	3.14.8-r0	Q1ZSJmJHPlf83JQcsftAt/RyaOSKo=	The test modules from the main python package	libssl3>=3.3.0 libexpat>=2.8.0	
+main	python3-tkinter	3.14.8-r0	Q1sibA/PBa4OoYIMWS+ZxUzte5nQE=	A graphical user interface for the Python programming language	so:libc.musl-x86_64.so.1 so:libtcl8.6.so so:libtk8.6.so	
+main	python3-tkinter-pyc	3.14.8-r0	Q1KZSSUc3PGP1rFDm74tPxoT+2un8=	Precompiled Python bytecode for python3-tkinter		
+main	python3-tkinter-tests	3.14.8-r0	Q1rAgMSr1brwte5UcH98PmoaixFfU=	The test modules from the main python package for tkinter		
 main	quagga	1.2.4-r11	Q1pvxZrQlgBD0VlGgMZJUnHUILAFk=	A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP	iproute2 /bin/sh so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libnetsnmp.so.45 so:libnetsnmpagent.so.45 so:libreadline.so.8	quagga-nhrp=1.2.4 cmd:bgp_btoa=1.2.4-r11 cmd:bgpd=1.2.4-r11 cmd:isisd=1.2.4-r11 cmd:nhrpd=1.2.4-r11 cmd:ospf6d=1.2.4-r11 cmd:ospfclient=1.2.4-r11 cmd:ospfd=1.2.4-r11 cmd:pimd=1.2.4-r11 cmd:ripd=1.2.4-r11 cmd:ripngd=1.2.4-r11 cmd:test_igmpv3_join=1.2.4-r11 cmd:vtysh=1.2.4-r11 cmd:watchquagga=1.2.4-r11 cmd:zebra=1.2.4-r11 so:libfpm_pb.so.0=0.0.0 so:libospf.so.0=0.0.0 so:libospfapiclient.so.0=0.0.0 so:libquagga_pb.so.0=0.0.0 so:libzebra.so.1=1.0.0
 main	quagga-dbg	1.2.4-r11	Q1a7XuzXVtB6RGxIq+e42SdX04dac=	A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP (debug symbols)	!quagga<1.2.4-r11 !quagga>1.2.4-r11	
 main	quagga-dev	1.2.4-r11	Q13x9xzC41q5UH0bF5yp8HlMcUAxc=	A free routing daemon replacing Zebra supporting RIP, OSPF, BGP and NHRP (development files)	quagga=1.2.4-r11	

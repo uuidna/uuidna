@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71089
  },
- "asked": "1cf7eb07-a2bb-8afe-9240-87702c1b111a",
+ "asked": "053db3aa-5b95-88c9-8383-c7bc5f0fc968",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "Acoustics.lean": {
@@ -590,7 +590,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "9c5512c4-437b-8644-8413-72ae51ca25e1",
+   "asked": "106de41e-ba2d-87bb-b375-87b08d30c685",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -649,7 +649,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "d341cff5-0c91-8801-8a75-0b33f76d3f9b",
+   "asked": "06fb6849-121c-86f0-bdb4-3f37345cf9af",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -69333,7 +69333,7 @@
    }
   },
   "Installs.lean": {
-   "asked": "c9a6a937-db3d-81f5-b91f-cc97ba00ae2f",
+   "asked": "b03aaf08-6b48-8fc1-bf1e-a14062dfdf7c",
    "verdict": {
     "default_install_is_dependency_closed": [],
     "every_install_and_its_path_named_once": [],
@@ -69870,7 +69870,7 @@
    }
   },
   "Models.lean": {
-   "asked": "978a8450-d4b2-8ba9-b0d2-b50e0c874c86",
+   "asked": "f97b7b3b-de1e-87dc-ad99-ba7088a82113",
    "verdict": {
     "a_token_approximates_eight_hexbits": [],
     "context_windows_are_transient_hexbits": [],
@@ -71040,7 +71040,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "6f2b2c72-82ec-8b5b-9fef-29d9824f719f",
+   "asked": "5408cb5b-9b11-81c2-94de-5d16b26adcfa",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -72409,10 +72409,10 @@
    }
   }
  },
- "receipt": "964a4ba1-dc4a-89e5-bacf-707098bada18",
+ "receipt": "b66dd920-f62d-8eb7-923b-e67fd5c1a84f",
  "crossed": {
-  "sorted": "964a4ba1-dc4a-89e5-bacf-707098bada18",
-  "reversed": "964a4ba1-dc4a-89e5-bacf-707098bada18",
+  "sorted": "b66dd920-f62d-8eb7-923b-e67fd5c1a84f",
+  "reversed": "b66dd920-f62d-8eb7-923b-e67fd5c1a84f",
   "agrees": true
  }
 }

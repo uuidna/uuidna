@@ -1,0 +1,12 @@
+{
+  "handle": "57c08ff3",
+  "address": "57c08ff3-5e9a-889c-a088-802619b30f86",
+  "statement": "((449 * 100 < 431191) ∧ (1279 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
+  "tactic": "decide",
+  "keys": [
+    "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

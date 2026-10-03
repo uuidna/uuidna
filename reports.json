@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The four-hex span, part 1 (4096)",
         "smallestPrinciple": "The six-cube translation by 9 (1)",
-        "ledgerReceipt": "ea431e44-0ac4-8402-abfa-7b26aa63f123"
+        "ledgerReceipt": "2ee4fabf-b064-8115-b518-3f984cb82894"
       },
-      "address": "3803dc79-95a7-8759-b054-0e53919c7784"
+      "address": "35456991-4a88-8821-ba36-61a026d7e1f6"
     },
     {
       "title": "Heartbeat coverage",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1467,
-        "roots": 926,
-        "supported": 1465,
-        "dead": 2,
-        "receipt": "70520372-c57d-821c-8f2a-df94bdcd68a1"
+        "modules": 1475,
+        "roots": 934,
+        "supported": 1472,
+        "dead": 3,
+        "receipt": "dff4f38c-0d30-8bb9-9f03-5b0efafc7272"
       },
-      "address": "3839df7e-7f71-8b7f-92ae-5fd1da510b59"
+      "address": "7f8b6dad-3b26-8f47-9e65-72057296dede"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "2b1a1d15fde17e78",
-        "unifiedFold": "0f6671274ab60570",
+        "foldReceipt": "3d5195a2c54eacb8",
+        "unifiedFold": "ef4915544205167c",
         "zeroEntropy": "true"
       },
-      "address": "6791bf42-dd01-8640-9249-ee687a2f766c"
+      "address": "ffd20757-6dcb-8773-bc42-4df794311d40"
     },
     {
       "title": "Gate receipt",
@@ -96,73 +96,73 @@
         "uncoveredFiles": 0,
         "captainClaimsTheorems": 71089,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
-        "researchLeads": 2,
+        "researchLeads": 3,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "fc39244b-19e6-8b36-aa0b-5c5fa28ef237"
+      "address": "ec1a13bc-50bc-88c2-9bf3-7dae9de06ca2"
     }
   ],
-  "receipt": "f490c376-4372-8d48-830f-26fb1e89b4be",
-  "handle": "f490c376",
+  "receipt": "d7deaec1-ca78-825a-b4ed-39391bfc7324",
+  "handle": "d7deaec1",
   "hexbits": [
-    15,
-    4,
-    9,
-    0,
-    12,
-    3,
-    7,
-    6,
-    4,
-    3,
-    7,
-    2,
-    8,
     13,
-    4,
-    8,
-    8,
-    3,
-    0,
-    15,
-    2,
-    6,
-    15,
-    11,
-    1,
+    7,
+    13,
     14,
-    8,
-    9,
-    11,
-    4,
-    11,
-    14
-  ],
-  "door": "https://uuidna.com/f490c376",
-  "coin": [
-    15,
-    4,
-    9,
-    0,
+    10,
+    14,
     12,
-    3,
+    1,
+    12,
+    10,
     7,
-    6,
-    4,
-    3,
-    7,
-    2,
     8,
-    13,
+    8,
+    2,
+    5,
+    10,
+    11,
     4,
-    8
+    14,
+    13,
+    3,
+    9,
+    3,
+    9,
+    1,
+    11,
+    15,
+    12,
+    7,
+    3,
+    2,
+    4
+  ],
+  "door": "https://uuidna.com/d7deaec1",
+  "coin": [
+    13,
+    7,
+    13,
+    14,
+    10,
+    14,
+    12,
+    1,
+    12,
+    10,
+    7,
+    8,
+    8,
+    2,
+    5,
+    10
   ],
   "place": {
-    "handle": "f490c376",
-    "value": 4103127926,
+    "handle": "d7deaec1",
+    "value": 3621695169,
     "span": 4294967296,
-    "residue": 8,
-    "nilpotent": false,
+    "residue": 3,
+    "nilpotent": true,
     "hexbits": 8
   },
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess. Frozen root JSON twins fold here rather than remaining unaddressed snapshots."
