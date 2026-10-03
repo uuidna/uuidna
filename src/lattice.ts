@@ -212,13 +212,22 @@ export interface LatticeFill {
   honest: string
 }
 
-const CALL_HONEST =
+// LAZY, BECAUSE THE EDGE CANNOT AFFORD THIS AT IMPORT. These two were module-level constants, each ending in
+// solutionHonest(), which calls clayScope(), which walks theorems() — and at the edge theorems() is the throwing
+// list. So importing this module threw, and every module that imports it (mcp.js among them) failed to load: the
+// whole Worker, dead at boot, for one sentence of prose. It was invisible because nothing had deployed since
+// 2026-09-21 and the eager call arrived on 2026-09-25; the first landing after it would have taken uuidna.com down.
+// Found by loading the dry-run bundle's top level before shipping (2026-10-03). Computed on first call instead,
+// where the door that needs it runs — and at the edge that door's bare answer is baked, so the walk never happens.
+let _callHonest: string | null = null
+const CALL_HONEST = (): string => (_callHonest ??=
   'This station is a HexSpan identity. Named theorems, wing axioms and human problems are cargo it CALLS. ' +
-  solutionHonest()
+  solutionHonest())
 
-const FILL_HONEST =
+let _fillHonest: string | null = null
+const FILL_HONEST = (): string => (_fillHonest ??=
   'The lattice is 2^16 HexSpan stations. Named cargo seats inside that count. Occupied + vacant = stations. ' +
-  solutionHonest()
+  solutionHonest())
 
 export function hex4Of(n: number): string {
   if (n < 0 || n >= LATTICE_STATIONS) throw new Error(`hex4Of: ${n} is not a station index`)
@@ -408,7 +417,7 @@ export function latticeCall(station: string): LatticeCall {
     problems: problems.map(problemCall),
     solutions: problems.map(callSolutionInvolution),
     meaning: meaningOf(st, problems),
-    honest: CALL_HONEST,
+    honest: CALL_HONEST(),
   }
 }
 
@@ -474,7 +483,7 @@ export function fillLattice(): LatticeFill {
     collisions,
     problems,
     involution: solutionInvolution(),
-    honest: FILL_HONEST,
+    honest: FILL_HONEST(),
   }
   return _fill
 }
