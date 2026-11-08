@@ -1,0 +1,12 @@
+{
+  "handle": "d930f287",
+  "address": "d930f287-d664-8743-9d33-7a81046ca377",
+  "kind": "chunk",
+  "keys": [
+    "de5612a2_mul_two_mod_nine"
+  ],
+  "statement": "∀ a : Nat, (a * 2) % 9 = ((a % 9) * 2) % 9",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

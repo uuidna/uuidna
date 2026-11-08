@@ -5,7 +5,25 @@
 // rosetta-legs.ts. Attribution is listed only where it is NOT the captain, because storing a default is an
 // annotation, and the FLOOR is the anchoring this ledger may never fall below.
 
-export const MIRROR = `#Acoustics.lean
+export const MIRROR = `#45bcb8b0.lean
+de5612a2_go_fuel 2
+de5612a2_add_sub_self 2
+de5612a2_go_congr 2
+de5612a2_modCore_add_self 2
+de5612a2_mod_add_self 2
+de5612a2_add_mul_mod_self 2
+de5612a2_mod_add_nine 2
+de5612a2_mod_add_fourteen 2
+de5612a2_mod_add_eighty_four 2
+de5612a2_mul_two_mod_nine 18
+de5612a2_mul_two_mod_nine_congr 2
+doubling_repeats_every_six 2
+doubling_repeats_every_forty_two 2
+stepping_repeats_every_seven 2
+stepping_repeats_every_forty_two 2
+pair_repeats_every_forty_two 2
+lead_de5612a2_verified 18
+#Acoustics.lean
 harmonic_series 27
 wave_speed_f_lambda 27
 decibel_is_logarithmic 27
@@ -69063,8 +69081,6 @@ carmichael_exponent_is_attained_mod_57 26
 carmichael_exponent_is_attained_mod_58 26
 carmichael_exponent_is_attained_mod_59 26
 carmichael_exponent_is_attained_mod_60 26
-#Leadde5612a2.lean
-lead_de5612a2_verified 18
 #Legal.lean
 solutions_not_skipped 27
 legal_verdict_is_exactly_one 27

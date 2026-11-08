@@ -62,7 +62,9 @@ test('no fan-out carries a hand-typed lane count — every width comes from the 
     // tree: that one excused files because of who wrote them, this one excludes calls that spawn no work.
     if (f.endsWith('.test.ts')) continue
     const src = readFileSync(f, 'utf8')
-    for (const m of src.matchAll(/\bpool\(/g)) {
+    // the bare function only: `X.pool(…)` is a method — the families' BackendFormulas.pool(120, 100) is a formula
+    // about a pool size, and spawns nothing on this machine (measured 2026-11-08, when it read as a fan-out)
+    for (const m of src.matchAll(/(?<![.\w])pool\(/g)) {
       const args = poolArgs(src, m.index + 4)
       const width = args[1]
       if (width === undefined) continue

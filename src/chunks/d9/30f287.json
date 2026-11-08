@@ -1,0 +1,12 @@
+{
+  "handle": "d930f287",
+  "address": "d930f287-d664-8743-9d33-7a81046ca377",
+  "statement": "∀ a : Nat, (a * 2) % 9 = ((a % 9) * 2) % 9",
+  "tactic": "intro a induction a using Nat.strongRecOn with | _ a ih => match a with | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 => rfl | b + 9 => have h := ih b (Nat.lt_add_of_pos_right (by decide)) rw [Nat.mul_two] at h rw [Nat.mul_two, de5612a2_mod_add_nine, show b + 9 + (b + 9) = b + b + 9 + 9 from by rw [← Nat.add_assoc, Nat.add_right_comm b 9 b], de5612a2_mod_add_nine, de5612a2_mod_add_nine] exact h",
+  "keys": [
+    "de5612a2_mul_two_mod_nine"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

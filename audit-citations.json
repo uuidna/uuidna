@@ -1,18 +1,18 @@
 {
-  "key": "625ba8de-7f57-87ee-ac9e-b8e7111ef9df",
-  "publications": 262,
-  "sealedTheorems": 71089,
+  "key": "7dd77122-f0cb-82cb-bfc0-8fec6ffa521e",
+  "publications": 263,
+  "sealedTheorems": 71091,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2765,
-    "theorems": 71089,
+    "claims": 2767,
+    "theorems": 71091,
     "bijection": false,
     "digitalRoots": {
-      "claims": 2,
-      "theorems": 7,
-      "publications": 1
+      "claims": 4,
+      "theorems": 9,
+      "publications": 2
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -2037,6 +2037,14 @@
       "slug": "fermat-ring21",
       "claims": 46,
       "cited": 46,
+      "isTheorem": 0,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "45bcb8b0",
+      "claims": 2,
+      "cited": 2,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:f5de0c81-41aa-8faa-a677-477408095831",
+  "@id": "urn:uuid:e5eab97c-2942-8007-a849-1514668513fa",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit monitor",
   "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress displays that witness plus provenance compile coverage and the compile timings measured on the build host.",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "5e51356e-d5dc-8570-9c6a-82a0bb5f8551",
+  "identifier": "14427919-2804-8936-b03f-2b96f910df7a",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
       "@type": "PropertyValue",
       "name": "Alpine port completeness — man→app→hexbit witnessed",
-      "value": 4757,
+      "value": 4761,
       "unitText": "witnesses",
       "measurementTechnique": "computed",
       "citation": "manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits"
@@ -59,7 +59,7 @@
     {
       "@type": "PropertyValue",
       "name": "MCP Alpine man exposure — uuidna_exec",
-      "value": 4757,
+      "value": 4761,
       "unitText": "apps",
       "measurementTechnique": "computed",
       "citation": "mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)"
@@ -75,7 +75,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — packages",
-      "value": 22679,
+      "value": 22699,
       "unitText": "packages",
       "measurementTechnique": "measured",
       "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter"
@@ -83,7 +83,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — ported",
-      "value": 22679,
+      "value": 22699,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness"
@@ -91,7 +91,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine man-page packages — ported",
-      "value": 4757,
+      "value": 4761,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus"
@@ -99,7 +99,7 @@
     {
       "@type": "PropertyValue",
       "name": "package self-test — passed",
-      "value": 28644,
+      "value": 28664,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "packageSelfTestCoverage() — every catalogue row tests itself; named gaps closed from published testing"

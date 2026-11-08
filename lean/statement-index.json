@@ -1,8 +1,8 @@
 {
  "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
- "distinct": 71004,
- "keys": 71089,
- "renamings": 85,
+ "distinct": 71005,
+ "keys": 71091,
+ "renamings": 86,
  "reuse": {
   "(1 * 1) % 9 = 1": [
    "mul9_1_1",
@@ -328,6 +328,10 @@
   "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n": [
    "not_dvd_of_bound",
    "not_dvd_of_bound_e92de628"
+  ],
+  "lead_de5612a2": [
+   "lead_de5612a2_verified",
+   "proof_de5612a2"
   ]
  },
  "wings": {
@@ -655,12 +659,16 @@
   "∀ d n : Nat, (∀ j, j < n / d + 1 → d * j ≠ n) → ¬ d * (n / d + 1) ≤ n → ¬ d ∣ n": [
    "Involutione92de628.lean",
    "Links.lean"
+  ],
+  "lead_de5612a2": [
+   "45bcb8b0.lean",
+   "Proofde5612a2.lean"
   ]
  },
- "receipt": "3e181f14-eaa5-898e-bac0-e6f9f3ea716c",
+ "receipt": "844a7033-f950-8e27-aba3-7790763d3aac",
  "crossed": {
-  "sorted": "3e181f14-eaa5-898e-bac0-e6f9f3ea716c",
-  "reversed": "3e181f14-eaa5-898e-bac0-e6f9f3ea716c",
+  "sorted": "844a7033-f950-8e27-aba3-7790763d3aac",
+  "reversed": "844a7033-f950-8e27-aba3-7790763d3aac",
   "agrees": true
  }
 }

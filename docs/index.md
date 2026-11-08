@@ -65,7 +65,7 @@ These numbers are read from the sealed ledger at build time, so the page says on
 **Permanence.** The handle is DOI-class (the worker serves HANDLES); completeness cites handle and DOI.
 
 <!-- unlocks:begin -->
-**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**71004** distinct / **71089** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
+**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**71005** distinct / **71091** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
 <!-- unlocks:end -->
 
 
@@ -74,12 +74,12 @@ These numbers are read from the sealed ledger at build time, so the page says on
 **Hexbit-fast.** Push verifies sealed receipts (no full QA remeasure on the critical path). Stock VitePress chrome — links in cards, buttons, nav, sidebar only.
 
 <!-- ports:begin -->
-**Alpine ported into 9 APIs.** 3498 packages, each domain answering through one door —
+**Alpine ported into 9 APIs.** 3500 packages, each domain answering through one door —
 provenance from Alpine's own published metadata, and one API of uuidna's own beside it.
 
 | domain | packages | origins | the one API offers |
 | --- | ---: | ---: | --- |
-| `shell` | 1279 | 680 | one exec door over uuidnaOS applets |
+| `shell` | 1281 | 682 | one exec door over uuidnaOS applets |
 | `driver` | 631 | 461 | the machine and the published bundle behind one door |
 | `database` | 438 | 325 | one query door where the address is the key |
 | `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
@@ -90,7 +90,7 @@ provenance from Alpine's own published metadata, and one API of uuidna's own bes
 | `blockchain` | 29 | 19 | inclusion without disclosure |
 
 Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
-over-count rather than partition. Computed from the committed mirror on every build; receipt `97f0b4b8-320b-809f-b936-6ee73a1cd1d0`.
+over-count rather than partition. Computed from the committed mirror on every build; receipt `e1026f70-80ed-8151-8de8-b5ee56cf61ff`.
 <!-- ports:end -->
 
 <!-- clay:begin -->

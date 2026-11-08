@@ -18,20 +18,20 @@ export const INSTALLS_MIRROR: InstallsMirror = {
  "repo": "main",
  "arch": "x86_64",
  "release": {
-  "version": "3.24.2",
-  "rootfsSha256": "c5ca053cfe1d85c5b96dff8b9bc57045f7f184a30ffb6b65776409ca90388677"
+  "version": "3.24.4",
+  "rootfsSha256": "cdaa38cb8de3537967ee5b6c9b6cd00cc962da2b018e6eea48696bb274923012"
  },
  "driver": {
   "flavor": "alpine-netboot",
-  "file": "alpine-netboot-3.24.2-x86_64.tar.gz",
-  "sha256": "bbdd643360fac384a7933d8bebc7132eb720002e58d1321edcde4a5a3c3b83c6"
+  "file": "alpine-netboot-3.24.4-x86_64.tar.gz",
+  "sha256": "1502e776d9ce8cebd5e71f50b9b50b2779757409d4ee471011a56ec8c34951a8"
  },
  "count": 25,
  "packages": [
   {
    "name": "alpine-base",
-   "version": "3.24.2-r0",
-   "checksum": "Q1dRnSKKSmlyRK/Hntx/BWTdTsP0U=",
+   "version": "3.24.4-r0",
+   "checksum": "Q18/DMF4YofAkvvvknCuD7WIsTgyQ=",
    "desc": "Meta package for minimal alpine base",
    "deps": [
     "alpine-baselayout",
@@ -83,8 +83,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "alpine-release",
-   "version": "3.24.2-r0",
-   "checksum": "Q1b9G+RpyiNenGLxtz+j5b/6/etrU=",
+   "version": "3.24.4-r0",
+   "checksum": "Q1h7+HsQcocLeEQ30mu7t6tN+FFZA=",
    "desc": "Alpine release data",
    "deps": [
     "alpine-keys"
@@ -92,8 +92,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "apk-tools",
-   "version": "3.0.8-r0",
-   "checksum": "Q1eGEwqPLTrGn8MWEYdXt+gVG4uMM=",
+   "version": "3.0.9-r0",
+   "checksum": "Q1J7x4ZnVPz2sesSd0tcjmwIQjkNY=",
    "desc": "Alpine Package Keeper - package manager for alpine",
    "deps": [
     "ca-certificates-bundle",
@@ -159,15 +159,15 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "ca-certificates-bundle",
-   "version": "20260909-r0",
-   "checksum": "Q1eRI3zuh3mIiTo1S19snETzXU7bk=",
+   "version": "20261020-r0",
+   "checksum": "Q1fG5jX4aq+0bLOwFdhQWzpfYRVr0=",
    "desc": "Pre generated bundle of Mozilla certificates",
    "deps": []
   },
   {
    "name": "libapk",
-   "version": "3.0.8-r0",
-   "checksum": "Q1uTzpVzwdDbPup84yhBrQhXq8SlQ=",
+   "version": "3.0.9-r0",
+   "checksum": "Q1qU9Nf2fuR7pcUYWGSvHUsWETxZg=",
    "desc": "Alpine Package Keeper - package manager for alpine",
    "deps": [
     "libcrypto3",
@@ -213,15 +213,15 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "musl",
-   "version": "1.2.6-r2",
-   "checksum": "Q1D35YJ+ThpzYxvtont4QxqLokDgU=",
+   "version": "1.2.6-r3",
+   "checksum": "Q1dw6DBNlY3O2Y12mX356Podtcoy8=",
    "desc": "the musl c library (libc) implementation",
    "deps": []
   },
   {
    "name": "musl-utils",
-   "version": "1.2.6-r2",
-   "checksum": "Q1da2jxI1j7F2HxC/fk0o/3REpjcU=",
+   "version": "1.2.6-r3",
+   "checksum": "Q1UTctqvsjRkaWDspNehP3BjJPJNY=",
    "desc": "the musl c library (libc) implementation",
    "deps": [
     "musl",
@@ -262,8 +262,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "zlib",
-   "version": "1.3.2-r0",
-   "checksum": "Q13Uw9ECrK7ypxoUlZUdVfq8hoBhM=",
+   "version": "1.4-r0",
+   "checksum": "Q14j+c5OMsvdJ78cidhOg7phxCkLw=",
    "desc": "A compression/decompression Library",
    "deps": [
     "musl"

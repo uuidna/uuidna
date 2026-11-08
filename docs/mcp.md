@@ -1573,7 +1573,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":71089,"total":true,"failures":[],"receipt":"2bd52769-5adb-8118-8bb7-725e6d2af866","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":71089,"total":true,"failures":[],"receipt":"a548f5ec-0d95-8fc3-8f7d-d53d9a2a654d","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1596,7 +1596,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":71089,"skills":131,"principles":262,"receipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":71089,"skills":131,"principles":262,"receipt":"2ee4fabf-b064-8115-b518-3f984cb82894","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -2011,7 +2011,11 @@ Call `get_registry` — the old name `uuidna_registry` still answers · read-onl
 {"count":278,"tools":253,"installs":25,"packages":[{"kind":"install","id":"uuidna/alpine-base","name":"alpine-base","route":"/","meaning":"Meta package for min…
 ```
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `of` | string | no | omit for the port registry; "ga… |
 
 THE ONE PORT REGISTRY — the toolbox and the ported OS as a SINGLE content-addressed set. Every MCP tool is recast into the same port shape an Alpine package wears (uuidna/&amp;lt;name&amp;gt; identity, a 128-bit address, 32 hexbit states, its one-line meaning) and merged with the sealed install port, then the whole set is merkle-folded to ONE root: compare one handle, compare every port at once. A tool's address here IS the preimage the served API seal folds, so the two surfaces cannot drift. Nothing executes (theorem the_os_is_bootable_quantum) — a tool-package is a provenance spec or uuidna's own pure logic, never Alpine's binary. Derived from the catalogue + install port, no fetch. Returns {count,tools,installs,packages:[{kind,id,name,route,meaning,address,hexbits}],root,handle,receipt,honest}.
 
@@ -2271,7 +2275,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":71089,"verified":71089,"unverified":0,"receipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":71089,"verified":71089,"unverified":0,"receipt":"2ee4fabf-b064-8115-b518-3f984cb82894"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2764,7 +2768,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":71089,"fnvReceipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123","sha256":"c0b1f48a5ae13c69efde84d0254958fba9063100e40e8b14d9cddc61e1b816e0","…
+{"fingerprint":{"count":71089,"fnvReceipt":"2ee4fabf-b064-8115-b518-3f984cb82894","sha256":"3576d9c5049488c03ff2a9c4ed496add7dee74a092a167310b2ec6670c6128e6","…
 ```
 
 **Parameters**
@@ -3620,7 +3624,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":71089,"fnvReceipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123","sha256":"c0b1f48a5ae13c69efde84d0254958fba9063100e40e8b14d9cddc61e1b816e0","tamperCost":"A …
+{"count":71089,"fnvReceipt":"2ee4fabf-b064-8115-b518-3f984cb82894","sha256":"3576d9c5049488c03ff2a9c4ed496add7dee74a092a167310b2ec6670c6128e6","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3637,7 +3641,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":71089,"verified":71089,"unverified":0,"leanBacked":71089,"receipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":71089,"verified":71089,"unverified":0,"leanBacked":71089,"receipt":"2ee4fabf-b064-8115-b518-3f984cb82894","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -5339,7 +5343,7 @@ Call `decode_theorem` — the old name `uuidna_decode` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"polarities":{"minus":28535,"neutral":14137,"plus":28417,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4107,"neutral":2004,"plus":4061…
+{"polarities":{"minus":28536,"neutral":14138,"plus":28415,"capacity":{"minus":4,"neutral":2,"plus":4},"byRay":[{"ray":0,"minus":4108,"neutral":2004,"plus":4060…
 ```
 
 **Parameters**
@@ -5641,7 +5645,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"a0d4013f","theorems":{"count":71089,"verified":71089,"receipt":"ea431e44-0ac4-8402-abfa-7b26aa63f123"},"domains":{"count":131,"verdict":"VERIFIED","…
+{"handle":"8dfe8487","theorems":{"count":71089,"verified":71089,"receipt":"2ee4fabf-b064-8115-b518-3f984cb82894"},"domains":{"count":131,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5662,7 +5666,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"14376336","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
+{"handle":"25a24b9b","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._

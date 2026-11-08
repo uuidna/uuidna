@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1483,
-  "distinct": 1254,
-  "loadBearing": 116,
+  "records": 1530,
+  "distinct": 1299,
+  "loadBearing": 118,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -285,6 +285,13 @@
       "hits": 2,
       "forms": [
         "git"
+      ]
+    },
+    {
+      "gap": "compile check of an axiom-free rewrite of a trial wing's proofs: the trial door takes a lead, not a draft wing",
+      "hits": 2,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -739,6 +746,14 @@
       ]
     },
     {
+      "gap": "which CERN Open Data record ids carry the four sealed totals: no door maps a sealed total back to its record",
+      "hits": 2,
+      "forms": [
+        "S",
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "wing source read door",
       "hits": 2,
       "forms": [
@@ -1036,6 +1051,34 @@
       ]
     },
     {
+      "gap": "axiom probe of a trial wing's helper lemmas: no door prints #print axioms for keys outside the served ledger",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "axiom probe of core Nat lemmas: no door prints #print axioms for core constants",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "axiom probe of Nat.mod definitions and definitional unfoldings: no door prints #print or #print axioms for core constants",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "axiom probe of Nat.modCore.go and small core lemmas: no door prints core definitions or #print axioms for core constants",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "axiomReach() — the definition census, and whether a finding is an ORPHAN or a STALE index",
       "hits": 1,
       "forms": [
@@ -1316,6 +1359,55 @@
       ]
     },
     {
+      "gap": "code reference search across the qpu checkout (who imports a module/symbol) before removing dead files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commit boolean statements and push through the pre-push gate",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commit the gates module by pathspec: no door stages or commits",
+      "hits": 1,
+      "forms": [
+        "git"
+      ]
+    },
+    {
+      "gap": "commit the guard-certified tree by pathspec: no door stages or commits",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commit the heat split/residue/erasure/landauer formulas by pathspec",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commit the land cure by pathspec: no door stages or commits",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "commit the qpu cut-slow round by pathspec",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "committed-tree axiom witness door (green is about the committed tree)",
       "hits": 1,
       "forms": [
@@ -1404,6 +1496,34 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "compile check of the trial wing with explicit arguments in one inductive step: no door elaborates a tactic",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "compile check of three base-case tactics for a trial wing: no door elaborates a tactic",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "compile the final trial wing before it replaces the file",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "compile the single-line, tactic-only rewrite of the trial wing before it replaces the file: the trial door takes a lead, not a draft wing",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -1911,6 +2031,13 @@
       ]
     },
     {
+      "gap": "find the lean-eval test file to add the cross-route agreement test",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "find the wave that produced the merkaba union-8 lead (a8a8f3ea) in the leads tables",
       "hits": 1,
       "forms": [
@@ -2093,6 +2220,13 @@
       ]
     },
     {
+      "gap": "identify theorem/code redundancy between qpu and uuidna for cross-formulation",
+      "hits": 1,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
       "gap": "identifying the theology and algebra wings for the decisional priority",
       "hits": 1,
       "forms": [
@@ -2125,6 +2259,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "install the compiled trial wing in place: the trial door deposits a lead, no door rewrites a wing's proofs",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -2191,6 +2332,13 @@
       ]
     },
     {
+      "gap": "list the untracked cross wing directory before committing it: no door lists a directory",
+      "hits": 1,
+      "forms": [
+        "ls"
+      ]
+    },
+    {
       "gap": "listing deterministic storage tests for a clean A/B",
       "hits": 1,
       "forms": [
@@ -2223,6 +2371,34 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "locate clay block generators and homepage sources (uuidna docs, qpu site)",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "locate Clay coverage in generated README/homepage sources across qpu and uuidna",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "locate how Qpu.* Lean families are registered and evaluated (powMod route)",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "locate powMod definition and the lean-eval builtin/recursion path",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -6167,6 +6343,13 @@
       ]
     },
     {
+      "gap": "park a companion wing file whose three theorems moved into the lead's wing: the trial door deposits wings, no door retires one",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "per-tool wire rate recomputation for the court measurement",
       "hits": 1,
       "forms": [
@@ -6185,6 +6368,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "profile the full develop sweep per formula/input, streaming",
+      "hits": 1,
+      "forms": [
+        "pkill"
       ]
     },
     {
@@ -6258,7 +6448,42 @@
       ]
     },
     {
+      "gap": "read five legal-audit rows by seq so a person can class them: no door prints an audit row by seq",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read how the trial wing's theorems entered the served ledger: no door prints a ledger row's raw statement by key prefix",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read merkaba trial record for lead a8a8f3ea",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read qpu heat family and Qpu.Physics thermal model before designing the prime split",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read qpu README Clay section and the qpu site home page",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read qpu README Clay section, its generator and the site home page",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6279,7 +6504,28 @@
       ]
     },
     {
+      "gap": "read test style before adding the cross-route test",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read the handle store record cc9c0011 to see what it addresses",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the inline skill annotation syntax from an existing wing: no door prints how a theorem authors its skill",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the unit's citation reader to see which file it compares the bundled citation against: no door prints a module's source",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6734,6 +6980,13 @@
       ]
     },
     {
+      "gap": "recompute every index.lean theorem with the new lean-eval builtins",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "recompute the chunk-handle fold and the name-bearing folds for the ca852b53 witness pair",
       "hits": 1,
       "forms": [
@@ -6804,6 +7057,13 @@
       ]
     },
     {
+      "gap": "remove the tsbuildinfo my typecheck left in the qpu checkout",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "removing the duplicate basis declaration from the generator",
       "hits": 1,
       "forms": [
@@ -6825,7 +7085,28 @@
       ]
     },
     {
+      "gap": "replace the CLI body with the measured, batching version",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "replace verdict strings with statements and the boolean holds",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "replacing the sealed-address Set with an aligned search in the baked root",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "run qpu unit and family tests after the lean-eval cross routes",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6885,6 +7166,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "survey literal 91 and lattice names in qpu source before folding a literal finder (no code-search door)",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -7014,6 +7302,13 @@
       ]
     },
     {
+      "gap": "time the full develop sweep over all 164 leads after the powMod cross route",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "timing a pure census to size the memo",
       "hits": 1,
       "forms": [
@@ -7025,6 +7320,20 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "update the heat test for heat.slow and inspect the qpu_hex result shape",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "update the heat.slow control test to slow(f, j)",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -7235,6 +7544,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "which lead record names the companion wing file: no door lists a lead's wing files",
+      "hits": 1,
+      "forms": [
+        "grep"
       ]
     },
     {

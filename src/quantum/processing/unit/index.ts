@@ -2547,7 +2547,7 @@ const unlikeProductOf = (e: string): boolean => {
 }
 /**
  * CROSS is the fifth reading: a statement whose two sides ARE the two readings — a sum of like terms equal to a
- * product of unlike ones. `next_fused` (faces * mintOf (bits + coins) = fused + fused) is the asymmetric reading
+ * product of unlike ones. "next_fused" (faces * mintOf (bits + coins) = fused + fused) is the asymmetric reading
  * set equal to the symmetric one; reading only its right side called it symmetric, which is half of what it says.
  * Any conjunct that crosses makes the statement cross; otherwise the first conjunct decides as before.
   * @wing proof
@@ -3119,7 +3119,7 @@ export const recognizeHolds = (value?: unknown): boolean => {
 /** THE REPLY ON THE WIRE, ONCE AS TEXT AND ONCE AS STRUCTURE. The protocol asks for `content` and `structuredContent`,
  * and those are the two copies a client pays for. An embedded resource copy, a string copy under `_meta.output` and an
  * object copy under `_meta.functionResponse` made a 131 KB proof a 729 KB reply (external audit, 2026-09-12); they are
- * gone. Both copies are the recognition. `{ full: true }` is the document. A `resource_link` rides along only when a
+ * gone. Both copies are the recognition. `{ full: true }` is the document. A "resource_link" rides along only when a
  * GET of its uri returns the document the recognition fold names (lean, cite).
   * @wing agents
   * @kind builder

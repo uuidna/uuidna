@@ -2,13 +2,13 @@
  "definition": "store+os+man→app→browser",
  "manDriven": {
   "definition": "man→app→hexbit",
-  "total": 4757,
-  "witnessed": 4757,
+  "total": 4761,
+  "witnessed": 4761,
   "missing": [],
   "gaps": [],
   "byVia": {
    "corpus": 2,
-   "origin": 4746,
+   "origin": 4750,
    "gtk-doc": 5,
    "libs": 0,
    "dev": 1,
@@ -296,7 +296,7 @@
   {
    "topic": "apk list --all",
    "ok": true,
-   "detail": "catalogue 28644 packages"
+   "detail": "catalogue 28664 packages"
   },
   {
    "topic": "ls /catalogue",
@@ -483,16 +483,16 @@
   "manSamplesOk": 12,
   "catalogueExecOk": 6,
   "installOk": 25,
-  "manWitnessed": 4757,
-  "manTotal": 4757
+  "manWitnessed": 4761,
+  "manTotal": 4761
  },
  "gaps": [],
  "ok": true,
  "honest": "Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
- "receipt": "de57189e-0b75-89fc-a3b4-558709692576",
+ "receipt": "e5f4276d-6b51-8637-95b0-36087f634c7d",
  "crossed": {
-  "sorted": "de57189e-0b75-89fc-a3b4-558709692576",
-  "reversed": "de57189e-0b75-89fc-a3b4-558709692576",
+  "sorted": "e5f4276d-6b51-8637-95b0-36087f634c7d",
+  "reversed": "e5f4276d-6b51-8637-95b0-36087f634c7d",
   "agrees": true
  }
 }

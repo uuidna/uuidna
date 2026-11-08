@@ -1,0 +1,105 @@
+{
+  "file": "45bcb8b0.lean",
+  "slug": "45bcb8b0",
+  "status": "usable",
+  "address": "d30e387b-2d2e-8c1b-afca-4ed7a656995b",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "45bcb8b0.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "json",
+          "children": [
+            {
+              "type": "text",
+              "text": "{\n \"@context\": \"https://schema.org\",\n \"@type\": \"SoftwareSourceCode\",\n \"name\": \"45bcb8b0.lean\",\n \"url\": \"https://uuidna.com/lean/45bcb8b0.lean\",\n \"inLanguage\": \"lean4\",\n \"variableMeasured\": {\n  \"@type\": \"PropertyValue\",\n  \"name\": \"theorems\",\n  \"value\": 2,\n  \"unitText\": \"theorem\"\n }\n}"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-de5612a2_mul_two_mod_nine",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ a : Nat, (a * 2) % 9 = ((a % 9) * 2) % 9 | 0 => rfl | 1 => rfl | 2 => rfl | 3 => rfl | 4 => rfl | 5 => rfl | 6 => rfl | 7 => rfl | 8 => rfl | b + 9 => by have ih := de5612a2_mul_two_mod_nine b rw [Nat.mul_two] at ih rw [Nat.mul_two, de5612a2_mod_add_nine, show b + 9 + (b + 9) = b + b + 9 + 9 from by rw [← Nat.add_assoc, Nat.add_right_comm b 9 b], de5612a2_mod_add_nine, de5612a2_mod_add_nine] exact ih theorem de5612a2_mul_two_mod_nine_congr (a b : Nat) (h : a % 9 = b % 9) : (a * 2) % 9 = (b * 2) % 9"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "∀ a : Nat, (a * 2) % 9 = ((a % 9) * 2) % 9 | 0 => rfl | 1 => rfl | 2 => rfl | 3 => rfl | 4 => rfl | 5 => rfl | 6 => rfl | 7 => rfl | 8 => rfl | b + 9 => by have ih := de5612a2_mul_two_mod_nine b rw [Nat.mul_two] at ih rw [Nat.mul_two, de5612a2_mod_add_nine, show b + 9 + (b + 9) = b + b + 9 + 9 from by rw [← Nat.add_assoc, Nat.add_right_comm b 9 b], de5612a2_mod_add_nine, de5612a2_mod_add_nine] exact ih theorem de5612a2_mul_two_mod_nine_congr (a b : Nat) (h : a % 9 = b % 9) : (a * 2) % 9 = (b * 2) % 9"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem de5612a2_mul_two_mod_nine : ∀ a : Nat, (a * 2) % 9 = ((a % 9) * 2) % 9 | 0 => rfl | 1 => rfl | 2 => rfl | 3 => rfl | 4 => rfl | 5 => rfl | 6 => rfl | 7 => rfl | 8 => rfl | b + 9 => by have ih := de5612a2_mul_two_mod_nine b rw [Nat.mul_two] at ih rw [Nat.mul_two, de5612a2_mod_add_nine, show b + 9 + (b + 9) = b + b + 9 + 9 from by rw [← Nat.add_assoc, Nat.add_right_comm b 9 b], de5612a2_mod_add_nine, de5612a2_mod_add_nine] exact ih theorem de5612a2_mul_two_mod_nine_congr (a b : Nat) (h : a % 9 = b % 9) : (a * 2) % 9 = (b * 2) % 9 := by rw [de5612a2_mul_two_mod_nine a, de5612a2_mul_two_mod_nine b, h]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-lead_de5612a2_verified",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "lead_de5612a2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "lead_de5612a2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem lead_de5612a2_verified : lead_de5612a2 := by unfold lead_de5612a2 refine ⟨pair_repeats_every_forty_two, ?_, ?_, ?_, ?_⟩ all_goals decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

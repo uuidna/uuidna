@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 466,
+ "count": 464,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -139,6 +139,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000025"
   },
   {
+   "id": "anthropic/claude-haiku-5.5",
+   "name": "Anthropic: Claude Haiku 5.5",
+   "contextTokens": 1000000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000005"
+  },
+  {
+   "id": "anthropic/claude-haiku-5.5:batch",
+   "name": "Anthropic: Claude Haiku 5.5 (batch)",
+   "contextTokens": 1000000,
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.00000025"
+  },
+  {
    "id": "anthropic/claude-opus-4.1",
    "name": "Anthropic: Claude Opus 4.1",
    "contextTokens": 200000,
@@ -237,13 +251,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000125"
   },
   {
-   "id": "anthropic/claude-sonnet-4",
-   "name": "Anthropic: Claude Sonnet 4",
-   "contextTokens": 200000,
-   "promptPrice": "0.000003",
-   "completionPrice": "0.000015"
-  },
-  {
    "id": "anthropic/claude-sonnet-4.5",
    "name": "Anthropic: Claude Sonnet 4.5",
    "contextTokens": 1000000,
@@ -298,27 +305,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.000001",
    "completionPrice": "0.000005"
-  },
-  {
-   "id": "apodex/apodex-1.1-mini:free",
-   "name": "Apodex: Apodex 1.1 Mini (free)",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
-   "id": "arcee-ai/trinity-large-thinking",
-   "name": "Arcee AI: Trinity Large Thinking",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.0000008"
-  },
-  {
-   "id": "baidu/ernie-4.5-vl-424b-a47b",
-   "name": "Baidu: ERNIE 4.5 VL 424B A47B ",
-   "contextTokens": 123000,
-   "promptPrice": "0.00000042",
-   "completionPrice": "0.00000125"
   },
   {
    "id": "bytedance-seed/seed-1.6",
@@ -422,8 +408,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-chat",
    "name": "DeepSeek: DeepSeek V3",
    "contextTokens": 163840,
-   "promptPrice": "0.0000002574",
-   "completionPrice": "0.0000010287"
+   "promptPrice": "0.00000032",
+   "completionPrice": "0.00000089"
   },
   {
    "id": "deepseek/deepseek-chat-v3-0324",
@@ -438,13 +424,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 163840,
    "promptPrice": "0.00000025",
    "completionPrice": "0.00000095"
-  },
-  {
-   "id": "deepseek/deepseek-r1",
-   "name": "DeepSeek: R1",
-   "contextTokens": 64000,
-   "promptPrice": "0.0000007",
-   "completionPrice": "0.0000025"
   },
   {
    "id": "deepseek/deepseek-r1-0528",
@@ -464,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v3.2",
    "name": "DeepSeek: DeepSeek V3.2",
    "contextTokens": 163840,
-   "promptPrice": "0.00000028",
-   "completionPrice": "0.00000042"
+   "promptPrice": "0.00000026",
+   "completionPrice": "0.00000038"
   },
   {
    "id": "deepseek/deepseek-v3.2-exp",
@@ -478,50 +457,71 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000028",
-   "completionPrice": "0.000000056"
+   "promptPrice": "0.000000091",
+   "completionPrice": "0.000000182"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000188",
-   "completionPrice": "0.00000128"
+   "promptPrice": "0.0000000434",
+   "completionPrice": "0.0000003"
+  },
+  {
+   "id": "deepseek/deepseek-v4-flash-0731:batch",
+   "name": "DeepSeek: DeepSeek V4 Flash 0731 (batch)",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000048",
+   "completionPrice": "0.000000144"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002156",
-   "completionPrice": "0.0000006468"
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.00000132"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000002088",
-   "completionPrice": "0.0000004176"
+   "promptPrice": "0.00000043413",
+   "completionPrice": "0.00000086826"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.0000042"
+   "promptPrice": "0.000000111",
+   "completionPrice": "0.00000444"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash",
    "name": "DeepSeek: DeepSeek V4.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
+   "promptPrice": "0.000000051",
+   "completionPrice": "0.000000567"
+  },
+  {
+   "id": "deepseek/deepseek-v4.1-flash-1017",
+   "name": "DeepSeek: DeepSeek V4.1 Flash 1017",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000006",
+   "completionPrice": "0.0000005"
+  },
+  {
+   "id": "deepseek/deepseek-v4.1-flash-1017:batch",
+   "name": "DeepSeek: DeepSeek V4.1 Flash 1017 (batch)",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000011",
+   "completionPrice": "0.0000002"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash:batch",
    "name": "DeepSeek: DeepSeek V4.1 Flash (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000112",
-   "completionPrice": "0.000000336"
+   "promptPrice": "0.000000011",
+   "completionPrice": "0.0000002"
   },
   {
    "id": "dots-studio/dots-3-note-preview:free",
@@ -529,6 +529,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 512000,
    "promptPrice": "0",
    "completionPrice": "0"
+  },
+  {
+   "id": "elorian/glimpse",
+   "name": "Elorian: Glimpse",
+   "contextTokens": 262144,
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.000003"
   },
   {
    "id": "fireworks/ember-1",
@@ -559,20 +566,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000004"
   },
   {
-   "id": "google/gemini-2.5-flash-lite:batch",
-   "name": "Google: Gemini 2.5 Flash Lite (batch)",
-   "contextTokens": 1048576,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.0000002"
-  },
-  {
-   "id": "google/gemini-2.5-flash:batch",
-   "name": "Google: Gemini 2.5 Flash (batch)",
-   "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.00000125"
-  },
-  {
    "id": "google/gemini-2.5-pro",
    "name": "Google: Gemini 2.5 Pro",
    "contextTokens": 1048576,
@@ -585,13 +578,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1048576,
    "promptPrice": "0.00000125",
    "completionPrice": "0.00001"
-  },
-  {
-   "id": "google/gemini-2.5-pro:batch",
-   "name": "Google: Gemini 2.5 Pro (batch)",
-   "contextTokens": 1048576,
-   "promptPrice": "0.000000625",
-   "completionPrice": "0.000005"
   },
   {
    "id": "google/gemini-3-flash-preview",
@@ -744,8 +730,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemini-3.8-flash",
    "name": "Google: Gemini 3.8 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000075",
-   "completionPrice": "0.00000375"
+   "promptPrice": "0.000000825",
+   "completionPrice": "0.000004125"
   },
   {
    "id": "google/gemini-3.8-flash:batch",
@@ -753,6 +739,41 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1048576,
    "promptPrice": "0.000000375",
    "completionPrice": "0.000001875"
+  },
+  {
+   "id": "google/gemini-4-argon",
+   "name": "Google: Gemini 4 Argon",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000002",
+   "completionPrice": "0.00001"
+  },
+  {
+   "id": "google/gemini-4-argon:batch",
+   "name": "Google: Gemini 4 Argon (batch)",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "google/gemini-nano-banana-2.1",
+   "name": "Google: Nano Banana 2.1",
+   "contextTokens": 65536,
+   "promptPrice": "0.0000015",
+   "completionPrice": "0.0000075"
+  },
+  {
+   "id": "google/gemini-omni-1.1-flash",
+   "name": "Google: Gemini Omni 1.1 Flash",
+   "contextTokens": 131072,
+   "promptPrice": "0.0000015",
+   "completionPrice": "0.000009"
+  },
+  {
+   "id": "google/gemini-omni-1.2-flash",
+   "name": "Google: Gemini Omni 1.2 Flash",
+   "contextTokens": 131072,
+   "promptPrice": "0.0000015",
+   "completionPrice": "0.000009"
   },
   {
    "id": "google/gemma-2-27b-it",
@@ -773,7 +794,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Google: Gemma 3 27B",
    "contextTokens": 131072,
    "promptPrice": "0.00000008",
-   "completionPrice": "0.00000045"
+   "completionPrice": "0.00000035"
   },
   {
    "id": "google/gemma-3-4b-it",
@@ -800,8 +821,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-31b-it",
    "name": "Google: Gemma 4 31B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.00000034"
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.0000004"
   },
   {
    "id": "google/gemma-4-31b-it:free",
@@ -832,13 +853,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000011"
   },
   {
-   "id": "ibm-granite/granite-4.0-h-micro",
-   "name": "IBM: Granite 4.0 Micro",
-   "contextTokens": 131000,
-   "promptPrice": "0.000000017",
-   "completionPrice": "0.000000112"
-  },
-  {
    "id": "ibm-granite/granite-4.2-8b",
    "name": "IBM: Granite 4.2 8B",
    "contextTokens": 131072,
@@ -860,6 +874,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000015"
   },
   {
+   "id": "inception/mercury-3",
+   "name": "Inception: Mercury 3",
+   "contextTokens": 1000000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.00000035"
+  },
+  {
    "id": "inclusionai/ling-3.0-flash",
    "name": "inclusionAI: Ling 3.0 Flash",
    "contextTokens": 262144,
@@ -867,32 +888,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000000063"
   },
   {
-   "id": "inclusionai/ling-3.0-flash-fin",
-   "name": "inclusionAI: Ling 3.0 Flash Fin",
-   "contextTokens": 262144,
-   "promptPrice": "0.000000042",
-   "completionPrice": "0.0000001232"
-  },
-  {
-   "id": "inclusionai/ling-3.0-flash-sante:free",
-   "name": "inclusionAI: Ling 3.0 Flash Sante (free)",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "inclusionai/ling-3.0-flash-vl",
    "name": "inclusionAI: Ling 3.0 Flash VL",
+   "contextTokens": 131072,
+   "promptPrice": "0.00000006",
+   "completionPrice": "0.00000018"
+  },
+  {
+   "id": "inclusionai/ling-3.0-tiny",
+   "name": "inclusionAI: Ling 3.0 Tiny",
    "contextTokens": 262144,
-   "promptPrice": "0.000000021",
-   "completionPrice": "0.0000000616"
+   "promptPrice": "0.000000015",
+   "completionPrice": "0.000000045"
   },
   {
    "id": "inclusionai/ling-3.1-flash",
    "name": "inclusionAI: Ling 3.1 Flash",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "contextTokens": 1000000,
+   "promptPrice": "0.000000045",
+   "completionPrice": "0.000000135"
   },
   {
    "id": "inference-net/schematron-v2-small",
@@ -909,16 +923,37 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000015"
   },
   {
-   "id": "kwaipilot/kat-coder-pro-v2.5",
-   "name": "Kwaipilot: KAT-Coder-Pro V2.5",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000074",
-   "completionPrice": "0.00000296"
+   "id": "liquid/lfm-2.5-2.6b",
+   "name": "LiquidAI: LFM2.5-2.6B",
+   "contextTokens": 128000,
+   "promptPrice": "0.00000035",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "liquid/lfm-2.5-2.6b:free",
    "name": "LiquidAI: LFM2.5-2.6B (free)",
    "contextTokens": 65536,
+   "promptPrice": "0",
+   "completionPrice": "0"
+  },
+  {
+   "id": "liquid/lfm-2.5-24b-a2b",
+   "name": "LiquidAI: LFM2.5-24B-A2B",
+   "contextTokens": 128000,
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.0000007"
+  },
+  {
+   "id": "liquid/lfm-3-1.7b",
+   "name": "LiquidAI: LFM3-1.7B",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000008",
+   "completionPrice": "0.0000002"
+  },
+  {
+   "id": "liquid/lfm-3-1.7b:free",
+   "name": "LiquidAI: LFM3-1.7B (free)",
+   "contextTokens": 262144,
    "promptPrice": "0",
    "completionPrice": "0"
   },
@@ -940,8 +975,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.1-70b-instruct",
    "name": "Meta: Llama 3.1 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.0000004",
-   "completionPrice": "0.0000004"
+   "promptPrice": "0.00000072",
+   "completionPrice": "0.00000072"
   },
   {
    "id": "meta-llama/llama-3.1-8b-instruct",
@@ -968,15 +1003,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.3-70b-instruct",
    "name": "Meta: Llama 3.3 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.0000001",
-   "completionPrice": "0.00000032"
+   "promptPrice": "0.00000059",
+   "completionPrice": "0.00000079"
   },
   {
    "id": "meta-llama/llama-4-maverick",
    "name": "Meta: Llama 4 Maverick",
-   "contextTokens": 1048576,
-   "promptPrice": "0.0000001875",
-   "completionPrice": "0.0000006525"
+   "contextTokens": 524288,
+   "promptPrice": "0.00000035",
+   "completionPrice": "0.000001"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -996,8 +1031,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta/muse-glimmer-30b",
    "name": "Meta: Muse Glimmer 30B",
    "contextTokens": 131072,
-   "promptPrice": "0.00000035",
-   "completionPrice": "0.0000015"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
+  },
+  {
+   "id": "meta/muse-glimmer-30b:batch",
+   "name": "Meta: Muse Glimmer 30B (batch)",
+   "contextTokens": 131072,
+   "promptPrice": "0.00000024",
+   "completionPrice": "0.00000096"
   },
   {
    "id": "meta/muse-spark-1.1",
@@ -1035,25 +1077,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000002"
   },
   {
+   "id": "meta/muse-spark-open",
+   "name": "Meta: Muse Spark Open",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000125",
+   "completionPrice": "0.00000425"
+  },
+  {
+   "id": "meta/muse-wonder",
+   "name": "Meta: Muse Wonder",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000004",
+   "completionPrice": "0.00002"
+  },
+  {
    "id": "microsoft/phi-4",
    "name": "Microsoft: Phi 4",
    "contextTokens": 16384,
    "promptPrice": "0.00000007",
    "completionPrice": "0.00000014"
-  },
-  {
-   "id": "microsoft/wizardlm-2-8x22b",
-   "name": "WizardLM-2 8x22B",
-   "contextTokens": 65535,
-   "promptPrice": "0.00000062",
-   "completionPrice": "0.00000062"
-  },
-  {
-   "id": "minimax/minimax-01",
-   "name": "MiniMax: MiniMax-01",
-   "contextTokens": 1000192,
-   "promptPrice": "0.0000002",
-   "completionPrice": "0.0000011"
   },
   {
    "id": "minimax/minimax-m1",
@@ -1063,32 +1105,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000022"
   },
   {
-   "id": "minimax/minimax-m2",
-   "name": "MiniMax: MiniMax M2",
-   "contextTokens": 204800,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
-  },
-  {
-   "id": "minimax/minimax-m2-her",
-   "name": "MiniMax: MiniMax M2-her",
-   "contextTokens": 65536,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
-  },
-  {
-   "id": "minimax/minimax-m2.1",
-   "name": "MiniMax: MiniMax M2.1",
-   "contextTokens": 204800,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
-  },
-  {
    "id": "minimax/minimax-m2.5",
    "name": "MiniMax: MiniMax M2.5",
    "contextTokens": 204800,
-   "promptPrice": "0.00000027",
-   "completionPrice": "0.00000108"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "minimax/minimax-m2.7",
@@ -1105,18 +1126,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000012"
   },
   {
+   "id": "minimax/minimax-m3.1-flash",
+   "name": "MiniMax: MiniMax M3.1 Flash",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
+  },
+  {
+   "id": "minimax/minimax-m3:batch",
+   "name": "MiniMax: MiniMax M3 (batch)",
+   "contextTokens": 524288,
+   "promptPrice": "0.000000224",
+   "completionPrice": "0.00000088"
+  },
+  {
    "id": "mistralai/codestral-2508",
    "name": "Mistral: Codestral 2508",
    "contextTokens": 256000,
    "promptPrice": "0.0000003",
    "completionPrice": "0.0000009"
-  },
-  {
-   "id": "mistralai/codestral-2508:batch",
-   "name": "Mistral: Codestral 2508 (batch)",
-   "contextTokens": 256000,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.00000045"
   },
   {
    "id": "mistralai/devstral-2512",
@@ -1147,13 +1175,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000015"
   },
   {
-   "id": "mistralai/ministral-8b-2512:batch",
-   "name": "Mistral: Ministral 3 8B 2512 (batch)",
-   "contextTokens": 262144,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.000000075"
-  },
-  {
    "id": "mistralai/mistral-large",
    "name": "Mistral Large",
    "contextTokens": 128000,
@@ -1175,11 +1196,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000015"
   },
   {
-   "id": "mistralai/mistral-large-2512:batch",
-   "name": "Mistral: Mistral Large 3 2512 (batch)",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000075"
+   "id": "mistralai/mistral-large-4-0",
+   "name": "Mistral: Mistral Large 4",
+   "contextTokens": 1048576,
+   "promptPrice": "0.0000007",
+   "completionPrice": "0.0000021"
   },
   {
    "id": "mistralai/mistral-medium-3",
@@ -1210,17 +1231,10 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
-   "id": "mistralai/mistral-medium-3.1:batch",
-   "name": "Mistral: Mistral Medium 3.1 (batch)",
-   "contextTokens": 131072,
-   "promptPrice": "0.0000002",
-   "completionPrice": "0.000001"
-  },
-  {
    "id": "mistralai/mistral-nemo",
    "name": "Mistral: Mistral Nemo",
    "contextTokens": 131072,
-   "promptPrice": "0.000000019",
+   "promptPrice": "0.000000029",
    "completionPrice": "0.00000003"
   },
   {
@@ -1245,13 +1259,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000006"
   },
   {
-   "id": "mistralai/mistral-small-2603:batch",
-   "name": "Mistral: Mistral Small 4 (batch)",
-   "contextTokens": 262144,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.0000003"
-  },
-  {
    "id": "mistralai/mistral-small-3.1-24b-instruct",
    "name": "Mistral: Mistral Small 3.1 24B",
    "contextTokens": 128000,
@@ -1262,8 +1269,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "mistralai/mistral-small-3.2-24b-instruct",
    "name": "Mistral: Mistral Small 3.2 24B",
    "contextTokens": 256000,
-   "promptPrice": "0.00000009375",
-   "completionPrice": "0.00000025"
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000002"
   },
   {
    "id": "mistralai/mixtral-8x22b-instruct",
@@ -1278,6 +1285,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 32768,
    "promptPrice": "0.0000001",
    "completionPrice": "0.0000003"
+  },
+  {
+   "id": "moondream/moondream3-preview",
+   "name": "Moondream: Moondream 3 Preview",
+   "contextTokens": 32000,
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000025"
+  },
+  {
+   "id": "moondream/moondream3.1-9b-a2b",
+   "name": "Moondream: Moondream 3.1",
+   "contextTokens": 32000,
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000025"
   },
   {
    "id": "moonshotai/kimi-k2",
@@ -1304,43 +1325,57 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "contextTokens": 262144,
-   "promptPrice": "0.00000045",
-   "completionPrice": "0.00000225"
+   "promptPrice": "0.000000532",
+   "completionPrice": "0.000003325"
   },
   {
    "id": "moonshotai/kimi-k2.6",
    "name": "MoonshotAI: Kimi K2.6",
    "contextTokens": 262144,
-   "promptPrice": "0.00000095",
-   "completionPrice": "0.000004"
+   "promptPrice": "0.00000065",
+   "completionPrice": "0.00000341"
   },
   {
    "id": "moonshotai/kimi-k2.7-code",
    "name": "MoonshotAI: Kimi K2.7 Code",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006712",
-   "completionPrice": "0.00000335"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000035"
   },
   {
    "id": "moonshotai/kimi-k3",
    "name": "MoonshotAI: Kimi K3",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000099",
-   "completionPrice": "0.000013"
+   "promptPrice": "0.000000192",
+   "completionPrice": "0.000016"
+  },
+  {
+   "id": "moonshotai/kimi-k3.1-pro",
+   "name": "MoonshotAI: Kimi K3.1 Pro",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000002",
+   "completionPrice": "0.00001"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
    "name": "MoonshotAI: Kimi K3 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000228",
-   "completionPrice": "0.0000114"
+   "promptPrice": "0.000001084",
+   "completionPrice": "0.000006"
   },
   {
    "id": "morph/morph-v3-fast",
    "name": "Morph: Morph V3 Fast",
-   "contextTokens": 81920,
+   "contextTokens": 262144,
    "promptPrice": "0.0000008",
    "completionPrice": "0.0000012"
+  },
+  {
+   "id": "morph/morph-v3-fast:batch",
+   "name": "Morph: Morph V3 Fast (batch)",
+   "contextTokens": 81920,
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "morph/morph-v3-large",
@@ -1348,6 +1383,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.0000009",
    "completionPrice": "0.0000019"
+  },
+  {
+   "id": "morph/morph-v3-large:batch",
+   "name": "Morph: Morph V3 Large (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.00000095"
   },
   {
    "id": "nex-agi/nex-n2.5-mini",
@@ -1364,20 +1406,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000025"
   },
   {
-   "id": "nousresearch/hermes-3-llama-3.1-405b",
-   "name": "Nous: Hermes 3 405B Instruct",
-   "contextTokens": 131072,
-   "promptPrice": "0.000001",
-   "completionPrice": "0.000001"
-  },
-  {
-   "id": "nousresearch/hermes-3-llama-3.1-70b",
-   "name": "Nous: Hermes 3 70B Instruct",
-   "contextTokens": 131072,
-   "promptPrice": "0.0000007",
-   "completionPrice": "0.0000007"
-  },
-  {
    "id": "nousresearch/hermes-4-405b",
    "name": "Nous: Hermes 4 405B",
    "contextTokens": 131072,
@@ -1388,8 +1416,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3-nano-30b-a3b",
    "name": "NVIDIA: Nemotron 3 Nano 30B A3B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.0000002"
+   "promptPrice": "0.00000006",
+   "completionPrice": "0.00000024"
   },
   {
    "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
@@ -1401,23 +1429,16 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "nvidia/nemotron-3-super-120b-a12b",
    "name": "NVIDIA: Nemotron 3 Super",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000008",
-   "completionPrice": "0.00000045"
-  },
-  {
-   "id": "nvidia/nemotron-3-super-120b-a12b:free",
-   "name": "NVIDIA: Nemotron 3 Super (free)",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000004"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
    "name": "NVIDIA: Nemotron 3 Ultra",
    "contextTokens": 262144,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.0000022"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000024"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b:free",
@@ -1434,22 +1455,29 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000002"
   },
   {
-   "id": "nvidia/nemotron-3.5-content-safety:free",
-   "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
-   "contextTokens": 128000,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "nvidia/nemotron-3.5-lightning",
    "name": "NVIDIA: Nemotron 3.5 Lightning",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000595",
-   "completionPrice": "0.00000017"
+   "promptPrice": "0.00000007",
+   "completionPrice": "0.0000002"
   },
   {
    "id": "nvidia/nemotron-3.5-lightning:free",
    "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
+   "contextTokens": 1000000,
+   "promptPrice": "0",
+   "completionPrice": "0"
+  },
+  {
+   "id": "nvidia/nemotron-3.5-super-vl",
+   "name": "NVIDIA: Nemotron 3.5 Super VL",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000005"
+  },
+  {
+   "id": "nvidia/nemotron-3.5-super-vl:free",
+   "name": "NVIDIA: Nemotron 3.5 Super VL (free)",
    "contextTokens": 1000000,
    "promptPrice": "0",
    "completionPrice": "0"
@@ -1460,13 +1488,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "-1",
    "completionPrice": "-1"
-  },
-  {
-   "id": "openai/gpt-3.5-turbo",
-   "name": "OpenAI: GPT-3.5 Turbo",
-   "contextTokens": 16385,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.0000015"
   },
   {
    "id": "openai/gpt-3.5-turbo-0613",
@@ -1483,32 +1504,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000004"
   },
   {
-   "id": "openai/gpt-3.5-turbo-instruct",
-   "name": "OpenAI: GPT-3.5 Turbo Instruct",
-   "contextTokens": 4095,
-   "promptPrice": "0.0000015",
-   "completionPrice": "0.000002"
-  },
-  {
-   "id": "openai/gpt-3.5-turbo:batch",
-   "name": "OpenAI: GPT-3.5 Turbo (batch)",
-   "contextTokens": 16385,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000075"
-  },
-  {
    "id": "openai/gpt-4",
    "name": "OpenAI: GPT-4",
    "contextTokens": 8191,
    "promptPrice": "0.00003",
    "completionPrice": "0.00006"
-  },
-  {
-   "id": "openai/gpt-4-turbo",
-   "name": "OpenAI: GPT-4 Turbo",
-   "contextTokens": 128000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00003"
   },
   {
    "id": "openai/gpt-4-turbo:batch",
@@ -1885,8 +1885,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-5.6-sol",
    "name": "OpenAI: GPT-5.6 Sol",
    "contextTokens": 1050000,
-   "promptPrice": "0.000002",
-   "completionPrice": "0.00001"
+   "promptPrice": "0.000004",
+   "completionPrice": "0.00002"
   },
   {
    "id": "openai/gpt-5.6-sol-pro",
@@ -1899,15 +1899,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-5.6-sol-pro:batch",
    "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
    "contextTokens": 1050000,
-   "promptPrice": "0.000001",
-   "completionPrice": "0.000005"
+   "promptPrice": "0.000002",
+   "completionPrice": "0.00001"
   },
   {
    "id": "openai/gpt-5.6-sol:batch",
    "name": "OpenAI: GPT-5.6 Sol (batch)",
    "contextTokens": 1050000,
-   "promptPrice": "0.000001",
-   "completionPrice": "0.000005"
+   "promptPrice": "0.000002",
+   "completionPrice": "0.00001"
   },
   {
    "id": "openai/gpt-5.6-terra",
@@ -2043,6 +2043,48 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00001"
   },
   {
+   "id": "openai/gpt-6.1-sol-pro:batch",
+   "name": "OpenAI: GPT-6.1 Sol Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "openai/gpt-6.1-sol:batch",
+   "name": "OpenAI: GPT-6.1 Sol (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "openai/gpt-6.1-terra",
+   "name": "OpenAI: GPT-6.1 Terra",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "openai/gpt-6.1-terra-pro",
+   "name": "OpenAI: GPT-6.1 Terra Pro",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "openai/gpt-6.1-terra-pro:batch",
+   "name": "OpenAI: GPT-6.1 Terra Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.0000005",
+   "completionPrice": "0.0000025"
+  },
+  {
+   "id": "openai/gpt-6.1-terra:batch",
+   "name": "OpenAI: GPT-6.1 Terra (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.0000005",
+   "completionPrice": "0.0000025"
+  },
+  {
    "id": "openai/gpt-audio",
    "name": "OpenAI: GPT Audio",
    "contextTokens": 128000,
@@ -2067,8 +2109,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-120b",
    "name": "OpenAI: gpt-oss-120b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000037",
-   "completionPrice": "0.00000017"
+   "promptPrice": "0.000000025",
+   "completionPrice": "0.000000093"
   },
   {
    "id": "openai/gpt-oss-120b:batch",
@@ -2081,8 +2123,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-20b",
    "name": "OpenAI: gpt-oss-20b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000018",
-   "completionPrice": "0.00000009"
+   "promptPrice": "0.00000003",
+   "completionPrice": "0.00000013"
   },
   {
    "id": "openai/gpt-oss-20b:batch",
@@ -2099,39 +2141,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000003"
   },
   {
-   "id": "openai/o1",
-   "name": "OpenAI: o1",
-   "contextTokens": 200000,
-   "promptPrice": "0.000015",
-   "completionPrice": "0.00006"
-  },
-  {
-   "id": "openai/o1-pro",
-   "name": "OpenAI: o1-pro",
-   "contextTokens": 200000,
-   "promptPrice": "0.00015",
-   "completionPrice": "0.0006"
-  },
-  {
    "id": "openai/o3",
    "name": "OpenAI: o3",
    "contextTokens": 200000,
    "promptPrice": "0.000002",
    "completionPrice": "0.000008"
-  },
-  {
-   "id": "openai/o3-mini",
-   "name": "OpenAI: o3 Mini",
-   "contextTokens": 200000,
-   "promptPrice": "0.0000011",
-   "completionPrice": "0.0000044"
-  },
-  {
-   "id": "openai/o3-mini-high",
-   "name": "OpenAI: o3 Mini High",
-   "contextTokens": 200000,
-   "promptPrice": "0.0000011",
-   "completionPrice": "0.0000044"
   },
   {
    "id": "openai/o3-mini:batch",
@@ -2155,20 +2169,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000004"
   },
   {
-   "id": "openai/o4-mini",
-   "name": "OpenAI: o4 Mini",
-   "contextTokens": 200000,
-   "promptPrice": "0.0000011",
-   "completionPrice": "0.0000044"
-  },
-  {
-   "id": "openai/o4-mini-high",
-   "name": "OpenAI: o4 Mini High",
-   "contextTokens": 200000,
-   "promptPrice": "0.0000011",
-   "completionPrice": "0.0000044"
-  },
-  {
    "id": "openai/o4-mini:batch",
    "name": "OpenAI: o4 Mini (batch)",
    "contextTokens": 200000,
@@ -2185,6 +2185,13 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "openrouter/auto-beta",
    "name": "Auto Router (Beta)",
+   "contextTokens": 2000000,
+   "promptPrice": "-1",
+   "completionPrice": "-1"
+  },
+  {
+   "id": "openrouter/auto-code",
+   "name": "Auto Code",
    "contextTokens": 2000000,
    "promptPrice": "-1",
    "completionPrice": "-1"
@@ -2216,6 +2223,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 2000000,
    "promptPrice": "-1",
    "completionPrice": "-1"
+  },
+  {
+   "id": "particle-ai/particle-1",
+   "name": "Particle AI: Particle-1",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "perceptron/perceptron-mk1",
@@ -2267,39 +2281,18 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000008"
   },
   {
-   "id": "poolside/laguna-s-2.1",
-   "name": "Poolside: Laguna S 2.1",
-   "contextTokens": 1048576,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.00000018"
-  },
-  {
-   "id": "poolside/laguna-s-2.1:free",
-   "name": "Poolside: Laguna S 2.1 (free)",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
-   "id": "poolside/laguna-xs-2.1",
-   "name": "Poolside: Laguna XS 2.1",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.00000012"
-  },
-  {
-   "id": "poolside/laguna-xs-2.1:free",
-   "name": "Poolside: Laguna XS 2.1 (free)",
-   "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "prism-ml/ternary-bonsai-2-27b",
    "name": "PrismML: Ternary Bonsai 2 27B",
    "contextTokens": 262144,
    "promptPrice": "0.000000075",
    "completionPrice": "0.0000005"
+  },
+  {
+   "id": "prism-ml/ternary-bonsai-2-9b",
+   "name": "PrismML: Ternary Bonsai 2 9B",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000008",
+   "completionPrice": "0.00000013"
   },
   {
    "id": "qwen/qwen-2.5-72b-instruct",
@@ -2330,13 +2323,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000078"
   },
   {
-   "id": "qwen/qwen-plus-2025-07-28",
-   "name": "Qwen: Qwen Plus 0728",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00000026",
-   "completionPrice": "0.00000078"
-  },
-  {
    "id": "qwen/qwen2.5-vl-72b-instruct",
    "name": "Qwen: Qwen2.5 VL 72B Instruct",
    "contextTokens": 128000,
@@ -2346,35 +2332,28 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "qwen/qwen3-14b",
    "name": "Qwen: Qwen3 14B",
-   "contextTokens": 131072,
+   "contextTokens": 40960,
    "promptPrice": "0.00000012",
    "completionPrice": "0.00000024"
-  },
-  {
-   "id": "qwen/qwen3-235b-a22b",
-   "name": "Qwen: Qwen3 235B A22B",
-   "contextTokens": 131072,
-   "promptPrice": "0.000000455",
-   "completionPrice": "0.00000182"
   },
   {
    "id": "qwen/qwen3-235b-a22b-2507",
    "name": "Qwen: Qwen3 235B A22B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000875",
-   "completionPrice": "0.00000035"
+   "promptPrice": "0.00000014",
+   "completionPrice": "0.0000008"
   },
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",
    "name": "Qwen: Qwen3 235B A22B Thinking 2507",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000023",
-   "completionPrice": "0.0000023"
+   "contextTokens": 128000,
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.0000035"
   },
   {
    "id": "qwen/qwen3-30b-a3b",
    "name": "Qwen: Qwen3 30B A3B",
-   "contextTokens": 131072,
+   "contextTokens": 40960,
    "promptPrice": "0.00000012",
    "completionPrice": "0.0000005"
   },
@@ -2382,15 +2361,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-30b-a3b-instruct-2507",
    "name": "Qwen: Qwen3 30B A3B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.00000004815",
-   "completionPrice": "0.00000019305"
-  },
-  {
-   "id": "qwen/qwen3-30b-a3b-thinking-2507",
-   "name": "Qwen: Qwen3 30B A3B Thinking 2507",
-   "contextTokens": 81920,
-   "promptPrice": "0.0000002",
-   "completionPrice": "0.0000024"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "qwen/qwen3-32b",
@@ -2398,13 +2370,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 131072,
    "promptPrice": "0.00000008",
    "completionPrice": "0.00000028"
-  },
-  {
-   "id": "qwen/qwen3-8b",
-   "name": "Qwen: Qwen3 8B",
-   "contextTokens": 131072,
-   "promptPrice": "0.000000117",
-   "completionPrice": "0.000000455"
   },
   {
    "id": "qwen/qwen3-coder",
@@ -2417,8 +2382,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-coder-30b-a3b-instruct",
    "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
    "contextTokens": 262144,
-   "promptPrice": "0.00000007",
-   "completionPrice": "0.00000028"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "qwen/qwen3-coder-flash",
@@ -2435,39 +2400,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000008"
   },
   {
-   "id": "qwen/qwen3-coder-plus",
-   "name": "Qwen: Qwen3 Coder Plus",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00000065",
-   "completionPrice": "0.00000325"
-  },
-  {
-   "id": "qwen/qwen3-max",
-   "name": "Qwen: Qwen3 Max",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000078",
-   "completionPrice": "0.0000039"
-  },
-  {
-   "id": "qwen/qwen3-max-thinking",
-   "name": "Qwen: Qwen3 Max Thinking",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000078",
-   "completionPrice": "0.0000039"
-  },
-  {
    "id": "qwen/qwen3-next-80b-a3b-instruct",
    "name": "Qwen: Qwen3 Next 80B A3B Instruct",
    "contextTokens": 262144,
-   "promptPrice": "0.0000001",
+   "promptPrice": "0.00000009",
    "completionPrice": "0.0000011"
-  },
-  {
-   "id": "qwen/qwen3-next-80b-a3b-thinking",
-   "name": "Qwen: Qwen3 Next 80B A3B Thinking",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000012"
   },
   {
    "id": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -2475,13 +2412,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.00000021",
    "completionPrice": "0.0000019"
-  },
-  {
-   "id": "qwen/qwen3-vl-235b-a22b-thinking",
-   "name": "Qwen: Qwen3 VL 235B A22B Thinking",
-   "contextTokens": 131072,
-   "promptPrice": "0.0000004",
-   "completionPrice": "0.000004"
   },
   {
    "id": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -2494,29 +2424,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-vl-30b-a3b-thinking",
    "name": "Qwen: Qwen3 VL 30B A3B Thinking",
    "contextTokens": 262144,
-   "promptPrice": "0.0000002",
-   "completionPrice": "0.0000024"
-  },
-  {
-   "id": "qwen/qwen3-vl-32b-instruct",
-   "name": "Qwen: Qwen3 VL 32B Instruct",
-   "contextTokens": 131072,
-   "promptPrice": "0.000000104",
-   "completionPrice": "0.000000416"
+   "promptPrice": "0.00000029",
+   "completionPrice": "0.000001"
   },
   {
    "id": "qwen/qwen3-vl-8b-instruct",
    "name": "Qwen: Qwen3 VL 8B Instruct",
    "contextTokens": 262144,
-   "promptPrice": "0.000000117",
-   "completionPrice": "0.000000455"
-  },
-  {
-   "id": "qwen/qwen3-vl-8b-thinking",
-   "name": "Qwen: Qwen3 VL 8B Thinking",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000018",
-   "completionPrice": "0.0000021"
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.00000075"
   },
   {
    "id": "qwen/qwen3.5-122b-a10b",
@@ -2529,29 +2445,29 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-27b",
    "name": "Qwen: Qwen3.5-27B",
    "contextTokens": 262144,
-   "promptPrice": "0.000000195",
-   "completionPrice": "0.00000156"
+   "promptPrice": "0.00000026",
+   "completionPrice": "0.0000026"
   },
   {
    "id": "qwen/qwen3.5-35b-a3b",
    "name": "Qwen: Qwen3.5-35B-A3B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000015",
+   "promptPrice": "0.00000014",
    "completionPrice": "0.000001"
   },
   {
    "id": "qwen/qwen3.5-397b-a17b",
    "name": "Qwen: Qwen3.5 397B A17B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000055",
-   "completionPrice": "0.0000035"
+   "promptPrice": "0.0000005",
+   "completionPrice": "0.0000036"
   },
   {
    "id": "qwen/qwen3.5-9b",
    "name": "Qwen: Qwen3.5-9B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000001",
-   "completionPrice": "0.00000015"
+   "promptPrice": "0.00000017",
+   "completionPrice": "0.00000025"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
@@ -2585,8 +2501,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-35b-a3b",
    "name": "Qwen: Qwen3.6 35B A3B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.000001"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000009"
   },
   {
    "id": "qwen/qwen3.6-flash",
@@ -2594,13 +2510,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.0000001875",
    "completionPrice": "0.000001125"
-  },
-  {
-   "id": "qwen/qwen3.6-max-preview",
-   "name": "Qwen: Qwen3.6 Max Preview",
-   "contextTokens": 262144,
-   "promptPrice": "0.000001027",
-   "completionPrice": "0.000006162"
   },
   {
    "id": "qwen/qwen3.6-plus",
@@ -2631,6 +2540,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000128"
   },
   {
+   "id": "qwen/qwen3.7-plus:batch",
+   "name": "Qwen: Qwen3.7 Plus (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000023",
+   "completionPrice": "0.00000092"
+  },
+  {
    "id": "qwen/qwen3.8-2.4t-a95b",
    "name": "Qwen: Qwen3.8 2.4T A95B",
    "contextTokens": 1048576,
@@ -2640,16 +2556,16 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "qwen/qwen3.8-27b",
    "name": "Qwen: Qwen3.8 27B",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00000042",
-   "completionPrice": "0.000003"
+   "contextTokens": 1024000,
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.000001875"
   },
   {
-   "id": "qwen/qwen3.8-27b:free",
-   "name": "Qwen: Qwen3.8 27B (free)",
+   "id": "qwen/qwen3.8-27b:batch",
+   "name": "Qwen: Qwen3.8 27B (batch)",
    "contextTokens": 262144,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "promptPrice": "0.00000016",
+   "completionPrice": "0.000002"
   },
   {
    "id": "qwen/qwen3.8-flash",
@@ -2680,6 +2596,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000047"
   },
   {
+   "id": "recursive/flint-v1.0:free",
+   "name": "Recursive: Flint (free)",
+   "contextTokens": 262144,
+   "promptPrice": "0",
+   "completionPrice": "0"
+  },
+  {
+   "id": "reflection/beam-1.0-501b-a23b",
+   "name": "Reflection: Beam 1.0 501B A23B",
+   "contextTokens": 1048576,
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.000001"
+  },
+  {
    "id": "rekaai/reka-edge",
    "name": "Reka Edge",
    "contextTokens": 16384,
@@ -2706,6 +2636,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 256000,
    "promptPrice": "0.000001",
    "completionPrice": "0.000003"
+  },
+  {
+   "id": "ricursiveai/ripple-65b-preview",
+   "name": "Ricursive: Ripple 65B Preview",
+   "contextTokens": 1048576,
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "sakana/fugu-max",
@@ -2750,16 +2687,23 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000085"
   },
   {
-   "id": "sao10k/l3.3-euryale-70b",
-   "name": "Sao10K: Llama 3.3 Euryale 70B",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000065",
-   "completionPrice": "0.00000075"
+   "id": "scaledown/extract",
+   "name": "ScaleDown: Extract",
+   "contextTokens": 1000000,
+   "promptPrice": "0.00000004",
+   "completionPrice": "0"
   },
   {
-   "id": "stealth/space-bunny-alpha",
-   "name": "Space Bunny Alpha",
+   "id": "scaledown/summarize",
+   "name": "ScaleDown: Summarize",
    "contextTokens": 1000000,
+   "promptPrice": "0.00000004",
+   "completionPrice": "0"
+  },
+  {
+   "id": "stealth/crouton-alpha",
+   "name": "Crouton Alpha",
+   "contextTokens": 1048576,
    "promptPrice": "0",
    "completionPrice": "0"
   },
@@ -2776,6 +2720,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.0000002",
    "completionPrice": "0.00000115"
+  },
+  {
+   "id": "stepfun/step-5-preview",
+   "name": "StepFun: Step 5 Preview",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.0000027"
   },
   {
    "id": "tencent/hunyuan-a13b-instruct",
@@ -2820,6 +2771,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000006"
   },
   {
+   "id": "tencent/hy4",
+   "name": "Tencent: Hy4",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000417",
+   "completionPrice": "0.0000012505"
+  },
+  {
    "id": "tencent/hy4-preview",
    "name": "Tencent: Hy4 preview",
    "contextTokens": 1048576,
@@ -2851,7 +2809,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "thinkingmachines/inkling",
    "name": "Thinking Machines: Inkling",
    "contextTokens": 524288,
-   "promptPrice": "0.00000095",
+   "promptPrice": "0.000001",
    "completionPrice": "0.00000405"
   },
   {
@@ -2862,18 +2820,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000012"
   },
   {
-   "id": "thinkingmachines/inkling-small:free",
-   "name": "Thinking Machines: Inkling Small (free)",
-   "contextTokens": 1048576,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
-   "id": "thinkingmachines/inkling:free",
-   "name": "Thinking Machines: Inkling (free)",
-   "contextTokens": 1048576,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "id": "thinkingmachines/inkling-small:batch",
+   "name": "Thinking Machines: Inkling Small (batch)",
+   "contextTokens": 524288,
+   "promptPrice": "0.00000036",
+   "completionPrice": "0.00000096"
   },
   {
    "id": "typesafe/jev-router",
@@ -2883,18 +2834,18 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "-1"
   },
   {
-   "id": "unbiased/pareto",
-   "name": "Pareto",
-   "contextTokens": 262144,
-   "promptPrice": "0.0000025",
-   "completionPrice": "0.0000075"
-  },
-  {
-   "id": "unbiased/pareto-26.10-preview",
-   "name": "Pareto 26.10 Preview",
+   "id": "unbiased/pareto-26.10",
+   "name": "Pareto 26.10",
    "contextTokens": 1048576,
    "promptPrice": "0.0000008",
    "completionPrice": "0.0000032"
+  },
+  {
+   "id": "unbiased/pareto-26.9",
+   "name": "Pareto 26.9",
+   "contextTokens": 262144,
+   "promptPrice": "0.0000025",
+   "completionPrice": "0.0000075"
   },
   {
    "id": "undi95/remm-slerp-l2-13b",
@@ -2911,18 +2862,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000002"
   },
   {
-   "id": "upstage/solar-pro-3",
-   "name": "Upstage: Solar Pro 3",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
-  },
-  {
    "id": "upstage/solar-pro4",
    "name": "Upstage: Solar Pro 4",
    "contextTokens": 524288,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.00000036"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "writer/palmyra-x5",
@@ -2974,11 +2918,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000006"
   },
   {
+   "id": "x-ai/grok-4.6:batch",
+   "name": "SpaceXAI: Grok 4.6 (batch)",
+   "contextTokens": 500000,
+   "promptPrice": "0.0000016",
+   "completionPrice": "0.0000048"
+  },
+  {
    "id": "x-ai/grok-4.7",
    "name": "SpaceXAI: Grok 4.7",
    "contextTokens": 500000,
    "promptPrice": "0.000002",
    "completionPrice": "0.000006"
+  },
+  {
+   "id": "x-ai/grok-4.7:batch",
+   "name": "SpaceXAI: Grok 4.7 (batch)",
+   "contextTokens": 500000,
+   "promptPrice": "0.0000016",
+   "completionPrice": "0.0000048"
   },
   {
    "id": "x-ai/grok-build-0.1",
@@ -2990,16 +2948,16 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "xiaomi/mimo-v2.5",
    "name": "Xiaomi: MiMo-V2.5",
-   "contextTokens": 1050000,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.00000028"
+   "contextTokens": 1000000,
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.000002"
   },
   {
    "id": "xiaomi/mimo-v2.5-pro",
    "name": "Xiaomi: MiMo-V2.5-Pro",
    "contextTokens": 1050000,
-   "promptPrice": "0.000000435",
-   "completionPrice": "0.00000087"
+   "promptPrice": "0.00000048",
+   "completionPrice": "0.0000018"
   },
   {
    "id": "xiaomi/mimo-v2.6-flash",
@@ -3021,6 +2979,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1048576,
    "promptPrice": "0.00000435",
    "completionPrice": "0.0000087"
+  },
+  {
+   "id": "xingchen-agi/xing4.0-29b-a4b:free",
+   "name": "XingChen: Xing4.0 29B A4B (free)",
+   "contextTokens": 262144,
+   "promptPrice": "0",
+   "completionPrice": "0"
   },
   {
    "id": "z-ai/glm-4.5",
@@ -3047,8 +3012,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-4.6",
    "name": "Z.ai: GLM 4.6",
    "contextTokens": 204800,
-   "promptPrice": "0.00000043",
-   "completionPrice": "0.00000175"
+   "promptPrice": "0.0000005",
+   "completionPrice": "0.000002"
   },
   {
    "id": "z-ai/glm-4.6v",
@@ -3075,8 +3040,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5",
    "name": "Z.ai: GLM 5",
    "contextTokens": 204800,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.00000192"
+   "promptPrice": "0.000001",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "z-ai/glm-5-turbo",
@@ -3096,33 +3061,47 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.2",
    "name": "Z.ai: GLM 5.2",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000041",
-   "completionPrice": "0.00000399"
+   "promptPrice": "0.000000006",
+   "completionPrice": "0.0000068"
+  },
+  {
+   "id": "z-ai/glm-5.2:batch",
+   "name": "Z.ai: GLM 5.2 (batch)",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000037",
+   "completionPrice": "0.0000015"
   },
   {
    "id": "z-ai/glm-5.3",
    "name": "Z.ai: GLM 5.3",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
+   "promptPrice": "0.0000000699",
+   "completionPrice": "0.0000014"
   },
   {
    "id": "z-ai/glm-5.3-flash",
    "name": "Z.ai: GLM 5.3 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000005"
+   "promptPrice": "0.0000000335",
+   "completionPrice": "0.000000083"
   },
   {
    "id": "z-ai/glm-5.3-flash:batch",
    "name": "Z.ai: GLM 5.3 Flash (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.0000002"
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.00000018"
   },
   {
    "id": "z-ai/glm-5.3-flashx",
    "name": "Z.ai: GLM 5.3 FlashX",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000037",
+   "completionPrice": "0.00000125"
+  },
+  {
+   "id": "z-ai/glm-5.3-flashx-legal",
+   "name": "Z.ai: GLM 5.3 FlashX Legal",
    "contextTokens": 1048576,
    "promptPrice": "0.00000037",
    "completionPrice": "0.00000125"
@@ -3138,8 +3117,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3:batch",
    "name": "Z.ai: GLM 5.3 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000045",
-   "completionPrice": "0.000002"
+   "promptPrice": "0.00000037",
+   "completionPrice": "0.0000015"
   },
   {
    "id": "z-ai/glm-5v-turbo",
@@ -3158,9 +3137,9 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "~anthropic/claude-haiku-latest",
    "name": "Anthropic: Claude Haiku Latest",
-   "contextTokens": 200000,
-   "promptPrice": "0.000001",
-   "completionPrice": "0.000005"
+   "contextTokens": 1000000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "~anthropic/claude-opus-latest",
@@ -3180,22 +3159,22 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-flash-latest",
    "name": "DeepSeek: DeepSeek Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000002",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.000000006",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "~deepseek/deepseek-pro-latest",
    "name": "DeepSeek: DeepSeek Pro Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.0000042"
+   "promptPrice": "0.0000000999",
+   "completionPrice": "0.000008"
   },
   {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek: DeepSeek V4 Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000188",
-   "completionPrice": "0.00000128"
+   "promptPrice": "0.0000000434",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "~google/gemini-flash-latest",
@@ -3209,14 +3188,14 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Google: Gemini Pro Latest",
    "contextTokens": 1048576,
    "promptPrice": "0.000002",
-   "completionPrice": "0.000012"
+   "completionPrice": "0.00001"
   },
   {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000009895",
-   "completionPrice": "0.000013"
+   "promptPrice": "0.0000001567",
+   "completionPrice": "0.0000101398"
   },
   {
    "id": "~openai/gpt-astra-latest",
@@ -3250,8 +3229,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~openai/gpt-terra-latest",
    "name": "OpenAI: GPT Terra Latest",
    "contextTokens": 1050000,
-   "promptPrice": "0.000002",
-   "completionPrice": "0.000012"
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "~unbiased/pareto-latest",
+   "name": "Pareto Latest",
+   "contextTokens": 1048576,
+   "promptPrice": "0.0000008",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "~x-ai/grok-latest",
@@ -3264,15 +3250,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-flash-latest",
    "name": "Z.ai: GLM Flash Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000035",
-   "completionPrice": "0.0000005"
+   "promptPrice": "0.0000000335",
+   "completionPrice": "0.000000083"
   },
   {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000012",
-   "completionPrice": "0.000004"
+   "promptPrice": "0.0000000699",
+   "completionPrice": "0.0000014"
   }
  ]
 }

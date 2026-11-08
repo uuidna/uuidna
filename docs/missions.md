@@ -3,21 +3,21 @@ title: Missions
 description: The mission board, derived — open work with an exact deliverable, one row per record a person can close, claimed through the served doors.
 ---
 
-# Missions <Badge type="tip" :text="'294 open'" />
+# Missions <Badge type="tip" :text="'295 open'" />
 
 > **Silence never refutes** ([`silence_never_refutes`](/theorem/silence_never_refutes)): an open record is a
 > notice, not a defeat. Each row below is one — a finding nothing seals, a bound one step short of a verdict, a
 > theorem without its symbol leg — with the deliverable that closes it and the door the deposit goes through
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
-**294 missions** — 28 seal-finding · 136 decide-bound · 130 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`a9828dfe7db1e8bc`) and the research ledger. The captain of every mission
+**295 missions** — 28 seal-finding · 136 decide-bound · 131 symbol-leg — derived from the
+rosetta mirror, the sealed bound census (`214bdf9f071ff737`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
 The same board is served live as [`uuidna_missions`](/mcp#uuidna-missions).
 
-**No lead remains untagged** — 25 crossed · 3 uncrossed · 266 open.
+**No lead remains untagged** — 25 crossed · 3 uncrossed · 267 open.
 Each row carries the verdict of its own cross formula, decided by the doors this tree serves and fused to one receipt:
 _crossed_ reads the same from the other side; _uncrossed_ failed a leg after the effort the record shows (a primary
 source that could not be read, a forensic violation, an address that does not recompute) — the class to distrust, kept
@@ -35,8 +35,8 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | wave | 67088 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | involution | 20 | 11 | 13 | `fdb12218` |
+| vortex | 26 | 5 | 7 | `fa48a04a` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
-| vortex | 24 | 4 | 6 | `fa48a04a` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
 | coins | 27 | 3 | 5 | `1b48b046` |
 | foundational | 3 | 2 | 4 | `fdb12218` |
@@ -909,10 +909,15 @@ _a finite domain that survived one widening step — a person decides whether it
   <br><small>covers: [`five_is_the_developing_center`](/theorem/five_is_the_developing_center) · [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) · [`one_image_every_architecture`](/theorem/one_image_every_architecture) · [`two_coins_make_a_coil_and_seven_coils_are_one_and_six`](/theorem/two_coins_make_a_coil_and_seven_coils_are_one_and_six)</small>
   <br><small>door: uuidna_theorem &amp;lt;key&amp;gt;, widen the bound yourself; either NAME the domain in the prose (load-bearing by name) or restate the statement without List.range</small>
 
-## Give a theorem its symbol leg — 130 open
+## Give a theorem its symbol leg — 131 open
 
 _a sealed Lean line with no TypeScript mirror in the wing emitter — the computation the proof is checked against._
 
+- **`e601e6b7`** give 17 theorems in 45bcb8b0.lean the symbol leg
+  <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `6f62a0eb-16b6…`</small>
+  <br><small>deliverable: 17 theorems in 45bcb8b0.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>
+  <br><small>covers: [`de5612a2_go_fuel`](/theorem/de5612a2_go_fuel) · [`de5612a2_add_sub_self`](/theorem/de5612a2_add_sub_self) · [`de5612a2_go_congr`](/theorem/de5612a2_go_congr) · [`de5612a2_modCore_add_self`](/theorem/de5612a2_modCore_add_self) · [`de5612a2_mod_add_self`](/theorem/de5612a2_mod_add_self) · [`de5612a2_add_mul_mod_self`](/theorem/de5612a2_add_mul_mod_self) · [`de5612a2_mod_add_nine`](/theorem/de5612a2_mod_add_nine) · [`de5612a2_mod_add_fourteen`](/theorem/de5612a2_mod_add_fourteen) · [`de5612a2_mod_add_eighty_four`](/theorem/de5612a2_mod_add_eighty_four) · [`de5612a2_mul_two_mod_nine`](/theorem/de5612a2_mul_two_mod_nine) · [`de5612a2_mul_two_mod_nine_congr`](/theorem/de5612a2_mul_two_mod_nine_congr) · [`doubling_repeats_every_six`](/theorem/doubling_repeats_every_six) · +5 more in the wing</small>
+  <br><small>door: add the js: mirror keyed to the theorem in the wing emitter; rosetta grants the symbol leg on the next pass</small>
 - **`b3e52fb7`** give 24 theorems in BindingPoint.lean the symbol leg
   <br><small>○ open — ✓ address-recomputes · ✗ symbol-leg-written · fused `ef791cbd-2b45…`</small>
   <br><small>deliverable: 24 theorems in BindingPoint.lean have no js: mirror in the emitter — the TypeScript computation the Lean line is checked against</small>

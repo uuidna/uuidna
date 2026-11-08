@@ -1,27 +1,27 @@
 {
   "definition": "alpine-port·theorem·axiom·discovery",
-  "packages": 28644,
-  "origins": 16088,
+  "packages": 28664,
+  "origins": 16101,
   "bindings": {
     "harmonised": 2054,
-    "crypto": 3084,
-    "port": 23506
+    "crypto": 3088,
+    "port": 23522
   },
   "bindingOrigins": {
     "harmonised": 1288,
-    "crypto": 2816,
-    "port": 13838
+    "crypto": 2820,
+    "port": 13850
   },
   "theorems": [
     {
       "key": "the_os_is_bootable_quantum",
-      "packages": 23506,
-      "origins": 13838
+      "packages": 23522,
+      "origins": 13850
     },
     {
       "key": "sha256_grover_margin_is_the_address",
-      "packages": 3084,
-      "origins": 2816
+      "packages": 3088,
+      "origins": 2820
     },
     {
       "key": "the_congruence_form_is_the_modulus_form",
@@ -96,20 +96,20 @@
   ],
   "harvest": [
     {
-      "key": "alpine_bindings_partition_packages_28644",
-      "fragment": "2054+3084+23506=28644",
-      "lean": "theorem alpine_bindings_partition_packages_28644 : (2054 + 3084 + 23506 = 28644) := by decide",
-      "packages": 28644,
-      "origins": 16088,
+      "key": "alpine_bindings_partition_packages_28664",
+      "fragment": "2054+3088+23522=28664",
+      "lean": "theorem alpine_bindings_partition_packages_28664 : (2054 + 3088 + 23522 = 28664) := by decide",
+      "packages": 28664,
+      "origins": 16101,
       "sample": "every package holds exactly one binding — the classes are exhaustive and disjoint"
     },
     {
-      "key": "alpine_binding_origins_overcount_16088",
-      "fragment": "1288+2816+13838=17942",
-      "lean": "theorem alpine_binding_origins_overcount_16088 : (1288 + 2816 + 13838 = 17942) ∧ (17942 - 16088 = 1854) := by decide",
-      "packages": 28644,
-      "origins": 16088,
-      "sample": "1854 origins ship into more than one class — origins do NOT partition"
+      "key": "alpine_binding_origins_overcount_16101",
+      "fragment": "1288+2820+13850=17958",
+      "lean": "theorem alpine_binding_origins_overcount_16101 : (1288 + 2820 + 13850 = 17958) ∧ (17958 - 16101 = 1857) := by decide",
+      "packages": 28664,
+      "origins": 16101,
+      "sample": "1857 origins ship into more than one class — origins do NOT partition"
     }
   ],
   "harvestTotal": 2,
@@ -119,6 +119,6 @@
     "exposed": 0,
     "refuted": 0
   },
-  "receipt": "a221932a-9aad-8267-86fb-9e021ff42fee",
+  "receipt": "ca6cba72-ac72-881e-8fc6-05541bf97114",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

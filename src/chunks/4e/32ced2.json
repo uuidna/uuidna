@@ -4,9 +4,11 @@
   "statement": "lead_de5612a2",
   "tactic": "unfold lead_de5612a2; decide",
   "keys": [
+    "lead_de5612a2_verified",
     "proof_de5612a2"
   ],
   "files": [
+    "45bcb8b0.lean",
     "Proofde5612a2.lean"
   ]
 }
