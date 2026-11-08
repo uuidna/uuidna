@@ -1417,7 +1417,7 @@ gate that enforces it and its state recomputed at this generation. A law is only
 one that does not hold is shown here as not holding, never left out. Only a Lean proof settles a claim
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)).
 
-**18 laws** — 17 hold · 1 do not hold · receipt `ea62343b-8633-842d-b394-d8897f8ea956`
+**18 laws** — 18 hold · 0 do not hold · receipt `56276d3d-df51-8757-bd29-071fb54bdf30`
 
 - **holds** · Generate all only from Lean — the sealed theorems are the single source; the derived layer is computed and diff-gated.
   <br><small>enforced by: conformance:single-source-ledger + the pre-push git-diff — every one of 71106 theorems is sourced from a lean/*.lean file</small>
@@ -1427,7 +1427,7 @@ one that does not hold is shown here as not holding, never left out. Only a Lean
   <br><small>enforced by: the honesty gate (computes/slimGate) — a fabricated theorem citation drains; an honest floor signs</small>
 - **holds** · The two captain coins are conserved — 110 − 108 = 2, the fair-exchange invariant priced on every fold.
   <br><small>enforced by: conformance:captain-coins-conserved — coins() = 2, the Euler characteristic −χ of the double torus</small>
-- **does not hold** · Zero runtime dependencies and a clean security posture — no third-party code runs; defences + collision-resistance sealed.
+- **holds** · Zero runtime dependencies and a clean security posture — no third-party code runs; defences + collision-resistance sealed.
   <br><small>enforced by: conformance:security-posture-clean (security-audit) — zero runtime deps; the honesty gate bites; uuidna solves 0 of 7</small>
 - **holds** · Lean decides — the kernel's own `#print axioms` is the verdict, with no allow list, deny list or hand rule between them.
   <br><small>said: the captain, 2026-09-14: "remove any allow lists or disallowed or any manual logic whatsoever not coming from lean decisions"</small>

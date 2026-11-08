@@ -1480,10 +1480,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      "type": "boolean"
     },
     "failed": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
+     "type": "array"
     },
     "receipt": {
      "type": "string"
@@ -1739,10 +1736,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
       "type": "integer"
      },
      "offenders": {
-      "type": "array",
-      "items": {
-       "type": "object"
-      }
+      "type": "array"
      },
      "receipt": {
       "type": "string"
@@ -15041,10 +15035,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
      "type": "integer"
     },
     "traitors": {
-     "type": "array",
-     "items": {
-      "type": "object"
-     }
+     "type": "array"
     },
     "checks": {
      "type": "array",
@@ -15063,7 +15054,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"clean\":false,\"scanned\":71106,\"traitors\":[{\"kind\":\"conformance\",\"detail\":\"security-posture-clean — security audit FAILED: kernel-only-witness-shipped\"}],\"chec…"
+   "excerpt": "{\"clean\":true,\"scanned\":71106,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-integrity\",\"hex…"
   }
  },
  "uuidna_guard_lessons": {
@@ -15160,7 +15151,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":false,\"audited\":71091,\"axiomFree\":71091,\"ledger\":71106,\"offenders\":{},\"receipt\":\"ae4516e6-6633-8c86-924f-3ebb49c709c3\",…"
+   "excerpt": "{\"shipped\":true,\"measured\":true,\"holds\":true,\"audited\":71106,\"axiomFree\":71106,\"ledger\":71106,\"offenders\":{},\"receipt\":\"92ad7bf0-c2f2-857a-a2e2-7453b5be6285\",\"…"
   }
  },
  "uuidna_rosetta_seals": {
@@ -20209,7 +20200,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"handle\":\"41257b47\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
+   "excerpt": "{\"handle\":\"c2e0136f\",\"identity\":{\"name\":\"uuidna\",\"address\":\"fc511532-6e8a-8418-a522-a51b1d46a70c\",\"aura\":{\"ray\":2,\"hue\":34,\"hsl\":\"hsl(34, 66%, 54%)\",\"rgb\":\"#d7…"
   }
  },
  "uuidna_social_profile": {
@@ -21413,7 +21404,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"traitors\":{\"clean\":false,\"scanned\":71106,\"traitors\":[{\"kind\":\"conformance\",\"detail\":\"security-posture-clean — security audit FAILED: kernel-only-witness-ship…"
+   "excerpt": "{\"traitors\":{\"clean\":true,\"scanned\":71106,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invariants\",\"seal-int…"
   }
  },
  "uuidna_audit_ledger_fingerprint": {
@@ -21587,7 +21578,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":false,\"scanned\":71106,\"traitors\":[{\"kind\":\"conformance\",\"detail\":\"security-posture-clean — security audit FAILED: kernel-onl…"
+   "excerpt": "{\"intrusions\":{\"traitors\":{\"clean\":true,\"scanned\":71106,\"traitors\":[],\"checks\":[\"dna-recomputes\",\"no-key-collision\",\"no-address-collision\",\"conformance-invaria…"
   }
  },
  "uuidna_quantum_message_demo": {
