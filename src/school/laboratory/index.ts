@@ -117,13 +117,14 @@ const relatedBenches = (t: Theorem): InstallSpec[] => {
 }
 
 const citedTheorems = (t: Theorem): Theorem[] => {
-  const byKey = theoremByKey()
+  // theoremFor, not theoremByKey: one row per cited key — at the edge a key the pre-pass did not fetch reads as absent
+  // (a fact about the call), where the map over the ledger refused the whole door (uuidna_theorem, 2026-11-08)
   const found: Theorem[] = []
   const seen = new Set<string>([t.key])
   for (const m of hayOf(t).matchAll(CITE)) {
     const key = m[1]!
     if (seen.has(key)) continue
-    const hit = byKey.get(key)
+    const hit = theoremFor(key)
     if (!hit) continue
     seen.add(key)
     found.push(hit)

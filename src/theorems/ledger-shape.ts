@@ -75,6 +75,9 @@ export interface EdgeLedger {
    *  fetched, and a key that was not fetched reads as absent rather than as missing from the ledger. */
   holdRows(rows: readonly LeanTheorem[]): void
   rowFor(key: string): LeanTheorem | undefined
+  /** every row the pre-pass handed here for this call — the one piece each cited key sits in, so a relation over
+   *  neighbours can be answered within the piece and say that it was (theoremNeighbours' `scope`) */
+  held(): readonly LeanTheorem[]
 }
 
 /** lazyList(make) → an array that is not built until something reads it, then is exactly `make()`'s array: methods are

@@ -119,6 +119,7 @@ export const LEDGER_EDGE: EdgeLedger | null = {
   },
   holdRows: (held) => { for (const r of held) heldRows.set(r.key, r) },
   rowFor: (key) => heldRows.get(key),
+  held: () => [...heldRows.values()],
   primed: () => false,
   lineAt: () => undefined,
 }

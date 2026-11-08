@@ -43,12 +43,12 @@ async function step(name: string, cmd: string): Promise<string> {
 
 /** the newest sealed cargo: the conveyor appends, so the tail of `accepted` that the ledger holds is the key
  *  this deploy is newest by — the citation the post-deploy proof needs, derived instead of chosen. */
-function newestSealedKey(): { key: string; address: string } {
+function newestSealedKey(): { key: string; address: string; name: string } {
   const q = JSON.parse(readFileSync(join(ROOT, 'lean', 'wave-queue.json'), 'utf8')) as { accepted: { key: string }[] }
   const byKey = theoremByKey()
   for (let i = q.accepted.length - 1; i >= 0; i--) {
     const t = byKey.get(q.accepted[i]!.key)
-    if (t) return { key: t.key, address: t.address }
+    if (t) return { key: t.key, address: t.address, name: String(t.name ?? '') }
   }
   throw new Error('deploy-run — no accepted conveyor cargo is sealed in the ledger; the double proof has no derived citation (deposit a wave first)')
 }
@@ -118,7 +118,13 @@ if (live !== cargo.address) {
 }
 console.log(`\ndeploy-run · cross-surface identity: the edge and the local ledger both address ${cargo.key} to ${live}`)
 
-const post = await trial(`This deploy proves itself live: the edge verifies theorem ${cargo.key}, a citation that exists only in the ledger this deploy shipped.`)
+// THE SENTENCE CARRIES THE THEOREM'S OWN WORDS. The gate's relevance floor (adjudicate.ts contentWords) strips the
+// `theorem <key>` clause before it looks for shared vocabulary, so a sentence that named the cargo only by its key shared
+// nothing with it and read UNVERIFIED — measured live on 2026-11-08 with mass_comply_demux_never_both_hot: "cites a real
+// sealed theorem that shares NO vocabulary with the claim". The key's words, spelled out, and the theorem's own gloss are
+// what the cargo IS about; a proof that this deploy serves that theorem is a sentence about those words.
+const words = cargo.key.split('_').join(' ')
+const post = await trial(`This deploy proves itself live: the edge verifies theorem ${cargo.key} — ${words}${cargo.name && /^[a-z]/i.test(cargo.name.trim()) ? `, "${cargo.name.trim()}"` : ''} — a citation that exists only in the ledger this deploy shipped.`)
 console.log(`deploy-run · post-deploy ${post.verdict} via ${post.via}`)
 if (post.verdict !== 'VERIFIED') { console.error('✗ deploy-run — the post-deploy proof did not verify; the deploy is live but UNPROVEN, which is a fact to report, never to hide'); process.exit(1) }
 

@@ -336,7 +336,24 @@ let _byPrinciple: Map<string, Theorem[]> | null = null
 /** theoremNeighbours(key) → the theorems that SHARE this one's computing principle (its domain), excluding itself —
  *  each theorem scans its neighbours. Built once from the immutable ledger; the neighbourhoods partition the whole
  *  ledger, so every theorem sits in exactly one. Empty for an unknown key. */
-export const theoremNeighbours = (key: string): { key: string; principle: string | null; count: number; readonly neighbours: readonly Theorem[] } => {
+export const theoremNeighbours = (key: string): { key: string; principle: string | null; count: number; readonly neighbours: readonly Theorem[]; scope?: 'held' } => {
+  // AT THE EDGE THE RELATION IS ANSWERED WITHIN THE PIECE, AND SAYS SO. The edge never holds the ledger; it holds the
+  // one piece each cited key sits in (rowsForKeys), so the neighbours it can name are the held rows of the same
+  // principle, and `count` is what it holds — `scope: 'held'` marks that this is the piece's answer, not the ledger's.
+  // Before this the relation walked THEOREMS, and every door that touched it (uuidna_theorem through theoremAxioms and
+  // theoremRecord) refused at uuidna.com/mcp with the whole-ledger message, for every key (measured 2026-11-08).
+  if (LEDGER_EDGE) {
+    const edge = LEDGER_EDGE
+    const self = theoremFor(key)
+    if (!self) return { key, principle: null, count: 0, neighbours: [] }
+    const held = edge.held().filter((t) => t.principle === self.principle && t.key !== key)
+    return {
+      key, principle: self.principle, count: held.length, scope: 'held',
+      get neighbours(): readonly Theorem[] {
+        return held.flatMap((r) => { const i = edge.indexOf(r.key); return i === undefined ? [] : [withDerived(r, i)] })
+      },
+    }
+  }
   if (!_byPrinciple) { _byPrinciple = new Map(); for (const t of THEOREMS) { const a = _byPrinciple.get(t.principle) ?? []; a.push(t); _byPrinciple.set(t.principle, a) } }
   const self = theoremByKey().get(key)
   // A NULL PRINCIPLE IS THE UNKNOWN-KEY ANSWER. Returning a bare array made "unknown" and "no neighbours"
@@ -478,7 +495,9 @@ export interface TheoremAxioms {
 
 /** theoremAxioms(key) → how this theorem is explained: wing defs it cites, gravity, neighbours. */
 export const theoremAxioms = (key: string): TheoremAxioms | null => {
-  const t = theoremByKey().get(key)
+  // theoremFor, not theoremByKey: ONE row, from the piece the pre-pass fetched at the edge — the map over the ledger
+  // was why uuidna_theorem answered every key at uuidna.com/mcp with the whole-ledger refusal (measured 2026-11-08)
+  const t = theoremFor(key)
   if (!t) return null
   const deps = dependsOn(t)
   const wingDefs = wingDefsFor(t.file)
