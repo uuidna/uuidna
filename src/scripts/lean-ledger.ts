@@ -8,6 +8,7 @@ import { xorWings } from './equilibrium-family.js'
 import { chunkWidth } from './lean-gen.js'
 import { involutionWings } from './involution-family.js'
 import { writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
+import { leanEntries, leanPath } from '../lean-files.js'
 import { join } from 'node:path'
 import type { LeanTheorem } from '../theorems/generated.js'
 import { ROOT } from './api.js'
@@ -233,7 +234,7 @@ const stripLeanLineComments = (s: string): string =>
     return line.slice(0, i)
   }).join('\n')
 const flattenStatement = (s: string): string => stripLeanLineComments(s).trim().replace(/\s+/g, ' ')
-const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(join(LEAN_DIR, file), 'utf8')
+const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(leanPath(LEAN_DIR, file), 'utf8')
   // A DECLARATION IS AT THE MARGIN; PROSE IS NOT. Unanchored, this matched the words "theorem names:" inside a
   // doc comment and sealed a theorem called `names` whose statement was the rest of the sentence — invisible in
   // the ledger and fatal at the axiom gate, which asked the kernel for a name no wing declares and reported the
@@ -247,7 +248,7 @@ const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [
   // one to write a proof that way would have had its `tactic` silently truncated, every count still green.
   .map((m) => ({ key: m[1], statement: flattenStatement(m[2]), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || flattenStatement(m[2]), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]], cases: manifest[m[1]]?.cases }))
 
-const allFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
+const allFiles = existsSync(LEAN_DIR) ? leanEntries(LEAN_DIR).map((e) => e.path) : []
 // A WING IS WALKED ONCE. A second PRINCIPLE row for Pentagram.lean — the file was registered twice, an hour
 // apart, by one hand that did not notice the first — put the same wing in `ordered` twice, so all 27 of its
 // theorems were emitted twice and the ledger stood 27 ahead of the wings it is derived from. Neither surface
@@ -327,7 +328,7 @@ const blockSpread = blocks.map((_, i) => `...LEDGER_BLOCK_${i}`).join(', ')
 // (gravity) must be recomputable from the ledger alone rather than by reading the proofs at runtime.
 const wingDefs: Record<string, string[]> = {}
 for (const f of allFiles) {
-  const names = [...readFileSync(join(LEAN_DIR, f), 'utf8').matchAll(/^def\s+(\w+)/gm)].map((m) => m[1]!)
+  const names = [...readFileSync(leanPath(LEAN_DIR, f), 'utf8').matchAll(/^def\s+(\w+)/gm)].map((m) => m[1]!)
   if (names.length) wingDefs[f] = [...new Set(names)].sort()
 }
 

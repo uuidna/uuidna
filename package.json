@@ -73,6 +73,16 @@
       "import": "./packages/edge/dist/index.js",
       "default": "./packages/edge/dist/index.js"
     },
+    "./payload": {
+      "types": "./dist/payload.d.ts",
+      "import": "./dist/payload.js",
+      "default": "./dist/payload.js"
+    },
+    "./seo": {
+      "types": "./dist/seo.d.ts",
+      "import": "./dist/seo.js",
+      "default": "./dist/seo.js"
+    },
     "./os": {
       "types": "./dist/quantum/os/npm/index.d.ts",
       "import": "./dist/quantum/os/npm/index.js",

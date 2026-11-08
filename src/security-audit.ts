@@ -4,7 +4,7 @@
 // surface, the sealed defence-in-depth theorems, collision resistance by pigeonhole, and the honesty gate biting a
 // fabricated citation. the repo-tree scans (no committed secret, KAT suite present) need the source
 // tree, not the shipped package, so they live in scripts/security-audit and CI — NOT here. Integrity.
-import { theorems } from './theorems/index.js'
+import { sealedAddressOf } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { computes } from './gate.js'
@@ -44,8 +44,9 @@ export function securityAudit(): SecurityAuditReport {
   // package.json's dependency names as gen-edge-slices derived them: the edge has no package.json to read, and one
   // reading on every surface is what makes this receipt the same wherever it is recomputed
   const pkg = EDGE_SLICES.package
-  const T = theorems()
-  const sealed = (k: string): boolean => T.some((t) => t.key === k)
+  // membership by key from the baked root, so the audit (and conformance, which folds it in) answers at the edge
+  // without the rows: walking theorems() for six keys was the one read left that made the edge refuse both doors.
+  const sealed = (k: string): boolean => sealedAddressOf(k) !== undefined
   const runtimeDeps = pkg.dependencies
   const unknownDev = pkg.devDependencies.filter((d) => !(KNOWN_DEV_DEPS as readonly string[]).includes(d))
   const sealedDefence = DEFENCE_THEOREMS.filter(sealed)

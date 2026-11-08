@@ -7,7 +7,7 @@
 // receipt against the ledger count; re-deriving the receipt itself still needs the Lean toolchain (the guard, CI).
 // A tree without the receipt (not shipped.
 // Integrity — the record recomputes for anyone.
-import { theorems } from './theorems/index.js'
+import { sealedCount } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { rdRoot, hasFilesystem } from './boundary.js'
@@ -50,7 +50,7 @@ const HONEST =
  *  holds=true means the sealed audit covers the whole current ledger and found no borrowed axiom; shipped=false
  *  means no receipt is beside dist (defer to `npm run guard`, which re-derives it). Integrity. */
 export function axiomWitness(): AxiomWitnessReport {
-  const ledger = theorems().length
+  const ledger = sealedCount()   // the baked root's count at the edge, the rows' length on a host — one number, not 71k rows for it
   let audited = 0, axiomFree = 0, offenders: Record<string, string[]> = {}, shipped = false
   try {
     const raw = JSON.parse(rdRoot('lean/axioms.json')) as

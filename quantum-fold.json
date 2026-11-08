@@ -2,9 +2,9 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "aaddf79e0acf5b66",
-      "principles": "0fb8a282ef8ccc70",
-      "monographs": "bf73ff30b8481d8a"
+      "theorems": "d94f1756e1e785b9",
+      "principles": "b289163d49c11964",
+      "monographs": "6a7f40f895472ff0"
     },
     "served": {
       "packages": "068aa5b6c7f3b962",
@@ -28,34 +28,34 @@
     }
   },
   "trinity_folds": {
-    "sealed": "01d297e2231ec4f99af31f6652a1b2a5",
+    "sealed": "37f07f0b6cf1dcd32868d158714ecae2",
     "served": "14627d3656e4fabaa793e99dd9701d01",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "6b0cb0224115befa7829b3ab28c152e1",
     "walks": "178eb3646c4266824d4765f112d8fead"
   },
-  "unified_fold": "5d271b57a1bab066",
-  "receipt": "0f455bf53873ed31",
+  "unified_fold": "9c8b8da464be256a",
+  "receipt": "82ff0acab318d5cc",
   "rosette_receipt": {
     "rays": [
-      "9f87265c3d9b19c4",
+      "bfbef46e804293c1",
       "bf0a979de9af126f",
-      "c032ffb61b095348",
+      "aa367a348fe6eb41",
       "a20454282e566346",
-      "5f0820e1eb2b7566",
+      "c2fb234851d6a0cf",
       "a761502744407dcd",
       "023c29d38eb5a1a4"
     ],
-    "concurrence": "efd2eca37361ad40d60c3d4b27af4057"
+    "concurrence": "0fbde79fa59db6e873c0f8dac3942a86"
   },
   "aura": {
     "rgb": "#4bb6dd",
     "hsl": "hsl(196, 68%, 58%)",
     "alphabet": "4c12110e5c171d38",
-    "movie": "4baa3109aab484b9",
+    "movie": "fd1d7b165362dc00",
     "lessons": "0d760722e61b58a1",
     "report": "940001b6ff9bd2fc",
-    "session": "ed7d229a215ac7dd",
+    "session": "39814d75562a9b08",
     "coverage": {
       "site-default-layout": "vitepress dead-links (build fails) + prose path-claims",
       "served-assets": "copy-lean-to-site html scan",

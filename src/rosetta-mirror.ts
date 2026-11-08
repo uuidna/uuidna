@@ -69063,6 +69063,8 @@ carmichael_exponent_is_attained_mod_57 26
 carmichael_exponent_is_attained_mod_58 26
 carmichael_exponent_is_attained_mod_59 26
 carmichael_exponent_is_attained_mod_60 26
+#Leadde5612a2.lean
+lead_de5612a2_verified 18
 #Legal.lean
 solutions_not_skipped 27
 legal_verdict_is_exactly_one 27

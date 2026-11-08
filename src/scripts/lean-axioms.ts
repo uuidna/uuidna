@@ -106,7 +106,12 @@ const auditFile = async (file: string, keys: string[]): Promise<{ verdict: Recor
     if (/: error:/.test(c.msg) || attempt >= RETRIES) throw new Error('lean elaboration error in lean/' + file + ':\n' + c.msg.slice(0, 300))
   }
   const probe = join(tmpdir(), 'uuidna-ax-' + file)
-  writeFileSync(probe, `import ${file.replace(/\.lean$/, '')}\n` + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
+  // A WING NAMED BY ITS HANDLE IS STILL A MODULE. Trial wings are files named by hex handle (lean/45bcb8b0.lean), and a
+  // bare `import 45bcb8b0` is "unexpected token; expected identifier" — Lean module names cannot start with a digit. The
+  // «» escape names any module, so the probe uses it for every wing the same way, and the audit covers the trial wings
+  // instead of stopping at the first one and leaving the witness one theorem short of the ledger.
+  const moduleName = file.replace(/\.lean$/, '')
+  writeFileSync(probe, `import «${moduleName}»\n` + keys.map((k) => `#print axioms ${k}`).join('\n') + '\n')
   const r = await runLean(probe, dirname(olean))
   const peak = compiled === null ? r.peak : r.peak === null || compiled > r.peak ? compiled : r.peak
   return { verdict: parse(r.msg), peak, step }

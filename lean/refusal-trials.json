@@ -1,6 +1,6 @@
 {
  "why": "Each lead decided by the kernel under its own handle: verified = the ledger proves lead_<handle>; refuted = it proves involution_<handle> : ¬ lead_<handle>; each with a fresh, axiom-free kernel receipt; open = still in trial. The sealed theorems a lead's text names are recorded as evidence (citedKeys, theoremTrials), never as the verdict. Lean decides: no lead is judged by its wording, no evidence passes between leads, and no lead is purged.",
- "recorded": "841ac461-d",
+ "recorded": "793884d5-4",
  "refused": 110,
  "lean": 28,
  "open": 82,
@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 1917,
  "rounds": 0,
- "receipt": "aaca0909-a4bb-8e3f-a33f-3c79cafb202e",
+ "receipt": "103aa9fd-ae17-81d3-98c0-c3351a287079",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -449,7 +449,59 @@
     "two_order_six"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "witness",
+      "against",
+      "witness",
+      "against"
+     ]
+    },
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "witness",
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same",
+      "period"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "state"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -934,7 +986,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "c77115c2-082a-8714-a1b4-682d78b6f6a1",
+   "receipt": "96c6b101-d272-8afa-9630-0e12e561bb40",
    "verdictKey": "proof_de5612a2",
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#1",
@@ -952,7 +1004,56 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "tower",
+      "whether",
+      "against"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "alone"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against"
+     ]
+    },
+    {
+     "claim": "forty years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "between"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -1154,7 +1255,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "60637497-69d8-871d-9b9d-5ebf5cd1fea0",
+   "receipt": "6817fec1-e674-8d17-a36d-999d2cc8dfaf",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#2",
@@ -1180,7 +1281,53 @@
     "seats_pigeonhole"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "thirty months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "until"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -1601,7 +1748,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "770f1da6-28e8-8678-9606-e8169c4f8aa6",
+   "receipt": "98998b53-6ac7-879b-8552-9d7d8bbe1206",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#3",
@@ -1623,7 +1770,54 @@
     "reversal_escapes_arithmetic"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -2102,7 +2296,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "0f54f171-1026-8cb1-a380-9ad886c88f1f",
+   "receipt": "b65834b5-66fb-891e-8a39-d57b946b3d0c",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#4",
@@ -2120,7 +2314,61 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "written",
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "water",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "water",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "first",
+      "were"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "first"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "63632e0e",
@@ -2374,7 +2622,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c687aa39-0c24-8914-83fe-80add005ce35",
+   "receipt": "efafed41-8c6f-8a25-aecc-e82d41c2726a",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#5",
@@ -2392,7 +2640,44 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "itself"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "water"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "water"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -2528,7 +2813,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0d9128e2-185a-867e-9881-0ace68e0b863",
+   "receipt": "491a1d04-a1bc-891e-be77-0eb8e388437f",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#6",
@@ -2546,7 +2831,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "ff24b99e",
@@ -2650,7 +2983,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "6e54da56-ca0c-80da-9805-ff0dae49e816",
+   "receipt": "bd128d05-ecc9-82ef-8f31-91e8d92de55e",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#7",
@@ -2668,7 +3001,53 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "single"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "ten years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "text"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "050407c2",
@@ -2732,7 +3111,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b6b5f3f1-338b-8807-bab8-1b1b8892bd16",
+   "receipt": "27591fe8-64fb-8c91-8a68-fe4ada62d9c0",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#8",
@@ -2754,7 +3133,17 @@
     "n_qubit_dimension"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "such"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -3031,7 +3420,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "d5725082-8252-89e8-bab6-76bd8f5b1a11",
+   "receipt": "5b4f2821-0266-8cce-a043-98b50e8b868e",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#9",
@@ -3049,7 +3438,64 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "fa07226e",
@@ -3210,7 +3656,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "9f205553-90a3-8f62-9c9c-84777ebdb167",
+   "receipt": "47cd2709-2fff-8ff5-8f82-f12ab38d988b",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#10",
@@ -3228,7 +3674,58 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "origin"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -3655,7 +4152,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "18c17576-bc7c-8892-aac8-8266a280dcfe",
+   "receipt": "88bfd45b-8af1-88a8-ba44-8c7e70595d7c",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#11",
@@ -3677,7 +4174,26 @@
     "n_qubit_dimension"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "origin"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "607701a3",
@@ -3848,7 +4364,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "28b1a7f6-f34f-8e4c-85d7-3fc7f259408a",
+   "receipt": "1b60aaf8-1672-8818-be87-79143b54ea4a",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#12",
@@ -3866,7 +4382,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "tradition",
+      "life"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "life",
+      "life"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "numbers"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "story"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -4099,7 +4663,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8561318a-be77-8a20-a87c-3ed5fa1eb13a",
+   "receipt": "3ff0dda6-e8a8-8c3a-a5f8-622dd816d7e3",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#13",
@@ -4251,7 +4815,45 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    },
+    {
+     "claim": "three days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "prove"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "fa07226e",
@@ -4426,7 +5028,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "441bbcbe-924f-8ec2-b533-eeeb50f9b44f",
+   "receipt": "9670352b-4ef3-8424-ac12-4b542f7780c6",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#15",
@@ -4614,7 +5216,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "forty years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "derived"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4495c8dd",
@@ -4772,7 +5384,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1c75e1f2-e4dd-837d-a78e-a5b5f257bdfc",
+   "receipt": "503578eb-cb1e-8cfc-8553-ed691e51114f",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#17",
@@ -4790,7 +5402,57 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "8609c55d",
@@ -4964,7 +5626,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "e58d5101-c015-85de-ac27-5a5fb51f5267",
+   "receipt": "cf062228-3c48-8fbc-8ea2-7164fbf9cc76",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#18",
@@ -4992,7 +5654,57 @@
     "sha256_grover_margin_is_the_address"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "thousand months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "power",
+      "power",
+      "power"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "chain",
+      "chain"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "power"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -5446,7 +6158,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "532d0396-f8f5-82ec-8f9c-1a0811bc7bb0",
+   "receipt": "0aafd212-af1e-8aa4-8f8f-ff470d55b709",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#19",
@@ -5464,7 +6176,68 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "their",
+      "their",
+      "which"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "their",
+      "their",
+      "resolve"
+     ]
+    },
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those",
+      "which",
+      "their"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "point",
+      "which",
+      "point",
+      "through"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "their",
+      "those",
+      "those",
+      "their"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -6059,7 +6832,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "70dea9ef-eae1-8428-966e-a30f8f46619c",
+   "receipt": "30e83912-9253-87c3-ae44-780ee2ea01d3",
    "verdictKey": null,
    "from": "lean/leads.json trial",
    "coord": "lean/leads.json trial#20",
@@ -6077,7 +6850,28 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "eight",
+      "eight"
+     ]
+    },
+    {
+     "claim": "eight years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "eight",
+      "eight"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -6352,7 +7146,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "97e3815c-daf0-825e-b998-6a4c39dddd6e",
+   "receipt": "c4ab5ba4-087a-8575-903c-560bc679471c",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#0",
@@ -6393,7 +7187,27 @@
     "metatron_seventyeight_lines"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "life",
+      "life"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "life"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -6717,7 +7531,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "e4530806-e457-85d6-a0d3-a67a15d0dae1",
+   "receipt": "00bd9d62-530c-8956-9d1d-7488298a44d8",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#1",
@@ -8211,7 +9025,58 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "witness",
+      "witness"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after",
+      "those"
+     ]
+    },
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "6726dc46",
@@ -8519,7 +9384,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "43f0d776-167f-8b32-b049-21d2f7289e3a",
+   "receipt": "cebaacb4-aa44-8c7a-8a67-fd5f24b09d09",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#6",
@@ -8558,7 +9423,17 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -8863,7 +9738,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "59f89aaa-d922-8afe-a92d-4c067a546fee",
+   "receipt": "7d9d2702-45d2-870e-be8c-9449591139d6",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#7",
@@ -9294,7 +10169,54 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "time"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "time"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -9575,7 +10497,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7e9cb3b0-e918-8675-885c-dda157b93b96",
+   "receipt": "2e3da485-3605-8914-b3af-fa9461bdca6b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#9",
@@ -9612,7 +10534,53 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "ten years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "standard"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -10122,7 +11090,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0b373d93-8356-8ca4-98c3-4d7ee8394551",
+   "receipt": "edfef542-f655-8920-8c20-3ff9f59d71db",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#10",
@@ -10159,7 +11127,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period",
+      "while"
+     ]
+    },
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "colour"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -10592,7 +11608,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "bd5f3dc6-30a5-85e6-9e3b-f37c812e12a3",
+   "receipt": "6b2e2757-8e5f-88c4-8539-5dfcc7f64179",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#11",
@@ -10629,7 +11645,58 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "also",
+      "which"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were",
+      "which"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "second"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "were"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -11164,7 +12231,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c42f4ad9-8f2a-8c0d-911b-f859b7b9e587",
+   "receipt": "1990ba67-880e-8c2a-abaa-4aa997a94310",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#12",
@@ -11201,7 +12268,44 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period"
+     ]
+    },
+    {
+     "claim": "six months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "period"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -11467,7 +12571,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c8162b9a-3bab-87fd-8b72-48094f9f0dce",
+   "receipt": "21be6bda-7cb4-8ab2-901b-b056acd6719b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#13",
@@ -11504,7 +12608,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those"
+     ]
+    },
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -11798,7 +12950,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "6692dfa3-d805-8850-93b4-81d87a225652",
+   "receipt": "5b70780f-8038-8fb5-b98b-be302f6088ab",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#14",
@@ -12064,7 +13216,64 @@
     "proof_f59dbc3d"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "eight",
+      "they",
+      "eight",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "they",
+      "state",
+      "they"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those",
+      "they"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -12405,7 +13614,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "a5365d9f-6039-8563-b5f9-d69632385200",
+   "receipt": "f43ff39d-32e2-8d5c-affc-9ac7b92ae129",
    "verdictKey": "proof_f59dbc3d",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#16",
@@ -12442,7 +13651,53 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "raised"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "raised"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4495c8dd",
@@ -12674,7 +13929,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "094b5f5c-a100-8b04-acb2-c0ea31918a44",
+   "receipt": "4d84cb46-e772-8d4d-813c-5c3762f0f4b7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#17",
@@ -12711,7 +13966,54 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "witness",
+      "witness"
+     ]
+    },
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "therefore"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "distinct"
+     ]
+    },
+    {
+     "claim": "one year",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "distinct"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "therefore"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -12999,7 +14301,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "f2d10b2b-68ee-88f6-b946-cdb964749bf5",
+   "receipt": "3080d4b6-8b52-8160-b95c-a941c7fe58db",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#18",
@@ -13040,7 +14342,57 @@
     "k432"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "five",
+      "five",
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "alone"
+     ]
+    },
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "length"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "length"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -13587,7 +14939,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "bdba9143-216e-8b13-8575-e03c6e210c9a",
+   "receipt": "91b9b3e0-d96e-8341-a4a4-666380372e2a",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#19",
@@ -13632,7 +14984,36 @@
     "radial_squares_to_two"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "object"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -14011,7 +15392,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "44a5212e-f347-8d6d-aae2-0c124302dfde",
+   "receipt": "9cae25b5-19a9-898d-9da6-ce27ee68a943",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#20",
@@ -14051,7 +15432,35 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "kind"
+     ]
+    },
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "object"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -14393,7 +15802,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1a46277b-beaa-8e14-b641-7e2f0da4b55f",
+   "receipt": "bfe0ab1e-1db3-8ece-a258-2b88d2ebf27b",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#21",
@@ -14432,7 +15841,60 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "witness",
+      "against",
+      "witness",
+      "against"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "must",
+      "state"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "first"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "above",
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -15126,7 +16588,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3d529e16-c433-86d9-b4a2-b317836872da",
+   "receipt": "cc49fd3d-3819-8937-91a8-df410a87e1fb",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#22",
@@ -15163,7 +16625,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "chain",
+      "chain",
+      "length"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "single"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    },
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "length"
+     ]
+    },
+    {
+     "claim": "forty years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "derived"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -15796,7 +17306,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "14b64f8a-262d-8339-9a10-3d455b2827a7",
+   "receipt": "208bd1c4-9f37-8f26-8ce7-d9447cf11b2f",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#23",
@@ -15849,7 +17359,53 @@
     "reversible_erases_nothing"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "alone"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "hold"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -16281,7 +17837,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "748a05a6-7f7a-8694-bc02-0ad25aea68d9",
+   "receipt": "1304e2d1-d7e2-8f09-b4bb-86cca47eb80f",
    "verdictKey": "involution_ef58b583",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#24",
@@ -16323,7 +17879,56 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven",
+      "seven",
+      "seven"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven",
+      "seven"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "single"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven"
+     ]
+    },
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "looks"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -16959,7 +18564,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "4b78a68a-5c44-8475-b60c-27baa899466a",
+   "receipt": "a2c7ff9a-d4b4-87af-8b8f-371d15254b33",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#25",
@@ -17001,7 +18606,54 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -17355,7 +19007,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b56c6082-4a46-81a9-a9ec-1766e60bb9a2",
+   "receipt": "c1fe0abf-1357-82bf-893d-c73ecf284145",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#26",
@@ -17392,7 +19044,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "same"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing",
+      "three"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "chain",
+      "chain"
+     ]
+    },
+    {
+     "claim": "three days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -17955,7 +19659,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "55f238c6-dc38-8cc0-9a30-ff25a6b34aaf",
+   "receipt": "a8b1121e-81ec-8e0e-822a-ab935dd0a592",
    "verdictKey": "involution_b13fd37a",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#27",
@@ -17992,7 +19696,65 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "every",
+      "four",
+      "what"
+     ]
+    },
+    {
+     "claim": "Twelve months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "number",
+      "when",
+      "four"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "four",
+      "when"
+     ]
+    },
+    {
+     "claim": "four years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "three",
+      "four"
+     ]
+    },
+    {
+     "claim": "three days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "when"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -18763,7 +20525,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "91e56a4e-013d-8d09-9a7f-db8f6fcdc26b",
+   "receipt": "62092305-6cac-8e0b-9a41-b98d1c437548",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#28",
@@ -18800,7 +20562,61 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "five",
+      "five",
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "five",
+      "only",
+      "five"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "fa07226e",
@@ -18926,7 +20742,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "3e901e83-1a9a-80e8-a5dc-25f606492bf7",
+   "receipt": "643fde71-6202-8ad0-9add-344947dfec62",
    "verdictKey": "involution_2d552f1f",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#29",
@@ -18963,7 +20779,53 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under"
+     ]
+    },
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "therefore"
+     ]
+    },
+    {
+     "claim": "fourscore years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under"
+     ]
+    },
+    {
+     "claim": "one year",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "says"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "92f12838",
@@ -19040,7 +20902,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "2ff0ec1b-1992-8f02-b9b4-649f0f947d40",
+   "receipt": "23acb42e-ceb9-8ca0-a96f-accfac9f2da7",
    "verdictKey": "involution_c0727ef6",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#30",
@@ -19077,7 +20939,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only",
+      "twice"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "before"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "distinct"
+     ]
+    },
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "distinct"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c9ddc617",
@@ -19238,7 +21152,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "57cd9db7-6978-8d71-97d0-955a02b68cd4",
+   "receipt": "23d8504b-d653-8b2a-bde9-9cb437865768",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#31",
@@ -19275,7 +21189,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "1592e26d",
@@ -19343,7 +21309,7 @@
    ],
    "theoremTrials": [],
    "disposition": "refuted",
-   "receipt": "f369a6bc-722a-8229-8c10-d0a0afef546d",
+   "receipt": "0d32af0a-621f-8734-8d4a-aa195dc7042d",
    "verdictKey": "involution_e92de628",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#32",
@@ -19384,7 +21350,60 @@
     "involution_83b7cc65"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "against",
+      "they"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -19432,7 +21451,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "40d2f0cf-d545-82f9-9961-73a38dadf47b",
+   "receipt": "7750df4a-7039-8699-bc1c-1fd12e5008a5",
    "verdictKey": "involution_83b7cc65",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#33",
@@ -19469,7 +21488,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "times",
+      "three"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over",
+      "distinct"
+     ]
+    },
+    {
+     "claim": "three days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    },
+    {
+     "claim": "three miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "f43ebebc",
@@ -19642,7 +21713,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "224ba77d-677d-88d2-a8b6-9dfb00c5e5e8",
+   "receipt": "efe7448d-4e78-83c0-8a1a-fdbd32a29bd3",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#34",
@@ -19685,7 +21756,17 @@
     "z9mul_1_1"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "used"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "a7480598",
@@ -19897,7 +21978,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "81bc242c-a329-88c2-a3a2-fa753d5da87e",
+   "receipt": "f673445e-5839-8ed6-b84d-fa9542fd2c0d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#35",
@@ -19937,7 +22018,56 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "what"
+     ]
+    },
+    {
+     "claim": "thousand months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "every"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "what"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "twice"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -20093,7 +22223,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "5af64be4-a3ef-8cad-b15e-059cf8fa6d98",
+   "receipt": "a8aa0daa-b4f9-8644-8fc0-cefdf0ec1cce",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#36",
@@ -20130,7 +22260,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "eight",
+      "seven",
+      "eight"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven",
+      "seven",
+      "seven"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven",
+      "seven"
+     ]
+    },
+    {
+     "claim": "eight years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "eight",
+      "eight"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "twice"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "8b69c3a7",
@@ -20204,7 +22386,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "fbb873eb-47b1-8e00-b0c0-befc2daedecf",
+   "receipt": "b0befccc-5831-856e-94a6-09d12b9d56d4",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#37",
@@ -20241,7 +22423,57 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "five",
+      "five",
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "poor"
+     ]
+    },
+    {
+     "claim": "Twelve months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "book"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "poor"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -20301,7 +22533,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1e94ee5d-88ff-8aa9-a838-71f8afcba985",
+   "receipt": "6e4c8d55-5617-8848-8af0-cb2414b4e649",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#38",
@@ -20338,7 +22570,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4092e4c9",
@@ -20749,7 +23029,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c8b18694-8791-81ad-aec5-617ebafe2745",
+   "receipt": "4e7293cd-df2f-8857-99c5-ba232c9d0cd7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#39",
@@ -20786,7 +23066,63 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "were",
+      "first"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "chain",
+      "chain",
+      "here"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "same"
+     ]
+    },
+    {
+     "claim": "three years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "first"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "first",
+      "were"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -21332,7 +23668,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "951c200a-fd7d-8831-8022-75c6974e18a4",
+   "receipt": "fe6d076a-b85a-889d-96c8-fa4c8f59a3ea",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#40",
@@ -21369,7 +23705,66 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "return",
+      "were",
+      "period",
+      "return"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "said",
+      "said",
+      "said",
+      "said"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "return",
+      "said",
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "first",
+      "were",
+      "said"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found",
+      "only",
+      "only"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -22052,7 +24447,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "06100b4a-06a5-80b1-b8ae-fd15642f987e",
+   "receipt": "caa7fbca-cc87-8bc1-b0ce-740931562043",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#41",
@@ -22093,7 +24488,61 @@
     "provenance_integrity_not_content_truth"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "against",
+      "against"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which",
+      "against"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "every",
+      "through"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "which"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -22763,7 +25212,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "22218384-79f2-8fc2-baeb-5021e15d814e",
+   "receipt": "722c727a-11a3-87f0-9bbd-645a87a93bd6",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#42",
@@ -22802,7 +25251,56 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "before"
+     ]
+    },
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "here"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -23298,7 +25796,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1e88945b-91f1-8f1f-86ee-5a595f62e851",
+   "receipt": "dddb9671-7e2a-899a-a291-756698de977e",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#43",
@@ -23335,7 +25833,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "whole",
+      "whole"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "whole"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    },
+    {
+     "claim": "thousand months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -23697,7 +26243,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "ab48a25f-c397-89fa-bf46-e38548947a6b",
+   "receipt": "d2c74e58-9adc-85ca-b714-aff2f617e8a0",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#44",
@@ -23734,7 +26280,63 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "three miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "fourth",
+      "first"
+     ]
+    },
+    {
+     "claim": "three years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "which",
+      "three",
+      "first"
+     ]
+    },
+    {
+     "claim": "three feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "fourth"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -24080,7 +26682,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1baa5478-2400-862d-a65f-1411006edbac",
+   "receipt": "0a0758bf-f667-8b87-ba32-463d15730814",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#45",
@@ -24117,7 +26719,67 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "thousand",
+      "those",
+      "which",
+      "thousand"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "above",
+      "which",
+      "against"
+     ]
+    },
+    {
+     "claim": "thousand months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "thousand",
+      "what",
+      "thousand",
+      "every"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same",
+      "those",
+      "those",
+      "until"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "time",
+      "only",
+      "only"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -25152,7 +27814,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "1ffbc18b-35c5-8eae-acff-fee72713799b",
+   "receipt": "0c1150e3-4c1d-8e81-8614-83fe9cea369a",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#46",
@@ -25193,7 +27855,59 @@
     "involution_90c4f258"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one year",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "year",
+      "year",
+      "says"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "origin",
+      "first"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "green",
+      "after"
+     ]
+    },
+    {
+     "claim": "three miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "year",
+      "first"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -25541,7 +28255,7 @@
     }
    ],
    "disposition": "refuted",
-   "receipt": "f617eec9-981b-857c-9ab4-4315f6b7b147",
+   "receipt": "15589a74-e751-8ee9-ac47-5d413a468de2",
    "verdictKey": "involution_90c4f258",
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#47",
@@ -25578,7 +28292,68 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which",
+      "said"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "four",
+      "when",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "every",
+      "four",
+      "what"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "said",
+      "said",
+      "said",
+      "said"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "when",
+      "only",
+      "only"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -26342,7 +29117,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "df8498d6-ba0b-8ea3-97bc-227628278c26",
+   "receipt": "1a7b4314-af70-8211-9995-eadd37053c99",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#48",
@@ -26385,7 +29160,69 @@
     "alpine_domain_database_partitions_28635"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "were",
+      "them",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "knowing",
+      "which",
+      "they",
+      "them"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "them",
+      "them",
+      "were"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they",
+      "alone"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -27524,7 +30361,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "11871a3e-0c1e-87b7-ac74-7ab60bb5c2ae",
+   "receipt": "6adce9e7-78e5-86a3-a161-07a20fe2e40d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#49",
@@ -27570,7 +30407,67 @@
     "alpine_domain_database_partitions_28635"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "were",
+      "them",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "know",
+      "they",
+      "must",
+      "they"
+     ]
+    },
+    {
+     "claim": "ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "knowing",
+      "they",
+      "them"
+     ]
+    },
+    {
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "them",
+      "them",
+      "were"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "they",
+      "alone"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -28686,7 +31583,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "e53f4dd5-7ec2-8dda-ba22-ae10fff394de",
+   "receipt": "2a9f52b3-d0b4-8533-bd1b-faa33bb621e7",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#50",
@@ -28730,7 +31627,71 @@
     "four_wire_sorting_needs_five_comparators"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "five",
+      "what",
+      "five",
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "every",
+      "four",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "over",
+      "they",
+      "alone"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "they"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c83060ec",
@@ -29454,7 +32415,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "f44e872a-fec7-84ae-98b5-e19fc82fe640",
+   "receipt": "4e631f46-e649-8576-b0e8-bc4ae0f8fcee",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#51",
@@ -29493,7 +32454,59 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "whole",
+      "whole"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "whole",
+      "which"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over",
+      "alone"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing",
+      "itself"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -30079,7 +33092,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "479290ee-6d39-86c7-8138-e2f7d598ca19",
+   "receipt": "07e57e6e-2810-82d2-b463-0332f650f1ae",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#52",
@@ -30116,7 +33129,60 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which",
+      "against"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "other",
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "single",
+      "part"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "which"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -30618,7 +33684,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b9af7963-742c-8a7d-ab2c-155484467416",
+   "receipt": "5f19cb00-6099-8e4a-bc7d-65396c039e0d",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#53",
@@ -30655,7 +33721,58 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "first",
+      "were"
+     ]
+    },
+    {
+     "claim": "four years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "most",
+      "entry"
+     ]
+    },
+    {
+     "claim": "ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "most",
+      "most"
+     ]
+    },
+    {
+     "claim": "three miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were",
+      "first"
+     ]
+    },
+    {
+     "claim": "three years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "first",
+      "most"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -30961,7 +34078,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "b77d990a-4e45-8732-b337-6d1cbe13a80a",
+   "receipt": "92e605b7-23d9-8223-9f63-4707bf4249fc",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#54",
@@ -30998,7 +34115,66 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "seven",
+      "seven",
+      "which",
+      "which",
+      "seven"
+     ]
+    },
+    {
+     "claim": "One day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "those",
+      "those",
+      "which",
+      "second"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "against",
+      "seven",
+      "which"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "which",
+      "against"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "same",
+      "those",
+      "those"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -31848,7 +35024,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "db3c0513-c101-89d9-9d3b-fa55f627552c",
+   "receipt": "c5b49996-fdc4-879c-89b8-eca5e78a7989",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#55",
@@ -31885,7 +35061,65 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "them",
+      "them",
+      "were"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "same",
+      "them",
+      "child"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "written",
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were",
+      "them",
+      "though"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "return",
+      "were",
+      "return"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -32589,7 +35823,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "58e4a21d-4e1a-856e-ac72-0616d604d58e",
+   "receipt": "7de8a28e-b767-8b43-b226-b3cc65cfdda1",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#56",
@@ -32626,7 +35860,67 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "against",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "which",
+      "every",
+      "whole",
+      "whole"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free",
+      "fast",
+      "before",
+      "they"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "against",
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -33793,7 +37087,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c7485f1a-9d89-8fb2-bcb1-5bae3b616e47",
+   "receipt": "425ded09-0089-8dae-a3d8-642ea2e957c4",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#57",
@@ -33830,7 +37124,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "five notes",
+     "bookTitle": "The Tao Teh King, or the Tao and its Characteristics",
+     "bookId": 216,
+     "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+     "overlap": [
+      "five",
+      "what",
+      "five",
+      "five",
+      "five"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which",
+      "against"
+     ]
+    },
+    {
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "them",
+      "them",
+      "those",
+      "were"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "were",
+      "against",
+      "them",
+      "which"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "them",
+      "against",
+      "them",
+      "against"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -34716,7 +38074,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2f2705f9-3ac6-8d72-93bd-f5d8249ad82c",
+   "receipt": "1ea192b7-6170-8f0a-a07b-9a656b243bc0",
    "verdictKey": null,
    "from": "lean/leads.json refuted",
    "coord": "lean/leads.json refuted#58",
@@ -34816,7 +38174,54 @@
     "pluck_preserves_bound"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "six days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before",
+      "before"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    },
+    {
+     "claim": "thirty months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "until"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "until"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "before"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "b13fd37a",
@@ -34940,7 +38345,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "c5a00a1c-b2bb-8196-ae87-5a7ed7798634",
+   "receipt": "c700153c-83ef-8ebe-888b-3cacd23b6f82",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#1",
@@ -34962,7 +38367,56 @@
     "minting_is_free_and_forging_is_not"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free",
+      "feed"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -35384,7 +38838,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "411f05a3-0889-8093-a214-fab67f4b3e47",
+   "receipt": "ca7f8d13-7fba-8fcc-9b99-89d8c3734787",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#2",
@@ -35406,7 +38860,45 @@
     "minting_is_free_and_forging_is_not"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "free"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "ff24b99e",
@@ -35592,7 +39084,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "4397195c-0fe0-89df-8151-1fb5154b8341",
+   "receipt": "cf13d903-6aaa-81ef-928d-d7754932d94e",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#3",
@@ -35610,7 +39102,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "them",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four",
+      "what",
+      "over"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -37116,7 +40672,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d66c3be0-8e0d-8e88-a5e9-70df9a2267a8",
+   "receipt": "91cb902c-6150-8216-ad84-899a177c3b6a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#4",
@@ -37134,7 +40690,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "them",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four",
+      "what",
+      "over"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -38638,7 +42258,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "96afce63-8876-8e05-8a44-e4cccc3fe6a3",
+   "receipt": "aff33f9c-421b-888c-a481-b317022780f8",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#5",
@@ -38656,7 +42276,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "them",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four",
+      "what",
+      "over"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -40158,7 +43842,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "bca7296a-38f1-8462-ae80-791a4f5945bc",
+   "receipt": "4f50a4b9-a8de-814d-8b03-a846ca21b61a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#6",
@@ -40176,7 +43860,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "which",
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -41613,7 +45361,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "9677f598-a451-8952-8726-948fbc9de62c",
+   "receipt": "6295db7c-0475-8293-a5b8-428687a37f2d",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#7",
@@ -41631,7 +45379,71 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "they",
+      "four",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "what",
+      "they",
+      "four",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "which",
+      "four",
+      "which"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "four",
+      "four",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "they",
+      "which",
+      "which",
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -43066,7 +46878,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "c501382a-0771-887b-821a-fe1da7aa8b1a",
+   "receipt": "23294eea-81ed-8014-9ed8-11dfa421092c",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#8",
@@ -43084,7 +46896,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -43915,7 +47775,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "956d9d38-fc4e-87f6-80ee-8713c76e4f11",
+   "receipt": "6bd3dce1-f7dc-8a88-b845-faecf6a9f98e",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#9",
@@ -43933,7 +47793,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -44764,7 +48672,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "fa7bcaf0-64a1-8acd-8a31-9962b4e042e7",
+   "receipt": "58772a08-e8da-8b4b-a12c-7991f6e2f961",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#10",
@@ -44782,7 +48690,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -45613,7 +49569,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "96ab2631-a29d-84ed-a870-93ca8e63e985",
+   "receipt": "9112f2f4-2b03-8025-a237-6526f6d36ee1",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#11",
@@ -45631,7 +49587,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -46462,7 +50466,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "f8399f9c-c7ea-8b1e-9476-2944fb8623c1",
+   "receipt": "4ac0bade-8670-8078-8f36-fac9f1984d0a",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#12",
@@ -46480,7 +50484,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -47311,7 +51363,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "0cc8e1eb-c290-8d74-ac72-76b0da2de876",
+   "receipt": "6f0b3122-236d-85ae-8ce4-5b75ad2fd300",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#13",
@@ -47329,7 +51381,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -48160,7 +52260,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "68433627-fdee-8c9c-8b0c-0214d8fa6fcd",
+   "receipt": "278fab34-54f9-8378-abc2-a2b0a1d77c11",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#14",
@@ -48178,7 +52278,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -49009,7 +53157,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "3e81da7e-26ff-8db7-b15f-8c2e4a62868b",
+   "receipt": "fddb7e3b-64f1-82e6-84c8-bcd2cebfe6fb",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#15",
@@ -49027,7 +53175,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -49858,7 +54054,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "10279f0d-ac6a-8c87-8df5-cd98eca04b9d",
+   "receipt": "419c3723-4851-8ca7-baa4-6dd5047923f5",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#16",
@@ -49876,7 +54072,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -50707,7 +54951,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "9fce157e-77e1-8e52-9243-d48cbed50642",
+   "receipt": "a000b203-8a1a-814d-a1c3-f47f22f2fabb",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#17",
@@ -50725,7 +54969,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -51556,7 +55848,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "dca20151-e65c-81bc-ba20-71ea4ba29313",
+   "receipt": "1d43806c-ece5-8fa1-8b76-92ae361fb093",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#18",
@@ -51574,7 +55866,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -52405,7 +56745,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "7b056bce-e8a3-802f-8fc1-cc390503d276",
+   "receipt": "87ec4fa4-69a8-8e2d-9b11-99a4758eecd7",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#19",
@@ -52423,7 +56763,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -53254,7 +57642,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d5f026df-99b7-814c-8a62-e824da176972",
+   "receipt": "707fdb37-587d-8c15-a2c8-574b2a47a352",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#20",
@@ -53272,7 +57660,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -54103,7 +58539,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "43243690-4070-8a37-a500-d872d94c921e",
+   "receipt": "af7bedfa-ae6f-8c5f-b30b-46bef1c02a9c",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#21",
@@ -54121,7 +58557,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -54952,7 +59436,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2c365dff-45fc-88f3-9911-73d8f8e0c3b7",
+   "receipt": "d56220a1-8b03-8a57-8287-157d9f04dab1",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#22",
@@ -54970,7 +59454,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -55801,7 +60333,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "2cde3e7a-9f61-870e-b32a-056bdf3f8c8a",
+   "receipt": "10a1764b-c380-8aec-a483-cf3e7a4499fe",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#23",
@@ -55819,7 +60351,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -56650,7 +61230,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "dd5feb1a-b59d-837b-afc2-cde78b36787e",
+   "receipt": "35f9c77f-bbd3-8857-bbc0-be9a919fd354",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#24",
@@ -56668,7 +61248,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -57499,7 +62127,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "094bdffe-fc17-8ddc-9c46-27f2b5da99fc",
+   "receipt": "dfa22698-ea31-8b7a-b273-f19c5f930387",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#25",
@@ -57517,7 +62145,55 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "after",
+      "after"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "found"
+     ]
+    },
+    {
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "after"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "c08442a1",
@@ -58348,7 +63024,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "8fd9c33d-e0ac-84ec-ab86-5216878ad5d6",
+   "receipt": "34100ed2-e371-8c56-8562-2c44ac19583d",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#26",
@@ -58366,7 +63042,62 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "nothing",
+      "three",
+      "whose"
+     ]
+    },
+    {
+     "claim": "four years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "entry",
+      "about"
+     ]
+    },
+    {
+     "claim": "three days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "prove"
+     ]
+    },
+    {
+     "claim": "three years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "three",
+      "three",
+      "about"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "numbers",
+      "about"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -59380,7 +64111,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "db3670d0-258f-8397-a089-0f19560f5d5c",
+   "receipt": "67678fc1-c6c7-8a1e-bc0f-bb096a2b3dbf",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#27",
@@ -59398,7 +64129,57 @@
    "witnessKeys": [],
    "sealedKeys": [],
    "status": "open",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "while"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "over"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "over"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "4642b5b4",
@@ -60278,7 +65059,7 @@
    ],
    "theoremTrials": [],
    "disposition": "open",
-   "receipt": "d79b55db-0326-8c37-840d-ddb70f7d62fa",
+   "receipt": "0e29ac17-cb8a-8c7d-adff-5bf9919e2c81",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#28",
@@ -60300,7 +65081,56 @@
     "truncated_run_counted_47"
    ],
    "status": "lean",
-   "bookHits": [],
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "under",
+      "while"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "over"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "every",
+      "over"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "over"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "ab32c9e5-468b-8f81-bb7a-28405055df71",
+     "overlap": [
+      "name"
+     ]
+    }
+   ],
    "collisions": [
     {
      "handle": "de5612a2",
@@ -60981,7 +65811,7 @@
     }
    ],
    "disposition": "open",
-   "receipt": "6caa97cc-21e4-8013-859f-c2c96408da5e",
+   "receipt": "78603cb5-e4d6-87b6-8fc8-c588e2edf959",
    "verdictKey": null,
    "from": "lean/wave-queue.json refused",
    "coord": "lean/wave-queue.json refused#29",
@@ -61282,10 +66112,10 @@
   }
  },
  "unreceipted": [],
- "seal": "5e2aeab2-822c-84ab-9b0e-b6ba2dd53733",
+ "seal": "6a9405ad-6c09-8dd6-ae5b-b68df7c3cb46",
  "crossed": {
-  "sorted": "aaca0909-a4bb-8e3f-a33f-3c79cafb202e",
-  "reversed": "aaca0909-a4bb-8e3f-a33f-3c79cafb202e",
+  "sorted": "103aa9fd-ae17-81d3-98c0-c3351a287079",
+  "reversed": "103aa9fd-ae17-81d3-98c0-c3351a287079",
   "agrees": true
  }
 }

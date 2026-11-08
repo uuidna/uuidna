@@ -5,7 +5,7 @@ import { cataloguePackage } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
 import { packageInCryptoCensus } from '../cryptovia/index.js'
 import { portApp } from '../../../os/apps/index.js'
-import { theoremFor } from '../../../theorems/index.js'
+import { sealedAddressOf } from '../../../theorems/index.js'
 
 export const PORT_THEOREM = 'the_os_is_bootable_quantum' as const
 export const CRYPTO_THEOREM = 'sha256_grover_margin_is_the_address' as const
@@ -29,8 +29,10 @@ export interface AppTheoremBehind {
   route: `/theorem/${string}`
 }
 
+// sealed-by-key from the baked root. theoremFor holds a ROW, and at the edge a row is held only for the keys a call
+// cited — so the port theorem read as unsealed there, claim() returned null, and uuidna_crypto died reading .key of null.
 const claim = (key: string): TheoremClaim | null =>
-  theoremFor(key) !== undefined ? { key, route: `/theorem/${key}` } : null
+  sealedAddressOf(key) !== undefined ? { key, route: `/theorem/${key}` } : null
 
 /** appTheoremBehind(name) → the sealed theorem(s) behind one catalogue app. */
 export function appTheoremBehind(name: string): AppTheoremBehind {

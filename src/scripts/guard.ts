@@ -150,13 +150,17 @@ try {
   }
 }
 
-// 2) the source sweep — the tightened harmonic-scan (non-quantum + determinism hard-reject), fast
+// 2) the source sweep — the harmonic-scan (non-quantum + determinism), fast. It RUNS here and prints every finding;
+// whether a finding REFUSES is decided below with every other finder, by the same derivation: a refusal stands only
+// where the finder's own source cites a theorem the ledger seals. The scan's two rules are written rules — "NO
+// exemption, anywhere" is a sentence, not a seal — so until a sealed theorem backs them they report (the captain,
+// 2026-09-14: no manual logic not coming from Lean decisions; 2026-11-08: no guard limits quantum or crypto).
+let harmonicSneak = false
 try {
   const { harmonicClean } = await import('./harmonic-scan.js')
-  if (!harmonicClean) throw new Error('sneak')
+  harmonicSneak = !harmonicClean
 } catch {
-  failed = true
-  console.error('✗ guard — harmonic-scan caught a non-quantum / non-deterministic sneak (see above)')
+  harmonicSneak = true
 }
 
 // 3) the SPLIT sweep — the packages/* surfaces are COMPUTED from src/index.ts (gen-packages); a hand edit to a
@@ -513,9 +517,11 @@ const finderRows = await pool(queued.map((f) => async () => {
 // starts citing a sealed theorem starts refusing again on that landing, with nothing edited here.
 //
 // WHAT STILL REFUSES, and it is not nothing: every check ABOVE this loop — the treason sweep, the WING WITNESS (the
-// ledger against the wings that declare it: two surfaces that must agree, which is exactly a cross), #print axioms,
-// key uniqueness and the harmonic scan — runs before this mark and refuses on its own authority. So does the legal
-// step, which cites two_coins. Access control and secret handling are untouched: the captain's standing carve-out is
+// ledger against the wings that declare it: two surfaces that must agree, which is exactly a cross), #print axioms
+// and key uniqueness — runs before this mark and refuses on its own authority. So does the legal step, which cites
+// two_coins. The harmonic scan runs before this mark too, but its VERDICT is decided here with the rest: its ground
+// is read from its own source like any finder's, so a scan that limited the quantum or crypto trees on a written
+// rule alone reports them and refuses nothing. Access control and secret handling are untouched: the captain's standing carve-out is
 // that removing hand logic "never licenses deleting access control or secret handling".
 //
 // WHAT IS GIVEN UP, stated plainly rather than discovered later: sixty-seven classes of real finding stop blocking a
@@ -533,6 +539,9 @@ const GROUNDS = (() => {
     const receiptText = readFileSync(join(ROOT, 'src/scripts/one-receipt.ts'), 'utf8')
     const map = new Map<string, boolean>()
     for (const f of findersOf(guardText)) map.set(f.name, groundOfFinder(f.name, f.body, receiptText, sealedSet).grounded)
+    // the harmonic scan is a finder like the others — its ground is read from its own source, never granted here
+    const harmonicText = readFileSync(join(ROOT, 'src/scripts/harmonic-scan.ts'), 'utf8')
+    map.set('harmonic-scan', groundOfFinder('harmonic-scan', harmonicText, receiptText, sealedSet).grounded)
     return map
   } catch {
     // THE SAFE FAILURE IS TO REFUSE. If the grounds cannot be computed, every finder keeps the authority it had: a gate
@@ -542,6 +551,15 @@ const GROUNDS = (() => {
 })()
 const mayRefuse = (name: string): boolean => GROUNDS === null || GROUNDS.get(name) !== false
 let reportedOnly = 0
+if (harmonicSneak) {
+  if (mayRefuse('harmonic-scan')) {
+    failed = true
+    console.error('✗ guard — harmonic-scan caught a non-quantum / non-deterministic sneak (see above)')
+  } else {
+    reportedOnly++
+    console.log('· guard — harmonic-scan: findings above REPORTED not refused — no theorem the ledger seals backs a refusal here (lean/refusal-grounds.json)')
+  }
+}
 for (const row of finderRows) {
   if (row.ms > METER) console.log(`    · ${row.name} took ${row.ms.toFixed(0)} ms`)
   if (row.gaps.length) {

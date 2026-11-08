@@ -10,7 +10,7 @@
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { merkleGravity } from './gravity/index.js'
-import { theorems } from './theorems/index.js'
+import { sealedAddressOf } from './theorems/index.js'
 import { runTrial } from './trial-run.js'
 import { quantumAura } from './aura.js'
 import { axiomWitness } from './axiom-witness.js'
@@ -46,7 +46,6 @@ const HONEST =
  *  Composes the identity/aura, the proofs + kernel-only witness, the quantum-crypto posture + floor theorems, the
  *  coins, the integrity fingerprint and the rights. Deterministic; the same profile for every observer. */
 export function quantumProfile(): QuantumProfile {
-  const T = theorems()
   const self = toUuid('uuidna')
   const aura = quantumAura(self)
   const trial = runTrial()
@@ -54,7 +53,9 @@ export function quantumProfile(): QuantumProfile {
   const audit = securityAudit()
   const analytics = quantumAnalytics()
   const rights = captainRights()
-  const sealed = (k: string): boolean => T.some((t) => t.key === k)
+  // membership by key from the baked root. Walking theorems() for three keys held 71k rows in a 128 MB isolate, and
+  // the edge answered the profile with its ledger refusal instead of the profile.
+  const sealed = (k: string): boolean => sealedAddressOf(k) !== undefined
   const floorSealed = POST_QUANTUM_FLOOR.every(sealed)
   // the symmetric-only posture: it is quantum-appropriate iff the security audit passes AND the post-quantum floor is sealed.
   const symmetricOnly = audit.passed && floorSealed
