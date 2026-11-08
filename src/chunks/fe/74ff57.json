@@ -1,0 +1,12 @@
+{
+  "handle": "fe74ff57",
+  "address": "fe74ff57-1993-8c9f-b64a-cee7082788bd",
+  "statement": "∀ x m : Nat, x + m - m = x",
+  "tactic": "intro x m induction m with | zero => rfl | succ m ih => show (x + m).succ - m.succ = x rw [Nat.succ_sub_succ_eq_sub] exact ih",
+  "keys": [
+    "de5612a2_add_sub_self"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

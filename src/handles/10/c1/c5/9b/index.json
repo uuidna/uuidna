@@ -1,0 +1,12 @@
+{
+  "handle": "10c1c59b",
+  "address": "10c1c59b-1395-8591-9732-c8ebe04d7a5b",
+  "kind": "chunk",
+  "keys": [
+    "de5612a2_go_fuel"
+  ],
+  "statement": "∀ (y : Nat) (hy : 0 < y) (f₁ x : Nat) (h₁ : x < f₁) (f₂ : Nat) (h₂ : x < f₂), Nat.modCore.go y hy f₁ x h₁ = Nat.modCore.go y hy f₂ x h₂",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

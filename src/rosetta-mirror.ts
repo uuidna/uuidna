@@ -6,22 +6,22 @@
 // annotation, and the FLOOR is the anchoring this ledger may never fall below.
 
 export const MIRROR = `#45bcb8b0.lean
-de5612a2_go_fuel 2
-de5612a2_add_sub_self 2
-de5612a2_go_congr 2
-de5612a2_modCore_add_self 2
-de5612a2_mod_add_self 2
-de5612a2_add_mul_mod_self 2
-de5612a2_mod_add_nine 2
-de5612a2_mod_add_fourteen 2
-de5612a2_mod_add_eighty_four 2
+de5612a2_go_fuel 18
+de5612a2_add_sub_self 18
+de5612a2_go_congr 18
+de5612a2_modCore_add_self 18
+de5612a2_mod_add_self 18
+de5612a2_add_mul_mod_self 18
+de5612a2_mod_add_nine 18
+de5612a2_mod_add_fourteen 18
+de5612a2_mod_add_eighty_four 18
 de5612a2_mul_two_mod_nine 18
-de5612a2_mul_two_mod_nine_congr 2
-doubling_repeats_every_six 2
-doubling_repeats_every_forty_two 2
-stepping_repeats_every_seven 2
-stepping_repeats_every_forty_two 2
-pair_repeats_every_forty_two 2
+de5612a2_mul_two_mod_nine_congr 18
+doubling_repeats_every_six 18
+doubling_repeats_every_forty_two 18
+stepping_repeats_every_seven 18
+stepping_repeats_every_forty_two 18
+pair_repeats_every_forty_two 18
 lead_de5612a2_verified 18
 #Acoustics.lean
 harmonic_series 27

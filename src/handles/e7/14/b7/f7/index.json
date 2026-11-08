@@ -1,0 +1,12 @@
+{
+  "handle": "e714b7f7",
+  "address": "e714b7f7-7854-8067-9931-ed5d705bb887",
+  "kind": "chunk",
+  "keys": [
+    "doubling_repeats_every_six"
+  ],
+  "statement": "∀ n : Nat, 2 ^ (n + 6) % 9 = 2 ^ n % 9",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

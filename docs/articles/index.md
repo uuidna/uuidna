@@ -13,7 +13,7 @@ in the link, because these wings import nothing.
 
 | article | theorems | re-prove |
 |---|---|---|
-| [lean/45bcb8b0.lean](/articles/45bcb8b0) | 2 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2F45bcb8b0.lean) |
+| [lean/45bcb8b0.lean](/articles/45bcb8b0) | 17 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2F45bcb8b0.lean) |
 | [The sound domain](/articles/acoustics) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAcoustics.lean) |
 | [The affine](/articles/affine) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAffine.lean) |
 | [The alignment](/articles/alignment) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FAlignment.lean) |

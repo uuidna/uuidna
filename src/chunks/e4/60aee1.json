@@ -1,0 +1,12 @@
+{
+  "handle": "e460aee1",
+  "address": "e460aee1-0721-840d-9841-c4ce8b78b17b",
+  "statement": "∀ a m k : Nat, (a + (m + 1) * k) % (m + 1) = a % (m + 1)",
+  "tactic": "intro a m k induction k with | zero => rfl | succ k ih => rw [show a + (m + 1) * (k + 1) = a + (m + 1) * k + (m + 1) from (Nat.add_assoc a ((m + 1) * k) (m + 1)).symm, de5612a2_mod_add_self, ih]",
+  "keys": [
+    "de5612a2_add_mul_mod_self"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

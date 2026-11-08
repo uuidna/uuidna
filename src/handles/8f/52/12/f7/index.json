@@ -1,0 +1,12 @@
+{
+  "handle": "8f5212f7",
+  "address": "8f5212f7-7866-8040-986d-34d5cd1fef39",
+  "kind": "chunk",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "statement": "(2571699903 = (71718 * (71718 - 1)) / 2) ∧ (2571699903 > 2000 * 71717)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

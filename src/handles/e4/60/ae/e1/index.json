@@ -1,0 +1,12 @@
+{
+  "handle": "e460aee1",
+  "address": "e460aee1-0721-840d-9841-c4ce8b78b17b",
+  "kind": "chunk",
+  "keys": [
+    "de5612a2_add_mul_mod_self"
+  ],
+  "statement": "∀ a m k : Nat, (a + (m + 1) * k) % (m + 1) = a % (m + 1)",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "701aade4",
+  "address": "701aade4-34aa-8fd4-999f-298039514704",
+  "statement": "∀ n : Nat, (1 + 2 * (n + 7)) % 7 = (1 + 2 * n) % 7",
+  "tactic": "intro n rw [show 1 + 2 * (n + 7) = 1 + 2 * n + 14 from (Nat.add_assoc 1 (2 * n) 14).symm] exact de5612a2_mod_add_fourteen _",
+  "keys": [
+    "stepping_repeats_every_seven"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

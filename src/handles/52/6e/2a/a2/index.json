@@ -1,0 +1,12 @@
+{
+  "handle": "526e2aa2",
+  "address": "526e2aa2-0048-8fa1-8df3-c16d2eacfcac",
+  "kind": "chunk",
+  "keys": [
+    "doubling_repeats_every_forty_two"
+  ],
+  "statement": "∀ n : Nat, 2 ^ (n + 42) % 9 = 2 ^ n % 9",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "73fac054",
+  "address": "73fac054-67bb-80f9-81ec-cb258215f303",
+  "statement": "∀ a b : Nat, a % 9 = b % 9 → (a * 2) % 9 = (b * 2) % 9",
+  "tactic": "intro a b h rw [de5612a2_mul_two_mod_nine a, de5612a2_mul_two_mod_nine b, h]",
+  "keys": [
+    "de5612a2_mul_two_mod_nine_congr"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e0a759b9",
+  "address": "e0a759b9-5ab0-83b9-8075-42bf389e5429",
+  "kind": "chunk",
+  "keys": [
+    "de5612a2_mod_add_nine"
+  ],
+  "statement": "∀ x : Nat, (x + 9) % 9 = x % 9",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

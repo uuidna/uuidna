@@ -1,0 +1,12 @@
+{
+  "handle": "3b4021aa",
+  "address": "3b4021aa-ae29-82e2-bb0c-2b5a6d4f5813",
+  "kind": "chunk",
+  "keys": [
+    "de5612a2_modCore_add_self"
+  ],
+  "statement": "∀ (x m : Nat), 0 < m → Nat.modCore (x + m) m = Nat.modCore x m",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

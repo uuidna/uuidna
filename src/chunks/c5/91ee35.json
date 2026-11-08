@@ -1,0 +1,12 @@
+{
+  "handle": "c591ee35",
+  "address": "c591ee35-60a5-8bae-9b04-0f25c8b727ff",
+  "statement": "∀ x : Nat, (x + 14) % 7 = x % 7",
+  "tactic": "intro x exact de5612a2_add_mul_mod_self x 6 2",
+  "keys": [
+    "de5612a2_mod_add_fourteen"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

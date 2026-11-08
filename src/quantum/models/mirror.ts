@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000043413",
-   "completionPrice": "0.00000086826"
+   "promptPrice": "0.000000413772",
+   "completionPrice": "0.000000827544"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -2109,8 +2109,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-120b",
    "name": "OpenAI: gpt-oss-120b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000025",
-   "completionPrice": "0.000000093"
+   "promptPrice": "0.00000001",
+   "completionPrice": "0.000000038"
   },
   {
    "id": "openai/gpt-oss-120b:batch",
@@ -3194,8 +3194,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001567",
-   "completionPrice": "0.0000101398"
+   "promptPrice": "0.0000001824",
+   "completionPrice": "0.0000093388"
   },
   {
    "id": "~openai/gpt-astra-latest",

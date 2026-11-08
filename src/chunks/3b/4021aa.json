@@ -1,0 +1,12 @@
+{
+  "handle": "3b4021aa",
+  "address": "3b4021aa-ae29-82e2-bb0c-2b5a6d4f5813",
+  "statement": "∀ (x m : Nat), 0 < m → Nat.modCore (x + m) m = Nat.modCore x m",
+  "tactic": "intro x m hm rw [Nat.modCore.eq_1, Nat.modCore.eq_1, dif_pos hm, dif_pos hm, Nat.modCore.go.eq_1 m hm (x + m) (x + m), dif_pos (Nat.le_add_left m x)] exact de5612a2_go_congr m hm (x + m) (x + m - m) _ x.succ x _ (de5612a2_add_sub_self x m)",
+  "keys": [
+    "de5612a2_modCore_add_self"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "701aade4",
+  "address": "701aade4-34aa-8fd4-999f-298039514704",
+  "kind": "chunk",
+  "keys": [
+    "stepping_repeats_every_seven"
+  ],
+  "statement": "∀ n : Nat, (1 + 2 * (n + 7)) % 7 = (1 + 2 * n) % 7",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

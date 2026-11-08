@@ -1,0 +1,12 @@
+{
+  "handle": "e714b7f7",
+  "address": "e714b7f7-7854-8067-9931-ed5d705bb887",
+  "statement": "∀ n : Nat, 2 ^ (n + 6) % 9 = 2 ^ n % 9",
+  "tactic": "intro n induction n with | zero => decide +kernel | succ k ih => rw [Nat.add_right_comm, Nat.pow_succ, Nat.pow_succ] exact de5612a2_mul_two_mod_nine_congr _ _ ih",
+  "keys": [
+    "doubling_repeats_every_six"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

@@ -3,11 +3,11 @@
 **Generated:** 2026-11-08
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71091/71091 theorems — every one, by construction
+**Formalisation claimed:** 71091/71106 theorems — every one, by construction
 **Discovery claimed:** 70679 — the other 412 restate a fact a named source found first
 
 *The 412 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 347 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `6a678c7e-1ed7-86e0-bc6d-2993c400d8c6`
+**Claim receipt:** `fc1f0364-0192-8967-b3d0-c6159dde25e7`
 
 ### Facts the captain does not claim to have discovered
 
@@ -467,7 +467,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `caac5bb4-16e7-85be-8853-bb9b2bdd4657`
+- **Sample lineAddress:** `beb2c481-a0df-88ee-9d15-6d796bf0482a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2357,7 +2357,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `53e9789d-a35c-86cf-b839-4a9ef67211d2`
+- **Sample lineAddress:** `84c5de72-5b25-80c6-bae3-c9e44fcd3a91`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2436,7 +2436,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 71005 (71091 entries, 86 re-namings — a theorem is its Lean |
+| sealed propositions | 71020 (71106 entries, 86 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2454,7 +2454,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71091 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71106 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

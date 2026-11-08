@@ -1,12 +1,12 @@
 {
  "total": true,
- "keys": 71091,
- "distinct": 71005,
- "covers": "71005 distinct propositions under 71091 keys (86 deliberate re-namings); the carrier round-trip runs once per key",
- "receipt": "53bf67f7-f1e8-8416-a48a-ee8201a81df7",
+ "keys": 71106,
+ "distinct": 71020,
+ "covers": "71020 distinct propositions under 71106 keys (86 deliberate re-namings); the carrier round-trip runs once per key",
+ "receipt": "10916970-9a8f-871d-882e-2f79ba6fcb70",
  "crossed": {
-  "sorted": "53bf67f7-f1e8-8416-a48a-ee8201a81df7",
-  "reversed": "53bf67f7-f1e8-8416-a48a-ee8201a81df7",
+  "sorted": "10916970-9a8f-871d-882e-2f79ba6fcb70",
+  "reversed": "10916970-9a8f-871d-882e-2f79ba6fcb70",
   "agrees": true
  }
 }

@@ -11,7 +11,7 @@ description: The mission board, derived — open work with an exact deliverable,
 > ([`denial_drains_to_the_last_coin`](/theorem/denial_drains_to_the_last_coin)).
 
 **295 missions** — 28 seal-finding · 136 decide-bound · 131 symbol-leg — derived from the
-rosetta mirror, the sealed bound census (`214bdf9f071ff737`) and the research ledger. The captain of every mission
+rosetta mirror, the sealed bound census (`08d18f0a9b903a70`) and the research ledger. The captain of every mission
 is the paying handle `a93c01a5-64e8-8356-ab64-1b73550ce39e`: a mission is claimed by DEPOSITING, never by a form — run
 [`uuidna_trial`](/mcp#uuidna-trial) on your statement, contribute the seal through
 [`uuidna_agent_contribute`](/mcp#uuidna-agent-contribute), and the board regrows without the row on the next pass.
@@ -35,7 +35,7 @@ Ask for one skill's missions with [`uuidna_missions`](/mcp#uuidna-missions) and 
 | wave | 67088 | 93 | 153 | `b97801e1` |
 | fermat | 2096 | 24 | 24 | `257643cd` |
 | involution | 20 | 11 | 13 | `fdb12218` |
-| vortex | 26 | 5 | 7 | `fa48a04a` |
+| vortex | 41 | 5 | 7 | `fa48a04a` |
 | science-pairs | 27 | 4 | 6 | `d6f59cc8` |
 | z9-ring | 305 | 4 | 6 | `fdb12218` |
 | coins | 27 | 3 | 5 | `1b48b046` |

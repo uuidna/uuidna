@@ -1,0 +1,12 @@
+{
+  "handle": "06e3f99d",
+  "address": "06e3f99d-1746-8cfb-a435-1a7076a577b5",
+  "statement": "∀ x m : Nat, (x + (m + 1)) % (m + 1) = x % (m + 1)",
+  "tactic": "intro x m show (if m + 1 ≤ x + (m + 1) then Nat.modCore (x + (m + 1)) (m + 1) else x + (m + 1)) = x % (m + 1) rw [if_pos (Nat.le_add_left (m + 1) x), de5612a2_modCore_add_self x (m + 1) (Nat.zero_lt_succ m)] cases x with | zero => show Nat.modCore 0 (m + 1) = 0 rw [Nat.modCore.eq_1, dif_pos (Nat.zero_lt_succ m), Nat.modCore.go.eq_1, dif_neg (Nat.not_succ_le_zero m)] | succ y => show Nat.modCore (y + 1) (m + 1) = if m + 1 ≤ y + 1 then Nat.modCore (y + 1) (m + 1) else y + 1 by_cases h : m + 1 ≤ y + 1 · rw [if_pos h] · rw [if_neg h, Nat.modCore.eq_1, dif_pos (Nat.zero_lt_succ m), Nat.modCore.go.eq_1, dif_neg h]",
+  "keys": [
+    "de5612a2_mod_add_self"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

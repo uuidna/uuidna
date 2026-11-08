@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:002e1a37-a182-8070-901b-6289325a218b",
+  "@id": "urn:uuid:6794cd21-7396-8a93-b5b7-9cf767c87acf",
   "@type": "Dataset",
   "name": "uuidna per-level report — reach, cost and fidelity",
   "description": "Every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction, citing the level's sealed theorem), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Sealed keys cited: usable_gap_is_two_to_eighty (128 - 48 = 80), n_qubit_dimension (n qubits span 2^n amplitudes), gate_error_baseline_class (1000 = 10^3 per million).",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "d053efbc-70cf-8111-ac2f-4a9f7898616d",
+  "identifier": "dd3c35b8-82fa-839e-992a-09431139fd43",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 7109100 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 7110600 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,7 +98,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "71091 decisions executed; a bound of better than one in 71091, never a proof of zero"
+      "citation": "71106 decisions executed; a bound of better than one in 71106, never a proof of zero"
     },
     {
       "@type": "PropertyValue",

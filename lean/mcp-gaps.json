@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1530,
-  "distinct": 1299,
+  "records": 1533,
+  "distinct": 1302,
   "loadBearing": 118,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -6455,6 +6455,13 @@
       ]
     },
     {
+      "gap": "read how the ledger generator selects theorems from a trial wing: the drain finding persists after regeneration and names no reason",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read how the trial wing's theorems entered the served ledger: no door prints a ledger row's raw statement by key prefix",
       "hits": 1,
       "forms": [
@@ -6519,6 +6526,13 @@
     },
     {
       "gap": "read the inline skill annotation syntax from an existing wing: no door prints how a theorem authors its skill",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the ledger generator's theorem pattern: twelve kernel-proved theorems of a wing never enter the served ledger and the drain names no reason",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7103,6 +7117,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "rewrite the trial wing binder-free so the ledger reads it: no door restates a wing",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {

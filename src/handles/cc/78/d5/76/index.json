@@ -1,0 +1,12 @@
+{
+  "handle": "cc78d576",
+  "address": "cc78d576-16c0-8e83-8d26-4cdc1c112f5e",
+  "kind": "chunk",
+  "keys": [
+    "pair_repeats_every_forty_two"
+  ],
+  "statement": "∀ n : Nat, 2 ^ (n + 42) % 9 = 2 ^ n % 9 ∧ (1 + 2 * (n + 42)) % 7 = (1 + 2 * n) % 7",
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

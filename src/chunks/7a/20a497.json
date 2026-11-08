@@ -1,0 +1,12 @@
+{
+  "handle": "7a20a497",
+  "address": "7a20a497-e5ad-82c4-acc0-a6e0c3e3d636",
+  "statement": "∀ x : Nat, (x + 84) % 7 = x % 7",
+  "tactic": "intro x exact de5612a2_add_mul_mod_self x 6 12",
+  "keys": [
+    "de5612a2_mod_add_eighty_four"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}

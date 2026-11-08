@@ -1,0 +1,12 @@
+{
+  "handle": "16f9b201",
+  "address": "16f9b201-3912-8ad6-817a-00900ccf4d63",
+  "statement": "∀ n : Nat, (1 + 2 * (n + 42)) % 7 = (1 + 2 * n) % 7",
+  "tactic": "intro n rw [show 1 + 2 * (n + 42) = 1 + 2 * n + 84 from (Nat.add_assoc 1 (2 * n) 84).symm] exact de5612a2_mod_add_eighty_four _",
+  "keys": [
+    "stepping_repeats_every_forty_two"
+  ],
+  "files": [
+    "45bcb8b0.lean"
+  ]
+}
