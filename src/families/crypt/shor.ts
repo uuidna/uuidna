@@ -353,8 +353,9 @@ export const shorOf = (modulusArg?: number | bigint, baseArg?: number | bigint, 
     holds: factors.holds && factoredBig,
   }
   /** Beside the run, never in it, and exact for any modulus: whether there is a ring, whether the base is a unit in it,
-   * and the base's multiplicative order, found exactly by the period-finding — resolvable means that order is in reach
-   * (the period was recovered), beyond is never produced: the order search has no ceiling. Any modulus factors once its order is found. */
+   * and the base's multiplicative order where the two-qubit counting register can resolve it (an order dividing four,
+   * decided by a, a^2, a^4 exactly) — resolvable means that order is in reach (the period was recovered); `beyond` is
+   * the exact answer that the order exists and does not divide four, a fact about the register, never a cap. */
   const classicalPeriod = classicalRun.order
   const resolvable = classicalRun.unit && classicalPeriod > n - n
   const classical = {

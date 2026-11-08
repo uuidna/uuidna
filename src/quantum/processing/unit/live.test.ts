@@ -331,9 +331,15 @@ test('live reach: qpu.uuidna.com is climbed under a time budget, and the run at 
       stoppedBy = 'this step passed the budget'
       break
     }
-    const growth = prev && prev.ms > 0 ? Math.max(ms / prev.ms, 1) : 1
-    if (prev && ms * growth > budgetMs) {
-      stoppedBy = `measured growth ×${growth.toFixed(2)} predicts the next step past the budget`
+    // THE GUARD MUST GUARD BEFORE THE STEP THAT NEVER ENDS. Measured 2026-11-08 in the land's clean worktree: the early
+    // in-process steps took under a millisecond each, so a growth read off them predicted nothing, and the climb walked
+    // straight into a 65536-bit modulus that held the suite at full CPU for twenty minutes — a bound equal to what it
+    // bounds. Doubling the width at least doubles the state's digits, so the predictor floors at ×2 and the whole
+    // climb, not one step, is held under the budget.
+    const total = steps.reduce((sum, s) => sum + s.ms, 0)
+    const growth = prev && prev.ms > 0 ? Math.max(ms / prev.ms, 2) : 2
+    if (prev && (ms * growth > budgetMs || total + ms * growth > budgetMs)) {
+      stoppedBy = `measured growth ×${growth.toFixed(2)} predicts the next step past the budget (${total.toFixed(0)} ms spent of ${budgetMs})`
       break
     }
     if (work === widthCeiling) stoppedBy = `the width ceiling of ${widthCeiling} bits, the state being sparse by the host's own reply`

@@ -19,7 +19,11 @@ const DOOR = 'cite'
 // What that register recomputes one byte at a time is zeroPageOf; analyticsOf holds every integer, including the amplitude count.
 const DEADLINE = 20000
 let up: Promise<boolean> | undefined
-const reachable = (): Promise<boolean> => (up ??= fetch(`${host}/health`, { signal: AbortSignal.timeout(DEADLINE) }).then((r) => r.ok).catch(() => false))
+// REACHABLE MEANS THE UNIT ANSWERS, NOT THAT SOMETHING ANSWERS. Measured 2026-11-08: qpu.uuidna.com served the Payload
+// site's HTML on every route, /mcp included, with status 200 — a probe that read only `r.ok` would have called that
+// host up and then driven every live door into a web page. The unit answers JSON; a 200 of any other type is down.
+const reachable = (): Promise<boolean> => (up ??= fetch(`${host}/health`, { signal: AbortSignal.timeout(DEADLINE) })
+  .then((r) => r.ok && (r.headers.get('content-type') ?? '').includes('json')).catch(() => false))
 const test = (name: string, fn: (t: TestContext) => void | Promise<void>): Promise<void> =>
   receiptedTest(name, async (t) => { if (!(await reachable())) { t.skip(`${host} unreachable — offline or down; set QPU_LIVE or start the host`); return } await fn(t) })
 let id = 0

@@ -20,6 +20,7 @@ import {
   installManifestOf,
   leanOf,
   mcpCallOf,
+  mcpOf,
   messageOf,
   qpuMintReceiptOf,
   networkMcpOf,
@@ -41,6 +42,7 @@ import {
   storageOf,
   storageToolsOf,
   subRpcOf,
+  toolsOf,
   tenantZoneOf,
   qpuPageOf,
   wellKnownOf,
@@ -60,6 +62,7 @@ import type { QpuEnv, Served } from './index.js'
 import { leanSource } from './lean.js'
 import { packageVersion } from './version.js'
 import { raySvgOf } from '../../../mcp/ray-animation.js'
+import { cybersecurityToolsOf } from './crypto.js'
 
 /** Public doors Payload owns. Paths only — handlers load from the plugin so this module does not cycle with it. */
 const PUBLIC_DOORS = {
@@ -184,7 +187,8 @@ export const worker = {
     // preflight still goes to Payload below so CORS is unchanged.
     if (request.method !== 'OPTIONS' && path.startsWith('/api/qpu')) return handToPayload()
     // Payload answers its own preflight, so /admin and /api precede OPTIONS.
-    if (path === '/admin' || path.startsWith('/admin/') || path === '/api' || path.startsWith('/api/')) return handToPayload()
+    // /api itself is the unit's MCP door (below, once throughOf is in scope); /api/* and /admin were Payload's, now dead.
+    if (path === '/admin' || path.startsWith('/admin/') || path.startsWith('/api/')) return handToPayload()
     if (request.method === 'OPTIONS') return new Response(null, { status: found + coins + coins, headers: emptyHeaders() })
     // A crawler (GET text/html) gets the door's reading as qpuPageOf HTML; every other client keeps the JSON-LD on the
     // same path. A path no door answers is the frontend's, probed under a deadline at the end (never handed unbounded).
@@ -244,6 +248,21 @@ export const worker = {
       const called = await mcpCallOf(name, args, env, request.headers.get('authorization'))
       if (isUnknownTool(called)) return jsonOf(rpcErrorOf(body.id, rpcCodes.params, `Unknown tool: ${name || '(none)'}`, { tools: called.tools }))
       return jsonOf({ jsonrpc: '2.0', id: body.id ?? null, result: called })
+    }
+    // THE UNIT'S OWN MCP DOOR, SERVED HERE. uuidna carries no Payload layer (handToPayload answers dead), so the JSON-RPC
+    // qpu's Payload plugin mounted at /api/mcp is answered by the unit itself at /api and /mcp — the same subRpcOf every
+    // sub-catalogue uses, over the sealed main doors. Measured 2026-11-08 in the land's clean worktree: with both paths
+    // dead the in-process release suite read every door as 404, and the chat test recorded a Payload hit that never was.
+    if (path === '/api' || path === '/mcp') {
+      if (request.method === 'POST') {
+        const body = await rpcBodyOf()
+        const via = await throughOf(body)
+        if (via) return via
+        // the eight sealed doors first, then the crypto sub-tools — the order tools/list has always answered in
+        const rpc = await subRpcOf(body, [...toolsOf(), ...cybersecurityToolsOf()], `https://${host}/api`)
+        if (rpc) return jsonOf(rpc)
+      }
+      return servedResponse(servedOf('/api', () => mcpOf()))
     }
     if (path === '/server' || path.startsWith('/server/')) {
       if (request.method === 'POST') {

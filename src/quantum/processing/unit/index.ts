@@ -2234,18 +2234,18 @@ const shorCountBits = coins
 const classicalOrderOf = (base: bigint, modulus: bigint): { ring: boolean; unit: boolean; order: number; beyond: boolean } => {
   if (modulus <= b1) return { ring: false, unit: false, order: n - n, beyond: false }
   if (bigGcdOf(base, modulus) !== b1) return { ring: true, unit: false, order: n - n, beyond: false }
-  // The true multiplicative order: the least r with base^r ≡ 1 (mod modulus). It divides φ(modulus) < modulus, so the
-  // walk ends — the order IS what quantum period-finding returns, computed here as its exact simulation, one O(1)-memory
-  // step at a time (the split: no 2^qubits vector, no fixed reach). This is what Primes.shor_factored then factors.
-  // NO CEILING. The exact walk runs until the order is found, one O(1)-memory slice at a time (orderSliceOf): reach is
-  // the order itself. Speed is O(order) multiplications; memory is O(1). `beyond` is no longer produced.
-  let from = n - n, cur = b1
-  for (;;) {
-    const slice = orderSliceOf(base, modulus, from, cur)
-    if (slice.order !== null) return { ring: true, unit: true, order: slice.order, beyond: false }
-    from = slice.next ?? from
-    cur = slice.cur
+  // THREE MODULAR POWERS, AS THE DOCSTRING SAYS, AND NOTHING UNFINISHED. A later edit replaced them with an exact walk
+  // "with no ceiling" to the true order (orderSliceOf, kept below for callers that resume a split walk). The schema
+  // sampler sends 2^61 as digits with base 3, whose order modulo 2^61 is 2^59: that walk held the land's clean-worktree
+  // certification at full CPU for twenty minutes on 2026-11-08 and would not have ended this year. The register this
+  // unit carries is two qubits (shorCountBits = coins), so a, a^2 and a^4 decide everything it can resolve; an order
+  // that does not divide four is the ANSWER `beyond` — an exact fact about the register, never a cap on the modulus.
+  let power = modOf(base, modulus)
+  for (let r = seed; r <= mintOf(coins); r += r) {
+    if (power === b1) return { ring: true, unit: true, order: r, beyond: false }
+    power = modOf(power * power, modulus)
   }
+  return { ring: true, unit: true, order: n - n, beyond: true }
 }
 /** Order-finding as a SPLIT, not a cap: one hexbit-wide slice of the exact walk from `cur = base^from`. It carries the
  *  running power out so the caller caches it in that slice's hex folder and resumes at `next` — O(1) live memory, reach

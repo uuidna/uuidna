@@ -76,6 +76,9 @@ test('next: fourteen superpositions recompute the integer their families return'
 
   // clay × heat × holo × kin × np × rule × signal × tesla × yi = 9. rule.free(11), rule.free(14) and rule.free(16) are 7. They stay at the integer they return.
   await named('9', [
+    // rule.free(Qpu.Shor) = cap − nibbles = 15 − 6: the fold gave Qpu.Shor shorModulus and shorBase, so the way that
+    // returned 11 under qpu's four formulas returns 9 here, and stays at the integer it returns (the rule above)
+    ['rule', ['free'], [ix('Qpu.Shor')]],
     ['clay', ['bsd'], [50]],
     ['signal', ['keyBits'], [24]],
     ['holo', ['proofDepth'], [261]],
@@ -323,7 +326,6 @@ test('next: fourteen superpositions recompute the integer their families return'
     ['np', ['sparseWidth'], [265]],
     ['np', ['sparseWidth'], [268]],
     ['np', ['sparseWidth'], [272]],
-    ['rule', ['free'], [ix('Qpu.Shor')]],
     ['kin', ['tone'], [24]],
     ['kin', ['tone'], [50]],
     ['kin', ['tone'], [141]],
