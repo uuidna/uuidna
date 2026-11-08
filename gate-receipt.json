@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "b8e6535b106cb5fae3e888c6af3cd3a9",
+    "src": "590ee58ae85a6afb1d0c4e6abf616de1",
     "lean": "695605a2eae79c51c67696598c781947"
   },
   "files": {
@@ -76173,10 +76173,10 @@
     "src/theorem-forms.ts": "4faf9895056f6470",
     "src/theorem-page.test.ts": "711d80deab4bc24f",
     "src/theorem-page.ts": "57048398b23f82ad",
-    "src/theorem-record.ts": "2ebdc1d207e41371",
+    "src/theorem-record.ts": "727d7914f497a787",
     "src/theorems/edge-root.ts": "f42475c2ade77041",
     "src/theorems/generated.ts": "97c04a9acedeaa78",
-    "src/theorems/index.ts": "19fccd840392571f",
+    "src/theorems/index.ts": "5cb09ba5e3dfe7f8",
     "src/theorems/ledger-edge.ts": "2515bbd3fa772ad2",
     "src/theorems/ledger-node.ts": "475a0c5c5a275b8f",
     "src/theorems/ledger-shape.ts": "c41d9785417f8239",
