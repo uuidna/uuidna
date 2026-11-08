@@ -404,5 +404,2309 @@
    "face": 13,
    "statement": "face 13, witness 7 of 7, faithfulness judgment: lead_ef58b583 states lead ef58b583 as recorded, and theorem involution_ef58b583 refutes it; report f3cccc91-ce43-8eaa-8a2b-62014abc498e"
   }
+ ],
+ "measurement_050407c2": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report e3266cfd-c32b-8531-b749-80067a882752",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 989600ad-bad8-83a6-bced-99b818191eb1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 68e2a22a-ca2c-870d-ae35-131970339cf3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 3a2660cb-9689-8cfa-8372-903d341b4dc3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 5d9ea33e-5b1e-89d4-89ae-bda34b4b7859",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report db42ea49-a4a8-85c9-aa27-ae8580986135",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 050407c2 alleges, without taking the generator's word for any figure; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 39ec06da-4715-81d7-8880-6e7e0c3e501b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report e3266cfd-c32b-8531-b749-80067a882752",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 989600ad-bad8-83a6-bced-99b818191eb1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 68e2a22a-ca2c-870d-ae35-131970339cf3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 3a2660cb-9689-8cfa-8372-903d341b4dc3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 5d9ea33e-5b1e-89d4-89ae-bda34b4b7859",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report db42ea49-a4a8-85c9-aa27-ae8580986135",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 050407c2 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_050407c2, by theorem provenance_integrity_not_content_truth; report 39ec06da-4715-81d7-8880-6e7e0c3e501b",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_0809c1db": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report e1d51d3e-0c2c-80ed-8c9c-0ddbd1b60f14",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report eaedc3dc-6326-8448-b695-3cea785eea6e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report b33b8784-6d23-8b41-ab3f-26a5c86f6b9b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report b1d08c7f-ce6a-8dac-bf0b-6e4d4bd7941f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report f0e77f58-eb98-8bae-9528-87ee18a6bb10",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report ecd7dcd3-4354-84d5-88c8-8d0ccd89a720",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 0809c1db alleges, without taking the generator's word for any figure; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report 207011ed-8a5c-8653-ab35-4947798e03dc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report e1d51d3e-0c2c-80ed-8c9c-0ddbd1b60f14",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report eaedc3dc-6326-8448-b695-3cea785eea6e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report b33b8784-6d23-8b41-ab3f-26a5c86f6b9b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report b1d08c7f-ce6a-8dac-bf0b-6e4d4bd7941f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report f0e77f58-eb98-8bae-9528-87ee18a6bb10",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report ecd7dcd3-4354-84d5-88c8-8d0ccd89a720",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 0809c1db was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_0809c1db, by theorem provenance_integrity_not_content_truth; report 207011ed-8a5c-8653-ab35-4947798e03dc",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_081dcc07": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 531853ba-d4ef-8be4-b9ea-e3de8c0bceba",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 0e8d49fc-eb14-8b12-92bb-92f03df5841e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report db5149ba-2bf1-8e7e-a586-9a399cb932d9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 6d643b92-8b9a-8d60-985e-d0417c8e0abb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 5a94f63e-0f16-844e-b671-3b50916da623",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report aecf8d99-b211-8b1d-b2bb-f5c07e1d463c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 081dcc07 alleges, without taking the generator's word for any figure; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report d9336c09-c84a-8a7e-bb66-9227075d0c6c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 531853ba-d4ef-8be4-b9ea-e3de8c0bceba",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 0e8d49fc-eb14-8b12-92bb-92f03df5841e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report db5149ba-2bf1-8e7e-a586-9a399cb932d9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 6d643b92-8b9a-8d60-985e-d0417c8e0abb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report 5a94f63e-0f16-844e-b671-3b50916da623",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report aecf8d99-b211-8b1d-b2bb-f5c07e1d463c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 081dcc07 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_081dcc07, by theorem provenance_integrity_not_content_truth; report d9336c09-c84a-8a7e-bb66-9227075d0c6c",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_1592e26d": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 07d72dcb-1815-8f81-9840-f878bd5eab52",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 8a0c7b42-89b0-8174-bbb4-812a29db8f37",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 4cd3f36a-0274-866c-970f-f1cdfd8efb3c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report f4460ec3-fe6e-8745-aebd-7588c31750af",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report ae452dd2-8fce-8acc-90a5-042d38261e3b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 4f3bf004-d8bc-869b-a2f0-384cb88b4db0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1592e26d alleges, without taking the generator's word for any figure; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 3a19f731-b156-86c4-909b-25bf567cd5cf",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 07d72dcb-1815-8f81-9840-f878bd5eab52",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 8a0c7b42-89b0-8174-bbb4-812a29db8f37",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 4cd3f36a-0274-866c-970f-f1cdfd8efb3c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report f4460ec3-fe6e-8745-aebd-7588c31750af",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report ae452dd2-8fce-8acc-90a5-042d38261e3b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 4f3bf004-d8bc-869b-a2f0-384cb88b4db0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 1592e26d was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1592e26d, by theorem provenance_integrity_not_content_truth; report 3a19f731-b156-86c4-909b-25bf567cd5cf",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_1e7fec45": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report cf35537b-51d4-8aba-908b-4287994726dd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 7ce059b1-8bdb-8887-96e4-935442afb59f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 7f156533-52f3-8c24-8b3f-ddfe20c0b03b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 45567ec7-109a-8c1c-8976-4c3b7d1e664e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 8d3bdd80-7ca6-8cd3-9746-7909274470b4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 0bbb73a0-aeed-896f-b3c9-ce8a36f2ebce",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 1e7fec45 alleges, without taking the generator's word for any figure; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 72819877-daba-8956-8326-e28e00849e5f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report cf35537b-51d4-8aba-908b-4287994726dd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 7ce059b1-8bdb-8887-96e4-935442afb59f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 7f156533-52f3-8c24-8b3f-ddfe20c0b03b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 45567ec7-109a-8c1c-8976-4c3b7d1e664e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 8d3bdd80-7ca6-8cd3-9746-7909274470b4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 0bbb73a0-aeed-896f-b3c9-ce8a36f2ebce",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 1e7fec45 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_1e7fec45, by theorem provenance_integrity_not_content_truth; report 72819877-daba-8956-8326-e28e00849e5f",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_2aaac145": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report cfd3a751-a409-87df-a1b7-9f6dc5efe8e7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 14e2855a-d724-868e-8b98-98f0e05e428e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report dcefc2b8-41e1-8751-b90d-b49c4f734e09",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 741bf5fb-21e2-8a98-9f70-880e12a7a6a0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 5aecbb9d-27cc-86f4-8413-7e072213ee74",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report f786ca6d-eaef-8c40-903c-cabe9a39c8e4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 2aaac145 alleges, without taking the generator's word for any figure; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 75051f2f-b676-8072-be1c-532cf0f6db88",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report cfd3a751-a409-87df-a1b7-9f6dc5efe8e7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 14e2855a-d724-868e-8b98-98f0e05e428e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report dcefc2b8-41e1-8751-b90d-b49c4f734e09",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 741bf5fb-21e2-8a98-9f70-880e12a7a6a0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 5aecbb9d-27cc-86f4-8413-7e072213ee74",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report f786ca6d-eaef-8c40-903c-cabe9a39c8e4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 2aaac145 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_2aaac145, by theorem provenance_integrity_not_content_truth; report 75051f2f-b676-8072-be1c-532cf0f6db88",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_35e05196": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report f85a7263-d7b0-81b8-993e-1c7b5ae77918",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 34d37892-4618-88c5-905b-6287b212a62d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 23915d65-8d4a-89f1-bde4-6ce6a9f42997",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 3fec736e-6278-8ffc-986a-70b7296e2df7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 8dd476bd-ded6-87af-843b-9b04f7c3c26a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 4d36a9c3-6ffa-8190-9dc5-dc3d5bc2031e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 35e05196 alleges, without taking the generator's word for any figure; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 15330f61-5b8a-8686-9d88-63e91d4e1456",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report f85a7263-d7b0-81b8-993e-1c7b5ae77918",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 34d37892-4618-88c5-905b-6287b212a62d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 23915d65-8d4a-89f1-bde4-6ce6a9f42997",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 3fec736e-6278-8ffc-986a-70b7296e2df7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 8dd476bd-ded6-87af-843b-9b04f7c3c26a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 4d36a9c3-6ffa-8190-9dc5-dc3d5bc2031e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 35e05196 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_35e05196, by theorem provenance_integrity_not_content_truth; report 15330f61-5b8a-8686-9d88-63e91d4e1456",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_3a1811a1": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report ac46e0a5-de15-8018-8957-0cde14d49e89",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 56e1fae8-585b-8b8a-970d-d718b0f0754e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report a353a7f7-6a46-86a5-adc5-26a1fd2775cc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 06dea8fa-e6c5-88f3-8691-58809e1d1f65",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 354bc1d7-3028-8bd5-a5d5-67c0c8acc4ef",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report ebf35e4e-eb60-8bab-9709-a6c98586b5b0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 3a1811a1 alleges, without taking the generator's word for any figure; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 942f537a-471e-8159-84f5-4117f913fec6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report ac46e0a5-de15-8018-8957-0cde14d49e89",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 56e1fae8-585b-8b8a-970d-d718b0f0754e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report a353a7f7-6a46-86a5-adc5-26a1fd2775cc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 06dea8fa-e6c5-88f3-8691-58809e1d1f65",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 354bc1d7-3028-8bd5-a5d5-67c0c8acc4ef",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report ebf35e4e-eb60-8bab-9709-a6c98586b5b0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 3a1811a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_3a1811a1, by theorem provenance_integrity_not_content_truth; report 942f537a-471e-8159-84f5-4117f913fec6",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_4a7485ec": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report ea677b5f-1ee8-8f8a-ad40-444d2a202f27",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 0997a006-2f6c-81e8-b68c-4b21a3adf44a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 4c6c81ad-bb4e-875d-89f7-19678882d332",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 7861a4e3-1b99-8b33-9cdd-e235e466a0e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 7785e4b7-362a-8e07-b412-46b11c3f93fc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report ccdfe33f-fcf2-8306-9947-943b8159682d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 4a7485ec alleges, without taking the generator's word for any figure; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 3212cf41-1a64-83e4-b307-046529044a2a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report ea677b5f-1ee8-8f8a-ad40-444d2a202f27",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 0997a006-2f6c-81e8-b68c-4b21a3adf44a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 4c6c81ad-bb4e-875d-89f7-19678882d332",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 7861a4e3-1b99-8b33-9cdd-e235e466a0e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 7785e4b7-362a-8e07-b412-46b11c3f93fc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report ccdfe33f-fcf2-8306-9947-943b8159682d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 4a7485ec was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_4a7485ec, by theorem provenance_integrity_not_content_truth; report 3212cf41-1a64-83e4-b307-046529044a2a",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_55161239": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report daf525be-ac8f-8dcc-9a06-85ba0392607f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 22e78a3e-2614-85a8-af13-e532b10d2155",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 53ac08cc-f9b3-8c98-834b-adaa2cd339bf",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report dc0fd994-ec40-8653-b9fc-f153571cd78c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 46377f53-641d-8408-82a9-d2a0ade9ff15",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report ac7072ab-2d7b-8623-8317-a1d8d37a6f0f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 55161239 alleges, without taking the generator's word for any figure; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 677094f1-2aa0-8ab0-b9ec-00f7bf355b43",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report daf525be-ac8f-8dcc-9a06-85ba0392607f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 22e78a3e-2614-85a8-af13-e532b10d2155",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 53ac08cc-f9b3-8c98-834b-adaa2cd339bf",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report dc0fd994-ec40-8653-b9fc-f153571cd78c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 46377f53-641d-8408-82a9-d2a0ade9ff15",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report ac7072ab-2d7b-8623-8317-a1d8d37a6f0f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 55161239 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_55161239, by theorem provenance_integrity_not_content_truth; report 677094f1-2aa0-8ab0-b9ec-00f7bf355b43",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_5d0e0110": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 451c5bc7-fc36-8474-90e8-150ec9d24d92",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 874f51f9-2417-82db-af3e-4d8b9942c5be",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report a51c0967-a40a-8d2d-a7f2-d92ceb01028a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report e494a113-0d04-8157-9f7a-d7b683f2f0fc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 1a27b7da-c16b-8269-9674-c1f07343258b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 42f5fb80-b5c5-883a-b3b4-02674cb1bd55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 5d0e0110 alleges, without taking the generator's word for any figure; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report c57a8e4b-3ce6-852c-8625-cc7ca7ad1b1a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 451c5bc7-fc36-8474-90e8-150ec9d24d92",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 874f51f9-2417-82db-af3e-4d8b9942c5be",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report a51c0967-a40a-8d2d-a7f2-d92ceb01028a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report e494a113-0d04-8157-9f7a-d7b683f2f0fc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 1a27b7da-c16b-8269-9674-c1f07343258b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report 42f5fb80-b5c5-883a-b3b4-02674cb1bd55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 5d0e0110 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_5d0e0110, by theorem provenance_integrity_not_content_truth; report c57a8e4b-3ce6-852c-8625-cc7ca7ad1b1a",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_7cc6cbb6": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 88e23da6-aa02-8827-9edd-5672f7855d02",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report fd6e7680-c211-8017-b99f-a51b6c7ab1e9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report ea168eb8-fe27-82b4-9541-397df57ac9a1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 2be1cfc0-3d41-8f87-86f0-23cca63e6e96",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 92c365d1-7c58-8295-a351-d73ac3b2ca82",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report f5b6c46d-2388-852e-924d-4b6095185f14",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 7cc6cbb6 alleges, without taking the generator's word for any figure; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 2e5dba51-1b9d-84b3-a90d-21805174a03a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 88e23da6-aa02-8827-9edd-5672f7855d02",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report fd6e7680-c211-8017-b99f-a51b6c7ab1e9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report ea168eb8-fe27-82b4-9541-397df57ac9a1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 2be1cfc0-3d41-8f87-86f0-23cca63e6e96",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 92c365d1-7c58-8295-a351-d73ac3b2ca82",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report f5b6c46d-2388-852e-924d-4b6095185f14",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 7cc6cbb6 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_7cc6cbb6, by theorem provenance_integrity_not_content_truth; report 2e5dba51-1b9d-84b3-a90d-21805174a03a",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_8827e107": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 8af5dd48-830b-8a5f-9c2e-ce85949467e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report f0be47c3-332e-81cf-8134-4fb6aa887cbc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 43eb76dc-1450-8ed7-9bb7-e29076a7a9c4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report d1367733-7c32-8f00-949e-a4ef68257b9d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report cc2dc236-78a5-8cc6-9520-7c14d2024937",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 60160a9b-6e6c-8299-90a6-6b120803eae9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8827e107 alleges, without taking the generator's word for any figure; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 3664d701-22f3-8e2a-881f-723abff86983",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 8af5dd48-830b-8a5f-9c2e-ce85949467e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report f0be47c3-332e-81cf-8134-4fb6aa887cbc",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 43eb76dc-1450-8ed7-9bb7-e29076a7a9c4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report d1367733-7c32-8f00-949e-a4ef68257b9d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report cc2dc236-78a5-8cc6-9520-7c14d2024937",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 60160a9b-6e6c-8299-90a6-6b120803eae9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 8827e107 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8827e107, by theorem provenance_integrity_not_content_truth; report 3664d701-22f3-8e2a-881f-723abff86983",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_8b69c3a7": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 76693986-095d-85e6-9bb9-019275d39f23",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 4354fe57-f5d9-8e95-99d2-1da4ed22728e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report be666ac8-50c7-8b04-8625-ae93ec1834f4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 2c5871fa-37ae-87a1-b87e-10c25ce41b55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 09f84742-71a1-8482-95bb-63e61f11d8c8",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report bc85fb55-f129-845b-8871-0faa6a5fa0b1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 8b69c3a7 alleges, without taking the generator's word for any figure; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report c80ed267-400f-8ee8-b3fb-a93aac6125e9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 76693986-095d-85e6-9bb9-019275d39f23",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 4354fe57-f5d9-8e95-99d2-1da4ed22728e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report be666ac8-50c7-8b04-8625-ae93ec1834f4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 2c5871fa-37ae-87a1-b87e-10c25ce41b55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report 09f84742-71a1-8482-95bb-63e61f11d8c8",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report bc85fb55-f129-845b-8871-0faa6a5fa0b1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 8b69c3a7 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_8b69c3a7, by theorem provenance_integrity_not_content_truth; report c80ed267-400f-8ee8-b3fb-a93aac6125e9",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_92213be8": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 1dd5638b-e4de-83ed-8628-5ffcb72297da",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 5194bb6b-700a-8efb-ba27-342f112884f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 6838a8a6-e8bf-8c57-ad42-c417fbbc8fb4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 7e1c81c8-01ea-808b-843b-e6b31762dcee",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 4205fefe-fa58-8adf-8095-940d6771884d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 1f042b0d-0d12-832b-af60-a30085198158",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92213be8 alleges, without taking the generator's word for any figure; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report c8f5a623-1ea8-814f-ae00-f270cc6e8b76",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 1dd5638b-e4de-83ed-8628-5ffcb72297da",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 5194bb6b-700a-8efb-ba27-342f112884f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 6838a8a6-e8bf-8c57-ad42-c417fbbc8fb4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 7e1c81c8-01ea-808b-843b-e6b31762dcee",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 4205fefe-fa58-8adf-8095-940d6771884d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report 1f042b0d-0d12-832b-af60-a30085198158",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 92213be8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92213be8, by theorem provenance_integrity_not_content_truth; report c8f5a623-1ea8-814f-ae00-f270cc6e8b76",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_92f12838": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report f1155bbb-2b25-88bd-a60b-3fe74641a8ba",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report bfb62c80-817b-82b5-a846-6359a69480c1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report d5d85259-fe96-8413-9d75-f752dd18ad84",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report dc203988-9b2b-88f8-8dfd-ed6ae12ee6da",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report 611b7330-8eab-892d-8dd0-7e73954610ab",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report f6a61571-97db-84fb-9ef5-c06967367c0c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 92f12838 alleges, without taking the generator's word for any figure; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report e7a04d57-4af4-891a-9171-822487c3495e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report f1155bbb-2b25-88bd-a60b-3fe74641a8ba",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report bfb62c80-817b-82b5-a846-6359a69480c1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report d5d85259-fe96-8413-9d75-f752dd18ad84",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report dc203988-9b2b-88f8-8dfd-ed6ae12ee6da",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report 611b7330-8eab-892d-8dd0-7e73954610ab",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report f6a61571-97db-84fb-9ef5-c06967367c0c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 92f12838 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_92f12838, by theorem provenance_integrity_not_content_truth; report e7a04d57-4af4-891a-9171-822487c3495e",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_965ea588": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report db756491-0730-85b6-ad7b-4ad9ba963390",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 7450c311-874a-8ec6-accb-4e886e263ef4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 03bc36cf-2039-8e6e-b9d7-6dc140d50b19",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report d92888b1-a46c-8055-a88f-2abe3f827831",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 259d5166-bf89-8525-b127-16d82faed3f4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report d676aa23-885f-8701-bf56-43d33a75dcb5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 965ea588 alleges, without taking the generator's word for any figure; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 1c270e97-df0a-8044-a1dc-69168e0b8464",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report db756491-0730-85b6-ad7b-4ad9ba963390",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 7450c311-874a-8ec6-accb-4e886e263ef4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 03bc36cf-2039-8e6e-b9d7-6dc140d50b19",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report d92888b1-a46c-8055-a88f-2abe3f827831",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 259d5166-bf89-8525-b127-16d82faed3f4",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report d676aa23-885f-8701-bf56-43d33a75dcb5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 965ea588 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_965ea588, by theorem provenance_integrity_not_content_truth; report 1c270e97-df0a-8044-a1dc-69168e0b8464",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_99582e47": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 2b01fa3c-773f-8800-9ad7-0875a50c7c18",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report c4a1a3ce-edc8-8551-98fd-499ce17c0321",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 5e47c7f3-6bfc-81b2-98b4-413c233b5c62",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 89ef2a78-7e2e-8f7a-99e9-4e4df1b25ae2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 32b11d9d-6ae1-85d2-9b9a-e5599a15233e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report dbeeecf5-3bbe-871a-a215-f04c9dc8f2d2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 99582e47 alleges, without taking the generator's word for any figure; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 67909566-a369-81a6-b010-d3ffec1e01d8",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 2b01fa3c-773f-8800-9ad7-0875a50c7c18",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report c4a1a3ce-edc8-8551-98fd-499ce17c0321",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 5e47c7f3-6bfc-81b2-98b4-413c233b5c62",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 89ef2a78-7e2e-8f7a-99e9-4e4df1b25ae2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 32b11d9d-6ae1-85d2-9b9a-e5599a15233e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report dbeeecf5-3bbe-871a-a215-f04c9dc8f2d2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 99582e47 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_99582e47, by theorem provenance_integrity_not_content_truth; report 67909566-a369-81a6-b010-d3ffec1e01d8",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_9b163932": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report cb2135b6-e78c-8a44-9975-40eff698a7a2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 73f0a728-09eb-83bc-a840-918e758cd140",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 5660c8a7-0e73-8297-a5a0-1dfaf7a73404",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report b5eed0cb-9cdd-833f-9d16-c3ec2225c5de",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 109f6cd7-6387-86a3-acaf-539d6ae43bf9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 62a96690-2798-8db6-b382-8df51d441cb5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead 9b163932 alleges, without taking the generator's word for any figure; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 876342f1-81cf-8801-a9da-d08d0f65f0ce",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report cb2135b6-e78c-8a44-9975-40eff698a7a2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 73f0a728-09eb-83bc-a840-918e758cd140",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 5660c8a7-0e73-8297-a5a0-1dfaf7a73404",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report b5eed0cb-9cdd-833f-9d16-c3ec2225c5de",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 109f6cd7-6387-86a3-acaf-539d6ae43bf9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 62a96690-2798-8db6-b382-8df51d441cb5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead 9b163932 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_9b163932, by theorem provenance_integrity_not_content_truth; report 876342f1-81cf-8801-a9da-d08d0f65f0ce",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_a245d44e": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report c8ff3e9f-e782-8cb3-a2a9-c102b7527f31",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 9fdf417c-c06a-877b-bff4-6f3d0fd3bc55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b74ae4d7-f376-83e4-b284-901178372b83",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 3f32dfe2-d9c9-85f0-bddb-680c345b55f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 2f76d020-ecaa-83a2-9fe4-e99fdcf0de1b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b5383e1d-3657-839c-9ba7-fc0799c07205",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead a245d44e alleges, without taking the generator's word for any figure; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b64f0790-8970-85fd-a319-c4da8fbee7f6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report c8ff3e9f-e782-8cb3-a2a9-c102b7527f31",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 9fdf417c-c06a-877b-bff4-6f3d0fd3bc55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b74ae4d7-f376-83e4-b284-901178372b83",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 3f32dfe2-d9c9-85f0-bddb-680c345b55f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report 2f76d020-ecaa-83a2-9fe4-e99fdcf0de1b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b5383e1d-3657-839c-9ba7-fc0799c07205",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead a245d44e was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_a245d44e, by theorem provenance_integrity_not_content_truth; report b64f0790-8970-85fd-a319-c4da8fbee7f6",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_ae96e543": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 72fd5aab-c341-871b-83ec-69f6f7bdb38f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 99fcee4d-2cff-8e8f-9f09-b7b397acb9f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 7c8a06ee-585f-866d-8707-e435214301df",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report e337e66a-57c6-8a9f-bb3f-b764f5e7bee1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report da0d4d66-26ef-828f-ab6b-38e392c2f11c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report d9150184-0527-8d39-9a1b-0bf1d6236f97",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead ae96e543 alleges, without taking the generator's word for any figure; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 2d9aa7ae-8940-80ce-89d7-598e15c78729",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 72fd5aab-c341-871b-83ec-69f6f7bdb38f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 99fcee4d-2cff-8e8f-9f09-b7b397acb9f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 7c8a06ee-585f-866d-8707-e435214301df",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report e337e66a-57c6-8a9f-bb3f-b764f5e7bee1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report da0d4d66-26ef-828f-ab6b-38e392c2f11c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report d9150184-0527-8d39-9a1b-0bf1d6236f97",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead ae96e543 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_ae96e543, by theorem provenance_integrity_not_content_truth; report 2d9aa7ae-8940-80ce-89d7-598e15c78729",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_b0296dee": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 907d252c-bbaf-8df9-aa93-0eb4eeb2f8c0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 857af5d8-c848-8200-b694-49b5bba36dc9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report d850c72f-3adb-8a74-ba62-884df05a8d65",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 29225eff-d6ac-8c53-bef4-71c890d61c55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 3bd052d2-1c92-8576-99d1-9b120cf6c433",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report a58cfd4c-68b7-8a2a-92bc-8d5599d118d6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead b0296dee alleges, without taking the generator's word for any figure; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 8e6aa0ba-2fcc-8d5b-ba10-70a184a21e93",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 907d252c-bbaf-8df9-aa93-0eb4eeb2f8c0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 857af5d8-c848-8200-b694-49b5bba36dc9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report d850c72f-3adb-8a74-ba62-884df05a8d65",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 29225eff-d6ac-8c53-bef4-71c890d61c55",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 3bd052d2-1c92-8576-99d1-9b120cf6c433",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report a58cfd4c-68b7-8a2a-92bc-8d5599d118d6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead b0296dee was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_b0296dee, by theorem provenance_integrity_not_content_truth; report 8e6aa0ba-2fcc-8d5b-ba10-70a184a21e93",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_bb3f2e51": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 1673eb57-2f5f-8a76-b40a-0b2b4b381cbb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report c8e44fd7-855f-816a-ac54-a13dbb92d161",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report e83859e3-da12-8b17-898b-b44397b71ec0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 526e4c04-1e7c-8440-8b51-53edd6c06bbd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 443f4994-3c36-87e4-8a15-a44cc5ed9af5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 1c2c6403-f921-8387-91da-ac422005e76a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bb3f2e51 alleges, without taking the generator's word for any figure; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 900fe722-899e-8f48-af99-0b34132bcbcf",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 1673eb57-2f5f-8a76-b40a-0b2b4b381cbb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report c8e44fd7-855f-816a-ac54-a13dbb92d161",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report e83859e3-da12-8b17-898b-b44397b71ec0",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 526e4c04-1e7c-8440-8b51-53edd6c06bbd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 443f4994-3c36-87e4-8a15-a44cc5ed9af5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 1c2c6403-f921-8387-91da-ac422005e76a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead bb3f2e51 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bb3f2e51, by theorem provenance_integrity_not_content_truth; report 900fe722-899e-8f48-af99-0b34132bcbcf",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_bde0066b": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report f41ac1c1-7d8a-8d35-87af-e37cf1892b4a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report a8d42acd-7c37-8fed-8865-e5a43e7dbba1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 42a42ce7-48af-83bd-9d5b-4339de6d8c2b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 66b2a1cd-84ed-8d90-8480-7a2f7df96c62",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report a1871b6a-91ec-8735-ac93-d33af4f3710a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 0704a36d-07b7-8bf1-bdcf-76c40b0e0c3b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bde0066b alleges, without taking the generator's word for any figure; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 844f6c95-9168-8f93-b9f0-cca5fed3b062",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report f41ac1c1-7d8a-8d35-87af-e37cf1892b4a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report a8d42acd-7c37-8fed-8865-e5a43e7dbba1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 42a42ce7-48af-83bd-9d5b-4339de6d8c2b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 66b2a1cd-84ed-8d90-8480-7a2f7df96c62",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report a1871b6a-91ec-8735-ac93-d33af4f3710a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 0704a36d-07b7-8bf1-bdcf-76c40b0e0c3b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead bde0066b was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bde0066b, by theorem provenance_integrity_not_content_truth; report 844f6c95-9168-8f93-b9f0-cca5fed3b062",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_bf82c361": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 2a576857-c384-8552-a8fb-37c3e7750e67",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report d1fe8879-2401-8864-8591-a0550381b417",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report ba59f192-6da8-8290-8e0e-ee03d497cae6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 39325571-6c6a-827a-91a9-34000b3f59e9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report b46991a8-bdac-828a-9f08-9aa3fc7dca48",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 310e21bb-61d8-82b5-9cd9-52abdde3bae1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead bf82c361 alleges, without taking the generator's word for any figure; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 3393a0ff-0830-8c5b-98db-75d92052733e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 2a576857-c384-8552-a8fb-37c3e7750e67",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report d1fe8879-2401-8864-8591-a0550381b417",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report ba59f192-6da8-8290-8e0e-ee03d497cae6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 39325571-6c6a-827a-91a9-34000b3f59e9",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report b46991a8-bdac-828a-9f08-9aa3fc7dca48",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 310e21bb-61d8-82b5-9cd9-52abdde3bae1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead bf82c361 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_bf82c361, by theorem provenance_integrity_not_content_truth; report 3393a0ff-0830-8c5b-98db-75d92052733e",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_c08442a1": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 6854a24e-93f5-8f5a-9e30-afc66c2c1481",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report aa04adf3-e534-81fe-8a1d-3229e2a080e3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 564e607d-fcfd-87de-ab58-cb5279ef04db",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 3635ca0f-a82c-88c4-a330-caaf9459ef92",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 222c2794-96d5-8ca1-ba2f-a9b60cc852e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 2b5ad5b8-a6e7-8e0f-b9ad-92e5ed4f8d8e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead c08442a1 alleges, without taking the generator's word for any figure; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report e05f4446-ad4c-8c9e-ba30-b1bcd06bd9de",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 6854a24e-93f5-8f5a-9e30-afc66c2c1481",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report aa04adf3-e534-81fe-8a1d-3229e2a080e3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 564e607d-fcfd-87de-ab58-cb5279ef04db",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 3635ca0f-a82c-88c4-a330-caaf9459ef92",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 222c2794-96d5-8ca1-ba2f-a9b60cc852e5",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report 2b5ad5b8-a6e7-8e0f-b9ad-92e5ed4f8d8e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead c08442a1 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_c08442a1, by theorem provenance_integrity_not_content_truth; report e05f4446-ad4c-8c9e-ba30-b1bcd06bd9de",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_d2918307": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 788bfd86-a46a-82bf-a1de-7f18546b6d4e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 6ef3f420-d4ed-8fb1-b77b-1205e890fc31",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 4ee8f70e-5e84-8b18-9924-28c8ce13fdeb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report ca1b002b-5385-8ee7-a6b6-b1b96a8ba5d6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report b8e31ac4-e33d-8ed6-9c26-39e240463877",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 3ef591b5-1920-8fc5-a48a-e1497bde64a7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d2918307 alleges, without taking the generator's word for any figure; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 76fac65a-35af-8ab5-a6d2-e32a4a2bbdf6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 788bfd86-a46a-82bf-a1de-7f18546b6d4e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 6ef3f420-d4ed-8fb1-b77b-1205e890fc31",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 4ee8f70e-5e84-8b18-9924-28c8ce13fdeb",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report ca1b002b-5385-8ee7-a6b6-b1b96a8ba5d6",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report b8e31ac4-e33d-8ed6-9c26-39e240463877",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 3ef591b5-1920-8fc5-a48a-e1497bde64a7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead d2918307 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d2918307, by theorem provenance_integrity_not_content_truth; report 76fac65a-35af-8ab5-a6d2-e32a4a2bbdf6",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_d9601781": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 7562e5f5-6b82-8fec-ba3a-4e8641b650ec",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 98dce363-8fb6-8f4a-899b-ad12b55c59d2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 6a5fadec-266e-84a7-a08f-a85e7e6dafb8",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 5d2515a7-4319-80be-af82-26711402794a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report c5585e3e-b2e8-83a4-8706-b888cd94442f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 3f3164f9-ff64-87cb-95fe-d71fcf088b11",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead d9601781 alleges, without taking the generator's word for any figure; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report aec7904e-be34-8983-86db-a3947845cdad",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 7562e5f5-6b82-8fec-ba3a-4e8641b650ec",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 98dce363-8fb6-8f4a-899b-ad12b55c59d2",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 6a5fadec-266e-84a7-a08f-a85e7e6dafb8",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 5d2515a7-4319-80be-af82-26711402794a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report c5585e3e-b2e8-83a4-8706-b888cd94442f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report 3f3164f9-ff64-87cb-95fe-d71fcf088b11",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead d9601781 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_d9601781, by theorem provenance_integrity_not_content_truth; report aec7904e-be34-8983-86db-a3947845cdad",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_dc641065": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report adecfbd9-4a61-8736-b17c-6179614e8e1e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 733e4e72-6f57-81c2-b2ac-7c73e2d375f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 5a86255b-85ac-8b71-8641-6767e581a51f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 1da82142-40b0-86d0-b321-19bad376502a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 8c84b9aa-8dd5-8009-8571-1580f6a14383",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 74d28dbc-c5df-855b-bcc4-a83f0a04fb0e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dc641065 alleges, without taking the generator's word for any figure; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 89ec877f-adfe-88d3-806e-61090a1eeda7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report adecfbd9-4a61-8736-b17c-6179614e8e1e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 733e4e72-6f57-81c2-b2ac-7c73e2d375f7",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 5a86255b-85ac-8b71-8641-6767e581a51f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 1da82142-40b0-86d0-b321-19bad376502a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 8c84b9aa-8dd5-8009-8571-1580f6a14383",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 74d28dbc-c5df-855b-bcc4-a83f0a04fb0e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead dc641065 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dc641065, by theorem provenance_integrity_not_content_truth; report 89ec877f-adfe-88d3-806e-61090a1eeda7",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_dce32bc8": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 1b6143ff-18aa-869e-998a-c3f8faf5e20d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report c203a563-e5dd-8612-9129-fcb3071ebb39",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report ede9d0b3-c730-8b2f-b4c5-a30260bb176a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 5820a249-a67c-8fe3-8b23-866b74a636ab",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 2b9c958a-fca4-893c-bf3e-02c976d27f06",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report f3da0e2e-7dc7-84fc-8268-5741c4a77834",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead dce32bc8 alleges, without taking the generator's word for any figure; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report c764fe67-ffd8-8bb5-9c93-93eaa56f936b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 1b6143ff-18aa-869e-998a-c3f8faf5e20d",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report c203a563-e5dd-8612-9129-fcb3071ebb39",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report ede9d0b3-c730-8b2f-b4c5-a30260bb176a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 5820a249-a67c-8fe3-8b23-866b74a636ab",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report 2b9c958a-fca4-893c-bf3e-02c976d27f06",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report f3da0e2e-7dc7-84fc-8268-5741c4a77834",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead dce32bc8 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_dce32bc8, by theorem provenance_integrity_not_content_truth; report c764fe67-ffd8-8bb5-9c93-93eaa56f936b",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_f29c8346": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 339b344f-c22f-8fd0-b7f0-e31938cb7213",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 7570a0f2-7754-8ded-a2e7-9c092624d701",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 2d46c69b-c31e-80ed-ac01-79a5caf8345b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 7acc69c2-1717-897d-a029-b9888b794e8e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report b378ba6d-1e91-88d7-ba67-aa943afadf4f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 306b4e84-cd5d-8866-81a8-e6b811f21ba1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f29c8346 alleges, without taking the generator's word for any figure; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report f83d71f2-80ad-8c77-8df1-9927dfe6783a",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 339b344f-c22f-8fd0-b7f0-e31938cb7213",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 7570a0f2-7754-8ded-a2e7-9c092624d701",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 2d46c69b-c31e-80ed-ac01-79a5caf8345b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 7acc69c2-1717-897d-a029-b9888b794e8e",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report b378ba6d-1e91-88d7-ba67-aa943afadf4f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report 306b4e84-cd5d-8866-81a8-e6b811f21ba1",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead f29c8346 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f29c8346, by theorem provenance_integrity_not_content_truth; report f83d71f2-80ad-8c77-8df1-9927dfe6783a",
+   "by": "provenance_integrity_not_content_truth"
+  }
+ ],
+ "measurement_f2a53b08": [
+  {
+   "face": 0,
+   "statement": "face 0, witness 1 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 7686d44a-38fd-8ea8-85b0-d673bf0cf9f3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 1,
+   "statement": "face 1, witness 2 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 895a7ae4-d57f-8c1d-8f43-4b83dca070a3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 2,
+   "statement": "face 2, witness 3 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report cd07f722-65b3-8993-87dc-2b1815bcd49c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 3,
+   "statement": "face 3, witness 4 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 5531c374-f9c3-8813-8f39-cb5af9097876",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 4,
+   "statement": "face 4, witness 5 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 81cb55c6-b176-8c93-98b0-6edb7dfc9edd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 5,
+   "statement": "face 5, witness 6 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report b6aa39db-4311-8b88-a8ee-6a27f4a7243b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 6,
+   "statement": "face 6, witness 7 of 7, census recompute: ran my own rule over the tree and measured for myself what lead f2a53b08 alleges, without taking the generator's word for any figure; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 063500c8-6f65-8630-bc83-00f55300655f",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 7,
+   "statement": "face 7, witness 1 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 7686d44a-38fd-8ea8-85b0-d673bf0cf9f3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 8,
+   "statement": "face 8, witness 2 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 895a7ae4-d57f-8c1d-8f43-4b83dca070a3",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 9,
+   "statement": "face 9, witness 3 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report cd07f722-65b3-8993-87dc-2b1815bcd49c",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 10,
+   "statement": "face 10, witness 4 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 5531c374-f9c3-8813-8f39-cb5af9097876",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 11,
+   "statement": "face 11, witness 5 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 81cb55c6-b176-8c93-98b0-6edb7dfc9edd",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 12,
+   "statement": "face 12, witness 6 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report b6aa39db-4311-8b88-a8ee-6a27f4a7243b",
+   "by": "provenance_integrity_not_content_truth"
+  },
+  {
+   "face": 13,
+   "statement": "face 13, witness 7 of 7, payment judgment: lead f2a53b08 was TRUE and the tree no longer holds the condition it alleged — a claim about files, measured, never a claim that the lead was false; subject measurement_f2a53b08, by theorem provenance_integrity_not_content_truth; report 063500c8-6f65-8630-bc83-00f55300655f",
+   "by": "provenance_integrity_not_content_truth"
+  }
  ]
 }
