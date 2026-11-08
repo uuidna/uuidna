@@ -99,15 +99,42 @@ test('a space adjacent to an operator is still dropped, whatever alphabet the op
   assert.equal(normaliseProposition('十 = 10'), '十=10', 'CJK too — the corpus carries 十 and the digits 一..九')
 })
 
-// AND THE WIDENING PUBLISHED NOTHING NEW. Every address this repository has emitted is unchanged: on this
-// corpus the two classes never disagree, because the non-Latin characters here sit inside string literals where
-// both rules see a quote. Measured, not assumed — if this ever fails, a published address has moved.
-test('widening the class moved NO address in the live ledger', () => {
+// AND THE WIDENING MOVED NOTHING IT SHOULD NOT. HISTORY: measured when the class was widened (69066484c7,
+// 2026-09-05), the two classes disagreed on no statement of the ledger, because its non-Latin characters sat inside
+// string literals where both rules see a quote — so no address published before the widening moved.
+//
+// THAT FIGURE WAS A SNAPSHOT, AND THE TEST HELD IT AS A LAW. On 2026-11-08 a wing sealed that day (45bcb8b0) wrote
+// `(f₁ x : Nat)`, a subscripted binder beside another, and the ASCII class glued them into `f₁x` — two identifiers
+// merged into a third, the exact corruption the widening exists to stop. Those statements were born under the widened
+// rule, so the widened address is the only one they have ever had; the frozen "no disagreement anywhere" read their
+// arrival as a moved address. What must hold at any ledger size is the RELATION: every statement on which the two
+// classes disagree is one the ASCII class corrupts — removing exactly the spaces the widened rule keeps between two
+// identifier characters, at least one of them non-ASCII, gives the ASCII form back, and nothing else differs.
+test('every statement the two classes disagree on is one the ASCII class corrupts, and nothing else differs', () => {
   const ascii = (s: string): string => String(s).normalize('NFC').replace(/\s+/g, ' ').trim()
     .replace(/\s(?![A-Za-z0-9_])|(?<![A-Za-z0-9_.])\s/g, '').replace(/==/g, '=').replace(/!=/g, '≠')
-  const moved = THEOREMS.filter((t) => normaliseProposition(t.statement) !== ascii(t.statement))
-  assert.deepEqual(moved.map((t) => t.key), [],
-    'a published statement address moving is a break for every downstream that stored one')
+  // the spaces the widened class keeps and the ASCII class drops: a space between two identifier characters of which
+  // at least one is outside ASCII — the glue that would invent a third identifier
+  const unglue = (s: string): string => s.replace(/([\p{L}\p{N}_])\s(?=[\p{L}\p{N}_])/gu, (m, a: string, off: number) => {
+    const b = s[off + 2] ?? ''
+    return /[^\x00-\x7F]/.test(a) || /[^\x00-\x7F]/.test(b) ? a : m
+  })
+  const disagree = THEOREMS.filter((t) => normaliseProposition(t.statement) !== ascii(t.statement))
+  const notCorruption = disagree.filter((t) => unglue(normaliseProposition(t.statement)) !== ascii(t.statement))
+  assert.deepEqual(notCorruption.map((t) => t.key), [],
+    'the classes differ on a statement for a reason other than the identifier glue — that would be a moved address')
+  for (const t of disagree) assert.ok(/[^\x00-\x7F][ ][\p{L}\p{N}_]|[\p{L}\p{N}_][ ][^\x00-\x7F]/u.test(normaliseProposition(t.statement)),
+    `${t.key}: the widened form keeps no space beside a non-ASCII identifier, so it cannot be the glue case`)
   const nonAscii = THEOREMS.filter((t) => /[^\x00-\x7F]/.test(t.statement))
   assert.ok(nonAscii.length > 500, `the corpus must actually exercise this: ${nonAscii.length} non-ASCII statements`)
+})
+
+// CONTROL — the relation can fail: a difference that is not the glue (a dropped operator space the widened rule would
+// also drop, rewritten so the two forms differ in a character) is caught, and the glue case itself is recognised.
+test('CONTROL — the glue case is recognised, and a difference of another kind is not mistaken for it', () => {
+  assert.equal(normaliseProposition('f₁ x = 1'), 'f₁ x=1', 'the widened class keeps the space between f₁ and x')
+  const ascii = (s: string): string => String(s).normalize('NFC').replace(/\s+/g, ' ').trim()
+    .replace(/\s(?![A-Za-z0-9_])|(?<![A-Za-z0-9_.])\s/g, '').replace(/==/g, '=').replace(/!=/g, '≠')
+  assert.equal(ascii('f₁ x = 1'), 'f₁x=1', 'the ASCII class glues them — the corruption')
+  assert.notEqual(normaliseProposition('f₁ x = 1').replace('=', '≤'), ascii('f₁ x = 1'), 'a changed operator is not glue')
 })
