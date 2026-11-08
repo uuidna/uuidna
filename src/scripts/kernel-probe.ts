@@ -4,6 +4,8 @@
 // lives apart from queue-wave because importing queue-wave RUNS the conveyor (its top level is main(), and
 // scripts/run.ts dispatches by import, so a script carries no main-guard).
 import { execSync } from 'node:child_process'
+import { mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { probeLean } from '../kernel-probe.js'
@@ -20,8 +22,17 @@ import { probeLean } from '../kernel-probe.js'
 // The counter is the discriminator the pid was meant to be: an integer that rises once per call, so it is exact on
 // every host, carries no clock and no random, and two calls cannot meet. The pid stays, because two PROCESSES on one
 // shared tree are the case the line above was written for.
+//
+// AND NOT INSIDE lean/ AT ALL. The probe is one statement alone — it imports no wing — yet it was written into the
+// wings directory, so every census that reads lean/ (the latex crosscheck's wing count, the falsifier floor's file
+// walk) could meet it in its window: measured on 2026-11-08 in two consecutive landings of one green commit, the
+// crosscheck once counted 71107 wings against a 71106 ledger, and the floor once opened a probe the kernel had already
+// unlinked. A clean worktree of the same commit passed all 2739 tests when nothing probed beside them. The probe now
+// lives in a scratch directory of its own, made once per process; the pid and the counter stay for the same reasons.
 let probes = 0
-const probePath = (): string => join(ROOT, 'lean', `_wave_probe.${process.pid}.${++probes}.lean`)
+let probeDir: string | null = null
+const probeHome = (): string => (probeDir ??= mkdtempSync(join(tmpdir(), 'uuidna-wave-probe-')))
+const probePath = (): string => join(probeHome(), `_wave_probe.${process.pid}.${++probes}.lean`)
 
 /** what the probe needs: the theorem whose axioms are asked, and the Lean text that declares it */
 export interface ProbeCandidate { key: string; why: string; lean: string }
@@ -37,5 +48,5 @@ export function kernelPresent(): boolean {
 /** probe(c) → null when the kernel accepts the statement alone and vouches for its key with no axiom, else the
  *  kernel's diagnostic (bounded, naming no host). */
 export function probe(c: ProbeCandidate): string | null {
-  return probeLean(c.lean, c.key, probePath(), { cwd: ROOT, hide: [ROOT] }).reason
+  return probeLean(c.lean, c.key, probePath(), { cwd: ROOT, hide: [ROOT, probeHome()] }).reason
 }
