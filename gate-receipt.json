@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "9f585ef427a23fce54e9a007529cb5da",
+    "src": "b8e6535b106cb5fae3e888c6af3cd3a9",
     "lean": "695605a2eae79c51c67696598c781947"
   },
   "files": {
@@ -75228,7 +75228,7 @@
     "src/priorart.ts": "0adf3cd30d0698a9",
     "src/profile.ts": "eee1454b4946e0cb",
     "src/proof-cache.test.ts": "b16e0c1f1992f8ed",
-    "src/proposition-address.test.ts": "440483cb5e3a69ad",
+    "src/proposition-address.test.ts": "37c4eadbcc6fd220",
     "src/proposition-address.ts": "79767186e50eee86",
     "src/prose-analysis.test.ts": "702afe9e4cb5d2d2",
     "src/prose-completeness.ts": "dacf518c6b0d59d7",
@@ -75606,7 +75606,7 @@
     "src/school/grade/queue/index.ts": "e97a40d1c3fc0215",
     "src/school/grade/verdict/index.ts": "20beeb31691e5cd8",
     "src/school/index.ts": "c986c3fdc456f72a",
-    "src/school/laboratory/index.ts": "79112a4727c66227",
+    "src/school/laboratory/index.ts": "d4b6775185b3402e",
     "src/school/laws/index.ts": "a18bb87e35a2a946",
     "src/school/leads/index.ts": "2419a27e37dd6003",
     "src/school/lesson/index.test.ts": "ff22a551f6615a54",
@@ -75706,7 +75706,7 @@
     "src/scripts/decode-book.ts": "7d60d65c848d5d49",
     "src/scripts/deploy-errors.ts": "0347147ac26e2d83",
     "src/scripts/deploy-fresh.ts": "1b932dc0a0663bc6",
-    "src/scripts/deploy-run.ts": "75a2d661d6aff061",
+    "src/scripts/deploy-run.ts": "7f4024efd733132d",
     "src/scripts/deploy-verify.test.ts": "4f382f906db9bebb",
     "src/scripts/deploy-verify.ts": "9a841a507b6da3d9",
     "src/scripts/derive-all.test.ts": "7699369cef13230b",
@@ -76176,10 +76176,10 @@
     "src/theorem-record.ts": "2ebdc1d207e41371",
     "src/theorems/edge-root.ts": "f42475c2ade77041",
     "src/theorems/generated.ts": "97c04a9acedeaa78",
-    "src/theorems/index.ts": "9622481356c5b8ac",
-    "src/theorems/ledger-edge.ts": "255d06276c1b3122",
+    "src/theorems/index.ts": "19fccd840392571f",
+    "src/theorems/ledger-edge.ts": "2515bbd3fa772ad2",
     "src/theorems/ledger-node.ts": "475a0c5c5a275b8f",
-    "src/theorems/ledger-shape.ts": "6dfc2ecf96e487ca",
+    "src/theorems/ledger-shape.ts": "c41d9785417f8239",
     "src/three-geometry.test.ts": "5bccfe8450e6bdae",
     "src/three-geometry.ts": "28b948f10d7e61d0",
     "src/thresholds.test.ts": "616ba409353671e8",
