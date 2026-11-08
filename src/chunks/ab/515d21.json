@@ -1,0 +1,12 @@
+{
+  "handle": "ab515d21",
+  "address": "ab515d21-cc2a-8c56-a61d-8157d8ff8bb4",
+  "statement": "((90033 * 4 < 432561) ∧ (90033 * 5 > 432561)) ∧ (90033 < 432561)",
+  "tactic": "decide",
+  "keys": [
+    "most_of_the_unstated_remainder_stays_inside_one_wing"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

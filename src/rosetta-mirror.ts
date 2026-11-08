@@ -6,23 +6,23 @@
 // annotation, and the FLOOR is the anchoring this ledger may never fall below.
 
 export const MIRROR = `#45bcb8b0.lean
-de5612a2_go_fuel 30
-de5612a2_add_sub_self 30
-de5612a2_go_congr 30
-de5612a2_modCore_add_self 30
-de5612a2_mod_add_self 30
-de5612a2_add_mul_mod_self 30
-de5612a2_mod_add_nine 30
-de5612a2_mod_add_fourteen 30
-de5612a2_mod_add_eighty_four 30
-de5612a2_mul_two_mod_nine 30
-de5612a2_mul_two_mod_nine_congr 30
-doubling_repeats_every_six 30
-doubling_repeats_every_forty_two 30
-stepping_repeats_every_seven 30
-stepping_repeats_every_forty_two 30
-pair_repeats_every_forty_two 30
-lead_de5612a2_verified 30
+de5612a2_go_fuel 26
+de5612a2_add_sub_self 26
+de5612a2_go_congr 26
+de5612a2_modCore_add_self 26
+de5612a2_mod_add_self 26
+de5612a2_add_mul_mod_self 26
+de5612a2_mod_add_nine 26
+de5612a2_mod_add_fourteen 26
+de5612a2_mod_add_eighty_four 26
+de5612a2_mul_two_mod_nine 26
+de5612a2_mul_two_mod_nine_congr 26
+doubling_repeats_every_six 26
+doubling_repeats_every_forty_two 26
+stepping_repeats_every_seven 26
+stepping_repeats_every_forty_two 26
+pair_repeats_every_forty_two 26
+lead_de5612a2_verified 26
 #Acoustics.lean
 harmonic_series 27
 wave_speed_f_lambda 27
@@ -71381,20 +71381,7 @@ bulge_exceeds_relief WGS 84
 codons_sixty_four 10.1073/pnas.47.10.1588
 crossing_sits_inside CODATA
 cuts_break_successors 10.1007/BF00196791
-de5612a2_add_mul_mod_self 10.1007/978-3-030-79876-5_37
-de5612a2_add_sub_self 10.1007/978-3-030-79876-5_37
-de5612a2_go_congr 10.1007/978-3-030-79876-5_37
-de5612a2_go_fuel 10.1007/978-3-030-79876-5_37
-de5612a2_modCore_add_self 10.1007/978-3-030-79876-5_37
-de5612a2_mod_add_eighty_four 10.1007/978-3-030-79876-5_37
-de5612a2_mod_add_fourteen 10.1007/978-3-030-79876-5_37
-de5612a2_mod_add_nine 10.1007/978-3-030-79876-5_37
-de5612a2_mod_add_self 10.1007/978-3-030-79876-5_37
-de5612a2_mul_two_mod_nine 10.1007/978-3-030-79876-5_37
-de5612a2_mul_two_mod_nine_congr 10.1007/978-3-030-79876-5_37
 dna_base_pairing_involution 10.1038/171737a0
-doubling_repeats_every_forty_two 10.1007/978-3-030-79876-5_37
-doubling_repeats_every_six 10.1007/978-3-030-79876-5_37
 edits_break_recompute 10.1007/BF00196791
 energy_is_reachable_by_four_independent_routes SI
 eratosthenes_fiftieth_circle Eratosthenes
@@ -71404,18 +71391,14 @@ kelvin_floor_carries_the_hundred SI
 kinematics_cancels_both CODATA
 landauer_bound_derived SI
 landauer_floor_falls_with_temperature Landauer
-lead_de5612a2_verified 10.1007/978-3-030-79876-5_37
 light_speed_rounds_to_300000 SI
 mass_selects_cancellation CODATA
-pair_repeats_every_forty_two 10.1007/978-3-030-79876-5_37
 pairings_exhaust_the_cancellations CODATA
 payload_falls_short CODATA
 planck_margin_bounded CODATA
 product_isolates_quantum CODATA
 ratio_isolates_gravity CODATA
 reversible_erases_nothing Landauer
-stepping_repeats_every_forty_two 10.1007/978-3-030-79876-5_37
-stepping_repeats_every_seven 10.1007/978-3-030-79876-5_37
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 the_pairing_cancels_the_constant SI
@@ -71423,7 +71406,7 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 47, falsifier: 63 }
+export const FLOOR = { witness: 30, falsifier: 63 }
 
 // Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
 // wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as

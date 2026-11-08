@@ -245,7 +245,7 @@ export type ChipPrinterProbe = {
  * Print ray-layered chip blueprints + whitepapers to docs/chips/.
  * Printer probes: publishing.print / printmaking.editionsize / driver.dmaPages on the print set.
  */
-export const printChipsOf = async (): Promise<{
+export const printChipsOf = async (outDir: string = OUT): Promise<{
   kind: 'print-chips'
   call: 'tools/call papers { chips: true }'
   outDir: string
@@ -260,22 +260,26 @@ export const printChipsOf = async (): Promise<{
   goal: 'OPEN'
   note: string
 }> => {
-  mkdirSync(OUT, { recursive: true })
+  // THE PRINT GOES WHERE THE CALLER SAYS. The suite printed into docs/chips inside the land's detached worktree
+  // (2026-11-08), so six routes appeared there that no commit carried and the URL freeze refused the ship for them.
+  // The door prints into docs; a test prints into a scratch directory; the labels name wherever the print went.
+  mkdirSync(outDir, { recursive: true })
+  const rel = path.relative(ROOT, outDir).split(path.sep).join('/') || 'docs/chips'
   const wrote: string[] = []
   const chips: ChipPrintRow[] = []
   const rays = chipRayLayersOf()
 
   // Lattice JSON for the ray-managed stack (machine-readable).
-  const latticePath = path.join(OUT, 'uuid-ray-layers.json')
+  const latticePath = path.join(outDir, 'uuid-ray-layers.json')
   writeFileSync(latticePath, `${JSON.stringify(rays, null, 2)}\n`)
-  wrote.push('docs/chips/uuid-ray-layers.json')
+  wrote.push(`${rel}/uuid-ray-layers.json`)
 
   // License imprint over the ray lattice document (SPDX + law.* + ed25519/HMAC).
   const latticeBody = JSON.stringify(rays)
   const license = imprintChipLicenseOf(latticeBody)
   const licenseVerify = verifyChipLicenseOf(license, latticeBody)
-  writeFileSync(path.join(OUT, 'chip-license-imprint.json'), `${JSON.stringify({ ...license, verify: licenseVerify }, null, 2)}\n`)
-  wrote.push('docs/chips/chip-license-imprint.json')
+  writeFileSync(path.join(outDir, 'chip-license-imprint.json'), `${JSON.stringify({ ...license, verify: licenseVerify }, null, 2)}\n`)
+  wrote.push(`${rel}/chip-license-imprint.json`)
 
   for (const row of chipCallsOf()) {
     const layered = layeredCallsOf(row.calls, rays.lattice.rays)
@@ -283,14 +287,14 @@ export const printChipsOf = async (): Promise<{
     const wpName = `${row.chip}-chip-whitepaper.md`
     const bpBody = stampLicenseOf(mdOf(`${row.chip} chip blueprint (ray layers)`, row.proof, layered, 'blueprint', rays), license)
     const wpBody = stampLicenseOf(mdOf(`${row.chip} chip whitepaper (ray layers)`, row.proof, layered, 'whitepaper', rays), license)
-    writeFileSync(path.join(OUT, bpName), bpBody)
-    writeFileSync(path.join(OUT, wpName), wpBody)
-    wrote.push(`docs/chips/${bpName}`, `docs/chips/${wpName}`)
+    writeFileSync(path.join(outDir, bpName), bpBody)
+    writeFileSync(path.join(outDir, wpName), wpBody)
+    wrote.push(`${rel}/${bpName}`, `${rel}/${wpName}`)
     const held = layered.filter((c) => c.holds).length
     chips.push({
       chip: row.chip,
-      blueprint: `docs/chips/${bpName}`,
-      whitepaper: `docs/chips/${wpName}`,
+      blueprint: `${rel}/${bpName}`,
+      whitepaper: `${rel}/${wpName}`,
       calls: layered.length,
       held,
       layers: rays.layerCount,
@@ -301,7 +305,7 @@ export const printChipsOf = async (): Promise<{
 
   const allCalls = chipCallsOf().flatMap((c) => layeredCallsOf(c.calls, rays.lattice.rays))
   writeFileSync(
-    path.join(OUT, 'qpu-chip-index.md'),
+    path.join(outDir, 'qpu-chip-index.md'),
     stampLicenseOf(
       mdOf(
         'QPU chip print index — UUID ray layers',
@@ -313,7 +317,7 @@ export const printChipsOf = async (): Promise<{
       license,
     ),
   )
-  wrote.push('docs/chips/qpu-chip-index.md')
+  wrote.push(`${rel}/qpu-chip-index.md`)
 
   // Test prints on tree printers (not a physical device) — imprint must verify for pass.
   const copies = Math.max(1, wrote.length)
@@ -343,7 +347,7 @@ export const printChipsOf = async (): Promise<{
   return {
     kind: 'print-chips',
     call: 'tools/call papers { chips: true }',
-    outDir: 'docs/chips',
+    outDir,
     wrote,
     chips,
     rays,

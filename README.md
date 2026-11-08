@@ -1,8 +1,8 @@
 # uuidna — 71,020 distinct theorems under 71,106 keys · 2 coins · one receipt
 
-`108d97bf-6789-8930-b7e6-a0bef779514c`
+`1e93978b-cc5f-85a8-b071-43ce067cbbd5`
 
-**What every theorem carries, and what most do not.** Of 71,106 keys: proof · falsifier · address hold for all of them; **witness 47** (0.0%), **symbol 1391** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** Of 71,106 keys: proof · falsifier · address hold for all of them; **witness 30** (0.0%), **symbol 1391** (1.9%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. **That scarcity is real and not a recording gap:** 5 anchor(s) named anywhere in this repository fail to reach the wing the census reads, counted by the same rule the leg is decided by, so the two cannot disagree. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v0.3.1** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256731](https://doi.org/10.5281/zenodo.22256731)
 

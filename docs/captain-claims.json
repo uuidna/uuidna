@@ -3,8 +3,8 @@
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 71106,
-  "novelty_claimed": 70677,
-  "formalisation_only": 429,
+  "novelty_claimed": 70694,
+  "formalisation_only": 412,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -121,74 +121,6 @@
     {
       "key": "payload_falls_short",
       "source": "CODATA"
-    },
-    {
-      "key": "de5612a2_go_fuel",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_add_sub_self",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_go_congr",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_modCore_add_self",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mod_add_self",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_add_mul_mod_self",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mod_add_nine",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mod_add_fourteen",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mod_add_eighty_four",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mul_two_mod_nine",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "de5612a2_mul_two_mod_nine_congr",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "doubling_repeats_every_six",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "doubling_repeats_every_forty_two",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "stepping_repeats_every_seven",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "stepping_repeats_every_forty_two",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "pair_repeats_every_forty_two",
-      "source": "10.1007/978-3-030-79876-5_37"
-    },
-    {
-      "key": "lead_de5612a2_verified",
-      "source": "10.1007/978-3-030-79876-5_37"
     },
     {
       "key": "energy_is_reachable_by_four_independent_routes",
@@ -2910,7 +2842,7 @@
   ],
   "credit_grades": {
     "on_file": {
-      "identifier": 23,
+      "identifier": 6,
       "standard": 19,
       "named": 5
     },
@@ -2925,7 +2857,7 @@
     },
     "found_by_one_arm_only": 347,
     "all_arms_agree": 2,
-    "ground_truth_sensitivity": "22/47",
+    "ground_truth_sensitivity": "22/30",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
   "total_theorems": 71106,
@@ -9728,8 +9660,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "6fdae024-51c0-8efe-92d6-3f3edb4d7d6c",
-      "address": "62704c2e-4f0d-873c-b7c5-fa4455650ff5",
+      "lineAddress": "9a89edd3-480d-8c04-bf83-c8d9028a85d9",
+      "address": "edd3eccd-95a3-8251-92ae-6091f9cbcd8a",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -500279,136 +500211,119 @@
       "lineAddress": "1a03c938-90f9-821f-960d-82ff3971d392",
       "address": "cbb8e01c-58d6-8c9f-bc99-630ea4262b0c",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_add_sub_self",
       "lineAddress": "e6f0571d-cb12-8c49-9ba5-34389c817127",
       "address": "94e7fe08-9c06-85c6-9055-26a17d079bc9",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_go_congr",
       "lineAddress": "7b5acc37-23cd-86d2-bace-29517fe58064",
       "address": "9bd941a3-73e7-82b0-9347-7bed5cfa2fbf",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_modCore_add_self",
       "lineAddress": "ecd680d3-00d4-8984-ad44-c4920818fd0f",
       "address": "e5c418e7-6c7a-82aa-a29a-175c323cf97c",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mod_add_self",
       "lineAddress": "3e90b4e0-1647-81ce-88a5-d703ab9b1e15",
       "address": "db73a85a-d5d6-84dc-9d8c-df519b70943e",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_add_mul_mod_self",
       "lineAddress": "f322be7a-51d3-838a-82be-6f89ef911d64",
       "address": "7e3b3efe-4d9f-87a1-830d-93d4a449ade6",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mod_add_nine",
       "lineAddress": "7905590b-e630-87a7-820e-4aeb4b25b1cb",
       "address": "406635d6-f881-83ef-8736-d566111b73f5",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mod_add_fourteen",
       "lineAddress": "44849a22-c02f-8968-89de-74c091c0b741",
       "address": "d9383da8-7f71-8d1b-80e1-53a256d86509",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mod_add_eighty_four",
       "lineAddress": "d06919e4-fc61-83a6-bc39-887226be72e9",
       "address": "6da5a289-d734-8602-81e3-1a5f554f9287",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mul_two_mod_nine",
       "lineAddress": "14397e34-9912-82d4-a997-4cb81c9d23c0",
       "address": "ea5e40d0-f71e-8c41-a6d2-a1df7c8f2bd5",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "de5612a2_mul_two_mod_nine_congr",
       "lineAddress": "5fa8fce1-fdb1-8d5c-836e-5fe583d730d3",
       "address": "ec8466ce-a06a-8818-9991-1175fce6779c",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "doubling_repeats_every_six",
       "lineAddress": "a0249c53-bad9-8b8b-aa1f-4eeae2860e22",
       "address": "24b4a256-7efe-84b4-b831-134f6ff32e4d",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "doubling_repeats_every_forty_two",
       "lineAddress": "476a883f-68d7-8e93-8397-a001364408b5",
       "address": "195bc511-11a3-8c97-943c-d578176df6de",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "stepping_repeats_every_seven",
       "lineAddress": "f1a22749-f9fd-8020-a753-dcea4a15acdf",
       "address": "c78bafd9-b41a-81c8-a5a8-e904fead9d96",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "stepping_repeats_every_forty_two",
       "lineAddress": "307b3aff-9f2c-8976-bfdc-b89999bff42a",
       "address": "97716250-ea7a-8d83-ad29-6cec8c19c587",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "pair_repeats_every_forty_two",
       "lineAddress": "6cb81478-7f4a-8b4f-8200-56224ad3eafd",
       "address": "c624638e-20c1-83e6-84de-d1745945aa1f",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "lead_de5612a2_verified",
       "lineAddress": "03c55cb8-c603-8169-b9f7-2a933a937f77",
       "address": "5620c49f-99fb-8777-84ce-3fc20d602652",
       "principle": "lean/45bcb8b0.lean",
-      "held": "formalisation",
-      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+      "held": "discovery+formalisation"
     },
     {
       "key": "two_routes_reach_four_hundred_and_thirty_two",
@@ -500419,8 +500334,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "009c052e-8b8f-87a2-8e22-0d8000c6c053",
-      "address": "1b5ee68b-61f4-8b1b-bb93-f84fb197b31d",
+      "lineAddress": "fb4de7d8-b7c4-87ad-94b8-ba7e5875bd65",
+      "address": "983e2c42-368e-865a-aa46-b6b9c6bb2884",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500433,15 +500348,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "29887c84-95bc-85d2-b118-a4948b9e89a2",
-      "address": "c8dcc1a5-d73a-8b3c-b277-19a17184e3ed",
+      "lineAddress": "9fd4f221-c9c2-8d3d-9cd7-63980aba1c94",
+      "address": "d6a3f09d-1daa-876c-bc80-a17030735df5",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "9a07c870-d8ea-87d5-9e65-637ba34c0214",
-      "address": "734c5ef7-67ad-82c9-b309-3e6043090906",
+      "lineAddress": "87fb5613-2ee1-8370-83c0-53436ea7f1cc",
+      "address": "d0f72c2a-e578-8e80-9d0f-07152444be66",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500720,11 +500635,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "d6093110-20b0-8431-9e8d-798708c193d1",
+  "claim_receipt": "8949afa0-6b17-8bb4-ae33-bffa85514d63",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71106; he claims discovery of 70677 and credits the other 429 facts to their named sources",
+      "The captain formalised all 71106; he claims discovery of 70694 and credits the other 412 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500733,9 +500648,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 429 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 412 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71106; of these I claim discovery of 70677, and the remaining 429 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71106; of these I claim discovery of 70694, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

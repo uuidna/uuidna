@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1542,
-  "distinct": 1311,
+  "records": 1544,
+  "distinct": 1313,
   "loadBearing": 118,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -1608,6 +1608,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "count the chips routes in the sealed URL map: no door lists the frozen routes by prefix",
+      "hits": 1,
+      "forms": [
+        "ls"
       ]
     },
     {
@@ -7131,6 +7138,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "remove the witness suffix from the trial wing's docstrings: the Lean 4 paper is not a credit for these facts, and the credit census counted it as one",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {

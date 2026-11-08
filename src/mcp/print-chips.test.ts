@@ -1,6 +1,8 @@
 import { test } from '../quantum/processing/unit/receipted.js'
 import assert from 'node:assert/strict'
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import './families.js'
 import { chipRayLayersOf, printChipsOf } from './print-chips.js'
 import { imprintChipLicenseOf, verifyChipLicenseOf } from './chip-license.js'
@@ -30,16 +32,18 @@ test('crypto-imprinted license: ed25519+HMAC verify; law.reviewed stays lead', (
 })
 
 test('printChipsOf: ray-layered prints + license imprint; printers pass; bill ≤16', async () => {
-  const out = await printChipsOf()
+  // a test prints into a scratch directory: printing into docs/ put six routes into the land's detached worktree
+  // that no commit carried, and the URL freeze refused the ship for them (2026-11-08)
+  const out = await printChipsOf(mkdtempSync(join(tmpdir(), 'uuidna-chips-')))
   assert.equal(out.kind, 'print-chips')
   assert.ok(out.rays.holds)
   assert.ok(out.license.holds)
   assert.ok(out.licenseVerify.holds)
   assert.ok(out.chips.every((c) => c.holds && c.licenseVerified && c.layers === 7))
   assert.ok(out.printers.every((p) => p.pass), JSON.stringify(out.printers))
-  assert.ok(existsSync('docs/chips/chip-license-imprint.json'))
-  assert.ok(existsSync('docs/chips/uuid-ray-layers.json'))
-  const stamp = readFileSync('docs/chips/qpu-chip-index.md', 'utf8')
+  assert.ok(existsSync(join(out.outDir, 'chip-license-imprint.json')))
+  assert.ok(existsSync(join(out.outDir, 'uuid-ray-layers.json')))
+  const stamp = readFileSync(join(out.outDir, 'qpu-chip-index.md'), 'utf8')
   assert.ok(stamp.includes('Crypto-imprinted license'))
   assert.ok(stamp.includes(out.license.signature.slice(0, 16)))
   const tools = mcpToolsListOf()

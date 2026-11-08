@@ -6,11 +6,11 @@
  "dependencySets": {
   "(none)": 71106
  },
- "asked": "6ec4f0fa-e6be-8d97-90f2-3d59cca5ff56",
+ "asked": "4239ba0c-68b2-8341-a720-071ce23a8b88",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
-   "asked": "b5f73424-3c3a-80a3-87f6-d6593d69cea5",
+   "asked": "8e1be6e4-1888-84ac-8e12-68b535a9ab8d",
    "verdict": {
     "de5612a2_go_fuel": [],
     "de5612a2_add_sub_self": [],
@@ -612,7 +612,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "0d888962-6df5-8087-be5d-7c0ffed59791",
+   "asked": "ec105495-bdd9-8ed6-94cb-72fc99bd4c1c",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -71062,7 +71062,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "33e9bd82-a5f7-87e6-bd4a-a78a333f16ca",
+   "asked": "b4e1790e-ea70-817d-8017-b0097f5d75d4",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -72431,10 +72431,10 @@
    }
   }
  },
- "receipt": "7041c4f1-2f2c-8c5d-a169-7165089a0e32",
+ "receipt": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
  "crossed": {
-  "sorted": "7041c4f1-2f2c-8c5d-a169-7165089a0e32",
-  "reversed": "7041c4f1-2f2c-8c5d-a169-7165089a0e32",
+  "sorted": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
+  "reversed": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
   "agrees": true
  }
 }
