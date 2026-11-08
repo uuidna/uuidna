@@ -12,7 +12,7 @@
 // the station is where an address SEATS, an identity for the text and never its meaning. There are more sealed
 // theorems than stations, so theorems share station names by construction — gematria_forces_collisions seals that —
 // and a shared name is not a shared theorem. The key is the identifier; the station name is a coordinate.
-import { theoremFor, theoremNeighbours, type Theorem } from './theorems/index.js'
+import { theoremFor, theoremNeighbours, ledgerResident, type Theorem } from './theorems/index.js'
 import { theologyNameOf, type TheologyName } from './theology/names/index.js'
 import { handleOf } from './handle.js'
 
@@ -62,7 +62,11 @@ export interface TheoremRecord {
 export function theoremRecord(key: string, opts: { meaning?: boolean } = {}): TheoremRecord | null {
   const t: Theorem | undefined = theoremFor(key)
   if (!t) return null
-  const named = theologyNameOf(t.address, { meaning: opts.meaning ?? true })
+  // THE STATION'S CENSUS NEEDS EVERY ROW, SO IT IS ANSWERED WHERE EVERY ROW IS. What else the lattice seats at this
+  // theorem's station is an index over the whole ledger (lattice.ts index), and at the edge that walk was the last
+  // reason uuidna_theorem refused every key with the whole-ledger message (reproduced in a wrangler-shaped bundle,
+  // 2026-11-08). The name and the station are O(1) and stay; the census is read at the station's own route.
+  const named = theologyNameOf(t.address, { meaning: opts.meaning ?? ledgerResident() })
   const near = theoremNeighbours(key)
   return {
     name: {

@@ -146,6 +146,11 @@ export const THEOREMS: readonly Theorem[] = lazyList(() => LEAN_LEDGER.map(withD
 /** the sealed keys in ledger order — what the 2×7 witness fold indexes by position. The edge reads them from its baked
  *  root without the rows; a host reads them off THEOREMS. The root is baked from this ledger, so both are one list. */
 let _sealedKeys: readonly string[] | null = null
+/** whether the WHOLE ledger is resident here — always on a host, never at the edge, where a door answers from the baked
+ *  root or from the one piece its cited key sits in. A door with a part that needs every row (a census over a lattice
+ *  station, a relation over the ledger) asks this and answers that part only where it is true. */
+export const ledgerResident = (): boolean => !LEDGER_EDGE || LEDGER_EDGE.primed()
+
 export const sealedKeys = (): readonly string[] => LEDGER_EDGE ? LEDGER_EDGE.keys() : (_sealedKeys ??= THEOREMS.map((t) => t.key))
 
 /** how many keys the ledger seals, and the key at a position — asked WITHOUT materialising the list. A caller that
