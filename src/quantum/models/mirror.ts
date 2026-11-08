@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 464,
+ "count": 461,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000413772",
-   "completionPrice": "0.000000827544"
+   "promptPrice": "0.000000393588",
+   "completionPrice": "0.000000787176"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -858,27 +858,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 131072,
    "promptPrice": "0.00000006",
    "completionPrice": "0.00000025"
-  },
-  {
-   "id": "inception/mercury-2",
-   "name": "Inception: Mercury 2",
-   "contextTokens": 128000,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000075"
-  },
-  {
-   "id": "inception/mercury-2.5",
-   "name": "Inception: Mercury 2.5",
-   "contextTokens": 260000,
-   "promptPrice": "0.00000004",
-   "completionPrice": "0.00000015"
-  },
-  {
-   "id": "inception/mercury-3",
-   "name": "Inception: Mercury 3",
-   "contextTokens": 1000000,
-   "promptPrice": "0.0000001",
-   "completionPrice": "0.00000035"
   },
   {
    "id": "inclusionai/ling-3.0-flash",
@@ -2109,8 +2088,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-120b",
    "name": "OpenAI: gpt-oss-120b",
    "contextTokens": 131072,
-   "promptPrice": "0.00000001",
-   "completionPrice": "0.000000038"
+   "promptPrice": "0.000000016",
+   "completionPrice": "0.000000059"
   },
   {
    "id": "openai/gpt-oss-120b:batch",
@@ -3194,8 +3173,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001824",
-   "completionPrice": "0.0000093388"
+   "promptPrice": "0.0000001567",
+   "completionPrice": "0.0000105448"
   },
   {
    "id": "~openai/gpt-astra-latest",

@@ -228,7 +228,7 @@ export const readmeOf = (m = mcpOf()): string => {
     '',
     '## Recompute',
     '',
-    'This README is generated from the blueprint at build. `npm test` compiles then writes the paper. `npm run ci` is Lean then test. `npm run ship` deploys.',
+    'This README is generated from the blueprint at build. `npm test` compiles then writes the paper. `qpu script ci` is Lean then test. `npm run ship` deploys.',
     '',
     '```sh',
     'git clone https://github.com/uuidna/qpu && cd qpu',

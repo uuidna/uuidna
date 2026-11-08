@@ -109,7 +109,7 @@ const receiptSparseOf = (name: string, dim: bigint, pairs: readonly (readonly [b
  * readers build documents and mint amplitudes that a refused run never builds. Measured across five outage shapes,
  * five of a hundred and sixty-two rows moved, and every one of them had called a foreign door.
  *
- * `npm run proof` asks git whether the receipt moved, and a receipt that moves for someone else's weather points
+ * `qpu script proof` asks git whether the receipt moved, and a receipt that moves for someone else's weather points
  * at this repository for something that did not happen here. So a row records whether it consulted anyone, the
  * proof folds the rows that did not, and the rows that did fold separately and are reported rather than gated.
  * That is the three-state law applied to the receipt itself: computed, read, or not decidable here.
@@ -6007,7 +6007,7 @@ const opOf = (value: unknown): QpuOp | undefined => {
  *   involution rather than a bare no.
  *
  * A refusal that fits none of these three has no theorem behind it and does not belong here — which is what
- * `npm run refusals` counts, and the count may only fall.
+ * `qpu script refusals` counts, and the count may only fall.
  */
 const unlockedOf = (name: string, heap: Map<string, unknown>, args: unknown, depth: number): unknown => {
   const bag = bagOf(args)
@@ -9044,7 +9044,7 @@ export const cernLiveOf = onceOf(async () => {
  * multiplied the very thing the cap counts, and an unreachable host could deny a door that host has nothing to
  * do with. And under a host that accepts a connection and then says nothing, each re-reading costs the whole
  * deadline: on a CI runner the cern test passed its budget and was CANCELLED, which writes no receipt — caught
- * by `npm run outage` on the runner, having passed twice on a laptop that is twice as fast.
+ * by `qpu script outage` on the runner, having passed twice on a laptop that is twice as fast.
  *
  * A HELD READING IS KEPT; A MISS IS KEPT BRIEFLY. Caching a miss forever would let one blip poison a Worker
  * isolate for the rest of its life, which is why only successes were kept. Keeping it for the length of one
@@ -10416,7 +10416,7 @@ export const developOf = onceOf(() => {
     'npm test',
     '```',
     '',
-    '`npm test` compiles then runs the unit tests. `npm run ci` is Lean then test. `npm run ship` deploys. Do not import uuidna.',
+    '`npm test` compiles then runs the unit tests. `qpu script ci` is Lean then test. `npm run ship` deploys. Do not import uuidna.',
     '',
     `- host ${unit.host}. API only JSON-LD. No HTML. Reads need no auth; storage writes need a Bearer token. cors *.`,
     `- sealed tools ${tools.length} = mintOf n. tools/list lists those eight plus eight cybersecurity morph. crypto_rsa theorem shor ${shorFactorOf()}. crypto_split theorem crypto ${cryptoClaimOf()}. Unlocked. Not a ninth sealed tool. Morph install Payload finds imagine at call-time.`,
@@ -10555,7 +10555,7 @@ const servedOf = (key: string, build: () => unknown): Served => {
 /**
  * THE DOORS WHOSE ANSWER IS A FUNCTION OF THEIR ARGUMENTS, and therefore may be served from the memo.
  *
- * Measured with `npm run percall`: four doors memoised to a floor of 5,896 and four paid in full on every
+ * Measured with `qpu script percall`: four doors memoised to a floor of 5,896 and four paid in full on every
  * call, improve at 487,465 — a standing per-request cost that nothing was looking at because the
  * receipts only aggregate per test. Three of those four are pure and are added here.
  *

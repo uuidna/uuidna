@@ -1,0 +1,12 @@
+{
+  "handle": "daa32d48",
+  "address": "daa32d48-a945-814e-8b12-19d19f66135f",
+  "kind": "chunk",
+  "keys": [
+    "most_of_the_unstated_remainder_stays_inside_one_wing"
+  ],
+  "statement": "((89984 * 4 < 432510) ∧ (89984 * 5 > 432510)) ∧ (89984 < 432510)",
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

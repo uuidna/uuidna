@@ -1,0 +1,12 @@
+{
+  "handle": "25aab133",
+  "address": "25aab133-1ed6-8850-9fc9-2d6c20eb0fa0",
+  "statement": "(713 + 70939 + 76 + 5 = 71733) ∧ (81 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

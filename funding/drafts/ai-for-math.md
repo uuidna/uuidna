@@ -53,12 +53,11 @@ Both halves at full strength. The results below are CLAIMED outright — 71022 p
 
 ## Eligibility against this call, measured
 
-- **NOT MET** — formal-verification-track-record: 71022 distinct propositions, but the axiom audit does not hold every theorem axiom-free
-  - To meet it: every theorem must stand in lean/axioms.json with an empty axiom list — rerun the axiom audit (npm run axioms) over the whole ledger and restate any proof whose verdict names an axiom
+- MET — formal-verification-track-record: 71022 distinct propositions, every one kernel-checked with an empty #print axioms verdict
 - MET — open-access-outputs: 263 monographs published openly, archived at 10.5281/zenodo.22256731
 
 No deadline: this route is rolling.
 
 ---
 
-Draft address `545f281c-91b2-8756-8927-2383d919aaa1` — recomputes from the route, the ledger receipt (undated: no countdown was requested).
+Draft address `b2f4b2a0-f6c4-889f-a743-46a829b4c1ec` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

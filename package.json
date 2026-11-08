@@ -195,6 +195,7 @@
     "mcp:drive": "npm run build && node dist/scripts/mcp-drive.js",
     "setup:git": "git config core.hooksPath hooks && git config core.autocrlf input && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + LF line endings + the derived merge driver\"",
     "state": "npm run build && node dist/scripts/state.js",
+    "research-gates": "npm run build && node dist/scripts/research-gates.js",
     "x": "npm run build && node dist/scripts/run.js",
     "wave": "npm run build && node dist/scripts/wave-run.js",
     "prepublish-seal": "npm run build && node dist/scripts/prepublish-seal.js",

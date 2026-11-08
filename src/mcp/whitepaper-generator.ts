@@ -274,7 +274,7 @@ This blueprint solves these problems through:
 
 \`\`\`bash
 npm install @uuidna/qpu
-npm run mcp:server
+qpu script mcp:server
 \`\`\`
 
 ## Initialization
@@ -592,7 +592,7 @@ Multiple paths → Unified proof certificate
 Deploy all ${blueprints.length} blueprints as unified system:
 
 \`\`\`bash
-npm run mcp:server -- --composition=all
+qpu script mcp:server -- --composition=all
 \`\`\`
 `
   }

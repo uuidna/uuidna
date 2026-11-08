@@ -3,11 +3,11 @@
 **Generated:** 2026-11-08
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71091/71106 theorems — every one, by construction
-**Discovery claimed:** 70679 — the other 412 restate a fact a named source found first
+**Formalisation claimed:** 71106/71106 theorems — every one, by construction
+**Discovery claimed:** 70677 — the other 429 restate a fact a named source found first
 
-*The 412 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 347 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `fc1f0364-0192-8967-b3d0-c6159dde25e7`
+*The 429 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 347 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/47 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
+**Claim receipt:** `d6093110-20b0-8431-9e8d-798708c193d1`
 
 ### Facts the captain does not claim to have discovered
 
@@ -49,6 +49,23 @@ that earns an external anchor moves here on the next run.
 - [handle_outreaches_planck](/theorem/handle_outreaches_planck) — CODATA
 - [planck_margin_bounded](/theorem/planck_margin_bounded) — CODATA
 - [payload_falls_short](/theorem/payload_falls_short) — CODATA
+- [de5612a2_go_fuel](/theorem/de5612a2_go_fuel) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_add_sub_self](/theorem/de5612a2_add_sub_self) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_go_congr](/theorem/de5612a2_go_congr) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_modCore_add_self](/theorem/de5612a2_modCore_add_self) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mod_add_self](/theorem/de5612a2_mod_add_self) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_add_mul_mod_self](/theorem/de5612a2_add_mul_mod_self) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mod_add_nine](/theorem/de5612a2_mod_add_nine) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mod_add_fourteen](/theorem/de5612a2_mod_add_fourteen) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mod_add_eighty_four](/theorem/de5612a2_mod_add_eighty_four) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mul_two_mod_nine](/theorem/de5612a2_mul_two_mod_nine) — 10.1007/978-3-030-79876-5_37
+- [de5612a2_mul_two_mod_nine_congr](/theorem/de5612a2_mul_two_mod_nine_congr) — 10.1007/978-3-030-79876-5_37
+- [doubling_repeats_every_six](/theorem/doubling_repeats_every_six) — 10.1007/978-3-030-79876-5_37
+- [doubling_repeats_every_forty_two](/theorem/doubling_repeats_every_forty_two) — 10.1007/978-3-030-79876-5_37
+- [stepping_repeats_every_seven](/theorem/stepping_repeats_every_seven) — 10.1007/978-3-030-79876-5_37
+- [stepping_repeats_every_forty_two](/theorem/stepping_repeats_every_forty_two) — 10.1007/978-3-030-79876-5_37
+- [pair_repeats_every_forty_two](/theorem/pair_repeats_every_forty_two) — 10.1007/978-3-030-79876-5_37
+- [lead_de5612a2_verified](/theorem/lead_de5612a2_verified) — 10.1007/978-3-030-79876-5_37
 - [energy_is_reachable_by_four_independent_routes](/theorem/energy_is_reachable_by_four_independent_routes) — SI
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
@@ -467,7 +484,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `beb2c481-a0df-88ee-9d15-6d796bf0482a`
+- **Sample lineAddress:** `c31a856e-871f-82da-a517-4cad78a35bc3`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +493,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `159fe637-0b62-8026-b00a-cac99ea74f7f`
+- **Sample lineAddress:** `e1d34ef9-89d0-8a52-af69-e45c281884f5`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2338,12 +2355,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### lean/45bcb8b0.lean
 
-- **Theorems:** 2
-- **Sample lineAddress:** `14397e34-9912-82d4-a997-4cb81c9d23c0`
+- **Theorems:** 17
+- **Sample lineAddress:** `1a03c938-90f9-821f-960d-82ff3971d392`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[de5612a2_mul_two_mod_nine](/theorem/de5612a2_mul_two_mod_nine) · [lead_de5612a2_verified](/theorem/lead_de5612a2_verified)
+[de5612a2_go_fuel](/theorem/de5612a2_go_fuel) · [de5612a2_add_sub_self](/theorem/de5612a2_add_sub_self) · [de5612a2_go_congr](/theorem/de5612a2_go_congr) · [de5612a2_modCore_add_self](/theorem/de5612a2_modCore_add_self) · [de5612a2_mod_add_self](/theorem/de5612a2_mod_add_self) · [de5612a2_add_mul_mod_self](/theorem/de5612a2_add_mul_mod_self) · [de5612a2_mod_add_nine](/theorem/de5612a2_mod_add_nine) · [de5612a2_mod_add_fourteen](/theorem/de5612a2_mod_add_fourteen) · [de5612a2_mod_add_eighty_four](/theorem/de5612a2_mod_add_eighty_four) · [de5612a2_mul_two_mod_nine](/theorem/de5612a2_mul_two_mod_nine) · [de5612a2_mul_two_mod_nine_congr](/theorem/de5612a2_mul_two_mod_nine_congr) · [doubling_repeats_every_six](/theorem/doubling_repeats_every_six) · [doubling_repeats_every_forty_two](/theorem/doubling_repeats_every_forty_two) · [stepping_repeats_every_seven](/theorem/stepping_repeats_every_seven) · [stepping_repeats_every_forty_two](/theorem/stepping_repeats_every_forty_two) · [pair_repeats_every_forty_two](/theorem/pair_repeats_every_forty_two) · [lead_de5612a2_verified](/theorem/lead_de5612a2_verified)
 
 ### THE COINS BALANCE
 
@@ -2357,7 +2374,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `84c5de72-5b25-80c6-bae3-c9e44fcd3a91`
+- **Sample lineAddress:** `009c052e-8b8f-87a2-8e22-0d8000c6c053`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2384,7 +2401,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE DOOR SURFACE
 
 - **Theorems:** 3
-- **Sample lineAddress:** `03147b7d-5001-8224-bd52-dd726676827f`
+- **Sample lineAddress:** `3fa71a57-4961-8cd5-a3be-57235b3565a7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2466,7 +2483,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71091; he claims discovery of 70679 and credits the other 412 facts to their named sources
+- ✓ The captain formalised all 71106; he claims discovery of 70677 and credits the other 429 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2475,14 +2492,14 @@ everything may be brought, nothing is decided by ownership.
 - ✗ That any theorem solves unsolved problems
 - ✗ That the structures are unique or optimal
 - ✗ That the captain proved them (Lean kernel did)
-- ✗ That the captain DISCOVERED all of them — 412 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
+- ✗ That the captain DISCOVERED all of them — 429 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known
 - ✗ That the theorems have external truth or meaning
 
 ---
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71091; of these I claim discovery of 70679, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71106; of these I claim discovery of 70677, and the remaining 429 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

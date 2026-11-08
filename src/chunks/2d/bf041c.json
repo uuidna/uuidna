@@ -1,0 +1,12 @@
+{
+  "handle": "2dbf041c",
+  "address": "2dbf041c-b57b-8df4-81f8-b98e12922501",
+  "statement": "(1602970 * 26 < 41943040) ∧ (1602970 * 27 > 41943040) ∧ (26 > 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_keys_are_a_small_fraction_of_the_rows"
+  ],
+  "files": [
+    "DoorSurface.lean"
+  ]
+}

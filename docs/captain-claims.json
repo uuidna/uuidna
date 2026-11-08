@@ -2,9 +2,9 @@
   "generated": "2026-11-08",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 71091,
-  "novelty_claimed": 70679,
-  "formalisation_only": 412,
+  "total_claimed": 71106,
+  "novelty_claimed": 70677,
+  "formalisation_only": 429,
   "attributed_facts": [
     {
       "key": "abo_klein_four",
@@ -121,6 +121,74 @@
     {
       "key": "payload_falls_short",
       "source": "CODATA"
+    },
+    {
+      "key": "de5612a2_go_fuel",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_add_sub_self",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_go_congr",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_modCore_add_self",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_self",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_add_mul_mod_self",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_nine",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_fourteen",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_eighty_four",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mul_two_mod_nine",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mul_two_mod_nine_congr",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "doubling_repeats_every_six",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "doubling_repeats_every_forty_two",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "stepping_repeats_every_seven",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "stepping_repeats_every_forty_two",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "pair_repeats_every_forty_two",
+      "source": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "lead_de5612a2_verified",
+      "source": "10.1007/978-3-030-79876-5_37"
     },
     {
       "key": "energy_is_reachable_by_four_independent_routes",
@@ -2842,7 +2910,7 @@
   ],
   "credit_grades": {
     "on_file": {
-      "identifier": 6,
+      "identifier": 23,
       "standard": 19,
       "named": 5
     },
@@ -2857,7 +2925,7 @@
     },
     "found_by_one_arm_only": 347,
     "all_arms_agree": 2,
-    "ground_truth_sensitivity": "22/30",
+    "ground_truth_sensitivity": "22/47",
     "honest": "A FLOOR, not a count. Three arms that fail differently: a name list is blind to unlisted fields, an eponym shape is blind to a fact stated without that grammar, a unit match is blind to a dimensionless claim. Their disagreement is the only available measure of how far all three are from the truth, and it is large. The true figure is higher by an amount no instrument here can name."
   },
   "total_theorems": 71106,
@@ -9660,8 +9728,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "60d30eb7-ed42-8d69-b5eb-7e9dd41d3ee0",
-      "address": "f82de20c-4891-8d70-a30e-57677f68bf8e",
+      "lineAddress": "6fdae024-51c0-8efe-92d6-3f3edb4d7d6c",
+      "address": "62704c2e-4f0d-873c-b7c5-fa4455650ff5",
       "principle": "The site build as arithmetic",
       "held": "discovery+formalisation"
     },
@@ -10139,36 +10207,36 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "beb2c481-a0df-88ee-9d15-6d796bf0482a",
-      "address": "51e9508d-7785-8fa1-ae7c-c9f5cb4cf0d3",
+      "lineAddress": "c31a856e-871f-82da-a517-4cad78a35bc3",
+      "address": "886c0ca3-4d53-801d-9774-67ef72553594",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_third_level_already_shares",
-      "lineAddress": "578443e4-8f7d-8253-99bf-b87375dbf239",
-      "address": "436a7515-ed4e-86bf-ae0a-da8187590a51",
+      "lineAddress": "8a21faa3-d478-8056-9f2c-3567d6e9f3b2",
+      "address": "d859d0c1-dede-85a3-98a9-642a672b503a",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_address_odds_are_negligible",
-      "lineAddress": "159fe637-0b62-8026-b00a-cac99ea74f7f",
-      "address": "82180cd8-30b3-82b1-b46e-bdea7b567872",
+      "lineAddress": "e1d34ef9-89d0-8a52-af69-e45c281884f5",
+      "address": "8de928c4-8ca0-84cc-a2f4-f3e19742d91b",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "forged_handle_odds_are_small",
-      "lineAddress": "f4325d6f-9eea-8430-bd05-6d698a548106",
-      "address": "1f46e329-5053-80ea-8474-868e03fd59d5",
+      "lineAddress": "628eca8c-74dd-896c-a52d-26eb293935a8",
+      "address": "3d56c25b-33f0-8a5c-87b9-2cc9f1c6d6ce",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
     {
       "key": "sixteen_bit_handles_would_collide",
-      "lineAddress": "8fb3cb15-8e5d-89a4-9e60-bbf27f7f4ffc",
-      "address": "e62ad2c0-b872-8a0f-8a1d-13f56daee46e",
+      "lineAddress": "0a4f447f-847a-8d46-9888-1fec3ee0a7ce",
+      "address": "bdf223bf-5809-8526-a663-a9915fdf37a2",
       "principle": "The forensic odds",
       "held": "discovery+formalisation"
     },
@@ -480438,8 +480506,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "3f116c1a-b40e-872c-9241-e4f10d131177",
-      "address": "078c4ff6-0e2d-8dab-b30a-b39b4d417ead",
+      "lineAddress": "4b66b0b6-46b2-8b62-a7fc-f63e128150a5",
+      "address": "299b1827-12f9-810c-93eb-21a98ed657ff",
       "principle": "The models",
       "held": "discovery+formalisation"
     },
@@ -481656,8 +481724,8 @@
     },
     {
       "key": "the_store_holds_far_less_than_it_admits",
-      "lineAddress": "d126459c-fa59-82b4-96c0-bd871db4a2ce",
-      "address": "8af6f931-ef11-8202-a2e0-58a93d86278c",
+      "lineAddress": "61ef1d25-60b7-8163-895f-cdbc1439a19a",
+      "address": "18a3f665-db20-83f7-b574-cf225a1a6a2f",
       "principle": "The handle store, and why its smallest leaf is complete",
       "held": "discovery+formalisation"
     },
@@ -481763,8 +481831,8 @@
     },
     {
       "key": "the_measured_store_uses_a_vanishing_share",
-      "lineAddress": "333e93e7-5787-8226-bd77-d3cc8819e3e9",
-      "address": "14a0241b-d966-82a1-bb19-7cc1e92219c2",
+      "lineAddress": "09931115-5284-8384-a1a2-3de8a8b54519",
+      "address": "814f9b89-6efc-8abe-a079-7cc921aaf7f4",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -481784,15 +481852,15 @@
     },
     {
       "key": "the_leaf_is_not_one_uuid_but_a_folder",
-      "lineAddress": "eba79b26-eba7-82c6-86fa-5c3d60c3d87f",
-      "address": "3516ac76-7447-8c12-be70-77a5547d47cc",
+      "lineAddress": "c1c563d8-eade-8c4f-ae7d-22b1581c4b73",
+      "address": "ede2c3cf-544c-85ad-8396-5f0e01a84d18",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
     {
       "key": "three_kinds_partition_the_store",
-      "lineAddress": "a9df750f-630f-824d-ac4c-5e4e3d250311",
-      "address": "2cbdc76d-64e9-8bc5-873a-613622d3af5f",
+      "lineAddress": "48b58b5c-cfa8-8aea-a02a-f053631dff7d",
+      "address": "55563a79-5e66-8cb4-8c3a-b4dfe5c0f290",
       "principle": "Crosslinks: the addressing is the floor",
       "held": "discovery+formalisation"
     },
@@ -500207,18 +500275,140 @@
       "held": "discovery+formalisation"
     },
     {
+      "key": "de5612a2_go_fuel",
+      "lineAddress": "1a03c938-90f9-821f-960d-82ff3971d392",
+      "address": "cbb8e01c-58d6-8c9f-bc99-630ea4262b0c",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_add_sub_self",
+      "lineAddress": "e6f0571d-cb12-8c49-9ba5-34389c817127",
+      "address": "94e7fe08-9c06-85c6-9055-26a17d079bc9",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_go_congr",
+      "lineAddress": "7b5acc37-23cd-86d2-bace-29517fe58064",
+      "address": "9bd941a3-73e7-82b0-9347-7bed5cfa2fbf",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_modCore_add_self",
+      "lineAddress": "ecd680d3-00d4-8984-ad44-c4920818fd0f",
+      "address": "e5c418e7-6c7a-82aa-a29a-175c323cf97c",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_self",
+      "lineAddress": "3e90b4e0-1647-81ce-88a5-d703ab9b1e15",
+      "address": "db73a85a-d5d6-84dc-9d8c-df519b70943e",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_add_mul_mod_self",
+      "lineAddress": "f322be7a-51d3-838a-82be-6f89ef911d64",
+      "address": "7e3b3efe-4d9f-87a1-830d-93d4a449ade6",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_nine",
+      "lineAddress": "7905590b-e630-87a7-820e-4aeb4b25b1cb",
+      "address": "406635d6-f881-83ef-8736-d566111b73f5",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_fourteen",
+      "lineAddress": "44849a22-c02f-8968-89de-74c091c0b741",
+      "address": "d9383da8-7f71-8d1b-80e1-53a256d86509",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mod_add_eighty_four",
+      "lineAddress": "d06919e4-fc61-83a6-bc39-887226be72e9",
+      "address": "6da5a289-d734-8602-81e3-1a5f554f9287",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
       "key": "de5612a2_mul_two_mod_nine",
       "lineAddress": "14397e34-9912-82d4-a997-4cb81c9d23c0",
       "address": "ea5e40d0-f71e-8c41-a6d2-a1df7c8f2bd5",
       "principle": "lean/45bcb8b0.lean",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "de5612a2_mul_two_mod_nine_congr",
+      "lineAddress": "5fa8fce1-fdb1-8d5c-836e-5fe583d730d3",
+      "address": "ec8466ce-a06a-8818-9991-1175fce6779c",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "doubling_repeats_every_six",
+      "lineAddress": "a0249c53-bad9-8b8b-aa1f-4eeae2860e22",
+      "address": "24b4a256-7efe-84b4-b831-134f6ff32e4d",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "doubling_repeats_every_forty_two",
+      "lineAddress": "476a883f-68d7-8e93-8397-a001364408b5",
+      "address": "195bc511-11a3-8c97-943c-d578176df6de",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "stepping_repeats_every_seven",
+      "lineAddress": "f1a22749-f9fd-8020-a753-dcea4a15acdf",
+      "address": "c78bafd9-b41a-81c8-a5a8-e904fead9d96",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "stepping_repeats_every_forty_two",
+      "lineAddress": "307b3aff-9f2c-8976-bfdc-b89999bff42a",
+      "address": "97716250-ea7a-8d83-ad29-6cec8c19c587",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
+    },
+    {
+      "key": "pair_repeats_every_forty_two",
+      "lineAddress": "6cb81478-7f4a-8b4f-8200-56224ad3eafd",
+      "address": "c624638e-20c1-83e6-84de-d1745945aa1f",
+      "principle": "lean/45bcb8b0.lean",
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
     },
     {
       "key": "lead_de5612a2_verified",
       "lineAddress": "03c55cb8-c603-8169-b9f7-2a933a937f77",
       "address": "5620c49f-99fb-8777-84ce-3fc20d602652",
       "principle": "lean/45bcb8b0.lean",
-      "held": "discovery+formalisation"
+      "held": "formalisation",
+      "factAttributedTo": "10.1007/978-3-030-79876-5_37"
     },
     {
       "key": "two_routes_reach_four_hundred_and_thirty_two",
@@ -500229,8 +500419,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "84c5de72-5b25-80c6-bae3-c9e44fcd3a91",
-      "address": "28c55af7-6958-8e98-a3d2-51f110332e2f",
+      "lineAddress": "009c052e-8b8f-87a2-8e22-0d8000c6c053",
+      "address": "1b5ee68b-61f4-8b1b-bb93-f84fb197b31d",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500243,15 +500433,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "01792236-0017-8d15-b91c-23d8efcc6ea6",
-      "address": "25a30e8b-4532-8fef-a9ab-c452582d6f8a",
+      "lineAddress": "29887c84-95bc-85d2-b118-a4948b9e89a2",
+      "address": "c8dcc1a5-d73a-8b3c-b277-19a17184e3ed",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "8b6e6c54-4c3a-826a-a2f0-dffeecb5a81a",
-      "address": "6b13e437-910c-838f-b5ee-6571db34eee3",
+      "lineAddress": "9a07c870-d8ea-87d5-9e65-637ba34c0214",
+      "address": "734c5ef7-67ad-82c9-b309-3e6043090906",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500355,15 +500545,15 @@
     },
     {
       "key": "the_key_index_fits_where_the_rows_do_not",
-      "lineAddress": "03147b7d-5001-8224-bd52-dd726676827f",
-      "address": "4274f9de-4d30-8c35-a256-6a664b7f585a",
+      "lineAddress": "3fa71a57-4961-8cd5-a3be-57235b3565a7",
+      "address": "a6d419a9-f948-81aa-a13e-e5f11fc80527",
       "principle": "THE DOOR SURFACE",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_keys_are_a_small_fraction_of_the_rows",
-      "lineAddress": "431b8cbe-f376-8647-a530-082677a3defb",
-      "address": "bf0d0178-7c69-87a2-8268-4eb9ae043db4",
+      "lineAddress": "ab550c7d-5761-82d8-8846-65ef5733c052",
+      "address": "e7803f7a-2362-8cc2-bdea-036b6598d612",
       "principle": "THE DOOR SURFACE",
       "held": "discovery+formalisation"
     },
@@ -500530,11 +500720,11 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "fc1f0364-0192-8967-b3d0-c6159dde25e7",
+  "claim_receipt": "d6093110-20b0-8431-9e8d-798708c193d1",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
-      "The captain formalised all 71091; he claims discovery of 70679 and credits the other 412 facts to their named sources",
+      "The captain formalised all 71106; he claims discovery of 70677 and credits the other 429 facts to their named sources",
       "These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom",
       "All are proven sorry-free",
       "The captain takes responsibility for all claims"
@@ -500543,9 +500733,9 @@
       "That any theorem solves unsolved problems",
       "That the structures are unique or optimal",
       "That the captain proved them (Lean kernel did)",
-      "That the captain DISCOVERED all of them — 412 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
+      "That the captain DISCOVERED all of them — 429 restate a fact a named external source holds, credited in attributed_facts and external_facts. That count is a FLOOR: the instrument finding it misses 6 of the 16 rows whose answer is known",
       "That the theorems have external truth or meaning"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71091; of these I claim discovery of 70679, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71106; of these I claim discovery of 70677, and the remaining 429 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean.\""
 }

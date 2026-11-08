@@ -75,7 +75,7 @@ export default async function* receipt(source: AsyncIterable<TestEvent>): AsyncG
   /**
    * THE PROOF FOLDS WHAT THIS TREE COMPUTED. WHAT A THIRD PARTY SAID IS A READING.
    *
-   * The standard here is that two honest runs fold to the same receipt, and `npm run proof` enforces it by asking
+   * The standard here is that two honest runs fold to the same receipt, and `qpu script proof` enforces it by asking
    * git whether the file moved. That held for time and temperature, which were moved to readings on day one, and
    * it did not hold for the network.
    *
@@ -87,7 +87,7 @@ export default async function* receipt(source: AsyncIterable<TestEvent>): AsyncG
    * never builds. The receipt was not wrong; it was faithfully recording that less computation happened.
    *
    * So it is not both a fold of the computation performed and invariant under someone else's weather — by construction one excludes the other — and
-   * `npm run proof` was asking for the second while the file delivered the first. It rejected two pushes that way,
+   * `qpu script proof` was asking for the second while the file delivered the first. It rejected two pushes that way,
    * naming this repository for something that had not happened here.
    *
    * The split is the three-state law applied to the receipt itself. A row that asked nobody is computed, and it is
@@ -124,7 +124,7 @@ export default async function* receipt(source: AsyncIterable<TestEvent>): AsyncG
     computed: computed.length,
     readRows: read.length,
     readingsOf: 'test-readings.json',
-    /* AND ONLY THE COMPUTED ROWS. The fold was split and the FILE was not, so `npm run proof` — which diffs the
+    /* AND ONLY THE COMPUTED ROWS. The fold was split and the FILE was not, so `qpu script proof` — which diffs the
      * whole artifact, not the fold — still went red under an outage: three foreign rows carried the computations
      * and mint chains a reached run performed, right there in the committed file beside a fold that no longer
      * depended on them. A gate reads the file. The split has to reach the file. */

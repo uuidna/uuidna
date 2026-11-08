@@ -170,7 +170,7 @@ const numbersOf = (x: unknown): number[] =>
 /** Every live source the unit names, read now; their numbers fed to discovery across every family as the hex UUID splits it. */
 export const discoveryReceiptOf = async () => {
   const sources = await Promise.all((await dataSourcesOf()).map(async (s) => ({ ...s, result: (await dataOf(s.source, s.args)) as { agrees?: boolean; denied?: string; reading?: unknown; receipt?: string; url?: string } })))
-  // at scale: every API the fuse walked live (npm run fuse) gives its method count; with the live sources' numbers they
+  // at scale: every API the fuse walked live (the fuse step of the audit chain) gives its method count; with the live sources' numbers they
   // are discovery's inputs across every family
   const walked = fs.existsSync('.fuse/fused-apis.json') ? (JSON.parse(fs.readFileSync('.fuse/fused-apis.json', 'utf8')) as { rows: { reached?: boolean; methods?: number }[] }).rows.filter((r) => r.reached && typeof r.methods === 'number') : []
   const live = [...new Set([...sources.flatMap((s) => (s.result.agrees ? numbersOf(s.result.reading) : [])), ...walked.flatMap((r) => numbersOf(r.methods))])]

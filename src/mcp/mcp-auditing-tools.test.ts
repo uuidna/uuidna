@@ -5,7 +5,7 @@ import { resolve } from 'node:path'
 import { MCP_AUDITING_TOOLS, AUDITING_TOOLS, initializeAuditingTools } from './mcp-auditing-tools.js'
 import { mcpOf } from '../quantum/processing/unit/mcp.js'
 
-// Run from the repository root, as `npm run test:scripts` does.
+// Run from the repository root, as `npm test` does.
 const lean = readFileSync(resolve('src/quantum/processing/unit/index.lean'), 'utf8')
 const declared = (lean.match(/^theorem\s+\S+/gm) ?? []).length
 

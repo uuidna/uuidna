@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1533,
-  "distinct": 1302,
+  "records": 1542,
+  "distinct": 1311,
   "loadBearing": 118,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -1184,6 +1184,13 @@
       ]
     },
     {
+      "gap": "check whether the unit's embedded proof file exists in the desk and why git does not carry it: no door reports a file's tracking",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "checking live site status codes",
       "hits": 1,
       "forms": [
@@ -1408,6 +1415,13 @@
       ]
     },
     {
+      "gap": "commit the re-derived layer by pathspec: no door stages or commits",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "committed-tree axiom witness door (green is about the committed tree)",
       "hits": 1,
       "forms": [
@@ -1527,6 +1541,13 @@
       ]
     },
     {
+      "gap": "compile the wing with witness citations in its docstrings before it replaces the file",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "computing the drifted list the generated test asserts on",
       "hits": 1,
       "forms": [
@@ -1584,6 +1605,13 @@
     },
     {
       "gap": "count keys and distinct statements for lead efa9389f",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "count unreached falsifier verdicts before and after the new wing: no door reports the evaluator's reach",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -2025,6 +2053,13 @@
     },
     {
       "gap": "find star tetrahedron / m0 m1 m2 merkaba computation for lead a8a8f3ea",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the generators that write the witness seals and the handle store so the new theorems can earn their legs: no door names a store's writer",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -2473,6 +2508,13 @@
     },
     {
       "gap": "look for a sibling lead that names the merkaba construction a8a8f3ea measured",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "look for the unit's embedded proof source in the untracked qpu copy: no door lists a directory",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6476,6 +6518,13 @@
       ]
     },
     {
+      "gap": "read package.json script names to wire the cures: no door lists the house commands",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read qpu heat family and Qpu.Physics thermal model before designing the prime split",
       "hits": 1,
       "forms": [
@@ -6533,6 +6582,13 @@
     },
     {
       "gap": "read the ledger generator's theorem pattern: twelve kernel-proved theorems of a wing never enter the served ledger and the drain names no reason",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the PhD completeness criterion to cure two clean-worktree failures: no door explains why a census reads incomplete",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7117,6 +7173,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "restore the unit's embedded proof source file from its own embed, byte for byte: no door writes a source file",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
