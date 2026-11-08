@@ -35,7 +35,10 @@ const inTrial = leads.trial ?? []
 const refutedAll = (leads.refuted ?? []).map((l, i) => ({ l, s: settlementAt(i) }))
 const refuted = refutedAll.filter((r) => r.s?.stands === true).map((r) => r.l)
 const reopened = refutedAll.filter((r) => r.s?.stands !== true)
-const ask = (text: string): string => `${ASSIST}?q=${encodeURIComponent(text.slice(0, 300))}`
+// encodeURIComponent leaves ( and ) as they are, and an unbalanced parenthesis inside a markdown link destination ends
+// the link early: a lead quoting `Set(PRINCIPLES.map(p` rendered its "take this one further" as literal brackets around
+// an autolink (measured 2026-11-08 on docs/leads.md). Both are encoded, so the destination is one token.
+const ask = (text: string): string => `${ASSIST}?q=${encodeURIComponent(text.slice(0, 300)).replace(/\(/g, '%28').replace(/\)/g, '%29')}`
 const further = (l: Lead): string => `\n  <br>[take this one further \u2192](${ask(l.lead)})`
 const PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/i
 const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension))' : ''
@@ -45,8 +48,16 @@ const bound = (text: string): string => PHYSICS.test(text) ? ' ([`n_qubit_dimens
  *  docs/leads.md failed the site build outright with "Element is missing end tag", so nothing shipped. The angle
  *  brackets this generator writes itself (<br>, <small>, <q>) are markup and stay markup; everything arriving as
  *  data is escaped, because a lead may contain any characters at all and none of them are this page structure.
- *  Only the brackets are touched, so backticks and links in a lead still render as the markdown they are. */
+ *  Backticks and links in a lead still render as the markdown they are.
+ *
+ *  EMPHASIS DELIMITERS ARE DATA TOO. A settlement quoting `_meta.deposit` opened an <em> inside the <q> this generator
+ *  writes, and markdown closed it at the next underscore, in the following line — so the <q> held an element with no
+ *  end tag and the Vue compiler refused the page (measured 2026-11-08: one lead, the whole site build). Underscores and
+ *  asterisks outside code spans are backslash-escaped, which markdown renders as the characters themselves; inside a
+ *  code span a backslash would be literal, so code spans pass through as they are — markdown already keeps their
+ *  contents from opening anything. */
 const say = (text: string): string => text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .split(/(`[^`]*`)/).map((part, i) => (i % 2 ? part : part.replace(/[_*]/g, '\\$&'))).join('')
 
 const line = (l: Lead): string =>
   `- **\`${handleOf(toUuid(l.lead))}\`** ${say(l.lead)}${bound(l.lead)}` +

@@ -39,7 +39,7 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { rowsForKeys } from './dist/edge-ledger.js'
+import { rowsForKeys, LEDGER_STORAGE } from './dist/edge-ledger.js'
 import { slimGate } from './dist/slimgate.js'
 import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
@@ -54,6 +54,24 @@ import { handleSchool } from './dist/school/routes/index.js'
 const qpuFetchOf = (env) => env.QPU
   ? (input, init) => (new URL(String(input)).host === 'qpu.uuidna.com' ? env.QPU.fetch(new Request(input, init)) : fetch(input, init))
   : undefined
+
+// THE LEDGER'S ROWS RIDE THIS DEPLOY'S OWN ASSETS. The site build writes every piece and the manifest under
+// /ledger/<address>.json as the exact document the storage door serves, so the reader finds the ledger its root was
+// baked from in the deploy that carries the root, with no hop to another worker. Storage is asked only for an
+// address the assets do not hold. Measured 2026-11-08: qpu.uuidna.com/storage answered 404 HTML for every ledger
+// address, every row door at the edge answered nothing, and the deploy could not verify itself live.
+const ledgerFetchOf = (env, origin) => {
+  const over = qpuFetchOf(env) ?? fetch
+  if (!env.ASSETS) return over
+  return async (input, init) => {
+    const href = String(input)
+    if (href.startsWith(LEDGER_STORAGE + '/')) {
+      const res = await env.ASSETS.fetch(new Request(new URL(`/ledger/${href.slice(LEDGER_STORAGE.length + 1)}.json`, origin)))
+      if (res.ok && (res.headers.get('content-type') || '').includes('json')) return res
+    }
+    return over(input, init)
+  }
+}
 
 // THE DEPOSIT DOOR (no token on any host): qpu's QpuDeposit entrypoint over the service binding; the MCP door
 // chooses the key from the content, so a caller never picks where a deposit lands. Declared once: /mcp and the
@@ -464,7 +482,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         return [...keys]
       }
       const wanted = [...new Set((Array.isArray(msg) ? msg : [msg]).flatMap(wantedKeys))]
-      if (wanted.length) await rowsForKeys(wanted, qpuFetch ?? fetch)
+      if (wanted.length) await rowsForKeys(wanted, ledgerFetchOf(env, url.origin))
       const mcpCtx = {
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
@@ -565,7 +583,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
       const alreadyBuilt = await env.ASSETS.fetch(new Request(url, request))
       if (alreadyBuilt.status === 200) return servedAsset(alreadyBuilt, url.pathname)
       // one key, one piece — the page read the whole ledger to render a single theorem
-      await rowsForKeys([thMatch[1]], qpuFetchOf(env) ?? fetch)
+      await rowsForKeys([thMatch[1]], ledgerFetchOf(env, url.origin))
       const page = theoremPage(thMatch[1])
       if (page) {
         return new Response(renderTheoremPage(page), {

@@ -14,7 +14,7 @@
 //
 // No token on any host: the MCP door writes over its QpuDeposit service binding. A door that declines is named, with
 // its reason, and the run fails — a partial ledger is not a ledger.
-import { writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
@@ -31,10 +31,26 @@ import { GATE_THEOREMS } from '../gate-engine.js'
 import { VE_FACES } from '../hexbit/index.js'
 
 /** the ledger as it will be deposited: its pieces, their manifest, and the manifest's address — the root */
-const ledgerPlan = (): { pieces: LedgerPiece[]; manifest: LedgerManifest; root: string } => {
+export const ledgerPlan = (): { pieces: LedgerPiece[]; manifest: LedgerManifest; root: string } => {
   const pieces = ledgerPiecesOf(LEAN_LEDGER, THEOREMS.map((t) => t.lineAddress))
   const manifest = ledgerManifestOf(pieces)
   return { pieces, manifest, root: contentAddressOf(manifest) }
+}
+
+/** bakeLedgerAssets(dir) → every piece and the manifest written under `dir` as `<address>.json`, each the exact
+ *  document the storage door serves at that address ({ value: body }), so the deploy that carries the baked root
+ *  also carries the rows it names and the edge's reader finds them in its own assets. Measured 2026-11-08: the
+ *  storage host answered 404 HTML for every ledger address and every row door at the edge answered nothing, so a
+ *  deploy could not verify itself live; the rows now ride with the root they belong to, and storage is asked only
+ *  for an address the assets do not hold. Refuses when the baked root lags the ledger — the deposit's own law. */
+export const bakeLedgerAssets = (dir: string): { root: string; pieces: number } => {
+  const { pieces, manifest, root } = ledgerPlan()
+  if (EDGE_ROOT?.root !== root)
+    throw new Error(`the baked root is ${EDGE_ROOT?.root ?? 'absent'} and this ledger's is ${root} — run ledger-deposit --bake and build before the site serves the ledger`)
+  mkdirSync(dir, { recursive: true })
+  pieces.forEach((p, i) => writeFileSync(join(dir, `${manifest.wings[i]!.address}.json`), JSON.stringify({ value: p })))
+  writeFileSync(join(dir, `${root}.json`), JSON.stringify({ value: manifest }))
+  return { root, pieces: pieces.length }
 }
 
 /** the generated edge-root module for a root */

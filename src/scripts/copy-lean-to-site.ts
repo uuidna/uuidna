@@ -21,6 +21,7 @@ import { ROOT } from './api.js'
 // the served list has one declaration, which ship-preflight measures against the asset limit before a landing
 import { LEAN_JSON_SERVE } from '../ship-preflight.js'
 import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue/index.js'
+import { bakeLedgerAssets } from './ledger-deposit.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -94,6 +95,12 @@ const merged = mergeCatalogueLayers(parseCatalogue(baseText), testing, overlay)
 const catHeader = baseText.split('\n').filter((l) => l.charCodeAt(0) === 35).join('\n') + '\n'
 writeFileSync(join(SITE, 'alpine-catalogue.tsv'), catHeader + catalogueTsvBody(merged) + '\n')
 
+// THE LEDGER'S ROWS, SERVED BESIDE THE ROOT THAT NAMES THEM. worker.js reads the rows a claim cites through
+// src/edge-ledger.ts, which asks for one document per content address; those documents are written here under
+// /ledger/<address>.json from the same ledger the bundle's root was baked from, so the edge never depends on another
+// host holding them (ledger-deposit bakeLedgerAssets states the measurement that made this necessary).
+const ledgerAssets = bakeLedgerAssets(join(SITE, 'ledger'))
+
 // THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
 // page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built
 // HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
@@ -121,4 +128,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, the ledger's ${ledgerAssets.pieces} pieces and manifest ${ledgerAssets.root} at /ledger/<address>.json, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)

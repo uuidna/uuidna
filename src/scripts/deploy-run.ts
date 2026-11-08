@@ -29,7 +29,7 @@ import { join } from 'node:path'
 import { ROOT, streamStep } from './api.js'
 import { theoremByKey } from '../theorems/index.js'
 import { builtSite } from './ship-build.js'
-import { callHosted } from './mcp-call.js'
+import { callHosted, DoorError } from './mcp-call.js'
 
 const DRY = process.argv.includes('--dry')
 
@@ -82,9 +82,19 @@ console.log(`\ndeploy-run · the derived citation: ${cargo.key} (${cargo.address
 // ── 2 · CONTRIBUTE FIRST — the deposit must verify BEFORE the take ──────────────────────────────────────────
 if (DRY) console.log('\ndeploy-run · --dry: the contribute-first receipt is NOT minted (an outward act)')
 else {
+  // THE DOOR THIS RECEIPT IS MINTED ON IS THE PRIOR DEPLOY. A door that answers nothing is not a verdict: the receipt
+  // law reads a run with no saved log as not measured, never as refused. Measured 2026-11-08: the live edge's row source
+  // had died under it, every trial door answered empty, and this refusal kept the cure from shipping — the one act that
+  // could restore the door. UNVERIFIED still refuses; only an answer that never came reads UNMEASURED, and the
+  // contribution is then minted on the shipped door at step 4, the first door this deploy can be measured on.
   const pre = await trial('Two coins deposited to the captain wallet before this deploy, proven by theorem two_coins and theorem drift_is_named_or_caught; the deploy is licensed to ship the ledger whose newest seal will prove it live.')
+    .catch((e: unknown) => {
+      if (!(e instanceof DoorError)) throw e
+      return { verdict: 'UNMEASURED', via: `no answer (${e.kind}: ${e.message.slice(0, 160)})` }
+    })
   console.log(`deploy-run · contribute-first ${pre.verdict} via ${pre.via}`)
-  if (pre.verdict !== 'VERIFIED') { console.error('✗ deploy-run — the deposit did not verify; the take never precedes the contribution'); process.exit(1) }
+  if (pre.verdict === 'UNMEASURED') console.log('deploy-run · the prior door is silent; the contribution is minted on the shipped door below, where it can be measured')
+  else if (pre.verdict !== 'VERIFIED') { console.error('✗ deploy-run — the deposit did not verify; the take never precedes the contribution'); process.exit(1) }
 }
 
 // ── 3 · VERIFY THE PRIOR SEALED SITE, THEN SHIP ─────────────────────────────────────────────────────────────
