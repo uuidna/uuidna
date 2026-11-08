@@ -500334,8 +500334,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "fb4de7d8-b7c4-87ad-94b8-ba7e5875bd65",
-      "address": "983e2c42-368e-865a-aa46-b6b9c6bb2884",
+      "lineAddress": "65cc9920-fa9b-89ab-822b-061bb36ca190",
+      "address": "5851e76e-40f9-8da3-969f-089f874c7056",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500348,15 +500348,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "9fd4f221-c9c2-8d3d-9cd7-63980aba1c94",
-      "address": "d6a3f09d-1daa-876c-bc80-a17030735df5",
+      "lineAddress": "a60b0b75-2d30-8913-9d7c-d1b93e114bcc",
+      "address": "c0d1a20e-0575-8fe7-b27e-0c00c235a5a6",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "87fb5613-2ee1-8370-83c0-53436ea7f1cc",
-      "address": "d0f72c2a-e578-8e80-9d0f-07152444be66",
+      "lineAddress": "e9521852-655a-81be-b0a3-168fd2a21d63",
+      "address": "5446e928-9875-87fe-9aae-7e43c6815ed9",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500635,7 +500635,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "8949afa0-6b17-8bb4-ae33-bffa85514d63",
+  "claim_receipt": "8c785103-2023-8341-90ca-337f67dea11f",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

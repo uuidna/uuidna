@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "78e73aca-f",
+  "generated": "381cadce-7",
   "entries": [
     {
       "route": "/",
@@ -4084,9 +4084,9 @@
       "kind": "publication",
       "identity": "cross-formulas",
       "canonical": "https://uuidna.com/publications/cross-formulas",
-      "address": "07a08e4f-07cd-8dcb-be95-f3cbd5e6593d",
-      "handle": "07a08e4f",
-      "hexbitDoor": "https://uuidna.com/07a08e4f"
+      "address": "a5123348-db14-8fc6-bc7c-8a3318ac5bed",
+      "handle": "a5123348",
+      "hexbitDoor": "https://uuidna.com/a5123348"
     },
     {
       "route": "/publications/cross-proof",
@@ -34792,9 +34792,9 @@
       "kind": "theorem",
       "identity": "most_of_the_unstated_remainder_stays_inside_one_wing",
       "canonical": "https://uuidna.com/theorem/most_of_the_unstated_remainder_stays_inside_one_wing",
-      "address": "d6a3f09d-1daa-876c-bc80-a17030735df5",
-      "handle": "d6a3f09d",
-      "hexbitDoor": "https://uuidna.com/d6a3f09d"
+      "address": "c0d1a20e-0575-8fe7-b27e-0c00c235a5a6",
+      "handle": "c0d1a20e",
+      "hexbitDoor": "https://uuidna.com/c0d1a20e"
     },
     {
       "route": "/theorem/most_subsets_are_not_subgroups",
@@ -47365,9 +47365,9 @@
       "kind": "theorem",
       "identity": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
       "canonical": "https://uuidna.com/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "address": "d0f72c2a-e578-8e80-9d0f-07152444be66",
-      "handle": "d0f72c2a",
-      "hexbitDoor": "https://uuidna.com/d0f72c2a"
+      "address": "5446e928-9875-87fe-9aae-7e43c6815ed9",
+      "handle": "5446e928",
+      "hexbitDoor": "https://uuidna.com/5446e928"
     },
     {
       "route": "/theorem/the_cross_tells_a_ratio_from_a_convention",
@@ -47581,9 +47581,9 @@
       "kind": "theorem",
       "identity": "the_generated_closure_partitions_into_three_kinds",
       "canonical": "https://uuidna.com/theorem/the_generated_closure_partitions_into_three_kinds",
-      "address": "983e2c42-368e-865a-aa46-b6b9c6bb2884",
-      "handle": "983e2c42",
-      "hexbitDoor": "https://uuidna.com/983e2c42"
+      "address": "5851e76e-40f9-8da3-969f-089f874c7056",
+      "handle": "5851e76e",
+      "hexbitDoor": "https://uuidna.com/5851e76e"
     },
     {
       "route": "/theorem/the_gregorian_cycle_counted_in_weeks",
@@ -56550,6 +56550,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "78e73aca-f080-8ab5-83c6-ab9991090a8c",
+  "receipt": "381cadce-7a73-8e6e-9cdb-65356a2093bc",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

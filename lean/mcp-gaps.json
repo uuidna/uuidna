@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1544,
-  "distinct": 1313,
-  "loadBearing": 118,
+  "records": 1680,
+  "distinct": 1417,
+  "loadBearing": 130,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -44,6 +44,16 @@
       ]
     },
     {
+      "gap": "a witness recompiles a proposed involution; the kernel has no MCP door",
+      "hits": 7,
+      "forms": [
+        "R",
+        "UUIDNA_MCP_GAP",
+        "W",
+        "cd"
+      ]
+    },
+    {
       "gap": "court-wave investigator: read-only source verification",
       "hits": 7,
       "forms": [
@@ -58,10 +68,25 @@
       ]
     },
     {
+      "gap": "read-only grep census over src for the court wave (no MCP door greps source text)",
+      "hits": 6,
+      "forms": [
+        "S",
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "court scratch kernel run",
       "hits": 5,
       "forms": [
         "SC"
+      ]
+    },
+    {
+      "gap": "investigator census",
+      "hits": 5,
+      "forms": [
+        "echo"
       ]
     },
     {
@@ -85,6 +110,14 @@
       "hits": 5,
       "forms": [
         "tail"
+      ]
+    },
+    {
+      "gap": "witness read-only census over source text; no MCP door greps the tree",
+      "hits": 5,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "W"
       ]
     },
     {
@@ -143,6 +176,28 @@
       "hits": 4,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the court investigator's source reads for seven refuted rows have no MCP door",
+      "hits": 4,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the wave's proposals.json; no MCP door serves a scratchpad file",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness recompiles the CRT wing with #print axioms; the kernel has no MCP door",
+      "hits": 3,
+      "forms": [
+        "R",
+        "W"
       ]
     },
     {
@@ -267,6 +322,14 @@
       ]
     },
     {
+      "gap": "recomputing a lead's file census for a court wave has no MCP door",
+      "hits": 3,
+      "forms": [
+        "D",
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "symbol lookup door missing",
       "hits": 3,
       "forms": [
@@ -274,10 +337,26 @@
       ]
     },
     {
+      "gap": "a witness reads the ledger's handle file and two wing lines to check an involution's control",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "echo"
+      ]
+    },
+    {
       "gap": "checking a door's return shape",
       "hits": 2,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "committing a cure by pathspec has no MCP door",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "git"
       ]
     },
     {
@@ -436,6 +515,13 @@
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door renders one docs page to HTML to locate a Vue template parse error",
+      "hits": 2,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -718,6 +804,13 @@
       ]
     },
     {
+      "gap": "reading lead sources for a court wave has no MCP door",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "refusal-trials lookup door",
       "hits": 2,
       "forms": [
@@ -862,6 +955,251 @@
       ]
     },
     {
+      "gap": "a witness counts lean wings read-only",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness counts theorems three ways (wings, ledger, witness) by its own rule; the census door is the generator under trial",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness counts wing files for the grid width",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness greps axiom-hunt, crypt and the generated ledger for leftover numerals; no MCP door greps source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness greps GPU dispatch, zone exit logic, the alpine gate and the OS APIs, and probes four apexes; no MCP door greps source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness greps lean wings read-only",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness greps non-test src for regex walkers of theorem lines and frozen counts; no MCP door greps source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness greps source files and probes four apexes read-only; no door serves a witness census",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "a witness greps tests, wings, docs loaders and the grid for leftover conditions; no MCP door greps source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness measures source text and live redirects for a court wave; no MCP door reads arbitrary file lines",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness measures source text for a court wave; no MCP door reads arbitrary file lines",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness measures the tools/list wire from the built module and reads the sealed budget; list_tools serves rows but not their byte count",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads crypt, domains, decide, kdf and involution sources to build its own probes; no MCP door serves source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads export names, dist freshness and the sealed wire budget before writing its own instruments",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads GPU, zone and domain sources read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads lean/axioms.json read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads lean/leads.json keys and refusal-trials read-only",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness reads lean/mcp-context-budget.json read-only",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness reads refuted rows of the leads file for their recorded context",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads sealed budget files and source declarations read-only; no door serves a witness census",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads source files and generated package surfaces read-only; no MCP door reads them",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the committed mirror and source files read-only; no door serves a witness census",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the domain patterns, the mirror headers and a finder's hits read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the handles ledger and two lean wings read-only",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness reads the involution memo and decide sources read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the memo structure of the involution census read-only",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness reads the sources an involution quotes and greps the tree read-only; no door serves a witness census",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "a witness reads top-level keys of the leads file and the refusal trials",
+      "hits": 1,
+      "forms": [
+        "echo"
+      ]
+    },
+    {
+      "gap": "a witness reads two refuted rows of the leads file for their recorded context",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness recompiles Crt.lean with #print axioms; the kernel has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness recompiles lean/Crt.lean with #print axioms; the kernel has no MCP door",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "a witness recompiles the CRT wing with #print axioms appended; the kernel has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness recompiles the CRT wing; the kernel has no MCP door",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "a witness recounts the HERE/ROOT boilerplate census over fixed and recursive file lists; no door reports dry-gaps scope",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "a witness walks import graphs and probes the KDF warmer over the built module; no door serves a witness census",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
       "gap": "adding the dna half to the collection and the admin UI, and asserting the involution in the harness",
       "hits": 1,
       "forms": [
@@ -898,6 +1236,34 @@
     },
     {
       "gap": "adding the two sealed resonance facts through their generators",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "an investigator's independent wire-bytes and negation census over dist/mcp.js and lean/*.lean has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "an investigator's independent wire-bytes, negation-comment and constant census over dist/mcp.js and lean/*.lean has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "an investigator's read-only census of object kinds, the negation finder and the counts law has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "an investigator's read-only census of the ledger key count, grid width, VE theorem names and object kinds has no MCP door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1450,6 +1816,13 @@
       ]
     },
     {
+      "gap": "committing the court's record by pathspec has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "committing the edge ledger and gate repairs",
       "hits": 1,
       "forms": [
@@ -1500,6 +1873,13 @@
     },
     {
       "gap": "compare rename census between HEAD and working tree",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "compare the desk's wings with the committed wings: the crosscheck counts one more theorem in the committed tree than in the desk and names no file",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1618,6 +1998,13 @@
       ]
     },
     {
+      "gap": "count the crosscheck's declaration pattern over a fresh worktree of HEAD against the desk: the land's worktree counted one wing theorem more than the ledger and named no file",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "count unreached falsifier verdicts before and after the new wing: no door reports the evaluator's reach",
       "hits": 1,
       "forms": [
@@ -1710,6 +2097,13 @@
     },
     {
       "gap": "court investigation: verify refused[] readers",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "court investigator line-exact reads of gpu, zone, plan, involution and falsifier-cache sources have no MCP door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1815,6 +2209,13 @@
     },
     {
       "gap": "court investigator needs to read lead texts and settlement killed_by fields from lean/leads.json by handle; no MCP door exposes a lead-by-handle lookup",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "court investigator read of domain patterns, mirror catalogue shape and docs wiring has no MCP door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -2045,6 +2446,20 @@
       ]
     },
     {
+      "gap": "find asynchronous writers of wing files: the land's worktree gained one wing theorem during its suite",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find every writer into the repository's wings directory: the land's worktree gained one theorem during its suite and the committed wings equal the desk's",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "find merkaba defs for lead a8a8f3ea",
       "hits": 1,
       "forms": [
@@ -2066,6 +2481,13 @@
       ]
     },
     {
+      "gap": "find tests that spawn a generator script: the land's worktree gained one wing theorem during its run",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "find the generators that write the witness seals and the handle store so the new theorems can earn their legs: no door names a store's writer",
       "hits": 1,
       "forms": [
@@ -2074,6 +2496,34 @@
     },
     {
       "gap": "find the lean-eval test file to add the cross-route agreement test",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the module that deposits a wing into the repository's lean directory when a test exercises it: the land's worktree counted one theorem more than the committed wings",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the script that writes a handle-named wing and the test that drives it: the land's worktree gained one theorem during its suite",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the test that writes a transient probe wing into the repository's lean directory: two landings failed on its window",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "find the test that writes a wing into the repository's lean directory during the suite: the land's worktree counted one theorem more than the committed wings",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -2105,6 +2555,20 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "find which generator wrote a wing inside the land's worktree: the crosscheck counts one theorem more there than in the committed ledger",
+      "hits": 1,
+      "forms": [
+        "L"
+      ]
+    },
+    {
+      "gap": "find which guard steps write into the wings directory: a theorem appeared in the land's worktree that the committed ledger lacks",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -2308,6 +2772,13 @@
       "hits": 1,
       "forms": [
         "S"
+      ]
+    },
+    {
+      "gap": "investigator reads leads.json rows",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -2637,6 +3108,20 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "name the key the kernel's axiom receipt holds and the ledger does not: the crosscheck prints a count, not the key",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
+      "gap": "name the one theorem the wings hold and the ledger does not: the crosscheck prints a count, not the key",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -3466,6 +3951,13 @@
       ]
     },
     {
+      "gap": "no door locates the unclosed HTML element VitePress refuses in a generated page",
+      "hits": 1,
+      "forms": [
+        "ls"
+      ]
+    },
+    {
       "gap": "no door maps a lead handle to its refuted record in lean/leads.json",
       "hits": 1,
       "forms": [
@@ -3582,6 +4074,13 @@
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "no door names which certification step runs a finder as a refusing command",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -4545,6 +5044,13 @@
     },
     {
       "gap": "no door reports the axiom witness or the generate manifest",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports the baked edge root's count beside the ledger's count",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5965,6 +6471,13 @@
       ]
     },
     {
+      "gap": "no door shows the shape of a formalised lead row (its lean text and kernel verdict) for the investigators' brief",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door snapshots the wings' bytes before a refactor",
       "hits": 1,
       "forms": [
@@ -6193,6 +6706,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door writes the investigators' brief for the pending settlement orders (lead text, settlement, handle)",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -6574,6 +7094,13 @@
       ]
     },
     {
+      "gap": "read the assets binding, the site copy step and the deposit's piece writer to re-home the live ledger's rows: the qpu storage host the edge reads from serves HTML now and every row door answers nothing",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read the handle store record cc9c0011 to see what it addresses",
       "hits": 1,
       "forms": [
@@ -6582,6 +7109,13 @@
     },
     {
       "gap": "read the inline skill annotation syntax from an existing wing: no door prints how a theorem authors its skill",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read the land's heal and drain lines and the crosscheck's counts from the two logs: the committed wings equal the desk's, yet the land's worktree counted one more theorem",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6602,6 +7136,20 @@
       ]
     },
     {
+      "gap": "read the sealed quantum-capacity document to scope the upgrade the captain asked for: no door prints it whole",
+      "hits": 1,
+      "forms": [
+        "sed"
+      ]
+    },
+    {
+      "gap": "read the shared helper's wing-writing function and its callers: the land's worktree gained one theorem during its suite",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read the unit's citation reader to see which file it compares the bundled citation against: no door prints a module's source",
       "hits": 1,
       "forms": [
@@ -6613,6 +7161,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "read-only grep of lean wings for a removed theorem name",
+      "hits": 1,
+      "forms": [
+        "echo"
       ]
     },
     {
@@ -6708,6 +7263,13 @@
     },
     {
       "gap": "reading how wing generators emit, to find why 8 stayed unproved",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reading leads rows for a court wave has no MCP door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6848,6 +7410,13 @@
     },
     {
       "gap": "reading the compiled involution the wave verified, to implement it",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reading the court's refuted rows and prior wave proposals by handle has no MCP door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7386,10 +7955,59 @@
       ]
     },
     {
+      "gap": "the court investigator's census of refused readers, merkaba definitions and scanner comments has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the court investigator's own re-naming census and refused-list reader census have no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the court investigator's reader census and top-level wing census have no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the court's own census and per-theorem decide timing has no MCP door",
+      "hits": 1,
+      "forms": [
+        "node /private/tmp/claude-501/-Users-ceci--claude-spares-spare-SgztYv/b7cfd751-f820-4fdb-a541-1e99865f8451/scratchpad/wave/inv-6/census-timing.mjs"
+      ]
+    },
+    {
+      "gap": "the court's own segmented timing of the alpine pending signal has no MCP door",
+      "hits": 1,
+      "forms": [
+        "node /private/tmp/claude-501/-Users-ceci--claude-spares-spare-SgztYv/b7cfd751-f820-4fdb-a541-1e99865f8451/scratchpad/wave/inv-6/alpine-pending-timing2.mjs"
+      ]
+    },
+    {
       "gap": "the formulas door does not exist yet; this measures quantumCombinatorics and novelties before wiring it",
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the kernel probe for a proposed involution has no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the kernel probe for a proposed involution has no MCP door; read-only grep census for the court wave",
+      "hits": 1,
+      "forms": [
+        "S"
       ]
     },
     {
@@ -8023,6 +8641,27 @@
       ]
     },
     {
+      "gap": "witness census: grep for a renamed theorem name across the tree",
+      "hits": 1,
+      "forms": [
+        "R"
+      ]
+    },
+    {
+      "gap": "witness census: grep of wing text for a theorem name",
+      "hits": 1,
+      "forms": [
+        "R"
+      ]
+    },
+    {
+      "gap": "witness census: grep wing files for a removed theorem name",
+      "hits": 1,
+      "forms": [
+        "R"
+      ]
+    },
+    {
       "gap": "witness control 2: second independent mutation, and a probe showing the Prop is numeral-only",
       "hits": 1,
       "forms": [
@@ -8069,6 +8708,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "witness counts theorem lines in the wings and keys in the ledger and witness for himself",
+      "hits": 1,
+      "forms": [
+        "R"
       ]
     },
     {
@@ -8695,6 +9341,20 @@
       ]
     },
     {
+      "gap": "witness own domain census over the mirror TSVs; no door recounts the straddle",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "witness own wire-byte census over dist/mcp.js and ledger counts; measuring independently of the generator",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
       "gap": "witness probe for lead a5572638",
       "hits": 1,
       "forms": [
@@ -8713,6 +9373,69 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "witness read-only census of gate scripts and the os page; no MCP door reads source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "witness read-only census of theorem names and route loaders; no MCP door reads source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "witness read-only census over source text and dist; no MCP door greps the tree",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "witness read-only census over source text and live redirect probe; no MCP door greps the tree",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "witness read-only reads of domain patterns, mirror TSV headers and module exports to build own instruments; no door reads source text",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "witness reads lean/leads.json structure; the leads door is not consulted so as to measure independently",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "witness reads the handle sources to check an involution's defs; no door reads source lines",
+      "hits": 1,
+      "forms": [
+        "W"
+      ]
+    },
+    {
+      "gap": "witness reads the persisted falsifier cache header",
+      "hits": 1,
+      "forms": [
+        "R"
+      ]
+    },
+    {
+      "gap": "witness reads the sealed wire budget",
+      "hits": 1,
+      "forms": [
+        "R"
       ]
     },
     {
@@ -8762,6 +9485,13 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "witness recomputes the wire rate over the served rows",
+      "hits": 1,
+      "forms": [
+        "R"
       ]
     },
     {
@@ -9217,6 +9947,13 @@
       "hits": 1,
       "forms": [
         "SP"
+      ]
+    },
+    {
+      "gap": "writing the court investigator's result.json has no MCP door",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     }
   ]

@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71106
  },
- "asked": "4239ba0c-68b2-8341-a720-071ce23a8b88",
+ "asked": "a68675c9-cc15-8ac5-9004-4457c253a4c8",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -612,7 +612,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "ec105495-bdd9-8ed6-94cb-72fc99bd4c1c",
+   "asked": "1fce6aca-4e90-8347-afd5-14cce93af6ac",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -72431,10 +72431,10 @@
    }
   }
  },
- "receipt": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
+ "receipt": "cc4fb5b1-7601-8b77-b365-e8bbc1799b76",
  "crossed": {
-  "sorted": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
-  "reversed": "c9fa7205-7e73-877b-b01f-816d40f8c6d3",
+  "sorted": "cc4fb5b1-7601-8b77-b365-e8bbc1799b76",
+  "reversed": "cc4fb5b1-7601-8b77-b365-e8bbc1799b76",
   "agrees": true
  }
 }
