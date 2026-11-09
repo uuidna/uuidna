@@ -111,10 +111,19 @@ test('open_leads, leads_gate, open_questions — agnostic project backlog tools 
   const again = call('uuidna_open_leads', { items: [{ claim: verifiedClaim, source: 'smoke' }, { claim: 'the moon is cheese', source: 'smoke' }] })
   assert.equal(again.receipt, custom.receipt, 'same items, same receipt')
 
-  const gate = call('uuidna_leads_gate', { sources: [{ source: 'ci', reached: true, open: [{ source: 'ci', what: 'todo', owes: 'proof' }], settled: 3 }] })
+  // a lead holds the release only when it names the UUID program that decides it and that program resolves to a door
+  const program = call('uuidna_hex_programs', { programs: true }).programs.find((p: { name: string }) => p.name === 'uuidna_quantum').hex
+  const decided = { source: 'ci', what: 'todo', owes: 'proof', run: { program: `0000c0de-${program.slice(0, 4)}-${program.slice(4)}-0000-000000000000` } }
+  const gate = call('uuidna_leads_gate', { sources: [{ source: 'ci', reached: true, open: [decided], settled: 3 }] })
   assert.equal(gate.ready, false)
-  assert.equal(gate.open.length, 1)
+  assert.equal(gate.holding.length, 1)
   assert.match(gate.honest, /YOUR release gate/i)
+  // CONTROL: the same lead with no program, or a program naming no door, ships as a known limitation
+  for (const lead of [{ source: 'ci', what: 'todo', owes: 'proof' }, { ...decided, run: { program: '0000c0de-ffff-ffff-0000-000000000000' } }]) {
+    const limited = call('uuidna_leads_gate', { sources: [{ source: 'ci', reached: true, open: [lead], settled: 3 }] })
+    assert.equal(limited.ready, true)
+    assert.equal(limited.reported.length, 1)
+  }
 
   const topics = call('uuidna_open_questions', { items: [{ claim: 'quantum advantage over classical', source: 'desk n_qubit_dimension' }] })
   assert.ok(topics.topics >= 1)

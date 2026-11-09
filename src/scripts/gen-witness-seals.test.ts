@@ -6,7 +6,7 @@ import { ROOT } from './api.js'
 import { VE_FACES } from '../hexbit/index.js'
 import { slimGate } from '../slimgate.js'
 import { witnessSealOf } from '../refusal-trials.js'
-import { witnessSealsOf, isWaveReceipt, involutionWings, type WaveReceipt } from './involution-family.js'
+import { witnessSealsOf, isWaveReceipt, involutionWings, SEAL_KINDS, type WaveReceipt } from './involution-family.js'
 
 const SEATS = VE_FACES / 2
 // a report's prose may name keys the ledger lacks; the statement must bind it by address, never quote it
@@ -60,7 +60,9 @@ test('every wave seal has a wing to sign, and every wing a seal (when a wave rec
   // a workflow dump can share the filename prefix and is not a wave receipt — skip it the way absent is skipped
   const sealed = new Set(files.flatMap((f) => {
     const raw: unknown = JSON.parse(readFileSync(join(dir, f), 'utf8'))
-    return isWaveReceipt(raw) ? Object.keys(witnessSealsOf(raw)) : []
+    // a payment seal (measurement_<handle>) signs a measured file condition and has no wing by design — only the
+    // involuted road answers to a Lean wing
+    return isWaveReceipt(raw) ? Object.keys(witnessSealsOf(raw)).filter((k) => k.startsWith(SEAL_KINDS.involuted!.prefix + '_')) : []
   }))
   if (!sealed.size) return
   const wings = involutionWings().filter((w) => w.file.startsWith('Involution')).map((w) => `involution_${w.handle}`).sort()

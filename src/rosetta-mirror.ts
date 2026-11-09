@@ -70331,14 +70331,14 @@ address_never_determines_payload 27
 uuid_mix_census_is_quantum 27
 the_mix_space_is_its_own_mirror 27
 #UuidProgram.lean
-uuidprog_address 19
-uuidprog_layout 19
-uuidprog_h_unitary 19
-uuidprog_paulis_unitary 19
-uuidprog_cnot_swap 19
-uuidprog_toffoli 19
-uuidprog_bell_runs 19
-uuidprog_ghz_runs 19
+uuidprog_address 27
+uuidprog_layout 27
+uuidprog_h_unitary 27
+uuidprog_paulis_unitary 27
+uuidprog_cnot_swap 27
+uuidprog_toffoli 27
+uuidprog_bell_runs 27
+uuidprog_ghz_runs 27
 #Uuidna.lean
 units_z9 26
 vortex_orbit 26

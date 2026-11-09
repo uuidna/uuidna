@@ -73,9 +73,9 @@ export interface SourceReading {
 export interface LeadCensus {
   sources: SourceReading[]
   open: Lead[]           // every open lead, across every source that answered
-  /** the open leads a cross-formulated theorem could decide — these and only these bind `ready` */
+  /** the open leads whose run.program resolves to a served door — these and only these bind `ready` */
   holding: Lead[]
-  /** the open leads no theorem could decide: a door, a host, a service. Reported, counted, and not holding */
+  /** the open leads no program decides yet — known limitations (ISO/IEC 25051 5.1.5.4): reported, counted, not holding */
   reported: Lead[]
   unmeasured: string[]   // sources that could NOT be read — each one blocks
   settled: number        // total settled, so a zero-open census is distinguishable from an empty tree

@@ -13,7 +13,8 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, streamStep } from './api.js'
 import { leadCensus, releaseNotes } from '../leads.js'
-import { gatherLeads, doorOfProgram } from './leads-gate.js'
+import { gatherLeads } from './leads-gate.js'
+import { doorOfProgram } from '../hex-programs.js'
 
 const PUSH = process.argv.includes('--push')
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }

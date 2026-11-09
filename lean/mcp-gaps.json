@@ -1,7 +1,7 @@
 {
   "kind": "mcp-gap-census",
-  "records": 2015,
-  "distinct": 1582,
+  "records": 2041,
+  "distinct": 1607,
   "loadBearing": 168,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
@@ -121,6 +121,13 @@
       ]
     },
     {
+      "gap": "no door measures folded before staging",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads qpu lean modules",
       "hits": 6,
       "forms": [
@@ -174,13 +181,6 @@
     },
     {
       "gap": "no door greps a local qpu worktree",
-      "hits": 5,
-      "forms": [
-        "UUIDNA_MCP_GAP"
-      ]
-    },
-    {
-      "gap": "no door measures folded before staging",
       "hits": 5,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1515,6 +1515,13 @@
       ]
     },
     {
+      "gap": "adds battery witnesses for the UUID program wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "adds the ISO simulator and hardware verdict to qc",
       "hits": 1,
       "forms": [
@@ -1554,6 +1561,27 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "anchors a local git exclude line; no door edits git config",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "applies the lean-list fix and evidence rename",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "applies the lean-list, evidence and door-resolver fixes",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2019,6 +2047,13 @@
       ]
     },
     {
+      "gap": "checks the alpine lint still runs",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "checks the new theorems in the regenerated ledger",
       "hits": 1,
       "forms": [
@@ -2103,6 +2138,13 @@
       ]
     },
     {
+      "gap": "commits Part 1 with its derived layer",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the court path-reader fix",
       "hits": 1,
       "forms": [
@@ -2110,10 +2152,24 @@
       ]
     },
     {
+      "gap": "commits the derived chunks reconcile created",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "commits the edge search scan",
       "hits": 1,
       "forms": [
         "timeout"
+      ]
+    },
+    {
+      "gap": "commits the re-derived artifacts and cleans the tree for the release",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2992,6 +3048,20 @@
       ]
     },
     {
+      "gap": "finds the quantum door hex in committed sources",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "finds which receipt seals measurement wings",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "fixing the git door to reach an untracked path",
       "hits": 1,
       "forms": [
@@ -3286,6 +3356,13 @@
       ]
     },
     {
+      "gap": "lists a commit's non-chunk files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "lists every open lead",
       "hits": 1,
       "forms": [
@@ -3454,6 +3531,13 @@
       ]
     },
     {
+      "gap": "measures folded and runs the qpu machine next waves",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "measures the ledger search corpus size",
       "hits": 1,
       "forms": [
@@ -3549,6 +3633,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "moves the program resolver beside callOfUuid and wires the public gate",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -7402,6 +7493,20 @@
       ]
     },
     {
+      "gap": "no door shows the uuidna witness diff before committing",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows uuidna file status",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door sizes files in a local qpu worktree",
       "hits": 1,
       "forms": [
@@ -8606,6 +8711,20 @@
       ]
     },
     {
+      "gap": "reads battery end and uuidprog statements",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads leanList, the falsifier ceiling check and a witness entry",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "reads the age and shape of the uncommitted work",
       "hits": 1,
       "forms": [
@@ -8673,6 +8792,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the Uuid.valid definition",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8837,6 +8963,13 @@
       ]
     },
     {
+      "gap": "replaces the prose regex with deciding UUID programs in the lead census",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "replacing the sealed-address Set with an aligned search in the baked root",
       "hits": 1,
       "forms": [
@@ -8873,6 +9006,34 @@
     },
     {
       "gap": "runs lake build on qpu",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs the five previously failing test files",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "runs the previously failing test files",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "runs the qpu dead-code door to a fixpoint",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs the qpu tablesIndex generator door",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -9163,6 +9324,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "verifies a commit's contents",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -11102,6 +11270,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e`, `S"
+      ]
+    },
+    {
+      "gap": "writes the UUID program falsifier test",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {

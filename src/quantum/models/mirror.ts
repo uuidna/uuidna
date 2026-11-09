@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 463,
+ "count": 464,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -123,6 +123,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.000008",
    "completionPrice": "0.00004"
+  },
+  {
+   "id": "anthropic/claude-fable-5.2:batch",
+   "name": "Anthropic: Claude Fable 5.2 (batch)",
+   "contextTokens": 1000000,
+   "promptPrice": "0.000004",
+   "completionPrice": "0.00002"
   },
   {
    "id": "anthropic/claude-fable-5:batch",
@@ -492,8 +499,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000892272",
-   "completionPrice": "0.000001784544"
+   "promptPrice": "0.000000888966",
+   "completionPrice": "0.000001777932"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -2109,8 +2116,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-20b",
    "name": "OpenAI: gpt-oss-20b",
    "contextTokens": 131072,
-   "promptPrice": "0.00000003",
-   "completionPrice": "0.00000013"
+   "promptPrice": "0.000000018",
+   "completionPrice": "0.00000009"
   },
   {
    "id": "openai/gpt-oss-20b:batch",
@@ -3124,8 +3131,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~anthropic/claude-fable-latest",
    "name": "Anthropic: Claude Fable Latest",
    "contextTokens": 1000000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00005"
+   "promptPrice": "0.000008",
+   "completionPrice": "0.00004"
   },
   {
    "id": "~anthropic/claude-haiku-latest",

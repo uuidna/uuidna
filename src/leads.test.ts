@@ -18,8 +18,8 @@ import { join } from 'node:path'
 import * as leadsModule from './leads.js'
 import { leadCensus, renderCensus, read, unread, type Lead , decidingProgramOf, releaseNotes,
   sourceNames, owedInstrument, owedOf, owesCensus, misfiledDoorRequests } from './leads.js'
-import { gatherLeads, autoSettle, doorOfProgram, type LeadsFile } from './scripts/leads-gate.js'
-import { uuidOfCall } from './hex-programs.js'
+import { gatherLeads, autoSettle, type LeadsFile } from './scripts/leads-gate.js'
+import { uuidOfCall, doorOfProgram } from './hex-programs.js'
 
 // a program this surface serves, by its UUID: what a lead names when a program decides it
 const QUANTUM_PROGRAM = uuidOfCall({ handle: '0000c0de', door: 'uuidna_quantum' })

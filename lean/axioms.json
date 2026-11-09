@@ -6,7 +6,7 @@
  "dependencySets": {
   "(none)": 71114
  },
- "asked": "a2073bd2-3217-8805-a27a-76d8aeca7044",
+ "asked": "463d7ff0-fba6-88db-a4c5-efec48d614f4",
  "toolchain": "leanprover/lean4:v4.33.0",
  "wings": {
   "45bcb8b0.lean": {
@@ -612,7 +612,7 @@
    }
   },
   "CrossFormulas.lean": {
-   "asked": "643805ae-fc5e-8714-9c84-c2b8f4134899",
+   "asked": "3d34eaee-d605-8a4a-a9bc-363aa6090c35",
    "verdict": {
     "the_generated_closure_partitions_into_three_kinds": [],
     "the_arithmetic_alphabet_partitions_by_its_own_algebra": [],
@@ -630,7 +630,7 @@
    }
   },
   "Crosslink.lean": {
-   "asked": "d1e8f787-69c5-8fc1-8c0a-8dcb4d5f6b26",
+   "asked": "4cd262fc-2b30-8c85-9a9b-363fc587c811",
    "verdict": {
     "a_tree_uses_one_link_per_leaf_and_no_more": [],
     "the_measured_store_uses_a_vanishing_share": [],
@@ -671,7 +671,7 @@
    }
   },
   "Cyber.lean": {
-   "asked": "1febcb1c-15ff-8ed6-80ea-7ee37c027feb",
+   "asked": "090abb84-adb9-88fd-a24d-fa6932766fa5",
    "verdict": {
     "the_store_footprint_is_its_folders": [],
     "the_third_level_already_shares": []
@@ -3562,7 +3562,7 @@
    }
   },
   "Forensics.lean": {
-   "asked": "e49e9869-0889-8c31-a68f-6f97d09eb51c",
+   "asked": "ae349b1a-30bf-8b2f-bdc5-a103e4085429",
    "verdict": {
     "forged_address_odds_are_negligible": [],
     "forged_handle_odds_are_small": [],
@@ -3623,7 +3623,7 @@
    }
   },
   "HandleStore.lean": {
-   "asked": "d5d2d260-3623-835f-81c5-80a61068a5d9",
+   "asked": "82499855-18f5-8c5f-94a7-fea920581469",
    "verdict": {
     "the_path_spells_the_handle": [],
     "every_level_branches_the_same_way": [],
@@ -69892,7 +69892,7 @@
    }
   },
   "Models.lean": {
-   "asked": "85f3b355-f61d-8348-8754-c5ef498505fe",
+   "asked": "4a8a903c-2cb0-871b-862b-6a0ebe563962",
    "verdict": {
     "a_token_approximates_eight_hexbits": [],
     "context_windows_are_transient_hexbits": [],
@@ -71062,7 +71062,7 @@
    }
   },
   "SiteBuild.lean": {
-   "asked": "7bd19679-7933-8a6b-95a1-5dcb3de6183a",
+   "asked": "97b17e80-a385-8626-bca1-81d487bbb25c",
    "verdict": {
     "render_retention_exceeds_the_container": [],
     "counting_beats_composing_by_six_magnitudes": [],
@@ -72444,10 +72444,10 @@
    }
   }
  },
- "receipt": "5b9d989e-1c9e-8e0c-9c11-7325739f4ccd",
+ "receipt": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
  "crossed": {
-  "sorted": "5b9d989e-1c9e-8e0c-9c11-7325739f4ccd",
-  "reversed": "5b9d989e-1c9e-8e0c-9c11-7325739f4ccd",
+  "sorted": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
+  "reversed": "2763f5b5-0126-8b88-b8f1-f106bd1b2182",
   "agrees": true
  }
 }

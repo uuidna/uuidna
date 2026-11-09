@@ -37,17 +37,17 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 Each witness cites a sealed theorem key — the Pauli group, the Clifford count, the CNOT and Toffoli
 permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa amplitudes — and decides the same proposition here
 in exact Gaussian integers, with no floating point at any step; each result is compared to the value the Lean
-kernel sealed. **62 witnesses · 109 sweeps ·
-491372 decisions · 0 disagreements · verdict EXACT.**
+kernel sealed. **70 witnesses · 109 sweeps ·
+497476 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 58 of the quantum wing's 66 theorems**, and the 8 this battery
-does not decide are named rather than counted: `uuidprog_address`, `uuidprog_bell_runs`, `uuidprog_cnot_swap`, `uuidprog_ghz_runs`, `uuidprog_h_unitary`, `uuidprog_layout`, `uuidprog_paulis_unitary`, `uuidprog_toffoli`. The battery is a
+**Coverage: 66 of the quantum wing's 66 theorems**, and the 0 this battery
+does not decide are named rather than counted: ``. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this exact state-vector arithmetic cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 491372 executions on this host, across 58 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 8 this battery does not decide.
+Better than one disagreement per 497476 executions on this host, across 66 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -116,6 +116,14 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [store_fold_change_moves_receipt](https://uuidna.com/theorem/store_fold_change_moves_receipt) | 4096 | 446464 | 0 | XOR fold of [a,b,c] equals fold of [a2,b,c] exactly when a = a2, over range 8 |
 | [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap) | 4 | 436 | 0 | live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window |
 | [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell) | 4 | 436 | 0 | live massGapOnBellBornField/bellBornWeights match the sealed Born Δ and weights |
+| [uuidprog_address](https://uuidna.com/theorem/uuidprog_address) | 3 | 327 | 0 | the program UUID rebuilt from its derived handle and the sealed program field is 32 hex digits and reads that field back |
+| [uuidprog_layout](https://uuidna.com/theorem/uuidprog_layout) | 2 | 218 | 0 | the handle · program · params · envelope split of the program UUID is a partition: 8 + 8 + 4 + 12 digits that concatenate back to it |
+| [uuidprog_h_unitary](https://uuidna.com/theorem/uuidprog_h_unitary) | 4 | 436 | 0 | H is its own inverse on every 1-qubit basis state and on both superposed ones |
+| [uuidprog_paulis_unitary](https://uuidna.com/theorem/uuidprog_paulis_unitary) | 16 | 1744 | 0 | X and Z undo themselves, S·S† = I and S·S = Z, on the basis and the superposed states |
+| [uuidprog_cnot_swap](https://uuidna.com/theorem/uuidprog_cnot_swap) | 10 | 1090 | 0 | CNOT and SWAP undo themselves on every 2-qubit basis state and on the Bell state |
+| [uuidprog_toffoli](https://uuidna.com/theorem/uuidprog_toffoli) | 9 | 981 | 0 | Toffoli undoes itself on every 3-qubit basis state and on GHZ(3) |
+| [uuidprog_bell_runs](https://uuidna.com/theorem/uuidprog_bell_runs) | 4 | 436 | 0 | the Bell circuit run on QState puts weight exactly where the sealed weights do, in equal shares |
+| [uuidprog_ghz_runs](https://uuidna.com/theorem/uuidprog_ghz_runs) | 8 | 872 | 0 | GHZ(3) run on QState puts weight exactly where the sealed weights do, in equal shares |
 
 ### The fourth axis — the only one that rewards scale
 
@@ -160,7 +168,7 @@ seals that n qubits span 2^n amplitudes.
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `fbc69e1e-b0d4-8dcc-9e0e-696b42c4e77e`.
+*exist* cannot see. Dispatch receipt: `9b2544ea-360a-85aa-acc9-708e04dd3091`.
 
 Report receipt: `550c5a47-a40d-8d80-b290-2a3234a376a8` · measured-when as its own handle: `550c5a47`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point

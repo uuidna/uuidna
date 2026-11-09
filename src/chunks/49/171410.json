@@ -1,0 +1,12 @@
+{
+  "handle": "49171410",
+  "address": "49171410-27b5-8053-9148-66aa286551bd",
+  "statement": "(715 + 70947 + 76 + 5 = 71743) ∧ (81 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}

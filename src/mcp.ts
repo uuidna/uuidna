@@ -106,7 +106,7 @@ import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts, edgeFacts, RowsNeeded
 // the build's own computation graph, folded — one derivation behind the README, the site page and this door
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
-import { callOfUuid, hexProgramIndex } from './hex-programs.js'
+import { callOfUuid, hexProgramIndex, doorOfProgram } from './hex-programs.js'
 import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf, labsByFamily } from './school/laboratory/index.js'
@@ -1159,15 +1159,16 @@ const TOOLS: Tool[] = ([
       limit: a?.limit != null ? Number(a.limit) : undefined,
     }) },
   { name: 'uuidna_leads_gate',
-    description: 'Release gate — pass {sources:[{source,reached,open,settled}]}; ready only when every source answered and no open leads. Returns {ready,open,receipt}.',
+    description: 'Release gate — pass {sources:[{source,reached,open,settled}]}; ready only when every source answered and no open lead names a run.program (a UUID program address) that resolves to a served door; a lead no program decides ships as a known limitation. Returns {ready,open,holding,reported,receipt}.',
     inputSchema: { type: 'object', properties: {
       sources: { type: 'array', description: 'lead-source readings you gathered', items: { type: 'object', properties: {
         source: { type: 'string' }, reached: { type: 'boolean' }, why: { type: 'string' },
         settled: { type: 'number' },
-        open: { type: 'array', items: { type: 'object', properties: { source: { type: 'string' }, what: { type: 'string' }, owes: { type: 'string' } }, required: ['source', 'what', 'owes'] } },
+        open: { type: 'array', items: { type: 'object', properties: { source: { type: 'string' }, what: { type: 'string' }, owes: { type: 'string' },
+          run: { type: 'object', description: 'the UUID program that decides this lead', properties: { program: { type: 'string' }, arguments: { type: 'object' } }, required: ['program'] } }, required: ['source', 'what', 'owes'] } },
       }, required: ['source', 'reached', 'open', 'settled'] } },
     }, required: ['sources'] },
-    run: (a) => leadsGatePublic({ sources: (Array.isArray(a?.sources) ? a.sources : []) as SourceReading[] }) },
+    run: (a) => leadsGatePublic({ sources: (Array.isArray(a?.sources) ? a.sources : []) as SourceReading[] }, doorOfProgram) },
   { name: 'uuidna_open_questions',
     description: 'Group {items:[{claim,source?}]} by topic overlap with sealed theorems; UNVERIFIED = open. Returns {topics,open,receipt,honest}.',
     inputSchema: { type: 'object', properties: {

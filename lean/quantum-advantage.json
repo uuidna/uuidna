@@ -64,13 +64,13 @@
     "cites": [
      "n_qubit_dimension"
     ],
-    "claim": "The witness battery ran on this host — 62 witnesses, 491372 decisions, 0 disagreements with the Lean-sealed values — over registers whose amplitude count is theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict EXACT: better than one disagreement per 491372 executions on this host, across 58 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 8 this battery does not decide.",
+    "claim": "The witness battery ran on this host — 70 witnesses, 497476 decisions, 0 disagreements with the Lean-sealed values — over registers whose amplitude count is theorem n_qubit_dimension (n qubits span 2^n amplitudes). Verdict EXACT: better than one disagreement per 497476 executions on this host, across 66 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.",
     "fabricated": [],
     "message": {
-     "aura": "#da587b",
-     "fold": "8e690e0c-5b79-8176-be6c-881b18cb8871",
+     "aura": "#4934d5",
+     "fold": "59c189ab-f1a3-8b49-9655-f4daffd09a15",
      "hexbits": 4,
-     "id": "21421ac9-dbc6-8086-b897-62903efc73d5",
+     "id": "5703a513-08a4-8bd0-8658-289e635f8dae",
      "qubits": 16,
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276"
     },
@@ -100,7 +100,7 @@
    }
   ],
   "passed": 5,
-  "receipt": "fbc69e1e-b0d4-8dcc-9e0e-696b42c4e77e",
+  "receipt": "9b2544ea-360a-85aa-acc9-708e04dd3091",
   "refused": []
  },
  "host": {
@@ -109,7 +109,7 @@
   "why": "Every cost here is a decade, which survives a change of machine; naming the CPU beside it would claim a precision the decade does not have and would make these committed bytes reproducible only on that CPU. The running host is reported live by uuidna_quantum_advantage."
  },
  "proof": {
-  "bound": "better than one disagreement per 491372 executions on this host, across 58 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 8 this battery does not decide",
+  "bound": "better than one disagreement per 497476 executions on this host, across 66 of the wing's 66 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide",
   "coverage": {
    "beyondWing": [
     "born_field_mass_gap_on_bell",
@@ -117,23 +117,14 @@
     "store_fold_change_moves_receipt",
     "store_fold_order_invariant"
    ],
-   "unwitnessed": [
-    "uuidprog_address",
-    "uuidprog_bell_runs",
-    "uuidprog_cnot_swap",
-    "uuidprog_ghz_runs",
-    "uuidprog_h_unitary",
-    "uuidprog_layout",
-    "uuidprog_paulis_unitary",
-    "uuidprog_toffoli"
-   ],
+   "unwitnessed": [],
    "wing": 66,
-   "witnessed": 58
+   "witnessed": 66
   },
   "disagreements": 0,
-  "executed": 491372,
-  "honest": "62 witnesses run, each citing a sealed theorem key; 0 refused for citing an unsealed key; 491372 decisions executed; 0 disagreements with the Lean-sealed values.",
-  "receipt": "0b9964e1-c6a8-8cb9-94dc-5f9ab79faf42",
+  "executed": 497476,
+  "honest": "70 witnesses run, each citing a sealed theorem key; 0 refused for citing an unsealed key; 497476 decisions executed; 0 disagreements with the Lean-sealed values.",
+  "receipt": "38f15f6c-efe9-82b5-95f5-09d57cc29e1f",
   "refused": [],
   "results": [
    {
@@ -189,6 +180,15 @@
     "statement": "((List.range 4).map (fun i => (i % 2) * 2 + (i / 2 % 2))) = [0,2,1,3]",
     "theorem": "swap_truth_table",
     "what": "SWAP permutes the basis as [0,2,1,3]"
+   },
+   {
+    "address": "0dc0e26c-f9a4-88fa-afba-6ac2fabb0fa8",
+    "cases": 10,
+    "disagreements": 0,
+    "executed": 1090,
+    "statement": "Same 4 (mm 4 CNOT (dag CNOT)) idm ∧ Same 4 (mm 4 CNOT CNOT) idm ∧ Same 4 (mm 4 SWAP (dag SWAP)) idm ∧ Same 4 (mm 4 SWAP SWAP) idm",
+    "theorem": "uuidprog_cnot_swap",
+    "what": "CNOT and SWAP undo themselves on every 2-qubit basis state and on the Bell state"
    },
    {
     "address": "125d7b7b-7148-815d-a028-11cb349a42cf",
@@ -326,6 +326,15 @@
     "what": "combining systems multiplies their dimensions"
    },
    {
+    "address": "42ff6e74-2f47-85ee-8dac-f532187aa25d",
+    "cases": 16,
+    "disagreements": 0,
+    "executed": 1744,
+    "statement": "Same 2 (mm 2 X (dag X)) idm ∧ Same 2 (mm 2 Z (dag Z)) idm ∧ Same 2 (mm 2 S (dag S)) idm ∧ Same 2 (mm 2 S S) Z",
+    "theorem": "uuidprog_paulis_unitary",
+    "what": "X and Z undo themselves, S·S† = I and S·S = Z, on the basis and the superposed states"
+   },
+   {
     "address": "44f7895d-2064-8ce2-93e5-93dd60e2e7e2",
     "cases": 4,
     "disagreements": 0,
@@ -416,6 +425,15 @@
     "what": "the four operations with their signs are eight distinct matrices"
    },
    {
+    "address": "611dd474-166a-823f-858c-5a795c6a04f9",
+    "cases": 2,
+    "disagreements": 0,
+    "executed": 218,
+    "statement": "quantumProgram.handle ++ quantumProgram.program ++ quantumProgram.params ++ quantumProgram.envelope = quantumProgram.hex",
+    "theorem": "uuidprog_layout",
+    "what": "the handle · program · params · envelope split of the program UUID is a partition: 8 + 8 + 4 + 12 digits that concatenate back to it"
+   },
+   {
     "address": "6bf885aa-e2ee-87e1-9147-4d593855f2a3",
     "cases": 1,
     "disagreements": 0,
@@ -504,6 +522,15 @@
     "statement": "(Nat.gcd 2 5 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (Nat.gcd 2 9 = 1) ∧ (Nat.gcd 5 24 = 1) ∧ (Nat.gcd 3 2 = 1)",
     "theorem": "closure_is_coprime",
     "what": "every walk this system closes is closed by a generator coprime to its ring"
+   },
+   {
+    "address": "9b489f54-2a8e-87dd-9ab8-7a253cd7149a",
+    "cases": 4,
+    "disagreements": 0,
+    "executed": 436,
+    "statement": "(List.range 4).map (fun r => (bell r).normSq) = [1, 0, 0, 1]",
+    "theorem": "uuidprog_bell_runs",
+    "what": "the Bell circuit run on QState puts weight exactly where the sealed weights do, in equal shares"
    },
    {
     "address": "a74c062d-fc22-818d-9023-b482406d7ee3",
@@ -623,6 +650,15 @@
     "what": "UUID_BITS minus the reported 48 logical is the sealed 80-bit usable-column gap"
    },
    {
+    "address": "d8420578-7968-8a06-aaa2-904dba339035",
+    "cases": 8,
+    "disagreements": 0,
+    "executed": 872,
+    "statement": "(List.range 8).map (fun r => (ghz r).normSq) = [1, 0, 0, 0, 0, 0, 0, 1]",
+    "theorem": "uuidprog_ghz_runs",
+    "what": "GHZ(3) run on QState puts weight exactly where the sealed weights do, in equal shares"
+   },
+   {
     "address": "d99ff6bc-491e-82fc-999e-034f3997625d",
     "cases": 4,
     "disagreements": 0,
@@ -639,6 +675,15 @@
     "statement": "((([1,1]:List Nat).map (fun a => a*a)) = [1,1]) ∧ ((1+1:Nat) = 2)",
     "theorem": "superposition_h0",
     "what": "H|0⟩ gives P(0) = P(1) = 1/2 exactly"
+   },
+   {
+    "address": "e1127aed-e463-87ce-b863-ed1013d9a8cb",
+    "cases": 9,
+    "disagreements": 0,
+    "executed": 981,
+    "statement": "Same 8 (mm 8 TOFFOLI (dag TOFFOLI)) idm ∧ Same 8 (mm 8 TOFFOLI TOFFOLI) idm",
+    "theorem": "uuidprog_toffoli",
+    "what": "Toffoli undoes itself on every 3-qubit basis state and on GHZ(3)"
    },
    {
     "address": "e26e008f-7914-8d15-9036-faab8e299e26",
@@ -668,6 +713,15 @@
     "what": "XZ = −ZX on both basis states"
    },
    {
+    "address": "ec9cfa5b-64cc-8e29-b318-8eb60b4b5f1b",
+    "cases": 4,
+    "disagreements": 0,
+    "executed": 436,
+    "statement": "Same 2 (mm 2 H (dag H)) (smul 2 idm)",
+    "theorem": "uuidprog_h_unitary",
+    "what": "H is its own inverse on every 1-qubit basis state and on both superposed ones"
+   },
+   {
     "address": "ef9b58b0-2238-8d13-8c0c-5cbd584994cf",
     "cases": 16,
     "disagreements": 0,
@@ -675,6 +729,15 @@
     "statement": "(2:Nat) ^ (2 * 2) = 16",
     "theorem": "sixteen_connectives",
     "what": "the sixteen named binary connectives are sixteen DISTINCT functions, applied"
+   },
+   {
+    "address": "f5fa93cb-2cc2-8cfc-8e70-09de3ecc7d22",
+    "cases": 3,
+    "disagreements": 0,
+    "executed": 327,
+    "statement": "quantumProgram.valid = true ∧ quantumProgram.program = [3, 9, 13, 11, 3, 10, 3, 0]",
+    "theorem": "uuidprog_address",
+    "what": "the program UUID rebuilt from its derived handle and the sealed program field is 32 hex digits and reads that field back"
    },
    {
     "address": "f93fc3ec-096c-8cc3-8c18-99c79a6960e1",
@@ -698,7 +761,7 @@
   "sweeps": 109,
   "verdict": "EXACT"
  },
- "receipt": "d8ca42e9-c784-8806-acfa-ade0c2e258a6",
+ "receipt": "63b7b3c7-cd50-8c04-9967-0cb7769a3f0f",
  "report": {
   "baseline": {
    "errorsPerMillion": 1000,
@@ -825,8 +888,8 @@
   "unsealable": "served live — whether independent estimates settled on one decade is this host's timing noise"
  },
  "crossed": {
-  "sorted": "d8ca42e9-c784-8806-acfa-ade0c2e258a6",
-  "reversed": "d8ca42e9-c784-8806-acfa-ade0c2e258a6",
+  "sorted": "63b7b3c7-cd50-8c04-9967-0cb7769a3f0f",
+  "reversed": "63b7b3c7-cd50-8c04-9967-0cb7769a3f0f",
   "agrees": true
  }
 }

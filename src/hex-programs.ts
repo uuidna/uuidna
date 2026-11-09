@@ -168,3 +168,7 @@ export function uuidOfCall(
   const h = handle + found + params + envelope
   return `${h.slice(0, 8)}-${h.slice(8, 12)}-${h.slice(12, 16)}-${h.slice(16, 20)}-${h.slice(20, 32)}`
 }
+
+/** the door a program address resolves to on this surface, or null when it names none (or is no address) — what a
+ *  lead's `run.program` must answer before it can hold a release */
+export const doorOfProgram = (program: string): string | null => { try { return callOfUuid(program).door } catch { return null } }

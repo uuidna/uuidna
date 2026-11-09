@@ -15,7 +15,8 @@
 // `--settle --refute` with a stated reason, and a wrongly closed lead is worse than an open one: an open lead is a
 // question, a wrongly closed one is a false answer carrying a receipt.
 
-import { gatherLeads, doorOfProgram } from './leads-gate.js'
+import { gatherLeads } from './leads-gate.js'
+import { doorOfProgram } from '../hex-programs.js'
 import { leadCensus } from '../leads.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { commonWords, crossLeads, type LeadRow } from '../lead-cross.js'

@@ -90,12 +90,13 @@ export interface LeadsGateInput {
   sources: readonly SourceReading[]
 }
 
-/** leadsGatePublic(input) → release readiness for ANY project whose sources you name. Pure. */
-export function leadsGatePublic(input: LeadsGateInput) {
-  const census = leadCensus(input.sources)
+/** leadsGatePublic(input, doorOf) → release readiness for ANY project whose sources you name. Pure: the surface that
+ *  serves it hands in how a lead's `run.program` resolves to a door. */
+export function leadsGatePublic(input: LeadsGateInput, doorOf: (program: string) => string | null = () => null) {
+  const census = leadCensus(input.sources, doorOf)
   return {
     ...census,
-    honest: 'YOUR release gate — ready is true only when every source answered and none holds a lead; unmeasured sources block (three-state law).',
+    honest: 'YOUR release gate — ready is true only when every source answered and no lead whose run.program resolves to a served door is open; a lead no program decides ships as a known limitation; unmeasured sources block (three-state law).',
   }
 }
 

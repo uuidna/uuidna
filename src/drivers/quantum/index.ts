@@ -96,6 +96,11 @@ const half = (p: Prob): boolean => eqProb(p, 1n, 2n)
 const zero = (p: Prob): boolean => p.num === 0n
 /** count the failures in a list of decisions — the shape every witness reports in */
 const failures = (checks: readonly boolean[]): number => checks.filter((ok) => !ok).length
+/** the last integer list a sealed statement names — what a witness must land on, read from the seal, never typed */
+const sealedList = (key: string): number[] => {
+  const all = [...(theoremFor(key)?.statement ?? '').matchAll(/\[(\d+(?:,\s*\d+)*)\]/g)]
+  return all.length ? all[all.length - 1]![1]!.split(',').map((x) => Number(x.trim())) : []
+}
 
 /** the four Bell states, built by local operations on |Φ⁺⟩ — Alice's four messages (theorem superdense_two_bits) */
 const bellFour = (): QState[] => [
@@ -657,6 +662,40 @@ export const WITNESSES: readonly Witness[] = [
         g.field.length === w.length && g.field.every((a, i) => a === w[i]),
       ])
     } },
+
+  // ── THE UUID PROGRAM WING (lean/UuidProgram.lean). Its gates and runs are re-decided here on QState, the
+  // representation qpu serves; its register facts are re-decided from the sealed lists and the derived handle, never
+  // the generator's copy. The door the program field names is the generator's mirror to check (it calls the program
+  // by UUID): reading the door catalogue here would pull the MCP into the library.
+  { theorem: 'uuidprog_address', cases: 3, what: 'the program UUID rebuilt from its derived handle and the sealed program field is 32 hex digits and reads that field back',
+    run: () => {
+      const program = sealedList('uuidprog_address')
+      const hex = [...handleOf(toUuid('lean:UuidProgram.lean'))].map((c) => parseInt(c, 16)).concat(program, Array<number>(16).fill(0))
+      return failures([program.length === 8, hex.length === 32 && hex.every((d) => d >= 0 && d < 16), hex.slice(8, 16).join() === program.join()])
+    } },
+  { theorem: 'uuidprog_layout', cases: 2, what: 'the handle · program · params · envelope split of the program UUID is a partition: 8 + 8 + 4 + 12 digits that concatenate back to it',
+    run: () => {
+      const hex = [...handleOf(toUuid('lean:UuidProgram.lean'))].map((c) => parseInt(c, 16)).concat(sealedList('uuidprog_address'), Array<number>(16).fill(0))
+      const fields = [hex.slice(0, 8), hex.slice(8, 16), hex.slice(16, 20), hex.slice(20)]
+      return failures([fields.map((f) => f.length).join() === '8,8,4,12', fields.flat().join() === hex.join()])
+    } },
+  { theorem: 'uuidprog_h_unitary', cases: 4, what: 'H is its own inverse on every 1-qubit basis state and on both superposed ones',
+    run: () => failures([...basis(1), hadamard(ket0(1), 0), hadamard(pauliX(ket0(1), 0), 0)].map((s) => isInvolution((x) => hadamard(x, 0), s))) },
+  { theorem: 'uuidprog_paulis_unitary', cases: 16, what: 'X and Z undo themselves, S·S† = I and S·S = Z, on the basis and the superposed states',
+    run: () => failures([...basis(1), hadamard(ket0(1), 0), hadamard(pauliX(ket0(1), 0), 0)].flatMap((s) => [
+      isInvolution((x) => pauliX(x, 0), s), isInvolution((x) => pauliZ(x, 0), s),
+      equalState(phaseSdg(phaseS(s, 0), 0), s), equalState(phaseS(phaseS(s, 0), 0), pauliZ(s, 0)),
+    ])) },
+  { theorem: 'uuidprog_cnot_swap', cases: 10, what: 'CNOT and SWAP undo themselves on every 2-qubit basis state and on the Bell state',
+    run: () => failures([...basis(2), bellState()].flatMap((s) => [isInvolution((x) => cnot(x, 0, 1), s), isInvolution((x) => swap(x, 0, 1), s)])) },
+  { theorem: 'uuidprog_toffoli', cases: 9, what: 'Toffoli undoes itself on every 3-qubit basis state and on GHZ(3)',
+    run: () => failures([...basis(3), ghzState(3)].map((s) => isInvolution((x) => toffoli(x, 0, 1, 2), s))) },
+  { theorem: 'uuidprog_bell_runs', cases: 4, what: 'the Bell circuit run on QState puts weight exactly where the sealed weights do, in equal shares',
+    run: () => { const w = sealedList('uuidprog_bell_runs'), d = distribution(bellState())
+      return failures(w.map((x, i) => (x === 0 ? zero(d[i]!) : half(d[i]!)))) } },
+  { theorem: 'uuidprog_ghz_runs', cases: 8, what: 'GHZ(3) run on QState puts weight exactly where the sealed weights do, in equal shares',
+    run: () => { const w = sealedList('uuidprog_ghz_runs'), d = distribution(ghzState(3))
+      return failures(w.map((x, i) => (x === 0 ? zero(d[i]!) : half(d[i]!)))) } },
 ]
 
 // ── THE PROOF ────────────────────────────────────────────────────────────────────────────────────────────────

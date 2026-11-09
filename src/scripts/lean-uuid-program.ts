@@ -6,7 +6,7 @@
 // Physics/HilbertSpace, Physics/Operator and Processing/QuantumGate. Each fact's JS mirror checks it by the road it
 // claims: the UUID facts through the codec the door resolves calls with, the gate facts by exact integer matrices, and
 // the program facts by CALLING the program through its UUID — so Lean and the program check each other.
-import { emit } from './lean-gen.js'
+import { emit, leanList } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 import { uuidOfCall, callOfUuid } from '../hex-programs.js'
@@ -16,7 +16,6 @@ import { callTool } from '../mcp.js'
 const DOOR = 'uuidna_quantum'
 const PROGRAM_UUID = uuidOfCall({ handle: handleOf(toUuid('lean:UuidProgram.lean')), door: DOOR })
 const nibbles = (u: string): number[] => [...u.replace(/-/g, '')].map((c) => parseInt(c, 16))
-const leanList = (xs: number[]): string => `[${xs.join(', ')}]`
 
 // ── exact 2×2 / 4×4 / 8×8 matrices over the Gaussian integers, as pairs [re, im] — the JS side of the gate facts ──
 type G = [number, number]
