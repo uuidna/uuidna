@@ -22,6 +22,15 @@ import type { EdgeRoot } from './theorems/ledger-shape.js'
 import { VE_FACES } from './hexbit/index.js'
 import { holdShard, holdStationShard } from './statement-shards.js'
 
+/** the memory one Workers isolate allows */
+export const ISOLATE_BYTES = 128 * 1024 * 1024
+/** THE LARGEST DOOR FILE PARSED IN THE ISOLATE. The parsed answer, the gate's scan of it and the response body are
+ *  resident together, about three copies of the file; a sixteenth of the isolate keeps all three inside it with room for
+ *  the request. The site build decides it, with the answer's exact bytes in hand (copy-lean-to-site): a served asset
+ *  carries no content-length, so the worker read 0 for a 16 MB answer, parsed it, and uuidna_axiom_index ended in
+ *  Cloudflare error 1102 (measured 2026-11-09). */
+export const DOOR_FILE_PARSE = ISOLATE_BYTES / 16
+
 /** the run the ledger is deposited under — the folder of qpu storage its pieces land in */
 export const LEDGER_RUN = 'ledger'
 /** where the MCP door lands a run's deposits: receipts/uuidna/<run>/<content address> (mcp.ts, uuidna_evidence {run, deposit}) */

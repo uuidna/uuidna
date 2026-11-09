@@ -46,6 +46,8 @@ export interface DetailVerdict {
 
 export interface ControlRun {
   control: string
+  /** the control's own address, over its raw text — set where the served text names a citation by address instead */
+  address?: string
   mustNotBe: DetailVerdictKind[]
   got: DetailVerdictKind
   rejected: boolean
@@ -306,6 +308,19 @@ function composeAcrossDetails(verdicts: DetailVerdict[]): ComposedFact[] {
 // must REFUTE it, and ONLY refutation passes (a silent no-composition would otherwise slip through mustNotBe)
 const COMPOSED_CONTROL = 'the first density is 10 to the 9 units\nthat is 5 orders of magnitude more than the second density of 10 to the 5'
 
+/** servedControl(c) → the control as the answer serves it. The fabrication-route control MUST cite a theorem the ledger
+ *  does not seal, and served verbatim that sentence is itself a fabricated citation: the response gate drained every
+ *  uuidna_audit_details answer for it, on both surfaces (measured at uuidna.com/mcp, 2026-11-09). So each unsealed citation
+ *  is served as its address, the control's raw text keeps its own address beside it, and the receipt still folds the raw
+ *  text — anyone recomputes the same control and the same receipt. */
+const servedControl = (c: ControlRun): ControlRun => {
+  const fabricated = slimGate(c.control).fabricated
+  if (!fabricated.length) return c
+  let text = c.control
+  for (const k of fabricated) text = text.split('theorem ' + k).join('an unsealed citation ' + toUuid(k))
+  return { ...c, control: text, address: toUuid(c.control) }
+}
+
 /** auditDetails(text[, opts]) → every single detail adjudicated, controls first, one order-invariant receipt.
  *  Pure and offline; the same text, delimiter and ledger always fold to the same receipt. */
 export function auditDetails(text: string, opts: { title?: string; delimiter?: string } = {}): DetailAudit {
@@ -346,7 +361,7 @@ export function auditDetails(text: string, opts: { title?: string; delimiter?: s
     address,
     details: kept.length,
     dropped: all.length - kept.length,
-    controls,
+    controls: controls.map(servedControl),
     outcome: sound ? 'audited' : 'void',
     counts,
     verdicts,

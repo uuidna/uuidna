@@ -23,6 +23,7 @@ const CALLS: [string, Record<string, unknown>][] = [
   ['uuidna_adjudicate', { statement: 'the moon is made of cheese, by theorem uuid_mix_census_halves' }],
   ['uuidna_decide', { input: '2 + 2 = 4' }],
   ['uuidna_trial', { statement: 'uuid_mix_census_halves' }],
+  ['uuidna_audit_details', { text: '2 + 2 = 4' }],
 ]
 
 const CHILD = `
@@ -58,12 +59,13 @@ test('at the edge, a door asks for the rows it reads and answers as the host doe
     }
     const raw = execFileSync(process.execPath, ['--conditions=workerd', '--max-old-space-size=512', '--input-type=module', '-e', CHILD, dir, JSON.stringify(CALLS)],
       { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    const [onTopic, offTopic, oneLetterGloss, arithmetic, trial] = JSON.parse(raw) as { isError: boolean; text: string }[]
+    const [onTopic, offTopic, oneLetterGloss, arithmetic, trial, audit] = JSON.parse(raw) as { isError: boolean; text: string }[]
     assert.match(onTopic!.text, /"verdict":"VERIFIED"/, 'a citation about its claim verifies at the edge: ' + onTopic!.text.slice(0, 200))
     assert.match(offTopic!.text, /"verdict":"UNVERIFIED"/, 'the same key cited for an unrelated claim does not')
     assert.match(oneLetterGloss!.text, /"verdict":"UNVERIFIED"/, 'a gloss\'s one-letter tokens ("n", "d") are not vocabulary a claim shares')
     assert.match(arithmetic!.text, /"kind":"decided-arithmetic"/, 'arithmetic is decided, never read as prose: ' + arithmetic!.text.slice(0, 200))
     assert.equal(trial!.isError, false, 'the trial answers without the whole ledger: ' + trial!.text.slice(0, 200))
+    assert.equal(audit!.isError, false, 'the audit\'s own fabrication control does not drain its answer: ' + audit!.text.slice(0, 200))
   } finally { rmSync(dir, { recursive: true, force: true }) }
 })
 

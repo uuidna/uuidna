@@ -27,6 +27,7 @@ import { THEOREMS, isPagelessFile } from '../theorems/index.js'
 import { EDGE_ROOT } from '../theorems/edge-root.js'
 import { callTool, bakeableDoors, recomputeDoors, enumDoors } from '../mcp.js'
 import { CLOUDFLARE_ASSET_BYTES } from '../ship-preflight.js'
+import { DOOR_FILE_PARSE } from '../edge-ledger.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -144,6 +145,15 @@ for (const job of doorJobs) {
     writeFileSync(join(doorDir, job.file), JSON.stringify({
       kind: 'answer-served-as-rows', door: job.name, bytes: a.length, rows: `/ledger/${ledgerAssets.root}.json`,
       honest: `the bare answer is ${a.length} bytes, over the ${CLOUDFLARE_ASSET_BYTES}-byte limit one served file may have; every row it lists is served under the manifest named in rows, one piece per wing, each piece's bytes recomputing its address`,
+    }))
+    doorsPointed.push(job.name)
+  } else if (a.length > DOOR_FILE_PARSE) {
+    // too large to parse in an isolate: the answer is served whole beside a pointer the edge returns unparsed
+    const whole = job.file.replace(/\.json$/, '.answer.json')
+    writeFileSync(join(doorDir, whole), a)
+    writeFileSync(join(doorDir, job.file), JSON.stringify({
+      kind: 'answer-served-as-file', door: job.name, bytes: a.length, href: `/doors/${whole}`,
+      honest: `the answer is ${a.length} bytes, over the ${DOOR_FILE_PARSE} an isolate can parse beside the request; it is served whole at href, the host's own answer for the same ledger`,
     }))
     doorsPointed.push(job.name)
   } else { writeFileSync(join(doorDir, job.file), a); doorsWritten.push(job.name) }

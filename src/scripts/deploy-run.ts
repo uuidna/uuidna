@@ -103,6 +103,10 @@ if (!site.present || !site.index) {
   console.error('✗ deploy-run — no built site at docs/.vitepress/dist. Prior sealed build: npm run docs:build (off this path). Deploy verifies; it does not recompute the SSG.')
   process.exit(1)
 }
+if (!site.ledger) {
+  console.error('✗ deploy-run — the built site does not serve the ledger manifest this worker is baked with; a site built before the last bake would make every row-reading door refuse. Rebuild it: npm run docs:build, then npm run ship.')
+  process.exit(1)
+}
 console.log(`\ndeploy-run · site present — ${site.pages} page(s); SSG is not this path`)
 if (DRY) { console.log('\ndeploy-run · --dry: the worker is NOT shipped; stopping before the outward act.'); process.exit(0) }
 await step('ship the worker', 'UUIDNA_SITE_BUILT=1 npx wrangler deploy')

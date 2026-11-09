@@ -15,12 +15,16 @@ import { existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { spawnSync } from 'node:child_process'
+import { EDGE_ROOT } from '../theorems/edge-root.js'
 
 const DIST = join(ROOT, 'docs', '.vitepress', 'dist')
 
-/** builtSite() → what the dist holds, so "built" is a reading and never an assumption. */
-export function builtSite(dir: string = DIST): { present: boolean; index: boolean; pages: number } {
-  if (!existsSync(dir)) return { present: false, index: false, pages: 0 }
+/** builtSite() → what the dist holds, so "built" is a reading and never an assumption. `ledger` reads whether the
+ *  site serves the manifest of the root the worker is baked with: the worker asks this deploy's own /ledger/<root>.json
+ *  for every row a door reads, and a site built before the last bake serves an older root — shipped together on
+ *  2026-11-09, every row-reading door at uuidna.com/mcp refused with "qpu storage answered 404" for the new manifest. */
+export function builtSite(dir: string = DIST, root: string | undefined = EDGE_ROOT?.root): { present: boolean; index: boolean; pages: number; ledger: boolean } {
+  if (!existsSync(dir)) return { present: false, index: false, pages: 0, ledger: false }
   let pages = 0
   const walk = (d: string): void => {
     for (const n of readdirSync(d, { withFileTypes: true })) {
@@ -29,7 +33,7 @@ export function builtSite(dir: string = DIST): { present: boolean; index: boolea
     }
   }
   walk(dir)
-  return { present: true, index: existsSync(join(dir, 'index.html')), pages }
+  return { present: true, index: existsSync(join(dir, 'index.html')), pages, ledger: !!root && existsSync(join(dir, 'ledger', `${root}.json`)) }
 }
 
 const isMain = process.argv[1]?.endsWith('ship-build.js') ?? false
@@ -52,6 +56,12 @@ if (isMain) {
     console.error('  it can never succeed, because a container cannot render this site. Disconnect it —')
     console.error('  Cloudflare dashboard → Workers & Pages → uuidna → Settings → Build → disconnect the repository.')
     console.error('  That is a dashboard act; no change in this repository can stop the trigger from firing.')
+    process.exit(1)
+  }
+  if (!site.ledger) {
+    console.error(`✗ ship-build — the built site does not serve the ledger the worker is baked with (/ledger/${EDGE_ROOT?.root ?? '(no root)'}.json absent).`)
+    console.error('  NOTHING WAS UPLOADED: a worker baked after the site was built asks for a manifest the site does not hold, and')
+    console.error('  every door that reads a row refuses. Rebuild the site over this bake: npm run docs:build, then npm run ship.')
     process.exit(1)
   }
   console.log(`ship-build · site present — ${site.pages} page(s) built; generating handles only`)

@@ -39,7 +39,7 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, LEDGER_STORAGE } from './dist/edge-ledger.js'
+import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, LEDGER_STORAGE, DOOR_FILE_PARSE } from './dist/edge-ledger.js'
 import { slimGate } from './dist/slimgate.js'
 import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
@@ -60,11 +60,6 @@ const qpuFetchOf = (env) => env.QPU
 // baked from in the deploy that carries the root, with no hop to another worker. Storage is asked only for an
 // address the assets do not hold. Measured 2026-11-08: qpu.uuidna.com/storage answered 404 HTML for every ledger
 // address, every row door at the edge answered nothing, and the deploy could not verify itself live.
-// THE LARGEST DOOR FILE PARSED IN THE ISOLATE. The parsed answer, the gate's scan of it and the response body are
-// resident together, about three copies of the file, against the 128 MB a Workers isolate allows; a sixth of that
-// keeps all three inside it with room for the request. Larger answers are served as files the caller reads directly.
-const ISOLATE_BYTES = 128 * 1024 * 1024
-const DOOR_FILE_PARSE = ISOLATE_BYTES / 16
 const ledgerFetchOf = (env, origin) => {
   const over = qpuFetchOf(env) ?? fetch
   if (!env.ASSETS) return over
@@ -511,13 +506,17 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         asset: async (path) => {
           const res = await env.ASSETS.fetch(new Request(new URL(path, url.origin)))
           if (!res.ok || !(res.headers.get('content-type') || '').includes('json')) return null
+          // the site build already wrote any answer over DOOR_FILE_PARSE as a pointer (edge-ledger.ts says why); a length
+          // the asset does state is still honoured, and a pointer's own path is answered as this deploy's URL
           const bytes = Number(res.headers.get('content-length') || 0)
           if (bytes > DOOR_FILE_PARSE) {
             res.body?.cancel()
             return { kind: 'answer-served-as-file', href: new URL(path, url.origin).href, bytes,
               honest: `the answer is ${bytes} bytes; it is served whole at href, the host's own answer for the same ledger, rather than parsed in an isolate that also holds the request` }
           }
-          return res.json()
+          const v = await res.json()
+          if (v && v.kind === 'answer-served-as-file' && typeof v.href === 'string' && v.href.startsWith('/')) v.href = new URL(v.href, url.origin).href
+          return v
         },
         // WHAT THE EDGE CAN READ OF THE CALL (the captain, 2026-09-14: "the message need to contain the hardware state for
         // forensics" · "measured always true"). Of request.cf only colo names the serving side — the Cloudflare data
