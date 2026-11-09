@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "a11f8aaeca0accb5ac7b6732a407eddf",
+    "src": "8ecb31b917d7913d76a758ee66c59b00",
     "lean": "099ff534881aa32ef14803a20eaa433c"
   },
   "files": {
@@ -75698,8 +75698,8 @@
     "src/scripts/copy-lean-to-site.ts": "8068f41eb88a1599",
     "src/scripts/counts-history.test.ts": "1f77cc60aa2c90c0",
     "src/scripts/court-hooks.ts": "cc1fcf64baf62700",
-    "src/scripts/court-investigate.test.ts": "e56f4a3cd7e58c50",
-    "src/scripts/court-investigate.ts": "6a096e2c3e4c5e5f",
+    "src/scripts/court-investigate.test.ts": "d9df1ae047ba3a27",
+    "src/scripts/court-investigate.ts": "638b0d66e2006c8e",
     "src/scripts/cross-formulate.ts": "9e60256eb401f1f4",
     "src/scripts/crypto-measure.ts": "411898d464d7de88",
     "src/scripts/cube-memory.ts": "0d6ada19591a2146",
