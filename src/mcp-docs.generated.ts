@@ -288,7 +288,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"leads\":1073,\"clusters\":[{\"term\":\"astronomy\",\"handle\":\"f7a0f261\",\"leads\":38},{\"term\":\"fermat\",\"handle\":\"dd674c0e\",\"leads\":38},{\"term\":\"security\",\"handle\":\"794…"
+   "excerpt": "{\"leads\":1100,\"clusters\":[{\"term\":\"astronomy\",\"handle\":\"f7a0f261\",\"leads\":38},{\"term\":\"fermat\",\"handle\":\"dd674c0e\",\"leads\":38},{\"term\":\"security\",\"handle\":\"794…"
   }
  },
  "uuidna_handle_store": {
@@ -14182,7 +14182,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"total\":21,\"open\":20,\"verified\":1,\"refuted\":0,\"unverified\":20,\"items\":[{\"claim\":\"KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs…"
+   "excerpt": "{\"total\":48,\"open\":47,\"verified\":1,\"refuted\":0,\"unverified\":47,\"items\":[{\"claim\":\"KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs…"
   }
  },
  "uuidna_leads_gate": {
@@ -16176,7 +16176,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":65,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":65,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":66,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":66,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
@@ -21100,7 +21100,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"receipt\":\"de013073-4af9-8f37-b629-7394c18ba053\",\"handle\":\"de013073\",\"hexbits\":[13,14,0,1,3,0,7,3,4,10,15,9,8,15,3,7,11,6,2,9,7,3,9,4,12,1,8,11,10,0,5,3],\"doo…"
+   "excerpt": "{\"receipt\":\"a562e11f-58fe-898e-b585-f5502752827f\",\"handle\":\"a562e11f\",\"hexbits\":[10,5,6,2,14,1,1,15,5,8,15,14,8,9,8,14,11,5,8,5,15,5,5,0,2,7,5,2,8,2,7,15],\"doo…"
   }
  },
  "uuidna_detect_forgery": {

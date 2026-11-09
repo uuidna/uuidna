@@ -348,7 +348,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (21 in trial · 23 reopened · 36 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (48 in trial · 21 reopened · 38 refuted this generation, [the leads roster](/school#leads)). Leads in trial also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a lead in trial, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -1178,7 +1178,7 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**80 leads** — 21 in trial · 23 reopened · 36 refuted · 44 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
+**107 leads** — 48 in trial · 21 reopened · 38 refuted · 69 in trial. A refutation stands only when it involutes inside Lean — the lead's claim stated as a proposition named for its handle, and the kernel's proof of its negation; a reopened one keeps what it claimed, word for word.
 
 - **trial** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
 - **trial** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…
@@ -1209,6 +1209,60 @@ same way, lives on [the leads page](/leads).
 - **trial** · `c1b5cd04` — Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.
 - **trial** · `c9ddc617` — All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.
 - **trial** · `fa07226e` — shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255…
+- **trial** · `7aefad59` — CERN Open Data catalogue
+  <br><small>From qpu/.idea/leads/cern/catalogue.txt (https://opendata.cern.ch/api/records/?size=1), processed via the qpu snapshot sweep. Trial receipt 7aefad59-d3ee-827a-86ad-f83f1a57cfcb; involution receipt 0fff3223-9f3b-8ed4-b600-e9f2c5fe7113.</small>
+- **trial** · `e1f56eb7` — CERN Higgs records
+  <br><small>From qpu/.idea/leads/cern/higgs.txt (https://opendata.cern.ch/api/records/?q=higgs&size=5), processed via the qpu snapshot sweep. Trial receipt e1f56eb7-b046-8724-8bf6-ed5b6d9b63b9; involution receipt 08644f62-b89f-8d2d-8def-d836b486f8ee.</small>
+- **trial** · `c3c7a1e1` — Catalogues published without a token
+  <br><small>From qpu/.idea/leads/doors/catalogues.txt (https://sqladmin.googleapis.com/mcp), processed via the qpu snapshot sweep. Trial receipt c3c7a1e1-9a49-86b6-8321-36b6307a262f; involution receipt 750cecf3-dc6e-86f7-96de-efb9e9e3f40a.</small>
+- **trial** · `4edd838e` — Doors that answer 401
+  <br><small>From qpu/.idea/leads/doors/closed.txt (https://bindings.mcp.cloudflare.com/mcp), processed via the qpu snapshot sweep. Trial receipt 4edd838e-ab93-88b7-af40-b1acddab9834; involution receipt d6143899-c079-824f-a864-ac2e9644e801.</small>
+- **trial** · `cd4342b2` — NIST beacon pulse 2017309
+  <br><small>From qpu/.idea/leads/nist/beacon.txt (https://beacon.nist.gov/beacon/2.0/pulse/last), processed via the qpu snapshot sweep. Trial receipt cd4342b2-f9dd-83aa-914d-344795a388ef; involution receipt 19ae283b-19bc-88cb-b558-6963f89e3647.</small>
+- **trial** · `c4baf6ef` — 2022 CODATA adjustment
+  <br><small>From qpu/.idea/leads/nist/codata.txt (https://physics.nist.gov/cuu/Constants/Table/allascii.txt), processed via the qpu snapshot sweep. Trial receipt c4baf6ef-587c-8bcf-aa7b-c7a827767123; involution receipt 6bf7e534-e76e-82a2-868c-bb99127d71f3.</small>
+- **trial** · `5826cc39` — Live FIPS pages
+  <br><small>From qpu/.idea/leads/nist/live-fips.txt (https://csrc.nist.gov/pubs/fips/180-4/upd1/final), processed via the qpu snapshot sweep. Trial receipt 5826cc39-1c7a-838c-8136-7807e46be3b8; involution receipt 3e30bac3-2b0f-8944-af47-27e477fd0c22.</small>
+- **trial** · `98651e03` — NIST Open Data page
+  <br><small>From qpu/.idea/leads/nist/opendata.txt (https://data.nist.gov/rmm/records?page=0&size=5), processed via the qpu snapshot sweep. Trial receipt 98651e03-dc74-8d45-8e60-c607bb840fad; involution receipt 31d20326-3aeb-8c6e-8421-869e7b889a17.</small>
+- **trial** · `83f88b66` — An admission toolbox around the Workers Rate Limiting binding: from a small config of budgets (a per-client handle, an a
+  <br><small>From qpu/.idea/leads/quintessay/admission-rate-limit-toolbox.txt (ceccec/quintessay-payload worker.ts@2c3fc06 and wrangler.jsonc ratelimits (LIMIT_CLIENT 60/10s, LIMIT_ANON 10/10s, LIMIT_SEARCH 60/10s); qpu src/quantum/net/cloudflare.ts names the Rate Limiting binding only), proc…</small>
+- **trial** · `5ede64ae` — A cost gate over the GraphQL Analytics API folded into a monthly estimate against the Workers Paid allowances: workersIn
+  <br><small>From qpu/.idea/leads/quintessay/cloudflare-cost-gate-graphql.txt (ceccec/quintessay-payload src/lib/cloudflare/analytics.ts and scripts/cf-costs.ts; qpu src/quantum/uuid/programs/apis/index.ts OBSERVE_QUERY and apisCost, src/plugins/qpu.ts qpu-cloudflare-observe), processed via t…</small>
+- **trial** · `a5eb0a13` — The D1 budget governor extended from the cron's consumers to request admission: when D1 answers 7429 overloaded, the sit
+  <br><small>From qpu/.idea/leads/quintessay/d1-overload-admission-fold.txt (ceccec/quintessay-payload src/cron/budget.ts (the 13/32 floor, 406 permille spare); qpu src/payload.qpu.db.ts, src/quantum/net/cloudflare.ts), processed via the qpu snapshot sweep. Trial receipt a5eb0a13-7ae2-89f5-ba…</small>
+- **trial** · `1a1583bd` — A drift check between a Worker's deployed settings (GET /accounts/{id}/workers/scripts/{name}/settings: observability an
+  <br><small>From qpu/.idea/leads/quintessay/deploy-settings-drift.txt (quintessay 2026-11-08: observability enabled at a 100% sample from the dashboard, invisible in the repository; qpu src/quantum/processing/toolboxes/repository.ts WORKFLOW_RULES (pre-deploy), src/quantum/payload/deploy.ts)…</small>
+- **trial** · `bab20afe` — A flood signature finder: ~870M requests over eight days with an empty user agent 45% of the time, otherwise rotating de
+  <br><small>From qpu/.idea/leads/quintessay/flood-signature-rotating-chrome.txt (quintessay zone httpRequestsAdaptiveGroups by userAgent, clientIP and path, 2026-10-31 to 2026-11-07), processed via the qpu snapshot sweep. Trial receipt bab20afe-614c-8d0a-8363-570dd063bb26; involution receipt…</small>
+- **trial** · `208718a2` — A stale-receipt finder in the guard. quintessay recomputes merkleGravity([wa, ta, toUuid('coins:2')]) and expects 3fb110
+  <br><small>From qpu/.idea/leads/quintessay/stale-receipt-finder-merkle-fold.txt (uuidna src/address.ts@0a4c4e9d87 (2026-09-25, leaves domain-separated from nodes); ceccec/quintessay-payload .uuidna.json contribution.receipt (registered 2026-09-05) and scripts/verify-underclaims.ts), process…</small>
+- **trial** · `4122740b` — qpu branch ancient-first (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (ancient-first), processed via the qpu snapshot sweep. Trial receipt 4122740b-f403-8ea4-90b1-d65d8dc5845e; involution receipt 0166dfe0-89bb-8e1b-b63f-efc31ac75b69.</small>
+- **trial** · `c77cd57a` — qpu branch d4-main (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (d4-main), processed via the qpu snapshot sweep. Trial receipt c77cd57a-cdef-8349-ada3-03eec3709e9a; involution receipt a256fb2e-5051-8407-abb7-8b7b2eeefa04.</small>
+- **trial** · `3943b7d4` — qpu branch denial-router (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (denial-router), processed via the qpu snapshot sweep. Trial receipt 3943b7d4-6ebc-875d-9484-c27fc5da5192; involution receipt 0e9d93ce-7370-8608-a72c-8569871fbb7c.</small>
+- **trial** · `087521d1` — qpu branch ideas-royalty (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (ideas-royalty), processed via the qpu snapshot sweep. Trial receipt 087521d1-bbb4-84fe-a7da-1db43109f551; involution receipt e8875380-81e4-8355-8fe9-ce98d587e1b9.</small>
+- **trial** · `7f272564` — qpu branch leak-redact (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (leak-redact), processed via the qpu snapshot sweep. Trial receipt 7f272564-6a31-899e-94d4-78d00f452f7c; involution receipt e524bc89-335c-8035-a6fe-4d4bdf53f483.</small>
+- **trial** · `09d10783` — qpu branch meaning-paths (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (meaning-paths), processed via the qpu snapshot sweep. Trial receipt 09d10783-4d6d-8699-9714-631f7f0755a8; involution receipt b358481c-982f-8de0-98c6-9c0c8ccc9c71.</small>
+- **trial** · `73df850d` — qpu branch payload-bump (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (payload-bump), processed via the qpu snapshot sweep. Trial receipt 73df850d-848e-8a2f-81ec-53c312114197; involution receipt 86a3e6e0-a703-8e11-9be5-b09682173b1d.</small>
+- **trial** · `19732d43` — qpu branch save-horizon (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (save-horizon), processed via the qpu snapshot sweep. Trial receipt 19732d43-4a06-8458-91ee-364c95feb791; involution receipt 94c24aa4-3963-876a-b24b-e92c716612a9.</small>
+- **trial** · `18a3db19` — qpu branch worktree-wf_da30e79a-47e-1 (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.
+  <br><small>From qpu/.idea/.claude/worktrees (worktree-wf_da30e79a-47e-1), processed via the qpu snapshot sweep. Trial receipt 18a3db19-09be-8d79-afb4-166bc11afe8b; involution receipt 6d34961e-7987-8114-96e6-880be727715a.</small>
+- **trial** · `01e1f209` — The qpu worktree payload4 (Payload 4 upgrade) has no branch left in the repository: its work exists only as files in qpu/.idea/.claude/worktrees/payload4 and is lost if .idea is deleted — recover it to a branch.
+  <br><small>From qpu/.idea/.claude/worktrees/payload4, processed via the qpu snapshot sweep. Trial receipt 01e1f209-dfdf-852d-838c-3ad3d15c6a0c; involution receipt 4897e3a4-c244-8bf1-914c-b33fa9d0984d.</small>
+- **trial** · `cf548488` — 161 source files in the qpu/.idea v1.4.0 snapshot (74 in src/quantum/processing, 20 in src/plugins/qpu, one per plugin for about 20 plugins, and src/worker.ts — the Worker that served /mcp, /storage and /.well-known/qpu.…
+  <br><small>From qpu/.idea/src (blob hashes vs both branch tips, 2026-11-09), processed via the qpu snapshot sweep. Trial receipt cf548488-3786-8723-be93-9d6afc08ec42; involution receipt 3552920d-5a76-82ad-8d97-d228b8f3a0dc.</small>
+- **trial** · `92abd479` — qpu/.idea/.qpu is a 16 GB content-addressed mirror of Payload documents (50,439 entries, e.g. pages per tenant, keyed by UUID): establish whether live D1 already holds every document, then keep it as evidence or reseed f…
+  <br><small>From qpu/.idea/.qpu, processed via the qpu snapshot sweep. Trial receipt 92abd479-605a-830d-a442-b6f08ed77ed0; involution receipt 34d99010-a57f-8d50-8eed-8f1df506b59b.</small>
+- **trial** · `93c09776` — An older local secrets file (qpu/.idea/.dev.vars, differing from the current .dev.vars) sits in an ignored snapshot directory: rotate whatever it holds that is still live, then remove the copy.
+  <br><small>From qpu/.idea/.dev.vars (contents not read), processed via the qpu snapshot sweep. Trial receipt 93c09776-d907-8b19-8c7d-c8349f58449f; involution receipt d137aad5-5f37-8408-aa25-e652abb1a9f9.</small>
 - **reopened** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>claimed: <q>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</q> · owes the sealed theorem that proves what it meant</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).
@@ -1221,8 +1275,8 @@ same way, lives on [the leads page](/leads).
   <br><small>NAMED LEFTOVER, bound live. aead_nonce_and_salt_bits now requires ITER &amp;gt; 0 && ITER &amp;lt; MAX_ITER. No wording theorem minted. kdf_cost_bounded stays gone.</small>
 - **refuted** · `a245d44e` — trading-shelf.test.ts and harmony-scan.test.ts still hunt honesty by honest.includes('never money' / 'no currency' / 'NOT a medical device').
   <br><small>PAID. Wording trials dropped. Trading shelf still checks bills are non-negative and scale with work. Harmony scan still checks agrees, findings, peak, receipt. Existing honest: payloads on constructors untouched.</small>
-- **reopened** · `965ea588` — VitePress client externalizes node:fs via src/seo-freeze.ts, so HexFace cannot be verified in the browser (dev server abort after the fs error).
-  <br><small>claimed: <q>PAID. seo-freeze and prepublish-seal off the client barrel. axiom-witness and security-audit drop unused static node:fs (rdRoot only). palette imports dist/css.js. Hex-face barrel graph test covers those files. Tests still run on dist after tsc.</q> · owes the sealed theorem that proves what it meant</small>
+- **refuted** · `965ea588` — VitePress client externalizes node:fs via src/seo-freeze.ts, so HexFace cannot be verified in the browser (dev server abort after the fs error).
+  <br><small>PAID. seo-freeze and prepublish-seal off the client barrel. axiom-witness and security-audit drop unused static node:fs (rdRoot only). palette imports dist/css.js. Hex-face barrel graph test covers those files. Tests still run on dist after tsc.</small>
 - **refuted** · `92213be8` — CRT axiom-free still fails in the in-tree v030-balance-trial / sequence-coverage surfaces (unfrozen).
   <br><small>PAID. v030-balance-trial and sequence-coverage require Crt.lean theorems exist, all by decide, and axiomWitness().holds. Do not skip the trial. Generator already emits the wing.</small>
 - **reopened** · `a5572638` — Plan leftover: concurrent width is 14 VE faces.
@@ -1251,8 +1305,8 @@ same way, lives on [the leads page](/leads).
   <br><small>CAPTAIN CHOICE B (2026-08-27): re-seal grid width LIVE — gridSeats() = PROJECTED.length × wings() = 6 × 115 = 690. Theorem k432 stays pure arithmetic (432 = 16×27 = 2⁴×3³), not the grid seat count. Fabricating five empty wings to force %15 refused. Dual-base '% 15' release-block …</small>
 - **refuted** · `4a7485ec` — Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.
   <br><small>PAID. radial_squared_two renamed to theorem radial_squares_to_two in lean-vectorequilibrium.ts / VectorEquilibrium.lean — 'squares' is the verb (Glagolitic pattern beside theorem radial_equals_edge). Citations updated; handle follows the Lean statement and does not move.</small>
-- **reopened** · `2aaac145` — docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.
-  <br><small>claimed: <q>PAID. allObjectPaths() in docs/.vitepress/compose-object.js now emits chunk (buildChunks handles), sequence (Sequence.lean theorem handles), and ve (VectorEquilibrium.lean theorem handles) beside theorem + publications — same ObjectPage, new kinds. OBJECT_KIND_ROOT extended; obje…</q> · owes the sealed theorem that proves what it meant</small>
+- **refuted** · `2aaac145` — docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.
+  <br><small>PAID. allObjectPaths() in docs/.vitepress/compose-object.js now emits chunk (buildChunks handles), sequence (Sequence.lean theorem handles), and ve (VectorEquilibrium.lean theorem handles) beside theorem + publications — same ObjectPage, new kinds. OBJECT_KIND_ROOT extended; obje…</small>
 - **reopened** · `cbbc6b32` — A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering'…
   <br><small>claimed: <q>PAID the enforceable half. leanNegationGaps() (one-receipt lean-negation + state finder) flags object-level negation comments without ≠/¬/!= discharge, exempts SCOPE:/, and documents the split VectorEquilibrium.lean already states. NOT a blocking guard: first run flooded false po…</q> · owes the sealed theorem that proves what it meant</small>
 - **refuted** · `7cc6cbb6` — Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing e…
@@ -1382,11 +1436,11 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 5,875,081 | 6 | 979,180× | `theorems().length` |
-| what does the tree hold right now? | 5,898,091 | 225 | 26,213× | `npm run state` |
+| what does the tree hold right now? | 5,902,904 | 225 | 26,235× | `npm run state` |
 | which Alpine domains are ported? | 1,824,376 | 350 | 5,212× | `portsCensus()` |
-| is the tree green to release? | 1,195,169 | 65 | 18,387× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 1,199,964 | 65 | 18,460× | `leads-gate + gate-receipt --verify` |
 
-Median ratio **26,213×**. Tokens are estimated at four bytes each — an approximation, and
+Median ratio **26,235×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
 A high number is not a good score. It is the cost of not knowing the door, and every one of those tokens is spent
 re-deriving something the tree already sealed.
@@ -1401,7 +1455,7 @@ fetched only if someone actually wants it.
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,297,504 | 16 | 456,094× |
 | the sealed ledger | 23,500,324 | 16 | 1,468,770× |
-| the leads record | 79,491 | 16 | 4,968× |
+| the leads record | 98,670 | 16 | 6,166× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request
 time, still resolving to exactly what the address named. Time is the third axis and is measured at the
