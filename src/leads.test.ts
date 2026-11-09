@@ -15,9 +15,15 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { leadCensus, renderCensus, read, unread, type Lead , kernelDecidable,
+import * as leadsModule from './leads.js'
+import { leadCensus, renderCensus, read, unread, type Lead , decidingProgramOf, releaseNotes,
   sourceNames, owedInstrument, owedOf, owesCensus, misfiledDoorRequests } from './leads.js'
-import { gatherLeads, autoSettle, type LeadsFile } from './scripts/leads-gate.js'
+import { gatherLeads, autoSettle, doorOfProgram, type LeadsFile } from './scripts/leads-gate.js'
+import { uuidOfCall } from './hex-programs.js'
+
+// a program this surface serves, by its UUID: what a lead names when a program decides it
+const QUANTUM_PROGRAM = uuidOfCall({ handle: '0000c0de', door: 'uuidna_quantum' })
+const decided = (l: Lead): Lead => ({ ...l, run: { program: QUANTUM_PROGRAM } })
 import { ROOT } from './boundary.js'
 import { handleOf } from './handle.js'
 import { toUuid } from './address.js'
@@ -83,12 +89,12 @@ test('a clean census PERMITS — the half a red tree never shows you', () => {
 // The claim this test protects is unchanged and is the important half: a settled count NEVER buys off an open lead. What
 // changed is WHICH open lead binds — one a cross-formulated theorem could decide. The lead here names a sealed walk, so
 // it is decidable and still refuses, exactly as before.
-test('ONE held kernel-decidable lead REFUSES the release, however many are settled', () => {
-  const c = leadCensus([read('ledger', [lead('ledger', 'the 42-state paired walk is a sealed statement')], 17), read('expose', [], 23)])
+test('ONE held lead (a program decides it) REFUSES the release, however many are settled', () => {
+  const c = leadCensus([read('ledger', [decided(lead('ledger', 'the 42-state paired walk is a sealed statement'))], 17), read('expose', [], 23)], doorOfProgram)
   assert.equal(c.ready, false)
   assert.equal(c.open.length, 1)
-  assert.equal(c.holding.length, 1, 'a claim about sealed content holds')
-  assert.match(c.why, /still in trial/)
+  assert.equal(c.holding.length, 1, 'a lead its program decides holds')
+  assert.match(c.why, /still open/)
   // the settled count must NOT buy off the open one — 17 settled and 1 open is not 94% ready, it is not ready
   assert.equal(c.settled, 40)
   assert.equal(c.ready, false, 'a release is not a percentage')
@@ -125,7 +131,7 @@ test('the receipt binds each source VERDICT, not just its name', () => {
 })
 
 test('the render names every lead\'s DEBT — a refusal that does not say what it wants is an obstacle', () => {
-  const c = leadCensus([read('ledger', [{ source: 'ledger', what: 'the grid breaks at 73 wings', owes: 'a decision, not a fix' }], 0)])
+  const c = leadCensus([read('ledger', [decided({ source: 'ledger', what: 'the grid breaks at 73 wings', owes: 'a decision, not a fix' })], 0)], doorOfProgram)
   const out = renderCensus(c).join('\n')
   assert.match(out, /the grid breaks at 73 wings/)
   assert.match(out, /owes: a decision, not a fix/, 'what would settle it is shown beside it')
@@ -158,39 +164,45 @@ test('closed refuted and refused stay on leads.md, not open-questions', () => {
     'refuted and refused are closed — they belong on docs/leads, not open-questions homework')
 })
 
-// ── THE CAPTAIN'S RULE, 2026-09-28: "release all holding none solved by cross formulas proving each other" ───────
+// ── THE CAPTAIN'S RULE, 2026-09-28, decided by programs since 2026-11-09: a lead holds a release only when it names the
+// UUID program that decides it and that program resolves to a door this surface serves. The wording decides nothing.
+test('decidingProgramOf — a lead naming a program that resolves holds the release', () => {
+  const lead: Lead = { source: 's', what: 'the Bell program puts weight on exactly 00 and 11', owes: 'run it', run: { program: QUANTUM_PROGRAM, arguments: { circuit: 'bell' } } }
+  assert.equal(decidingProgramOf(lead, doorOfProgram), QUANTUM_PROGRAM)
+  const census = leadCensus([{ source: 's', reached: true, why: null, settled: 0, open: [lead] }], doorOfProgram)
+  assert.deepEqual([census.holding.length, census.reported.length, census.ready], [1, 0, false])
+})
 
-test('kernelDecidable — a claim about the ledger HOLDS a release, plurals included', () => {
-  for (const what of [
-    'the grid breaks at 73 wings',
-    'two sealed statements share one principle',
-    'the falsifier cache holds stale receipts',
-    'predict-and-fill.ts:57 hardcodes an expected principle count the ledger has passed',
-    'two_routes_reach_four_hundred_and_thirty_two is alone in its principle',
-    'the falsifier ceiling is short by four sealed statements',
-    'a wing definition no theorem reaches',
-  ]) {
-    assert.equal(kernelDecidable({ source: 's', what, owes: 'seal a theorem' }), true, what)
+test('decidingProgramOf — the same lead with no program ships as a known limitation, however ledger-like its words', () => {
+  const lead: Lead = { source: 's', what: 'two sealed statements share one principle and the grid breaks at 73 wings', owes: 'seal a theorem' }
+  assert.equal(decidingProgramOf(lead, doorOfProgram), null)
+  const census = leadCensus([{ source: 's', reached: true, why: null, settled: 0, open: [lead] }], doorOfProgram)
+  assert.deepEqual([census.holding.length, census.reported.length, census.ready], [0, 1, true])
+})
+
+test('CONTROL — a program that names no door, or is no address, is refused and holds nothing', () => {
+  const nowhere = '0000c0de-ffff-ffff-0000-000000000000'
+  assert.equal(doorOfProgram(nowhere), null, 'ffffffff is no served program')
+  for (const program of [nowhere, 'not-a-uuid']) {
+    const lead: Lead = { source: 's', what: 'a claim', owes: 'x', run: { program } }
+    assert.equal(decidingProgramOf(lead, doorOfProgram), null, program)
   }
 })
 
-// A LEAD NO THEOREM COULD EVER DECIDE could never be settled, so under the old rule it held every release forever.
-// The largest open cluster says it in its own text: a signed commit by pathspec is a git act, not a ledger computation.
-test('kernelDecidable — a claim about a door, a host or a service does NOT hold', () => {
-  for (const what of [
-    // VERBATIM FROM THE LIVE CENSUS OF 2026-09-28, because the old fixture was not the string the tree writes. It read
-    // "escaped the MCP door 15 times: no door commits a pathspec" and passed on the pathspec clause, so the escape shape
-    // itself was never tested — and 31 records in exactly this shape held a release no theorem could release.
-    'the tree escaped the MCP door 8 times for the same missing capability: court investigation',
-    'the tree escaped the MCP door 2 times for the same missing capability: read lead records by handle from lean/leads.json',
-    'the tree escaped the MCP door 15 times: no door commits a pathspec',
-    'no MCP door greps theorem keys by word',
-    'powo answers HTTP 403 to an identified probe',
-    'a credential is required and none is held',
-    'wrangler kv namespace create SCHOOL is an owner act',
-  ]) {
-    assert.equal(kernelDecidable({ source: 's', what, owes: 'build the door' }), false, what)
-  }
+test('releaseNotes — every lead no program decides is listed as a known limitation, in full', () => {
+  const census = leadCensus([{ source: 's', reached: true, why: null, settled: 4, open: [
+    { source: 's', what: 'Over-unity / free energy devices', owes: 'a refusal, not a claim' },
+    { source: 's', what: 'CERN Open Data catalogue', owes: 'a door' },
+  ] }], doorOfProgram)
+  const notes = releaseNotes('v0.3.1', census)
+  assert.match(notes, /^v0\.3\.1 — 0 open lead\(s\) with a deciding program; 4 settled/)
+  assert.match(notes, /Known limitations \(ISO\/IEC 25051 5\.1\.5\.4\): 2 open lead\(s\)/)
+  assert.match(notes, /- Over-unity \/ free energy devices \(owes: a refusal, not a claim\)/)
+  assert.match(notes, /- CERN Open Data catalogue \(owes: a door\)/)
+})
+
+test('the prose rule is retired: kernelDecidable is no longer exported', () => {
+  assert.equal('kernelDecidable' in leadsModule, false)
 })
 
 test('leadCensus — a reported lead is counted and named, never hidden', () => {
@@ -198,9 +210,9 @@ test('leadCensus — a reported lead is counted and named, never hidden', () => 
     source: 'mcp', reached: true, why: null, settled: 0,
     open: [
       { source: 'mcp', what: 'no door commits a pathspec', owes: 'build the door' },
-      { source: 'mcp', what: 'a sealed theorem is alone in its principle', owes: 'seal a second' },
+      decided({ source: 'mcp', what: 'a sealed theorem is alone in its principle', owes: 'seal a second' }),
     ],
-  }])
+  }], doorOfProgram)
   assert.equal(census.open.length, 2, 'both stay in the census')
   assert.equal(census.holding.length, 1)
   assert.equal(census.reported.length, 1)
@@ -212,8 +224,8 @@ test('leadCensus — only reported leads left means a release may ship', () => {
     source: 'mcp', reached: true, why: null, settled: 9,
     open: [{ source: 'mcp', what: 'no door reads a generated page', owes: 'build the door' }],
   }])
-  assert.equal(census.ready, true, 'no theorem could decide it, so it does not hold')
-  assert.match(census.why, /reported without holding/)
+  assert.equal(census.ready, true, 'no program decides it, so it does not hold')
+  assert.match(census.why, /ship as known limitations/)
   assert.equal(census.open.length, 1, 'and it is still on the record')
 })
 

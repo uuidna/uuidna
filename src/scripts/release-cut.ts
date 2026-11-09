@@ -9,9 +9,11 @@
 //
 //   npm run release-cut           → gate-all; print the tag that would be cut (no push)
 //   npm run release-cut -- --push → gate-all, annotated tag v$version, push tag (triggers publish.yml)
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, streamStep } from './api.js'
+import { leadCensus, releaseNotes } from '../leads.js'
+import { gatherLeads, doorOfProgram } from './leads-gate.js'
 
 const PUSH = process.argv.includes('--push')
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
@@ -80,7 +82,11 @@ if (existing) {
     process.exit(1)
   }
 } else if (PUSH) {
-  await step(`annotate ${TAG}`, `git tag -a ${TAG} -m "${TAG} — leads settled; READY"`)
+  // the annotation names what bound the release and lists every open lead no program decides as a known limitation
+  const notes = join(ROOT, 'dist', 'evidence', `release-notes-${TAG}.txt`)
+  mkdirSync(join(ROOT, 'dist', 'evidence'), { recursive: true })
+  writeFileSync(notes, releaseNotes(TAG, leadCensus(gatherLeads(), doorOfProgram)) + '\n')
+  await step(`annotate ${TAG}`, `git tag -a ${TAG} -F ${notes}`)
 } else {
   console.log(`\nrelease-cut · DRY: would annotate ${TAG} at HEAD. Pass --push to cut and publish.`)
 }

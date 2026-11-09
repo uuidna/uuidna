@@ -22,6 +22,10 @@ import { commitChange, renderPlan } from '../quantum/os/installer/index.js'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { leadCensus, renderCensus, read, unread, type Lead, type SourceReading } from '../leads.js'
+import { callOfUuid } from '../hex-programs.js'
+
+/** the door a lead's program address resolves to on this surface, or null when it names none (or is no address) */
+export const doorOfProgram = (program: string): string | null => { try { return callOfUuid(program).door } catch { return null } }
 import { API_LEAD_READERS } from '../api-leads.js'
 import { sealedKeysIn, involutionOf, leadVerdictOf, type KernelOk, type SealedStatement } from '../refusal-trials.js'
 import { buildTrialRecord, reopenedBecause, kernelCheckOf } from './trial-refusals.js'
@@ -425,7 +429,7 @@ if (process.argv[1]?.endsWith('leads-gate.js')) {
     console.error(`✗ settle — ${e instanceof Error ? e.message : String(e)}`)
     process.exit(1)
   }
-  const census = leadCensus(gatherLeads())
+  const census = leadCensus(gatherLeads(), doorOfProgram)
   console.log('leads — A LEAD IS ANYTHING NOT VERIFIED. No release ships while one is open.\n')
   for (const line of renderCensus(census)) console.log(line)
   console.log(`\n  receipt ${census.receipt}`)

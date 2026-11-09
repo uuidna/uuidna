@@ -15,20 +15,20 @@
 // `--settle --refute` with a stated reason, and a wrongly closed lead is worse than an open one: an open lead is a
 // question, a wrongly closed one is a false answer carrying a receipt.
 
-import { gatherLeads } from './leads-gate.js'
+import { gatherLeads, doorOfProgram } from './leads-gate.js'
 import { leadCensus } from '../leads.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { commonWords, crossLeads, type LeadRow } from '../lead-cross.js'
 import { owesCensus, misfiledDoorRequests } from '../leads.js'
 import { wrArtifact } from '../artifact.js'
 
-const census = leadCensus(gatherLeads())
+const census = leadCensus(gatherLeads(), doorOfProgram)
 const leads: LeadRow[] = census.open.map((l) => ({ source: l.source, what: l.what, owes: l.owes }))
 const tools = MCP_CATALOG.map((t) => ({ name: t.name, description: String(t.description ?? '') }))
 
 const { clusters, alone } = crossLeads(leads)
 const owes = owesCensus(census.holding)
-const misfiled = misfiledDoorRequests(census.open)
+const misfiled = misfiledDoorRequests(census.holding)
 // REFUTATION CANDIDATES ARE NOT REPORTED, because they were measured not to work: 163 of 174 leads matched some tool,
 // and the four strongest matches were inspected and are all coincidences on generic words. See src/lead-cross.ts. The
 // defect this was chasing is the tool SEARCH — uuidna_theorem exists and ranks ninth of eighteen for "theorem" — and
@@ -73,7 +73,7 @@ wrArtifact('lean/lead-cross.json', {
 console.log()
 console.log('✓ lean/lead-cross.json written')
 
-// ── THE GUARD THE FIX OWED. `kernelDecidable` once filed 31 gap records as claims about the ledger, because its
+// ── THE GUARD THE FIX OWED. The retired prose rule (`kernelDecidable`) once filed 31 gap records as claims about the ledger, because its
 // exclusion pattern matched `no mcp door` and `missing door` while UUIDNA_MCP_GAP writes "escaped the MCP door N times
 // for the same missing capability". Correcting the pattern removed those leads; it did nothing to stop the next hand
 // removing the correction. Two rules written for different purposes are asked to agree, and a disagreement REFUSES.
@@ -81,7 +81,7 @@ if (misfiled.length) {
   console.error(`\n✗ lead-cross — ${misfiled.length} lead(s) are door requests by shape yet hold a release:`)
   for (const l of misfiled.slice(0, 8)) console.error(`    ${l.what.slice(0, 104)}`)
   console.error('  A gap record owes the door it names, and no theorem can settle it — so it must not hold a release.')
-  console.error('  Either kernelDecidable no longer matches the shape the tree emits, or the shape changed. Both are')
+  console.error('  A door request names no program that decides it, so a program it names is the defect. Both ends are')
   console.error('  the same defect from either end. Fix the rule; do not delete the lead.')
   process.exit(1)
 }

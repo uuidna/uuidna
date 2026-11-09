@@ -41,6 +41,8 @@ export interface Lead {
   source: string      // which census surfaced it
   what: string        // the unsettled claim, in words
   owes: string        // what would settle it — a proof, or a measurement that refutes it
+  /** the UUID program that decides it, and the arguments it runs with (qpu's Lead.run, with a program address for a tool) */
+  run?: { program: string; arguments?: Record<string, unknown> }
 }
 
 /** what ONE source answered. `reached:false` is a fact about the reader, never about the tree. */
@@ -50,8 +52,8 @@ export interface SourceReading {
   /**
    * THE PRODUCER'S OWN DECLARATION that this census does not produce claims about the ledger.
    *
-   * `kernelDecidable` below reads PROSE to guess what a lead is about, and a prose rule always lags the strings the tree
-   * emits: on 2026-09-28 it matched `no mcp door` and `missing door` while UUIDNA_MCP_GAP writes "escaped the MCP door N
+   * The retired `kernelDecidable` read PROSE to guess what a lead was about (decidingProgramOf replaced it, 2026-11-09),
+   * and a prose rule always lags the strings the tree emits: on 2026-09-28 it matched `no mcp door` and `missing door` while UUIDNA_MCP_GAP writes "escaped the MCP door N
    * times for the same missing capability", so 111 door requests held a release no theorem could release. Patching the
    * pattern per string is the manual work the captain banned on 2026-09-14 ("remove any allow lists or disallowed or any
    * manual logic whatsoever not coming from lean decisions") — a hand-maintained word list is exactly a disallow list.
@@ -99,70 +101,54 @@ export const unread = (source: string, why: string): SourceReading =>
  *  reader (fix the reader, then ask again). Folding them together would make the second look like the first and
  *  send someone hunting a lead that was never found. */
 /**
- * WHETHER A CROSS-FORMULATED THEOREM COULD EVER DECIDE THIS LEAD.
+ * THE PROGRAM THAT DECIDES A LEAD, OR NONE.
  *
- * THE CAPTAIN'S DECISION, 2026-09-28, in the captain's words: "release all holding none solved by cross formulas proving
- * each other". It changes what a lead is for, so it is recorded here as a decision rather than inferred from a mood.
+ * The captain, 2026-09-28: a lead holds a release only if a theorem could decide it ("release all holding none solved by
+ * cross formulas proving each other"). That test used to be a word list over the lead's prose — a hand rule standing
+ * where the law says Lean decides. The owner, 2026-11-09: "configure lean to use uuid quantum programs to link lean
+ * instead of using integers". So a lead now names the UUID program that decides it (run.program), and it is decidable
+ * exactly when that address resolves to a door this surface serves. Nothing is read from the wording.
  *
- * WHY THE OLD RULE MADE RELEASING IMPOSSIBLE RATHER THAN STRICT. A lead held a release until it was settled, and settling
- * means proving it as `def lead_<handle> : Prop` with a sealed theorem, or refuting it with `involution_<handle>`. That
- * works for a claim ABOUT THE LEDGER. It cannot work for a claim about anything else — and the largest cluster of open
- * leads says so in its own text: "no door commits a pathspec; a signed commit by pathspec is a git act, not a ledger
- * computation". No theorem will ever decide whether a git door exists, so that lead could never be settled, so it held
- * every release forever. 174 leads were open, 108 of them missing-door requests, and the gate had become a rule that
- * could not be satisfied — which is a rule nobody can act on.
- *
- * SO A LEAD HOLDS ONLY IF THE KERNEL COULD DECIDE IT, and the test is what the lead is ABOUT. A lead that names sealed
- * content — a theorem key, a wing, a principle, a count or a relation the ledger carries — is a claim the kernel can
- * settle, and it holds. A lead about a host fact, a missing tool, an HTTP status, a credential or an external service is
- * REPORTED AND DOES NOT HOLD: it is real work, and it is not a claim about what this tree proves.
- *
- * NOTHING IS DELETED AND NOTHING IS HIDDEN. Every lead stays in the census, counted and named, and `open` still carries
- * all of them. What changes is only which ones bind `ready`. A lead that cannot hold is not a lead that does not matter —
- * it is one whose remedy is a door or a key, not a proof.
+ * A lead with no program is not dismissed: it stays open, counted and named, and ships with the release as a known
+ * limitation. What a program changes is only which leads bind the release.
  */
-export const kernelDecidable = (lead: Lead): boolean => {
-  const text = `${lead.what} ${lead.owes ?? ''}`.toLowerCase()
-  // ABOUT SOMETHING OTHER THAN THE LEDGER: a door, a host, a service, a credential. These are work, not claims.
-  // THIS LIST NO LONGER CARRIES THE DOOR REQUESTS, and shrinking it is the point. The gap-record patterns that used to
-  // live here (`escaped the mcp door`, `missing capability`) were a prose rule chasing a string the tree emits, added
-  // after 111 door requests held a release because the earlier spellings — `no mcp door`, `missing door` — never matched
-  // it. That whole class is now decided by PROVENANCE: api-leads declares `decides: false`, because every row it reads
-  // from lean/mcp-gaps.json is a recorded escape. What remains here is what no source declares for itself: a lead from
-  // the LEDGER census whose subject turns out to be a host, a key or a git act. Every entry removed from this list is a
-  // hand-maintained judgement replaced by a computed one, which is the direction the 2026-09-14 rule points.
-  const elsewhere = /\b(no (?:mcp )?door|door missing|missing door|credential|api key|http \d{3}|endpoint|unreachable|not answer|fetch failed|commits? a pathspec|git act|wrangler|kv namespace|deploy|registry|npm publish|zenodo api|rate limit|network is down)\b/
-  if (elsewhere.test(text)) return false
-  // ABOUT THE LEDGER: it names sealed content, or asserts a relation the kernel evaluates.
-  // PLURALS AND INFLECTIONS COUNT, and an existing test caught their absence in the dangerous direction. With `\bwing\b`
-  // the lead "the grid breaks at 73 wings" did not match, so a plain claim about the ledger was classified as not
-  // holding — which lets a release through that should have been held. Under-counting what holds is the error that costs
-  // something; over-counting merely keeps a release waiting. So the stems accept a trailing s or es.
-  const ledger = /\b(theorem|lemma|statement|sealed|wing|principle|axiom|proof|by decide|key|address|receipt|census|count|invariant|involution|falsifier|ledger)(?:e?s)?\b/
-  return ledger.test(text)
+export const decidingProgramOf = (lead: Lead, doorOf: (program: string) => string | null): string | null => {
+  const program = lead.run?.program
+  return program && doorOf(program) !== null ? program : null
 }
 
-export function leadCensus(sources: readonly SourceReading[]): LeadCensus {
+/** releaseNotes(tag, census) → the release annotation: what binds it, and every open lead no program decides yet, listed in
+ *  full as the release's known limitations (ISO/IEC 25051 5.1.5.4 asks a product to describe all of them, not to have none) */
+export function releaseNotes(tag: string, census: LeadCensus): string {
+  const limits = census.reported.map((l) => `- ${l.what.replace(/\s+/g, ' ').trim()} (owes: ${l.owes.replace(/\s+/g, ' ').trim()})`)
+  return [
+    `${tag} — ${census.holding.length} open lead(s) with a deciding program; ${census.settled} settled`,
+    '',
+    `Known limitations (ISO/IEC 25051 5.1.5.4): ${limits.length} open lead(s) no program decides yet`,
+    ...limits,
+  ].join('\n')
+}
+
+export function leadCensus(sources: readonly SourceReading[], doorOf: (program: string) => string | null = () => null): LeadCensus {
   const answered = sources.filter((s) => s.reached)
   const unmeasured = sources.filter((s) => !s.reached).map((s) => s.source)
   const open = answered.flatMap((s) => s.open)
   const settled = answered.reduce((n, s) => n + s.settled, 0)
-  // THE CAPTAIN'S RULE: only a lead a cross-formulated theorem could decide binds the release. A source that DECLARES it
-  // makes no claims about the ledger contributes none — provenance is asked before prose, because the census that built
-  // the reading knows what it built and a word list only guesses. Undeclared sources fall to kernelDecidable.
+  // THE CAPTAIN'S RULE: only a lead a program decides binds the release. A source that DECLARES it makes no claims about
+  // the ledger contributes none; every other lead holds exactly when it names a program that resolves (decidingProgramOf).
   const decidesOf = new Map(answered.map((s) => [s.source, s.decides]))
-  const holds = (l: Lead): boolean => decidesOf.get(l.source) !== false && kernelDecidable(l)
+  const holds = (l: Lead): boolean => decidesOf.get(l.source) !== false && decidingProgramOf(l, doorOf) !== null
   const holding = open.filter(holds)
   const reported = open.filter((l) => !holds(l))
   const ready = unmeasured.length === 0 && holding.length === 0
   const why = ready
-    ? `every one of ${sources.length} lead sources answered and no KERNEL-DECIDABLE lead is open — ${settled} settled, `
-      + `${reported.length} lead(s) reported without holding (a door, a host or a service, which no theorem decides). `
+    ? `every one of ${sources.length} lead sources answered and no lead with a deciding program is open — ${settled} settled, `
+      + `${reported.length} lead(s) ship as known limitations (no program decides them). `
       + 'A release may ship.'
     : unmeasured.length
       ? `${unmeasured.length} of ${sources.length} lead sources could NOT be read (${unmeasured.join(', ')}), so this is not a clean census — it is an absent one. A release must not ship on a reading nobody took.`
-      : `${holding.length} KERNEL-DECIDABLE lead(s) still in trial across ${answered.length} source(s), with `
-        + `${reported.length} more reported that no theorem could decide. A release is the act of saying the tree is what `
+      : `${holding.length} lead(s) with a deciding program still open across ${answered.length} source(s), with `
+        + `${reported.length} more shipping as known limitations. A release is the act of saying the tree is what `
         + 'it claims, so a claim about the ledger holds it — settle it, or refute it with a measurement.'
   return {
     sources: [...sources], open, holding, reported, unmeasured, settled,
@@ -195,7 +181,8 @@ export function renderCensus(c: LeadCensus, limit = 12): string[] {
 
 // ── WHICH INSTRUMENT COULD SETTLE A LEAD ─────────────────────────────────────────────────────────────────────────
 //
-// `kernelDecidable` above answers a coarse question: is this lead ABOUT the ledger, or about a door, a host, a key.
+// `decidingProgramOf` above answers one question: does a program decide this lead. The retired `kernelDecidable` answered
+// a coarser one by reading prose (is this lead ABOUT the ledger, or about a door, a host, a key).
 // Reading the leads it kept verbatim shows the coarse answer hides a split that decides whether automation is even
 // possible — and the two rules belong in one file because the second exists to CHECK the first (misfiledDoorRequests
 // at the end). They were written apart for a day and that day is the whole argument for putting them together: a
@@ -344,7 +331,7 @@ export function owesCensus(leads: readonly Lead[]): OwesCensus {
 }
 
 /**
- * A lead the shape-reader calls a DOOR REQUEST while `kernelDecidable` lets it hold a release.
+ * A lead the shape-reader calls a DOOR REQUEST while it holds a release (it names a program that resolves).
  *
  * THIS IS THE GUARD THE FIX OWED. On 2026-09-28 `kernelDecidable` filed 31 gap records as claims about the ledger,
  * because its exclusion pattern matched `no mcp door`, `door missing` and `missing door` while `UUIDNA_MCP_GAP` writes
@@ -353,7 +340,7 @@ export function owesCensus(leads: readonly Lead[]): OwesCensus {
  * removed the leads; it did nothing to stop the next hand removing the correction.
  *
  * TWO RULES, WRITTEN FOR DIFFERENT PURPOSES, ASKED TO AGREE — which is the Rosetta discipline applied to a gate rather
- * than a theorem. `kernelDecidable` reads prose for what a lead is ABOUT; `owedInstrument` reads the fixed shape the
+ * than a theorem. `decidingProgramOf` reads the program a lead names; `owedInstrument` reads the fixed shape the
  * tree EMITS. Neither is derived from the other, so a disagreement is information: either the emitted shape changed and
  * the prose rule has not caught up, or the prose rule was edited back. Both are the same defect arriving from either
  * end, and both are caught here.
