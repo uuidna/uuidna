@@ -23,3 +23,6 @@ mirror/.rootfs/
 # a scratch note left in a SERVED directory by another session — ignored so it is never published,
 # and left on disk because it is not this session's to delete
 docs/public/paste.txt
+
+# per-process test receipts the runner writes at the root; the run keeps its own record
+test-receipts.*.jsonl
