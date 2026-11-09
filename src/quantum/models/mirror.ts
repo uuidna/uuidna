@@ -807,8 +807,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-26b-a4b-it",
    "name": "Google: Gemma 4 26B A4B ",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000675",
-   "completionPrice": "0.000000225"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "google/gemma-4-26b-a4b-it:free",
@@ -3173,7 +3173,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001824",
+   "promptPrice": "0.0000001539",
    "completionPrice": "0.0000105539"
   },
   {

@@ -10139,8 +10139,8 @@
     },
     {
       "key": "the_store_footprint_is_its_folders",
-      "lineAddress": "a1f6bf4f-76ec-8739-93a6-d2e24e61a7db",
-      "address": "bf624635-8111-884f-8408-fdaaecc73066",
+      "lineAddress": "5f6bbc08-a21d-8c9d-b8e8-8a536c0d540e",
+      "address": "cb68743a-8f0f-8afc-9259-67813a1e3896",
       "principle": "The build-host surface",
       "held": "discovery+formalisation"
     },
@@ -500334,8 +500334,8 @@
     },
     {
       "key": "the_generated_closure_partitions_into_three_kinds",
-      "lineAddress": "26abaf96-a288-8226-9373-c23fb6c78e38",
-      "address": "ec303f1e-2611-842e-af21-0348e9a4e938",
+      "lineAddress": "a4d0d58a-ab6c-8152-9dc8-59f826ba8318",
+      "address": "b6c8b4e6-372b-8286-b11e-236e82d7c5fe",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500348,15 +500348,15 @@
     },
     {
       "key": "most_of_the_unstated_remainder_stays_inside_one_wing",
-      "lineAddress": "a72494bd-4216-823d-aa05-ad126c459478",
-      "address": "8a8f109a-5ca8-8114-b615-2dc758e6505b",
+      "lineAddress": "8bdc3209-4cdb-84a6-a990-4fbd71b6105c",
+      "address": "f9f1197f-0e48-8cc0-82fe-9a91f23c243a",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
     {
       "key": "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
-      "lineAddress": "623351da-c090-8e47-9305-7081c3f2efd3",
-      "address": "2a874dc9-e7aa-891a-8868-dd1925058a2f",
+      "lineAddress": "c1ac26fd-84e1-85e2-bc57-f7e87a9edc4b",
+      "address": "5cea1023-22eb-844e-b2d8-857c59bcac21",
       "principle": "THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
       "held": "discovery+formalisation"
     },
@@ -500635,7 +500635,7 @@
       "held": "discovery+formalisation"
     }
   ],
-  "claim_receipt": "eb5d065f-9f1e-8e9a-ae36-34169452c4d7",
+  "claim_receipt": "0f494d5a-5622-8e55-96da-2ebd46ddee83",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

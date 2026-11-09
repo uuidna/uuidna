@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1710,
-  "distinct": 1437,
-  "loadBearing": 133,
+  "records": 1719,
+  "distinct": 1444,
+  "loadBearing": 134,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -316,6 +316,13 @@
       "hits": 3,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows a drained Agent prompt or its breaches",
+      "hits": 3,
+      "forms": [
+        "node --input-type=module -e"
       ]
     },
     {
@@ -3801,6 +3808,20 @@
       ]
     },
     {
+      "gap": "no door judges a drained call against the ledger at the call's own time",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door judges a drained call with the gate of its own time",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door lets a witness probe restatedConstants internals (vocabulary/matcher/file-filter) for lead a5572638",
       "hits": 1,
       "forms": [
@@ -3868,6 +3889,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door lists the court's unclaimed settlement orders",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -5153,6 +5181,13 @@
     },
     {
       "gap": "no door reports the axiom witness or the generate manifest",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports the baked edge root against the built site's ledger manifest",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -6567,6 +6602,13 @@
     },
     {
       "gap": "no door shows a named frozen width in context",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door shows a settlement's missing files",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8114,6 +8156,13 @@
     },
     {
       "gap": "the court investigator's reader census and top-level wing census have no MCP door",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "the court replays only gates written since its baseline, never the gate in force at the drained call's time",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
