@@ -16176,7 +16176,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "args": {
     "likelihood": "all"
    },
-   "excerpt": "{\"total\":64,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":64,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
+   "excerpt": "{\"total\":65,\"declaredDormantSkipped\":34,\"byLikelihood\":{\"high\":0,\"medium\":65,\"low\":0},\"gaps\":[{\"pattern\":\"unwired-script\",\"likelihood\":\"medium\",\"location\":\"src…"
   }
  },
  "uuidna_school_apis": {
