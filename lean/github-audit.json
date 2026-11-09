@@ -1,0 +1,440 @@
+{
+ "owner": "uuidna",
+ "repos": [
+  {
+   "repo": "lean",
+   "visibility": "public",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "pull requests",
+     "ok": false,
+     "measured": "1 open",
+     "why": "review and merge each, or close it with the reason",
+     "items": [
+      "#3 Bump the toolchain group across 1 directory with 3 updates by dependabot[bot]"
+     ]
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": true,
+     "measured": "no open alerts",
+     "why": ""
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "no analysis found",
+     "why": "turn code scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "1 of 2 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/deploy.yml"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main is not protected",
+     "why": "protect main (required checks, no force-push), or record why it stays open"
+    }
+   ]
+  },
+  {
+   "repo": "payload",
+   "visibility": "private",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "pull requests",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": false,
+     "measured": "Dependabot alerts are disabled for this repository.",
+     "why": "turn Dependabot alerts on for this repository, or record why it stays off"
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "Advanced Security must be enabled for this repository to use code scanning.",
+     "why": "turn code scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "2 of 2 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/ci.yml",
+      ".github/workflows/deploy.yml"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main cannot be protected on the current plan",
+     "why": "upgrade the plan, make the repository public, or record why the branch stays unprotected"
+    }
+   ]
+  },
+  {
+   "repo": "qpu",
+   "visibility": "public",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": false,
+     "measured": "6 open",
+     "why": "answer each issue, or close it with the reason",
+     "items": [
+      "#12 examine: qpu.uuidna.com has findings",
+      "#28 next: e2e step crashes natively",
+      "#29 next: verify step crashes natively",
+      "#30 next: readiness exceeds its 300 s budget",
+      "#31 next: claims exceeds its 600 s budget",
+      "#32 docs:build: dead links"
+     ]
+    },
+    {
+     "name": "pull requests",
+     "ok": false,
+     "measured": "5 open",
+     "why": "review and merge each, or close it with the reason",
+     "items": [
+      "#33 Bump actions/setup-node from 5.0.0 to 7.1.0 by dependabot[bot]",
+      "#35 Bump actions/checkout from 5.1.0 to 7.0.1 by dependabot[bot]",
+      "#36 Bump pnpm/action-setup from 4.3.0 to 6.1.0 by dependabot[bot]",
+      "#39 Bump actions/upload-artifact from 4.6.2 to 7.0.2 by dependabot[bot]",
+      "#40 Land the day's commits and the fork move on main as a fast-forward by ceccec"
+     ]
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": true,
+     "measured": "no open alerts",
+     "why": ""
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "100 open",
+     "why": "fix each rule the scanner flags, or dismiss each alert with its reason",
+     "items": [
+      "79 × warning js/redundant-operation",
+      "19 × note js/unused-local-variable",
+      "1 × warning js/regex/missing-regexp-anchor",
+      "1 × warning js/useless-assignment-to-local"
+     ]
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "4 of 5 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/compare.yml",
+      ".github/workflows/deploy.yml",
+      ".github/workflows/next.yml",
+      ".github/workflows/publish.yml"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": true,
+     "measured": "main is protected",
+     "why": ""
+    }
+   ]
+  },
+  {
+   "repo": "school",
+   "visibility": "public",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "pull requests",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": true,
+     "measured": "no open alerts",
+     "why": ""
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "no analysis found",
+     "why": "turn code scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "1 of 1 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/ci.yml"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main is not protected",
+     "why": "protect main (required checks, no force-push), or record why it stays open"
+    }
+   ]
+  },
+  {
+   "repo": "unreal",
+   "visibility": "public",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "pull requests",
+     "ok": false,
+     "measured": "1 open",
+     "why": "review and merge each, or close it with the reason",
+     "items": [
+      "#1 Bump the toolchain group with 3 updates by dependabot[bot]"
+     ]
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": true,
+     "measured": "no open alerts",
+     "why": ""
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "no analysis found",
+     "why": "turn code scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": true,
+     "measured": "3 workflow(s), none failing on main",
+     "why": ""
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main is not protected",
+     "why": "protect main (required checks, no force-push), or record why it stays open"
+    }
+   ]
+  },
+  {
+   "repo": "uuidna",
+   "visibility": "public",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": false,
+     "measured": "1 open",
+     "why": "answer each issue, or close it with the reason",
+     "items": [
+      "#4 The ledger reports itself clean while 12 of 21 self-audit doors refuse"
+     ]
+    },
+    {
+     "name": "pull requests",
+     "ok": false,
+     "measured": "1 open",
+     "why": "review and merge each, or close it with the reason",
+     "items": [
+      "#6 Bump undici from 7.29.0 to 7.29.1 in the npm_and_yarn group across 1 directory by dependabot[bot]"
+     ]
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": false,
+     "measured": "22 open",
+     "why": "upgrade the vulnerable dependencies, or dismiss each alert with its reason",
+     "items": [
+      "5 × high undici",
+      "4 × medium vite",
+      "3 × low undici",
+      "3 × medium undici",
+      "1 × high @vue/server-renderer",
+      "1 × high sharp",
+      "1 × high source-map-js",
+      "1 × high vite",
+      "1 × low vite",
+      "1 × medium brace-expansion",
+      "1 × medium minimatch"
+     ]
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "32 open",
+     "why": "fix each rule the scanner flags, or dismiss each alert with its reason",
+     "items": [
+      "11 × warning js/polynomial-redos",
+      "9 × warning js/incomplete-sanitization",
+      "5 × warning js/incomplete-multi-character-sanitization",
+      "2 × error js/redos",
+      "2 × warning js/incomplete-url-substring-sanitization",
+      "1 × error js/regex-injection",
+      "1 × warning js/identity-replacement",
+      "1 × warning js/stack-trace-exposure"
+     ]
+    },
+    {
+     "name": "secret scanning",
+     "ok": true,
+     "measured": "no open alerts",
+     "why": ""
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "2 of 11 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/outward.yml",
+      ".github/workflows/research.yml"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main is not protected",
+     "why": "protect main (required checks, no force-push), or record why it stays open"
+    }
+   ]
+  },
+  {
+   "repo": "verify",
+   "visibility": "private",
+   "branch": "main",
+   "checks": [
+    {
+     "name": "issues",
+     "ok": true,
+     "measured": "none open",
+     "why": ""
+    },
+    {
+     "name": "pull requests",
+     "ok": false,
+     "measured": "1 open",
+     "why": "review and merge each, or close it with the reason",
+     "items": [
+      "#9 Bump the toolchain group across 1 directory with 43 updates by dependabot[bot]"
+     ]
+    },
+    {
+     "name": "Dependabot alerts",
+     "ok": false,
+     "measured": "Dependabot alerts are disabled for this repository.",
+     "why": "turn Dependabot alerts on for this repository, or record why it stays off"
+    },
+    {
+     "name": "code scanning",
+     "ok": false,
+     "measured": "Advanced Security must be enabled for this repository to use code scanning.",
+     "why": "turn code scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "secret scanning",
+     "ok": false,
+     "measured": "Secret scanning is disabled on this repository.",
+     "why": "turn secret scanning on for this repository, or record why it stays off"
+    },
+    {
+     "name": "workflows on the default branch",
+     "ok": false,
+     "measured": "2 of 2 failing on main",
+     "why": "make each workflow pass on the default branch, or remove it",
+     "items": [
+      ".github/workflows/publish.yml",
+      "dynamic/dependabot/dependabot-updates"
+     ]
+    },
+    {
+     "name": "branch protection",
+     "ok": false,
+     "measured": "main cannot be protected on the current plan",
+     "why": "upgrade the plan, make the repository public, or record why the branch stays unprotected"
+    }
+   ]
+  }
+ ],
+ "checked": 49,
+ "failed": 35,
+ "unread": 0,
+ "receipt": "88449c98-66fa-8af3-973e-3e3295e14e47",
+ "crossed": {
+  "sorted": "88449c98-66fa-8af3-973e-3e3295e14e47",
+  "reversed": "88449c98-66fa-8af3-973e-3e3295e14e47",
+  "agrees": true
+ }
+}
