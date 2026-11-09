@@ -1,0 +1,12 @@
+{
+  "handle": "7903921e",
+  "address": "7903921e-6c86-8525-bac0-c6aa5e1e34ec",
+  "statement": "((449 * 100 < 432543) ∧ (1280 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
+  "tactic": "decide",
+  "keys": [
+    "the_corpus_has_sealed_under_a_hundredth_of_its_own_closure"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

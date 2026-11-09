@@ -1782,7 +1782,7 @@ Call `predict_gaps` — the old name `uuidna_predict` still answers · read-only
 // arguments
 {"likelihood":"all"}
 // answer (excerpt)
-{"total":64,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":64,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
+{"total":65,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":65,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
 ```
 
 **Parameters**

@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1697,
-  "distinct": 1428,
-  "loadBearing": 132,
+  "records": 1710,
+  "distinct": 1437,
+  "loadBearing": 133,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -146,6 +146,15 @@
       ]
     },
     {
+      "gap": "no door reads source",
+      "hits": 4,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "export",
+        "ls"
+      ]
+    },
+    {
       "gap": "no door returns verbatim lead records for witness faithfulness judgment",
       "hits": 4,
       "forms": [
@@ -262,6 +271,13 @@
     },
     {
       "gap": "no door reads a lead record by handle from lean/leads.json",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reports git state",
       "hits": 3,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -512,10 +528,11 @@
       ]
     },
     {
-      "gap": "no door reads source",
+      "gap": "no door reads generated docs",
       "hits": 2,
       "forms": [
-        "UUIDNA_MCP_GAP"
+        "S",
+        "export"
       ]
     },
     {
@@ -572,13 +589,6 @@
       "hits": 2,
       "forms": [
         "node --input-type=module -e"
-      ]
-    },
-    {
-      "gap": "no door reports git state",
-      "hits": 2,
-      "forms": [
-        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -3224,6 +3234,13 @@
       ]
     },
     {
+      "gap": "no door calls a list of doors in one request",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door censuses the ledger's formulas",
       "hits": 1,
       "forms": [
@@ -3284,6 +3301,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door commits by pathspec",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -4099,6 +4123,27 @@
       ]
     },
     {
+      "gap": "no door names the baked edge root",
+      "hits": 1,
+      "forms": [
+        "tail"
+      ]
+    },
+    {
+      "gap": "no door names the baked root",
+      "hits": 1,
+      "forms": [
+        "tail"
+      ]
+    },
+    {
+      "gap": "no door names the committed baked root",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door names which certification step runs a finder as a refusing command",
       "hits": 1,
       "forms": [
@@ -4463,13 +4508,6 @@
       ]
     },
     {
-      "gap": "no door reads generated docs",
-      "hits": 1,
-      "forms": [
-        "S"
-      ]
-    },
-    {
       "gap": "no door reads or bumps a sibling repo's version surfaces",
       "hits": 1,
       "forms": [
@@ -4491,6 +4529,13 @@
       ]
     },
     {
+      "gap": "no door reads the deploy log",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads the door-surface finding file",
       "hits": 1,
       "forms": [
@@ -4502,6 +4547,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the land log",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -6521,6 +6573,13 @@
       ]
     },
     {
+      "gap": "no door shows asset headers",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "no door shows how a single lead is RENDERED on the school/leads surfaces (reopened vs closed, what it owes); open_leads refuses at the edge",
       "hits": 1,
       "forms": [
@@ -7764,6 +7823,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "regenerating MCP docs and the tool-exercise baseline has no door",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
