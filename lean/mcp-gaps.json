@@ -1,10 +1,25 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1859,
-  "distinct": 1524,
-  "loadBearing": 153,
+  "records": 2015,
+  "distinct": 1582,
+  "loadBearing": 168,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
+    {
+      "gap": "explore lean and programs",
+      "hits": 42,
+      "forms": [
+        "cd"
+      ]
+    },
+    {
+      "gap": "explore qpu lean",
+      "hits": 21,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "cd"
+      ]
+    },
     {
       "gap": "no door commits a pathspec",
       "hits": 18,
@@ -39,6 +54,13 @@
     },
     {
       "gap": "no door edits a local qpu worktree",
+      "hits": 10,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits qpu lean modules",
       "hits": 10,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -99,6 +121,13 @@
       ]
     },
     {
+      "gap": "no door reads qpu lean modules",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "read-only grep census over src for the court wave (no MCP door greps source text)",
       "hits": 6,
       "forms": [
@@ -151,10 +180,24 @@
       ]
     },
     {
+      "gap": "no door measures folded before staging",
+      "hits": 5,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reports the tree holder",
       "hits": 5,
       "forms": [
         "tail"
+      ]
+    },
+    {
+      "gap": "no door searches qpu sources",
+      "hits": 5,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -163,6 +206,13 @@
       "forms": [
         "UUIDNA_MCP_GAP",
         "W"
+      ]
+    },
+    {
+      "gap": "debugs the qpu classify door",
+      "hits": 4,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -183,6 +233,13 @@
     },
     {
       "gap": "no door compiles candidate Lean source and returns #print axioms for a court proposal",
+      "hits": 4,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits the qpu runner",
       "hits": 4,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -313,6 +370,20 @@
     },
     {
       "gap": "no door edits a scratch Lean draft",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits qpu sources",
+      "hits": 3,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door finds qpu theorem citations",
       "hits": 3,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -614,6 +685,13 @@
       ]
     },
     {
+      "gap": "no door explains uuid programs",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door greps Lean sources",
       "hits": 2,
       "forms": [
@@ -639,6 +717,13 @@
       "hits": 2,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door pairs textbook and module theorems",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -887,6 +972,13 @@
       ]
     },
     {
+      "gap": "no door shows a qpu diff",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door stages or commits the tree",
       "hits": 2,
       "forms": [
@@ -993,6 +1085,20 @@
     },
     {
       "gap": "running the bare lean kernel on a candidate wing before it enters the tree",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs the qpu machine next waves",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs the textbook lean generator door and lake build",
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -1896,6 +2002,34 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "checks callTool by UUID for the quantum program",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "checks one lean proof with the kernel",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "checks the new theorems in the regenerated ledger",
+      "hits": 1,
+      "forms": [
+        "tail"
+      ]
+    },
+    {
+      "gap": "checks whether two changed sources were written by the Lean pipeline",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -2949,6 +3083,13 @@
       ]
     },
     {
+      "gap": "guards and commits the UUID program wing",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
       "gap": "honest discovery ranking without the flawed filter",
       "hits": 1,
       "forms": [
@@ -3019,6 +3160,13 @@
       ]
     },
     {
+      "gap": "inventories the open leads that block publication",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "investigator reads leads.json rows",
       "hits": 1,
       "forms": [
@@ -3062,6 +3210,13 @@
     },
     {
       "gap": "kernel-checking the two crossings",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "kernel-checks a scratch lean file against the qpu build",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -3128,6 +3283,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "lists every open lead",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -3383,6 +3545,13 @@
       ]
     },
     {
+      "gap": "mints a UUID program call and runs it at the edge",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "name the key the kernel's axiom receipt holds and the ledger does not: the crosscheck prints a count, not the key",
       "hits": 1,
       "forms": [
@@ -3464,6 +3633,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "no door appends a textbook theorem",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -3583,6 +3759,13 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door compares a branch's content with another branch's tree",
+      "hits": 1,
+      "forms": [
+        "cd"
       ]
     },
     {
@@ -3929,6 +4112,20 @@
       ]
     },
     {
+      "gap": "no door edits qpu prose",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits qpu textbook entries",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door edits the catalogue",
       "hits": 1,
       "forms": [
@@ -4195,6 +4392,13 @@
       ]
     },
     {
+      "gap": "no door lists qpu hardware figures",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists sealed coin, coil and clay involution theorems",
       "hits": 1,
       "forms": [
@@ -4314,6 +4518,13 @@
       ]
     },
     {
+      "gap": "no door lists unbuilt qpu lean files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists WHICH theorems lack a rosetta leg — uuidna_rosetta_legs reports per-leg counts and one key at a time, but mint-gate refuses on the set and nothing names it",
       "hits": 1,
       "forms": [
@@ -4426,6 +4637,13 @@
       ]
     },
     {
+      "gap": "no door measures per-file byte growth",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door measures repeated facts inside a generated doc",
       "hits": 1,
       "forms": [
@@ -4504,6 +4722,13 @@
     },
     {
       "gap": "no door names the committed baked root",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door names the writer of lean/axioms.json",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -4895,6 +5120,20 @@
       ]
     },
     {
+      "gap": "no door reads a qpu lean module",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads a qpu source span",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads a single lean/leads.json row by its computed handle (handleOf(toUuid(row.lead))) — witness rosetta needs lead+killed_by verbatim",
       "hits": 1,
       "forms": [
@@ -4941,6 +5180,27 @@
       "hits": 1,
       "forms": [
         "export"
+      ]
+    },
+    {
+      "gap": "no door reads qpu doc headers",
+      "hits": 1,
+      "forms": [
+        "cat"
+      ]
+    },
+    {
+      "gap": "no door reads qpu docs",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads qpu sources",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -5000,6 +5260,13 @@
       ]
     },
     {
+      "gap": "no door reads the folded rule",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads the ISO vocabulary table in a local qpu worktree",
       "hits": 1,
       "forms": [
@@ -5022,6 +5289,27 @@
     },
     {
       "gap": "no door reads the leads record",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the lean uuid program",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the qpu lakefile",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads the qpu theorem index",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5092,6 +5380,13 @@
     },
     {
       "gap": "no door regenerates or reports the 2x7 witness seals for a named involution",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door removes a qpu lean module",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -7114,6 +7409,20 @@
       ]
     },
     {
+      "gap": "no door sizes qpu hand-written files",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door sizes qpu lean modules",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door snapshots the wings' bytes before a refactor",
       "hits": 1,
       "forms": [
@@ -7563,6 +7872,13 @@
     },
     {
       "gap": "per-tool wire rate recomputation for the court measurement",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "perturbation controls for the UUID program wing",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8276,6 +8592,20 @@
       ]
     },
     {
+      "gap": "reads a past wave receipt and finds its workflow script",
+      "hits": 1,
+      "forms": [
+        "node -e"
+      ]
+    },
+    {
+      "gap": "reads a qpu source span",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "reads the age and shape of the uncommitted work",
       "hits": 1,
       "forms": [
@@ -8290,10 +8620,38 @@
       ]
     },
     {
+      "gap": "reads the existing wave runner and a past receipt",
+      "hits": 1,
+      "forms": [
+        "node -e"
+      ]
+    },
+    {
       "gap": "reads the import and type anchors for the search wiring",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the PRINCIPLE table format and generator skills",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the prose-trial census and the open-lead count",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the qpu exact quantum Lean core to port into uuidna",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8315,6 +8673,20 @@
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "reads the wave receipt validator",
+      "hits": 1,
+      "forms": [
+        "export"
+      ]
+    },
+    {
+      "gap": "reads the wing generator shape",
+      "hits": 1,
+      "forms": [
+        "export"
       ]
     },
     {
@@ -8494,6 +8866,13 @@
     },
     {
       "gap": "run the bare Lean kernel on a candidate involution in a scratch directory; qpu_lean is not reachable offline for a scratch file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "runs lake build on qpu",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -8742,6 +9121,13 @@
       "hits": 1,
       "forms": [
         "node -e"
+      ]
+    },
+    {
+      "gap": "tightens the program mirror to exact equal shares",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -10698,10 +11084,31 @@
       ]
     },
     {
+      "gap": "writes qpu hardware lean modules",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "writes qpu's regenerated README from the configure door",
       "hits": 1,
       "forms": [
         "cd"
+      ]
+    },
+    {
+      "gap": "writes the open-lead orders for a 2x7 wave",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e`, `S"
+      ]
+    },
+    {
+      "gap": "writes the UUID quantum program wing generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {

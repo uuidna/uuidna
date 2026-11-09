@@ -1,0 +1,12 @@
+{
+  "handle": "66af546d",
+  "address": "66af546d-9357-8f63-9963-82cd9c31fb22",
+  "statement": "Same 8 (mm 8 TOFFOLI (dag TOFFOLI)) idm ∧ Same 8 (mm 8 TOFFOLI TOFFOLI) idm",
+  "tactic": "decide +kernel",
+  "keys": [
+    "uuidprog_toffoli"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

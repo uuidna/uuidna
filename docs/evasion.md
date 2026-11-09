@@ -13,7 +13,7 @@ description: Every trick with the finder that catches it and the seal that convi
 
 | metric | value | unit |
 |---|---|---|
-| sealed theorems | **71106** | by decide, axiom-free |
+| sealed theorems | **71114** | by decide, axiom-free |
 | prose unverified | **15742** / 23176 | paragraphs — doors, not defeats |
 | prose drained | **0** / 23176 | fabricated citations caught |
 | leads in trial | **48** | leads awaiting their two coins |
@@ -21,11 +21,11 @@ description: Every trick with the finder that catches it and the seal that convi
 | refused at boundary | **0** | sources that answered 418, named |
 | tricks catalogued | **10** | each with its finder and its convicting seal |
 
-Board fold: `4028dcf5` — recompute it from these figures or the tape has moved.
+Board fold: `7eb87150` — recompute it from these figures or the tape has moved.
 
 **The catches, sung** — the board's own address on the lattice:
 
-<HexbitPlayer :states="[4,0,2,8,13,12,15,5,13,6,11,11,8,6,14,4,11,3,14,8,8,9,15,10,1,4,11,5,13,14,4,4]" />
+<HexbitPlayer :states="[7,14,11,8,7,1,5,0,2,14,6,6,8,10,10,11,8,10,15,5,5,8,0,13,14,7,5,1,1,5,2,5]" />
 
 ## The catalogue — 10 tricks, each convicted at least once
 

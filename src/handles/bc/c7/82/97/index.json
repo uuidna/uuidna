@@ -1,0 +1,12 @@
+{
+  "handle": "bcc78297",
+  "address": "bcc78297-a60f-8e64-b837-c84611c46621",
+  "kind": "chunk",
+  "keys": [
+    "the_measured_store_uses_a_vanishing_share"
+  ],
+  "statement": "(2573421411 = (71742 * (71742 - 1)) / 2) ∧ (2573421411 > 2000 * 71741)",
+  "files": [
+    "Crosslink.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1f5ba972",
+  "address": "1f5ba972-f088-8a7c-8ba8-e2940df0623a",
+  "statement": "Same 2 (mm 2 H (dag H)) (smul 2 idm)",
+  "tactic": "decide",
+  "keys": [
+    "uuidprog_h_unitary"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

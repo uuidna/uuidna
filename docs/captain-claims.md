@@ -3,11 +3,11 @@
 **Generated:** 2026-11-09
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Formalisation claimed:** 71106/71106 theorems — every one, by construction
-**Discovery claimed:** 70694 — the other 412 restate a fact a named source found first
+**Formalisation claimed:** 71114/71114 theorems — every one, by construction
+**Discovery claimed:** 70702 — the other 412 restate a fact a named source found first
 
 *The 412 is a FLOOR, not a count.* Three instruments that fail differently locate it (a name list, an eponym shape, a unit match); 347 of 382 are found by exactly one of them and 2 by all three, so they barely overlap. On the only rows whose answer this tree already knows the classifier scores 22/30 — it misses Eratosthenes, Landauer and Van de Graaf because those names are not on its list, and they were deliberately left off rather than added to flatter the score. The true figure is higher by an amount no instrument here can name.
-**Claim receipt:** `76be158b-e80a-876f-9547-7ca9c04a76b7`
+**Claim receipt:** `561de52f-65c3-80be-a6e9-42c9790f6b1c`
 
 ### Facts the captain does not claim to have discovered
 
@@ -139,6 +139,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [involution_census_self_explains](/theorem/involution_census_self_explains) · [happy_ending_verified_cases](/theorem/happy_ending_verified_cases) · [units_iff_invertible](/theorem/units_iff_invertible) · [lagrange_units](/theorem/lagrange_units) · [inverse_unique](/theorem/inverse_unique) · [nilpotent_iff_triple](/theorem/nilpotent_iff_triple) · [idempotents_zero_one](/theorem/idempotents_zero_one) · [vortex_is_the_units](/theorem/vortex_is_the_units) · [sum_of_units_zero](/theorem/sum_of_units_zero) · [order_of_one_is_one](/theorem/order_of_one_is_one) · [order_of_two_is_six](/theorem/order_of_two_is_six) · [order_of_four_is_three](/theorem/order_of_four_is_three) · [order_of_five_is_six](/theorem/order_of_five_is_six) · [order_of_seven_is_three](/theorem/order_of_seven_is_three) · [order_of_eight_is_two](/theorem/order_of_eight_is_two) · [generators_are_two_and_five](/theorem/generators_are_two_and_five)
+
+### UUID quantum programs
+
+- **Theorems:** 8
+- **Sample lineAddress:** `3e01e53d-3080-8cbb-976e-e5315ef8f460`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[uuidprog_address](/theorem/uuidprog_address) · [uuidprog_layout](/theorem/uuidprog_layout) · [uuidprog_h_unitary](/theorem/uuidprog_h_unitary) · [uuidprog_paulis_unitary](/theorem/uuidprog_paulis_unitary) · [uuidprog_cnot_swap](/theorem/uuidprog_cnot_swap) · [uuidprog_toffoli](/theorem/uuidprog_toffoli) · [uuidprog_bell_runs](/theorem/uuidprog_bell_runs) · [uuidprog_ghz_runs](/theorem/uuidprog_ghz_runs)
 
 ### The quantum computer
 
@@ -467,7 +476,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The build-host surface
 
 - **Theorems:** 2
-- **Sample lineAddress:** `5f6bbc08-a21d-8c9d-b8e8-8a536c0d540e`
+- **Sample lineAddress:** `4b973470-41c7-89bd-983b-d4967e9f039a`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -476,7 +485,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The forensic odds
 
 - **Theorems:** 3
-- **Sample lineAddress:** `e1d34ef9-89d0-8a52-af69-e45c281884f5`
+- **Sample lineAddress:** `02cf827b-6f80-8daf-801f-4cb29ccacecb`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2357,7 +2366,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25
 
 - **Theorems:** 5
-- **Sample lineAddress:** `502a23e0-9f55-8c05-bc47-d06457d850cc`
+- **Sample lineAddress:** `08bf6402-3b6d-87f1-8c02-b03298aa66d7`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2384,7 +2393,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### THE DOOR SURFACE
 
 - **Theorems:** 3
-- **Sample lineAddress:** `3fa71a57-4961-8cd5-a3be-57235b3565a7`
+- **Sample lineAddress:** `9aed6a11-d51c-8d04-9822-7d3c9aa858e9`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -2436,7 +2445,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 71020 (71106 entries, 86 re-namings — a theorem is its Lean |
+| sealed propositions | 71028 (71114 entries, 86 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 23176 — 7434 usable, 15742 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -2454,7 +2463,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 71106 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 71114 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
@@ -2466,7 +2475,7 @@ everything may be brought, nothing is decided by ownership.
 
 **This claim proves:**
 - ✓ Every theorem is claimed — the claim unit is the theorem itself (lineAddress)
-- ✓ The captain formalised all 71106; he claims discovery of 70694 and credits the other 412 facts to their named sources
+- ✓ The captain formalised all 71114; he claims discovery of 70702 and credits the other 412 facts to their named sources
 - ✓ These theorems are Lean-verified: each is kernel-checked and its #print axioms verdict names no axiom
 - ✓ All are proven sorry-free
 - ✓ The captain takes responsibility for all claims
@@ -2482,7 +2491,7 @@ everything may be brought, nothing is decided by ownership.
 
 ## Signature
 
-> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71106; of these I claim discovery of 70694, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
+> By this claim, the captain asserts: "Every theorem in the ledger is claimed, by its own line content, indexed by TS computation over the sealed Lean source — not by a hand-picked bucket. I claim the formalisation of all 71114; of these I claim discovery of 70702, and the remaining 412 restate a fact I credit to its named source — a floor, honestly incomplete. Facts are free; the choice of expression is mine. I hold 2 coins (conserved). Verify yourself: npm run lean."
 
 **— The Captain** (2 coins, conserved invariant)
 

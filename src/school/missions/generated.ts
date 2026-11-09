@@ -3,7 +3,7 @@
 import type { BoundSlice } from './index.js'
 
 export const BOUND_SLICE: BoundSlice = {
- "digest": "08d18f0a9b903a70",
+ "digest": "a6ee67f27d587544",
  "rows": [
   {
    "key": "z7rays_seven",
@@ -389,6 +389,16 @@ export const BOUND_SLICE: BoundSlice = {
    "key": "generators_are_two_and_five",
    "wing": "Discover.lean",
    "verdict": "survived-widening"
+  },
+  {
+   "key": "uuidprog_bell_runs",
+   "wing": "UuidProgram.lean",
+   "verdict": "base-undecidable"
+  },
+  {
+   "key": "uuidprog_ghz_runs",
+   "wing": "UuidProgram.lean",
+   "verdict": "base-undecidable"
   },
   {
    "key": "bell_perfect_correlation",

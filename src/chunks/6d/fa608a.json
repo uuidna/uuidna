@@ -1,0 +1,12 @@
+{
+  "handle": "6dfa608a",
+  "address": "6dfa608a-7d18-82dc-a8f5-6a2bb259695d",
+  "statement": "Same 4 (mm 4 CNOT (dag CNOT)) idm ∧ Same 4 (mm 4 CNOT CNOT) idm ∧ Same 4 (mm 4 SWAP (dag SWAP)) idm ∧ Same 4 (mm 4 SWAP SWAP) idm",
+  "tactic": "decide",
+  "keys": [
+    "uuidprog_cnot_swap"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

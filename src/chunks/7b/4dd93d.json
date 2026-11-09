@@ -1,0 +1,12 @@
+{
+  "handle": "7b4dd93d",
+  "address": "7b4dd93d-a630-85c0-992f-53daad83dcbd",
+  "statement": "(List.range 8).map (fun r => (ghz r).normSq) = [1, 0, 0, 0, 0, 0, 0, 1]",
+  "tactic": "decide +kernel",
+  "keys": [
+    "uuidprog_ghz_runs"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

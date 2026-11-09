@@ -1,0 +1,12 @@
+{
+  "handle": "248dad3c",
+  "address": "248dad3c-49f3-82e4-bf68-9813b40f3b39",
+  "kind": "chunk",
+  "keys": [
+    "uuidprog_layout"
+  ],
+  "statement": "quantumProgram.handle ++ quantumProgram.program ++ quantumProgram.params ++ quantumProgram.envelope = quantumProgram.hex",
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

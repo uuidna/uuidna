@@ -1,0 +1,12 @@
+{
+  "handle": "e5932b0b",
+  "address": "e5932b0b-7d7d-85cc-9549-2153400f7330",
+  "statement": "Same 2 (mm 2 X (dag X)) idm ∧ Same 2 (mm 2 Z (dag Z)) idm ∧ Same 2 (mm 2 S (dag S)) idm ∧ Same 2 (mm 2 S S) Z",
+  "tactic": "decide",
+  "keys": [
+    "uuidprog_paulis_unitary"
+  ],
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

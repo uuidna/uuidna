@@ -1,0 +1,12 @@
+{
+  "handle": "0e2ef28e",
+  "address": "0e2ef28e-0b95-8bc6-839f-37262a0143d7",
+  "kind": "chunk",
+  "keys": [
+    "uuidprog_bell_runs"
+  ],
+  "statement": "(List.range 4).map (fun r => (bell r).normSq) = [1, 0, 0, 1]",
+  "files": [
+    "UuidProgram.lean"
+  ]
+}

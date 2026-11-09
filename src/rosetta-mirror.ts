@@ -70330,6 +70330,15 @@ address_never_determines_payload 27
 #UuidMix.lean
 uuid_mix_census_is_quantum 27
 the_mix_space_is_its_own_mirror 27
+#UuidProgram.lean
+uuidprog_address 19
+uuidprog_layout 19
+uuidprog_h_unitary 19
+uuidprog_paulis_unitary 19
+uuidprog_cnot_swap 19
+uuidprog_toffoli 19
+uuidprog_bell_runs 19
+uuidprog_ghz_runs 19
 #Uuidna.lean
 units_z9 26
 vortex_orbit 26

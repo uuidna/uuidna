@@ -1,0 +1,12 @@
+{
+  "handle": "4bca3204",
+  "address": "4bca3204-85b5-8f10-a852-de3981646355",
+  "statement": "(714 + 70947 + 76 + 5 = 71742) ∧ (81 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_leaf_is_not_one_uuid_but_a_folder"
+  ],
+  "files": [
+    "Crosslink.lean"
+  ]
+}
