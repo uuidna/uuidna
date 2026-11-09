@@ -48,7 +48,7 @@ export interface AuditOrder { kind: string; subject: string; why: string; addres
 /** the fields of a legal-audit record the investigator reads */
 export interface DrainedRecord { seq: number; tool: string; args: string; clean: boolean; gate: string; allHold: boolean; failing?: string[]; signals?: { honesty?: number } }
 /** a tool call found in a transcript, by the content address of its input */
-export interface CallInput { input: Record<string, unknown>; mine: boolean; who: string }
+export interface CallInput { input: Record<string, unknown>; mine: boolean; who: string; at?: string }
 /** the recomputations a class needs — injected, so the classes are tested against controls without a ledger */
 export interface Judges {
   /** the court's breaches for this statement NOW (auditAction) */
@@ -57,7 +57,8 @@ export interface Judges {
   cited(statement: string): string[]
   /** is this key sealed AFTER the baseline the drained calls were judged against */
   sealedSince(key: string): boolean
-  /** the names a gate version in force since the baseline fabricates in this statement (empty when none does) */
+  /** the names a gate version in force since the baseline, or at a drained call's own time, fabricates in this statement
+   *  (empty when none does) */
   oldGate(statement: string): string[]
 }
 export interface CallVerdict { seq: number; tool: string; who: string; classes: string[]; explained: boolean; context: string }
@@ -186,12 +187,12 @@ export function callsIn(files: readonly string[], mine?: string): Map<string, Ca
     try { text = readFileSync(f, 'utf8') } catch { continue }
     for (const l of text.split('\n')) {
       if (!l.includes('"tool_use"')) continue
-      let e: { message?: { content?: unknown } }
+      let e: { timestamp?: string; message?: { content?: unknown } }
       try { e = JSON.parse(l) as typeof e } catch { continue }
       const c = e.message?.content
       if (!Array.isArray(c)) continue
       for (const b of c as { type?: string; input?: Record<string, unknown> }[]) {
-        if (b.type === 'tool_use' && b.input) by.set(toUuid(canonicalJson(b.input)), { input: b.input, mine: f === mine, who: basename(f).slice(0, 22) })
+        if (b.type === 'tool_use' && b.input) by.set(toUuid(canonicalJson(b.input)), { input: b.input, mine: f === mine, who: basename(f).slice(0, 22), at: e.timestamp })
       }
     }
   }
@@ -206,13 +207,16 @@ const ledgerKeysAt = (rev: string): Set<string> | null => {
 
 /** the gate versions in force since the baseline, as callable gates: the version AT the baseline and every version a
  *  commit since then wrote, minus the current one. With no recorded baseline, the version before the newest commit that
- *  changed the gate — "the commit before the gate fix", found from the gate's own history. */
-const priorGates = async (baseline: string, head: string): Promise<((s: string) => { fabricated: string[] })[]> => {
+ *  changed the gate — "the commit before the gate fix", found from the gate's own history. Plus the version each drained
+ *  call was judged by: the commit in force at its transcript time, since a gate fix older than the baseline (the D2 prompt's
+ *  `involution_<handle>`, read as a citation until a2d59d188f) is otherwise never replayed. */
+const priorGates = async (baseline: string, head: string, atCalls: readonly string[] = []): Promise<((s: string) => { fabricated: string[] })[]> => {
   const current = readFileSync(join(ROOT, 'src', 'slimgate.ts'), 'utf8')
   const newest = git('log', '-1', '--format=%H', '--', 'src/slimgate.ts')
   const revs = baseline === head
     ? (newest ? [`${newest}^`] : [])
     : [baseline, ...git('log', '--format=%H', `${baseline}..${head}`, '--', 'src/slimgate.ts').split('\n').filter(Boolean)]
+  revs.push(...atCalls)
   const dist = pathToFileURL(join(ROOT, 'dist')).href + '/'
   const gates: ((s: string) => { fabricated: string[] })[] = []
   const texts = new Set<string>()
@@ -257,16 +261,19 @@ export async function investigateAudits(o: { claimant: string; transcripts: { fi
   const { sealedKeysIn } = await import('../refusal-trials.js')
   const baseline = [...lines].reverse().find((l) => l.head)?.head ?? head
   const atBase = ledgerKeysAt(baseline)
-  const gates = await priorGates(baseline, head)
+  const records = readLines<DrainedRecord>(join(ROOT, 'dist', 'evidence', 'legal-audit.jsonl'))
+  const tools = new Set(orders.map((x) => x.subject.replace(/^tool /, '')))
+  const calls = callsIn(o.transcripts.files, o.transcripts.mine)
+  const times = new Set(records.filter((r) => !r.clean && tools.has(r.tool)).map((r) => calls.get(r.args)?.at).filter((at): at is string => !!at))
+  const atCalls = [...new Set([...times].map((at) => git('rev-list', '-1', `--before=${at}`, head)).filter(Boolean))]
+  const gates = await priorGates(baseline, head, atCalls)
   const judges: Judges = {
     breaches: (s) => auditAction({ agent: `court-investigate:${o.claimant}`, tool: 'investigate', statement: s, cited: sealedKeysIn(s) }).breaches,
     cited: (s) => sealedKeysIn(s),
     sealedSince: (k) => atBase !== null && !atBase.has(k),
     oldGate: (s) => [...new Set(gates.flatMap((g) => { try { return g(s).fabricated } catch { return [] } }))],
   }
-  const records = readLines<DrainedRecord>(join(ROOT, 'dist', 'evidence', 'legal-audit.jsonl'))
-  const tools = new Set(orders.map((x) => x.subject.replace(/^tool /, '')))
-  const inv = investigate(records, callsIn(o.transcripts.files, o.transcripts.mine), tools, sinceByTool(lines), judges)
+  const inv = investigate(records, calls, tools, sinceByTool(lines), judges)
   const may = mayRecord(inv, true, [])
   let recorded = 0
   if (o.record && may.ok) for (const ord of orders) { appendFileSync(INV, JSON.stringify(resultOf(ord, o.claimant, head, inv.calls)) + '\n'); recorded++ }

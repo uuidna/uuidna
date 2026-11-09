@@ -3,7 +3,11 @@
 // block the record while the explained classes let it through.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { classifyCall, investigate, mayRecord, sinceByTool, ordersFor, resultOf, statementOf, type DrainedRecord, type CallInput, type Judges } from './court-investigate.js'
+import { mkdtempSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+import { canonicalJson, toUuid } from '../address.js'
+import { callsIn, classifyCall, investigate, mayRecord, sinceByTool, ordersFor, resultOf, statementOf, type DrainedRecord, type CallInput, type Judges } from './court-investigate.js'
 
 // the judges a real run builds from the ledger, the gate and git — here they answer from the statement alone
 const judges: Judges = {
@@ -80,4 +84,13 @@ test('a recorded result names its calls, so the next run reads its own since fro
   const line = resultOf({ kind: 'audit', subject: 'tool Write', why: 'w', address: 'o1' }, 'me', 'abc', [{ seq: 4, tool: 'Write', who: 'w', classes: ['declared'], explained: true, context: '' }])
   assert.deepEqual(sinceByTool([line]), { Write: 4 })
   assert.equal(statementOf({ a: 'x', b: 2, c: 'y' }), 'x\ny')
+})
+
+test('a transcript call carries its own time, so the gate in force when it was judged can be replayed', () => {
+  const f = join(mkdtempSync(join(tmpdir(), 'court-')), 's.jsonl')
+  const input = { prompt: 'lead_<handle> and involution_<handle>' }
+  writeFileSync(f, JSON.stringify({ timestamp: '2026-09-14T13:08:38.940Z', message: { content: [{ type: 'tool_use', name: 'Agent', input }] } }) + '\n')
+  const got = callsIn([f]).get(toUuid(canonicalJson(input)))
+  assert.equal(got?.at, '2026-09-14T13:08:38.940Z')
+  assert.equal(callsIn([f]).get(toUuid(canonicalJson({ prompt: 'other' }))), undefined)
 })
