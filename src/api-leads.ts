@@ -262,6 +262,37 @@ export function schoolQueueLeads(json: unknown | null): SourceReading {
   return unread('api-school-queue', `the report names no state I can act on (${state || 'empty'}) — a shape drift`)
 }
 
+/**
+ * GITHUB — what the owner's repositories hold open where no local read reaches: issues, pull requests, Dependabot,
+ * code-scanning and secret-scanning alerts, workflows failing on the default branch, an unprotected default branch.
+ *
+ * The captain, 2026-11-09: "automate github audits like issues PR and whatever gh allows". lean/github-audit.json is
+ * written by src/scripts/github-audit.ts (research.yml, daily). Each failing check is one lead naming its repository;
+ * an unread check is a lead too, because a question GitHub did not answer has told us nothing.
+ */
+export function githubAuditLeads(json: unknown | null): SourceReading {
+  if (json === null) return unread('api-github-audit', 'lean/github-audit.json is absent — GitHub has not been asked (npm run audit:github)')
+  const a = json as { owner?: unknown; repos?: unknown }
+  const repos = arr(a.repos)
+  if (repos.length === 0) return unread('api-github-audit', 'the audit lists no repositories — an empty owner audits nothing, which is the vacuous case')
+  const open: Lead[] = []
+  let held = 0
+  for (const r of repos) {
+    const repo = r as { repo?: unknown; checks?: unknown }
+    for (const c of arr(repo.checks)) {
+      const k = c as { name?: unknown; ok?: unknown; unread?: unknown; measured?: unknown; why?: unknown; items?: unknown }
+      if (k.ok === true) { held++; continue }
+      const items = arr(k.items).map((i) => str(i, '')).filter(Boolean)
+      open.push({
+        source: 'api-github-audit',
+        what: `${str(a.owner, '?')}/${str(repo.repo, '?')} — ${str(k.name, 'a check')}: ${str(k.measured, 'no measurement recorded')}${items.length ? ` (${items.slice(0, 5).join('; ')}${items.length > 5 ? `; and ${items.length - 5} more` : ''})` : ''}`,
+        owes: k.unread === true ? 'GitHub did not answer, so nothing was learned — re-run github-audit with a token that may read it; unread is not clean' : str(k.why, 'settle the check, or record why a release may ship without it'),
+      })
+    }
+  }
+  return read('api-github-audit', open, held)
+}
+
 /** Every API source, in one place, so a new artefact is added here rather than remembered in a workflow. */
 export const API_LEAD_READERS = [
   { source: 'api-doi-harvest', path: 'lean/doi-harvest.json', of: doiHarvestLeads },
@@ -269,6 +300,7 @@ export const API_LEAD_READERS = [
   { source: 'api-search-feed', path: 'lean/search-feed.json', of: searchFeedLeads },
   { source: 'api-wave-queue', path: 'lean/wave-queue.json', of: waveQueueLeads },
   { source: 'api-school-queue', path: 'lean/school-queue.json', of: schoolQueueLeads },
+  { source: 'api-github-audit', path: 'lean/github-audit.json', of: githubAuditLeads },
   // THE TOOL SURFACE IS A SOURCE TOO. Every other entry here is an external API; this one is the tree asking itself
   // whether its own doors exist, which is the condition "only mcp use is allowed" needs in order to mean anything.
   { source: 'mcp-self-sufficiency', path: 'lean/mcp-gaps.json', of: mcpGapLeads },

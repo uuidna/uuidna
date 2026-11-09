@@ -3,7 +3,7 @@
 // the state these four artefacts were in before this file existed.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { doiHarvestLeads, releaseLiveLeads, searchFeedLeads, waveQueueLeads, schoolQueueLeads, API_LEAD_READERS , mcpGapLeads } from './api-leads.js'
+import { doiHarvestLeads, releaseLiveLeads, searchFeedLeads, waveQueueLeads, schoolQueueLeads, API_LEAD_READERS , mcpGapLeads, githubAuditLeads } from './api-leads.js'
 
 // ─── absent is UNREAD, and unread blocks ─────────────────────────────────────────────────────────────────────
 test('api-leads: an absent artefact is unread, never clean', () => {
@@ -123,9 +123,9 @@ test('api-leads: the live queue state — 0 pending, 963 accepted, 30 refused �
 })
 
 test('api-leads: every reader is registered, so a new artefact is added in one place', () => {
-  assert.equal(API_LEAD_READERS.length, 6)
+  assert.equal(API_LEAD_READERS.length, 7)
   assert.deepEqual([...API_LEAD_READERS].map((r) => r.source).sort(),
-    ['api-doi-harvest', 'api-release-live', 'api-school-queue', 'api-search-feed', 'api-wave-queue',
+    ['api-doi-harvest', 'api-github-audit', 'api-release-live', 'api-school-queue', 'api-search-feed', 'api-wave-queue',
       'mcp-self-sufficiency'])
   for (const r of API_LEAD_READERS) assert.match(r.path, /^lean\/.+\.json$/)
 })
@@ -222,4 +222,26 @@ test('mcpGapLeads — a gap recorded once is settled evidence; recorded twice it
 test('mcpGapLeads — every lead carries the source, so the gate can attribute it', () => {
   const r = mcpGapLeads({ gaps: [{ gap: 'x', hits: 3 }] })
   assert.equal(r.open[0]!.source, 'mcp-self-sufficiency')
+})
+
+// ─── github-audit ──────────────────────────────────────────────────────────
+test('githubAuditLeads — a failing check and an unread check each open a lead; a passing check is held', () => {
+  const r = githubAuditLeads({
+    owner: 'uuidna',
+    repos: [{ repo: 'qpu', checks: [
+      { name: 'issues', ok: false, measured: '6 open', why: 'answer each issue', items: ['#1 a', '#2 b', '#3 c', '#4 d', '#5 e', '#6 f'] },
+      { name: 'branch protection', ok: true, measured: 'main is protected', why: '' },
+      { name: 'secret scanning', ok: false, unread: true, measured: 'Resource not accessible by integration', why: '' },
+    ] }],
+  })
+  assert.equal(r.reached, true)
+  assert.equal(r.open.length, 2)
+  assert.equal(r.settled, 1)
+  assert.match(r.open[0]!.what, /uuidna\/qpu — issues: 6 open \(#1 a; .*; and 1 more\)/)
+  assert.match(r.open[1]!.owes, /unread is not clean/)
+  assert.equal(r.open[0]!.source, 'api-github-audit')
+})
+
+test('githubAuditLeads — an audit that lists no repositories is unread, not clean', () => {
+  assert.equal(githubAuditLeads({ owner: 'uuidna', repos: [] }).reached, false)
 })

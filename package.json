@@ -186,6 +186,7 @@
     "lint": "eslint . --config eslint.laws.config.js",
     "lint:strict": "eslint .",
     "probe:apis": "npm run build && node dist/scripts/probe-public-apis.js",
+    "audit:github": "npm run build && node dist/scripts/github-audit.js",
     "guard": "npm run build && node dist/scripts/guard.js",
     "gen:packages": "npm run build && node dist/scripts/gen-packages.js --write",
     "build:packages": "npm run build && npm run build --workspaces",

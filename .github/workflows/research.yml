@@ -23,6 +23,12 @@ concurrency:
 
 permissions:
   contents: write
+  # github-audit reads these through the workflow token; the other repositories of the owner and branch protection
+  # need GITHUB_AUDIT_TOKEN (read-only, fine-grained), and without it they are written down as unread
+  issues: read
+  pull-requests: read
+  actions: read
+  security-events: read
 
 jobs:
   desk:
@@ -57,6 +63,12 @@ jobs:
         run: npm run editorial
       - name: FEED — most-searched + wired APIs (unanswered math, EU education) ring Lean; open doors regrow
         run: node dist/scripts/gen-search-feed.js --online && node dist/scripts/gen-open-questions.js
+      # IT REPORTS, IT DOES NOT RAISE, like PROBE: a finding is a lead the release gate reads from
+      # lean/github-audit.json (api-leads.ts), not a reason to stop the desk publishing.
+      - name: AUDIT — GitHub issues, pull requests, alerts, failing workflows and branch protection across uuidna/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_AUDIT_TOKEN || github.token }}
+        run: node dist/scripts/github-audit.js uuidna || echo "::warning::github-audit exited $? (1 findings are leads, 2 GitHub could not be read)"
       - name: GUARD — the fold accepts, or nothing publishes
         run: npm run guard
       - name: DRIVE — the served MCP recomputes its receipts over its own wire (90 directed mixes, 3 folds, self conforms)
@@ -80,7 +92,7 @@ jobs:
           git config user.name "uuidna-research"
           git config user.email "research@uuidna.com"
           if [ -n "$(git status --porcelain)" ]; then
-            git add docs/articles prose-trials.json quantum-fold.json lean/seo-url-map.json lean/search-feed.json docs/search-feed.md docs/open-questions.md
+            git add docs/articles prose-trials.json quantum-fold.json lean/seo-url-map.json lean/search-feed.json lean/github-audit.json docs/search-feed.md docs/open-questions.md
             git commit -m "Research desk: the quantum search swept every wing, each finding held at trial, and each trial returned its publication — findings content-addressed, verdicts computed, novelty leads remanded, sessionless. External evidence corroborates; only a Lean seal approves. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
             # UNCENSORED (lead 120a): a failed rebase must never be erased — pushing after a swallowed
             # rebase failure lands derived state on an unknown tree, and a rebase over the queue/derived
