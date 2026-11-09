@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:3bb893d0-d818-8614-927d-93a59eaa412a",
+  "@id": "urn:uuid:f35a0543-d6d0-85ea-87a1-5f611e1f0b48",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each paged theorem the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy), and the pageless span as one collection. Integrity, not truth.",
@@ -171349,11 +171349,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a4d0d58a-ab6c-8152-9dc8-59f826ba8318",
+        "@id": "urn:uuid:502a23e0-9f55-8c05-bc47-d06457d850cc",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: of 1957626 crosses the corpus's own integers generate, 1524631 are forced by an operator's algebra, 449 are stated, and 432546 remain — and the three account for the whole, 1524631 + 449 + 432546 = 1957626, with the forced between 3 and 4 times the unstated.",
-        "abstract": "(1524631 + 449 + 432546 = 1957626) ∧ ((1524631 > 3 * 432546) ∧ (1524631 < 4 * 432546))",
-        "identifier": "b6c8b4e6-372b-8286-b11e-236e82d7c5fe",
+        "headline": "CLAIMED: of 1957661 crosses the corpus's own integers generate, 1524648 are forced by an operator's algebra, 449 are stated, and 432564 remain — and the three account for the whole, 1524648 + 449 + 432564 = 1957661, with the forced between 3 and 4 times the unstated.",
+        "abstract": "(1524648 + 449 + 432564 = 1957661) ∧ ((1524648 > 3 * 432564) ∧ (1524648 < 4 * 432564))",
+        "identifier": "56a8f646-a3da-8671-a90c-a5b344382aef",
         "url": "https://uuidna.com/theorem/the_generated_closure_partitions_into_three_kinds",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -171371,7 +171371,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b6c8b4e6"
+          "https://uuidna.com/56a8f646"
         ]
       }
     },
@@ -171411,11 +171411,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8bdc3209-4cdb-84a6-a990-4fbd71b6105c",
+        "@id": "urn:uuid:d56e5f60-4346-89d1-a83b-4c8183206218",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: of 432546 unstated crosses, 90019 join integers no single wing carries all three of — between one 5th and one 4th of them, since 90019 × 4 < 432546 and 90019 × 5 > 432546, so the large majority stays inside a single wing.",
-        "abstract": "((90019 * 4 < 432546) ∧ (90019 * 5 > 432546)) ∧ (90019 < 432546)",
-        "identifier": "f9f1197f-0e48-8cc0-82fe-9a91f23c243a",
+        "headline": "CLAIMED: of 432564 unstated crosses, 90037 join integers no single wing carries all three of — between one 5th and one 4th of them, since 90037 × 4 < 432564 and 90037 × 5 > 432564, so the large majority stays inside a single wing.",
+        "abstract": "((90037 * 4 < 432564) ∧ (90037 * 5 > 432564)) ∧ (90037 < 432564)",
+        "identifier": "8fc367da-f464-8b5b-a35e-f474e2d9faa1",
         "url": "https://uuidna.com/theorem/most_of_the_unstated_remainder_stays_inside_one_wing",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -171433,7 +171433,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/f9f1197f"
+          "https://uuidna.com/8fc367da"
         ]
       }
     },
@@ -171442,11 +171442,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:c1ac26fd-84e1-85e2-bc57-f7e87a9edc4b",
+        "@id": "urn:uuid:0d477cf7-1cf2-8b77-bf99-66ac415af97b",
         "@type": "ScholarlyArticle",
-        "headline": "CLAIMED: the 1524 formula-shaped statements across 113 wings are built from 1280 distinct integers and state 449 crosses, against 432546 their own integers generate unstated — fewer than one in a hundred, since 449 × 100 < 432546, at between 13 and 14 formulas per wing.",
-        "abstract": "((449 * 100 < 432546) ∧ (1280 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
-        "identifier": "5cea1023-22eb-844e-b2d8-857c59bcac21",
+        "headline": "CLAIMED: the 1524 formula-shaped statements across 113 wings are built from 1280 distinct integers and state 449 crosses, against 432564 their own integers generate unstated — fewer than one in a hundred, since 449 × 100 < 432564, at between 13 and 14 formulas per wing.",
+        "abstract": "((449 * 100 < 432564) ∧ (1280 > 113)) ∧ ((113 * 13 < 1524) ∧ (113 * 14 > 1524))",
+        "identifier": "05efc122-29d2-89a7-b7f0-c2e877d81240",
         "url": "https://uuidna.com/theorem/the_corpus_has_sealed_under_a_hundredth_of_its_own_closure",
         "keywords": "cross-formulas, THE LEDGER'S OWN ALGEBRA, COUNTED (the captain, 2026-09-25",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/CrossFormulas.lean",
@@ -171464,7 +171464,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/5cea1023"
+          "https://uuidna.com/05efc122"
         ]
       }
     },

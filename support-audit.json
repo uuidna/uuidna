@@ -1,7 +1,7 @@
 {
-  "modules": 3881,
-  "roots": 957,
-  "supported": 2700,
+  "modules": 3887,
+  "roots": 961,
+  "supported": 2706,
   "dead": [
     "src/core/cache.ts",
     "src/core/crypt-attacks.ts",
@@ -1185,5 +1185,5 @@
     "src/theorems/ledger-edge.ts",
     "src/theorems/ledger-node.ts"
   ],
-  "receipt": "e72b22a3-2a99-864d-9213-3d3a53b1fa93"
+  "receipt": "640a7738-3836-8961-b6f9-6beece166c8c"
 }

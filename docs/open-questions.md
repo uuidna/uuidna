@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**21 open leads** across 12 topics — only leads **in trial** from lean/leads.json, prose develop
+**48 open leads** across 16 topics — only leads **in trial** from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -24,7 +24,7 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## links — 7 open
+## links — 20 open
 
 - **Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.**
   <br><small>door: the leads in trial</small>
@@ -61,8 +61,116 @@ page regrows without it.
   <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`the_pair_grid_misses_the_seventh_factor_of_k432`](/theorem/the_pair_grid_misses_the_seventh_factor_of_k432) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
   <br><small>sealed neighbors: [`the_untested_hundred_pay_a_third_of_the_wire`](/theorem/the_untested_hundred_pay_a_third_of_the_wire) · [`pairings_exhaust_the_cancellations`](/theorem/pairings_exhaust_the_cancellations) · [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **CERN Open Data catalogue**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`the_embargo_totals_match_across_the_two_energy_labels`](/theorem/the_embargo_totals_match_across_the_two_energy_labels) · [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`the_untested_hundred_pay_a_third_of_the_wire`](/theorem/the_untested_hundred_pay_a_third_of_the_wire) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **CERN Higgs records**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`the_embargo_totals_match_across_the_two_energy_labels`](/theorem/the_embargo_totals_match_across_the_two_energy_labels) · [`the_cern_totals_close_under_the_ledger_own_reduction`](/theorem/the_cern_totals_close_under_the_ledger_own_reduction) · [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **The D1 budget governor extended from the cron's consumers to request admission: when D1 answers 7429 overloaded, the sit**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`the_mirror_is_a_member_of_the_family_whose_budget_it_moves`](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch ancient-first (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch denial-router (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`negation_involution_solves`](/theorem/negation_involution_solves) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch ideas-royalty (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch leak-redact (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch meaning-paths (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch save-horizon (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`bell_agreement_carries_no_command`](/theorem/bell_agreement_carries_no_command) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch worktree-wf_da30e79a-47e-1 (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`the_defining_constants_are_exact_integers`](/theorem/the_defining_constants_are_exact_integers) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **161 source files in the qpu/.idea v1.4.0 snapshot (74 in src/quantum/processing, 20 in src/plugins/qpu, one per plugin for about 20 plugins, and src/worker.ts — the Worker that served /mcp, /storage and /.well-known/qpu.…**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`the_mirror_is_a_member_of_the_family_whose_budget_it_moves`](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>sealed neighbors: [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`cooling_cost_rises_toward_zero`](/theorem/cooling_cost_rises_toward_zero) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu/.idea/.qpu is a 16 GB content-addressed mirror of Payload documents (50,439 entries, e.g. pages per tenant, keyed by UUID): establish whether live D1 already holds every document, then keep it as evidence or reseed f…**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`the_mirror_is_a_member_of_the_family_whose_budget_it_moves`](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) · [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`development_is_the_complement`](/theorem/development_is_the_complement) </small>
+  <br><small>sealed neighbors: [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`the_pairing_cancels_the_constant`](/theorem/the_pairing_cancels_the_constant) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **An older local secrets file (qpu/.idea/.dev.vars, differing from the current .dev.vars) sits in an ignored snapshot directory: rotate whatever it holds that is still live, then remove the copy.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`morris_eight_bars_halved`](/theorem/morris_eight_bars_halved) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) </small>
+  <br><small>sealed neighbors: [`the_cern_file_total_is_twice_a_prime`](/theorem/the_cern_file_total_is_twice_a_prime) · [`the_cern_totals_close_under_the_ledger_own_reduction`](/theorem/the_cern_totals_close_under_the_ledger_own_reduction) · [`handle_outreaches_planck`](/theorem/handle_outreaches_planck) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## cipher — 2 open
+## wave — 8 open
+
+- **Quantum advantage or speedup claims**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`quantum_is_the_uuid_doubled`](/theorem/quantum_is_the_uuid_doubled) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`involution_c0727ef6`](/theorem/involution_c0727ef6) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) · [`reconciled_generator_sat_inside_the_truncated_run`](/theorem/reconciled_generator_sat_inside_the_truncated_run) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Catalogues published without a token**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`mass_coord_odd_crew_has_centre`](/theorem/mass_coord_odd_crew_has_centre) · [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) </small>
+  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`display_gap_address_separates_4`](/theorem/display_gap_address_separates_4) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **Doors that answer 401**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) </small>
+  <br><small>sealed neighbors: [`hardware_coverage_is_not_correctness_coverage`](/theorem/hardware_coverage_is_not_correctness_coverage) · [`no_instrument_narrower_than_its_question`](/theorem/no_instrument_narrower_than_its_question) · [`address_and_payload_exchange_at_one_twenty_eight`](/theorem/address_and_payload_exchange_at_one_twenty_eight) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **An admission toolbox around the Workers Rate Limiting binding: from a small config of budgets (a per-client handle, an a**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) </small>
+  <br><small>sealed neighbors: [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) · [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) · [`handle_splits_four`](/theorem/handle_splits_four) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **A drift check between a Worker's deployed settings (GET /accounts/{id}/workers/scripts/{name}/settings: observability an**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) · [`involution_c0727ef6`](/theorem/involution_c0727ef6) </small>
+  <br><small>sealed neighbors: [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) · [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **A flood signature finder: ~870M requests over eight days with an empty user agent 45% of the time, otherwise rotating de**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`byte_xor_hexbit_involution`](/theorem/byte_xor_hexbit_involution) · [`morris_eight_bars_halved`](/theorem/morris_eight_bars_halved) · [`otp_self_inverse`](/theorem/otp_self_inverse) </small>
+  <br><small>sealed neighbors: [`fibonacci_gcd_follows_the_index_gcd`](/theorem/fibonacci_gcd_follows_the_index_gcd) · [`debruijn_order_three_census_is_two_rotation_orbits`](/theorem/debruijn_order_three_census_is_two_rotation_orbits) · [`maxwell_trichotomy_is_total_over_the_grid`](/theorem/maxwell_trichotomy_is_total_over_the_grid) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch d4-main (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`the_mirror_is_a_member_of_the_family_whose_budget_it_moves`](/theorem/the_mirror_is_a_member_of_the_family_whose_budget_it_moves) </small>
+  <br><small>sealed neighbors: [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) · [`the_bounded_search_returns_the_sealed_gcd_verdict`](/theorem/the_bounded_search_returns_the_sealed_gcd_verdict) · [`merkle_shape_moves_root_iff_nonassociative`](/theorem/merkle_shape_moves_root_iff_nonassociative) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## cipher — 3 open
 
 - **KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.**
   <br><small>door: the leads in trial</small>
@@ -74,18 +182,28 @@ page regrows without it.
   <br><small>involutions around: [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) </small>
   <br><small>sealed neighbors: [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) · [`three_wire_sorting_needs_three_comparators`](/theorem/three_wire_sorting_needs_three_comparators) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## wave — 2 open
-
-- **Quantum advantage or speedup claims**
+- **A stale-receipt finder in the guard. quintessay recomputes merkleGravity([wa, ta, toUuid('coins:2')]) and expects 3fb110**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
-  <br><small>sealed neighbors: [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) · [`quantum_is_the_uuid_doubled`](/theorem/quantum_is_the_uuid_doubled) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) </small>
+  <br><small>involutions around: [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) </small>
+  <br><small>sealed neighbors: [`blockchain_is_the_ledger_of_two_coins`](/theorem/blockchain_is_the_ledger_of_two_coins) · [`crew_verifies_instantly`](/theorem/crew_verifies_instantly) · [`redirect_imitable_but_coins_authorise`](/theorem/redirect_imitable_but_coins_authorise) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.**
+
+## hexbit — 3 open
+
+- **A cost gate over the GraphQL Analytics API folded into a monthly estimate against the Workers Paid allowances: workersIn**
   <br><small>door: the leads in trial</small>
-  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`lead_b13fd37a_is_flagged_by_every_single_refuter`](/theorem/lead_b13fd37a_is_flagged_by_every_single_refuter) · [`involution_c0727ef6`](/theorem/involution_c0727ef6) </small>
-  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`four_mul_is_four_copies`](/theorem/four_mul_is_four_copies) · [`reconciled_generator_sat_inside_the_truncated_run`](/theorem/reconciled_generator_sat_inside_the_truncated_run) </small>
+  <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`morris_eight_bars_halved`](/theorem/morris_eight_bars_halved) · [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) </small>
+  <br><small>sealed neighbors: [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`a_cheaper_representation_multiplies_the_width_at_the_same_hardware`](/theorem/a_cheaper_representation_multiplies_the_width_at_the_same_hardware) · [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **qpu branch payload-bump (last commit 2026-11-03) holds work merged into neither main nor origin/main; its worktree survives only in qpu/.idea/.claude/worktrees — merge, land, or record why it stays out.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`development_is_the_complement`](/theorem/development_is_the_complement) · [`reversal_escapes_arithmetic`](/theorem/reversal_escapes_arithmetic) </small>
+  <br><small>sealed neighbors: [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) · [`origin_surplus_class_by_class_is_the_catalogue_surplus`](/theorem/origin_surplus_class_by_class_is_the_catalogue_surplus) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **The qpu worktree payload4 (Payload 4 upgrade) has no branch left in the repository: its work exists only as files in qpu/.idea/.claude/worktrees/payload4 and is lost if .idea is deleted — recover it to a branch.**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`the_barren_claim_fails_exactly_at_the_dz_fixed_points`](/theorem/the_barren_claim_fails_exactly_at_the_dz_fixed_points) · [`theology_counts_in_the_mirror_base`](/theorem/theology_counts_in_the_mirror_base) </small>
+  <br><small>sealed neighbors: [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## chemistry — 1 open
@@ -128,12 +246,28 @@ page regrows without it.
   <br><small>sealed neighbors: [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) · [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`llm_folds_to_hexbit_pairs`](/theorem/llm_folds_to_hexbit_pairs) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
+## readings — 1 open
+
+- **2022 CODATA adjustment**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) · [`crossing_sits_inside`](/theorem/crossing_sits_inside) · [`handle_outreaches_planck`](/theorem/handle_outreaches_planck) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
 ## referrer — 1 open
 
 - **Honesty /  fields, covering hunts, or includes() disclaimer tests on new constructors.**
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`missing_pair_involution`](/theorem/missing_pair_involution) </small>
   <br><small>sealed neighbors: [`rotation_is_multiplication`](/theorem/rotation_is_multiplication) · [`absence_defeats_the_algorithm_and_not_the_machine`](/theorem/absence_defeats_the_algorithm_and_not_the_machine) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## render-budget — 1 open
+
+- **Live FIPS pages**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`mass_comply_hex4_even_no_fixed`](/theorem/mass_comply_hex4_even_no_fixed) </small>
+  <br><small>sealed neighbors: [`the_budget_re_measured_from_the_resident_reading`](/theorem/the_budget_re_measured_from_the_resident_reading) · [`folio_quarto_octavo`](/theorem/folio_quarto_octavo) · [`pilgrims_walk_must_cycle`](/theorem/pilgrims_walk_must_cycle) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## software — 1 open
@@ -152,7 +286,15 @@ page regrows without it.
   <br><small>sealed neighbors: [`electrical_energy_is_volt_amp_second`](/theorem/electrical_energy_is_volt_amp_second) · [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) · [`one_point_can_only_overstate_0`](/theorem/one_point_can_only_overstate_0) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## open frontier — 2 open
+## typesetting — 1 open
+
+- **NIST Open Data page**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`recto_odd_verso_even`](/theorem/recto_odd_verso_even) · [`the_page_admits_sixteen`](/theorem/the_page_admits_sixteen) · [`context_windows_are_transient_hexbits`](/theorem/context_windows_are_transient_hexbits) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## open frontier — 3 open
 
 - **Bulk crawling of chitanka.info**
   <br><small>door: the leads in trial</small>
@@ -163,6 +305,11 @@ page regrows without it.
   <br><small>door: the leads in trial</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: [`an_answer_is_content_or_a_refusal_and_never_neither`](/theorem/an_answer_is_content_or_a_refusal_and_never_neither) · [`every_install_and_its_path_named_once`](/theorem/every_install_and_its_path_named_once) · [`home_is_the_meta_package`](/theorem/home_is_the_meta_package) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **NIST beacon pulse 2017309**
+  <br><small>door: the leads in trial</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: [`crossing_sits_inside`](/theorem/crossing_sits_inside) · [`handle_outreaches_planck`](/theorem/handle_outreaches_planck) · [`pairings_exhaust_the_cancellations`](/theorem/pairings_exhaust_the_cancellations) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## Honest scope

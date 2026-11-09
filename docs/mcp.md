@@ -578,7 +578,7 @@ Call `get_lead_clusters` — the old name `uuidna_lead_clusters` still answers �
 // arguments
 {}
 // answer (excerpt)
-{"leads":1073,"clusters":[{"term":"astronomy","handle":"f7a0f261","leads":38},{"term":"fermat","handle":"dd674c0e","leads":38},{"term":"security","handle":"794…
+{"leads":1100,"clusters":[{"term":"astronomy","handle":"f7a0f261","leads":38},{"term":"fermat","handle":"dd674c0e","leads":38},{"term":"security","handle":"794…
 ```
 
 **Parameters**
@@ -1255,7 +1255,7 @@ Call `get_lattice` — the old name `uuidna_lattice` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"stations":65536,"occupied":5833,"vacant":59703,"theoremsSeated":5570,"axiomsSeated":532,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
+{"stations":65536,"occupied":5832,"vacant":59704,"theoremsSeated":5570,"axiomsSeated":532,"problemsSeated":18,"collisions":[{"station":"000e","keys":["euler_ph…
 ```
 
 **Parameters**
@@ -1573,7 +1573,7 @@ Call `get_theorem_message` — the old name `uuidna_theorem_message` still answe
 // arguments
 {}
 // answer (excerpt)
-{"count":71106,"total":true,"failures":[],"receipt":"b39f4f0b-3952-8f06-ad54-0c35fe7343e7","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
+{"count":71106,"total":true,"failures":[],"receipt":"4c322bb9-ef26-848b-b1ba-c5d50284be68","honest":"THE TOTALITY SEAL: secure messaging is a TOTAL function on…
 ```
 
 **Parameters**
@@ -1596,7 +1596,7 @@ Call `get_dictionary` — the old name `uuidna_dictionary` still answers · read
 // arguments
 {}
 // answer (excerpt)
-{"terms":71106,"skills":131,"principles":263,"receipt":"4ae6881c-b182-8d8a-a467-22586bf3d700","honest":"the lexicon is the ledger — every term sealed, every de…
+{"terms":71106,"skills":131,"principles":263,"receipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a","honest":"the lexicon is the ledger — every term sealed, every de…
 ```
 
 **Parameters**
@@ -1782,7 +1782,7 @@ Call `predict_gaps` — the old name `uuidna_predict` still answers · read-only
 // arguments
 {"likelihood":"all"}
 // answer (excerpt)
-{"total":65,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":65,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
+{"total":66,"declaredDormantSkipped":34,"byLikelihood":{"high":0,"medium":66,"low":0},"gaps":[{"pattern":"unwired-script","likelihood":"medium","location":"src…
 ```
 
 **Parameters**
@@ -2275,7 +2275,7 @@ Call `get_due_process` — the old name `uuidna_due_process` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"verifiedAll":{"theorems":71106,"verified":71106,"unverified":0,"receipt":"4ae6881c-b182-8d8a-a467-22586bf3d700"},"guarantees":[{"key":"legal_verdict_is_exact…
+{"verifiedAll":{"theorems":71106,"verified":71106,"unverified":0,"receipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a"},"guarantees":[{"key":"legal_verdict_is_exact…
 ```
 
 **Parameters**
@@ -2768,7 +2768,7 @@ Call `audit_ledger_fingerprint` — the old name `uuidna_audit_ledger_fingerprin
 // arguments
 {}
 // answer (excerpt)
-{"fingerprint":{"count":71106,"fnvReceipt":"4ae6881c-b182-8d8a-a467-22586bf3d700","sha256":"1f89b1e54bdb6d1728e01b0bf5befb44466c804f1f56d54d02c6cf72cb7aa984","…
+{"fingerprint":{"count":71106,"fnvReceipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a","sha256":"9a08beaaff7ab27610654e9c3bc1c6102c611d26da1bfc2e295cd9cc89b36a12","…
 ```
 
 **Parameters**
@@ -3624,7 +3624,7 @@ Call `get_fingerprint` — the old name `uuidna_fingerprint` still answers · re
 // arguments
 {}
 // answer (excerpt)
-{"count":71106,"fnvReceipt":"4ae6881c-b182-8d8a-a467-22586bf3d700","sha256":"1f89b1e54bdb6d1728e01b0bf5befb44466c804f1f56d54d02c6cf72cb7aa984","tamperCost":"A …
+{"count":71106,"fnvReceipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a","sha256":"9a08beaaff7ab27610654e9c3bc1c6102c611d26da1bfc2e295cd9cc89b36a12","tamperCost":"A …
 ```
 
 _No parameters._
@@ -3641,7 +3641,7 @@ Call `run_trial` — the old name `uuidna_trial` still answers · read-only · i
 // arguments
 {}
 // answer (excerpt)
-{"count":71106,"verified":71106,"unverified":0,"leanBacked":71106,"receipt":"4ae6881c-b182-8d8a-a467-22586bf3d700","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
+{"count":71106,"verified":71106,"unverified":0,"leanBacked":71106,"receipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a","verdicts":[{"key":"mul9_1_1","name":"1·1 ≡ …
 ```
 
 _No parameters._
@@ -4605,7 +4605,7 @@ Call `open_leads` — the old name `uuidna_open_leads` still answers · read-onl
 // arguments
 {}
 // answer (excerpt)
-{"total":21,"open":20,"verified":1,"refuted":0,"unverified":20,"items":[{"claim":"KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs…
+{"total":48,"open":47,"verified":1,"refuted":0,"unverified":47,"items":[{"claim":"KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs…
 ```
 
 **Parameters**
@@ -5645,7 +5645,7 @@ Call `get_receipt` — the old name `uuidna_unify` still answers · read-only ·
 // arguments
 {}
 // answer (excerpt)
-{"handle":"37a788ce","theorems":{"count":71106,"verified":71106,"receipt":"4ae6881c-b182-8d8a-a467-22586bf3d700"},"domains":{"count":131,"verdict":"VERIFIED","…
+{"handle":"490c806a","theorems":{"count":71106,"verified":71106,"receipt":"c943bb06-2c69-885c-81dc-3571d39b6a3a"},"domains":{"count":131,"verdict":"VERIFIED","…
 ```
 
 _No parameters._
@@ -5666,7 +5666,7 @@ Call `get_quantum_profile` — the old name `uuidna_quantum_profile` still answe
 // arguments
 {}
 // answer (excerpt)
-{"handle":"fcec64be","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
+{"handle":"f186e251","identity":{"name":"uuidna","address":"fc511532-6e8a-8418-a522-a51b1d46a70c","aura":{"ray":2,"hue":34,"hsl":"hsl(34, 66%, 54%)","rgb":"#d7…
 ```
 
 _No parameters._
@@ -5854,7 +5854,7 @@ Call `fill_gaps` — the old name `uuidna_fill_gaps` still answers · read-only 
 // arguments
 {}
 // answer (excerpt)
-{"receipt":"de013073-4af9-8f37-b629-7394c18ba053","handle":"de013073","hexbits":[13,14,0,1,3,0,7,3,4,10,15,9,8,15,3,7,11,6,2,9,7,3,9,4,12,1,8,11,10,0,5,3],"doo…
+{"receipt":"a562e11f-58fe-898e-b585-f5502752827f","handle":"a562e11f","hexbits":[10,5,6,2,14,1,1,15,5,8,15,14,8,9,8,14,11,5,8,5,15,5,5,0,2,7,5,2,8,2,7,15],"doo…
 ```
 
 **Parameters**

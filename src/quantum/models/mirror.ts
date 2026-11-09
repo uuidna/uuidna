@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000095526",
-   "completionPrice": "0.00000191052"
+   "promptPrice": "0.000000894012",
+   "completionPrice": "0.000001788024"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1077,23 +1077,16 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000014"
   },
   {
-   "id": "minimax/minimax-m1",
-   "name": "MiniMax: MiniMax M1",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00000055",
-   "completionPrice": "0.0000022"
-  },
-  {
    "id": "minimax/minimax-m2.5",
    "name": "MiniMax: MiniMax M2.5",
-   "contextTokens": 204800,
+   "contextTokens": 200000,
    "promptPrice": "0.0000003",
    "completionPrice": "0.0000012"
   },
   {
    "id": "minimax/minimax-m2.7",
    "name": "MiniMax: MiniMax M2.7",
-   "contextTokens": 204800,
+   "contextTokens": 196608,
    "promptPrice": "0.00000021",
    "completionPrice": "0.00000084"
   },
@@ -1108,8 +1101,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m3.1-flash",
    "name": "MiniMax: MiniMax M3.1 Flash",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "minimax/minimax-m3:batch",
@@ -1248,8 +1241,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "mistralai/mistral-small-3.2-24b-instruct",
    "name": "Mistral: Mistral Small 3.2 24B",
    "contextTokens": 256000,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.0000002"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "mistralai/mixtral-8x22b-instruct",
@@ -1339,7 +1332,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3:batch",
    "name": "MoonshotAI: Kimi K3 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000917",
+   "promptPrice": "0.000000883",
    "completionPrice": "0.000006"
   },
   {
@@ -2561,6 +2554,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000006"
   },
   {
+   "id": "qwen/qwen3.8-max-0902:batch",
+   "name": "Qwen: Qwen3.8 Max (0902) (batch)",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000115",
+   "completionPrice": "0.00000345"
+  },
+  {
    "id": "qwen/qwen3.8-max-prime",
    "name": "Qwen: Qwen3.8 Max Prime",
    "contextTokens": 1000000,
@@ -2703,7 +2703,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "stepfun/step-5-preview",
    "name": "StepFun: Step 5 Preview",
-   "contextTokens": 1048576,
+   "contextTokens": 1000000,
    "promptPrice": "0.000001",
    "completionPrice": "0.0000027"
   },
@@ -2739,8 +2739,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2760,8 +2760,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy4-preview",
    "name": "Tencent: Hy4 preview",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000834",
-   "completionPrice": "0.000002501"
+   "promptPrice": "0.0000007506",
+   "completionPrice": "0.0000022509"
   },
   {
    "id": "thedrummer/cydonia-24b-v4.1",
@@ -2934,7 +2934,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "xiaomi/mimo-v2.5-pro",
    "name": "Xiaomi: MiMo-V2.5-Pro",
-   "contextTokens": 1050000,
+   "contextTokens": 1024000,
    "promptPrice": "0.00000048",
    "completionPrice": "0.0000018"
   },
@@ -2977,8 +2977,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-4.5-air",
    "name": "Z.ai: GLM 4.5 Air",
    "contextTokens": 131072,
-   "promptPrice": "0.00000013",
-   "completionPrice": "0.00000085"
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.0000011"
   },
   {
    "id": "z-ai/glm-4.5v",
@@ -3068,8 +3068,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3-flash:batch",
    "name": "Z.ai: GLM 5.3 Flash (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.00000018"
+   "promptPrice": "0.000000043",
+   "completionPrice": "0.000000087"
   },
   {
    "id": "z-ai/glm-5.3-flashx",
@@ -3173,8 +3173,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001539",
-   "completionPrice": "0.0000105539"
+   "promptPrice": "0.0000001634",
+   "completionPrice": "0.0000101489"
   },
   {
    "id": "~openai/gpt-astra-latest",

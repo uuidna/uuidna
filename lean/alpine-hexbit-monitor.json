@@ -134,20 +134,20 @@
   "pct": 100
  },
  "time": {
-  "communityCompileNsDecade": 10000000,
-  "communityNsPerDecade": 100,
-  "manCompileNsDecade": 1000000,
-  "manNsPerDecade": 100
+  "communityCompileNsDecade": 100000000,
+  "communityNsPerDecade": 1000,
+  "manCompileNsDecade": 10000000,
+  "manNsPerDecade": 1000
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
+ "receipt": "8302a321-8232-8f71-a9d4-ed63945accea",
  "honest": "Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide.",
  "crossed": {
-  "sorted": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
-  "reversed": "4be03da0-f661-8d68-9434-7a5bf4e084f9",
+  "sorted": "8302a321-8232-8f71-a9d4-ed63945accea",
+  "reversed": "8302a321-8232-8f71-a9d4-ed63945accea",
   "agrees": true
  }
 }
