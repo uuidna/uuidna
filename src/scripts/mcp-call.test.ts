@@ -53,6 +53,7 @@ test('argv: a tool with one JSON object, key=value pairs, --local anywhere, list
 test('names: as typed, then with the uuidna_ prefix added or removed', () => {
   assert.deepEqual(candidatesOf('handle'), ['handle', 'uuidna_handle'])
   assert.deepEqual(candidatesOf('uuidna_handle'), ['uuidna_handle', 'handle'])
+  assert.deepEqual(candidatesOf('0000C0DE-39db-3a30-0000-000000000000'), ['0000c0de-39db-3a30-0000-000000000000'], 'a uuid program address travels as typed')
   assert.deepEqual(candidatesOf('merkle-root'), ['merkle_root', 'uuidna_merkle_root'])
 })
 

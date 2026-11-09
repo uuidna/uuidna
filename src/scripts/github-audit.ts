@@ -18,7 +18,7 @@ const gh = (path: string): ApiAnswer => {
     return JSON.parse(execFileSync('gh', ['api', path], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024 })) as unknown
   } catch (e) {
     const out = String((e as { stdout?: unknown }).stdout ?? '')
-    try { return { error: String((JSON.parse(out) as { message?: unknown }).message ?? out) } } catch { return { error: String((e as { stderr?: unknown }).stderr ?? e).trim() || 'gh api failed' } }
+    try { return { error: String((JSON.parse(out) as { message?: unknown }).message ?? out) } } catch { const x = e as { stderr?: unknown; message?: unknown }; return { error: String(x.stderr ?? '').trim() || String(x.message ?? e).trim() || 'gh api failed' } }
   }
 }
 

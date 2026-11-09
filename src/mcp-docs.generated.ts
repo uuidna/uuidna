@@ -13479,18 +13479,10 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
    "deletes": false,
    "spawns": false
   },
-  "description": "Get hex programs. Returns {byHex,byName,doors,width,bits,distinct,collisions,programs,…}.",
+  "description": "Get hex programs. Returns {doors,width,bits,distinct,collisions,programs,capacity,…}.",
   "outputSchema": {
    "type": "object",
    "properties": {
-    "byHex": {
-     "type": "object",
-     "properties": {}
-    },
-    "byName": {
-     "type": "object",
-     "properties": {}
-    },
     "doors": {
      "type": "integer"
     },
@@ -13537,7 +13529,7 @@ export const MCP_DOCS: Readonly<Record<string, ToolDoc>> = {
   "status": "documented",
   "example": {
    "args": {},
-   "excerpt": "{\"byHex\":{},\"byName\":{},\"doors\":253,\"width\":8,\"bits\":32,\"distinct\":253,\"collisions\":[],\"programs\":253,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296…"
+   "excerpt": "{\"doors\":253,\"width\":8,\"bits\":32,\"distinct\":253,\"collisions\":[],\"programs\":253,\"capacity\":{\"middle\":281474976710656,\"program\":4294967296,\"paramsInMiddle\":65536…"
   }
  },
  "uuidna_lattice": {

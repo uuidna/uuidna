@@ -82,6 +82,9 @@ export function parseArgv(argv: readonly string[], env: Readonly<Record<string, 
 /** candidatesOf(name) → the names to try, in order: as typed (a-b read as a_b), then with the uuidna_ prefix added or
  *  removed — the catalogue's ids and the door's standard names both resolve */
 export function candidatesOf(name: string): string[] {
+  // A UUID IS A PROGRAM ADDRESS, NOT A NAME: the door decodes its middle groups to the program it names (hex-programs.ts
+  // callOfUuid), so it travels exactly as typed — reading its dashes as underscores would destroy the address.
+  if (/^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$/i.test(name.trim())) return [name.trim().toLowerCase()]
   const n = name.trim().replace(/-/g, '_')
   const other = n.startsWith(PREFIX) ? n.slice(PREFIX.length) : PREFIX + n
   return [...new Set([n, other].filter(Boolean))]
