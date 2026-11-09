@@ -1,0 +1,38 @@
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.borderBox {
+  padding: 1.25rem;
+  border: 1px solid var(--theme-border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--base) * 1.25);
+
+  h4 {
+    margin: 0;
+  }
+}
+
+.highlightHeading {
+  position: relative;
+  padding-bottom: 1.5rem;
+  display: inline-flex;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: var(--theme-border-color);
+    width: 50%;
+  }
+}
+
+.downgradeText {
+  color: var(--theme-elevation-500);
+  margin: 0;
+}

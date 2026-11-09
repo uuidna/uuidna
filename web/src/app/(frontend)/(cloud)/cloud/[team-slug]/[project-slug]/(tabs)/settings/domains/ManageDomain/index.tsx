@@ -1,0 +1,142 @@
+import type { Project, Team } from '@root/payload-cloud-types'
+
+import { Accordion } from '@components/Accordion/index'
+import { Button } from '@components/Button/index'
+import { CopyToClipboard } from '@components/CopyToClipboard'
+import { Heading } from '@components/Heading/index'
+import { ModalWindow } from '@components/ModalWindow/index'
+import { useModal } from '@faceless-ui/modal'
+import { ExternalLinkIcon } from '@root/icons/ExternalLinkIcon/index'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import * as React from 'react'
+
+import classes from './index.module.scss'
+
+const domainValueFieldPath = 'domain'
+
+type Props = {
+  domain: NonNullable<Project['domains']>[0]
+  environmentSlug: string
+  project: Project
+  scopedDomains: NonNullable<Project['domains']>
+  team: Team
+}
+
+export const ManageDomain: React.FC<Props> = ({
+  domain,
+  environmentSlug,
+  project,
+  scopedDomains,
+  team,
+}) => {
+  const { id, domain: domainURL, recordContent, recordName, recordType } = domain
+  const modalSlug = `delete-domain-${id}`
+  const router = useRouter()
+
+  const { closeModal, openModal } = useModal()
+  const projectID = project?.id
+
+  const patchDomains = React.useCallback(
+    async (domains: Props['domain'][]) => {
+      try {
+        const req = await fetch(
+          `${process.env.NEXT_PUBLIC_CLOUD_CMS_URL}/api/projects/${projectID}/domains?env=${encodeURIComponent(environmentSlug)}`,
+          {
+            body: JSON.stringify(domains),
+            credentials: 'include',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            method: 'PATCH',
+          },
+        )
+
+        if (req.status === 200) {
+          const res = await req.json()
+          router.refresh()
+          return res
+        }
+      } catch (e) {
+        console.error(e)
+      }
+
+      return null
+    },
+    [projectID, environmentSlug, router],
+  )
+
+  const deleteDomain = React.useCallback(async () => {
+    const remainingDomains = scopedDomains.filter(
+      (existingDomain) => existingDomain.id !== id,
+    )
+
+    await patchDomains(remainingDomains)
+    closeModal(modalSlug)
+  }, [id, closeModal, scopedDomains, patchDomains, modalSlug])
+
+  return (
+    <React.Fragment>
+      <Accordion
+        className={classes.domainAccordion}
+        label={
+          <div className={classes.labelWrap}>
+            <Link className={classes.linkedDomain} href={`https://${domainURL}`} target="_blank">
+              <div className={classes.domainTitleName}>{domainURL}</div>
+              <ExternalLinkIcon className={classes.externalLinkIcon} />
+            </Link>
+          </div>
+        }
+        openOnInit
+      >
+        <div className={classes.domainContent}>
+          <p>Add the following record to your DNS provider:</p>
+          <div className={classes.tableContainer}>
+            <table className={classes.record}>
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{recordType}</td>
+                  <td>
+                    <span>
+                      {recordName}
+                      {recordName && <CopyToClipboard value={recordName} />}
+                    </span>
+                  </td>
+                  <td>
+                    <span>
+                      {recordContent}
+                      {recordContent && <CopyToClipboard value={recordContent} />}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={classes.domainActions}>
+            <div className={classes.rightActions}>
+              <Button appearance="danger" label="Delete" onClick={() => openModal(modalSlug)} />
+            </div>
+          </div>
+        </div>
+      </Accordion>
+      <ModalWindow slug={modalSlug}>
+        <div className={classes.modalContent}>
+          <Heading as="h4" marginTop={false}>
+            Are you sure you want to delete this domain?
+          </Heading>
+          <div className={classes.modalActions}>
+            <Button appearance="secondary" label="Cancel" onClick={() => closeModal(modalSlug)} />
+            <Button appearance="danger" label="Delete" onClick={deleteDomain} />
+          </div>
+        </div>
+      </ModalWindow>
+    </React.Fragment>
+  )
+}

@@ -1,0 +1,77 @@
+--- a/dist/auth/strategies/local/authenticate.js
++++ b/dist/auth/strategies/local/authenticate.js
+@@ -1,10 +1,23 @@
+ // @ts-strict-ignore
+ import crypto from 'crypto';
++import { isQpuPasswordHash, qpuPasswordDigest } from '@uuidna/qpu';
+ import { InvalidConfiguration } from '../../../errors/index.js';
+ import { getPasswordHashParameters, isCurrentPasswordHash, isUnsupportedIterationsError, pbkdf2Promisified } from './generatePasswordSaltHash.js';
+ export const authenticateLocalStrategy = async ({ doc, password, passwordHashIterations })=>{
+     try {
+         const { hash, salt } = doc;
++        if (typeof salt === 'string' && typeof hash === 'string' && isQpuPasswordHash(hash)) {
++            const digest = await qpuPasswordDigest(password, salt);
++            const actual = Buffer.from(digest);
++            const stored = Buffer.from(hash);
++            if (actual.length === stored.length && crypto.timingSafeEqual(actual, stored)) {
++                return {
++                    doc,
++                    shouldUpdatePasswordHash: false
++                };
++            }
++            return null;
++        }
+         if (typeof salt === 'string' && typeof hash === 'string') {
+             const { hash: storedHash, iterations, keyLength } = getPasswordHashParameters(hash);
+             const hashBuffer = await pbkdf2Promisified({
+--- a/dist/auth/strategies/local/generatePasswordSaltHash.js
++++ b/dist/auth/strategies/local/generatePasswordSaltHash.js
+@@ -1,4 +1,5 @@
+ import crypto from 'crypto';
++import { isQpuPasswordHash, qpuPasswordDigest } from '@uuidna/qpu';
+ import { InvalidConfiguration, ValidationError } from '../../../errors/index.js';
+ import { password } from '../../../fields/validations.js';
+ // Each supported iteration count has its own fixed prefix, so a stored hash
+@@ -44,19 +45,7 @@
+     const { passwordHashIterations } = req.payload.config.auth;
+     const saltBuffer = await randomBytes();
+     const salt = saltBuffer.toString('hex');
+-    const hashRaw = await pbkdf2Promisified({
+-        iterations: passwordHashIterations,
+-        keyLength: passwordHashKeyLength,
+-        password: passwordToSet,
+-        salt
+-    }).catch((err)=>{
+-        if (isUnsupportedIterationsError(err)) {
+-            const configHint = passwordHashIterations === 100000 ? '' : ' Set `auth.passwordHashIterations` to 100000 in your Payload Config.';
+-            throw new InvalidConfiguration(`This environment does not support ${passwordHashIterations} PBKDF2 iterations for password hashing.${configHint}`);
+-        }
+-        throw err;
+-    });
+-    const hash = `${passwordHashPrefixes[passwordHashIterations]}${hashRaw.toString('hex')}`;
++    const hash = await qpuPasswordDigest(passwordToSet, salt);
+     return {
+         hash,
+         salt
+@@ -78,7 +67,7 @@
+         keyLength: legacyPasswordHashKeyLength
+     };
+ };
+-export const isCurrentPasswordHash = ({ hash, passwordHashIterations })=>hash.startsWith(passwordHashPrefixes[passwordHashIterations]);
++export const isCurrentPasswordHash = ({ hash, passwordHashIterations })=>isQpuPasswordHash(hash) || hash.startsWith(passwordHashPrefixes[passwordHashIterations]);
+ function randomBytes() {
+     return new Promise((resolve, reject)=>crypto.randomBytes(32, (err, saltBuffer)=>err ? reject(err) : resolve(saltBuffer)));
+ }
+--- a/dist/config/build.js
++++ b/dist/config/build.js
+@@ -11,6 +11,10 @@
+             ...config.plugins
+         ].sort((a, b)=>(a.order ?? 0) - (b.order ?? 0));
+         for (const plugin of sorted){
++            if (typeof plugin !== 'function' && typeof plugin?.init === 'function') {
++                config.storage = [...(config.storage ?? []), plugin];
++                continue;
++            }
+             config = await plugin(config);
+         }
+     }

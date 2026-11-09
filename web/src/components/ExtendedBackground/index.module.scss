@@ -1,0 +1,99 @@
+@use '@scss/common.scss' as *;
+
+.container {
+  --bg-extension: calc(var(--gutter-h) * 0.5);
+  --pixel-bg-extension: calc(var(--bg-extension) * 2);
+  --pixel-padding: calc(var(--bg-extension) / 2);
+  position: relative;
+
+  @include large-break {
+    --bg-extension: calc(var(--gutter-h) * 0.75);
+  }
+
+  @include mid-break {
+    --bg-extension: var(--gutter-h);
+    --pixel-padding: var(--bg-extension);
+  }
+
+  &.withPixels {
+    padding-bottom: var(--pixel-padding);
+  }
+}
+
+.backgroundContainer {
+  position: relative;
+  margin: 0 calc(-1 * var(--bg-extension) / 2);
+  border: 1px solid var(--theme-border-color);
+  background-color: var(--theme-bg);
+  overflow: hidden;
+
+  + .backgroundContainer {
+    border-top: 0;
+  }
+}
+
+.borderHighlight {
+  background: conic-gradient(var(--theme-success-750), transparent, transparent);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  filter: blur(10px);
+  width: 100%;
+  animation: 7s rotateColor infinite linear;
+}
+
+:global([data-theme='dark']) {
+  .borderHighlight {
+    background: conic-gradient(var(--theme-success-450), transparent, transparent);
+  }
+}
+
+@keyframes rotateColor {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) skew(10deg, 10deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) skew(10deg, 10deg);
+  }
+}
+
+.containerContent {
+  position: relative;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  inset: 1px;
+  background-color: var(--theme-bg);
+  padding: 1.5rem calc(var(--bg-extension) / 2);
+  margin-right: 2px;
+  margin-bottom: 2px;
+
+  @include small-break {
+    padding: 1rem calc(var(--bg-extension) / 2);
+  }
+}
+
+.lowerBackground {
+  top: -1px;
+}
+
+.pixelBackground {
+  z-index: -2;
+  position: absolute;
+  bottom: 0;
+  max-height: calc(50% + var(--pixel-padding));
+  background-image: url('/images/scanline-dark.png');
+  background-repeat: repeat;
+  background-position-x: 5px; // half image width
+  left: calc(-1 * var(--pixel-bg-extension) / 2);
+  width: calc(100% + var(--pixel-bg-extension));
+  height: 100%;
+  opacity: 0.08;
+
+  [data-theme='dark'] & {
+    background-image: url('/images/scanline-light.png');
+  }
+}

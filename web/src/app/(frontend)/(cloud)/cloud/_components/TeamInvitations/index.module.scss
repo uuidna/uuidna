@@ -1,0 +1,38 @@
+@use '@scss/common' as *;
+
+.invitations {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.success {
+  color: var(--theme-success-500);
+}
+
+.error {
+  color: var(--theme-error-500);
+}
+
+.resendEmail {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.formState {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  & > * {
+    margin: 0;
+  }
+}

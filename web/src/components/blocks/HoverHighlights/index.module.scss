@@ -1,0 +1,219 @@
+@use '@scss/common' as *;
+
+.gutter {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 80vh;
+  position: relative;
+  padding-block: 8rem;
+
+  @include mid-break {
+    padding-block: 4rem;
+  }
+
+  @include small-break {
+    padding-bottom: 4rem;
+    padding-top: 500px;
+  }
+
+  @include extra-small-break {
+    padding-top: 400px;
+  }
+}
+
+.highlightText {
+  @include h2;
+  & {
+    margin: 0;
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  & .arrow {
+    opacity: 0;
+    transition: opacity 0.6s ease 0.1s;
+  }
+
+  &:hover .arrow {
+    opacity: 0.5;
+  }
+
+  @include mid-break {
+    @include h3;
+    margin: 0;
+  }
+
+  @include small-break {
+    @include h2;
+    margin: 0;
+  }
+}
+
+.highlightMediaTop {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: calc(var(--column) * 8);
+  width: calc(var(--column) * 12);
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+
+  @include mid-break {
+    left: calc(var(--column) * 4);
+    width: calc(var(--column) * 6);
+  }
+
+  @include small-break {
+    left: 0;
+    justify-content: flex-start;
+    width: calc(var(--column) * 10);
+    max-width: 600px;
+  }
+}
+
+.highlightMediaBottom {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: calc(var(--column) * 8);
+  width: calc(var(--column) * 12);
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+
+  img {
+    transition-duration: 0.9s;
+  }
+
+  @include mid-break {
+    left: calc(var(--column) * 4);
+    width: calc(var(--column) * 6);
+  }
+
+  @include small-break {
+    left: 0;
+    justify-content: flex-start;
+    width: calc(var(--column) * 10);
+    max-width: 600px;
+  }
+}
+
+.media {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+.rightMargin div {
+  position: absolute;
+  width: calc(var(--gutter-h) + (var(--column) * 4));
+  height: 100%;
+  left: calc(100% - var(--gutter-h) - (var(--column) * 4));
+  top: 0;
+
+  @include small-break {
+    display: none;
+  }
+}
+
+.highlightWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 10;
+  height: 100%;
+
+  & > span {
+    @include large-body;
+  }
+
+  @include small-break {
+    justify-content: flex-start;
+  }
+}
+
+.highlightList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlightText {
+  opacity: 0.5;
+  transition: opacity 0.9s ease;
+
+  &:focus {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    opacity: 0;
+    transition:
+      opacity 0.9s,
+      transform 0.9s ease;
+    will-change: transition;
+    display: block;
+  }
+}
+
+.beforeActive {
+  .mediaTop img {
+    opacity: 0;
+    transform: translateY(-6rem);
+  }
+
+  .mediaBottom img {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+}
+
+.activeHighlight {
+  opacity: 1;
+
+  .highlightText {
+    opacity: 1;
+  }
+
+  .mediaTop img,
+  .mediaBottom img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.afterActive {
+  .mediaTop img {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+
+  .mediaBottom img {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+}
+
+.button {
+  margin-top: 2rem;
+  width: calc(var(--column) * 4);
+
+  @include small-break {
+    width: calc(var(--column) * 8);
+  }
+}

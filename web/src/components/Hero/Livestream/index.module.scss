@@ -1,0 +1,173 @@
+@use '@scss/common' as *;
+
+.livestreamHero {
+  position: relative;
+  margin-top: -2rem;
+  color: var(--color-base-100);
+
+  @include mid-break {
+    margin-top: -1rem;
+  }
+}
+
+.gutter {
+  position: relative;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.linkCell,
+.videoCell {
+  padding: 2rem 0;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  @include mid-break {
+    margin-top: 1rem;
+    padding: 0;
+  }
+}
+
+.linksWrap,
+.videoWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.videoWrap {
+  width: calc(100% + (calc(var(--gutter-h) * 0.75)));
+
+  @include extra-large-break {
+    width: calc(100% + (calc(var(--gutter-h) * 1)));
+  }
+
+  @include mid-break {
+    width: 100%;
+  }
+}
+
+.link {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &--secondary {
+    color: var(--color-success-400);
+    border-color: var(--color-success-400);
+  }
+
+  &--default {
+    color: var(--color-blue-600);
+    width: min-content;
+
+    & div {
+      width: unset;
+    }
+
+    & svg {
+      margin-left: 1rem;
+    }
+
+    @include mid-break {
+      padding: 0;
+    }
+  }
+}
+
+.guestWrap {
+  @include label;
+  & {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    width: fit-content;
+  }
+
+  & img {
+    width: 45px;
+    height: 45px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 1.5rem;
+    border: none;
+    flex-shrink: 0;
+  }
+
+  &:last-child {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+}
+
+// BG
+
+.bgWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  .bgGutter {
+    @include mid-break {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.bgGutter {
+  width: 100%;
+  height: 100%;
+}
+
+.bg1 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-base-900);
+  margin-left: calc(var(--gutter-h) / -2);
+  width: calc(100% + var(--gutter-h));
+
+  @include mid-break {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.bg2Wrapper {
+  width: 100%;
+  height: calc(100% - 4rem);
+  top: 2rem;
+
+  position: absolute;
+  left: 0;
+}
+
+.bg2Grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bg2Cell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bg2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(100% + var(--gutter-h));
+  height: 100%;
+  background-color: var(--color-base-950);
+}

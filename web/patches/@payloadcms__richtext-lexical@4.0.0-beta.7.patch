@@ -1,0 +1,26 @@
+diff --git a/dist/index.d.ts b/dist/index.d.ts
+index b137d0447e16cad8ae979c52be7f86f6a3794033..e95dc7cd08ae1784498255513eb596d2a7199a5f 100644
+--- a/dist/index.d.ts
++++ b/dist/index.d.ts
+@@ -39,7 +39,7 @@ export { ParagraphFeature } from './features/paragraph/server/index.js';
+ export { RelationshipFeature, type RelationshipFeatureProps, } from './features/relationship/server/index.js';
+ export { RelationshipServerNode } from './features/relationship/server/nodes/RelationshipNode.js';
+ export type { RelationshipData } from './features/relationship/server/schema.js';
+-export { TableFeature } from './features/table/server/index.js';
++export { TableFeature, TableFeature as EXPERIMENTAL_TableFeature } from './features/table/server/index.js';
+ export { defaultColors } from './features/textState/defaultColors.js';
+ export { TextStateFeature } from './features/textState/feature.server.js';
+ export { FixedToolbarFeature } from './features/toolbars/fixed/server/index.js';
+diff --git a/dist/index.js b/dist/index.js
+index ec6604020bc96a63358a09a82129d473e72bc5af..564ab081251de64dbc59c312ef6f028868e2b6d9 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -190,7 +190,7 @@ export { UnorderedListFeature } from './features/lists/unorderedList/server/inde
+ export { ParagraphFeature } from './features/paragraph/server/index.js';
+ export { RelationshipFeature } from './features/relationship/server/index.js';
+ export { RelationshipServerNode } from './features/relationship/server/nodes/RelationshipNode.js';
+-export { TableFeature } from './features/table/server/index.js';
++export { TableFeature, TableFeature as EXPERIMENTAL_TableFeature } from './features/table/server/index.js';
+ export { defaultColors } from './features/textState/defaultColors.js';
+ export { TextStateFeature } from './features/textState/feature.server.js';
+ export { FixedToolbarFeature } from './features/toolbars/fixed/server/index.js';

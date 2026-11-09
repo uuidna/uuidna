@@ -1,0 +1,16 @@
+@use '@scss/common' as *;
+
+.videoPlayer {
+  position: relative;
+  height: auto;
+  width: 100%;
+  background-color: var(--theme-elevation-0);
+  overflow: hidden;
+}
+
+.iframe {
+  border: none;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}

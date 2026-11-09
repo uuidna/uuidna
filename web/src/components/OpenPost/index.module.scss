@@ -1,0 +1,67 @@
+@use '@scss/common' as *;
+
+.next {
+  position: relative;
+  color: var(--theme-text-color);
+  display: block;
+  text-decoration: none;
+  padding: 4rem 4rem;
+  border-top: 1px solid var(--theme-border-color);
+  border-bottom: 1px solid var(--theme-border-color);
+  background-color: var(--theme-elevation-0);
+  margin-left: 1px;
+  width: calc(100% - 2px);
+  transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0px;
+    height: 1px;
+    background-color: var(--theme-text);
+  }
+
+  h3 {
+    margin: 0.25rem 0 0 0;
+  }
+
+  .crosshairs {
+    height: calc(100% + 1px);
+  }
+
+  @include mid-break {
+    padding: 2rem;
+  }
+
+  &:hover {
+    background-color: var(--theme-elevation-50);
+
+    &::before {
+      width: 100%;
+      transition: width 0.3s;
+    }
+
+    .nextLabel svg {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.nextLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--theme-warning-1000);
+
+  svg {
+    opacity: 0;
+    margin-left: 0.5rem;
+    transform: translate(-5px, 5px);
+    transition-property: opacity, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}

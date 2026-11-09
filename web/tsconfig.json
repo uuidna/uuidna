@@ -1,0 +1,97 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": [
+      "DOM",
+      "DOM.iterable",
+      "ES2022"
+    ],
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@blocks/*": [
+        "./src/components/blocks/*"
+      ],
+      "@cloud/*": [
+        "./src/app/(frontend)/(cloud)/cloud/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@docs/*": [
+        "./src/docs/*"
+      ],
+      "@forms/*": [
+        "./src/forms/*"
+      ],
+      "@graphics/*": [
+        "./src/graphics/*"
+      ],
+      "@data": [
+        "./src/app/_data"
+      ],
+      "@data/*": [
+        "./src/app/_data/*"
+      ],
+      "@icons/*": [
+        "./src/icons/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@providers": [
+        "./src/providers"
+      ],
+      "@providers/*": [
+        "./src/providers/*"
+      ],
+      "@root/*": [
+        "./src/*"
+      ],
+      "@scss/*": [
+        "./src/css/*"
+      ],
+      "@types": [
+        "./src/payload-types.ts"
+      ],
+      "@utilities": [
+        "./src/utilities"
+      ],
+      "@utilities/*": [
+        "./src/utilities/*"
+      ],
+      "@payload-config": [
+        "./src/payload.config.ts"
+      ]
+    },
+    "strictNullChecks": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "pages__old"
+  ]
+}

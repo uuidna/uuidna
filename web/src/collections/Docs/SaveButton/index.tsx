@@ -1,0 +1,96 @@
+'use client'
+
+import type { SaveButtonClientProps } from 'payload'
+
+import { useFormField } from '@forms/useFormField'
+import {
+  FormSubmit,
+  SaveButton as PayloadSaveButton,
+  useConfig,
+  useDocumentInfo,
+  useEditDepth,
+  useForm,
+  useFormModified,
+  useHotkey,
+  useLocale,
+  useOperation,
+} from '@payloadcms/ui'
+import { useSearchParams } from 'next/navigation'
+import * as qs from 'qs-esm'
+import React, { useRef } from 'react'
+
+import { branchForVersion } from '../branchForVersion'
+
+import './index.scss'
+
+export const SaveButtonClient: React.FC<SaveButtonClientProps> = (props) => {
+  const { submit } = useForm()
+  const modified = useFormModified()
+  const versionField = useFormField(([fields]) => fields.version)
+
+  const { id, collectionSlug } = useDocumentInfo()
+  const ref = useRef<HTMLButtonElement>(null)
+  const editDepth = useEditDepth()
+  const operation = useOperation()
+  const searchParams = useSearchParams()
+
+  const forceDisable = operation === 'update' && !modified
+
+  const locale = useLocale()?.code
+
+  const {
+    config: {
+      routes: { api },
+      serverURL,
+    },
+  } = useConfig()
+
+  const baseURL = `${serverURL}${api}`
+
+  const action: string = React.useMemo(() => {
+    const docURL = `${baseURL}/${collectionSlug}${id ? `/${id}` : ''}`
+    const params = {
+      branch: searchParams.get('branch') ?? branchForVersion(versionField?.value),
+      commit: true,
+      depth: 0,
+      'fallback-locale': 'null',
+      locale,
+    }
+
+    return `${docURL}${qs.stringify(params, {
+      addQueryPrefix: true,
+    })}`
+  }, [baseURL, collectionSlug, id, locale, searchParams, versionField?.value])
+
+  useHotkey({ cmdCtrlKey: true, editDepth, keyCodes: ['s'] }, (e) => {
+    if (forceDisable) {
+      // absorb the event
+    }
+
+    e.preventDefault()
+    e.stopPropagation()
+    if (ref?.current) {
+      ref.current.click()
+    }
+  })
+
+  const handleSubmit = () => {
+    return void submit({ action })
+  }
+
+  return (
+    <div className="custom-save-button-container">
+      <FormSubmit
+        buttonId="action-save"
+        disabled={forceDisable}
+        onClick={handleSubmit}
+        ref={ref}
+        size="medium"
+        type="button"
+      >
+        Save And Commit
+      </FormSubmit>
+      <PayloadSaveButton {...props} />
+    </div>
+  )
+}

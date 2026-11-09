@@ -1,0 +1,190 @@
+@use '@scss/common' as *;
+
+.authorTag {
+  --byline-spacer: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.authorCell {
+  display: flex;
+  justify-content: space-between;
+}
+
+.authorName {
+  display: flex;
+  align-items: center;
+}
+
+.authorDetails {
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  color: var(--theme-elevation-900);
+}
+
+.authorImageWrap {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+
+  & img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+}
+
+.authorLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: var(--theme-text);
+}
+
+.teamTag {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.teamLink {
+  & strong {
+    color: var(--theme-blue-750);
+  }
+}
+
+.twitterIcon {
+  display: flex;
+  margin: 0 0 0 0.5rem;
+  width: 18px;
+
+  & rect {
+    fill: var(--theme-elevation-100);
+  }
+}
+
+.commentMeta {
+  display: flex;
+  gap: 1rem;
+  @include h6;
+}
+
+.date {
+  @include h6;
+  & {
+    font-size: 13px;
+    color: var(--theme-elevation-500);
+    font-weight: normal;
+    margin: 0;
+  }
+
+  &::before {
+    content: '\2014';
+    margin: 0 0.5rem;
+  }
+}
+
+.commentMetaStats {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  margin-top: 0.5rem;
+
+  > span {
+    font-family: var(--font-geist-mono);
+    color: var(--theme-elevation-400);
+    border: 1px solid var(--theme-elevation-200);
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 8px;
+    height: 26px;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .arrowIcon {
+    height: 8px;
+  }
+
+  .messageIcon {
+    width: 12px;
+  }
+}
+
+.comments {
+  height: 100%;
+  margin-left: 1.25rem;
+  color: var(--color-base-300);
+
+  & svg {
+    width: 0.75rem;
+    margin-right: 0.25rem;
+  }
+
+  & span {
+    color: var(--theme-elevation-500);
+  }
+}
+
+:global([data-theme='light']) {
+  .isAnswer {
+    background: transparent;
+    color: var(--color-success-850);
+  }
+
+  .commentMetaStats,
+  .comments {
+    & svg {
+      & path {
+        stroke: var(--theme-elevation-500);
+      }
+    }
+  }
+}
+
+@include large-break {
+  .authorTag {
+    flex-wrap: wrap;
+  }
+}
+
+@include small-break {
+  .authorTag {
+    line-height: 2;
+  }
+
+  .authorName {
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 0.25rem;
+  }
+
+  .comments {
+    margin-left: 0.5rem;
+  }
+
+  .twitterIcon {
+    width: 15px;
+    margin: 0 0.5rem;
+  }
+}
+
+:global([data-theme='light']) {
+  .teamLink {
+    & strong {
+      color: var(--color-blue-600);
+    }
+  }
+
+  .twitterIcon {
+    & path {
+      fill: var(--color-blue-900);
+    }
+  }
+}

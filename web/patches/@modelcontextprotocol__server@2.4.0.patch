@@ -1,0 +1,35 @@
+diff --git a/package.json b/package.json
+index 8f6987eb8426f598621481a528fa519026d8bd8d..d5192d3355daf3357a3fb028a082dc3d595d9ee2 100644
+--- a/package.json
++++ b/package.json
+@@ -103,22 +103,22 @@
+       },
+       "node": {
+         "import": {
+-          "types": "./dist/shimsNode.d.mts",
+-          "default": "./dist/shimsNode.mjs"
++          "types": "./dist/shimsWorkerd.d.mts",
++          "default": "./dist/shimsWorkerd.mjs"
+         },
+         "require": {
+-          "types": "./dist/shimsNode.d.cts",
+-          "default": "./dist/shimsNode.cjs"
++          "types": "./dist/shimsWorkerd.d.cts",
++          "default": "./dist/shimsWorkerd.cjs"
+         }
+       },
+       "default": {
+         "import": {
+-          "types": "./dist/shimsNode.d.mts",
+-          "default": "./dist/shimsNode.mjs"
++          "types": "./dist/shimsWorkerd.d.mts",
++          "default": "./dist/shimsWorkerd.mjs"
+         },
+         "require": {
+-          "types": "./dist/shimsNode.d.cts",
+-          "default": "./dist/shimsNode.cjs"
++          "types": "./dist/shimsWorkerd.d.cts",
++          "default": "./dist/shimsWorkerd.cjs"
+         }
+       }
+     }

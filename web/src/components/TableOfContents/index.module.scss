@@ -1,0 +1,51 @@
+@use '@scss/common' as *;
+
+.wrap {
+  position: relative;
+  padding: 2rem 1rem 1rem;
+}
+
+.toc {
+  list-style: none;
+  padding: 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.tocTitle {
+  margin: 0 0 1rem;
+}
+
+.heading {
+  transition: all 400ms;
+  position: relative;
+  line-height: 1.375;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  @include small;
+
+  &:hover {
+    transform: translate3d(0.25rem, 0, 0);
+  }
+}
+
+.heading-2 {
+  composes: heading;
+}
+
+.heading-3 {
+  composes: heading;
+  padding-left: 0.75rem;
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all var(--trans-default) ease-in-out;
+  height: 1.3rem;
+  background-color: var(--theme-elevation-800);
+  width: 2px;
+}

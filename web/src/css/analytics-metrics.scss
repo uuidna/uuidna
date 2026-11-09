@@ -1,0 +1,79 @@
+@use '~@payloadcms/ui/scss' as *;
+
+.analytics-overview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: base(1);
+
+  &__header {
+    margin-bottom: base(0.75);
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--theme-text);
+    margin: 0 0 4px;
+  }
+
+  &__subtitle {
+    font-size: 0.8125rem;
+    color: var(--theme-elevation-400);
+    margin: 0;
+  }
+
+  &__metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+
+  &__metric-card {
+    background: var(--theme-elevation-50);
+    border-radius: 8px;
+    min-width: 150px;
+    padding: base(0.75);
+  }
+
+  &__metric-label {
+    color: var(--theme-elevation-400);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  &__metric-value {
+    color: var(--theme-text);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  &__chart {
+    background: var(--theme-elevation-50);
+    border: 1px solid var(--theme-elevation-100);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-top: 15px;
+    padding: base(0.75);
+  }
+
+  .recharts-cartesian-axis-tick-value {
+    font-size: 11px;
+    fill: var(--theme-elevation-500);
+  }
+
+  .recharts-legend-item-text {
+    font-size: 12px !important;
+    color: var(--theme-elevation-700) !important;
+  }
+
+  .recharts-default-tooltip {
+    background: var(--theme-elevation-0) !important;
+    border: 1px solid var(--theme-elevation-150) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+}

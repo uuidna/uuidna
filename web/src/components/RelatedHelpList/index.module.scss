@@ -1,0 +1,41 @@
+@use '@scss/common' as *;
+
+.relatedHelpList {
+  position: relative;
+  padding: 2rem 0;
+
+  .titleWrapper {
+    padding-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  ul {
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .itemMarker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 100%;
+
+    @include small-break {
+      margin: 3px 0 0 0;
+    }
+  }
+}

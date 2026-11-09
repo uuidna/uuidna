@@ -1,0 +1,149 @@
+@use '@scss/common.scss' as *;
+
+.content {
+  max-width: 1200px;
+
+  h2 {
+    @include h1;
+  }
+}
+
+.wrap {
+  padding-top: var(--block-spacing);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  width: 150vw;
+  margin-left: -25vw;
+}
+
+.poweredByPayload {
+  position: absolute;
+  top: 4rem;
+  z-index: 1;
+  width: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+
+  @include mid-break {
+    top: 1rem;
+  }
+}
+
+.poweredByPayloadInner {
+  @include large-body;
+  & {
+    @include shadow-lg;
+    & {
+      background: var(--theme-bg);
+      padding: 1.5rem 2.5rem;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 4px solid;
+    }
+  }
+
+  svg {
+    margin-right: 0.75rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  @include mid-break {
+    padding: 1rem 2rem;
+  }
+}
+
+.row {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &:nth-child(odd) {
+    right: 20vh;
+  }
+
+  &:nth-child(even) {
+    left: 20vh;
+  }
+
+  @include large-break {
+    flex-wrap: wrap;
+
+    &:nth-child(odd) {
+      right: 15vh;
+    }
+
+    &:nth-child(even) {
+      left: 15vh;
+    }
+  }
+
+  @include mid-break {
+    flex-wrap: wrap;
+
+    &:nth-child(odd) {
+      right: 5vh;
+    }
+
+    &:nth-child(even) {
+      left: 5vh;
+    }
+
+    &:first-child {
+      li:first-child {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      li:last-child {
+        display: none;
+      }
+    }
+  }
+}
+
+.imageWrap {
+  width: 33.33%;
+  padding: 1rem;
+
+  @include large-break {
+    padding: 0.5rem;
+  }
+
+  @include mid-break {
+    width: 50%;
+  }
+}
+
+.image {
+  display: block;
+  transition: all 200ms ease-out;
+  padding-top: 56.25%;
+  position: relative;
+  height: 100%;
+  opacity: 0.3;
+
+  &:hover {
+    @include shadow-lg;
+    opacity: 1;
+    transform: translate3d(0, -1rem, 0);
+  }
+
+  @include mid-break {
+    opacity: 1;
+    transition: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}

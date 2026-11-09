@@ -1,0 +1,149 @@
+@use '@scss/common' as *;
+
+.Discord {
+  & p {
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  & > * {
+    &:not(pre) {
+      display: inline;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.GitHub {
+  & p {
+    margin-bottom: 1rem;
+  }
+}
+
+.body {
+  margin-top: 1rem;
+  overflow-wrap: anywhere;
+
+  :global(.ts) {
+    display: block;
+  }
+
+  img,
+  video {
+    @include shadow-lg;
+    margin: 20px 0;
+    max-width: 100%;
+  }
+
+  & > * {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & div {
+    & p {
+      margin-bottom: 0;
+    }
+  }
+
+  & span,
+  & pre,
+  & code {
+    white-space: break-spaces;
+    line-break: anywhere;
+  }
+
+  & hr {
+    margin: 1rem 0;
+  }
+
+  & code,
+  & pre {
+    @include code;
+    & {
+      line-height: 1rem;
+      -moz-tab-size: 4;
+      -o-tab-size: 4;
+      tab-size: 4;
+      -webkit-hyphens: none;
+      -moz-hyphens: none;
+      -ms-hyphens: none;
+      hyphens: none;
+      padding: 0.15rem;
+    }
+  }
+
+  & pre {
+    background-color: var(--color-base-950);
+    padding: 1.5rem;
+
+    code {
+      background: none;
+    }
+  }
+
+  & p > code {
+    color: var(--theme-elevation-900);
+  }
+
+  & h1 {
+    @include h3;
+  }
+
+  & h2 {
+    @include h4;
+  }
+
+  & h3 {
+    @include h5;
+  }
+
+  & h4 {
+    font-size: 1.35rem;
+  }
+
+  & h5 {
+    font-size: 1.25rem;
+  }
+
+  & h6 {
+    font-size: 1.15rem;
+  }
+
+  & a {
+    color: var(--color-blue-600);
+    word-wrap: break-word;
+  }
+
+  & blockquote {
+    margin-left: 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--theme-elevation-300);
+  }
+
+  & strong {
+    @include small-break {
+      word-wrap: break-word;
+    }
+  }
+
+  details {
+    & path {
+      fill: var(--theme-elevation-900);
+    }
+  }
+}
+
+:global([data-theme='light']) {
+  .body {
+    & pre {
+      & code {
+        color: var(--theme-elevation-100);
+      }
+    }
+  }
+}

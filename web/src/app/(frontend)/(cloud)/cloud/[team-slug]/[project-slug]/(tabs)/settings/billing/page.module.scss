@@ -1,0 +1,15 @@
+@use '@scss/common.scss' as *;
+
+.error {
+  color: var(--theme-error-500);
+}
+
+.success {
+  color: var(--theme-success-500);
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

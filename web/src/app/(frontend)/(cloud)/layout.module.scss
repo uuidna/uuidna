@@ -1,0 +1,16 @@
+@use '@scss/common' as *;
+
+.layout {
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+  padding: var(--page-padding-top) 0 0;
+
+  @include mid-break {
+    padding-top: calc(var(--header-height) + 3rem);
+  }
+}

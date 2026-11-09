@@ -1,0 +1,14 @@
+// Payload 4 ships CSS, not @payloadcms/ui/scss. Admin styles and the analytics plugin still import that path.
+@function base($multiplier: 1) {
+  @return #{$multiplier * 1rem};
+}
+
+%btn-reset {
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  color: currentColor;
+  font-family: var(--font-body);
+}

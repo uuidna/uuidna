@@ -1,0 +1,91 @@
+@use '@scss/common' as *;
+
+$curve: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+.container {
+  position: relative;
+  padding-top: 4rem;
+  margin-bottom: -14.5rem;
+
+  @include mid-break {
+    padding-top: 4rem;
+    margin-bottom: -12rem;
+  }
+
+  @include small-break {
+    pointer-events: none;
+    padding-top: 4rem;
+    margin-bottom: -10rem;
+  }
+}
+
+.mask {
+  width: 100%;
+  background: black;
+  aspect-ratio: 1600/436;
+  mask-image: url('/images/payload-mask.svg');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  image-rendering: crisp-edges;
+  position: relative;
+  transition: all 1s $curve;
+  transform-origin: bottom;
+}
+
+.gradient {
+  transform: translate3d(
+    calc(var(--mouse-x, -100%) * 1px - 35rem),
+    calc(var(--mouse-y, -100%) * 1px - 35rem),
+    0px
+  );
+  position: absolute;
+  filter: blur(100px);
+  width: 70rem;
+  height: 70rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  transition: opacity 1s $curve;
+  background: var(--color-base-0);
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+
+  @include mid-break {
+    transform: translate3d(
+      calc(var(--mouse-x, -100%) * 1px - 17.5rem),
+      calc(var(--mouse-y, -100%) * 1px - 17.5rem),
+      0px
+    );
+    width: 35rem;
+    height: 35rem;
+  }
+}
+
+.image {
+  position: relative;
+}
+
+.payload {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  fill: none;
+  z-index: 6;
+
+  path {
+    fill: none;
+  }
+}
+
+.noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/noise.png') repeat;
+  z-index: 5;
+}

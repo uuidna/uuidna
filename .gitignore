@@ -7,6 +7,8 @@ docs/.vitepress/dist/
 handles.js
 .DS_Store
 .wrangler/
+web/.next/
+web/.open-next/
 *.mcpb
 .uuidna-writer.lock
 .uuidna-sessions/

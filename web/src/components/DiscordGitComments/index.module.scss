@@ -1,0 +1,148 @@
+@use '@scss/common' as *;
+
+.comments {
+  padding: 0;
+  margin-bottom: 2rem;
+  list-style: none;
+
+  @include mid-break {
+    margin-bottom: 2rem;
+  }
+}
+
+.comment {
+  margin: 2rem 0;
+}
+
+.comment,
+.reply {
+  border: 1px solid var(--theme-border-color);
+  padding: 2rem 4rem;
+  line-height: 1.5;
+
+  @include mid-break {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+  }
+}
+
+.hasReplies {
+  margin: 0;
+}
+
+.reply {
+  border-top: none;
+  background-color: var(--theme-elevation-50);
+  margin-bottom: 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: var(--theme-blue-50);
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+  }
+}
+
+.replyCount {
+  @include uppercaseLabel;
+  color: var(--color-base-500);
+  padding-top: 1.5rem;
+}
+
+.answer {
+  position: relative;
+  padding: 0;
+
+  & code {
+    color: var(--theme-elevation-900);
+  }
+}
+
+.answerHeader {
+  position: relative;
+  padding: 1.5rem 4rem;
+  background-color: var(--theme-blue-100);
+
+  & h6 {
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .selectedBy {
+    font-size: 0.65rem;
+  }
+
+  @include mid-break {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.answerBody {
+  padding: 1.5rem 4rem;
+  color: var(--theme-text);
+  background-color: var(--theme-blue-50);
+
+  @include mid-break {
+    padding: 1.5rem 1rem;
+  }
+}
+
+.attachmentWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: 1rem;
+
+  @include large-break {
+    grid-template-columns: 1fr;
+  }
+}
+
+.crosshairs {
+  height: 0;
+  bottom: 0;
+  top: unset;
+}
+
+:global([data-theme='light']) {
+  .answer {
+    background-color: var(--theme-blue-50);
+    border-color: var(--theme-elevation-100);
+    color: var(--theme-text);
+  }
+
+  .answerHeader {
+    background-color: var(--theme-blue-100);
+    color: var(--theme-elevation-900);
+    border-bottom: 1px solid var(--theme-elevation-100);
+  }
+
+  .crosshairs {
+    color: var(--theme-elevation-100);
+  }
+
+  .reply {
+    background-color: transparent;
+  }
+}
+
+@include mid-break {
+  .content {
+    margin: 0;
+  }
+
+  .comment {
+    margin: 1rem 0;
+  }
+
+  .reply {
+    padding: 1rem;
+    padding-left: 1.5rem;
+  }
+}

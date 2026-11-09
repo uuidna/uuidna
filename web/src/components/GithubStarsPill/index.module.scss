@@ -1,0 +1,49 @@
+@use '@scss/common' as *;
+
+.pill {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid var(--color-base-650);
+}
+
+.leftPill {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-base-850);
+  color: var(--color-base-200);
+  display: flex;
+  gap: 0.5rem;
+  height: 28px;
+
+  svg {
+    height: auto;
+  }
+
+  p {
+    @include small;
+    & {
+      margin: 0;
+      line-height: 1;
+      color: currentColor;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.starCount {
+  @include small;
+  & {
+    position: relative;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--color-base-950);
+    color: white;
+    height: 28px;
+    display: flex;
+    align-items: center;
+  }
+}

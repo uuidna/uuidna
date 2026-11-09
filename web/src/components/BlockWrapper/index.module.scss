@@ -1,0 +1,104 @@
+@use '@scss/common' as *;
+
+.theme-dark {
+  background: var(--color-base-1000);
+
+  &.background-gradientUp {
+    background: linear-gradient(180deg, var(--color-base-1000) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  &.background-gradientDown {
+    background: linear-gradient(0deg, var(--color-base-1000) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  &.background-transparent {
+    background: transparent;
+  }
+}
+
+.theme-light {
+  background: var(--color-base-0);
+
+  &.background-gradientUp {
+    background: linear-gradient(180deg, var(--color-base-0) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &.background-gradientDown {
+    background: linear-gradient(0deg, var(--color-base-0) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &.background-transparent {
+    background: transparent;
+  }
+}
+
+.hideBackground {
+  background: transparent;
+}
+
+.blockWrapper {
+  --wrapper-padding-top: 0;
+  --wrapper-padding-bottom: 0;
+
+  position: relative;
+
+  &.padding-top {
+    &-hero {
+      --wrapper-padding-top: 2rem;
+
+      &.setPadding {
+        padding-top: calc(var(--wrapper-padding-top) + var(--page-padding-top));
+      }
+    }
+
+    &-large {
+      --wrapper-padding-top: 8rem;
+
+      @include mid-break {
+        --wrapper-padding-top: 5rem;
+      }
+
+      &.setPadding {
+        padding-top: var(--wrapper-padding-top);
+      }
+    }
+
+    &-small {
+      --wrapper-padding-top: 4rem;
+
+      @include mid-break {
+        --wrapper-padding-top: 2.5rem;
+      }
+
+      &.setPadding {
+        padding-top: var(--wrapper-padding-top);
+      }
+    }
+  }
+
+  &.padding-bottom {
+    &-large {
+      --wrapper-padding-bottom: 8rem;
+
+      @include mid-break {
+        --wrapper-padding-bottom: 5rem;
+      }
+
+      &.setPadding {
+        padding-bottom: var(--wrapper-padding-bottom);
+      }
+    }
+
+    &-small {
+      --wrapper-padding-bottom: 4rem;
+
+      @include mid-break {
+        --wrapper-padding-bottom: 2.5rem;
+      }
+
+      &.setPadding {
+        padding-bottom: var(--wrapper-padding-bottom);
+      }
+    }
+  }
+}

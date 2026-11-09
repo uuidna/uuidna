@@ -1,0 +1,121 @@
+@use '@scss/common' as *;
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: calc(var(--base) * 1.5);
+
+  @include mid-break {
+    margin-bottom: 0;
+    flex-wrap: wrap;
+  }
+}
+
+.import {
+  color: var(--theme-blue-500);
+}
+
+.description {
+  margin-bottom: 0;
+}
+
+.headerContent {
+  flex-grow: 1;
+
+  @include mid-break {
+    margin-bottom: var(--base);
+  }
+}
+
+.callToAction {
+  @include shadow;
+  & {
+    background-color: var(--theme-elevation-50);
+    padding: calc(var(--base) * 2);
+    position: relative;
+    width: calc(100% + var(--gutter-h));
+    left: calc(var(--gutter-h) * -0.5);
+  }
+
+  @include mid-break {
+    padding: calc(var(--base) * 1.5);
+    width: calc(100% + (var(--gutter-h) * 2));
+    left: calc(var(--gutter-h) * -1);
+  }
+}
+
+.bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% + var(--gutter-h));
+  height: calc(50% + calc(var(--base) * 3));
+  margin-left: calc(var(--gutter-h) / -2);
+
+  @include mid-break {
+    margin-left: calc(var(--gutter-h) * -1);
+    width: calc(100% + (var(--gutter-h) * 2));
+  }
+}
+
+.description {
+  margin-bottom: 0;
+}
+
+.templatesWrapper {
+  padding: 3rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid var(--theme-border-color);
+
+  @include mid-break {
+    padding: 2rem 0;
+    margin-top: 1rem;
+  }
+}
+
+.templateCard {
+  display: flex;
+  position: relative;
+  gap: 2rem;
+  padding-right: 4rem;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @include small-break {
+    flex-direction: column;
+    padding-right: 0;
+    margin-bottom: 4rem;
+  }
+}
+
+.templateImage {
+  flex: calc(var(--column) * 4) 0 0;
+  border: 1px solid var(--theme-border-color);
+}
+
+.templateCardDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  flex: 1 0 0;
+
+  .leader {
+    text-transform: uppercase;
+  }
+
+  & > * {
+    margin: 0;
+  }
+
+  p {
+    @include small;
+  }
+}

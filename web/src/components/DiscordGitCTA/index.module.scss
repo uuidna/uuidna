@@ -1,0 +1,133 @@
+@use '@scss/common' as *;
+
+.cta {
+  @include btnReset;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  margin: 0;
+  background-color: transparent;
+  border-bottom: 1px solid var(--grid-line-dark);
+  position: relative;
+  width: 100%;
+
+  @include data-theme-selector('dark') {
+    border-color: var(--grid-line-dark);
+  }
+
+  @include data-theme-selector('light') {
+    border-color: var(--grid-line-light);
+  }
+
+  &:before {
+    position: absolute;
+    content: ' ';
+    height: 0.5px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 300ms ease-in-out;
+    background-color: var(--theme-elevation-1000);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .message,
+    .arrow {
+      transition: all var(--trans-default) linear;
+    }
+
+    .arrow {
+      transform: translate3D(0, 0, 0);
+      opacity: 1;
+    }
+
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.message {
+  @include h5;
+  & {
+    color: var(--theme-text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  color: var(--theme-text-color);
+  opacity: 0;
+  transform: translate3D(-5px, 5px, 0);
+}
+
+.gitButton,
+.discordButton {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0 0 0;
+  width: 100%;
+  align-items: center;
+  height: 26px;
+
+  & img {
+    border-radius: 0.25em; // matches github button
+    height: 26px;
+  }
+}
+
+.enterpriseCTA {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  padding: 1.5rem 1rem;
+
+  .license {
+    margin: 0;
+    color: var(--theme-elevation-450);
+  }
+
+  .button {
+    color: var(--theme-elevation-900);
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.communityHelps {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+  h5, p {
+    margin-top: 0;
+  }
+
+  .button {
+    color: var(--theme-elevation-900);
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@include mid-break {
+  .ctaWrap {
+    display: none;
+  }
+}

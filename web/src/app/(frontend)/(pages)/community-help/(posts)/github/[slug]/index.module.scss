@@ -1,0 +1,44 @@
+@use '@scss/common' as *;
+.wrap {
+  position: relative;
+  margin-top: var(--page-padding-top);
+  border-top: 1px solid var(--theme-border-color);
+}
+
+.openPostWrap {
+  margin: 0 -4rem;
+}
+
+.post {
+  height: 100%;
+  padding-top: 2rem;
+  margin: 0 4rem;
+}
+
+.ctaWrap {
+  margin-top: 5rem;
+  border-top: 1px solid var(--theme-border-color);
+}
+
+.bg {
+  & > div {
+    &:nth-child(2),
+    &:nth-child(3) {
+      display: none;
+    }
+  }
+}
+
+@include mid-break {
+  .post {
+    margin: 1rem;
+  }
+
+  .wrap {
+    padding-bottom: 2rem;
+  }
+
+  .openPostWrap {
+    margin: 0 -1rem;
+  }
+}

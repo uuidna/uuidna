@@ -1,0 +1,98 @@
+@use '@scss/common' as *;
+
+.fileAttachments {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+  margin-top: 1rem;
+
+  @include large-break {
+    grid-template-columns: 1fr;
+  }
+}
+
+.oneAttachment {
+  display: block;
+}
+
+.attachmentWrap {
+  text-decoration: none;
+
+  &:nth-child(even) {
+    margin-left: 1.75rem;
+  }
+
+  &:nth-child(2n + 3) {
+    margin-top: 1.75rem;
+  }
+
+  @include large-break {
+    &:not(:first-child) {
+      margin-top: 1.75rem;
+      margin-left: 0;
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+  max-height: 600px;
+}
+
+.attachment {
+  @include shadow-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--color-base-1000);
+  border: 1px solid var(--color-base-650);
+  font-size: 0.75rem;
+
+  & svg {
+    width: 2rem;
+    margin-left: 0.5rem;
+  }
+
+  &:hover {
+    background-color: var(--color-base-850);
+  }
+
+  @include large-break {
+    & svg {
+      width: unset;
+    }
+  }
+
+  @include small-break {
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+.attachmentName {
+  width: 100%;
+}
+
+.downloadIcon {
+  & path {
+    stroke: var(--color-base-100);
+  }
+}
+
+:global([data-theme='light']) {
+  .attachment {
+    background-color: var(--theme-elevation-200);
+
+    &:hover {
+      background-color: var(--theme-elevation-300);
+    }
+  }
+
+  .downloadIcon {
+    & path {
+      stroke: var(--color-base-750);
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use '@scss/common' as *;
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.content {
+  margin-top: 1rem;
+}

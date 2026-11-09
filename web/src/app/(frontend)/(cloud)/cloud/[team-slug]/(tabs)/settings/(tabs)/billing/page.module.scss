@@ -1,0 +1,20 @@
+@use '@scss/common.scss' as *;
+
+.description {
+  a {
+    color: var(--theme-blue-500);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.fields {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include mid-break {
+    margin-bottom: 1rem;
+  }
+}

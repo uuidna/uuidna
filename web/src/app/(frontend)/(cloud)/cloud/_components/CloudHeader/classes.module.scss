@@ -1,0 +1,63 @@
+@use '@scss/common' as *;
+
+.wrapper {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+}
+
+.cloudHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--theme-border-color);
+  background: var(--theme-bg);
+  height: var(--header-height);
+  padding: var(--base) var(--gutter-h);
+
+  .logo {
+    display: none;
+    @include small-break {
+      display: block;
+    }
+    & {
+      width: auto;
+      height: 30px;
+    }
+  }
+
+  .headerLinks {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      opacity: 1;
+      white-space: nowrap;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
+
+.topBar {
+  max-height: 100px;
+  opacity: 1;
+  overflow: hidden;
+  pointer-events: auto;
+  transition:
+    opacity 0.5s,
+    max-height 0.5s;
+}
+
+.topBarHidden {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}

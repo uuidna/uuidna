@@ -1,0 +1,183 @@
+@use '@scss/common.scss' as *;
+
+$curve: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+:global(.group-active) {
+  .button {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.button {
+  @include btnReset;
+  aspect-ratio: 1 / 1;
+  width: auto;
+  height: auto;
+  padding: 0.75rem;
+  border-radius: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -0.8rem;
+  right: -3.5rem;
+  z-index: 2;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 350ms $curve;
+
+  &.hidden {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  & .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  & .pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    animation: Pulse 2s $curve infinite;
+    display: none;
+  }
+
+  & .hoverBg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 100%;
+    transition: all 350ms $curve;
+    opacity: 0.25;
+    transform: scale(0);
+    filter: grayscale(100%);
+    background: var(--color-base-0);
+    z-index: -1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 100%;
+    transition: all 350ms $curve;
+    animation: PulseAlt 2s $curve infinite;
+    animation-fill-mode: forwards;
+    animation-delay: var(--animation-delay);
+    opacity: 0.25;
+    transform: scale(0.35);
+    background: var(--color-base-0);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    border-radius: 100%;
+    transition: transform 350ms $curve;
+    opacity: 0.25;
+    transform: scale(0);
+    animation: Pulse 2s $curve infinite;
+    animation-fill-mode: forwards;
+    animation-delay: var(--animation-delay);
+    pointer-events: none;
+    z-index: -1;
+    background: var(--color-base-0);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    & .hoverBg {
+      transform: scale(1);
+      filter: grayscale(0%);
+    }
+
+    &::before {
+      transform: scale(1.1);
+      opacity: 0.25;
+    }
+  }
+
+  svg {
+    width: 1.35rem;
+    height: auto;
+
+    border: 1px solid var(--color-base-0);
+    background: var(--color-base-0);
+    border-radius: 100%;
+    color: var(--color-base-1000);
+  }
+}
+
+@keyframes PulseAlt {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.125;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes Pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.codeFeature {
+  position: absolute;
+  right: -2rem;
+  bottom: 0;
+  z-index: 1;
+
+  & .content {
+    position: absolute;
+    visibility: hidden;
+    width: max-content;
+    min-width: fit-content;
+    padding: 1rem;
+    background: var(--theme-elevation-0);
+    max-width: max(400%, 20rem);
+    left: 0;
+    z-index: 3;
+
+    @include small-break {
+      max-width: max(90vw, 4rem);
+    }
+
+    &.active {
+      visibility: visible;
+    }
+  }
+}

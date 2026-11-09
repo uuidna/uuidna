@@ -1,0 +1,36 @@
+@use '@scss/common' as *;
+
+.accordionFormContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  textarea {
+    max-height: 150px;
+  }
+}
+
+.actionFooter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--theme-border-color);
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid var(--theme-border-color);
+}
+
+.envs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

@@ -1,0 +1,41 @@
+@use '@scss/common' as *;
+
+.stepContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.inView {
+  .content,
+  .media {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pill {
+  display: inline-block;
+  @include label;
+}
+
+.content {
+  width: calc(var(--column) * 8);
+  text-align: center;
+  transform: translateY(3rem);
+  transition:
+    transform 1s cubic-bezier(0.4, 0, 0, 1),
+    opacity 1s cubic-bezier(0.4, 0, 0, 1);
+  opacity: 0;
+}
+
+.media {
+  margin-top: 2rem;
+  transform: translateY(6rem);
+  transition:
+    transform 1s cubic-bezier(0.4, 0, 0, 1),
+    opacity 1s cubic-bezier(0.4, 0, 0, 1);
+  opacity: 0;
+}

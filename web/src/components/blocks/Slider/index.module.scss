@@ -1,0 +1,114 @@
+@use '@scss/common' as *;
+
+.slider {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  --pixel-extension-top: 2.5rem;
+  --pixel-extension-bottom: 5rem;
+  --pixel-extension-total: calc(var(--pixel-extension-top) + var(--pixel-extension-bottom));
+
+  @include mid-break {
+    --pixel-extension-top: 2rem;
+    --pixel-extension-bottom: 2.25rem;
+  }
+}
+
+.introContent {
+  margin-bottom: 4rem;
+  row-gap: 2rem;
+}
+
+.withPixelBackground {
+  margin-top: calc(var(--pixel-extension-top) + var(--block-spacing));
+  margin-bottom: calc(var(--pixel-extension-bottom) + var(--block-spacing));
+}
+
+.sliderNav {
+  margin-left: 3.5rem;
+  margin-top: 2rem;
+
+  @include mid-break {
+    margin-left: 1rem;
+  }
+}
+
+.navButton {
+  all: unset;
+  cursor: pointer;
+  width: 0.6rem;
+
+  @include mid-break {
+    width: 1rem;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.prevButton {
+  margin-right: 1.5rem;
+}
+
+.sliderTrack {
+  scroll-padding-left: var(--gutter-h);
+  padding-inline: var(--gutter-h);
+  scrollbar-width: none;
+  background: var(--theme-bg);
+
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.trackWrap {
+  position: relative;
+}
+
+.slide {
+  position: relative;
+  box-sizing: border-box;
+  border-right: 1px solid var(--theme-border-color);
+
+  &:first-of-type {
+    border-left: 1px solid var(--theme-border-color);
+  }
+}
+
+.pixelContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: calc(100% + var(--pixel-extension-total));
+  top: calc(-1 * var(--pixel-extension-top));
+  z-index: -3;
+  * {
+    height: 100%;
+  }
+}
+
+.pixelCell {
+  position: relative;
+  height: 100%;
+  width: calc(100% + var(--gutter-h));
+}
+
+.quoteSlide {
+  box-sizing: border-box;
+  max-width: calc(var(--column) * 8);
+
+  @include mid-break {
+    max-width: 100%;
+  }
+}

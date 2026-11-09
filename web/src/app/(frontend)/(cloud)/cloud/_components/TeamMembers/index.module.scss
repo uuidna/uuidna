@@ -1,0 +1,15 @@
+@use '@scss/common' as *;
+
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.success {
+  color: var(--theme-success-500);
+}
+
+.error {
+  color: var(--theme-error-500);
+}

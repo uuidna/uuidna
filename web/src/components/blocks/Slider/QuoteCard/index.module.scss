@@ -1,0 +1,145 @@
+@use '@scss/common' as *;
+
+$curve: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+.quoteCard {
+  text-decoration: none;
+  @include large-body;
+
+  & {
+    box-sizing: border-box;
+    padding: 3rem 3rem 2rem;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 24rem;
+    opacity: 0.5;
+    transition: opacity 350ms $curve;
+    border-top: 1px solid var(--theme-border-color);
+    border-bottom: 1px solid var(--theme-border-color);
+
+    @include mid-break {
+      padding: 1.5rem;
+      height: 20rem;
+    }
+  }
+
+  &:hover {
+    &:not(.isActive) {
+      opacity: 0.65;
+    }
+  }
+
+  &.isActive {
+    opacity: 1;
+  }
+
+  &.enableLink:hover {
+    cursor: pointer;
+
+    .linkLabel {
+      opacity: 1;
+    }
+  }
+}
+
+.icon {
+  margin-bottom: 1rem;
+
+  @include mid-break {
+    max-width: 25px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.richText {
+  @include large-body;
+  & {
+    margin-bottom: auto;
+  }
+}
+
+.closingQuote {
+  user-select: none;
+}
+
+.quote {
+  @include h4;
+  & {
+    margin-top: 0;
+    position: relative;
+  }
+}
+
+.credit {
+  @include body;
+  & {
+    letter-spacing: 0;
+    margin-top: 0;
+  }
+}
+
+.logoWrap {
+  display: flex;
+  width: auto;
+  // height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+
+  img {
+    display: block;
+    height: 3rem;
+    width: 7rem;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .arrowWrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 350ms ease;
+    letter-spacing: 0;
+    text-decoration: none;
+
+    &:hover {
+      .linkLabel {
+        opacity: 1;
+      }
+
+      .arrow {
+        opacity: 1;
+      }
+    }
+  }
+
+  .linkLabel {
+    @include body;
+    letter-spacing: 0;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 350ms ease;
+  }
+
+  .arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    stroke-width: 2px;
+    transition: opacity 100ms ease;
+    opacity: 0.5;
+
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+
+      path {
+        stroke: var(--theme-text);
+      }
+    }
+  }
+}

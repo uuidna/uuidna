@@ -1,0 +1,32 @@
+@use '@scss/common.scss' as *;
+
+.modal {
+  & > * {
+    width: 800px;
+    overflow-x: scroll;
+    max-height: 100vh;
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  width: 100%;
+  padding-top: 2rem;
+  border-top: 1px solid var(--theme-border-color);
+  margin-top: 2rem;
+}
+
+@include small-break {
+  .modalActions {
+    flex-wrap: wrap;
+  }
+
+  .modal {
+    & > * {
+      padding: 2rem var(--gutter-h);
+      border: 0;
+    }
+  }
+}

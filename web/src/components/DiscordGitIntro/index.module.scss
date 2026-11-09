@@ -1,0 +1,53 @@
+@use '@scss/common' as *;
+
+.breadcrumbWrap {
+  margin: 0 0 1rem 0;
+}
+
+.breadcrumb {
+  @include h6;
+  & {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+.title {
+  @include h3;
+  & {
+    text-decoration: none;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+.divider {
+  height: 1px;
+  margin: 4rem -4rem;
+  background-color: var(--theme-border-color);
+
+  @include mid-break {
+    margin: 2rem -1rem;
+  }
+}
+
+.authorDetails {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0 1rem 0;
+
+  @include mid-break {
+    padding: 0.5rem 0;
+  }
+}
+
+.attachmentWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  margin-top: 1rem;
+
+  @include large-break {
+    grid-template-columns: 1fr;
+  }
+}
