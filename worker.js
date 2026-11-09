@@ -26,6 +26,7 @@ import { packagePage, renderPackagePage } from './dist/quantum/os/pkgpage/index.
 import { theoremPage, renderTheoremPage } from './dist/theorem-page.js'
 import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
+import { siteOwns } from './dist/site-mount.js'
 // The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
 // recomputable tool subset. Imports a SPECIFIC pure module (never index.js — that pulls node:child_process).
 import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-http.js'
@@ -334,6 +335,10 @@ export default {
     // an unlicensed host never reaches a route at all, and no route below has to remember why it is allowed to run.
     if (!mayServe(host))
       return Response.redirect(REDIRECT_TO, 302) // unlicensed → the terms it is missing
+
+    // THE SITE — the Payload app (web/, the Worker uuidna-site) answers its own paths over the SITE binding, WebSocket
+    // upgrades included. Until the cutover binds it, env.SITE is absent and every path stays this Worker's.
+    if (env.SITE && siteOwns(url.pathname)) return env.SITE.fetch(request)
 
     // THE LIVE PAGE — what uuidna does, visible as it happens (the captain, 2026-09-14: "when claude does something it is
     // always visible. why uuidna is not?"). Every deposit lands in qpu storage through the MCP door and is linked into
