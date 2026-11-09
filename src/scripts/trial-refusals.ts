@@ -128,12 +128,15 @@ export const treeFiles = (): TreeFiles => {
     .split('\n').filter((p) => p && existsSync(join(ROOT, p)))
   return { paths: new Set(list), names: new Set(list.map((p) => p.slice(p.lastIndexOf('/') + 1))) }
 }
-const CITED_FILE = /(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_.-]+\.(?:ts|js|mjs|json|lean|md)\b/g
+// a folder may open with a dot (docs/.vitepress/compose-object.js), which the name class alone would cut in half
+const CITED_FILE = /(?:\.?[A-Za-z0-9_-]+\/)*[A-Za-z0-9_.-]+\.(?:ts|js|mjs|json|lean|md)\b/g
 /** missingCited(text, files) → each file a settlement names that is not in the tree; a path is matched whole, a bare
- *  name by any file of that name, and a compiled `.js` name by its `.ts` source */
-const missingCited = (text: string, files: TreeFiles): string[] => {
+ *  name by any file of that name, and a compiled `.js` name by its `.ts` source — `dist/x.js` by `src/x.ts`, since tsc
+ *  emits src/ into the ignored dist/ */
+export const missingCited = (text: string, files: TreeFiles): string[] => {
   const known = (f: string): boolean => (f.includes('/') ? files.paths.has(f) : files.names.has(f))
-  return [...new Set(text.match(CITED_FILE) ?? [])].filter((f) => !known(f) && !known(f.replace(/\.js$/, '.ts'))).sort()
+  const source = (f: string): string => f.replace(/^dist\//, 'src/').replace(/\.js$/, '.ts')
+  return [...new Set(text.match(CITED_FILE) ?? [])].filter((f) => !known(f) && !known(f.replace(/\.js$/, '.ts')) && !known(source(f))).sort()
 }
 /** settlementOf(row, kernelOk, files, nameOf) → for a refuted lead, whether its settlement stands: named, kernel-accepted,
  *  involuted back to this lead, every cited file present; null for any other row */
