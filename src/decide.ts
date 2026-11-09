@@ -11,7 +11,8 @@
 // (reveal), language-blind, citations decided by the ledger. Deterministic: no wall-clock, no RNG, no host
 // intrinsics; the same input always folds to the same receipt. Integrity— a decided proposition is
 // decided ABOUT ITS ARITHMETIC.
-import { theorems } from './theorems/index.js'
+import { theorems, theoremByKey } from './theorems/index.js'
+import { shardEntries, viaShards } from './statement-shards.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
 
@@ -132,6 +133,8 @@ class Parser {
  *  answer, and the count tells the caller: fewer lines than cites means a cite did not resolve. */
 let _leanIndex: Map<string, string> | null = null
 const leanLines = (cites: readonly string[]): string[] => {
+  // AT THE EDGE, ONE ROW PER CITE through the key view (its piece fetched on demand), not an index over every row
+  if (viaShards()) return cites.flatMap((k) => { const l = theoremByKey().get(k)?.lean; return typeof l === 'string' && l ? [l] : [] })
   if (!_leanIndex) {
     _leanIndex = new Map()
     for (const t of theorems()) if (typeof t.lean === 'string' && t.lean) _leanIndex.set(t.key, t.lean)
@@ -156,8 +159,11 @@ export function decide(input: string): Decision {
     receipt: toUuid('decide:' + norm + ':' + d.verdict + ':' + (d.value ?? '')),
   })
 
-  // (1) the sealed index — the kernel already decided this exact statement
-  const hit = sealedIndex().get(norm)
+  // (1) the sealed index — the kernel already decided this exact statement. At the edge the index is the one statement
+  // shard `norm` falls in (statement-shards.ts), compared under this calculator's own spelling.
+  const hit = viaShards()
+    ? shardEntries(norm).find(([, statement]) => normalize(statement) === norm)?.[0]
+    : sealedIndex().get(norm)
   if (hit) return seal({
     input: raw, kind: 'sealed-theorem', verdict: 'VERIFIED', value: null, cites: [hit],
     honest: `this exact statement IS the sealed theorem ${hit} — the kernel decided it already; nothing recomputed, the citation is the proof`,
@@ -178,8 +184,13 @@ export function decide(input: string): Decision {
     const early = reveal(raw)   // once: reveal walks the ledger, and calling it per field would undo the saving
     return seal({ input: raw, kind: 'prose', verdict: early.verdict, value: null, cites: early.cites, honest: early.reveal })
   }
-  try {
-    const v = new Parser(norm).parse()
+  // ONLY THE PARSE decides "not arithmetic". The seal below reads the cited rows, and at the edge that read asks for their
+  // piece (RowsNeeded) — inside this try the ask was swallowed and "2 + 2 = 4" answered as prose at uuidna.com/mcp
+  // (reproduced in a wrangler-shaped bundle, 2026-11-09).
+  let parsed: ReturnType<Parser['parse']> | null = null
+  try { parsed = new Parser(norm).parse() } catch { /* not arithmetic — fall through to prose */ }
+  if (parsed) {
+    const v = parsed
     if (v.b !== undefined) return seal({
       input: raw, kind: 'decided-arithmetic', verdict: v.b ? 'EVALUATED_TRUE' : 'EVALUATED_FALSE', value: String(v.b),
       cites: ['dz_zero_only_zero', 'dz_bounded'],
@@ -192,7 +203,7 @@ export function decide(input: string): Decision {
       cites: ['dz_zero_only_zero', 'dz_bounded'],
       honest: `computed exactly: ${raw.trim()} = ${v.n} under total Nat semantics — division by zero returns 0 (the finite reflection), subtraction floors at 0, every step exact`,
     })
-  } catch { /* not arithmetic — fall through to prose */ }
+  }
 
   // (3) prose — the gate, language-blind, the ledger deciding the citations
   const r = reveal(raw)

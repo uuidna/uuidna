@@ -11,12 +11,15 @@
 // The disk is reached through boundary.ts, so the module loads at the edge; there the baked receipts answer.
 import { ROOT, hostFs, type HostFs } from './boundary.js'
 import { toUuid } from './address.js'
-import { THEOREMS } from './theorems/index.js'
+import { THEOREMS, edgeFacts } from './theorems/index.js'
 import { EDGE_SLICES } from './edge-slices/generated.js'
 
 let _digest: string | null = null
 /** the ledger's identity for receipts: every key, statement and wing, folded once per process (119 ms) */
-export const ledgerDigest = (): string => (_digest ??= toUuid(THEOREMS.map((t) => t.key + t.statement + t.file).join(' ')))
+// At the edge the rows are not resident, so the digest is the one the bake folded on the host from the same ledger —
+// the same identity every baked receipt is keyed by (edgeFacts().digest); folding at the edge refused every door that
+// reads a receipt, uuidna_pentagram_monographs among them (2026-11-08).
+export const ledgerDigest = (): string => (_digest ??= edgeFacts()?.digest ?? toUuid(THEOREMS.map((t) => t.key + t.statement + t.file).join(' ')))
 
 export const receiptPath = (name: string, root: string = ROOT, fs: HostFs | null = hostFs): string =>
   fs ? fs.path.join(root, 'lean', `${name}-receipt.json`) : `${root}/lean/${name}-receipt.json`

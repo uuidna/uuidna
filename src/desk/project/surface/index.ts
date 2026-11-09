@@ -7,7 +7,7 @@ import { hexbitReceipt } from '../../../hexbit/index.js'
 import { leadCensus, type SourceReading } from '../../../leads.js'
 import { gatherOpenLeads } from '../../../school/open/questions/springs.js'
 import { openQuestions, type OpenItem } from '../../../school/open/questions/index.js'
-import { theorems } from '../../../theorems/index.js'
+import { theorems, heldRows, ledgerResident } from '../../../theorems/index.js'
 import { verifyProposition } from '../../../verify-statement.js'
 import { leadVerdictOf, ledgerStatements, type SealedStatement } from '../../../refusal-trials.js'
 import { handleOf } from '../../../handle.js'
@@ -108,7 +108,9 @@ export interface OpenQuestionsInput {
 export function openQuestionsPublic(input: OpenQuestionsInput) {
   const items = input.items.map((i) => ({ claim: String(i.claim ?? '').trim(), source: String(i.source ?? 'your backlog').trim() || 'your backlog' })).filter((i) => i.claim)
   const open = items.filter((i) => adjudicate(i.claim).verdict === 'UNVERIFIED')
-  const topics = openQuestions(open, theorems())
+  // the topics are organised against the sealed theorems a host holds whole; at the edge, against the rows this call
+  // holds (the pieces its claims cite) — the whole ledger walk refused uuidna_open_questions there (2026-11-08)
+  const topics = openQuestions(open, ledgerResident() ? theorems() : heldRows())
   const limit = input.limit != null && input.limit > 0 ? posInt(input.limit) : undefined
   const trimmed = limit
     ? topics.map((t) => ({ ...t, items: t.items.slice(0, limit) }))

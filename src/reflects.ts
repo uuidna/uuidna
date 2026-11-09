@@ -5,7 +5,7 @@
 // the SAME arithmetic recurs in the system named — it does NOT claim uuidna IS that system, nor that the theorems
 // were made for it, nor that citing them makes the system secure/correct. A reflection is a resemblance the ledger
 // already carries, recomputable by anyone. Integrity.
-import { theorems } from './theorems/index.js'
+import { theorems, heldRows, ledgerResident } from './theorems/index.js'
 import { merkleFold, toUuid } from './address.js'
 
 /** One revealed theorem — what it is, what it demonstrates, and how it resonates with the query. `resonance` is the
@@ -27,6 +27,8 @@ export interface Reflection {
   peak: number             // the loudest single resonance amplitude in the field — the dominant pattern's strength
   spectrum: { concept: string; reach: number; weight: number }[]  // each query concept: how many theorems it rings (reach) and how loud (weight = N − reach)
   receipt: string          // the rung theorems' addresses, folded order-invariant (set— recompute it or it changed
+  /** 'held' at the edge: the field was the rows this call holds (its cited keys' pieces), not the whole ledger */
+  scope?: 'held'
   honest: string
 }
 
@@ -38,6 +40,12 @@ export interface Reflection {
 // so a reflection query does not re-map and re-lowercase the whole ledger every call.
 let _T: ReturnType<typeof theorems> | null = null, _hays: string[] | null = null
 const _corpus = (): { T: NonNullable<typeof _T>; hays: string[] } => {
+  // AT THE EDGE THE FIELD IS THE ROWS THIS CALL HOLDS — the pieces of the keys it cites — and the reflection says so
+  // (scope 'held'). The whole field walks every row, which refused uuidna_research at uuidna.com/mcp (2026-11-08).
+  if (!ledgerResident()) {
+    const H = heldRows() as NonNullable<typeof _T>
+    return { T: H, hays: H.map((t) => (t.key + ' ' + t.name + ' ' + t.skill + ' ' + t.principle).toLowerCase()) }
+  }
   if (_T === null) { _T = theorems(); _hays = _T.map((t) => (t.key + ' ' + t.name + ' ' + t.skill + ' ' + t.principle).toLowerCase()) }
   return { T: _T, hays: _hays as string[] }
 }
@@ -79,6 +87,7 @@ export function reflects(query: string): Reflection {
     peak: matches.length ? matches[0].resonance : 0,
     spectrum,
     receipt: matches.length ? merkleFold(matches.map((m) => m.address)) : toUuid('no-reflection'),
+    ...(ledgerResident() ? {} : { scope: 'held' as const }),
     honest:
       'These theorems ALREADY EXIST, each proven `by decide` for its own domain; the reflection is that the SAME ' +
       'decidable arithmetic recurs in the system named. RESONANCE is amplitude' +

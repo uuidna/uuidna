@@ -61,6 +61,8 @@ export type ToolCtx = {
   hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>
   /** the hosted door's write to qpu storage over the QpuDeposit service binding — absent on a surface with no binding */
   deposit?: (key: string, value: unknown) => Promise<unknown>
+  /** one of this surface's own static files, parsed — the edge reads it from its assets; absent everywhere else */
+  asset?: (path: string) => Promise<unknown>
 }
 import { sealToolWire, type WireTool } from './mcp-wire.js'
 import { DOOR, DOOR_NAME, DOOR_SCHEMA, DOOR_DESCRIPTION, LIST, LIST_SCHEMA, LIST_DESCRIPTION, LIST_DETAIL, CONNECT, doorDetail, doorRun, listTools, listedOf, openDoor, unknownLookup, isDoorTool, type DoorRow } from './mcp-door.js' // list_tools + call_tool open every tool; tools/call still takes every name
@@ -100,7 +102,7 @@ import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox 
 import { researchGates, researchEnvironment } from './quantum/os/gates/index.js' // the declared research gates and the experiment install profile
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
 // sealedKeys reads the baked root at the edge and the rows on a host — the one accessor a keys-only answer needs
-import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts } from './theorems/index.js'
+import { sealedKeys, bakedDoor, bakedDoorWhy, ledgerFacts, edgeFacts, RowsNeeded } from './theorems/index.js'
 // the build's own computation graph, folded — one derivation behind the README, the site page and this door
 import { buildGraph } from './build-graph.js'
 // the program space: a door's hex is derived from its own contract, so the uuid's middle addresses code directly
@@ -1374,7 +1376,7 @@ const TOOLS: Tool[] = ([
     // ran a full prediction for every empty call and the probe went from 1.3s to 87s — the exact defect
     // mcp-schema.test.ts was written for after uuidna_wave once took it to 174.8s. The cheap gate and the correct
     // gate are the same change here too: "all" is the honest way to ask for everything.
-    inputSchema: { type: 'object', properties: { likelihood: { type: 'string', description: '"high", "medium", "low", or "all" for the whole list' } }, required: ['likelihood'] },
+    inputSchema: { type: 'object', properties: { likelihood: { type: 'string', enum: [...LIKELIHOODS], description: '"high", "medium", "low", or "all" for the whole list' } }, required: ['likelihood'] },
     run: async (a = {}) => {
       const { predictGaps } = await import('./scripts/predict-and-fill.js')
       const want = String(a.likelihood)
@@ -2726,6 +2728,34 @@ export function callTool(name: string, args: Record<string, unknown> = {}, ctx?:
   if (Object.keys(args).length === 0) {
     const baked = bakedDoor(tool.name)
     if (baked !== undefined) return baked
+    // AN ANSWER TOO LARGE TO BUNDLE IS SERVED AS A FILE. The bake records why it kept none (bakedDoorWhy — only at the
+    // edge); the site build writes the host's answer under /doors/<name>.json (copy-lean-to-site), and the edge reads
+    // it from its own assets. Measured 2026-11-08: uuidna_crypto, uuidna_strict and uuidna_oeapi refused at
+    // uuidna.com/mcp with the whole-ledger message while their answers sat at 1-6 MB on the host. No file: the door runs.
+    if (ctx?.asset && bakedDoorWhy(tool.name) !== undefined)
+      return ctx.asset(`/doors/${tool.name}.json`).then((v) => (v !== null && v !== undefined ? v : tool.run(args, ctx)))
+  }
+  // A RECOMPUTE DOOR'S ANSWER IS A FUNCTION OF THE LEDGER TOO. Its one required argument is `recompute: true`, the
+  // sweep it starts reads every row, and the site build writes the host's answer under /doors/<name>@recompute.json;
+  // the edge serves that file (uuidna_discovery_train, uuidna_pentagram_monographs refused there, 2026-11-08).
+  if (ctx?.asset && edgeFacts() && args.recompute === true && Object.keys(args).length === 1 && recomputeDoors().includes(tool.name))
+    return ctx.asset(`/doors/${tool.name}@recompute.json`).then((v) => (v !== null && v !== undefined ? v : tool.run(args, ctx)))
+  // A DOOR OF ONE ENUM ARGUMENT THAT CANNOT RUN HERE answers from the file the site build wrote for that value — only
+  // when the live run throws, so a door that answers live keeps answering live and nothing that reads the network is
+  // frozen into a file. uuidna_predict reads the repository tree, which a Worker has none of ("process is not
+  // defined" at uuidna.com/mcp, 2026-11-08); its answer for each likelihood is a function of the committed tree.
+  const one = ctx?.asset && edgeFacts() ? enumDoors().find((d) => d.name === tool.name) : undefined
+  const value = one && Object.keys(args).length === 1 ? args[one.arg] : undefined
+  if (one && typeof value === 'string' && one.values.includes(value)) {
+    const file = `/doors/${tool.name}@${one.arg}=${value}.json`
+    const fallback = (e: unknown): Promise<unknown> => {
+      if (e instanceof RowsNeeded) throw e
+      return ctx!.asset!(file).then((v) => { if (v === null || v === undefined) throw e; return v })
+    }
+    try {
+      const out = tool.run(args, ctx)
+      return out !== null && typeof out === 'object' && typeof (out as { then?: unknown }).then === 'function' ? (out as Promise<unknown>).catch(fallback) : out
+    } catch (e) { return fallback(e) }
   }
   return tool.run(args, ctx)
 }
@@ -2740,6 +2770,25 @@ export const bakeableDoors = (): string[] =>
     const schema = t.inputSchema as { required?: unknown } | undefined
     return !Array.isArray(schema?.required) || schema.required.length === 0
   }).map((t) => t.name)
+
+/** recomputeDoors() → the catalogue names whose ONE required argument is `recompute` — a sweep over the sealed ledger
+ *  answered with `recompute: true`, otherwise a contract. Derived from the schemas, like bakeableDoors. */
+let _recomputeDoors: string[] | null = null
+export const recomputeDoors = (): string[] => (_recomputeDoors ??= TOOLS.filter((t) => {
+  const required = (t.inputSchema as { required?: unknown } | undefined)?.required
+  return Array.isArray(required) && required.length === 1 && required[0] === 'recompute'
+}).map((t) => t.name))
+
+/** enumDoors() → the catalogue doors whose ONE required argument is a string enum, with its values — derived from the
+ *  schemas. The site build writes one answer file per value; the edge falls back to it when the live run throws. */
+let _enumDoors: { name: string; arg: string; values: string[] }[] | null = null
+export const enumDoors = (): { name: string; arg: string; values: string[] }[] => (_enumDoors ??= TOOLS.flatMap((t) => {
+  const s = t.inputSchema as { required?: unknown; properties?: Record<string, { enum?: unknown }> } | undefined
+  const r = s?.required
+  if (!Array.isArray(r) || r.length !== 1) return []
+  const values = s?.properties?.[String(r[0])]?.enum
+  return Array.isArray(values) && values.length > 0 && values.every((v) => typeof v === 'string') ? [{ name: t.name, arg: String(r[0]), values: values as string[] }] : []
+}))
 
 /** the reason a zero-argument door holds no baked answer at this surface, for a caller that met the refusal */
 export const bakedDoorReason = (name: string): string | undefined => bakedDoorWhy(resolveToolName(name) ?? name)

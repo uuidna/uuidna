@@ -22,6 +22,11 @@ import { ROOT } from './api.js'
 import { LEAN_JSON_SERVE } from '../ship-preflight.js'
 import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue/index.js'
 import { bakeLedgerAssets } from './ledger-deposit.js'
+import { statementShardsOf, stationShardsOf } from '../statement-shards.js'
+import { THEOREMS, isPagelessFile } from '../theorems/index.js'
+import { EDGE_ROOT } from '../theorems/edge-root.js'
+import { callTool, bakeableDoors, recomputeDoors, enumDoors } from '../mcp.js'
+import { CLOUDFLARE_ASSET_BYTES } from '../ship-preflight.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -101,6 +106,50 @@ writeFileSync(join(SITE, 'alpine-catalogue.tsv'), catHeader + catalogueTsvBody(m
 // host holding them (ledger-deposit bakeLedgerAssets states the measurement that made this necessary).
 const ledgerAssets = bakeLedgerAssets(join(SITE, 'ledger'))
 
+// THE STATEMENT INDEX, SHARDED BESIDE THE PIECES (statement-shards.ts says why): /ledger/statements/<id>.json, each an
+// array of [key, statement], every entry verified against the baked root by the edge as it is held.
+const shardDir = join(SITE, 'ledger', 'statements')
+mkdirSync(shardDir, { recursive: true })
+const shards = statementShardsOf(THEOREMS)
+for (const [id, entries] of Object.entries(shards)) writeFileSync(join(shardDir, `${id}.json`), JSON.stringify(entries))
+
+// THE STATION INDEX, SHARDED THE SAME WAY (statement-shards.ts stationShardsOf): /ledger/stations/<id>.json, each a map of
+// station → keys over the rows the lattice seats (pageless wings excluded, as lattice.ts index excludes them).
+const stationDir = join(SITE, 'ledger', 'stations')
+mkdirSync(stationDir, { recursive: true })
+const stationShards = stationShardsOf(THEOREMS.filter((t) => !isPagelessFile(t.file)))
+for (const [id, seats] of Object.entries(stationShards)) writeFileSync(join(stationDir, `${id}.json`), JSON.stringify(seats))
+
+// THE DOORS TOO LARGE TO BUNDLE, AND THE RECOMPUTE DOORS, AS FILES (mcp.ts callTool reads them at the edge). Each answer
+// is the host's own, computed twice here and written only when the two runs agree — the bake's determinism rule: a door
+// whose two answers differ reads a machine, not the ledger, and is left to run (and refuse) at the edge with that said.
+// An answer over the per-file limit is written as a pointer to the pieces that hold its rows, so the door still answers.
+const doorDir = join(SITE, 'doors')
+mkdirSync(doorDir, { recursive: true })
+const stableJson = (v: unknown): string => JSON.stringify(v, (_k, x) => (x && typeof x === 'object' && !Array.isArray(x)
+  ? Object.fromEntries(Object.keys(x as Record<string, unknown>).sort().map((k) => [k, (x as Record<string, unknown>)[k]])) : x))
+const oversized = bakeableDoors().filter((n) => /bundle budget/.test(String((EDGE_ROOT?.facts?.doors?.[n] as { unmeasured?: string } | undefined)?.unmeasured ?? '')))
+const doorJobs: { file: string; name: string; args: Record<string, unknown> }[] = [
+  ...oversized.map((name) => ({ file: `${name}.json`, name, args: {} })),
+  ...recomputeDoors().map((name) => ({ file: `${name}@recompute.json`, name, args: { recompute: true } })),
+  ...enumDoors().flatMap((d) => d.values.map((v) => ({ file: `${d.name}@${d.arg}=${v}.json`, name: d.name, args: { [d.arg]: v } }))),
+]
+const doorsWritten: string[] = [], doorsPointed: string[] = [], doorsSkipped: string[] = []
+for (const job of doorJobs) {
+  let a: string, b: string
+  try { a = stableJson(await callTool(job.name, job.args)); b = stableJson(await callTool(job.name, job.args)) }
+  catch (e) { doorsSkipped.push(`${job.name}: the host threw — ${String((e as Error)?.message ?? e).slice(0, 80)}`); continue }
+  if (a !== b) { doorsSkipped.push(`${job.name}: two host runs disagreed`); continue }
+  if (a.length > CLOUDFLARE_ASSET_BYTES) {
+    writeFileSync(join(doorDir, job.file), JSON.stringify({
+      kind: 'answer-served-as-rows', door: job.name, bytes: a.length, rows: `/ledger/${ledgerAssets.root}.json`,
+      honest: `the bare answer is ${a.length} bytes, over the ${CLOUDFLARE_ASSET_BYTES}-byte limit one served file may have; every row it lists is served under the manifest named in rows, one piece per wing, each piece's bytes recomputing its address`,
+    }))
+    doorsPointed.push(job.name)
+  } else { writeFileSync(join(doorDir, job.file), a); doorsWritten.push(job.name) }
+}
+for (const s of doorsSkipped) console.log(`  · door file not written — ${s}`)
+
 // THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
 // page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built
 // HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
@@ -128,4 +177,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, the ledger's ${ledgerAssets.pieces} pieces and manifest ${ledgerAssets.root} at /ledger/<address>.json, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, the ledger's ${ledgerAssets.pieces} pieces and manifest ${ledgerAssets.root} at /ledger/<address>.json, ${Object.keys(shards).length} statement shards at /ledger/statements/<id>.json, ${Object.keys(stationShards).length} station shards at /ledger/stations/<id>.json, ${doorsWritten.length} door answers and ${doorsPointed.length} row pointers at /doors/, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)

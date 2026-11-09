@@ -173,6 +173,29 @@ export const ledgerFacts = (): LedgerFacts => LEDGER_EDGE?.root?.facts ?? ledger
 
 export const sealedCount = (): number => (LEDGER_EDGE ? LEDGER_EDGE.count() : THEOREMS.length)
 
+/** edgeFacts() → the aggregates the bake carries, at the edge only. A host returns undefined and computes its own, so a
+ *  host never reads a stale bake of its own ledger; the edge reads what the host computed from the ledger it serves. */
+export const edgeFacts = (): LedgerFacts | undefined => LEDGER_EDGE?.root?.facts
+
+/** heldRows() → the rows this edge call holds — the pieces its cited keys, named wings or statement lookups fetched.
+ *  Empty on a host, where the whole ledger is resident and nothing is "held". A relation answered over these says so. */
+export const heldRows = (): readonly Theorem[] => {
+  const edge = LEDGER_EDGE
+  if (!edge) return []
+  return edge.held().flatMap((r) => { const i = edge.indexOf(r.key); return i === undefined ? [] : [withDerived(r, i)] })
+}
+
+/** wingRows(file) → every row of one lean wing. A host filters its ledger; the edge answers from the pieces it holds for
+ *  that wing and, when it holds fewer rows than the bake counted for the wing, asks for the wing (RowsNeeded) so the
+ *  surface fetches its pieces and runs the door again. Never a partial wing presented as the whole. */
+export const wingRows = (file: string): readonly Theorem[] => {
+  if (!LEDGER_EDGE) return THEOREMS.filter((t) => t.file === file)
+  const expected = theoremCountByFile().get(file) ?? 0
+  const held = heldRows().filter((t) => t.file === file)
+  if (held.length < expected) throw new RowsNeeded([], { files: [file] })
+  return held
+}
+
 /** bakedDoor(name) → the answer the bake kept for a zero-argument door, at the edge only. A host returns undefined and
  *  runs the door, so a host never serves a stale bake of its own ledger; the edge returns what the host computed from
  *  the ledger it serves. An entry that holds a reason instead of an answer is undefined here too, so the caller falls
@@ -313,9 +336,48 @@ function theoremPrice(key: string): { key: string; coins: number } {
 
 // CONSOLIDATED INDICES over the immutable ledger — built ONCE at the source and reused everywhere, so no module
 // rebuilds its own O(N) map per call. The ledger cannot change at runtime, so these are safe, recomputable singletons.
-let _byKey: Map<string, Theorem> | null = null
+let _byKey: ReadonlyMap<string, Theorem> | null = null
 /** theoremByKey() → the ledger indexed by key (O(1) lookup), built once. Replaces per-module `THEOREMS.find`. */
-export const theoremByKey = (): ReadonlyMap<string, Theorem> => (_byKey ??= new Map(THEOREMS.map((t) => [t.key, t])))
+export const theoremByKey = (): ReadonlyMap<string, Theorem> => (_byKey ??= LEDGER_EDGE ? edgeKeyView(LEDGER_EDGE) : new Map(THEOREMS.map((t) => [t.key, t])))
+
+/** ROWS A DOOR NEEDS THAT THIS CALL HAS NOT FETCHED. Thrown by the edge's key view when a sealed key's row is not held,
+ *  naming the keys, so the surface that dispatched the door fetches the one piece each sits in and runs the door again
+ *  (mcp-http.ts dispatch). It is a request, not a verdict: the key IS sealed, and the answer comes on the retry. */
+export class RowsNeeded extends Error {
+  readonly files: readonly string[]
+  readonly shards: readonly string[]
+  readonly stations: readonly string[]
+  /** keys: sealed keys whose piece is wanted · files: whole wings wanted · shards: statement-index shards wanted ·
+   *  stations: station-index shards wanted (the keys seated at a lattice station) */
+  constructor(readonly keys: readonly string[], more: { files?: readonly string[]; shards?: readonly string[]; stations?: readonly string[] } = {}) {
+    super(`rows needed: ${keys.length} key(s), ${more.files?.length ?? 0} wing(s), ${more.shards?.length ?? 0} statement shard(s), ${more.stations?.length ?? 0} station shard(s)`)
+    this.files = more.files ?? []
+    this.shards = more.shards ?? []
+    this.stations = more.stations ?? []
+  }
+}
+
+/** THE KEY MAP, AT THE EDGE, AS A VIEW. A door that built the whole map to look up a handful of keys refused every call
+ *  at uuidna.com/mcp, because building it reads every row (measured 2026-11-08: uuidna_decide, uuidna_strict,
+ *  uuidna_prior_art among twenty). The view answers what the map answered for one key: `get` from the piece the call
+ *  holds — or RowsNeeded, so the piece is fetched and the door retried — `has` and `size` from the baked root. Walking
+ *  it still refuses with the ledger's own reason, because a walk asks for every row and the edge cannot hold them. */
+const edgeKeyView = (edge: NonNullable<typeof LEDGER_EDGE>): ReadonlyMap<string, Theorem> => {
+  const walk = (): never => { void LEAN_LEDGER.length; throw new Error('the edge key view cannot be walked') }
+  const view = {
+    get: (key: string): Theorem | undefined => {
+      const i = edge.indexOf(key)
+      if (i === undefined) return undefined
+      const row = edge.rowFor(key)
+      if (!row) throw new RowsNeeded([key])
+      return withDerived(row, i)
+    },
+    has: (key: string): boolean => edge.indexOf(key) !== undefined,
+    get size(): number { return edge.count() },
+    forEach: walk, keys: walk, values: walk, entries: walk, [Symbol.iterator]: walk,
+  }
+  return view as unknown as ReadonlyMap<string, Theorem>
+}
 let _countByFile: Map<string, number> | null = null
 /** theoremCountByFile() → count of theorems per lean file (O(1) lookup), built once. Replaces per-file `filter().length`. */
 export const theoremCountByFile = (): ReadonlyMap<string, number> => {

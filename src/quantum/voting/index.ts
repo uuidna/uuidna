@@ -6,7 +6,7 @@
 // Coins pay for: (1) computational cost of reconcile, (2) captain's commission, (3) voting rights in governance.
 // The same coins settle all three — one unified economy.
 
-import { theorems } from '../../theorems/index.js'
+import { theoremByKey } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { ket0, hadamard, pauliX, pauliZ, receiptOf, type QState } from '../index.js'
@@ -42,7 +42,11 @@ export interface CommitWithVoting {
   fold: string              // final gravity root (message + contributions + voting + theorem)
 }
 
-const THEOREMS = theorems()
+// ONE THEOREM BY KEY, NOT THE LEDGER AT IMPORT. This module bound `theorems()` at its top level and then searched it
+// for a single key, so importing it walked every row — at the edge that refused uuidna_quantum_voting and
+// uuidna_agent_contribute on every call, whatever was asked (measured 2026-11-08). The key view answers one key from
+// the piece its call holds, and the edge fetches that piece when it is not held yet.
+const theoremOf = (key: string) => theoremByKey().get(key)
 // THE ONE COST THIS MODULE ACTUALLY CHARGES. It also carried `captainCommission: 2 // captain earns 2 per 110
 // (hardcoded for now: simplify)` — a field NOTHING ever read, a rate ("2 per 110") stated nowhere else in the
 // tree, and a "for now" that outlived whatever now it referred to. Dead config is worse than no config: it reads
@@ -56,7 +60,7 @@ const COIN_COST = {
 /** agentContribute(workAddress, theoremCited) → register an agent's contribution with coins paid.
  *  Returns a privacy-stripped receipt (no agent name, only work address + coins + theorem). */
 export function agentContribute(workAddress: string, theoremCited: string): AgentContribution {
-  const t = THEOREMS.find(x => x.key === theoremCited)
+  const t = theoremOf(theoremCited)
   if (!t) throw new Error(`theorem ${theoremCited} not found`)
 
   // A FLAT TWO COINS, and the comment here used to say otherwise: "Coins are encoded in the theorem key (e.g.,
@@ -158,7 +162,7 @@ export function signCommitWithVoting(
   voting: QuantumVote,
   theoremProof: string,
 ): CommitWithVoting {
-  const t = THEOREMS.find(x => x.key === theoremProof)
+  const t = theoremOf(theoremProof)
   if (!t) throw new Error(`theorem ${theoremProof} not found`)
 
   // Fold the commit message with all contributions (privacy-stripped)

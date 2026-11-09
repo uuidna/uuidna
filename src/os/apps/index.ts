@@ -29,7 +29,11 @@
 // fetcher, which is honest at src/os and nowhere else. A down mirror yields an empty catalogue, never a
 // fabricated checksum.
 import { uuidnaPackage, untarGzipMember, type UuidnaPackage } from '../packages/index.js'
-import { theorems } from '../../theorems/index.js'
+import { theorems, edgeFacts, skillGroups } from '../../theorems/index.js'
+
+/** skillWitnesses() → every skill's witness by witnessFor's rule, for the bake to carry to the edge. Host only. */
+export const skillWitnesses = (): Record<string, { key: string; address: string }> =>
+  Object.fromEntries(skillGroups().flatMap((g) => { const w = witnessFor(g.skill); return w ? [[g.skill, w]] : [] }))
 import { hexbitDoorOf, UUID_HEXBITS } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { toUuid } from '../../address.js'
@@ -125,7 +129,11 @@ export interface AppPort extends UuidnaPackage {
 
 /** the heaviest sealed theorem of a skill, chosen by decided mass and tie-broken by key so the choice is a
  *  function of the ledger and not of iteration order */
-const witnessFor = (skill: string): { key: string; address: string } | null => {
+export const witnessFor = (skill: string): { key: string; address: string } | null => {
+  // at the edge, the witness the bake chose on the host by this same rule (skillWitnesses) — choosing it here walks a
+  // whole skill's rows, which refused uuidna_crypto and every door that ports an app (2026-11-08)
+  const facts = edgeFacts()
+  if (facts) return facts.skillWitness?.[skill] ?? null
   const inSkill = theorems({ skill })
   if (!inSkill.length) return null
   const best = [...inSkill].sort((a, b) => (b.cases ?? 1) - (a.cases ?? 1) || (a.key < b.key ? -1 : 1))[0]

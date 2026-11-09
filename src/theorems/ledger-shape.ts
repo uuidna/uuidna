@@ -43,6 +43,11 @@ export interface LedgerFacts {
    *  two runs disagreed so it is a measurement and not a function of the ledger, or the answer exceeds the budget an
    *  isolate can bundle), so an absent answer is a stated reason and never a silent fall-through to the refusal. */
   doors?: Readonly<Record<string, { bytes: number; answer: unknown } | { bytes: number; unmeasured: string }>>
+  /** the ledger's identity for receipts (receipt-memo ledgerDigest): every key, statement and wing folded once on the
+   *  host — the edge cannot fold rows it does not hold, and a different digest would miss every baked receipt */
+  digest?: string
+  /** each skill's witness — its heaviest sealed theorem by decided mass, ties broken by key (os/apps witnessFor) */
+  skillWitness?: Readonly<Record<string, { key: string; address: string }>>
 }
 
 export interface EdgeRoot { root: string; count: number; keys: string; addresses: string; gate: readonly string[]; facts?: LedgerFacts }

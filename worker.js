@@ -39,7 +39,7 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { rowsForKeys, LEDGER_STORAGE } from './dist/edge-ledger.js'
+import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, LEDGER_STORAGE } from './dist/edge-ledger.js'
 import { slimGate } from './dist/slimgate.js'
 import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
@@ -60,6 +60,11 @@ const qpuFetchOf = (env) => env.QPU
 // baked from in the deploy that carries the root, with no hop to another worker. Storage is asked only for an
 // address the assets do not hold. Measured 2026-11-08: qpu.uuidna.com/storage answered 404 HTML for every ledger
 // address, every row door at the edge answered nothing, and the deploy could not verify itself live.
+// THE LARGEST DOOR FILE PARSED IN THE ISOLATE. The parsed answer, the gate's scan of it and the response body are
+// resident together, about three copies of the file, against the 128 MB a Workers isolate allows; a sixth of that
+// keeps all three inside it with room for the request. Larger answers are served as files the caller reads directly.
+const ISOLATE_BYTES = 128 * 1024 * 1024
+const DOOR_FILE_PARSE = ISOLATE_BYTES / 16
 const ledgerFetchOf = (env, origin) => {
   const over = qpuFetchOf(env) ?? fetch
   if (!env.ASSETS) return over
@@ -191,6 +196,9 @@ async function handleTrials(request, url, env) {
     // COMPUTE ONLY — run the trial, SIGN it as uuidna.com, and return the verdict; store NOTHING.
     const statement = typeof body.statement === 'string' ? body.statement.trim() : ''
     if (!statement) return json({ error: 'POST /trials needs { "statement": "…" } (returns the signed verdict, stores nothing) OR { "sealed": <7-layer onion>, "consent": true } to persist ciphertext' }, 400)
+    // the rows the statement CITES, fetched first (the same rule as the MCP pre-pass): the verdict reads each cited row
+    // to judge whether the citation is about the claim, and an unfetched row is asked for rather than read as absent
+    await rowsForKeys(slimGate(statement).real, ledgerFetchOf(env, url.origin))
     const verdict = adjudicate(statement)
     const signature = signTrial(env, statement, verdict.verdict, verdict.receipt)
     return json({
@@ -487,6 +495,30 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
         origin: url.origin,
         loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
         fetch: qpuFetch,
+        // WHAT A DOOR ASKS FOR, FETCHED, AND THE DOOR RUN AGAIN (mcp-http.ts dispatch): the piece a sealed key sits in,
+        // a whole wing's pieces, a statement shard or a station shard — all from this deploy's own assets, every piece's bytes checked
+        // against its address and every shard entry against the baked root as it is held.
+        rows: async (need) => {
+          const lf = ledgerFetchOf(env, url.origin)
+          if (need.keys.length) await rowsForKeys(need.keys, lf)
+          if (need.files.length) await rowsForFiles(need.files, lf)
+          if (need.shards.length) await shardsFor(need.shards, lf)
+          if (need.stations?.length) await stationsFor(need.stations, lf)
+        },
+        // ONE OF THIS DEPLOY'S OWN FILES, PARSED — a door answer the site build wrote under /doors/ (mcp.ts callTool).
+        // A file larger than DOOR_FILE_PARSE is answered as a pointer to itself rather than parsed: the parse, the
+        // gate's scan of the answer and the response body are all resident at once in a 128 MB isolate.
+        asset: async (path) => {
+          const res = await env.ASSETS.fetch(new Request(new URL(path, url.origin)))
+          if (!res.ok || !(res.headers.get('content-type') || '').includes('json')) return null
+          const bytes = Number(res.headers.get('content-length') || 0)
+          if (bytes > DOOR_FILE_PARSE) {
+            res.body?.cancel()
+            return { kind: 'answer-served-as-file', href: new URL(path, url.origin).href, bytes,
+              honest: `the answer is ${bytes} bytes; it is served whole at href, the host's own answer for the same ledger, rather than parsed in an isolate that also holds the request` }
+          }
+          return res.json()
+        },
         // WHAT THE EDGE CAN READ OF THE CALL (the captain, 2026-09-14: "the message need to contain the hardware state for
         // forensics" · "measured always true"). Of request.cf only colo names the serving side — the Cloudflare data
         // centre that ran this Worker. httpProtocol and the cf-ray header describe the incoming request, so they sit under

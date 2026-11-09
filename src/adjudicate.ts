@@ -6,7 +6,17 @@
 // Integrity — the record recomputes for anyone. Everything content-addressed.
 import { slimGate } from './slimgate.js'
 // theoremFor, not theoremByKey: ONE cited row, from the piece the pre-pass fetched — never a map over the ledger
-import { theoremFor, type LeanTheorem } from './theorems/index.js'
+import { theoremFor, sealedAddressOf, RowsNeeded, type LeanTheorem, type Theorem } from './theorems/index.js'
+
+/** citedRow(key) → the cited row. A sealed key whose row this call does not hold is ASKED FOR (RowsNeeded), never read
+ *  as absent: at the edge an absent row read as "shares no vocabulary", so a correct citation and an unrelated one got
+ *  the same UNVERIFIED (measured at uuidna.com, 2026-11-09). The MCP dispatcher fetches the piece and runs again; the
+ *  worker's POST /trials fetches the cited pieces before it asks. An unsealed key stays undefined, as before. */
+const citedRow = (key: string): Theorem | undefined => {
+  const t = theoremFor(key)
+  if (!t && sealedAddressOf(key) !== undefined) throw new RowsNeeded([key])
+  return t
+}
 import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { imprint, readImprint } from './imprint.js'
@@ -55,9 +65,13 @@ export function contentWords(text: string): string[] {
  *  no Math.* and no randomness anywhere. Two words are related if identical, if one contains the other (catches
  *  affixes: "verified" inside "unverified"), or if they share a 6-character prefix (catches suffix drift a plain
  *  substring test misses: "recompute" and "recomputation" share "recomp" but neither contains the other whole). */
-function related(a: string, b: string): boolean {
-  if (a === b || a.includes(b) || b.includes(a)) return true
+export function related(a: string, b: string): boolean {
+  if (a === b) return true
   const n = a.length < b.length ? a.length : b.length
+  // CONTAINMENT NEEDS A WORD TO CONTAIN. A gloss that spells a handle ("c15d5f95") or a variable ("n = 10") leaves
+  // one-letter tokens, and "moon" contains "n": the moon-and-cheese sentence citing uuid_mix_census_halves verified on
+  // the host and at the edge alike (measured 2026-11-09). Short words still relate by equality ("dz" is "dz").
+  if (n >= 3 && (a.includes(b) || b.includes(a))) return true
   return n >= 5 && a.slice(0, 6) === b.slice(0, 6)
 }
 
@@ -134,7 +148,7 @@ const decidesAList = (statement: string): boolean => /=\s*\[/.test(statement)
 /** contradictsNumerically(claim, key) → the claim asserts a number that a list-deciding theorem's own arithmetic
  *  does not contain. Silent when the claim asserts no number, and silent unless the theorem decided a list. */
 function contradictsNumerically(claim: string, key: string): number[] {
-  const t = theoremFor(key)
+  const t = citedRow(key)
   if (!t || !decidesAList(t.statement)) return []
   const claimed = numeralsOf(claim)
   if (!claimed.length) return []
@@ -147,7 +161,7 @@ function contradictsNumerically(claim: string, key: string): number[] {
  *  Unknown/unsealed keys are handled upstream (slimGate already marks them fabricated); this only judges real
  *  citations. Returns true (relevant) on any shared word — the floor. */
 function relevantCitation(claimWords: string[], key: string): boolean {
-  const t = theoremFor(key)
+  const t = citedRow(key)
   if (!t) return false
   const vocab = theoremVocabulary(t)
   return claimWords.some((w) => vocab.some((v) => related(w, v)))
@@ -236,7 +250,7 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
   }
   // the cited seals ride WITH the verdict — key, Lean line, address — so any caller rechecks instead of trusting
   const cites = slim.real
-    .map((k) => theoremFor(k))
+    .map((k) => citedRow(k))
     .filter((t): t is NonNullable<typeof t> => t !== undefined)
     .map((t) => ({ key: t.key, lean: t.lean, address: t.address }))
   return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []), ...(cites.length ? { cites } : {}) }

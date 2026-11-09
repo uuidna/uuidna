@@ -5,6 +5,7 @@ import { toUuid } from '../../../address.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { merkleGravity } from '../../../gravity/index.js'
 import { fetchData } from '../fetch/index.js'
+import { contentWords, related } from '../../../adjudicate.js'
 
 export const CERN_OD = 'https://opendata.cern.ch/api/records'
 export const CERN_PROBE_QUERY = 'CMS Higgs'
@@ -30,7 +31,9 @@ export interface CernPortResult {
   definition: 'uuidnaOS·cern·opendata'
   query: string
   count: number
-  hits: CernRecord[]
+  /** how many hits share a content word with the query — the rest answered the catalogue's search, not the topic */
+  topical: number
+  hits: (CernRecord & { topical: boolean })[]
   declined: boolean
   note: string
   receipt: string
@@ -78,18 +81,32 @@ export async function fetchCernOpenData(text: string, limit = 8): Promise<CernFe
   }
 }
 
+/** topicalTo(query, title) → does the record's title share a content word with the query (adjudicate.ts related, the
+ *  same floor a citation must clear)? The catalogue's search matches on fields a reader never sees, so a query about
+ *  dimensional analysis returned three OPERA neutrino datasets shaped exactly like a topical answer (measured
+ *  2026-11-09, recids 13155, 13100, 10000). Reported per hit, never filtered: the hit is evidence of what the archive
+ *  answered, and the mark says whether it answered the topic. Pure. */
+export const topicalTo = (query: string, title: string): boolean => {
+  const q = contentWords(query), t = contentWords(title)
+  return q.some((w) => t.some((v) => related(w, v)))
+}
+
 /** cernPortSearch(text, limit) → uuidnaOS port view of one CERN open-data query, receipt-closed. */
 export async function cernPortSearch(text: string, limit = 8): Promise<CernPortResult> {
   const got = await fetchCernOpenData(text, limit)
+  const hits = got.records.map((r) => ({ ...r, topical: topicalTo(text, r.title) }))
+  const topical = hits.filter((h) => h.topical).length
   const receipt = merkleGravity([toUuid('cern-port|' + text), ...got.records.map((r) => r.address)])
   const door = hexbitDoorOf(receipt)
   return {
     definition: 'uuidnaOS·cern·opendata',
     query: text,
     count: got.records.length,
-    hits: got.records,
+    topical,
+    hits,
     declined: got.declined,
-    note: got.note,
+    note: got.declined || !hits.length || topical ? got.note
+      : `no topical match: ${hits.length} record(s) answered the catalogue's search, none shares a word with the query — not corroboration`,
     receipt,
     ...door,
   }
@@ -97,11 +114,11 @@ export async function cernPortSearch(text: string, limit = 8): Promise<CernPortR
 
 /** renderCernPort(r) → CLI / exec / MCP summary lines. Pure. */
 export function renderCernPort(r: CernPortResult): string {
-  const status = r.declined ? 'DECLINED' : r.count ? 'ANSWERING' : 'EMPTY'
+  const status = r.declined ? 'DECLINED' : !r.count ? 'EMPTY' : r.topical ? 'ANSWERING' : 'NO TOPICAL MATCH'
   return [
-    `${status} cern-opendata · ${r.count} records · query "${r.query}"`,
-    ...(r.declined ? [`  note: ${r.note}`] : []),
-    ...r.hits.slice(0, 8).map((h) => `  ${h.experiment} ${h.id}: ${h.title.slice(0, 72)}`),
+    `${status} cern-opendata · ${r.count} records (${r.topical} topical) · query "${r.query}"`,
+    ...(r.declined || (r.count && !r.topical) ? [`  note: ${r.note}`] : []),
+    ...r.hits.slice(0, 8).map((h) => `  ${h.topical ? ' ' : '?'} ${h.experiment} ${h.id}: ${h.title.slice(0, 72)}`),
     `  receipt ${handleOf(r.receipt)}… · door ${r.door}`,
   ].join('\n')
 }

@@ -8,7 +8,8 @@
 // every human problem this ledger already names; then it calls the SOLUTION INVOLUTION. Calling is not
 // solving. Denial is the map (negation_involution_solves); a solution is the denial's failure. Clay's
 // σ-involution reflects seven and solves none. Verified ≠ solved.
-import { theorems, axiomIndex, isPagelessFile } from './theorems/index.js'
+import { theorems, axiomIndex, isPagelessFile, ledgerResident, theoremByKey } from './theorems/index.js'
+import { stationKeys } from './statement-shards.js'
 import { handleOf, handleBirthdayPoint, HANDLE_HEXBITS } from './handle.js'
 import { toUuid } from './address.js'
 import { involute, involutionFixed } from './diamond.js'
@@ -402,6 +403,22 @@ function meaningOf(st: string, problems: HumanProblem[]): StationMeaning {
 }
 
 /** latticeCall(station) → identity, named cargo, axioms, human problems, the solution involution, and its meaning. */
+/** seatedAt(station) → the theorems seated at a station, key-sorted, exactly as latticeCall lists them. A host reads its
+ *  index; where the ledger is not resident the station's shard names the keys and each row arrives through the key path
+ *  (statement-shards.ts stationKeys), so a door that needs one station never builds the index over every row. */
+export function seatedAt(station: string): NamedCall[] {
+  const st = parseStation(station)
+  if (ledgerResident()) return index().theoremsByStation.get(st) ?? []
+  const view = theoremByKey()
+  const out: NamedCall[] = []
+  for (const k of stationKeys(st)) {
+    const t = view.get(k)
+    if (!t || isPagelessFile(t.file)) continue
+    out.push({ key: t.key, name: t.name, family: familyOf(t.statement), file: t.file, route: `/theorem/${t.key}`, skill: t.skill, principle: t.principle })
+  }
+  return out.sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0))
+}
+
 export function latticeCall(station: string): LatticeCall {
   const st = parseStation(station)
   const ix = index()

@@ -8,7 +8,7 @@
 // observer — the public git commit on GitHub (whose push time is recorded by a third party), a Zenodo DOI (dated by
 // Zenodo), or an RFC 3161 timestamp authority. This record proves WHAT / WHO / INTEGRITY / TERMS on its own; for WHEN,
 // it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity, not truth.
-import { theoremByKey } from './theorems/index.js'
+import { theoremByKey, edgeFacts } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { runTrial } from './trial-run.js'
 
@@ -41,7 +41,8 @@ export function priorArt(keys: readonly string[]): PriorArt {
     if (t) exhibits.push({ key: t.key, statement: t.statement, lean: t.lean, address: t.address, file: t.file })
     else missing.push(k)
   }
-  const trial = runTrial()
+  // the trial's tally — at the edge the one the bake took on the host (a trial walks every row; the edge holds none)
+  const trial = edgeFacts()?.trial ?? runTrial()
   const licenseAddress = toUuid(LICENSE_LINE)
   const address = toUuid(exhibits.map((e) => e.key + ':' + e.address).join('|') + '|CC-BY-NC-ND-4.0|Tsvetan Rouschev')
   return {

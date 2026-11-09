@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { CERN_OD, CERN_PROBE_QUERY, cernPortSearch, renderCernPort } from './index.js'
+import { CERN_OD, CERN_PROBE_QUERY, cernPortSearch, renderCernPort, topicalTo } from './index.js'
 
 test('CERN port constants name the open-data API', () => {
   assert.match(CERN_OD, /^https:\/\/opendata\.cern\.ch/)
@@ -12,6 +12,7 @@ test('renderCernPort formats declined and answering states', () => {
     definition: 'uuidnaOS·cern·opendata',
     query: 'x',
     count: 0,
+    topical: 0,
     hits: [],
     declined: true,
     note: 'responded 503',
@@ -25,7 +26,8 @@ test('renderCernPort formats declined and answering states', () => {
     definition: 'uuidnaOS·cern·opendata',
     query: 'CMS Higgs',
     count: 1,
-    hits: [{ id: '1', title: 'sample', experiment: 'CMS', address: 'a'.repeat(36) }],
+    topical: 1,
+    hits: [{ id: '1', title: 'sample', experiment: 'CMS', address: 'a'.repeat(36), topical: true }],
     declined: false,
     note: 'ok',
     receipt: 'abcd1234-0000-4000-8000-000000000000',
@@ -56,4 +58,16 @@ test('cernPortSearch answers with shaped rows when CERN answers, and reports unr
     return
   }
   assert.ok(r.count >= 1, 'a reached probe that returns nothing for this query is our parsing, not their outage')
+})
+
+// A COINCIDENCE IS NOT A HIT. Measured 2026-11-09: "dimensional analysis units" returned three OPERA neutrino datasets
+// (recids 13155, 13100, 10000), shaped exactly like the Higgs control's ATLAS records. The pair below holds both
+// directions with the measured titles, so neither a floor that marks everything topical nor one that marks nothing passes.
+test('topicalTo marks a title that shares the query\'s words and leaves a catalogue coincidence unmarked', () => {
+  const opera = ['Electronic detector data for electron neutrino appearance studies',
+    'Electronic detector data for neutrino-induced charmed hadron production studies',
+    'Electronic detector data for tau neutrino appearance studies']
+  for (const t of opera) assert.equal(topicalTo('dimensional analysis units', t), false, `not about the query: ${t}`)
+  assert.equal(topicalTo('Higgs boson', 'Higgs boson candidate events in the four-lepton channel'), true, 'the control is about its query')
+  assert.equal(topicalTo('neutrino appearance', opera[0]!), true, 'the same title is topical to a query that names it')
 })

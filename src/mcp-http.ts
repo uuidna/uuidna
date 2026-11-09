@@ -47,8 +47,13 @@ import { deepResearch } from './research.js'
 // the stdio catalogue does, with the SAME argument contracts. Registering it on one surface only is exactly the drift
 // lean/mcp-surface-divergence.json records, and the `skills` finder measures both surfaces by CALLING them.
 import { skillSurface, skillIndex } from './skills.js'
+import { RowsNeeded, bakedDoor } from './theorems/index.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
+// HOW MANY TIMES ONE CALL MAY FETCH THE ROWS ITS DOOR ASKS FOR. Each round fetches at least one piece the call did not
+// hold, so a door that names finitely many keys converges; the bound only stops a door that never does. The occupancy
+// census — the longest fixed key list a door reads — names its keys across a handful of wings, well inside it.
+const ROW_ROUNDS = 64
 /** Tools whose run() reads the full Alpine catalogue — the edge must prime /alpine-catalogue.tsv first. */
 const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_related', 'uuidna_crypto'])
 // The version this endpoint ADVERTISES to every client calling initialize. It sat at 0.1.1 through eleven
@@ -100,7 +105,8 @@ const TOOLS: HttpTool[] = ([
     run: (a) => { const leaves = (a.leaves as string[]).map(String); const i = Number(a.index); const root = merkleRoot(leaves); const proof = merkleProof(leaves, i); return { root, index: i, leaf: leaves[i], proof, verified: verifyProof(leaves[i], proof, root) } } },
   { name: 'uuidna_coins', description: 'Captain-coin issuance: coins() per sealed theorem, capped at quantum capacity × directed referrer combinations. Returns the live mint, remaining, cipher widths, and tamper costs (handle/coin/uuid ladder with neighbour + related witnesses).',
     inputSchema: { type: 'object', properties: {} },
-    run: () => ({ ...coinSupply(), tamper: tamperCosts() }) },
+    // the bake ran this same body on the host (mcp.ts uuidna_coins) — at the edge its answer is served, not re-walked
+    run: () => bakedDoor('uuidna_coins') ?? ({ ...coinSupply(), tamper: tamperCosts() }) },
   { name: 'uuidna_bill', description: 'The MEASURED billing model: pass {commercial, recomputeOps, verifyOps} — returns the bits saved (recompute − verify), the two coins, and whether it is free (public interest is free; commercial is billed on the measured advantage).',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'integer' }, verifyOps: { type: 'integer' } } },
     run: (a) => billUuidna({ commercial: Boolean(a.commercial), recomputeOps: Number(a.recomputeOps ?? 0), verifyOps: Number(a.verifyOps ?? 1) }) },
@@ -121,7 +127,8 @@ const TOOLS: HttpTool[] = ([
     run: (a) => deepResearch(String(a.text), ((a.seenAddresses as string[]) || []).map(String)) },
   { name: 'uuidna_skills', description: 'EVERY SKILL THE SEALED LEDGER CARRIES, with its theorem count — the discoverable index of the capability axis (orthogonal to `principle`, which groups by derivation file). Each row carries the order-invariant fold of that skill\'s theorem addresses, the handle of that fold (the identity to cite for the whole cluster), the ESCO taxonomy lookup for the skill, and the exact `uuidna_skill` call that opens it. Zero-argument and fully computed from the ledger, so a skill sealed in a new wing appears here the day it lands — nothing is authored per skill. Returns [{skill,theorems,fold,handle,esco,open}].',
     inputSchema: { type: 'object', properties: {} },
-    run: () => skillIndex() },
+    // the bake ran this same body on the host (mcp.ts uuidna_skills) — at the edge its answer is served, not re-walked
+    run: () => bakedDoor('uuidna_skills') ?? skillIndex() },
   { name: 'uuidna_skill', description: 'OPEN ONE SKILL — the capability axis served as a DIMENSION rather than as one tool per skill. Returns that skill\'s sealed theorems (key, name, statement, tactic, file, principle, the reconstructed Lean line, its content-address and its HANDLE), the files and principles they were derived in, the group\'s order-invariant fold and handle, and the skill\'s ESCO MAPPING onto the European Commission\'s own taxonomy of skills, competences and occupations: the exact lookup URL, its content-address, the one hop that actually fetches it (uuidna_school_apis) and the walk to the occupations ESCO relates it to (uuidna_education_jobs, local only). Pass `escoTitles` — concept titles you already fetched — to have them judged by school-apis\' OWN published whole-name rule, which separates on-topic hits from homographs (a search guarantees the query\'s letters come back, so a fragment hit carries no information); both lists are returned by name. PURE: this tool reaches no network, which is why the edge can serve it at all, and it folds to the same receipt as the stdio surface. An unknown skill is REFUSED by name with the live list"this capability is unproven". List the skills with uuidna_skills. the ESCO leg is a MAP BETWEEN VOCABULARIES — what this capability is CALLED in a European taxonomy — and never a claim that any authority recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth); uuidna awards no qualification. Integrity. Returns {skill,count,fold,handle,files,principles,theorems,esco,receipt,honest}.',
     inputSchema: { type: 'object', properties: {
       skill: { type: 'string', description: 'a skill name from uuidna_skills (the live, recomputable list — never a fixed enum here, so it cannot go stale as wings are sealed)' },
@@ -228,7 +235,7 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
  *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
  *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
  *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string>; fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown> }): object | null | Promise<object | null> {
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string>; fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown>; rows?: (need: { keys: readonly string[]; files: readonly string[]; shards: readonly string[]; stations: readonly string[] }) => Promise<unknown>; asset?: (path: string) => Promise<unknown> }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
@@ -304,9 +311,24 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
         return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true, _meta: { audit } })
       }
       argsGateOf(name, tool.inputSchema, args)
-      const out = tool.run(args, { fetch: ctx?.fetch, hardware: ctx?.hardware, deposit: ctx?.deposit })
-      if (out !== null && (typeof out === 'object' || typeof out === 'function') && typeof (out as { then?: unknown }).then === 'function')
-        return (out as Promise<unknown>).then(finish, fail)
+      // A DOOR THAT ASKS FOR ROWS GETS THEM, AND RUNS AGAIN. At the edge the key view throws RowsNeeded for a sealed key
+      // whose piece this call has not fetched (theorems/index.ts); the surface fetches those pieces through ctx.rows and
+      // retries the door. Bounded, because each round fetches at least one piece the call did not hold and a door
+      // names finitely many keys; a door that still asks after the bound gets its own refusal, by name.
+      const isThenable = (v: unknown): v is Promise<unknown> =>
+        v !== null && (typeof v === 'object' || typeof v === 'function') && typeof (v as { then?: unknown }).then === 'function'
+      const toolCtx = { fetch: ctx?.fetch, hardware: ctx?.hardware, deposit: ctx?.deposit, asset: ctx?.asset }
+      const retry = (e: unknown, round: number): Promise<unknown> => {
+        if (e instanceof RowsNeeded && ctx?.rows && round < ROW_ROUNDS) return ctx.rows(e).then(() => attempt(round + 1))
+        throw e
+      }
+      const attempt = (round: number): unknown => {
+        let out: unknown
+        try { out = tool.run(args, toolCtx) } catch (e) { return retry(e, round) }
+        return isThenable(out) ? out.catch((e: unknown) => retry(e, round)) : out
+      }
+      const out = attempt(0)
+      if (isThenable(out)) return out.then(finish, fail)
       return finish(out)
     } catch (e) {
       return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })

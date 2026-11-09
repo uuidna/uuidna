@@ -29,6 +29,8 @@ import { ledgerPiecesOf, ledgerManifestOf, contentAddressOf, edgeRootOf, ledgerA
 import { depositEvidence } from './receipt-deposit.js'
 import { GATE_THEOREMS } from '../gate-engine.js'
 import { VE_FACES } from '../hexbit/index.js'
+import { ledgerDigest } from '../receipt-memo.js'
+import { skillWitnesses } from '../os/apps/index.js'
 
 /** the ledger as it will be deposited: its pieces, their manifest, and the manifest's address — the root */
 export const ledgerPlan = (): { pieces: LedgerPiece[]; manifest: LedgerManifest; root: string } => {
@@ -93,7 +95,9 @@ const bake = (): { root: string; count: number; pieces: number } => {
   // that walk in a 128 MB isolate is what it could not do. The bake already holds the whole ledger, so it walks once
   // and the tally rides in the root — the verdicts themselves are never carried, only what the door reports.
   const t = runTrial()
-  const facts = { ...ledgerFactsOf(THEOREMS), trial: { count: t.count, verified: t.verified, unverified: t.unverified, receipt: t.receipt }, credits: creditsSummary(), skills: skillSummaryOf(), countByFile: Object.fromEntries(theoremCountByFile()), doors: bakeDoors() }
+  // digest and skillWitness: two more pure functions of the ledger the edge cannot fold without every row — the receipt
+  // identity every baked receipt is keyed by, and each skill's witness theorem (ledger-shape.ts LedgerFacts)
+  const facts = { ...ledgerFactsOf(THEOREMS), trial: { count: t.count, verified: t.verified, unverified: t.unverified, receipt: t.receipt }, credits: creditsSummary(), skills: skillSummaryOf(), countByFile: Object.fromEntries(theoremCountByFile()), doors: bakeDoors(), digest: ledgerDigest(), skillWitness: skillWitnesses() }
   writeFileSync(join(ROOT, 'src', 'theorems', 'edge-root.ts'), edgeRootSourceOf({ ...edgeRootOf(THEOREMS, root, GATE_THEOREMS), facts }))
   return { root, count: THEOREMS.length, pieces: pieces.length }
 }

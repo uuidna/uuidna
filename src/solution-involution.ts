@@ -8,7 +8,7 @@ import { theoremFor } from './theorems/index.js'
 import { verifyStatement } from './verify-statement.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { involuteStation, latticeCall, stationOfAddress } from './lattice.js'
+import { involuteStation, seatedAt, stationOfAddress } from './lattice.js'
 
 const METHOD = 'negation_involution_solves' as const
 const METHOD_ROUTE = `/theorem/${METHOD}`
@@ -40,7 +40,7 @@ export function involuteToVerified(material: string): InvoluteRun {
   const exact = verifyStatement(input)
   const station = stationOfAddress(toUuid(input))
   const involute = involuteStation(station)
-  const seated = latticeCall(involute).theorems.map((t) => ({
+  const seated = seatedAt(involute).map((t) => ({
     key: t.key,
     route: t.route,
     file: t.file,

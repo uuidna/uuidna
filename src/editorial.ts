@@ -9,7 +9,7 @@
 // born citing its proof. Integrity, not truth — the desk verifies citations, scope and conformance; it never
 // decides what is true. Deterministic offline core; the two ONLINE verbs (searchTrialFor, viesVerify) ride the
 // same named fetch boundary corroborate.ts holds and return evidence, never approval.
-import { theorems } from './theorems/index.js'
+import { theorems, wingRows } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
 import { researchEvidence, evidenceRow } from './corroborate.js'
@@ -34,7 +34,10 @@ export interface Article {
   claims: Array<{ key: string; name: string; statement: string; cite: string }>
 }
 export function articleFor(file: string): Article {
-  const entries = (theorems() as Entry[]).filter((t) => t.file === file)
+  // ONE WING, read as one wing: wingRows filters a host's ledger and, at the edge, answers from that wing's pieces (asking
+  // for them when the call does not hold the whole wing yet) — filtering theorems() walked every row and refused
+  // uuidna_article at uuidna.com/mcp (2026-11-08)
+  const entries = wingRows(file) as unknown as Entry[]
   if (!entries.length) throw new Error('editorial: no theorems in the ledger for wing ' + file)
   const slug = file.replace('.lean', '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
   return {

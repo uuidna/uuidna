@@ -11,7 +11,7 @@ import { RAYS } from './aura.js'
 import { coins } from './captain/billing/index.js'
 import { HEXAGRAM_BITS, HEXAGRAM_STATES, FUSED_RING } from './hexagram.js'
 import { capacityAt, fuseWidth, HANDLE_HEXBITS, HEXBIT_BITS, KEY_BITS, LEVERAGE, UUID_BITS } from './hexbit/index.js'
-import { theorems } from './theorems/index.js'
+import { sealedCount } from './theorems/index.js'
 
 export interface CoinSupplyCrypto {
   coinBits: number
@@ -51,7 +51,9 @@ export interface CoinSupply {
  *  Default seals is the sealed ledger length. A CONTROL omits seals; the cap does not move. */
 export function coinSupply(seals?: number): CoinSupply {
   const unit = coins()
-  const n = seals === undefined ? theorems().length : (!Number.isInteger(seals) || seals < 0 ? 0 : seals)
+  // the COUNT, which the baked root carries — theorems().length built every row to read one integer, and at the edge
+  // that refused uuidna_coins on every call (measured 2026-11-08)
+  const n = seals === undefined ? sealedCount() : (!Number.isInteger(seals) || seals < 0 ? 0 : seals)
   const minted = n * unit
   const capacity = capacityAt(fuseWidth(HANDLE_HEXBITS, unit))
   const referrerDoors = HEXAGRAM_BITS

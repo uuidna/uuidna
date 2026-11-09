@@ -20,6 +20,7 @@ import { isPagelessFile, ledgerFactsOf, type Theorem } from './theorems/index.js
 import { LEDGER_EDGE, type LeanTheorem } from '#ledger'
 import type { EdgeRoot } from './theorems/ledger-shape.js'
 import { VE_FACES } from './hexbit/index.js'
+import { holdShard, holdStationShard } from './statement-shards.js'
 
 /** the run the ledger is deposited under — the folder of qpu storage its pieces land in */
 export const LEDGER_RUN = 'ledger'
@@ -192,6 +193,58 @@ export const rowsForKeys = async (wanted: readonly string[], fetchImpl: typeof f
     rows += piece.rows.length
   }
   return { keys: found, pieces: addresses.size, rows }
+}
+
+/** rowsForFiles(files, fetch) → every piece of the named wings, read and held like rowsForKeys' pieces. A door that
+ *  answers about ONE wing (an article, a wing census) asks for it by name; the manifest already lists which pieces hold
+ *  it, so the wing arrives whole and nothing else is read. */
+export const rowsForFiles = async (files: readonly string[], fetchImpl: typeof fetch): Promise<{ pieces: number; rows: number }> => {
+  const edge = LEDGER_EDGE
+  if (!edge?.root || files.length === 0) return { pieces: 0, rows: 0 }
+  const root = edge.root.root
+  const manifest = manifestAt.get(root) ?? ((await storedAt(root, fetchImpl)) as unknown as LedgerManifest)
+  manifestAt.set(root, manifest)
+  const wanted = new Set(files)
+  let pieces = 0, rows = 0
+  for (const w of manifest.wings.filter((x) => wanted.has(x.file))) {
+    const piece = pieceAt.get(w.address) ?? ((await storedAt(w.address, fetchImpl)) as unknown as LedgerPiece)
+    if (piece.kind !== 'ledger-piece' || piece.file !== w.file) throw new Error(`${w.address} is not the piece the manifest names for ${w.file}`)
+    intern(piece.rows)
+    pieceAt.set(w.address, piece)
+    edge.holdRows(piece.rows)
+    pieces++; rows += piece.rows.length
+  }
+  return { pieces, rows }
+}
+
+/** shardsFor(ids, fetch) → the statement shards named, each entry verified against the baked root as it is held
+ *  (statement-shards.ts holdShard). Served beside the pieces under the same prefix: <storage>/statements/<id>. */
+export const shardsFor = async (ids: readonly string[], fetchImpl: typeof fetch): Promise<{ shards: number; refused: number }> => {
+  let shards = 0, refused = 0
+  for (const id of ids) {
+    if (!/^[0-9a-f]{2}$/.test(id)) throw new Error(`${id} is not a statement shard id`)
+    const href = `${LEDGER_STORAGE}/statements/${id}`
+    const res = await fetchImpl(href, { headers: { accept: 'application/json' } })
+    if (!res.ok) throw new Error(`${href}: answered ${res.status}`)
+    const r = holdShard(id, (await res.json()) as unknown[])
+    shards++; refused += r.refused
+  }
+  return { shards, refused }
+}
+
+/** stationsFor(ids, fetch) → the station shards named, each key verified against the baked root as it is held
+ *  (statement-shards.ts holdStationShard). Served beside the pieces under the same prefix: <storage>/stations/<id>. */
+export const stationsFor = async (ids: readonly string[], fetchImpl: typeof fetch): Promise<{ stations: number; refused: number }> => {
+  let stations = 0, refused = 0
+  for (const id of ids) {
+    if (!/^[0-9a-f]{2}$/.test(id)) throw new Error(`${id} is not a station shard id`)
+    const href = `${LEDGER_STORAGE}/stations/${id}`
+    const res = await fetchImpl(href, { headers: { accept: 'application/json' } })
+    if (!res.ok) throw new Error(`${href}: answered ${res.status}`)
+    const r = holdStationShard(id, await res.json())
+    stations++; refused += r.refused
+  }
+  return { stations, refused }
 }
 
 const reads = new Map<string, Promise<LedgerRead>>()

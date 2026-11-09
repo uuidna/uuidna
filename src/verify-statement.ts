@@ -4,9 +4,21 @@
 // the ledger index — returning the sealing theorem, its tactic and address. No citation needed, no fuzzy matching:
 // exact seal or nothing (never "false", only UNVERIFIED). This is complementary to the honesty gate (slimGate judges
 // PROSE claims by citation); this judges whether a STATEMENT is itself sealed. Integrity, not truth.
-import { theorems } from './theorems/index.js'
+import { theorems, theoremByKey } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { normaliseProposition } from './proposition-address.js'
+import { shardEntries, viaShards } from './statement-shards.js'
+
+type Hit = { key: string; address: string; tactic: string; file: string; lean: string; statement: string }
+/** AT THE EDGE, the index is the one statement shard the statement falls in (statement-shards.ts), compared under this
+ *  verifier's own rule; the row behind a match is read through the key view, its piece fetched on demand. The walk over
+ *  every row that built INDEX and NORMAL refused uuidna_trial at uuidna.com/mcp on every call (2026-11-08). */
+const shardHit = (statement: string, same: (sealed: string) => boolean): Hit | undefined => {
+  const entry = shardEntries(statement).find(([, sealed]) => same(sealed))
+  if (!entry) return undefined
+  const t = theoremByKey().get(entry[0])
+  return t ? { key: t.key, address: t.address, tactic: t.tactic, file: t.file, lean: t.lean, statement: t.statement.trim() } : undefined
+}
 
 export interface StatementVerdict {
   verdict: 'VERIFIED' | 'UNVERIFIED'
@@ -47,7 +59,7 @@ export function verifyProposition(statement: string): StatementVerdict {
   const exact = verifyStatement(statement)
   if (exact.verdict === 'VERIFIED') return exact
   const n = normaliseProposition(statement)
-  const hit = n ? normalIndex().get(n) : undefined
+  const hit = !n ? undefined : viaShards() ? shardHit(statement, (sealed) => normaliseProposition(sealed) === n) : normalIndex().get(n)
   if (!hit) return exact
   const intact = toUuid(hit.key + ':' + hit.statement) === hit.address
   return {
@@ -63,7 +75,7 @@ export function verifyProposition(statement: string): StatementVerdict {
  *  (recompute its address to confirm), else UNVERIFIED (not false — just not sealed). The framework's fast path. */
 export function verifyStatement(statement: string): StatementVerdict {
   const s = String(statement).trim()
-  const hit = index().get(s)
+  const hit = viaShards() ? shardHit(s, (sealed) => sealed.trim() === s) : index().get(s)
   if (!hit) return { verdict: 'UNVERIFIED', note: 'this exact statement is not a sealed theorem — cite a sealed proof or supply a decidable test (never called false, only not-yet-verified)' }
   // recompute the content-address to confirm the seal (a skeptic rechecks; the address is toUuid(key + ":" + statement))
   const recomputed = toUuid(hit.key + ':' + s)
