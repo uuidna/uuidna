@@ -27,7 +27,8 @@ import { THEOREMS, isPagelessFile } from '../theorems/index.js'
 import { EDGE_ROOT } from '../theorems/edge-root.js'
 import { callTool, bakeableDoors, recomputeDoors, enumDoors } from '../mcp.js'
 import { CLOUDFLARE_ASSET_BYTES } from '../ship-preflight.js'
-import { DOOR_FILE_PARSE } from '../edge-ledger.js'
+import { DOOR_FILE_PARSE, SEARCH_CHUNK_BYTES } from '../edge-ledger.js'
+import { searchChunksOf } from '../ledger-search.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -121,6 +122,14 @@ mkdirSync(stationDir, { recursive: true })
 const stationShards = stationShardsOf(THEOREMS.filter((t) => !isPagelessFile(t.file)))
 for (const [id, seats] of Object.entries(stationShards)) writeFileSync(join(stationDir, `${id}.json`), JSON.stringify(seats))
 
+// THE SEARCHABLE TEXT, IN LEDGER ORDER (ledger-search.ts says why): /ledger/search/<n>.json chunks the edge scans one at a
+// time, and /ledger/search/index.json naming how many there are.
+const searchDir = join(SITE, 'ledger', 'search')
+mkdirSync(searchDir, { recursive: true })
+const searchChunks = searchChunksOf(THEOREMS, SEARCH_CHUNK_BYTES)
+searchChunks.forEach((c, n) => writeFileSync(join(searchDir, `${n}.json`), JSON.stringify(c)))
+writeFileSync(join(searchDir, 'index.json'), JSON.stringify({ total: THEOREMS.length, chunks: searchChunks.length }))
+
 // THE DOORS TOO LARGE TO BUNDLE, AND THE RECOMPUTE DOORS, AS FILES (mcp.ts callTool reads them at the edge). Each answer
 // is the host's own, computed twice here and written only when the two runs agree — the bake's determinism rule: a door
 // whose two answers differ reads a machine, not the ledger, and is left to run (and refuse) at the edge with that said.
@@ -187,4 +196,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, the ledger's ${ledgerAssets.pieces} pieces and manifest ${ledgerAssets.root} at /ledger/<address>.json, ${Object.keys(shards).length} statement shards at /ledger/statements/<id>.json, ${Object.keys(stationShards).length} station shards at /ledger/stations/<id>.json, ${doorsWritten.length} door answers and ${doorsPointed.length} row pointers at /doors/, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, the ledger's ${ledgerAssets.pieces} pieces and manifest ${ledgerAssets.root} at /ledger/<address>.json, ${Object.keys(shards).length} statement shards at /ledger/statements/<id>.json, ${Object.keys(stationShards).length} station shards at /ledger/stations/<id>.json, ${searchChunks.length} search chunks at /ledger/search/<n>.json, ${doorsWritten.length} door answers and ${doorsPointed.length} row pointers at /doors/, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)

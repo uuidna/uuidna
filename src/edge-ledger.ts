@@ -21,6 +21,7 @@ import { LEDGER_EDGE, type LeanTheorem } from '#ledger'
 import type { EdgeRoot } from './theorems/ledger-shape.js'
 import { VE_FACES } from './hexbit/index.js'
 import { holdShard, holdStationShard } from './statement-shards.js'
+import { scanChunk, holdSearch, type SearchChunk } from './ledger-search.js'
 
 /** the memory one Workers isolate allows */
 export const ISOLATE_BYTES = 128 * 1024 * 1024
@@ -254,6 +255,29 @@ export const stationsFor = async (ids: readonly string[], fetchImpl: typeof fetc
     stations++; refused += r.refused
   }
   return { stations, refused }
+}
+
+/** the search chunks a full scan reads, each a slice of DOOR_FILE_PARSE so one parses beside the request */
+export const SEARCH_CHUNK_BYTES = DOOR_FILE_PARSE / 4
+
+/** searchFor(queries, fetch) → every search chunk scanned in ledger order, one at a time, holding only each query's hits
+ *  (ledger-search.ts holdSearch). Served beside the pieces: <storage>/search/index and <storage>/search/<n>. */
+export const searchFor = async (queries: readonly string[], fetchImpl: typeof fetch): Promise<{ chunks: number; hits: number }> => {
+  const get = async (path: string): Promise<unknown> => {
+    const href = `${LEDGER_STORAGE}/search/${path}`
+    const res = await fetchImpl(href, { headers: { accept: 'application/json' } })
+    if (!res.ok) throw new Error(`${href}: answered ${res.status}`)
+    return res.json()
+  }
+  const index = (await get('index')) as { chunks: number }
+  const found = new Map(queries.map((q) => [q, [] as ReturnType<typeof scanChunk>]))
+  for (let n = 0; n < index.chunks; n++) {
+    const chunk = (await get(String(n))) as SearchChunk
+    for (const [q, hits] of found) hits.push(...scanChunk(chunk, q))
+  }
+  let hits = 0
+  for (const [q, h] of found) { holdSearch(q, h); hits += h.length }
+  return { chunks: index.chunks, hits }
 }
 
 const reads = new Map<string, Promise<LedgerRead>>()

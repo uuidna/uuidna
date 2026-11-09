@@ -235,7 +235,7 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
  *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
  *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
  *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string>; fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown>; rows?: (need: { keys: readonly string[]; files: readonly string[]; shards: readonly string[]; stations: readonly string[] }) => Promise<unknown>; asset?: (path: string) => Promise<unknown> }): object | null | Promise<object | null> {
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string>; fetch?: typeof fetch; hardware?: () => Record<string, unknown> | Promise<Record<string, unknown>>; deposit?: (key: string, value: unknown) => Promise<unknown>; rows?: (need: { keys: readonly string[]; files: readonly string[]; shards: readonly string[]; stations: readonly string[]; search?: readonly string[] }) => Promise<unknown>; asset?: (path: string) => Promise<unknown> }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}

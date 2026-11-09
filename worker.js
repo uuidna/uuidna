@@ -40,7 +40,7 @@ import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 // THE LEDGER IS READ, NOT BUNDLED: 70,931 rows would put this Worker's global scope over the 1 s and 128 MB an isolate
 // allows, so the rows live in qpu storage under the root baked into the bundle, and a call that needs them primes them
 // once per isolate, every piece's address recomputed from its bytes (src/edge-ledger.ts).
-import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, LEDGER_STORAGE, DOOR_FILE_PARSE } from './dist/edge-ledger.js'
+import { rowsForKeys, rowsForFiles, shardsFor, stationsFor, searchFor, LEDGER_STORAGE, DOOR_FILE_PARSE } from './dist/edge-ledger.js'
 import { slimGate } from './dist/slimgate.js'
 import { sealedAddressOf } from './dist/theorems/index.js'
 // THE SCHOOL'S DOORS — the learner's attempt, progress, certificate and submission, and the kernel grader's queue and
@@ -504,6 +504,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 ui-sans-serif,
           if (need.files.length) await rowsForFiles(need.files, lf)
           if (need.shards.length) await shardsFor(need.shards, lf)
           if (need.stations?.length) await stationsFor(need.stations, lf)
+          if (need.search?.length) await searchFor(need.search, lf)
         },
         // ONE OF THIS DEPLOY'S OWN FILES, PARSED — a door answer the site build wrote under /doors/ (mcp.ts callTool).
         // A file larger than DOOR_FILE_PARSE is answered as a pointer to itself rather than parsed: the parse, the

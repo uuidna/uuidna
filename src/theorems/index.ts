@@ -347,13 +347,15 @@ export class RowsNeeded extends Error {
   readonly files: readonly string[]
   readonly shards: readonly string[]
   readonly stations: readonly string[]
+  readonly search: readonly string[]
   /** keys: sealed keys whose piece is wanted · files: whole wings wanted · shards: statement-index shards wanted ·
-   *  stations: station-index shards wanted (the keys seated at a lattice station) */
-  constructor(readonly keys: readonly string[], more: { files?: readonly string[]; shards?: readonly string[]; stations?: readonly string[] } = {}) {
-    super(`rows needed: ${keys.length} key(s), ${more.files?.length ?? 0} wing(s), ${more.shards?.length ?? 0} statement shard(s), ${more.stations?.length ?? 0} station shard(s)`)
+   *  stations: station-index shards wanted (the keys seated at a lattice station) · search: queries to scan the baked search chunks for */
+  constructor(readonly keys: readonly string[], more: { files?: readonly string[]; shards?: readonly string[]; stations?: readonly string[]; search?: readonly string[] } = {}) {
+    super(`rows needed: ${keys.length} key(s), ${more.files?.length ?? 0} wing(s), ${more.shards?.length ?? 0} statement shard(s), ${more.stations?.length ?? 0} station shard(s), ${more.search?.length ?? 0} search(es)`)
     this.files = more.files ?? []
     this.shards = more.shards ?? []
     this.stations = more.stations ?? []
+    this.search = more.search ?? []
   }
 }
 

@@ -15,8 +15,12 @@ import { bakeLedgerAssets } from './scripts/ledger-deposit.js'
 import { statementShardsOf, stationShardsOf, holdStationShard, stationShardOf } from './statement-shards.js'
 import { THEOREMS, isPagelessFile } from './theorems/index.js'
 import { stationOfAddress } from './lattice.js'
+import { searchLedger, searchChunksOf, scanChunk } from './ledger-search.js'
+import { SEARCH_CHUNK_BYTES } from './edge-ledger.js'
 import { ROOT } from './scripts/api.js'
 
+// the bits of one UUID register: a query with hits in every search chunk, so a chunk the edge skips changes its answer
+const SEARCHED = '128'
 const CALLS: [string, Record<string, unknown>][] = [
   ['uuidna_adjudicate', { statement: 'handle capacity is quantum by architecture, by theorem handle_capacity_is_quantum_by_architecture' }],
   ['uuidna_adjudicate', { statement: 'the moon is made of cheese, by theorem handle_capacity_is_quantum_by_architecture' }],
@@ -24,6 +28,7 @@ const CALLS: [string, Record<string, unknown>][] = [
   ['uuidna_decide', { input: '2 + 2 = 4' }],
   ['uuidna_trial', { statement: 'uuid_mix_census_halves' }],
   ['uuidna_audit_details', { text: '2 + 2 = 4' }],
+  ['uuidna_search', { q: SEARCHED }],
 ]
 
 const CHILD = `
@@ -40,6 +45,7 @@ const ctx = { origin: 'https://uuidna.com', rows: async (n) => {
   if (n.files.length) await L.rowsForFiles(n.files, lf)
   if (n.shards.length) await L.shardsFor(n.shards, lf)
   if (n.stations.length) await L.stationsFor(n.stations, lf)
+  if (n.search?.length) await L.searchFor(n.search, lf)
 } }
 const out = []
 for (const [name, args] of calls) {
@@ -57,15 +63,24 @@ test('at the edge, a door asks for the rows it reads and answers as the host doe
       mkdirSync(join(dir, sub), { recursive: true })
       for (const [id, v] of Object.entries(shards)) writeFileSync(join(dir, sub, `${id}.json`), JSON.stringify(v))
     }
+    const chunks = searchChunksOf(THEOREMS, SEARCH_CHUNK_BYTES)
+    mkdirSync(join(dir, 'search'), { recursive: true })
+    chunks.forEach((c, n) => writeFileSync(join(dir, 'search', `${n}.json`), JSON.stringify(c)))
+    writeFileSync(join(dir, 'search', 'index.json'), JSON.stringify({ total: THEOREMS.length, chunks: chunks.length }))
     const raw = execFileSync(process.execPath, ['--conditions=workerd', '--max-old-space-size=512', '--input-type=module', '-e', CHILD, dir, JSON.stringify(CALLS)],
       { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-    const [onTopic, offTopic, oneLetterGloss, arithmetic, trial, audit] = JSON.parse(raw) as { isError: boolean; text: string }[]
+    const [onTopic, offTopic, oneLetterGloss, arithmetic, trial, audit, search] = JSON.parse(raw) as { isError: boolean; text: string }[]
     assert.match(onTopic!.text, /"verdict":"VERIFIED"/, 'a citation about its claim verifies at the edge: ' + onTopic!.text.slice(0, 200))
     assert.match(offTopic!.text, /"verdict":"UNVERIFIED"/, 'the same key cited for an unrelated claim does not')
     assert.match(oneLetterGloss!.text, /"verdict":"UNVERIFIED"/, 'a gloss\'s one-letter tokens ("n", "d") are not vocabulary a claim shares')
     assert.match(arithmetic!.text, /"kind":"decided-arithmetic"/, 'arithmetic is decided, never read as prose: ' + arithmetic!.text.slice(0, 200))
     assert.equal(trial!.isError, false, 'the trial answers without the whole ledger: ' + trial!.text.slice(0, 200))
     assert.equal(audit!.isError, false, 'the audit\'s own fabrication control does not drain its answer: ' + audit!.text.slice(0, 200))
+    assert.equal(search!.isError, false, 'the search answers without the whole ledger: ' + search!.text.slice(0, 200))
+    const edge = JSON.parse(search!.text.slice(0, search!.text.lastIndexOf('}') + 1)) as ReturnType<typeof searchLedger>
+    const host = searchLedger(SEARCHED)
+    assert.ok(chunks.length > 1 && chunks.every((c) => scanChunk(c, SEARCHED).length > 0), `the query has hits in all ${chunks.length} chunks`)
+    assert.deepEqual([edge.count, edge.total, edge.receipt, edge.matches], [host.count, host.total, host.receipt, host.matches], 'the edge scan answers with the host\'s rows, order and receipt')
   } finally { rmSync(dir, { recursive: true, force: true }) }
 })
 
