@@ -1,8 +1,8 @@
 {
   "kind": "mcp-gap-census",
-  "records": 1680,
-  "distinct": 1417,
-  "loadBearing": 130,
+  "records": 1697,
+  "distinct": 1428,
+  "loadBearing": 132,
   "honest": "a gap recorded once is an escape nobody needed again; recorded more than once, the tree has stated the door is load-bearing. Only the repeated ones open a lead.",
   "gaps": [
     {
@@ -65,6 +65,15 @@
       "hits": 7,
       "forms": [
         "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door edits source",
+      "hits": 6,
+      "forms": [
+        "UUIDNA_MCP_GAP",
+        "node --input-type=module -e",
+        "node worker.js"
       ]
     },
     {
@@ -461,14 +470,6 @@
       ]
     },
     {
-      "gap": "no door edits source",
-      "hits": 2,
-      "forms": [
-        "node --input-type=module -e",
-        "node worker.js"
-      ]
-    },
-    {
       "gap": "no door edits the harness",
       "hits": 2,
       "forms": [
@@ -505,6 +506,13 @@
     },
     {
       "gap": "no door probes zenodo header behaviour",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads source",
       "hits": 2,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -564,6 +572,13 @@
       "hits": 2,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door reports git state",
+      "hits": 2,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -3776,6 +3791,13 @@
       ]
     },
     {
+      "gap": "no door lists a repository's latest Zenodo versions by title",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door lists externally-sourced data files; checking the poisoning vector",
       "hits": 1,
       "forms": [
@@ -4091,6 +4113,13 @@
       ]
     },
     {
+      "gap": "no door names which word pair clears the citation relevance floor",
+      "hits": 1,
+      "forms": [
+        "node --input-type=module -e"
+      ]
+    },
+    {
       "gap": "no door perturbs a lean wing's Prop to test vacuity for a witness",
       "hits": 1,
       "forms": [
@@ -4172,6 +4201,13 @@
       "hits": 1,
       "forms": [
         "node -e`, `UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door prints one wing's theorem statements by key",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {
@@ -4427,6 +4463,13 @@
       ]
     },
     {
+      "gap": "no door reads generated docs",
+      "hits": 1,
+      "forms": [
+        "S"
+      ]
+    },
+    {
       "gap": "no door reads or bumps a sibling repo's version surfaces",
       "hits": 1,
       "forms": [
@@ -4455,6 +4498,13 @@
       ]
     },
     {
+      "gap": "no door reads the edge's shard fetch source",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door reads the land's worktree certification; diagnosing a six-time stall",
       "hits": 1,
       "forms": [
@@ -4470,6 +4520,13 @@
     },
     {
       "gap": "no door reads the session coordination surface",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
+      "gap": "no door reads worker source",
       "hits": 1,
       "forms": [
         "UUIDNA_MCP_GAP"
@@ -5638,6 +5695,13 @@
       ]
     },
     {
+      "gap": "no door reports which doors the baked root answers",
+      "hits": 1,
+      "forms": [
+        "node /private/tmp/claude-501/-Users-ceci--claude-spares-spare-SgztYv/b7cfd751-f820-4fdb-a541-1e99865f8451/scratchpad/baked-doors.mjs"
+      ]
+    },
+    {
       "gap": "no door reports which field inside a seed page carries its weight",
       "hits": 1,
       "forms": [
@@ -6471,6 +6535,13 @@
       ]
     },
     {
+      "gap": "no door shows the published statement-address surface's shape and generator",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
+      ]
+    },
+    {
       "gap": "no door shows the shape of a formalised lead row (its lean text and kernel verdict) for the investigators' brief",
       "hits": 1,
       "forms": [
@@ -6692,6 +6763,13 @@
       "hits": 1,
       "forms": [
         "node --input-type=module -e"
+      ]
+    },
+    {
+      "gap": "no door writes a test file",
+      "hits": 1,
+      "forms": [
+        "UUIDNA_MCP_GAP"
       ]
     },
     {

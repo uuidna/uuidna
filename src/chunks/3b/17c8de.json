@@ -1,0 +1,12 @@
+{
+  "handle": "3b17c8de",
+  "address": "3b17c8de-9ed4-87c6-a865-a2be41fef420",
+  "statement": "(1524677 + 449 + 432570 = 1957696) ∧ ((1524677 > 3 * 432570) ∧ (1524677 < 4 * 432570))",
+  "tactic": "decide",
+  "keys": [
+    "the_generated_closure_partitions_into_three_kinds"
+  ],
+  "files": [
+    "CrossFormulas.lean"
+  ]
+}

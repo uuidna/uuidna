@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000231246",
-   "completionPrice": "0.000000462492"
+   "promptPrice": "0.00000095526",
+   "completionPrice": "0.00000191052"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -794,7 +794,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Google: Gemma 3 27B",
    "contextTokens": 131072,
    "promptPrice": "0.00000008",
-   "completionPrice": "0.00000035"
+   "completionPrice": "0.00000045"
   },
   {
    "id": "google/gemma-3-4b-it",
@@ -961,8 +961,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.1-8b-instruct",
    "name": "Meta: Llama 3.1 8B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.00000008"
+   "promptPrice": "0.00000002",
+   "completionPrice": "0.00000004"
   },
   {
    "id": "meta-llama/llama-3.2-1b-instruct",
@@ -2088,8 +2088,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "openai/gpt-oss-120b",
    "name": "OpenAI: gpt-oss-120b",
    "contextTokens": 131072,
-   "promptPrice": "0.000000025",
-   "completionPrice": "0.000000094"
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "openai/gpt-oss-120b:batch",
@@ -2438,7 +2438,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-397b-a17b",
    "name": "Qwen: Qwen3.5 397B A17B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000005",
+   "promptPrice": "0.0000006",
    "completionPrice": "0.0000036"
   },
   {
@@ -3047,8 +3047,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.2:batch",
    "name": "Z.ai: GLM 5.2 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000341",
-   "completionPrice": "0.000001381"
+   "promptPrice": "0.000000623",
+   "completionPrice": "0.000001271"
   },
   {
    "id": "z-ai/glm-5.3",
@@ -3096,8 +3096,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.3:batch",
    "name": "Z.ai: GLM 5.3 (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000341",
-   "completionPrice": "0.000001381"
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.000002"
   },
   {
    "id": "z-ai/glm-5v-turbo",
@@ -3173,8 +3173,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI: Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000151",
-   "completionPrice": "0.0000105634"
+   "promptPrice": "0.0000001539",
+   "completionPrice": "0.0000101489"
   },
   {
    "id": "~openai/gpt-astra-latest",
