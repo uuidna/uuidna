@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import {
   QC_BUILD_STEPS, QC_CHARACTERISATION, QC_DOCUMENT, QC_FAULT_TOLERANCE, QC_INGREDIENTS, QC_PLANES,
   QC_PLATFORMS, QC_ROUTE, REFUSED_CORRESPONDENCES, qcArithmetic, qcVerdict, renderQcVerdict,
-  QC_AUDIT, EXPOSED_GATE_SET, EXTERNAL_AUDIT_FINDINGS, auditConformance, leanNormalise, quantumClaimCensus,
+  QC_AUDIT, EXPOSED_GATE_SET, EXTERNAL_AUDIT_FINDINGS, auditConformance, leanNormalise, quantumClaimCensus, qcIso,
 } from './index.js'
 import { theoremByKey } from '../../../theorems/index.js'
 import { handleOf } from '../../../handle.js'
@@ -11,6 +11,7 @@ import { callTool } from '../../../mcp.js'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../../../boundary.js'
+import { runWitnessBattery } from '../../../drivers/quantum/index.js'
 
 test('the document is addressed, and its transcription is complete against what it published', () => {
   assert.match(QC_DOCUMENT.address, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/)
@@ -170,4 +171,21 @@ test('uuidna_qc census — every quantum-flavoured seal is counted and every one
   assert.equal(audit.definition, 'uuidnaOS·qc·audit')
   const census = callTool('uuidna_qc', { of: 'census' }) as ReturnType<typeof quantumClaimCensus>
   assert.equal(census.receipt, c.receipt, 'one door, one answer')
+})
+
+test('ISO/IEC 4879: this host is a quantum simulator (3.4.22) and not a quantum processor (3.4.8)', () => {
+  const run = runWitnessBattery()
+  const iso = qcIso(run)
+  assert.equal(iso.simulator.holds, true, iso.honest)
+  assert.equal(iso.simulator.disagreements, 0)
+  assert.ok(iso.simulator.witnesses > 0 && iso.simulator.executed >= iso.simulator.witnesses)
+  assert.equal(iso.processor.holds, false, iso.honest)
+  assert.equal(iso.processor.stagesReached, `0/${QC_ROUTE.length}`)
+})
+
+test('CONTROL — one disagreement or one refused witness takes the simulator verdict away', () => {
+  const run = runWitnessBattery()
+  assert.equal(qcIso({ ...run, verdict: 'DISAGREED', disagreements: 1 }).simulator.holds, false)
+  assert.equal(qcIso({ ...run, refused: ['not_a_sealed_key'] }).simulator.holds, false)
+  assert.equal(qcIso({ ...run, results: [] }).simulator.holds, false)
 })

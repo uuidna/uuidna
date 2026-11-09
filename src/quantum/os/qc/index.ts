@@ -27,6 +27,7 @@ import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { merkleGravity } from '../../../gravity/index.js'
 import { theoremByKey, theoremFor, theorems } from '../../../theorems/index.js'
 import { QA_REQUIRED_THEOREMS } from '../../advantage/audit/index.js'
+import { runWitnessBattery, type WitnessRun } from '../../../drivers/quantum/index.js'
 
 /** How much of a document's claim this tree carries, as a graded stance: zero, an exact-arithmetic analogue on
  *  the address lattice, or provenance about the thing while the thing itself stays outside. */
@@ -646,4 +647,31 @@ export function renderQuantumClaimCensus(c: QuantumClaimCensus): string {
     ...c.bySkill.slice(0, 10).map((s) => `  ${s.skill.padEnd(18)} ${s.count}`),
     `  receipt ${handleOf(c.receipt)}… · door ${c.door}`,
   ].join('\n')
+}
+
+// THE ISO VERDICT, SPLIT IN TWO. ISO/IEC 4879:2024 is a vocabulary, not a test suite: it names a quantum simulator
+// (3.4.22), which simulates a quantum circuit of gates on qubits, and a quantum processor (3.4.8), the device. So the
+// two answers are measured, never typed. The simulator holds when this host executes the sealed quantum algebra
+// (drivers/quantum, every witness against its Lean-sealed value) with no disagreement and no refused witness. The
+// processor holds only when every stage of the document's build route is reached on real apparatus, and none is.
+export interface QcIso {
+  standard: 'ISO/IEC 4879:2024'
+  simulator: { term: '3.4.22 quantum simulator'; holds: boolean; witnesses: number; executed: number; disagreements: number; refused: number; coverage: string; receipt: string }
+  processor: { term: '3.4.8 quantum processor'; holds: boolean; stagesReached: string; faultToleranceAttempted: string }
+  honest: string
+}
+
+/** qcIso(run) → the simulator verdict from a witness run on this host, the processor verdict from the build route */
+export function qcIso(run: WitnessRun = runWitnessBattery()): QcIso {
+  const simulator = run.verdict === 'EXACT' && run.results.length > 0 && run.refused.length === 0
+  const reached = QC_ROUTE.filter((s) => s.reachedHere).length
+  const processor = reached === QC_ROUTE.length
+  return {
+    standard: 'ISO/IEC 4879:2024',
+    simulator: { term: '3.4.22 quantum simulator', holds: simulator, witnesses: run.results.length, executed: run.executed, disagreements: run.disagreements,
+      refused: run.refused.length, coverage: `${run.coverage.witnessed}/${run.coverage.wing}`, receipt: run.receipt },
+    processor: { term: '3.4.8 quantum processor', holds: processor, stagesReached: `${reached}/${QC_ROUTE.length}`, faultToleranceAttempted: `0/${QC_FAULT_TOLERANCE.length}` },
+    honest: `simulator ${simulator ? 'holds' : 'does not hold'}: ${run.results.length} witnesses, ${run.executed} decisions on this host, ${run.disagreements} disagreements with the sealed values; ` +
+      `processor ${processor ? 'holds' : 'does not hold'}: ${reached} of ${QC_ROUTE.length} build stages reached on apparatus. A build receipt proves which bytes were built and run, not that a qubit exists.`,
+  }
 }
