@@ -1099,7 +1099,9 @@ export function drainGaps(): Gap[] {
   // before this runs, so an absent output means the declaration is wrong, not that the run was early.
   for (const [g, outs] of Object.entries(RECONCILE_OUTPUTS))
     for (const o of outs as readonly string[])
-      if (!existsSync(join(ROOT, o)))
+      // an output git ignores is regenerated, never committed, so a clean checkout has none — and .gitignore names
+      // its exact path, so a mistyped declaration still fails here
+      if (!existsSync(join(ROOT, o)) && spawnSync('git', ['check-ignore', '-q', o], { cwd: ROOT }).status !== 0)
         gaps.push({
           what: `the reconcile declaration says ${g} writes ${o}, and no such path exists — a declared output nothing can measure`,
           fix: `point the declaration at what the generator actually writes, or drop the entry — regenerate first with \`node dist/scripts/generate.js\` if the tree has never been generated`,
